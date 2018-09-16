@@ -1,54 +1,75 @@
----
-title: Azure Active Directory B2C | Microsoft Docs
+﻿---
+title: Authentication, sign-up, password reset in Azure Active Directory B2C | Microsoft Docs
 description: How to build a web application that has sign-up/sign-in, profile edit, and password reset using Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: .net
-author: parakhj
-manager: krassk
-editor: ''
+author: davidmu1
+manager: mtillman
 
-ms.assetid: 30261336-d7a5-4a6d-8c1a-7943ad76ed25
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/17/2017
-ms.author: parakhj
-
+ms.author: davidmu
+ms.component: B2C
 ---
-# Azure AD B2C: Sign-Up & Sign-In in a ASP.NET Web App
 
-By using Azure AD B2C, you can add powerful identity management features to your web app. This article will discuss how to create an ASP.NET web app that includes user sign-up/sign-in, profile edit, and password reset.
+# Create an ASP.NET web app with Azure Active Directory B2C sign-up, sign-in, profile edit, and password reset
 
-## Create an Azure AD B2C directory
+This tutorial shows you how to:
 
-Before you can use Azure AD B2C, you must create a directory, or tenant. A directory is a container for all of your users, apps, groups, and more. If you don't have one already, [create a B2C directory](active-directory-b2c-get-started.md) before you continue in this guide.
+> [!div class="checklist"]
+> * Add Azure AD B2C identity features to your web app
+> * Register your web app in your Azure AD B2C directory
+> * Create a user sign-up/sign-in, profile edit, and password reset policy for your web app
 
-## Create an application
+## Prerequisites
 
-Next, you need to create a web app in your B2C directory. This gives Azure AD information that it needs to securely communicate with your app. To create an app, follow [these instructions](active-directory-b2c-app-registration.md). Be sure to:
+- You must connect your B2C Tenant to an Azure account. You can create a free Azure account [here](https://azure.microsoft.com/).
+- You need [Microsoft Visual Studio](https://www.visualstudio.com/) or a similar program to view and modify the sample code.
 
-* Include a **web app/web API** in the application.
-* Enter `https://localhost:44316/` as a **Redirect URI**. It is the default URL for this code sample.
-* Copy down the **Application ID** that is assigned to your app.  You will need it later.
+## Create an Azure AD B2C tenant
 
-[!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
+Before you can use Azure AD B2C, you must create a tenant. A tenant is a container for all your users, apps, groups, and more. If you don't have one already, create a B2C tenant before you continue in this guide.
 
-## Create your policies
+[!INCLUDE [active-directory-b2c-create-tenant](../../includes/active-directory-b2c-create-tenant.md)]
 
-In Azure AD B2C, every user experience is defined by a [policy](active-directory-b2c-reference-policies.md). This code sample contains three identity experiences: **sign-up & sign-in**, **profile edit** and **password reset**.  You need to create one policy of each type, as described in the [policy reference article](active-directory-b2c-reference-policies.md). When you create the policies, be sure to:
+> [!NOTE]
+> 
+> You need to connect the Azure AD B2C tenant to your Azure subscription. After selecting **Create**, select the **Link an existing Azure AD B2C Tenant to my Azure subscription** option, and then in the **Azure AD B2C Tenant** drop down, select the tenant you want to associate.
 
-* Choose **User ID sign-up** or **Email sign-up** in the identity providers blade.
-* Choose the **Display name** and other sign-up attributes in your sign-up & sign-in policy.
-* Choose the **Display name** claim as an application claim in every policy. You can choose other claims as well.
-* Copy the **Name** of each policy after you create it. You'll need those policy names later.
+## Create and register an application
 
-[!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
+Next, you need to create and register the app in your Azure AD B2C tenant. This provides information that Azure AD B2C needs to securely communicate with your app. 
+
+Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**. You should now be using the tenant that you previously created.
+
+[!INCLUDE [active-directory-b2c-register-web-api](../../includes/active-directory-b2c-register-web-api.md)]
+
+When you are done, you will have both an API and a native application in your application settings.
+
+## Create policies on your B2C tenant
+
+In Azure AD B2C, every user experience is defined by a [policy](active-directory-b2c-reference-policies.md). This code sample contains three identity experiences: **sign-up & sign-in**, **profile edit**, and **password reset**.  You need to create one policy of each type, as described in the [policy reference article](active-directory-b2c-reference-policies.md). For each policy, be sure to select the Display name attribute or claim, and to copy down the name of your policy for later use.
+
+### Add your identity providers
+
+From your settings, select **Identity Providers** and choose Username signup or Email signup.
+
+### Create a sign-up and sign-in policy
+
+[!INCLUDE [active-directory-b2c-create-sign-in-sign-up-policy](../../includes/active-directory-b2c-create-sign-in-sign-up-policy.md)]
+
+### Create a profile editing policy
+
+[!INCLUDE [active-directory-b2c-create-profile-editing-policy](../../includes/active-directory-b2c-create-profile-editing-policy.md)]
+
+### Create a password reset policy
+
+[!INCLUDE [active-directory-b2c-create-password-reset-policy](../../includes/active-directory-b2c-create-password-reset-policy.md)]
 
 After you create your policies, you're ready to build your app.
 
-## Download the code
+## Download the sample code
 
 The code for this tutorial is maintained on [GitHub](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi). You can clone the sample by running:
 
@@ -58,9 +79,9 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 
 After you download the sample code, open the Visual Studio .sln file to get started. The solution file contains two projects: `TaskWebApp` and `TaskService`. `TaskWebApp` is the MVC web application that the user interacts with. `TaskService` is the app's back-end web API that stores each user's to-do list. This article will only discuss the `TaskWebApp` application. To learn how to build `TaskService` using Azure AD B2C, see [our .NET web api tutorial](active-directory-b2c-devquickstarts-api-dotnet.md).
 
-### Update the Azure AD B2C configuration
+## Update code to use your tenant and policies
 
-Our sample is configured to use the policies and client ID of our demo tenant. If you would like to use your own tenant, you will need to open `web.config` in the `TaskWebApp` project and replace the values for
+Our sample is configured to use the policies and client ID of our demo tenant. To connect it to your own tenant, you need to open `web.config` in the `TaskWebApp` project and replace the following values:
 
 * `ida:Tenant` with your tenant name
 * `ida:ClientId` with your web app application ID
@@ -69,11 +90,35 @@ Our sample is configured to use the policies and client ID of our demo tenant. I
 * `ida:EditProfilePolicyId` with your "Edit Profile" policy name
 * `ida:ResetPasswordPolicyId` with your "Reset Password" policy name
 
-## Add authentication support
+## Launch the app
+From within Visual Studio, launch the app. Navigate to the To-Do List tab, and note the URl is:
+https://*YourTenantName*.b2clogin.com/*YourTenantName*/oauth2/v2.0/authorize?p=*YourSignUpPolicyName*&client_id=*YourclientID*.....
+
+Sign up for the app by using your email address or user name. Sign out, then sign in again and edit the profile or reset the password. Sign out and sign in as a different user. 
+
+## Add social IDPs
+
+Currently, the app supports only user sign-up and sign-in by using **local accounts**; accounts stored in your B2C directory that use a user name and password. By using Azure AD B2C, you can add support for other **identity providers** (IDPs) without changing any of your code.
+
+To add social IDPs to your app, begin by following the detailed instructions in these articles. For each IDP you want to support, you need to register an application in that system and obtain a client ID.
+
+* [Set up Facebook as an IDP](active-directory-b2c-setup-fb-app.md)
+* [Set up Google as an IDP](active-directory-b2c-setup-goog-app.md)
+* [Set up Amazon as an IDP](active-directory-b2c-setup-amzn-app.md)
+* [Set up LinkedIn as an IDP](active-directory-b2c-setup-li-app.md)
+
+After you add the identity providers to your B2C directory, edit each of your three policies to include the new IDPs, as described in the [policy reference article](active-directory-b2c-reference-policies.md). After you save your policies, run the app again.  You should see the new IDPs added as sign-in and sign-up options in each of your identity experiences.
+
+You can experiment with your policies and observe the effect on your sample app. Add or remove IDPs, manipulate application claims, or change sign-up attributes. Experiment until you can see how policies, authentication requests, and OWIN tie together.
+
+## Sample code walkthrough
+The following sections show you how the sample application code is configured. You may use this as a guide in your future app development.
+
+### Add authentication support
 
 You can now configure your app to use Azure AD B2C. Your app communicates with Azure AD B2C by sending OpenID Connect authentication requests. The requests dictate the user experience your app wants to execute by specifying the policy. You can use Microsoft's OWIN library to send these requests, execute policies, manage user sessions, and more.
 
-### Install OWIN
+#### Install OWIN
 
 To begin, add the OWIN middleware NuGet packages to the project by using the Visual Studio Package Manager Console.
 
@@ -83,7 +128,7 @@ PM> Install-Package Microsoft.Owin.Security.Cookies
 PM> Install-Package Microsoft.Owin.Host.SystemWeb
 ```
 
-### Add an OWIN startup class
+#### Add an OWIN startup class
 
 Add an OWIN startup class to the API called `Startup.cs`.  Right-click on the project, select **Add** and **New Item**, and then search for OWIN. The OWIN middleware will invoke the `Configuration(…)` method when your app starts.
 
@@ -103,7 +148,7 @@ public partial class Startup
 }
 ```
 
-### Configure the authentication middleware
+#### Configure the authentication middleware
 
 Open the file `App_Start\Startup.Auth.cs` and implement the `ConfigureAuth(...)` method. The parameters you provide in `OpenIdConnectAuthenticationOptions` serve as coordinates for your app to communicate with Azure AD B2C. If you do not specify certain parameters, it will use the default value. For example, we do not specify the `ResponseType` in the sample, so the default value `code id_token` will be used in each outgoing request to Azure AD B2C.
 
@@ -148,7 +193,7 @@ public partial class Startup
                 },
 
                 // Specify the scope by appending all of the scopes requested into one string (seperated by a blank space)
-                Scope = $"{OpenIdConnectScopes.OpenId} {ReadTasksScope} {WriteTasksScope}"
+                Scope = $"openid profile offline_access {ReadTasksScope} {WriteTasksScope}"
             }
         );
     }
@@ -159,7 +204,7 @@ public partial class Startup
 
 In `OpenIdConnectAuthenticationOptions` above, we define a set of callback functions for specific notifications that are received by the OpenID Connect middleware. These behaviors are defined using a `OpenIdConnectAuthenticationNotifications` object and stored into the `Notifications` variable. In our sample, we define three different callbacks depending on the event.
 
-#### Using different policies
+### Using different policies
 
 The `RedirectToIdentityProvider` notification is triggered whenever a request is made to Azure AD B2C. In the callback function `OnRedirectToIdentityProvider`, we check in the outgoing call if we want to use a different policy. In order to do a password reset or edit a profile, you need to use the corresponding policy such as the password reset policy instead of the default "Sign-up or Sign-in" policy.
 
@@ -192,13 +237,13 @@ private Task OnRedirectToIdentityProvider(RedirectToIdentityProviderNotification
 }
 ```
 
-#### Handling authorization codes
+### Handling authorization codes
 
 The `AuthorizationCodeReceived` notification is triggered when an authorization code is received. The OpenID Connect middleware does not support exchanging codes for access tokens. You can manually exchange the code for the token in a callback function. For more information, please look at the [documentation](active-directory-b2c-devquickstarts-web-api-dotnet.md) that explains how.
 
-#### Handling errors
+### Handling errors
 
-The `AuthenticationFailed` notification is triggered when authentication fails. In its callback method, you can handle the errors as you wish. You should however add a check for the error code `AADB2C90118`. During the execution of the "Sign-up or Sign-in" policy, the user has the opportunity to click on a **Forgot your password?** link. In this event, Azure AD B2C will send your app that error code indicating that your app should make a request using the password reset policy instead.
+The `AuthenticationFailed` notification is triggered when authentication fails. In its callback method, you can handle the errors as you wish. You should however add a check for the error code `AADB2C90118`. During the execution of the "Sign-up or Sign-in" policy, the user has the opportunity to select a **Forgot your password?** link. In this event, Azure AD B2C sends your app that error code indicating that your app should make a request using the password reset policy instead.
 
 ```CSharp
 /*
@@ -228,9 +273,9 @@ private Task OnAuthenticationFailed(AuthenticationFailedNotification<OpenIdConne
 }
 ```
 
-## Send authentication requests to Azure AD
+### Send authentication requests to Azure AD
 
-Your app is now properly configured to communicate with Azure AD B2C by using the OpenID Connect authentication protocol. OWIN has taken care of all of the details of crafting authentication messages, validating tokens from Azure AD B2C, and maintaining user session. All that remains is to initiate each user's flow.
+Your app is now properly configured to communicate with Azure AD B2C by using the OpenID Connect authentication protocol. OWIN manages the details of crafting authentication messages, validating tokens from Azure AD B2C, and maintaining user session. All that remains is to initiate each user's flow.
 
 When a user selects **Sign up/Sign in**, **Edit profile**, or **Reset password** in the web app, the associated action is invoked in `Controllers\AccountController.cs`:
 
@@ -309,7 +354,7 @@ public void SignOut()
 }
 ```
 
-In addition to explicitly invoking a policy, you can use an `[Authorize]` tag in your controllers that will execute a policy if the user is not signed in. Open `Controllers\HomeController.cs` and add the `[Authorize]` tag to the claims controller.  OWIN will select the last policy configured when the `[Authorize]` tag is hit.
+In addition to explicitly invoking a policy, you can use a `[Authorize]` tag in your controllers that executes a policy if the user is not signed in. Open `Controllers\HomeController.cs` and add the `[Authorize]` tag to the claims controller.  OWIN selects the last policy configured when the `[Authorize]` tag is hit.
 
 ```CSharp
 // Controllers\HomeController.cs
@@ -321,7 +366,7 @@ public ActionResult Claims()
   ...
 ```
 
-## Display user information
+### Display user information
 
 When you authenticate users by using OpenID Connect, Azure AD B2C returns an ID token to the app that contains **claims**. These are assertions about the user. You can use claims to personalize your app.
 
@@ -340,22 +385,3 @@ public ActionResult Claims()
 ```
 
 You can access any claim that your application receives in the same way.  A list of all the claims the app receives is available for you on the **Claims** page.
-
-## Run the sample app
-
-Finally, you can build and run your app. Sign up for the app by using an email address or user name. Sign out and sign back in as the same user. Edit the profile or reset the password. Sign out and sign up as a different user. Note that the information displayed on the **Claims** tab corresponds to the information that you configured on your policies.
-
-## Add social IDPs
-
-Currently, the app supports only user sign-up and sign-in by using **local accounts**. These are accounts stored in your B2C directory that use a user name and password. By using Azure AD B2C, you can add support for other **identity providers** (IDPs) without changing any of your code.
-
-To add social IDPs to your app, begin by following the detailed instructions in these articles. For each IDP you want to support, you need to register an application in that system and obtain a client ID.
-
-* [Set up Facebook as an IDP](active-directory-b2c-setup-fb-app.md)
-* [Set up Google as an IDP](active-directory-b2c-setup-goog-app.md)
-* [Set up Amazon as an IDP](active-directory-b2c-setup-amzn-app.md)
-* [Set up LinkedIn as an IDP](active-directory-b2c-setup-li-app.md)
-
-After you add the identity providers to your B2C directory, you need to edit each of your three policies to include the new IDPs, as described in the [policy reference article](active-directory-b2c-reference-policies.md). After you save your policies, run the app again.  You should see the new IDPs added as sign-in and sign-up options in each of your identity experiences.
-
-You can experiment with your policies and observe the effect on your sample app. Add or remove IDPs, manipulate application claims, or change sign-up attributes. Experiment until you can see how policies, authentication requests, and OWIN tie together.

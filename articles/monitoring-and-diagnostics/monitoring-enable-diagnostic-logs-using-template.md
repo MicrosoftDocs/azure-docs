@@ -1,24 +1,21 @@
 ---
-title: Automatically enable Diagnostic Settings using a Resource Manager template | Microsoft Docs
+title: Automatically enable diagnostic settings using a Resource Manager template
 description: Learn how to use a Resource Manager template to create diagnostic settings that will enable you to stream your diagnostic logs to Event Hubs or store them in a storage account.
 author: johnkemnetz
-manager: rboucher
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.assetid: a8a88a8c-4a48-4df6-8f7e-d90634d39c57
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 2/14/2017
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 3/26/2018
 ms.author: johnkem
-
+ms.component: ""
 ---
 # Automatically enable Diagnostic Settings at resource creation using a Resource Manager template
 In this article we show how you can use an [Azure Resource Manager template](../azure-resource-manager/resource-group-authoring-templates.md) to configure Diagnostic Settings on a resource when it is created. This enables you to automatically start streaming your Diagnostic Logs and metrics to Event Hubs, archiving them in a Storage Account, or sending them to Log Analytics when a resource is created.
+
+> [!WARNING]
+> The format of the log data in the storage account will change to JSON Lines on Nov. 1st, 2018. [See this article for a description of the impact and how to update your tooling to handle the new format.](./monitor-diagnostic-logs-append-blobs.md) 
+>
+> 
 
 The method for enabling Diagnostic Logs using a Resource Manager template depends on the resource type.
 
@@ -37,25 +34,37 @@ Below we give an example of the template JSON file you need to generate for non-
 ## Non-Compute resource template
 For non-Compute resources, you will need to do two things:
 
-1. Add parameters to the parameters blob for the storage account name, service bus rule ID, and/or OMS Log Analytics workspace ID (enabling archival of Diagnostic Logs in a storage account, streaming of logs to Event Hubs, and/or sending logs to Log Analytics).
+1. Add parameters to the parameters blob for the storage account name, event hub authorization rule ID, and/or Log Analytics workspace ID (enabling archival of Diagnostic Logs in a storage account, streaming of logs to Event Hubs, and/or sending logs to Log Analytics).
    
     ```json
+    "settingName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name for the diagnostic setting resource. Eg. 'archiveToStorage' or 'forSecurityTeam'."
+      }
+    },
     "storageAccountName": {
       "type": "string",
       "metadata": {
         "description": "Name of the Storage Account in which Diagnostic Logs should be saved."
       }
     },
-    "serviceBusRuleId": {
+    "eventHubAuthorizationRuleId": {
       "type": "string",
       "metadata": {
-        "description": "Service Bus Rule Id for the Service Bus Namespace in which the Event Hub should be created or streamed to."
+        "description": "Resource ID of the event hub authorization rule for the Event Hubs namespace in which the event hub should be created or streamed to."
+      }
+    },
+    "eventHubName": {
+      "type": "string",
+      "metadata": {
+        "description": "Optional. Name of the event hub within the namespace to which logs are streamed. Without this, an event hub is created for each log category."
       }
     },
     "workspaceId":{
       "type": "string",
       "metadata": {
-        "description": "Log Analytics workspace ID for the Log Analytics workspace to which logs will be sent."
+        "description": "Azure Resource ID of the Log Analytics workspace for the Log Analytics workspace to which logs will be sent."
       }
     }
     ```
@@ -65,14 +74,16 @@ For non-Compute resources, you will need to do two things:
     "resources": [
       {
         "type": "providers/diagnosticSettings",
-        "name": "Microsoft.Insights/service",
+        "name": "[concat('Microsoft.Insights/', parameters('settingName'))]",
         "dependsOn": [
           "[/*resource Id for which Diagnostic Logs will be enabled>*/]"
         ],
-        "apiVersion": "2015-07-01",
+        "apiVersion": "2017-05-01-preview",
         "properties": {
+          "name": "[parameters('settingName')]",
           "storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]",
-          "serviceBusRuleId": "[parameters('serviceBusRuleId')]",
+          "eventHubAuthorizationRuleId": "[parameters('eventHubAuthorizationRuleId')]",
+          "eventHubName": "[parameters('eventHubName')]",
           "workspaceId": "[parameters('workspaceId')]",
           "logs": [ 
             {
@@ -86,7 +97,7 @@ For non-Compute resources, you will need to do two things:
           ],
           "metrics": [
             {
-              "timeGrain": "PT1M",
+              "category": "AllMetrics",
               "enabled": true,
               "retentionPolicy": {
                 "enabled": false,
@@ -99,7 +110,7 @@ For non-Compute resources, you will need to do two things:
     ]
     ```
 
-The properties blob for the Diagnostic Setting follows [the format described in this article](https://msdn.microsoft.com/library/azure/dn931931.aspx). Adding the `metrics` property will enable you to also send resource metrics to these same outputs, provided that [the resource supports Azure Monitor metrics](monitoring-supported-metrics.md).
+The properties blob for the Diagnostic Setting follows [the format described in this article](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate). Adding the `metrics` property will enable you to also send resource metrics to these same outputs, provided that [the resource supports Azure Monitor metrics](monitoring-supported-metrics.md).
 
 Here is a full example that creates a Logic App and turns on streaming to Event Hubs and storage in a storage account.
 
@@ -117,7 +128,13 @@ Here is a full example that creates a Logic App and turns on streaming to Event 
     },
     "testUri": {
       "type": "string",
-      "defaultValue": "http://azure.microsoft.com/en-us/status/feed/"
+      "defaultValue": "http://azure.microsoft.com/status/feed/"
+    },
+    "settingName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the setting. Name for the diagnostic setting resource. Eg. 'archiveToStorage' or 'forSecurityTeam'."
+      }
     },
     "storageAccountName": {
       "type": "string",
@@ -125,10 +142,16 @@ Here is a full example that creates a Logic App and turns on streaming to Event 
         "description": "Name of the Storage Account in which Diagnostic Logs should be saved."
       }
     },
-    "serviceBusRuleId": {
+    "eventHubAuthorizationRuleId": {
       "type": "string",
       "metadata": {
-        "description": "Service Bus Rule Id for the Service Bus Namespace in which the Event Hub should be created or streamed to."
+        "description": "Resource ID of the event hub authorization rule for the Event Hubs namespace in which the event hub should be created or streamed to."
+      }
+    },
+    "eventHubName": {
+      "type": "string",
+      "metadata": {
+        "description": "Optional. Name of the event hub within the namespace to which logs are streamed. Without this, an event hub is created for each log category."
       }
     },
     "workspaceId": {
@@ -147,7 +170,7 @@ Here is a full example that creates a Logic App and turns on streaming to Event 
       "location": "[resourceGroup().location]",
       "properties": {
         "definition": {
-          "$schema": "http://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+          "$schema": "https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json",
           "contentVersion": "1.0.0.0",
           "parameters": {
             "testURI": {
@@ -181,14 +204,16 @@ Here is a full example that creates a Logic App and turns on streaming to Event 
       "resources": [
         {
           "type": "providers/diagnosticSettings",
-          "name": "Microsoft.Insights/service",
+          "name": "[concat('Microsoft.Insights/', parameters('settingName'))]",
           "dependsOn": [
             "[resourceId('Microsoft.Logic/workflows', parameters('logicAppName'))]"
           ],
-          "apiVersion": "2015-07-01",
+          "apiVersion": "2017-05-01-preview",
           "properties": {
+            "name": "[parameters('settingName')]",
             "storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]",
-            "serviceBusRuleId": "[parameters('serviceBusRuleId')]",
+            "eventHubAuthorizationRuleId": "[parameters('eventHubAuthorizationRuleId')]",
+            "eventHubName": "[parameters('eventHubName')]",
             "workspaceId": "[parameters('workspaceId')]",
             "logs": [
               {
@@ -228,13 +253,13 @@ To enable diagnostics on a Compute resource, for example a Virtual Machine or Se
 3. Add the contents of your WADCfg XML file into the XMLCfg property, escaping all XML characters properly.
 
 > [!WARNING]
-> This last step can be tricky to get right. [See this article](../virtual-machines/windows/extensions-diagnostics-template.md#diagnostics-configuration-variables) for an example that splits the Diagnostics Configuration Schema into variables that are escaped and formatted correctly.
+> This last step can be tricky to get right. [See this article](../virtual-machines/extensions/diagnostics-template.md#diagnostics-configuration-variables) for an example that splits the Diagnostics Configuration Schema into variables that are escaped and formatted correctly.
 > 
 > 
 
 The entire process, including samples, is described [in this document](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-## Next Steps
+## Next steps
 * [Read more about Azure Diagnostic Logs](monitoring-overview-of-diagnostic-logs.md)
 * [Stream Azure Diagnostic Logs to Event Hubs](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 

@@ -1,19 +1,13 @@
 ---
-title: Query your Azure Search Index using the REST API | Microsoft Docs
+title: "Query an index (REST API - Azure Search) | Microsoft Docs"
 description: Build a search query in Azure search and use search parameters to filter and sort search results.
+author: brjohnstmsft
+manager: jlembicz
+ms.author: brjohnst
 services: search
-documentationcenter: ''
-manager: jhubbard
-author: ashmaka
-
-ms.assetid: 8b3ca890-2f5f-44b6-a140-6cb676fc2c9c
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.date: 01/12/2017
-ms.author: ashmaka
+ms.topic: quickstart
+ms.date: 04/20/2018
 ---
 
 # Query your Azure Search index using the REST API
@@ -47,9 +41,9 @@ For the purposes of querying an index, you can use one of your query keys. Your 
 ## Formulate your query
 There are two ways to [search your index using the REST API](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). One way is to issue an HTTP POST request where your query parameters are defined in a JSON object in the request body. The other way is to issue an HTTP GET request where your query parameters are defined within the request URL. POST has more [relaxed limits](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) on the size of query parameters than GET. For this reason, we recommend using POST unless you have special circumstances where using GET would be more convenient.
 
-For both POST and GET, you need to provide your *service name*, *index name*, and the proper *API version* (the current API version is `2016-09-01` at the time of publishing this document) in the request URL. For GET, the *query string* at the end of the URL is where you provide the query parameters. See below for the URL format:
+For both POST and GET, you need to provide your *service name*, *index name*, and the proper *API version* (the current API version is `2017-11-11` at the time of publishing this document) in the request URL. For GET, the *query string* at the end of the URL is where you provide the query parameters. See below for the URL format:
 
-    https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2016-09-01
+    https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2017-11-11
 
 The format for POST is the same, but with only api-version in the query string parameters.
 
@@ -59,9 +53,9 @@ Here are a few example queries on an index named "hotels". These queries are sho
 Search the entire index for the term 'budget' and return only the `hotelName` field:
 
 ```
-GET https://[service name].search.windows.net/indexes/hotels/docs?search=budget&$select=hotelName&api-version=2016-09-01
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=budget&$select=hotelName&api-version=2017-11-11
 
-POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2016-09-01
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2017-11-11
 {
     "search": "budget",
     "select": "hotelName"
@@ -71,9 +65,9 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 Apply a filter to the index to find hotels cheaper than $150 per night, and return the `hotelId` and `description`:
 
 ```
-GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2016-09-01
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2017-11-11
 
-POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2016-09-01
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2017-11-11
 {
     "search": "*",
     "filter": "baseRate lt 150",
@@ -84,9 +78,9 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 Search the entire index, order by a specific field (`lastRenovationDate`) in descending order, take the top two results, and show only `hotelName` and `lastRenovationDate`:
 
 ```
-GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$top=2&$orderby=lastRenovationDate desc&$select=hotelName,lastRenovationDate&api-version=2016-09-01
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$top=2&$orderby=lastRenovationDate desc&$select=hotelName,lastRenovationDate&api-version=2017-11-11
 
-POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2016-09-01
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2017-11-11
 {
     "search": "*",
     "orderby": "lastRenovationDate desc",
@@ -108,7 +102,7 @@ You must define two request headers for GET, or three for POST:
 See below for an HTTP GET request to search the "hotels" index using the Azure Search REST API, using a simple query that searches for the term "motel":
 
 ```
-GET https://[service name].search.windows.net/indexes/hotels/docs?search=motel&api-version=2016-09-01
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=motel&api-version=2017-11-11
 Accept: application/json
 api-key: [query key]
 ```
@@ -116,7 +110,7 @@ api-key: [query key]
 Here is the same example query, this time using HTTP POST:
 
 ```
-POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2016-09-01
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2017-11-11
 Content-Type: application/json
 Accept: application/json
 api-key: [query key]

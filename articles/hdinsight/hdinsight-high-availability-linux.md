@@ -1,23 +1,16 @@
-﻿---
-title: High availability for Hadoop - Azure HDInsight | Microsoft Docs
+---
+title: High availability for Hadoop - Azure HDInsight 
 description: Learn how HDInsight clusters improve reliability and availability by using an additional head node. Learn how this impacts Hadoop services such as Ambari and Hive, as well as how to individually connect to each head node using SSH.
 services: hdinsight
-editor: cgronlun
-manager: jhubbard
-author: Blackmist
-documentationcenter: ''
-tags: azure-portal
+ms.reviewer: jasonh
+author: jasonwhowell
 keywords: hadoop high availability
 
-ms.assetid: 99c9f59c-cf6b-4529-99d1-bf060435e8d4
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: multiple
-ms.topic: article
-ms.date: 06/26/2017
-ms.author: larryfr
+ms.topic: conceptual
+ms.date: 03/22/2018
+ms.author: jasonh
 
 ---
 # Availability and reliability of Hadoop clusters in HDInsight
@@ -27,16 +20,14 @@ HDInsight clusters provide two head nodes to increase the availability and relia
 Hadoop achieves high availability and reliability by replicating services and data across multiple nodes in a cluster. However standard distributions of Hadoop typically have only a single head node. Any outage of the single head node can cause the cluster to stop working. HDInsight provides two headnodes to improve Hadoop's availability and reliability.
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## Availability and reliability of nodes
 
-Nodes in an HDInsight cluster are implemented using Azure Virtual Machines. If a node fails, it is taken offline and a new node is created to replace the failed node. While the node is offline, another node of the same type is used until the new node is brought online.
+Nodes in an HDInsight cluster are implemented using Azure Virtual Machines. The following sections discuss the individual node types used with HDInsight. 
 
 > [!NOTE]
-> If the node is analyzing data when it fails, its progress on the job is lost. The job is resubmitted to another node.
-
-The following sections discuss the individual node types used with HDInsight. Not all node types are used for a cluster type. For example, a Hadoop cluster type does not have any Nimbus nodes. For more information on nodes used by HDInsight cluster types, see the Cluster types section of the [Create Linux-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types) document.
+> Not all node types are used for a cluster type. For example, a Hadoop cluster type does not have any Nimbus nodes. For more information on nodes used by HDInsight cluster types, see the Cluster types section of the [Create Linux-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types) document.
 
 ### Head nodes
 
@@ -63,9 +54,9 @@ Worker nodes perform the actual data analysis when a job is submitted to the clu
 
 An edge node does not actively participate in data analysis within the cluster. It is used by developers or data scientists when working with Hadoop. The edge node lives in the same Azure Virtual Network as the other nodes in the cluster, and can directly access all other nodes. The edge node can be used without taking resources away from critical Hadoop services or analysis jobs.
 
-Currently, R Server on HDInsight is the only cluster type that provides an edge node by default. For R Server on HDInsight, the edge node is used test R code locally on the node before submitting it to the cluster for distributed processing.
+Currently, ML Services on HDInsight is the only cluster type that provides an edge node by default. For ML Services on HDInsight, the edge node is used test R code locally on the node before submitting it to the cluster for distributed processing.
 
-For information on using an edge node with cluster types other than R Server, see the [Use edge nodes in HDInsight](hdinsight-apps-use-edge-node.md) document.
+For information on using an edge node with other cluster types, see the [Use edge nodes in HDInsight](hdinsight-apps-use-edge-node.md) document.
 
 ## Accessing the nodes
 

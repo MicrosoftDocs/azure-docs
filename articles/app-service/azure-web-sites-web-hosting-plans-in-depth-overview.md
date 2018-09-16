@@ -1,11 +1,11 @@
 ---
-title: Azure App Service plans in-depth overview | Microsoft Docs
+title: Azure App Service plan overview | Microsoft Docs
 description: Learn how App Service plans for Azure App Service work, and how they benefit your management experience.
-keywords: app service, azure app service, scale, scalable, app service plan, app service cost
+keywords: app service, azure app service, scale, scalable, scalability, app service plan, app service cost
 services: app-service
 documentationcenter: ''
-author: btardif
-manager: erikre
+author: cephalin
+manager: cfowler
 editor: ''
 
 ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
@@ -14,188 +14,106 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/02/2016
-ms.author: byvinyal
+ms.date: 11/09/2017
+ms.author: cephalin
 
 ---
-# Azure App Service plans in-depth overview
-App Service plans represent the collection of physical resources used to host 
-your apps.
+# Azure App Service plan overview
 
-App Service plans define:
+In App Service, an app runs in an _App Service plan_. An App Service plan defines a set of compute resources for a web app to run. These compute resources are analogous to the [_server farm_](https://wikipedia.org/wiki/Server_farm) in conventional web hosting. One or more apps can be configured to run on the same computing resources (or in the same App Service plan).
+
+When you create an App Service plan in a certain region (for example, West Europe), a set of compute resources is created for that plan in that region. Whatever apps you put into this App Service plan run on these compute resources as defined by your App Service plan. Each App Service plan defines:
 
 - Region (West US, East US, etc.)
-- Scale count (one, two, three instances, etc.)
-- Instance size (Small, Medium, Large)
-- SKU (Free, Shared, Basic, Standard, Premium)
+- Number of VM instances
+- Size of VM instances (Small, Medium, Large)
+- Pricing tier (Free, Shared, Basic, Standard, Premium, PremiumV2, Isolated, Consumption)
 
-Web Apps, Mobile Apps, API Apps, Function Apps (or Functions), in 
-[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 
-all run in an App Service plan.  Apps in the same subscription, region, and 
-resource group can share an App Service plan. 
+The _pricing tier_ of an App Service plan determines what App Service features you get and how much you pay for the plan. There are a few categories of pricing tiers:
 
-All applications assigned to an **App Service plan** share the resources 
-defined by it. This sharing saves money when hosting multiple apps in a single 
-App Service plan.
+- **Shared compute**: **Free** and **Shared**, the two base tiers, runs an app on the same Azure VM as other App Service apps, including apps of other customers. These tiers allocate CPU quotas to each app that runs on the shared resources, and the resources cannot scale out.
+- **Dedicated compute**: The **Basic**, **Standard**, **Premium**, and **PremiumV2** tiers run apps on dedicated Azure VMs. Only apps in the same App Service plan share the same compute resources. The higher the tier, the more VM instances are available to you for scale-out.
+- **Isolated**: This tier runs dedicated Azure VMs on dedicated Azure Virtual Networks, which provides network isolation on top of compute isolation to your apps. It provides the maximum scale-out capabilities.
+- **Consumption**: This tier is only available to [function apps](../azure-functions/functions-overview.md). It scales the functions dynamically depending on workload. For more information, see [Azure Functions hosting plans comparison](../azure-functions/functions-scale.md).
 
-Your **App Service plan** can scale from **Free** and **Shared** SKUs to 
-**Basic**, **Standard**, and **Premium** SKUs giving you access to more 
-resources and features along the way. 
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
-If your App Service plan is set to **Basic** SKU or higher, then you can 
-control the **size** and scale count of the VMs.
+Each tier also provides a specific subset of App Service features. These features include custom domains and SSL certificates, autoscaling, deployment slots, backups, Traffic Manager integration, and more. The higher the tier, the more features are available. To find out which features are supported in each pricing tier, see [App Service plan details](https://azure.microsoft.com/pricing/details/app-service/plans/).
 
-For example, if your plan is configured to use two "small" instances in the 
-standard service tier, all apps that are associated with that plan run on both 
-instances. Apps also have access to the standard service tier features. Plan 
-instances on which apps are running are fully managed and highly available. 
+<a name="new-pricing-tier-premiumv2"></a>
 
-> [!IMPORTANT]
-> The **SKU** and **Scale** of the App Service plan determines the cost and not 
-the number of apps hosted in it.
+> [!NOTE]
+> The new **PremiumV2** pricing tier provides [Dv2-series VMs](../virtual-machines/windows/sizes-general.md#dv2-series) with faster processors, SSD storage, and double memory-to-core ratio compared to **Standard** tier. **PremiumV2** also supports higher scale via increased instance count while still providing all the advanced capabilities found in the Standard plan. All features available in the existing **Premium** tier are included in **PremiumV2**.
+>
+> Similar to other dedicated tiers, three VM sizes are available for this tier:
+>
+> - Small (one CPU core, 3.5 GiB of memory) 
+> - Medium (two CPU cores, 7 GiB of memory) 
+> - Large (four CPU cores, 14 GiB of memory)  
+>
+> For **PremiumV2** pricing information, see [App Service Pricing](https://azure.microsoft.com/pricing/details/app-service/).
+>
+> To get started with the new **PremiumV2** pricing tier, see [Configure PremiumV2 tier for App Service](app-service-configure-premium-tier.md).
 
-This article explores the key characteristics, such as tier and scale, of an 
-App Service plan and how they come into play while managing your apps.
+## How does my app run and scale?
 
-## Apps and App Service plans
-An app in App Service can be associated with only one App Service plan at any 
-given time.
+In the **Free** and **Shared** tiers, an app receives CPU minutes on a shared VM instance and cannot scale out. In other tiers, an app runs and scales as follows.
 
-Both apps and plans are contained in a **resource group**. A resource group serves 
-as the lifecycle boundary for every resource that's within it. You can use 
-resource groups to manage all the pieces of an application together.
+When you create an app in App Service, it is put into an App Service plan. When the app runs, it runs on all the VM instances configured in the App Service plan. If multiple apps are in the same App Service plan, they all share the same VM instances. If you have multiple deployment slots for an app, all deployment slots also run on the same VM instances. If you enable diagnostic logs, perform backups, or run WebJobs, they also use CPU cycles and memory on these VM instances.
 
-Because a single resource group can have multiple App Service plans, you can 
-allocate different apps to different physical resources. 
+In this way, the App Service plan is the scale unit of the App Service apps. If the plan is configured to run five VM instances, then all apps in the plan run on all five instances. If the plan is configured for autoscaling, then all apps in the plan are scaled out together based on the autoscale settings.
 
-For example, you can separate resources among dev, test, and production 
-environments. Having separate environments for production and dev/test lets 
-you isolate resources. In this way, load testing against a new version of your 
-apps does not compete for the same resources as your production apps, which 
-are serving real customers.
+For information on scaling out an app, see [Scale instance count manually or automatically](../monitoring-and-diagnostics/insights-how-to-scale.md).
 
-When you have multiple plans in a single resource group, you can also define 
-an application that spans geographical regions. 
+<a name="cost"></a>
 
-For example, a highly available app running in two regions includes at least two plans, one for each region, and one app associated with each plan. In such a situation, all the copies of 
-the app are then contained in a single resource group. Having a resource group 
-with multiple plans and multiple apps makes it easy to manage, control, and 
-view the health of the application.
+## How much does my App Service plan cost?
 
-## Create an App Service plan or use existing one
-When you create an app, you should consider creating a resource group. On the 
-other hand, if this app is a component for a larger application, create it within 
-the resource group that's allocated for that larger application.
+This section describes how App Service apps are billed. For detailed, region-specific pricing information, see [App Service Pricing](https://azure.microsoft.com/pricing/details/app-service/).
 
-Whether the app is an altogether new application or part of a larger one, you 
-can choose to use an existing plan to host it or create a new one. This 
-decision is more a question of capacity and expected load.
+Except for **Free** tier, an App Service plan carries an hourly charge on the compute resources it uses.
 
-We recommend isolating your app into a new App Service plan when:
+- In the **Shared** tier, each app receives a quota of CPU minutes, so _each app_ is charged hourly for the CPU quota.
+- In the dedicated compute tiers (**Basic**, **Standard**, **Premium**, **PremiumV2**), The App Service plan defines the number of VM instances the apps are scaled to, so _each VM instance_ in the App Service plan has an hourly charge. These VM instances are charged the same regardless how many apps are running on them. To avoid unexpected charges, see [Clean up an App Service plan](app-service-plan-manage.md#delete).
+- In the **Isolated** tier, the App Service Environment defines the number of isolated workers that run your apps, and _each worker_ is charged hourly. In addition, there's an hourly base fee for the running the App Service Environment itself. 
+- (Azure Functions only) The **Consumption** tier dynamically allocates VM instances to service a function app's workload, and is charged dynamically per second by Azure. For more information, see [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/).
 
-- App is resource-intensive. 
-- App has different scaling factors from the other apps hosted in an existing 
-plan.
-- App needs resource in a different geographical region.
+You don't get charged for using the App Service features that are available to you (configuring custom domains, SSL certificates, deployment slots, backups, etc.). The exceptions are:
 
-This way you can allocate a new set of resources for your app and gain greater 
-control of your apps.
+- App Service Domains - you pay when you purchase one in Azure and when you renew it each year.
+- App Service Certificates - you pay when you purchase one in Azure and when you renew it each year.
+- IP-based SSL connections - There's an hourly charge for each IP-based SSL connection, but some **Standard** tier or above gives you one IP-based SSL connection for free. SNI-based SSL connections are free.
 
-## Create an App Service plan
-> [!TIP]
-> If you have an App Service Environment, you can review the documentation 
-specific to App Service Environments here: 
-[Create an App Service plan in an App Service Environment](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md#createplan)
- 
+> [!NOTE]
+> If you integrate App Service with another Azure service, you may need to consider charges from these other services. For example, if you use Azure Traffic Manager to scale your app geographically, Azure Traffic Manager also charges you based on your usage. To estimate your cross-services cost in Azure, see [Pricing calculator](https://azure.microsoft.com/pricing/calculator/). 
+>
+>
 
-You can create an empty App Service plan from the App Service plan browse 
-experience or as part of app creation.
+## What if my app needs more capabilities or features?
 
-In the [Azure portal](https://portal.azure.com), click **New** > 
-**Web + mobile**, and then select **Web App** or other App Service app kind.
-![Create an app in the Azure portal.][createWebApp]
+Your App Service plan can be scaled up and down at any time. It is as simple as changing the pricing tier of the plan. You can choose a lower pricing tier at first and scale up later when you need more App Service features.
 
-You can then select or create the App Service plan for the new app.
+For example, you can start testing your web app in a **Free** App Service plan and pay nothing. When you want to add your [custom DNS name](app-service-web-tutorial-custom-domain.md) to the web app, just scale your plan up to **Shared** tier. Later, when you want to add a [custom SSL certificate](app-service-web-tutorial-custom-ssl.md), scale your plan up to **Basic** tier. When you want to have [staging environments](web-sites-staged-publishing.md), scale up to **Standard** tier. When you need more cores, memory, or storage, scale up to a bigger VM size in the same tier.
 
- ![Create an App Service plan.][createASP]
+The same works in the reverse. When you feel you no longer need the capabilities or features of a higher tier, you can scale down to a lower tier, which saves you money.
 
-To create an App Service plan, click **[+] Create New**, type the 
-**App Service plan** name, and then select an appropriate **Location**. 
-Click **Pricing tier**, and then select an appropriate pricing tier for the 
-service. Select **View all** to view more pricing options, such as **Free** 
-and **Shared**. After you have selected the pricing tier, click the **Select** 
-button.
+For information on scaling up the App Service plan, see [Scale up an app in Azure](web-sites-scale.md).
 
-## Move an app to a different App Service plan
-You can move an app to a different App Service plan in the 
-[Azure portal](https://portal.azure.com). You can move apps between plans as 
-long as the plans are in the same resource group and geographical region.
+If your app is in the same App Service plan with other apps, you may want to improve the app's performance by isolating the compute resources. You can do it by moving the app into a separate App Service plan. For more information, see [Move an app to another App Service plan](app-service-plan-manage.md#move).
 
-To move an app to another plan:
+## Should I put an app in a new plan or an existing plan?
 
-- Navigate to the app that you want to move. 
-- In the **Menu**, look for the **App Service Plan** section.
-- Select **Change App Service plan** to start the process.
+Since you pay for the computing resources your App Service plan allocates (see [How much does my App Service plan cost?](#cost)), you can potentially save money by putting multiple apps into one App Service plan. You can continue to add apps to an existing plan as long as the plan has enough resources to handle the load. However, keep in mind that apps in the same App Service plan all share the same compute resources. To determine whether the new app has the necessary resources, you need to understand the capacity of the existing App Service plan, and the expected load for the new app. Overloading an App Service plan can potentially cause downtime for your new and existing apps.
 
-**Change App Service plan** opens the **App Service plan** selector. At this 
-point, you can pick an existing plan to move this app into. 
+Isolate your app into a new App Service plan when:
 
-> [!IMPORTANT]
-> Only valid plans (in the same resource group and geographical location) are 
-shown.
+- The app is resource-intensive.
+- You want to scale the app independently from the other apps the existing plan.
+- The app needs resource in a different geographical region.
 
-![App Service plan selector.][change]
+This way you can allocate a new set of resources for your app and gain greater control of your apps.
 
-Each plan has its own pricing tier. For example, moving a site from a Free 
-tier to a Standard tier, enables all apps assigned to it to use the features 
-and resources of the Standard tier.
+## Manage an App Service plan
 
-## Clone an app to a different App Service plan
-If you want to move the app to a different region, one alternative is app 
-cloning. Cloning makes a copy of your app in a new or existing App Service 
-plan in any region.
-
-You can find **Clone App** in the **Development Tools** section of the menu.
-
-> [!IMPORTANT]
-> Cloning has some limitations that you can read about at 
-[Azure App Service App cloning using Azure portal](../app-service-web/app-service-web-app-cloning-portal.md).
-
-## Scale an App Service plan
-There are three ways to scale a plan:
-
-* **Change the plan’s pricing tier**. A plan in the Basic tier can be converted to Standard, and all apps assigned to it to use the features of the Standard tier.
-* **Change the plan’s instance size**. As an example, a plan in the Basic tier that uses small instances can be changed to use large instances. All apps that are associated with that plan now can use the additional memory and CPU resources that the larger instance size offers.
-* **Change the plan’s instance count**. For example, a Standard plan that's scaled out to three instances can be scaled to 10 instances. A Premium plan can be scaled out to 20 instances (subject to availability). All apps that are associated with that plan now can use the additional memory and CPU resources that the larger instance count offers.
-
-You can change the pricing tier and instance size by clicking the **Scale Up** 
-item under settings for either the app or the App Service plan. Changes apply 
-to the App Service plan and affect all apps that it hosts.
-
- ![Set values to scale up an app.][pricingtier]
-
-## App Service plan cleanup
-> [!IMPORTANT]
->**App Service plans** that have no apps associated to them still incur charges 
-since they continue to reserve the compute capacity.
-
-To avoid unexpected charges, when the last app hosted in an App Service plan 
-is deleted, the resulting empty App Service plan is also deleted.
-
-## Summary
-App Service plans represent a set of features and capacity that you can share 
-across your apps. App Service plans give you the flexibility to allocate 
-specific apps to a set of resources and further optimize your Azure resource 
-utilization. This way, if you want to save money on your testing environment, 
-you can share a plan across multiple apps. You can also maximize throughput 
-for your production environment by scaling it across multiple regions and plans.
-
-## What's changed
-* For a guide to the change from Websites to App Service, 
-see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-
-[pricingtier]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/appserviceplan-pricingtier.png
-[assign]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/assing-appserviceplan.png
-[change]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/change-appserviceplan.png
-[createASP]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-appserviceplan.png
-[createWebApp]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-web-app.png
+> [!div class="nextstepaction"]
+> [Manage an App Service plan](app-service-plan-manage.md)

@@ -2,19 +2,12 @@
 title: Public data sets for Azure analytics | Microsoft Docs
 description: Learn about public data sets that you can use to prototype and test Azure analytics services and solutions.
 services: sql-database
-documentationcenter: ''
 author: douglaslMS
-manager: jhubbard
-editor: ''
-tags: ''
+manager: craigg
 ms.custom: reference
-ms.assetid: 
 ms.service: sql-database
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: 
-ms.date: 03/20/2017
+ms.topic: conceptual
+ms.date: 04/01/2018
 ms.author: douglasl
 
 ---

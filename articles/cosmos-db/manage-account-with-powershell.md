@@ -3,24 +3,20 @@ title: Azure Cosmos DB Automation - Management with Powershell | Microsoft Docs
 description: Use Azure Powershell manage your Azure Cosmos DB accounts. 
 services: cosmos-db
 author: dmakwana
-manager: jhubbard
+manager: kfile
 editor: ''
 tags: azure-resource-manager
-documentationcenter: ''
 
-ms.assetid:
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/21/2017
 ms.author: dimakwan
 
 ---
 # Create an Azure Cosmos DB account using PowerShell
 
-The following guide describes commands to automate management of your Azure Cosmos DB database accounts using Azure Powershell. It also includes commands to manage account keys and failover priorities in [multi-region database accounts][scaling-globally]. Updating your database account allows you to modify consistency policies and add/remove regions. For cross-platform management of your Azure Cosmos DB account, you can use either [Azure CLI](cli-samples.md), the [Resource Provider REST API][rp-rest-api], or the [Azure portal](create-documentdb-dotnet.md#create-account).
+The following guide describes commands to automate management of your Azure Cosmos DB database accounts using Azure Powershell. It also includes commands to manage account keys and failover priorities in [multi-region database accounts][scaling-globally]. Updating your database account allows you to modify consistency policies and add/remove regions. For cross-platform management of your Azure Cosmos DB account, you can use either [Azure CLI](cli-samples.md), the [Resource Provider REST API][rp-rest-api], or the [Azure portal](create-sql-api-dotnet.md#create-account).
 
 ## Getting Started
 
@@ -63,7 +59,7 @@ Example:
 * The preceding example creates a database account with two regions. It is also possible to create a database account with either one region (which is designated as the write region and have a failover priority value of 0) or more than two regions. For more information, see [multi-region database accounts][scaling-globally].
 * The locations must be regions in which Azure Cosmos DB is generally available. The current list of regions is provided on the [Azure Regions page](https://azure.microsoft.com/regions/#services).
 
-## <a id="update-documentdb-account-powershell"></a> Update a DocumentDB Database Account
+## <a id="update-documentdb-account-powershell"></a> Update an Azure Cosmos DB database account
 
 This command allows you to update your Azure Cosmos DB database account properties. This includes the consistency policy and the locations which the database account exists in.
 
@@ -94,7 +90,7 @@ Example:
     $CosmosDBProperties = @{"databaseAccountOfferType"="Standard"; "locations"=$locations; "consistencyPolicy"=$consistencyPolicy; "ipRangeFilter"=$iprangefilter}
     Set-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test" -Properties $CosmosDBProperties
 
-## <a id="delete-documentdb-account-powershell"></a> Delete a DocumentDB Database Account
+## <a id="delete-documentdb-account-powershell"></a> Delete an Azure Cosmos DB database account
 
 This command allows you to delete an existing Azure Cosmos DB database account.
 
@@ -107,7 +103,7 @@ Example:
 
     Remove-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test"
 
-## <a id="get-documentdb-properties-powershell"></a> Get Properties of a DocumentDB Database Account
+## <a id="get-documentdb-properties-powershell"></a> Get properties of an Azure Cosmos DB database account
 
 This command allows you to get the properties of an existing Azure Cosmos DB database account.
 
@@ -129,8 +125,8 @@ The following example describes how to set [Azure resource tags][azure-resource-
 
 Example:
 
-    $tags = @{"dept" = "Finance”; environment = “Production”}
-    Set-AzureRmResource -ResourceType “Microsoft.DocumentDB/databaseAccounts”  -ResourceGroupName "rg-test" -Name "docdb-test" -Tags $tags
+    $tags = @{"dept" = "Finance"; environment = "Production"}
+    Set-AzureRmResource -ResourceType "Microsoft.DocumentDB/databaseAccounts"  -ResourceGroupName "rg-test" -Name "docdb-test" -Tags $tags
 
 ## <a id="list-account-keys-powershell"></a> List Account Keys
 
@@ -191,8 +187,7 @@ Example:
 
 ## Next steps
 
-* To connect using .NET, see [Connect and query with .NET](create-documentdb-dotnet.md).
-* To connect using .NET Core, see [Connect and query with .NET Core](create-documentdb-dotnet-core.md).
+* To connect using .NET, see [Connect and query with .NET](create-sql-api-dotnet.md).
 * To connect using Node.js, see [Connect and query with Node.js and a MongoDB app](create-mongodb-nodejs.md).
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
@@ -201,4 +196,4 @@ Example:
 [distribute-data-globally]: distribute-data-globally.md
 [azure-resource-groups]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups
 [azure-resource-tags]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
-[rp-rest-api]: https://docs.microsoft.com/rest/api/documentdbresourceprovider/
+[rp-rest-api]: https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/

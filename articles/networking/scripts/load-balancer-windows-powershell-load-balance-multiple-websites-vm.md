@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure PowerShell Script Sample - Load balance multiple websites with Azure PowerShell | Microsoft Docs
 description: Azure PowerShell Script Sample - Load balance multiple websites to the same virtual machine
 services: load-balancer
@@ -22,7 +22,7 @@ ms.author: gwallace
 
 This script sample creates a virtual network with two virtual machines (VM) that are members of an availability set. A load balancer directs traffic for two separate IP addresses to the two VMs. After running the script, you could deploy web server software to the VMs and host multiple web sites, each with its own IP address.
 
-If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/), and then run `Login-AzureRmAccount` to create a connection with Azure.
+If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/), and then run `Connect-AzureRmAccount` to create a connection with Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

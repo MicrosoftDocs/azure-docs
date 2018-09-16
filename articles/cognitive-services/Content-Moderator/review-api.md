@@ -1,124 +1,183 @@
 ---
-title: Review API for Content Moderator | Microsoft Docs
-description: The Review API integrates content with the review tool to handle automated moderation and human reviews.
+title: Azure Content Moderator - Moderation jobs and human-in-the-loop reviews | Microsoft Docs
+description: Apply human oversight to machine-assisted moderation for best results.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
-
 ms.service: cognitive-services
-ms.technology: content-moderator
+ms.component: content-moderator
 ms.topic: article
-ms.date: 11/21/2016
+ms.date: 1/21/2018
 ms.author: sajagtap
 ---
 
-# The Review API
+# Moderation jobs and reviews
 
-Use Content Moderators's review API [(See API reference)](api-reference.md "Content Moderator API Reference") to integrate your content with the review tool to get both automated moderation and human reviews.
+Combine machine-assisted moderation with human-in-the-loop capabilities by using the Azure Content Moderator [Review API](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) to get the best results for your business.
 
-The Review API has a small set of operations that use the underlying moderation APIs to moderate your content and make the tagged images available within the review tool for human review.
+The Review API offers the following ways to include human oversight in your content moderation process:
 
-Here is a sample sequence of steps you might follow:
+* `Job` operations are used to start machine-assisted moderation and human review creation as one step.
+* `Review` operations are used for human review creation, outside of the moderation step.
+* `Workflow` operations are used to manage workflows that automate scanning with thresholds for review creation.
 
-1. Submit an image to start a moderation job.
-1. Get details for a moderation job that is either in-progress or completed.
-1. Once the human reviews are completed, get the detailed results.
+The `Job` and `Review` operations accept your callback endpoints for receiving status and results.
 
-## Submitting an image to start a moderation job ##
-Use the **Job-Create** operation to start a moderation job for an image. The Moderator will scan the image and generate reviews by evaluating the default or custom workflow configured within the review tool.
+This article covers the `Job` and `Review` operations. Read the [Workflows overview](workflow-api.md) for information on how to create, edit, and get workflow definitions.
 
-Your inputs will include:
+## Job operations
 
-- The image to be moderated (file or URL)
-- The default workflow identifier (“default”)
-- Your API callback point for notification
+### Start a job
+Use the `Job.Create` operation to start a moderation and human review creation job. Content Moderator scans the content and evaluates the designated workflow. Based on the workflow results, it either creates reviews or skips the step. It also submits the post-moderation and post-review tags to your callback endpoint.
 
-The response will return the identifier of the job that was started.
+The inputs include the following information:
 
-Once the job is completed, the operation will use your API callback information to notify you. You can then use the job identifier to get the detailed information back and take further action.
+- The review team ID.
+- The content to be moderated.
+- The workflow name. (The default is the "default" workflow.)
+- Your API callback point for notifications.
+ 
+The following response shows the identifier of the job that was started. You use the job identifier to get the job status and receive detailed information.
 
-## Getting details for an in-progress or completed job
+	{
+		"JobId": "2018014caceddebfe9446fab29056fd8d31ffe"
+	}
 
-Use the **Job-Get** operation to get the details of a moderation job for the identifier returned by the previous operation. Note that while the method returns immediately with the job settings information, the moderation job itself is run asynchronously. The results are returned through the callback point, and can also be queried by using the operation that we discuss in the next section.
+### Get job status
 
-Your inputs will include at a minimum:
+Use the `Job.Get` operation and the job identifier to get the details of a running or completed job. The operation returns immediately while the moderation job runs asynchronously. The results are returned through the callback endpoint.
 
-- The human review team name
-- The job identifier returned by the previous operation
+Your inputs include the following information:
 
-The response will include the following information:
+- The review team ID: The job identifier returned by the previous operation
 
-- The identifier of the review created (use this to get the final review results)
-- The status of the review (completed or in-progress)
-- The assigned moderation tags (key-value pairs)
+The response includes the following information:
 
-## Getting results after a human review
+- The identifier of the review created. (Use this ID to get the final review results.)
+- The status of the job (completed or in-progress): The assigned moderation tags (key-value pairs).
+- The job execution report.
+ 
+ 
+		{
+			"Id": "2018014caceddebfe9446fab29056fd8d31ffe",
+			"TeamName": "some team name",
+			"Status": "Complete",
+			"WorkflowId": "OCR",
+			"Type": "Image",
+			"CallBackEndpoint": "",
+			"ReviewId": "201801i28fc0f7cbf424447846e509af853ea54",
+			"ResultMetaData":[
+			{
+			"Key": "hasText",
+			"Value": "True"
+			},
+			{
+			"Key": "ocrText",
+			"Value": "IF WE DID \r\nALL \r\nTHE THINGS \r\nWE ARE \r\nCAPABLE \r\nOF DOING, \r\nWE WOULD \r\nLITERALLY \r\nASTOUND \r\nOURSELVE \r\n"
+			}
+			],
+			"JobExecutionReport": [
+			{
+      			"Ts": "2018-01-07T00:38:29.3238715",
+      			"Msg": "Posted results to the Callbackendpoint: https://requestb.in/vxke1mvx"
+    			},
+    			{
+      			"Ts": "2018-01-07T00:38:29.2928416",
+      			"Msg": "Job marked completed and job content has been removed"
+    			},
+    			{
+      			"Ts": "2018-01-07T00:38:29.0856472",
+      			"Msg": "Execution Complete"
+    			},
+			{
+      			"Ts": "2018-01-07T00:38:26.7714671",
+      			"Msg": "Successfully got hasText response from Moderator"
+    			},
+    			{
+      			"Ts": "2018-01-07T00:38:26.4181346",
+      			"Msg": "Getting hasText from Moderator"
+    			},
+    			{
+      			"Ts": "2018-01-07T00:38:25.5122828",
+      			"Msg": "Starting Execution - Try 1"
+    			}
+			]
+		}
+ 
+![Image review for human moderators](images/ocr-sample-image.PNG)
 
-Use the **Review-Get** operation to get the results after a human review of the moderated image is completed. You will get notified when your defined callback point is called by the review API. The operation will return two sets of tag data - the tags assigned by the moderation service, and the tags after the human review was completed.
+## Review operations
 
-Your inputs will include at a minimum:
+### Create reviews
 
-- The human review team name
+Use the `Review.Create` operation to create the human reviews. You either moderate them elsewhere or use custom logic to assign the moderation tags.
+
+Your inputs to this operation include:
+
+- The content to be reviewed.
+- The assigned tags (key value pairs) for review by human moderators.
+
+The following response shows the review identifier:
+
+	[
+		"201712i46950138c61a4740b118a43cac33f434",
+	]
+
+
+### Get review status
+Use the `Review.Get` operation to get the results after a human review of the moderated image is completed. You get notified via your provided callback endpoint. 
+
+The operation returns two sets of tags: 
+
+* The tags assigned by the moderation service
+* The tags after the human review was completed
+
+Your inputs include at a minimum:
+
+- The review team name
 - The review identifier returned by the previous operation
 
-The response will include the following information:
+The response includes the following information:
 
+- The review status
 - The tags (key-value pairs) confirmed by the human reviewer
 - The tags (key-value pairs) assigned by the moderation service
 
-## Directly creating reviews within the review tool
-
-If you want to use the review tool just for the human review capability because you are either already using the moderation APIs, or you want to separate them for other reasons, you can do that using the **Review-Create** operation.
-
-Your inputs to this operation will include:
-
-- The content (image) to be reviewed
-- The tags (key value pairs)
-
-## Creating or updating custom workflow
-
-While the review tool uses a default workflow, you can also define your custom workflow based on your business rules and content policies.
-
-You would do that using the **Workflow-Create or Update** operation.
-
-Your inputs to this operation will include:
-
-- The review team name
-- The name of your workflow
-
-Your request will contain the expression for describing the workflow. When creating Jobs, the Expression in the specified workflow is evaluated against the moderator API results.
-
-For example:
-
-Expression with one condition as in: Create review if **adult score > 0.4**.
+You see both the reviewer-assigned tags (**reviewerResultTags**) and the initial tags (**metadata**) in the following sample response:
 
 	{
-		"ConnectorName": "imagemoderator",
-		"OutputName": "adultscore",
-		"Operator": "ge",  //- where ge = greater than or equal to
-		"Value": "0.4",
-		"Type": "Condition"
+		"reviewId": "201712i46950138c61a4740b118a43cac33f434",
+		"subTeam": "public",
+		"status": "Complete",
+		"reviewerResultTags": [
+    	{
+      		"key": "a",
+      		"value": "False"
+    	},
+    	{
+      		"key": "r",
+      		"value": "True"
+    	},
+    	{
+      		"key": "sc",
+      		"value": "True"
+    	}
+		],
+		"createdBy": "{teamname}",
+		"metadata": [
+    	{
+      		"key": "sc",
+      		"value": "true"
+    	}
+		],
+		"type": "Image",
+		"content": "https://reviewcontentprod.blob.core.windows.net/{teamname}/IMG_201712i46950138c61a4740b118a43cac33f434",
+		"contentId": "0",
+		"callbackEndpoint": "{callbackUrl}"
 	}
 
-Expression with two conditions combined as in: Create review if **(adult score > 0.5 AND racy score > 0.5)**.
+## Next steps
 
-	{
-		"Left": {
-			"ConnectorName": "imagemoderator",
-			"OutputName": "adultscore",
-			"Operator": "ge",
-			"Value": "0.4",
-			"Type": "Condition"
-		},
-		"Right": {
-			"ConnectorName": "imagemoderator",
-			"OutputName": "racyscore",
-			"Operator": "ge",
-			"Value": "0.5",
-			"Type": "Condition"
-		},
-		"Combine": "AND",
-		"Type": "Combine"
-	}
-
-Please refer to the API Reference for more information and examples.
+* Test drive the [Job API console](try-review-api-job.md), and use the REST API code samples. If you're familiar with Visual Studio and C#, also check out the [Jobs .NET quickstart](moderation-jobs-quickstart-dotnet.md). 
+* For reviews, get started with the [Review API console](try-review-api-review.md), and use the REST API code samples. Then see the [Reviews .NET quickstart](moderation-reviews-quickstart-dotnet.md).
+* For video reviews, use the [Video review quickstart](video-reviews-quickstart-dotnet.md), and learn how to [add transcripts to the video review](video-transcript-reviews-quickstart-dotnet.md).

@@ -1,21 +1,13 @@
 ---
-title: Get started with roles, permissions, and security with Azure Monitor | Microsoft Docs
+title: "Get started with roles, permissions, and security with Azure Monitor"
 description: Learn how to use Azure Monitor's built-in roles and permissions to restrict access to monitoring resources.
 author: johnkemnetz
-manager: rboucher
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.assetid: 2686e53b-72f0-4312-bcd3-3dc1b4a9b912
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 09/26/2016
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 10/27/2017
 ms.author: johnkem
-
+ms.component: ""
 ---
 # Get started with roles, permissions, and security with Azure Monitor
 Many teams need to strictly regulate access to monitoring data and settings. For example, if you have team members who work exclusively on monitoring (support engineers, devops engineers) or if you use a managed service provider, you may want to grant them access to only monitoring data while restricting their ability to create, modify, or delete resources. This article shows how to quickly apply a built-in monitoring RBAC role to a user in Azure or build your own custom role for a user who needs limited monitoring permissions. It then discusses security considerations for your Azure Monitor-related resources and how you can limit access to the data they contain.
@@ -27,19 +19,20 @@ Azure Monitor’s built-in roles are designed to help limit access to resources 
 People assigned the Monitoring Reader role can view all monitoring data in a subscription but cannot modify any resource or edit any settings related to monitoring resources. This role is appropriate for users in an organization, such as support or operations engineers, who need to be able to:
 
 * View monitoring dashboards in the portal and create their own private monitoring dashboards.
+* View alert rules defined in [Azure Alerts](monitoring-overview-unified-alerts.md)
 * Query for metrics using the [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx), [PowerShell cmdlets](insights-powershell-samples.md), or [cross-platform CLI](insights-cli-samples.md).
 * Query the Activity Log using the portal, Azure Monitor REST API, PowerShell cmdlets, or cross-platform CLI.
 * View the [diagnostic settings](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) for a resource.
-* View the [log profile](monitoring-overview-activity-logs.md#export-the-activity-log-with-log-profiles) for a subscription.
+* View the [log profile](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) for a subscription.
 * View autoscale settings.
 * View alert activity and settings.
 * Access Application Insights data and view data in AI Analytics.
-* Search Log Analytics (OMS) workspace data including usage data for the workspace.
-* View Log Analytics (OMS) management groups.
-* Retrieve the Log Analytics (OMS) search schema.
-* List Log Analytics (OMS) intelligence packs.
-* Retrieve and execute Log Analytics (OMS) saved searches.
-* Retrieve the Log Analytics (OMS) storage configuration.
+* Search Log Analytics workspace data including usage data for the workspace.
+* View Log Analytics management groups.
+* Retrieve the Log Analytics search schema.
+* List Log Analytics intelligence packs.
+* Retrieve and execute Log Analytics saved searches.
+* Retrieve the Log Analytics storage configuration.
 
 > [!NOTE]
 > This role does not give read access to log data that has been streamed to an event hub or stored in a storage account. [See below](#security-considerations-for-monitoring-data) for information on configuring access to these resources.
@@ -51,13 +44,13 @@ People assigned the Monitoring Contributor role can view all monitoring data in 
 
 * Publish monitoring dashboards as a shared dashboard.
 * Set [diagnostic settings](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) for a resource.*
-* Set the [log profile](monitoring-overview-activity-logs.md#export-the-activity-log-with-log-profiles) for a subscription.*
-* Set alert activity and settings.
+* Set the [log profile](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) for a subscription.*
+* Set alert rules activity and settings via [Azure Alerts](monitoring-overview-unified-alerts.md).
 * Create Application Insights web tests and components.
-* List Log Analytics (OMS) workspace shared keys.
-* Enable or disable Log Analytics (OMS) intelligence packs.
-* Create and delete and execute Log Analytics (OMS) saved searches.
-* Create and delete the Log Analytics (OMS) storage configuration.
+* List Log Analytics workspace shared keys.
+* Enable or disable Log Analytics intelligence packs.
+* Create and delete and execute Log Analytics saved searches.
+* Create and delete the Log Analytics storage configuration.
 
 *user must also separately be granted ListKeys permission on the target resource (storage account or event hub namespace) to set a log profile or diagnostic setting.
 
@@ -67,19 +60,29 @@ People assigned the Monitoring Contributor role can view all monitoring data in 
 > 
 
 ## Monitoring permissions and custom RBAC roles
-If the above built-in roles don’t meet the exact needs of your team, you can [create a custom RBAC role](../active-directory/role-based-access-control-custom-roles.md) with more granular permissions. Below are the common Azure Monitor RBAC operations with their descriptions.
+If the above built-in roles don’t meet the exact needs of your team, you can [create a custom RBAC role](../role-based-access-control/custom-roles.md) with more granular permissions. Below are the common Azure Monitor RBAC operations with their descriptions.
 
 | Operation | Description |
 | --- | --- |
-| Microsoft.Insights/AlertRules/[Read, Write, Delete] |Read/write/delete alert rules. |
+| Microsoft.Insights/ActionGroups/[Read, Write, Delete] |Read/write/delete action groups. |
+| Microsoft.Insights/ActivityLogAlerts/[Read, Write, Delete] |Read/write/delete activity log alerts. |
+| Microsoft.Insights/AlertRules/[Read, Write, Delete] |Read/write/delete alert rules (from alerts classic). |
 | Microsoft.Insights/AlertRules/Incidents/Read |List incidents (history of the alert rule being triggered) for alert rules. This only applies to the portal. |
 | Microsoft.Insights/AutoscaleSettings/[Read, Write, Delete] |Read/write/delete autoscale settings. |
 | Microsoft.Insights/DiagnosticSettings/[Read, Write, Delete] |Read/write/delete diagnostic settings. |
+| Microsoft.Insights/EventCategories/Read |Enumerate all categories possible in the Activity Log. Used by the Azure portal. |
 | Microsoft.Insights/eventtypes/digestevents/Read |This permission is necessary for users who need access to Activity Logs via the portal. |
 | Microsoft.Insights/eventtypes/values/Read |List Activity Log events (management events) in a subscription. This permission is applicable to both programmatic and portal access to the Activity Log. |
+| Microsoft.Insights/ExtendedDiagnosticSettings/[Read, Write, Delete] | Read/write/delete diagnostic settings for network flow logs. |
 | Microsoft.Insights/LogDefinitions/Read |This permission is necessary for users who need access to Activity Logs via the portal. |
+| Microsoft.Insights/LogProfiles/[Read, Write, Delete] |Read/write/delete log profiles (streaming Activity Log to event hub or storage account). |
+| Microsoft.Insights/MetricAlerts/[Read, Write, Delete] |Read/write/delete near real-time metric alerts |
 | Microsoft.Insights/MetricDefinitions/Read |Read metric definitions (list of available metric types for a resource). |
 | Microsoft.Insights/Metrics/Read |Read metrics for a resource. |
+| Microsoft.Insights/Register/Action |Register the Azure Monitor resource provider. |
+| Microsoft.Insights/ScheduledQueryRules/[Read, Write, Delete] |Read/write/delete log alerts for Application Insights. |
+
+
 
 > [!NOTE]
 > Access to alerts, diagnostic settings, and metrics for a resource requires that the user has Read access to the resource type and scope of that resource. Creating (“write”) a diagnostic setting or log profile that archives to a storage account or streams to event hubs requires the user to also have ListKeys permission on the target resource.
@@ -107,11 +110,11 @@ Monitoring data—particularly log files—can contain sensitive information, su
 2. Diagnostic Logs, which are logs emitted by a resource.
 3. Metrics, which are emitted by resources.
 
-All three of these data types can be stored in a storage account or streamed to Event Hub, both of which are general-purpose Azure resources. Because these are general-purpose resources, creating, deleting, and accessing them is a privileged operation usually reserved for an administrator. We suggest that you use the following practices for monitoring-related resources to prevent misuse:
+All three of these data types can be stored in a storage account or streamed to Event Hub, both of which are general-purpose Azure resources. Because these are general-purpose resources, creating, deleting, and accessing them is a privileged operation reserved for an administrator. We suggest that you use the following practices for monitoring-related resources to prevent misuse:
 
-* Use a single, dedicated storage account for monitoring data. If you need to separate monitoring data into multiple storage accounts, never share usage of a storage account between monitoring and non-monitoring data, as this may inadvertently give those who only need access to monitoring data (eg. a third-party SIEM) access to non-monitoring data.
+* Use a single, dedicated storage account for monitoring data. If you need to separate monitoring data into multiple storage accounts, never share usage of a storage account between monitoring and non-monitoring data, as this may inadvertently give those who only need access to monitoring data (for example, a third-party SIEM) access to non-monitoring data.
 * Use a single, dedicated Service Bus or Event Hub namespace across all diagnostic settings for the same reason as above.
-* Limit access to monitoring-related storage accounts or event hubs by keeping them in a separate resource group, and [use scope](../active-directory/role-based-access-control-what-is.md#basics-of-access-management-in-azure) on your monitoring roles to limit access to only that resource group.
+* Limit access to monitoring-related storage accounts or event hubs by keeping them in a separate resource group, and [use scope](../role-based-access-control/overview.md#scope) on your monitoring roles to limit access to only that resource group.
 * Never grant the ListKeys permission for either storage accounts or event hubs at subscription scope when a user only needs access to monitoring data. Instead, give these permissions to the user at a resource or resource group (if you have a dedicated monitoring resource group) scope.
 
 ### Limiting access to monitoring-related storage accounts
@@ -164,6 +167,6 @@ A similar pattern can be followed with event hubs, but first you need to create 
    ```
 
 ## Next steps
-* [Read about RBAC and permissions in Resource Manager](../active-directory/role-based-access-control-what-is.md)
+* [Read about RBAC and permissions in Resource Manager](../role-based-access-control/overview.md)
 * [Read the overview of monitoring in Azure](monitoring-overview.md)
 

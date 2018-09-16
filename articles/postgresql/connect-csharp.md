@@ -1,16 +1,16 @@
 ---
-title: 'Connect to Azure Database for PostgreSQL from C# | Microsoft Docs'
-description: This quickstart provides a C# (.Net) code sample you can use to connect and query data from Azure Database for PostgreSQL.
+title: Connect to Azure Database for PostgreSQL from C#
+description: This quickstart provides a C# (.NET) code sample you can use to connect and query data from Azure Database for PostgreSQL.
 services: postgresql
-author: jasonwhowell
-ms.author: jasonh
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
-ms.service: postgresql-database
-ms.custom: mvc
+ms.service: postgresql
+ms.custom: mvc, devcenter
 ms.devlang: csharp
-ms.topic: hero-article
-ms.date: 06/23/2017
+ms.topic: quickstart
+ms.date: 02/28/2018
 ---
 
 # Azure Database for PostgreSQL: Use .NET (C#) to connect and query data
@@ -22,68 +22,21 @@ This quickstart uses the resources created in either of these guides as a starti
 - [Create DB - CLI](quickstart-create-server-database-azure-cli.md)
 
 You also need to:
-- Install [.Net Framework](https://www.microsoft.com/net/download)
-- Install [Visual Studio](https://www.visualstudio.com/downloads/)
-- Install [Npgsql](http://www.npgsql.org/doc/index.html) 
-
-## Install Visual Studio and .NET
-The steps in this section assume that you are familiar with developing using .NET.
-
-### **Windows .NET framework and .NET core**
-Visual Studio 2017 Community is a full featured, extensible, free IDE for creating modern applications for Android, iOS, Windows, as well as web & database applications and cloud services. You can install either the full .NET framework or just .NET core. The code snippets in the quick start work with either. If you already have Visual Studio installed on your machine, skip the next few steps.
-
-1. Download the [Visual Studio 2017 installer](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15). 
-2. Run the installer and follow the installation prompts to complete the installation.
-
-### **Mac OS**
-Open your terminal and navigate to a directory where you plan on creating your .NET Core project. Enter the following commands to install **brew**, **OpenSSL**, and **.NET Core**. 
-
-```bash
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew update
-brew install openssl
-mkdir -p /usr/local/lib
-ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
-ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
-```
-
-Install .NET Core on macOS. Download the [official installer](https://go.microsoft.com/fwlink/?linkid=843444). This installer installs the tools and put them on your PATH so you can run dotnet from the Console
-
-### **Linux (Ubuntu)**
-Open your terminal and navigate to a directory where you plan on creating your .NET Core project. Enter the following commands to install **.NET Core**.
-
-```bash
-sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
-sudo apt-get update
-sudo apt-get install dotnet-dev-1.0.1
-```
-
-## Install Npgsql references into your Visual Studio solution
-To connect from the C# application to PostgreSQL, use the open source ADO.Net library called Npgsql. NuGet helps download and manage the references easily.
-
-1. Create a new C# solution, or open an existing one: 
-   - Within Visual Studio, create a solution, by clicking File menu **New** > **Project**.
-   - In the New Project dialogue, expand **Templates** > **Visual C#**. 
-   - Choose an appropriate template such as **Console App (.NET Core)**.
-
-2. Use the Nuget Package Manager to install Npgsql:
-   - Click the **Tools** menu > **NuGet Package Manager** > **Package Manager Console**.
-   - In the **Package Manager Console**, type `Install-Package Npgsql`
-   - The install command downloads the Npgsql.dll and related assemblies and adds them as dependencies in the solution.
+- Install the [.NET Framework](https://www.microsoft.com/net/download). Follow the steps in the linked article to install .NET specifically for your platform (Windows, Ubuntu Linux, or macOS). 
+- Install [Visual Studio](https://www.visualstudio.com/downloads/) or Visual Studio Code to type and edit code.
+- Add a reference to the [Npgsql](https://www.nuget.org/packages/Npgsql/) Nuget package.
 
 ## Get connection information
 Get the connection information needed to connect to the Azure Database for PostgreSQL. You need the fully qualified server name and login credentials.
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
-2. From the left-hand menu in Azure portal, click **All resources** and search for the server you have created, such as **mypgserver-20170401**.
-3. Click the server name **mypgserver-20170401**.
-4. Select the server's **Overview** page. Make a note of the **Server name** and **Server admin login name**.
- ![Azure Database for PostgreSQL - Server Admin Login](./media/connect-csharp/1-connection-string.png)
-5. If you forget your server login information, navigate to the **Overview** page to view the Server admin login name and, if necessary, reset the password.
+2. From the left-hand menu in Azure portal, click **All resources**, and then search for the server you have created (such as **mydemoserver**).
+3. Click the server name.
+4. From the server's **Overview** panel, make a note of the **Server name** and **Server admin login name**. If you forget your password, you can also reset the password from this panel.
+ ![Azure Database for PostgreSQL server name](./media/connect-csharp/1-connection-string.png)
 
 ## Connect, create table, and insert data
-Use the following code to connect and load the data using **CREATE TABLE** and  **INSERT INTO** SQL statements. The code uses NpgsqlCommand class with method [Open()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) to establish a connection to PostgreSQL. Then the code uses method [CreateCommand()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand), sets the CommandText property, and calls method [ExecuteNonQuery()](http://www.npgsql.org/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) to run the database commands. 
+Use the following code to connect and load the data using **CREATE TABLE** and  **INSERT INTO** SQL statements. The code uses NpgsqlCommand class with method [Open()](http://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) to establish a connection to the PostgreSQL database. Then the code uses method [CreateCommand()](http://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand), sets the CommandText property, and calls the [ExecuteNonQuery()](http://www.npgsql.org/doc/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) method to run the database commands. 
 
 Replace the Host, DBName, User, and Password parameters with the values that you specified when you created the server and database. 
 
@@ -101,8 +54,8 @@ namespace Driver
     {
         // Obtain connection string information from the portal
         //
-        private static string Host = "mypgserver-20170401.postgres.database.azure.com";
-        private static string User = "mylogin@mypgserver-20170401";
+        private static string Host = "mydemoserver.postgres.database.azure.com";
+        private static string User = "mylogin@mydemoserver";
         private static string DBname = "mypgsqldb";
         private static string Password = "<server_admin_password>";
         private static string Port = "5432";
@@ -113,7 +66,7 @@ namespace Driver
             //
             string connString =
                 String.Format(
-                    "Server={0}; User Id={1}; Database={2}; Port={3}; Password={4};",
+                    "Server={0}; User Id={1}; Database={2}; Port={3}; Password={4}; SSL Mode=Prefer; Trust Server Certificate=true",
                     Host,
                     User,
                     DBname,
@@ -160,7 +113,7 @@ namespace Driver
 ```
 
 ## Read data
-Use the following code to connect and read the data using a **SELECT** SQL statement. The code uses NpgsqlCommand class with method [Open()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) to establish a connection to PostgreSQL. Then the code uses method [CreateCommand()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand) and method [ExecuteReader()](http://www.npgsql.org/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteReader) to run the database commands. Next the code uses [Read()](http://www.npgsql.org/api/Npgsql.NpgsqlDataReader.html#Npgsql_NpgsqlDataReader_Read) to advance to the records in the results. Then the code uses [GetInt32()](http://www.npgsql.org/api/Npgsql.NpgsqlDataReader.html#Npgsql_NpgsqlDataReader_GetInt32_System_Int32_) and [GetString()](http://www.npgsql.org/api/Npgsql.NpgsqlDataReader.html#Npgsql_NpgsqlDataReader_GetString_System_Int32_) to parse the values in the record.
+Use the following code to connect and read the data using a **SELECT** SQL statement. The code uses NpgsqlCommand class with method [Open()](http://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) to establish a connection to PostgreSQL. Then the code uses the methods [CreateCommand()](http://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand) and [ExecuteReader()](http://www.npgsql.org/doc/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteReader) to run the database commands. Next, the code uses [Read()](http://www.npgsql.org/doc/api/Npgsql.NpgsqlDataReader.html#Npgsql_NpgsqlDataReader_Read) to advance to the record in the results. Finally, the code uses [GetInt32()](http://www.npgsql.org/doc/api/Npgsql.NpgsqlDataReader.html#Npgsql_NpgsqlDataReader_GetInt32_System_Int32_) and [GetString()](http://www.npgsql.org/doc/api/Npgsql.NpgsqlDataReader.html#Npgsql_NpgsqlDataReader_GetString_System_Int32_) to parse the values in the record.
 
 Replace the Host, DBName, User, and Password parameters with the values that you specified when you created the server and database. 
 
@@ -178,8 +131,8 @@ namespace Driver
     {
         // Obtain connection string information from the portal
         //
-        private static string Host = "mypgserver-20170401.postgres.database.azure.com";
-        private static string User = "mylogin@mypgserver-20170401";
+        private static string Host = "mydemoserver.postgres.database.azure.com";
+        private static string User = "mylogin@mydemoserver";
         private static string DBname = "mypgsqldb";
         private static string Password = "<server_admin_password>";
         private static string Port = "5432";
@@ -230,7 +183,7 @@ namespace Driver
 
 
 ## Update data
-Use the following code to connect and read the data using a **UPDATE** SQL statement. The code uses NpgsqlCommand class with method [Open()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) to establish a connection to PostgreSQL. Then the code uses method [CreateCommand()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand), sets the CommandText property, and calls method [ExecuteNonQuery()](http://www.npgsql.org/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) to run the database commands.
+Use the following code to connect and update the data using an **UPDATE** SQL statement. The code uses NpgsqlCommand class with method [Open()](http://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) to establish a connection to PostgreSQL. Then, the code uses method [CreateCommand()](http://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand), sets the CommandText property, and calls the [ExecuteNonQuery()](http://www.npgsql.org/doc/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) method to run the database commands.
 
 Replace the Host, DBName, User, and Password parameters with the values that you specified when you created the server and database. 
 
@@ -248,8 +201,8 @@ namespace Driver
     {
         // Obtain connection string information from the portal
         //
-        private static string Host = "mypgserver-20170401.postgres.database.azure.com";
-        private static string User = "mylogin@mypgserver-20170401";
+        private static string Host = "mydemoserver.postgres.database.azure.com";
+        private static string User = "mylogin@mydemoserver";
         private static string DBname = "mypgsqldb";
         private static string Password = "<server_admin_password>";
         private static string Port = "5432";
@@ -294,9 +247,9 @@ namespace Driver
 
 
 ## Delete data
-Use the following code to connect and read the data using a **DELETE** SQL statement. 
+Use the following code to connect and delete data using a **DELETE** SQL statement. 
 
- The code uses NpgsqlCommand class with method [Open()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) to establish a connection to PostgreSQL. Then the code uses method [CreateCommand()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand), sets the CommandText property, and calls method [ExecuteNonQuery()](http://www.npgsql.org/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) to run the database commands.
+The code uses NpgsqlCommand class with method [Open()](http://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) to establish a connection to the PostgreSQL database. Then, the code uses the [CreateCommand()](http://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand) method, sets the CommandText property, and calls the method [ExecuteNonQuery()](http://www.npgsql.org/doc/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) to run the database commands.
 
 Replace the Host, DBName, User, and Password parameters with the values that you specified when you created the server and database. 
 
@@ -314,8 +267,8 @@ namespace Driver
     {
         // Obtain connection string information from the portal
         //
-        private static string Host = "mypgserver-20170401.postgres.database.azure.com";
-        private static string User = "mylogin@mypgserver-20170401";
+        private static string Host = "mydemoserver.postgres.database.azure.com";
+        private static string User = "mylogin@mydemoserver";
         private static string DBname = "mypgsqldb";
         private static string Password = "<server_admin_password>";
         private static string Port = "5432";

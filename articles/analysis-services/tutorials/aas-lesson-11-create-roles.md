@@ -1,25 +1,16 @@
 ---
 title: "Azure Analysis Services tutorial lesson 11: Create roles | Microsoft Docs"
 description: Describes how to create roles in the Azure Analysis Services tutorial project. 
-services: analysis-services
-documentationcenter: ''
 author: minewiskan
-manager: erikre
-editor: ''
-tags: ''
-
-ms.assetid: 
-ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 05/26/2017
+manager: kfile
+ms.service: azure-analysis-services
+ms.topic: conceptual
+ms.date: 07/03/2018
 ms.author: owend
----
-# Lesson 11: Create roles
+ms.reviewer: minewiskan
 
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+---
+# Create roles
 
 In this lesson, you create roles. Roles provide model database object and data security by limiting access to only those users that are role members. Each role is defined with a single permission: None, Read, Read and Process, Process, or Administrator. Roles can be defined during model authoring by using Role Manager. After a model has been deployed, you can manage roles by using SQL Server Management Studio (SSMS). To learn more, see [Roles](https://docs.microsoft.com/sql/analysis-services/tabular-models/roles-ssas-tabular).
   

@@ -3,9 +3,9 @@ title: How to use Notification Hubs with PHP
 description: Learn how to use Azure Notification Hubs from a PHP back-end.
 services: notification-hubs
 documentationcenter: ''
-author: ysxu
-manager: erikre
-editor: ''
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 
 ms.assetid: 0156f994-96d0-4878-b07b-49b7be4fd856
 ms.service: notification-hubs
@@ -13,8 +13,8 @@ ms.workload: mobile
 ms.tgt_pltfrm: php
 ms.devlang: php
 ms.topic: article
-ms.date: 06/07/2016
-ms.author: yuaxu
+ms.date: 04/14/2018
+ms.author: dimazaid
 
 ---
 # How to use Notification Hubs from PHP
@@ -28,7 +28,7 @@ In this topic we show how to:
 * Follow the [Get started tutorial](notification-hubs-ios-apple-push-notification-apns-get-started.md) for your mobile platform of choice, implementing the back-end portion in PHP.
 
 ## Client interface
-The main client interface can provide the same methods that are available in the [.NET Notification Hubs SDK](http://msdn.microsoft.com/library/jj933431.aspx), this will allow you to directly translate all the tutorials and samples currently available on this site, and contributed by the community on the internet.
+The main client interface can provide the same methods that are available in the [.NET Notification Hubs SDK](http://msdn.microsoft.com/library/jj933431.aspx), which allows you to directly translate all the tutorials and samples currently available on this site, and contributed by the community on the internet.
 
 You can find all the code available in the [PHP REST wrapper sample].
 
@@ -42,10 +42,10 @@ To send an iOS native notification:
     $hub->sendNotification($notification, null);
 
 ## Implementation
-If you did not already, please follow our [Get started tutorial] up to the last section where you have to implement the back-end.
+If you did not already, follow the [Get started tutorial] up to the last section where you have to implement the back-end.
 Also, if you want you can use the code from the [PHP REST wrapper sample] and go directly to the [Complete the tutorial](#complete-tutorial) section.
 
-All the details to implement a full REST wrapper can be found on [MSDN](http://msdn.microsoft.com/library/dn530746.aspx). In this section we will describe the PHP implementation of the main steps required to access Notification Hubs REST endpoints:
+All the details to implement a full REST wrapper can be found on [MSDN](http://msdn.microsoft.com/library/dn530746.aspx). In this section, we describe the PHP implementation of the main steps required to access Notification Hubs REST endpoints:
 
 1. Parse the connection string
 2. Generate the authorization token
@@ -129,9 +129,9 @@ First, let us define a class representing a notification.
         }
     }
 
-This class is a container for a native notification body, or a set of properties on case of a template notification, and a set of headers which contains format (native platform or template) and platform-specific properties (like Apple expiration property and WNS headers).
+This class is a container for a native notification body, or a set of properties on case of a template notification, and a set of headers, which contains format (native platform or template) and platform-specific properties (like Apple expiration property and WNS headers).
 
-Please refer to the [Notification Hubs REST APIs documentation](http://msdn.microsoft.com/library/dn495827.aspx) and the specific notification platforms' formats for all the options available.
+Refer to the [Notification Hubs REST APIs documentation](http://msdn.microsoft.com/library/dn495827.aspx) and the specific notification platforms' formats for all the options available.
 
 Armed with this class, we can now write the send notification methods inside of the **NotificationHub** class.
 
@@ -240,13 +240,13 @@ Then add the send code depending on your target mobile platform.
 Running your PHP code should produce now a notification appearing on your target device.
 
 ## Next Steps
-In this topic we showed how to create a simple Java REST client for Notification Hubs. From here you can:
+In this topic, we showed how to create a simple Java REST client for Notification Hubs. From here you can:
 
 * Download the full [PHP REST wrapper sample], which contains all the code above.
 * Continue learning about Notification Hubs tagging feature in the [Breaking News tutorial]
 * Learn about pushing notifications to individual users in [Notify Users tutorial]
 
-For more information, see also the [PHP Developer Center](/develop/php/).
+For more information, see also the [PHP Developer Center](https://azure.microsoft.com/develop/php/).
 
 [PHP REST wrapper sample]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
 [Get started tutorial]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/

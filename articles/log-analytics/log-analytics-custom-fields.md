@@ -1,6 +1,6 @@
 ---
-title: Custom fields in Log Analytics | Microsoft Docs
-description: The Custom Fields feature of Log Analytics allows you to create your own searchable fields from OMS data that add to the properties of a collected record.  This article describes the process to create a custom field and provides a detailed walkthrough with a sample event.
+title: Custom fields in Azure Log Analytics | Microsoft Docs
+description: The Custom Fields feature of Log Analytics allows you to create your own searchable fields from Log Analytics records that add to the properties of a collected record.  This article describes the process to create a custom field and provides a detailed walkthrough with a sample event.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -10,15 +10,16 @@ editor: tysonn
 ms.assetid: 31572b51-6b57-4945-8208-ecfc3b5304fc
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/18/2016
+ms.date: 01/23/2018
 ms.author: bwren
-
+ms.component: na
 ---
+
 # Custom fields in Log Analytics
-The **Custom Fields** feature of Log Analytics allows you to extend existing records in the OMS repository by adding your own searchable fields.  Custom fields are automatically populated from data extracted from other properties in the same record.
+The **Custom Fields** feature of Log Analytics allows you to extend existing records in Log Analytics by adding your own searchable fields.  Custom fields are automatically populated from data extracted from other properties in the same record.
 
 ![Custom Fields overview](media/log-analytics-custom-fields/overview.png)
 
@@ -37,8 +38,7 @@ When you create a custom field, Log Analytics must understand which data to use 
 The following sections provide the procedure for creating a custom field.  At the bottom of this article is a walkthrough of a sample extraction.
 
 > [!NOTE]
-> The custom field is populated as records matching the specified criteria are added to the OMS data store, so it will only appear on records collected after the custom field is created.  The custom field will not be added to records that are already in the data store when it’s created.
-> 
+> The custom field is populated as records matching the specified criteria are added to Log Analytics, so it will only appear on records collected after the custom field is created.  The custom field will not be added to records that are already in the data store when it’s created.
 > 
 
 ### Step 1 – Identify records that will have the custom field
@@ -69,7 +69,7 @@ Once you have performed the initial extract, Log Analytics will display its resu
 7. Use the custom field like any other record property.  You can use it to aggregate and group data and even use it to produce new insights.
 
 ## Viewing custom fields
-You can view a list of all custom fields in your management group from the **Settings** tile of the OMS dashboard.  Select **Data** and then **Custom fields** for a list of all custom fields in your workspace.  
+You can view a list of all custom fields in your management group from the **Advanced Settings** menu of your Log Analytics workspace in the Azure portal.  Select **Data** and then **Custom fields** for a list of all custom fields in your workspace.  
 
 ![Custom fields](media/log-analytics-custom-fields/list.png)
 
@@ -127,7 +127,7 @@ We can see that **Service_CF** is created but is not yet added to any records.
 
 ![Initial count](media/log-analytics-custom-fields/initial-count.png)
 
-After some time has passed so new events are collected, we can see that that the **Service_CF** field is now being added to records that match our criteria.
+After some time has passed so new events are collected, we can see that the **Service_CF** field is now being added to records that match our criteria.
 
 ![Final results](media/log-analytics-custom-fields/final-results.png)
 

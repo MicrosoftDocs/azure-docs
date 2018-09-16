@@ -1,52 +1,128 @@
 ---
 title: Azure Service Bus messaging overview | Microsoft Docs
-description: Description of Service Bus messaging and Azure Relay
+description: Description of Service Bus messaging
 services: service-bus-messaging
-documentationcenter: .net
-author: sethmanheim
+documentationcenter: ''
+author: spelluru
 manager: timlt
 editor: ''
 
-ms.assetid: f99766cb-8f4b-4baf-b061-4b1e2ae570e4
 ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: multiple
-ms.topic: get-started-article
-ms.date: 05/25/2017
-ms.author: sethm
-
+ms.topic: overview
+ms.date: 05/22/2018
+ms.custom: mvc
+ms.author: spelluru
+#Customer intent: As a developer, I want to be able to securely and reliably send messages between applications and services, with the ability to use publish/subscribe capabilities.
 ---
-# Service Bus messaging: flexible data delivery in the cloud
-Microsoft Azure Service Bus is a reliable information delivery service. The purpose of this service is to make communication easier. When two or more parties want to exchange information, they need a communication facilitator. Service Bus is a brokered, or third-party communication mechanism. This is similar to a postal service in the physical world. Postal services make it very easy to send different kinds of letters and packages with a variety of delivery guarantees, anywhere in the world.
 
-Similar to the postal service delivering letters, Service Bus is flexible information delivery from both the sender and the recipient. The messaging service ensures that the information is delivered even if the two parties are never both online at the same time, or if they aren't available at the exact same time. In this way, messaging is similar to sending a letter, while non-brokered communication is similar to placing a phone call (or how a phone call used to be - before call waiting and caller ID, which are much more like brokered messaging).
+# What is Azure Service Bus?
 
-The message sender can also require a variety of delivery characteristics including transactions, duplicate detection, time-based expiration, and batching. These patterns have postal analogies as well: repeat delivery, required signature, address change, or recall.
+Microsoft Azure Service Bus is a fully managed enterprise integration message broker. Service Bus is most commonly used to decouple applications and services from each other, and is a reliable and secure platform for asynchronous data and state transfer. Data is transferred between different applications and services using *messages*. A message is in binary format, which can contain JSON, XML, or just text. 
 
-Service Bus supports two distinct messaging patterns: *Azure Relay* and *Service Bus Messaging*.
+Some common messaging scenarios are:
 
-## Azure Relay
-The [WCF Relay](../service-bus-relay/relay-what-is-it.md) component of Azure Relay is a centralized (but highly load-balanced) service that supports a variety of different transport protocols and Web services standards. This includes SOAP, WS-*, and even REST. The [relay service](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md) provides a variety of different relay connectivity options and can help negotiate direct peer-to-peer connections when it is possible. Service Bus is optimized for .NET developers who use the Windows Communication Foundation (WCF), both with regard to performance and usability, and provides full access to its relay service through SOAP and REST interfaces. This makes it possible for any SOAP or REST programming environment to integrate with Service Bus.
+* Messaging: transfer business data, such as sales or purchase orders, journals, or inventory movements.
+* Decouple applications: improve reliability and scalability of applications and services (client and service do not have to be online at the same time).
+* Topics and subscriptions: enable 1:*n* relationships between publishers and subscribers.
+* Message sessions: implement workflows that require message ordering or message deferral.
 
-The relay service supports traditional one-way messaging, request/response messaging, and peer-to-peer messaging. It also supports event distribution at Internet-scope to enable publish-subscribe scenarios and bi-directional socket communication for increased point-to-point efficiency. In the relayed messaging pattern, an on-premises service connects to the relay service through an outbound port and creates a bi-directional socket for communication tied to a particular rendezvous address. The client can then communicate with the on-premises service by sending messages to the relay service targeting the rendezvous address. The relay service will then "relay" messages to the on-premises service through the bi-directional socket already in place. The client does not need a direct connection to the on-premises service, nor is it required to know where the service resides, and the on-premises service does not need any inbound ports open on the firewall.
+## Namespaces
 
-You initiate the connection between your on-premises service and the relay service, using a suite of WCF "relay" bindings. Behind the scenes, the relay bindings map to transport binding elements designed to create WCF channel components that integrate with Service Bus in the cloud.
+A namespace is a scoping container for all messaging components. Multiple queues and topics can reside within a single namespace, and namespaces often serve as application containers.
 
-WCF Relay provides many benefits, but requires the server and client to both be online at the same time in order to send and receive messages. This is not optimal for HTTP-style communication, in which the requests may not be typically long-lived, nor for clients that connect only occasionally, such as browsers, mobile applications, and so on. Brokered messaging supports decoupled communication, and has its own advantages; clients and servers can connect when needed and perform their operations in an asynchronous manner.
+## Queues
 
-## Brokered messaging
-In contrast to the relay scheme, Service Bus messaging, or [brokered messaging](service-bus-queues-topics-subscriptions.md) can be thought of as asynchronous, or "temporally decoupled." Producers (senders) and consumers (receivers) do not have to be online at the same time. The messaging infrastructure reliably stores messages in a "broker" (such as a queue) until the consuming party is ready to receive them. This allows the components of the distributed application to be disconnected, either voluntarily; for example, for maintenance, or due to a component crash, without affecting the entire system. Furthermore, the receiving application may only have to come online during certain times of the day, such as an inventory management system that only is required to run at the end of the business day.
+Messages are sent to and received from *queues*. Queues enable you to store messages until the receiving application is available to receive and process them.
 
-The core components of the Service Bus brokered messaging infrastructure are queues, topics, and subscriptions.  The primary difference is that topics support publish/subscribe capabilities that can be used for sophisticated content-based routing and delivery logic, including sending to multiple recipients. These components enable new asynchronous messaging scenarios, such as temporal decoupling, publish/subscribe, and load balancing. For more information about these messaging entities, see [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md).
+![Queue](./media/service-bus-messaging-overview/about-service-bus-queue.png)
 
-As with the WCF Relay infrastructure, the brokered messaging capability is provided for WCF and .NET Framework programmers, and also via REST.
+Messages in queues are ordered and timestamped on arrival. Once accepted, the message is held safely in redundant storage. Messages are delivered in *pull* mode, which delivers messages on request.
 
+## Topics
+
+You can also use *topics* to send and receive messages. While a queue is often used for point-to-point communication, topics are useful in publish/subscribe scenarios.
+
+![Topic](./media/service-bus-messaging-overview/about-service-bus-topic.png)
+
+Topics can have multiple, independent subscriptions. A subscriber to a topic can receive a copy of each message sent to that topic. Subscriptions are named entities, which are durably created but can optionally expire or auto-delete.
+
+In some scenarios, you may not want individual subscriptions to receive all messages sent to a topic. If so, you can use [rules and filters](topic-filters.md) to define conditions that trigger optional [actions](topic-filters.md#actions), filter specified messages, and set or modify message properties.
+
+## Advanced features
+
+Service Bus also has advanced features that enable you to solve more complex messaging problems. The following sections describe these key features:
+
+### Message sessions
+
+To realize a first-in, first-out (FIFO) guarantee in Service Bus, use sessions. [Message sessions](message-sessions.md) enable joint and ordered handling of unbounded sequences of related messages. 
+
+### Auto-forwarding
+
+The [auto-forwarding](service-bus-auto-forwarding.md) feature enables you to chain a queue or subscription to another queue or topic that is part of the same namespace. When auto-forwarding is enabled, Service Bus automatically removes messages that are placed in the first queue or subscription (source) and puts them in the second queue or topic (destination).
+
+### Dead-lettering
+
+Service Bus supports a [dead-letter queue](service-bus-dead-letter-queues.md) (DLQ) to hold messages that cannot be delivered to any receiver, or messages that cannot be processed. You can then remove messages from the DLQ and inspect them.
+
+### Scheduled delivery
+
+You can submit messages to a queue or topic [for delayed processing](message-sequencing.md#scheduled-messages); for example, to schedule a job to become available for processing by a system at a certain time.
+
+### Message deferral
+
+When a queue or subscription client receives a message that it is willing to process, but for which processing is not currently possible due to special circumstances within the application, the entity has the option to [defer retrieval of the message](message-deferral.md) to a later point. The message remains in the queue or subscription, but it is set aside.
+
+### Batching
+
+[Client-side batching](service-bus-performance-improvements.md#client-side-batching) enables a queue or topic client to delay sending a message for a certain period of time. If the client sends additional messages during this time period, it transmits the messages in a single batch. 
+
+### Transactions
+
+A [transaction](service-bus-transactions.md) groups two or more operations together into an execution scope. Service Bus supports grouping operations against a single messaging entity (queue, topic, subscription) within the scope of a transaction.
+
+### Filtering and actions
+
+Subscribers can define which messages they want to receive from a topic. These messages are specified in the form of one or more [named subscription rules](topic-filters.md). For each matching rule condition, the subscription produces a copy of the message, which may be differently annotated for each matching rule.
+
+### Auto-delete on idle
+
+[Auto-delete on idle](/dotnet/api/microsoft.servicebus.messaging.queuedescription.autodeleteonidle) enables you to specify an idle interval after which the queue is automatically deleted. The minimum duration is 5 minutes.
+
+### Duplicate detection
+
+If an error occurs that causes the client to have any doubt about the outcome of a send operation, [duplicate detection](duplicate-detection.md) takes the doubt out of these situations by enabling the sender re-send the same message, and the queue or topic discards any duplicate copies.
+
+### SAS, RBAC, and MSI
+
+Service Bus supports security protocols such as [Shared Access Signatures](service-bus-sas.md) (SAS), [Role Based Access Control](service-bus-role-based-access-control.md) (RBAC) and [Managed Service Identity](service-bus-managed-service-identity.md) (MSI).
+
+### Geo-disaster recovery
+
+When Azure regions or datacenters experience downtime, [Geo-disaster recovery](service-bus-geo-dr.md) enables data processing to continue operating in a different region or datacenter.
+
+### Security
+
+Service Bus supports standard [AMQP 1.0](service-bus-amqp-overview.md) and [HTTP/REST](/rest/api/servicebus/) protocols.
+
+## Client libraries
+
+Service Bus supports client libraries for [.NET](https://github.com/Azure/azure-service-bus-dotnet/tree/master), [Java](https://github.com/Azure/azure-service-bus-java/tree/master), [JMS](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/qpid-jms-client).
+
+## Integration
+
+Service Bus fully integrates with the following Azure services:
+
+- [Event Grid](https://azure.microsoft.com/services/event-grid/) 
+- [Logic Apps](https://azure.microsoft.com/services/logic-apps/) 
+- [Functions](https://azure.microsoft.com/services/functions/) 
+- [Dynamics 365](https://dynamics.microsoft.com)
+- [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)
+ 
 ## Next steps
-To learn more about Service Bus messaging, see the following topics.
 
-* [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
-* [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
-* [How to use Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
-* [How to use Service Bus topics and subscriptions](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+To get started using Service Bus messaging, see the following articles:
 
+* [Compare Azure messaging services](../event-grid/compare-messaging-services.md?toc=%2fazure%2fservice-bus-messaging%2ftoc.json&bc=%2fazure%2fservice-bus-messaging%2fbreadcrumb%2ftoc.json)
+* Learn more about Azure Service Bus [Standard and Premium](https://azure.microsoft.com/pricing/details/service-bus/) tiers and their pricing
+* [Performance and Latency of Azure Service Bus Premium tier](https://blogs.msdn.microsoft.com/servicebus/2016/07/18/premium-messaging-how-fast-is-it/)
+* Try the quickstarts in [.NET](service-bus-quickstart-powershell.md), [Java](service-bus-quickstart-powershell.md), or [JMS](service-bus-quickstart-powershell.md)

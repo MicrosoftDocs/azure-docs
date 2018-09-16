@@ -1,0 +1,175 @@
+- name: Azure Kubernetes Service (AKS)
+  href: ./index.yml
+- name: Overview
+  items:
+  - name: About AKS
+    href: intro-kubernetes.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Create an AKS cluster - CLI
+    href: kubernetes-walkthrough.md
+  - name: Create an AKS cluster - Portal
+    href: kubernetes-walkthrough-portal.md
+- name: Tutorials
+  items:
+  - name: 1 - Prepare application for AKS
+    href: tutorial-kubernetes-prepare-app.md
+  - name: 2 - Create container registry
+    href: tutorial-kubernetes-prepare-acr.md
+  - name: 3 - Create Kubernetes cluster
+    href: tutorial-kubernetes-deploy-cluster.md
+  - name: 4 - Run application
+    href: tutorial-kubernetes-deploy-application.md
+  - name: 5 - Scale application
+    href: tutorial-kubernetes-scale.md
+  - name: 6 - Update application
+    href: tutorial-kubernetes-app-update.md
+  - name: 7 - Upgrade cluster
+    href: tutorial-kubernetes-upgrade-cluster.md
+- name: Concepts
+  items:
+  - name: Quotas and regional limits
+    href: container-service-quotas.md
+  - name: Migrate from ACS to AKS
+    href: acs-aks-migration.md
+- name: How-to guides
+  items:
+  - name: Cluster operations
+    items:
+    - name: Create an AKS cluster
+      href: create-cluster.md
+    - name: Scale an AKS cluster
+      href: scale-cluster.md
+    - name: Upgrade an AKS cluster
+      href: upgrade-cluster.md
+    - name: Delete an AKS cluster
+      href: delete-cluster.md
+    - name: Azure AD-enabled AKS
+      href: aad-integration.md
+    - name: Use Virtual Kubelet
+      href: virtual-kubelet.md
+    - name: Use Cluster Autoscaler
+      href: autoscaler.md
+    - name: Deploy AKS with Terraform
+      href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
+      maintainContext: true
+  - name: Configure data volumes
+    items:
+    - name: Azure Disk - Dynamic
+      href: azure-disks-dynamic-pv.md
+    - name: Azure Disk - Static
+      href: azure-disk-volume.md
+    - name: Azure Files - Dynamic
+      href: azure-files-dynamic-pv.md
+    - name: Azure Files - Static
+      href: azure-files-volume.md
+  - name: Configure networking
+    items:
+    - name: Networking overview
+      href: networking-overview.md
+    - name: Static IP address
+      href: static-ip.md
+    - name: Internal load balancer
+      href: internal-lb.md
+    - name: Ingress
+      items:
+        - name: Create a basic controller
+          href: ingress-basic.md
+        - name: Use HTTP application routing
+          href: http-application-routing.md
+        - name: Use internal network
+          href: ingress-internal-ip.md
+        - name: Use TLS with Let's Encrypt
+          href: ingress-tls.md
+          items:
+          - name: Use a static public IP
+            href: ingress-static-ip.md
+    - name: Egress traffic
+      href: egress.md
+  - name: Security and authentication
+    items:
+    - name: Create service principal
+      href: kubernetes-service-principal.md
+    - name: Authenticate with ACR
+      href: ../container-registry/container-registry-auth-aks.md?toc=%2fazure%2faks%2ftoc.json
+  - name: Monitoring and logging
+    items:
+    - name: Azure container health solution
+      href: ../monitoring/monitoring-container-health.md
+      maintainContext: true
+    - name: View the master component logs
+      href: view-master-logs.md
+    - name: View the kubelet logs
+      href: kubelet-logs.md
+  - name: Develop and run applications
+    items:
+    - name: Run applications with Helm
+      href: kubernetes-helm.md
+    - name: Develop with Dev Spaces
+      href: ../dev-spaces/azure-dev-spaces.md
+      maintainContext: true
+    - name: Develop applications with Draft
+      href: kubernetes-draft.md
+    - name: Open Service Broker for Azure
+      href: integrate-azure.md
+    - name: Using OpenFaaS
+      href: openfaas.md
+    - name: Run Spark jobs
+      href: spark-job.md
+    - name: Using GPUs
+      href: gpu-cluster.md
+  - name: DevOps
+    items:
+    - name: Use Ansible to create AKS clusters
+      href: /azure/ansible/ansible-create-configure-aks
+      maintainContext: true
+    - name: Jenkins continuous deployment
+      href: jenkins-continuous-deployment.md
+    - name: Azure DevOps Project
+      href: ../devops-project/azure-devops-project-aks.md
+      maintainContext: true
+  - name: Kubernetes basics
+    items:
+    - name: Use Kubernetes dashboard
+      href: kubernetes-dashboard.md
+  - name: Troubleshoot
+    items:
+    - name: Common issues
+      href: troubleshooting.md
+    - name: SSH node access
+      href: ssh.md
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/aks
+  - name: REST
+    href: /rest/api/aks
+  - name: PowerShell
+    href: /powershell/module/azurerm.aks#aks
+  - name: .NET
+    href: /dotnet/api/overview/azure/containerservice
+  - name: Python
+    href: /python/api/overview/azure/containerservice
+  - name: Java
+    href: /java/api/overview/azure/containerservice
+  - name: Node.js
+    href: /javascript/api/overview/azure/container-service
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.containerservice/managedclusters
+- name: Resources
+  items:
+  - name: Region availability
+    href: https://azure.microsoft.com/regions/services/
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/container-service/
+  - name: Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Provide product feedback
+    href: https://feedback.azure.com/forums/914020-azure-kubernetes-service-aks
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-container-service
+  - name: Videos
+    href: https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest
+  - name: FAQ
+    href: faq.md

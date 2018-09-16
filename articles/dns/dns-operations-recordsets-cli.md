@@ -3,8 +3,8 @@ title: Manage DNS records in Azure DNS using the Azure CLI 2.0 | Microsoft Docs
 description: Managing DNS record sets and records on Azure DNS when hosting your domain on Azure DNS. All CLI 2.0 commands for operations on record sets and records.
 services: dns
 documentationcenter: na
-author: jtuliani
-manager: carmonm
+author: vhorne
+manager: jeconnoc
 
 ms.assetid: 5356a3a5-8dec-44ac-9709-0c2b707f6cb5
 ms.service: dns
@@ -13,26 +13,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 02/27/2017
-ms.author: jonatul
+ms.date: 05/15/2018
+ms.author: victorh
 ---
 
 # Manage DNS records and recordsets in Azure DNS using the Azure CLI 2.0
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](dns-operations-recordsets-portal.md)
-> * [Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md)
 > * [Azure CLI 2.0](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
 
 This article shows you how to manage DNS records for your DNS zone by using the cross-platform Azure command-line interface (CLI) 2.0, which is available for Windows, Mac and Linux. You can also manage your DNS records using [Azure PowerShell](dns-operations-recordsets.md) or the [Azure portal](dns-operations-recordsets-portal.md).
-
-## CLI versions to complete the task
-
-You can complete the task using one of the following CLI versions:
-
-* [Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md) - our CLI for the classic and resource management deployment models.
-* [Azure CLI 2.0](dns-operations-recordsets-cli.md) - our next generation CLI for the resource management deployment model.
 
 The examples in this article assume you have already [installed the Azure CLI 2.0, signed in, and created a DNS zone](dns-operations-dnszones-cli.md).
 
@@ -61,7 +53,7 @@ The following example creates an A record called *www* in the zone *contoso.com*
 az network dns record-set a add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 1.2.3.4
 ```
 
-To create a record set in the apex of the zone (in this case, "contoso.com"), use the record name "@", including the quotation marks:
+To create a record set in the apex of the zone (in this case, "contoso.com"), use the record name "\@", including the quotation marks:
 
 ```azurecli
 az network dns record-set a add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --ipv4-address 1.2.3.4
@@ -105,6 +97,12 @@ We do not give an example to create an SOA record set, since SOAs are created an
 az network dns record-set aaaa add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-aaaa --ipv6-address 2607:f8b0:4009:1803::1005
 ```
 
+### Create an CAA record
+
+```azurecli
+az network dns record-set caa add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-caa --flags 0 --tag "issue" --value "ca1.contoso.com"
+```
+
 ### Create a CNAME record
 
 > [!NOTE]
@@ -113,12 +111,12 @@ az network dns record-set aaaa add-record --resource-group myresourcegroup --zon
 > For more information, see [CNAME records](dns-zones-records.md#cname-records).
 
 ```azurecli
-az network dns record-set cname add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-cname --cname www.contoso.com
+az network dns record-set cname set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-cname --cname www.contoso.com
 ```
 
 ### Create an MX record
 
-In this example, we use the record set name "@" to create the MX record at the zone apex (in this case, "contoso.com").
+In this example, we use the record set name "\@" to create the MX record at the zone apex (in this case, "contoso.com").
 
 ```azurecli
 az network dns record-set mx add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --exchange mail.contoso.com --preference 5
@@ -140,7 +138,7 @@ az network dns record-set ptr add-record --resource-group myresourcegroup --zone
 
 ### Create an SRV record
 
-When creating an [SRV record set](dns-zones-records.md#srv-records), specify the *\_service* and *\_protocol* in the record set name. There is no need to include "@" in the record set name when creating an SRV record set at the zone apex.
+When creating an [SRV record set](dns-zones-records.md#srv-records), specify the *\_service* and *\_protocol* in the record set name. There is no need to include "\@" in the record set name when creating an SRV record set at the zone apex.
 
 ```azurecli
 az network dns record-set srv add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name _sip._tls --priority 10 --weight 5 --port 8080 --target sip.contoso.com
@@ -206,9 +204,9 @@ az network dns record-set a remove-record --resource-group myresourcegroup --zon
 
 Each record set contains a [time-to-live (TTL)](dns-zones-records.md#time-to-live), [metadata](dns-zones-records.md#tags-and-metadata), and DNS records. The following sections explain how to modify each of these properties.
 
-### To modify an A, AAAA, MX, NS, PTR, SRV, or TXT record
+### To modify an A, AAAA, CAA, MX, NS, PTR, SRV, or TXT record
 
-To modify an existing record of type A, AAAA, MX, NS, PTR, SRV, or TXT, you should first add a new record and then delete the existing record. For detailed instructions on how to delete and add records, see the earlier sections of this article.
+To modify an existing record of type A, AAAA, CAA, MX, NS, PTR, SRV, or TXT, you should first add a new record and then delete the existing record. For detailed instructions on how to delete and add records, see the earlier sections of this article.
 
 The following example shows how to modify an 'A' record, from IP address 1.2.3.4 to IP address 5.6.7.8:
 

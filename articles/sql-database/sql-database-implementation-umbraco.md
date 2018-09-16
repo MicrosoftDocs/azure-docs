@@ -2,19 +2,12 @@
 title: Azure SQL Database Azure Case Study - Umbraco | Microsoft Docs
 description: Learn about how Umbraco uses SQL Database to quickly provision and scale services for thousands of tenants in the cloud
 services: sql-database
-documentationcenter: ''
 author: CarlRabeler
-manager: jhubbard
-editor: ''
-
-ms.assetid: 5243d31e-3241-4cb0-9470-ad488ff28572
+manager: craigg
 ms.service: sql-database
 ms.custom: reference
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 01/10/2017
+ms.topic: conceptual
+ms.date: 04/01/2018
 ms.author: carlrab
 
 ---
@@ -121,7 +114,6 @@ Since choosing Azure as its cloud partner, Umbraco has been able to provide UaaS
 ## More information
 * To learn more about Azure elastic pools, see [elastic pools](sql-database-elastic-pool.md).
 * To learn more about Azure Service Bus,see [Azure Service Bus](https://azure.microsoft.com/services/service-bus/).
-* To learn more about Web roles and worker roles, see [worker roles](../fundamentals-introduction-to-azure.md#compute).    
 * To learn more about virtual networking, see [virtual networking](https://azure.microsoft.com/documentation/services/virtual-network/).    
 * To learn more about backup and recovery, see [business continuity](sql-database-business-continuity.md).    
 * To learn more about monitoring ppols, see [monitoring pools](sql-database-elastic-pool-manage-portal.md).    

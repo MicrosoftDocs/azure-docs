@@ -3,8 +3,8 @@ title: 'Azure AD Connect: Features in preview | Microsoft Docs'
 description: This topic describes in more detail features which are in preview in Azure AD Connect.
 services: active-directory
 documentationcenter: ''
-author: andkjell
-manager: femila
+author: billmath
+manager: mtillman
 editor: ''
 
 ms.assetid: c75cd8cf-3eff-4619-bbca-66276757cc07
@@ -13,7 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
 
 ---
@@ -23,7 +24,7 @@ This topic describes how to use features currently in preview.
 ## Group writeback
 The option for group writeback in optional features allows you to writeback **Office 365 Groups** to a forest with Exchange installed. This is a group that is always mastered in the cloud. If you have Exchange on-premises, then you can write back these groups to on-premises so users with an on-premises Exchange mailbox can send and receive emails from these groups.
 
-More information about Office 365 Groups and how to use them can be found [here](http://aka.ms/O365g).
+More information about Office 365 Groups and how to use them can be found [here](https://aka.ms/O365g).
 
 An Office 365 group is represented as a distribution group in on-premises AD DS. Your on-premises Exchange server must be on Exchange 2013 cumulative update 8 (released in March 2015) or Exchange 2016 to recognize this new group type.
 

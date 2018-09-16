@@ -1,0 +1,52 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure IoT Hub Device Provisioning Service Documentation
+metadata:
+  title: Azure IoT Hub Device Provisioning Service Documentation - Tutorials, API Reference
+  description: Overview of Azure IoT Hub Device Provisioning Service.
+  author: nberdy
+  manager: briz
+  ms.service: iot-dps
+  services: iot-dps
+  ms.topic: landing-page
+  ms.date: 01/23/2017
+  ms.author: nberdy
+abstract:
+  description: The IoT Hub Device Provisioning Service is a helper service for IoT Hub that enables zero-touch, just-in-time provisioning to the right IoT hub without requiring human intervention, allowing customers to provision millions of devices in a secure and scalable manner. Learn how to provision devices to your IoT hub(s) with our quickstarts, tutorials, and samples.
+sections:
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Learn how to set up your first Device Provisioning Service instance and provision a simulated device to your IoT hub.'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: /azure/sql-database/media/index/portal.svg
+      text: Set up auto provisioning
+      href: /azure/iot-dps/quick-setup-auto-provision
+    - image: 
+        src: /azure/sql-database/media/index/portal.svg
+      text: Create simulated device
+      href: /azure/iot-dps/quick-create-simulated-device
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: Learn how to use the IoT Hub Device Provisioning Service to automatically provision security enabled devices to single or multiple IoT hubs.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/iot-dps/tutorial-set-up-cloud">Configure cloud resources</a>
+    - html: <a href="/azure/iot-dps/tutorial-set-up-device">Set up your device to connect to Azure</a>
+    - html: <a href="/azure/iot-dps/tutorial-provision-device-to-hub">Provision devices to a single IoT hub</a>
+    - html: <a href="/azure/iot-dps/tutorial-provision-multiple-hubs">Provision devices to multiple, load-balanced IoT hubs</a>
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: REST API
+      html: <p><a href="/rest/api/iot-dps">REST</a></p>
+    - title: Azure IoT SDKs
+      html: <p><a href="https://github.com/Azure/azure-iot-sdk-c">C</a></p><p><a href="https://github.com/Azure/azure-iot-sdk-python">Python</a></p><p><a href="https://github.com/Azure/azure-iot-sdk-node">Node</a></p><p><a href="https://github.com/Azure/azure-iot-sdk-java">Java</a></p><p><a href="https://github.com/Azure/azure-iot-sdk-csharp">C#</a></p>

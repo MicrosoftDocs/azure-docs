@@ -1,23 +1,21 @@
 ---
-title: Add the Oracle Database connector in your Azure Logic Apps | Microsoft Docs
-description: Use the Oracle Database connector in a logic app
-services: ''
-documentationcenter: ''
-author: MandiOhlinger
-manager: anneta
-editor: ''
-tags: connectors
-
-ms.assetid: 
-ms.service: logic-apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+# required metadata
+title: Connect to Oracle Database - Azure Logic Apps | Microsoft Docs
+description: Insert and manage records with Oracle Database REST APIs and Azure Logic Apps 
+author: ecfan
+manager: jeconnoc
+ms.author: estfan
 ms.date: 03/29/2017
-ms.author: mandia; ladocs
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
 
+# optional metadata
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
 ---
+
 # Get started with the Oracle Database connector
 
 Using the Oracle Database connector, you create organizational workflows that use data in your existing database. This connector can connect to an on-premises Oracle Database, or an Azure virtual machine with Oracle Database installed. With this connector, you can:
@@ -25,7 +23,7 @@ Using the Oracle Database connector, you create organizational workflows that us
 * Build your workflow by adding a new customer to a customers database, or updating an order in an orders database.
 * Use actions to get a row of data, insert a new row, and even delete. For example, when a record is created in Dynamics CRM Online (a trigger), then insert a row in an Oracle Database (an action). 
 
-This topic shows you how to use the Oracle Database connector in a logic app.
+This article shows you how to use the Oracle Database connector in a logic app.
 
 ## Prerequisites
 
@@ -43,7 +41,7 @@ This topic shows you how to use the Oracle Database connector in a logic app.
   [64-bit ODAC 12c Release 4 (12.1.0.2.4) for Windows x64](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)
 
     > [!TIP]
-    > If the Oracle client is not installed, an error occurs when you try to create or use the connection. See the common errors in this topic.
+    > If the Oracle client is not installed, an error occurs when you try to create or use the connection. See the common errors in this article.
 
 
 ## Add the connector
@@ -66,7 +64,7 @@ This topic shows you how to use the Oracle Database connector in a logic app.
     > [!TIP]
     > This is also the quickest way to see the triggers and actions available for any connector. Type in part of the connector name, such as `oracle`. The designer lists any triggers and any actions. 
 
-5. Select one of the actions, such as **Oracle Database - Get row**. Select **Connect via on-premise data gateway**. Enter the Oracle server name, authentication method, username, password, and select the gateway:
+5. Select one of the actions, such as **Oracle Database - Get row**. Select **Connect via on-premises data gateway**. Enter the Oracle server name, authentication method, username, password, and select the gateway:
 
     ![](./media/connectors-create-api-oracledatabase/create-oracle-connection.png)
 
@@ -101,7 +99,7 @@ This topic shows you how to use the Oracle Database connector in a logic app.
 
 **Mitigation**: Make sure your gateway is running on the on-premises machine where you installed it, and that it can connect to the internet.  We recommend not installing the gateway on a computer that may be turned off or sleep. You can also restart the on-premises data gateway service (PBIEgwService).
 
-#### **Error**: The provider being used is deprecated: 'System.Data.OracleClient requires Oracle client software version 8.1.7 or greater.'. Please visit [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376) to install the official provider.
+#### **Error**: The provider being used is deprecated: 'System.Data.OracleClient requires Oracle client software version 8.1.7 or greater.'. See [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376) to install the official provider.
 
 **Cause**: The Oracle client SDK is not installed on the machine where the on-premises data gateway is running.  
 
@@ -131,4 +129,4 @@ You can help improve Logic Apps and connectors by voting and submitting your ide
 
 
 ## Next steps
-[Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md), and explore the available connectors in Logic Apps at our [APIs list](apis-list.md).
+[Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md), and explore the available connectors in Logic Apps at [APIs list](apis-list.md).

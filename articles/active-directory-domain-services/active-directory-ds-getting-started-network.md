@@ -1,27 +1,24 @@
 ---
 title: 'Azure Active Directory Domain Services: Getting Started | Microsoft Docs'
-description: Enable Azure Active Directory Domain Services using the Azure portal (Preview)
+description: Enable Azure Active Directory Domain Services using the Azure portal
 services: active-directory-ds
 documentationcenter: ''
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mtillman
 editor: curtand
 
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/28/2017
+ms.topic: conceptual
+ms.date: 05/23/2018
 ms.author: maheshu
 
 ---
-# Enable Azure Active Directory Domain Services using the Azure portal (Preview)
-
-> [!div class="op_single_selector"]
-> * [PREVIEW - Enable Azure AD Domain Services using the Azure portal](active-directory-ds-getting-started-network.md)
-> * [Enable Azure AD Domain Services using the Azure classic portal](active-directory-ds-getting-started-create-group.md)
+# Enable Azure Active Directory Domain Services using the Azure portal
 
 
 ## Before you begin
@@ -32,23 +29,36 @@ Refer to [Networking considerations for Azure Active Directory Domain Services](
 The next configuration task is to create an Azure virtual network and a dedicated subnet within it. You enable Azure Active Directory Domain Services in this subnet within your virtual network. You may also pick an existing virtual network and create the dedicated subnet within it.
 
 1. Click **Virtual network** to select a virtual network.
-2. On the **Choose virtual network** blade, you see all existing virtual networks. You see only the virtual networks that belong to the resource group and Azure location you have selected on the **Basics** wizard page.
+    > [!NOTE]
+    > **Classic virtual networks are not supported for new deployments.** Classic virtual networks are not supported for new deployments. Existing managed domains deployed in classic virtual networks continue to be supported. Microsoft will enable you to migrate an existing managed domain from a classic virtual network to a Resource Manager virtual network in the near future.
+    >
 
-3. Choose the existing virtual network in which Azure AD Domain Services should be enabled. Click **Create new**, if you prefer to create a new virtual network.
+2. On the **Choose virtual network** page, you see all existing virtual networks. You see only the virtual networks that belong to the resource group and Azure location you have selected on the **Basics** wizard page.
+3. Choose the virtual network in which Azure AD Domain Services should be enabled. You can either pick an existing virtual network or create a new one.
+
+  > [!TIP]
+  > **You cannot move your managed domain to a different virtual network after you enable Azure AD Domain Services.** Pick the right virtual network to enable your managed domain. After you create a managed domain, you cannot move it to a different virtual network, without deleting the managed domain. We recommend reviewing the [networking considerations for Azure Active Directory Domain Services](active-directory-ds-networking.md) before you proceed.  
+  >
+
+4. **Create virtual network:** Click **Create new** to create a new virtual network. Use a dedicated subnet for Azure AD Domain Services. For example, create a subnet with the name 'DomainServices', making it easy for other administrators to understand what is deployed within the subnet. Click **OK** when you're done.
 
     ![Pick virtual network](./media/getting-started/domain-services-blade-network-pick-vnet.png)
 
-4. Click **Subnet** to pick the dedicated subnet in this virtual network, within which to enable your new managed domain. In the **Create subnet** blade, specify a name for the subnet, and click **OK** when you're done. For example, create a subnet with the name 'DomainServices', making it easy for other administrators to understand what is deployed within the subnet.
+  > [!WARNING]
+  > Make sure to pick an address space that is within the private IP address space. IP Addresses that you do not own that are in the public address space cause errors within Azure AD Domain Services.
+
+5. **Existing virtual network:** If you plan to pick an existing virtual network, [create a dedicated subnet using the virtual networks extension](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet), and then pick that subnet. Click **Virtual Network** to select the existing virtual network. Click **Subnet** to pick the dedicated subnet in your existing virtual network, within which to enable your new managed domain. Click **OK** when you're done.
 
     ![Pick subnet within the virtual network](./media/getting-started/domain-services-blade-network-pick-subnet.png)
 
   > [!NOTE]
   > **Guidelines for selecting a subnet**
-  > 1. Do not select the Gateway subnet for deploying Azure AD Domain Services, because it is not a supported configuration.
-  2. Ensure that the subnet you've selected has sufficient available address space - at least 3-5 available IP addresses.
+  > 1. Use a dedicated subnet for Azure AD Domain Services. Do not deploy any other virtual machines to this subnet. This configuration enables you to configure network security groups (NSGs) for your workloads/virtual machines without disrupting your managed domain. For details, see [networking considerations for Azure Active Directory Domain Services](active-directory-ds-networking.md).
+  2. Do not select the Gateway subnet for deploying Azure AD Domain Services, because it is not a supported configuration.
+  3. The subnet you've selected must have at least 3-5 available IP addresses in its address space.
   >
 
-5. When you are done, click **OK** to move on to the **Administrator group** page of the wizard.
+6. When you are done, click **OK** to proceed to the **Administrator group** page of the wizard.
 
 
 ## Next step

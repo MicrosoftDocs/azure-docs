@@ -3,8 +3,8 @@ title: Troubleshoot an object that is not synchronizing to Azure AD | Microsoft 
 description: Troubleshoot why an object is not synchronizing to Azure AD.
 services: active-directory
 documentationcenter: ''
-author: andkjell
-manager: femila
+author: billmath
+manager: mtillman
 editor: ''
 
 ms.assetid:
@@ -13,12 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 08/10/2018
+ms.component: hybrid
 ms.author: billmath
 ---
 # Troubleshoot an object that is not synchronizing to Azure AD
 
 If an object is not synchronizing as expected to Azure AD, then it can be because of several reasons. If you have received an error email from Azure AD or you see the error in Azure AD Connect Health, then read [troubleshoot export errors](active-directory-aadconnect-troubleshoot-sync-errors.md) instead. But if you are troubleshooting a problem where the object is not in Azure AD, then this topic is for you. It describes how to find errors in the on-premises component Azure AD Connect sync.
+
+>[!IMPORTANT]
+>For Azure Active Directory (AAD) Connect deployment with version 1.1.749.0 or higher, use the [troubleshooting task](active-directory-aadconnect-troubleshoot-objectsync.md) in the wizard to troubleshoot object synchronization issues. 
 
 To find the errors, you are going to look at a few different places in the following order:
 
@@ -32,7 +36,7 @@ Start [Synchronization Service Manager](active-directory-aadconnectsync-service-
 The operations tab in the Synchronization Service Manager is where you should start your troubleshooting. The operations tab shows the results from the most recent operations.  
 ![Sync Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/operations.png)  
 
-The top half shows all runs in chronic order. By default, the operations log keeps information about the last seven days, but this setting can be changed with the [scheduler](active-directory-aadconnectsync-feature-scheduler.md). You want to look for any run that does not show a success status. You can change the sorting by clicking the headers.
+The top half shows all runs in chronological order. By default, the operations log keeps information about the last seven days, but this setting can be changed with the [scheduler](active-directory-aadconnectsync-feature-scheduler.md). You want to look for any run that does not show a success status. You can change the sorting by clicking the headers.
 
 The **Status** column is the most important information and shows the most severe problem for a run. Here is a quick summary of the most common statuses in order of priority to investigate (where * indicate several possible error strings).
 
@@ -74,7 +78,7 @@ If you do not find the object you are looking for, then it might have been filte
 
 Another useful search is to select the Azure AD Connector, in **Scope** select **Pending Import**, and select the **Add** checkbox. This search gives you all synchronized objects in Azure AD that cannot be associated with an on-premises object.  
 ![Connector Space search orphan](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/cssearchorphan.png)  
-Those objects have been created by another sync engine or a sync engine with a different filtering configuration. This view is a list of **orphan** objects no longer managed. You should review this list and consider removing these objects using the [Azure AD PowerShell](http://aka.ms/aadposh) cmdlets.
+Those objects have been created by another sync engine or a sync engine with a different filtering configuration. This view is a list of **orphan** objects no longer managed. You should review this list and consider removing these objects using the [Azure AD PowerShell](https://aka.ms/aadposh) cmdlets.
 
 ### CS Import
 When you open a cs object, there are several tabs at the top. The **Import** tab shows the data that is staged after an import.  
@@ -103,7 +107,7 @@ You can inspect the object and which rule applied for a particular attribute flo
 ![Sync Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/previewresult.png)
 
 ### Log
-The Log page is used to see the password sync status and history. For more information, see [Troubleshoot password synchronization](active-directory-aadconnectsync-troubleshoot-password-synchronization.md).
+The Log page is used to see the password sync status and history. For more information, see [Troubleshoot password hash synchronization](active-directory-aadconnectsync-troubleshoot-password-hash-synchronization.md).
 
 ## Metaverse object properties
 It is usually better to start searching from the source Active Directory [connector space](#connector-space). But you can also start searching from the metaverse.
@@ -132,7 +136,7 @@ You should have a connector to:
 - Each Active Directory forest the user is represented in. This representation can include foreignSecurityPrincipals and Contact objects.
 - A connector in Azure AD.
 
-If you are missing the connector to Azure AD, then read [MV attributes](#MV-attributes) to verify the criteria for being provisioned to Azure AD.
+If you are missing the connector to Azure AD, then read [MV attributes](#mv-attributes) to verify the criteria for being provisioned to Azure AD.
 
 This tab also allows you to navigate to the [connector space object](#connector-space-object-properties). Select a row and click **Properties**.
 

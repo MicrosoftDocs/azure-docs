@@ -2,8 +2,8 @@
 title: Offline Data Sync in Azure Mobile Apps | Microsoft Docs
 description: Conceptual reference and overview of the offline data sync feature for Azure Mobile Apps
 documentationcenter: windows
-author: adrianhall
-manager: adrianha
+author: conceptdev
+manager: crdun
 editor: ''
 services: app-service\mobile
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 10/30/2016
-ms.author: adrianha
+ms.author: crdun
 
 ---
 # Offline Data Sync in Azure Mobile Apps
@@ -62,7 +62,7 @@ A local store is the data persistence layer on the client device. The Azure Mobi
 default local store implementation. On Windows, Xamarin and Android, it is based on SQLite. On iOS, it is based
 on Core Data.
 
-To use the SQLite-based implementation on Windows Phone or Windows Store 8.1, you need to install a SQLite
+To use the SQLite-based implementation on Windows Phone or Microsoft Store, you need to install a SQLite
 extension. For more information, see [Universal Windows Platform: Enable offline sync]. Android and iOS ship
 with a version of SQLite in the device operating system itself, so it is not necessary to reference your own
 version of SQLite.
@@ -137,5 +137,5 @@ the local store is populated with new data only when there is a call to *pull* d
 [Android: Enable offline sync]: app-service-mobile-android-get-started-offline-data.md
 [iOS: Enable offline sync]: app-service-mobile-ios-get-started-offline-data.md
 [Xamarin iOS: Enable offline sync]: app-service-mobile-xamarin-ios-get-started-offline-data.md
-[Xamarin Android: Enable offline sync]: app-service-mobile-xamarin-ios-get-started-offline-data.md
+[Xamarin Android: Enable offline sync]: app-service-mobile-xamarin-android-get-started-offline-data.md
 [Universal Windows Platform: Enable offline sync]: app-service-mobile-windows-store-dotnet-get-started-offline-data.md

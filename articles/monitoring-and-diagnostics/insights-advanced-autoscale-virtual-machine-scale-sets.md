@@ -1,20 +1,13 @@
 ---
-title: Advanced Autoscale using Azure Virtual Machines | Microsoft Docs
+title: Advanced Autoscale using Azure Virtual Machines
 description: Uses Resource Manager and VM Scale Sets with multiple rules and profiles which send email and call webhook URLs with scale actions.
-author: kamathashwin
-manager: carmonm
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 7e3576e2-4a2b-4736-b5ae-98c4689cdd2b
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+author: anirudhcavale
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 02/22/2016
-ms.author: ashwink
-
+ms.author: ancav
+ms.component: autoscale
 ---
 
 # Advanced autoscale configuration using Resource Manager templates for VM Scale Sets
@@ -197,7 +190,7 @@ In this walkthrough, we use [Azure Resource Explorer](https://resources.azure.co
             }
           }
     ```
-    For supported fields and their values, see [Autoscale REST API documentation](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Now your autoscale setting contains the three profiles explained previously.
+    For supported fields and their values, see [Autoscale REST API documentation](https://msdn.microsoft.com/library/azure/dn931928.aspx). Now your autoscale setting contains the three profiles explained previously.
 
 7. Finally, look at the Autoscale **notification** section. Autoscale notifications allow you to do three things when a scale-out or in action is successfully triggered.
    - Notify the admin and co-admins of your subscription

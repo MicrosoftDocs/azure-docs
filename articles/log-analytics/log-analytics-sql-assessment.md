@@ -1,9 +1,9 @@
 ---
 title: Optimize your SQL Server environment with Azure Log Analytics | Microsoft Docs
-description: With Azure Log Analytics, you can use the SQL Assessment solution to assess the risk and health of your SQL server environments on a regular interval.
+description: With Azure Log Analytics, you can use the SQL Health Check solution to assess the risk and health of your environments on a regular interval.
 services: log-analytics
 documentationcenter: ''
-author: bandersmsft
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: e297eb57-1718-4cfe-a241-b9e84b2c42ac
@@ -11,17 +11,17 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/07/2017
-ms.author: banders
-ms.custom: H1Hack27Feb2017
-
+ms.topic: conceptual
+ms.date: 01/19/2018
+ms.author: magoedte
+ms.component: na
 ---
-# Optimize your SQL Server environment with the SQL Assessment solution in Log Analytics
 
-![SQL Assessment symbol](./media/log-analytics-sql-assessment/sql-assessment-symbol.png)
+# Optimize your SQL environment with the SQL Server Health Check solution in Log Analytics
 
-You can use the SQL Assessment solution to assess the risk and health of your server environments on a regular interval. This article will help you install the solution so that you can take corrective actions for potential problems.
+![SQL Health Check symbol](./media/log-analytics-sql-assessment/sql-assessment-symbol.png)
+
+You can use the SQL Health Check solution to assess the risk and health of your server environments on a regular interval. This article will help you install the solution so that you can take corrective actions for potential problems.
 
 This solution provides a prioritized list of recommendations specific to your deployed server infrastructure. The recommendations are categorized across six focus areas which help you quickly understand the risk and take corrective action.
 
@@ -29,51 +29,54 @@ The recommendations made are based on the knowledge and experience gained by Mic
 
 You can choose focus areas that are most important to your organization and track your progress toward running a risk free and healthy environment.
 
-After you've added the solution and an assessment is completed, summary information for focus areas is shown on the **SQL Assessment** dashboard for the infrastructure in your environment. The following sections describe how to use the information on the **SQL Assessment** dashboard, where you can view and then take recommended actions for your SQL server infrastructure.
+After you've added the solution and an assessment is completed, summary information for focus areas is shown on the **SQL Health Check** dashboard for the infrastructure in your environment. The following sections describe how to use the information on the **SQL Health Check** dashboard, where you can view and then take recommended actions for your SQL Server infrastructure.
 
-![image of SQL Assessment tile](./media/log-analytics-sql-assessment/sql-assess-tile.png)
+![image of SQL Health Check tile](./media/log-analytics-sql-assessment/sql-healthcheck-summary-tile.png)
 
-![image of SQL Assessment dashboard](./media/log-analytics-sql-assessment/sql-assess-dash.png)
+![image of SQL Health Check dashboard](./media/log-analytics-sql-assessment/sql-healthcheck-dashboard-01.png)
 
-## Installing and configuring the solution
-SQL Assessment works with all currently supported versions of SQL Server for the Standard, Developer, and Enterprise editions.
+## Prerequisites
 
-Use the following information to install and configure the solution.
-
-* Agents must be installed on servers that have SQL Server installed.
-* The SQL Assessment solution requires a supported version of .NET Framework 4 installed on each computer that has an OMS agent.
-* In order to install the solution, the user must be an administrator or contributor to the Azure subscription when using the Azure portal. In addition, the user must be a member of the OMS workspace contributor or administrator role in the OMS portal.
-* When using the Operations Manager agent with SQL Assessment, you'll need to use an Operations Manager Run-As account. See [Operations Manager run-as accounts for OMS](#operations-manager-run-as-accounts-for-oms) below for more information.
+* The SQL Health Check solution requires a supported version of .NET Framework 4 installed on each computer that has the Microsoft Monitoring Agent (MMA) installed.  The MMA agent is used by System Center 2016 - Operations Manager and Operations Manager 2012 R2, and the Log Analytics service.  
+* The solution supports SQL Server version 2012, 2014, and 2016.
+* A Log Analytics workspace to add the SQL Health Check solution from the Azure marketplace in the Azure portal.  In order to install the solution, you must be an administrator or contributor in the Azure subscription.
 
   > [!NOTE]
-  > The MMA agent does not support Operations Manager Run-As accounts.
+  > After you've added the solution, the AdvisorAssessment.exe file is added to servers with agents. Configuration data is read and then sent to the Log Analytics service in the cloud for processing. Logic is applied to the received data and the cloud service records the data.
   >
   >
-* Add the SQL Assessment solution to your OMS workspace using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md). There is no further configuration required.
 
-> [!NOTE]
-> After you've added the solution, the AdvisorAssessment.exe file is added to servers with agents. Configuration data is read and then sent to the OMS service in the cloud for processing. Logic is applied to the received data and the cloud service records the data.
+To perform the health check against your SQL Server servers, they require an agent and connectivity to Log Analytics using one of the following supported methods:
 
-## SQL Assessment data collection details
-SQL Assessment collects WMI data, registry data, performance data, and SQL Server dynamic management view results using the agents that you have enabled.
+1. Install the [Microsoft Monitoring Agent (MMA)](log-analytics-windows-agent.md) if the server is not already monitored by System Center 2016 - Operations Manager or Operations Manager 2012 R2.
+2. If it is monitored with System Center 2016 - Operations Manager or Operations Manager 2012 R2 and the management group is not integrated with the Log Analytics service, the server can be multi-homed with Log Analytics to collect data and forward to the service and still be monitored by Operations Manager.  
+3. Otherwise, if your Operations Manager management group is integrated with the service, you need to add the domain controllers for data collection by the service following the steps under [add agent-managed computers](log-analytics-om-agents.md#connecting-operations-manager-to-log-analytics) after you enable the solution in your workspace.  
 
-The following table shows data collection methods for agents, whether Operations Manager (SCOM) is required, and how often data is collected by an agent.
+The agent on your SQL Server which reports to an Operations Manager management group, collects data, forwards to its assigned management server, and then is sent directly from a management server to the Log Analytics service.  The data is not written to the Operations Manager databases.  
 
-| platform | Direct Agent | SCOM agent | Azure Storage | SCOM required? | SCOM agent data sent via management group | collection frequency |
-| --- | --- | --- | --- | --- | --- | --- |
-| Windows |![Yes](./media/log-analytics-sql-assessment/oms-bullet-green.png) |![Yes](./media/log-analytics-sql-assessment/oms-bullet-green.png) |![No](./media/log-analytics-sql-assessment/oms-bullet-red.png) |![No](./media/log-analytics-sql-assessment/oms-bullet-red.png) |![Yes](./media/log-analytics-sql-assessment/oms-bullet-green.png) |7 days |
+If the SQL Server is monitored by Operations Manager, you need to configure an Operations Manager Run As account. See [Operations Manager run-as accounts for Log Analytics](#operations-manager-run-as-accounts-for-log-analytics) below for more information.
 
-## Operations Manager run-as accounts for OMS
-Log Analytics in OMS uses the Operations Manager agent and management group to collect and send data to the OMS service. OMS builds upon management packs for workloads to provide value-add services. Each workload requires workload-specific privileges to run management packs in a different security context, such as a domain account. You need to provide credential information by configuring an Operations Manager Run As account.
+## SQL Health Check data collection details
+SQL Health Check collects data from the following sources using the agent that you have enabled:
 
-Use the following information to set the Operations Manager run-as account for SQL Assessment.
+* Windows Management Instrumentation (WMI)
+* Registry
+* Performance counters
+* SQL Server dynamic management view results
 
-### Set the Run As account for SQL assessment
- If you are already using the SQL Server management pack, you should use that Run As account.
+Data is collected on the SQL Server and forwarded to Log Analytics every seven days.
+
+## Operations Manager run-as accounts for Log Analytics
+Log Analytics uses the Operations Manager agent and management group to collect and send data to the Log Analytics service. Log Analytics builds upon management packs for workloads to provide value-add services. Each workload requires workload-specific privileges to run management packs in a different security context, such as a domain user account. You need to provide credential information by configuring an Operations Manager Run As account.
+
+Use the following information to set the Operations Manager Run As account for SQL Health Check.
+
+### Set the Run As account for SQL Health Check
+ If you are already using the SQL Server management pack, you should use that Run As configuration.
 
 #### To configure the SQL Run As account in the Operations console
 > [!NOTE]
-> If you are using the OMS direct agent, rather than the SCOM agent, the management pack always runs in the security context of the Local System account. Skip steps 1-5 below, and run either the T-SQL or Powershell sample, specifying NT AUTHORITY\SYSTEM as the user name.
+> By default workflows in the management pack runs in the security context of the Local System account. If you are using the Microsoft Monitoring Agent connected directly to the service rather than reporting directly to an Operations Manager management group, skip steps 1-5 below and run either the T-SQL or PowerShell sample, specifying NT AUTHORITY\SYSTEM as the user name.
 >
 >
 
@@ -87,10 +90,10 @@ Use the following information to set the Operations Manager run-as account for S
    >
    >
 5. Click **Save**.
-6. Modify and then execute the following T-SQL sample on each SQL Server Instance to grant minimum permissions required to Run As Account to perform SQL Assessment. However, you don’t need to do this if a Run As Account is already part of the sysadmin server role on SQL Server Instances.
+6. Modify and then execute the following T-SQL sample on each SQL Server instance to grant minimum permissions required for the Run As Account to perform the health check. However, you don’t need to do this if a Run As Account is already part of the sysadmin server role on SQL Server instances.
 
 ```
----
+    ---
     -- Replace <UserName> with the actual user name being used as Run As Account.
     USE master
 
@@ -107,11 +110,11 @@ Use the following information to set the Operations Manager run-as account for S
     EXEC sp_msforeachdb N'USE [?]; CREATE USER [<UserName>] FOR LOGIN [<UserName>];'
 
 ```
+
 #### To configure the SQL Run As account using Windows PowerShell
 Open a PowerShell window and run the following script after you’ve updated it with your information:
 
 ```
-
     import-module OperationsManager
     New-SCOMManagementGroupConnection "<your management group name>"
 
@@ -150,62 +153,77 @@ Not necessarily. The recommendations are based on the knowledge and experiences 
 
 Every recommendation includes guidance about why it is important. You should use this guidance to evaluate whether implementing the recommendation is appropriate for you, given the nature of your IT services and the business needs of your organization.
 
-## Use assessment focus area recommendations
-Before you can use an assessment solution in OMS, you must have the solution installed. To read more about installing solutions, see [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md). After it is installed, you can view the summary of recommendations by using the SQL Assessment tile on the Overview page in OMS.
+## Use Health Check focus area recommendations
+Before you can use an assessment solution in Log Analytics, you must have the solution installed.  After it is installed, you can view the summary of recommendations by using the SQL Health Check tile on the solution page in the Azure portal.
 
 View the summarized compliance assessments for your infrastructure and then drill-into recommendations.
 
 ### To view recommendations for a focus area and take corrective action
-1. On the **Overview** page, click the **SQL Assessment** tile.
-2. On the **SQL Assessment** page, review the summary information in one of the focus area blades and then click one to view recommendations for that focus area.
-3. On any of the focus area pages, you can view the prioritized recommendations made for your environment. Click a recommendation under **Affected Objects** to view details about why the recommendation is made.  
-    ![image of SQL Assessment recommendations](./media/log-analytics-sql-assessment/sql-assess-focus.png)
-4. You can take corrective actions suggested in **Suggested Actions**. When the item has been addressed, later assessments will record that recommended actions were taken and your compliance score will increase. Corrected items appear as **Passed Objects**.
+1. Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+2. In the Azure portal, click **More services** found on the lower left-hand corner. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
+3. In the Log Analytics subscriptions pane, select a workspace and then click the **Overview** tile.  
+4. On the **Overview** page, click the **SQL Health Check** tile.
+5. On the **Health Check** page, review the summary information in one of the focus area blades and then click one to view recommendations for that focus area.
+6. On any of the focus area pages, you can view the prioritized recommendations made for your environment. Click a recommendation under **Affected Objects** to view details about why the recommendation is made.<br><br> ![image of SQL Health Check recommendations](./media/log-analytics-sql-assessment/sql-healthcheck-dashboard-02.png)<br>
+7. You can take corrective actions suggested in **Suggested Actions**. When the item has been addressed, later assessments will record that recommended actions were taken and your compliance score will increase. Corrected items appear as **Passed Objects**.
 
 ## Ignore recommendations
-If you have recommendations that you want to ignore, you can create a text file that OMS will use to prevent recommendations from appearing in your assessment results.
+If you have recommendations that you want to ignore, you can create a text file that Log Analytics will use to prevent recommendations from appearing in your assessment results.
 
 ### To identify recommendations that you will ignore
-1. Sign in to your workspace and open Log Search. Use the following query to list recommendations that have failed for computers in your environment.
+1. In the Azure portal on the Log Analytics workspace page for your selected workspace, click the **Log Search** tile.
+2. Use the following query to list recommendations that have failed for computers in your environment.
 
-   ```
-   Type=SQLAssessmentRecommendation RecommendationResult=Failed | select  Computer, RecommendationId, Recommendation | sort  Computer
-   ```
+    ```
+    Type=SQLAssessmentRecommendation RecommendationResult=Failed | select Computer, RecommendationId, Recommendation | sort Computer
+    ```
 
-   Here's a screen shot showing the Log Search query:
-   ![failed recommendations](./media/log-analytics-sql-assessment/sql-assess-failed-recommendations.png)
-2. Choose recommendations that you want to ignore. You’ll use the values for RecommendationId in the next procedure.
+    >[!NOTE]
+    > If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the above query would change to the following.
+    >
+    > `SQLAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
+
+    Here's a screen shot showing the Log Search query:<br><br> ![failed recommendations](./media/log-analytics-sql-assessment/sql-assess-failed-recommendations.png)<br>
+
+3. Choose recommendations that you want to ignore. You’ll use the values for RecommendationId in the next procedure.
 
 ### To create and use an IgnoreRecommendations.txt text file
 1. Create a file named IgnoreRecommendations.txt.
-2. Paste or type each RecommendationId for each recommendation that you want OMS to ignore on a separate line and then save and close the file.
-3. Put the file in the following folder on each computer where you want OMS to ignore recommendations.
+2. Paste or type each RecommendationId for each recommendation that you want Log Analytics to ignore on a separate line and then save and close the file.
+3. Put the file in the following folder on each computer where you want Log Analytics to ignore recommendations.
    * On computers with the Microsoft Monitoring Agent (connected directly or through Operations Manager) - *SystemDrive*:\Program Files\Microsoft Monitoring Agent\Agent
    * On the Operations Manager management server - *SystemDrive*:\Program Files\Microsoft System Center 2012 R2\Operations Manager\Server
+   * On the Operations Manager 2016 management server - *SystemDrive*:\Program Files\Microsoft System Center 2016\Operations Manager\Server
 
 ### To verify that recommendations are ignored
 1. After the next scheduled assessment runs, by default every 7 days, the specified recommendations are marked Ignored and will not appear on the assessment dashboard.
 2. You can use the following Log Search queries to list all the ignored recommendations.
 
-   ```
-   Type=SQLAssessmentRecommendation RecommendationResult=Ignored | select  Computer, RecommendationId, Recommendation | sort  Computer
-   ```
+    ```
+    Type=SQLAssessmentRecommendation RecommendationResult=Ignored | select Computer, RecommendationId, Recommendation | sort Computer
+    ```
+
+    >[!NOTE]
+    > If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the above query would change to the following.
+    >
+    > `SQLAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
+
 3. If you decide later that you want to see ignored recommendations, remove any IgnoreRecommendations.txt files, or you can remove RecommendationIDs from them.
 
-## SQL Assessment solution FAQ
-*How often does an assessment run?*
+## SQL Health Check solution FAQ
+*How often does a health check run?*
 
-* The assessment runs every 7 days.
+* The check runs every seven days.
 
-*Is there a way to configure how often the assessment runs?*
+*Is there a way to configure how often the check runs?*
 
 * Not at this time.
 
-*If another server is discovered after I’ve added the SQL assessment solution, will it be assessed?*
+*If another server is discovered after I’ve added the SQL Health Check solution, will it be checked?*
 
-* Yes, once it is discovered it is assessed from then on, every 7 days.
+* Yes, once it is discovered it is checked from then on, every seven days.
 
-*If a server is decommissioned, when will it be removed from the assessment?*
+*If a server is decommissioned, when will it be removed from the health check?*
 
 * If a server does not submit data for 3 weeks, it is removed.
 
@@ -235,11 +253,11 @@ If you have recommendations that you want to ignore, you can create a text file 
 
 *Why display only the top 10 recommendations?*
 
-* Instead of giving you an exhaustive overwhelming list of tasks, we recommend that you focus on addressing the prioritized recommendations first. After you address them, additional recommendations will become available. If you prefer to see the detailed list, you can view all recommendations using the OMS log search.
+* Instead of giving you an exhaustive overwhelming list of tasks, we recommend that you focus on addressing the prioritized recommendations first. After you address them, additional recommendations will become available. If you prefer to see the detailed list, you can view all recommendations using the Log Analytics log search.
 
 *Is there a way to ignore a recommendation?*
 
 * Yes, see [Ignore recommendations](#ignore-recommendations) section above.
 
 ## Next steps
-* [Search logs](log-analytics-log-searches.md) to view detailed SQL Assessment data and recommendations.
+* [Search logs](log-analytics-log-searches.md) to learn how to analyze detailed SQL Health Check data and recommendations.

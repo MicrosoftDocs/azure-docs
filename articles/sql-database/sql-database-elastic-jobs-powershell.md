@@ -1,23 +1,21 @@
-﻿---
+---
 title: Create and manage elastic jobs using PowerShell | Microsoft Docs
 description: PowerShell used to manage Azure SQL Database pools
 services: sql-database
-documentationcenter: ''
-manager: jhubbard
-author: ddove
-
-ms.assetid: 737d8d13-5632-4e18-9cb0-4d3b8a19e495
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 10/24/2016
-ms.author: ddove
+ms.topic: conceptual
+ms.date: 06/14/2018
+ms.author: sstein
 
 ---
 # Create and manage SQL Database elastic jobs using PowerShell (preview)
+
+
+[!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
+
 
 The PowerShell APIs for **Elastic Database jobs** (in preview), let you define a group of databases against which scripts will execute. This article shows how to create and manage **Elastic Database jobs** using PowerShell cmdlets. See [Elastic jobs overview](sql-database-elastic-jobs-overview.md). 
 
@@ -65,7 +63,6 @@ The following table lists out all the object types of **Elastic Database jobs** 
   <tr>
     <td>DACPAC</td>
     <td><a href="https://msdn.microsoft.com/library/ee210546.aspx">Data-tier application </a> package to be applied across databases.
-
     </td>
     <td>
     <p>Get-AzureSqlJobContent</p>
@@ -76,7 +73,6 @@ The following table lists out all the object types of **Elastic Database jobs** 
   <tr>
     <td>Database Target</td>
     <td>Database and server name pointing to an Azure SQL Database.
-
     </td>
     <td>
     <p>Get-AzureSqlJobTarget</p>
@@ -202,7 +198,7 @@ Open a connection to the Elastic Database jobs:
 ## Encrypted credentials within the Elastic Database jobs
 Database credentials can be inserted into the jobs *control database*  with its password encrypted. It is necessary to store credentials to enable jobs to be executed at a later time, (using job schedules).
 
-Encryption works through a certificate created as part of the installation script. The installation script creates and uploads the certificate into the Azure Cloud Service for decryption of the stored encrypted passwords. The Azure Cloud Service later stores the public key within the jobs *control database* which enables the PowerShell API or Azure Classic Portal interface to encrypt a provided password without requiring the certificate to be locally installed.
+Encryption works through a certificate created as part of the installation script. The installation script creates and uploads the certificate into the Azure Cloud Service for decryption of the stored encrypted passwords. The Azure Cloud Service later stores the public key within the jobs *control database* which enables the PowerShell API or Azure portal interface to encrypt a provided password without requiring the certificate to be locally installed.
 
 The credential passwords are encrypted and secure from users with read-only access to Elastic Database jobs objects. But it is possible for a malicious user with read-write access to Elastic Database Jobs objects to extract a password. Credentials are designed to be reused across job executions. Credentials are passed to target databases when establishing connections. There are currently no restrictions on the target databases used for each credential, malicious user could add a database target for a database under the malicious user's control. The user could subsequently start a job targeting this database to gain the credential's password.
 
@@ -482,7 +478,7 @@ Set the following variables to reflect the desired database information:
 
     $databaseName = "{Database Name}"
     $databaseServerName = "{Server Name}"
-    New-AzureSqlJobDatabaseTarget -DatabaseName $databaseName -ServerName $databaseServerName 
+    New-AzureSqlJobTarget -DatabaseName $databaseName -ServerName $databaseServerName 
 
 ## To create a custom database collection target
 Use the [**New-AzureSqlJobTarget**](/powershell/module/elasticdatabasejobs/new-azuresqljobtarget) cmdlet to define a custom database collection target to enable execution across multiple defined database targets. After creating a database group, databases can be associated with the custom collection target.
@@ -606,7 +602,7 @@ Use [Get-AzureSqlJobTrigger](/powershell/module/elasticdatabasejobs/get-azuresql
     Write-Output $jobTriggers
 
 ## To create a data-tier application (DACPAC) for execution across databases
-To create a DACPAC, see [Data-Tier applications](https://msdn.microsoft.com/library/ee210546.aspx). To deploy a DACPAC, use the [New-AzureSqlJobContent cmdlet](/powershell/module/elasticdatabasejobs/new-azuresqljobcontent). The DACPAC must be accessible to the service. It is recommended to upload a created DACPAC to Azure Storage and create a [Shared Access Signature](../storage/storage-dotnet-shared-access-signature-part-1.md) for the DACPAC.
+To create a DACPAC, see [Data-Tier applications](https://msdn.microsoft.com/library/ee210546.aspx). To deploy a DACPAC, use the [New-AzureSqlJobContent cmdlet](/powershell/module/elasticdatabasejobs/new-azuresqljobcontent). The DACPAC must be accessible to the service. It is recommended to upload a created DACPAC to Azure Storage and create a [Shared Access Signature](../storage/common/storage-dotnet-shared-access-signature-part-1.md) for the DACPAC.
 
     $dacpacUri = "{Uri}"
     $dacpacName = "{Dacpac Name}"

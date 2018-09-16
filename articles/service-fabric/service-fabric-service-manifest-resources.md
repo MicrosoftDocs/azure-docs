@@ -10,10 +10,10 @@ editor: ''
 ms.assetid: da36cbdb-6531-4dae-88e8-a311ab71520d
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 6/28/2017
+ms.date: 2/23/2018
 ms.author: subramar
 
 ---
@@ -30,6 +30,17 @@ When an endpoint resource is defined in the service manifest, Service Fabric ass
     <Endpoint Name="ServiceEndpoint1" Protocol="http"/>
     <Endpoint Name="ServiceEndpoint2" Protocol="http" Port="80"/>
     <Endpoint Name="ServiceEndpoint3" Protocol="https"/>
+  </Endpoints>
+</Resources>
+```
+
+If there are multiple code packages in a single service package, then the code package also needs to be referenced in the **Endpoints** section.  For example, if **ServiceEndpoint2a** and **ServiceEndpoint2b** are endpoints from the same service package referencing different code packages, the code package corresponding to each endpoint is clarified as follows:
+
+```xml
+<Resources>
+  <Endpoints>
+    <Endpoint Name="ServiceEndpoint2a" Protocol="http" Port="802" CodePackageRef="Code1"/>
+    <Endpoint Name="ServiceEndpoint2b" Protocol="http" Port="801" CodePackageRef="Code2"/>
   </Endpoints>
 </Resources>
 ```
@@ -91,7 +102,11 @@ The HTTPS protocol provides server authentication and is also used for encryptin
 > [!NOTE]
 > A service’s protocol cannot be changed during application upgrade. If it is changed during upgrade, it is a breaking change.
 > 
-> 
+
+> [!WARNING] 
+> When using HTTPS, do not use the same port and certificate for different service instances (independant of the application) deployed to the same node. Upgrading two different services using the same port in different application instances will result in an upgrade failure. For more information, see [Upgrading multiple applications with HTTPS endpoints
+](service-fabric-application-upgrade.md#upgrading-multiple-applications-with-https-endpoints).
+>
 
 Here is an example ApplicationManifest that you need to set for HTTPS. The thumbprint for your certificate must be provided. The EndpointRef is a reference to EndpointResource in ServiceManifest, for which you set the HTTPS protocol. You can add more than one EndpointCertificate.  
 
@@ -103,7 +118,7 @@ Here is an example ApplicationManifest that you need to set for HTTPS. The thumb
                      xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Parameters>
-    <Parameter Name="Stateful1_MinReplicaSetSize" DefaultValue="2" />
+    <Parameter Name="Stateful1_MinReplicaSetSize" DefaultValue="3" />
     <Parameter Name="Stateful1_PartitionCount" DefaultValue="1" />
     <Parameter Name="Stateful1_TargetReplicaSetSize" DefaultValue="3" />
   </Parameters>
@@ -124,7 +139,7 @@ Here is an example ApplicationManifest that you need to set for HTTPS. The thumb
 
          The attribute ServiceTypeName below must match the name defined in the imported ServiceManifest.xml file. -->
     <Service Name="Stateful1">
-      <StatefulService ServiceTypeName="Stateful1Type" TargetReplicaSetSize="[Stateful1_TargetReplicaSetSize]" MinReplicaSetSize="[Stateful1_MinReplicaSetSize]">
+      <StatefulService ServiceTypeName="Stateful1Type" TargetReplicaSetSize="[Stateful1_TargetReplicaSetSize]" MinReplicaSetSize="[Stateful1_ ]">
         <UniformInt64Partition PartitionCount="[Stateful1_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
       </StatefulService>
     </Service>
@@ -134,3 +149,67 @@ Here is an example ApplicationManifest that you need to set for HTTPS. The thumb
   </Certificates>
 </ApplicationManifest>
 ```
+
+For Linux clusters, the **MY** store defaults to the folder **/var/lib/sfcerts**.
+
+
+## Overriding Endpoints in ServiceManifest.xml
+
+In the ApplicationManifest add a ResourceOverrides section, which will be a sibling to ConfigOverrides section. In this section, you can specify the override for the Endpoints section in the resources section specified in the Service manifest. Overriding endpoints is supported in runtime 5.7.217/SDK 2.7.217 and higher.
+
+In order to override EndPoint in ServiceManifest using ApplicationParameters change the ApplicationManifest as following:
+
+In the ServiceManifestImport section, add a new section "ResourceOverrides".
+
+```xml
+<ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="Stateless1Pkg" ServiceManifestVersion="1.0.0" />
+    <ConfigOverrides />
+    <ResourceOverrides>
+      <Endpoints>
+        <Endpoint Name="ServiceEndpoint" Port="[Port]" Protocol="[Protocol]" Type="[Type]" />
+        <Endpoint Name="ServiceEndpoint1" Port="[Port1]" Protocol="[Protocol1] "/>
+      </Endpoints>
+    </ResourceOverrides>
+        <Policies>
+           <EndpointBindingPolicy CertificateRef="TestCert1" EndpointRef="ServiceEndpoint"/>
+        </Policies>
+  </ServiceManifestImport>
+```
+
+In the Parameters add below:
+
+```xml
+  <Parameters>
+    <Parameter Name="Port" DefaultValue="" />
+    <Parameter Name="Protocol" DefaultValue="" />
+    <Parameter Name="Type" DefaultValue="" />
+    <Parameter Name="Port1" DefaultValue="" />
+    <Parameter Name="Protocol1" DefaultValue="" />
+  </Parameters>
+```
+
+While deploying the application you can pass in these values as ApplicationParameters.  For example:
+
+```powershell
+PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -ApplicationTypeName "AppType" -ApplicationTypeVersion "1.0.0" -ApplicationParameter @{Port='1001'; Protocol='https'; Type='Input'; Port1='2001'; Protocol='http'}
+```
+
+Note: If the values provide for the ApplicationParameters is empty, we go back to the default value provided in the ServiceManifest for the corresponding EndPointName.
+
+For example:
+
+If in the ServiceManifest you specified
+
+```xml
+  <Resources>
+    <Endpoints>
+      <Endpoint Name="ServiceEndpoint1" Protocol="tcp"/>
+    </Endpoints>
+  </Resources>
+```
+
+And the Port1 and Protocol1 value for Application parameters is null or empty. The port is still decided by ServiceFabric. And the Protocol will tcp.
+
+Suppose you specify a wrong value. Like for Port you specified a string value "Foo" instead of an int.  New-ServiceFabricApplication command will fail with an error :
+The override parameter with name 'ServiceEndpoint1' attribute 'Port1' in section 'ResourceOverrides' is invalid. The value specified is 'Foo' and required is 'int'.

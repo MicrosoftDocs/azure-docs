@@ -4,7 +4,7 @@ description: This FAQ answers questions about Azure AD Connect Health. This FAQ 
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: samueld
+manager: mtillman
 editor: curtand
 ms.assetid: f1b851aa-54d7-4cb4-8f5c-60680e2ce866
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/18/2017
 ms.author: billmath
 ---
 # Azure AD Connect Health frequently asked questions
@@ -40,6 +40,7 @@ Note that the features provided by the service may differ based on the role and 
 * The first Connect Health Agent requires at least one Azure AD Premium license.
 * Each additional registered agent requires 25 additional Azure AD Premium licenses.
 * Agent count is equivalent to the total number of agents that are registered across all monitored roles (AD FS, Azure AD Connect, and/or AD DS).
+* AAD Connect Health licensing does not require you to assign the license to specific users. You only need to have the requisite number of valid licenses.
 
 Licensing information is also found on the [Azure AD Pricing page](https://aka.ms/aadpricing).
 
@@ -53,6 +54,18 @@ Example:
 | 4 | 76 | 1 AD FS server, 1 AD FS proxy, and 2 domain controllers |
 | 5 | 101 | 1 Azure AD Connect server, 1 AD FS server, 1 AD FS proxy, and 2 domain controllers |
 
+**Q: Does Azure AD Connect Health support Azure Germany Cloud?**
+
+Azure AD Connect Health is not supported in Germany Cloud except for the [sync errors report feature](active-directory-aadconnect-health-sync.md#object-level-synchronization-error-report-preview). 
+
+| Roles | Features | Supported in German Cloud |
+| ------ | --------------- | --- |
+| Connect Health for Sync | Monitoring / Insight / Alerts / Analysis | No |
+|  | Sync error report | Yes |
+| Connect Health for ADFS | Monitoring / Insight / Alerts / Analysis | No |
+| Connect Health for ADDS | Monitoring / Insight / Alerts / Analysis | No |
+
+To ensure the agent connectivity of Connect Health for sync, please configure the [installation requirement](active-directory-aadconnect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) accordingly.   
 
 ## Installation questions
 
@@ -118,12 +131,7 @@ The health agent can fail to register due to the following possible reasons:
 
 **Q: I am getting alerted that "Health Service data is not up to date." How do I troubleshoot the issue?**
 
-Azure AD Connect Health generates the alert when it does not receive all the data points from the server in the last two hours. There can be multiple reasons for this alert.
-
-* The agent cannot communicate with the required endpoints because a firewall is blocking traffic. This is particularly common on web application proxy servers. Make sure that you have allowed outbound communication to the required end points and ports. See the [requirements section](active-directory-aadconnect-health-agent-install.md#requirements) for details.
-* Outbound communication is subjected to an SSL inspection by the network layer. This causes the certificate that the agent uses to be replaced by the inspection server/entity, and the process fails to upload data to the Azure AD Connect Health service.
-* You can use the connectivity command built into the agent. [Read more](active-directory-aadconnect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service).
-* The agents also support outbound connectivity via an unauthenticated HTTP Proxy. [Read more](active-directory-aadconnect-health-agent-install.md##configure-azure-ad-connect-health-agents-to-use-http-proxy).
+Azure AD Connect Health generates the alert when it does not receive all the data points from the server in the last two hours. [Read more](active-directory-aadconnect-health-data-freshness.md).
 
 ## Operations questions
 **Q: Do I need to enable auditing on the web application proxy servers?**
@@ -170,6 +178,13 @@ CheckForMS17-010
 
 ```
 
+**Q: Why does the PowerShell cmdlet <i>Get-MsolDirSyncProvisioningError</i> show less sync errors in the result?**
+
+<i>Get-MsolDirSyncProvisioningError</i> will only return DirSync provisioning errors. Besides that, Connect Health portal also shows other sync error types such as export errors. This is consistent with Azure AD Connect delta result. Read more about [Azure AD Connect Sync errors](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-sync-errors).
+
+**Q: Why are my ADFS audits not being generated?**
+
+Please use PowerShell cmdlet <i>Get-AdfsProperties -AuditLevel</i> to ensure audit logs is not in disabled state. Read more about [ADFS audit logs](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016). Notice if there are advanced audit settings pushed to the ADFS server, any changes with auditpol.exe will be overwritten (event if Application Generated is not configured). In this case, please set the local security policy to log Application Generated failures and success. 
 
 
 ## Related links

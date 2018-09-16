@@ -1,21 +1,14 @@
 ---
-title: Use Script Action to install Solr on Hadoop cluster - Azure | Microsoft Docs
+title: Use Script Action to install Solr on Hadoop cluster - Azure 
 description: Learn how to customize HDInsight cluster with Solr using Script Action.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+ms.reviewer: jasonh
 
-ms.assetid: b1e6f338-8ac1-4b38-bbb5-2f7388b9de3b
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/05/2016
-ms.author: nitinme
+ms.author: jasonh
 ROBOTS: NOINDEX
 
 ---
@@ -24,7 +17,7 @@ ROBOTS: NOINDEX
 Learn how to customize Windows-based HDInsight cluster with Solr using Script Action, and how to use Solr to search data.
 
 > [!IMPORTANT]
-> The steps in this document only work with Windows-based HDInsight clusters. HDInsight is only available on Windows for versions lower than HDInsight 3.4. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date). For information on using Solr with a Linux-based cluster, see [Install and use Solr on HDinsight Hadoop clusters (Linux)](hdinsight-hadoop-solr-install-linux.md).
+> The steps in this document only work with Windows-based HDInsight clusters. HDInsight is only available on Windows for versions lower than HDInsight 3.4. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). For information on using Solr with a Linux-based cluster, see [Install and use Solr on HDinsight Hadoop clusters (Linux)](hdinsight-hadoop-solr-install-linux.md).
 
 
 You can install Solr on any type of cluster (Hadoop, Storm, HBase, Spark) on Azure HDInsight by using *Script Action*. A sample script to install Solr on an HDInsight cluster is available from a read-only Azure storage blob at [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
@@ -147,21 +140,27 @@ You must start with indexing Solr with some data files. You can then use Solr to
            http://localhost:8983/solr/replication?command=backup
 
        You should see a response like this:
-
-           <?xml version="1.0" encoding="UTF-8"?>
-           <response>
+            
+      ```xml
+      <?xml version="1.0" encoding="UTF-8"?>
+          <response>
              <lst name="responseHeader">
                <int name="status">0</int>
                <int name="QTime">9</int>
              </lst>
-             <str name="status">OK</str>
-           </response>
-   2. In the remote session, navigate to {SOLR_HOME}\{Collection}\data. For the cluster created via the sample script, this should be **C:\apps\dist\solr-4.7.2\example\solr\collection1\data**. At this location, you should see a snapshot folder created with a name similar to **snapshot.*timestamp***.
+            <str name="status">OK</str>
+          </response>
+      ```
+      
+   2. In the remote session, navigate to {SOLR_HOME}\{Collection}\data. For the cluster created via the sample script, this should be `C:\apps\dist\solr-4.7.2\example\solr\collection1\data`. At this location, you should see a snapshot folder created with a name similar to **snapshot.*timestamp***.
+   
    3. Zip the snapshot folder and upload it to Azure Blob storage. From the Hadoop command line, navigate to the location of the snapshot folder by using the following command:
 
-             hadoop fs -CopyFromLocal snapshot._timestamp_.zip /example/data
+      ```
+      hadoop fs -CopyFromLocal snapshot._timestamp_.zip /example/data
+      ```
 
-       This command copies the snapshot to /example/data/ under the container within the default Storage account associated with the cluster.
+   This command copies the snapshot to /example/data/ under the container within the default Storage account associated with the cluster.
 
 ## Install Solr using Aure PowerShell
 See [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).  The sample demonstrates how to install Spark using Azure PowerShell. You need to customize the script to use [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
@@ -175,11 +174,9 @@ See [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customiz
 * [Customize HDInsight cluster using Script Action][hdinsight-cluster-customize]: general information on customizing HDInsight clusters using Script Action.
 * [Develop Script Action scripts for HDInsight](hdinsight-hadoop-script-actions.md).
 * [Install and use Spark on HDInsight clusters][hdinsight-install-spark]: Script Action sample about installing Spark.
-* [Install R on HDInsight clusters][hdinsight-install-r]: Script Action sample about installing R.
 * [Install Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install.md): Script Action sample about installing Giraph.
 
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
 [hdinsight-provision]: hdinsight-provision-clusters.md
-[hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md

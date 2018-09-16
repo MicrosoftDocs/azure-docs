@@ -1,10 +1,10 @@
-﻿---
+---
 title: Download a Linux VHD from Azure | Microsoft Docs
 description: Download a Linux VHD using the Azure CLI and the Azure portal.
 services: virtual-machines-windows
 documentationcenter: ''
-author: davidmu1
-manager: timlt
+author: cynthn
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -14,15 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 06/26/2017
-ms.author: davidmu
+ms.date: 06/01/2018
+ms.author: cynthn
 ---
 
 # Download a Linux VHD from Azure
 
-In this article, you learn how to download a [Linux virtual hard disk (VHD)](../../storage/storage-about-disks-and-vhds-linux.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) file from Azure using the Azure CLI and Azure portal. 
-
-Virtual machines (VMs) in Azure use [disks](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) as a place to store an operating system, applications, and data. All Azure VMs have at least two disks – a Windows operating system disk and a temporary disk. The operating system disk is initially created from an image, and both the operating system disk and the image are VHDs stored in an Azure storage account. Virtual machines also can have one or more data disks, that are also stored as VHDs.
+In this article, you learn how to download a [Linux virtual hard disk (VHD)](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) file from Azure using the Azure CLI and Azure portal. 
 
 If you haven't already done so, install [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2).
 
@@ -32,15 +30,15 @@ A VHD can’t be downloaded from Azure if it's attached to a running VM. You nee
 
 To use the VHD as an image to create other VMs, complete these steps:
 
-1. Use SSH, the account name, and the public IP address of the VM to connect to it and deprovision it. The +user parameter also removes the last provisioned user account. If you are baking account credentials in to the VM, leave out this +user parameter. The following example removes the last provisioned user account:
+1. Use SSH, the account name, and the public IP address of the VM to connect to it and deprovision it. You can find the public IP address with [az network public-ip show](https://docs.microsoft.com/cli/azure/network/public-ip#az-network-public-ip-show). The +user parameter also removes the last provisioned user account. If you are baking account credentials in to the VM, leave out this +user parameter. The following example removes the last provisioned user account:
 
     ```bash
-    ssh azureuser@40.118.249.235
+    ssh azureuser@<publicIpAddress>
     sudo waagent -deprovision+user -force
     exit 
     ```
 
-2. Sign in to your Azure account with [az login](https://docs.microsoft.com/cli/azure/#login).
+2. Sign in to your Azure account with [az login](https://docs.microsoft.com/cli/azure/reference-index#az_login).
 3. Stop and deallocate the VM.
 
     ```azurecli
@@ -64,7 +62,7 @@ To use the VHD as a disk for a new instance of an existing VM or data disk, comp
 
 ## Generate SAS URL
 
-To download the VHD file, you need to generate a [shared access signature (SAS)](../../storage/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) URL. When the URL is generated, an expiration time is assigned to the URL.
+To download the VHD file, you need to generate a [shared access signature (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) URL. When the URL is generated, an expiration time is assigned to the URL.
 
 1.	On the menu of the blade for the VM, click **Disks**.
 2.	Select the operating system disk for the VM, and then click **Export**.

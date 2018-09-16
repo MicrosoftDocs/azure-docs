@@ -1,9 +1,9 @@
----
+﻿---
 title: Monitor Docker applications in Azure Application Insights | Microsoft Docs
 description: Docker perf counters, events and exceptions can be displayed on Application Insights, along with the telemetry from the containerized apps.
 services: application-insights
 documentationcenter: ''
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: 27a3083d-d67f-4a07-8f3c-4edb65a0a685
@@ -11,13 +11,13 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2017
-ms.author: cfreeman
+ms.author: mbullwin
 
 ---
 # Monitor Docker applications in Application Insights
-Lifecycle events and performance counters from [Docker](https://www.docker.com/) containers can be charted on Application Insights. Install the [Application Insights](app-insights-overview.md) image in a container in your host, and it will display performance counters for the host, as well as for the other images.
+Lifecycle events and performance counters from [Docker](https://www.docker.com/) containers can be charted on Application Insights. Install the [Application Insights](https://hub.docker.com/r/microsoft/applicationinsights/) image in a container in your host, and it will display performance counters for the host, as well as for the other images.
 
 With Docker, you distribute your apps in lightweight containers complete with all dependencies. They'll run on any host machine that runs a Docker Engine.
 
@@ -40,6 +40,10 @@ When you run the [Application Insights image](https://hub.docker.com/r/microsoft
 2. Add the Docker tile: Choose **Add Tile**, drag the Docker tile from the gallery, and then click **Done**. 
    
     ![example](./media/app-insights-docker/03.png)
+
+> [!NOTE]
+> The overview pane in Application Insights is now locked and doesn't allow adding tiles from the gallery. You can still add the Docker tile as described above via the Azure Dashboard interface.
+
 3. Click the **Essentials** drop-down and copy the Instrumentation Key. You use this to tell the SDK where to send its telemetry.
 
     ![example](./media/app-insights-docker/02-props.png)

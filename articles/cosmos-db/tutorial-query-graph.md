@@ -2,26 +2,24 @@
 title: How to query graph data in Azure Cosmos DB? | Microsoft Docs
 description: Learn to query graph data in Azure Cosmos DB
 services: cosmos-db
-documentationcenter: ''
-author: mimig1
-manager: jhubbard
+author: luisbosquez
+manager: kfile
 editor: ''
 tags: ''
 
-ms.assetid: 8bde5c80-581c-4f70-acb4-9578873c92fa
 ms.service: cosmos-db
+ms.component: cosmosdb-graph
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: ''
-ms.date: 05/10/2017
-ms.author: mimig
+ms.topic: tutorial
+ms.date: 01/02/2018
+ms.author: lbosq
+ms.custom: mvc
 
 ---
 
-# Azure Cosmos DB: How to query with the Graph API (preview)?
+# Tutorial: Query Azure Cosmos DB Gremlin API by using Gremlin
 
-The Azure Cosmos DB [Graph API](graph-introduction.md) (preview) supports [Gremlin](https://docs.mongodb.com/manual/tutorial/query-documents/) queries. This article provides sample documents and queries to get you started. A detailed Gremlin reference is provided in the [Gremlin support](gremlin-support.md) article.
+The Azure Cosmos DB [Gremlin API](graph-introduction.md) supports [Gremlin](https://github.com/tinkerpop/gremlin/wiki) queries. This article provides sample documents and queries to get you started. A detailed Gremlin reference is provided in the [Gremlin support](gremlin-support.md) article.
 
 This article covers the following tasks: 
 
@@ -30,7 +28,7 @@ This article covers the following tasks:
 
 ## Prerequisites
 
-For these queries to work, you must have an Azure Cosmos DB account and have graph data in the container. Don't have any of those? Complete the [5-minute quickstart](create-graph-dotnet.md) or the [developer tutorial](tutorial-query-graph.md) to create an account and populate your database. You can run the following queries using the [Azure Cosmos DB .NET graph library](graph-sdk-dotnet.md), [Gremlin console](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console), or your favorite Gremlin driver.
+For these queries to work, you must have an Azure Cosmos DB account and have graph data in the container. Don't have any of those? Complete the [5-minute quickstart](create-graph-dotnet.md) or the [developer tutorial](tutorial-query-graph.md) to create an account and populate your database. You can run the following queries using the [Gremlin console](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console), or your favorite Gremlin driver.
 
 ## Count vertices in the graph
 
@@ -79,7 +77,8 @@ In this tutorial, you've done the following:
 > [!div class="checklist"]
 > * Learned how to query using Graph 
 
-You can now proceed to the next tutorial to learn how to distribute your data globally.
+You can now proceed to the Concepts section for more information about Cosmos DB.
 
 > [!div class="nextstepaction"]
-> [Distribute your data globally](tutorial-global-distribution-documentdb.md)
+> [Global distribution](distribute-data-globally.md) 
+

@@ -1,25 +1,16 @@
 ---
 title: "Azure Analysis Services tutorial lesson 5: Create calculated columns | Microsoft Docs"
 description: Describes how to create calculated columns in the Azure Analysis Services tutorial project. 
-services: analysis-services
-documentationcenter: ''
 author: minewiskan
-manager: erikre
-editor: ''
-tags: ''
-
-ms.assetid: 
-ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 06/01/2017
+manager: kfile
+ms.service: azure-analysis-services
+ms.topic: conceptual
+ms.date: 07/03/2018
 ms.author: owend
----
-# Lesson 5: Create calculated columns
+ms.reviewer: minewiskan
 
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+---
+# Create calculated columns
 
 In this lesson, you create data in your model by adding calculated columns. You can create calculated columns (as custom columns) when using Get Data, by using the Query Editor, or later in the model designer like you do here. To learn more, see [Calculated columns](https://docs.microsoft.com/sql/analysis-services/tabular-models/ssas-calculated-columns).
   

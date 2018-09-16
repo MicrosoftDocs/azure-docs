@@ -3,8 +3,8 @@ title: Use Docker Machine to create Linux hosts in Azure | Microsoft Docs
 description: Describes how to use Docker Machine to create Docker hosts in Azure.
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
-manager: timlt
+author: cynthn
+manager: jeconnoc
 editor: tysonn
 
 ms.assetid: 164b47de-6b17-4e29-8b7d-4996fa65bea4
@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/19/2017
-ms.author: iainfou
+ms.date: 12/15/2017
+ms.author: cynthn
 
 ---
 # How to use Docker Machine to create hosts in Azure
-This article details how to use [Docker Machine](https://docs.docker.com/machine/) to create hosts in Azure. The `docker-machine` command creates a Linux virtual machine (VM) in Azure then installs Docker. You can then manage your Docker hosts in Azure using the same local tools and workflows.
+This article details how to use [Docker Machine](https://docs.docker.com/machine/) to create hosts in Azure. The `docker-machine` command creates a Linux virtual machine (VM) in Azure then installs Docker. You can then manage your Docker hosts in Azure using the same local tools and workflows. To use docker-machine in Windows 10, you must use Linux bash.
 
 ## Create VMs with Docker Machine
-First, obtain your Azure subscription ID with [az account show](/cli/azure/account#show) as follows:
+First, obtain your Azure subscription ID with [az account show](/cli/azure/account#az_account_show) as follows:
 
 ```azurecli
 sub=$(az account show --query "id" -o tsv)
@@ -29,13 +29,14 @@ sub=$(az account show --query "id" -o tsv)
 
 You create Docker host VMs in Azure with `docker-machine create` by specifying *azure* as the driver. For more information, see the [Docker Azure Driver documentation](https://docs.docker.com/machine/drivers/azure/)
 
-The following example creates a VM named *myVM*, creates a user account named *azureuser*, and opens port *80* on the host VM. Follow any prompts to log in to your Azure account and grant Docker Machine permissions to create and manage resources.
+The following example creates a VM named *myVM*, based on "Standard D2 v2" plan, creates a user account named *azureuser*, and opens port *80* on the host VM. Follow any prompts to log in to your Azure account and grant Docker Machine permissions to create and manage resources.
 
 ```bash
 docker-machine create -d azure \
     --azure-subscription-id $sub \
     --azure-ssh-user azureuser \
     --azure-open-port 80 \
+    --azure-size "Standard_DS2_v2" \
     myvm
 ```
 
@@ -45,19 +46,19 @@ The output looks similar to the following example:
 Creating CA: /Users/user/.docker/machine/certs/ca.pem
 Creating client certificate: /Users/user/.docker/machine/certs/cert.pem
 Running pre-create checks...
-(myvmdocker) Completed machine pre-create checks.
+(myvm) Completed machine pre-create checks.
 Creating machine...
-(myvmdocker) Querying existing resource group.  name="docker-machine"
-(myvmdocker) Creating resource group.  name="docker-machine" location="westus"
-(myvmdocker) Configuring availability set.  name="docker-machine"
-(myvmdocker) Configuring network security group.  name="myvmdocker-firewall" location="westus"
-(myvmdocker) Querying if virtual network already exists.  rg="docker-machine" location="westus" name="docker-machine-vnet"
-(myvmdocker) Creating virtual network.  name="docker-machine-vnet" rg="docker-machine" location="westus"
-(myvmdocker) Configuring subnet.  name="docker-machine" vnet="docker-machine-vnet" cidr="192.168.0.0/16"
-(myvmdocker) Creating public IP address.  name="myvmdocker-ip" static=false
-(myvmdocker) Creating network interface.  name="myvmdocker-nic"
-(myvmdocker) Creating storage account.  sku=Standard_LRS name="vhdski0hvfazyd8mn991cg50" location="westus"
-(myvmdocker) Creating virtual machine.  location="westus" size="Standard_A2" username="azureuser" osImage="canonical:UbuntuServer:16.04.0-LTS:latest" name="myvmdocker"
+(myvm) Querying existing resource group.  name="docker-machine"
+(myvm) Creating resource group.  name="docker-machine" location="westus"
+(myvm) Configuring availability set.  name="docker-machine"
+(myvm) Configuring network security group.  name="myvm-firewall" location="westus"
+(myvm) Querying if virtual network already exists.  rg="docker-machine" location="westus" name="docker-machine-vnet"
+(myvm) Creating virtual network.  name="docker-machine-vnet" rg="docker-machine" location="westus"
+(myvm) Configuring subnet.  name="docker-machine" vnet="docker-machine-vnet" cidr="192.168.0.0/16"
+(myvm) Creating public IP address.  name="myvm-ip" static=false
+(myvm) Creating network interface.  name="myvm-nic"
+(myvm) Creating storage account.  sku=Standard_LRS name="vhdski0hvfazyd8mn991cg50" location="westus"
+(myvm) Creating virtual machine.  location="westus" size="Standard_A2" username="azureuser" osImage="canonical:UbuntuServer:16.04.0-LTS:latest" name="myvm
 Waiting for machine to be running, this may take a few minutes...
 Detecting operating system of created instance...
 Waiting for SSH to be available...
@@ -69,14 +70,14 @@ Copying certs to the remote machine...
 Setting Docker configuration on the remote daemon...
 Checking connection to Docker...
 Docker is up and running!
-To see how to connect your Docker Client to the Docker Engine running on this virtual machine, run: docker-machine env myvmdocker
+To see how to connect your Docker Client to the Docker Engine running on this virtual machine, run: docker-machine env myvm
 ```
 
 ## Configure your Docker shell
 To connect to your Docker host in Azure, define the appropriate connection settings. As noted at the end of the output, view the connection information for your Docker host as follows: 
 
 ```bash
-docker-machine env myvmdocker
+docker-machine env myvm
 ```
 
 The output is similar to the following example:
@@ -87,10 +88,10 @@ export DOCKER_HOST="tcp://40.68.254.142:2376"
 export DOCKER_CERT_PATH="/Users/user/.docker/machine/machines/machine"
 export DOCKER_MACHINE_NAME="machine"
 # Run this command to configure your shell:
-# eval $(docker-machine env myvmdocker)
+# eval $(docker-machine env myvm)
 ```
 
-To define the connection settings you can either run the suggested configuration command (`eval $(docker-machine env myvmdocker)`), or you can set the environment variables manually. 
+To define the connection settings, you can either run the suggested configuration command (`eval $(docker-machine env myvm)`), or you can set the environment variables manually. 
 
 ## Run a container
 To see a container in action, lets run a basic NGINX webserver. Create a container with `docker run` and expose port 80 for web traffic as follows:
@@ -124,7 +125,7 @@ Obtain the public IP address of Docker host as follows:
 
 
 ```bash
-docker-machine ip myvmdocker
+docker-machine ip myvm
 ```
 
 To see the container in action, open a web browser and enter the public IP address noted in the output of the preceding command:

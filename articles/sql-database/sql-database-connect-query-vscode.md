@@ -1,43 +1,34 @@
 ---
 title: 'VS Code: Connect and query data in Azure SQL Database | Microsoft Docs'
 description: Learn how to connect to SQL Database on Azure by using Visual Studio Code. Then, run Transact-SQL (T-SQL) statements to query and edit data.
-metacanonical: ''
 keywords: connect to sql database
 services: sql-database
-documentationcenter: ''
 author: CarlRabeler
-manager: jhubbard
-editor: ''
-
-ms.assetid: 676bd799-a571-4bb8-848b-fb1720007866
+manager: craigg
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: hero-article
-ms.date: 06/20/2017
+ms.topic: quickstart
+ms.date: 04/01/2018
 ms.author: carlrab
-
 ---
 # Azure SQL Database: Use Visual Studio Code to connect and query data
 
-[Visual Studio Code](https://code.visualstudio.com/docs) is a graphical code editor for Linux, macOS, and Windows that supports extensions, including the [mssql extension](https://aka.ms/mssql-marketplace) for querying Microsoft SQL Server, Azure SQL Database, and SQL Data Warehouse. This quick start demonstrates how to use Visual Studio Code to connect to an Azure SQL database, and then use Transact-SQL statements to query, insert, update, and delete data in the database.
+[Visual Studio Code](https://code.visualstudio.com/docs) is a graphical code editor for Linux, macOS, and Windows that supports extensions, including the [mssql extension](https://aka.ms/mssql-marketplace) for querying Microsoft SQL Server, Azure SQL Database, and SQL Data Warehouse. This quickstart demonstrates how to use Visual Studio Code to connect to an Azure SQL database, and then use Transact-SQL statements to query, insert, update, and delete data in the database.
 
 ## Prerequisites
 
-This quick start uses as its starting point the resources created in one of these quick starts:
+This quickstart uses as its starting point the resources created in one of these quickstarts:
 
-- [Create DB - Portal](sql-database-get-started-portal.md)
-- [Create DB - CLI](sql-database-get-started-cli.md)
-- [Create DB - PowerShell](sql-database-get-started-powershell.md)
+[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
+
+#### Install VS Code
 
 Before you start, make sure you have installed the newest version of [Visual Studio Code](https://code.visualstudio.com/Download) and loaded the [mssql extension](https://aka.ms/mssql-marketplace). For installation guidance for the mssql extension, see [Install VS Code](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-vs-code) and see [mssql for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql). 
 
 ## Configure VS Code 
 
 ### **Mac OS**
-For macOS, you need to install OpenSSL which is a prerequiste for DotNet Core that mssql extention uses. Open your terminal and enter the following commands to install **brew** and **OpenSSL**. 
+For macOS, you need to install OpenSSL which is a prerequiste for .Net Core that mssql extention uses. Open your terminal and enter the following commands to install **brew** and **OpenSSL**. 
 
 ```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -56,17 +47,11 @@ No special configuration needed.
 
 No special configuration needed.
 
-## Get connection information
+## SQL server connection information
 
 Get the connection information needed to connect to the Azure SQL database. You will need the fully qualified server name, database name, and login information in the next procedures.
 
-1. Log in to the [Azure portal](https://portal.azure.com/).
-2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
-3. On the **Overview** page for your database, review the fully qualified server name as shown in the following image. You can hover over the server name to bring up the **Click to copy** option.
-
-   ![connection information](./media/sql-database-get-started-portal/server-name.png) 
-
-4. If you have forgotten the login information for your Azure SQL Database server, navigate to the SQL Database server page to view the server admin name and, if necessary, reset the password. 
+[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
 ## Set language mode to SQL
 
@@ -172,7 +157,7 @@ Use the following code to update the new product that you previously added using
 
 ## Delete data
 
-Use the following code to delete the new product that you previously added using the [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL statement.
+Use the following code to delete the new product that you previously added using the [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql) Transact-SQL statement.
 
 1. In the **Editor** window, delete the previous query and enter the following query:
 
@@ -186,4 +171,5 @@ Use the following code to delete the new product that you previously added using
 ## Next steps
 
 - To connect and query using SQL Server Management Studio, see [Connect and query with SSMS](sql-database-connect-query-ssms.md).
+- To connect and query using the Azure portal, see [Connect and query with the Azure portal SQL query editor](sql-database-connect-query-portal.md).
 - For an MSDN magazine article on using Visual Studio Code, see [Create a database IDE with MSSQL extension blog post](https://msdn.microsoft.com/magazine/mt809115).

@@ -3,18 +3,18 @@ title: Azure AD Connect and federation | Microsoft Docs
 description: This page is the central location for all documentation regarding AD FS operations that use Azure AD Connect.
 services: active-directory
 documentationcenter: ''
-author: anandyadavmsft
-manager: femila
+author: billmath
+manager: mtillman
 editor: ''
-
 ms.assetid: f9107cf5-0131-499a-9edf-616bf3afef4d
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/9/2016
-ms.author: anandy
+ms.date: 11/02/2017
+ms.component: hybrid
+ms.author: billmath
 
 ---
 # Azure AD Connect and federation
@@ -37,6 +37,7 @@ This topic is the home for information on federation-related functionalities for
 | [Add a new AD FS WAP server](active-directory-aadconnect-federation-management.md#addwapserver) |Expand an AD FS farm with an additional Web Application Proxy (WAP) server after initial installation. |
 | [Add a new federated domain](active-directory-aadconnect-federation-management.md#addfeddomain) |Add another domain to be federated with Azure AD. |
 | [Update the SSL certificate](active-directory-aadconnectfed-ssl-update.md)| Update the SSL certificate for an AD FS farm. |
+| [Renew federation certificates for Office 365 and Azure AD](active-directory-aadconnect-o365-certs.md)|Renew your O365 certificate with Azure AD.|
 | **Other federation configuration** | |
 | [Federate multiple instances of Azure AD with single instance of AD FS](active-directory-aadconnectfed-single-adfs-multitenant-federation.md) | Federate multiple Azure AD with single AD FS farm| 
 | [Add a custom company logo/illustration](active-directory-aadconnect-federation-management.md#customlogo) |Modify the sign-in experience by specifying the custom logo that is shown on the AD FS sign-in page. |

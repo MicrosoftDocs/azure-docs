@@ -3,7 +3,7 @@ title: How to use Azure Service Bus topics with Java | Microsoft Docs
 description: Use Service Bus topics and subscriptions in Azure.
 services: service-bus-messaging
 documentationcenter: java
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -13,15 +13,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 06/28/2017
-ms.author: sethm
+ms.date: 10/17/2017
+ms.author: spelluru
 
 ---
-# How to use Service Bus topics and subscriptions
+# How to use Service Bus topics and subscriptions with Java
+
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-This guide describes how to use Service Bus topics and subscriptions. The samples are written in Java and use the [Azure SDK for Java][Azure SDK for Java]. The scenarios covered include **creating topics and subscriptions**, **creating subscription filters**, **sending messages to a topic**, **receiving messages from a subscription**, and
-**deleting topics and subscriptions**.
+This guide describes how to use Service Bus topics and subscriptions. The samples are written in Java and use the [Azure SDK for Java][Azure SDK for Java]. The scenarios covered include **creating topics and subscriptions**, **creating subscription filters**, **sending messages to a topic**, **receiving messages from a subscription**, and **deleting topics and subscriptions**.
 
 ## What are Service Bus topics and subscriptions?
 Service Bus topics and subscriptions support a *publish/subscribe*
@@ -46,12 +46,12 @@ to filter/restrict which messages to a topic are received by which topic
 subscriptions.
 
 Service Bus topics and subscriptions enable you to scale to process a
-very large number of messages across a very large number of users and
+large number of messages across a large number of users and
 applications.
 
 ## Create a service namespace
 To begin using Service Bus topics and subscriptions in Azure,
-you must first create a namespace, which provides
+you must first create a *namespace*, which provides
 a scoping container for addressing Service Bus resources within your
 application.
 
@@ -120,7 +120,7 @@ topicInfo.setMaxSizeInMegabytes(maxSizeInMegabytes);
 CreateTopicResult result = service.createTopic(topicInfo);
 ```
 
-Note that you can use the **listTopics** method on
+You can use the **listTopics** method on
 **ServiceBusContract** objects to check if a topic with a specified name
 already exists within a service namespace.
 
@@ -131,12 +131,7 @@ restricts the set of messages passed to the subscription's virtual
 queue.
 
 ### Create a subscription with the default (MatchAll) filter
-The **MatchAll** filter is the default filter that is used if no filter
-is specified when a new subscription is created. When the **MatchAll**
-filter is used, all messages published to the topic are placed in the
-subscription's virtual queue. The following example creates a
-subscription named "AllMessages" and uses the default **MatchAll**
-filter.
+If no filter is specified when a new subscription is created, the **MatchAll** filter is the default filter that is used. When the **MatchAll** filter is used, all messages published to the topic are placed in the subscription's virtual queue. The following example creates a subscription named "AllMessages" and uses the default **MatchAll** filter.
 
 ```java
 SubscriptionInfo subInfo = new SubscriptionInfo("AllMessages");
@@ -182,9 +177,7 @@ CreateRuleResult ruleResult = service.createRule("TestTopic", "LowMessages", rul
 service.deleteRule("TestTopic", "LowMessages", "$Default");
 ```
 
-When a message is now sent to `TestTopic`, it will always be
-delivered to receivers subscribed to the `AllMessages` subscription, and selectively delivered to receivers subscribed to the `HighMessages` and `LowMessages` subscriptions (depending upon the
-message content).
+When a message is now sent to `TestTopic`, it is always delivered to receivers subscribed to the `AllMessages` subscription, and selectively delivered to receivers subscribed to the `HighMessages` and `LowMessages` subscriptions (depending upon the message content).
 
 ## Send messages to a topic
 To send a message to a Service Bus topic, your application obtains a
@@ -202,15 +195,13 @@ standard methods (such as **setLabel** and **TimeToLive**), a dictionary
 that is used to hold custom application-specific properties, and a body
 of arbitrary application data. An application can set the body of the
 message by passing any serializable object into the constructor of the
-[BrokeredMessage][BrokeredMessage], and the appropriate **DataContractSerializer** will
-then be used to serialize the object. Alternatively, a
+[BrokeredMessage][BrokeredMessage], and the appropriate **DataContractSerializer** is then used to serialize the object. Alternatively, a
 **java.io.InputStream** can be provided.
 
 The following example demonstrates how to send five test messages to the
-`TestTopic` **MessageSender** we obtained in the code snippet above.
+`TestTopic` **MessageSender** we obtained in the previous code snippet.
 Note how the **MessageNumber** property value of each message varies on
-the iteration of the loop (this will determine which subscriptions
-receive it):
+the iteration of the loop (this value determines which subscriptions receive it):
 
 ```java
 for (int i=0; i<5; i++)  {
@@ -232,18 +223,18 @@ upper limit of 5 GB.
 ## How to receive messages from a subscription
 To receive messages from a subscription, use a
 **ServiceBusContract** object. Received messages can work in two
-different modes: **ReceiveAndDelete** and **PeekLock**.
+different modes: **ReceiveAndDelete** and **PeekLock** (the default).
 
 When using the **ReceiveAndDelete** mode, receive is a single-shot
 operation - that is, when Service Bus receives a read request for a
 message, it marks the message as being consumed and returns it to the
 application. **ReceiveAndDelete** mode is the simplest model and works
 best for scenarios in which an application can tolerate not processing a
-message in the event of a failure. To understand this, consider a
+message if a failure occurs. For example, consider a
 scenario in which the consumer issues the receive request and then
-crashes before processing it. Because Service Bus will have marked the
+crashes before processing it. Because Service Bus has marked the
 message as being consumed, then when the application restarts and begins
-consuming messages again, it will have missed the message that was
+consuming messages again, it has missed the message that was
 consumed prior to the crash.
 
 In **PeekLock** mode, receive becomes a two stage operation, which makes
@@ -254,11 +245,11 @@ then returns it to the application. After the application finishes
 processing the message (or stores it reliably for future processing), it
 completes the second stage of the receive process by calling **Delete**
 on the received message. When Service Bus sees the **Delete** call, it
-will mark the message as being consumed and remove it from the topic.
+marks the message as being consumed and removes it from the topic.
 
-The example below demonstrates how messages can be received and
-processed using **PeekLock** mode (not the default mode). The example
-below performs a loop and processes messages in the "HighMessages" subscription and then exits when there are no more messages (alternatively, it could be set to wait for new messages).
+The following example demonstrates how messages can be received and
+processed using **PeekLock** (the default mode). The example
+performs a loop and processes messages in the `HighMessages` subscription and then exits when there are no more messages (alternatively, it can be set to wait for new messages).
 
 ```java
 try
@@ -318,7 +309,7 @@ Service Bus provides functionality to help you gracefully recover from
 errors in your application or difficulties processing a message. If a
 receiver application is unable to process the message for some reason,
 then it can call the **unlockMessage** method on the received message
-(instead of the **deleteMessage** method). This will cause Service Bus
+(instead of the **deleteMessage** method). This causes Service Bus
 to unlock the message within the topic and make it available to be
 received again, either by the same consuming application or by another
 consuming application.
@@ -326,23 +317,21 @@ consuming application.
 There is also a timeout associated with a message locked within the
 topic, and if the application fails to process the message before the
 lock timeout expires (for example, if the application crashes), then Service
-Bus will unlock the message automatically and make it available to be
+Bus unlocks the message automatically and makes it available to be
 received again.
 
 In the event that the application crashes after processing the message
 but before the **deleteMessage** request is issued, then the message
-will be redelivered to the application when it restarts. This is often
-called **At Least Once Processing**, that is, each message will be
-processed at least once but in certain situations the same message may
-be redelivered. If the scenario cannot tolerate duplicate processing,
+is redelivered to the application when it restarts. This process is often
+called **At Least Once Processing**; that is, each message is processed at least once but in certain situations the same message may be redelivered. If the scenario cannot tolerate duplicate processing,
 then application developers should add additional logic to their
 application to handle duplicate message delivery. This is often achieved
-using the **getMessageId** method of the message, which will remain
+using the **getMessageId** method of the message, which remains
 constant across delivery attempts.
 
 ## Delete topics and subscriptions
 The primary way to delete topics and subscriptions is to use a
-**ServiceBusContract** object. Deleting a topic will also delete any subscriptions that are registered
+**ServiceBusContract** object. Deleting a topic also deletes any subscriptions that are registered
 with the topic. Subscriptions can also be deleted independently.
 
 ```java
@@ -361,8 +350,8 @@ Now that you've learned the basics of Service Bus queues, see [Service Bus queue
 [Azure SDK for Java]: http://azure.microsoft.com/develop/java/
 [Azure Toolkit for Eclipse]: ../azure-toolkit-for-eclipse.md
 [Service Bus queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
-[SqlFilter]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter 
-[SqlFilter.SqlExpression]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter#Microsoft_ServiceBus_Messaging_SqlFilter_SqlExpression
+[SqlFilter]: /dotnet/api/microsoft.azure.servicebus.sqlfilter
+[SqlFilter.SqlExpression]: /dotnet/api/microsoft.azure.servicebus.sqlfilter.sqlexpression
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 
 [0]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-13.png

@@ -3,8 +3,8 @@ title: 'Azure AD Connect sync: Understanding the architecture | Microsoft Docs'
 description: This topic describes the architecture of Azure AD Connect sync and explains the terms used.
 services: active-directory
 documentationcenter: ''
-author: andkjell
-manager: femila
+author: billmath
+manager: mtillman
 editor: ''
 
 ms.assetid: 465bcbe9-3bdd-4769-a8ca-f8905abf426d
@@ -13,7 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
 
 ---

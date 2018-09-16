@@ -1,38 +1,32 @@
 ---
 title: Connect to Azure SQL Data Warehouse | Microsoft Docs
-description: How to find the server name and connection string for your to Azure SQL Data Warehouse
+description: Get connected to Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: antvgski
-manager: jhubbard
-editor: ''
-
-ms.assetid: e52872ca-ae74-4e25-9c56-d49c85c8d0f0
+author: kavithaj
+manager: craigg
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: connect
-ms.date: 10/31/2016
-ms.author: anvang;barbkess
-
+ms.topic: conceptual
+ms.component: consume
+ms.date: 04/17/2018
+ms.author: kavithaj
+ms.reviewer: igorstan
 ---
+
 # Connect to Azure SQL Data Warehouse
-This article helps you get connected to SQL Data Warehouse for the first time.
+Get connected to Azure SQL Data Warehouse.
 
 ## Find your server name
-The first step to connecting to SQL Data Warehouse is knowing how to find your server name.  For example, the server name in the following example is sample.database.windows.net. To find the fully qualified server name:
+The server name in the following example is samplesvr.database.windows.net. To find the fully qualified server name:
 
 1. Go to the [Azure portal][Azure portal].
-2. Click on **SQL databases** 
-3. Click on the database you want to connect to.
+2. Click on **SQL data warehouses**.
+3. Click on the data warehouse you want to connect to.
 4. Locate the full server name.
    
     ![Full server name][1]
 
 ## Supported drivers and connection strings
-Azure SQL Data Warehouse supports [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP], and [JDBC][JDBC]. Click on one of the preceding drivers to find the latest version and documentation. To automatically generate the connection string for the driver that you are using from the Azure portal, you can click on the **Show database connection strings** from the preceding example.  Following are also some examples of what a connection string looks like for each driver.
+Azure SQL Data Warehouse supports [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP], and [JDBC][JDBC]. To find the latest version and documentation, click on one of the preceding drivers. To automatically generate the connection string for the driver that you are using from the Azure portal, click on the **Show database connection strings** from the preceding example. Following are also some examples of what a connection string looks like for each driver.
 
 > [!NOTE]
 > Consider setting the connection timeout to 300 seconds to allow your connection to survive short periods of unavailability.
@@ -40,12 +34,12 @@ Azure SQL Data Warehouse supports [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP], 
 > 
 
 ### ADO.NET connection string example
-```C#
+```csharp
 Server=tcp:{your_server}.database.windows.net,1433;Database={your_database};User ID={your_user_name};Password={your_password_here};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 ```
 
 ### ODBC connection string example
-```C#
+```csharp
 Driver={SQL Server Native Client 11.0};Server=tcp:{your_server}.database.windows.net,1433;Database={your_database};Uid={your_user_name};Pwd={your_password_here};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;
 ```
 
@@ -90,6 +84,6 @@ To connect and query with Visual Studio, see [Query with Visual Studio][Query wi
 [Azure portal]: https://portal.azure.com
 
 <!--Image references-->
-[1]: media/sql-data-warehouse-connect-overview/get-server-name.png
+[1]: media/sql-data-warehouse-connect-overview/server-connect.PNG
 
 

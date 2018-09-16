@@ -1,31 +1,23 @@
 ---
 title: Deploy to Azure Analysis Services by using SSDT | Microsoft Docs
 description: Learn how to deploy a tabular model to an Azure Analysis Services server by using SSDT.
-services: analysis-services
-documentationcenter: ''
 author: minewiskan
-manager: erikre
-editor: ''
-tags: ''
-
-ms.assetid: 5f1f0ae7-11de-4923-a3da-888b13a3638c
-ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 06/01/2017
+manager: kfile
+ms.service: azure-analysis-services
+ms.topic: conceptual
+ms.date: 07/03/2018
 ms.author: owend
+ms.reviewer: minewiskan
 
 ---
 # Deploy a model from SSDT
 Once you've created a server in your Azure subscription, you're ready to deploy a tabular model database to it. You can use SQL Server Data Tools (SSDT) to build and deploy a tabular model project you're working on. 
 
-## Before you begin
+## Prerequisites
 To get started, you need:
 
 * **Analysis Services server** in Azure. To learn more, see [Create an Azure Analysis Services server](analysis-services-create-server.md).
-* **Tabular model project** in SSDT or an existing tabular model at the 1200 or later compatibility level. Never created one? Try the [Adventure Works Tutorial](https://msdn.microsoft.com/library/hh231691.aspx).
+* **Tabular model project** in SSDT or an existing tabular model at the 1200 or higher compatibility level. Never created one? Try the [Adventure Works Internet sales tabular modeling tutorial](https://msdn.microsoft.com/library/hh231691.aspx).
 * **On-premises gateway** - If one or more data sources are on-premises in your organization's network, you need to install an [On-premises data gateway](analysis-services-gateway.md). The gateway is necessary for your server in the cloud connect to your on-premises data sources to process and refresh data in the model.
 
 > [!TIP]
@@ -33,15 +25,18 @@ To get started, you need:
 > 
 > 
 
-## To deploy a tabular model from SSDT
+## Get the server name
 
-1. Before you deploy, you need to get the server name. In **Azure portal** > server > **Overview** > **Server name**, copy the server name.
+In **Azure portal** > server > **Overview** > **Server name**, copy the server name.
    
-    ![Get server name in Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
-2. In SSDT > **Solution Explorer**, right-click the project > **Properties**. Then in **Deployment** > **Server** paste the server name.   
+![Get server name in Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
+
+## To deploy from SSDT
+
+1. In SSDT > **Solution Explorer**, right-click the project > **Properties**. Then in **Deployment** > **Server** paste the server name.   
    
     ![Paste server name into deployment server property](./media/analysis-services-deploy/aas-deploy-deployment-server-property.png)
-3. In **Solution Explorer**, right-click **Properties**, then click **Deploy**. You may be prompted to sign in to Azure.
+2. In **Solution Explorer**, right-click **Properties**, then click **Deploy**. You may be prompted to sign in to Azure.
    
     ![Deploy to server](./media/analysis-services-deploy/aas-deploy-deploy.png)
    
@@ -52,7 +47,7 @@ To get started, you need:
 That's all there is to it!
 
 
-## But, something went wrong
+## Troubleshooting
 If deployment fails when deploying metadata, it's likely because SSDT couldn't connect to your server. Make sure you can connect to your server using SSMS. Then make sure the Deployment Server property for the project is correct.
 
 If deployment fails on a table, it's likely because your server couldn't connect to a data source. If your data source is on-premises in your organization's network, be sure to install an [On-premises data gateway](analysis-services-gateway.md).

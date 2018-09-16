@@ -3,8 +3,8 @@ title: Working with the App Service Mobile Apps managed client library (Windows 
 description: Learn how to use a .NET client for Azure App Service Mobile Apps with Windows and Xamarin apps.
 services: app-service\mobile
 documentationcenter: ''
-author: adrianhall
-manager: adrianha
+author: conceptdev
+manager: crdun
 editor: ''
 
 ms.assetid: 0280785c-e027-4e0d-aaf2-6f155e5a6197
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/04/2017
-ms.author: adrianha
+ms.author: crdun
 
 ---
 # How to use the managed client for Azure Mobile Apps
@@ -488,7 +488,7 @@ private async void UpdateToDoItem(TodoItem item)
 
 private async Task ResolveConflict(TodoItem localItem, TodoItem serverItem)
 {
-    //Ask user to choose the resoltion between versions
+    //Ask user to choose the resolution between versions
     MessageDialog msgDialog = new MessageDialog(
         String.Format("Server Text: \"{0}\" \nLocal Text: \"{1}\"\n",
         serverItem.Text, localItem.Text),
@@ -756,8 +756,8 @@ using Azure Active Directory authentication.
    replacements:
 
    * Replace **INSERT-AUTHORITY-HERE** with the name of the tenant in which you provisioned your application. The
-     format should be https://login.windows.net/contoso.onmicrosoft.com. This value can be copied from the Domain
-     tab in your Azure Active Directory in the [Azure classic portal].
+     format should be https://login.microsoftonline.com/contoso.onmicrosoft.com. This value can be copied from the Domain
+     tab in your Azure Active Directory in the [Azure portal].
    * Replace **INSERT-RESOURCE-ID-HERE** with the client ID for your mobile app backend. You can obtain the client
      ID from the **Advanced** tab under **Azure Active Directory Settings** in the portal.
    * Replace **INSERT-CLIENT-ID-HERE** with the client ID you copied from the native client application.
@@ -905,8 +905,8 @@ private async Task AuthenticateAsync()
 To authenticate users, you must register your app at the Microsoft account Developer Center. Configure the
 registration details on your Mobile App backend. To create a Microsoft account registration and
 connect it to your Mobile App backend, complete the steps in
-[Register your app to use a Microsoft account login]. If you have both Windows Store and Windows Phone
-8/Silverlight versions of your app, register the Windows Store version first.
+[Register your app to use a Microsoft account login]. If you have both Microsoft Store and Windows Phone
+8/Silverlight versions of your app, register the Microsoft Store version first.
 
 The following code authenticates using Live SDK and uses the returned token to sign in to your Mobile
 App backend.
@@ -920,7 +920,7 @@ private async System.Threading.Tasks.Task AuthenticateAsync()
     // Get the URL the Mobile App backend.
     var serviceUrl = App.MobileService.ApplicationUri.AbsoluteUri;
 
-    // Create the authentication client for Windows Store using the service URL.
+    // Create the authentication client for Microsoft Store using the service URL.
     LiveAuthClient liveIdClient = new LiveAuthClient(serviceUrl);
     //// Create the authentication client for Windows Phone using the client ID of the registration.
     //LiveAuthClient liveIdClient = new LiveAuthClient(clientId);
@@ -1004,7 +1004,7 @@ cached and reused until it expires. For more information, see [Caching the authe
 
 ### <a name="caching"></a>Caching the authentication token
 In some cases, the call to the login method can be avoided after the first successful authentication by storing
-the authentication token from the provider.  Windows Store and UWP apps can use [PasswordVault] to cache the
+the authentication token from the provider.  Microsoft Store and UWP apps can use [PasswordVault] to cache the
 current authentication token after a successful sign-in, as follows:
 
 ```
@@ -1062,7 +1062,7 @@ await client.LoginAsync(MobileServiceAuthenticationProvider.Facebook, token);
 The following topics cover Push Notifications:
 
 * [Register for Push Notifications](#register-for-push)
-* [Obtain a Windows Store package SID](#package-sid)
+* [Obtain a Microsoft Store package SID](#package-sid)
 * [Register with Cross-platform templates](#register-xplat)
 
 ### <a name="register-for-push"></a>How to: Register for Push Notifications
@@ -1082,20 +1082,20 @@ private async void InitNotificationsAsync()
 }
 ```
 
-If you are pushing to WNS, then you MUST [obtain a Windows Store package SID](#package-sid).  For more information
+If you are pushing to WNS, then you MUST [obtain a Microsoft Store package SID](#package-sid).  For more information
 on Windows apps, including how to register for template registrations, see [Add push notifications to your app].
 
 Requesting tags from the client is not supported.  Tag Requests are silently dropped from registration.
 If you wish to register your device with tags, create a Custom API that uses the Notification Hubs API to perform
 the registration on your behalf.  [Call the Custom API](#customapi) instead of the `RegisterNativeAsync()` method.
 
-### <a name="package-sid"></a>How to: Obtain a Windows Store package SID
-A package SID is needed for enabling push notifications in Windows Store apps.  To receive a package SID, register your
-application with the Windows Store.
+### <a name="package-sid"></a>How to: Obtain a Microsoft Store package SID
+A package SID is needed for enabling push notifications in Microsoft Store apps.  To receive a package SID, register your
+application with the Microsoft Store.
 
 To obtain this value:
 
-1. In Visual Studio Solution Explorer, right-click the Windows Store app project, click **Store** > **Associate App with the Store...**.
+1. In Visual Studio Solution Explorer, right-click the Microsoft Store app project, click **Store** > **Associate App with the Store...**.
 2. In the wizard, click **Next**, sign in with your Microsoft account, type a name for your app in **Reserve a new app name**, then click **Reserve**.
 3. After the app registration is successfully created, select the app name, click **Next**, and then click **Associate**.
 4. Log in to the [Windows Dev Center] using your Microsoft Account. Under **My apps**, click the app registration you created.
@@ -1223,7 +1223,7 @@ public class MyHandler : DelegatingHandler
 [1]: app-service-mobile-windows-store-dotnet-get-started.md
 [2]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [3]: app-service-mobile-node-backend-how-to-use-server-sdk.md
-[4]: https://msdn.microsoft.com/en-us/library/azure/mt419521(v=azure.10).aspx
+[4]: https://msdn.microsoft.com/library/azure/mt419521(v=azure.10).aspx
 [5]: https://github.com/Azure-Samples
 [6]: http://www.newtonsoft.com/json/help/html/Properties_T_Newtonsoft_Json_JsonPropertyAttribute.htm
 [7]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#define-table-controller
@@ -1231,45 +1231,44 @@ public class MyHandler : DelegatingHandler
 [9]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/
 [10]: http://www.symbolsource.org/
 [11]: http://www.symbolsource.org/Public/Wiki/Using
-[12]: https://msdn.microsoft.com/en-us/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient(v=azure.10).aspx
+[12]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient(v=azure.10).aspx
 
 [Add authentication to your app]: app-service-mobile-windows-store-dotnet-get-started-users.md
 [Offline Data Sync in Azure Mobile Apps]: app-service-mobile-offline-data-sync.md
 [Add push notifications to your app]: app-service-mobile-windows-store-dotnet-get-started-push.md
-[Register your app to use a Microsoft account login]: app-service-mobile-how-to-configure-microsoft-authentication.md
-[How to configure App Service for Active Directory login]: app-service-mobile-how-to-configure-active-directory-authentication.md
+[Register your app to use a Microsoft account login]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
+[How to configure App Service for Active Directory login]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
 
 <!-- Microsoft URLs. -->
-[MobileServiceCollection]: https://msdn.microsoft.com/en-us/library/azure/dn250636(v=azure.10).aspx
-[MobileServiceIncrementalLoadingCollection]: https://msdn.microsoft.com/en-us/library/azure/dn268408(v=azure.10).aspx
+[MobileServiceCollection]: https://msdn.microsoft.com/library/azure/dn250636(v=azure.10).aspx
+[MobileServiceIncrementalLoadingCollection]: https://msdn.microsoft.com/library/azure/dn268408(v=azure.10).aspx
 [MobileServiceAuthenticationProvider]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider(v=azure.10).aspx
 [MobileServiceUser]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser(v=azure.10).aspx
 [MobileServiceAuthenticationToken]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken(v=azure.10).aspx
-[GetTable]: https://msdn.microsoft.com/en-us/library/azure/jj554275(v=azure.10).aspx
-[creates a reference to an untyped table]: https://msdn.microsoft.com/en-us/library/azure/jj554278(v=azure.10).aspx
-[DeleteAsync]: https://msdn.microsoft.com/en-us/library/azure/dn296407(v=azure.10).aspx
-[IncludeTotalCount]: https://msdn.microsoft.com/en-us/library/azure/dn250560(v=azure.10).aspx
-[InsertAsync]: https://msdn.microsoft.com/en-us/library/azure/dn296400(v=azure.10).aspx
-[InvokeApiAsync]: https://msdn.microsoft.com/en-us/library/azure/dn268343(v=azure.10).aspx
-[LoginAsync]: https://msdn.microsoft.com/en-us/library/azure/dn296411(v=azure.10).aspx
-[LookupAsync]: https://msdn.microsoft.com/en-us/library/azure/jj871654(v=azure.10).aspx
-[OrderBy]: https://msdn.microsoft.com/en-us/library/azure/dn250572(v=azure.10).aspx
-[OrderByDescending]: https://msdn.microsoft.com/en-us/library/azure/dn250568(v=azure.10).aspx
-[ReadAsync]: https://msdn.microsoft.com/en-us/library/azure/mt691741(v=azure.10).aspx
-[Take]: https://msdn.microsoft.com/en-us/library/azure/dn250574(v=azure.10).aspx
-[Select]: https://msdn.microsoft.com/en-us/library/azure/dn250569(v=azure.10).aspx
-[Skip]: https://msdn.microsoft.com/en-us/library/azure/dn250573(v=azure.10).aspx
-[UpdateAsync]: https://msdn.microsoft.com/en-us/library/azure/dn250536.(v=azure.10)aspx
+[GetTable]: https://msdn.microsoft.com/library/azure/jj554275(v=azure.10).aspx
+[creates a reference to an untyped table]: https://msdn.microsoft.com/library/azure/jj554278(v=azure.10).aspx
+[DeleteAsync]: https://msdn.microsoft.com/library/azure/dn296407(v=azure.10).aspx
+[IncludeTotalCount]: https://msdn.microsoft.com/library/azure/dn250560(v=azure.10).aspx
+[InsertAsync]: https://msdn.microsoft.com/library/azure/dn296400(v=azure.10).aspx
+[InvokeApiAsync]: https://msdn.microsoft.com/library/azure/dn268343(v=azure.10).aspx
+[LoginAsync]: https://msdn.microsoft.com/library/azure/dn296411(v=azure.10).aspx
+[LookupAsync]: https://msdn.microsoft.com/library/azure/jj871654(v=azure.10).aspx
+[OrderBy]: https://msdn.microsoft.com/library/azure/dn250572(v=azure.10).aspx
+[OrderByDescending]: https://msdn.microsoft.com/library/azure/dn250568(v=azure.10).aspx
+[ReadAsync]: https://msdn.microsoft.com/library/azure/mt691741(v=azure.10).aspx
+[Take]: https://msdn.microsoft.com/library/azure/dn250574(v=azure.10).aspx
+[Select]: https://msdn.microsoft.com/library/azure/dn250569(v=azure.10).aspx
+[Skip]: https://msdn.microsoft.com/library/azure/dn250573(v=azure.10).aspx
+[UpdateAsync]: https://msdn.microsoft.com/library/azure/dn250536.(v=azure.10)aspx
 [UserID]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
-[Where]: https://msdn.microsoft.com/en-us/library/azure/dn250579(v=azure.10).aspx
+[Where]: https://msdn.microsoft.com/library/azure/dn250579(v=azure.10).aspx
 [Azure portal]: https://portal.azure.com/
-[Azure classic portal]: https://manage.windowsazure.com/
 [EnableQueryAttribute]: https://msdn.microsoft.com/library/system.web.http.odata.enablequeryattribute.aspx
-[Guid.NewGuid]: https://msdn.microsoft.com/en-us/library/system.guid.newguid(v=vs.110).aspx
+[Guid.NewGuid]: https://msdn.microsoft.com/library/system.guid.newguid(v=vs.110).aspx
 [ISupportIncrementalLoading]: http://msdn.microsoft.com/library/windows/apps/Hh701916.aspx
-[Windows Dev Center]: https://dev.windows.com/en-us/overview
+[Windows Dev Center]: https://dev.windows.com/overview
 [DelegatingHandler]: https://msdn.microsoft.com/library/system.net.http.delegatinghandler(v=vs.110).aspx
-[Windows Live SDK]: https://msdn.microsoft.com/en-us/library/bb404787.aspx
+[Windows Live SDK]: https://msdn.microsoft.com/library/bb404787.aspx
 [PasswordVault]: http://msdn.microsoft.com/library/windows/apps/windows.security.credentials.passwordvault.aspx
 [ProtectedData]: http://msdn.microsoft.com/library/system.security.cryptography.protecteddata%28VS.95%29.aspx
 [Notification Hubs APIs]: https://msdn.microsoft.com/library/azure/dn495101.aspx

@@ -1,24 +1,20 @@
 ---
 title: Azure IoT device SDK for C - IoTHubClient | Microsoft Docs
 description: How to use the IoTHubClient library in the Azure IoT device SDK for C to create device apps that communicate with an IoT hub.
-services: iot-hub
-documentationcenter: ''
-author: olivierbloch
-manager: timlt
-editor: ''
-
-ms.assetid: 828cf2bf-999d-4b8a-8a28-c7c901629600
+author: yzhong94
+manager: arjmands
 ms.service: iot-hub
-ms.devlang: cpp
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/06/2016
-ms.author: obloch
-
+services: iot-hub
+ms.devlang: c
+ms.topic: conceptual
+ms.date: 08/29/2017
+ms.author: yizhon
 ---
+
 # Azure IoT device SDK for C – more about IoTHubClient
 The [first article](iot-hub-device-sdk-c-intro.md) in this series introduced the **Azure IoT device SDK for C**. That article explained that there are two architectural layers in SDK. At the base is the **IoTHubClient** library which directly manages communication with IoT Hub. There's also the **serializer** library that builds on top of that to provide serialization services. In this article we'll provide additional detail on the **IoTHubClient** library.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 The previous article described how to use the **IoTHubClient** library to send events to IoT Hub and receive messages. This article extends that discussion by explaining how to more precisely manage *when* you send and receive data, introducing you to the **lower-level APIs**. We'll also explain how to attach properties to events (and retrieve them from messages) using the property handling features in the **IoTHubClient** library. Finally, we'll provide additional explanation of different ways to handle messages received from IoT Hub.
 
@@ -90,7 +86,7 @@ The first three lines create the message, and the last line sends the event. How
 while (1)
 {
     IoTHubClient_LL_DoWork(iotHubClientHandle);
-    ThreadAPI_Sleep(1000);
+    ThreadAPI_Sleep(100);
 }
 ```
 
@@ -108,7 +104,7 @@ IOTHUB_CLIENT_STATUS status;
 while ((IoTHubClient_LL_GetSendStatus(iotHubClientHandle, &status) == IOTHUB_CLIENT_OK) && (status == IOTHUB_CLIENT_SEND_STATUS_BUSY))
 {
     IoTHubClient_LL_DoWork(iotHubClientHandle);
-    ThreadAPI_Sleep(1000);
+    ThreadAPI_Sleep(100);
 }
 ```
 
@@ -256,10 +252,10 @@ IoTHubClient_LL_SetOption(iotHubClientHandle, "timeout", &timeout);
 
 There are a couple of options that are commonly used:
 
-* **SetBatching** (bool) – If **true**, then data sent to IoT Hub is sent in batches. If **false**, then messages are sent individually. The default is **false**. Note that the **SetBatching** option only applies to the HTTP protocol and not to the MQTT or AMQP protocols.
-* **Timeout** (unsigned int) – This value is represented in milliseconds. If sending an HTTP request or receiving a response takes longer than this time, then the connection times out.
+* **SetBatching** (bool) – If **true**, then data sent to IoT Hub is sent in batches. If **false**, then messages are sent individually. The default is **false**. Note that the **SetBatching** option only applies to the HTTPS protocol and not to the MQTT or AMQP protocols.
+* **Timeout** (unsigned int) – This value is represented in milliseconds. If sending an HTTPS request or receiving a response takes longer than this time, then the connection times out.
 
-The batching option is important. By default, the library ingresses events individually (a single event is whatever you pass to **IoTHubClient\_LL\_SendEventAsync**). If the batching option is **true**, the library collects as many events as it can from the buffer (up to the maximum message size that IoT Hub will accept).  The event batch is sent to IoT Hub in a single HTTP call (the individual events are bundled into a JSON array). Enabling batching typically results in big performance gains since you’re reducing network round-trips. It also significantly reduces bandwidth since you are sending one set of HTTP headers with an event batch rather than a set of headers for each individual event. Unless you have a specific reason to do otherwise, typically you’ll want to enable batching.
+The batching option is important. By default, the library ingresses events individually (a single event is whatever you pass to **IoTHubClient\_LL\_SendEventAsync**). If the batching option is **true**, the library collects as many events as it can from the buffer (up to the maximum message size that IoT Hub will accept).  The event batch is sent to IoT Hub in a single HTTPS call (the individual events are bundled into a JSON array). Enabling batching typically results in big performance gains since you’re reducing network round-trips. It also significantly reduces bandwidth since you are sending one set of HTTPS headers with an event batch rather than a set of headers for each individual event. Unless you have a specific reason to do otherwise, typically you’ll want to enable batching.
 
 ## Next steps
 This article describes in detail the behavior of the **IoTHubClient** library found in the **Azure IoT device SDK for C**. With this information, you should have a good understanding of the capabilities of the **IoTHubClient** library. The [next article](iot-hub-device-sdk-c-serializer.md) provides similar detail on the **serializer** library.
@@ -268,8 +264,8 @@ To learn more about developing for IoT Hub, see the [Azure IoT SDKs][lnk-sdks].
 
 To further explore the capabilities of IoT Hub, see:
 
-* [Simulating a device with Azure IoT Edge][lnk-iotedge]
+* [Deploying AI to edge devices with Azure IoT Edge][lnk-iotedge]
 
 [lnk-sdks]: iot-hub-devguide-sdks.md
 
-[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
+[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md

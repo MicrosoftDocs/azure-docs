@@ -1,76 +1,121 @@
 ---
 title: Service limits in Azure Search | Microsoft Docs
 description: Service limits used for capacity planning and maximum limits on requests and responses for Azure Search.
-services: search
-documentationcenter: ''
 author: HeidiSteen
-manager: jhubbard
-editor: ''
-tags: azure-portal
-
-ms.assetid: 857a8606-c1bf-48f1-8758-8032bbe220ad
+manager: cgronlun
+services: search
 ms.service: search
 ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.date: 06/07/2017
+ms.topic: conceptual
+ms.date: 05/24/2018
 ms.author: heidist
 
 ---
 # Service limits in Azure Search
-Maximum limits on storage, workloads, and quantities of indexes, documents, and other objects depend on whether you [provision Azure Search](search-create-service-portal.md) at a **Free**, **Basic**, or **Standard** pricing tier.
+Maximum limits on storage, workloads, and quantities of indexes, documents, and other objects depend on whether you [provision Azure Search](search-create-service-portal.md) at **Free**, **Basic**, or **Standard** pricing tiers.
 
-* **Free** is a multi-tenant shared service that comes with your Azure subscription. It's a no-additional-cost option for existing subscribers that allows you to experiment with the service before signing up for dedicated resources.
-* **Basic** provides dedicated computing resources for production workloads at a smaller scale.
-* **Standard** runs on dedicated machines, with more storage and processing capacity at every level. Standard comes in four levels: S1, S2, S3, and S3 High Density (S3 HD).
++ **Free** is a multi-tenant shared service that comes with your Azure subscription.
+
++ **Basic** provides dedicated computing resources for production workloads at a smaller scale.
+
++ **Standard** runs on dedicated machines with more storage and processing capacity at every level. Standard comes in four levels: S1, S2, S3, and S3 HD.
+
+  S3 High Density (S3 HD) is engineered for specific workloads: [multi-tenancy](search-modeling-multitenant-saas-applications.md) and large quantities of small indexes (one million documents per index, three thousand indexes per service). This tier does not provide the [indexer feature](search-indexer-overview.md). On S3 HD, data ingestion must leverage the push approach, using API calls to push data from source to index. 
 
 > [!NOTE]
-> A service is provisioned at a specific tier. If you need to jump tiers to get more capacity, you must provision a new service (there is no in-place upgrade). For more information, see [Choose a SKU or tier](search-sku-tier.md). To learn more about adjusting capacity within a service you've already provisioned, see [Scale resource levels for query and indexing workloads](search-capacity-planning.md).
+> A service is provisioned at a specific tier. Jumping tiers to gain capacity involves provisioning a new service (there is no in-place upgrade). For more information, see [Choose a SKU or tier](search-sku-tier.md). To learn more about adjusting capacity within a service you've already provisioned, see [Scale resource levels for query and indexing workloads](search-capacity-planning.md).
 >
 
-## Per subscription limits
+## Subscription limits
 [!INCLUDE [azure-search-limits-per-subscription](../../includes/azure-search-limits-per-subscription.md)]
 
-## Per service limits
+## Storage limits
 [!INCLUDE [azure-search-limits-per-service](../../includes/azure-search-limits-per-service.md)]
 
-## Per index limits
-There is a one-to-one correspondence between limits on indexes and limits on indexers. Given a limit of 200 indexes, the maximum limit for indexers is also 200 for the same service.
+<a name="index-limits"></a>
 
-| Resource | Free | Basic | S1 | S2 | S3 | S3 HD |
-| --- | --- | --- | --- | --- | --- | --- |
-| Index: maximum fields per index |1000 |100 <sup>1</sup> |1000 |1000 |1000 |1000 |
-| Index: maximum scoring profiles per index |100 |100 |100 |100 |100 |100 |
-| Index: maximum functions per profile |8 |8 |8 |8 |8 |8 |
-| Indexers: maximum indexing load per invocation |10,000 documents |Limited only by maximum documents |Limited only by maximum documents |Limited only by maximum documents |Limited only by maximum documents |N/A <sup>2</sup> |
-| Indexers: maximum running time |3 minutes |24 hours |24 hours |24 hours |24 hours |N/A <sup>2</sup> |
-| Blob indexer: maximum blob size, MB |16 |16 |128 |256 |256 |N/A <sup>2</sup> |
-| Blob indexer: maximum characters of content extracted from a blob |32,000 |64,000 |4 million |4 million |4 million |N/A <sup>2</sup> |
+## Index limits
 
-<sup>1</sup> Basic tier is the only SKU with a lower limit of 100 fields per index.
+| Resource | Free | Basic&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD |
+| -------- | ---- | ------------------- | --- | --- | --- | --- |
+| Maximum indexes |3 |5 or 15 |50 |200 |200 |1000 per partition or 3000 per service |
+| Maximum fields per index |1000 |100 |1000 |1000 |1000 |1000 |
+| Maximum [suggesters](https://docs.microsoft.com/rest/api/searchservice/suggesters) per index |1 |1 |1 |1 |1 |1 |
+| Maximum [scoring profiles](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) per index |100 |100 |100 |100 |100 |100 |
+| Maximum functions per profile |8 |8 |8 |8 |8 |8 |
 
-<sup>2</sup> S3 HD doesn't currently support indexers. Contact Azure Support if you have an urgent need for this capability.
+<sup>1</sup> Basic services created after late 2017 have an increased limit of 15 indexes, data sources, and indexers. Services created earlier have 5. Basic tier is the only SKU with a lower limit of 100 fields per index.
 
-## Document size limits
-| Resource | Free | Basic | S1 | S2 | S3 | S3 HD |
-| --- | --- | --- | --- | --- | --- | --- |
-| Individual document size per Index API |<16 MB |<16 MB |<16 MB |<16 MB |<16 MB |<16 MB |
+<a name="document-limits"></a>
 
-Refers to the maximum document size when calling an Index API. Document size is actually a limit on the size of the Index API request body. Since you can pass a batch of multiple documents to the Index API at once, the size limit actually depends on how many documents are in the batch. For a batch with a single document, the maximum document size is 16 MB of JSON.
+## Document limits 
+
+In most regions, Azure Search pricing tiers (Basic, S1, S2, S3, S3 HD) have unlimited document counts for all services created after November/December 2017. This section identifies the regions where limits apply, and how to determine whether your service is affected. 
+
+To determine whether your service has document limits, check the Usage tile in the overview page of your service. Document counts are either unlimited, or subject to a limit based on tier.
+
+  ![Usage tile](media/search-limits-quotas-capacity/portal-usage-tile.png)
+
+### Regions and services having document limits
+
+Services having limits were either created before late 2017, or are running on data centers using lower-capacity clusters for hosting Azure Search services. Affected data centers are in the following regions:
+
++ Australia East
++ East Asia
++ Central India
++ Japan West
++ West Central US
+
+For services subject to document limits, the following maximum limits apply:
+
+|  Free | Basic | S1 | S2 | S3 | S3&nbsp;HD |
+|-------|-------|----|----|----|-------|
+|  10,000 |1 million |15 million per partition or 180 million per service |60 million per partition or 720 million per service |120 million per partition or 1.4 billion per service |1 million per index or 200 million per partition |
+
+> [!Note] 
+> For S3 High Density services created after late 2017, the 200 million document per partition has been removed but the 1 million document per index limit remains.
+
+
+### Document size limits per API call
+
+The maximum document size when calling an Index API is approximately 16 megabytes.
+
+Document size is actually a limit on the size of the Index API request body. Since you can pass a batch of multiple documents to the Index API at once, the size limit realistically depends on how many documents are in the batch. For a batch with a single document, the maximum document size is 16 MB of JSON.
 
 To keep document size down, remember to exclude non-queryable data from the request. Images and other binary data are not directly queryable and shouldn't be stored in the index. To integrate non-queryable data into search results, define a non-searchable field that stores a URL reference to the resource.
 
-## Workload limits (Queries per second)
-| Resource | Free | Basic | S1 | S2 | S3 | S3 HD |
-| --- | --- | --- | --- | --- | --- | --- |
-| QPS |N/A |~3 per replica |~15 per replica |~60 per replica |>60 per replica |>60 per replica |
+## Indexer limits
 
-Queries per second (QPS) is an approximation based on heuristics, using simulated and actual customer workloads to derive estimated values. Exact QPS throughput varies depending on your data and the nature of the query.
+Basic services created after late 2017 have an increased limit of 15 indexes, data sources, skillsets, and indexers.
 
-Although rough estimates are provided above, an actual rate is difficult to determine, especially in the Free shared service where throughput is based on available bandwidth and competition for system resources. In the Free tier, compute and storage resources are shared by multiple subscribers, so QPS for your solution will always vary depending on how many other workloads are running at the same time.
+Resource-intensive operations, such as image analysis in Azure blob indexing or natural language processing in cognitive search, have shorter maximum running times so that other indexing jobs can be accommodated. If an indexing job cannot complete within the maximum time allowed, try running it on a schedule. The scheduler keeps track of indexing status. If a scheduled indexing job is interrupted for any reason, the indexer can pick up where it last left off at the next scheduled run.
 
-At the standard level, you can estimate QPS more closely because you have control over more of the parameters. See the best practices section in [Manage your search solution](search-manage.md) for guidance on how to calculate QPS for your workloads.
+| Resource | Free&nbsp;<sup>1</sup> | Basic&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|
+| -------- | ----------------- | ----------------- | --- | --- | --- | --- |
+| Maximum indexers |3 |5 or 15|50 |200 |200 |N/A |
+| Maximum datasources |3 |5 or 15 |50 |200 |200 |N/A |
+| Maximum skillsets <sup>4</sup> |3 |5 or 15 |50 |200 |200 |N/A |
+| Maximum indexing load per invocation |10,000 documents |Limited only by maximum documents |Limited only by maximum documents |Limited only by maximum documents |Limited only by maximum documents |N/A |
+| Maximum running time <sup>5</sup> | 1-3 minutes |24 hours |24 hours |24 hours |24 hours |N/A  |
+| Maximum running time for cognitive search skillsets or blob indexing with image analysis <sup>5</sup> | 3-10 minutes |2 hours |2 hours |2 hours |2 hours |N/A  |
+| Blob indexer: maximum blob size, MB |16 |16 |128 |256 |256 |N/A  |
+| Blob indexer: maximum characters of content extracted from a blob |32,000 |64,000 |4 million |4 million |4 million |N/A |
+
+<sup>1</sup> Free services have indexer maximum execution time of 3 minutes for blob sources and 1 minute for all other data sources.
+
+<sup>2</sup> Basic services created after late 2017 have an increased limit of 15 indexes, data sources, and indexers. Services created earlier have 5.
+
+<sup>3</sup> S3 HD services do not include indexer support.
+
+<sup>4</sup> Maximum of 30 skills per skillset.
+
+<sup>5</sup> Cognitive search workloads and image analysis in Azure blob indexing have shorter running times than regular text indexing. Image analysis and natural language processing are computationally intensive and consume disproportionate amounts of available processing power. Running time was reduced to give other jobs in the queue an opportunity to run.  
+
+## Queries per second (QPS)
+
+QPS estimates must be developed independently by every customer. Index size and complexity, query size and complexity, and the amount of traffic are primary determinants of QPS. There is no way to offer meaningful estimates when such factors are unknown.
+
+Estimates are more predictable when calculated on services running on dedicated resources (Basic and Standard tiers). You can estimate QPS more closely because you have control over more of the parameters. For guidance on how to approach estimation, see [Azure Search performance and optimization](search-performance-optimization.md).
 
 ## API Request limits
 * Maximum of 16 MB per request <sup>1</sup>
@@ -79,7 +124,7 @@ At the standard level, you can estimate QPS more closely because you have contro
 * Maximum 32 fields in $orderby clause
 * Maximum search term size is 32,766 bytes (32 KB minus 2 bytes) of UTF-8 encoded text
 
-<sup>1</sup> In Azure Search, the body of a request is subject to an upper limit of 16 MB, imposing a practical limit on the contents of individual fields or collections that are not otherwise constrained by theoretical limits (see [Supported data types](https://msdn.microsoft.com/library/azure/dn798938.aspx) for more information about field composition and restrictions).
+<sup>1</sup> In Azure Search, the body of a request is subject to an upper limit of 16 MB, imposing a practical limit on the contents of individual fields or collections that are not otherwise constrained by theoretical limits (see [Supported data types](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) for more information about field composition and restrictions).
 
 ## API Response limits
 * Maximum 1000 documents returned per page of search results

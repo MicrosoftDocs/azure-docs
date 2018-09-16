@@ -1,53 +1,47 @@
 ---
-title: Azure Stream Analytics query testing | Microsoft Docs
+title: Test an Azure Stream Analytics job with sample data
 description: How to test your queries in Stream Analytics jobs.
-keywords: test query, troubleshoot query
-documentation center: ''
+keywords: This article describes how to use the Azure portal to test an Azure Stream Analytics job, sample input, and upload sample data.
 services: stream-analytics
-author: jeffstokes72
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
+manager: kfile
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 04/20/2017
-ms.author: jeffstok
-
+ms.topic: conceptual
+ms.date: 04/27/2018
 ---
-# Test Azure Stream Analytics queries in the Azure portal
 
-With Azure Stream Analytics, you can test queries in the Azure portal without needing to start or stop a job.
+# Test a Stream Analytics query with sample data
 
-## Test the input
+By using Azure Stream Analytics, you can upload sample data and test queries in the Azure portal without starting or stopping a job.
 
-1. To test with sample input data, right-click any of your inputs, and then select **Upload sample data from file**.
+## Upload sample data and test the query
+
+1. Sign in to the Azure portal. 
+
+2. Locate your existing Stream Analytics job and select it.
+
+3. On the Stream Analytics job page, under the **Job Topology** heading, select **Query** to open the Query editor window. 
+
+4. To test your query with sample input data, right-click on any of your inputs.  Then select **Upload sample data from file**. The data must be serialized in JSON, CSV or AVRO. Sample input must be encoded in UTF-8 and not compressed. Only comma (,) delimiter is supported for testing CSV input on portal.
 
     ![stream analytics query editor test query](media/stream-analytics-test-query/stream-analytics-test-query-editor-upload.png)
 
-2. After the upload is complete, click **Test** to test this query against the sample data you have provided.
+5. After the upload is complete, select **Test** to test this query against the sample data you have provided.
 
     ![stream analytics query editor test sample data](media/stream-analytics-test-query/stream-analytics-test-query-editor-test.png)
 
-The output of your query is displayed in the browser, with Download results link should you want to save the test output for later use. You can now easily and iteratively modify your query and test it repeatedly to see how the output changes.
+6. If you need the test output for later use, the output of your query is displayed in the browser with a link to the download results. 
 
-![Stream Analytics query editor sample output](media/stream-analytics-test-query/stream-analytics-test-query-editor-samples-output.png)
+7. Iteratively modify your query and test it again to see how the output changes.
 
-With multiple outputs used in a query, you can see the results for both outputs separately and easily toggle between them.
+   ![Stream Analytics query editor sample output](media/stream-analytics-test-query/stream-analytics-test-query-editor-samples-output.png)
 
-After you are satisfied with the results shown in the browser, you can save your query, start your job, and let it process events without error.
+   When you use multiple outputs in a query, the results are shown on separate tabs, and you can easily toggle between them.
 
-## Get help
-
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
+8. After you verify the results shown in the browser, **Save** your query. Then **Start** the job, and let it process the incoming events.
 
 ## Next steps
-
-* [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
-* [Get started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+> [!div class="nextstepaction"]
+> [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)

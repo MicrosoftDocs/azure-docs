@@ -1,10 +1,10 @@
 ---
-title: Using the administrator and user portals in Azure Stack | Microsoft Docs
-description: Learn the differences between the administrator and user portals in Azure Stack.
+title: Using the administrator portal in Azure Stack | Microsoft Docs
+description: As an Azure Stack operator, learn how to use the administrator portal.
 services: azure-stack
 documentationcenter: ''
-author: twooley
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: ''
 
 ms.assetid: 02c7ff03-874e-4951-b591-28166b7a7a79
@@ -13,64 +13,72 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2017
-ms.author: twooley
+ms.date: 09/12/2018
+ms.author: mabrigg
 
 ---
-# Using the administrator and user portals in Azure Stack
+# Using the administrator portal in Azure Stack
 
-Starting with the Technical Preview 3 (TP3) release of Azure Stack, there are two portals; the administrator portal and the user portal (also referred to as the *tenant* portal). The portals are backed by separate instances of Azure Resource Manager.
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-The following table shows how to connect to the portals and to Resource Manager endpoints in an Azure Stack Proof of Concept (POC) environment.
+There are two portals in Azure Stack; the administrator portal and the user portal (sometimes referred to as the *tenant* portal.) As an Azure Stack operator, you can use the administrator portal for day-to-day management and operations of Azure Stack.
 
-|  Portal | Portal URL | Resource Manager endpoint URL |   
-| -------- | ------------- | ------- |  
-| Administrator | https://adminportal.local.azurestack.external  | https://adminmanagement.local.azurestack.external  |  
-| User | https://portal.local.azurestack.external | https://management.local.azurestack.external  |
+## Access the administrator portal
+
+For a development kit environment, you need to first make sure that you can [connect to the development kit host](azure-stack-connect-azure-stack.md) through Remote Desktop Connection or through a virtual private network (VPN).
+
+To access the administrator portal, browse to the portal URL and sign in by using the credentials of an Azure Stack operator. For an integrated system, the portal URL varies based on the region name and external fully qualified domain name (FQDN) of your Azure Stack deployment.
+
+| Environment | Administrator Portal URL |   
+| -- | -- | 
+| Development kit| https://adminportal.local.azurestack.external  |
+| Integrated systems | https://adminportal.&lt;*region*&gt;.&lt;*FQDN*&gt; | 
 | | |
 
+ ![The administrator portal](media/azure-stack-manage-portals/admin-portal.png)
+
+In the administrator portal, you can do things such as:
+
+* Manage the infrastructure (including system health, updates, capacity, etc.)
+* Populate the marketplace
+* Create subscriptions for users
+* Create plans and offers
+
+The **Quickstart tutorial** tile provides links to online documentation for the most common tasks.
+
+Although an operator has can create resources such as virtual machines, virtual networks, and storage accounts in the administrator portal, you should [sign in to the user portal](user/azure-stack-use-portal.md) to create and test resources.
+
 >[!NOTE]
- These URLs were updated in the latest release of TP3. Previously, they were https://portal.local.azurestack.external and https://api.local.azurestack.external for administrator, and https://publicportal.local.azurestack.external and https://publicapi.local.azurestack.external for user.
+>The **Create a virtual machine** link in the quickstart tutorial tile has you create a virtual machine in the administrator portal, but this is only intended to validate Azure Stack after it's first deployed.
 
+## Understand subscription behavior
 
-## The administrator portal
+There is only one subscription available to use from the administrator portal. This subscription is the *Default Provider Subscription*. You can't add any other subscriptions and use them in the administrator portal.
 
-The administrator portal enables a cloud administrator to perform administrative tasks. An administrator can do things such as:
-* monitor health and alerts
-* manage capacity
-* populate the marketplace
-* create plans and offers
-* create subscriptions for tenant users
+As an Azure Stack operator, you can add subscriptions for your users (including yourself) from the administrator portal. Users (including yourself) can access and use these subscriptions from the **user** portal. However, the user portal doesn't provide access to any of the administrative or operational capabilities of the administrator portal.
 
-An administrator can also create resources such as virtual machines, virtual networks, and storage accounts.
-
- ![The administrator portal](media/azure-stack-manage-portals/image1.png)
-
- ## The user portal
-
- The user portal does not provide access to any of the administrative capabilities of the administrator portal. In the user portal, a user can subscribe to public offers, and use the services that are made available through those offers.
-
-  ![The user portal](media/azure-stack-manage-portals/image2.png)
- 
- ## Subscription behavior
- 
- Make sure that you understand the following differences between subscription behavior in the two portals.
-
- Administrator portal:
-* There is only one subscription that is available in the administrator portal. This subscription is the *Default Provider Subscription*. You can't add any other subscriptions for use in the administrator portal.
-* As a cloud administrator, you can add subscriptions for your users (including yourself) from the administrator portal. Users (including yourself) can access and use these subscriptions from the user portal.
+The administrator and user portals are backed by separate instances of Azure Resource Manager. Because of this Resource Manager separation, subscriptions do not cross portals. For example, if you, as an Azure Stack operator, sign in to the user portal, you can't access the *Default Provider Subscription*. Although you don't have access to any administrative functions, you can create subscriptions for yourself from available public offers. As long as you're signed in to the user portal you are considered a tenant user.
 
   >[!NOTE]
-  Because of the Azure Resource Manager separation, subscriptions do not cross portals. For example, if you as a cloud administrator signs in to the user portal, you can't access the Default Provider Subscription. Therefore, you don't have access to any administrative functions. You can create subscriptions for yourself from public offers, but you are considered a tenant user.
+  >In the development kit environment, if a user belongs to the same tenant directory as the Azure Stack operator, they are not blocked from signing in to the administrator portal. However, they can't access any of the administrative functions. Also, from the administrator portal, they can't add subscriptions or access offers that are available to them in the user portal.
 
-User portal:
-* In the user portal, an account can have multiple subscriptions.
+## Administrator portal tips
 
-  >[!NOTE]
-  In the POC environment, if a tenant user belongs to the same directory as the cloud administrator, they are not blocked from signing in to the administrator portal. However, they can't access any of the administrative functions. Also, they can't add subscriptions or access offers that are made available to them in the user portal.
+### Customize the dashboard
+
+The dashboard contains a set of default tiles. You can select **Edit dashboard** to modify the default dashboard, or select **New dashboard** to add a custom dashboard. You can easily add tiles to a dashboard. For example, you can select **+ Create a resource**, right-click **Offers + Plans**, and then select **Pin to dashboard**.
+
+### Quick access to online documentation
+
+To access the Azure Stack operator documentation, use the Help and support icon (question mark) in the upper-right corner of the administrator portal. Move your cursor to the icon, and then select **Help + support**.
+
+### Quick access to help and support
+
+If you select the Help and support icon (question mark) in the upper-right corner of the administrator portal, and then select **New support request**, one of the following results happen:
+
+- If you're using an integrated system, this action opens a site where you can directly open a support ticket with Microsoft Customer Support Services (CSS). Refer to [Where to get support](azure-stack-manage-basics.md#where-to-get-support) to understand when you should go through Microsoft support or through your original equipment manufacturer (OEM) hardware vendor support.
+- If you’re using the development kit, this action opens the Azure Stack forums site directly. These forums are regularly monitored. Because the development kit is an evaluation environment, there is no official support offered through Microsoft CSS.
 
 ## Next steps
 
-[Connect to Azure Stack](azure-stack-connect-azure-stack.md)
-
-[Region management in Azure Stack](azure-stack-region-management.md)
+- [Region management in Azure Stack](azure-stack-region-management.md)

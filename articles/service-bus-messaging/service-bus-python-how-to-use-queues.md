@@ -3,7 +3,7 @@ title: How to use Azure Service Bus queues with Python | Microsoft Docs
 description: Learn how to use Azure Service Bus queues from Python.
 services: service-bus-messaging
 documentationcenter: python
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -13,11 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 04/30/2017
-ms.author: sethm;lmazuel
+ms.date: 04/30/2018
+ms.author: spelluru
 
 ---
-# How to use Service Bus queues
+# How to use Service Bus queues with Python
+
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
 This article describes how to use Service Bus queues. The samples are written in Python and use the [Python Azure Service Bus package][Python Azure Service Bus package]. The scenarios covered include **creating queues, sending and receiving messages**, and **deleting queues**.
@@ -53,7 +54,7 @@ The values for the SAS key name and value can be found in the [Azure portal][Azu
 bus_service.create_queue('taskqueue')
 ```
 
-**create_queue** also supports additional options, which enable you to override default queue settings such as message time to live (TTL) or maximum queue size. The following example sets the maximum queue size to 5 GB, and the TTL value to 1 minute:
+The `create_queue` method also supports additional options, which enable you to override default queue settings such as message time to live (TTL) or maximum queue size. The following example sets the maximum queue size to 5 GB, and the TTL value to 1 minute:
 
 ```python
 queue_options = Queue()
@@ -64,9 +65,9 @@ bus_service.create_queue('taskqueue', queue_options)
 ```
 
 ## Send messages to a queue
-To send a message to a Service Bus queue, your application calls the **send\_queue\_message** method on the **ServiceBusService** object.
+To send a message to a Service Bus queue, your application calls the `send_queue_message` method on the **ServiceBusService** object.
 
-The following example demonstrates how to send a test message to the queue named *taskqueue using* **send\_queue\_message**:
+The following example demonstrates how to send a test message to the queue named `taskqueue` using `send_queue_message`:
 
 ```python
 msg = Message(b'Test Message')
@@ -77,18 +78,18 @@ Service Bus queues support a maximum message size of 256 KB in the [Standard tie
 a maximum size of 64 KB. There is no limit on the number of messages held in a queue but there is a cap on the total size of the messages held by a queue. This queue size is defined at creation time, with an upper limit of 5 GB. For more information about quotas, see [Service Bus quotas][Service Bus quotas].
 
 ## Receive messages from a queue
-Messages are received from a queue using the **receive\_queue\_message** method on the **ServiceBusService** object:
+Messages are received from a queue using the `receive_queue_message` method on the **ServiceBusService** object:
 
 ```python
 msg = bus_service.receive_queue_message('taskqueue', peek_lock=False)
 print(msg.body)
 ```
 
-Messages are deleted from the queue as they are read when the parameter **peek\_lock** is set to **False**. You can read (peek) and lock the message without deleting it from the queue by setting the parameter **peek\_lock** to **True**.
+Messages are deleted from the queue as they are read when the parameter `peek_lock` is set to **False**. You can read (peek) and lock the message without deleting it from the queue by setting the parameter `peek_lock` to **True**.
 
 The behavior of reading and deleting the message as part of the receive operation is the simplest model, and works best for scenarios in which an application can tolerate not processing a message in the event of a failure. To understand this, consider a scenario in which the consumer issues the receive request and then crashes before processing it. Because Service Bus will have marked the message as being consumed, then when the application restarts and begins consuming messages again, it will have missed the message that was consumed prior to the crash.
 
-If the **peek\_lock** parameter is set to **True**, the receive becomes a two stage operation, which makes it possible to support applications that cannot tolerate missing messages. When Service Bus receives a request, it finds the next message to be consumed, locks it to prevent other consumers receiving it, and then returns it to the application. After the application finishes processing the message (or stores it reliably for future processing), it completes the second stage of the receive process by calling the **delete** method on the **Message** object. The **delete** method will mark the message as being consumed and remove it from the queue.
+If the `peek_lock` parameter is set to **True**, the receive becomes a two stage operation, which makes it possible to support applications that cannot tolerate missing messages. When Service Bus receives a request, it finds the next message to be consumed, locks it to prevent other consumers receiving it, and then returns it to the application. After the application finishes processing the message (or stores it reliably for future processing), it completes the second stage of the receive process by calling the **delete** method on the **Message** object. The **delete** method will mark the message as being consumed and remove it from the queue.
 
 ```python
 msg = bus_service.receive_queue_message('taskqueue', peek_lock=True)

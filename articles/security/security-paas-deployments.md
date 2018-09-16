@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/21/2017
+ms.date: 11/21/2017
 ms.author: terrylan
 
 ---
@@ -87,12 +87,12 @@ The following summarizes a general best practices approach to managing your iden
 - **Don’t put credentials and other secrets into source code or GitHub**
   The only thing worse than losing your keys and credentials is having an unauthorized party gain access to them. Attackers are able to take advantage of bot technologies to find keys and secrets stored in code repositories such as GitHub. Do not put key and secrets in these public source code repositories.
 - **Protect your VM management interfaces on hybrid PaaS and IaaS services**
-  IaaS and PaaS services run on virtual machines (VMs). Depending on the type of service, several management interfaces are available that enable you to remote manage these VMs directly. Remote management protocols such as [Secure Shell Protocol (SSH)](https://en.wikipedia.org/wiki/Secure_Shell), [Remote Desktop Protocol (RDP)](https://support.microsoft.com/kb/186607), and [Remote PowerShell](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/enable-psremoting) can be used. In general, we recommend that you do not enable direct remote access to VMs from the Internet. If available, you should use alternate approaches such as using virtual private networking into an Azure virtual network. If alternative approaches are not available, then ensure that you use complex passphrases, and when available, two-factor authentication (such as [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)).
+  IaaS and PaaS services run on virtual machines (VMs). Depending on the type of service, several management interfaces are available that enable you to remote manage these VMs directly. Remote management protocols such as [Secure Shell Protocol (SSH)](https://en.wikipedia.org/wiki/Secure_Shell), [Remote Desktop Protocol (RDP)](https://support.microsoft.com/kb/186607), and [Remote PowerShell](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/enable-psremoting) can be used. In general, we recommend that you do not enable direct remote access to VMs from the Internet. If available, you should use alternate approaches such as using virtual private networking into an Azure virtual network. If alternative approaches are not available, then ensure that you use complex passphrases, and when available, two-factor authentication (such as [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)).
 - **Use strong authentication and authorization platforms**
 
   - Use federated identities in Azure AD instead of custom user stores. When you use federated identities, you take advantage of a platform-based approach and you delegate the management of authorized identities to your partners. A federated identity approach is especially important in scenarios when employees are terminated and that information needs to be reflected through multiple identity and authorization systems.
   - Use platform supplied authentication and authorization mechanisms instead of custom code. The reason is that developing custom authentication code can be error prone. Most of your developers are not security experts and are unlikely to be aware of the subtleties and the latest developments in authentication and authorization. Commercial code (for example from Microsoft) is often extensively security reviewed.
-  - Use multi-factor authentication. Multi-factor authentication is the current standard for authentication and authorization because it avoids the security weaknesses inherent in username and password types of authentication. Access to both the Azure management (portal/remote PowerShell) interfaces and to customer facing services should be designed and configured to use [Azure Multi-Factor Authentication (MFA)](../multi-factor-authentication/multi-factor-authentication.md).
+  - Use multi-factor authentication. Multi-factor authentication is the current standard for authentication and authorization because it avoids the security weaknesses inherent in username and password types of authentication. Access to both the Azure management (portal/remote PowerShell) interfaces and to customer facing services should be designed and configured to use [Azure Multi-Factor Authentication (MFA)](../active-directory/authentication/multi-factor-authentication.md).
   - Use standard authentication protocols, such as OAuth2 and Kerberos. These protocols have been extensively peer reviewed and are likely implemented as part of your platform libraries for authentication and authorization.
 
 ## Next steps
@@ -100,7 +100,7 @@ In this article, we focused on security advantages of an Azure PaaS deployment. 
 
 - [Azure App Service](security-paas-applications-using-app-services.md)
 - [Azure SQL Database and Azure SQL Data Warehouse](security-paas-applications-using-sql.md)
-- Azure Storage
+- [Azure Storage](security-paas-applications-using-storage.md)
 - Azure REDIS Cache
 - Azure Service Bus
 - Web Application Firewalls

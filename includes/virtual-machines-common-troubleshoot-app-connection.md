@@ -1,3 +1,15 @@
+---
+title: include file
+description: include file
+services: virtual-machines-windows
+author: cynthn
+ms.service: virtual-machines-windows
+ms.topic: include
+ms.date: 05/17/2018
+ms.author: cynthn
+ms.custom: include file
+---
+
 There are various reasons when you cannot start or connect to an application running on an Azure virtual machine (VM). Reasons include the application not running or listening on the expected ports, the listening port blocked, or networking rules not correctly passing traffic to the application. This article describes a methodical approach to find and correct the problem.
 
 If you are having issues connecting to your VM using RDP or SSH, see one of the following articles first:
@@ -15,7 +27,7 @@ If you have problems connecting to an application, try the following general tro
 
 * Restart the virtual machine
 * Recreate the endpoint / firewall rules / network security group (NSG) rules
-  * [Resource Manager model - Manage Network Security Groups](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+  * [Resource Manager model - Manage Network Security Groups](../articles/virtual-network/manage-network-security-group.md)
   * [Classic model - Manage Cloud Services endpoints](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
 * Connect from different location, such as a different Azure virtual network
 * Redeploy the virtual machine
@@ -76,7 +88,7 @@ If you cannot access the application, verify the following settings:
 * Intrusion detection or network monitoring software running on the target VM is allowing the traffic.
 * Cloud Services endpoints or Network Security Groups are allowing the traffic:
   * [Classic model - Manage Cloud Services endpoints](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
-  * [Resource Manager model - Manage Network Security Groups](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+  * [Resource Manager model - Manage Network Security Groups](../articles/virtual-network/manage-network-security-group.md)
 * A separate component running in your VM in the path between the test VM and your VM, such as a load balancer or firewall, is allowing the traffic.
 
 On a Windows-based virtual machine, use Windows Firewall with Advanced Security to determine whether the firewall rules exclude your application's inbound and outbound traffic.
@@ -99,7 +111,7 @@ If you cannot access the application, verify the following settings:
   
   * Verify that the inbound NAT rule configuration for the VM is allowing the incoming traffic, especially the protocol (TCP or UDP) and the public and private port numbers.
   * Verify that Network Security Groups are allowing the inbound request and outbound response traffic.
-  * For more information, see [What is a Network Security Group (NSG)?](../articles/virtual-network/virtual-networks-nsg.md)
+  * For more information, see [What is a network security group?](../articles/virtual-network/security-overview.md)
 
 If the virtual machine or endpoint is a member of a load-balanced set:
 
@@ -112,6 +124,10 @@ If you can access the application, ensure that your Internet edge device is allo
 
 * The outbound application request traffic from your client computer to the Azure virtual machine.
 * The inbound application response traffic from the Azure virtual machine.
+
+## Step 4 If you cannot access the application, use IP Verify to check the settings. 
+
+For more information, see [Azure network monitoring overview](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview). 
 
 ## Additional resources
 [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md)

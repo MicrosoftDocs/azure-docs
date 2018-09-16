@@ -1,22 +1,18 @@
----
-title: Azure Active Directory B2C | Microsoft Docs
+﻿---
+title: Call a secured ASP.NET web api in Azure Active Directory B2C | Microsoft Docs
 description: How to build a .NET Web app and call a web api using Azure Active Directory B2C and OAuth 2.0 access tokens.
 services: active-directory-b2c
-documentationcenter: .net
-author: parakhj
-manager: krassk
-editor: ''
+author: davidmu1
+manager: mtillman
 
-ms.assetid: d3888556-2647-4a42-b068-027f9374aa61
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/17/2017
-ms.author: parakhj
-
+ms.author: davidmu
+ms.component: B2C
 ---
+
 # Azure AD B2C: Call a .NET web API from a .NET web app
 
 By using Azure AD B2C, you can add powerful identity management features to your web apps and web APIs. This article discusses how to request access tokens and make calls from a .NET "to-do list" web app to a .NET web api.
@@ -32,9 +28,9 @@ To build a web application that calls a web api, you need to:
 
 1. [Create an Azure AD B2C tenant](active-directory-b2c-get-started.md).
 2. [Register a web api](active-directory-b2c-app-registration.md#register-a-web-api).
-3. [Register a web app](active-directory-b2c-app-registration.md#register-a-web-application).
+3. [Register a web app](active-directory-b2c-app-registration.md#register-a-web-app).
 4. [Set up policies](active-directory-b2c-reference-policies.md).
-5. [Grant the web app permissions to use the web api](active-directory-b2c-access-tokens.md#granting-permissions-to-a-web-api).
+5. [Grant the web app permissions to use the web api](active-directory-b2c-access-tokens.md#publishing-permissions).
 
 > [!IMPORTANT]
 > The client application and web API must use the same Azure AD B2C directory.

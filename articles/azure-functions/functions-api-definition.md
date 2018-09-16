@@ -2,17 +2,13 @@
 title: OpenAPI metadata in Azure Functions | Microsoft Docs
 description: Overview of OpenAPI support in Azure Functions
 services: functions
-documentationcenter: ''
 author: alexkarcher-msft
-manager: erikre
-editor: ''
+manager: jeconnoc
 
 ms.assetid:
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alkarche
 
@@ -20,7 +16,7 @@ ms.author: alkarche
 # OpenAPI 2.0 metadata support in Azure Functions (preview)
 OpenAPI 2.0 (formerly Swagger) metadata support in Azure Functions is a preview feature that you can use to write an OpenAPI 2.0 definition inside a function app. You can then host that file by using the function app.
 
-[OpenAPI metadata](http://swagger.io/) allows a function that's hosting a REST API to be consumed by a wide variety of other software. This software includes Microsoft offerings like PowerApps and the [API Apps feature of Azure App Service](https://docs.microsoft.com/azure/app-service-api/app-service-api-dotnet-get-started#a-idcodegena-generate-client-code-for-the-data-tier), third-party developer tools like [Postman](https://www.getpostman.com/docs/importing_swagger), and [many more packages](http://swagger.io/tools/).
+[OpenAPI metadata](http://swagger.io/) allows a function that's hosting a REST API to be consumed by a wide variety of other software. This software includes Microsoft offerings like PowerApps and the [API Apps feature of Azure App Service](../app-service/app-service-web-overview.md), third-party developer tools like [Postman](https://www.getpostman.com/docs/importing_swagger), and [many more packages](http://swagger.io/tools/).
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -28,9 +24,12 @@ OpenAPI 2.0 (formerly Swagger) metadata support in Azure Functions is a preview 
 >We recommend starting with the [getting started tutorial](./functions-api-definition-getting-started.md) and then returning to this document to learn more about specific features.
 
 ## <a name="enable"></a>Enable OpenAPI definition support
-You can configure all OpenAPI settings on the **API Definition (preview)** page in your function app settings.
+You can configure all OpenAPI settings on the **API Definition** page in your function app's **Platform features**.
 
-To enable the generation of a hosted OpenAPI definition and a quickstart definition, set **API definition source** to **Function**. **External URL** allows your function to use an OpenAPI definition that's hosted elsewhere.
+> [!NOTE]
+> Function API definition feature is not supported for beta runtime currently.
+
+To enable the generation of a hosted OpenAPI definition and a quickstart definition, set **API definition source** to **Function (Preview)**. **External URL** allows your function to use an OpenAPI definition that's hosted elsewhere.
 
 ## <a name="generate-definition"></a>Generate a Swagger skeleton from your function's metadata
 A template can help you start writing your first OpenAPI definition. The definition template feature creates a sparse OpenAPI definition by using all the metadata in the function.json file for each of your HTTP trigger functions. You'll need to fill in more information about your API from the [OpenAPI specification](http://swagger.io/specification/), such as request and response templates.

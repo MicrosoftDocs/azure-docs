@@ -1,25 +1,16 @@
 ---
 title: "Azure Analysis Services tutorial lesson 4: Create relationships | Microsoft Docs"
 description: Describes how to create relationships in the Azure Analysis Services tutorial project. 
-services: analysis-services
-documentationcenter: ''
 author: minewiskan
-manager: erikre
-editor: ''
-tags: ''
-
-ms.assetid: 
-ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 05/26/2017
+manager: kfile
+ms.service: azure-analysis-services
+ms.topic: conceptual
+ms.date: 07/03/2018
 ms.author: owend
----
-# Lesson 4: Create relationships
+ms.reviewer: minewiskan
 
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+---
+# Create relationships
 
 In this lesson, you verify the relationships that were created automatically when you imported data and add new relationships between different tables. A relationship is a connection between two tables that establishes how the data in those tables should be correlated. For example, the DimProduct table and the DimProductSubcategory table have a relationship based on the fact that each product belongs to a subcategory. To learn more, see [Relationships](https://docs.microsoft.com/sql/analysis-services/tabular-models/relationships-ssas-tabular).
   
@@ -29,7 +20,10 @@ Estimated time to complete this lesson: **10 minutes**
 This topic is part of a tabular modeling tutorial, which should be completed in order. Before performing the tasks in this lesson, you should have completed the previous lesson: [Lesson 3: Mark as Date Table](../tutorials/aas-lesson-3-mark-as-date-table.md). 
   
 ## Review existing relationships and add new relationships  
-When you imported data by using Get Data, you got seven tables from the AdventureWorksDW2014 database. Generally, when you import data from a relational source, existing relationships are automatically imported together with the data. However, before you proceed with authoring your model you should verify those relationships between tables were created properly. For this tutorial, you add three new relationships.  
+When you imported data by using Get Data, you got seven tables from the AdventureWorksDW2014 database. Generally, when you import data from a relational source, existing relationships are automatically imported together with the data. In order for Get Data to automatically create relationships in the data model, there must be relationsips between tables at the data source.
+
+Before you proceed with authoring your model, you should verify those relationships between tables were created properly. For this tutorial, you also add three new relationships.  
+
   
 #### To review existing relationships  
   
@@ -39,7 +33,10 @@ When you imported data by using Get Data, you got seven tables from the Adventur
     
     ![aas-lesson4-diagram](../tutorials/media/aas-lesson4-diagram.png)
   
-    Include as many of the tables as possible by using minimap controls in the lower-right corner of the model designer. You can also click and drag tables to different locations, bringing tables closer together, or putting them in a particular order. Moving tables does not affect the relationships already between the tables. To view all the columns in a particular table, click and drag on a table edge to expand or make it smaller.  
+    > [!NOTE]
+    > If you don't see any relationships between tables, it likely means there are no relationships between those tables at the datasource.
+
+    Include as many of the tables as possible by using minimap controls in the lower-right corner of the model designer. You can also click and drag tables to different locations, bringing tables closer together, or putting them in a particular order. Moving tables does not affect the relationships between the tables. To view all the columns in a particular table, click and drag on a table edge to expand or make it smaller.  
   
 2.  Click the solid line between the **DimCustomer** table and the **DimGeography** table. The solid line between these two tables shows this relationship is active, that is, it is used by default when calculating DAX formulas.  
   
@@ -58,7 +55,7 @@ When you imported data by using Get Data, you got seven tables from the Adventur
     |Yes|**FactInternetSales [CustomerKey]**|**DimCustomer [CustomerKey]**|  
     |Yes|**FactInternetSales [ProductKey]**|**DimProduct [ProductKey]**|  
   
-    If any of the relationships are missing, verify that your model includes the following tables: DimCustomer, DimDate, DimGeography, DimProduct, DimProductCategory, DimProductSubcategory, and FactInternetSales. If tables from the same data source connection are imported at separate times, any relationships between those tables are not be created and must be created manually.  
+    If any of the relationships are missing, verify your model includes the following tables: DimCustomer, DimDate, DimGeography, DimProduct, DimProductCategory, DimProductSubcategory, and FactInternetSales. If tables from the same datasource connection are imported at separate times, any relationships between those tables are not be created and must be created manually. If no relationships appear, it means there are no relationships at the datasource. You can create them manually in the data model.
 
 ### Take a closer look
 In Diagram View, notice an arrow, an asterisk, and a number on the lines that show the relationship between tables.

@@ -3,8 +3,8 @@ title: 'Azure AD Connect sync: Understanding the default configuration | Microso
 description: This article describes the default configuration in Azure AD Connect sync.
 services: active-directory
 documentationcenter: ''
-author: andkjell
-manager: femila
+author: billmath
+manager: mtillman
 editor: ''
 
 ms.assetid: ed876f22-6892-4b9d-acbe-6a2d112f1cd1
@@ -13,7 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
 
 ---
@@ -47,7 +48,7 @@ The following user objects are **not** synchronized to Azure AD:
 * Do not synchronize objects that would not work in Exchange Online.
   `CBool(IIF(IsPresent([msExchRecipientTypeDetails]),BitAnd([msExchRecipientTypeDetails],&H21C07000) > 0,NULL))`  
   This bitmask (&H21C07000) would filter out the following objects:
-  * Mail-enabled Public Folder
+  * Mail-enabled Public Folder (In Preview as of version 1.1.524.0)
   * System Attendant Mailbox
   * Mailbox Database Mailbox (System Mailbox)
   * Universal Security Group (wouldn't apply for a user, but is present for legacy reasons)
@@ -72,9 +73,9 @@ A contact object must satisfy the following to be synchronized:
 
 * The contact must be mail-enabled. It is verified with the following rules:
   * `IsPresent([proxyAddresses]) = True)`. The proxyAddresses attribute must be populated.
-  * A primary email address can be found in either the proxyAddresses attribute or the mail attribute. The presence of an @ is used to verify that the content is an email address. One of these two rules must be evaluated to True.
-    * `(Contains([proxyAddresses], "SMTP:") > 0) && (InStr(Item([proxyAddresses], Contains([proxyAddresses], "SMTP:")), "@") > 0))`. Is there an entry with "SMTP:" and if there is, can an @ be found in the string?
-    * `(IsPresent([mail]) = True && (InStr([mail], "@") > 0)`. Is the mail attribute populated and if it is, can an @ be found in the string?
+  * A primary email address can be found in either the proxyAddresses attribute or the mail attribute. The presence of an \@ is used to verify that the content is an email address. One of these two rules must be evaluated to True.
+    * `(Contains([proxyAddresses], "SMTP:") > 0) && (InStr(Item([proxyAddresses], Contains([proxyAddresses], "SMTP:")), "@") > 0))`. Is there an entry with "SMTP:" and if there is, can an \@ be found in the string?
+    * `(IsPresent([mail]) = True && (InStr([mail], "@") > 0)`. Is the mail attribute populated and if it is, can an \@ be found in the string?
 
 The following contact objects are **not** synchronized to Azure AD:
 

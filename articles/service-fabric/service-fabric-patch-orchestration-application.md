@@ -10,19 +10,25 @@ editor: ''
 ms.assetid: de7dacf5-4038-434a-a265-5d0de80a9b1d
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/9/2017
+ms.date: 5/22/2018
 ms.author: nachandr
 
 ---
 
 # Patch the Windows operating system in your Service Fabric cluster
 
-The patch orchestration application is a Azure Service Fabric application that automates operating system patching on a Service Fabric cluster on Azure without downtime.
+> [!div class="op_single_selector"]
+> * [Windows](service-fabric-patch-orchestration-application.md)
+> * [Linux](service-fabric-patch-orchestration-application-linux.md)
+>
+>
 
-The patch orchestration app provides the following:
+The patch orchestration application is an Azure Service Fabric application that automates operating system patching on a Service Fabric cluster without downtime.
+
+The patch orchestration app provides the following features:
 
 - **Automatic operating system update installation**. Operating system updates are automatically downloaded and installed. Cluster nodes are rebooted as needed without cluster downtime.
 
@@ -50,14 +56,6 @@ The patch orchestration app is composed of the following subcomponents:
 
 ## Prerequisites
 
-### Minimum supported Service Fabric runtime version
-
-#### Azure clusters
-The patch orchestration app must be run on Azure clusters that have Service Fabric runtime version v5.5 or later.
-
-#### Standalone On-Premise Clusters
-The patch orchestration app must be run on Standalone clusters that have Service Fabric runtime version v5.6 or later.
-
 ### Enable the repair manager service (if it's not running already)
 
 The patch orchestration app requires the repair manager system service to be enabled on the cluster.
@@ -66,11 +64,16 @@ The patch orchestration app requires the repair manager system service to be ena
 
 Azure clusters in the silver durability tier have the repair manager service enabled by default. Azure clusters in the gold durability tier might or might not have the repair manager service enabled, depending on when those clusters were created. Azure clusters in the bronze durability tier, by default, do not have the repair manager service enabled. If the service is already enabled, you can see it running in the system services section in the Service Fabric Explorer.
 
-You can use the [Azure Resource Manager template](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) to enable the repair manager service on new and existing Service Fabric clusters. Get the template for the cluster that you want to deploy. You can either use the sample templates or create a custom Resource Manager template. 
+##### Azure portal
+You can enable repair manager from Azure portal at the time of setting up of cluster. Select **Include Repair Manager** option under **Add-on features** at the time of cluster configuration.
+![Image of Enabling Repair Manager from Azure portal](media/service-fabric-patch-orchestration-application/EnableRepairManager.png)
 
-To enable the repair manager service:
+##### Azure Resource Manager deployment model
+Alternatively you can use the [Azure Resource Manager deployment model](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) to enable the repair manager service on new and existing Service Fabric clusters. Get the template for the cluster that you want to deploy. You can either use the sample templates or create a custom Azure Resource Manager deployment model template. 
 
-1. First check that the `apiversion` is set to `2017-07-01-preview` for the `Microsoft.ServiceFabric/clusters` resource, as shown in the following snippet. If it is different, then you need to update the `apiVersion` to the value `2017-07-01-preview`:
+To enable the repair manager service using [Azure Resource Manager deployment model template](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm):
+
+1. First check that the `apiversion` is set to `2017-07-01-preview` for the `Microsoft.ServiceFabric/clusters` resource. If it is different, then you need to update the `apiVersion` to the value `2017-07-01-preview` or higher:
 
     ```json
     {
@@ -87,10 +90,10 @@ To enable the repair manager service:
     ```json
     "fabricSettings": [
         ...      
-        ],
-        "addonFeatures": [
-            "RepairManager"
-        ],
+    ],
+    "addonFeatures": [
+        "RepairManager"
+    ],
     ```
 
 3. After you have updated your cluster template with these changes, apply them and let the upgrade finish. You can now see the repair manager system service running in your cluster. It is called `fabric:/System/RepairManagerService` in the system services section in the Service Fabric Explorer. 
@@ -112,80 +115,28 @@ To enable the repair manager service:
     }
     ```
 
-2. Now enable repair manager service by adding the following `addonFeaturres` section after the `fabricSettings` section as shown below:
+2. Now enable repair manager service by adding the following `addonFeatures` section after the `fabricSettings` section as shown below:
 
     ```json
     "fabricSettings": [
         ...      
-        ],
-        "addonFeatures": [
-            "RepairManager"
-        ],
+    ],
+    "addonFeatures": [
+        "RepairManager"
+    ],
     ```
 
-3. Update you cluster manifest with these changes, using the updated cluster manifest [create a new cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-for-windows-server) or [upgrade the cluster configuration](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-windows-server#Upgrade-the-cluster-configuration). Once the cluster is running with updated cluster manifest, you can now see the repair manager system service running in your cluster, which is called `fabric:/System/RepairManagerService`, under system services section in the Service Fabric explorer.
+3. Update your cluster manifest with these changes, using the updated cluster manifest [create a new cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-for-windows-server) or [upgrade the cluster configuration](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-windows-server#Upgrade-the-cluster-configuration). Once the cluster is running with updated cluster manifest, you can now see the repair manager system service running in your cluster, which is called `fabric:/System/RepairManagerService`, under system services section in the Service Fabric explorer.
 
 ### Disable automatic Windows Update on all nodes
 
 Automatic Windows updates might lead to availability loss because multiple cluster nodes can restart at the same time. The patch orchestration app, by default, tries to disable the automatic Windows Update on each cluster node. However, if the settings are managed by an administrator or group policy, we recommend setting the Windows Update policy to “Notify before Download” explicitly.
 
-### Optional: Enable Azure Diagnostics
-
-Logs for the patch orchestration app collect locally on each of the cluster nodes. 
-Additionally for clusters running Service Fabric runtime version `5.6.220.9494` and above, logs would be collected as part of Service Fabric logs.
-
-For clusters running Service Fabric runtime version less than `5.6.220.9494`, we recommend that you configure Azure Diagnostics to upload logs from all nodes to a central location.
-
-For information on enabling Azure Diagnostics, see [Collect logs by using Azure Diagnostics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-how-to-setup-wad).
-
-Logs for the patch orchestration app are generated on the following fixed provider IDs:
-
-- e39b723c-590c-4090-abb0-11e3e6616346
-- fc0028ff-bfdc-499f-80dc-ed922c52c5e9
-- 24afa313-0d3b-4c7c-b485-1047fd964b60
-- 05dc046c-60e9-4ef7-965e-91660adffa68
-
-Inside the `WadCfg` section in the Resource Manager template, add the following section: 
-
-```json
-"PatchOrchestrationApplication": [
-  {
-    "provider": "e39b723c-590c-4090-abb0-11e3e6616346",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-      "eventDestination": "PatchOrchestrationApplicationTable"
-    }
-  },
-  {
-    "provider": "fc0028ff-bfdc-499f-80dc-ed922c52c5e9",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-    "eventDestination": " PatchOrchestrationApplicationTable"
-    }
-  },
-  {
-    "provider": "24afa313-0d3b-4c7c-b485-1047fd964b60",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-    "eventDestination": " PatchOrchestrationApplicationTable"
-    }
-  },
-  {
-    "provider": "05dc046c-60e9-4ef7-965e-91660adffa68",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-    "eventDestination": " PatchOrchestrationApplicationTable"
-    }
-  },
-]
-```
-
-> [!NOTE]
-> If your Service Fabric cluster has multiple node types, then the previous section must be added for all the `WadCfg` sections.
-
 ## Download the app package
 
-Download the application from the [download link](https://go.microsoft.com/fwlink/P/?linkid=849590).
+Application along with installation scripts can be downloaded from [Archive link](https://go.microsoft.com/fwlink/?linkid=869566).
+
+Application in sfpkg format can be downloaded from [sfpkg link](https://aka.ms/POA/POA_v1.2.2.sfpkg). This comes handy for [Azure Resource Manager based application deployment](service-fabric-application-arm-resource.md).
 
 ## Configure the app
 
@@ -194,15 +145,15 @@ The behavior of the patch orchestration app can be configured to meet your needs
 |**Parameter**        |**Type**                          | **Details**|
 |:-|-|-|
 |MaxResultsToCache    |Long                              | Maximum number of Windows Update results, which should be cached. <br>Default value is 3000 assuming the: <br> - Number of nodes is 20. <br> - Number of updates happening on a node per month is five. <br> - Number of results per operation can be 10. <br> - Results for the past three months should be stored. |
-|TaskApprovalPolicy   |Enum <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy indicates the policy that is to be used by the Coordinator Service to install Windows updates across the Service Fabric cluster nodes.<br>                         Allowed values are: <br>                                                           <b>NodeWise</b>. Windows Update is installed one node at a time. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update is installed one upgrade domain at a time. (At the maximum, all the nodes belonging to an upgrade domain can go for Windows Update.)
+|TaskApprovalPolicy   |Enum <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy indicates the policy that is to be used by the Coordinator Service to install Windows updates across the Service Fabric cluster nodes.<br>                         Allowed values are: <br>                                                           <b>NodeWise</b>. Windows Update is installed one node at a time. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update is installed one upgrade domain at a time. (At the maximum, all the nodes belonging to an upgrade domain can go for Windows Update.)<br> Refer to [FAQ](#frequently-asked-questions) section on how to decide which is best suited policy for your cluster.
 |LogsDiskQuotaInMB   |Long  <br> (Default: 1024)               |Maximum size of patch orchestration app logs in MB, which can be persisted locally on nodes.
 | WUQuery               | string<br>(Default: "IsInstalled=0")                | Query to get Windows updates. For more information, see [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
-| InstallWindowsOSOnlyUpdates | Bool <br> (default: True)                 | This flag allows Windows operating system updates to be installed.            |
+| InstallWindowsOSOnlyUpdates | Boolean <br> (default: True)                 | This flag allows Windows operating system updates to be installed.            |
 | WUOperationTimeOutInMinutes | Int <br>(Default: 90)                   | Specifies the timeout for any Windows Update operation (search or download or install). If the operation is not completed within the specified timeout, it is aborted.       |
 | WURescheduleCount     | Int <br> (Default: 5)                  | The maximum number of times the service reschedules the Windows update in case an operation fails persistently.          |
 | WURescheduleTimeInMinutes | Int <br>(Default: 30) | The interval at which the service reschedules the Windows update in case failure persists. |
-| WUFrequency           | Comma-separated string (Default: "Weekly, Wednesday, 7:00:00")     | The frequency for installing Windows Update. The format and possible values are: <br>-   Monthly, DD,HH:MM:SS, for example, Monthly, 5,12:22:32. <br> -   Weekly, DAY,HH:MM:SS, for example, Weekly, Tuesday, 12:22:32.  <br> -   Daily, HH:MM:SS, for example, Daily, 12:22:32.  <br> -  None indicates that Windows Update shouldn't be done.  <br><br> Note that all the times are in UTC.|
-| AcceptWindowsUpdateEula | Bool <br>(Default: true) | By setting this flag, the application accepts the End-User License Agreement for Windows Update on behalf of the owner of the machine.              |
+| WUFrequency           | Comma-separated string (Default: "Weekly, Wednesday, 7:00:00")     | The frequency for installing Windows Update. The format and possible values are: <br>-   Monthly, DD, HH:MM:SS, for example, Monthly, 5,12:22:32. <br> -   Weekly, DAY, HH:MM:SS, for example, Weekly, Tuesday, 12:22:32.  <br> -   Daily, HH:MM:SS, for example, Daily, 12:22:32.  <br> -  None indicates that Windows Update shouldn't be done.  <br><br> Note that times are in UTC.|
+| AcceptWindowsUpdateEula | Boolean <br>(Default: true) | By setting this flag, the application accepts the End-User License Agreement for Windows Update on behalf of the owner of the machine.              |
 
 > [!TIP]
 > If you want Windows Update to happen immediately, set `WUFrequency` relative to the application deployment time. For example, suppose that you have a five-node test cluster and plan to deploy the app at around 5:00 PM UTC. If you assume that the application upgrade or deployment takes 30 minutes at the maximum, set the WUFrequency as "Daily, 17:30:00."
@@ -266,6 +217,17 @@ The patch orchestration app exposes REST APIs to display the historical results 
   ...
 ]
 ```
+
+Fields of the JSON are described below.
+
+Field | Values | Details
+-- | -- | --
+OperationResult | 0 - Succeeded<br> 1 - Succeeded With Errors<br> 2 - Failed<br> 3 - Aborted<br> 4 - Aborted With Timeout | Indicates the result of overall operation (typically involving installation of one or more updates).
+ResultCode | Same as OperationResult | This field indicates result of installation operation for an individual update.
+OperationType | 1 - Installation<br> 0 - Search and Download.| Installation is the only OperationType that would be shown in the results by default.
+WindowsUpdateQuery | Default is "IsInstalled=0" |Windows update query that was used to search for updates. For more information, see [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
+RebootRequired | true - reboot was required<br> false - reboot was not required | Indicates if reboot was required to complete installation of updates.
+
 If no update is scheduled yet, the result JSON is empty.
 
 Log in to the cluster to query Windows Update results. Then find out the replica address for the primary of the Coordinator Service, and hit the URL from the browser:
@@ -289,21 +251,16 @@ To enable the reverse proxy on the cluster, follow the steps in [Reverse proxy i
 
 ## Diagnostics/health events
 
-### Collect patch orchestration app logs
+### Diagnostic logs
 
-Patch orchestration app logs are collected as part of Service Fabric logs from runtime version `5.6.220.9494` and above.
-For clusters running Service Fabric runtime version less than `5.6.220.9494`, Logs can be collected by using one of the following methods.
+Patch orchestration app logs are collected as part of Service Fabric runtime logs.
 
-#### Locally on each node
+In case you want to capture logs via diagnostic tool/pipeline of your choice. Patch orchestration application uses below fixed provider IDs to log events via [eventsource](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1)
 
-Logs are collected locally on each Service Fabric cluster node. The location to access the logs is
-\[Service Fabric\_Installation\_Drive\]:\\PatchOrchestrationApplication\\logs.
-
-For example, if Service Fabric is installed on drive D, the path is D:\\PatchOrchestrationApplication\\logs.
-
-#### Central location
-
-If Azure Diagnostics is configured as part of prerequisite steps, logs for the patch orchestration app are available in Azure Storage.
+- e39b723c-590c-4090-abb0-11e3e6616346
+- fc0028ff-bfdc-499f-80dc-ed922c52c5e9
+- 24afa313-0d3b-4c7c-b485-1047fd964b60
+- 05dc046c-60e9-4ef7-965e-91660adffa68
 
 ### Health reports
 
@@ -347,15 +304,40 @@ Q. **What can I do if my cluster is unhealthy and I need to do an urgent operati
 
 A. The patch orchestration app does not install updates while the cluster is unhealthy. Try to bring your cluster to a healthy state to unblock the patch orchestration app workflow.
 
-Q. **Why does patching across clusters take so long to run?**
+Q. **Should i set TaskApprovalPolicy as 'NodeWise' or 'UpgradeDomainWise' for my cluster?**
 
-A. The time needed by the patch orchestration app is mostly dependent on the following factors:
+A. 'UpgradeDomainWise' makes the overall cluster patching faster by patching all the nodes belonging to an upgrade domain in parallel. This means that nodes belonging to an entire upgrade domain would be unavailable (in [Disabled](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabled) state) during the patching process.
 
-- The policy of the Coordinator Service. 
-  - The default policy, `NodeWise`, results in patching only one node at a time. Especially in the case of bigger clusters, we recommend that you use the `UpgradeDomainWise` policy to achieve faster patching across clusters.
-- The number of updates available for download and installation. 
-- The average time needed to download and install an update, which should not exceed a couple of hours.
-- The performance of the VM and network bandwidth.
+In contrast 'NodeWise' policy patches only one node at a time, this implies overall cluster patching would take longer time. However, at max, only one node would be unavailable (in [Disabled](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabled) state) during the patching process.
+
+If your cluster can tolerate running on N-1 number of upgrade domains during patching cycle (where N is the total number of upgrade domains on your cluster), then you can set the policy as 'UpgradeDomainWise', otherwise set it to 'NodeWise'.
+
+Q. **How much time does it take to patch a node?**
+
+A. Patching a node may take minutes (for example: [Windows Defender definition updates](https://www.microsoft.com/wdsi/definitions)) to hours (for example: [Windows Cumulative updates](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%20server%20cumulative%20update)). Time required to patch a node depends mostly on 
+ - The size of updates
+ - Number of updates, which have to be applied in a patching window
+ - Time it takes to install the updates, reboot the node (if required), and finish post-reboot installation steps.
+ - Performance of VM/machine and network conditions.
+
+Q. **How long does it take to patch an entire cluster?**
+
+A. The time needed to patch an entire cluster depends on the following factors:
+
+- Time needed to patch a node.
+- The policy of the Coordinator Service. - The default policy, `NodeWise`, results in patching only one node at a time, which would be slower than `UpgradeDomainWise`. For example: If a node takes ~1 hour to be patched, inorder to patch a 20 node (same type of nodes) cluster with 5 upgrade domains, each containing 4 nodes.
+    - It should take ~20 hours to patch the entire cluster, if policy is `NodeWise`
+    - It should take ~5 hours if policy is `UpgradeDomainWise`
+- Cluster load - Each patching operation requires relocating the customer workload to other available nodes in the cluster. Node undergoing patch would be in [Disabling](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabling) state during this time. If the cluster is running near peak load, the disabling process would take longer time. Hence overall patching process may appear to be slow in such stressed conditions.
+- Cluster health failures during patching - Any [degradation](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet#System_Fabric_Health_HealthState_Error) in [health of the cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-health-introduction) would interrupt the patching process. This would add to the overall time required to patch the entire cluster.
+
+Q. **Why do I see some updates in Windows Update results obtained via REST API, but not under the Windows Update history on the machine?**
+
+A. Some product updates would only appear in their respective update/patch history. For example, Windows Defender updates may or may not show up in Windows Update history on Windows Server 2016.
+
+Q. **Can Patch Orchestration app be used to patch my dev cluster (one-node cluster)?**
+
+A. No, Patch orchestration app cannot be used to patch one-node cluster. This limitation is by design, as [service fabric system services](https://docs.microsoft.com/azure/service-fabric/service-fabric-technical-overview#system-services) or any customer apps will face downtime and hence any repair job for patching would never get approved by repair manager.
 
 ## Disclaimers
 
@@ -394,3 +376,27 @@ In such a case, a warning-level health report is generated against the Node Agen
 A faulty Windows update can bring down the health of an application or cluster on a particular node or upgrade domain. The patch orchestration app discontinues any subsequent Windows Update operation until the cluster is healthy again.
 
 An administrator must intervene and determine why the application or cluster became unhealthy due to Windows Update.
+
+## Release Notes
+
+### Version 1.1.0
+- Public release
+
+### Version 1.1.1
+- Fixed a bug in SetupEntryPoint of NodeAgentService that prevented installation of NodeAgentNTService.
+
+### Version 1.2.0
+
+- Bug fixes around system restart workflow.
+- Bug fix in creation of RM tasks due to which health check during preparing repair tasks wasn't happening as expected.
+- Changed the startup mode for windows service POANodeSvc from auto to delayed-auto.
+
+### Version 1.2.1
+
+- Bug fix in cluster scale-down workflow. Introduced garbage collection logic for POA repair tasks belonging to non-existent nodes.
+
+### Version 1.2.2 (Latest)
+
+- Miscellaneous bug fixes.
+- Binaries are now signed.
+- sfpkg download link now points to a specific version.

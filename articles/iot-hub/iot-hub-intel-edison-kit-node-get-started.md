@@ -1,22 +1,15 @@
 ---
 title: Intel Edison to cloud (Node.js) - Connect Intel Edison to Azure IoT Hub | Microsoft Docs
-description: Connect Intel Edison to Azure IoT Hub for Intel Edison to send data to the Azure cloud.
-services: iot-hub
-documentationcenter: ''
-author: shizn
-manager: timtl
-tags: ''
-keywords: 'azure iot intel edison, intel edison iot hub, intel edison send data to cloud, intel edison to cloud'
-
-ms.assetid: a7c9cf2d-c102-41b0-aa45-41285c6877eb
+description: Learn how to setup and connect Intel Edison to Azure IoT Hub for Intel Edison to send data to the Azure cloud platform in this tutorial.
+author: rangv
+manager: 
+keywords: azure iot intel edison, intel edison iot hub, intel edison send data to cloud, intel edison to cloud
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: nodejs
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 6/15/2017
-ms.author: xshi
-ms.custom: H1Hack27Feb2017
+ms.topic: conceptual
+ms.date: 04/11/2018
+ms.author: rangv
 
 ---
 
@@ -24,13 +17,13 @@ ms.custom: H1Hack27Feb2017
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
-In this tutorial, you begin by learning the basics of working with Intel Edison. You then learn how to seamlessly connect your devices to the cloud by using [Azure IoT Hub](iot-hub-what-is-iot-hub.md).
+In this tutorial, you begin by learning the basics of working with Intel Edison. You then learn how to seamlessly connect your devices to the cloud by using [Azure IoT Hub](about-iot-hub.md).
 
 Don't have a kit yet? Start [here](https://azure.microsoft.com/develop/iot/starter-kits)
 
 ## What you do
 
-* Setup Intel Edison and and Grove modules.
+* Setup Intel Edison and Grove modules.
 * Create an IoT hub.
 * Register a device for Edison in your IoT hub.
 * Run a sample application on Edison to send sensor data to your IoT hub.

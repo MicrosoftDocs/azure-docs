@@ -1,21 +1,15 @@
 ---
-title: Script action development with Linux-based HDInsight - Azure | Microsoft Docs
-description: 'How to customize Linux-based HDInsight clusters with Script Action. Script actions are a way to customize Azure HDInsight clusters by specifying cluster configuration settings or installing additional services, tools, or other software on the cluster. '
+title: Script action development with Linux-based HDInsight - Azure 
+description: 'Learn how to use Bash scripts to customize Linux-based HDInsight clusters. The script action feature of HDInsight allows you to run scripts during or after cluster creation. Scripts can be used to change cluster configuration settings or install additional software.'
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
+author: jasonwhowell
+ms.reviewer: jasonh
 
-ms.assetid: cf4c89cd-f7da-4a10-857f-838004965d3e
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/02/2017
-ms.author: larryfr
+ms.topic: conceptual
+ms.date: 04/10/2018
+ms.author: jasonh
 
 ---
 # Script action development with HDInsight
@@ -23,7 +17,7 @@ ms.author: larryfr
 Learn how to customize your HDInsight cluster using Bash scripts. Script actions are a way to customize HDInsight during or after cluster creation.
 
 > [!IMPORTANT]
-> The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## What are script actions
 
@@ -35,7 +29,7 @@ Script actions can be applied through the following methods:
 | --- |:---:|:---:|
 | Azure portal |✓ |✓ |
 | Azure PowerShell |✓ |✓ |
-| Azure CLI |&nbsp; |✓ |
+| Azure CLI 1.0 |&nbsp; |✓ |
 | HDInsight .NET SDK |✓ |✓ |
 | Azure Resource Manager Template |✓ |&nbsp; |
 
@@ -57,7 +51,7 @@ When you develop a custom script for an HDInsight cluster, there are several bes
 * [Use retry logic to recover from transient errors](#bps9)
 
 > [!IMPORTANT]
-> Script actions must complete within 60 minutes. If not, the script fails. During node provisioning, the script runs concurrently with other setup and configuration processes. Competition for resources such as CPU time or network bandwidth may cause the script to take longer to finish than it does in your development environment.
+> Script actions must complete within 60 minutes or the process fails. During node provisioning, the script runs concurrently with other setup and configuration processes. Competition for resources such as CPU time or network bandwidth may cause the script to take longer to finish than it does in your development environment.
 
 ### <a name="bPS1"></a>Target the Hadoop version
 
@@ -65,7 +59,7 @@ Different versions of HDInsight have different versions of Hadoop services and c
 
 ### <a name="bps10"></a> Target the OS version
 
-Linux-based HDInsight is based on the Ubuntu Linux distribution. Different versions of HDInsight rely on different versions of Ubuntu, which may change how your script behaves. For example, HDInsight 3.4 and earlier are based on Ubuntu versions that use Upstart. Version 3.5 is based on Ubuntu 16.04, which uses Systemd. Systemd and Upstart rely on different commands, so your script should be written to work with both.
+Linux-based HDInsight is based on the Ubuntu Linux distribution. Different versions of HDInsight rely on different versions of Ubuntu, which may change how your script behaves. For example, HDInsight 3.4 and earlier are based on Ubuntu versions that use Upstart. Versions 3.5 and greater are based on Ubuntu 16.04, which uses Systemd. Systemd and Upstart rely on different commands, so your script should be written to work with both.
 
 Another important difference between HDInsight 3.4 and 3.5 is that `JAVA_HOME` now points to Java 8.
 
@@ -115,11 +109,11 @@ The best practice is to download and archive everything in an Azure Storage acco
 > [!IMPORTANT]
 > The storage account used must be the default storage account for the cluster or a public, read-only container on any other storage account.
 
-For example, the samples provided by Microsoft are stored in the [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) storage account, which is a public, read-only container maintained by the HDInsight team.
+For example, the samples provided by Microsoft are stored in the [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) storage account. This location is a public, read-only container maintained by the HDInsight team.
 
 ### <a name="bPS4"></a>Use pre-compiled resources
 
-To reduce the time it takes to run the script, avoid operations that compile resources from source code. Pre-compile the resources and store them in Azure Blob storage so that they can be downloaded quickly.
+To reduce the time it takes to run the script, avoid operations that compile resources from source code. For example, pre-compile resources and store them in an Azure Storage account blob in the same data center as HDInsight.
 
 ### <a name="bPS3"></a>Ensure that the cluster customization script is idempotent
 
@@ -129,7 +123,7 @@ For example, a script that modifies configuration files should not add duplicate
 
 ### <a name="bPS5"></a>Ensure high availability of the cluster architecture
 
-Linux-based HDInsight clusters provide two head nodes that are active within the cluster, and script actions are ran for both nodes. If the components you install expect only one head node, do not install the components on both head nodes.
+Linux-based HDInsight clusters provide two head nodes that are active within the cluster, and script actions run on both nodes. If the components you install expect only one head node, do not install the components on both head nodes.
 
 > [!IMPORTANT]
 > Services provided as part of HDInsight are designed to fail over between the two head nodes as needed. This functionality is not extended to custom components installed through script actions. If you need high availability for custom components, you must implement your own failover mechanism.
@@ -280,7 +274,7 @@ Scripts used to customize a cluster needs to be stored in one of the following l
 
 * A __publicly readable URI__. For example, a URL to data stored on OneDrive, Dropbox, or other file hosting service.
 
-* An __Azure Data Lake Store account__ that is associated with the HDInsight cluster. For more information on using Azure Data Lake Store with HDInsight, see [Create an HDInsight cluster with Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+* An __Azure Data Lake Store account__ that is associated with the HDInsight cluster. For more information on using Azure Data Lake Store with HDInsight, see [Quickstart: Set up clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
     > [!NOTE]
     > The service principal HDInsight uses to access Data Lake Store must have read access to the script.
@@ -311,10 +305,10 @@ fi
 
 ## <a name="deployScript"></a>Checklist for deploying a script action
 
-Here are the steps we took when preparing to deploy these scripts:
+Here are the steps take when preparing to deploy a script:
 
 * Put the files that contain the custom scripts in a place that is accessible by the cluster nodes during deployment. For example, the default storage for the cluster. Files can also be stored in publicly readable hosting services.
-* Verify that the script is impotent. Doing so allows the script to be executed multiple times on the same node.
+* Verify that the script is idempotent. Doing so allows the script to be executed multiple times on the same node.
 * Use a temporary file directory /tmp to keep the downloaded files used by the scripts and then clean them up after scripts have executed.
 * If OS-level settings or Hadoop service configuration files are changed, you may want to restart HDInsight services.
 
@@ -373,5 +367,5 @@ Replace `INFILE` with the file containing the BOM. `OUTFILE` should be a new fil
 ## <a name="seeAlso"></a>Next steps
 
 * Learn how to [Customize HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md)
-* Use the [HDInsight .NET SDK reference](https://msdn.microsoft.com/library/mt271028.aspx) to learn more about creating .NET applications that manage HDInsight
+* Use the [HDInsight .NET SDK reference](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight) to learn more about creating .NET applications that manage HDInsight
 * Use the [HDInsight REST API](https://msdn.microsoft.com/library/azure/mt622197.aspx) to learn how to use REST to perform management actions on HDInsight clusters.

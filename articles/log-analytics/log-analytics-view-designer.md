@@ -1,10 +1,10 @@
 ---
-title: Create views to analyze data in OMS Log Analytics | Microsoft Docs
-description: View Designer in Log Analytics allows you to create custom Views that are displayed in the OMS and Azure portal and contain different visualizations of data in the OMS repository. This article contains an overview of View Designer and procedures for creating and editing custom views.
+title: Create views to analyze data in Azure Log Analytics | Microsoft Docs
+description: By using View Designer in Log Analytics, you can create custom views that are displayed in the Azure portal and contain a variety of data visualizations in the Log Analytics workspace. This article contains an overview of View Designer and presents procedures for creating and editing custom views.
 services: log-analytics
 documentationcenter: ''
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: ''
 
 ms.assetid: ce41dc30-e568-43c1-97fa-81e5997c946a
@@ -12,84 +12,97 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/23/2017
+ms.topic: conceptual
+ms.date: 06/22/2018
 ms.author: bwren
-
+ms.component: na
 ---
-# Use View Designer to create custom views in Log Analytics
-The View Designer in [Log Analytics](log-analytics-overview.md) allows you to create custom views in the OMS console that contain different visualizations of data in the OMS repository. This article contains an overview of View Designer and procedures for creating and editing custom views.
 
-Other articles available for View Designer are:
+# Create custom views by using View Designer in Log Analytics
+By using View Designer in [Azure Log Analytics](log-analytics-overview.md), you can create a variety of custom views in the Azure portal that can help you visualize data in your Log Analytics workspace. This article presents an overview of View Designer and procedures for creating and editing custom views.
 
-* [Tile reference](log-analytics-view-designer-tiles.md) - Reference of the settings for each of the tiles available to use in your custom views. 
-* [Visualization part reference](log-analytics-view-designer-parts.md) - Reference of the settings for each of the tiles available to use in your custom views. 
+For more information about View Designer, see:
+
+* [Tile reference](log-analytics-view-designer-tiles.md): Provides a reference guide to the settings for each of the available tiles in your custom views.
+* [Visualization part reference](log-analytics-view-designer-parts.md): Provides a reference guide to the settings for the visualization parts that are available in your custom views.
+
 
 ## Concepts
-Views created with the View Designer contain the elements in the following table.
+Views are displayed on the **Overview** page of your Log Analytics workspace in the Azure portal. The tiles in each custom view are displayed alphabetically, and the tiles for the solutions are installed the same workspace.
+
+![Overview page](media/log-analytics-view-designer/overview-page.png)
+
+The views that you create with View Designer contain the elements that are described in the following table:
 
 | Part | Description |
 |:--- |:--- |
-| Tile |Displayed on the main Log Analytics Overview dashboard.  Includes a visual summarizing of the information contained in the custom View.  Different Tile types provide different visualizations of records in the OMS repository.  Click on the Tile to open the Custom View. |
-| Custom View |Displayed when the user clicks on the Tile.  Contains one or more visualization parts. |
-| Visualization Parts |Visualization of data in the OMS repository based on one or more [log searches](log-analytics-log-searches.md).  Most parts will include a Header that provides a high level visualization and a List of the top results.  Different part types provide different visualizations of records in the OMS repository.  Click on elements in the part to perform a log search providing detailed records. |
+| Tiles | Are displayed on your Log Analytics workspace **Overview** page. Each tile displays a visual summary of the custom view it represents. Each tile type provides a different visualization of your records. You select a tile to display a custom view. |
+| Custom view | Displayed when you select a tile. Each view contains one or more visualization parts. |
+| Visualization parts | Present a visualization of data in the Log Analytics workspace based on one or more [log searches](log-analytics-log-searches.md). Most parts include a header, which provides a high-level visualization, and a list, which displays the top results. Each part type provides a different visualization of the records in the Log Analytics workspace. You select elements in the part to perform a log search that provides detailed records. |
 
-![View Designer overview](media/log-analytics-view-designer/overview.png)
 
-## Add View Designer to your workspace
-While View Designer is in preview, you must add it to your workspace by selecting **Preview Features** in the **Settings** section of the OMS portal.
+## Work with an existing view
+Views that were created with View Designer display the following options:
 
-![Enable preview](media/log-analytics-view-designer/preview.png)
+![Overview menu](media/log-analytics-view-designer/overview-menu.png)
 
-## Creating and editing views
-### Create a new view
-Open a new view in the **View Designer** by clicking on the View Designer tile in the main OMS dashboard.
+The options are described in the following table:
+
+| Option | Description |
+|:--|:--|
+| Refresh   | Refreshes the view with the latest data. | 
+| Analytics | Opens the [Advanced Analytics portal](log-analytics-log-search-portals.md) to analyze data with log queries. |
+| Edit       | Opens the view in View Designer to edit its contents and configuration.  |
+| Clone      | Creates a new view and opens it in View Designer. The name of the new view is the same as the original name, but with *Copy* appended to it. |
+| Date range | Set the date and time range filter for the data that's included in the view. This date range is applied before any date ranges set in queries in the view.  |
+| +          | Define a custom filter that's defined for the view. |
+
+
+## Create a new view
+You can create a new view in View Designer by selecting **View Designer** in the menu of your Log Analytics workspace.
 
 ![View Designer tile](media/log-analytics-view-designer/view-designer-tile.png)
 
-### Edit an existing view
-To edit an existing view in the View Designer, open the view by clicking on its tile in the main OMS dashboard.  Then click the **Edit** button to open the view in the View Designer.
 
-![Edit a view](media/log-analytics-view-designer/menu-edit.png)
+## Work with View Designer
+You use View Designer to create new views or edit existing ones. 
 
-### Clone an existing view
-When you clone a view, it creates a new view and opens it in the View Designer.  The new view will have the same name as the original with "Copy" appended to the end of it.  To clone a view, open the existing view by clicking on its tile in the main OMS dashboard.  Then click the **Clone** button to open the view in the View Designer.
-
-![Clone a view](media/log-analytics-view-designer/edit-menu-clone.png)
-
-### Delete an existing view
-To delete an existing view, open the view by clicking on its tile in the main OMS dashboard.  Then click the **Edit** button to open the view in the View Designer, and click **Delete View**.
-
-![Delete a view](media/log-analytics-view-designer/edit-menu-delete.png)
-
-### Export an existing view
-You can export a view to a JSON file that you can import into another workspace or use in an [Azure Resource Manager template](../azure-resource-manager/resource-group-authoring-templates.md).  To export an existing view, open the view by clicking on its tile in the main OMS dashboard.  Then click the **Export** button to create a file in the browser's download folder.  The name of the file will be the name of the view with the extension *omsview*.
-
-![Export a view](media/log-analytics-view-designer/edit-menu-export.png)
-
-### Import an existing view
-You can import an *omsview* file that you exported from another management group.  To import an existing view, first create a new view.  Then click the **Import** button and select the *omsview* file.  The configuration in the file will be copied into the existing view.
-
-![Export a view](media/log-analytics-view-designer/edit-menu-import.png)
-
-## Working with View Designer
-The View Designer has three panes.  The **Design** pane represents the custom view.  When you add tiles and parts from the **Control** pane to the **Design** pane they are added to the view.  The **Properties** pane will display the properties for the tile or selected part.
+View Designer has three panes: 
+* **Design**: Contains the custom view that you're creating or editing. 
+* **Controls**: Contains the tiles and parts that you add to the **Design** pane. 
+* **Properties**: Displays the properties of the tiles or selected parts.
 
 ![View Designer](media/log-analytics-view-designer/view-designer-screenshot.png)
 
-### Configure view tile
-A custom view can have only a single tile.  Select the **Tile** tab in the **Control** pane to view the current tile or select an alternate one.  The **Properties** pane will display the properties for the current tile.  Configure the tile properties according to the detailed information in the [Tile Reference](log-analytics-view-designer-tiles.md) and click **Apply** to save changes.
+### Configure the view tile
+A custom view can have only a single tile. To view the current tile or select an alternate one, select the **Tile** tab in the **Control** pane. The **Properties** pane displays the properties of the current tile. 
 
-### Configure visualization parts
-A view can include any number of visualization parts.  Select the **View** tab and then a visualization part to add to the view.  The **Properties** pane will display the properties for the selected part.  Configure the view properties according to the detailed information in the [Visualization part reference](log-analytics-view-designer-parts.md) and click **Apply** to save changes.
+You can configure the tile properties according to the information in the [Tile reference](log-analytics-view-designer-tiles.md) and then click **Apply** to save the changes.
 
-### Delete a visualization part
-You can remove a visualization part from the view by clicking the **X** button in the top right corner of the part.
+### Configure the visualization parts
+A view can include any number of visualization parts. To add parts to a view, select the **View** tab, and then select a visualization part. The **Properties** pane displays the properties of the selected part. 
 
-### Rearrange visualization parts
-Views only have one row of visualization parts.  Rearrange existing parts in a view by clicking and dragging them to a new location.
+You can configure the view properties according to the information in the [Visualization part reference](log-analytics-view-designer-parts.md) and then click **Apply** to save the changes.
+
+Views have only one row of visualization parts. You can rearrange the existing parts by dragging them to a new location.
+
+You can remove a visualization part from the view by selecting the **X** at the top right of the part.
+
+
+### Menu options
+The options for working with views in edit mode are described in the following table.
+
+![Edit menu](media/log-analytics-view-designer/edit-menu.png)
+
+| Option | Description |
+|:--|:--|
+| Save        | Saves your changes and closes the view. |
+| Cancel      | Discards your changes and closes the view. |
+| Delete View | Deletes the view. |
+| Export      | Exports the view to an [Azure Resource Manager template](../azure-resource-manager/resource-group-authoring-templates.md) that you can import into another workspace. The name of the file is the name of the view, and it has an *omsview* extension. |
+| Import      | Imports the *omsview* file that you exported from another workspace. This action overwrites the configuration of the existing view. |
+| Clone       | Creates a new view and opens it in View Designer. The name of the new view is the same as the original name, but with *Copy* appended to it. |
 
 ## Next steps
 * Add [Tiles](log-analytics-view-designer-tiles.md) to your custom view.
-* Add [Visualization Parts](log-analytics-view-designer-parts.md) to your custom view.
-
+* Add [Visualization parts](log-analytics-view-designer-parts.md) to your custom view.

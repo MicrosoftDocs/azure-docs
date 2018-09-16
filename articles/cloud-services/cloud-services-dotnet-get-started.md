@@ -3,7 +3,7 @@ title: Get started with Azure Cloud Services and ASP.NET | Microsoft Docs
 description: Learn how to create a multi-tier app using ASP.NET MVC and Azure. The app runs in a cloud service, with web role and worker role. It uses Entity Framework, SQL Database, and Azure Storage queues and blobs.
 services: cloud-services, storage
 documentationcenter: .net
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
-ms.author: adegeo
+ms.author: jeconnoc
 
 ---
 # Get started with Azure Cloud Services and ASP.NET
@@ -31,8 +31,8 @@ The application is an advertising bulletin board. Users create an ad by entering
 
 The application uses the [queue-centric work pattern](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) to off-load the CPU-intensive work of creating thumbnails to a back-end process.
 
-## Alternative architecture: Websites and WebJobs
-This tutorial shows how to run both front-end and back-end in an Azure cloud service. An alternative is to run the front-end in an [Azure website](/services/web-sites/) and use the [WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226) feature (currently in preview) for the back-end. For a tutorial that uses WebJobs, see [Get Started with the Azure WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md). For information about how to choose the services that best fit your scenario, see [Azure Websites, Cloud Services, and virtual machines comparison](../app-service-web/choose-web-site-cloud-service-vm.md).
+## Alternative architecture: Web Apps and WebJobs
+This tutorial shows how to run both front-end and back-end in an Azure cloud service. An alternative is to run the front-end in an [Azure Web Apps](/azure/app-service/) and use the [WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226) feature for the back-end. For a tutorial that uses WebJobs, see [Get Started with the Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki). For information about how to choose the services that best fit your scenario, see [Azure Websites, Cloud Services, and virtual machines comparison](../app-service/choose-web-site-cloud-service-vm.md).
 
 ## What you'll learn
 * How to enable your machine for Azure development by installing the Azure SDK.
@@ -113,7 +113,7 @@ You'll do the following steps to run the application in the cloud:
 An Azure cloud service is the environment the application will run in.
 
 1. In your browser, open the [Azure portal](https://portal.azure.com).
-2. Click **New > Compute > Cloud Service**.
+2. Click **Create a resource > Compute > Cloud Service**.
 
 3. In the DNS name input box, enter a URL prefix for the cloud service.
 
@@ -132,7 +132,7 @@ An Azure cloud service is the environment the application will run in.
 ### Create an Azure SQL database
 When the app runs in the cloud, it will use a cloud-based database.
 
-1. In the [Azure portal](https://portal.azure.com), click **New > Databases > SQL Database**.
+1. In the [Azure portal](https://portal.azure.com), click **Create a resource > Databases > SQL Database**.
 2. In the **Database Name** box, enter *contosoads*.
 3. In the **Resource group**, click **Use existing** and select the resource group used for the cloud service.
 4. In the following image, click **Server - Configure required settings** and **Create a new server**.
@@ -159,7 +159,7 @@ An Azure storage account provides resources for storing queue and blob data in t
 
 In a real-world application, you would typically create separate accounts for application data versus logging data, and separate accounts for test data versus production data. For this tutorial, you'll use just one account.
 
-1. In the [Azure portal](https://portal.azure.com), click **New > Storage > Storage account - blob, file, table, queue**.
+1. In the [Azure portal](https://portal.azure.com), click **Create a resource > Storage > Storage account - blob, file, table, queue**.
 2. In the **Name** box, enter a URL prefix.
 
     This prefix plus the text you see under the box will be the unique URL to your storage account. If the prefix you enter has already been used by someone else, you'll have to choose a different prefix.
@@ -167,14 +167,14 @@ In a real-world application, you would typically create separate accounts for ap
 
 4. Set the **Replication** drop-down list to **Locally redundant storage**.
 
-    When geo-replication is enabled for a storage account, the stored content is replicated to a secondary datacenter to enable failover if a major disaster occurs in the primary location. Geo-replication can incur additional costs. For test and development accounts, you generally don't want to pay for geo-replication. For more information, see [Create, manage, or delete a storage account](../storage/storage-create-storage-account.md).
+    When geo-replication is enabled for a storage account, the stored content is replicated to a secondary datacenter to enable failover if a major disaster occurs in the primary location. Geo-replication can incur additional costs. For test and development accounts, you generally don't want to pay for geo-replication. For more information, see [Create, manage, or delete a storage account](../storage/common/storage-create-storage-account.md).
 
 5. In the **Resource group**, click **Use existing** and select the resource group used for the cloud service.
 6. Set the **Location** drop-down list to the same region you chose for the cloud service.
 
     When the cloud service and storage account are in different datacenters (different regions), latency will increase and you will be charged for bandwidth outside the data center. Bandwidth within a data center is free.
 
-    Azure affinity groups provide a mechanism to minimize the distance between resources in a data center, which can reduce latency. This tutorial does not use affinity groups. For more information, see [How to Create an Affinity Group in Azure](http://msdn.microsoft.com/library/jj156209.aspx).
+    Azure affinity groups provide a mechanism to minimize the distance between resources in a data center, which can reduce latency. This tutorial does not use affinity groups. For more information, see [How to Create an Affinity Group in Azure](https://msdn.microsoft.com/library/azure/gg715317.aspx).
 7. Click **Create**.
 
     ![New storage account](./media/cloud-services-dotnet-get-started/newstorage.png)
@@ -287,7 +287,7 @@ The `<Instances>` setting specifies the number of virtual machines that Azure wi
 
     ![Settings step](./media/cloud-services-dotnet-get-started/pubsettings.png)
 
-    The default settings in the **Advanced** tab are fine for this tutorial. For information about the advanced tab, see [Publish Azure Application Wizard](http://msdn.microsoft.com/library/hh535756.aspx).
+    The default settings in the **Advanced** tab are fine for this tutorial. For information about the advanced tab, see [Publish Azure Application Wizard](https://docs.microsoft.com/azure/vs-azure-tools-publish-azure-application-wizard).
 4. In the **Summary** step, click **Publish**.
 
     ![Summary step](./media/cloud-services-dotnet-get-started/pubsummary.png)
@@ -765,7 +765,6 @@ Here are some cloud service sample applications that demonstrate more real-world
 
 * [PhluffyFotos](http://code.msdn.microsoft.com/PhluffyFotos-Sample-7ecffd31). Similar in concept to Contoso Ads but implements more features and more real-world coding practices.
 * [Azure Cloud Service Multi-Tier Application with Tables, Queues, and Blobs](http://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36). Introduces Azure Storage tables as well as blobs and queues. Based on an older version of the Azure SDK for .NET, will require some modifications to work with the current version.
-* [Cloud Service Fundamentals in Microsoft Azure](http://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). A comprehensive sample demonstrating a wide range of best practices, produced by the Microsoft Patterns and Practices group.
 
 For general information about developing for the cloud, see [Building Real-World Cloud Apps with Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction).
 
@@ -774,6 +773,6 @@ For a video introduction to Azure Storage best practices and patterns, see [Micr
 For more information, see the following resources:
 
 * [Azure Cloud Services Part 1: Introduction](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
-* [How to manage Cloud Services](cloud-services-how-to-manage.md)
-* [Azure Storage](/documentation/services/storage/)
+* [How to manage Cloud Services](cloud-services-how-to-manage-portal.md)
+* [Azure Storage](https://docs.microsoft.com/azure/storage/)
 * [How to choose a cloud service provider](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)

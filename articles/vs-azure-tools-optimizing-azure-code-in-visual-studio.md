@@ -3,8 +3,8 @@ title: Optimizing your Azure code in Visual Studio | Microsoft Docs
 description: Learn about how Azure code optimization tools in Visual Studio help make your code more robust and better-performing.
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: cawa
+manager: paulyuk
 editor: ''
 
 ms.assetid: ed48ee06-e2d2-4322-af22-07200fb16987
@@ -12,9 +12,10 @@ ms.service: multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: multiple
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.date: 11/11/2016
-ms.author: tarcher
+ms.author: cawa
 
 ---
 # Optimizing Your Azure Code
@@ -95,7 +96,7 @@ Use Shared Access Signature (SAS) for authentication. Access Control Service (AC
 Please share your ideas and feedback at [Azure Code Analysis feedback](http://go.microsoft.com/fwlink/?LinkId=403771).
 
 ### Reason
-For enhanced security, Azure Active Directory is replacing ACS authentication with SAS authentication. See [Azure Active Directory is the future of ACS](http://blogs.technet.com/b/ad/archive/2013/06/22/azure-active-directory-is-the-future-of-acs.aspx) for information on the transition plan.
+For enhanced security, Azure Active Directory is replacing ACS authentication with SAS authentication. See [Azure Active Directory is the future of ACS](https://cloudblogs.microsoft.com/enterprisemobility/2013/06/22/azure-active-directory-is-the-future-of-acs/) for information on the transition plan.
 
 ### Solution
 Use SAS authentication in your apps. The following example shows how to use an existing SAS token to access a service bus namespace or entity.
@@ -462,4 +463,4 @@ public class BlogsController : Controller
 ```
 
 ## Next steps
-To learn more about optimizing and troubleshooting Azure apps, see [Troubleshoot a web app in Azure App Service using Visual Studio](app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md).
+To learn more about optimizing and troubleshooting Azure apps, see [Troubleshoot a web app in Azure App Service using Visual Studio](app-service/web-sites-dotnet-troubleshoot-visual-studio.md).

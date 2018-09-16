@@ -1,4 +1,4 @@
-﻿---
+---
 title: Manage Azure solutions with PowerShell | Microsoft Docs
 description: Use Azure PowerShell and Resource Manager to manage your resources.
 services: azure-resource-manager
@@ -12,244 +12,207 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: powershell
 ms.devlang: na
-ms.topic: article
-ms.date: 04/19/2017
+ms.topic: conceptual
+ms.date: 07/20/2018
 ms.author: tomfitz
 
 ---
-# Manage resources with Azure PowerShell and Resource Manager
-> [!div class="op_single_selector"]
-> * [Portal](resource-group-portal.md)
-> * [Azure CLI](xplat-cli-azure-resource-manager.md)
-> * [Azure PowerShell](powershell-azure-resource-manager.md)
-> * [REST API](resource-manager-rest-api.md)
->
->
+# Manage resources with Azure PowerShell
 
-In this article, you learn how to manage your solutions with Azure PowerShell and Azure Resource Manager. If you are not familiar with Resource Manager, see [Resource Manager Overview](resource-group-overview.md). This topic focuses on management tasks. You will:
+[!INCLUDE [Resource Manager governance introduction](../../includes/resource-manager-governance-intro.md)]
 
-1. Create a resource group
-2. Add a resource to the resource group
-3. Add a tag to the resource
-4. Query resources based on names or tag values
-5. Apply and remove a lock on the resource
-6. Delete a resource group
+[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-This article does not show how to deploy a Resource Manager template to your subscription. For that information, see [Deploy resources with Resource Manager templates and Azure PowerShell](resource-group-template-deploy.md).
+If you choose to install and use the PowerShell locally, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure.
 
-## Get started with Azure PowerShell
+## Understand scope
 
-If you have not installed Azure PowerShell, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
+[!INCLUDE [Resource Manager governance scope](../../includes/resource-manager-governance-scope.md)]
 
-If you have installed Azure PowerShell in the past but have not updated it recently, consider installing the latest version. You can update the version through the same method you used to install it. For example, if you used the Web Platform Installer, launch it again and look for an update.
+In this article, you apply all management settings to a resource group so you can easily remove those settings when done.
 
-To check your version of the Azure Resources module, use the following cmdlet:
+Let's create the resource group.
 
-```powershell
-Get-Module -ListAvailable -Name AzureRm.Resources | Select Version
+```azurepowershell-interactive
+Set-AzureRmContext -Subscription <subscription-name>
+New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
-This topic was updated for version 3.3.0. If you have an earlier version, your experience might not match the steps shown in this topic. For documentation about the cmdlets in this version, see [AzureRM.Resources Module](/powershell/module/azurerm.resources).
+Currently, the resource group is empty.
 
-## Log in to your Azure account
-Before working on your solution, you must log in to your account.
+## Role-based access control
 
-To log in to your Azure account, use the **Login-AzureRmAccount** cmdlet.
+[!INCLUDE [Resource Manager governance policy](../../includes/resource-manager-governance-rbac.md)]
 
-```powershell
-Login-AzureRmAccount
+### Assign a role
+
+In this article, you deploy a virtual machine and its related virtual network. For managing virtual machine solutions, there are three resource-specific roles that provide commonly needed access:
+
+* [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
+* [Network Contributor](../role-based-access-control/built-in-roles.md#network-contributor)
+* [Storage Account Contributor](../role-based-access-control/built-in-roles.md#storage-account-contributor)
+
+Instead of assigning roles to individual users, it's often easier to [create an Azure Active Directory group](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) for users who need to take similar actions. Then, assign that group to the appropriate role. To simplify this article, you create an Azure Active Directory group without members. You can still assign this group to a role for a scope. 
+
+The following example creates a group and assigns it to the Virtual Machine Contributor role for the resource group. To run the `New-AzureAdGroup` command, you must either use the [Azure Cloud Shell](/azure/cloud-shell/overview) or [download the Azure AD PowerShell module](https://www.powershellgallery.com/packages/AzureAD/).
+
+```azurepowershell-interactive
+$adgroup = New-AzureADGroup -DisplayName VMDemoContributors `
+  -MailNickName vmDemoGroup `
+  -MailEnabled $false `
+  -SecurityEnabled $true
+New-AzureRmRoleAssignment -ObjectId $adgroup.ObjectId `
+  -ResourceGroupName myResourceGroup `
+  -RoleDefinitionName "Virtual Machine Contributor"
 ```
 
-The cmdlet prompts you for the login credentials for your Azure account. After logging in, it downloads your account settings so they are available to Azure PowerShell.
+Typically, you repeat the process for **Network Contributor** and **Storage Account Contributor** to make sure users are assigned to manage the deployed resources. In this article, you can skip those steps.
 
-The cmdlet returns information about your account and the subscription to use for the tasks.
+## Azure Policy
 
-```powershell
-Environment           : AzureCloud
-Account               : example@contoso.com
-TenantId              : {guid}
-SubscriptionId        : {guid}
-SubscriptionName      : Example Subscription One
-CurrentStorageAccount :
+[Azure Policy](../azure-policy/azure-policy-introduction.md) helps you make sure all resources in subscription meet corporate standards. Your subscription already has several policy definitions. To see the available policy definitions, use:
 
+```azurepowershell-interactive
+(Get-AzureRmPolicyDefinition).Properties | Format-Table displayName, policyType
 ```
 
-If you have more than one subscription, you can switch to a different subscription. First, let's see all the subscriptions for your account.
+You see the existing policy definitions. The policy type is either **BuiltIn** or **Custom**. Look through the definitions for ones that describe a condition you want assign. In this article, you assign policies that:
 
-```powershell
-Get-AzureRmSubscription
+* limit the locations for all resources
+* limit the SKUs for virtual machines
+* audit virtual machines that do not use managed disks
+
+```azurepowershell-interactive
+$locations ="eastus", "eastus2"
+$skus = "Standard_DS1_v2", "Standard_E2s_v2"
+
+$rg = Get-AzureRmResourceGroup -Name myResourceGroup
+
+$locationDefinition = Get-AzureRmPolicyDefinition | where-object {$_.properties.displayname -eq "Allowed locations"}
+$skuDefinition = Get-AzureRmPolicyDefinition | where-object {$_.properties.displayname -eq "Allowed virtual machine SKUs"}
+$auditDefinition = Get-AzureRmPolicyDefinition | where-object {$_.properties.displayname -eq "Audit VMs that do not use managed disks"}
+
+New-AzureRMPolicyAssignment -Name "Set permitted locations" `
+  -Scope $rg.ResourceId `
+  -PolicyDefinition $locationDefinition `
+  -listOfAllowedLocations $locations
+New-AzureRMPolicyAssignment -Name "Set permitted VM SKUs" `
+  -Scope $rg.ResourceId `
+  -PolicyDefinition $skuDefinition `
+  -listOfAllowedSKUs $skus
+New-AzureRMPolicyAssignment -Name "Audit unmanaged disks" `
+  -Scope $rg.ResourceId `
+  -PolicyDefinition $auditDefinition
 ```
 
-It returns enabled and disabled subscriptions.
+## Deploy the virtual machine
 
-```powershell
-SubscriptionName : Example Subscription One
-SubscriptionId   : {guid}
-TenantId         : {guid}
-State            : Enabled
+You have assigned roles and policies, so you're ready to deploy your solution. The default size is Standard_DS1_v2, which is one of your allowed SKUs. When running this step, you are prompted for credentials. The values that you enter are configured as the user name and password for the virtual machine.
 
-SubscriptionName : Example Subscription Two
-SubscriptionId   : {guid}
-TenantId         : {guid}
-State            : Enabled
-
-SubscriptionName : Example Subscription Three
-SubscriptionId   : {guid}
-TenantId         : {guid}
-State            : Disabled
+```azurepowershell-interactive
+New-AzureRmVm -ResourceGroupName "myResourceGroup" `
+     -Name "myVM" `
+     -Location "East US" `
+     -VirtualNetworkName "myVnet" `
+     -SubnetName "mySubnet" `
+     -SecurityGroupName "myNetworkSecurityGroup" `
+     -PublicIpAddressName "myPublicIpAddress" `
+     -OpenPorts 80,3389
 ```
 
-To switch to a different subscription, provide the subscription name with the **Set-AzureRmContext** cmdlet.
+After your deployment finishes, you can apply more management settings to the solution.
 
-```powershell
-Set-AzureRmContext -SubscriptionName "Example Subscription Two"
+## Lock resources
+
+[!INCLUDE [Resource Manager governance locks](../../includes/resource-manager-governance-locks.md)]
+
+### Lock a resource
+
+To lock the virtual machine and network security group, use:
+
+```azurepowershell-interactive
+New-AzureRmResourceLock -LockLevel CanNotDelete `
+  -LockName LockVM `
+  -ResourceName myVM `
+  -ResourceType Microsoft.Compute/virtualMachines `
+  -ResourceGroupName myResourceGroup
+New-AzureRmResourceLock -LockLevel CanNotDelete `
+  -LockName LockNSG `
+  -ResourceName myNetworkSecurityGroup `
+  -ResourceType Microsoft.Network/networkSecurityGroups `
+  -ResourceGroupName myResourceGroup
 ```
 
-## Create a resource group
-Before deploying any resources to your subscription, you must create a resource group that will contain the resources.
+The virtual machine can only be deleted if you specifically remove the lock. That step is shown in [Clean up resources](#clean-up-resources).
 
-To create a resource group, use the **New-AzureRmResourceGroup** cmdlet. The command uses the **Name** parameter to specify a name for the resource group and the **Location** parameter to specify its location.
+## Tag resources
 
-```powershell
-New-AzureRmResourceGroup -Name TestRG1 -Location "South Central US"
+[!INCLUDE [Resource Manager governance tags](../../includes/resource-manager-governance-tags.md)]
+
+### Tag resources
+
+[!INCLUDE [Resource Manager governance tags Powershell](../../includes/resource-manager-governance-tags-powershell.md)]
+
+To apply tags to a virtual machine, use:
+
+```azurepowershell-interactive
+$r = Get-AzureRmResource -ResourceName myVM `
+  -ResourceGroupName myResourceGroup `
+  -ResourceType Microsoft.Compute/virtualMachines
+Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test"; Project="Documentation" } -ResourceId $r.ResourceId -Force
 ```
 
-The output is in the following format:
+### Find resources by tag
 
-```powershell
-ResourceGroupName : TestRG1
-Location          : southcentralus
-ProvisioningState : Succeeded
-Tags              :
-ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG1
+To find resources with a tag name and value, use:
+
+```azurepowershell-interactive
+(Find-AzureRmResource -TagName Environment -TagValue Test).Name
 ```
 
-If you need to retrieve the resource group later, use the following cmdlet:
+You can use the returned values for management tasks like stopping all virtual machines with a tag value.
 
-```powershell
-Get-AzureRmResourceGroup -ResourceGroupName TestRG1
+```azurepowershell-interactive
+Find-AzureRmResource -TagName Environment -TagValue Test | Where-Object {$_.ResourceType -eq "Microsoft.Compute/virtualMachines"} | Stop-AzureRmVM
 ```
 
-To get all the resource groups in your subscription, do not specify a name:
+### View costs by tag values
 
-```powershell
-Get-AzureRmResourceGroup
+After applying tags to resources, you can view costs for resources with those tags. It takes a while for cost analysis to show the latest usage, so you may not see the costs yet. When the costs are available, you can view costs for resources across resource groups in your subscription. Users must have [subscription level access to billing information](../billing/billing-manage-access.md) to see the costs.
+
+To view costs by tag in the portal, select your subscription and select **Cost Analysis**.
+
+![Cost analysis](./media/powershell-azure-resource-manager/select-cost-analysis.png)
+
+Then, filter by the tag value, and select **Apply**.
+
+![View cost by tag](./media/powershell-azure-resource-manager/view-costs-by-tag.png)
+
+You can also use the [Azure Billing APIs](../billing/billing-usage-rate-card-overview.md) to programmatically view costs.
+
+## Clean up resources
+
+The locked network security group can't be deleted until the lock is removed. To remove the lock, use:
+
+```azurepowershell-interactive
+Remove-AzureRmResourceLock -LockName LockVM `
+  -ResourceName myVM `
+  -ResourceType Microsoft.Compute/virtualMachines `
+  -ResourceGroupName myResourceGroup
+Remove-AzureRmResourceLock -LockName LockNSG `
+  -ResourceName myNetworkSecurityGroup `
+  -ResourceType Microsoft.Network/networkSecurityGroups `
+  -ResourceGroupName myResourceGroup
 ```
 
-## Add resources to a resource group
-To add a resource to the resource group, you can use the **New-AzureRmResource** cmdlet or a cmdlet that is specific to the type of resource you are creating (like **New-AzureRmStorageAccount**). You might find it easier to use a cmdlet that is specific to a resource type because it includes parameters for the properties that are needed for the new resource. To use **New-AzureRmResource**, you must know all the properties to set without being prompted for them.
-
-However, adding a resource through cmdlets might cause future confusion because the new resource does not exist in a Resource Manager template. Microsoft recommends defining the infrastructure for your Azure solution in a Resource Manager template. Templates enable you to reliably and repeatedly deploy your solution. For this topic, you create a storage account with a PowerShell cmdlet, but later you generate a template from your resource group.
-
-The following cmdlet creates a storage account. Instead of using the name shown in the example, provide a unique name for the storage account. The name must be between 3 and 24 characters in length, and use only numbers and lower-case letters. If you use the name shown in the example, you receive an error because that name is already in use.
+When no longer needed, you can use the [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) command to remove the resource group, VM, and all related resources.
 
 ```powershell
-New-AzureRmStorageAccount -ResourceGroupName TestRG1 -AccountName mystoragename -Type "Standard_LRS" -Location "South Central US"
+Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
-If you need to retrieve this resource later, use the following cmdlet:
-
-```powershell
-Get-AzureRmResource -ResourceName mystoragename -ResourceGroupName TestRG1
-```
-
-## Add a tag
-
-Tags enable you to organize your resources according to different properties. For example, you may have several resources in different resource groups that belong to the same department. You can apply a department tag and value to those resources to mark them as belonging to the same category. Or, you can mark whether a resource is used in a production or test environment. In this topic, you apply tags to only one resource, but in your environment it most likely makes sense to apply tags to all your resources.
-
-The following cmdlet applies two tags to your storage account:
-
-```powershell
-Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test" } -ResourceName mystoragename -ResourceGroupName TestRG1 -ResourceType Microsoft.Storage/storageAccounts
- ```
-
-Tags are updated as a single object. To add a tag to a resource that already includes tags, first retrieve the existing tags. Add the new tag to the object that contains the existing tags, and reapply all the tags to the resource.
-
-```powershell
-$tags = (Get-AzureRmResource -ResourceName mystoragename -ResourceGroupName TestRG1).Tags
-$tags += @{Status="Approved"}
-Set-AzureRmResource -Tag $tags -ResourceName mystoragename -ResourceGroupName TestRG1 -ResourceType Microsoft.Storage/storageAccounts
-```
-
-## Search for resources
-
-Use the **Find-AzureRmResource** cmdlet to retrieve resources for different search conditions.
-
-* To get a resource by name, provide the **ResourceNameContains** parameter:
-
-  ```powershell
-  Find-AzureRmResource -ResourceNameContains mystoragename
-  ```
-
-* To get all the resources in a resource group, provide the **ResourceGroupNameContains** parameter:
-
-  ```powershell
-  Find-AzureRmResource -ResourceGroupNameContains TestRG1
-  ```
-
-* To get all the resources with a tag name and value, provide the **TagName** and **TagValue** parameters:
-
-  ```powershell
-  Find-AzureRmResource -TagName Dept -TagValue IT
-  ```
-
-* To all the resources with a particular resource type, provide the **ResourceType** parameter:
-
-  ```powershell
-  Find-AzureRmResource -ResourceType Microsoft.Storage/storageAccounts
-  ```
-
-## Lock a resource
-
-When you need to make sure a critical resource is not accidentally deleted or modified, apply a lock to the resource. You can specify either a **CanNotDelete** or **ReadOnly**.
-
-To create or delete management locks, you must have access to `Microsoft.Authorization/*` or `Microsoft.Authorization/locks/*` actions. Of the built-in roles, only Owner and User Access Administrator are granted those actions.
-
-To apply a lock, use the following cmdlet:
-
-```powershell
-New-AzureRmResourceLock -LockLevel CanNotDelete -LockName LockStorage -ResourceName mystoragename -ResourceType Microsoft.Storage/storageAccounts -ResourceGroupName TestRG1
-```
-
-The locked resource in the preceding example cannot be deleted until the lock is removed. To remove a lock, use:
-
-```powershell
-Remove-AzureRmResourceLock -LockName LockStorage -ResourceName mystoragename -ResourceType Microsoft.Storage/storageAccounts -ResourceGroupName TestRG1
-```
-
-For more information about setting locks, see [Lock resources with Azure Resource Manager](resource-group-lock-resources.md).
-
-## Remove resources or resource group
-You can remove a resource or resource group. When you remove a resource group, you also remove all the resources within that resource group.
-
-* To delete a resource from the resource group, use the **Remove-AzureRmResource** cmdlet. This cmdlet deletes the resource, but does not delete the resource group.
-
-  ```powershell
-  Remove-AzureRmResource -ResourceName mystoragename -ResourceType Microsoft.Storage/storageAccounts -ResourceGroupName TestRG1
-  ```
-
-* To delete a resource group and all its resources, use the **Remove-AzureRmResourceGroup** cmdlet.
-
-  ```powershell
-  Remove-AzureRmResourceGroup -Name TestRG1
-  ```
-
-For both cmdlets, you are asked to confirm that you wish to remove the resource or resource group. If the operation successfully deletes the resource or resource group, it returns **True**.
-
-## Run Resource Manager scripts with Azure Automation
-
-This topic shows you how to perform basic operations on your resources with Azure PowerShell. For more advanced management scenarios, you typically want to create a script, and reuse that script as needed or on a schedule. [Azure Automation](../automation/automation-intro.md) provides a way for you to automate frequently used scripts that manage your Azure solutions.
-
-The following topics show you how to use Azure Automation, Resource Manager, and PowerShell to effectively perform management tasks:
-
-- For information about creating a runbook, see [My first PowerShell runbook](../automation/automation-first-runbook-textual-powershell.md).
-- For information about working with galleries of scripts, see [Runbook and module galleries for Azure Automation](../automation/automation-runbook-gallery.md).
-- For runbooks that start and stop virtual machines, see [Azure Automation scenario: Using JSON-formatted tags to create a schedule for Azure VM startup and shutdown](../automation/automation-scenario-start-stop-vm-wjson-tags.md).
-- For runbooks that start and stop virtual machines off-hours, see [Start/Stop VMs during off-hours solution in Automation](../automation/automation-solution-vm-management.md).
-
-## Next Steps
-* To learn about creating Resource Manager templates, see [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md).
-* To learn about deploying templates, see [Deploy an application with Azure Resource Manager Template](resource-group-template-deploy.md).
+## Next steps
+* To learn about monitoring your virtual machines, see [Monitor and update a Windows Virtual Machine with Azure PowerShell](../virtual-machines/windows/tutorial-monitoring.md).
+* To learn about using Azure Security Center to implement recommended security practices, [Monitor virtual machine security by using Azure Security Center](../virtual-machines/windows/tutorial-azure-security.md).
 * You can move existing resources to a new resource group. For examples, see [Move Resources to New Resource Group or Subscription](resource-group-move-resources.md).
-* For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).
-
+* For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](/azure/architecture/cloud-adoption-guide/subscription-governance).

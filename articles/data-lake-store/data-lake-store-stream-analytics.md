@@ -10,20 +10,13 @@ editor: cgronlun
 ms.assetid: edb58e0b-311f-44b0-a499-04d7e6c07a90
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 06/29/2017
+ms.topic: conceptual
+ms.date: 05/30/2018
 ms.author: nitinme
 
 ---
 # Stream data from Azure Storage Blob into Data Lake Store using Azure Stream Analytics
 In this article you will learn how to use Azure Data Lake Store as an output for an Azure Stream Analytics job. This article demonstrates a simple scenario that reads data from an Azure Storage blob (input) and writes the data to Data Lake Store (output).
-
-> [!NOTE]
-> At this time, creation and configuration of Data Lake Store outputs for Stream Analytics is supported only in the [Azure Classic Portal](https://manage.windowsazure.com). Hence, some parts of this tutorial will use the Azure Classic Portal.
->
->
 
 ## Prerequisites
 Before you begin this tutorial, you must have the following:
@@ -80,7 +73,7 @@ You start by creating a Stream Analytics job that includes an input source and a
 
     ![Add an output to your job](./media/data-lake-store-stream-analytics/create.output.2.png "Add an output to your job")
 
-	* For **Output alias**, enter a a unique name for the job output. This is a friendly name used in queries to direct the query output to this Data Lake Store.
+	* For **Output alias**, enter a unique name for the job output. This is a friendly name used in queries to direct the query output to this Data Lake Store.
 	* For **Sink**, select **Data Lake Store**.
 	* You will be prompted to authorize access to Data Lake Store account. Click **Authorize**.
 

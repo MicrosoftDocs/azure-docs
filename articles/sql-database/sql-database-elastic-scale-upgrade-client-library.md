@@ -1,28 +1,22 @@
 ---
 title: Upgrade to the latest elastic database client library | Microsoft Docs
-description: Upgrade apps and libraries using Nuget
+description: Use Nuget to upgrade elastic database client library.
 services: sql-database
-documentationcenter: ''
-manager: jhubbard
-author: ddove
-
-ms.assetid: 0a546510-76e7-465e-9271-f15ff0cfa959
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/06/2017
-ms.author: ddove
+ms.topic: conceptual
+ms.date: 04/01/2018
+ms.author: sstein
 
 ---
 # Upgrade an app to use the latest elastic database client library
-New versions of the [Elastic Database client library](sql-database-elastic-database-client-library.md) are  available through NuGetand the NuGetPackage Manager interface in Visual Studio. Upgrades contain bug fixes and support for new capabilities of the client library.
+New versions of the [Elastic Database client library](sql-database-elastic-database-client-library.md) are available through NuGetand the NuGetPackage Manager interface in Visual Studio. Upgrades contain bug fixes and support for new capabilities of the client library.
 
 **For the latest version:** Go to [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
 
-Rebuild your application with the new library, as well as change your existing Shard Map Manager metadata stored in your Azure SQL Databases to support new features.
+Rebuild your application with the new library, as well as change your existing Shard Map Manager metadata stored in your Azure SQL databases to support new features.
 
 Performing these steps in order ensures that old versions of the client library are no longer present in your environment when metadata objects are updated, which means that old-version metadata objects won’t be created after upgrade.   
 

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/21/2017
+ms.date: 07/21/2017
 ms.author: steveesp
 
 ---
@@ -109,7 +109,7 @@ Ubuntu - Install Git:
 ```
 Make and Install on both:
 ``` bash
- git clone <https://github.com/Microsoft/ntttcp-for-linux>
+ git clone https://github.com/Microsoft/ntttcp-for-linux
  cd ntttcp-for-linux/src
  make && make install
 ```
@@ -152,7 +152,7 @@ ntttcp -s -m <2 x nr cores>,*,<Windows server IP> -N -t 300
 
 Receiver <Linux>:
 
-``` bash 
+``` bash
 ntttcp -r -m <2 x nr cores>,*,<Linux server IP>
 ```
 
@@ -161,7 +161,15 @@ Sender <Windows>:
 ``` bash
 ntttcp -s -m <2 x nr cores>,*,<Linux  server IP> -ns -t 300
 ```
+## Testing Cloud Service Instances:
+You need to add following section into your ServiceDefinition.csdef
+```xml
+<Endpoints>
+  <InternalEndpoint name="Endpoint3" protocol="any" />
+</Endpoints> 
+```
 
 ## Next steps
 * Depending on results, there may be room to [Optimize network throughput machines](virtual-network-optimize-network-bandwidth.md) for your scenario.
-* Learn more wtih [Azure Virtual Network frequently asked questions (FAQ)](virtual-networks-faq.md)
+* Read about how [bandwidth is allocated to virtual machines] (virtual-machine-network-throughput.md)
+* Learn more with [Azure Virtual Network frequently asked questions (FAQ)](virtual-networks-faq.md)

@@ -1,9 +1,9 @@
-﻿---
+---
 title: Use PowerShell to manage Azure Service Bus resources | Microsoft Docs
 description: Use PowerShell module to create and manage Service Bus resources
 services: service-bus-messaging
 documentationcenter: .NET
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/06/2017
-ms.author: sethm
+ms.date: 12/21/2017
+ms.author: spelluru
 
 ---
 # Use PowerShell to manage Service Bus resources
@@ -25,7 +25,7 @@ You can also manage Service Bus entities using Azure Resource Manager templates.
 
 ## Prerequisites
 
-Before you begin, you'll need the following:
+Before you begin, you'll need the following prerequisites:
 
 * An Azure subscription. For more
   information about obtaining a subscription, see [purchase options][purchase options], [member offers][member offers], or [free account][free account].
@@ -43,7 +43,7 @@ When working with Service Bus namespaces, you can use the [Get-AzureRmServiceBus
 This example creates a few local variables in the script; `$Namespace` and `$Location`.
 
 * `$Namespace` is the name of the Service Bus namespace with which we want to work.
-* `$Location` identifies the data center in which will we provision the namespace.
+* `$Location` identifies the data center in which we provision the namespace.
 * `$CurrentNamespace` stores the reference namespace that we retrieve (or create).
 
 In an actual script, `$Namespace` and `$Location` can be passed as parameters.
@@ -93,28 +93,28 @@ else
 {
     Write-Host "The $AuthRule rule does not exist."
     Write-Host "Creating the $AuthRule rule for the $Namespace namespace..."
-    New-AzureRmServiceBusNamespaceAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthorizationRuleName $AuthRule -Rights @("Listen","Send")
-    $CurrentRule = Get-AzureRmServiceBusNamespaceAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthorizationRuleName $AuthRule
+    New-AzureRmServiceBusAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthorizationRuleName $AuthRule -Rights @("Listen","Send")
+    $CurrentRule = Get-AzureRmServiceBusAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthorizationRuleName $AuthRule
     Write-Host "The $AuthRule rule for the $Namespace namespace has been successfully created."
 
     Write-Host "Setting rights on the namespace"
-    $authRuleObj = Get-AzureRmServiceBusNamespaceAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthorizationRuleName $AuthRule
+    $authRuleObj = Get-AzureRmServiceBusAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthorizationRuleName $AuthRule
 
     Write-Host "Remove Send rights"
     $authRuleObj.Rights.Remove("Send")
-    Set-AzureRmServiceBusNamespaceAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthRuleObj $authRuleObj
+    Set-AzureRmServiceBusAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthRuleObj $authRuleObj
 
     Write-Host "Add Send and Manage rights to the namespace"
     $authRuleObj.Rights.Add("Send")
-    Set-AzureRmServiceBusNamespaceAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthRuleObj $authRuleObj
+    Set-AzureRmServiceBusAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthRuleObj $authRuleObj
     $authRuleObj.Rights.Add("Manage")
-    Set-AzureRmServiceBusNamespaceAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthRuleObj $authRuleObj
+    Set-AzureRmServiceBusAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthRuleObj $authRuleObj
 
     Write-Host "Show value of primary key"
-    $CurrentKey = Get-AzureRmServiceBusNamespaceKey -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthorizationRuleName $AuthRule
+    $CurrentKey = Get-AzureRmServiceBusKey -ResourceGroup $ResGrpName -NamespaceName $Namespace -Name $AuthRule
         
     Write-Host "Remove this authorization rule"
-    Remove-AzureRmServiceBusNamespaceAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthorizationRuleName $AuthRule
+    Remove-AzureRmServiceBusAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -Name $AuthRule
 }
 ```
 

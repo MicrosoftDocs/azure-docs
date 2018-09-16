@@ -3,7 +3,7 @@ title: Cloud Cruiser and Microsoft Azure Billing API Integration | Microsoft Doc
 description: Provides a unique perspective from Microsoft Azure Billing partner Cloud Cruiser, on their experiences integrating the Azure Billing APIs into their product.  This is especially useful for Azure and Cloud Cruiser customers that are interested in using/trying Cloud Cruiser for Microsoft Azure Pack.
 services: ''
 documentationcenter: ''
-author: BryanLa
+author: tonguyen
 manager: tonguyen
 editor: ''
 tags: billing
@@ -11,11 +11,11 @@ tags: billing
 ms.assetid: b65128cf-5d4d-4cbd-b81e-d3dceab44271
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: billing
-ms.date: 02/03/2017
-ms.author: mobandyo;sirishap;bryanla
+ms.date: 10/09/2017
+ms.author: mobandyo
 
 ---
 # Cloud Cruiser and Microsoft Azure Billing API Integration
@@ -24,7 +24,7 @@ This article describes how the information collected from the new Microsoft Azur
 ## Azure RateCard API
 The RateCard API provides rate information from Azure. After authenticating with the proper credentials, you can query the API to collect metadata about the services available on Azure, along with the rates associated with your Offer ID.
 
-The following is a sample response from the API showing the prices for the A0 (Windows) instance:
+The following sample response is from the API showing the prices for the A0 (Windows) instance:
 
     {
         "MeterId": "0e59ad56-03e5-4c3d-90d4-6670874d7e29",
@@ -42,11 +42,11 @@ The following is a sample response from the API showing the prices for the A0 (W
     },
 
 ### Cloud Cruiser’s Interface to Azure RateCard API
-Cloud Cruiser can leverage the RateCard API information in different ways. For this article, we will show how it can be used to make IaaS workload cost simulation and analysis.
+Cloud Cruiser can use the RateCard API information in different ways. For this article, we show how it can be used to make IaaS workload cost simulation and analysis.
 
 To demonstrate this use case, imagine a workload of several instances running on Microsoft Azure Pack (WAP). The goal is to simulate this same workload on Azure, and estimate the costs of doing such migration. In order to create this simulation, there are two main tasks to be performed:
 
-1. **Import and process the service information collected from the RateCard API.** This task is also performed on the workbooks, where the extract from the RateCard API is transformed and published to a new rate plan. This new rate plan will be used on the simulations to estimate the Azure prices.
+1. **Import and process the service information collected from the RateCard API.** This task is also performed on the workbooks, where the extract from the RateCard API is transformed and published to a new rate plan. This new rate plan is used on the simulations to estimate the Azure prices.
 2. **Normalize WAP services and Azure services for IaaS.** By default, WAP services are based on individual resources (CPU, Memory Size, Disk Size, etc.) while Azure services are based on instance size (A0, A1, A2, etc.). This first task can be performed by Cloud Cruiser’s ETL engine, called workbooks, where these resources can be bundled on instance sizes, analogous to Azure instance services.
 
 ### Import data from the RateCard API
@@ -69,7 +69,7 @@ There are different ways to define services on Cloud Cruiser. One of the options
 
 A Rate Plan is a set of rates or prices that can be applied to different services, based on effective dates, or group of customers, among other options. Rate Plans can also be used on Cloud Cruiser to create simulation or “What-if” scenarios, to understand how changes in services can affect the total cost of a workload.
 
-In this example, we will use the service information from the RateCard API to define new services in Cloud Cruiser. In the same way, we can use the rates associated to the services to create a new Rate Plan on Cloud Cruiser.
+In this example, we use the service information from the RateCard API to define new services in Cloud Cruiser. In the same way, we can use the rates associated to the services to create a new Rate Plan on Cloud Cruiser.
 
 At the end of the transformation process, it is possible to create a new step and publish the data from the RateCard API as new services and rates.
 
@@ -98,7 +98,7 @@ After finishing the workbook, you can automate the processing of the data, by ad
 ![Figure 8 - Workbook scheduling][8]
 
 ### Create Reports for Workload Cost Simulation Analysis
-After the usage is collected and charges are loaded into the Cloud Cruiser database, we can leverage the Cloud Cruiser Insights module to create the workload cost simulation that we desire.
+After the usage is collected and charges are loaded into the Cloud Cruiser database, we can use the Cloud Cruiser Insights module to create the workload cost simulation that we desire.
 
 In order to demonstrate this scenario, we created the following report:
 
@@ -106,16 +106,15 @@ In order to demonstrate this scenario, we created the following report:
 
 The top graph shows a cost comparison by services, comparing the price of running the workload for each specific service between WAP (dark blue) and Azure (light blue).
 
-The bottom graph shows the same data but broken down by department. This shows the costs for each department to run their workload on WAP and Azure, along with the difference between them in the Savings bar (green).
+The bottom graph shows the same data but broken down by department. The costs for each department to run their workload on WAP and Azure, along with the difference between them is displayed in the Savings bar (green).
 
 ## Azure Usage API
 ### Introduction
-Microsoft recently
-introduced the Azure Usage API, allowing subscribers to programmatically pull in usage data to gain insights into their consumption. This is great news for Cloud Cruiser customers that can take advantage of the richer dataset available through this API.
+Microsoft recently introduced the Azure Usage API, allowing subscribers to programmatically pull in usage data to gain insights into their consumption. Cloud Cruiser customers can take advantage of the richer dataset available through this API.
 
-Cloud Cruiser can leverage the integration with the Usage API in several ways. The granularity (hourly usage information) and resource metadata information available through the API provides the necessary dataset to support flexible Showback or Chargeback models. 
+Cloud Cruiser can use the integration with the Usage API in several ways. The granularity (hourly usage information) and resource metadata information available through the API provides the necessary dataset to support flexible Showback or Chargeback models. 
 
-In this tutorial, we will present one example of how Cloud Cruiser can benefit from the Usage API information. More specifically, we will create a Resource Group on Azure, associate tags for the account structure, then describe the process of pulling and processing the tag information into Cloud Cruiser.
+In this tutorial, we present one example of how Cloud Cruiser can benefit from the Usage API information. More specifically, we will create a Resource Group on Azure, associate tags for the account structure, then describe the process of pulling and processing the tag information into Cloud Cruiser.
 
 The final goal is to be able to create reports like the following one, and be able to analyze cost and consumption based on the account structure populated by the tags.
 
@@ -127,16 +126,16 @@ The data available through the Azure Usage API includes not only consumption inf
 * Tags are correctly applied to the resources at provision time
 * Tags are properly used on the Showback/Chargeback process to tie the usage to the organization’s account structure.
 
-Both of these requirements can be challenging, especially when there is a manual process on the provision or charging side. Mistyped, incorrect or even missing tags are common complaints from customers when using tags and these errors can make life on the charging side very difficult.
+Both of these requirements can be challenging, especially when there is a manual process on the provision or charging side. Mistyped, incorrect, or even missing tags are common complaints from customers when using tags and these errors can make life on the charging side difficult.
 
 With the new Azure Usage API, Cloud Cruiser can pull resource tagging information, and through a sophisticated ETL tool called workbooks, fix these common tagging errors. Through transformation using regular expressions and data correlation, Cloud Cruiser can identify incorrectly tagged resources and apply the correct tags, ensuring the correct association of the resources with the consumer.
 
-On the charging side, Cloud Cruiser automates the Showback/Chargeback process, and can leverage the tag information to tie the usage to the appropriate consumer (Department, Division, Project, etc.). This automation provides a huge improvement and can ensure a consistent and auditable charging process.
+On the charging side, Cloud Cruiser automates the Showback/Chargeback process, and can use the tag information to tie the usage to the appropriate consumer (Department, Division, Project, etc.). This automation provides a huge improvement and can ensure a consistent and auditable charging process.
 
 ### Creating a Resource Group with tags on Microsoft Azure
-The first step in this tutorial is to create a Resource Group in the Azure portal, then create new tags to associate to the resources. For this example, we will be creating the following tags: Department, Environment, Owner, Project.
+The first step in this tutorial is to create a Resource Group in the Azure portal, then create new tags to associate to the resources. For this example, we be creating the following tags: Department, Environment, Owner, Project.
 
-The screenshot below shows a sample Resource Group with the associated tags.
+The following screenshot shows a sample Resource Group with the associated tags.
 
 ![Figure 11 - Resource Group with associated tags on Azure portal][11]
 
@@ -168,22 +167,22 @@ The next step is to pull the information from the Usage API into Cloud Cruiser. 
 ### Import data from the Usage API into Cloud Cruiser
 Cloud Cruiser workbooks provide an automated way to collect and process information from the Usage API. An ETL (extract-transform-load) workbook allows you to configure the collection, transformation, and publishing of data into the Cloud Cruiser database.
 
-Each workbook can have one or multiple collections. This allows you to correlate information from different sources to complement or augment the usage data. For this example, we will create a new sheet in the Azure template workbook (*UsageAPI)* and set a new *collection* to import information from the Usage API.
+Each workbook can have one or multiple collections. This allows you to correlate information from different sources to complement or augment the usage data. For this example, we create a new sheet in the Azure template workbook (*UsageAPI)* and set a new *collection* to import information from the Usage API.
 
 ![Figure 3 - Usage API data imported into the UsageAPI sheet][12]
 
 Notice that this workbook already has other sheets to import services from Azure (*ImportServices*), and process the consumption information from the Billing API (*PublishData*).
 
-Next we will use the Usage API to populate the *UsageAPI* sheet, and correlate the information with the consumption data from the Billing API on the *PublishData* sheet.
+Next, we use the Usage API to populate the *UsageAPI* sheet, and correlate the information with the consumption data from the Billing API on the *PublishData* sheet.
 
 ### Processing the tag information from the Usage API
-After importing the data into the workbook, we will create transformation steps in the *UsageAPI* sheet in order to process the information from the API. First step is to use a “JSON split” processor to extract the tags from a single field, then create fields for each one of them (Department, Project, Owner, and Environment).
+After importing the data into the workbook, we create transformation steps in the *UsageAPI* sheet in order to process the information from the API. First step is to use a “JSON split” processor to extract the tags from a single field, then create fields for each one of them (Department, Project, Owner, and Environment).
 
 ![Figure 4 - Create new fields for the tag information][13]
 
 Notice the “Networking” service is missing the tag information (yellow box), but we can verify that it is part of the same Resource Group by looking at the *ResourceGroupName* field. Since we have the tags for the other resources from this Resource Group, we can use this information to apply the missing tags to this resource later in the process.
 
-The next step is to create a lookup table associating the information from the tags to the *ResourceGroupName*. This lookup table will be used on the next step to enrich the consumption data with tag information.
+The next step is to create a lookup table associating the information from the tags to the *ResourceGroupName*. This lookup table is used on the next step to enrich the consumption data with tag information.
 
 ### Adding the tag information to the consumption data
 Now we can jump to the *PublishData* sheet, which processes the consumption information from the Billing API, and add the fields extracted from the tags. This process is performed by looking at the lookup table created on the previous step, using the *ResourceGroupName*
@@ -193,18 +192,18 @@ as the key for the lookups.
 
 Notice that the appropriate account structure fields for the “Networking” service were applied, fixing the issue with the missing tags. We also populated the account structure fields for resources other than our target Resource Group with “Other”, in order to differentiate them on the reports.
 
-Now we just need to add a step to publish the usage data. During this step, the appropriate rates for each service defined on our Rate Plan will be applied to the usage information, with the resulting charge loaded into the database.
+Now we just need to add a step to publish the usage data. During this step, the appropriate rates for each service defined on our Rate Plan be applied to the usage information, with the resulting charge loaded into the database.
 
-The best part is that you only have to go through this process once. When the workbook is completed, you just need to add it to the scheduler and it will run hourly or daily at the scheduled time. Then it’s just a matter of creating new reports, or customizing existing ones, in order to analyze the data to get meaningful insights from your cloud usage.
+The best part is that you only have to go through this process once. When the workbook is completed, you just need to add it to the scheduler and it runs hourly or daily at the scheduled time. Then it’s just a matter of creating new reports, or customizing existing ones, in order to analyze the data to get meaningful insights from your cloud usage.
 
 ### Next Steps
-* For detailed instructions on creating Cloud Cruiser workbooks and reports, please refer to Cloud Cruiser’s online [documentation](http://docs.cloudcruiser.com/) (valid login required).  For more information about Cloud Cruiser, please contact [info@cloudcruiser.com](mailto:info@cloudcruiser.com).
+* For detailed instructions on creating Cloud Cruiser workbooks and reports, refer to Cloud Cruiser’s online [documentation](http://docs.cloudcruiser.com/) (valid login required).  For more information about Cloud Cruiser, contact [info@cloudcruiser.com](mailto:info@cloudcruiser.com).
 * See [Gain insights into your Microsoft Azure resource consumption](billing-usage-rate-card-overview.md) for an overview of the Azure Resource Usage and RateCard APIs.
 * Check out the [Azure Billing REST API Reference](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) for more information on both APIs, which are part of the set of APIs provided by the Azure Resource Manager.
 * If you would like to dive right into the sample code, check out our Microsoft Azure Billing API Code Samples on [Azure Code Samples](https://azure.microsoft.com/documentation/samples/?term=billing).
 
 ### Learn More
-* See the [Azure Resource Manager Overview](../azure-resource-manager/resource-group-overview.md) article to learn more about the Azure Resource Manager.
+* To learn more about the Azure Resource Manager, see the [Azure Resource Manager Overview](../azure-resource-manager/resource-group-overview.md) article.
 
 <!--Image references-->
 

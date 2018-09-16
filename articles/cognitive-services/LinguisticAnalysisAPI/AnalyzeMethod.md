@@ -1,12 +1,11 @@
 ---
 title: Analyze method in the Linguistic Analysis API | Microsoft Docs
-description: How to use the Analyze method in Linguistic Analysis API to analyze certain natural-language inputs. 
+description: How to use the Analyze method in Linguistic Analysis API to analyze certain natural-language inputs.
 services: cognitive-services
 author: RichardSunMS
 manager: wkwok
-
 ms.service: cognitive-services
-ms.technology: linguistic-analysis-api
+ms.component: linguistic-analysis
 ms.topic: article
 ms.date: 12/13/2016
 ms.author: lesun

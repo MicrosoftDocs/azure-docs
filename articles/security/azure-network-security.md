@@ -5,7 +5,7 @@ description: Learn about cloud-based computing services that include a wide sele
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: swadhwa
+manager: mbaldwin
 editor: TomSh
 
 ms.assetid: 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/24/2017
+ms.date: 11/21/2017
 ms.author: TomSh
 
 ---
@@ -26,7 +26,7 @@ We know that security is job one in the cloud and how important it is that you f
 
 Microsoft Azure provides confidentiality, integrity, and availability of customer data, while also enabling transparent accountability. To help you better understand the collection of network security controls implemented within Microsoft Azure from the customer's perspective, this article, “Azure Network Security", is written to provide a comprehensive look at the network security controls available with Microsoft Azure.
 
-This paper is intended to inform you about the wide range of network controls that you can configure to enhance the security of the solutions you deploy in Azure. If you are interested in what Microsoft does to secure the network fabric of the Azure platform itself,  see the Azure security section in the [Microsoft Trust Center](https://www.microsoft.com/trustcenter/security/azure-security).
+This paper is intended to inform you about the wide range of network controls that you can configure to enhance the security of the solutions you deploy in Azure. If you are interested in what Microsoft does to secure the network fabric of the Azure platform itself,  see the Azure security section in the [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/cloudservices/azure).
 
 ## Azure platform
 
@@ -76,7 +76,7 @@ In this paper, will be cover the following Azure networking enterprise capabilit
 
 ### Basic network connectivity
 
-The [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)  service enables you to securely connect Azure resources to each other with virtual networks (VNet). A VNet is a representation of your own network in the cloud. A VNet is a logical isolation of the Azure network infrastructure dedicated to your subscription. You can also connect VNets to each other and to your on-premises networks using site-to-site VPNs￼ and dedicated [WAN links](https://docs.microsoft.com/azure/expressroute/expressroute-introduction).
+The [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)  service enables you to securely connect Azure resources to each other with virtual networks (VNet). A VNet is a representation of your own network in the cloud. A VNet is a logical isolation of the Azure network infrastructure dedicated to your subscription. You can also connect VNets to each other and to your on-premises networks using site-to-site VPNs and dedicated [WAN links](https://docs.microsoft.com/azure/expressroute/expressroute-introduction).
 
 ![Basic network connectivity](media/azure-network-security/azure-network-security-fig-2.png)
 
@@ -213,7 +213,7 @@ A Point-to-Site (P2S) configuration lets you create a secure connection from an 
 
 Point-to-Site connections are useful when you want to connect to your VNet from a remote location, such as from home or a conference center, or when you only have a few clients that need to connect to a virtual network.
 
-P2S connections do not require a VPN device or a public-facing IP address. You establish the VPN connection from the client computer. Therefore, P2S is not recommended way to connect to Azure in case you need a persistent connection from many on-premise devices and computers to your Azure network.
+P2S connections do not require a VPN device or a public-facing IP address. You establish the VPN connection from the client computer. Therefore, P2S is not recommended way to connect to Azure in case you need a persistent connection from many on-premises devices and computers to your Azure network.
 
 ![Site-to-Site VPN](media/azure-network-security/azure-network-security-fig-6.png)
 
@@ -312,7 +312,7 @@ This flow of communication is possible because Azure uses a series of system rou
 
 -	From a VNet to your on-premises network through a VPN gateway.
 
-Many enterprises have strict security and compliance requirements that require on-premises inspection of all network packets to enforce specific polices. Azure provides a mechanism called [forced tunneling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-forced-tunneling) that routes traffic from the VMs to on-premises by creating a custom route or by [Border Gateway Protocol (BGP)](https://docs.microsoft.com/windows-server/remote/remote-access/bgp/border-gateway-protocol-bgp) advertisements through ExpressRoute or VPN. advertisements through ExpressRoute or VPN.
+Many enterprises have strict security and compliance requirements that require on-premises inspection of all network packets to enforce specific polices. Azure provides a mechanism called [forced tunneling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-forced-tunneling) that routes traffic from the VMs to on-premises by creating a custom route or by [Border Gateway Protocol (BGP)](https://docs.microsoft.com/windows-server/remote/remote-access/bgp/border-gateway-protocol-bgp) advertisements through ExpressRoute or VPN.
 
 Forced tunneling in Azure is configured via virtual network user-defined routes (UDR). Redirecting traffic to an on-premises site is expressed as a Default Route to the Azure VPN gateway.
 
@@ -384,7 +384,6 @@ Application Gateway enables you to optimize web farm performance and availabilit
 
 
 A [web application firewall (WAF)](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview) is also provided as part of the application gateway. This provides protection to web applications from common web vulnerabilities and exploits. Application Gateway can be configured as an Internet facing gateway, internal only gateway, or a combination of both.
-Internet facing gateway, internal only gateway, or a combination of both.
 
 Application Gateway WAF can be run in detection or prevention mode. A common use case is for administrators to run in detection mode to observe traffic for malicious patterns. Once potential exploits are detected, turning to prevention mode blocks suspicious incoming traffic.
 
@@ -394,7 +393,7 @@ In addition, Application Gateway WAF helps you monitor web applications against 
 
 The JSON formatted log goes directly to the customer’s storage account. You have full control over these logs and can apply your own retention policies.
 
-You can also ingest these logs into your own analytics system using [Azure Log Integration](https://aka.ms/AzLog). WAF logs are also integrated with [Operations Management Suite (OMS)](https://www.microsoft.com/cloud-platform/operations-management-suite) so you can use OMS log analytics to execute sophisticated fine-grained queries.
+You can also ingest these logs into your own analytics system using [Azure Log Integration](https://aka.ms/AzLog). WAF logs are also integrated with [Log Analytics](../log-analytics/log-analytics-overview.md) so you can use Log Analytics to execute sophisticated fine-grained queries.
 
 #### Azure web application firewall (WAF)
 
@@ -608,7 +607,7 @@ Network Watcher provides a diagnostic logs view. This view contains all networki
 
 ### Log analytics
 
-[Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) is a service in [Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) that monitors your cloud and on-premises environments to maintain their availability and performance. It collects data generated by resources in your cloud and on-premises environments and from other monitoring tools to provide analysis across multiple sources.
+[Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) is a service in Azure that monitors your cloud and on-premises environments to maintain their availability and performance. It collects data generated by resources in your cloud and on-premises environments and from other monitoring tools to provide analysis across multiple sources.
 
 Log Analytics offers the following solutions for monitoring your networks:
 

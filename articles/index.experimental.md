@@ -56,7 +56,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                     </div>
                                 </div>
                                 <div class="cardText">
-                                    <span class="likeAnH3">Free PluralSight Video Training for Azure</span>
+                                    <span class="likeAnH3">Free Pluralsight Video Training for Azure</span>
                                 </div>
                             </div>
                         </div>
@@ -130,6 +130,12 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                         <span>Python</span>
                                                     </a>
                                                 </div>
+                                                <div class="ico48Link">
+                                                    <a href="/go/azure/">
+                                                        <img src="https://docs.microsoft.com/en-us/media/logos/logo_Go-lightblue.svg" alt=""/>
+                                                        <span>Go</span>
+                                                    </a>
+                                                </div>
                                                 <div>
                                                     <h4>App Models</h4>
                                                     <ul class="noBullet">
@@ -156,7 +162,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 </ul>
                                                 <h4>NoSQL</h4>
                                                 <ul class="noBullet">
-                                                    <li><a class="barLink" href="/azure/cosmos-db/">Cosmos DB</a></li>
+                                                    <li><a class="barLink" href="/azure/cosmos-db/">Azure Cosmos DB</a></li>
                                                 </ul>
                                                 <h4>AI and Cognitive Services</h4>
                                                 <ul class="noBullet">
@@ -175,7 +181,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             <div class="cardText">
                                                 <h3>Command-line tools</h3>
                                                 <div class="ico48Link">
-                                                    <a href="/cli/azure/overview">
+                                                    <a href="/cli/azure">
                                                         <img src="media/index/azure_dev-7.svg" alt="">
                                                         <span>Azure<br />CLI</span>
                                                     </a>
@@ -294,7 +300,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         <li>
                                             <a href="/azure/cosmos-db/">
                                                 <img src="media/index/cosmosdb.svg" alt="" />
-                                                <p>Cosmos DB</p>
+                                                <p>Azure Cosmos DB</p>
                                             </a>
                                         </li>
                                         <li>
@@ -587,7 +593,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         <li>
                                             <a href="/azure/cognitive-services/Custom-Vision-Service/home">
                                                 <img src="media/index/cs-custom-vision.svg" alt="" />
-                                                <p>Custom Vision Search</p>
+                                                <p>Custom Vision Service</p>
                                             </a>
                                         </li>
                                         <li>
@@ -768,11 +774,11 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         <li>
                                             <a href="https://www.visualstudio.com/docs/overview">
                                                 <img src="media/index/VisualStudioTeamServices.svg" alt="" />
-                                                <p>Visual Studio Team Services</p>
+                                                <p>Azure DevOps</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/devtest-lab/">
+                                            <a href="/services/devtest-lab/">
                                                 <img src="media/index/DevTestLabs.svg" alt="" />
                                                 <p>Azure DevTest Labs</p>
                                             </a>
@@ -1844,8 +1850,8 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Cosmos DB</h3>
-                                                    <p>Managed NoSQL document database-as-a-service</p>
+                                                    <h3>Azure Cosmos DB</h3>
+                                                    <p>Globally distributed, multi-model database for any scale</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2729,7 +2735,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Visual Studio Team Services</h3>
+                                                    <h3>Azure DevOps</h3>
                                                     <p>Services for teams to share code, track work, and ship software</p>
                                                 </div>
                                             </div>
@@ -2738,7 +2744,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/devtest-lab/">
+                                <a href="/services/devtest-lab/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -3142,10 +3148,10 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     <a href="https://pypi.python.org/pypi/azure">Get the Python SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/">Get started</a>
+                                                    <a href="https://docs.microsoft.com/python/azure/?view=azure-python">Get started</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/">API reference</a>
+                                                    <a href="https://docs.microsoft.com/python/azure/?view=azure-python">API reference</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://azure.microsoft.com/resources/samples/?platform=python">Get samples</a>
@@ -3248,6 +3254,30 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
+                                                    <img src="https://docs.microsoft.com/en-us/media/logos/logo_Go-lightblue.svg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="cardText">
+                                                <h3>
+                                                    <a href="/go/azure/">Get the Go SDK</a>
+                                                </h3>
+                                                <p>
+                                                    <a href="/go/azure/azure-sdk-go-qs-vm">Get started</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://godoc.org/github.com/Azure/azure-sdk-for-go">Reference</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardImageOuter">
+                                                <div class="cardImage">
                                                     <img src="media/index/azure_dev-6.svg" alt="" />
                                                 </div>
                                             </div>
@@ -3284,7 +3314,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <h3>Azure CLI 2.0
                                                 </h3>
                                                 <p>
-                                                    <a href="/cli/azure/overview">Get Started</a>
+                                                    <a href="/cli/azure">Get Started</a>
                                                 </p>
                                                 <p>
                                                     <a href="/cli/azure/install-azure-cli">Download Azure CLI 2.0</a>
@@ -3397,13 +3427,13 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     <a href="/dotnet/articles/core/docker/visual-studio-tools-for-docker">Get Started</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780680">Download for Visual Studio</a>
+                                                    <a href="https://marketplace.visualstudio.com/items?itemName=Click2CloudInc.Click2CloudDockerExtensionForVisualStudio2017">Download for Visual Studio</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://go.microsoft.com/fwlink/?LinkId=780681">Download for Visual Studio Code</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780682">Download for Team Services</a>
+                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780682">Download for Azure DevOps</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -3472,13 +3502,13 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://www.visualstudio.com/vs/python">Python Tools</a>
+                                                    <a href="http://aka.ms/ptvs">Python Tools</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://github.com/Microsoft/PTVS/wiki/PTVS-Installation">Get Started with Visual Studio</a>
+                                                    <a href="http://aka.ms/ptvsdocs">Get Started with Visual Studio</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://marketplace.visualstudio.com/items?itemName=donjayamanne.python">Get Started with Visual Studio Code</a>
+                                                    <a href="https://code.visualstudio.com/docs/python/python-tutorial">Get Started with Visual Studio Code</a>
                                                 </p>
                                             </div>
                                         </div>

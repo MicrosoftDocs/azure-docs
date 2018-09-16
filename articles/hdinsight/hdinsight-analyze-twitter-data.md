@@ -1,20 +1,14 @@
 ---
-title: Analyze Twitter data with Hadoop in HDInsight - Azure | Microsoft Docs
+title: Analyze Twitter data with Hadoop in HDInsight - Azure 
 description: Learn how to use Hive to analyze Twitter data on Hadoop in HDInsight to find the usage frequency of a particular word.
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
+author: jasonwhowell
+ms.reviewer: jasonh
 
-ms.assetid: 78e4ea33-9714-424d-ac07-3d60ecaebf2e
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jgao
+ms.author: jasonh
 ROBOTS: NOINDEX
 
 ---
@@ -26,7 +20,7 @@ In this tutorial, you will get tweets by using a Twitter streaming API, and then
 on Azure HDInsight to get a list of Twitter users who sent the most tweets that contained a certain word.
 
 > [!IMPORTANT]
-> The steps in this document require a Windows-based HDInsight cluster. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date). For steps specific
+> The steps in this document require a Windows-based HDInsight cluster. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). For steps specific
 > to a Linux-based cluster, see [Analyze Twitter data using Hive in HDInsight (Linux)](hdinsight-analyze-twitter-data-linux.md).
 
 ## Prerequisites
@@ -39,7 +33,7 @@ Before you begin this tutorial, you must have the following:
     Before running Windows PowerShell scripts, make sure you are connected to your Azure subscription by using the following cmdlet:
 
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 
     If you have multiple Azure subscriptions, use the following cmdlet to set the current subscription:
@@ -70,7 +64,7 @@ In this tutorial, you will use the [Twitter streaming APIs][twitter-streaming-ap
 > [!NOTE]
 > A file containing 10,000 tweets and the Hive script file (covered in the next section) have been uploaded in a public Blob container. You can skip this section if you want to use the uploaded files.
 
-[Tweets data](https://dev.twitter.com/docs/platform-objects/tweets) is stored in the JavaScript Object Notation (JSON) format that contains a complex nested structure. Instead of writing many lines of code by using a conventional programming language, you can transform this nested structure into a Hive table, so that it can be queried by a Structured Query Language (SQL)-like language called HiveQL.
+Tweets data is stored in the JavaScript Object Notation (JSON) format that contains a complex nested structure. Instead of writing many lines of code by using a conventional programming language, you can transform this nested structure into a Hive table, so that it can be queried by a Structured Query Language (SQL)-like language called HiveQL.
 
 Twitter uses OAuth to provide authorized access to its API. OAuth is an authentication protocol that allows users to approve applications to act on their behalf without sharing their password. More information can be found at [oauth.net](http://oauth.net/) or in the excellent [Beginner's Guide to OAuth](http://hueniverse.com/oauth/) from Hueniverse.
 
@@ -94,14 +88,14 @@ The first step to use OAuth is to create a new application on the Twitter Develo
 8. Click **Test OAuth** in the upper-right corner of the page.
 9. Write down **consumer key**, **Consumer secret**, **Access token**, and **Access token secret**. You will need the values later in the tutorial.
 
-In this tutorial, you will use Windows PowerShell to make the web service call. For a .NET C# sample, see [Analyze real-time Twitter sentiment with HBase in HDInsight][hdinsight-hbase-twitter-sentiment]. The other popular tool to make web service calls is [*Curl*][curl]. Curl can be downloaded from [here][curl-download].
+In this tutorial, you use Windows PowerShell to make the web service call. The other popular tool to make web service calls is [*Curl*][curl]. Curl can be downloaded from [here][curl-download].
 
 > [!NOTE]
 > When you use the curl command in Windows, use double quotes instead of single quotes for the option values.
 
 **To get tweets**
 
-1. Open the Windows PowerShell Integrated Scripting Environment (ISE). (On the Windows 8 Start screen, type **PowerShell_ISE** and then click **Windows PowerShell ISE**. See [Start Windows PowerShell on Windows 8 and Windows][powershell-start].)
+1. Open the Windows PowerShell Integrated Scripting Environment (ISE). (On the Windows 8 Start screen, type **PowerShell_ISE** and then click **Windows PowerShell ISE**. See [Start Windows PowerShell on Windows 8 and Windows](https://docs.microsoft.com/en-us/powershell/scripting/setup/starting-windows-powershell?view=powershell-6)
 2. Copy the following script into the script pane:
 
     ```powershell
@@ -123,7 +117,7 @@ In this tutorial, you will use Windows PowerShell to make the web service call. 
 
     #region - Connect to Azure subscription
     Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     #endregion
 
     #region - Create a block blob object for writing tweets into Blob storage
@@ -397,7 +391,7 @@ The HiveQL script will perform the following:
         Get-AzureRmSubscription
     }
     Catch{
-        Login-AzureRmAccount
+        Connect-AzureRmAccount
     }
 
     Select-AzureRmSubscription -SubscriptionId $subscriptionID
@@ -460,7 +454,7 @@ You have finished all the preparation work. Now, you can invoke the Hive script 
 Use the following Windows PowerShell script to run the Hive script. You will need to set the first variable.
 
 > [!NOTE]
-> To use the tweets and the HiveQL script you uploaded in the last two sections, set $hqlScriptFile to "/tutorials/twitter/twitter.hql". To use the ones that have been uploaded to a public blob for you, set $hqlScriptFile to "wasbs://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql".
+> To use the tweets and the HiveQL script you uploaded in the last two sections, set $hqlScriptFile to "/tutorials/twitter/twitter.hql". To use the ones that have been uploaded to a public blob for you, set $hqlScriptFile to "wasb://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql".
 
 ```powershell
 #region variables and constants
@@ -469,7 +463,7 @@ $httpUserName = "admin"
 $httpUserPassword = "<HDInsight Cluster HTTP User Password>"
 
 #use one of the following
-$hqlScriptFile = "wasbs://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql"
+$hqlScriptFile = "wasb://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql"
 $hqlScriptFile = "/tutorials/twitter/twitter.hql"
 
 $statusFolder = "/tutorials/twitter/jobstatus"
@@ -493,7 +487,7 @@ Use-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $
 $response = Invoke-AzureRmHDInsightHiveJob -DefaultStorageAccountName $defaultStorageAccountName -DefaultStorageAccountKey $defaultStorageAccountKey -DefaultContainer $defaultBlobContainerName -file $hqlScriptFile -StatusFolder $statusFolder #-OutVariable $outVariable
 
 Write-Host "Display the standard error log ... " -ForegroundColor Green
-$jobID = ($response | Select-String job_ | Select-Object -First 1) -replace ‘\s*$’ -replace ‘.*\s’
+$jobID = ($response | Select-String job_ | Select-Object -First 1) -replace �\s*$� -replace �.*\s�
 Get-AzureRmHDInsightJobOutput -ClusterName $clusterName -JobId $jobID -DefaultContainer $defaultBlobContainerName -DefaultStorageAccountName $defaultStorageAccountName -DefaultStorageAccountKey $defaultStorageAccountKey -HttpCredential $httpCredential
 #endregion
 ```
@@ -544,7 +538,6 @@ After the analysis results have been placed in Azure Blob storage, you can expor
 In this tutorial we have seen how to transform an unstructured JSON dataset into a structured Hive table to query, explore, and analyze data from Twitter by using HDInsight on Azure. To learn more, see:
 
 * [Get started with HDInsight][hdinsight-get-started]
-* [Analyze real-time Twitter sentiment with HBase in HDInsight][hdinsight-hbase-twitter-sentiment]
 * [Analyze flight delay data using HDInsight][hdinsight-analyze-flight-delay-data]
 * [Connect Excel to HDInsight with Power Query][hdinsight-power-query]
 * [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver][hdinsight-hive-odbc]
@@ -555,19 +548,18 @@ In this tutorial we have seen how to transform an unstructured JSON dataset into
 
 [apache-hive-tutorial]: https://cwiki.apache.org/confluence/display/Hive/Tutorial
 
-[twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
-[twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
+[twitter-streaming-api]: https://developer.twitter.com/en/docs/api-reference-index
+[twitter-statuses-filter]: https://developer.twitter.com/en/docs/tweets/filter-realtime/api-reference/post-statuses-filter
 
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
 [powershell-install]: /powershell/azureps-cmdlets-docs
 [powershell-script]: http://technet.microsoft.com/library/ee176961.aspx
 
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
-[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
+[hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
 [hdinsight-storage-powershell]:hdinsight-hadoop-use-blob-storage.md#access-blobs-using-azure-powershell
 [hdinsight-analyze-flight-delay-data]: hdinsight-analyze-flight-delay-data.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
-[hdinsight-use-sqoop]: hdinsight-use-sqoop.md
-[hdinsight-power-query]: hdinsight-connect-excel-power-query.md
-[hdinsight-hive-odbc]: hdinsight-connect-excel-hive-odbc-driver.md
-[hdinsight-hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
+[hdinsight-use-sqoop]:hadoop/hdinsight-use-sqoop.md
+[hdinsight-power-query]:hadoop/apache-hadoop-connect-excel-power-query.md
+[hdinsight-hive-odbc]:hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md

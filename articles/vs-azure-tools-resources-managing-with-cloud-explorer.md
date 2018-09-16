@@ -2,25 +2,22 @@
 title: Managing Azure resources with Cloud Explorer | Microsoft Docs
 description: Learn how to use Cloud Explorer to browse and manage Azure resources within Visual Studio.
 services: visual-studio-online
-documentationcenter: na
-author: TomArcher
+author: ghogen
 manager: douge
-editor: ''
-
-ms.assetid: 6347dc53-f497-49d5-b29b-e8b9f0e939d7
-ms.service: multiple
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: multiple
+assetId: 6347dc53-f497-49d5-b29b-e8b9f0e939d7
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.custom: vs-azure
+ms.workload: azure-vs
+ms.topic: conceptual
 ms.date: 03/25/2017
-ms.author: tarcher
+ms.author: ghogen
 
 ---
 # Manage the resources associated with your Azure accounts in Visual Studio Cloud Explorer
 Cloud Explorer enables you to view your Azure resources and resource groups, inspect their properties, and perform key developer diagnostics actions from within Visual Studio. 
 
-Like the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040), Cloud Explorer is built on the Azure Resource Manager stack. Therefore, Cloud Explorer understands resources such as Azure resource groups and Azure services such as Logic apps and API apps, and it supports [role-based access control](active-directory/role-based-access-control-configure.md) (RBAC). 
+Like the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040), Cloud Explorer is built on the Azure Resource Manager stack. Therefore, Cloud Explorer understands resources such as Azure resource groups and Azure services such as Logic apps and API apps, and it supports [role-based access control](role-based-access-control/role-assignments-portal.md) (RBAC). 
 
 ## Prerequisites
 - [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the **Azure workload** selected, or an earlier version of Visual Studio with the [Microsoft Azure SDK for .NET 2.9](https://www.microsoft.com/en-us/download/details.aspx?id=51657).
@@ -38,9 +35,9 @@ To view the resources associated with an Azure account, you must first add the a
 
 	![Cloud Explorer Azure account settings icon](media/vs-azure-tools-resources-managing-with-cloud-explorer/azure-account-settings.png)
 
-1. Select **Add new account**. 
+1. Select **Manage accounts**. 
 
-	![Cloud Explorer add-account link](media/vs-azure-tools-resources-managing-with-cloud-explorer/add-account-link.png)
+	![Cloud Explorer add-account link](media/vs-azure-tools-resources-managing-with-cloud-explorer/manage-accounts-link.png)
 
 1. Log in to the Azure account whose resources you want to browse. 
 
@@ -54,13 +51,17 @@ To view the resources associated with an Azure account, you must first add the a
 
 ## Remove an Azure account from Cloud Explorer 
 
-1. In **Cloud Explorer**, select **Azure account settings**.
+1. In **Cloud Explorer**, select **Account Management**.
 
 	![Cloud Explorer Azure account settings icon](media/vs-azure-tools-resources-managing-with-cloud-explorer/azure-account-settings.png)
 
-1. Next to the account you want to remove, select **Remove**.
+1. Next to the account you want to remove, select **Manage Accounts**.
 
 	![Cloud Explorer Azure account settings icon](media/vs-azure-tools-resources-managing-with-cloud-explorer/remove-account.png)
+
+1. Choose **Remove** to remove an account.
+
+    ![Cloud Explorer Manage accounts dialog box](media/vs-azure-tools-resources-managing-with-cloud-explorer/accountmanage.PNG)
 
 ## View resource types or resource groups
 To view your Azure resources, you can choose either **Resource Types** or **Resource Groups** view.

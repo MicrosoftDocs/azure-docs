@@ -1,42 +1,16 @@
 - name: Content Moderator Documentation
-  href: ../index.md
 - name: Overview
   items: 
-  - name: Learn about the Content Moderator API
+  - name: What is Content Moderator?
     href: overview.md
-- name: Get started
-  items: 
-  - name: Get started with Content Moderator
-    href: quick-start.md
-- name: How to
-  items: 
-  - name: Review tool user guide
-    items:
-    - name: Human in the loop
-      href: Review-Tool-User-Guide/human-in-the-loop.md
-    - name: Create team
-      href: Review-Tool-User-Guide/Sign-up.md
-    - name: Upload images
-      href: Review-Tool-User-Guide/Upload-Images.md
-    - name: Image reviews
-      href: Review-Tool-User-Guide/Review-Moderated-Images.md
-    - name: Text reviews
-      href: Review-Tool-User-Guide/Text-Reviews.md
-    - name: Team and subteams
-      href: Review-Tool-User-Guide/SubTeams.md
-    - name: Using workflows
-      href: Review-Tool-User-Guide/Workflows.md
-    - name: Settings
-      href: Review-Tool-User-Guide/Configure.md
-    - name: View dashboard
-      href: Review-Tool-User-Guide/View-Dashboard.md
-- name: Reference
-  items: 
-  - name: API Reference Guide  
-    href: api-reference.md
-    items:
-  - name: Review APIs
-    href: review-api.md
+- name: Samples
+  items:
+  - name: .NET SDK samples
+    href: samples-dotnet.md
+  - name: REST API samples in C#
+    href: samples-rest.md
+- name: Concepts
+  items:
   - name: Image moderation
     href: image-moderation-api.md
   - name: Text moderation
@@ -44,14 +18,116 @@
   - name: Text moderation - languages
     href: Text-Moderation-API-Languages.md
   - name: Video moderation
-    href: video-moderation-api.md
+    href: video-moderation-human-review.md
+  - name: Jobs and reviews
+    href: review-api.md
+  - name: Workflows
+    href: workflow-api.md
+- name: How-to guides
+  items:
+  - name: Try Content Moderator
+    items:
+    - name: Get started with Content Moderator
+      href: quick-start.md
+    - name: Moderation APIs
+      items:
+      - name: Helper library - .NET
+        href: content-moderator-helper-quickstart-dotnet.md
+      - name: Images - API console
+        href: try-image-api.md
+      - name: Images - .NET
+        href: image-moderation-quickstart-dotnet.md
+      - name: Custom images - API console
+        href: try-image-list-api.md
+      - name: Custom images - .NET
+        href: image-lists-quickstart-dotnet.md
+      - name: Text - API console
+        href: try-text-api.md
+      - name: Text - .NET
+        href: text-moderation-quickstart-dotnet.md
+      - name: Custom terms - API console
+        href: try-terms-list-api.md
+      - name: Custom terms - .NET
+        href: term-lists-quickstart-dotnet.md
+      - name: Videos - .NET
+        href: video-moderation-api.md
+    - name: Review APIs
+      items:
+      - name: Jobs - API console
+        href: try-review-api-job.md
+      - name: Jobs - .NET
+        href: moderation-jobs-quickstart-dotnet.md
+      - name: Reviews - API console
+        href: try-review-api-review.md
+      - name: Reviews - .NET
+        href: moderation-reviews-quickstart-dotnet.md
+      - name: Video reviews - .NET
+        href: video-reviews-quickstart-dotnet.md
+      - name: Video transcript reviews - .NET
+        href: video-transcript-reviews-quickstart-dotnet.md
+      - name: Workflows - API console
+        href: try-review-api-workflow.md
+  - name: First Content Moderator apps
+    items:
+    - name: Facebook content moderation
+      href: facebook-post-moderation.md
+    - name: eCommerce image moderation
+      href: ecommerce-retail-catalog-moderation.md
+    - name: Video and trancript moderation
+      href: video-transcript-moderation-review-tutorial-dotnet.md
+  - name: Review tool
+    items:
+    - name: Human in the loop
+      href: Review-Tool-User-Guide/human-in-the-loop.md
+    - name: Use settings
+      href: Review-Tool-User-Guide/Configure.md
+    - name: Manage team
+      href: Review-Tool-User-Guide/SubTeams.md
+    - name: Use tags
+      href: Review-Tool-User-Guide/Tags.md
+    - name: Review images
+      href: Review-Tool-User-Guide/Review-Moderated-Images.md
+    - name: Review text
+      href: Review-Tool-User-Guide/Text-Reviews.md
+    - name: Manage credentials
+      href: Review-Tool-User-Guide/Credentials.md
+    - name: Use connectors
+      href: Review-Tool-User-Guide/Connectors.md
+    - name: Use workflows
+      href: Review-Tool-User-Guide/Workflows.md
+    - name: View dashboard
+      href: Review-Tool-User-Guide/View-Dashboard.md
+- name: Reference
+  items:
+  - name: Content Moderator API
+    href: api-reference.md
+  - name: SDKs
+    items:
+    - name: Java
+      href: https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-cognitiveservices-contentmoderator%22
+    - name: Node.js
+      href: https://docs.microsoft.com/javascript/api/azure-cognitiveservices-contentmoderator/?view=azure-node-latest
+    - name: Python
+      href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/contentmoderator?view=azure-python
+    - name: .NET
+      href: https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator
 - name: Resources
   items:  
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
-  - name: Windows SDK
-    href: https://github.com/MicrosoftContentModerator/Microsoft.CognitiveServices.ContentModerator-Windows/
-  - name: Samples
-    href: https://azure.microsoft.com/resources/samples/?service=cognitive-services
   - name: FAQ
     href: FAQs.md
+  - name: Regional availability
+    href: https://azure.microsoft.com/global-infrastructure/services/
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/content-moderator
+  - name: Export or delete account data
+    href: ./export-delete-data.md
+  - name: UserVoice
+    href: https://cognitive.uservoice.com/forums/559960-content-moderator
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
+  - name: Knowledge Base
+    href: https://cognitive.uservoice.com/knowledgebase/topics/132073-content-moderator
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
+  - name: On-demand webinar
+    href: https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html

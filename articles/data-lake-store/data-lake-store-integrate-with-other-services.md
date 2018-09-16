@@ -10,10 +10,8 @@ editor: cgronlun
 ms.assetid: 48a5d1f4-3850-4c22-bbc4-6d1d394fba8a
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 05/10/2017
+ms.topic: conceptual
+ms.date: 05/29/2018
 ms.author: nitinme
 
 ---
@@ -37,7 +35,7 @@ For instructions on how to use Data Lake Analytics with Data Lake Store, see [Ge
 ## Use Data Lake Store with Azure Data Factory
 You can use [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) to ingest data from Azure tables, Azure SQL Database, Azure SQL DataWarehouse, Azure Storage Blobs, and on-premises databases. Being a first class citizen in the Azure ecosystem, Azure Data Factory can be used to orchestrate the ingestion of data from these source to Azure Data Lake Store.
 
-For instructions on how to use Azure Data Factory with Data Lake Store, see [Move data to and from Data Lake Store using Data Factory](../data-factory/data-factory-azure-datalake-connector.md).
+For instructions on how to use Azure Data Factory with Data Lake Store, see [Move data to and from Data Lake Store using Data Factory](../data-factory/connector-azure-data-lake-store.md).
 
 ## Copy data from Azure Storage Blobs into Data Lake Store
 Azure Data Lake Store provides a command-line tool, AdlCopy, that enables you to copy data from Azure Blob Storage into a Data Lake Store account. For more information, see [Copy data from Azure Storage Blobs to Data Lake Store](data-lake-store-copy-data-azure-storage-blob.md).
@@ -59,6 +57,9 @@ You can use the Azure Data Lake Store connection manager in SSIS to connect an S
 
 ## Use Data Lake Store with SQL Data Warehouse
 You can use PolyBase to load data from Azure Data Lake Store into SQL Data Warehouse. For more information see [Use Data Lake Store with SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md).
+
+## Use Data Lake Store with Azure Event Hubs
+You can use Azure Data Lake Store to archive and capture data received by Azure Event Hubs. For more information see [Use Data Lake Store with Azure Event Hubs](data-lake-store-archive-eventhub-capture.md).
 
 ## See also
 * [Overview of Azure Data Lake Store](data-lake-store-overview.md)

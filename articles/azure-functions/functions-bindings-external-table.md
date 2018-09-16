@@ -1,34 +1,34 @@
 ---
-title: Azure Functions External Table binding (Preview) | Microsoft Docs
+title: External Table binding for Azure Functions (experimental)
 description: Using External Table bindings in Azure Functions
 services: functions
-documentationcenter: ''
 author: alexkarcher-msft
-manager: erikre
-editor: ''
+manager: jeconnoc
 
 ms.assetid:
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: alkarche
 
 ---
-# Azure Functions External Table binding (Preview)
-This article shows how to manipulate tabular data on SaaS providers (e.g. Sharepoint, Dynamics) within your function with built-in bindings. Azure Functions supports input, and output bindings for external tables.
+# External Table binding for Azure Functions (experimental)
+
+This article explains how to work with tabular data on SaaS providers, such as Sharepoint and Dynamics, in Azure Functions. Azure Functions supports input and output bindings for external tables.
+
+> [!IMPORTANT]
+> The External Table binding is experimental and might never reach Generally Available (GA) status. It is included only in Azure Functions 1.x, and there are no plans to add it to Azure Functions 2.x. For scenarios that require access to data in SaaS providers, consider using [logic apps that call into functions](functions-twitter-email.md).
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## API Connections
+## API connections
 
-Table bindings leverage external API connections to authenticate with 3rd party SaaS providers. 
+Table bindings leverage external API connections to authenticate with third-party SaaS providers. 
 
-When assigning a binding you can either create a new API connection or use an existing API connection within the same resource group
+When assigning a binding you can either create a new API connection or use an existing API connection within the same resource group.
 
-### Supported API Connections (Table)s
+### Available API connections (tables)
 
 |Connector|Trigger|Input|Output|
 |:-----|:---:|:---:|:---:|
@@ -49,29 +49,35 @@ When assigning a binding you can either create a new API connection or use an ex
 |UserVoice||x|x
 |Zendesk||x|x
 
-
 > [!NOTE]
-> External Table connections can also be used in [Azure Logic Apps](https://docs.microsoft.com/azure/connectors/apis-list)
+> External Table connections can also be used in [Azure Logic Apps](https://docs.microsoft.com/azure/connectors/apis-list).
 
-### Creating an API connection: step by step
+## Creating an API connection: step by step
 
-1. Create a function > custom function
-![Create a custom function](./media/functions-bindings-storage-table/create-custom-function.jpg)
-1. Scenario `Experimental` > `ExternalTable-CSharp` template > Create a new `External Table connection`
-![Choose table input template](./media/functions-bindings-storage-table/create-template-table.jpg)
-1. Choose your SaaS provider > choose/create a connection
-![Configure SaaS connection](./media/functions-bindings-storage-table/authorize-API-connection.jpg)
-1. Select your API connection > create the function
-![Create table function](./media/functions-bindings-storage-table/table-template-options.jpg)
-1. Select `Integrate` > `External Table`
-    1. Configure the connection to use your target table. These settings will very between SaaS providers. They are outline below in [data source settings](#datasourcesettings)
-![Configure table](./media/functions-bindings-storage-table/configure-API-connection.jpg)
+1. In the Azure portal page for your function app, select the plus sign (**+**) to create a function.
 
-## Usage
+1. In the **Scenario** box, select **Experimental**.
+
+1. Select **External table**.
+
+1. Select a language.
+
+2. Under **External Table connection**, select an existing connection or select **new**.
+
+1. For a new connection, configure the settings, and select **Authorize**.
+
+1. Select **Create** to create the function.
+
+1. Select **Integrate > External Table**.
+
+1. Configure the connection to use your target table. These settings will vary between SaaS providers. Examples are included in the following section.
+
+## Example
 
 This example connects to a table named "Contact" with Id, LastName, and FirstName columns. The code lists the Contact entities in the table and logs the first and last names.
 
-### Bindings
+Here's the *function.json* file:
+
 ```json
 {
   "bindings": [
@@ -93,29 +99,8 @@ This example connects to a table named "Contact" with Id, LastName, and FirstNam
   "disabled": false
 }
 ```
-`entityId` must be empty for table bindings.
 
-`ConnectionAppSettingsKey` identifies the app setting that stores the API connection string. The app setting is created automatically when you add an API connection in the integrate UI.
-
-A tabular connector provides data sets, and each data set contains tables. The name of the default data set is “default.” The titles for a dataset and a table in various SaaS providers are listed below:
-
-|Connector|Dataset|Table|
-|:-----|:---|:---| 
-|**SharePoint**|Site|SharePoint List
-|**SQL**|Database|Table 
-|**Google Sheet**|Spreadsheet|Worksheet 
-|**Excel**|Excel file|Sheet 
-
-<!--
-See the language-specific sample that copies the input file to the output file.
-
-* [C#](#incsharp)
-* [Node.js](#innodejs)
-
--->
-<a name="incsharp"></a>
-
-### Usage in C# #
+Here's the C# script code:
 
 ```cs
 #r "Microsoft.Azure.ApiHub.Sdk"
@@ -139,7 +124,7 @@ public static async Task Run(string input, ITable<Contact> table, TraceWriter lo
     ContinuationToken continuationToken = null;
     do
     {   
-        //retreive table values
+        //retrieve table values
         var contactsSegment = await table.ListEntitiesAsync(
             continuationToken: continuationToken);
 
@@ -154,25 +139,9 @@ public static async Task Run(string input, ITable<Contact> table, TraceWriter lo
 }
 ```
 
-<!--
-<a name="innodejs"></a>
+### SQL Server data source
 
-### Usage in Node.js
-
-```javascript
-module.exports = function(context) {
-    context.log('Node.js Queue trigger function processed', context.bindings.myQueueItem);
-    context.bindings.myOutputFile = context.bindings.myInputFile;
-    context.done();
-};
-```
--->
-<a name="datasourcesettings"></a>
-## Data Source Settings
-
-### SQL Server
-
-The script to create and populate the Contact table is below. dataSetName is “default.”
+To create a table in SQL Server to use with this example, here's a script. `dataSetName` is “default.”
 
 ```sql
 CREATE TABLE Contact
@@ -191,12 +160,39 @@ INSERT INTO Contact(Id, LastName, FirstName)
 GO
 ```
 
-### Google Sheets
-In Google Docs, create a spreadsheet with a worksheet named `Contact`. The connector cannot use the spreadsheet display name. The internal name (in bold) needs to be used as dataSetName, for example: `docs.google.com/spreadsheets/d/`**`1UIz545JF_cx6Chm_5HpSPVOenU4DZh4bDxbFgJOSMz0`**
+### Google Sheets data source
+
+To create a table to use with this example in Google Docs, create a spreadsheet with a worksheet named `Contact`. The connector cannot use the spreadsheet display name. The internal name (in bold) needs to be used as dataSetName, for example: `docs.google.com/spreadsheets/d/`**`1UIz545JF_cx6Chm_5HpSPVOenU4DZh4bDxbFgJOSMz0`**
 Add the column names `Id`, `LastName`, `FirstName` to the first row, then populate data on subsequent rows.
 
 ### Salesforce
-dataSetName is “default.”
+
+To use this example with Salesforce, `dataSetName` is “default.”
+
+## Configuration
+
+The following table explains the binding configuration properties that you set in the *function.json* file.
+
+|function.json property | Description|
+|---------|----------------------|
+|**type** | Must be set to `apiHubTable`. This property is set automatically when you create the trigger in the Azure portal.|
+|**direction** | Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. |
+|**name** | The name of the variable that represents the event item in function code. | 
+|**connection**| Identifies the app setting that stores the API connection string. The app setting is created automatically when you add an API connection in the integrate UI.|
+|**dataSetName**|The name of the dataset that contains the table to read.|
+|**tableName**|The name of the table|
+|**entityId**|Must be empty for table bindings.
+
+A tabular connector provides data sets, and each data set contains tables. The name of the default data set is “default.” The titles for a dataset and a table in various SaaS providers are listed below:
+
+|Connector|Dataset|Table|
+|:-----|:---|:---| 
+|**SharePoint**|Site|SharePoint List
+|**SQL**|Database|Table 
+|**Google Sheet**|Spreadsheet|Worksheet 
+|**Excel**|Excel file|Sheet 
 
 ## Next steps
-[!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
+
+> [!div class="nextstepaction"]
+> [Learn more about Azure functions triggers and bindings](functions-triggers-bindings.md)

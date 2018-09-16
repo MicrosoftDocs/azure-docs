@@ -17,6 +17,20 @@
       href: connect-php.md
     - name: Java
       href: connect-java.md
+    - name: .Net
+      href: connect-csharp.md    
+    - name: Python
+      href: connect-python.md
+    - name: Node.js
+      href: connect-nodejs.md
+    - name: Ruby
+      href: connect-ruby.md
+    - name: C++
+      href: connect-cpp.md
+    - name: Go
+      href: connect-go.md
+    - name: MySQL Workbench
+      href: connect-workbench.md
 - name: Tutorials
   items:
   - name: 1 - Design a Database
@@ -28,9 +42,11 @@
   - name: 2 - Create a Web App
     items:
     - name: Wordpress - Portal
-      href: ../app-service-web/app-service-web-create-web-app-from-marketplace.md?toc=%2fazure%2fmysql%2ftoc.json
-    - name: PHP - Azure CLI
-      href: ../app-service-web/app-service-web-tutorial-php-mysql.md?toc=%2fazure%2fmysql%2ftoc.json
+      href: https://portal.azure.com/#create/WordPress.WordPress
+    - name: PHP with MySQL
+      href: ../app-service/app-service-web-tutorial-php-mysql.md?toc=%2fazure%2fmysql%2ftoc.json
+    - name: Java with MySQL
+      href: ../app-service/app-service-web-tutorial-java-mysql.md?toc=%2fazure%2fmysql%2ftoc.json
 - name: Samples
   items:
   - name: Azure CLI
@@ -43,12 +59,14 @@
       href: concepts-servers.md
     - name: Supported versions
       href: concepts-supported-versions.md
+    - name: Server logs
+      href: concepts-server-logs.md
+    - name: High availability
+      href: concepts-high-availability.md
   - name: Resources
     items:
     - name: Pricing tiers
-      href: concepts-service-tiers.md
-    - name: Compute units
-      href: concepts-compute-unit-and-storage.md
+      href: concepts-pricing-tiers.md
     - name: Limits
       href: concepts-limits.md
   - name: Data access & security
@@ -57,18 +75,26 @@
       href: concepts-firewall-rules.md
     - name: Configuring SSL
       href: concepts-ssl-connection-security.md
+    - name: VNet
+      href: concepts-data-access-and-security-vnet.md 
+  - name: Business continuity
+    items:
+    - name: Overview
+      href: concepts-business-continuity.md
+    - name: Backup and restore
+      href: concepts-backup.md
+  - name: Monitor
+    href: concepts-monitoring.md
   - name: Development
     items:
-    - name: Connection libraries
-      href: concepts-connection-libraries.md
+    - name: Drivers and tools compatiblity
+      href: concepts-compatibility.md
     - name: Application development
       href: concepts-database-application-development.md
-  - name: Migrate your database
+  - name: Replication
     items:
-    - name: Dump & restore
-      href: concepts-migrate-dump-restore.md
-    - name: Import & export
-      href: concepts-migrate-import-export.md
+    - name: Data-in replication
+      href: concepts-data-in-replication.md
 - name: How-to guides
   items:
   - name: Manage a Server
@@ -85,8 +111,20 @@
     items:
     - name: Azure portal
       href: howto-restore-server-portal.md
+    - name: Azure CLI
+      href: howto-restore-server-cli.md
+  - name: Migrate a database
+    items:
+    - name: Dump & restore
+      href: concepts-migrate-dump-restore.md
+    - name: Import & export
+      href: concepts-migrate-import-export.md
+    - name: Minimal-downtime migration
+      href: howto-migrate-online.md
   - name: Connect applications
     items:
+    - name: Create users
+      href: howto-create-users.md
     - name: Connection strings
       href: howto-connection-string.md
     - name: Configure SSL
@@ -97,14 +135,48 @@
     items:
     - name: Azure portal
       href: howto-server-parameters.md
+    - name: Azure CLI
+      href: howto-configure-server-parameters-using-cli.md
+  - name: Access server logs
+    items:
+    - name: Azure portal
+      href: howto-configure-server-logs-in-portal.md
+    - name: Azure CLI
+      href: howto-configure-server-logs-in-cli.md
+  - name: Monitor
+    items:
+    - name: Create alerts on metrics
+      href: howto-alert-on-metric.md
+  - name: Replication
+    items:
+    - name: Configure data-in replication
+      href: howto-data-in-replication.md
+  - name: Troubleshoot
+    items:
+    - name: Troubleshoot query performance
+      href: howto-troubleshoot-query-performance.md
+    - name: How to use views in sys schema
+      href: howto-troubleshoot-sys-schema.md
+  - name: Virtual Network
+    items:
+    - name: Azure portal
+      href: howto-manage-vnet-using-portal.md
+    - name: Azure CLI
+      href: howto-manage-vnet-using-cli.md
 - name: Reference
   items:
   - name: Azure CLI
     href: /cli/azure/mysql
+  - name: REST API
+    href: /rest/api/mysql
+  - name: Data-in replication stored procedures
+    href: reference-data-in-stored-procedures.md
 - name: Resources
   items:
+  - name: Deployment templates
+    href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbformysql
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
+    href: https://azure.microsoft.com/roadmap/?category=databases
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/mysql/
   - name: MSDN forum
@@ -112,10 +184,28 @@
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-database-mysql
   - name: Videos
-    href: videos.md
+    items:
+    - name: Product videos
+      href: videos.md
+    - name: How to video series
+      items:
+      - name: Learn product features and benefits
+        href: https://aka.ms/mysql-intro-vid
+      - name: Migrate your MySQL app to Azure
+        href: https://aka.ms/mysql-migrate-vid
+      - name: Build and deploy Web Apps
+        href: https://aka.ms/mysql-webapps-vid
+      - name: Connect containers using OSBA
+        href: https://aka.ms/mysql-osba-vid
   - name: Request a feature
     href: https://feedback.azure.com/forums/597982-azure-database-for-mysql
   - name: Region availability
     href: https://azure.microsoft.com/regions/services/
   - name: Support options
     href: https://azure.microsoft.com/support/options/
+  - name: Customer stories
+    href: https://customers.microsoft.com/en-us/search?sq="Azure%20Database%20for%20MySQL%20"
+  - name: Partners
+    href: partners-migration-mysql.md
+  - name: Database Migration Guide
+    href: https://datamigration.microsoft.com/

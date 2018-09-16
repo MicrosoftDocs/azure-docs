@@ -1,139 +1,186 @@
 ---
-title: Host multiple sites with Azure Application Gateway | Microsoft Docs
-description: This page provides instructions to configure an existing Azure application gateway for hosting multiple web applications on the same gateway with the Azure portal.
-documentationcenter: na
+title: Create an application gateway with multiple site hosting  - Azure portal | Microsoft Docs
+description: Learn how to create an application gateway that hosts multiple sites using the Azure portal.
 services: application-gateway
-author: georgewallace
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 
-ms.assetid: 95f892f6-fa27-47ee-b980-7abf4f2c66a9
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
-ms.author: gwallace
+ms.date: 01/26/2018
+ms.author: victorh
 
 ---
-# Configure an existing application gateway for hosting multiple web applications
+# Create an application gateway with multiple site hosting using the Azure portal
 
-> [!div class="op_single_selector"]
-> * [Azure portal](application-gateway-create-multisite-portal.md)
-> * [Azure Resource Manager PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
-> 
-> 
+You can use the Azure portal to configure [hosting of multiple web sites](application-gateway-multi-site-overview.md) when you create an [application gateway](application-gateway-introduction.md). In this tutorial, you create backend pools using virtual machines scale sets. You then configure listeners and rules based on domains that you own to make sure web traffic arrives at the appropriate servers in the pools. This tutorial assumes that you own multiple domains and uses examples of *www.contoso.com* and *www.fabrikam.com*.
 
-Multiple site hosting allows you to deploy more than one web application on the same application gateway. It relies on presence of host header in the incoming HTTP request, to determine which listener would receive traffic. The listener then directs traffic to appropriate backend pool as configured in the rules definition of the gateway. In SSL enabled web applications, application gateway relies on the Server Name Indication (SNI) extension to choose the correct listener for the web traffic. A common use for multiple site hosting is to load balance requests for different web domains to different back-end server pools. Similarly multiple subdomains of the same root domain could also be hosted on the same application gateway.
+In this article, you learn how to:
 
-## Scenario
+> [!div class="checklist"]
+> * Create an application gateway
+> * Create virtual machines for backend servers
+> * Create backend pools with the backend servers
+> * Create listeners and routing rules
+> * Create a CNAME record in your domain
 
-In the following example, application gateway is serving traffic for contoso.com and fabrikam.com with two back-end server pools: contoso server pool and fabrikam server pool. Similar setup could be used to host subdomains like app.contoso.com and blog.contoso.com.
+![Multi-site routing example](./media/application-gateway-create-multisite-portal/scenario.png)
 
-![multisite scenario][multisite]
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Before you begin
+## Log in to Azure
 
-This scenario adds multi-site support to an existing application gateway. To complete this scenario, an existing application gateway needs to be available to configure. Visit [Create an application gateway by using the portal](application-gateway-create-gateway-portal.md) to learn how to create a basic application gateway in the portal.
+Log in to the Azure portal at [http://portal.azure.com](http://portal.azure.com)
 
-The following are the steps needed to update the application gateway:
+## Create an application gateway
 
-1. Create back-end pools to use for each site.
-2. Create a listener for each site application gateway supports.
-3. Create rules to map each listener with the appropriate back-end.
+A virtual network is needed for communication between the resources that you create. Two subnets are created in this example: one for the application gateway, and the other for the backend servers. You can create a virtual network at the same time that you create the application gateway.
 
-## Requirements
+1. Click **New** found on the upper left-hand corner of the Azure portal.
+2. Select **Networking** and then select **Application Gateway** in the Featured list.
+3. Enter these values for the application gateway:
 
-* **Back-end server pool:** The list of IP addresses of the back-end servers. The IP addresses listed should either belong to the virtual network subnet or should be a public IP/VIP. FQDN can also be used.
-* **Back-end server pool settings:** Every pool has settings like port, protocol, and cookie-based affinity. These settings are tied to a pool and are applied to all servers within the pool.
-* **Front-end port:** This port is the public port that is opened on the application gateway. Traffic hits this port, and then gets redirected to one of the back-end servers.
-* **Listener:** The listener has a front-end port, a protocol (Http or Https, these values are case-sensitive), and the SSL certificate name (if configuring SSL offload). For multi-site enabled application gateways, host name and SNI indicators are also added.
-* **Rule:** The rule binds the listener, the back-end server pool, and defines which back-end server pool the traffic should be directed to when it hits a particular listener. Rules are processed in the order they are listed, and traffic will be directed via the first rule that matches regardless of specificity. For example, if you have a rule using a basic listener and a rule using a multi-site listener both on the same port, the rule with the multi-site listener must be listed before the rule with the basic listener in order for the multi-site rule to function as expected. 
-* **Certificates:** Each listener requires a unique certificate, in this example 2 listeners are created for multi-site. Two .pfx certificates and the passwords for them need to be created.
+    - *myAppGateway* - for the name of the application gateway.
+    - *myResourceGroupAG* - for the new resource group.
 
-## Create back-end pools for each site
+    ![Create new application gateway](./media/application-gateway-create-multisite-portal/application-gateway-create.png)
 
-A back-end pool for each site that application gateway supports is needed, in this case 2 are be created, one for contoso11.com and one for fabrikam11.com.
+4. Accept the default values for the other settings and then click **OK**.
+5. Click **Choose a virtual network**, click **Create new**, and then enter these values for the virtual network:
 
-### Step 1
+    - *myVNet* - for the name of the virtual network.
+    - *10.0.0.0/16* - for the virtual network address space.
+    - *myAGSubnet* - for the subnet name.
+    - *10.0.0.0/24* - for the subnet address space.
 
-Navigate to an existing application gateway in the Azure portal (https://portal.azure.com). Select **Backend pools** and click **Add**
+    ![Create virtual network](./media/application-gateway-create-multisite-portal/application-gateway-vnet.png)
 
-![add backend pools][7]
+6. Click **OK** to create the virtual network and subnet.
+7. Click **Choose a public IP address**, click **Create new**, and then enter the name of the public IP address. In this example, the public IP address is named *myAGPublicIPAddress*. Accept the default values for the other settings and then click **OK**.
+8. Accept the default values for the Listener configuration, leave the Web application firewall disabled, and then click **OK**.
+9. Review the settings on the summary page, and then click **OK** to create the network resources and the application gateway. It may take several minutes for the application gateway to be created, wait until the deployment finishes successfully before moving on to the next section.
 
-### Step 2
+### Add a subnet
 
-Fill in the information for the back-end pool **pool1**, adding the ip addresses or FQDNs for the back-end servers and click **OK**
+1. Click **All resources** in the left-hand menu, and then click **myVNet** from the resources list.
+2. Click **Subnets**, and then click **Subnet**.
 
-![backend pool pool1 settings][8]
+    ![Create subnet](./media/application-gateway-create-multisite-portal/application-gateway-subnet.png)
 
-### Step 3
+3. Enter *myBackendSubnet* for the name of the subnet and then click **OK**.
 
-On the backend-pools blade click **Add** to add an additional back-end pool **pool2**, adding the ip addresses or FQDNS for the back-end servers and click **OK**
+## Create virtual machines
 
-![backend pool pool2 settings][9]
+In this example, you create two virtual machines to be used as backend servers for the application gateway. You also install IIS on the virtual machines to verify that traffic is routing correctly.
 
-## Create listeners for each back-end
+1. Click **New**.
+2. Click **Compute** and then select **Windows Server 2016 Datacenter** in the Featured list.
+3. Enter these values for the virtual machine:
 
-Application Gateway relies on HTTP 1.1 host headers to host more than one website on the same public IP address and port. The basic listener created in the portal does not contain this property.
+    - *contosoVM* - for the name of the virtual machine.
+    - *azureuser* - for the administrator user name.
+    - *Azure123456!* for the password.
+    - Select **Use existing**, and then select *myResourceGroupAG*.
 
-### Step 1
+4. Click **OK**.
+5. Select **DS1_V2** for the size of the virtual machine, and click **Select**.
+6. Make sure that **myVNet** is selected for the virtual network and the subnet is **myBackendSubnet**. 
+7. Click **Disabled** to disable boot diagnostics.
+8. Click **OK**, review the settings on the summary page, and then click **Create**.
 
-Click **Listeners** on the existing application gateway and click **Multi-site** to add the first listener.
+### Install IIS
 
-![listeners overview blade][1]
+1. Open the interactive shell and make sure that it is set to **PowerShell**.
 
-### Step 2
+    ![Install custom extension](./media/application-gateway-create-multisite-portal/application-gateway-extension.png)
 
-Fill out the information for the listener. In this example SSL termination is configured, create a new frontend port. Upload the .pfx certificate to be used for SSL termination. The only difference on this blade compared to the standard basic listener blade is the hostname.
+2. Run the following command to install IIS on the virtual machine: 
 
-![listener properties blade][2]
+    ```azurepowershell-interactive
+    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
+    Set-AzureRmVMExtension `
+      -ResourceGroupName myResourceGroupAG `
+      -Location eastus `
+      -ExtensionName IIS `
+      -VMName contosoVM `
+      -Publisher Microsoft.Compute `
+      -ExtensionType CustomScriptExtension `
+      -TypeHandlerVersion 1.4 `
+      -Settings $publicSettings
+    ```
 
-### Step 3
+3. Create the second virtual machine and install IIS using the steps that you just finished. Enter the names of *fabrikamVM* for the name and for the value of VMName in Set-AzureRmVMExtension.
 
-Click **Multi-site** and create another listener as described in the previous step for the second site. Make sure to use a different certificate for the second listener. The only difference on this blade compared to the standard basic listener blade is the hostname. Fill out the information for the listener and click **OK**.
+## Create backend pools with the virtual machines
 
-![listener properties blade][3]
+1. Click **All resources** and then click **myAppGateway**.
+2. Click **Backend pools**, and then click **Add**.
+3. Enter a name of *contosoPool* and add *contosoVM* using **Add target**.
 
-> [!NOTE]
-> Creation of listeners in the Azure portal for application gateway is a long running task, it may take some time to create the two listeners in this scenario. When complete the listeners show in the portal as seen in the following image:
+    ![Add backend servers](./media/application-gateway-create-multisite-portal/application-gateway-multisite-backendpool.png)
 
-![listener overview][4]
+4. Click **OK**.
+5. Click **Backend pools** and then click **Add**.
+6. Create the *fabrikamPool* with the *fabrikamVM* using the steps that you just finished.
 
-## Create rules to map listeners to backend pools
+## Create listeners and routing rules
 
-### Step 1
+1. Click **Listeners** and then click **Multi-site**.
+2. Enter these values for the listener:
+    
+    - *contosoListener* - for the name of the listener.
+    - *www.contoso.com* - replace this host name example with your domain name.
 
-Navigate to an existing application gateway in the Azure portal (https://portal.azure.com). Select **Rules** and choose the existing default rule **rule1** and click **Edit**.
+3. Click **OK**.
+4. Create a second listener using the name of *fabrikamListener* and use your second domain name. In this example, *www.fabrikam.com* is used.
 
-### Step 2
+Rules are processed in the order they are listed, and traffic is directed using the first rule that matches regardless of specificity. For example, if you have a rule using a basic listener and a rule using a multi-site listener both on the same port, the rule with the multi-site listener must be listed before the rule with the basic listener in order for the multi-site rule to function as expected. 
 
-Fill out the rules blade as seen in the following image. Choosing the first listener and first pool and clicking **Save** when complete.
+In this example, you create two new rules and delete the default rule that was created when you created the application gateway. 
 
-![edit existing rule][6]
+1. Click **Rules** and then click **Basic**.
+2. Enter *contosoRule* for the name.
+3. Select *contosoListener* for the listener.
+4. Select *contosoPool* for the backend pool.
 
-### Step 3
+    ![Create a path-based rule](./media/application-gateway-create-multisite-portal/application-gateway-multisite-rule.png)
 
-Click **Basic rule** to create the second rule. Fill out the form with the second listener and second backend pool and click **OK** to save.
+5. Click **OK**.
+6. Create a second rule using the names of *fabrikamRule*, *fabrikamListener*, and *fabrikamPool*.
+7. Delete the default rule named *rule1* by clicking it, and then clicking **Delete**.
 
-![add basic rule blade][10]
+## Create a CNAME record in your domain
 
-This scenario completes configuring an existing application gateway with multi-site support through the Azure portal.
+After the application gateway is created with its public IP address, you can get the DNS address and use it to create a CNAME record in your domain. The use of A-records is not recommended because the VIP may change when the application gateway is restarted.
+
+1. Click **All resources**, and then click **myAGPublicIPAddress**.
+
+    ![Record application gateway DNS address](./media/application-gateway-create-multisite-portal/application-gateway-multisite-dns.png)
+
+2. Copy the DNS address and use it as the value for a new CNAME record in your domain.
+
+## Test the application gateway
+
+1. Enter your domain name into the address bar of your browser. Such as, http://www.contoso.com.
+
+    ![Test contoso site in application gateway](./media/application-gateway-create-multisite-portal/application-gateway-iistest.png)
+
+2. Change the address to your other domain and you should see something like the following example:
+
+    ![Test fabrikam site in application gateway](./media/application-gateway-create-multisite-portal/application-gateway-iistest2.png)
 
 ## Next steps
 
-Learn how to protect your websites with [Application Gateway - Web Application Firewall](application-gateway-webapplicationfirewall-overview.md)
+In this article, you learned how to:
 
-<!--Image references-->
-[1]: ./media/application-gateway-create-multisite-portal/figure1.png
-[2]: ./media/application-gateway-create-multisite-portal/figure2.png
-[3]: ./media/application-gateway-create-multisite-portal/figure3.png
-[4]: ./media/application-gateway-create-multisite-portal/figure4.png
-[5]: ./media/application-gateway-create-multisite-portal/figure5.png
-[6]: ./media/application-gateway-create-multisite-portal/figure6.png
-[7]: ./media/application-gateway-create-multisite-portal/figure7.png
-[8]: ./media/application-gateway-create-multisite-portal/figure8.png
-[9]: ./media/application-gateway-create-multisite-portal/figure9.png
-[10]: ./media/application-gateway-create-multisite-portal/figure10.png
-[multisite]: ./media/application-gateway-create-multisite-portal/multisite.png
+> [!div class="checklist"]
+> * Create an application gateway
+> * Create virtual machines for backend servers
+> * Create backend pools with the backend servers
+> * Create listeners and routing rules
+> * Create a CNAME record in your domain
+
+> [!div class="nextstepaction"]
+> [Learn more about what you can do with application gateway](application-gateway-introduction.md)

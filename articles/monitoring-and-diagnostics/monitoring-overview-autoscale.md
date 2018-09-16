@@ -1,21 +1,13 @@
 ---
-title: Overview of autoscale in Microsoft Azure Virtual Machines, Cloud Services, and Web Apps | Microsoft Docs
-description: Overview of autoscale in Microsoft Azure. Applies to Virtual Machines, Cloud Services and Web Apps.
+title: "Overview of autoscale in Virtual Machines, Cloud Services, and Web Apps"
+description: "Autoscale in Microsoft Azure. Applies to Virtual Machines, Virtual machine Scale sets, Cloud Services and Web Apps."
 author: rboucher
-manager: carolz
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.assetid: 74bf03be-e658-4239-a214-c12424b53e4c
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 03/02/2016
 ms.author: robb
-
+ms.component: autoscale
 ---
 # Overview of autoscale in Microsoft Azure Virtual Machines, Cloud Services, and Web Apps
 This article describes what Microsoft Azure autoscale is, its benefits, and how to get started using it.  
@@ -107,7 +99,7 @@ You can set up autoscale via
 | Service | Schema & Docs |
 | --- | --- |
 | Web Apps |[Scaling Web Apps](insights-how-to-scale.md) |
-| Cloud Services |[Autoscale a Cloud Service](../cloud-services/cloud-services-how-to-scale.md) |
+| Cloud Services |[Autoscale a Cloud Service](../cloud-services/cloud-services-how-to-scale-portal.md) |
 | Virtual Machines: Classic |[Scaling Classic Virtual Machine Availability Sets](https://blogs.msdn.microsoft.com/kaevans/2015/02/20/autoscaling-azurevirtual-machines/) |
 | Virtual Machines: Windows Scale Sets |[Scaling virtual machine scale sets in Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md) |
 | Virtual Machines: Linux Scale Sets |[Scaling virtual machine scale sets in Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) |

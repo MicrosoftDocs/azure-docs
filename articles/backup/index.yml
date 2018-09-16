@@ -1,0 +1,70 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Backup Documentation
+metadata:
+  title: Azure Backup Documentation - Tutorials, API Reference | Microsoft Docs
+  description: Azure Backup allows you to back up the data for on-premises servers, virtual machines, virtualized workloads, SQL server, SharePoint server, and more. Learn how to back up and restore your data with our quickstarts, tutorials and samples.
+  services: backup
+  author: markgalioto
+  manager: carmonm
+  ms.service: backup
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 05/22/2018
+  ms.author: markgal
+abstract:
+  description: Use Azure Backup to protect the data for on-premises servers, virtual machines, virtualized workloads, SQL server, SharePoint server, and more. Learn how to back up and restore your data with our quickstarts, tutorials and samples.
+sections:
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: Learn how to back up an Azure virtual machine in Azure.
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: https://docs.microsoft.com/azure/sql-database/media/index/portal.svg
+      text: Azure Portal
+      href: quick-backup-vm-portal
+    - image: 
+        src: https://docs.microsoft.com/azure/sql-database/media/index/logo_powershell.svg
+      text: Azure PowerShell
+      href: quick-backup-vm-powershell
+    - image: 
+        src: https://docs.microsoft.com/media/common/cli.svg
+      text: Azure CLI
+      href: quick-backup-vm-cli
+- title: Step-by-step Tutorials
+  items:
+  - type: paragraph
+    text: Learn to back up and recover virtual machines within Azure or from Windows Server.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="tutorial-backup-vm-at-scale">Backup multiple Azure VMs</a>
+    - html: <a href="tutorial-restore-disk">Restore a disk and create a recovered VM</a>
+    - html: <a href="tutorial-restore-files">Restore files to a Virtual Machine in Azure</a>
+    - html: <a href="tutorial-backup-windows-server-to-azure">Back up a Windows Server to Azure</a>
+    - html: <a href="tutorial-backup-restore-files-windows-server">Recover files from Azure to a Windows Server</a>
+- title: Samples
+  items:
+  - type: paragraph
+    text: Use the following samples to protect your data in Azure.
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/backup/powershell-backup-samples">Azure PowerShell</a>
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Command-Line
+      html: <p><a href="/powershell/resourcemanager/azurerm.backup/v2.3.0/azurerm.backup">Azure PowerShell</a></p><p><a href="/cli/azure/backup?view=azure-cli-latest">Azure CLI</a></p>
+    - title: Languages
+      html: <p><a href="/dotnet/api/microsoft.azure.management.backupservices">.NET</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/backup/">Azure Backup API Reference</a></p>

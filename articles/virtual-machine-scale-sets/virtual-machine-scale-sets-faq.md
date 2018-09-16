@@ -4,7 +4,7 @@ description: Get answers to frequently asked questions about virtual machine sca
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: gatneil
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/03/2017
+ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
 
@@ -23,6 +23,51 @@ ms.custom: na
 # Azure virtual machine scale sets FAQs
 
 Get answers to frequently asked questions about virtual machine scale sets in Azure.
+
+## Top frequently asked questions for scale sets
+
+**Q.** How many VMs can I have in a scale set?
+
+**A.** A scale set can have 0 to 1,000 VMs based on platform images, or 0 to 300 VMs based on custom images.
+
+**Q.** Are data disks supported within scale sets?
+
+**A.** Yes. A scale set can define an attached data disks configuration that applies to all VMs in the set. For more information, see [Azure scale sets and attached data disks](virtual-machine-scale-sets-attached-disks.md). Other options for storing data include:
+
+* Azure files (SMB shared drives)
+* OS drive
+* Temp drive (local, not backed by Azure Storage)
+* Azure data service (for example, Azure tables, Azure blobs)
+* External data service (for example, remote database)
+
+**Q.** Which Azure regions support scale sets?
+
+**A.** All regions support scale sets.
+
+**Q.** How do I create a scale set by using a custom image?
+
+**A.** Create and capture a VM image, then use that as the source for your scale set. For a tutorial on how to create and use a custom VM image, you can use the [Azure CLI 2.0](tutorial-use-custom-image-cli.md) or [Azure PowerShell](tutorial-use-custom-image-powershell.md)
+
+**Q.** If I reduce my scale set capacity from 20 to 15, which VMs are removed?
+
+**A.** Virtual machines are removed from the scale set evenly across update domains and fault domains to maximize availability. VMs with the highest IDs are removed first.
+
+**Q.** What if I then increase the capacity from 15 to 18?
+
+**A.** If you increase capacity to 18, then 3 new VMs are created. Each time, the VM instance ID is incremented from the previous highest value (for example, 20, 21, 22). VMs are balanced across fault domains and update domains.
+
+**Q.** When I'm using multiple extensions in a scale set, can I enforce an execution sequence?
+
+**A.** Not directly, but for the customScript extension, your script can wait for another extension to finish. You can get additional guidance on extension sequencing in the blog post [Extension Sequencing in Azure virtual machine scale sets](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/).
+
+**Q.** Do scale sets work with Azure availability sets?
+
+**A.** A regional (non-zonal) scale set uses *placement groups*, which act as an implicit availability set with five fault domains and five update domains. Scale sets of more than 100 VMs span multiple placement groups. For more information about placement groups, see [Working with large virtual machine scale sets](virtual-machine-scale-sets-placement-groups.md). An availability set of VMs can exist in the same virtual network as a scale set of VMs. A common configuration is to put control node VMs (which often require unique configuration) in an availability set and put data nodes in the scale set.
+
+**Q.** Do scale sets work with Azure availability zones?
+
+**A.** Yes! For more information, see the [scale set zone doc](./virtual-machine-scale-sets-use-availability-zones.md).
+
 
 ## Autoscale
 
@@ -71,9 +116,9 @@ The sample uses the host-level CPU metric and a message count metric.
 
 ### How do I set alert rules on a virtual machine scale set?
 
-You can create alerts on metrics for virtual machine scale sets via PowerShell or Azure CLI. For more information, see [Azure Monitor PowerShell quick start samples](https://azure.microsoft.com/documentation/articles/insights-powershell-samples/#create-alert-rules) and [Azure Monitor cross-platform CLI quick start samples](https://azure.microsoft.com/documentation/articles/insights-cli-samples/#work-with-alerts).
+You can create alerts on metrics for virtual machine scale sets via PowerShell or Azure CLI. For more information, see [Azure Monitor PowerShell quickstart samples](https://azure.microsoft.com/documentation/articles/insights-powershell-samples/#create-alert-rules) and [Azure Monitor cross-platform CLI quickstart samples](https://azure.microsoft.com/documentation/articles/insights-cli-samples/#work-with-alerts).
 
-The TargetResourceId of the virtual machine scale set looks like this: 
+The TargetResourceId of the virtual machine scale set looks like this:
 
 /subscriptions/yoursubscriptionid/resourceGroups/yourresourcegroup/providers/Microsoft.Compute/virtualMachineScaleSets/yourvmssname
 
@@ -81,8 +126,12 @@ You can choose any VM performance counter as the metric to set an alert for. For
 
 ### How do I set up autoscale on a virtual machine scale set by using PowerShell?
 
-To set up autoscale on a virtual machine scale set by using PowerShell, see the blog post [How to add autoscale to an Azure virtual machine scale set](https://msftstack.wordpress.com/2017/03/05/how-to-add-autoscale-to-an-azure-vm-scale-set/).
+To set up autoscale on a virtual machine scale set by using PowerShell, see [automatically scale a virtual machine scale set](tutorial-autoscale-powershell.md). You can also configure autoscale with the [Azure CLI 2.0](tutorial-autoscale-cli.md) and [Azure templates](tutorial-autoscale-template.md)
 
+
+### If I have stopped (deallocated) a VM, is that VM started as part of an autoscale operation?
+
+No. If autoscale rules require additional VM instances as part of a scale set, a new VM instance is created. VM instances that are stopped (deallocated) are not started as part of an autoscale event. However, those stopped (deallocated) VMs may be deleted as part of an autoscale event that scales in the number of instances, the same way that any VM instance may be deleted based on the order of VM instance ID.
 
 
 
@@ -124,7 +173,7 @@ For more information, see [Create or update a virtual machine scale set](https:/
     ```powershell
     Import-Module "C:\Users\mikhegn\Downloads\Service-Fabric-master\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
     Invoke-AddCertToKeyVault -SubscriptionId <Your SubID> -ResourceGroupName KeyVault -Location westus -VaultName MikhegnVault -CertificateName VMSSCert -Password VmssCert -CreateSelfSignedCertificate -DnsName vmss.mikhegn.azure.com -OutputPath c:\users\mikhegn\desktop\
     ```
@@ -184,9 +233,9 @@ Include **osProfile** in your template:
 ```
  
 This JSON block is used in 
- [the 101-vm-sshkey GitHub quick start template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
+ [the 101-vm-sshkey GitHub quickstart template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
  
-The OS profile also is used in [the grelayhost.json GitHub quick start template](https://github.com/ExchMaster/gadgetron/blob/master/Gadgetron/Templates/grelayhost.json).
+The OS profile also is used in [the grelayhost.json GitHub quickstart template](https://github.com/ExchMaster/gadgetron/blob/master/Gadgetron/Templates/grelayhost.json).
 
 For more information, see [Create or update a virtual machine scale set](https://msdn.microsoft.com/library/azure/mt589035.aspx#linuxconfiguration).
   
@@ -221,7 +270,7 @@ ssh | No | Collection | Specifies the SSH key configuration for a Linux OS
 path | Yes | String | Specifies the Linux file path where the SSH keys or certificate should be located
 keyData | Yes | String | Specifies a base64-encoded SSH public key
 
-For an example, see [the 101-vm-sshkey GitHub quick start template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
+For an example, see [the 101-vm-sshkey GitHub quickstart template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
 
  
 ### When I run `Update-AzureRmVmss` after adding more than one certificate from the same key vault, I see the following message:
@@ -256,7 +305,7 @@ If you provide an incorrect source vault ID but a valid key vault URL, an error 
  
 ### If I add secrets to an existing virtual machine scale set, are the secrets injected into existing VMs, or only into new ones? 
 
-Certificates are added to all your VMs, even preexisting ones. If your virtual machine scale set upgradePolicy property is set to **manual**, the certificate is added to the VM when you perform a manual update on the VM.
+Certificates are added to all your VMs, even pre-existing ones. If your virtual machine scale set upgradePolicy property is set to **manual**, the certificate is added to the VM when you perform a manual update on the VM.
  
 ### Where do I put certificates for Linux VMs?
 
@@ -280,7 +329,7 @@ If you reimage a VM, certificates are deleted. Reimaging deletes the entire OS d
  
 ### What happens if you delete a certificate from the key vault?
 
-If the secret is deleted from the key vault, and then you run `stop deallocate` for all your VMs and then start them again, you will encounter a failure. The failure occurs because the CRP needs to retrieve the secrets from the key vault, but it cannot. In this scenario, you can delete the certificates from the virtual machine scale set model. 
+If the secret is deleted from the key vault, and then you run `stop deallocate` for all your VMs and then start them again, you encounter a failure. The failure occurs because the CRP needs to retrieve the secrets from the key vault, but it cannot. In this scenario, you can delete the certificates from the virtual machine scale set model. 
 
 The CRP component does not persist customer secrets. If you run `stop deallocate` for all VMs in the virtual machine scale set, the cache is deleted. In this scenario, secrets are retrieved from the key vault.
 
@@ -326,7 +375,7 @@ We currently do not support .cer files. To use .cer files, export them into .pfx
 
 
 
-## Compliance
+## Compliance and Security
 
 ### Are virtual machine scale sets PCI-compliant?
 
@@ -336,9 +385,9 @@ From a compliance perspective, virtual machine scale sets are a fundamental part
 
 For more information, see [the Microsoft Trust Center](https://www.microsoft.com/TrustCenter/Compliance/PCI).
 
+### Does [Azure Managed Service Identity](https://docs.microsoft.com/azure/active-directory/msi-overview) work with virtual machine scale sets?
 
-
-
+Yes. You can see some example MSI templates in Azure Quickstart templates. Linux: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux). Windows: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows).
 
 
 ## Extensions
@@ -357,9 +406,9 @@ Update-AzureRmVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vms
  
 You can find the extensionName value in `$vmss`.
    
-### Is there a virtual machine scale set template example that integrates with Operations Management Suite?
+### Is there a virtual machine scale set template example that integrates with Log Analytics?
 
-For a virtual machine scale set template example that integrates with Operations Management Suite, see the second example in [Deploy an Azure Service Fabric cluster and enable monitoring by using Log Analytics](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric).
+For a virtual machine scale set template example that integrates with Log Analytics, see the second example in [Deploy an Azure Service Fabric cluster and enable monitoring by using Log Analytics](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric).
    
 ### Extensions seem to run in parallel on virtual machine scale sets. This causes my custom script extension to fail. What can I do to fix this?
 
@@ -368,24 +417,30 @@ To learn about extension sequencing in virtual machine scale sets, see [Extensio
  
 ### How do I reset the password for VMs in my virtual machine scale set?
 
-To reset the password for VMs in your virtual machine scale set, use VM access extensions. 
+There are two main ways to change the password for VMs in scale sets.
 
-Use the following PowerShell example:
+- Change the virtual machine scale set model directly. Available with Compute API 2017-12-01 and later.
 
-```powershell
-$vmssName = "myvmss"
-$vmssResourceGroup = "myvmssrg"
-$publicConfig = @{"UserName" = "newuser"}
-$privateConfig = @{"Password" = "********"}
- 
-$extName = "VMAccessAgent"
-$publisher = "Microsoft.Compute"
-$vmss = Get-AzureRmVmss -ResourceGroupName $vmssResourceGroup -VMScaleSetName $vmssName
-$vmss = Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss -Name $extName -Publisher $publisher -Setting $publicConfig -ProtectedSetting $privateConfig -Type $extName -TypeHandlerVersion "2.0" -AutoUpgradeMinorVersion $true
-Update-AzureRmVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName -VirtualMachineScaleSet $vmss
-```
- 
- 
+    Update the admin credentials directly in the scale set model (for example using the Azure Resource Explorer, PowerShell or CLI). Once the scale set is updated, all new VMs have the new credentials. Existing VMs only have the new credentials if they are reimaged. 
+
+- Reset the password using the VM access extensions.
+
+    Use the following PowerShell example:
+    
+    ```powershell
+    $vmssName = "myvmss"
+    $vmssResourceGroup = "myvmssrg"
+    $publicConfig = @{"UserName" = "newuser"}
+    $privateConfig = @{"Password" = "********"}
+     
+    $extName = "VMAccessAgent"
+    $publisher = "Microsoft.Compute"
+    $vmss = Get-AzureRmVmss -ResourceGroupName $vmssResourceGroup -VMScaleSetName $vmssName
+    $vmss = Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss -Name $extName -Publisher $publisher -Setting $publicConfig -ProtectedSetting $privateConfig -Type $extName -TypeHandlerVersion "2.0" -AutoUpgradeMinorVersion $true
+    Update-AzureRmVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName -VirtualMachineScaleSet $vmss
+    ```
+
+
 ### How do I add an extension to all VMs in my virtual machine scale set?
 
 If update policy is set to **automatic**, redeploying the template with the new extension properties updates all VMs.
@@ -399,9 +454,9 @@ If the extension definition in the virtual machine scale set model is updated an
 
 If an existing VM is service-healed, it appears as a reboot, and the extensions are not rerun. If it is reimaged, it's like replacing the OS drive with the source image. Any specialization from the latest model, such as extensions, are run.
  
-### How do I join a virtual machine scale set to an Azure AD domain?
+### How do I join a virtual machine scale set to an Active Directory domain?
 
-To join a virtual machine scale set to an Azure Active Directory (Azure AD) domain, you can define an extension. 
+To join a virtual machine scale set to an Active Directory (AD) domain, you can define an extension. 
 
 To define an extension, use the JsonADDomainExtension property:
 
@@ -458,14 +513,9 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 To execute a custom script that's hosted in a private storage account, set up protected settings with the storage account key and name. For more information, see [Custom Script Extension for Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings).
 
 
-
-
-
-
-
 ## Networking
  
-### Is it possible to assign a Network Security Group (NSG) to a scale set, so that it will apply to all the VM NICs in the set?
+### Is it possible to assign a Network Security Group (NSG) to a scale set, so that it applies to all the VM NICs in the set?
 
 Yes. A Network Security Group can be applied directly to a scale set by referencing it in the networkInterfaceConfigurations section of the network profile. Example:
 
@@ -507,7 +557,7 @@ Yes. A Network Security Group can be applied directly to a scale set by referenc
 
 ### How do I do a VIP swap for virtual machine scale sets in the same subscription and same region?
 
-If you have two virtual machine scale sets with Azure Load Balancer front-ends, and they are in the same subscription and region, you could deallocate the public IP addresses from each one, and assign to the other. See [VIP Swap: Blue-green deployment in Azure Resource Manager](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/) for example. This does imply a delay though as the resources are deallocated/allocated at the network level. Another option is to host your application with [Azure App service](https://azure.microsoft.com/en-us/services/app-service/) which provides support for fast switching between staging and production slots.
+If you have two virtual machine scale sets with Azure Load Balancer front-ends, and they are in the same subscription and region, you could deallocate the public IP addresses from each one, and assign to the other. See [VIP Swap: Blue-green deployment in Azure Resource Manager](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/) for example. This does imply a delay though as the resources are deallocated/allocated at the network level. A faster option is to use Azure Application Gateway with two backend pools, and a routing rule. Alternatively, you could host your application with [Azure App service](https://azure.microsoft.com/services/app-service/) which provides support for fast switching between staging and production slots.
  
 ### How do I specify a range of private IP addresses to use for static private IP address allocation?
 
@@ -521,11 +571,11 @@ To deploy a virtual machine scale set to an existing Azure virtual network, see 
 
 ### How do I add the IP address of the first VM in a virtual machine scale set to the output of a template?
 
-To add the IP address of the first VM in a virtual machine scale set to the output of a template, see [ARM: Get VMSS's private IPs](http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips).
+To add the IP address of the first VM in a virtual machine scale set to the output of a template, see [Azure Resource Manager: Get virtual machine scale sets private IPs](http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips).
 
 ### Can I use scale sets with Accelerated Networking?
 
-Yes. To use accelerated networking, set enableAcceleratedNetworking to true in your scale set's networkInterfaceConfigurations settings. E.g.
+Yes. To use accelerated networking, set enableAcceleratedNetworking to true in your scale set's networkInterfaceConfigurations settings. For example
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
@@ -547,7 +597,7 @@ Yes. To use accelerated networking, set enableAcceleratedNetworking to true in y
 
 ### How can I configure the DNS servers used by a scale set?
 
-To create a VM scale set with a custom DNS configuration, add a dnsSettings JSON packet to the scale set networkInterfaceConfigurations section. Example:
+To create a virtual machine scale set with a custom DNS configuration, add a dnsSettings JSON packet to the scale set networkInterfaceConfigurations section. Example:
 ```json
     "dnsSettings":{
         "dnsServers":["10.0.0.6", "10.0.0.5"]
@@ -556,7 +606,7 @@ To create a VM scale set with a custom DNS configuration, add a dnsSettings JSON
 
 ### How can I configure a scale set to assign a public IP address to each VM?
 
-To create a VM scale set that assigns a public IP address to each VM, make sure the API version of the Microsoft.Compute/virtualMAchineScaleSets resource is 2017-03-30, and add a _publicipaddressconfiguration_ JSON packet to the scale set ipConfigurations section. Example:
+To create a virtual machine scale set that assigns a public IP address to each VM, make sure the API version of the Microsoft.Compute/virtualMachineScaleSets resource is 2017-03-30, and add a _publicipaddressconfiguration_ JSON packet to the scale set ipConfigurations section. Example:
 
 ```json
     "publicipaddressconfiguration": {
@@ -566,6 +616,10 @@ To create a VM scale set that assigns a public IP address to each VM, make sure 
         }
     }
 ```
+
+### Can I configure a scale set to work with multiple Application Gateways?
+
+Yes. You can add the resource id's for multiple Application Gateway backend address pools to the _applicationGatewayBackendAddressPools_ list in the _ipConfigurations_ section of your scale set network profile.
 
 ## Scale
 
@@ -577,7 +631,7 @@ Another reason you might create a virtual machine scale set with fewer than two 
 
 ### How do I change the number of VMs in a virtual machine scale set?
 
-To change the number of VMs in a virtual machine scale set, see [Change the instance count of a virtual machine scale set](https://msftstack.wordpress.com/2016/05/13/change-the-instance-count-of-an-azure-vm-scale-set/).
+To change the number of VMs in a virtual machine scale set in the Azure portal, from the virtual machine scale set properties section, click on the "Scaling" blade and use the slider bar. For other ways to change the instance count, see [Change the instance count of a virtual machine scale set](https://msftstack.wordpress.com/2016/05/13/change-the-instance-count-of-an-azure-vm-scale-set/).
 
 ### How do I define custom alerts for when certain thresholds are reached?
 
@@ -643,7 +697,15 @@ Yes, you can use the reimage operation to reset a VM without changing the image.
 
 For more information, see [Manage all VMs in a virtual machine scale set](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set).
 
+### Is it possible to integrate scale sets with Azure Log Analytics?
 
+Yes, you can by installing the Log Analytics extension on the scale set VMs. Here is an Azure CLI example:
+```
+az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group Team-03 --vmss-name nt01 --settings "{'workspaceId': '<your workspace ID here>'}" --protected-settings "{'workspaceKey': '<your workspace key here'}"
+```
+You can find the required workspaceId and workspaceKey in the OMS portal. On the Overview page, click the Settings tile. Click the Connected Sources tab at the top.
+
+Note: if your scale set _upgradePolicy_ is set to Manual, you need to apply the extension to the all VMs in the set by calling upgrade on them. In CLI this would be _az vmss update-instances_.
 
 ## Troubleshooting
 

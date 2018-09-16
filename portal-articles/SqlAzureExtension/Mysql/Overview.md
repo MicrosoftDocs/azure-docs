@@ -27,7 +27,7 @@ Learn how to create a MySQL database on Azure using:
 Learn how to design your database and develop apps:
 
 - Design a Database: [Azure portal](/azure/mysql/tutorial-design-database-using-portal) |  [Azure CLI](/azure/mysql/tutorial-design-database-using-cli)
-- Create a Web App: [Wordpress - Portal](/azure/app-service-web/app-service-web-create-web-app-from-marketplace?toc=%2fazure%2fmysql%2ftoc.json) |  [PHP - Azure CLI](/azure/app-service-web/app-service-web-tutorial-php-mysql?toc=%2fazure%2fmysql%2ftoc.json)
+- Create a Web App: [Wordpress - Portal](https://portal.azure.com/#create/WordPress.WordPress) |  [PHP - Azure CLI](/azure/app-service/app-service-web-tutorial-php-mysql?toc=%2fazure%2fmysql%2ftoc.json)
 
 ## Samples 
 

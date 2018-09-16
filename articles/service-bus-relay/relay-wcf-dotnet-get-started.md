@@ -3,7 +3,7 @@ title: Get started with Azure Relay WCF relays in .NET | Microsoft Docs
 description: Learn how to use Azure Relay WCF relays to connect two applications hosted in different locations.
 services: service-bus-relay
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -13,25 +13,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/16/2017
-ms.author: sethm
+ms.date: 12/20/2017
+ms.author: spelluru
 ---
 
 # How to use Azure Relay WCF relays with .NET
-This article describes how to use the Service Bus Relay service. The samples are written in C# and use the Windows Communication Foundation (WCF) API with extensions contained in the Service Bus assembly. For more information about the Service Bus relay, see the [Azure Relay overview](relay-what-is-it.md).
+This article describes how to use the Azure Relay service. The samples are written in C# and use the Windows Communication Foundation (WCF) API with extensions contained in the Service Bus assembly. For more information about Azure relay, see the [Azure Relay overview](relay-what-is-it.md).
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## What is Service Bus WCF Relay?
-The Azure Service Bus WCF [*Relay*](relay-what-is-it.md) service enables you to build hybrid applications that run in both an Azure datacenter and your own on-premises enterprise environment. The Service Bus relay facilitates this by enabling you to securely expose Windows Communication Foundation (WCF) services that reside within a corporate enterprise network to the public cloud, without having to open a firewall connection, or requiring intrusive changes to a corporate network infrastructure.
+## What is WCF Relay?
+
+The Azure [*WCF Relay*](relay-what-is-it.md) service enables you to build hybrid applications that run in both an Azure datacenter and your own on-premises enterprise environment. The relay service facilitates this by enabling you to securely expose Windows Communication Foundation (WCF) services that reside within a corporate enterprise network to the public cloud, without having to open a firewall connection, or requiring intrusive changes to a corporate network infrastructure.
 
 ![WCF Relay Concepts](./media/service-bus-dotnet-how-to-use-relay/sb-relay-01.png)
 
-Service Bus Relay enables you to host WCF services within your existing enterprise environment. You can then delegate listening for incoming sessions and requests to these WCF services to the Service Bus
-service running within Azure. This enables you to expose these services to application code running in Azure, or to mobile workers or extranet partner environments. Service Bus enables you to securely control who can
+Azure Relay enables you to host WCF services within your existing enterprise environment. You can then delegate listening for incoming sessions and requests to these WCF services to the relay
+service running within Azure. This enables you to expose these services to application code running in Azure, or to mobile workers or extranet partner environments. Relay enables you to securely control who can
 access these services at a fine-grained level. It provides a powerful and secure way to expose application functionality and data from your existing enterprise solutions and take advantage of it from the cloud.
 
-This article discusses how to use Service Bus Relay to create a WCF web service, exposed using a TCP channel binding, that implements a secure conversation between two parties.
+This article discusses how to use Azure Relay to create a WCF web service, exposed using a TCP channel binding, that implements a secure conversation between two parties.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
@@ -44,21 +45,21 @@ The [Service Bus NuGet package](https://www.nuget.org/packages/WindowsAzure.Serv
    
    ![](./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-13.png)
 
-## Use Service Bus to expose and consume a SOAP web service with TCP
-To expose an existing WCF SOAP web service for external consumption, you must make changes to the service bindings and addresses. This may require changes to your configuration file or it could require code changes, depending on how you have set up and configured your WCF services. Note that WCF allows you to have multiple network endpoints over the same service, so you can retain the existing internal endpoints while adding Service Bus endpoints for external access at the same time.
+## Expose and consume a SOAP web service with TCP
+To expose an existing WCF SOAP web service for external consumption, you must make changes to the service bindings and addresses. This may require changes to your configuration file or it could require code changes, depending on how you have set up and configured your WCF services. Note that WCF allows you to have multiple network endpoints over the same service, so you can retain the existing internal endpoints while adding relay endpoints for external access at the same time.
 
-In this task, you will build a simple WCF service and add a Service Bus listener to it. This exercise assumes some familiarity with Visual Studio, and therefore does not walk through all the details of creating a project. Instead, it focuses on the code.
+In this task, you build a simple WCF service and add a relay listener to it. This exercise assumes some familiarity with Visual Studio, and therefore does not walk through all the details of creating a project. Instead, it focuses on the code.
 
 Before starting these steps, complete the following procedure to set up your environment:
 
 1. Within Visual Studio, create a console application that contains two projects, "Client" and "Service", within the solution.
-2. Add the Microsoft Azure Service Bus NuGet package to both projects. This package adds all the necessary assembly references to your projects.
+2. Add the Service Bus NuGet package to both projects. This package adds all the necessary assembly references to your projects.
 
 ### How to create the service
 First, create the service itself. Any WCF service consists of at least three distinct parts:
 
 * Definition of a contract that describes what messages are exchanged and what operations are to be invoked.
-* Implementation of said contract.
+* Implementation of that contract.
 * Host that hosts the WCF service and exposes several endpoints.
 
 The code examples in this section address each of these components.
@@ -78,7 +79,7 @@ interface IProblemSolver
 interface IProblemSolverChannel : IProblemSolver, IClientChannel {}
 ```
 
-With the contract in place, the implementation is trivial.
+With the contract in place, the implementation is as follows:
 
 ```csharp
 class ProblemSolver : IProblemSolver
@@ -92,7 +93,7 @@ class ProblemSolver : IProblemSolver
 
 ### Configure a service host programmatically
 With the contract and implementation in place, you can now host the service. Hosting occurs inside a
-[System.ServiceModel.ServiceHost](https://msdn.microsoft.com/library/system.servicemodel.servicehost.aspx) object, which takes care of managing instances of the service and hosts the endpoints that listen for messages. The following code configures the service with both a regular local endpoint and a Service Bus endpoint to illustrate the appearance, side by side, of internal and external endpoints. Replace the string *namespace* with your namespace name and *yourKey* with the SAS key that you obtained in the previous setup step.
+[System.ServiceModel.ServiceHost](https://msdn.microsoft.com/library/system.servicemodel.servicehost.aspx) object, which takes care of managing instances of the service and hosts the endpoints that listen for messages. The following code configures the service with both a regular local endpoint and a relay endpoint to illustrate the appearance, side by side, of internal and external endpoints. Replace the string *namespace* with your namespace name and *yourKey* with the SAS key that you obtained in the previous setup step.
 
 ```csharp
 ServiceHost sh = new ServiceHost(typeof(ProblemSolver));
@@ -115,7 +116,7 @@ Console.ReadLine();
 sh.Close();
 ```
 
-In the example, you create two endpoints that are on the same contract implementation. One is local and one is projected through Service Bus. The key differences between them are the bindings; [NetTcpBinding](https://msdn.microsoft.com/library/system.servicemodel.nettcpbinding.aspx) for the local one and [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding#microsoft_servicebus_nettcprelaybinding) for the Service Bus endpoint and the addresses. The local endpoint has a local network address with a distinct port. The Service Bus endpoint has an endpoint address composed of the string `sb`, your namespace name, and the path "solver." This results in the URI `sb://[serviceNamespace].servicebus.windows.net/solver`, identifying the service endpoint as a Service Bus TCP endpoint with a fully qualified external DNS name. If you place the code replacing the placeholders into the `Main` function of the **Service** application, you will have a functional service. If you want your service to listen exclusively on Service Bus, remove the local endpoint declaration.
+In the example, you create two endpoints that are on the same contract implementation. One is local and one is projected through Azure Relay. The key differences between them are the bindings; [NetTcpBinding](https://msdn.microsoft.com/library/system.servicemodel.nettcpbinding.aspx) for the local one and [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding#microsoft_servicebus_nettcprelaybinding) for the relay endpoint and the addresses. The local endpoint has a local network address with a distinct port. The relay endpoint has an endpoint address composed of the string `sb`, your namespace name, and the path "solver." This results in the URI `sb://[serviceNamespace].servicebus.windows.net/solver`, identifying the service endpoint as a Service Bus (relay) TCP endpoint with a fully qualified external DNS name. If you place the code replacing the placeholders into the `Main` function of the **Service** application, you will have a functional service. If you want your service to listen exclusively on the relay, remove the local endpoint declaration.
 
 ### Configure a service host in the App.config file
 You can also configure the host using the App.config file. The service hosting code in this case appears in the next example.
@@ -128,8 +129,8 @@ Console.ReadLine();
 sh.Close();
 ```
 
-The endpoint definitions move into the App.config file. The NuGet package has already added a range of definitions to the App.config file, which are the required configuration extensions for Service Bus. The following example, which is the exact equivalent of the previous code, should appear directly beneath the **system.serviceModel** element. This code example assumes that your project C# namespace is named **Service**.
-Replace the placeholders with your Service Bus service namespace and SAS key.
+The endpoint definitions move into the App.config file. The NuGet package has already added a range of definitions to the App.config file, which are the required configuration extensions for Azure Relay. The following example, which is the exact equivalent of the previous code, should appear directly beneath the **system.serviceModel** element. This code example assumes that your project C# namespace is named **Service**.
+Replace the placeholders with your relay namespace name and SAS key.
 
 ```xml
 <services>
@@ -139,7 +140,7 @@ Replace the placeholders with your Service Bus service namespace and SAS key.
                   address="net.tcp://localhost:9358/solver"/>
         <endpoint contract="Service.IProblemSolver"
                   binding="netTcpRelayBinding"
-                  address="sb://namespace.servicebus.windows.net/solver"
+                  address="sb://<namespaceName>.servicebus.windows.net/solver"
                   behaviorConfiguration="sbTokenProvider"/>
     </service>
 </services>
@@ -165,12 +166,12 @@ model implemented using SAS. The [TokenProvider](/dotnet/api/microsoft.servicebu
 
 First, reference or copy the `IProblemSolver` contract code from the service into your client project.
 
-Then, replace the code in the `Main` method of the client, again replacing the placeholder text with your Service Bus namespace and SAS key.
+Then, replace the code in the `Main` method of the client, again replacing the placeholder text with your relay namespace and SAS key.
 
 ```csharp
 var cf = new ChannelFactory<IProblemSolverChannel>(
     new NetTcpRelayBinding(),
-    new EndpointAddress(ServiceBusEnvironment.CreateServiceUri("sb", "namespace", "solver")));
+    new EndpointAddress(ServiceBusEnvironment.CreateServiceUri("sb", "<namespaceName>", "solver")));
 
 cf.Endpoint.Behaviors.Add(new TransportClientEndpointBehavior
             { TokenProvider = TokenProvider.CreateSharedAccessSignatureTokenProvider("RootManageSharedAccessKey","<yourKey>") });
@@ -195,13 +196,13 @@ using (var ch = cf.CreateChannel())
 ```
 
 The endpoint definitions move into the App.config file. The following example, which is the same as the code listed previously, should appear directly beneath the `<system.serviceModel>` element. Here, as before,
-you must replace the placeholders with your Service Bus namespace and SAS key.
+you must replace the placeholders with your relay namespace and SAS key.
 
 ```xml
 <client>
     <endpoint name="solver" contract="Service.IProblemSolver"
               binding="netTcpRelayBinding"
-              address="sb://namespace.servicebus.windows.net/solver"
+              address="sb://<namespaceName>.servicebus.windows.net/solver"
               behaviorConfiguration="sbTokenProvider"/>
 </client>
 <behaviors>
@@ -218,7 +219,7 @@ you must replace the placeholders with your Service Bus namespace and SAS key.
 ```
 
 ## Next steps
-Now that you've learned the basics of Service Bus Relay, follow these links to learn more.
+Now that you've learned the basics of Azure Relay, follow these links to learn more.
 
 * [What is Azure Relay?](relay-what-is-it.md)
 * [Azure Service Bus architectural overview](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)

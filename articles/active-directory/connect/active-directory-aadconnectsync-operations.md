@@ -3,8 +3,8 @@ title: 'Azure AD Connect sync: Operational tasks and considerations | Microsoft 
 description: This topic describes operational tasks for Azure AD Connect sync and how to prepare for operating this component.
 services: active-directory
 documentationcenter: ''
-author: AndKjell
-manager: femila
+author: billmath
+manager: mtillman
 editor: ''
 
 ms.assetid: b29c1790-37a3-470f-ab69-3cee824d220d
@@ -13,7 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2017
+ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
 
 ---
@@ -30,6 +31,11 @@ Staging mode can be used for several scenarios, including:
 With a server in staging mode, you can make changes to the configuration and preview the changes before you make the server active. It also allows you to run full import and full synchronization to verify that all changes are expected before you make these changes into your production environment.
 
 During installation, you can select the server to be in **staging mode**. This action makes the server active for import and synchronization, but it does not run any exports. A server in staging mode is not running password sync or password writeback, even if you selected these features during installation. When you disable staging mode, the server starts exporting, enables password sync, and enables password writeback.
+
+> [!NOTE]
+> Suppose you have an Azure AD Connect with Password Hash Synchronization feature enabled. When you enable staging mode, the server stops synchronizing password changes from on-premises AD. When you disable staging mode, the server resumes synchronizing password changes from where it last left off. If the server is left in staging mode for an extended period of time, it can take a while for the server to synchronize all password changes that had occurred during the time period.
+>
+>
 
 You can still force an export by using the synchronization service manager.
 
@@ -66,11 +72,21 @@ You have now staged export changes to Azure AD and on-premises AD (if you are us
 1. Start a cmd prompt and go to `%ProgramFiles%\Microsoft Azure AD Sync\bin`
 2. Run: `csexport "Name of Connector" %temp%\export.xml /f:x`
    The name of the Connector can be found in Synchronization Service. It has a name similar to "contoso.com – AAD" for Azure AD.
-3. Copy the PowerShell script from the section [CSAnalyzer](#appendix-csanalyzer) to a file named `csanalyzer.ps1`.
-4. Open a PowerShell window and browse to the folder where you created the PowerShell script.
-5. Run: `.\csanalyzer.ps1 -xmltoimport %temp%\export.xml`.
-6. You now have a file named **processedusers1.csv** that can be examined in Microsoft Excel. All changes staged to be exported to Azure AD are found in this file.
-7. Make necessary changes to the data or configuration and run these steps again (Import and Synchronize and Verify) until the changes that are about to be exported are expected.
+3. Run: `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv`
+You have a file in %temp% named export.csv that can be examined in Microsoft Excel. This file contains all changes that are about to be exported.
+4. Make necessary changes to the data or configuration and run these steps again (Import and Synchronize and Verify) until the changes that are about to be exported are expected.
+
+**Understanding the export.csv file**
+Most of the file is self-explanatory. Some abbreviations to understand the content:
+* OMODT – Object Modification Type. Indicates if the operation at an object level is an Add, Update, or Delete.
+* AMODT – Attribute Modification Type. Indicates if the operation at an attribute level is an Add, Update, or delete.
+
+**Retrieve common identifiers**
+The export.csv file contains all changes that are about to be exported. Each row corresponds to a change for an object in the connector space and the object is identified by the DN attribute. The DN attribute is a unique identifier assigned to an object in the connector space. When you have many rows/changes in the export.csv to analyze, it may be difficult for you to figure out which objects the changes are for based on the DN attribute alone. To simplify the process of analyzing the changes, use the csanalyzer.ps1 PowerShell script. The script retrieves common identifiers (for example, displayName, userPrincipalName) of the objects. To use the script:
+1. Copy the PowerShell script from the section [CSAnalyzer](#appendix-csanalyzer) to a file named `csanalyzer.ps1`.
+2. Open a PowerShell window and browse to the folder where you created the PowerShell script.
+3. Run: `.\csanalyzer.ps1 -xmltoimport %temp%\export.xml`.
+4. You now have a file named **processedusers1.csv** that can be examined in Microsoft Excel. Note that the file provides a mapping from the DN attribute to common identifiers (for example, displayName and userPrincipalName). It currently does not include the actual attribute changes that are about to be exported.
 
 #### Switch active server
 1. On the currently active server, either turn off the server (DirSync/FIM/Azure AD Sync) so it is not exporting to Azure AD or set it in staging mode (Azure AD Connect).
@@ -106,7 +122,9 @@ For more information, see [staging mode](#staging-mode).
 A common and supported method is to run the sync engine in a virtual machine. In case the host has an issue, the image with the sync engine server can be migrated to another server.
 
 ### SQL High Availability
-If you are not using the SQL Server Express that comes with Azure AD Connect, then high availability for SQL Server should also be considered. The only high availability solution supported is SQL clustering. Unsupported solutions include mirroring and Always On.
+If you are not using the SQL Server Express that comes with Azure AD Connect, then high availability for SQL Server should also be considered. The high availability solutions supported include SQL clustering and AOA (Always On Availability Groups). Unsupported solutions include mirroring.
+
+Support for SQL AOA was added to Azure AD Connect in version 1.1.524.0. You must enable SQL AOA before installing Azure AD Connect. During installation, Azure AD Connect detects whether the SQL instance provided is enabled for SQL AOA or not. If SQL AOA is enabled, Azure AD Connect further figures out if SQL AOA is configured to use synchronous replication or asynchronous replication. When setting up the Availability Group Listener, it is recommended that you set the RegisterAllProvidersIP property to 0. This is because Azure AD Connect currently uses SQL Native Client to connect to SQL and SQL Native Client does not support the use of MultiSubNetFailover property.
 
 ## Appendix CSAnalyzer
 See the section [verify](#verify) on how to use this script.
@@ -222,7 +240,7 @@ do 
 	{
 		Write-Host Hit the maximum users processed without completion... -ForegroundColor Yellow
 
-		#export the collection of users as as CSV
+		#export the collection of users as a CSV
 		Write-Host Writing processedusers${outputfilecount}.csv -ForegroundColor Yellow
 		$objOutputUsers | Export-Csv -path processedusers${outputfilecount}.csv -NoTypeInformation
 
@@ -245,7 +263,7 @@ do 
 } while ($reader.Read)
 
 #need to write out any users that didn't get picked up in a batch of 1000
-#export the collection of users as as CSV
+#export the collection of users as CSV
 Write-Host Writing processedusers${outputfilecount}.csv -ForegroundColor Yellow
 $objOutputUsers | Export-Csv -path processedusers${outputfilecount}.csv -NoTypeInformation
 ```

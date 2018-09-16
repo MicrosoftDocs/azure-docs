@@ -1,21 +1,13 @@
 ---
-title: Azure Monitor autoscale common metrics | Microsoft Docs
+title: Autoscale common metrics
 description: Learn which metrics are commonly used for autoscaling your Cloud Services, Virtual Machines and Web Apps.
-author: kamathashwin
-manager: carolz
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.assetid: 189b2a13-01c8-4aca-afd5-90711903ca59
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+author: anirudhcavale
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 12/6/2016
-ms.author: ashwink
-
+ms.author: ancav
+ms.component: autoscale
 ---
 # Azure Monitor autoscaling common metrics
 Azure Monitor autoscaling allows you to scale the number of running instances up or down, based on telemetry data (metrics). This document describes common metrics that you might want to use. In the Azure portal  for Cloud Services and Server Farms, you can choose the metric of the resource to scale by. However, you can also choose any metric from a different resource to scale by.

@@ -27,7 +27,7 @@ To configure endpoint monitoring, you must specify the following settings on you
 
 * **Protocol**. Choose HTTP, HTTPS, or TCP as the protocol that Traffic Manager uses when probing your endpoint to check its health. HTTPS monitoring does not verify whether your SSL certificate is valid--it only checks that the certificate is present.
 * **Port**. Choose the port used for the request.
-* **Path**. This configuration setting is valid only for the HTTP and HTTPS protocols, for which specifying the path setting is required. Providing this setting for the TCP monitoring protocol results in an error. For TCP protocol, give the relative path and the name of the webpage or the file that the monitoring accesses. A forward slash (/) is a valid entry for the relative path. This value implies that the file is in the root directory (default).
+* **Path**. This configuration setting is valid only for the HTTP and HTTPS protocols, for which specifying the path setting is required. Providing this setting for the TCP monitoring protocol results in an error. For  HTTP and HTTPS protocol, give the relative path and the name of the webpage or the file that the monitoring accesses. A forward slash (/) is a valid entry for the relative path. This value implies that the file is in the root directory (default).
 * **Probing Interval**. This value specifies how often an endpoint is checked for its health from a Traffic Manager probing agent. You can specify two values here: 30 seconds (normal probing) and 10 seconds (fast probing). If no values are provided, the profile sets to a default value of 30 seconds. Visit the [Traffic Manager Pricing](https://azure.microsoft.com/pricing/details/traffic-manager) page to learn more about fast probing pricing.
 * **Tolerated Number of Failures**. This value specifies how many failures a Traffic Manager probing agent tolerates before marking that endpoint as unhealthy. Its value can range between 0 and 9. A value of 0 means a single monitoring failure can cause that endpoint to be marked as unhealthy. If no value is specified, it uses the default value of 3.
 * **Monitoring Timeout**. This property specifies the amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint. If the Probing Interval is set to 30 seconds, then you can set the Timeout value between 5 and 10 seconds. If no value is specified, it uses a default value of 10 seconds. If the Probing Interval is set to 10 seconds, then you can set the Timeout value between 5 and 9 seconds. If no Timeout value is specified, it uses a default value of 9 seconds.
@@ -75,6 +75,9 @@ Endpoint monitor status is a Traffic Manager-generated value that shows the stat
 | Enabled |Enabled |Stopped |The cloud service or web app that the endpoint points to is not running. Check the cloud service or web app settings. This can also happen if the endpoint is of type nested endpoint and the child profile is disabled or is inactive. <br>An endpoint with a Stopped status is not monitored. It is not included in DNS responses and does not receive traffic. An exception to this is if all endpoints are degraded, in which case all of them will be considered to be returned in the query response.</br>|
 
 For details about how endpoint monitor status is calculated for nested endpoints, see [nested Traffic Manager profiles](traffic-manager-nested-profiles.md).
+
+>[!NOTE]
+> A Stopped Endpoint monitor status can happen on App Service if your web application is not running in the Standard tier or above. For more information, see [Traffic Manager integration with App Service](/azure/app-service/web-sites-traffic-manager).
 
 ### Profile monitor status
 
@@ -128,7 +131,7 @@ When an endpoint has a Degraded status, it is no longer returned in response to 
 
 * **Priority**. Endpoints form a prioritized list. The first available endpoint on the list is always returned. If an endpoint status is Degraded, then the next available endpoint is returned.
 * **Weighted**. Any available endpoint is chosen at random based on their assigned weights and the weights of the other available endpoints.
-* **Performance**. The endpoint closest to the end user is returned. If that endpoint is unavailable, an endpoint is randomly chosen from all the other available endpoints. Choosing a random endpoint avoids a cascading failure that can occur when the next-closest endpoint becomes overloaded. You can configure alternative failover plans for performance traffic-routing by using [nested Traffic Manager profiles](traffic-manager-nested-profiles.md#example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region).
+* **Performance**. The endpoint closest to the end user is returned. If that endpoint is unavailable, Traffic Manager moves traffic to the endpoints in the next closest Azure region. You can configure alternative failover plans for performance traffic-routing by using [nested Traffic Manager profiles](traffic-manager-nested-profiles.md#example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region).
 * **Geographic**. The endpoint mapped to serve the geographic location based on the query request IP’s is returned. If that endpoint is unavailable, another endpoint will not be selected to failover to, since a geographic location can be mapped only to one endpoint in a profile (more details are in the [FAQ](traffic-manager-FAQs.md#traffic-manager-geographic-traffic-routing-method)). As a best practice, when using geographic routing, we recommend customers to use nested Traffic Manager profiles with more than one endpoint as the endpoints of the profile.
 
 For more information, see [Traffic Manager traffic-routing methods](traffic-manager-routing-methods.md).
@@ -149,7 +152,7 @@ For more information about troubleshooting failed health checks, see [Troublesho
 
 ## Next steps
 
-Learn [how Traffic Manager works](traffic-manager-how-traffic-manager-works.md)
+Learn [how Traffic Manager works](traffic-manager-how-it-works.md)
 
 Learn more about the [traffic-routing methods](traffic-manager-routing-methods.md) supported by Traffic Manager
 

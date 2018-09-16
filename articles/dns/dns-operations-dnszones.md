@@ -1,9 +1,9 @@
-﻿---
+---
 title: Manage DNS zones in Azure DNS - PowerShell | Microsoft Docs
 description: You can manage DNS zones using Azure Powershell. This article describes how to update, delete and create DNS zones on Azure DNS
 services: dns
 documentationcenter: na
-author: georgewallace
+author: vhorne
 manager: timlt
 
 ms.assetid: a67992ab-8166-4052-9b28-554c5a39e60c
@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2016
-ms.author: gwallace
+ms.date: 03/19/2018
+ms.author: victorh
 ---
 # How to manage DNS Zones using PowerShell
 
@@ -24,6 +24,8 @@ ms.author: gwallace
 > * [Azure CLI 2.0](dns-operations-dnszones-cli.md)
 
 This article shows you how to manage your DNS zones by using Azure PowerShell. You can also manage your DNS zones using the cross-platform [Azure CLI](dns-operations-dnszones-cli.md) or the Azure portal.
+
+This guide specifically deals with Public DNS zones. For information on using Azure PowerShell to manage Private Zones in Azure DNS, see [Get started with Azure DNS Private Zones using Azure PowerShell](private-dns-getstarted-powershell.md).
 
 [!INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
@@ -45,6 +47,8 @@ The following example shows how to create a DNS zone with two [Azure Resource Ma
 ```powershell
 New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup -Tag @{ project="demo"; env="test" }
 ```
+
+Azure DNS now also supports private DNS zones (currently in public preview).  To learn more about private DNS zones, see [Using Azure DNS for private domains](private-dns-overview.md). For an example of how to create a private DNS zone, see [Get started with Azure DNS private zones using PowerShell](./private-dns-getstarted-powershell.md).
 
 ## Get a DNS zone
 

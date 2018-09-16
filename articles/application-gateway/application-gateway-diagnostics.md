@@ -1,20 +1,17 @@
 ---
-title: Monitor access logs, performance logs, back-end health, and metrics for Application Gateway | Microsoft Docs
+title: Monitor access logs, performance logs, back-end health, and metrics for Application Gateway
 description: Learn how to enable and manage access logs and performance logs for Application Gateway
 services: application-gateway
-documentationcenter: na
 author: amitsriva
 manager: rossort
-editor: tysonn
 tags: azure-resource-manager
 
-ms.assetid: 300628b8-8e3d-40ab-b294-3ecc5e48ef98
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/17/2017
+ms.date: 6/20/2018
 ms.author: amitsriva
 
 ---
@@ -24,9 +21,9 @@ By using Azure Application Gateway, you can monitor resources in the following w
 
 * [Back-end health](#back-end-health): Application Gateway provides the capability to monitor the health of the servers in the back-end pools through the Azure portal and through PowerShell. You can also find the health of the back-end pools through the performance diagnostic logs.
 
-* [Logs](#diagnostic-logs): Logs allow for performance, access, and other data to be saved or consumed from a resource for monitoring purposes.
+* [Logs](#diagnostic-logging): Logs allow for performance, access, and other data to be saved or consumed from a resource for monitoring purposes.
 
-* [Metrics](#metrics): Application Gateway currently has one metric. This metric measures the throughput of the application gateway in bytes per second.
+* [Metrics](#metrics): Application Gateway currently has seven metrics to view performance counters.
 
 ## Back-end health
 
@@ -35,7 +32,7 @@ Application Gateway provides the capability to monitor the health of individual 
 The back-end health report reflects the output of the Application Gateway health probe to the back-end instances. When probing is successful and the back end can receive traffic, it's considered healthy. Otherwise, it's considered unhealthy.
 
 > [!IMPORTANT]
-> If there is a network security group (NSG) on an Application Gateway subnet, open port ranges 65503-65534 on the Application Gateway subnet for inbound traffic. These ports are required for the back-end health API to work.
+> If there is a network security group (NSG) on an Application Gateway subnet, open port ranges 65503-65534 on the Application Gateway subnet for inbound traffic. This port range is required for Azure infrastructure communication. They are protected (locked down) by Azure certificates. Without proper certificates, external entities, including the customers of those gateways, will not be able to initiate any changes on those endpoints.
 
 
 ### View back-end health through the portal
@@ -92,7 +89,7 @@ The following snippet shows an example of the response:
 }
 ```
 
-## Diagnostic logs
+## <a name="diagnostic-logging"></a>Diagnostic logs
 
 You can use different types of logs in Azure to manage and troubleshoot application gateways. You can access some of these logs through the portal. All logs can be extracted from Azure Blob storage and viewed in different tools, such as [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), Excel, and Power BI. You can learn more about the different types of logs from the following list:
 
@@ -118,7 +115,7 @@ Activity logging is automatically enabled for every Resource Manager resource. Y
 
     ![Portal: resource ID for storage account](./media/application-gateway-diagnostics/diagnostics1.png)
 
-2. Note your application gateway's resource ID for which logging will be enabled. This value is of the form: /subscriptions/\<subscriptionId\>/resourceGroups/\<resource group name\>/providers/Microsoft.Network/applicationGateways/\<application gateway name\>. You can use the portal to find this information.
+2. Note your application gateway's resource ID for which logging is enabled. This value is of the form: /subscriptions/\<subscriptionId\>/resourceGroups/\<resource group name\>/providers/Microsoft.Network/applicationGateways/\<application gateway name\>. You can use the portal to find this information.
 
     ![Portal: resource ID for application gateway](./media/application-gateway-diagnostics/diagnostics2.png)
 
@@ -149,9 +146,9 @@ Activity logging is automatically enabled for every Resource Manager resource. Y
 
    ![Starting the configuration process][2]
 
-4. Choose an existing Operations Management Suite (OMS) workspace or create a new one. This example uses an existing one.
+4. Choose an existing Log Analytics workspace or create a new one. This example uses an existing one.
 
-   ![Options for OMS workspaces][3]
+   ![Options for Log Analytics workspaces][3]
 
 5. Confirm the settings and click **Save**.
 
@@ -173,7 +170,7 @@ The access log is generated only if you've enabled it on each Application Gatewa
 |clientPort     | Originating port for the request.       |
 |httpMethod     | HTTP method used by the request.       |
 |requestUri     | URI of the received request.        |
-|RequestQuery     | **Server-Routed**: Back-end pool instance that was sent the request. </br> **X-AzureApplicationGateway-LOG-ID**: Correlation ID used for the request. It can be used to troubleshoot traffic issues on the back-end servers. </br>**SERVER-STATUS**: HTTP response code that Application Gateway received from the back end.       |
+|RequestQuery     | **Server-Routed**: Back-end pool instance that was sent the request.</br>**X-AzureApplicationGateway-LOG-ID**: Correlation ID used for the request. It can be used to troubleshoot traffic issues on the back-end servers. </br>**SERVER-STATUS**: HTTP response code that Application Gateway received from the back end.       |
 |UserAgent     | User agent from the HTTP request header.        |
 |httpStatus     | HTTP status code returned to the client from Application Gateway.       |
 |httpVersion     | HTTP version of the request.        |
@@ -313,9 +310,30 @@ You can also connect to your storage account and retrieve the JSON log entries f
 
 ## Metrics
 
-Metrics are a feature for certain Azure resources where you can view performance counters in the portal. For Application Gateway, one metric is available now. This metric is throughput, and you can see it in the portal. Browse to an application gateway and click **Metrics**. To view the values, select throughput in the **Available metrics** section. In the following image, you can see an example with the filters that you can use to display the data in different time ranges.
+Metrics are a feature for certain Azure resources where you can view performance counters in the portal. For Application Gateway, the following metrics are available:
 
-![Metric view with filters][5]
+- **Current Connections**
+- **Failed Requests**
+- **Healthy Host Count**
+
+   You can filter on a per backend pool basis to show healthy/unhealthy hosts in a specific backend pool.
+
+
+- **Response Status**
+
+   The response status code distribution can be further categorized to show responses in 2xx, 3xx, 4xx, and 5xx categories.
+
+- **Throughput**
+- **Total Requests**
+- **Unhealthy Host count**
+
+   You can filter on a per backend pool basis to show healthy/unhealthy hosts in a specific backend pool.
+
+Browse to an application gateway, under **Monitoring** click **Metrics**. To view the available values, select the **METRIC** drop-down list.
+
+In the following image, you see an example with three metrics displayed for the last 30 minutes:
+
+[![](media/application-gateway-diagnostics/figure5.png "Metric view")](media/application-gateway-diagnostics/figure5-lb.png#lightbox)
 
 To see a current list of metrics, see [Supported metrics with Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
 
@@ -333,7 +351,7 @@ The following example walks you through creating an alert rule that sends an ema
 
    * In the **Condition** selector, select one of the four values: **Greater than**, **Greater than or equal**, **Less than**, or **Less than or equal to**.
 
-   * In the **Period** selector, select a period from 5 minutes to 6 hours.
+   * In the **Period** selector, select a period from five minutes to six hours.
 
    * If you select **Email owners, contributors, and readers**, the email can be dynamic based on the users who have access to that resource. Otherwise, you can provide a comma-separated list of users in the **Additional administrator email(s)** box.
 

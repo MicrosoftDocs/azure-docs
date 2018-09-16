@@ -1,22 +1,18 @@
----
-title: Azure AD B2C | Microsoft Docs
+﻿---
+title: Secure an ASP.NET web API in Azure Active Directory B2C | Microsoft Docs
 description: How to build a .NET Web API by using Azure Active Directory B2C, secured using OAuth 2.0 access tokens for authentication.
 services: active-directory-b2c
-documentationcenter: .net
-author: parakhj
-manager: krassk
-editor: ''
+author: davidmu1
+manager: mtillman
 
-ms.assetid: 7146ed7f-2eb5-49e9-8d8b-ea1a895e1966
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
-ms.topic: hero-article
-ms.date: 03/17/2017
-ms.author: parakhj
-
+ms.topic: conceptual
+ms.date: 01/14/2018
+ms.author: davidmu
+ms.component: B2C
 ---
+
 # Azure Active Directory B2C: Build a .NET web API
 
 With Azure Active Directory (Azure AD) B2C, you can secure a web API by using OAuth 2.0 access tokens. These tokens allow your client apps to authenticate to the API. This article shows you how to create a .NET MVC "to-do list" API that allows users of your client application to CRUD tasks. The web API is secured using Azure AD B2C and only allows authenticated users to manage their to-do list.
@@ -36,10 +32,8 @@ Next, you need to create a web API app in your B2C directory. This gives Azure A
 * Include a **web app** or **web API** in the application.
 * Use the **Redirect URI** `https://localhost:44332/` for the web app. This is the default location of the web app client for this code sample.
 * Copy the **Application ID** that is assigned to your app. You'll need it later.
-* Enter an app identifier into **App ID URI**.
+* Enter an app identifier into **App ID URI**. Copy the full **App ID URI**. You'll need it later.
 * Add permissions through the **Published scopes** menu.
-
-  [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## Create your policies
 
@@ -79,6 +73,7 @@ Our sample is configured to use the policies and client ID of our demo tenant. I
     * `ida:SignUpSignInPolicyId` with your "Sign-up or Sign-in" policy name
     * `ida:EditProfilePolicyId` with your "Edit Profile" policy name
     * `ida:ResetPasswordPolicyId` with your "Reset Password" policy name
+    * `api:ApiIdentifier` with your "App ID URI"
 
 
 ## Secure the API

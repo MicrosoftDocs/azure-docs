@@ -2,41 +2,25 @@
 title: Work with proxies in Azure Functions | Microsoft Docs
 description: Overview of how to use Azure Functions Proxies
 services: functions
-documentationcenter: ''
-author: mattchenderson
-manager: erikre
-editor: ''
+author: alexkarcher-msft
+manager: jeconnoc
 
 ms.assetid: 
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.date: 04/11/2017
-ms.author: mahender
+ms.topic: conceptual
+ms.date: 01/22/2018
+ms.author: alkarche
 
 ---
-# Work with Azure Functions Proxies (preview)
-
-> [!NOTE] 
-> Azure Functions Proxies is currently in preview. It is free while in preview, but standard Functions billing applies to proxy executions. For more information, see [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/).
+# Work with Azure Functions Proxies
 
 This article explains how to configure and work with Azure Functions Proxies. With this feature, you can specify endpoints on your function app that are implemented by another resource. You can use these proxies to break a large API into multiple function apps (as in a microservice architecture), while still presenting a single API surface for clients.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-
-## <a name="enable"></a>Enable Azure Functions Proxies
-
-Proxies are not enabled by default. You can create proxies while the feature is disabled, but they will not execute. To enable proxies, do the following:
-
-1. Open the [Azure portal], and then go to your function app.
-2. Select **Function app settings**.
-3. Switch **Enable Azure Functions Proxies (preview)** to **On**.
-
-You can also return here to update the proxy runtime as new features become available.
-
+> [!NOTE] 
+> Standard Functions billing applies to proxy executions. For more information, see [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/).
 
 ## <a name="create"></a>Create a proxy
 
@@ -53,23 +37,32 @@ Your proxy now exists as a new endpoint on your function app. From a client pers
 
 ## <a name="modify-requests-responses"></a>Modify requests and responses
 
-With Azure Functions Proxies, you can modify requests to and responses from the back end. These transformations can use variables as defined in [Use variables].
+With Azure Functions Proxies, you can modify requests to and responses from the back-end. These transformations can use variables as defined in [Use variables].
 
 ### <a name="modify-backend-request"></a>Modify the back-end request
 
 By default, the back-end request is initialized as a copy of the original request. In addition to setting the back-end URL, you can make changes to the HTTP method, headers, and query string parameters. The modified values can reference [application settings] and [parameters from the original client request].
 
-Currently, there is no portal experience for modifying back-end requests. To learn how to apply this capability from proxies.json, see [Define a requestOverrides object].
+Back-end requests can be modified in the portal by expading the *request override* section of the proxy detail page. 
 
 ### <a name="modify-response"></a>Modify the response
 
 By default, the client response is initialized as a copy of the back-end response. You can make changes to the response's status code, reason phrase, headers, and body. The modified values can reference [application settings], [parameters from the original client request], and [parameters from the back-end response].
 
-Currently, there is no portal experience for modifying responses. To learn how to apply this capability from proxies.json, see [Define a responseOverrides object].
+Back-end requests can be modified in the portal by expading the *response override* section of the proxy detail page. 
 
 ## <a name="using-variables"></a>Use variables
 
-The configuration for a proxy does not need to be static. You can condition it to use variables from the original request, the back-end response, or application settings.
+The configuration for a proxy does not need to be static. You can condition it to use variables from the original client request, the back-end response, or application settings.
+
+### <a name="reference-localhost"></a>Reference local functions
+You can use `localhost` to reference a function inside the same function app directly, without a roundtrip proxy request.
+
+`"backendurl": "https://localhost/api/httptriggerC#1"` will reference a local HTTP triggered function at the route `/api/httptriggerC#1`
+
+ 
+>[!Note]  
+>If your function uses *function, admin or sys* authorization levels, you will need to provide the code and clientId, as per the original function URL. In this case the reference would look like: `"backendurl": "https://localhost/api/httptriggerC#1?code=<keyvalue>&clientId=<keyname>"`
 
 ### <a name="request-parameters"></a>Reference request parameters
 
@@ -93,7 +86,7 @@ Response parameters can be used as part of modifying the response to the client.
 
 * **{backend.response.statusCode}**: The HTTP status code that's returned on the back-end response.
 * **{backend.response.statusReason}**: The HTTP reason phrase that's returned on the back-end response.
-* **{backend.response.headers.\<HeaderName\>}**: A header that can be read from the back-end response. Replace *\<HeaderName\>* with the name of the header you want to read. If the header is not included on the request, the value will be the empty string.
+* **{backend.response.headers.\<HeaderName\>}**: A header that can be read from the back-end response. Replace *\<HeaderName\>* with the name of the header you want to read. If the header is not included on the response, the value will be the empty string.
 
 ### <a name="use-appsettings"></a>Reference application settings
 
@@ -102,16 +95,28 @@ You can also reference [application settings defined for the function app](https
 For example, a back-end URL of *https://%ORDER_PROCESSING_HOST%/api/orders* would have "%ORDER_PROCESSING_HOST%" replaced with the value of the ORDER_PROCESSING_HOST setting.
 
 > [!TIP] 
-> Use application settings for back-end hosts when you have multiple deployments or test environments. That way, you can make sure that you are always talking to the right back end for that environment.
+> Use application settings for back-end hosts when you have multiple deployments or test environments. That way, you can make sure that you are always talking to the right back-end for that environment.
+
+## <a name="debugProxies"></a>Troubleshoot Proxies
+
+By adding the flag `"debug":true` to any proxy in your `proxies.json` you will enable debug logging. Logs are stored in `D:\home\LogFiles\Application\Proxies\DetailedTrace` and accessible through the advanced tools (kudu). Any HTTP responses will also contain a `Proxy-Trace-Location` header with a URL to access the log file.
+
+You can debug a proxy from the client side by adding a `Proxy-Trace-Enabled` header set to `true`. This will also log a trace to the file system, and return the trace URL as a header in the response.
+
+### Block proxy traces
+
+For security reasons you may not want to allow anyone calling your service to generate a trace. They will not be able to access the trace contents without your login credentials, but generating the trace consumes resources and exposes that you are using Function Proxies.
+
+Disable traces altogether by adding `"debug":false` to any particular proxy in your `proxies.json`.
 
 ## Advanced configuration
 
-The proxies that you configure are stored in a proxies.json file, which is located in the root of a function app directory. You can manually edit this file and deploy it as part of your app when you use any of the [deployment methods](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) that Functions supports. The feature must be [enabled](#enable) for the file to be processed. 
+The proxies that you configure are stored in a *proxies.json* file, which is located in the root of a function app directory. You can manually edit this file and deploy it as part of your app when you use any of the [deployment methods](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) that Functions supports. 
 
 > [!TIP] 
-> If you have not set up one of the deployment methods, you can also work with the proxies.json file in the portal. Go to your function app, select **Platform features**, and then select **App Service Editor**. By doing so, you can view the entire file structure of your function app and then make changes.
+> If you have not set up one of the deployment methods, you can also work with the *proxies.json* file in the portal. Go to your function app, select **Platform features**, and then select **App Service Editor**. By doing so, you can view the entire file structure of your function app and then make changes.
 
-Proxies.json is defined by a proxies object, which is composed of named proxies and their definitions. Optionally, if your editor supports it, you can reference a [JSON schema](http://json.schemastore.org/proxies) for code completion. An example file might look like the following:
+*Proxies.json* is defined by a proxies object, which is composed of named proxies and their definitions. Optionally, if your editor supports it, you can reference a [JSON schema](http://json.schemastore.org/proxies) for code completion. An example file might look like the following:
 
 ```json
 {
@@ -138,15 +143,33 @@ Each proxy has a friendly name, such as *proxy1* in the preceding example. The c
 * **responseOverrides**: An object that defines transformations to the client response. See [Define a responseOverrides object].
 
 > [!NOTE] 
-> The route property Azure Functions Proxies does not honor the routePrefix property of the Functions host configuration. If you want to include a prefix such as /api, it must be included in the route property.
+> The *route* property in Azure Functions Proxies does not honor the *routePrefix* property of the Function App host configuration. If you want to include a prefix such as `/api`, it must be included in the *route* property.
+
+### <a name="disableProxies"></a>Disable individual proxies
+
+You can disable individual proxies by adding `"disabled": true` to the proxy in the `proxies.json` file. This will cause any requests meeting the matchCondidtion to return 404.
+```json
+{
+    "$schema": "http://json.schemastore.org/proxies",
+    "proxies": {
+        "Root": {
+            "disabled":true,
+            "matchCondition": {
+                "route": "/example"
+            },
+            "backendUri": "www.example.com"
+        }
+    }
+}
+```
 
 ### <a name="requestOverrides"></a>Define a requestOverrides object
 
 The requestOverrides object defines changes made to the request when the back-end resource is called. The object is defined by the following properties:
 
-* **backend.request.method**: The HTTP method that's used to call the back end.
-* **backend.request.querystring.\<ParameterName\>**: A query string parameter that can be set for the call to the back end. Replace *\<ParameterName\>* with the name of the parameter that you want to set. If the empty string is provided, the parameter is not included on the back-end request.
-* **backend.request.headers.\<HeaderName\>**: A header that can be set for the call to the back end. Replace *\<HeaderName\>* with the name of the header that you want to set. If you provide the empty string, the header is not included on the back-end request.
+* **backend.request.method**: The HTTP method that's used to call the back-end.
+* **backend.request.querystring.\<ParameterName\>**: A query string parameter that can be set for the call to the back-end. Replace *\<ParameterName\>* with the name of the parameter that you want to set. If the empty string is provided, the parameter is not included on the back-end request.
+* **backend.request.headers.\<HeaderName\>**: A header that can be set for the call to the back-end. Replace *\<HeaderName\>* with the name of the header that you want to set. If you provide the empty string, the header is not included on the back-end request.
 
 Values can reference application settings and parameters from the original client request.
 
@@ -202,7 +225,7 @@ An example configuration might look like the following:
 }
 ```
 > [!NOTE] 
-> In this example, the body is being set directly, so no `backendUri` property is needed. The example shows how you might use Azure Functions Proxies for mocking APIs.
+> In this example, the response body is set directly, so no `backendUri` property is needed. The example shows how you might use Azure Functions Proxies for mocking APIs.
 
 [Azure portal]: https://portal.azure.com
 [HTTP triggers]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook#http-trigger

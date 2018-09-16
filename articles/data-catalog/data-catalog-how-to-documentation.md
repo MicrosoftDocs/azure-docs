@@ -1,22 +1,13 @@
 ---
-title: How to document data sources | Microsoft Docs
+title: How to document data sources in Azure Data Catalog
 description: How-to article highlighting how to document data assets in Azure Data Catalog.
 services: data-catalog
-documentationcenter: ''
 author: spelluru
-manager: NA
-editor: ''
-tags: ''
-
+ms.author: spelluru
 ms.assetid: 053b1701-b848-4ada-b726-6f485caa9961
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
-ms.date: 05/03/2017
-ms.author: spelluru
-
+ms.topic: conceptual
+ms.date: 01/18/2018
 ---
 # Document data sources
 ## Introduction

@@ -1,21 +1,15 @@
 ---
 title: Split-merge security configuration | Microsoft Docs
-description: Set up x409 certificates for encryption
+description: Set up x409 certificates for encryption with the split/merge service for elastic scale.
 metakeywords: Elastic Database certificates security
 services: sql-database
-documentationcenter: ''
-manager: jhubbard
-author: torsteng
-
-ms.assetid: f9e89c57-61a0-484f-b787-82dae2349cb6
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/27/2016
-ms.author: torsteng
+ms.topic: conceptual
+ms.date: 04/01/2018
+ms.author: sstein
 
 ---
 # Split-merge security configuration
@@ -435,7 +429,7 @@ In the Certificate Import Wizard:
 9. Click **OK** on all dialog windows.
 
 ## Upload certificate
-In the [Azure Portal](https://portal.azure.com/)
+In the [Azure portal](https://portal.azure.com/)
 
 1. Select **Cloud Services**.
 2. Select the cloud service.

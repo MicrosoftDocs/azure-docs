@@ -2,26 +2,26 @@
 title: Secure your Azure SQL database | Microsoft Docs
 description: Learn about techniques and features to secure your Azure SQL database.
 services: sql-database
-documentationcenter: ''
 author: DRediske
-manager: jhubbard
-editor: ''
-tags: ''
-
-ms.assetid: 
+manager: craigg
 ms.service: sql-database
 ms.custom: mvc,security
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: ''
-ms.date: 06/28/2017
+ms.topic: tutorial
+ms.date: 09/07/2018
 ms.author: daredis
+ms.reviewer: vanto
 
 ---
 # Secure your Azure SQL Database
 
-SQL Database secures your data by limiting access to your database using firewall rules, authentication mechanisms requiring users to prove their identity, and authorization to data through role-based memberships and permissions, as well as through row-level security and dynamic data masking.
+SQL Database secures your data by: 
+- Limiting access to your database using firewall rules 
+- Using authentication mechanisms that require their identity
+- Authorization to data through role-based memberships and permissions, 
+- Row-level security
+- Dynamic data masking
+
+SQL Database also has sophisticated monitoring, auditing, and threat detection. 
 
 You can improve the protection of your database against malicious users or unauthorized access with just a few simple steps. In this tutorial you learn to: 
 
@@ -42,11 +42,11 @@ To complete this tutorial, make sure you have the following:
 
 - Installed the newest version of [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). 
 - Installed Microsoft Excel
-- Created an Azure SQL server and database - See [Create an Azure SQL database in the Azure portal](sql-database-get-started-portal.md), [Create a single Azure SQL database using the Azure CLI](sql-database-get-started-cli.md), and [Create a single Azure SQL database using PowerShell](sql-database-get-started-powershell.md). 
+- Created an Azure SQL server and database - See [Create an Azure SQL database in the Azure portal](sql-database-get-started-portal.md), [Create a single Azure SQL database using the Azure CLI](sql-database-cli-samples.md), and [Create a single Azure SQL database using PowerShell](sql-database-powershell-samples.md). 
 
 ## Log in to the Azure portal
 
-Log in to the [Azure portal](https://portal.azure.com/).
+Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a server-level firewall rule in the Azure portal
 
@@ -103,7 +103,7 @@ To ensure a secure, encrypted connection between a client application and SQL Da
 - Request an encrypted connection, and
 - To not trust the server certificate. 
 
-This establishes a connection using Transport Layer Security (TLS) and reduces the risk of man-in-the-middle attacks. You can obtain correctly configured connection strings for your SQL Database for supported client drivers from the Azure portal as shown for ADO.net in this screenshot.
+This establishes a connection using Transport Layer Security (TLS) and reduces the risk of man-in-the-middle attacks. You can obtain correctly configured connection strings for your SQL Database for supported client drivers from the Azure portal as shown for ADO.net in this screenshot. For information about TLS and connectivity, see [TLS considerations](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity).
 
 1. Select **SQL databases** from the left-hand menu, and click your database on the **SQL databases** page.
 
@@ -112,10 +112,6 @@ This establishes a connection using Transport Layer Security (TLS) and reduces t
 3. Review the complete **ADO.NET** connection string.
 
     ![ADO.NET connection string](./media/sql-database-security-tutorial/adonet-connection-string.png)
-
-> [!TIP]
-> For an example of creating a .NET application using Azure SQL Database, see [Build an ASP.NET app in Azure with SQL Database](/app-service-web/app-service-web-tutorial-dotnet-sqldatabase.md).
->
 
 ## Creating database users
 
@@ -163,7 +159,7 @@ Azure SQL Database transparent data encryption (TDE) automatically encrypts your
 
 3. If necessary, set **Data encryption** to ON and click **Save**.
 
-The encryption process starts in the background. You can monitor the progress by connecting to SQL Database using [SQL Server Management Studio](./sql-database-connect-query-ssms.md) by querying the encryption_state column of the `sys.dm_database_encryption_keys` view.
+The encryption process starts in the background. You can monitor the progress by connecting to SQL Database using [SQL Server Management Studio](./sql-database-connect-query-ssms.md) and querying the encryption_state column of the [sys.dm_database_encryption_keys](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql?view=sql-server-2017) view. A state of 3 indicates that the database is encrypted. 
 
 ## Enable SQL Database auditing, if necessary
 
@@ -175,7 +171,7 @@ Azure SQL Database Auditing tracks database events and writes them to an audit l
 
     ![Auditing Blade](./media/sql-database-security-tutorial/auditing-get-started-settings.png)
 
-3. If you prefer to enable an Audit type (or location?) different from the one specified at the server level, turn **ON** Auditing, and choose the **Blob** Auditing Type. If server Blob auditing is enabled, the database configured audit will exist side by side with the server Blob audit.
+3. If you prefer to enable an Audit type (or location?) different from the one specified at the server level, turn **ON** Auditing, and choose the **Blob** Auditing Type. If server Blob auditing is enabled, the database-configured audit will exist side-by-side with the server Blob audit.
 
     ![Turn on auditing](./media/sql-database-security-tutorial/auditing-get-started-turn-on.png)
 
@@ -188,7 +184,7 @@ Azure SQL Database Auditing tracks database events and writes them to an audit l
 5. Click **Save**.
 
 > [!IMPORTANT]
-> If you want to customize the audited events, you can do this via PowerShell or REST API - see the [Automation (PowerShell / REST API)](sql-database-auditing.md#subheading-7) section for more details.
+> If you want to customize the audited events, you can do this via PowerShell or REST API - see [SQL database auditing](sql-database-auditing.md) for more information.
 >
 
 ## Enable SQL Database threat detection
@@ -217,7 +213,7 @@ For example, Threat Detection detects certain anomalous database activities indi
 
     ![Audit records](./media/sql-database-threat-detection-get-started/5_td_audit_records.png)
 
-7. Click on the audit records to view more details on the suspicious database activities such as SQL statement, failure reason and client IP.
+7. Click on the audit records to view more information on the suspicious database activities such as SQL statement, failure reason and client IP.
 
     ![Record details](./media/sql-database-security-tutorial/6_td_audit_record_details.png)
 
@@ -240,16 +236,18 @@ For example, Threat Detection detects certain anomalous database activities indi
 
 
 ## Next steps
-You can improve the protection of your database against malicious users or unauthorized access with just a few simple steps. In this tutorial you learn to: 
+In this tutorial, you learned to improve the protection of your database against malicious users or unauthorized access with just a few simple steps.  You learned how to: 
 
 > [!div class="checklist"]
-> * Set up firewall rules for your sever and or database
+> * Set up firewall rules for your server and or database
 > * Connect to your database using a secure connection string
 > * Manage user access
 > * Protect your data with encryption
 > * Enable SQL Database auditing
 > * Enable SQL Database threat detection
 
+Advance to the next tutorial to learn how to implement a geo-distributed database.
+
 > [!div class="nextstepaction"]
->[Improve SQL Database performance](sql-database-performance-tutorial.md)
+>[Implement a geo-distributed database](sql-database-implement-geo-distributed-database.md)
 

@@ -1,0 +1,60 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Kubernetes Service (AKS)
+metadata:
+  document_id:
+  title: Azure Kubernetes Service (AKS) Documentation - Tutorials, API Reference | Microsoft Docs
+  meta.description: AKS allows you to quickly deploy a production ready Kubernetes cluster in Azure. Learn how to use AKS with these quickstarts, tutorials, and samples.
+  services: container-service
+  author: carolz
+  manager: carolz
+  ms.service: container-service
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 07-21-2017
+  ms.author: carolz
+abstract:
+  description: 'Azure Kubernetes Service (AKS) manages your hosted Kubernetes environment, making it quick and easy to deploy and manage containerized applications without container orchestration expertise. It also eliminates the burden of ongoing operations and maintenance by provisioning, upgrading, and scaling resources on demand, without taking your applications offline.'
+sections:
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Learn how to deploy an AKS cluster:'
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: https://docs.microsoft.com/media/common/i_cligeneric.svg
+      text: Azure CLI
+      href: /azure/aks/kubernetes-walkthrough
+    - image:
+        src: https://docs.microsoft.com/media/common/i_portal.svg
+      text: Azure Portal
+      href: /azure/aks/kubernetes-walkthrough-portal
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: 'Learn how to deploy, manage, and update applications on an AKS cluster.'
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">Create container images from an application</a>
+    - html: <a href="/azure/aks/tutorial-kubernetes-prepare-acr">Upload container images to the Azure Container Registry</a>
+    - html: <a href="/azure/aks/tutorial-kubernetes-deploy-cluster">Deploy an AKS cluster</a>
+    - html: <a href="/azure/aks/tutorial-kubernetes-deploy-application">Run your container images in Kubernetes</a>
+    - html: <a href="/azure/aks/tutorial-kubernetes-scale">Scale an application and Kubernetes infrastructure</a>
+    - html: <a href="/azure/aks/tutorial-kubernetes-app-update">Update an application running in Kubernetes</a>
+    - html: <a href="/azure/aks/tutorial-kubernetes-upgrade-cluster">Upgrade AKS cluster</a>
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Command line
+      html: <p><a href="/cli/azure/aks">Azure CLI</a></p>
+    - title: Languages
+      html: <p><a href="/dotnet/api/overview/azure/containerservice">.NET</a></p><p><a href="/python/api/overview/azure/containerservice">Python</a></p><p><a href="/java/api/overview/azure/containerservice">Java</a></p><p><a href="/javascript/api/overview/azure/container-service">Node.js</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/aks">REST API</a></p>

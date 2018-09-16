@@ -3,8 +3,8 @@ title: How to configure Redis clustering for a Premium Azure Redis Cache | Micro
 description: Learn how to create and manage Redis clustering for your Premium tier Azure Redis Cache instances
 services: redis-cache
 documentationcenter: ''
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: ''
 
 ms.assetid: 62208eec-52ae-4713-b077-62659fd844ab
@@ -13,8 +13,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 05/02/2017
-ms.author: sdanie
+ms.date: 06/13/2018
+ms.author: wesmc
 
 ---
 # How to configure Redis clustering for a Premium Azure Redis Cache
@@ -30,7 +30,7 @@ Azure Redis Cache offers Redis cluster as [implemented in Redis](http://redis.io
 * More throughput: Throughput increases linearly as you increase the number of shards. 
 * More memory size: Increases linearly as you increase the number of shards.  
 
-For more information about size, throughput, and bandwidth with premium caches, see [What Redis Cache offering and size should I use?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
+Clustering does not increase the number of connections available for a clustered cache. For more information about size, throughput, and bandwidth with premium caches, see [What Redis Cache offering and size should I use?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
 
 In Azure, Redis cluster is offered as a primary/replica model where each shard has a primary/replica pair with replication where the replication is managed by Azure Redis Cache service. 
 
@@ -72,6 +72,8 @@ To change the cluster size on a running premium cache with clustering enabled, c
 ![Redis cluster size][redis-cache-redis-cluster-size]
 
 To change the cluster size, use the slider or type a number between 1 and 10 in the **Shard count** text box and click **OK** to save.
+
+Increasing the cluster size increases max throughput and cache size. Increasing the cluster size doesn't increase the max. connections available to clients.
 
 > [!NOTE]
 > Scaling a cluster runs the [MIGRATE](https://redis.io/commands/migrate) command, which is an expensive command, so for minimal impact, consider running this operation during non-peak hours. During the migration process, you will see a spike in server load. Scaling a cluster is a long running process and the amount of time taken depends on the number of keys and size of the values associated with those keys.
@@ -118,7 +120,9 @@ For sample code on working with clustering and locating keys in the same shard w
 The largest premium cache size is 53 GB. You can create up to 10 shards giving you a maximum size of 530 GB. If you need a larger size you can [request more](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase). For more information, see [Azure Redis Cache Pricing](https://azure.microsoft.com/pricing/details/cache/).
 
 ### Do all Redis clients support clustering?
-At the present time not all clients support Redis clustering. StackExchange.Redis is one that does support for it. For more information on other clients, see the [Playing with the cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) section of the [Redis cluster tutorial](http://redis.io/topics/cluster-tutorial).
+At the present time not all clients support Redis clustering. StackExchange.Redis is one that does support for it. For more information on other clients, see the [Playing with the cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) section of the [Redis cluster tutorial](http://redis.io/topics/cluster-tutorial). 
+
+The Redis clustering protocol requires each client to connect to each shard directly in clustering mode. Attempting to use a client that doesn't support clustering will likely result in a lot of [MOVED redirection exceptions](https://redis.io/topics/cluster-spec#moved-redirection).
 
 > [!NOTE]
 > If you are using StackExchange.Redis as your client, ensure you are using the latest version of [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/) 1.0.481 or later for clustering to work correctly. If you have any issues with move exceptions, see [move exceptions](#move-exceptions) for more information.
@@ -129,7 +133,7 @@ At the present time not all clients support Redis clustering. StackExchange.Redi
 You can connect to your cache using the same [endpoints](cache-configure.md#properties), [ports](cache-configure.md#properties), and [keys](cache-configure.md#access-keys) that you use when connecting to a cache that does not have clustering enabled. Redis manages the clustering on the backend so you don't have to manage it from your client.
 
 ### Can I directly connect to the individual shards of my cache?
-This is not officially supported. With that said, each shard consists of a primary/replica cache pair, collectively known as a cache instance. You can connect to these cache instances using the redis-cli utility in the [unstable](http://redis.io/download) branch of the Redis repository at GitHub. This version implements basic support when started with the `-c` switch. For more information see [Playing with the cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) on [http://redis.io](http://redis.io) in the [Redis cluster tutorial](http://redis.io/topics/cluster-tutorial).
+The clustering protocol requires that the client make the correct shard connections. So the client should do this correctly for you. With that said, each shard consists of a primary/replica cache pair, collectively known as a cache instance. You can connect to these cache instances using the redis-cli utility in the [unstable](http://redis.io/download) branch of the Redis repository at GitHub. This version implements basic support when started with the `-c` switch. For more information see [Playing with the cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) on [http://redis.io](http://redis.io) in the [Redis cluster tutorial](http://redis.io/topics/cluster-tutorial).
 
 For non-ssl, use the following commands.
 

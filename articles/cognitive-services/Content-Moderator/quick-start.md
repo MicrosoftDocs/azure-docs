@@ -1,50 +1,83 @@
 ---
-title: Content Moderator get started | Microsoft Docs
-description: Sign up for the review tool to get started with automated moderation and see results in your browser.
+title: Azure Content Moderator get started | Microsoft Docs
+description: How to get started with Azure Content Moderator.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
-
 ms.service: cognitive-services
-ms.technology: content-moderator
+ms.component: content-moderator
 ms.topic: article
-ms.date: 02/25/2017
+ms.date: 01/15/2018
 ms.author: sajagtap
 ---
 
-# Get started with Content Moderator #
+# Get started with Content Moderator
 
-## 1. Create a review team
-Sign up to try the [human review tool](http://contentmoderator.cognitive.microsoft.com/ "Content Moderator Review Tool"). Then upload images or submit sample text to try the automated moderation and human review capabilities without writing any code.
+You get started with Content Moderator in the following ways:
 
-Also read: [Review Tool User Guide](review-tool-user-guide/human-in-the-loop.md)
+- [Start with the review tool](#start-with-the-review-tool) to get the API key and create a review team. The benefit is that you can use the API key to call the moderation APIs for scanning content and the review APIs for generating reviews, without additional steps.
+- [Subscribe to Content Moderator](#start-with-the-apis) in Azure to get the API key. Check out the [API reference](api-reference.md) and the [SDKs](sdk-and-samples.md#sdks-for-python-java-nodejs-and-net). You still need to sign up online to create a review team.
+- [Use the Flow connector and templates](https://flow.microsoft.com/connectors/shared_cognitiveservicescontentmoderator/content-moderator/) to check out a wide range of integrations with an easy-to-use designer.
 
-### a. Sign up and invite others
-Sign up to try the [review tool](http://contentmoderator.cognitive.microsoft.com/ "Content Moderator Review Tool") by either using your existing Microsoft account or create an account within the review tool. Optionally, invite your colleagues by entering their email addresses.
+Regardless of the option you choose, see the [Managing credentials](review-tool-user-guide/credentials.md) article to find your API credentials.
+
+## Start with the review tool
+[Sign up](http://contentmoderator.cognitive.microsoft.com/) on the Content Moderator review tool web site.
+
+![Content Moderator Home Page](images/homepage.PNG)
+
+### Create a review team
+Give your team a name. If you want to invite your colleagues, you can do so by entering their email addresses.
 
 ![Invite team member](images/QuickStart-2-small.png)
 
-### b. Upload images or enter text
-Use the File Upload feature to upload a set of sample images or enter your text for moderation.
+### Upload images or enter text
+Click **Try > Image** or **Try > Text**. Upload up to five sample images or enter sample text for moderation.
 
-![Upload files](images/QuickStart-3.PNG)
+![Try Image or Text Moderation](images/tryimagesortext.png)
 
-### c. Submit for automated moderation
+### Submit for automated moderation
 Submit your content for automated moderation. Internally, the review tool calls the moderation APIs to scan your content. Once the scanning is complete, you see a message informing you about the results waiting for your review.
 
-![Moderate files](images/QuickStart-4.PNG)
+![Moderate files](images/submitted.png)
 
-### d. Review and confirm results
-As your business application calls the Moderator APIs, the tagged content starts queuing up, ready to be reviewed by the human review teams. You can quickly review large volumes of content using this approach. You are doing a few different things as part of your moderation workflow such as browsing the tagged content, changing the tags, and submitting your decisions.
+### Review and confirm results
+Review the auto-moderated tags, change if needed, and submit by using the **Next** button. As your business application calls the Moderator APIs, the tagged content starts queuing up, ready to be reviewed by the human review teams. You quickly review large volumes of content using this approach.
 
-![Review results](images/QuickStart-5.PNG)
+![Review results](images/reviewresults.png)
 
-## 2. Directly call the moderation APIs ("scan")
-Use your Content Moderator free tier keys available in the **Credentials** TAB under **Settings** to directly try the image and text moderation APIs. You can use the Image APIs to scan images from URLs or binary data. You can use the Text APIs to scan up to a maximum of 1024 characters at a time for profanity, adult, racy, and offensive content. You can either use the "**Try API**" test console within the API reference or write your own application. When you are ready to purchase, you can [upgrade to a paid subscription](https://portal.azure.com/#create/Microsoft.CognitiveServices/apitype/ContentModerator) and swap out the keys in your application.
+Learn how to use all the [review tool's features](Review-Tool-User-Guide/human-in-the-loop.md) or continue with the next section to learn about the APIs. Skip the sign-up step because you have the API key provisioned for you in the review tool as shown in the [Managing credentials](review-tool-user-guide/credentials.md) article.
 
-![Your Content Moderator API Key](images/7-Settings-Credentials.png)
+### Use the APIs
 
-## 3. Call the review API for best-of-both ("scan and review")
-Use your Content Moderator free tier keys as shown in the previous section, to try the review API's **Job** operation. The **Job** operation calls the underlying moderation APIs (Image or Text). Based on the criteria defined in your custom workflow, it creates **reviews** within the review tool. Once the human reviewers have examined the auto-assigned tags and conveyed their agreement of disagreement by changing them, the review API sends all data to your API callback endpoint.
+Learn how to integrate Content Moderator with your business applications. Check out the [API reference](api-reference.md) and the [SDKs](sdk-and-samples.md#sdks-for-python-java-nodejs-and-net).
 
-You can either use the "**Try API**" test console within the API reference or write your own application. When you are ready to purchase, you can [upgrade to a paid subscription](https://portal.azure.com/#create/Microsoft.CognitiveServices/apitype/ContentModerator) and swap out the keys in your application.
+## Subscribe in the Azure portal
+
+[Subscribe to Content Moderator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) in the Azure portal. Start with one of the following APIs:
+
+### Image moderation
+
+Start with the [API console](try-image-api.md) or use the [.NET quickstart](image-moderation-quickstart-dotnet.md) to scan images and detect potential adult and racy content by using tags, confidence scores, and other extracted information.
+
+### Text moderation
+
+Start with the [API console](try-text-api.md) or use the [.NET quickstart](text-moderation-quickstart-dotnet.md) to scan text content for potential profanity, machine-assisted unwanted text classification (preview), and personally identifiable information (PII). 
+
+
+### Video moderation
+
+Start with the [.NET quickstart](video-moderation-api.md) to scan videos and detect potential adult and racy content. 
+
+
+### Review APIs
+
+Start here by choosing from the Job, Review, and Workflow APIs.
+
+- The [Job API](try-review-api-job.md) scans your content by using the moderation APIs and generates reviews in the review tool. 
+- The [Review API](try-review-api-review.md) directly creates image, text, or video reviews for human moderators without first scanning the content. 
+- The [Workflow API](try-review-api-workflow.md) creates, updates, and gets details about the custom workflows that your team creates.
+
+## Next steps
+
+Check out the [API reference](api-reference.md) and the [SDKs](sdk-and-samples.md#sdks-for-python-java-nodejs-and-net). Jumpstart your integration with the [.NET SDK samples](sdk-and-samples.md#net-sdk-samples), [REST API samples in C#](https://github.com/sanjeev3/azure-docs-pr/blob/master/articles/cognitive-services/Content-Moderator/sdk-and-samples.md#rest-api-samples-in-c) and [tutorials](sdk-and-samples.md#tutorials).

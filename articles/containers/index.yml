@@ -1,0 +1,98 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure for Containers
+metadata:
+  document_id:
+  title: Azure for Containers - Tutorials, API Reference
+  description: Get started developing apps with Azure using the resources below to find great quickstarts, tutorials, and tools for containers.
+  keywords: Azure, Containers, Docker, API, Kubernetes
+  author: bketelsen
+  ms.author: brketels
+  manager: listonb
+  ms.date: 09/14/2017
+  ms.topic: article
+  ms.prod: azure
+  featureFlags:
+  - clicktale
+  ms.technology: azure
+  ms.devlang: multiple
+  ms.service: multiple
+sections:
+- items:
+  - type: markdown
+    text: |
+      Get started developing apps with Azure using the resources below to find great tutorials and tools for containers.
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 2
+    items:
+    - href: https://docs.microsoft.com/azure/container-instances/container-instances-quickstart
+      html: <p>Create a containerized app with Azure Container Instances</p>
+      image:
+        src: https://docs.microsoft.com/media/common/i_get-started.svg
+      title: Get Started
+    - href: https://docs.microsoft.com/azure/container-service/kubernetes/cli-samples
+      html: <p>Azure CLI Samples for Azure Container Service</p>
+      image:
+        src: https://docs.microsoft.com/media/common/i_code-samples.svg
+      title: Code Samples
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Learn how to use containers with Azure services.'
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 2
+    items:
+    - href: ../aks/kubernetes-walkthrough.md
+      title: Create a Kubernetes cluster with Azure Kubernetes Service (AKS)
+      image:
+        src: /azure/media/index/ContainerService.svg
+    - href: https://docs.microsoft.com/azure/service-fabric/service-fabric-quickstart-containers
+      title: Deploy a Windows container application with Service Fabric
+      image:
+        src: /azure/media/index/Fabric.svg
+    - href: https://docs.microsoft.com/azure/app-service/containers/quickstart-docker-go
+      title: Create a containerized app with Azure Web App for Containers
+      image:
+        src: https://docs.microsoft.com/media/logos/logo_linux.svg
+    - href: https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli
+      title: Create a private Docker registry in Azure Container Registry
+      image:
+        src: /azure/media/index/container-registry.svg
+- title: Free Pluralsight Video Training
+  items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: https://go.microsoft.com/fwlink/?linkid=2012827
+      image:
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+      title: ' Azure Administrator'
+- title: Samples
+  items:
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="https://azure.microsoft.com/resources/samples/app-service-java-deploy-image-from-acr-to-linux/">Getting Started with Appservice - Manage Linux Web App With Container Registry - in Java</a>
+    - html: <a href="https://azure.microsoft.com/resources/samples/service-fabric-containers/">Service Fabric Container Samples</a>
+    - html: <a href="https://azure.microsoft.com/resources/samples/container-service-python-manage/">Deploy and connect to a Docker container in an Azure cluster</a>
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: Learn how to use Azure Kubernetes Service (AKS)
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">Create container images from an application</a>
+    - html: <a href="/azure/aks/tutorial-kubernetes-prepare-acr">Upload container images to the Azure Container Registry</a>
+    - html: <a href="/azure/aks/tutorial-kubernetes-deploy-cluster">Deploy an AKS cluster</a>
+    - html: <a href="/azure/aks/tutorial-kubernetes-deploy-application">Run your container images in Kubernetes</a>
+    - html: <a href="/azure/aks/tutorial-kubernetes-scale">Scale an application and Kubernetes infrastructure</a>
+    - html: <a href="/azure/aks/tutorial-kubernetes-app-update">Update an application running in Kubernetes</a>
+    - html: <a href="/azure/aks/tutorial-kubernetes-monitor">Monitor Kubernetes with Log Analytics</a>

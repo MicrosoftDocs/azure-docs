@@ -4,18 +4,18 @@ description: In this document you will learn how to deploy AD FS in Azure for hi
 keywords: deploy AD FS in azure, deploy azure adfs, azure adfs, azure ad fs,deploy adfs, deploy ad fs, adfs in azure, deploy adfs in azure, deploy AD FS in azure, adfs azure, introduction to AD FS, Azure, AD FS in Azure, iaas, ADFS, move adfs to azure
 services: active-directory
 documentationcenter: ''
-author: anandyadavmsft
-manager: femila
+author: billmath
+manager: mtillman
 editor: ''
-
 ms.assetid: 692a188c-badc-44aa-ba86-71c0e8074510
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/27/2017
-ms.author: anandy; billmath
+ms.date: 07/17/2017
+ms.component: hybrid
+ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ---
 # Deploying Active Directory Federation Services in Azure
@@ -182,17 +182,20 @@ Select the newly created ILB in the Load Balancers panel. It will open the setti
 
 **6.3. Configuring probe**
 
-In the ILB settings panel, select Probes.
+In the ILB settings panel, select Health probes.
 
 1. Click on add
 2. Provide details for probe
    a. **Name**: Probe name
-   b. **Protocol**: TCP
-   c. **Port**: 443 (HTTPS)
-   d. **Interval**: 5 (default value) – this is the interval at which ILB will probe the machines in the backend pool
-   e. **Unhealthy threshold limit**: 2 (default val ue) – this is the threshold of consecutive probe failures after which ILB will declare a machine in the backend pool non-responsive and stop sending traffic to it.
+   b. **Protocol**: HTTP
+   c. **Port**: 80 (HTTP)
+   d. **Path**: /adfs/probe 
+   e. **Interval**: 5 (default value) – this is the interval at which ILB will probe the machines in the backend pool
+   f. **Unhealthy threshold limit**: 2 (default value) – this is the threshold of consecutive probe failures after which ILB will declare a machine in the backend pool non-responsive and stop sending traffic to it.
 
 ![Configure ILB probe](./media/active-directory-aadconnect-azure-adfs/ilbdeployment4.png)
+
+We are using the /adfs/probe endpoint that was created explictly for health checks in an AD FS environment where a full HTTPS path check cannot happen.  This is substantially better than a basic port 443 check, which does not accurately reflect the status of a modern AD FS deployment.  More information on this can be found at https://blogs.technet.microsoft.com/applicationproxyblog/2014/10/17/hardware-load-balancer-health-checks-and-web-application-proxy-ad-fs-2012-r2/.
 
 **6.4. Create load balancing rules**
 
@@ -223,7 +226,7 @@ In order to ensure that Web Application Proxy servers are able to reach the AD F
 **7.2. Installing the Web Application Proxy role**
 
 After you ensure that Web Application Proxy servers are able to reach the AD FS servers behind ILB, you can next install the Web Application Proxy servers. 
-Web Application Proxy servers do not be joined to the domain. Install the Web Application Proxy roles on the two Web Application Proxy servers by selecting the Remote Access role. The server manager will guide you to complete the WAP installation.
+Web Application Proxy servers need not be joined to the domain. Install the Web Application Proxy roles on the two Web Application Proxy servers by selecting the Remote Access role. The server manager will guide you to complete the WAP installation.
 For more information on how to deploy WAP, read [Install and Configure the Web Application Proxy Server](https://technet.microsoft.com/library/dn383662.aspx).
 
 ### 8.  Deploying the Internet Facing (Public) Load Balancer
@@ -283,8 +286,10 @@ Overall, you need the following rules to efficiently secure your internal subnet
 
 ![INT access rules (inbound)](./media/active-directory-aadconnect-azure-adfs/nsg_int.png)
 
+<!--
 [comment]: <> (![INT access rules (inbound)](./media/active-directory-aadconnect-azure-adfs/nsgintinbound.png))
 [comment]: <> (![INT access rules (outbound)](./media/active-directory-aadconnect-azure-adfs/nsgintoutbound.png))
+-->
 
 **9.2. Securing the DMZ subnet**
 
@@ -295,8 +300,10 @@ Overall, you need the following rules to efficiently secure your internal subnet
 
 ![EXT access rules (inbound)](./media/active-directory-aadconnect-azure-adfs/nsg_dmz.png)
 
+<!--
 [comment]: <> (![EXT access rules (inbound)](./media/active-directory-aadconnect-azure-adfs/nsgdmzinbound.png))
 [comment]: <> (![EXT access rules (outbound)](./media/active-directory-aadconnect-azure-adfs/nsgdmzoutbound.png))
+-->
 
 > [!NOTE]
 > If client user certificate authentication (clientTLS authentication using X509 user certificates) is required, then AD FS requires TCP port 49443 be enabled for inbound access.
@@ -308,7 +315,7 @@ The easiest way is to test AD FS is by using the IdpInitiatedSignon.aspx page. I
 
 1. Run the below cmdlet on the AD FS server, using PowerShell, to set it to enabled.
    Set-AdfsProperties -EnableIdPInitiatedSignonPage $true 
-2. From any external machine access https://adfs.thecloudadvocate.com/adfs/ls/IdpInitiatedSignon.aspx  
+2. From any external machine, access https:\//adfs-server.contoso.com/adfs/ls/IdpInitiatedSignon.aspx.  
 3. You should see the AD FS page like below:
 
 ![Test login page](./media/active-directory-aadconnect-azure-adfs/test1.png)
@@ -359,7 +366,7 @@ You can use an existing virtual network or create a new VNET while deploying thi
 * [Internet Facing Load Balancer](https://aka.ms/Azure/ILB/Internet)
 * [Storage Accounts](https://aka.ms/Azure/Storage)
 * [Azure Virtual Networks](https://aka.ms/Azure/VNet)
-* [AD FS and Web Application Proxy Links](http://aka.ms/ADFSLinks) 
+* [AD FS and Web Application Proxy Links](https://aka.ms/ADFSLinks) 
 
 ## Next steps
 * [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)

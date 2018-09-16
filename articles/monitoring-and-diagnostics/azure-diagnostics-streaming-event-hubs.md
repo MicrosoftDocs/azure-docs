@@ -1,21 +1,14 @@
 ---
-title: Streaming Azure Diagnostics data in the hot path using Event Hubs | Microsoft Docs
+title: Stream Azure Diagnostics data to Event Hubs
 description: Configuring Azure Diagnostics with Event Hubs end to end, including guidance for common scenarios.
-services: event-hubs
-documentationcenter: na
+services: azure-monitor
 author: rboucher
-manager: carmonm
-editor: ''
-
-ms.assetid: edeebaac-1c47-4b43-9687-f28e7e1e446a
-ms.service: monitoring-and-diagnostics
+ms.service: azure-monitor
 ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/28/2017
+ms.topic: conceptual
+ms.date: 07/13/2017
 ms.author: robb
-
+ms.component: diagnostic-extension
 ---
 # Streaming Azure Diagnostics data in the hot path by using Event Hubs
 Azure Diagnostics provides flexible ways to collect metrics and logs from cloud services virtual machines (VMs) and transfer results to Azure Storage. Starting in the March 2016 (SDK 2.9) time frame, you can send Diagnostics to custom data sources and transfer hot path data in seconds by using [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/).
@@ -84,15 +77,15 @@ The Event Hubs sink must also be declared and defined in the **PrivateConfig** s
 
 ```XML
 <PrivateConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
-  <StorageAccount name="" key="" endpoint="" />
+  <StorageAccount name="{account name}" key="{account key}" endpoint="{optional storage endpoint}" />
   <EventHub Url="https://diags-mycompany-ns.servicebus.windows.net/diageventhub" SharedAccessKeyName="SendRule" SharedAccessKey="{base64 encoded key}" />
 </PrivateConfig>
 ```
 ```JSON
 {
-    "storageAccountName": "",
-    "storageAccountKey": "",
-    "storageAccountEndPoint": "",
+    "storageAccountName": "{account name}",
+    "storageAccountKey": "{account key}",
+    "storageAccountEndPoint": "{optional storage endpoint}",
     "EventHub": {
         "Url": "https://diags-mycompany-ns.servicebus.windows.net/diageventhub",
         "SharedAccessKeyName": "SendRule",
@@ -101,7 +94,7 @@ The Event Hubs sink must also be declared and defined in the **PrivateConfig** s
 }
 ```
 
-The `SharedAccessKeyName` value must match a Shared Access Signature (SAS) key and policy that has been defined in the **Event Hubs** namespace. Browse to the Event Hubs dashboard in the [Azure portal](https://manage.windowsazure.com), click the **Configure** tab, and set up a named policy (for example, "SendRule") that has *Send* permissions. The **StorageAccount** is also declared in **PrivateConfig**. There is no need to change values here if they are working. In this example, we leave the values empty, which is a sign that a downstream asset will set the values. For example, the *ServiceConfiguration.Cloud.cscfg* environment configuration file sets the environment-appropriate names and keys.  
+The `SharedAccessKeyName` value must match a Shared Access Signature (SAS) key and policy that has been defined in the **Event Hubs** namespace. Browse to the Event Hubs dashboard in the [Azure portal](https://portal.azure.com), click the **Configure** tab, and set up a named policy (for example, "SendRule") that has *Send* permissions. The **StorageAccount** is also declared in **PrivateConfig**. There is no need to change values here if they are working. In this example, we leave the values empty, which is a sign that a downstream asset will set the values. For example, the *ServiceConfiguration.Cloud.cscfg* environment configuration file sets the environment-appropriate names and keys.  
 
 > [!WARNING]
 > The Event Hubs SAS key is stored in plain text in the *.wadcfgx* file. Often, this key is checked in to source code control or is available as an asset in your build server, so you should protect it as appropriate. We recommend that you use a SAS key here with *Send only* permissions so that a malicious user can write to the event hub, but not listen to it or manage it.
@@ -367,10 +360,10 @@ namespace EventHubListener
         </Sink>
       </SinksConfig>
     </WadCfg>
-    <StorageAccount />
+    <StorageAccount>ACCOUNT_NAME</StorageAccount>
   </PublicConfig>
   <PrivateConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
-    <StorageAccount name="" key="" endpoint="" />
+    <StorageAccount name="{account name}" key="{account key}" endpoint="{storage endpoint}" />
     <EventHub Url="https://diageventhub-py-ns.servicebus.windows.net/diageventhub-py" SharedAccessKeyName="SendRule" SharedAccessKey="YOUR_KEY_HERE" />
   </PrivateConfig>
   <IsEnabled>true</IsEnabled>
@@ -391,9 +384,11 @@ The complementary *ServiceConfiguration.Cloud.cscfg* for this example looks like
 </ServiceConfiguration>
 ```
 
-Equivalent Json based settings for virtual machines is as follows:
+Equivalent JSON settings for virtual machines is as follows:
+
+Public Settings:
 ```JSON
-"settings": {
+{
     "WadCfg": {
         "DiagnosticMonitorConfiguration": {
             "overallQuotaInMB": 4096,
@@ -486,14 +481,17 @@ Equivalent Json based settings for virtual machines is as follows:
             ]
         }
     },
-    "StorageAccount": ""
+    "StorageAccount": "{account name}"
 }
 
+```
 
-"protectedSettings": {
-    "storageAccountName": "",
-    "storageAccountKey": "",
-    "storageAccountEndPoint": "",
+Protected Settings:
+```JSON
+{
+    "storageAccountName": "{account name}",
+    "storageAccountKey": "{account key}",
+    "storageAccountEndPoint": "{storage endpoint}",
     "EventHub": {
         "Url": "https://diageventhub-py-ns.servicebus.windows.net/diageventhub-py",
         "SharedAccessKeyName": "SendRule",

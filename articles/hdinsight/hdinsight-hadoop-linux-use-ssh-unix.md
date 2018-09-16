@@ -1,22 +1,15 @@
 ---
-title: Use SSH with Hadoop - Azure HDInsight | Microsoft Docs
+title: Use SSH with Hadoop - Azure HDInsight 
 description: "You can access HDInsight using Secure Shell (SSH). This document provides information on connecting to HDInsight using the ssh and scp commands from Windows, Linux, Unix, or macOS clients."
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+ms.reviewer: jasonh
 keywords: hadoop commands in linux,hadoop linux commands,hadoop macos,ssh hadoop,ssh hadoop cluster
 
-ms.assetid: a6a16405-a4a7-4151-9bbf-ab26972216c5
 ms.service: hdinsight
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 05/12/2017
-ms.author: larryfr
+ms.topic: conceptual
+ms.date: 04/26/2018
+ms.author: jasonh
 
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
 
@@ -29,7 +22,7 @@ HDInsight can use Linux (Ubuntu) as the operating system for nodes within the Ha
 
 | Address | Port | Connects to... |
 | ----- | ----- | ----- |
-| `<clustername>-ed-ssh.azurehdinsight.net` | 22 | Edge node (R Server on HDInsight) |
+| `<clustername>-ed-ssh.azurehdinsight.net` | 22 | Edge node (ML Services on HDInsight) |
 | `<edgenodename>.<clustername>-ssh.azurehdinsight.net` | 22 | Edge node (any other cluster type, if an edge node exists) |
 | `<clustername>-ssh.azurehdinsight.net` | 22 | Primary headnode |
 | `<clustername>-ssh.azurehdinsight.net` | 23 | Secondary headnode |
@@ -43,24 +36,29 @@ HDInsight can use Linux (Ubuntu) as the operating system for nodes within the Ha
 >
 > For more information on using edge nodes, see [Use edge nodes in HDInsight](hdinsight-apps-use-edge-node.md#access-an-edge-node).
 
+> [!TIP]
+> When you first connect to HDInsight, your SSH client may display a warning that the authenticity of the host can't be established. When prompted select 'yes' to add the host to your SSH client's trusted server list.
+>
+> If you have previously connected to a server with the same name, you may receive a warning that the stored host key does not match the host key of the server. Consult the documentation for your SSH client on how to remove the existing entry for the server name.
+
 ## SSH clients
 
 Linux, Unix, and macOS systems provide the `ssh` and `scp` commands. The `ssh` client is commonly used to create a remote command-line session with a Linux or Unix-based system. The `scp` client is used to securely copy files between your client and the remote system.
 
-Microsoft Windows does not provide any SSH clients by default. The `ssh` and `scp` clients are available for Windows through the following packages:
+Microsoft Windows does not install any SSH clients by default. The `ssh` and `scp` clients are available for Windows through the following packages:
 
-* [Azure Cloud Shell](../cloud-shell/quickstart.md): The Cloud Shell provides a Bash environment in your browser, and provides the `ssh`, `scp`, and other common Linux commands.
+* OpenSSH Client (Beta): In the Fall Creators Update, go to __Settings__ > __Apps & features__ > __Manage optional features__ > __Add a feature__ and select the __OpenSSH Client__. 
+
+    > [!NOTE]
+    > If the `ssh` and `scp` commands are not available in PowerShell after enabling this feature, log out and back in.
 
 * [Bash on Ubuntu on Windows 10](https://msdn.microsoft.com/commandline/wsl/about): The `ssh` and `scp` commands are available through the Bash on Windows command line.
 
+* [OpenSSH client (beta)](https://blogs.msdn.microsoft.com/powershell/2017/12/15/using-the-openssh-beta-in-windows-10-fall-creators-update-and-windows-server-1709/): This is an optional feature introduced in the Windows 10 Fall Creators Update.
+
+* [Azure Cloud Shell](../cloud-shell/quickstart.md): The Cloud Shell provides a Bash environment in your browser, and provides the `ssh`, `scp`, and other common Linux commands.
+
 * [Git (https://git-scm.com/)](https://git-scm.com/): The `ssh` and `scp` commands are available through the GitBash command line.
-
-* [GitHub Desktop (https://desktop.github.com/)](https://desktop.github.com/) The `ssh` and `scp` commands are available through the GitHub Shell command line. GitHub Desktop can be configured to use Bash, the Windows Command Prompt, or PowerShell as the command line for the Git Shell.
-
-* [OpenSSH (https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH): The PowerShell team is porting OpenSSH to Windows, and provides test releases.
-
-    > [!WARNING]
-    > The OpenSSH package includes the SSH server component, `sshd`. This component starts an SSH server on your system, allowing others to connect to it. Do not configure this component or open port 22 unless you want to host an SSH server on your system. It is not required to communicate with HDInsight.
 
 There are also several graphical SSH clients, such as [PuTTY (http://www.chiark.greenend.org.uk/~sgtatham/putty/)](http://www.chiark.greenend.org.uk/~sgtatham/putty/) and [MobaXterm (http://mobaxterm.mobatek.net/)](http://mobaxterm.mobatek.net/). While these clients can be used to connect to HDInsight, the process of connecting is different than using the `ssh` utility. For more information, see the documentation of the graphical client you are using.
 
@@ -109,7 +107,10 @@ You are prompted for information during the key creation process. For example, w
 SSH accounts can be secured using a password. When you connect to HDInsight using SSH, you are prompted to enter the password.
 
 > [!WARNING]
-> We do not recommend using password authentication for SSH. Passwords can be guessed and are vulnerable to brute force attacks. Instead, we recommend that you use [SSH keys for authentication](#sshkey).
+> Microsoft does not recommend using password authentication for SSH. Passwords can be guessed and are vulnerable to brute force attacks. Instead, we recommend that you use [SSH keys for authentication](#sshkey).
+
+> [!IMPORTANT]
+> The SSH account password expires 70 days after the HDInsight cluster is created. If your password expires, you can change it using the information in the [Manage HDInsight](hdinsight-administer-use-portal-linux.md#change-passwords) document.
 
 ### Create HDInsight using a password
 
@@ -126,11 +127,50 @@ For information on changing the SSH user account password, see the __Change pass
 
 ## <a id="domainjoined"></a>Authentication: Domain-joined HDInsight
 
-If you are using a __domain-joined HDInsight cluster__, you must use the `kinit` command after connecting with SSH. This command prompts you for a domain user and password, and authenticates your session with the Azure Active Directory domain associated with the cluster.
+If you are using a __domain-joined HDInsight cluster__, you must use the `kinit` command after connecting with SSH local user. This command prompts you for a domain user and password, and authenticates your session with the Azure Active Directory domain associated with the cluster.
 
-For more information, see [Configure domain-joined HDInsight](hdinsight-domain-joined-configure.md).
+You can also enable Kerberos Authentication on each domain joined node (e.g. head node, edge node) in order to ssh using the domain account. To do this edit sshd config file:
+```bash
+sudo vi /etc/ssh/sshd_config
+```
+uncomment and change `KerberosAuthentication` to `yes`
 
-## Connect to worker and Zookeeper nodes
+```bash
+sudo service sshd restart
+```
+
+At any time, in order to verify whether the Kerberos authentication was successful or not, use `klist` command.
+
+For more information, see [Configure domain-joined HDInsight](./domain-joined/apache-domain-joined-configure.md).
+
+## Connect to nodes
+
+The head nodes and edge node (if there is one) can be accessed over the internet on ports 22 and 23.
+
+* When connecting to the __head nodes__, use port __22__ to connect to the primary head node and port __23__ to connect to the secondary head node. The fully qualified domain name to use is `clustername-ssh.azurehdinsight.net`, where `clustername` is the name of your cluster.
+
+    ```bash
+    # Connect to primary head node
+    # port not specified since 22 is the default
+    ssh sshuser@clustername-ssh.azurehdinsight.net
+
+    # Connect to secondary head node
+    ssh -p 23 sshuser@clustername-ssh.azurehdinsight.net
+    ```
+    
+* When connecting to the __edge node__, use port 22. The fully qualified domain name is `edgenodename.clustername-ssh.azurehdinsight.net`, where `edgenodename` is a name you provided when creating the edge node. `clustername` is the name of the cluster.
+
+    ```bash
+    # Connect to edge node
+    ssh sshuser@edgnodename.clustername-ssh.azurehdinsight.net
+    ```
+
+> [!IMPORTANT]
+> The previous examples assume that you are using password authentication, or that certificate authentication is occurring automatically. If you use an SSH key-pair for authentication, and the certificate is not used automatically, use the `-i` parameter to specify the private key. For example, `ssh -i ~/.ssh/mykey sshuser@clustername-ssh.azurehdinsight.net`.
+
+Once connected, the prompt changes to indicate the SSH user name and the node you are connected to. For example, when connected to the primary head node as `sshuser`, the prompt is `sshuser@hn0-clustername:~$`.
+
+### Connect to worker and Zookeeper nodes
 
 The worker nodes and Zookeeper nodes are not directly accessible from the internet. They can be accessed from the cluster head nodes or edge nodes. The following are the general steps to connect to other nodes:
 
@@ -142,7 +182,7 @@ The worker nodes and Zookeeper nodes are not directly accessible from the intern
 
         ssh sshuser@wn0-myhdi
 
-    To retrieve a list of the domain names of the nodes in the cluster, see the [Manage HDInsight by using the Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) document.
+    To retrieve a list of the node names, see the [Manage HDInsight by using the Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) document.
 
 If the SSH account is secured using a __password__, enter the password when connecting.
 
@@ -184,6 +224,33 @@ If the SSH account is secured using __SSH keys__, make sure that SSH forwarding 
     If your private key is stored in a different file, replace `~/.ssh/id_rsa` with the path to the file.
 
 5. Connect to the cluster edge node or head nodes using SSH. Then use the SSH command to connect to a worker or zookeeper node. The connection is established using the forwarded key.
+
+## Copy files
+
+The `scp` utility can be used to copy files to and from individual nodes in the cluster. For example, the following command copies the `test.txt` directory from the local system to the primary head node:
+
+```bash
+scp test.txt sshuser@clustername-ssh.azurehdinsight.net:
+```
+
+Since no path is specified after the `:`, the file is placed in the `sshuser` home directory.
+
+The following example copies the `test.txt` file from the `sshuser` home directory on the primary head node to the local system:
+
+```bash
+scp sshuser@clustername-ssh.azurehdinsight.net:test.txt .
+```
+
+> [!IMPORTANT]
+> `scp` can only access the file system of individual nodes within the cluster. It cannot be used to access data in the HDFS-compatible storage for the cluster.
+>
+> Use `scp` when you need to upload a resource for use from an SSH session. For example, upload a Python script and then run the script from an SSH session.
+>
+> For information on directly loading data into the HDFS-compatible storage, see the following documents:
+>
+> * [HDInsight using Azure Storage](hdinsight-hadoop-use-blob-storage.md).
+>
+> * [HDInsight using Azure Data Lake Store](hdinsight-hadoop-use-data-lake-store.md).
 
 ## Next steps
 

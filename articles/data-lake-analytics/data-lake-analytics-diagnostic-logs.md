@@ -1,21 +1,14 @@
 ---
-title: Viewing diagnostic logs for Azure Data Lake Analytics | Microsoft Docs
-description: 'Understand how to setup and access diagnostic logs for Azure Data Lake analytics '
+title: Enable and view diagnostic logs for Azure Data Lake Analytics
+description: Understand how to set up and access diagnostic logs for Azure Data Lake Analytics
 services: data-lake-analytics
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
+ms.service: data-lake-analytics
+author: jasonwhowell
+ms.author: jasonh
 
 ms.assetid: cf5633d4-bc43-444e-90fc-f90fbd0b7935
-ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 05/03/2017
-ms.author: larryfr
-
+ms.topic: conceptual
+ms.date: 02/12/2018
 ---
 # Accessing diagnostic logs for Azure Data Lake Analytics
 
@@ -33,11 +26,9 @@ Diagnostic logging allows you to collect data access audit trails. These logs pr
 
     ![Turn on diagnostics to collect audit and request logs](./media/data-lake-analytics-diagnostic-logs/turn-on-logging.png)
 
-3. From __Diagnostics settings__, set the status to __On__ and select logging options.
+3. From __Diagnostics settings__, enter a __Name__ for this logging configuration and then select logging options.
 
     ![Turn on diagnostics to collect audit and request logs](./media/data-lake-analytics-diagnostic-logs/enable-diagnostic-logs.png "Enable diagnostic logs")
-
-   * Set **Status** to **On** to enable diagnostic logging.
 
    * You can choose to store/process the data in three different ways.
 
@@ -45,44 +36,24 @@ Diagnostic logging allows you to collect data access audit trails. These logs pr
 
      * Select **Stream to an Event Hub** to stream log data to an Azure Event Hub. Use this option if you have a downstream processing pipeline that is analyzing incoming logs in real time. If you select this option, you must provide the details for the Azure Event Hub you want to use.
 
-     * Select __Send to Log Analytics__ to send the data to the Log Analytics service. Use this if you want to use Log Analytics to gather and analyze logs.
-   * Specify whether you want to get audit logs or request logs or both.  A request log captures every API request, and an audit log records all operations that are triggered by that API request.
+     * Select __Send to Log Analytics__ to send the data to the Log Analytics service. Use this option if you want to use Log Analytics to gather and analyze logs.
+   * Specify whether you want to get audit logs or request logs or both.  A request log captures every API request. An audit log records all operations that are triggered by that API request.
 
-   * For __Archive to a storage account__, specify the number of days for which the data will be retained.
+   * For __Archive to a storage account__, specify the number of days to retain the data.
 
    * Click __Save__.
 
         > [!NOTE]
         > You must select either __Archive to a storage account__, __Stream to an Event Hub__ or __Send to Log Analytics__ before clicking the __Save__ button.
 
-Once you have enabled diagnostic settings, you can return to the __Diagnostics logs__ blade to view the logs.
+### Use the Azure Storage account that contains log data
 
-## View logs
-
-### Use the Data Lake Analytics view
-
-1. From your Data Lake Analytics account blade, under **Monitoring**, select **Diagnostic Logs** and then select an entry to display logs for.
-
-    ![View diagnostic logging](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs.png "View diagnostic logs")
-
-2. The logs are categorized by **Audit Logs** and **Request Logs**.
-
-    ![log entries](./media/data-lake-analytics-diagnostic-logs/diagnostic-log-entries.png)
-
-   * Request logs capture every API request made on the Data Lake Analytics account.
-   * Audit Logs are similar to request Logs but provide a much more detailed breakdown of the operations being performed on the Data Lake Analytics account. For example, a single upload API call in a request log can result in multiple "Append" operations in its audit log.
-
-3. Click the **Download** link for a log entry to download that log.
-
-### Use the Azure Data Lake Storage account that contains log data
-
-1. Open the Azure Data Lake Storage account blade associated with Data Lake Analytics for logging, and then click __Blobs__. The **Blob service** blade lists two containers.
-
-    ![View diagnostic logging](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs-storage-account.png "View diagnostic logs")
+1. To display the blob containers that hold logging data, open the Azure Storage account used for Data Lake Analytics for logging, and then click __Blobs__.
 
    * The container **insights-logs-audit** contains the audit logs.
    * The container **insights-logs-requests** contains the request logs.
-2. Within these containers, the logs are stored under the following structure.
+
+2. Within the containers, the logs are stored under the following file structure:
 
         resourceId=/
           SUBSCRIPTIONS/
@@ -230,7 +201,7 @@ Here's a sample entry in the JSON-formatted audit log. Each blob has one root ob
 | Parallelism |String |The number of Data Lake Analytics units requested for this job during submission |
 
 > [!NOTE]
-> **SubmitTime**, **StartTime**, **EndTime** and **Parallelism** provide information on an operation, and only contain a value if that operation has started or completed. For example, **SubmitTime** only contains a value after **operationName** has the value **JobSubmitted**.
+> **SubmitTime**, **StartTime**, **EndTime**, and **Parallelism** provide information on an operation. These entries only contain a value if that operation has started or completed. For example, **SubmitTime** only contains a value after **operationName** has the value **JobSubmitted**.
 
 ## Process the log data
 

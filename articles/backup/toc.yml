@@ -1,0 +1,237 @@
+- name: Azure Backup Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Azure Backup?
+    href: backup-introduction-to-azure-backup.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Back up a VM - Portal
+    href: quick-backup-vm-portal.md
+  - name: Back up a VM - PowerShell
+    href: quick-backup-vm-powershell.md
+  - name: Back up a VM - CLI
+    href: quick-backup-vm-cli.md
+- name: Tutorials
+  items:
+  - name: Back up Azure VMs at scale
+    href: tutorial-backup-vm-at-scale.md
+  - name: Restore a disk
+    href: tutorial-restore-disk.md
+  - name: Restore individual files
+    href: tutorial-restore-files.md
+  - name: Back up Windows Server
+    href: tutorial-backup-windows-server-to-azure.md
+  - name: Restore files to Windows Server
+    href: tutorial-backup-restore-files-windows-server.md
+- name: Samples
+  items:
+  - name: Azure PowerShell
+    href: powershell-backup-samples.md
+  - name: Resource Manager templates
+    href: backup-rm-template-samples.md
+- name: Concepts
+  items:
+  - name: FAQ
+    items:
+    - name: FAQ on Recovery Services vault
+      href: backup-azure-backup-faq.md
+    - name: FAQ on Azure VM backup
+      href: backup-azure-vm-backup-faq.md
+    - name: FAQ on file-folder backup using Azure Backup agent
+      href: backup-azure-file-folder-backup-faq.md
+    - name: FAQ on auto-upgrade of backup vault
+      href: backup-upgrade-backup-vault.md
+  - name: Role-Based Access Control
+    href: backup-rbac-rs-vault.md
+  - name: Security for hybrid backups
+    href: backup-azure-security-feature.md
+  - name: Configure offline-backup
+    href: backup-azure-backup-import-export.md
+  - name: Offline backup for DPM and Azure Backup Server
+    href: backup-azure-backup-server-import-export-.md
+  - name: Replace your tape library
+    href: backup-azure-backup-cloud-as-tape.md
+- name: How to
+  items:
+  - name: Azure Backup Server
+    items:
+    - name: Azure Backup Server protection matrix
+      href: backup-mabs-protection-matrix.md
+    - name: Install or upgrade
+      items:
+      - name: Install Azure Backup Server
+        href: backup-azure-microsoft-azure-backup.md        
+      - name: Add storage
+        href: backup-mabs-add-storage.md
+      - name: Upgrade to v.2
+        href: backup-mabs-upgrade-to-v2.md
+      - name: Unattended installation
+        href: backup-mabs-unattended-install.md
+    - name: Protect workloads
+      items:
+      - name: VMware server
+        href: backup-azure-backup-server-vmware.md
+      - name: Exchange
+        href: backup-azure-exchange-mabs.md
+      - name: SharePoint farm
+        href: backup-azure-backup-sharepoint-mabs.md
+      - name: SQL Server
+        href: backup-azure-sql-mabs.md
+      - name: Protect system state and bare metal recovery
+        href: backup-mabs-system-state-and-bmr.md
+    - name: Recover data from Azure Backup Server
+      href: backup-azure-alternate-dpm-server.md
+  - name: Azure Backup Server on Azure Stack
+    items:
+    - name: Install Azure Backup Server
+      href: backup-mabs-install-azure-stack.md
+    - name: Protect files and applications
+      href: backup-mabs-files-applications-azure-stack.md
+    - name: Protect SharePoint farm
+      href: backup-mabs-sharepoint-azure-stack.md
+    - name: Protect SQL Server database
+      href: backup-mabs-sql-azure-stack.md
+  - name: Azure File shares
+    items:
+    - name: Back up Azure File shares
+      href: backup-azure-files.md
+    - name: Back up Azure File shares FAQ
+      href: backup-azure-files-faq.md
+  - name: Azure VMs
+    items:
+    - name: Prepare the VM
+      items:
+      - name: Prepare Resource Manager-deployed VMs
+        href: backup-azure-arm-vms-prepare.md
+      - name: Application consistent backups of Linux VMs
+        href: backup-azure-linux-app-consistent.md
+    - name: Plan your environment
+      items:
+      - name: Plan VM backup infrastructure
+        href: backup-azure-vms-introduction.md
+    - name: Back up VMs
+      items:
+      - name: Back up Azure VMs to Recovery Services vault
+        href: backup-azure-vms-first-look-arm.md
+      - name: Back up encrypted VMs
+        href: backup-azure-vms-encryption.md
+      - name: Enable VM backup during VM creation
+        href: backup-during-vm-creation.md
+      - name: Upgrade to VM backup stack V2
+        href: backup-upgrade-to-vm-backup-stack-v2.md
+    - name: Manage and monitor VMs
+      items:
+      - name: Manage Azure VM backups in Azure portal
+        href: backup-azure-manage-vms.md
+      - name: Monitor alerts for Azure VM backups
+        href: backup-azure-monitor-vms.md
+    - name: Restore data from VMs
+      items:
+      - name: Recover files from Azure VM backups
+        href: backup-azure-restore-files-from-vm.md
+      - name: Restore VMs in Azure portal
+        href: backup-azure-arm-restore-vms.md
+      - name: Restore encrypted VMs
+        href: backup-azure-vms-encryption.md
+      - name: Restore Key Vault key and secret for encrypted VMs
+        href: backup-azure-restore-key-secret.md
+  - name: Configure Azure Backup reports
+    items:
+    - name: Configure Azure Backup reports
+      href: backup-azure-configure-reports.md
+    - name: Data model for Azure Backup reports
+      href: backup-azure-reports-data-model.md
+    - name: Log Analytics data model for Azure Backup
+      href: backup-azure-log-analytics-data-model.md
+    - name: Updating Azure Backup Central Reporting Content Pack 
+      href: backup-azure-central-reporting-updates.md
+  - name: Data Protection Manager
+    items:
+    - name: Prepare DPM workloads in Azure portal
+      href: backup-azure-dpm-introduction.md
+    - name: Use DPM to back up Exchange server
+      href: backup-azure-backup-exchange-server.md
+    - name: Recover data to alternate DPM server
+      href: backup-azure-alternate-dpm-server.md
+    - name: Use DPM to back up SQL Server workloads
+      href: backup-azure-backup-sql.md
+    - name: Use DPM to back up a SharePoint farm
+      href: backup-azure-backup-sharepoint.md
+  - name: Use Azure PowerShell
+    items:
+    - name: Azure VMs in Azure portal
+      href: backup-azure-vms-automation.md
+    - name: DPM in Azure portal
+      href: backup-dpm-automation.md
+    - name: Windows Server in Azure portal
+      href: backup-client-automation.md
+  - name: SQL on Azure VMs
+    items:
+    - name: Back up SQL database in Azure
+      href: backup-azure-sql-database.md
+  - name: Windows Server
+    items:
+    - name: Back up Windows Server files and folders
+      href: backup-configure-vault.md
+    - name: Back up Windows Server System State
+      href: backup-azure-system-state.md
+    - name: Recover files from Azure to Windows Server
+      href: backup-azure-restore-windows-server.md
+    - name: Restore Windows Server System State
+      href: backup-azure-restore-system-state.md
+    - name: Monitor and manage Recovery Services vaults
+      href: backup-azure-manage-windows-server.md
+  - name: Recovery Services vault
+    items:
+    - name: Overview of Recovery Services vaults
+      href: backup-azure-recovery-services-vault-overview.md
+    - name: Upgrading a Backup vault to Recovery Services vault
+      href: backup-azure-upgrade-backup-to-recovery-services.md
+    - name: Delete a Recovery Services vault
+      href: backup-azure-delete-vault.md
+  - name: Troubleshoot
+    items:
+    - name: Azure VM
+      href: backup-azure-vms-troubleshoot.md
+    - name: Azure Backup agent or VM extension timed out
+      href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
+    - name: Files and folders backup is slow
+      href: backup-azure-troubleshoot-slow-backup-performance-issue.md
+    - name: Azure Backup Server
+      href: backup-azure-mabs-troubleshoot.md
+    - name: System Center DPM
+      href: backup-azure-scdpm-troubleshooting.md
+    - name: Azure Backup agent
+      href: backup-azure-mars-troubleshoot.md
+    - name: Azure File share
+      href: troubleshoot-azure-files.md
+    - name: SQL Server
+      href: backup-sql-server-azure-troubleshoot.md
+- name: Reference
+  items:
+  - name: .NET
+    href: /dotnet/api/microsoft.azure.management.recoveryservices.backup
+  - name: Azure CLI 2.0
+    href: /cli/azure/backup?view=azure-cli-latest
+  - name: PowerShell
+    href: /powershell/module/azurerm.recoveryservices.backup
+  - name: REST - Backup
+    href: /rest/api/backup/
+  - name: REST - Recovery Services vault
+    href: /rest/api/recoveryservices/
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: MSDN forum
+    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/backup/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?product=backup
+  - name: Videos
+    href: https://azure.microsoft.com/documentation/videos/index/?services=backup

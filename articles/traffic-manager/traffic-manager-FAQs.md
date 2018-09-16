@@ -3,8 +3,8 @@ title: Azure Traffic Manager - FAQs | Microsoft Docs
 description: This article provides answers to frequently asked questions about Traffic Manager
 services: traffic-manager
 documentationcenter: ''
-author: kumudd
-manager: timlt
+author: KumudD
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 75d5ff9a-f4b9-4b05-af32-700e7bdfea5a
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/15/2017
+ms.date: 05/09/2018
 ms.author: kumud
 ---
 
@@ -23,27 +23,31 @@ ms.author: kumud
 
 ### What IP address does Traffic Manager use?
 
-As explained in [How Traffic Manager Works](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), Traffic Manager works at the DNS level. It sends DNS responses to direct clients to the appropriate service endpoint. Clients then connect to the service endpoint directly, not through Traffic Manager.
+As explained in [How Traffic Manager Works](../traffic-manager/traffic-manager-how-it-works.md), Traffic Manager works at the DNS level. It sends DNS responses to direct clients to the appropriate service endpoint. Clients then connect to the service endpoint directly, not through Traffic Manager.
 
-Therefore, Traffic Manager does not provide an endpoint or IP address for clients to connect to. Therefore, if you want static IP address for your service, that must be configured at the service, not in Traffic Manager.
+Therefore, Traffic Manager does not provide an endpoint or IP address for clients to connect to. If you want static IP address for your service, that must be configured at the service, not in Traffic Manager.
+
+### What types of traffic can be routed using Traffic Manager?
+As explained in [How Traffic Manager Works](../traffic-manager/traffic-manager-how-it-works.md), a Traffic Manager endpoint can be any internet facing service hosted inside or outside of Azure. Hence, Traffic Manager can route traffic that originates from the public internet to a set of endpoints that are also internet facing. If you have endpoints that are inside a private network (for example, an internal version of [Azure Load Balancer](../load-balancer/load-balancer-overview.md#internalloadbalancer)) or have users making DNS requests from such internal networks, Traffic Manager cannot be used for those traffic.
+
 
 ### Does Traffic Manager support 'sticky' sessions?
 
-As explained in [How Traffic Manager Works](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), Traffic Manager works at the DNS level. It uses DNS responses to direct clients to the appropriate service endpoint. Clients connect to the service endpoint directly, not through Traffic Manager. Therefore, Traffic Manager does not see the HTTP traffic between the client and the server.
+As explained in [How Traffic Manager Works](../traffic-manager/traffic-manager-how-it-works.md), Traffic Manager works at the DNS level. It uses DNS responses to direct clients to the appropriate service endpoint. Clients connect to the service endpoint directly, not through Traffic Manager. Therefore, Traffic Manager does not see the HTTP traffic between the client and the server.
 
 Additionally, the source IP address of the DNS query received by Traffic Manager belongs to the recursive DNS service, not the client. Therefore, Traffic Manager has no way to track individual clients and cannot implement 'sticky' sessions. This limitation is common to all DNS-based traffic management systems and is not specific to Traffic Manager.
 
 ### Why am I seeing an HTTP error when using Traffic Manager?
 
-As explained in [How Traffic Manager Works](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), Traffic Manager works at the DNS level. It uses DNS responses to direct clients to the appropriate service endpoint. Clients then connect to the service endpoint directly, not through Traffic Manager. Traffic Manager does not see HTTP traffic between client and server. Therefore, any HTTP error you see must be coming from your application. For the client to connect to the application, all DNS resolution steps are complete. That includes any interaction that Traffic Manager has on the application traffic flow.
+As explained in [How Traffic Manager Works](../traffic-manager/traffic-manager-how-it-works.md), Traffic Manager works at the DNS level. It uses DNS responses to direct clients to the appropriate service endpoint. Clients then connect to the service endpoint directly, not through Traffic Manager. Traffic Manager does not see HTTP traffic between client and server. Therefore, any HTTP error you see must be coming from your application. For the client to connect to the application, all DNS resolution steps are complete. That includes any interaction that Traffic Manager has on the application traffic flow.
 
 Further investigation should therefore focus on the application.
 
-The HTTP host header sent from the client's browser is the most common source of problems. Make sure that the application is configured to accept the correct host header for the domain name you are using. For endpoints using the Azure App Service, see [configuring a custom domain name for a web app in Azure App Service using Traffic Manager](../app-service-web/web-sites-traffic-manager-custom-domain-name.md).
+The HTTP host header sent from the client's browser is the most common source of problems. Make sure that the application is configured to accept the correct host header for the domain name you are using. For endpoints using the Azure App Service, see [configuring a custom domain name for a web app in Azure App Service using Traffic Manager](../app-service/web-sites-traffic-manager-custom-domain-name.md).
 
 ### What is the performance impact of using Traffic Manager?
 
-As explained in [How Traffic Manager Works](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), Traffic Manager works at the DNS level. Since clients connect to your service endpoints directly, there is no performance impact incurred when using Traffic Manager once the connection is established.
+As explained in [How Traffic Manager Works](../traffic-manager/traffic-manager-how-it-works.md), Traffic Manager works at the DNS level. Since clients connect to your service endpoints directly, there is no performance impact incurred when using Traffic Manager once the connection is established.
 
 Since Traffic Manager integrates with applications at the DNS level, it does require an additional DNS lookup to be inserted into the DNS resolution chain. The impact of Traffic Manager on DNS resolution time is minimal. Traffic Manager uses a global network of name servers, and uses [anycast](https://en.wikipedia.org/wiki/Anycast) networking to ensure DNS queries are always routed to the closest available name server. In addition, caching of DNS responses means that the additional DNS latency incurred by using Traffic Manager applies only to a fraction of sessions.
 
@@ -51,23 +55,22 @@ The Performance method routes traffic to the closest available endpoint. The net
 
 ### What application protocols can I use with Traffic Manager?
 
-As explained in [How Traffic Manager Works](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), Traffic Manager works at the DNS level. Once the DNS lookup is complete, clients connect to the application endpoint directly, not through Traffic Manager. Therefore, the connection can use any application protocol. 
+As explained in [How Traffic Manager Works](../traffic-manager/traffic-manager-how-it-works.md), Traffic Manager works at the DNS level. Once the DNS lookup is complete, clients connect to the application endpoint directly, not through Traffic Manager. Therefore, the connection can use any application protocol. 
  If you select TCP as the monitoring protocol, Traffic Manager's endpoint health monitoring can be done without using any application protocols. If you choose to have the health verified using an application protocol, the endpoint needs to be able to respond to either HTTP or HTTPS GET requests.
 
 ### Can I use Traffic Manager with a 'naked' domain name?
 
 No. The DNS standards do not permit CNAMEs to co-exist with other DNS records of the same name. The apex (or root) of a DNS zone always contains two pre-existing DNS records; the SOA and the authoritative NS records. This means a CNAME record cannot be created at the zone apex without violating the DNS standards.
 
-Traffic Manager requires a DNS CNAME record to map the vanity DNS name. For example, you map www.contoso.com to the Traffic Manager profile DNS name contoso.trafficmanager.net. Additionally, the Traffic Manager profile returns a second DNS CNAME to indicate which endpoint the client should connect to.
+Traffic Manager requires a DNS CNAME record to map the vanity DNS name. For example, you map `www.contoso.com` to the Traffic Manager profile DNS name `contoso.trafficmanager.net`. Additionally, the Traffic Manager profile returns a second DNS CNAME to indicate which endpoint the client should connect to.
 
 To work around this issue, we recommend using an HTTP redirect to direct traffic from the naked domain name to a different URL, which can then use Traffic Manager. For example, the naked domain 'contoso.com' can redirect users to the CNAME 'www.contoso.com' that points to the Traffic Manager DNS name.
 
 Full support for naked domains in Traffic Manager is tracked in our feature backlog. You can register your support for this feature request by [voting for it on our community feedback site](https://feedback.azure.com/forums/217313-networking/suggestions/5485350-support-apex-naked-domains-more-seamlessly).
 
 ### Does Traffic Manager consider the client subnet address when handling DNS queries? 
-No, currently Traffic Manager considers only the source IP address of the DNS query it receives, which usually is the IP address of the DNS resolver, when performing lookups for Geographic and Performance routing methods.  
-Specifically, [RFC 7871 – Client Subnet in DNS Queries](https://tools.ietf.org/html/rfc7871) that provides an [Extension Mechanism for DNS (EDNS0)](https://tools.ietf.org/html/rfc2671) which can pass on the client subnet address from resolvers that support it to DNS servers is currently not supported in Traffic Manager. You can register your support for this feature request through our [community feedback site](https://feedback.azure.com/forums/217313-networking).
-
+Yes, in addition to the source IP address of the DNS query it receives (which usually is the IP address of the DNS resolver), when performing lookups for Geographic and Performance routing methods, traffic manager also considers the client subnet address if it is included in the query by the resolver making the request on behalf of the end user.  
+Specifically, [RFC 7871 – Client Subnet in DNS Queries](https://tools.ietf.org/html/rfc7871) that provides an [Extension Mechanism for DNS (EDNS0)](https://tools.ietf.org/html/rfc2671) which can pass on the client subnet address from resolvers that support it.
 
 ### What is DNS TTL and how does it impact my users?
 
@@ -80,10 +83,18 @@ When a DNS query lands on Traffic Manager, it sets a value in the response calle
 
 You can set, at a per profile level, the DNS TTL to be as low as 0 seconds and as high as 2,147,483,647 seconds (the maximum range compliant with [RFC-1035](https://www.ietf.org/rfc/rfc1035.txt )). A TTL of 0 means that downstream DNS resolvers do not cache query responses and all queries are expected to reach the Traffic Manager DNS servers for resolution.
 
+### How can I understand the volume of queries coming to my profile? 
+One of the metrics provided by Traffic Manager is the number of query responded by a profile. You can get this information at a profile level aggregation or you can split it up further to see the volume of queries where specific endpoints were returned. In addition, you can setup alerts to notify you if the query response volume crosses the conditions you have set. For more details, [Traffic Manager metrics and alerts](traffic-manager-metrics-alerts.md).
+
 ## Traffic Manager Geographic traffic routing method
 
 ### What are some use cases where geographic routing is useful? 
 Geographic routing type can be used in any scenario where an Azure customer needs to distinguish their users based on geographic regions. For example, using the Geographic traffic routing method, you can give users from specific regions a different user experience than those from other regions. Another example is complying with local data sovereignty mandates that require that users from a specific region be served only by endpoints in that region.
+
+### How do I decide if I should use Performance routing method or Geographic routing method? 
+The key difference between these two popular routing methods is that in Performance routing method your primary goal is to send traffic to the endpoint that can provide the lowest latency to the caller, whereas, in Geographic routing the primary goal is to enforce a geo fence for your callers so that you can deliberately route them to a specific endpoint. The overlap happens since there is a correlation between geographical closeness and lower latency, although this is not always true. There might be an endpoint in a different geography that can provide a better latency experience for the caller and in that case Performance routing will send the user to that endpoint but Geographic routing will always send them to the endpoint you have mapped for their geographic region. To further make it clear, consider the following example - with Geographic routing you can make uncommon mappings such as send all traffic from Asia to endpoints in the US and all US traffic to endpoints in Asia. In that case, Geographic routing will deliberately do exactly what you have configured it to do and performance optimization is not a consideration. 
+>[!NOTE]
+>There may be scenarios where you might need both performance and geographic routing capabilities, for these scenarios nested profiles can be great choice. For example, you can set up a parent profile with geographic routing where you send all traffic from North America to a nested profile that has endpoints in the US and use performance routing to send those traffic to the best endpoint within that set. 
 
 ### What are the regions that are supported by Traffic Manager for geographic routing? 
 The country/region hierarchy that is used by Traffic Manager can be found [here](traffic-manager-geographic-regions.md). While this page is kept up-to-date with any changes, you can also programmatically retrieve the same information by using the [Azure Traffic Manager REST API](https://docs.microsoft.com/rest/api/trafficmanager/). 
@@ -115,13 +126,117 @@ All the endpoints under a profile with geographic routing need to have at least 
 
 ###  Why is it strongly recommended that customers create nested profiles instead of endpoints under a profile with geographic routing enabled? 
 
-A region can be assigned to only one endpoint within a profile if its using geographic routing type. If that endpoint is not a nested type with a child profile attached to it, if that endpoint going unhealthy, Traffic Manager continues to send traffic to it since the alternative of not sending any traffic isn’t any better. Traffic Manager does not failover to another endpoint, even when the region assigned is a “parent” of the region assigned to the endpoint that went unhealthy (for example, if an endpoint that has region Spain goes unhealthy, we will not failover to another endpoint that has the region Europe assigned to it). This is done to ensure that Traffic Manager respects the geographic boundaries that a customer has setup in their profile. To get the benefit of failing over to another endpoint when an endpoint goes unhealthy, it is recommended that geographic regions be assigned to nested profiles with multiple endpoints within it instead of individual endpoints. In this way, if an endpoint in the nested child profile fails, traffic can failover to another endpoint inside the same nested child profile.
+A region can be assigned to only one endpoint within a profile if its using geographic routing type. If that endpoint is not a nested type with a child profile attached to it, if that endpoint going unhealthy, Traffic Manager continues to send traffic to it since the alternative of not sending any traffic isn’t any better. Traffic Manager does not failover to another endpoint, even when the region assigned is a “parent” of the region assigned to the endpoint that went unhealthy (for example, if an endpoint that has region Spain goes unhealthy, we do not failover to another endpoint that has the region Europe assigned to it). This is done to ensure that Traffic Manager respects the geographic boundaries that a customer has setup in their profile. To get the benefit of failing over to another endpoint when an endpoint goes unhealthy, it is recommended that geographic regions be assigned to nested profiles with multiple endpoints within it instead of individual endpoints. In this way, if an endpoint in the nested child profile fails, traffic can failover to another endpoint inside the same nested child profile.
 
 ### Are there any restrictions on the API version that supports this routing type?
 
 Yes, only API version 2017-03-01 and newer supports the Geographic routing type. Any older API versions cannot be used to created profiles of Geographic routing type or assign geographic regions to endpoints. If an older API version is used to retrieve profiles from an Azure subscription, any profile of Geographic routing type is not returned. In addition, when using older API versions, any profile returned that has endpoints with a geographic region assignment, does not have its geographic region assignment shown.
 
+## Real User Measurements
 
+### What are the benefits of using Real User Measurements?
+When you use performance routing method, Traffic Manager picks the best Azure region for your end user to connect to by inspecting the source IP and EDNS Client Subnet (if passed in) and checking it against the network latency intelligence the service maintains. Real User Measurements enhances this for your end user base by having their experience contribute to this latency table in addition to ensuring that this table adequately spans the end user networks from where your end users connect to Azure. This leads to an increased accuracy in the routing of your end users.
+
+### Can I use Real User Measurements with non-Azure regions?
+Real User Measurements measures and reports on only the latency to reach Azure regions. If you are using performance-based routing with endpoints hosted in non-Azure regions, you can still benefit from this feature by having increased latency information about the representative Azure region you had selected to be associated with this endpoint.
+
+### Which routing method benefits from Real User Measurements?
+The additional information gained through Real User Measurements are applicable only for profiles that use the performance routing method. Note that the Real User Measurements link is available from all the profiles when you view it through the Azure portal.
+
+### Do I need to enable Real User Measurements each profile separately?
+No, you only need to enable it once per subscription and all the latency information measured and reported are available to all profiles.
+
+### How do I turn off Real User Measurements for my subscription?
+You can stop accruing charges related to Real User Measurements when you stop collecting and sending back latency measurements from your client application. For example, when measurement JavaScript embedded in web pages, you can stop using this feature by removing the JavaScript or by turning off its invocation when the page is rendered.
+
+You can also turn off Real User Measurements by deleting your key. Once you delete the key, any measurements sent to Traffic Manager with that key are discarded.
+
+### Can I use Real User Measurements with client applications other than web pages?
+Yes, Real User Measurements is designed to ingest data collected through different type of end user clients. This FAQ will be updated as new types of client applications get supported.
+
+### How many measurements are made each time my Real User Measurements enabled web page is rendered?
+When Real User Measurements is used with the measurement JavaScript provided, each page rendering results in six measurements being taken. These are then reported back to the Traffic Manager service. Note that you are charged for this feature based on the number of measurements reported to Traffic Manager service. For example, if the user navigates away from your webpage while the measurements are being taken but before it was reported, those measurements are not considered for billing purposes.
+
+### Is there a delay before Real User Measurements script runs in my webpage?
+No, there is no programmed delay before the script is invoked.
+
+### Can I use configure Real User Measurements with only the Azure regions I want to measure?
+No, each time it is invoked, the Real User Measurements script measures a set of six Azure regions as determined by the service. This set changes between different invocations and when a large number of such invocations happen, the measurement coverage spans across different Azure regions.
+
+### Can I limit the number of measurements made to a specific number?
+The measurement JavaScript is embedded within your webpage and you are in complete control over when to start and stop using it. As long as the Traffic Manager service receives a request for a list of Azure regions to be measured, a set of regions are returned.
+
+### Can I see the measurements taken by my client application as part of Real User Measurements?
+Since the measurement logic is run from your client application, you are in full control of what happens including seeing the latency measurements. Traffic Manager does not report an aggregate view of the measurements received under the key linked to your subscription.
+
+### Can I modify the measurement script provided by Traffic Manager?
+While you are in control of what is embedded on your web page, we strongly discourage you from making any changes to the measurement script to ensure that it measures and reports the latencies correctly.
+
+### Will it be possible for others to see the key I use with Real User Measurements?
+When you embed the measurement script to a web page it will be possible for others to see the script and your Real User Measurements (RUM) key. But it is important to know that this key is different from your subscription id and is generated by Traffic Manager to be used only for this purpose. Knowing your RUM key will not compromise your Azure account safety.
+
+### Can others abuse my RUM key?
+While it is possible for others to use your key to send wrong information to Azure please note that a few wrong measurements will not change the routing since it is taken into account along with all the other measurements we receive. If you need to change your keys, you can re-generate the key at which point the old key becomes discarded.
+
+###  Do I need to put the measurement JavaScript in all my web pages?
+Real User Measurements delivers more value as the number of measurements increase. Having said that, it is your decision as to whether you need to put it in all your web pages or a select few. Our recommendation is to start by putting it in your most visited page where a user is expected to stay on that page five seconds or more.
+
+### Can information about my end users be identified by Traffic Manager if I use Real User Measurements?
+When the provided measurement JavaScript is used, Traffic Manager will have visibility into the client IP address of the end user and the source IP address of the local DNS resolver they use. Traffic Manager uses the client IP address only after having it truncated to not be able to identify the specific end user who sent the measurements. 
+
+### Does the webpage measuring Real User Measurements need to be using Traffic Manager for routing?
+No, it doesn’t need to use Traffic Manager. The routing side of Traffic Manager operates separately from the Real User Measurement part and although it is a great idea to have them both in the same web property, they don’t need to be.
+
+### Do I need to host any service on Azure regions to use with Real User Measurements?
+No, you don’t need to host any server side component on Azure for Real User Measurements to work. The single pixel image downloaded by the measurement JavaScript and the service running it in different Azure regions is hosted and managed by Azure. 
+
+### Will my Azure bandwidth usage increase when I use Real User Measurements?
+As mentioned in the previous answer, the server-side components of Real User Measurements are owned and managed by Azure. This means your Azure bandwidth usage will not increase because you use Real User Measurements. Please note that, this does not include any bandwidth usage outside of what Azure charges. We minimize the bandwidth used by downloading only a single pixel image to measurement the latency to an Azure region. 
+
+## Traffic View
+
+### What does Traffic View do?
+Traffic View is a feature of Traffic Manager that helps you understand more about your users and how their experience is. It uses the queries received by Traffic Manager and the network latency intelligence tables that the service maintains to provide you with the following:
+- The regions from where your users are connecting to your endpoints in Azure.
+- The volume of users connecting from these regions.
+- The Azure regions  to which they are getting routed to.
+- Their latency experience to these Azure regions.
+
+This information is available for you to consume through geographical map overlay and tabular views in the portal in addition to being available as raw data for you to download.
+
+### How can I benefit from using Traffic View?
+
+Traffic View gives you the overall view of the traffic your Traffic Manager profiles receive. In particular, it can be used to understand where your user base connects from and equally importantly what their average latency experience is. You can then use this information to find areas in which you need to focus, for example, by expanding your Azure footprint to a region that can serve those users with lower latency. Another insight you can derive from using Traffic View is to see the patterns of traffic to different regions which in turn can help you make decisions on increasing or decreasing invent in those regions.
+
+### How is Traffic View different from the Traffic Manager metrics available through Azure monitor?
+
+Azure Monitor can be used to understand at an aggregate level the traffic received by your profile and its endpoints. It also enables you to track the health status of the endpoints by exposing the health check results. When you need to go beyond these and understand your end user’s experience connecting to Azure at a regional level, Traffic View can be used to achieve that.
+
+### Does Traffic View use EDNS Client Subnet information?
+
+The DNS queries served by Azure Traffic Manager do consider ECS information to increase the accuracy of the routing. But when creating the data set that shows where the users are connecting from, Traffic View is using only the IP address of the DNS resolver.
+
+### How many days of data does Traffic View use?
+
+Traffic View creates its output by processing the data from the seven days preceding the day before when it is viewed by you. This is a moving window and the latest data will be used each time you visit.
+
+### How does Traffic View handle external endpoints?
+
+When you use external endpoints hosted outside Azure regions in a Traffic Manager profile you can choose to have it mapped to an Azure region which is a proxy for its latency characteristics (this is in fact needed if you use performance routing method). If it has this Azure region mapping, that Azure region’s latency metrics will be used when creating the Traffic View output. If no Azure region is specified, the latency information will be empty in the data for those external endpoints.
+
+### Do I need to enable Traffic View for each profile in my subscription?
+
+During the preview period, Traffic View was enabled at a subscription level. As part of the improvements we made before the general availability, you can now enable Traffic View at a profile level, allowing you to have more granular enabling of this feature. By default, Traffic View will be disabled for a profile.
+
+>[!NOTE]
+>If you enabled Traffic View at a subscription level during the preview time, you now need to re-enable it for each of the profile under that subscription.
+ 
+### How can I turn off Traffic View? 
+You can turn off Traffic View for any profile using the Portal or REST API. 
+
+### How does Traffic View billing work?
+
+Traffic View pricing is based on the number of data points used to create the output. Currently, the only data type supported is the queries your profile receives. In addition, you are only billed for the processing that was done when you have Traffic View enabled. This means that, if you enable Traffic View for some time period in a month and turn it off during other times, only the data points processed while you had the feature enabled count towards your bill.
 
 ## Traffic Manager endpoints
 
@@ -129,7 +244,7 @@ Yes, only API version 2017-03-01 and newer supports the Geographic routing type.
 
 Using endpoints from multiple subscriptions is not possible with Azure Web Apps. Azure Web Apps requires that any custom domain name used with Web Apps is only used within a single subscription. It is not possible to use Web Apps from multiple subscriptions with the same domain name.
 
-For other endpoint types, it is possible to use Traffic Manager with endpoints from more than one subscription. In Resource Manager, endpoints from any subscription can be added to Traffic Manager, as long as the person configuring the Traffic Manager profile has read access to the endpoint. These permissions can be granted using [Azure Resource Manager role-based access control (RBAC)](../active-directory/role-based-access-control-configure.md).
+For other endpoint types, it is possible to use Traffic Manager with endpoints from more than one subscription. In Resource Manager, endpoints from any subscription can be added to Traffic Manager, as long as the person configuring the Traffic Manager profile has read access to the endpoint. These permissions can be granted using [Azure Resource Manager role-based access control (RBAC)](../role-based-access-control/role-assignments-portal.md).
 
 
 ### Can I use Traffic Manager with Cloud Service 'Staging' slots?
@@ -145,6 +260,10 @@ Traffic Manager responds with the DNS name of the endpoint. To support an IPv6 e
 ### Can I use Traffic Manager with more than one Web App in the same region?
 
 Typically, Traffic Manager is used to direct traffic to applications deployed in different regions. However, it can also be used where an application has more than one deployment in the same region. The Traffic Manager Azure endpoints do not permit more than one Web App endpoint from the same Azure region to be added to the same Traffic Manager profile.
+
+### How do I move my Traffic Manager profile’s Azure endpoints to a different resource group?
+
+Azure endpoints that are associated with a Traffic Manager profile are tracked using their resource IDs. When an Azure resource that is being used as an endpoint (for example,  Public IP, Classic Cloud Service, WebApp, or another Traffic Manager profile used in a nested manner) is moved to a different resource group, its resource ID changes. In this scenario, currently, you must update the Traffic Manager profile by first deleting and then adding back the endpoints to the profile. 
 
 ##  Traffic Manager endpoint monitoring
 
@@ -165,9 +284,9 @@ Azure Resource Manager requires all resource groups to specify a location, which
 
 ### How do I determine the current health of each endpoint?
 
-The current monitoring status of each endpoint, in addition to the overall profile, is displayed in the Azure portal. This information also is available via the Traffic Monitor [REST API](https://msdn.microsoft.com/library/azure/mt163667.aspx), [PowerShell cmdlets](https://msdn.microsoft.com/library/mt125941.aspx), and [cross-platform Azure CLI](../cli-install-nodejs.md).
+The current monitoring status of each endpoint, in addition to the overall profile, is displayed in the Azure portal. This information also is available via the Traffic Monitor [REST API](https://msdn.microsoft.com/library/azure/mt163667.aspx), [PowerShell cmdlets](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager), and [cross-platform Azure CLI](../cli-install-nodejs.md).
 
-Azure does not provide historical information about past endpoint health or the ability to raise alerts about changes to endpoint health.
+You can also use Azure Monitor to track the health of your endpoints and see a visual representation of them. For more about using Azure Monitor, see the [Azure Monitoring documentation](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
 
 ### Can I monitor HTTPS endpoints?
 
@@ -178,6 +297,10 @@ Traffic manager cannot provide any certificate validation, including:
 * Server-side certificates are not validated
 * SNI server-side certificates are not supported
 * Client certificates are not supported
+
+### I stopped an Azure cloud service / web application endpoint in my Traffic Manager profile but I am not receiving any traffic even after I restarted it. How can I fix this?
+
+When an Azure cloud service / web application endpoint is stopped Traffic Manager stops checking its health and restarts the health checks only after it detects that the endpoint has restarted. To prevent this delay, disable and then reenable that endpoint in the Traffic Manager profile after you restart the endpoint.   
 
 ### Can I use Traffic Manager even if my application does not have support for HTTP or HTTPS?
 
@@ -207,32 +330,7 @@ Traffic Manager uses host headers in HTTP and HTTPS health checks. The host head
 
 ### What are the IP addresses from which the health checks originate?
 
-The following list contains the IP addresses from which Traffic Manager health checks can originate. You may use this list to ensure that incoming connections from these IP addresses are allowed at the endpoints to check its health status.
-
-* 40.68.30.66
-* 40.68.31.178
-* 137.135.80.149
-* 137.135.82.249
-* 23.96.236.252
-* 65.52.217.19
-* 40.87.147.10
-* 40.87.151.34
-* 13.75.124.254
-* 13.75.127.63
-* 52.172.155.168
-* 52.172.158.37
-* 104.215.91.84
-* 13.75.153.124
-* 13.84.222.37
-* 23.101.191.199
-* 23.96.213.12
-* 137.135.46.163
-* 137.135.47.215
-* 191.232.208.52
-* 191.232.214.62
-* 13.75.152.253
-* 104.41.187.209
-* 104.41.190.203
+Click [here](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azure/probe-ip-ranges.json) to view the JSON file that lists the IP addresses from which Traffic Manager health checks can originate. Review the IPs listed in the JSON file to ensure that incoming connections from these IP addresses are allowed at the endpoints to check its health status.
 
 ### How many health checks to my endpoint can I expect from Traffic Manager?
 
@@ -240,11 +338,14 @@ The number of Traffic Manager health checks reaching your endpoint depends on th
 - the value that you have set for the monitoring interval (smaller interval means more requests landing on your endpoint in any given time period).
 - the number of locations from where the health checks originate (the IP addresses from where you can expect these checks is listed in the preceding FAQ).
 
+### How can I get notified if one of my endpoints goes down? 
+One of the metrics provided by Traffic Manager is the health status of endpoints in a profile. You can see this as an aggregate of all endpoints inside a profile (for example, 75% of your endpoints are healthy), or, at a per endpoint level. Traffic Manager metrics are exposed through Azure Monitor and you can use its [alerting capabilities](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) to get notifications when there is a change in the health status of your endpoint. For more details, see [Traffic Manager metrics and alerts](traffic-manager-metrics-alerts.md).  
+
 ## Traffic Manager nested profiles
 
 ### How do I configure nested profiles?
 
-Nested Traffic Manager profiles can be configured using both the Azure Resource Manager and the classic Azure REST APIs, Azure PowerShell cmdlets and cross-platform Azure CLI commands. They are also supported via the new Azure portal. They are not supported in the classic portal.
+Nested Traffic Manager profiles can be configured using both the Azure Resource Manager and the classic Azure REST APIs, Azure PowerShell cmdlets and cross-platform Azure CLI commands. They are also supported via the new Azure portal.
 
 ### How many layers of nesting does Traffic Manger support?
 

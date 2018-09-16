@@ -18,7 +18,7 @@ ms.author: kumud
 ---
 
 # Traffic Manager endpoints
-Microsoft Azure Traffic Manager allows you to control how network traffic is distributed to application deployments running in different datacenters. You configure each application deployment as an 'endpoint' in Traffic Manager. When Traffic Manager receives a DNS request, it chooses an available endpoint to return in the DNS response. Traffic manager bases the choice on the current endpoint status and the traffic-routing method. For more information, see [How Traffic Manager Works](traffic-manager-how-traffic-manager-works.md).
+Microsoft Azure Traffic Manager allows you to control how network traffic is distributed to application deployments running in different datacenters. You configure each application deployment as an 'endpoint' in Traffic Manager. When Traffic Manager receives a DNS request, it chooses an available endpoint to return in the DNS response. Traffic manager bases the choice on the current endpoint status and the traffic-routing method. For more information, see [How Traffic Manager Works](traffic-manager-how-it-works.md).
 
 There are three types of endpoint supported by Traffic Manager:
 * **Azure endpoints** are used for services hosted in Azure.
@@ -46,7 +46,7 @@ When using Azure endpoints, Traffic Manager detects when a 'Classic' IaaS VM, cl
 External endpoints are used for services outside of Azure. For example, a service hosted on-premises or with a different provider. External endpoints can be used individually or combined with Azure Endpoints in the same Traffic Manager profile. Combining Azure endpoints with External endpoints enables various scenarios:
 
 * In either an active-active or active-passive failover model, use Azure to provide increased redundancy for an existing on-premises application.
-* To reduce application latency for users around the world, extend an existing on-premises application to additional geographic locations in Azure. For more information, see [Traffic Manager 'Performance' traffic routing](traffic-manager-routing-methods.md#a-name--performanceaperformance-traffic-routing-method).
+* To reduce application latency for users around the world, extend an existing on-premises application to additional geographic locations in Azure. For more information, see [Traffic Manager 'Performance' traffic routing](traffic-manager-routing-methods.md#performance).
 * Use Azure to provide additional capacity for an existing on-premises application, either continuously or as a 'burst-to-cloud' solution to meet a spike in demand.
 
 In certain cases, it is useful to use External endpoints to reference Azure services (for examples, see the [FAQ](traffic-manager-faqs.md#traffic-manager-endpoints)). In this case, health checks are billed at the Azure endpoints rate, not the External endpoints rate. However, unlike Azure endpoints, if you stop or delete the underlying service, health check billing continues until you disable or delete the endpoint in Traffic Manager.
@@ -70,7 +70,7 @@ Disabling an endpoint in Traffic Manager can be useful to temporarily remove tra
 Endpoints can be enabled and disabled via the Traffic Manager portal, PowerShell, CLI or REST API, all of which are supported in both Resource Manager and the classic deployment model.
 
 > [!NOTE]
-> Disabling an Azure endpoint has nothing to do with its deployment state in Azure. An Azure service (such as a VM or Web App remains running and able to receive traffic even when disabled in Traffic Manager. Traffic can be addressed directly to the service instance rather than via the Traffic Manager profile DNS name. For more information, see [how Traffic Manager works](traffic-manager-how-traffic-manager-works.md).
+> Disabling an Azure endpoint has nothing to do with its deployment state in Azure. An Azure service (such as a VM or Web App remains running and able to receive traffic even when disabled in Traffic Manager. Traffic can be addressed directly to the service instance rather than via the Traffic Manager profile DNS name. For more information, see [how Traffic Manager works](traffic-manager-how-it-works.md).
 
 The current eligibility of each endpoint to receive traffic depends on the following factors:
 
@@ -88,6 +88,6 @@ If all endpoints in a profile are disabled, or if the profile itself is disabled
 
 ## Next steps
 
-* Learn [how Traffic Manager works](traffic-manager-how-traffic-manager-works.md).
+* Learn [how Traffic Manager works](traffic-manager-how-it-works.md).
 * Learn about Traffic Manager [endpoint monitoring and automatic failover](traffic-manager-monitoring.md).
 * Learn about Traffic Manager [traffic routing methods](traffic-manager-routing-methods.md).

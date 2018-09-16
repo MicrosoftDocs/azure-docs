@@ -1,22 +1,13 @@
 ---
-title: Azure Data Catalog frequently asked questions | Microsoft Docs
+title: Azure Data Catalog frequently asked questions
 description: Frequently asked questions about Azure Data Catalog, including capabilities for data source discovery, annotation, and management.
 services: data-catalog
-documentationcenter: ''
 author: steelanddata
-manager: NA
-editor: ''
-tags: ''
-
+ms.author: maroche
 ms.assetid: 5c7e209a-458c-4bb4-96bb-7ed178f9528a
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
-ms.date: 05/15/2017
-ms.author: maroche
-
+ms.topic: conceptual
+ms.date: 01/18/2018
 ---
 # Azure Data Catalog frequently asked questions
 This article provides answers to frequently asked questions related to the Azure Data Catalog service.
@@ -50,11 +41,13 @@ The Free Edition of Data Catalog is limited to 5,000 registered data assets.
 
 The Standard Edition of Data Catalog supports up to 100,000 registered data assets.
 
+Any object registered in Data Catalog, such as tables, views, files, and reports, counts as a data asset.
+
 ## What are its supported data source and asset types?
 For a list of currently supported data sources, see [Data Catalog DSR](data-catalog-dsr.md).
 
 ## How do I request support for another data source?
-To submit feature requests and other feedback, go to the [Azure Data Catalog forum](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
+To submit feature requests and other feedback, go to the [Data Catalog on the Azure Feedback Forums](https://feedback.azure.com/forums/906052-data-catalog/category/320788-data-sources).
 
 ## How do I get started with Data Catalog?
 The best way to get started is by going to [Getting Started with Data Catalog](data-catalog-get-started.md). This article is an end-to-end overview of the capabilities in the service.
@@ -62,7 +55,7 @@ The best way to get started is by going to [Getting Started with Data Catalog](d
 ## How do I register my data?
 To register your data in Data Catalog:
 1. In the Azure Data Catalog portal, in the **Publish** area, start the Azure Data Catalog registration tool. 
-2. In the Data Catalog publishing application, sign in with the same credentials that you use to access the Data Catalog portal.
+2. In the Data Catalog data source registration tool, sign in with the same credentials that you use to access the Data Catalog portal.
 3. Select the data source and the specific assets that you want to register.
 
 ## What properties does it extract for data assets that are registered?
@@ -81,7 +74,7 @@ The specific properties differ from data source to data source but, in general, 
 >
 
 > [!NOTE]
-> For data sources such as SQL Server Analysis Services that have a first-class **Description** property, the Data Catalog publishing application extracts that property value. For SQL Server relational databases, which lack a first-class **Description** property, the Data Catalog publishing application extracts the value from the **ms_description** extended property for objects and columns. For more information, see [Using Extended Properties on Database Objects](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
+> For data sources such as SQL Server Analysis Services that have a first-class **Description** property, the Data Catalog data source registration tool extracts that property value. For SQL Server relational databases, which lack a first-class **Description** property, the Data Catalog data source registration tool extracts the value from the **ms_description** extended property for objects and columns. For more information, see [Using Extended Properties on Database Objects](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
 >
 >
 
@@ -91,7 +84,7 @@ After you register assets with Data Catalog, there may be a period of 5 to 10 se
 ## How do I annotate and enrich the metadata for my registered data assets?
 The simplest way to provide metadata for registered assets is to select the asset in the Data Catalog portal and then enter the values in the properties pane or schema pane for the selected object.
 
-You can also provide some metadata, such as experts and tags, during the registration process. The values you provide in the Data Catalog publishing service apply to all assets being registered at that time. To view the recently registered objects in the portal for additional annotation, select the **View Portal** button on the final screen of the Data Catalog publishing application.
+You can also provide some metadata, such as experts and tags, during the registration process. The values you provide in the Data Catalog publishing service apply to all assets being registered at that time. To view the recently registered objects in the portal for additional annotation, select the **View Portal** button on the final screen of the Data Catalog data source registration tool.
 
 ## How do I delete my registered data objects?
 You can delete an object from Data Catalog by selecting the object in the portal and then clicking the **Delete** button. Removing the object removes its metadata from Data Catalog but does not affect the underlying data source.
@@ -103,7 +96,7 @@ An expert is a person who has an informed perspective about a data object. An ob
 To report problems, share information, and ask questions, go to the [Azure Data Catalog forum](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
 
 ## Does the catalog work with another data source that I’m interested in?
-We’re actively working on adding more data sources to Data Catalog. If you want to see a specific data source supported, suggest it (or voice your support if it has already been suggested) by going to the [Azure Data Catalog forum](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
+We’re actively working on adding more data sources to Data Catalog. If you want to see a specific data source supported, suggest it (or voice your support if it has already been suggested) by going to the [Data Catalog on the Azure Feedback Forums](https://feedback.azure.com/forums/906052-data-catalog).
 
 ## How is Azure Data Catalog related to the Data Catalog in Power BI for Office 365?
 You can think of Azure Data Catalog as an evolution of the Data Catalog in Power BI. As of spring 2017, Azure Data Catalog is used to enable the sharing and discovery of queries in Excel 2016 and Power Query for Excel. Data Catalog capabilities in Excel are available to users with Power BI Pro licenses.
@@ -111,14 +104,18 @@ You can think of Azure Data Catalog as an evolution of the Data Catalog in Power
 ## What permissions do I need to register assets with Data Catalog?
 To run the Data Catalog registration tool, you need permissions on the data source that allows you to read the metadata from the source. To also include a preview, you must have permissions that allow you to read in the data from the objects being registered.
 
+Data Catalog also allows catalog administrators to restrict which users and groups can add metadata to the catalog. For additional information, see [How to secure access to data catalog and data assets](data-catalog-how-to-secure-catalog.md).
+
 ## Will Data Catalog be made available for on-premises deployment as well?
 Data Catalog is a cloud service that can work with both cloud and on-premises data sources to deliver a hybrid data-source discovery solution. There are currently no plans for a version of the Data Catalog service that runs on-premises.
 
 ## Can I extract more or richer metadata from the data sources I register?
-We’re actively working to expand the capabilities of Data Catalog. If you want to have additional metadata extracted from the data source during registration, suggest it (or vote for it, if it has already been suggested) in the [Azure Data Catalog forum](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). In the future, we will allow third parties to add new data source types through an extensibility API.
+We’re actively working to expand the capabilities of Data Catalog. If you want to have additional metadata extracted from the data source during registration, suggest it (or vote for it, if it has already been suggested) in the [Data Catalog on the Azure Feedback Forums](https://feedback.azure.com/forums/906052-data-catalog). 
+
+If you would like to include column/schema metadata, previews, or data profiles, for data sources where this metadata is not extracted by the data source registration tool, you can use the Data Catalog API to add this metadata. For additional information, see [Azure Data Catalog REST API](https://docs.microsoft.com/rest/api/datacatalog/).
 
 ## How do I restrict the visibility of registered data assets, so that only certain people can discover them?
-Select the data assets in the Data Catalog, and then click the **Take Ownership** button. Owners of data assets in Data Catalog can change the visibility settings to either allow all users to discover the owned assets or restrict visibility to specific users.
+Select the data assets in the Data Catalog, and then click the **Take Ownership** button. Owners of data assets in Data Catalog can change the visibility settings to either allow all users to discover the owned assets or restrict visibility to specific users. For additional information, see [Manage data assets in Azure Data Catalog](data-catalog-how-to-manage.md).
 
 ## How do I update the registration for a data asset so that changes in the data source are reflected in the catalog?
 To update the metadata for data assets that are already registered in the catalog, simply re-register the data source that contains the assets. Any changes in the data source, such as columns being added or removed from tables or views, are updated in the catalog, but any annotations provided by users are retained.

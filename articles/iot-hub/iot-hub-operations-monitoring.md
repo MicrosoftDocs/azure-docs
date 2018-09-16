@@ -1,25 +1,21 @@
 ---
 title: Azure IoT Hub operations monitoring | Microsoft Docs
 description: How to use Azure IoT Hub operations monitoring to monitor the status of operations on your IoT hub in real time.
-services: iot-hub
-documentationcenter: ''
 author: nberdy
-manager: timlt
-editor: ''
-
-ms.assetid: a299f3a5-b14d-4586-9c3b-44aea14ed013
+manager: briz
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/24/2017
+services: iot-hub
+ms.topic: conceptual
+ms.date: 10/10/2017
 ms.author: nberdy
-
 ---
+
 # IoT Hub operations monitoring
 
 IoT Hub operations monitoring enables you to monitor the status of operations on your IoT hub in real time. IoT Hub tracks events across several categories of operations. You can opt into sending events from one or more categories to an endpoint of your IoT hub for processing. You can monitor the data for errors or set up more complex processing based on data patterns.
+
+>[!NOTE]
+>IoT Hub operations monitoring is deprecated and will be removed from IoT Hub on March 10, 2019. For monitoring the operations and health of IoT Hub, see [Monitor the health of Azure IoT Hub and diagnose problems quickly][lnk-monitor]. For more information about the deprecation timeline, see [Monitor your Azure IoT solutions with Azure Monitor and Azure Resource Health][lnk-blog-announcement].
 
 IoT Hub monitors six categories of events:
 
@@ -30,6 +26,9 @@ IoT Hub monitors six categories of events:
 * File uploads
 * Message routing
 
+> [!IMPORTANT]
+> IoT Hub operations monitoring does not guarantee reliable or ordered delivery of events. Depending on IoT Hub underlying infrastructure, some events might be lost or delivered out of order. Use operations monitoring to generate alerts based on error signals such as failed connection attempts, or high-frequency disconnections for specific devices. You should not rely on operations monitoring events to create a consistent store for device state, e.g. a store tracking connected or disconnected state of a device. 
+
 ## How to enable operations monitoring
 
 1. Create an IoT hub. You can find instructions on how to create an IoT hub in the [Get Started][lnk-get-started] guide.
@@ -38,7 +37,7 @@ IoT Hub monitors six categories of events:
 
     ![Access operations monitoring configuration in the portal][1]
 
-1. Select the monitoring categories you wish you monitor, and then click **Save**. The events are available for reading from the Event Hub-compatible endpoint listed in **Monitoring settings**. The IoT Hub endpoint is called `messages/operationsmonitoringevents`.
+1. Select the monitoring categories you wish to monitor, and then click **Save**. The events are available for reading from the Event Hub-compatible endpoint listed in **Monitoring settings**. The IoT Hub endpoint is called `messages/operationsmonitoringevents`.
 
     ![Configure operations monitoring on your IoT hub][2]
 
@@ -56,15 +55,15 @@ The device identity operations category tracks errors that occur when you attemp
 ```json
 {
     "time": "UTC timestamp",
-        "operationName": "create",
-        "category": "DeviceIdentityOperations",
-        "level": "Error",
-        "statusCode": 4XX,
-        "statusDescription": "MessageDescription",
-        "deviceId": "device-ID",
-        "durationMs": 1234,
-        "userAgent": "userAgent",
-        "sharedAccessPolicy": "accessPolicy"
+    "operationName": "create",
+    "category": "DeviceIdentityOperations",
+    "level": "Error",
+    "statusCode": 4XX,
+    "statusDescription": "MessageDescription",
+    "deviceId": "device-ID",
+    "durationMs": 1234,
+    "userAgent": "userAgent",
+    "sharedAccessPolicy": "accessPolicy"
 }
 ```
 
@@ -74,21 +73,21 @@ The device telemetry category tracks errors that occur at the IoT hub and are re
 
 ```json
 {
-        "messageSizeInBytes": 1234,
-        "batching": 0,
-        "protocol": "Amqp",
-        "authType": "{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\"}",
-        "time": "UTC timestamp",
-        "operationName": "ingress",
-        "category": "DeviceTelemetry",
-        "level": "Error",
-        "statusCode": 4XX,
-        "statusType": 4XX001,
-        "statusDescription": "MessageDescription",
-        "deviceId": "device-ID",
-        "EventProcessedUtcTime": "UTC timestamp",
-        "PartitionId": 1,
-        "EventEnqueuedUtcTime": "UTC timestamp"
+    "messageSizeInBytes": 1234,
+    "batching": 0,
+    "protocol": "Amqp",
+    "authType": "{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\"}",
+    "time": "UTC timestamp",
+    "operationName": "ingress",
+    "category": "DeviceTelemetry",
+    "level": "Error",
+    "statusCode": 4XX,
+    "statusType": 4XX001,
+    "statusDescription": "MessageDescription",
+    "deviceId": "device-ID",
+    "EventProcessedUtcTime": "UTC timestamp",
+    "PartitionId": 1,
+    "EventEnqueuedUtcTime": "UTC timestamp"
 }
 ```
 
@@ -112,7 +111,7 @@ The cloud-to-device commands category tracks errors that occur at the IoT hub an
     "deviceId": "device-ID",
     "EventProcessedUtcTime": "UTC timestamp",
     "PartitionId": 1,
-    "EventEnqueuedUtcTime": “UTC timestamp"
+    "EventEnqueuedUtcTime": "UTC timestamp"
 }
 ```
 
@@ -181,26 +180,6 @@ The message routing category tracks errors that occur during message route evalu
     "details": "ExternalEndpointDisabled"
 }
 ```
-
-## View events
-
-You can use the *iothub-explorer* tool to quickly test that your IoT hub is generating monitoring events. To install the tool, see the instructions in the [iothub-explorer][lnk-iothub-explorer] GitHub repository.
-
-1. Make sure the **Connections** monitoring category is set to **Verbose** in the portal.
-
-1. At a command-prompt, run the following command to read from the monitoring endpoint:
-
-    ```
-    iothub-explorer monitor-ops --login {your iothubowner connection string}
-    ```
-
-1. In another command-prompt, run the following command to simulate a device sending device-to-cloud messages:
-
-    ```
-    iothub-explorer simulate-device {your device name} --send "My test message" --login {your iothubowner connection string}
-    ```
-
-1. The first command-prompt shows the monitoring events as the simulated device connects to your IoT hub.
 
 ## Connect to the monitoring endpoint
 
@@ -282,7 +261,7 @@ class Program
 To further explore the capabilities of IoT Hub, see:
 
 * [IoT Hub developer guide][lnk-devguide]
-* [Simulating a device with Azure IoT Edge][lnk-iotedge]
+* [Deploying AI to edge devices with Azure IoT Edge][lnk-iotedge]
 
 <!-- Links and images -->
 [1]: media/iot-hub-operations-monitoring/enable-OM-1.png
@@ -290,12 +269,13 @@ To further explore the capabilities of IoT Hub, see:
 [img-endpoints]: media/iot-hub-operations-monitoring/monitoring-endpoint.png
 [img-service-key]: media/iot-hub-operations-monitoring/service-key.png
 
-[lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
+[lnk-blog-announcement]: https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health
+[lnk-monitor]: iot-hub-monitor-resource-health.md
+[lnk-get-started]: quickstart-send-telemetry-dotnet.md
 [lnk-diagnostic-metrics]: iot-hub-metrics.md
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-dr]: iot-hub-ha-dr.md
 
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
-[lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
+[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
 [lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md

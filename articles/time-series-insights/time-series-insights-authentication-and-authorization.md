@@ -1,37 +1,33 @@
 ---
-title: Configure authentication and authorization for a custom application that calls the Azure Time Series Insights API | Microsoft Docs
-description: This tutorial explains how to configure authentication and authorization for a custom application that calls the Azure Time Series Insights API
-keywords:
-services: time-series-insights
-documentationcenter:
-author: dmdenmsft
-manager: almineev
-editor: cgronlun
-
-ms.assetid:
+title: How to authenticate and authorize by API in Azure Time Series Insights
+description: This article describes how to configure authentication and authorization for a custom application that calls the Azure Time Series Insights API.
 ms.service: time-series-insights
-ms.devlang: na
-ms.topic: how-to-article
-ms.tgt_pltfrm: na
+services: time-series-insights
+author: ashannon7
+ms.author: anshan
+manager: cshankar
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.devlang: csharp
 ms.workload: big-data
-ms.date: 05/24/2017
-ms.author: dmden
+ms.topic: conceptual
+ms.date: 11/27/2017
 ---
+
 # Authentication and authorization for Azure Time Series Insights API
 
-This article explains how to configure a custom application that calls the Azure Time Series Insights API.
+This article explains how to configure the authentication and authorization used in a custom application that calls the Azure Time Series Insights API.
 
 ## Service principal
 
-This section explains how to configure an application to access the Time Series Insights API on behalf of the application. The application can then query data or publish reference data in the Time Series Insights environment with application credentials and not the user credentials.
+This section explains how to configure an application to access the Time Series Insights API on behalf of the application. The application can then query data or publish reference data in the Time Series Insights environment with application credentials rather than user credentials.
 
-When you have an application that needs to access Time Series Insights, you must set up an Azure Active Directory application and assign the data access policies in the Time Series Insights environment. This approach is preferable to running the app under your own credentials because:
+When you have an application that must access Time Series Insights, you must set up an Azure Active Directory application and assign the data access policies in the Time Series Insights environment. This approach is preferable to running the app under your own credentials because:
 
-* You can assign permissions to the app identity that are different from your own permissions. Typically, these permissions are restricted to exactly what the app needs to do. For example, you can allow the app to only read data in a particular Time Series Insights environment.
+* You can assign permissions to the app identity that are different from your own permissions. Typically, these permissions are restricted to only what the app requires. For example, you can allow the app to only read data in a particular Time Series Insights environment.
 * You don't have to change the app's credentials if your responsibilities change.
 * You can use a certificate or an application key to automate authentication when you're running an unattended script.
 
-This article shows you how to perform those steps through the Azure portal. It focuses on a single-tenant application where the application is intended to run in only one organization. You typically use single-tenant applications for line-of-business applications that run in your organization.
+This article shows how to perform those steps through the Azure portal. It focuses on a single-tenant application where the application is intended to run in only one organization. You typically use single-tenant applications for line-of-business applications that run in your organization.
 
 The setup flow consists of three high-level steps:
 
@@ -83,7 +79,7 @@ Here are the detailed steps:
 
     ```csharp
     var authenticationContext = new AuthenticationContext(
-        "https://login.windows.net/common",
+        "https://login.microsoftonline.com/common",
         TokenCache.DefaultShared);
 
     AuthenticationResult token = await authenticationContext.AcquireTokenAsync(
@@ -98,11 +94,11 @@ Here are the detailed steps:
     string accessToken = token.AccessToken;
     ```
 
+Use the application ID and key in your application to authenticate with Azure Time Series Insight. 
+
 ## Next steps
+- For sample code that calls the Time Series Insights API, see [Query data using C#](time-series-insights-query-data-csharp.md).
+- For API reference information, see [Query API reference](/rest/api/time-series-insights/time-series-insights-reference-queryapi).
 
-Use the application ID and key in your application. For sample code that calls the Time Series Insights API, see [Query data using C#](time-series-insights-query-data-csharp.md).
-
-## See also
-
-* [Query API](/rest/api/time-series-insights/time-series-insights-reference-queryapi) for the full Query API reference
-* [Create a service principal in the Azure portal](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+> [!div class="nextstepaction"]
+> [Create a service principal](../azure-resource-manager/resource-group-create-service-principal-portal.md)

@@ -2,21 +2,14 @@
 title: Implement a geo-distributed Azure SQL Database solution| Microsoft Docs
 description: Learn to configure your Azure SQL Database and application for failover to a replicated database, and test failover.
 services: sql-database
-documentationcenter: ''
-author: CarlRabeler
-manager: jhubbard
-editor: ''
-tags: ''
-
-ms.assetid: 
+author: anosov1960
+manager: craigg
 ms.service: sql-database
 ms.custom: mvc,business continuity
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: ''
-ms.date: 05/26/2017
-ms.author: carlrab
+ms.topic: tutorial
+ms.date: 09/07/2018
+ms.author: sashan
+ms.reviewer: carlrab
 
 ---
 
@@ -42,8 +35,8 @@ To complete this tutorial, make sure the following prerequisites are completed:
 - Installed an Azure SQL database. This tutorial uses the AdventureWorksLT sample database with a name of **mySampleDatabase** from one of these quick starts:
 
    - [Create DB - Portal](sql-database-get-started-portal.md)
-   - [Create DB - CLI](sql-database-get-started-cli.md)
-   - [Create DB - PowerShell](sql-database-get-started-powershell.md)
+   - [Create DB - CLI](sql-database-cli-samples.md)
+   - [Create DB - PowerShell](sql-database-powershell-samples.md)
 
 - Have identified a method to execute SQL scripts against your database, you can use one of the following query tools:
    - The query editor in the [Azure portal](https://portal.azure.com). For more information on using the query editor in the Azure portal, see [Connect and query using Query Editor](sql-database-get-started-portal.md#query-the-sql-database).
@@ -58,7 +51,7 @@ Connect to your database and create user accounts using one of the following que
 - SQL Server Management Studio
 - Visual Studio Code
 
-These user accounts replicate automatically to your secondary server (and be kept in sync). To use SQL Server Management Studio or Visual Studio Code, you may need to configure a firewall rule if you are connecting from a client at an IP address for which you have not yet configured a firewall. For detailed steps, see [Create a server-level firewall rule](sql-database-get-started-portal.md#create-a-server-level-firewall-rule).
+These user accounts replicate automatically to your secondary server (and be kept in sync). To use SQL Server Management Studio or Visual Studio Code, you may need to configure a firewall rule if you are connecting from a client at an IP address for which you have not yet configured a firewall. For detailed steps, see [Create a server-level firewall rule](sql-database-get-started-portal-firewall.md).
 
 - In a query window, execute the following query to create two user accounts in your database. This script grants **db_owner** permissions to the **app_admin** account and grants **SELECT** and **UPDATE** permissions to the **app_user** account. 
 
@@ -74,7 +67,7 @@ These user accounts replicate automatically to your secondary server (and be kep
 
 ## Create database-level firewall
 
-Create a [database-level firewall rule](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) for your SQL database. This database-level firewall rule replicates automatically to the secondary server that you create in this tutorial. For simplicity (in this tutorial), use the public IP address of the computer on which you are performing the steps in this tutorial. To determine the IP address used for the server-level firewall rule for your current computer, see [Create a server-level firewall](sql-database-get-started-portal.md#create-a-server-level-firewall-rule).  
+Create a [database-level firewall rule](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) for your SQL database. This database-level firewall rule replicates automatically to the secondary server that you create in this tutorial. For simplicity (in this tutorial), use the public IP address of the computer on which you are performing the steps in this tutorial. To determine the IP address used for the server-level firewall rule for your current computer, see [Create a server-level firewall](sql-database-get-started-portal-firewall.md).  
 
 - In your open query window, replace the previous query with the following query, replacing the IP addresses with the appropriate IP addresses for your environment.  
 
@@ -382,6 +375,20 @@ Install [Maven](https://maven.apache.org/download.cgi) using the official instal
       -ServerName $mydrservername
    $fileovergroup.ReplicationRole
    ```
-## Next steps 
 
-For more information, see [Active geo-replication and failover groups](sql-database-geo-replication-overview.md).
+## Next steps
+
+In this tutorial, you learned to configure an Azure SQL database and application for failover to a remote region, and then test your failover plan.  You learned how to: 
+
+> [!div class="checklist"]
+> * Create database users and grant them permissions
+> * Set up a database-level firewall rule
+> * Create a geo-replication failover group
+> * Create and compile a Java application to query an Azure SQL database
+> * Perform a disaster recovery drill
+
+Advance to the next tutorial to migrate SQL Server to Azure SQL Database Managed Instance using DMS.
+
+> [!div class="nextstepaction"]
+>[Migrate SQL Server to Azure SQL Database Managed Instance using DMS](../dms/tutorial-sql-server-to-managed-instance.md)
+

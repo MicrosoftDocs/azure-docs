@@ -53,12 +53,12 @@
       href: concepts-extensions.md
     - name: Server logs
       href: concepts-server-logs.md
+    - name: High availability
+      href: concepts-high-availability.md
   - name: Resources
     items:
     - name: Pricing tiers
-      href: concepts-service-tiers.md
-    - name: Compute Units
-      href: concepts-compute-unit-and-storage.md
+      href: concepts-pricing-tiers.md
     - name: Limits
       href: concepts-limits.md
   - name: Data access & security
@@ -67,13 +67,25 @@
       href: concepts-firewall-rules.md
     - name: Configure SSL
       href: concepts-ssl-connection-security.md
+    - name: VNet
+      href: concepts-data-access-and-security-vnet.md 
+  - name: Business continuity
+    items: 
+    - name: Overview
+      href: concepts-business-continuity.md
+    - name: Backup and restore
+      href: concepts-backup.md
+  - name: Monitor
+    href: concepts-monitoring.md
   - name: Development
     items:
     - name: Connection libraries
       href: concepts-connection-libraries.md
 - name: How-to guides
   items:
-  - name: Firewall rules
+  - name: Create users 
+    href: howto-create-users.md
+  - name: Manage firewall
     items:
     - name: Azure portal
       href: howto-manage-firewall-using-portal.md
@@ -85,28 +97,48 @@
       href: howto-restore-server-portal.md
     - name: Azure CLI
       href: howto-restore-server-cli.md
-  - name: Migrate your database
+  - name: Migrate a database
     items:
     - name: Dump & restore
       href: howto-migrate-using-dump-and-restore.md
     - name: Import & export
       href: howto-migrate-using-export-and-import.md
-  - name: Customize server configuration parameters
+    - name: Minimal-downtime migration
+      href: howto-migrate-online.md
+  - name: Configure server parameters
     items:
+    - name: Azure portal
+      href: howto-configure-server-parameters-using-portal.md
     - name: Azure CLI
       href: howto-configure-server-parameters-using-cli.md
-  - name: Server Logs
+  - name: Access server logs
     items:
+    - name: Azure portal
+      href: howto-configure-server-logs-in-portal.md
     - name: Azure CLI
       href: howto-configure-server-logs-using-cli.md
+  - name: Monitor
+    items:
+    - name: Create alerts on metrics
+      href: howto-alert-on-metric.md
+  - name: Virtual Network
+    items:
+    - name: Azure portal
+      href: howto-manage-vnet-using-portal.md
+    - name: Azure CLI
+      href: howto-manage-vnet-using-cli.md
 - name: Reference
   items:
   - name: Azure CLI
     href: /cli/azure/postgres
+  - name: REST API
+    href: /rest/api/postgresql
 - name: Resources
   items:
+  - name: Deployment templates
+    href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbforpostgresql
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
+    href: https://azure.microsoft.com/roadmap/?category=databases
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/postgresql/
   - name: MSDN forum
@@ -114,10 +146,30 @@
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-database-postgresql
   - name: Videos
-    href: videos.md    
+    items:
+    - name: Product videos
+      href: videos.md
+    - name: How to video series
+      items:
+      - name: Learn product features and benefits
+        href: https://aka.ms/postg-intro-vid
+      - name: Migrate your PostgreSQL app to Azure
+        href: https://aka.ms/postg-migrate-vid
+      - name: Build intelligent apps with Cognitive Services
+        href: https://aka.ms/postg-cogsvs-vid
+      - name: Connect containers using OSBA
+        href: https://aka.ms/postg-osba-vid
+      - name: Connect your app's data to Power BI
+        href: https://aka.ms/postg-powerbi-vid   
   - name: Feedback forum
     href: https://feedback.azure.com/forums/597976-azure-database-for-postgresql
   - name: Region availability
     href: https://azure.microsoft.com/regions/services/
   - name: Support options
     href: https://azure.microsoft.com/support/options/
+  - name: Customer stories
+    href: https://customers.microsoft.com/en-us/search?sq="Azure%20Database%20for%20PostgreSQL"
+  - name: Partners
+    href: partners-migration-postgresql.md
+  - name: Database Migration Guide
+    href: https://datamigration.microsoft.com/

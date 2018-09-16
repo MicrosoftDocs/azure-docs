@@ -4,33 +4,21 @@ description: This topic describes some concepts of the Video Indexer service.
 services: cognitive services
 documentationcenter: ''
 author: juliako
-manager: erikre
+manager: femila
 
-ms.service: video-indexer
+ms.service: cognitive-services
 ms.topic: article
-ms.date: 04/17/2017
-ms.author: juliako;
+ms.date: 09/15/2018
+ms.author: juliako
 
 ---
 # Video Indexer concepts
  
-This topic describes some concepts of the Video Indexer service.
+This article describes some concepts of the Video Indexer service.
  	
-## Breakdowns
-
-The **breakdowns** element has the full list and details of everything. For example, it has a list of blocks where each block has its transcript lines, OCR lines, faces. In addition, transcript lines, OCR lines, faces have their timestamps and other details. This is where the full transcript comes from. However, the breadown can be too detailed and too long for most users, in which case you would look at **Summarized insights**.
-
 ## Summarized insights
 
-Summarized insights contain an aggregated view of the data: faces, keywords, sentiments. For example, instead of going over each of the thousands of time ranges and checking which faces are in it, the summarized insights contains all the faces and for each one, the time ranges it appears in and the % of the time it is shown.
-
-## Topics/keywords
-
-Topics/keywords are in the list of key phrases that Video Indexer extracts from the text. For example, a Scott Guthrie video might contain the following topics/keywords: Security, Azure, Microsoft Cloud, Revenue.
-
-## Sentiments
-
-When Video Indexer analyzes transcripts, it detects sentiments as well. For example, "this is a very exciting event" is a positive sentiment.
+Summarized insights contain an aggregated view of the data: faces, topics, emotions. For example, instead of going over each of the thousands of time ranges and checking which faces are in it, the summarized insights contains all the faces and for each one, the time ranges it appears in and the % of the time it is shown.
 
 ## time range vs. adjusted time range
 
@@ -46,5 +34,4 @@ For information about how to get started, see [How to sign up and upload your fi
 
 ## See also
 
-[Vider Indexer overview](video-indexer-overview.md)
-
+[Video Indexer overview](video-indexer-overview.md)

@@ -10,11 +10,11 @@ tags: top-support-issue
 
 ms.assetid: 0756b52d-4f5a-4503-ae45-c00a6a2edcdf
 ms.service: virtual-machines-windows
-ms.topic: support-article
+ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.workload: required
-ms.date: 06/13/2017
+ms.date: 06/15/2018
 ms.author: delhan
 ms.custom: H1Hack27Feb2017
 

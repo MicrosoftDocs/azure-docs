@@ -10,10 +10,10 @@ editor: ''
 ms.assetid: 19ad152e-ec50-4327-9f19-065c875c003c
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 6/28/2017
+ms.date: 2/23/2018
 ms.author: subramar
 
 ---
@@ -82,6 +82,8 @@ The **Get-ServiceFabricNode** command can be used to verify that these two nodes
 An *UpgradePhase* of *PreUpgradeSafetyCheck* means there were issues preparing the upgrade domain before it was performed. The most common issues in this case are service errors in the close or demotion from primary code paths.
 
 The current **UpgradeState** is *RollingBackCompleted*, so the original upgrade must have been performed with a rollback **FailureAction**, which automatically rolled back the upgrade upon failure. If the original upgrade was performed with a manual **FailureAction**, then the upgrade would instead be in a suspended state to allow live debugging of the application.
+
+In rare cases, the **UpgradeDomainProgressAtFailure** field may be empty if the overall upgrade times out just as the system completes all work for the current upgrade domain. If this happens, try increasing the **UpgradeTimeout** and **UpgradeDomainTimeout** upgrade parameter values and retry the upgrade.
 
 ### Investigate health check failures
 Health check failures can be triggered by various issues that can happen after all nodes in an upgrade domain finish upgrading and passing all safety checks. The output following this paragraph is typical of an upgrade failure due to failed health checks. The **UnhealthyEvaluations** field captures a snapshot of health checks that failed at the time of the upgrade according to the specified [health policy](service-fabric-health-introduction.md).

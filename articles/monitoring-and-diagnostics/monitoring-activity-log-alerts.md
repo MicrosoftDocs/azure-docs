@@ -1,129 +1,122 @@
+﻿---
+title: Create classic activity log alerts
+description: Be notified via SMS, webhook, and email when certain events occur in the activity log.
+author: johnkemnetz
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 03/18/2017
+ms.author: johnkem
+ms.component: alerts
 ---
-title: Create Activity Log Alerts | Microsoft Docs
-description: Be notified via SMS, webhook, and email when certain events occur in the Activity log.
-author: anirudhcavale
-manager: carmonm
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.assetid:
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/31/2017
-ms.author: ancav
-
----
-# Create Activity Log Alerts
+# Create activity log alerts (classic)
 
 ## Overview
-Activity Log Alerts are Azure resources so they can be managed using the Azure portal or the Azure Resource Manager (ARM). This article shows you how to use the Azure portal to set up alerts on activity log events.
+Activity log alerts are alerts that activate when a new activity log event occurs that matches the conditions specified in the alert. They are Azure resources, so they can be created by using an Azure Resource Manager template. They also can be created, updated, or deleted in the Azure portal. This article introduces the concepts behind activity log alerts. It then shows you how to use the Azure portal to set up an alert on activity log events.
 
-You can receive alerts about operations that were performed on resources in your subscription or about service health events that may impact the health of your resources. An Activity Log Alert monitors the activity log events for the specific subscription the alert is deployed to.
+> [!NOTE]
 
-You can configure the alert based on:
-* Event Category (for [service health events click here](monitoring-activity-log-alerts-on-service-notifications.md))
-- Resource Group
-- Resource
-- Resource Type
-- Operation name
-- The level of the notifications (Verbose, Informational, Warning, Error, Critical)
-- Status
-- Event initiated by
+>  The new [Alerts](monitoring-overview-unified-alerts.md) experience has replaced this procedure. This article is provided as reference for the previous experience. [Learn more](monitoring-activity-log-alerts-new-experience.md).
 
-You can also the configure who the alert should be sent to:
-* Select an existing Action Group
-- Create a new Action Group (that can be later used for future alerts)
+Typically, you create activity log alerts to receive notifications when:
 
-You can learn more about [Action Groups here](monitoring-action-groups.md)
+* Specific changes occur on resources in your Azure subscription, often scoped to particular resource groups or resources. For example, you might want to be notified when any virtual machine in myProductionResourceGroup is deleted. Or, you might want to be notified if any new roles are assigned to a user in your subscription.
+* A service health event occurs. Service health events include notification of incidents and maintenance events that apply to resources in your subscription.
 
-You can configure and get information about service health notification alerts using
-* [Azure Portal](monitoring-activity-log-alerts.md)
-- [Resource Manager templates](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
+In either case, an activity log alert monitors only for events in the subscription in which the alert is created.
 
-## Create an alert on an activity log event with a new action group with the Azure Portal
-1.	In the [portal](https://portal.azure.com), navigate to the **Monitor** service
+You can configure an activity log alert based on any top-level property in the JSON object for an activity log event. However, the portal shows the most common options:
 
-    ![Monitor](./media/monitoring-activity-log-alerts/home-monitor.png)
-2.	Click the **Monitor** option to open the Monitor blade. It first opens to the **Activity log** section.
+- **Category**: Administrative, Service Health, Autoscale, and Recommendation. For more information, see [Overview of the Azure activity log](./monitoring-overview-activity-logs.md#categories-in-the-activity-log). To learn more about service health events, see [Receive activity log alerts on service notifications](./monitoring-activity-log-alerts-on-service-notifications.md).
+- **Resource group**
+- **Resource**
+- **Resource type**
+- **Operation name**: The Resource Manager Role-Based Access Control operation name.
+- **Level**: The severity level of the event (Verbose, Informational, Warning, Error, or Critical).
+- **Status**: The status of the event, typically Started, Failed, or Succeeded.
+- **Event initiated by**: Also known as the "caller." The email address or Azure Active Directory identifier of the user who performed the operation.
 
-3.	Now click on the **Alerts** section.
+> [!NOTE]
+> When the category is "administrative", you must specify at least one of the preceding criteria in your alert. You may not create an alert that activates every time an event is created in the activity logs.
 
-    ![Alerts](./media/monitoring-activity-log-alerts/alerts-blades.png)
-4.	Select the **Add activity log alert** command and fill in the fields
+When an activity log alert is activated, it uses an action group to generate actions or notifications. An action group is a reusable set of notification receivers, such as email addresses, webhook URLs, or SMS phone numbers. The receivers can be referenced from multiple alerts to centralize and group your notification channels. When you define your activity log alert, you have two options. You can:
 
-5.	**Name** your activity log alert, and choose a **Description**. These will appear in the notifications sent when this alert fires.
+* Use an existing action group in your activity log alert.
+* Create a new action group.
 
-    ![Add-Alert](./media/monitoring-activity-log-alerts/add-activity-log-alert.png)
+To learn more about action groups, see [Create and manage action groups in the Azure portal](monitoring-action-groups.md).
 
-6.	The **Subscription** should be auto filled to the subscription you are currently operating under. This is the subscription the alert resource will be deployed to and monitor.
+To learn more about service health notifications, see [Receive activity log alerts on service health notifications](monitoring-activity-log-alerts-on-service-notifications.md).
 
-    ![Add-Alert-New-Action-Group](./media/monitoring-activity-log-alerts/activity-log-alert-new-action-group.png)
+## Create an alert (classic) on an activity log event with a new action group by using the Azure portal
+1. In the [portal](https://portal.azure.com), select **Monitor**.
 
-7.	Choose the **Resource Group** this alert will be associated with in the **Subscription**.
+    ![The "Monitor" service](./media/monitoring-activity-log-alerts/home-monitor.png)
+1. In the **Activity log** section, select **Alerts (classic)**.
 
-8.	Provide the **Event Category**, **Resource Group**, **Resource**, **Resource Type**, **Operation Name**, **Level**, **Status** and **Event intiated by** values to identify which events this alert should monitor.
+    ![The "Alerts" tab](./media/monitoring-activity-log-alerts/alerts-blades.png)
+1. Select **Add activity log alert**, and fill in the fields.
 
-9.	Create a **New** Action Group by giving it **Name** and **Short Name**; the Short Name will be referenced in the notifications sent when this alert is activated.
+1. Enter a name in the **Activity log alert name** box, and select a **Description**.
 
-10.	Then, define a list of receivers by providing the receiver’s
+    ![The "Add activity log alert" command](./media/monitoring-activity-log-alerts/add-activity-log-alert.png)
 
-    a. **Name:** Receiver’s name, alias or identifier.
+1. The **Subscription** box autofills with your current subscription. This subscription is the one in which the action group is saved. The alert resource is deployed to this subscription and monitors activity log events from it.
 
-    b. **Action Type:** Choose to contact the receiver via SMS, Email, or Webhook
+    ![The "Add activity log alert" dialog box](./media/monitoring-activity-log-alerts/activity-log-alert-new-action-group.png)
 
-    c. **Details:** Based on the action type chosen, provide a phone number, email address or webhook URI.
+1. Select the **Resource group** in which the alert resource is created. This is not the resource group that's monitored by the alert. Instead, it's the resource group where the alert resource is located.
 
-11.	Select **OK** when done to create the alert.
+1. Optionally, select an **Event category** to modify the additional filters that are shown. For Administrative events, the filters include **Resource group**, **Resource**, **Resource type**, **Operation name**, **Level**, **Status**, and **Event initiated by**. These values identify which events this alert should monitor.
 
-Within a few minutes, the alert is active and triggers as previously described.
+    >[!NOTE]
+    >You must specify at least one of the preceding criteria in your alert. You may not create an alert that activates every time an event is created in the activity logs.
+    >
+    >
 
-For details on the webhook schema for activity log alerts [click here](monitoring-activity-log-alerts-webhook.md)
+1. Enter a name in the **Action group name** box, and enter a name in the **Short name** box. The short name is used in place of a full action group name when notifications are sent using this group.
+
+1.	Define a list of actions by providing the action’s:
+
+    a. **Name**: Enter the action’s name, alias, or identifier.
+
+    b. **Action Type**: Select SMS, email, or webhook.
+
+    c. **Details**: Based on the action type, enter a phone number, email address, or webhook URI.
+
+1.	Select **OK** to create the alert.
+
+The alert takes a few minutes to fully propagate and then become active. It triggers when new events match the alert's criteria.
+
+For more information, see [Understand the webhook schema used in activity log alerts](monitoring-activity-log-alerts-webhook.md).
 
 >[!NOTE]
->The action group defined in these steps will be reusable, as an existing action group, for all future alert definition.
+>The action group defined in these steps is reusable as an existing action group for all future alert definitions.
 >
 >
 
-## Create an alert on an activity log event for an existing action group with the Azure Portal
-1.	In the [portal](https://portal.azure.com), navigate to the **Monitor** service
+## Create an alert on an activity log event for an existing action group by using the Azure portal
+1. Follow steps 1 through 7 in the previous section to create your activity log alert.
 
-    ![Monitor](./media/monitoring-activity-log-alerts/home-monitor.png)
-2.	Click the **Monitor** option to open the Monitor blade. It first opens to the **Activity log** section.
+1. Under **Notify via**, select the **Existing** action group button. Select an existing action group from the list.
 
-3.	Now click on the **Alerts** section.
+1. Select **OK** to create the alert.
 
-    ![Alerts](./media/monitoring-activity-log-alerts/alerts-blades.png)
-4.	Select the **Add activity log alert** command and fill in the fields
+The alert takes a few minutes to fully propagate and then become active. It triggers when new events match the alert's criteria.
 
-5.	**Name** your activity log alert, and choose a **Description**. These will appear in the notifications sent when this alert fires.
+## Manage your alerts
 
-    ![Add-Alert](./media/monitoring-activity-log-alerts/add-activity-log-alert.png)
-6.	The **Subscription** should be auto filled to the subscription you are currently operating under.
+After you create an alert, it's visible in the Alerts section of the Monitor blade. Select the alert you want to manage to:
 
-    ![Add-Alert-Existing-Action-Group](./media/monitoring-activity-log-alerts/activity-log-alert-existing-action-group.png)
-7.	Choose the **Resource Group** for this alert.
+* Edit it.
+* Delete it.
+* Disable or enable it, if you want to temporarily stop or resume receiving notifications for the alert.
 
-8.	Provide the **Event Category**, **Resource Group**, **Resource**, **Resource Type**, **Operation Name**, **Level**, **Status** and **Event intiated by** values to scope for what events this alert should apply.
-
-9.	Choose to **Notify Via** an **Existing action group**. Select the respective action group.
-
-10.	Select **OK** when done to create the alert.
-
-Within a few minutes, the alert is active and triggers as previously described.
-
-## Managing your alerts
-
-Once you have created an alert, it will be visible in the Alerts section of the Monitor service. Select the alert you wish to manage, you will be able to:
-* **Edit** it.
-* **Delete** it.
-* **Disable** or **Enable** it if you want to temporarily stop of resume receiving notifications for the alert.
-
-## Next Steps:
-Get an [overview of alerts](monitoring-overview-alerts.md)  
-Review the [activity log alert webhook schema](monitoring-activity-log-alerts-webhook.md)
-Learn more about [action groups](monitoring-action-groups.md)  
-Learn about [Service Health Notifications](monitoring-service-notifications.md)
+## Next steps
+- Get an [overview of alerts](monitoring-overview-alerts.md).
+- Learn about [notification rate limiting](monitoring-alerts-rate-limiting.md).
+- Review the [activity log alert webhook schema](monitoring-activity-log-alerts-webhook.md).
+- Learn more about [action groups](monitoring-action-groups.md).  
+- Learn about [service health notifications](monitoring-service-notifications.md).
+- Create an [activity log alert to monitor all autoscale engine operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert).
+- Create an [activity log alert to monitor all failed autoscale scale-in/scale-out operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert).

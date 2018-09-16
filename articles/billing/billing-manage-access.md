@@ -13,14 +13,14 @@ ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/25/2017
+ms.topic: conceptual
+ms.date: 08/22/2017
 ms.author: vikdesai
 
 ---
 # Manage access to billing information for Azure using role-based access control
 
-You can grant access for Azure billing information to members of your team by assigning one of the following user roles to your subscription: Account Administrator, Service Administrator, Co-administrator, Owner, Contributor, Reader, and Billing Reader. They would have access to billing information in the [Azure portal](https://portal.azure.com/), and they can use the [Billing APIs](billing-usage-rate-card-overview.md) to programmatically get invoices (once opted-in) and usage details. For more information about who can grant roles, and which roles can do what, see [Roles in Azure RBAC](../active-directory/role-based-access-built-in-roles.md).
+You can grant access for Azure billing information to members of your team by assigning one of the following user roles to your subscription: Account Administrator, Service Administrator, Co-administrator, Owner, Contributor, Reader, and Billing Reader. They would have access to billing information in the [Azure portal](https://portal.azure.com/), and they can use the [Billing APIs](billing-usage-rate-card-overview.md) to programmatically get invoices (once opted-in) and usage details. For more information about who can grant roles, and which roles can do what, see [Roles in Azure RBAC](../role-based-access-control/built-in-roles.md).
 
 ## <a name="opt-in"></a> Allowing additional users to access invoices
 
@@ -30,9 +30,13 @@ The Account Administrator must opt in using the [Azure portal](https://portal.az
 
 1. Select **Invoices** and then **Access to invoices**.
 
-1. Turn **On** the access.
+    ![Screenshot shows how to delegate access to invoices](./media/billing-manage-access/AA-optin.png)
 
-Opting in allows Service Administrator, Co-administrator, Owner, Contributor, Reader, and Billing Reader on the subscription to download PDF invoices in the Azure portal. However, invoices older than December 2016 are available only to the Account Administrtor for now.
+1. Turn **On** the access followed by saving the changes, to allow users in subscription scoped roles to download invoice.
+
+    ![Screenshot shows on-off to delegate access to invoice](./media/billing-manage-access/AA-optinAllow.png)
+
+Opting in allows Service Administrator, Co-administrator, Owner, Contributor, Reader, and Billing Reader on the subscription to download PDF invoices in the Azure portal. However, invoices older than December 2016 are available only to the Account Administrator for now.
 
 The Account Administrator can also configure to have invoices sent via email. To learn more, see [Get your invoice in email](billing-download-azure-invoice-daily-usage-date.md).
 
@@ -63,7 +67,7 @@ The Billing Reader role has read-only access to subscription billing information
 
 ## Adding users to other roles
 
-Users in other roles, such as Owner or Contributor, can access not just billing information, but Azure services as well. To manage these roles, see [Add or change Azure administrator roles that manage the subscription or services](billing-add-change-azure-subscription-administrator.md).
+Users in other roles, such as Owner or Contributor, can access not just billing information, but Azure services as well. To manage these roles, see [Manage access using RBAC and the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 ## Who can access the [Account Center](https://account.windowsazure.com)?
 

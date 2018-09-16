@@ -3,8 +3,8 @@ title: 'Azure AD Connect: Declarative Provisioning Expressions | Microsoft Docs'
 description: Explains the declarative provisioning expressions.
 services: active-directory
 documentationcenter: ''
-author: andkjell
-manager: femila
+author: billmath
+manager: mtillman
 editor: ''
 ms.assetid: e3ea53c8-3801-4acf-a297-0fb9bb1bf11d
 ms.service: active-directory
@@ -12,8 +12,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
-ms.author: markvi;andkjell
+ms.date: 07/18/2017
+ms.component: hybrid
+ms.author: billmath
 
 ---
 # Azure AD Connect sync: Understanding Declarative Provisioning Expressions

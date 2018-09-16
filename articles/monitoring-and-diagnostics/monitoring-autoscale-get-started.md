@@ -1,114 +1,122 @@
 ---
-title: Get started with auto scale in Azure | Microsoft Docs
-description: Learn how to scale your resource in Azure.
+title: Get started with autoscale in Azure
+description: "Learn how to scale your resource Web App, Cloud Service, Virtual Machine or Virtual Machine Scale set in Azure."
 author: rajram
-manager: rboucher
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.assetid: d37d3fda-8ef1-477c-a360-a855b418de84
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/07/2017
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 07/07/2017
 ms.author: rajram
-
+ms.component: autoscale
 ---
-# Get started with auto scale in Azure
-This article describes how to setup your auto scale setting for your resource in Azure portal.
+# Get started with Autoscale in Azure
+This article describes how to set up your Autoscale settings for your resource in the Microsoft Azure portal.
 
-Azure Monitor auto scale applies only to Virtual Machine Scale Sets (VMSS), cloud services, app service plans and app service environments. 
+Azure Monitor Autoscale applies only to virtual machine scale sets, cloud services, Azure App Service plans, and App Service environments. 
 
-# Lets get started
+## Discover the Autoscale settings in your subscription
+You can discover all the resources for which Autoscale is applicable in Azure Monitor. Use the following steps for a step-by-step walkthrough:
 
-## Discover the auto scale settings in your subscription(s)
-You can discover all the resources for which auto scale is applicable in Azure Monitor. Follow the steps listed below for a step-by-step walkthrough.
+1. Open the [Azure portal.][1]
+1. Click the Azure Monitor icon in the left pane.
+  ![Open Azure Monitor][2]
+1. Click **Autoscale** to view all the resources for which Autoscale is applicable, along with their current Autoscale status.
+  ![Discover Autoscale in Azure Monitor][3]
 
-- Open [Azure portal][1]
-- Click on Azure Monitor icon in the left navigation pane.
-  ![Launch Azure Monitor][2]
-- Click on Autoscale setting to view all the resources for which auto scale is applicable, along with its current autoscale status
-  ![Discover auto scale in Azure monitor][3]
+You can use the filter pane at the top to scope down the list to select resources in a specific resource group, specific resource types, or a specific resource.
 
-You can use the filter pane at the top to scope down the list to select resources in a specific resource group, select specific resource types or select a specific resource.
+For each resource, you will find the current instance count and the Autoscale status. The Autoscale status can be:
 
-For each resource, you will find the current instance count as well as its autoscale status. The auto scale status can be
+- **Not configured**: You have not enabled Autoscale yet for this resource.
+- **Enabled**: You have enabled Autoscale for this resource.
+- **Disabled**: You have disabled Autoscale for this resource.
 
-- Not configured: You have not enabled auto scale setting yet for this resource
-- Enabled: You have enabled auto scale setting for this resource
-- Disabled: You have disabled auto scale setting for this resource
+## Create your first Autoscale setting
 
-## Create your first auto scale setting
+Let's now go through a simple step-by-step walkthrough to create your first Autoscale setting.
 
-Lets now go through a simple step-by-step walkthrough to create your first autoscale setting.
-
-- Open 'Autoscale' blade in Azure Monitor and select a resource you want to scale. (the steps below use an app service plan associated with a web app. You can [create your first ASP.NET web app in Azure in five minutes][4])
-- In the scale setting blade for the resource, notice that the current instance count is 1. Click on 'Enable autoscale'.
+1. Open the **Autoscale** blade in Azure Monitor and select a resource that you want to scale. (The following steps use an App Service plan associated with a web app. You can [create your first ASP.NET web app in Azure in 5 minutes.][4])
+1. Note that the current instance count is 1. Click **Enable autoscale**.
   ![Scale setting for new web app][5]
-- Provide a name for the scale setting, and the click on "Add a rule". Notice the scale rule options that opens as a context pane in the right hand side. By default, it sets the option to scale your instance count by 1 if the CPU percentage of the resource exceeds 70%. Leave it to its default values and click on Add.
+1. Provide a name for the scale setting, and then click **Add a rule**. Notice the scale rule options that open as a context pane on the right side. By default, this sets the option to scale your instance count by 1 if the CPU percentage of the resource exceeds 70 percent. Leave it at its default values and click **Add**.
   ![Create scale setting for a web app][6]
-- You now created your first scale rule. Notice that the UX recommends best practices and states that 'It is recommended to have at least one scale in rule'. To do so, click on 'Add a rule' and set the 'Operator' to 'Less than', 'Threshold' to '20' and 'Operation' to 'Decrease count by'. You should now have a scale setting that scales out/scales in based on CPU usage.
-  ![Scale based on cpu][8]
-- Click on 'Save'
+1. You've now created your first scale rule. Note that the UX recommends best practices and states that "It is recommended to have at least one scale in rule." To do so:
+  
+    a. Click **Add a rule**. 
 
-Congratulations. You now now succesfully created your first scale setting to auto scale your web app based on CPU usage.
+    b. Set **Operator** to **Less than**.
 
-> Note: The same steps are applicable to get started with a VMSS or cloud service role.
+    c. Set **Threshold** to **20**.
 
-# Other considerations
-## Scale based on a schedule
-In addition to scale based on CPU always, you can also set your scale differently on specific days of the week.
+    d. Set **Operation** to **Decrease count by**.
 
-- Click on 'Add a scale condition'
-- Setting the scale mode and the rules is the same as the default condition
-- Select 'Repeat specific days' for the schedule
-- Select the days, and the start/end time when the scale condition should be applied for the selected days
+   You should now have a scale setting that scales out/scales in based on CPU usage.
+   ![Scale based on CPU][8]
+1. Click **Save**.
+
+Congratulations! You've now successfully created your first scale setting to autoscale your web app based on CPU usage.
+
+> [!NOTE] 
+> The same steps are applicable to get started with a virtual machine scale set or cloud service role.
+
+## Other considerations
+### Scale based on a schedule
+In addition to scale based on CPU, you can set your scale differently for specific days of the week.
+
+1. Click **Add a scale condition**.
+1. Setting the scale mode and the rules is the same as the default condition.
+1. Select **Repeat specific days** for the schedule.
+1. Select the days and the start/end time for when the scale condition should be applied.
 
 ![Scale condition based on schedule][9]
-## Scale differently on specific dates
-In addition to scale based on CPU always, you can also set your scale differently on specific dates.
+### Scale differently on specific dates
+In addition to scale based on CPU, you can set your scale differently for specific dates.
 
-- Click on 'Add a scale condition'
-- Setting the scale mode and the rules is the same as the default condition
-- Select 'Specify start/end dates' for the schedule
-- Select the start/end dates, as well as the start/end time when the scale condition should be applied for the selected dates
+1. Click **Add a scale condition**.
+1. Setting the scale mode and the rules is the same as the default condition.
+1. Select **Specify start/end dates** for the schedule.
+1. Select the start/end dates and the start/end time for when the scale condition should be applied.
 
 ![Scale condition based on dates][10]
 
-## View the scale history of your resource
-Whenever your resource is scaled up/down, there is an event logged in activity log. You can view the scale history of your resource for the last 24 hours by switching to the 'Run history' tab.
+### View the scale history of your resource
+Whenever your resource is scaled up or down, an event is logged in the activity log. You can view the scale history of your resource for the past 24 hours by switching to the **Run history** tab.
 
 ![Run history][11]
 
-If you want to view the complete scale history (for upto 90 days), you can click on 'Click here to see more details'. This will launch the activity log with your resource and category as 'autoscale' pre-selected.
+If you want to view the complete scale history (for up to 90 days), select **Click here to see more details**. The activity log opens, with Autoscale pre-selected for your resource and category.
 
-## View the scale definition of the resource
-Auto scale setting is an ARM resource. You can view the scale definition in JSON by switching to the 'JSON' tab.
+### View the scale definition of your resource
+Autoscale is an Azure Resource Manager resource. You can view the scale definition in JSON by switching to the **JSON** tab.
 
 ![Scale definition][12]
 
-You can make changes in JSON directly, if required. These changes will get reflected on save.
+You can make changes in JSON directly, if required. These changes will be reflected after you save them.
 
-## Disable autoscale and manually scale your instances
-There might be times when you want to disbable your current scale setting and manually scale your resource.
+### Disable Autoscale and manually scale your instances
+There might be times when you want to disable your current scale setting and manually scale your resource.
 
-Click on the 'Disable autoscale' button at the top.
-![Disable autoscale][13]
+Click the **Disable autoscale** button at the top.
+![Disable Autoscale][13]
 
-Note that this option disables your configuration, and you can still get back to it once you enable auto scale again. You can now set the number of instances you want to scale to manually.
+> [!NOTE] 
+> This option disables your configuration. However, you can get back to it after you enable Autoscale again. 
+
+You can now set the number of instances that you want to scale to manually.
 
 ![Set manual scale][14]
 
-You can always get back to autscale by clicking on 'Enable autoscale' and then 'save'.
+You can always return to Autoscale by clicking **Enable autoscale** and then **Save**.
+
+## Next steps
+- [Create an Activity Log Alert to monitor all Autoscale engine operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
+- [Create an Activity Log Alert to monitor all failed Autoscale scale-in/scale-out operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
 
 <!--Reference-->
 [1]:https://portal.azure.com
 [2]: ./media/monitoring-autoscale-get-started/azure-monitor-launch.png
 [3]: ./media/monitoring-autoscale-get-started/discover-autoscale-azure-monitor.png
-[4]: https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-dotnet
+[4]: https://docs.microsoft.com/azure/app-service/app-service-web-get-started-dotnet
 [5]: ./media/monitoring-autoscale-get-started/scale-setting-new-web-app.png
 [6]: ./media/monitoring-autoscale-get-started/create-scale-setting-web-app.png
 [7]: ./media/monitoring-autoscale-get-started/scale-in-recommendation.png
@@ -119,3 +127,4 @@ You can always get back to autscale by clicking on 'Enable autoscale' and then '
 [12]: ./media/monitoring-autoscale-get-started/scale-definition-json.png
 [13]: ./media/monitoring-autoscale-get-started/disable-autoscale.png
 [14]: ./media/monitoring-autoscale-get-started/set-manualscale.png
+

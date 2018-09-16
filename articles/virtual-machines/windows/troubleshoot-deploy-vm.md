@@ -1,10 +1,10 @@
----
+﻿---
 title: Troubleshoot deploying Windows virtual machine issues in Azure | Microsoft Docs
 description: Troubleshoot deploying Windows virtual machine issues in Azurethe Resource Manager deployment model.
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2017
+ms.date: 05/11/2018
 ms.author: genli
 
 ---
@@ -93,10 +93,6 @@ Drivers for Windows-based VMs are located [here](n-series-driver-setup.md).
 
 To take advantage of the GPU capabilities of Azure N-series VMs running Windows Server 2016 or Windows Server 2012 R2, you must install NVIDIA graphics drivers on each VM after deployment. Driver setup information is available for [Windows VMs](n-series-driver-setup.md) and [Linux VMs](../linux/n-series-driver-setup.md).
 
-## Are client images supported for N-Series?
-
-Currently, Azure only supports N-Series on VMs running Windows Server and Linux operating systems.
-
 ## Is N-Series VMs available in my region?
 
 You can check the availability from the [Products available by region table](https://azure.microsoft.com/regions/services), and pricing [here](https://azure.microsoft.com/pricing/details/virtual-machines/series/#n-series).
@@ -106,7 +102,7 @@ You can check the availability from the [Products available by region table](htt
 You can use Windows 7, Windows 8, or Windows 10 in Azure for dev/test scenarios provided you have an appropriate Visual Studio (formerly MSDN) subscription. 
 
 - Windows 10 images are available from the Azure Gallery within [eligible dev/test offers](client-images.md#eligible-offers). 
-- Visual Studio subscribers within any type of offer can also [adequately prepare and create](prepare-for-upload-vhd-image.md) a 64-bit Windows 7, Windows 8, or Windows 10 image and then [upload to Azure](upload-image.md). The use remains limited to dev/test by active Visual Studio subscribers.
+- Visual Studio subscribers within any type of offer can also [adequately prepare and create](prepare-for-upload-vhd-image.md) a 64-bit Windows 7, Windows 8, or Windows 10 image and then [upload to Azure](upload-generalized-managed.md). The use remains limited to dev/test by active Visual Studio subscribers.
 
 This [article](client-images.md) outlines the eligibility requirements for running Windows client in Azure and use of the Azure Gallery images.
 
@@ -124,7 +120,7 @@ Choose a size that is supported on the availability set's cluster. It is recomme
 
 ## Can I add an existing Classic VM to an availability set?
 
-Yes. You can add an existing classic VM to a new or existing Availability Set. For more information see [Add an existing virtual machine to an availability set](classic/configure-availability.md#a-idaddmachine-aoption-2-add-an-existing-virtual-machine-to-an-availability-set).
+Yes. You can add an existing classic VM to a new or existing Availability Set. For more information see [Add an existing virtual machine to an availability set](classic/configure-availability-classic.md#addmachine).
 
 
 ## Next steps

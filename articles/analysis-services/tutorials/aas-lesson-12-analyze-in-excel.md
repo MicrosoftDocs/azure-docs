@@ -1,29 +1,20 @@
 ---
 title: "Azure Analysis Services tutorial lesson 12: Analyze in Excel | Microsoft Docs"
 description: Describes how to use Analyze in Excel in the Azure Analysis Services tutorial project. 
-services: analysis-services
-documentationcenter: ''
 author: minewiskan
-manager: erikre
-editor: ''
-tags: ''
-
-ms.assetid: 
-ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 05/26/2017
+manager: kfile
+ms.service: azure-analysis-services
+ms.topic: conceptual
+ms.date: 07/03/2018
 ms.author: owend
----
-# Lesson 12: Analyze in Excel
+ms.reviewer: minewiskan
 
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+---
+# Analyze in Excel
 
 In this lesson, you use the Analyze in Excel feature to open Microsoft Excel, automatically create a connection to the model workspace, and automatically add a PivotTable to the worksheet. The Analyze in Excel feature is meant to provide a quick and easy way to test the efficacy of your model design prior to deploying your model. You do not perform any data analysis in this lesson. The purpose of this lesson is to familiarize you, the model author, with the tools you can use to test your model design.   
   
-To complete this lesson, Excel must be installed on the same computer as SSDT.
+To complete this lesson, Excel must be installed on the same computer as Visual Studio.
   
 Estimated time to complete this lesson: **Five minutes**  
   

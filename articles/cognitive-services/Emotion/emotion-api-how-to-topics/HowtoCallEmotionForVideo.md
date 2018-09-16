@@ -1,18 +1,21 @@
----
+﻿---
 title: Call the Emotion API for Video | Microsoft Docs
 description: Learn how to call the Emotion API for Video in Cognitive Services.
 services: cognitive-services
-author: v-royhar
-manager: yutkuo
-
+author: anrothMSFT
+manager: corncar
 ms.service: cognitive-services
-ms.technology: emotion
+ms.component: emotion-api
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: anroth
 ---
 
 # How to Call Emotion API for Video
+
+> [!IMPORTANT]
+> Video API Preview will end on October 30th, 2017. Try the new [Video Indexer API Preview](https://azure.microsoft.com/services/cognitive-services/video-indexer/) to easily extract insights from 
+videos and to enhance content discovery experiences, such as search results, by detecting spoken words, faces, characters, and emotions. [Learn more](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
 
 This guide demonstrates how to call Emotion API for Video. The samples are written in C# using the Emotion API for Video client library.
 
@@ -37,7 +40,7 @@ When using a client library, the subscription key is passed in through the const
 ```
 var emotionServiceClient = new emotionServiceClient("Your subscription key");
 ```
-To obtain a subscription key, see [Subscriptions] (https://azure.microsoft.com/en-us/try/cognitive-services/). 
+To obtain a subscription key, see [Subscriptions] (https://azure.microsoft.com/try/cognitive-services/). 
 
 ### <a name="Step2">Step 2: Upload a video to the service and check the status</a>
 The most basic way to perform any of the Emotion API for Video calls is by uploading a video directly. This is done by sending a "POST" request with application/octet-stream content type together with the data read from a video file. The maximum size of the video is 100MB.

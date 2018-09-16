@@ -4,7 +4,7 @@ description: Deploy a Microsoft HPC Pack cluster on Azure and run a NAMD simulat
 services: virtual-machines-linux
 documentationcenter: ''
 author: dlepow
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-service-management,azure-resource-manager,hpc-pack
 
@@ -25,8 +25,6 @@ This article shows you one way to run a Linux high-performance computing (HPC) w
 
 * **NAMD** (for Nanoscale Molecular Dynamics program) is a parallel molecular dynamics package designed for high-performance simulation of large biomolecular systems containing up to millions of atoms. Examples of these systems include viruses, cell structures, and large proteins. NAMD scales to hundreds of cores for typical simulations and to more than 500,000 cores for the largest simulations.
 * **Microsoft HPC Pack** provides features to run large-scale HPC and parallel applications in clusters of on-premises computers or Azure virtual machines. Originally developed as a solution for Windows HPC workloads, HPC Pack now supports running Linux HPC applications on Linux compute node VMs deployed in an HPC Pack cluster. See [Get started with Linux compute nodes in an HPC Pack cluster in Azure](hpcpack-cluster.md) for an introduction.
-
-For other options to run Linux HPC workloads in Azure, see [Technical resources for batch and high-performance computing](../../../batch/batch-hpc-solutions.md).
 
 ## Prerequisites
 * **HPC Pack cluster with Linux compute nodes** - Deploy an HPC Pack cluster with Linux compute nodes on Azure using either an [Azure Resource Manager template](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) or an [Azure PowerShell script](hpcpack-cluster-powershell-script.md). See [Get started with Linux compute nodes in an HPC Pack cluster in Azure](hpcpack-cluster.md) for the prerequisites and steps for either option. If you choose the PowerShell script deployment option, see the sample configuration file in the sample files at the end of this article. This file configures an Azure-based HPC Pack cluster consisting of a Windows Server 2012 R2 head node and four size Large CentOS 6.6 compute nodes. Customize this file as needed for your environment.
@@ -83,7 +81,7 @@ It's easy to generate an RSA key pair, which contains a public key and a private
 > 
 
 ## Set up a file share for Linux nodes
-Now set up an SMB file share, and mount the shared folder on all Linux nodes to allow the Linux nodes to access NAMD files with a common path. Following are steps to mount a shared folder on the head node. A share is recommended for distributions such as CentOS 6.6 that currently don’t support the Azure File service. If your Linux nodes support an Azure File share, see [How to use Azure File Storage with Linux](../../../storage/storage-how-to-use-files-linux.md). For additional file sharing options with HPC Pack, see [Get started with Linux compute nodes in an HPC Pack Cluster in Azure](hpcpack-cluster.md).
+Now set up an SMB file share, and mount the shared folder on all Linux nodes to allow the Linux nodes to access NAMD files with a common path. Following are steps to mount a shared folder on the head node. A share is recommended for distributions such as CentOS 6.6 that currently don’t support the Azure File service. If your Linux nodes support an Azure File share, see [How to use Azure File storage with Linux](../../../storage/files/storage-how-to-use-files-linux.md). For additional file sharing options with HPC Pack, see [Get started with Linux compute nodes in an HPC Pack Cluster in Azure](hpcpack-cluster.md).
 
 1. Create a folder on the head node, and share it to Everyone by setting Read/Write privileges. In this example, \\\\CentOS66HN\Namd is the name of the folder, where CentOS66HN is the host name of the head node.
 2. Create a subfolder named namd2 in the shared folder. In namd2, create another subfolder named namdsample.

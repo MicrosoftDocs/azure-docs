@@ -4,7 +4,7 @@ description: Azure AD Connect user sign-in for custom settings.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: femila
+manager: mtillman
 editor: curtand
 
 ms.assetid: 547b118e-7282-4c7f-be87-c035561001df
@@ -13,7 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/09/2017
+ms.date: 05/31/2018
+ms.component: hybrid
 ms.author: billmath
 
 ---
@@ -22,35 +23,37 @@ Azure Active Directory (Azure AD) Connect allows your users to sign in to both c
 
 If you’re already familiar with the Azure AD identity model and want to learn more about a specific method, see the appropriate link:
 
-* [Password synchronization](#password-synchronization) with [single sign-on (SSO)](active-directory-aadconnect-sso.md)
-* [Pass-through authentication](active-directory-aadconnect-pass-through-authentication.md)
+* [Password hash synchronization](#password-hash-synchronization) with [Seamless Single Sign-on (SSO)](active-directory-aadconnect-sso.md)
+* [Pass-through authentication](active-directory-aadconnect-pass-through-authentication.md) with [Seamless Single Sign-on (SSO)](active-directory-aadconnect-sso.md)
 * [Federated SSO (with Active Directory Federation Services (AD FS))](#federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2)
+* [Federation with PingFederate](#federation-with-pingfederate)
+
+> [!NOTE] 
+> It is important to remember that by configuring federation for Azure AD, you establish trust between your Azure AD tenant and your federated domains. With this trust federated domain users will have access to Azure AD cloud resources within the tenant.  
+>
 
 ## Choosing the user sign-in method for your organization
-For most organizations that just want to enable user sign-in to Office 365, SaaS applications, and other Azure AD-based resources, we recommend the default password synchronization option. Some organizations, however, have a particular reason that they aren't able to use this option. They can choose either a federated sign-in option, such as AD FS, or pass-through authentication. You can use the following table to help you make the right choice.
+The first decision of implementing Azure AD Connect is choosing which authentication method your users will use to sign in. It's important to make sure you choose the right method that meets your organization's security and advanced requirements. Authentication is critical, because it will validate user's identities to access apps and data in the cloud. To choose the right authentication method, you need to consider the time, existing infrastructure, complexity, and cost of implementing your choice. These factors are different for every organization and might change over time.
 
-I need to | PS with SSO| PA with SSO| AD FS |
- --- | --- | --- | --- |
-Sync new user, contact, and group accounts in on-premises Active Directory to the cloud automatically.|x|x|x|
-Set up my tenant for Office 365 hybrid scenarios.|x|x|x|
-Enable my users to sign in and access cloud services by using their on-premises password.|x|x|x|
-Implement single sign-on by using corporate credentials.|x|x|x|
-Ensure that no passwords are stored in the cloud.||x*|x|
-Enable on-premises multi-factor authentication solutions.|||x|
+Azure AD supports the following authentication methods: 
 
-*Through a lightweight connector.
+* **Cloud Authentication** - When you choose this authentication method Azure AD handles the authentication process for user's sign-in. With cloud authentication you can choose from two options: 
+   * **Password hash synchronization (PHS)** - Password Hash Sync enables users to use the same username and password that they use on-premises without having to deploy any additional infrastructure besides Azure AD Connect. 
+   * **Pass-through authentication (PTA)** - This option is similar to password hash sync, but provides a simple password validation using on-premises software agents for organizations with strong security and compliance policies.
+* **Federated authentication** - When you choose this authentication method Azure AD will hand off the authentication process to a separate trusted authentication system, such as AD FS or a third-party federation system, to validate the user's sign-in. 
 
->[!NOTE]
-> Pass-through authentication currently has some limitations with rich clients. See [Pass-through authentication](active-directory-aadconnect-pass-through-authentication.md) for more details.
+For most organizations that just want to enable user sign-in to Office 365, SaaS applications, and other Azure AD-based resources, we recommend the default password hash synchronization option.
+ 
+For detailed information on choosing an authentication method, see [Choose the right authentication method for your Azure Active Directory hybrid identity solution](../../security/azure-ad-choose-authn.md)
 
-### Password synchronization
-With password synchronization, hashes of user passwords are synchronized from on-premises Active Directory to Azure AD. When passwords are changed or reset on-premises, the new passwords are synchronized to Azure AD immediately so that your users can always use the same password for cloud resources and on-premises resources. The passwords are never sent to Azure AD or stored in Azure AD in clear text. You can use password synchronization together with password write-back to enable self-service password reset in Azure AD.
+### Password hash synchronization
+With password hash synchronization, hashes of user passwords are synchronized from on-premises Active Directory to Azure AD. When passwords are changed or reset on-premises, the new password hashes are synchronized to Azure AD immediately so that your users can always use the same password for cloud resources and on-premises resources. The passwords are never sent to Azure AD or stored in Azure AD in clear text. You can use password hash synchronization together with password write-back to enable self-service password reset in Azure AD.
 
-In addition, you can enable [SSO](active-directory-aadconnect-sso.md) for users on domain-joined machines that are on the corporate network. With single sign-on, enabled users only need to enter a username to help them securely access cloud resources.
+In addition, you can enable [Seamless SSO](active-directory-aadconnect-sso.md) for users on domain-joined machines that are on the corporate network. With single sign-on, enabled users only need to enter a username to help them securely access cloud resources.
 
-![Password synchronization](./media/active-directory-aadconnect-user-signin/passwordhash.png)
+![Password hash synchronization](./media/active-directory-aadconnect-user-signin/passwordhash.png)
 
-For more information, see the [password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) article.
+For more information, see the [password hash synchronization](active-directory-aadconnectsync-implement-password-hash-synchronization.md) article.
 
 ### Pass-through authentication
 With pass-through authentication, the user’s password is validated against the on-premises Active Directory controller. The password doesn't need to be present in Azure AD in any form. This allows for on-premises policies, such as sign-in hour restrictions, to be evaluated during authentication to cloud services.
@@ -85,6 +88,13 @@ If you're deploying a new farm or using an existing farm, you need:
 
 For more information, see [Configuring SSO with AD FS](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs).
 
+### Federation with PingFederate
+With federated sign-in, your users can sign in to Azure AD-based services with their on-premises passwords. While they're on the corporate network, they don't even have to enter their passwords.
+
+For more information on configuring PingFederate for use with Azure Active Directory, see [PingFederate Integration with Azure Active Directory and Office 365](https://www.pingidentity.com/AzureADConnect)
+
+For information on setting up Azure AD Connect using PingFederate, see [Azure AD Connect custom installation](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-pingfederate)
+
 #### Sign in by using an earlier version of AD FS or a third-party solution
 If you've already configured cloud sign-in by using an earlier version of AD FS (such as AD FS 2.0) or a third-party federation provider, you can choose to skip user sign-in configuration through Azure AD Connect. This will enable you to get the latest synchronization and other capabilities of Azure AD Connect while still using your existing solution for sign-in.
 
@@ -100,7 +110,7 @@ The UPN of the user has the format username@domain. For example, for an Active D
 ### User principal name in Azure AD
 The Azure AD Connect wizard uses the userPrincipalName attribute or lets you specify the attribute (in a custom installation) to be used from on-premises as the user principal name in Azure AD. This is the value that is used for signing in to Azure AD. If the value of the userPrincipalName attribute doesn't correspond to a verified domain in Azure AD, then Azure AD replaces it with a default .onmicrosoft.com value.
 
-Every directory in Azure Active Directory comes with a built-in domain name, with the format contoso.onmicrosoft.com, that lets you get started using Azure or other Microsoft services. You can improve and simplify the sign-in experience by using custom domains. For information on custom domain names in Azure AD and how to verify a domain, see [Add your custom domain name to Azure Active Directory](../active-directory-add-domain.md#add-a-custom-domain-name-to-your-directory).
+Every directory in Azure Active Directory comes with a built-in domain name, with the format contoso.onmicrosoft.com, that lets you get started using Azure or other Microsoft services. You can improve and simplify the sign-in experience by using custom domains. For information on custom domain names in Azure AD and how to verify a domain, see [Add your custom domain name to Azure Active Directory](../fundamentals/add-custom-domain.md#add-a-custom-domain-name).
 
 ## Azure AD sign-in configuration
 ### Azure AD sign-in configuration with Azure AD Connect
@@ -112,8 +122,8 @@ The Azure AD sign-in page lists the UPN suffixes that are defined for on-premise
 | State | Description | Action needed |
 |:--- |:--- |:--- |
 | Verified |Azure AD Connect found a matching verified domain in Azure AD. All users for this domain can sign in by using their on-premises credentials. |No action is needed. |
-| Not verified |Azure AD Connect found a matching custom domain in Azure AD, but it isn't verified. The UPN suffix of the users of this domain will be changed to the default .onmicrosoft.com suffix after synchronization if the domain isn't verified. | [Verify the custom domain in Azure AD.](../active-directory-add-domain.md#verify-the-domain-name-with-azure-ad) |
-| Not added |Azure AD Connect didn't find a custom domain that corresponded to the UPN suffix. The UPN suffix of the users of this domain will be changed to the default .onmicrosoft.com suffix if the domain isn't added and verified in Azure. | [Add and verify a custom domain that corresponds to the UPN suffix.](../active-directory-add-domain.md) |
+| Not verified |Azure AD Connect found a matching custom domain in Azure AD, but it isn't verified. The UPN suffix of the users of this domain will be changed to the default .onmicrosoft.com suffix after synchronization if the domain isn't verified. | [Verify the custom domain in Azure AD.](../fundamentals/add-custom-domain.md#verify-your-custom-domain-name) |
+| Not added |Azure AD Connect didn't find a custom domain that corresponded to the UPN suffix. The UPN suffix of the users of this domain will be changed to the default .onmicrosoft.com suffix if the domain isn't added and verified in Azure. | [Add and verify a custom domain that corresponds to the UPN suffix.](../fundamentals/add-custom-domain.md) |
 
 The Azure AD sign-in page lists the UPN suffixes that are defined for on-premises Active Directory and the corresponding custom domain in Azure AD with the current verification status. In a custom installation, you can now select the attribute for the user principal name on the **Azure AD sign-in** page.
 
@@ -136,7 +146,7 @@ It's very important to understand the relationship between the custom domain sta
 
 For the following information, let's assume that we're concerned with the UPN suffix contoso.com, which is used in the on-premises directory as part of UPN--for example user@contoso.com.
 
-###### Express settings/Password synchronization
+###### Express settings/Password hash synchronization
 | State | Effect on user Azure sign-in experience |
 |:---:|:--- |
 | Not added |In this case, no custom domain for contoso.com has been added in the Azure AD directory. Users who have UPN on-premises with the suffix @contoso.com won't be able to use their on-premises UPN to sign in to Azure. They'll instead have to use a new UPN that's provided to them by Azure AD by adding the suffix for the default Azure AD directory. For example, if you're syncing users to the Azure AD directory azurecontoso.onmicrosoft.com, then the on-premises user user@contoso.com will be given a UPN of user@azurecontoso.onmicrosoft.com. |
@@ -155,7 +165,7 @@ If you selected the user sign-in option **Federation with AD FS**, then you must
 | Verified |In this case, you can go ahead with the configuration without any further action. |
 
 ## Changing the user sign-in method
-You can change the user sign-in method from federation, password synchronization, or pass-through authentication by using the tasks that are available in Azure AD Connect after the initial configuration of Azure AD Connect with the wizard. Run the Azure AD Connect wizard again, and you'll see a list of tasks that you can perform. Select **Change user sign-in** from the list of tasks.
+You can change the user sign-in method from federation, password hash synchronization, or pass-through authentication by using the tasks that are available in Azure AD Connect after the initial configuration of Azure AD Connect with the wizard. Run the Azure AD Connect wizard again, and you'll see a list of tasks that you can perform. Select **Change user sign-in** from the list of tasks.
 
 ![Change user sign-in](./media/active-directory-aadconnect-user-signin/changeusersignin.png)
 
@@ -168,7 +178,7 @@ On the **User sign-in** page, select the desired user sign-in.
 ![Connect to Azure AD](./media/active-directory-aadconnect-user-signin/changeusersignin2a.png)
 
 > [!NOTE]
-> If you're only making a temporary switch to password synchronization, then select the **Do not convert user accounts** check box. Not checking the option will convert each user to federated, and it can take several hours.
+> If you're only making a temporary switch to password hash synchronization, then select the **Do not convert user accounts** check box. Not checking the option will convert each user to federated, and it can take several hours.
 >
 >
 

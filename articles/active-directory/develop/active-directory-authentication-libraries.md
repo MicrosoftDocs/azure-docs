@@ -3,68 +3,82 @@ title: Azure Active Directory Authentication Libraries | Microsoft Docs
 description: The Azure AD Authentication Library (ADAL) allows client application developers to easily authenticate users to cloud or on-premises Active Directory (AD) and then obtain access tokens for securing API calls.
 services: active-directory
 documentationcenter: ''
-author: bryanla
-manager: mbaldwin
-editor: mbaldwin
+author: CelesteDG
+manager: mtillman
+editor: ''
 
 ms.assetid: 2e4fc79a-0285-40be-8c77-65edee408a22
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/27/2017
-ms.author: bryanla
+ms.date: 04/13/2018
+ms.author: celested
+ms.reviewer: saeeda
 ms.custom: aaddev
-
 ---
+
 # Azure Active Directory Authentication Libraries
-The Azure AD authentication Library (ADAL) enables client application developers to easily authenticate users to cloud or on-premises Active Directory (AD), and then obtain access tokens for securing API calls. ADAL has many features that make authentication easier for developers, such as asynchronous support, a configurable token cache that stores access tokens and refresh tokens, automatic token refresh when an access token expires and a refresh token is available, and more. By handling most of the complexity, ADAL can help a developer focus on business logic in their application and easily secure resources without being an expert on security.
 
-ADAL is available on a variety of platforms.
+The Azure Active Directory Authentication Library (ADAL) v1.0 enables application developers to authenticate users to cloud or on-premises Active Directory (AD), and obtain tokens for securing API calls. ADAL makes authentication easier for developers through features such as:
 
-### Client Libraries
+- Configurable token cache that stores access tokens and refresh tokens
+- Automatic token refresh when an access token expires and a refresh token is available
+- Support for asynchronous method calls
+
+> [!NOTE]
+> Looking for the Azure AD v2.0 libraries (MSAL)? Checkout the [MSAL library guide](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-libraries).
+>
+>
+
+## Microsoft-supported Client Libraries
 
 | Platform | Library | Download | Source Code | Sample | Reference
 | --- | --- | --- | --- | --- | --- |
-| .NET Client, Windows Store, UWP, Xamarin iOS and Android |ADAL .NET v3 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet) | [Desktop App](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-devquickstarts-dotnet) |[Reference](https://docs.microsoft.com/active-directory/adal/microsoft.identitymodel.clients.activedirectory) | 
-| .NET Client, Windows Store, Windows Phone 8.1 |ADAL .NET v2 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/2.28.2) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/releases/tag/v2.28.2) | [Desktop App](https://github.com/AzureADQuickStarts/NativeClient-DotNet/releases/tag/v2.X) |[Reference](https://docs.microsoft.com/en-us/active-directory/adal//v2/microsoft.identitymodel.clients.activedirectory) | 
+| .NET Client, Windows Store, UWP, Xamarin iOS and Android |ADAL .NET v3 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet) | [Desktop app](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-dotnet) |[Reference](https://docs.microsoft.com/dotnet/api/?view=identitymodelclientsad-3.13.9) |
+| .NET Client, Windows Store, Windows Phone 8.1 |ADAL .NET v2 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/2.28.4) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/releases/tag/v2.28.4) | [Desktop app](https://github.com/AzureADQuickStarts/NativeClient-DotNet/releases/tag/v2.X) | |
 | JavaScript |ADAL.js |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-js) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-js) |[Single Page App](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) | |
-| iOS, macOS |ADAL |[CocoaPods](http://cocoadocs.org/docsets/ADAL/) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-objc) |[iOS App](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-devquickstarts-ios) | [Reference](http://cocoadocs.org/docsets/ADAL/)|
-| Android |ADAL |[The Central Repository](http://search.maven.org/remotecontent?filepath=com/microsoft/aad/adal/) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-android) |[Android App](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-devquickstarts-android) | [JavaDocs](http://javadoc.io/doc/com.microsoft.aad/adal/)|
-| Node.js |ADAL |[npm](https://www.npmjs.com/package/adal-node) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-nodejs) | | |
-| Java |ADAL4J |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-java) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-java) |[Java Web App](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-devquickstarts-webapp-java) | |
+| iOS, macOS |ADAL |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-objc/releases) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-objc) |[iOS app](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-ios) | [Reference](http://cocoadocs.org/docsets/ADAL/2.5.1/)|
+| Android |ADAL |[The Central Repository](http://search.maven.org/remotecontent?filepath=com/microsoft/aad/adal/) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-android) |[Android app](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-android) | [JavaDocs](http://javadoc.io/doc/com.microsoft.aad/adal/)|
+| Node.js |ADAL |[npm](https://www.npmjs.com/package/adal-node) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-nodejs) | [Node.js web app](https://github.com/Azure-Samples/active-directory-node-webapp-openidconnect)|[Reference](https://docs.microsoft.com/javascript/api/adal-node/?view=azure-node-latest) |
+| Java |ADAL4J |[Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3Aadal4j%20g%3Acom.microsoft.azure) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-java) |[Java web app](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect) |[Reference](http://javadoc.io/doc/com.microsoft.azure/adal4j) |
+| Python |ADAL |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-python) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-python) |[Python web app](https://github.com/Azure-Samples/active-directory-python-webapp-graphapi) |[Reference](http://adal-python.readthedocs.io/) |
 
-### Server Libraries 
+## Microsoft-supported Server Libraries
 
 | Platform | Library | Download | Source Code | Sample | Reference
 | --- | --- | --- | --- | --- | --- |
-| .NET |OWIN for AzureAD|[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.ActiveDirectory/) |[CodePlex](http://katanaproject.codeplex.com) |[MVC App](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-devquickstarts-webapp-dotnet) | |
+| .NET |OWIN for AzureAD|[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.ActiveDirectory/) |[CodePlex](http://katanaproject.codeplex.com) |[MVC App](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-webapp-dotnet) | |
 | .NET |OWIN for OpenIDConnect |[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect) |[CodePlex](http://katanaproject.codeplex.com) |[Web App](https://github.com/AzureADSamples/WebApp-OpenIDConnect-DotNet) | |
-| Node.js |Azure AD Passport |[npm](https://www.npmjs.com/package/passport-azure-ad) |[GitHub](https://github.com/AzureAD/passport-azure-ad) | [Web API](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-devquickstarts-webapi-nodejs)| |
 | .NET |OWIN for WS-Federation |[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.WsFederation) |[CodePlex](http://katanaproject.codeplex.com) |[MVC Web App](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet) | |
 | .NET |Identity Protocol Extensions for .NET 4.5 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Protocol.Extensions) |[GitHub](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) | | |
 | .NET |JWT Handler for .NET 4.5 |[NuGet](https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt) |[GitHub](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) | | |
-
-
+| Node.js |Azure AD Passport |[npm](https://www.npmjs.com/package/passport-azure-ad) |[GitHub](https://github.com/AzureAD/passport-azure-ad) | [Web API](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-webapi-nodejs)| |
 
 ## Scenarios
-Here are three common scenarios in which ADAL can be used for authentication.  
 
-### Authenticating Users of a Client Application to a Remote Resource
-In this scenario, a developer has a client, such as a WPF application, that needs to access a remote resource secured by Azure AD, such as a web API. He has an Azure subscription, knows how to invoke the downstream web API, and knows the Azure AD tenant that the web API uses. As a result, he can use ADAL to facilitate authentication with Azure AD, either by fully delegating the authentication experience to ADAL or by explicitly handling user credentials. ADAL makes it easy to authenticate the user, obtain an access token and refresh token from Azure AD, and then use the access token to make requests to the web API.
+Here are three common scenarios for using ADAL in a client that accesses a remote resource:
+
+### Authenticating users of a native client application running on a device
+
+In this scenario, a developer has a mobile client or desktop application that needs to access a remote resource, such as a web API. The web API does not allow anonymous calls and must be called in the context of an authenticated user. The web API is pre-configured to trust access tokens issued by a specific Azure AD tenant. Azure AD is pre-configured to issue access tokens for that resource. To invoke the web API from the client, the developer uses ADAL to facilitate authentication with Azure AD. The most secure way to use ADAL is to have it render the user interface for collecting user credentials (rendered as browser window).
+
+ADAL makes it easy to authenticate the user, obtain an access token and refresh token from Azure AD, and then call the web API using the access token.
 
 For a code sample that demonstrates this scenario using authentication to Azure AD, see [Native Client WPF Application to Web API](https://github.com/azureadsamples/nativeclient-dotnet).
 
-### Authenticating a Server Application to a Remote Resource
-In this scenario, a developer has an application running on a server that needs to access a remote resource secured by Azure AD, such as a web API. He has an Azure subscription, knows how to invoke the downstream service, and knows the Azure AD tenant the web API uses. As a result, he can use ADAL to facilitate authentication with Azure AD by explicitly handling the application’s credentials. ADAL makes it easy to retrieve a token from Azure AD by using the application’s client credential and then use that token to make requests to the web API. ADAL also handles managing the lifetime of the access token by caching it and renewing it as necessary. For a code sample that demonstrates this scenario, see [Console Application to Web API](https://github.com/AzureADSamples/Daemon-DotNet).
+### Authenticating a confidential client application running on a web server
 
-### Authenticating a Server Application on Behalf of a User to Access a Remote Resource
-In this scenario, a developer has an application running on a server that needs to access a remote resource secured by Azure AD, such as a web API. The request also needs to be made on behalf of a user in Azure AD. He has an Azure subscription, knows how to invoke the downstream web API, and knows the Azure AD tenant the service uses. Once the user is authenticated to the web application, the application can get an authorization code for the user from Azure AD. The web application can then use ADAL to obtain an access token and refresh token on behalf of a user using the authorization code and client credentials associated with the application from Azure AD. Once the web application is in possession of the access token, it can call the web API until the token expires. When the token expires, the web application can use ADAL to get a new access token by using the refresh token that was previously received.
+In this scenario, a developer has an application running on a server that needs to access a remote resource, such as a web API. The web API does not allow anonymous calls, so it must be called from an authorized service. The web API is pre-configured to trust access tokens issued by a specific Azure AD tenant. Azure AD is pre-configured to issue access tokens for that resource to a service with client credentials (client ID and secret). ADAL facilitates authentication of the service with Azure AD returning an access token that can be used to call the web API. ADAL also handles managing the lifetime of the access token by caching it and renewing it as necessary. For a code sample that demonstrates this scenario, see [Daemon console Application to Web API](https://github.com/AzureADSamples/Daemon-DotNet).
+
+### Authenticating a confidential client application running on a server, on behalf of a user
+
+In this scenario, a developer has a web application running on a server that needs to access a remote resource, such as a web API. The web API does not allow anonymous calls, so it must be called from an authorized service on behalf of an authenticated user. The web API is pre-configured to trust access tokens issued by a specific Azure AD tenant, and Azure AD is pre-configured to issue access tokens for that resource to a service with client credentials. Once the user is authenticated in the web application, the application can get an authorization code for the user from Azure AD. The web application can then use ADAL to obtain an access token and refresh token on behalf of a user using the authorization code and client credentials associated with the application from Azure AD. Once the web application is in possession of the access token, it can call the web API until the token expires. When the token expires, the web application can use ADAL to get a new access token by using the refresh token that was previously received. For a code sample that demonstrates this scenario, see [Native client to Web API to Web API](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof).
 
 ## See Also
-[The Azure Active Directory developer's guide](active-directory-developers-guide.md)
 
-[Authentication scenarios for Azure Active directory](active-directory-authentication-scenarios.md)
-
-[Azure Active Directory code samples](active-directory-code-samples.md)
+- [The Azure Active Directory developer's guide](azure-ad-developers-guide.md)
+- [Authentication scenarios for Azure Active directory](authentication-scenarios.md)
+- [Azure Active Directory code samples](sample-v1-code.md)

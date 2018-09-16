@@ -3,7 +3,7 @@ title: What is a Cloud Service model and package | Microsoft Docs
 description: Describes the cloud service model (.csdef, .cscfg) and package (.cspkg) in Azure
 services: cloud-services
 documentationcenter: ''
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2016
-ms.author: adegeo
+ms.date: 07/05/2017
+ms.author: jeconnoc
 
 ---
 # What is the Cloud Service model and how do I package it?
@@ -287,8 +287,8 @@ I am using Visual Studio and I want to...
 * [Setup remote desktop for a cloud service instance][vs_remote]
 
 [deploy]: cloud-services-how-to-create-deploy-portal.md
-[remotedesktop]: cloud-services-role-enable-remote-desktop.md
-[vs_remote]: ../vs-azure-tools-remote-desktop-roles.md
+[remotedesktop]: cloud-services-role-enable-remote-desktop-new-portal.md
+[vs_remote]: cloud-services-role-enable-remote-desktop-visual-studio.md
 [vs_deploy]: ../vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md
 [vs_reconfigure]: ../vs-azure-tools-configure-roles-for-cloud-service.md
 [vs_create]: ../vs-azure-tools-azure-project-create.md

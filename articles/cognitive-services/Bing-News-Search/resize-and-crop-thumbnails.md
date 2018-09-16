@@ -4,10 +4,9 @@ description: Shows how to resize and crop thumbnails included in a Bing response
 services: cognitive-services
 author: swhite-msft
 manager: ehansen
-
 ms.assetid: 9103DA11-FDB0-4031-BA40-4AD5AD30F1AC
 ms.service: cognitive-services
-ms.technology: bing-news-search
+ms.component: bing-news-search
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: scottwhi

@@ -1,26 +1,54 @@
-## What is Blob Storage?
-Azure Blob storage is a service for storing large amounts of unstructured object data, such as text or binary data, that can be accessed from anywhere in the world via HTTP or HTTPS. You can use Blob storage to expose data publicly to the world, or to store application data privately.
+---
+title: "include file"
+description: "include file"
+services: storage
+author: tamram
+ms.service: storage
+ms.topic: "include"
+ms.date: 04/09/2018
+ms.author: tamram
+ms.custom: "include file"
+---
 
-Common uses of Blob storage include:
+Azure Blob storage is Microsoft's object storage solution for the cloud. Blob storage is optimized for storing massive amounts of unstructured data, such as text or binary data.
 
-* Serving images or documents directly to a browser
-* Storing files for distributed access
-* Streaming video and audio
-* Storing data for backup and restore, disaster recovery, and archiving
-* Storing data for analysis by an on-premises or Azure-hosted service
+Massively scalable object storage for unstructured data
+
+Blob storage is ideal for:
+
+* Serving images or documents directly to a browser.
+* Storing files for distributed access.
+* Streaming video and audio.
+* Writing to log files.
+* Storing data for backup and restore, disaster recovery, and archiving.
+* Storing data for analysis by an on-premises or Azure-hosted service.
+
+Objects in Blob storage can be accessed from anywhere in the world via HTTP or HTTPS. Users or client applications can access blobs via URLs, the [Azure Storage REST API](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api), [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage), [Azure CLI](https://docs.microsoft.com/cli/azure/storage), or an Azure Storage client library. The storage client libraries are available for multiple languages, including [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage/client), [Java](https://docs.microsoft.com/java/api/overview/azure/storage/client), [Node.js](http://azure.github.io/azure-storage-node), [Python](https://docs.microsoft.com/python/azure/), [PHP](http://azure.github.io/azure-storage-php/), and [Ruby](http://azure.github.io/azure-storage-ruby).
 
 ## Blob service concepts
-The Blob service contains the following components:
 
-![Blob architecture](./media/storage-blob-concepts-include/blob1.png)
+Blob storage exposes three resources: your storage account, the containers in the account, and the blobs in a container. The following diagram shows the relationship between these resources.
 
-* **Storage Account:** All access to Azure Storage is done through a storage account. This storage account can be a **General-purpose storage account** or a **Blob storage account** which is specialized for storing objects/blobs. See [About Azure storage accounts](../articles/storage/storage-create-storage-account.md) for more information.
-* **Container:** A container provides a grouping of a set of blobs. All blobs must be in a container. An account can contain an unlimited number of containers. A container can store an unlimited number of blobs. Note that the container name must be lowercase.
-* **Blob:** A file of any type and size. Azure Storage offers three types of blobs: block blobs, page blobs, and append blobs.
-  
-    *Block blobs* are ideal for storing text or binary files, such as documents and media files. *Append blobs* are similar to block blobs in that they are made up of blocks, but they are optimized for append operations, so they are useful for logging scenarios. A single block blob can contain up to 50,000 blocks of up to 100 MB each, for a total size of slightly more than 4.75 TB (100 MB X 50,000). A single append blob can contain up to 50,000 blocks of up to 4 MB each, for a total size of slightly more than 195 GB (4 MB X 50,000).
-  
-    *Page blobs* can be up to 1 TB in size, and are more efficient for frequent read/write operations. Azure Virtual Machines use page blobs as OS and data disks.
-  
-    For details about naming containers and blobs, see [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata).
+![Diagram of Blob (object) storage architecture](./media/storage-blob-concepts-include/blob1.png)
 
+### Storage Account
+
+All access to data objects in Azure Storage happens through a storage account. For more information, see [About Azure storage accounts](../articles/storage/common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+
+### Container
+
+A container organizes a set of blobs, similar to a folder in a file system. All blobs reside within a container. A storage account can contain an unlimited number of containers, and a container can store an unlimited number of blobs. Note that the container name must be lowercase.
+
+### Blob
+ 
+Azure Storage offers three types of blobs -- block blobs, append blobs, and [page blobs](../articles/storage/blobs/storage-blob-pageblob-overview.md) (used for VHD files).
+
+* Block blobs store text and binary data, up to about 4.7 TB. Block blobs are made up of blocks of data that can be managed individually.
+* Append blobs are made up of blocks like block blobs, but are optimized for append operations. Append blobs are ideal for scenarios such as logging data from virtual machines.
+* Page blobs store random access files up to 8 TB in size. Page blobs store the VHD files that back VMs.
+
+All blobs reside within a container. A container is similar to a folder in a file system. You can further organize blobs into virtual directories, and traverse them as you would a file system. 
+
+For very large datasets where network constraints make uploading or downloading data to Blob storage over the wire unrealistic, you can ship a set of hard drives to Microsoft to import or export data directly from the data center. For more information, see [Use the Microsoft Azure Import/Export Service to Transfer Data to Blob Storage](../articles/storage/common/storage-import-export-service.md).
+  
+For details about naming containers and blobs, see [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata).

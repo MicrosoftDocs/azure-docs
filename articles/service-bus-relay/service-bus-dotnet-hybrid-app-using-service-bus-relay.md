@@ -3,7 +3,7 @@ title: Azure WCF Relay hybrid on-premises/cloud application (.NET) | Microsoft D
 description: Learn how to create a .NET on-premises/cloud hybrid application using Azure WCF Relay.
 services: service-bus-relay
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -13,12 +13,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 06/14/2017
-ms.author: sethm
+ms.date: 11/02/2017
+ms.author: spelluru
 
 ---
 # .NET on-premises/cloud hybrid application using Azure WCF Relay
-## Introduction
 
 This article shows how to build a hybrid cloud application with Microsoft Azure and Visual Studio. The tutorial assumes you have no prior experience using Azure. In less than
 30 minutes, you will have an application that uses multiple Azure resources up and running in the cloud.
@@ -53,7 +52,7 @@ The tutorial assumes that you have product information in an existing on-premise
 Before you can begin developing Azure applications, download the tools and set up your development environment:
 
 1. Install the Azure SDK for .NET from the SDK [downloads page](https://azure.microsoft.com/downloads/).
-2. In the **.NET** column, click the version of [Visual Studio](http://www.visualstudio.com) you are using. The steps in this tutorial use Visual Studio 2015, but they also work with Visual Studio 2017.
+2. In the **.NET** column, click the version of [Visual Studio](http://www.visualstudio.com) you are using. The steps in this tutorial use Visual Studio 2017.
 3. When prompted to run or save the installer, click **Run**.
 4. In the **Web Platform Installer**, click **Install** and proceed with the installation.
 5. Once the installation is complete, you will have everything
@@ -81,7 +80,7 @@ This project is a Visual Studio console application, and uses the [Azure Service
 4. Click **OK** to create the **ProductsServer** project.
 5. If you have already installed the NuGet package manager for Visual Studio, skip to the next step. Otherwise, visit [NuGet][NuGet] and click [Install NuGet](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c). Follow the prompts to install the NuGet package manager, then re-start Visual Studio.
 6. In Solution Explorer, right-click the **ProductsServer** project, then click **Manage NuGet Packages**.
-7. Click the **Browse** tab, then search for `Microsoft Azure Service Bus`. Select the **WindowsAzure.ServiceBus** package.
+7. Click the **Browse** tab, then search for **WindowsAzure.ServiceBus**. Select the **WindowsAzure.ServiceBus** package.
 8. Click **Install**, and accept the terms of use.
 
    ![][13]
@@ -202,6 +201,8 @@ This project is a Visual Studio console application, and uses the [Azure Service
       </behaviors>
     </system.serviceModel>
     ```
+    The error caused by "transportClientEndpointBehavior" is just a warning and is not a blocking issue for this sample.
+    
 13. Still in App.config, in the `<appSettings>` element, replace the connection string value with the connection string you previously obtained from the portal.
 
     ```xml
@@ -234,7 +235,7 @@ In this section you will build a simple ASP.NET application that displays data r
     ![][18]
 
 7. Back in the **New ASP.NET Web Application** dialog, click **OK** to create the MVC app.
-8. Now you must configure Azure resources for a new web app. Follow the steps in the [Publish to Azure section of this article](../app-service-web/app-service-web-get-started-dotnet.md). Then, return to this tutorial and proceed to the next step.
+8. Now you must configure Azure resources for a new web app. Follow the steps in the [Publish to Azure section of this article](../app-service/app-service-web-get-started-dotnet-framework.md#launch-the-publish-wizard). Then, return to this tutorial and proceed to the next step.
 10. In Solution Explorer, right-click **Models** and then click **Add**,
     then click **Class**. In the **Name** box, type the name
     **Product.cs**. Then click **Add**.
@@ -280,7 +281,7 @@ In this section you will build a simple ASP.NET application that displays data r
     }
     ```
 4. In Solution Explorer, expand the Views\Shared folder, then double-click **_Layout.cshtml** to open it in the Visual Studio editor.
-5. Change all occurrences of **My ASP.NET Application** to **LITWARE's Products**.
+5. Change all occurrences of **My ASP.NET Application** to **Northwind Traders Products**.
 6. Remove the **Home**, **About**, and **Contact** links. In the following example, delete the highlighted code.
 
     ![][41]
@@ -338,7 +339,7 @@ The next step is to hook up the on-premises products server with the ASP.NET app
 
 1. If it is not already open, in Visual Studio re-open the **ProductsPortal** project you created in the [Create an ASP.NET application](#create-an-aspnet-application) section.
 2. Similar to the step in the "Create an On-Premises Server" section, add the NuGet package to the project references. In Solution Explorer, right-click the **ProductsPortal** project, then click **Manage NuGet Packages**.
-3. Search for "Service Bus" and select the **WindowsAzure.ServiceBus** item. Then complete the installation and close this dialog box.
+3. Search for **WindowsAzure.ServiceBus** and select the **WindowsAzure.ServiceBus** item. Then complete the installation and close this dialog box.
 4. In Solution Explorer, right-click the **ProductsPortal** project, then click **Add**, then **Existing Item**.
 5. Navigate to the **ProductsContract.cs** file from the **ProductsServer** console project. Click to highlight ProductsContract.cs. Click the down arrow next to **Add**, then click **Add as Link**.
 
@@ -461,7 +462,7 @@ Before running the application in the cloud, you must ensure that **ProductsPort
 To learn more about Azure Relay, see the following resources:  
 
 * [What is Azure Relay?](relay-what-is-it.md)  
-* [How to use Relay](service-bus-dotnet-how-to-use-relay.md)  
+* [How to use Azure Relay](relay-wcf-dotnet-get-started.md)  
 
 [0]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hybrid.png
 [1]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/App2.png

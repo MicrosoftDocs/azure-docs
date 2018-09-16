@@ -1,249 +1,373 @@
-- name: Azure Stack documentation
+- name: Azure Stack Operator Documentation
   href: index.yml
 - name: Overview
   items:
   - name: What is Azure Stack?
     href: azure-stack-poc.md
+  - name: Release notes
+    items:
+    - name: 1808 update 
+      href: azure-stack-update-1808.md 
+    - name: 1807 update 
+      href: azure-stack-update-1807.md 
+    - name: 1805 update
+      href: azure-stack-update-1805.md
+    - name: 1804 update
+      href: azure-stack-update-1804.md
 - name: Quickstarts
   expanded: true
   items:
-  - name: Deploy Azure Stack
-    href: azure-stack-deploy-overview.md  
+  - name: Evaluate Azure Stack
+    href: azure-stack-deploy-overview.md
 - name: Tutorials
   items:
-  - name: Enable Virtual Machines
+  - name: Offer Virtual Machines
     href: azure-stack-tutorial-tenant-vm.md
-  - name: Enable SQL databases
+  - name: Offer SQL databases
     href: azure-stack-tutorial-sql-server.md
-  - name: Enable Web Apps
+  - name: Offer Web Apps
     href: azure-stack-tutorial-app-service.md
-  - name: Deploy apps to Azure & Azure Stack
-    href: azure-stack-solution-pipeline.md
 - name: Concepts
   items:
-  - name: What's new
-    href: azure-stack-whats-new.md
+  - name: Datacenter integration
+    items:
+    - name: General Azure Stack integration considerations
+      href: azure-stack-datacenter-integration.md
+    - name: Azure Stack deployment connection models
+      href: azure-stack-connection-models.md
+    - name: Connected deployment considerations
+      href: azure-stack-connected-deployment.md
+    - name: Disconnected deployment considerations
+      href: azure-stack-disconnected-deployment.md
+    - name: Datacenter network integration
+      items:
+      - name: Network integration
+        href: azure-stack-network.md
+      - name: Border connectivity
+        href: azure-stack-border-connectivity.md
+      - name: DNS integration
+        href: azure-stack-integrate-dns.md
+      - name: Firewall integration
+        href: azure-stack-firewall.md
+        items:
+        - name: Publish endpoints
+          href: azure-stack-integrate-endpoints.md
+        - name: Extension host
+          href: azure-stack-extension-host-prepare.md
+    - name: Identity integration
+      items:    
+      - name: Choose an identity provider
+        href: azure-stack-integrate-identity.md
+      - name: Validate Azure identity
+        href: azure-stack-validate-identity.md
+    - name: Azure Stack deployment PKI requirements
+      href: azure-stack-pki-certs.md
+      items:
+      - name: Generate PKI certificates
+        href: azure-stack-get-pki-certs.md
+      - name: Prepare Azure Stack PKI certificates
+        href: azure-stack-prepare-pki-certs.md
+      - name: Validate PKI certificates
+        href: azure-stack-validate-pki-certs.md
+      - name: Remediate PKI certificates
+        href: azure-stack-remediate-certs.md
+    - name: Deployment resources
+      items:
+      - name: About deployment networking
+        href: deployment-networking.md
+    - name: Validate Azure registration
+      href: azure-stack-validate-registration.md
+      items:
+      - name: Start-AzsReadiness cmdlet reference
+        href: azure-stack-azsreadiness-cmdlet.md
+      - name: View the readiness report  
+        href: azure-stack-validation-report.md
+    - name: External monitoring
+      href: azure-stack-integrate-monitor.md
+    - name: External auditing
+      items:
+      - name: Syslog forwarding
+        href: azure-stack-integrate-security.md
+      - name: Device auditing
+        href: azure-stack-integrate-physical-device-auditing.md
+  - name: Servicing policy
+    href: azure-stack-servicing-policy.md
   - name: Key features and concepts
     href: azure-stack-key-features.md
-  - name: POC architecture
-    href: azure-stack-architecture.md
   - name: Administration basics
     href: azure-stack-manage-basics.md
 - name: How-to guides
   items:
-  - name: Deploy
-    items:
-    - name: Prerequisites
-      href: azure-stack-deploy.md
-    - name: Deploy
-      href: azure-stack-run-powershell-script.md
-    - name: Activate portals
-      href: azure-stack-run-powershell-script.md#activate-the-administrator-and-tenant-portals
-    - name: Register
-      href: azure-stack-register.md
-    - name: Connect to Azure Stack
-      href: azure-stack-connect-azure-stack.md
-    - name: Add default image
-      href: azure-stack-add-default-image.md
-    - name: Create a test VM
-      href: azure-stack-provision-vm.md
+  - name: Configure telemetry collection
+    href: azure-stack-telemetry.md
+  - name: Register Azure Stack
+    href: azure-stack-registration.md
   - name: Manage
     items:
     - name: Region management
       href: azure-stack-region-management.md
-    - name: Using the portals
+    - name: Using the administrator portal
       href: azure-stack-manage-portals.md
     - name: Connect to Azure Stack
       href: azure-stack-connect-azure-stack.md
+    - name: Enable CLI for users
+      href: azure-stack-cli-admin.md
     - name: Set up management environment
       items:
-      - name: Install PowerShell
+      - name: Install Azure Stack PowerShell
         href: azure-stack-powershell-install.md
       - name: Download tools
         href: azure-stack-powershell-download.md
-      - name: Configure PowerShell
-        href: azure-stack-powershell-configure.md
-      - name: Get up and running with PowerShell
-        href: azure-stack-powershell-configure-quickstart.md
-      - name: Install and configure CLI
-        href: azure-stack-connect-cli.md
+      - name: Configure PowerShell - Cloud operator
+        href: azure-stack-powershell-configure-admin.md
+    - name: Access privileged endpoint
+      href: azure-stack-privileged-endpoint.md
     - name: Manage updates
-      href: azure-stack-updates.md
+      items:
+      - name: Manage updates overview
+        href: azure-stack-updates.md
+      - name: Apply updates
+        href: azure-stack-apply-updates.md
+      - name: Monitor update status
+        href: azure-stack-monitor-update.md
     - name: Monitor health and alerts
       href: azure-stack-monitor-health.md
     - name: Manage network resources
       href: azure-stack-viewing-public-ip-address-consumption.md
-    - name: Manage storage resources
-      href: azure-stack-manage-storage-accounts.md
-    - name: Manage Windows Azure Pack VMs
-      href: azure-stack-manage-windows-azure-pack.md
-  - name: Security & compliance
+    - name: Change user subscription owner
+      href: azure-stack-change-subscription-owner.md
+    - name: Start and stop Azure Stack
+      href: azure-stack-start-and-stop.md
+    - name: Manage capacity
+      items:
+        - name: Manage storage resources
+          href: azure-stack-manage-storage-accounts.md
+        - name: Manage storage capacity
+          href: azure-stack-manage-storage-shares.md
+        - name: Manage physical memory capacity
+          href: azure-stack-manage-storage-physical-memory-capacity.md
+        - name: Add scale unit nodes
+          href: azure-stack-add-scale-node.md
+    - name: Replace hardware
+      items:
+      - name: Node actions
+        href: azure-stack-node-actions.md
+      - name: Replace node
+        href: azure-stack-replace-node.md
+      - name: Replace disk
+        href: azure-stack-replace-disk.md
+      - name: Replace component
+        href: azure-stack-replace-component.md
+    - name: Back up Azure Stack
+      href: azure-stack-backup-infrastructure-backup.md
+      items:
+      - name: Enable Backup for Azure Stack from the administration console
+        href: azure-stack-backup-enable-backup-console.md
+      - name: Enable Backup for Azure Stack with PowerShell
+        href: azure-stack-backup-enable-backup-powershell.md
+      - name: Back up Azure Stack
+        href: azure-stack-backup-back-up-azure-stack.md
+      - name: Back up files and applications on Azure Stack
+        href: ../backup/backup-mabs-files-applications-azure-stack.md?toc=/azure/azure-stack/toc.json&bc=/azure/azure-stack/breadcrumb/toc.json
+      - name: Replicate Azure Stack VMs to Azure 
+        href: ../site-recovery/azure-stack-site-recovery.md?toc=/azure/azure-stack/toc.json&bc=/azure/azure-stack/breadcrumb/toc.json
+      - name: Recover from catastrophic data loss
+        href: azure-stack-backup-recover-data.md
+      - name: Backup best practices
+        href: azure-stack-backup-best-practices.md
+      - name: Backup reference
+        href: azure-stack-backup-reference.md
+  - name: Security, compliance & identity
     items:
-    - name: Manage RBAC
-      href: azure-stack-manage-permissions.md
-    - name: Add users for Azure AD
-      href: azure-stack-add-new-user-aad.md
-    - name: Add users for AD FS
-      href: azure-stack-add-users-adfs.md
-    - name: Create service principals
-      href: Azure-stack-create-service-principals.md
-    - name: Enable multi-tenancy
-      href: azure-stack-enable-multitenancy.md
+    - name: Security overview
+      href: azure-stack-security-foundations.md
+    - name: Identity
+      items:
+      - name: Identity overview
+        href: azure-stack-identity-overview.md
+      - name: Identity architecture 
+        href: azure-stack-identity-architecture.md
+      - name: Manage RBAC
+        href: azure-stack-manage-permissions.md
+      - name: Add users for Azure AD
+        href: azure-stack-add-new-user-aad.md
+      - name: Add users for AD FS
+        href: azure-stack-add-users-adfs.md
+      - name: Create service principals
+        href: Azure-stack-create-service-principals.md
+      - name: Enable multi-tenancy
+        href: azure-stack-enable-multitenancy.md
+    - name: Rotate secrets
+      href: azure-stack-rotate-secrets.md
+    - name: Update antivirus
+      href: azure-stack-security-av.md
   - name: Offer services
     items:
+    - name: Overview of offering services
+      href: azure-stack-offer-services-overview.md
     - name: Create plans, offers, and quotas
       items:
-      - name: Set quotas
-        href: azure-stack-setting-quotas.md
+      - name: Plan, offer, quota, and subscription overview
+        href: azure-stack-plan-offer-quota-overview.md
       - name: Create a plan
         href: azure-stack-create-plan.md
+      - name: Create an add-on plan
+        href: create-add-on-plan.md
       - name: Create an offer
         href: azure-stack-create-offer.md
       - name: Subscribe to an offer
         href: azure-stack-subscribe-plan-provision-vm.md
       - name: Delegate offers in Azure Stack
         href: azure-stack-delegated-provider.md
-    - name: Offer SQL or MySQL as PaaS
+      - name: Quota types
+        href: azure-stack-quota-types.md
+    - name: PaaS services overview
+      href: azure-stack-tools-paas-services.md
+    - name: Offer SQL as PaaS
+      href: azure-stack-sql-resource-provider.md
       items:
-      - name: Deploy MySQL resource provider
-        href: azure-stack-mysql-resource-provider-deploy.md
-      - name: Deploy SQL resource provider
+      - name: Deploy the SQL Server resource provider
         href: azure-stack-sql-resource-provider-deploy.md
+      - name: Add SQL hosting servers
+        href: azure-stack-sql-resource-provider-hosting-servers.md
+      - name: Create SQL databases
+        href: azure-stack-sql-resource-provider-databases.md
+      - name: Update the SQL Server resource provider
+        href: azure-stack-sql-resource-provider-update.md   
+      - name: Maintain the SQL Server resource provider
+        href: azure-stack-sql-resource-provider-maintain.md                  
+      - name: Remove the SQL Server resource provider
+        href: azure-stack-sql-resource-provider-remove.md 
+    - name: Offer MySQL as PaaS
+      href: azure-stack-mysql-resource-provider.md
+      items:
+      - name: Deploy the MySQL Server resource provider
+        href: azure-stack-mysql-resource-provider-deploy.md
+      - name: Add MySQL hosting servers
+        href: azure-stack-mysql-resource-provider-hosting-servers.md
+      - name: Create MySQL Databases
+        href: azure-stack-mysql-resource-provider-databases.md
+      - name: Update the MySQL Server resource provider
+        href: azure-stack-mysql-resource-provider-update.md
+      - name: Maintain MySQL Server resource provider
+        href: azure-stack-mysql-resource-provider-maintain.md
+      - name: Remove the MySQL Server resource provider
+        href: azure-stack-mysql-resource-provider-remove.md
     - name: Offer App Service as PaaS
       items:
       - name: App Service on Azure Stack overview
         href: azure-stack-app-service-overview.md
+      - name: Capacity planning
+        href: azure-stack-app-service-capacity-planning.md
       - name: Before you get started
         href: azure-stack-app-service-before-you-get-started.md
+      - name: How to redistribute Azure App Service on Azure Stack across fault domains
+        href: azure-stack-app-service-fault-domain-update.md
       - name: Deploy App Service resource provider
         href: azure-stack-app-service-deploy.md
       - name: Deploy App Service offline
         href: azure-stack-app-service-deploy-offline.md
+      - name: Update App Service
+        href: azure-stack-app-service-update.md
+      - name: Update App Service Offline
+        href: azure-stack-app-service-update-offline.md
       - name: Add more web worker roles
         href: azure-stack-app-service-add-worker-roles.md
       - name: Configure deployment sources
         href: azure-stack-app-service-configure-deployment-sources.md
-      - name: Enable FTP in App Service on Azure Stack
-        href: azure-stack-app-service-enable-ftp.md
+      - name: App Service on Azure Stack update 1 release notes
+        href: azure-stack-app-service-release-notes-update-one.md
+      - name: App Service on Azure Stack update 2 release notes
+        href: azure-stack-app-service-release-notes-update-two.md
+      - name: App Service on Azure Stack update 3 release notes
+        href: azure-stack-app-service-release-notes-update-three.md
+    - name: Deploy Ethereum
+      href: azure-stack-ethereum.md
     - name: Populate the marketplace
       items:
       - name: Marketplace overview
         href: azure-stack-marketplace.md
       - name: Download marketplace items
         href: azure-stack-download-azure-marketplace-item.md
+      - name: Azure Marketplace items for Azure Stack
+        href: azure-stack-marketplace-azure-items.md
       - name: Create and publish a marketplace item
         href: azure-stack-create-and-publish-marketplace-item.md
+      - name: Use the marketplace publishing tool
+        href: azure-stack-marketplace-publisher.md
+      - name: Supported guest operating systems for Azure Stack
+        href: azure-stack-supported-os.md
       - name: Add a custom virtual machine image
         href: azure-stack-add-vm-image.md
-      - name: Deploy Linux virtual machines
+      - name: Offer a virtual machine scale set
+        href: azure-stack-compute-add-scalesets.md
+      - name: Offer Linux virtual machines
         href: azure-stack-linux.md
+      - name: Add a Red Hat virtual machine
+        href: azure-stack-redhat-create-upload-vhd.md
+      - name: Offer a Kubernetes Cluster
+        href: azure-stack-solution-template-kubernetes-cluster-add.md
     - name: Usage and billing
+      href: azure-stack-billing-and-chargeback.md
       items:
-      - name: Overview
-        href: azure-stack-billing-and-chargeback.md
-      - name: Usage data reporting
-        href: azure-stack-usage-reporting.md
-      - name: Provider usage API
-        href: azure-stack-provider-resource-api.md
-      - name: Tenant usage API
-        href: azure-stack-tenant-resource-usage-api.md
-      - name: Usage FAQ
-        href: azure-stack-usage-related-faq.md
-  - name: Use services
-    items:
-    - name: Key considerations
-      href: azure-stack-considerations.md
-    - name: Compute
+      - name: Manage usage and billing as a CSP
+        href: azure-stack-add-manage-billing-as-a-csp.md
+        items:
+        - name: Add tenants for usage and billing 
+          href: azure-stack-csp-howto-register-tenants.md
+        - name: Manage tenant registration
+          href: azure-stack-csp-ref-operations.md
+      - name: Usage and billing reference
+        items:
+        - name: Usage data reporting
+          href: azure-stack-usage-reporting.md
+        - name: Usage reporting infrastructure for Cloud Service Providers
+          href: azure-stack-csp-ref-infrastructure.md
+        - name: Provider usage API
+          href: azure-stack-provider-resource-api.md
+        - name: Tenant usage API
+          href: azure-stack-tenant-resource-usage-api.md
+        - name: Usage FAQ
+          href: azure-stack-usage-related-faq.md
+    - name: Connect to Azure
       items:
-      - name: VM considerations
-        href: azure-stack-vm-considerations.md
-      - name: Create VM-PowerShell
-        href: azure-stack-quick-create-vm-powershell.md
-    - name: Storage
-      items:
-      - name: Overview
-        href: azure-stack-storage-overview.md
-      - name: Storage considerations
-        href: azure-stack-acs-differences.md
-      - name: Storage development tools
-        href: azure-stack-storage-dev.md
-      - name: Data transfer tools
-        href: azure-stack-storage-transfer.md
-      - name: Connect Storage Explorer
-        href: azure-stack-storage-connect-se.md
-    - name: Network
-      items:
-      - name: iDNS for Azure Stack
-        href: azure-stack-understanding-dns.md
-      - name: DNS in Azure Stack
-        href: azure-stack-dns.md
-      - name: Understanding site-to-site VPN connections
-        href: azure-stack-create-vpn-connection-one-node.md
-    - name: Key Vault
-      items:
-      - name: Overview
-        href: azure-stack-kv-intro.md
-      - name: Manage with portal
-        href: azure-stack-kv-manage-portal.md
-      - name: Manage with PowerShell
-        href: azure-stack-kv-manage-powershell.md
-      - name: Create a VM with a certificate
-        href: azure-stack-kv-push-secret-into-vm.md
-      - name: Key Vault sample app
-        href: azure-stack-kv-sample-app.md
-  - name: Build apps
-    items:
-    - name: Develop for Azure Stack
-      href: azure-stack-developer.md
-    - name: Set up development environment
-      items:
-      - name: Install PowerShell
-        href: azure-stack-powershell-install.md
-      - name: Download tools
-        href: azure-stack-powershell-download.md
-      - name: Configure PowerShell
-        href: azure-stack-powershell-configure.md
-      - name: Get up and running with PowerShell
-        href: azure-stack-powershell-configure-quickstart.md
-      - name: Install and configure CLI
-        href: azure-stack-connect-cli.md
-      - name: Install Visual Studio
-        href: azure-stack-install-visual-studio.md
-      - name: Manage API version profiles
-        href: azure-stack-version-profiles.md
-    - name: Use policy module
-      href: azure-stack-policy-module.md
-    - name: Use templates
-      items:
-      - name: Template overview
-        href: azure-stack-arm-templates.md
-      - name: Develop templates
-        href: azure-stack-develop-templates.md
-      - name: Check templates
-        href: azure-stack-validate-templates.md
-      - name: Deploy with the portal
-        href: azure-stack-deploy-template-portal.md
-      - name: Deploy with PowerShell
-        href: azure-stack-deploy-template-powershell.md
-      - name: Deploy with Visual Studio
-        href: azure-stack-deploy-template-visual-studio.md
+      - name: Connect using VPN
+        href: azure-stack-connect-vpn.md
+      - name: About VPN gateway
+        href: azure-stack-vpn-gateway-about-vpn-gateways.md
+      - name: VPN gateway settings
+        href: azure-stack-vpn-gateway-settings.md
+      - name: Connect using ExpressRoute
+        href: azure-stack-connect-expressroute.md
   - name: Troubleshoot
     items:
     - name: Known issues
       href: azure-stack-troubleshooting.md
     - name: Diagnostics in Azure Stack
       href: azure-stack-diagnostics.md
-    - name: Redeploy Azure Stack POC
-      href: azure-stack-redeploy.md
+    - name: Validation for Azure Stack
+      href: azure-stack-diagnostic-test.md
 - name: Reference
   items:
-  - name: PowerShell
-    href: /powershell/azure/overview?view=azurestackps-1.2.9
+  - name: Azure Stack PowerShell
+    href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.9
+- name: Related
+  items:
+  - name: Azure Stack User Documentation
+    href: /azure/azure-stack/user/
+  - name: ASDK Documentation
+    href: /azure/azure-stack/asdk/
 - name: Resources
   items:
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStack
+  - name: Azure Stack roadmap
+    href: https://azure.microsoft.com/roadmap/?tag=azure-stack
+  - name: Azure Stack MSDN forum
+    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack
+  - name: Azure Stack Documentation feedback
+    href: https://feedback.azure.com/forums/344565-azure-stack?category_id=160275
+  - name: Pricing information
+    href: https://azure.microsoft.com/overview/azure-stack/how-to-buy/
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-stack
+  - name: Training and certification
+    href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert

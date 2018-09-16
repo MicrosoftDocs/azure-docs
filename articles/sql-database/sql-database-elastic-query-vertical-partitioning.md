@@ -2,19 +2,13 @@
 title: Query across cloud databases with different schema | Microsoft Docs
 description: how to set up cross-database queries over vertical partitions
 services: sql-database
-documentationcenter: ''
-manager: jhubbard
-author: torsteng
-
-ms.assetid: 84c261f2-9edc-42f4-988c-cf2f251f5eff
+manager: craigg
+author: MladjoA
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/27/2016
-ms.author: torsteng
+ms.topic: conceptual
+ms.date: 04/01/2018
+ms.author: mlandzic
 
 
 ---
@@ -41,13 +35,13 @@ Vertically-partitioned databases use different sets of tables on different datab
 ## Create database scoped master key and credentials
 The credential is used by the elastic query to connect to your remote databases.  
 
-    CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'password';
+    CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'master_key_password';
     CREATE DATABASE SCOPED CREDENTIAL <credential_name>  WITH IDENTITY = '<username>',  
     SECRET = '<password>'
     [;]
 
 > [!NOTE]
-> Ensure that the `<username>` does not include any **"@servername"** suffix. 
+> Ensure that the `<username>` does not include any **"\@servername"** suffix. 
 >
 
 ## Create external data sources
@@ -153,14 +147,14 @@ The following query performs a three-way join between the two local tables for o
 
 
 ## Stored procedure for remote T-SQL execution: sp\_execute_remote
-Elastic query also introduces a stored procedure that provides direct access to the shards. The stored procedure is called [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714) and can be used to execute remote stored procedures or T-SQL code on the remote databases. It takes the following parameters: 
+Elastic query also introduces a stored procedure that provides direct access to the remote database. The stored procedure is called [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714) and can be used to execute remote stored procedures or T-SQL code on the remote database. It takes the following parameters: 
 
 * Data source name (nvarchar): The name of the external data source of type RDBMS. 
-* Query (nvarchar): The T-SQL query to be executed on each shard. 
+* Query (nvarchar): The T-SQL query to be executed on the remote database. 
 * Parameter declaration (nvarchar) - optional: String with data type definitions for the parameters used in the Query parameter (like sp_executesql). 
 * Parameter value list - optional: Comma-separated list of parameter values (like sp_executesql).
 
-The sp\_execute\_remote uses the external data source provided in the invocation parameters to execute the given T-SQL statement on the remote databases. It uses the credential of the external data source to connect to the shardmap manager database and the remote databases.  
+The sp\_execute\_remote uses the external data source provided in the invocation parameters to execute the given T-SQL statement on the remote database. It uses the credential of the external data source to connect to the remote database.  
 
 Example: 
 

@@ -1,22 +1,18 @@
----
-title: 'Azure Active Directory B2C: Add an Azure AD provider by using custom policies | Microsoft Docs'
-description: Learn about Azure Active Directory B2C custom policies
+﻿---
+title: Add an Azure AD provider by using custom policies in Azure Active Directory B2C | Microsoft Docs
+description: Learn about Azure Active Directory B2C custom policies.
 services: active-directory-b2c
-documentationcenter: ''
-author: parakhj
-manager: krassk
-editor: parakhj
+author: davidmu1
+manager: mtillman
 
-ms.assetid: 31f0dfe5-1ad0-4a25-a53b-8acc71bcea72
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.devlang: na
-ms.date: 04/04/2017
-ms.author: parakhj
-
+ms.topic: conceptual
+ms.date: 08/15/2018
+ms.author: davidmu
+ms.component: B2C
 ---
+
 # Azure Active Directory B2C: Sign in by using Azure AD accounts
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -43,21 +39,24 @@ To enable sign-in for users from a specific Azure AD organization, you need to r
 > We use "contoso.com" for the organizational Azure AD tenant and "fabrikamb2c.onmicrosoft.com" as the Azure AD B2C tenant in the following instructions.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. On the top bar, select your account. From the **Directory** list, choose the organizational Azure AD tenant where you want to register your application (contoso.com).
-1. Select **More services** in the left pane, and search for "App registrations."
-1. Select **New application registration**.
-1. Enter a name for your application (for example, `Azure AD B2C App`).
-1. Select **Web app / API** for the application type.
-1. For **Sign-on URL**, enter the following URL, where `yourtenant` is replaced by the name of your Azure AD B2C tenant (`fabrikamb2c.onmicrosoft.com`):
+2. On the top bar, select your account. From the **Directory** list, choose the organizational Azure AD tenant where you want to register your application (contoso.com).
+3. Select **More services** in the left pane, and search for "App registrations."
+4. Select **New application registration**.
+5. Enter a name for your application (for example, `Azure AD B2C App`).
+6. Select **Web app / API** for the application type.
+7. For **Sign-on URL**, enter the following URL, where `yourtenant` is replaced by the name of your Azure AD B2C tenant (`fabrikamb2c.onmicrosoft.com`):
+
+    >[!NOTE]
+    >The value for "yourtenant" must be all lowercase in the **Sign-on URL**.
 
     ```
-    https://login.microsoftonline.com/te/yourtenant.onmicrosoft.com/oauth2/authresp
+    https://yourtenant.b2clogin.com/te/yourtenant.onmicrosoft.com/oauth2/authresp
     ```
 
-1. Save the application ID.
-1. Select the newly created application.
-1. Under the **Settings** blade, select **Keys**.
-1. Create a new key, and save it. You will use it in the steps in the next section.
+8. Save the application ID.
+9. Select the newly created application.
+10. Under the **Settings** blade, select **Keys**.
+11. Enter the key description, select a duration, and then click **Save**. The value of the key is displayed. Copy it because you will use it in the steps in the next section.
 
 ## Add the Azure AD key to Azure AD B2C
 
@@ -110,7 +109,7 @@ You can define Azure AD as a claims provider by adding Azure AD to the `<ClaimsP
                     <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name" />
                     <OutputClaim ClaimTypeReferenceId="surName" PartnerClaimType="family_name" />
                     <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
-                    <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="contosoAuthentication" />
+                    <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
                     <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="AzureADContoso" />
                 </OutputClaims>
                 <OutputClaimsTransformations>

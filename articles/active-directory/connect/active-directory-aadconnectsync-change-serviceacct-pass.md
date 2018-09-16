@@ -4,8 +4,8 @@ description: This topic document describes the encryption key and how to abandon
 services: active-directory
 keywords: Azure AD sync service account, password
 documentationcenter: ''
-author: cychua
-manager: femila
+author: billmath
+manager: mtillman
 editor: ''
 ms.assetid: 76b19162-8b16-4960-9e22-bd64e6675ecc
 ms.service: active-directory
@@ -13,7 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2017
+ms.date: 07/12/2017
+ms.component: hybrid
 ms.author: billmath
 
 ---
@@ -26,7 +27,7 @@ The encryption key used is secured using [Windows Data Protection (DPAPI)](https
 
 If you need to change the service account password you can use the procedures in [Abandoning the Azure AD Connect Sync encryption key](#abandoning-the-azure-ad-connect-sync-encryption-key) to accomplish this.  These procedures should also be used if you need to abandon the encryption key for any reason.
 
-##Issues that arise from changing the password
+## Issues that arise from changing the password
 There are two things that need to be done when you change the service account password.
 
 First, you need to change the password under the Windows Service Control Manager.  Until this issue is resolved you will see following errors:

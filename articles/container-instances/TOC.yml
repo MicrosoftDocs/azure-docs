@@ -1,0 +1,115 @@
+- name: Container Instances
+  href: index.yml
+- name: Overview
+  items:
+  - name: About Azure Container Instances
+    href: container-instances-overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Create container - CLI
+    href: container-instances-quickstart.md
+  - name: Create container - Portal
+    href: container-instances-quickstart-portal.md
+  - name: Create container - PowerShell
+    href: container-instances-quickstart-powershell.md
+- name: Tutorials
+  items:
+  - name: 1 - Create container image
+    href: container-instances-tutorial-prepare-app.md
+  - name: 2 - Create container registry
+    href: container-instances-tutorial-prepare-acr.md
+  - name: 3 - Deploy application
+    href: container-instances-tutorial-deploy-app.md
+- name: Samples
+  items:
+  - name: Code samples
+    href: https://azure.microsoft.com/resources/samples/?sort=0&term=aci
+  - name: Resource Manager templates
+    href: container-instances-samples-rm.md
+- name: Concepts
+  items:
+  - name: Quotas and regional limits
+    href: container-instances-quotas.md
+  - name: Relationship to orchestrators
+    href: container-instances-orchestrator-relationship.md
+  - name: Container groups
+    href: container-instances-container-groups.md
+- name: How-to guides
+  items:
+  - name: Deploy
+    items:
+    - name: Multi-container group - YAML
+      href: container-instances-multi-container-yaml.md
+    - name: Multi-container group - Resource Manager
+      href: container-instances-multi-container-group.md
+    - name: Deploy from Azure Container Registry
+      href: container-instances-using-azure-container-registry.md
+    - name: Set environment variables (env)
+      href: container-instances-environment-variables.md
+    - name: Configure liveness probes
+      href: container-instances-liveness-probe.md
+  - name: Manage
+    items:
+    - name: Update running containers
+      href: container-instances-update.md
+    - name: Execute a command (exec)
+      href: container-instances-exec.md
+    - name: Monitor CPU and memory usage
+      href: container-instances-monitor.md
+    - name: Logging with Azure Log Analytics
+      href: container-instances-log-analytics.md
+  - name: Run workloads
+    items:
+    - name: Run tasks with restart policies
+      href: container-instances-restart-policy.md
+    - name: Jenkins build agents on ACI
+      href: container-instances-jenkins.md
+  - name: Configure data volumes
+    items:
+    - name: Azure Files
+      href: container-instances-volume-azure-files.md
+    - name: emptyDir
+      href: container-instances-volume-emptydir.md
+    - name: gitRepo
+      href: container-instances-volume-gitrepo.md
+    - name: secret
+      href: container-instances-volume-secret.md
+  - name: Troubleshoot
+    items:
+    - name: Get container logs & events
+      href: container-instances-get-logs.md
+    - name: Troubleshoot common issues
+      href: container-instances-troubleshooting.md
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/container
+  - name: REST
+    href: /rest/api/container-instances
+  - name: PowerShell
+    href: /powershell/module/azurerm.containerinstance#container_instances
+  - name: .NET
+    href: /dotnet/api/overview/azure/containerinstance
+  - name: Python
+    href: /python/api/overview/azure/containerinstance
+  - name: Java
+    href: /java/api/overview/azure/containerinstance
+  - name: Node.js
+    href: /javascript/api/overview/azure/containerinstances
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.containerinstance/containergroups
+- name: Resources
+  items:
+  - name: Region availability
+    href: https://azure.microsoft.com/regions/services/
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/container-instances/
+  - name: Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Provide product feedback
+    href: https://feedback.azure.com/forums/602224-azure-container-instances
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-container-instances
+  - name: Videos
+    href: https://azure.microsoft.com/resources/videos/index/?services=container-instances&sort=newest

@@ -3,8 +3,8 @@ title: Data Security and Encryption Best Practices | Microsoft Docs
 description: This article provides a set of best practices for data security and encryption using built in Azure capabilities.
 services: security
 documentationcenter: na
-author: YuriDio
-manager: swadhwa
+author: barclayn
+manager: mbalwin
 editor: TomSh
 
 ms.assetid: 17ba67ad-e5cd-4a8f-b435-5218df753ca4
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/09/2017
-ms.author: yurid
+ms.date: 04/26/2018
+ms.author: barclayn
 
 ---
 # Azure Data Security and Encryption Best Practices
+
 One of the keys to data protection in the cloud is accounting for the possible states in which your data may occur, and what controls are available for that state. For the purpose of Azure data security and encryption best practices the recommendations will be around the following data’s states:
 
 * At-rest: This includes all information storage objects, containers, and types that exist statically on physical media, be it magnetic or optical disk.
@@ -47,26 +48,29 @@ Azure data security and encryption best practices discussed in this article incl
 * Enforce file level data encryption
 
 ## Enforce Multi-factor Authentication
-The first step in data access and control in Microsoft Azure is to authenticate the user. [Azure Multi-Factor Authentication (MFA)](../multi-factor-authentication/multi-factor-authentication.md) is a method of verifying user’s identity by using another method than just a username and password. This authentication method helps safeguard access to data and applications while meeting user demand for a simple sign-in process.
+
+The first step in data access and control in Microsoft Azure is to authenticate the user. [Azure Multi-Factor Authentication (MFA)](../active-directory/authentication/multi-factor-authentication.md) is a method of verifying user’s identity by using another method than just a username and password. This authentication method helps safeguard access to data and applications while meeting user demand for a simple sign-in process.
 
 By enabling Azure MFA for your users, you are adding a second layer of security to user sign-ins and transactions. In this case, a transaction might be accessing a document located in a file server or in your SharePoint Online. Azure MFA also helps IT to reduce the likelihood that a compromised credential will have access to organization’s data.
 
 For example: if you enforce Azure MFA for your users and configure it to use a phone call or text message as verification, if the user’s credential is compromised, the attacker won’t be able to access any resource since he will not have access to user’s phone. Organizations that do not add this extra layer of identity protection are more susceptible for credential theft attack, which may lead to data compromise.
 
-One alternative for organizations that want to keep the authentication control on-premises is to use [Azure Multi-Factor Authentication Server](../multi-factor-authentication/multi-factor-authentication-get-started-server.md), also called MFA on-premises. By using this method you will still be able to enforce multi-factor authentication, while keeping the MFA server on-premises.
+One alternative for organizations that want to keep the authentication control on-premises is to use [Azure Multi-Factor Authentication Server](../active-directory/authentication/howto-mfaserver-deploy.md), also called MFA on-premises. By using this method you will still be able to enforce multi-factor authentication, while keeping the MFA server on-premises.
 
-For more information on Azure MFA, please read the article [Getting started with Azure Multi-Factor Authentication in the cloud](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
+For more information on Azure MFA, please read the article [Getting started with Azure Multi-Factor Authentication in the cloud](../active-directory/authentication/howto-mfa-getstarted.md).
 
 ## Use Role Based Access Control (RBAC)
+
 Restrict access based on the [need to know](https://en.wikipedia.org/wiki/Need_to_know) and [least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) security principles. This is imperative for organizations that want to enforce security policies for data access. Azure Role-Based Access Control (RBAC) can be used to assign permissions to users, groups, and applications at a certain scope. The scope of a role assignment can be a subscription, a resource group, or a single resource.
 
-You can leverage [built-in RBAC roles](../active-directory/role-based-access-built-in-roles.md) in Azure to assign privileges to users. Consider using *Storage Account Contributor* for cloud operators that need to manage storage accounts and *Classic Storage Account Contributor* role to manage classic storage accounts. For cloud operators that needs to manage VMs and storage account, consider adding them to *Virtual Machine Contributor* role.
+You can leverage [built-in RBAC roles](../role-based-access-control/built-in-roles.md) in Azure to assign privileges to users. Consider using *Storage Account Contributor* for cloud operators that need to manage storage accounts and *Classic Storage Account Contributor* role to manage classic storage accounts. For cloud operators that needs to manage VMs and storage account, consider adding them to *Virtual Machine Contributor* role.
 
 Organizations that do not enforce data access control by leveraging capabilities such as RBAC may be giving more privileges than necessary for their users. This can lead to data compromise by having some users having access to data that they shouldn’t have in the first place.
 
-You can learn more about Azure RBAC by reading the article [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md).
+You can learn more about Azure RBAC by reading the article [Azure Role-Based Access Control](../role-based-access-control/role-assignments-portal.md).
 
 ## Encrypt Azure Virtual Machines
+
 For many organizations, [data encryption at rest](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) is a mandatory step towards data privacy, compliance and data sovereignty. Azure Disk Encryption enables IT administrators to encrypt Windows and Linux IaaS Virtual Machine (VM) disks. Azure Disk Encryption leverages the industry standard BitLocker feature of Windows and the DM-Crypt feature of Linux to provide volume encryption for the OS and the data disks.
 
 You can leverage Azure Disk Encryption to help protect and safeguard your data to meet your organizational security and compliance requirements. Organizations should also consider using encryption to help mitigate risks related to unauthorized data access. It is also recommended that you encrypt drives prior to writing sensitive data to them.
@@ -122,6 +126,7 @@ Organizations that are not using database level encryption may be more susceptib
 You can learn more about SQL TDE encryption by reading the article [Transparent Data Encryption with Azure SQL Database](https://msdn.microsoft.com/library/0bf7e8ff-1416-4923-9c4c-49341e208c62.aspx).
 
 ## Protect data in transit
+
 Protecting data in transit should be essential part of your data protection strategy. Since data will be moving back and forth from many locations, the general recommendation is that you always use SSL/TLS protocols to exchange data across different locations. In some circumstances, you may want to isolate the entire communication channel between your on-premises and cloud infrastructure by using a virtual private network (VPN).
 
 For data moving between your on-premises infrastructure and Azure, you should consider appropriate safeguards such as HTTPS or VPN.
@@ -139,6 +144,7 @@ Organizations that fail to protect data in transit are more susceptible for [man
 You can learn more about Azure VPN option by reading the article [Planning and design for VPN Gateway](../vpn-gateway/vpn-gateway-plan-design.md).
 
 ## Enforce file level data encryption
+
 Another layer of protection that can increase the level of security for your data is encrypting the file itself, regardless of the file location.
 
 [Azure RMS](https://technet.microsoft.com/library/jj585026.aspx) uses encryption, identity, and authorization policies to help secure your files and email. Azure RMS works across multiple devices — phones, tablets, and PCs by protecting both within your organization and outside your organization. This capability is possible because Azure RMS adds a level of protection that remains with the data, even when it leaves your organization’s boundaries.

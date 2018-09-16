@@ -5,27 +5,17 @@ services: functions
 documentationcenter: fsharp
 author: sylvanc
 manager: jbronsk
-editor: ''
-tags: ''
 keywords: azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture, F#
 
 ms.assetid: e60226e5-2630-41d7-9e5b-9f9e5acc8e50
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: fsharp
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 09/09/2016
 ms.author: syclebsc
 
 ---
 # Azure Functions F# Developer Reference
-> [!div class="op_single_selector"]
-> * [C# script](functions-reference-csharp.md)
-> * [F# script](functions-reference-fsharp.md)
-> * [Node.js](functions-reference-node.md)
-> 
-> 
 
 F# for Azure Functions is a solution for easily running small pieces of code, or "functions," in the cloud. Data flows into your F# function via function arguments. Argument names are specified in `function.json`, and there are predefined names for accessing things like the function logger and cancellation tokens.
 
@@ -76,7 +66,7 @@ let Run(input: string, item: byref<Item>) =
 ```
 
 ## Logging
-To log output to your [streaming logs](../app-service-web/web-sites-streaming-logs-and-console.md) in F#, your function should take an argument of type `TraceWriter`. For consistency, we recommend this argument is named `log`. For example:
+To log output to your [streaming logs](../app-service/web-sites-enable-diagnostic-log.md) in F#, your function should take an argument of type `TraceWriter`. For consistency, we recommend this argument is named `log`. For example:
 
 ```fsharp
 let Run(blob: string, output: byref<string>, log: TraceWriter) =
@@ -129,7 +119,7 @@ The following namespaces are automatically opened:
 * `Microsoft.Azure.WebJobs.Host`.
 
 ## Referencing External Assemblies
-Similarly, framework assembly references be added with the `#r "AssemblyName"` directive.
+Similarly, framework assembly references can be added with the `#r "AssemblyName"` directive.
 
 ```fsharp
 #r "System.Web.Http"
@@ -174,7 +164,7 @@ An editor that supports F# Compiler Services will not be aware of the namespaces
 #r "Microsoft.Azure.WebJobs.Host.dll"
 #endif
 
-open Sytem
+open System
 open Microsoft.Azure.WebJobs.Host
 
 let Run(blob: string, output: byref<string>, log: TraceWriter) =
@@ -186,7 +176,7 @@ When Azure Functions executes your code, it processes the source with `COMPILED`
 <a name="package"></a>
 
 ## Package management
-To use NuGet packages in an F# function, add a `project.json` file to the the function's folder in the function app's file system. Here is an example `project.json` file that adds a NuGet package reference to `Microsoft.ProjectOxford.Face` version 1.1.0:
+To use NuGet packages in an F# function, add a `project.json` file to the function's folder in the function app's file system. Here is an example `project.json` file that adds a NuGet package reference to `Microsoft.ProjectOxford.Face` version 1.1.0:
 
 ```json
 {
@@ -272,8 +262,6 @@ For more information, see the following resources:
 * [F# Guide](/dotnet/articles/fsharp/index)
 * [Best Practices for Azure Functions](functions-best-practices.md)
 * [Azure Functions developer reference](functions-reference.md)
-* [Azure Functions C# developer reference](functions-reference-csharp.md)
-* [Azure Functions NodeJS developer reference](functions-reference-node.md)
 * [Azure Functions triggers and bindings](functions-triggers-bindings.md)
 * [Azure Functions testing](functions-test-a-function.md)
 * [Azure Functions scaling](functions-scale.md)

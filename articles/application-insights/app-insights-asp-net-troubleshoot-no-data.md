@@ -3,7 +3,7 @@ title: Troubleshooting no data - Application Insights for .NET
 description: Not seeing data in Azure Application Insights? Try here.
 services: application-insights
 documentationcenter: .net
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: e231569f-1b38-48f8-a744-6329f41d91d3
@@ -11,9 +11,9 @@ ms.service: application-insights
 ms.workload: mobile
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 03/14/2017
-ms.author: cfreeman
+ms.topic: conceptual
+ms.date: 07/23/2018
+ms.author: mbullwin
 
 ---
 # Troubleshooting no data - Application Insights for .NET
@@ -27,6 +27,7 @@ ms.author: cfreeman
 *I installed my app on my web server, and now I don't see any telemetry from it. It worked OK on my dev machine.*
 
 * Probably a firewall issue. [Set firewall exceptions for Application Insights to send data](app-insights-ip-addresses.md).
+* IIS Server might be missing some prerequisites: .NET Extensibility 4.5, and ASP.NET 4.5.
 
 *I [installed Status Monitor](app-insights-monitor-performance-live-website-now.md) on my web server to monitor existing apps. I don't see any results.*
 
@@ -36,7 +37,7 @@ ms.author: cfreeman
 *When I right-click an existing project in Solution Explorer, I don't see any Application Insights options.*
 
 * Not all types of .NET project are supported by the tools. Web and WCF projects are supported. For other project types such as desktop or service applications, you can still [add an Application Insights SDK to your project manually](app-insights-windows-desktop.md).
-* Make sure you have [Visual Studio 2013 Update 3 or later](http://go.microsoft.com/fwlink/?LinkId=397827). It comes pre-installed with Developer Analytics tools, which provide the Application Insights SDK.
+* Make sure you have [Visual Studio 2013 Update 3 or later](https://docs.microsoft.com/visualstudio/releasenotes/vs2013-update3-rtm-vs). It comes pre-installed with Developer Analytics tools, which provide the Application Insights SDK.
 * Select **Tools**, **Extensions and Updates** and check that **Developer Analytics Tools** is installed and enabled. If so, click **Updates** to see if there's an update available.
 * Open the New Project dialog and choose ASP.NET Web application. If you see the Application Insights option there, then the tools are installed. If not, try uninstalling and then re-installing the Application Insights Tools.
 
@@ -156,11 +157,9 @@ See [dependency telemetry](app-insights-asp-net-dependencies.md) and [exception 
 ## No performance data
 Performance data (CPU, IO rate, and so on) is available for [Java web services](app-insights-java-collectd.md), [Windows desktop apps](app-insights-windows-desktop.md), [IIS web apps and services if you install status monitor](app-insights-monitor-performance-live-website-now.md), and [Azure Cloud Services](app-insights-azure.md). you'll find it under Settings, Servers.
 
-It isn't available for Azure websites.
-
 ## No (server) data since I published the app to my server
 * Check that you actually copied all the Microsoft. ApplicationInsights DLLs to the server, together with Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll
-* In your firewall, you might have to [open some TCP ports](app-insights-ip-addresses.md#data-access-api).
+* In your firewall, you might have to [open some TCP ports](app-insights-ip-addresses.md).
 * If you have to use a proxy to send out of your corporate network, set [defaultProxy](https://msdn.microsoft.com/library/aa903360.aspx) in Web.config
 * Windows Server 2008: Make sure you have installed the following updates: [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://support.microsoft.com/kb/2600217).
 
@@ -173,8 +172,11 @@ If your application sends a lot of data and you are using the Application Insigh
 
 You can disable it, but this is not recommended. Sampling is designed so that related telemetry is correctly transmitted, for diagnostic purposes. 
 
+## Client IP address is 0.0.0.0 
+On February 2018, we [announced](https://blogs.msdn.microsoft.com/applicationinsights-status/2018/02/01/all-octets-of-ip-address-will-be-set-to-zero/) that we removed logging of the Client IP address. This does not affect Geo Location.
+
 ## Wrong geographical data in user telemetry
-The city, region, and country dimensions are derived from IP addresses and aren't always accurate.
+The city, region, and country dimensions are derived from IP addresses and aren't always accurate. These IP addresses are processed for location first and then changed to 0.0.0.0 to be stored.
 
 ## Exception "method not found" on running in Azure Cloud Services
 Did you build for .NET 4.6? 4.6 is not automatically supported in Azure Cloud Services roles. [Install 4.6 on each role](../cloud-services/cloud-services-dotnet-install-dotnet.md) before running your app.

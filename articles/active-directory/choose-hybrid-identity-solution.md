@@ -3,8 +3,10 @@ title: Choose an Azure hybrid identity solution | Microsoft Docs
 description: Get a basic understanding of the available hybrid identity solutions and recommendations for you to make the best identity governance decision for your organization.
 keywords:
 author: jeffgilb
-manager: femila
-ms.date: 6/30/2017
+manager: mtillman
+ms.reviewer: jsnow
+ms.author: billmath
+ms.date: 03/02/2018
 ms.topic: article
 ms.prod:
 ms.service: azure
@@ -15,7 +17,6 @@ ms.assetid:
 #ROBOTS:
 #audience:
 #ms.devlang:
-ms.reviewer: jsnow
 #ms.suite:
 #ms.tgt_pltfrm:
 ms.custom: it-pro
@@ -53,14 +54,8 @@ Pass-through authentication is configured with Azure AD Connect, which uses a si
 - Windows Server 2012 R2 or higher
 - Joined to a domain in the forest through which users are validated
 
-> [!NOTE]
-> Azure AD pass-through authentication is currently in preview and is supported for web browser-based clients and Office clients that support modern authentication. For clients that are not supported, such as legacy Office clients and Exchange ActiveSync (including native email clients on mobile devices), it's recommended to use the modern authentication equivalent. Modern authentication not only allows pass-through authentication, but also allows for conditional access policies to be applied, such as multi-factor authentication. 
-
-Pass-through authentication is not currently supported when using Windows 10 devices joined to Azure AD. However, you can use password hash synchronization as an automatic fallback to support Windows 10 and the legacy clients mentioned previously. During the preview, password hash synchronization is enabled by default when pass-through authentication is selected as the sign-in option in Azure AD Connect.
-
-
 ## Federated identity (AD FS)
-For more control over how users access Office 365 and other cloud services, you can set up directory synchronization with single sign-on (SSO) using [Active Directory Federation Services (AD FS)](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/whats-new-active-directory-federation-services-windows-server-2016). Federating your user's sign-ins with AD FS delegates authentication to an on-premises server that validates user credentials. In this model, on-premises Active Directory credentials are never passed to Azure AD.
+For more control over how users access Office 365 and other cloud services, you can set up directory synchronization with single sign-on (SSO) using [Active Directory Federation Services (AD FS)](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/whats-new-active-directory-federation-services-windows-server). Federating your user's sign-ins with AD FS delegates authentication to an on-premises server that validates user credentials. In this model, on-premises Active Directory credentials are never passed to Azure AD.
 
 ![Federated identity](./media/choose-hybrid-identity-solution/federated-identity.png)
 
@@ -94,6 +89,8 @@ Here are some common hybrid identity and access management scenarios with recomm
 
 
 ## Next steps
+[Learn more in an Azure Proof of Concept environment](https://aka.ms/aad-poc)
+
 [Install Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
 
 [Monitor hybrid identity synchronization](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health)

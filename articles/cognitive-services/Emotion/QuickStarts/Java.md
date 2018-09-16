@@ -2,22 +2,26 @@
 title: Emotion API Java for Android quick start | Microsoft Docs
 description: Get information and a code sample to help you quickly get started using the Emotion API with Java for Android in Cognitive Services.
 services: cognitive-services
-author: v-royhar
-manager: yutkuo
-
+author: anrothMSFT
+manager: corncar
 ms.service: cognitive-services
-ms.technology: emotion
+ms.component: emotion-api
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: anroth
 ---
 
 # Emotion API Java for Android Quick Start
-This article provides information and a code sample to help you quickly get started with the [Emotion Recognize method](https://dev.projectoxford.ai/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) in the Emotion API Android client library. The sample demonstrates how you can use Java to recognize the emotions expressed by people. 
+
+> [!IMPORTANT]
+> Video API Preview will end on October 30th, 2017. Try the new [Video Indexer API Preview](https://azure.microsoft.com/services/cognitive-services/video-indexer/) to easily extract insights from 
+videos and to enhance content discovery experiences, such as search results, by detecting spoken words, faces, characters, and emotions. [Learn more](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
+
+This article provides information and a code sample to help you quickly get started with the [Emotion Recognize method](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) in the Emotion API Android client library. The sample demonstrates how you can use Java to recognize the emotions expressed by people. 
 
 ## Prerequisites
 * Get the Emotion API Java for Android SDK [here](https://github.com/Microsoft/Cognitive-emotion-android)
-* Get your free subscription key [here](https://azure.microsoft.com/en-us/try/cognitive-services/)
+* Get your free subscription key [here](https://azure.microsoft.com/try/cognitive-services/)
 
 ## Recognize Emotions Java for Android Example Request
 

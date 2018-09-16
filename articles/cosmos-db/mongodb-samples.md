@@ -1,32 +1,27 @@
 ---
 title: Use MongoDB APIs to build an Azure Cosmos DB app | Microsoft Docs
-description: A tutorial that creates an online database using the DocumentDB APIs for MongoDB.
+description: A tutorial that creates an online database using the Azure Cosmos DB APIs for MongoDB.
 keywords: mongodb examples
 services: cosmos-db
-author: AndrewHoh
-manager: jhubbard
+author: SnehaGunda
+manager: kfile
 editor: ''
-documentationcenter: ''
 
-ms.assetid: fb38bc53-3561-487d-9e03-20f232319a87
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/22/2017
-ms.author: anhoh
+ms.component: cosmosdb-mongo
+ms.devlang: nodejs
+ms.topic: sample
+ms.date: 03/23/2018
+ms.author: sngun
 
 ---
 # Build an Azure Cosmos DB: API for MongoDB app using Node.js
 > [!div class="op_single_selector"]
-> * [.NET](documentdb-get-started.md)
-> * [.NET Core](documentdb-dotnetcore-get-started.md)
-> * [Java](documentdb-java-get-started.md)
+> * [.NET](sql-api-get-started.md)
+> * [.NET Core](sql-api-dotnetcore-get-started.md)
+> * [Java](sql-api-java-get-started.md)
 > * [Node.js for MongoDB](mongodb-samples.md)
-> * [Node.js](documentdb-nodejs-get-started.md)
-> * [C++](documentdb-cpp-get-started.md)
->  
+> * [Node.js](sql-api-nodejs-get-started.md)
 >
 
 This example shows you how to build an Azure Cosmos DB: API for MongoDB console app using Node.js.
@@ -44,7 +39,7 @@ To use this example, you must:
     var MongoClient = require('mongodb').MongoClient;
     var assert = require('assert');
     var ObjectId = require('mongodb').ObjectID;
-    var url = 'mongodb://<endpoint>:<password>@<endpoint>.documents.azure.com:10250/?ssl=true';
+    var url = 'mongodb://<username>:<password>@<endpoint>.documents.azure.com:10255/?ssl=true';
 
     var insertDocument = function(db, callback) {
     db.collection('families').insertOne( {
@@ -105,6 +100,44 @@ To use this example, you must:
     );
     };
     
+    MongoClient.connect(url, function(err, client) {
+    assert.equal(null, err);
+    var db = client.db('familiesdb');
+    insertDocument(db, function() {
+        findFamilies(db, function() {
+        updateFamilies(db, function() {
+            removeFamilies(db, function() {
+                client.close();
+            });
+        });
+        });
+    });
+    });
+    ```
+    
+    **Optional**: If you are using the **MongoDB Node.js 2.2 driver**, please replace the following code snippet:
+
+    Original:
+
+    ```nodejs
+    MongoClient.connect(url, function(err, client) {
+    assert.equal(null, err);
+    var db = client.db('familiesdb');
+    insertDocument(db, function() {
+        findFamilies(db, function() {
+        updateFamilies(db, function() {
+            removeFamilies(db, function() {
+                client.close();
+            });
+        });
+        });
+    });
+    });
+    ```
+    
+    Should be replaced with:
+
+    ```nodejs
     MongoClient.connect(url, function(err, db) {
     assert.equal(null, err);
     insertDocument(db, function() {
@@ -118,11 +151,20 @@ To use this example, you must:
     });
     });
     ```
-
+    
 2. Modify the following variables in the *app.js* file per your account settings (Learn how to find your [connection string](connect-mongodb-account.md)):
+
+    > [!IMPORTANT]
+    > The **MongoDB Node.js 3.0 driver** requires encoding special characters in the Cosmos DB password. Make sure to encode '=' characters as %3D
+    >
+    > Example: The password *jm1HbNdLg5zxEuyD86ajvINRFrFCUX0bIWP15ATK3BvSv==* encodes to *jm1HbNdLg5zxEuyD86ajvINRFrFCUX0bIWP15ATK3BvSv%3D%3D*
+    >
+    > The **MongoDB Node.js 2.2 driver** does not require encoding special characters in the Cosmos DB password.
+    >
+    >
    
     ```nodejs
-    var url = 'mongodb://<endpoint>:<password>@<endpoint>.documents.azure.com:10250/?ssl=true';
+    var url = 'mongodb://<endpoint>:<password>@<endpoint>.documents.azure.com:10255/?ssl=true';
     ```
      
 3. Open your favorite terminal, run **npm install mongodb --save**, then run your app with **node app.js**

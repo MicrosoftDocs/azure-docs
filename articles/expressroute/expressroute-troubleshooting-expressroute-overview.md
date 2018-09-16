@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/12/2017
-ms.author: rambala
+ms.date: 09/26/2017
+ms.author: cherylmc
 
 ---
 # Verifying ExpressRoute connectivity
-ExpressRoute, which extends an on-premises network into the Microsoft cloud over a dedicated private connection that is facilitated by a connectivity provider, involves the following three distinct network zones:
+ExpressRoute, which extends an on-premises network into the Microsoft cloud over a private connection that is facilitated by a connectivity provider, involves the following three distinct network zones:
 
 - 	Customer Network
 -  	Provider Network
@@ -65,7 +65,7 @@ To validate an ExpressRoute circuit, the following steps are covered (with the n
 
 More validations and checks will be added in the future, check back monthly!
 
-##Validate circuit provisioning and state
+## Validate circuit provisioning and state
 Regardless of the connectivity model, an ExpressRoute circuit has to be created and thus a service key generated for circuit provisioning. Provisioning an ExpressRoute circuit establishes a redundant Layer 2 connections between PE-MSEEs (4) and MSEEs (5). For more information on how to create, modify, provision, and verify an ExpressRoute circuit, see the article [Create and modify an ExpressRoute circuit][CreateCircuit].
 
 >[!TIP]
@@ -73,7 +73,7 @@ Regardless of the connectivity model, an ExpressRoute circuit has to be created 
 >
 >
 
-###Verification via the Azure portal
+### Verification via the Azure portal
 In the Azure portal, the status of an ExpressRoute circuit can be checked by selecting ![2][2] on the left-side-bar menu and then selecting the ExpressRoute circuit. Selecting an ExpressRoute circuit listed under "All resources" opens the ExpressRoute circuit blade. In the ![3][3] section of the blade, the ExpressRoute essentials are listed as shown in the following screen shot:
 
 ![4][4]    
@@ -87,13 +87,14 @@ For an ExpressRoute circuit to be operational, the *Circuit status* must be *Ena
 >
 >
 
-###Verification via PowerShell
+### Verification via PowerShell
 To list all the ExpressRoute circuits in a Resource Group, use the following command:
 
 	Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG"
 
 >[!TIP]
->You can get your resource group name through the Azure portal. See the previous subsection of this document and note that the resource group name is listed in the example screen shot.
+>You can get your resource group name through the Azure 
+>. See the previous subsection of this document and note that the resource group name is listed in the example screen shot.
 >
 >
 
@@ -136,7 +137,7 @@ To confirm if an ExpressRoute circuit is operational, pay particular attention t
 >
 >
 
-###Verification via PowerShell (Classic)
+### Verification via PowerShell (Classic)
 To list all the ExpressRoute circuits under a subscription, use the following command:
 
 	Get-AzureDedicatedCircuit
@@ -166,18 +167,13 @@ To confirm if an ExpressRoute circuit is operational, pay particular attention t
 >
 >
 
-##Validate Peering Configuration
+## Validate Peering Configuration
 After the service provider has completed the provisioning the ExpressRoute circuit, a routing configuration can be created over the ExpressRoute circuit between MSEE-PRs (4) and MSEEs (5). Each ExpressRoute circuit can have one, two, or three routing contexts enabled: Azure private peering (traffic to private virtual networks in Azure), Azure public peering (traffic to public IP addresses in Azure), and Microsoft peering (traffic to Office 365 and Dynamics 365). For more information on how to create and modify routing configuration, see the article [Create and modify routing for an ExpressRoute circuit][CreatePeering].
 
-###Verification via the Azure portal
->[!IMPORTANT]
->There is a known bug in the Azure portal wherein ExpressRoute peerings are *NOT* shown in the portal if configured by the service provider. Adding ExpressRoute peerings via the portal or PowerShell *overwrites the service provider settings*. This action breaks the routing on the ExpressRoute circuit and requires the support of the service provider to restore the settings and reestablish normal routing. Only modify the ExpressRoute peerings if it is certain that the service provider is providing layer 2 services only!
->
->
+### Verification via the Azure portal
 
-<p/>
 >[!NOTE]
->If layer 3 is provided by the service provider and the peerings are blank in the portal, PowerShell can be used to see the service provider configured settings.
+>If layer 3 is provided by the service provider and the peerings are blank in the portal, refresh the Circuit configuration using the refresh button on the portal. This operation will apply the right routing configuration on your circuit. 
 >
 >
 
@@ -192,11 +188,11 @@ In the preceding example, as noted Azure private peering routing context is enab
 >
 >
 
-###Verification via PowerShell
+### Verification via PowerShell
 To get the Azure private peering configuration details, use the following commands:
 
 	$ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
-	Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Circuit $ckt
+	Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt
 
 A sample response, for a successfully configured private peering, is:
 
@@ -220,12 +216,12 @@ A sample response, for a successfully configured private peering, is:
 To get the Azure public peering configuration details, use the following commands:
 
 	$ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
-	Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -Circuit $ckt
+	Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt
 
 To get the Microsoft peering configuration details, use the following commands:
 
 	$ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
-	Get-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -Circuit $ckt
+	 Get-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
 
 If a peering is not configured, there would be an error message. A sample response, when the stated peering (Azure Public peering in this example) is not configured within the circuit:
 
@@ -236,10 +232,6 @@ If a peering is not configured, there would be an error message. A sample respon
     		+ CategoryInfo          : CloseError: (:) [Get-AzureRmExpr...itPeeringConfig], InvalidOperationException
     		+ FullyQualifiedErrorId : Microsoft.Azure.Commands.Network.GetAzureExpressRouteCircuitPeeringConfigCommand
 
->[!IMPORTANT]
->If layer 3 peerings were set by the service provider, setting the ExpressRoute peerings via the portal or PowerShell overwrites the service provider settings. Resetting the provider side peering settings requires the support of the service provider. Only modify the ExpressRoute peerings if it is certain that the service provider is providing layer 2 services only!
->
->
 
 <p/>
 >[!NOTE]
@@ -289,7 +281,7 @@ To get the Microsoft peering configuration details, use the following commands:
 >
 
 ## Validate ARP between Microsoft and the service provider
-This section uses PowerShell (Classic) commands. If you have been using PowerShell Azure Resource Manager commands, ensure that you have admin/co-admin access to the subscription via [Azure classic portal][OldPortal]. For troubleshooting using Azure Resource Manager commands please refer to the [Getting ARP tables in the Resource Manager deployment model][ARP] document.
+This section uses PowerShell (Classic) commands. If you have been using PowerShell Azure Resource Manager commands, ensure that you have admin/co-admin access to the subscription. For troubleshooting using Azure Resource Manager commands please refer to the [Getting ARP tables in the Resource Manager deployment model][ARP] document.
 
 >[!NOTE]
 >To get ARP, both the Azure portal and Azure Resource Manager PowerShell commands can be used. If errors are encountered with the Azure Resource Manager PowerShell commands, classic PowerShell commands should work as Classic PowerShell commands also work with Azure Resource Manager ExpressRoute circuits.
@@ -322,7 +314,7 @@ The following example shows the response of the command for a peering does not e
 >
 
 ## Validate BGP and routes on the MSEE
-This section uses PowerShell (Classic) commands. If you have been using PowerShell Azure Resource Manager commands, ensure that you have admin/co-admin access to the subscription via [Azure classic portal][OldPortal]
+This section uses PowerShell (Classic) commands. If you have been using PowerShell Azure Resource Manager commands, ensure that you have admin/co-admin access to the subscription.
 
 >[!NOTE]
 >To get BGP information, both the Azure portal and Azure Resource Manager PowerShell commands can be used. If errors are encountered with the Azure Resource Manager PowerShell commands, classic PowerShell commands should work as classic PowerShell commands also work with Azure Resource Manager ExpressRoute circuits.
@@ -372,7 +364,7 @@ The following example shows the response of the command for a peering does not e
 
 	Route Table Info:
 
-##Check the Traffic Statistics
+## Check the Traffic Statistics
 To get the combined primary and secondary path traffic statistics--bytes in and out--of a peering context, use the following command:
 
 	Get-AzureDedicatedCircuitStats -ServiceKey 97f85950-01dd-4d30-a73c-bf683b3a6e5c -AccessType Private
@@ -410,8 +402,7 @@ For more information or help, check out the following links:
 [Support]: https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade
 [CreateCircuit]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-circuit-portal-resource-manager 
 [CreatePeering]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-routing-portal-resource-manager
-[OldPortal]: https://manage.windowsazure.com
-[ARP]: https://docs.microsoft.com/en-us/azure/expressroute/expressroute-troubleshooting-arp-resource-manager
+[ARP]: https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-arp-resource-manager
 
 
 

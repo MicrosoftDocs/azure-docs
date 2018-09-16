@@ -2,60 +2,51 @@
 title: Query sharded Azure SQL databases | Microsoft Docs
 description: Run queries across shards using the elastic database client library.
 services: sql-database
-documentationcenter: ''
-manager: jhubbard
-author: torsteng
-editor: ''
-
-ms.assetid: a4379c15-f213-4026-ab6f-a450ee9d5758
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/12/2016
-ms.author: torsteng
+ms.topic: conceptual
+ms.date: 04/01/2018
+ms.author: sstein
 
 ---
 # Multi-shard querying
 ## Overview
 With the [Elastic Database tools](sql-database-elastic-scale-introduction.md), you can create sharded database solutions. **Multi-shard querying** is used for tasks such as data collection/reporting that require running a query that stretches across several shards. (Contrast this to [data-dependent routing](sql-database-elastic-scale-data-dependent-routing.md), which performs all work on a single shard.) 
 
-1. Get a [**RangeShardMap**](https://msdn.microsoft.com/library/azure/dn807318.aspx) or [**ListShardMap**](https://msdn.microsoft.com/library/azure/dn807370.aspx) using the [**TryGetRangeShardMap**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetrangeshardmap.aspx), the [**TryGetListShardMap**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetlistshardmap.aspx), or the [**GetShardMap**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getshardmap.aspx) method. See [**Constructing a ShardMapManager**](sql-database-elastic-scale-shard-map-management.md#constructing-a-shardmapmanager) and [**Get a RangeShardMap or ListShardMap**](sql-database-elastic-scale-shard-map-management.md#get-a-rangeshardmap-or-listshardmap).
-2. Create a **[MultiShardConnection](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardconnection.aspx)** object.
-3. Create a **[MultiShardCommand](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand.aspx)**. 
-4. Set the **[CommandText property](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand.commandtext.aspx#P:Microsoft.Azure.SqlDatabase.ElasticScale.Query.MultiShardCommand.CommandText)** to a T-SQL command.
-5. Execute the command by calling the **[ExecuteReader method](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand.executereader.aspx)**.
-6. View the results using the **[MultiShardDataReader class](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multisharddatareader.aspx)**. 
+1. Get a **RangeShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map), [.NET](https://msdn.microsoft.com/library/azure/dn807318.aspx)) or **ListShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._list_shard_map), [.NET](https://msdn.microsoft.com/library/azure/dn807370.aspx)) using the **TryGetRangeShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.trygetrangeshardmap), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetrangeshardmap.aspx)), the **TryGetListShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.trygetlistshardmap), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetlistshardmap.aspx)), or the **GetShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.getshardmap), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getshardmap.aspx)) method. See **[Constructing a ShardMapManager](sql-database-elastic-scale-shard-map-management.md#constructing-a-shardmapmanager)** and **[Get a RangeShardMap or ListShardMap](sql-database-elastic-scale-shard-map-management.md#get-a-rangeshardmap-or-listshardmap)**.
+2. Create a **MultiShardConnection** ([Java](/java/api/com.microsoft.azure.elasticdb.query.multishard._multi_shard_connection), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardconnection.aspx)) object.
+3. Create a **MultiShardStatement or MultiShardCommand** ([Java](/java/api/com.microsoft.azure.elasticdb.query.multishard._multi_shard_statement), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand.aspx)). 
+4. Set the **CommandText property** ([Java](/java/api/com.microsoft.azure.elasticdb.query.multishard._multi_shard_statement), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand.commandtext.aspx#P:Microsoft.Azure.SqlDatabase.ElasticScale.Query.MultiShardCommand.CommandText)) to a T-SQL command.
+5. Execute the command by calling the **ExecuteQueryAsync or ExecuteReader** ([Java](/java/api/com.microsoft.azure.elasticdb.query.multishard._multi_shard_statement.executeQueryAsync), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand.executereader.aspx)) method.
+6. View the results using the **MultiShardResultSet or MultiShardDataReader** ([Java](/java/api/com.microsoft.azure.elasticdb.query.multishard._multi_shard_result_set), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multisharddatareader.aspx)) class. 
 
 ## Example
 The following code illustrates the usage of multi-shard querying using a given **ShardMap** named *myShardMap*. 
 
-    using (MultiShardConnection conn = new MultiShardConnection( 
-                                        myShardMap.GetShards(), 
-                                        myShardConnectionString) 
-          ) 
-    { 
+```csharp
+using (MultiShardConnection conn = new MultiShardConnection(myShardMap.GetShards(), myShardConnectionString)) 
+{ 
     using (MultiShardCommand cmd = conn.CreateCommand())
-           { 
-            cmd.CommandText = "SELECT c1, c2, c3 FROM ShardedTable"; 
-            cmd.CommandType = CommandType.Text; 
-            cmd.ExecutionOptions = MultiShardExecutionOptions.IncludeShardNameColumn; 
-            cmd.ExecutionPolicy = MultiShardExecutionPolicy.PartialResults; 
+    { 
+        cmd.CommandText = "SELECT c1, c2, c3 FROM ShardedTable"; 
+        cmd.CommandType = CommandType.Text; 
+        cmd.ExecutionOptions = MultiShardExecutionOptions.IncludeShardNameColumn; 
+        cmd.ExecutionPolicy = MultiShardExecutionPolicy.PartialResults; 
 
-            using (MultiShardDataReader sdr = cmd.ExecuteReader()) 
-                { 
-                    while (sdr.Read())
-                        { 
-                            var c1Field = sdr.GetString(0); 
-                            var c2Field = sdr.GetFieldValue<int>(1); 
-                            var c3Field = sdr.GetFieldValue<Int64>(2);
-                        } 
-                 } 
-           } 
+        using (MultiShardDataReader sdr = cmd.ExecuteReader()) 
+        { 
+            while (sdr.Read())
+            { 
+                var c1Field = sdr.GetString(0); 
+                var c2Field = sdr.GetFieldValue<int>(1); 
+                var c3Field = sdr.GetFieldValue<Int64>(2);
+            } 
+        } 
     } 
-
+} 
+```
 
 A key difference is the construction of multi-shard connections. Where **SqlConnection** operates on a single database, the **MultiShardConnection** takes a ***collection of shards*** as its input. Populate the collection of shards from a shard map. The query is then executed on the collection of shards using **UNION ALL** semantics to assemble a single overall result. Optionally, the name of the shard where the row originates from can be added to the output using the **ExecutionOptions** property on command. 
 
@@ -68,8 +59,4 @@ Multi-shard queries do not verify whether shardlets on the queried database are 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
-## See also
-**[System.Data.SqlClient](http://msdn.microsoft.com/library/System.Data.SqlClient.aspx)** classes and methods.
-
-Manage shards using the [Elastic Database client library](sql-database-elastic-database-client-library.md). Includes a  namespace called [Microsoft.Azure.SqlDatabase.ElasticScale.Query](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.aspx) that provides the ability to query multiple shards using a single query and result. It provides a querying abstraction over a collection of shards. It also provides alternative execution policies, in particular partial results, to deal with failures when querying over many shards.  
 

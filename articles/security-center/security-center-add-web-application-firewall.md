@@ -10,10 +10,10 @@ editor: ''
 ms.assetid: 8f56139a-4466-48ac-90fb-86d002cf8242
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2017
+ms.date: 05/15/2018
 ms.author: terrylan
 
 ---
@@ -22,7 +22,7 @@ Azure Security Center may recommend that you add a web application firewall (WAF
 
 A WAF recommendation is shown for any public facing IP (either Instance Level IP or Load Balanced IP) that has an associated network security group with open inbound web ports (80,443).
 
-Security Center recommends that you provision a WAF to help defend against attacks targeting your web applications on virtual machines and on App Service Environment. An App Service Environment (ASE) is a [Premium](https://azure.microsoft.com/pricing/details/app-service/) service plan option of Azure App Service that provides a fully isolated and dedicated environment for securely running Azure App Service apps. To learn more about ASE, see the [App Service Environment Documentation](../app-service/app-service-app-service-environments-readme.md).
+Security Center recommends that you provision a WAF to help defend against attacks targeting your web applications on virtual machines and on external App Service Environments (ASE) deployed under the [Isolated](https://azure.microsoft.com/pricing/details/app-service/windows/) service plan. The Isolated plan hosts your apps in a private, dedicated Azure environment and is ideal for apps that require secure connections with your on-premises network, or additional performance and scale. In addition to your app being in an isolated environment, your app needs to have an external IP address load balancer. To learn more about ASE, see the [App Service Environment Documentation](../app-service/environment/intro.md).
 
 > [!NOTE]
 > This document introduces the service by using an example deployment.  This document is not a step-by-step guide.
@@ -30,23 +30,23 @@ Security Center recommends that you provision a WAF to help defend against attac
 >
 
 ## Implement the recommendation
-1. In the **Recommendations** blade, select **Secure web application using web application firewall**.
+1. Under **Recommendations**, select **Secure web application using web application firewall**.
    ![Secure web Application][1]
-2. In the **Secure your web applications using web application firewall** blade, select a web application. The **Add a Web Application Firewall** blade opens.
+2. Under **Secure your web applications using web application firewall**, select a web application. **Add a Web Application Firewall** opens.
    ![Add a web application firewall][2]
 3. You can choose to use an existing web application firewall if available or you can create a new one. In this example, there are no existing WAFs available so we create a WAF.
 4. To create a WAF, select a solution from the list of integrated partners. In this example, we select **Barracuda Web Application Firewall**.
-5. The **Barracuda Web Application Firewall** blade opens providing you information about the partner solution. Select **Create** in the information blade.
+5. **Barracuda Web Application Firewall** opens providing you information about the partner solution. Select **Create**.
 
    ![Firewall information blade][3]
 
-6. The **New Web Application Firewall** blade opens, where you can perform **VM Configuration** steps and provide **WAF Information**. Select **VM Configuration**.
-7. In the **VM Configuration** blade, you enter information required to spin up the virtual machine that runs the WAF.
+6. **New Web Application Firewall** opens, where you can perform **VM Configuration** steps and provide **WAF Information**. Select **VM Configuration**.
+7. Under **VM Configuration**, you enter information required to spin up the virtual machine that runs the WAF.
    ![VM configuration][4]
-8. Return to the **New Web Application Firewall** blade and select **WAF Information**. In the **WAF Information** blade, you configure the WAF itself. Step 7 allows you to configure the virtual machine on which the WAF runs and step 8 enables you to provision the WAF itself.
+8. Return to **New Web Application Firewall** and select **WAF Information**. Under **WAF Information**, you configure the WAF itself. Step 7 allows you to configure the virtual machine on which the WAF runs and step 8 enables you to provision the WAF itself.
 
 ## Finalize application protection
-1. Return to the **Recommendations** blade. A new entry was generated after you created the WAF, called **Finalize application protection**. This entry lets you know that you need to complete the process of actually wiring up the WAF within the Azure Virtual Network so that it can protect the application.
+1. Return to **Recommendations**. A new entry was generated after you created the WAF, called **Finalize application protection**. This entry lets you know that you need to complete the process of actually wiring up the WAF within the Azure Virtual Network so that it can protect the application.
 
    ![Finalize application protection][5]
 
@@ -65,7 +65,7 @@ The logs from that WAF are now fully integrated. Security Center can start autom
 ## Next steps
 This document showed you how to implement the Security Center recommendation "Add a web application." To learn more about configuring a web application firewall, see the following:
 
-* [Configuring a Web Application Firewall (WAF) for App Service Environment](../app-service-web/app-service-app-service-environment-web-application-firewall.md)
+* [Configuring a Web Application Firewall (WAF) for App Service Environment](../app-service/environment/app-service-app-service-environment-web-application-firewall.md)
 
 To learn more about Security Center, see the following:
 

@@ -3,19 +3,15 @@ title: MongoDB connection string for an Azure Cosmos DB account | Microsoft Docs
 description: Learn how to connect your MongoDB app to an Azure Cosmos DB account by using a MongoDB connection string.
 keywords: mongodb connection string
 services: cosmos-db
-author: AndrewHoh
-manager: jhubbard
-editor: ''
-documentationcenter: ''
+author: slyons
+manager: kfile
 
-ms.assetid: e36f7375-9329-403b-afd1-4ab49894f75e
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-mongo
 ms.devlang: na
-ms.topic: article
-ms.date: 06/12/2017
-ms.author: anhoh
+ms.topic: conceptual
+ms.date: 12/19/2017
+ms.author: sclyon
 
 ---
 
@@ -70,8 +66,8 @@ The values of this string are available in the **Connection String** blade shown
 
 For example, consider the account shown in the **Connection String** blade. A valid connection string is:
 
-    mongodb://contoso123:0Fc3IolnL12312asdfawejunASDF@asdfYXX2t8a97kghVcUzcDv98hawelufhawefafnoQRGwNj2nMPL1Y9qsIr9Srdw==@anhohmongo.documents.azure.com:10255/mydatabase?ssl=true
+    mongodb://contoso123:0Fc3IolnL12312asdfawejunASDF@asdfYXX2t8a97kghVcUzcDv98hawelufhawefafnoQRGwNj2nMPL1Y9qsIr9Srdw==@contoso123.documents.azure.com:10255/mydatabase?ssl=true
 
 ## Next steps
-* Learn how to [use MongoChef](mongodb-mongochef.md) with an Azure Cosmos DB API for MongoDB account.
+* Learn how to [use Studio 3T (MongoChef)](mongodb-mongochef.md) with an Azure Cosmos DB API for MongoDB account.
 * Explore the Azure Cosmos DB API for MongoDB by viewing [samples](mongodb-samples.md).

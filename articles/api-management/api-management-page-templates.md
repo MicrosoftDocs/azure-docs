@@ -3,7 +3,7 @@ title: Page templates in Azure API Management | Microsoft Docs
 description: Learn how to customize the content of developer portal pages using a set of templates in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: ''
 
@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 01/09/2018
 ms.author: apimpm
 ---
 # Page templates in Azure API Management
@@ -104,16 +104,16 @@ Azure API Management provides you the ability to customize the content of develo
 ### Sample template data  
   
 ```json  
-{  
-    "Email": null,  
-    "Password": null,  
-    "ReturnUrl": null,  
-    "RememberMe": false,  
-    "RegistrationEnabled": true,  
-    "DelegationEnabled": false,  
-    "DelegationUrl": null,  
-    "SsoSignUpUrl": null,  
-    "AuxServiceUrl": "https://manage.windowsazure.com/#Workspaces/ApiManagementExtension/service/contoso5/dashboard",  
+{
+    "Email": null,
+    "Password": null,
+    "ReturnUrl": null,
+    "RememberMe": false,
+    "RegistrationEnabled": true,
+    "DelegationEnabled": false,
+    "DelegationUrl": null,
+    "SsoSignUpUrl": null,
+    "AuxServiceUrl": "https://portal.azure.com/#resource/subscriptions/{subscription ID}/resourceGroups/Api-Default-West-US/providers/Microsoft.ApiManagement/service/contoso5",
     "Providers": [  
         {  
             "Properties": {  
@@ -123,10 +123,10 @@ Azure API Management provides you the ability to customize the content of develo
             "AuthenticationType": "Aad",  
             "Caption": "Azure Active Directory"  
         }  
-    ],  
-    "UserRegistrationTerms": null,  
-    "UserRegistrationTermsEnabled": false  
-}  
+        ],
+    "UserRegistrationTerms": null,
+    "UserRegistrationTermsEnabled": false
+}
 ```  
   
 ##  <a name="SignUp"></a> Sign up  

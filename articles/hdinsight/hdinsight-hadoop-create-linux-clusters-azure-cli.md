@@ -1,22 +1,15 @@
 ---
-title: Create Hadoop clusters using the command-line - Azure HDInsight | Microsoft Docs
+title: Create Hadoop clusters using the command-line - Azure HDInsight 
 description: Learn how to create HDInsight clusters using the cross-platform Azure CLI 1.0.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+ms.reviewer: jasonh
 
-ms.assetid: 50b01483-455c-4d87-b754-2229005a8ab9
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 06/26/2017
-ms.author: larryfr
+ms.topic: conceptual
+ms.date: 02/27/2018
+ms.author: jasonh
 
 ---
 # Create HDInsight clusters using the Azure CLI
@@ -26,8 +19,9 @@ ms.author: larryfr
 The steps in this document walk-through creating a HDInsight 3.5 cluster using the Azure CLI 1.0.
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
-
+> This topic describes how to use the Azure CLI 1.0 to create an HDInsight cluster. This version of the CLI is deprecated, and support for creating HDInsight clusters has not been added to Azure CLI 2.0.
+>
+> You can also use Azure PowerShell to create and manage HDInsight clusters. For more information, see the [Create HDInsight clusters using Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) document.
 
 ## Prerequisites
 
@@ -38,11 +32,11 @@ The steps in this document walk-through creating a HDInsight 3.5 cluster using t
 * **Azure CLI**. The steps in this document were last tested with Azure CLI version 0.10.14.
 
     > [!IMPORTANT]
-    > The steps in this document do not work with Azure CLI 2.0. Azure CLI 2.0 does not support creating an HDInsight cluster.
+    > Azure CLI 1.0 is deprecated, and support for creating HDInsight clusters has not been added to Azure CLI 2.0.
 
 ## Log in to your Azure subscription
 
-Follow the steps documented in [Connect to an Azure subscription from the Azure Command-Line Interface (Azure CLI)](../xplat-cli-connect.md) and connect to your subscription using the **login** method.
+Follow the steps documented in [Connect to an Azure subscription from the Azure Command-Line Interface (Azure CLI)](/cli/azure/authenticate-azure-cli) and connect to your subscription using the **login** method.
 
 ## Create a cluster
 
@@ -114,7 +108,7 @@ The following steps should be performed from a command line, such as PowerShell 
     * Replace `sshuser` and `sshuserpassword` with the username and password you wish to use when accessing the cluster using SSH
 
     > [!IMPORTANT]
-    > This example creates a cluster with two worker notes. You can also change the number of worker nodes after cluster creation by performing scaling operations. If you plan on using more than 32 worker nodes, then you must select a head node size with at least 8 cores and 14-GB RAM. You can set the head node size by using the `--headNodeSize` parameter during cluster creation.
+    > This example creates a cluster with two worker nodes. You can also change the number of worker nodes after cluster creation by performing scaling operations. If you plan on using more than 32 worker nodes, then you must select a head node size with at least 8 cores and 14-GB RAM. You can set the head node size by using the `--headNodeSize` parameter during cluster creation.
     >
     > For more information on node sizes and associated costs, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
 
@@ -130,17 +124,17 @@ Now that you have successfully created an HDInsight cluster using the Azure CLI,
 
 ### Hadoop clusters
 
-* [Use Hive with HDInsight](hdinsight-use-hive.md)
-* [Use Pig with HDInsight](hdinsight-use-pig.md)
-* [Use MapReduce with HDInsight](hdinsight-use-mapreduce.md)
+* [Use Hive with HDInsight](hadoop/hdinsight-use-hive.md)
+* [Use Pig with HDInsight](hadoop/hdinsight-use-pig.md)
+* [Use MapReduce with HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 ### HBase clusters
 
-* [Get started with HBase on HDInsight](hdinsight-hbase-tutorial-get-started-linux.md)
-* [Develop Java applications for HBase on HDInsight](hdinsight-hbase-build-java-maven-linux.md)
+* [Get started with HBase on HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
+* [Develop Java applications for HBase on HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
 
 ### Storm clusters
 
-* [Develop Java topologies for Storm on HDInsight](hdinsight-storm-develop-java-topology.md)
-* [Use Python components in Storm on HDInsight](hdinsight-storm-develop-python-topology.md)
-* [Deploy and monitor topologies with Storm on HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
+* [Develop Java topologies for Storm on HDInsight](storm/apache-storm-develop-java-topology.md)
+* [Use Python components in Storm on HDInsight](storm/apache-storm-develop-python-topology.md)
+* [Deploy and monitor topologies with Storm on HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)

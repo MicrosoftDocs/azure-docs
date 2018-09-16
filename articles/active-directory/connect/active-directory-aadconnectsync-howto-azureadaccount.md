@@ -4,8 +4,8 @@ description: This topic documents how to restore the Azure AD service account.
 services: active-directory
 keywords: AADSTS70002, AADSTS50054, How to reset the password for the Azure AD Connect sync Connector service account
 documentationcenter: ''
-author: andkjell
-manager: femila
+author: billmath
+manager: mtillman
 editor: ''
 
 ms.assetid: 6077043a-27f1-4304-a44b-81dc46620f24
@@ -14,7 +14,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 07/12/2017
+ms.component: hybrid
 ms.author: billmath
 
 ---

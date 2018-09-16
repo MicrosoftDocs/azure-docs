@@ -1,33 +1,26 @@
 ---
-title: Overview of Custom Vision Service machine learning | Microsoft Docs
-description: Use this to bring the power of machine learning to your applications.
+title: Overview of Custom Vision Service machine learning - Azure Cognitive Services | Microsoft Docs
+description: The Custom Vision Service is a Microsoft Cognitive Service that lets you build custom image classifiers on the Azure platform.
 services: cognitive-services
-author: v-royhar
-manager: juliakuz
-
+author: anrothMSFT
+manager: corncar
 ms.service: cognitive-services
-ms.technology: custom vision service
-ms.topic: article
-ms.date: 05/03/2017
-ms.author: v-royhar
+ms.component: custom-vision
+ms.topic: overview
+ms.date: 05/02/2018
+ms.author: anroth
+#Customer intent: As a data scientist/developer, I want to understand what the Custom Vision Service provides so that I can determine if it's suitable for my project/solution.
 ---
+# What is the Custom Vision Service?
 
-# Overview
+The Custom Vision Service is a Microsoft Cognitive Service that lets you build custom image classifiers. It makes it easy and fast to build, deploy, and improve an image classifier. The Custom Vision Service provides a REST API and a web interface to upload your images and train the classifier.
 
-## Custom Vision Service brings the power of machine learning to your apps
+## What does Custom Vision Service do well?
 
-Custom Vision Service is a tool for building custom image classifiers. It makes it easy and fast to build, deploy, and improve an image classifier. We provide a REST API and a web interface to upload your images and train.
+The Custom Vision Service works best when the item you're trying to classify is prominent in your image. 
 
-## What can Custom Vision Service do well? What can't it do? 
-
-Custom Vision Service is a tool for building custom image classifiers, and for making them better over time. For example, if you want a tool that could identify images of "Daisies", "Daffodils", and "Dahlias", you could train a classifier to do that. You do so by providing Custom Vision Service with images for each tag you want to recognize.
-
-Custom Vision Service works best when the item you are trying to classify is prominent in your image. Custom Vision Service does "image classification" but not yet "object detection." This means that Custom Vision Service identifies whether an image is of a particular object, but not where that object is within the image.
-
-Very few images are required to create a classifier -- 30 images per class is enough to start your prototype. The methods Custom Vision Service uses are robust to differences, which allows you to start prototyping with so little data. However, this means Custom Vision Service is not well suited to scenarios where you want to detect very subtle differences (for example, minor cracks or dents in quality assurance scenarios.)
-
-Custom Vision Service is designed to make it easy to start building your classifier, and to help you improve the quality of your classifier over time.
+Few images are required to create a classifier or detector. 50 images per class are enough to start your prototype. The methods Custom Vision Service uses are robust to differences, which allows you to start prototyping with so little data. This means Custom Vision Service is not well suited to scenarios where you want to detect subtle differences. For example, minor cracks or dents in quality assurance scenarios.
 
 ## Next steps
 
-[Build a Classifier](getting-started-build-a-classifier.md)
+[Learn how to build a classifier](getting-started-build-a-classifier.md)

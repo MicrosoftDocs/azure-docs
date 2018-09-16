@@ -1,32 +1,49 @@
 ---
-title: Debug Azure Stream Analytics with event hub receivers | Microsoft Docs
-description: Query best practices for considering Event Hubs consumer groups in Stream Analytics jobs.
-keywords: event hub limit, consumer group
+title: Troubleshoot Event Hub receivers in Azure Stream Analytics
+description: This article describes how to use multiple consumer groups for Event Hubs inputs in Stream Analytics jobs.
 services: stream-analytics
-documentationcenter: ''
-author: jeffstokes72
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 
+author: jseb225
+ms.author: jeanb
+manager: kfile
+ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 04/20/2017
-ms.author: jeffstok
-
+ms.topic: conceptual
+ms.date: 04/27/2018
 ---
 
-# Debug Azure Stream Analytics with event hub receivers
+# Troubleshoot Event Hub receivers in Azure Stream Analytics
 
 You can use Azure Event Hubs in Azure Stream Analytics to ingest or output data from a job. A best practice for using Event Hubs is to use multiple consumer groups, to ensure job scalability. One reason is that the number of readers in the Stream Analytics job for a specific input affects the number of readers in a single consumer group. The precise number of receivers is based on internal implementation details for the scale-out topology logic. The number of receivers is not exposed externally. The number of readers can change either at the job start time or during job upgrades.
+
+The error shown when number of receivers exceeds the maximum is:
+`The streaming job failed: Stream Analytics job has validation errors: Job will exceed the maximum amount of Event Hub Receivers.`
 
 > [!NOTE]
 > When the number of readers changes during a job upgrade, transient warnings are written to audit logs. Stream Analytics jobs automatically recover from these transient issues.
 
+## Add a consumer group in Event Hubs
+To add a new consumer group in your Event Hubs instance, follow these steps:
+
+1. Sign in to the Azure portal.
+
+2. Locate your Event Hubs.
+
+3. Select **Event Hubs** under the **Entities** heading.
+
+4. Select the Event Hub by name.
+
+5. On the **Event Hubs Instance** page, under the **Entities** heading, select **Consumer groups**. A consumer group with name **$Default** is listed.
+
+6. Select **+ Consumer Group** to add a new consumer group. 
+
+   ![Add a consumer group in Event Hubs](media/stream-analytics-event-hub-consumer-groups/new-eh-consumer-group.png)
+
+7. When you created the input in the Stream Analytics job to point to the Event Hub, you specified the consumer group there. $Default is used when none is specified. Once you create a new consumer group, edit the Event Hub input in the Stream Analytics job and specify the name of the new consumer group.
+
+
 ## Number of readers per partition exceeds Event Hubs limit of five
+
+If your streaming query syntax references the same input Event Hub resource multiple times, the job engine can use multiple readers per query from that same consumer group. When there are too many references to the same consumer group, the job can exceed the limit of five and thrown an error. In those circumstances, you can further divide by using multiple inputs across multiple consumer groups using the solution described in the following section. 
 
 Scenarios in which the number of readers per partition exceeds the Event Hubs limit of five include the following:
 
@@ -58,9 +75,9 @@ FROM inputEventHub
 Use this query:
 
 ```
-WITH input (
+WITH data AS (
    SELECT * FROM inputEventHub
-) as data
+)
 
 SELECT foo
 INTO output1
@@ -77,12 +94,6 @@ FROM data
 For queries in which three or more inputs are connected to the same Event Hubs consumer group, create separate consumer groups. This requires the creation of additional Stream Analytics inputs.
 
 
-## Get help
-For additional assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
-
 ## Next steps
-* [Introduction to Stream Analytics](stream-analytics-introduction.md)
-* [Get started with Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Scale Stream Analytics jobs](stream-analytics-scale-jobs.md)
 * [Stream Analytics query language reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Stream Analytics management REST API reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)

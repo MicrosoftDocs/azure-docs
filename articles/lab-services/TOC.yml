@@ -1,0 +1,196 @@
+- name: Lab Services Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: About Lab Services 
+    href: lab-services-overview.md
+  - name: Compare lab types
+    href: compare-lab-types.md
+- name: Tutorials
+  items:
+  - name: DevTest Labs
+    items: 
+    - name: 1. Set up a lab
+      href: tutorial-create-custom-lab.md 
+    - name: 2. Access a lab
+      href: tutorial-use-custom-lab.md
+  - name: Classroom labs
+    items: 
+    - name: 1. Set up a lab account
+      href: classroom-labs/tutorial-setup-lab-account.md
+    - name: 2. Set up a classroom lab
+      href: classroom-labs/tutorial-setup-classroom-lab.md 
+    - name: 3. Access a classroom lab
+      href: classroom-labs/tutorial-connect-virtual-machine-classroom-lab.md
+    - name: 4. Track usage of a classroom lab
+      href: classroom-labs/tutorial-track-usage.md            
+- name: Samples
+  items:
+  - name: DevTest Labs
+    items:
+    - name: Resource Manager templates
+      href: https://github.com/Azure/azure-devtestlab/tree/master/Samples
+    - name: Azure PowerShell
+      href: samples-powershell.md
+    - name: Azure CLI
+      href: samples-cli.md    
+- name: Concepts
+  items:
+  - name: DevTest Labs
+    href: devtest-lab-concepts.md
+    items: 
+    - name: Use labs for developers
+      href: devtest-lab-developer-lab.md
+    - name: Use labs for test environments
+      href: devtest-lab-test-env.md
+    - name: Use labs for training
+      href: devtest-lab-training-lab.md
+    - name: Introduction to DevTest Labs 
+      href: devtest-lab-overview.md
+- name: How-to guides
+  items:
+  - name: Classroom labs
+    items: 
+    - name: Manage lab accounts
+      href: classroom-labs/how-to-manage-lab-accounts.md
+    - name: Manage classroom labs
+      href: classroom-labs/how-to-manage-classroom-labs.md
+    - name: Access classroom labs
+      href: classroom-labs/how-to-use-classroom-lab.md
+  - name: DevTest labs
+    items:
+    - name: Create a lab
+      href: devtest-lab-create-lab.md
+    - name: Create a VM in the lab
+      href: devtest-lab-create-first-vm.md
+    - name: Delete a lab or VM in a lab
+      href: devtest-lab-delete-lab-vm.md
+    - name: Set policies for the lab
+      href: devtest-lab-get-started-with-lab-policies.md 
+    - name: Store secrets in Azure Key Vault
+      href: devtest-lab-store-secrets-in-key-vault.md
+    - name: Test your app in Azure
+      href: test-app-azure.md
+    - name: Use VMs in a lab
+      items: 
+      - name: Create VMs
+        href: devtest-lab-add-vm.md
+      - name: Create and manage claimable VMs
+        href: devtest-lab-add-claimable-vm.md
+      - name: Create and manage VMs with Azure CLI
+        href: devtest-lab-vmcli.md
+      - name: Create a VM from a Resource Manager template
+        href: devtest-lab-use-resource-manager-template.md
+      - name: Restart a VM
+        href: devtest-lab-restart-vm.md
+      - name: Resize a VM
+        href: devtest-lab-resize-vm.md
+      - name: Redeploy a VM
+        href: devtest-lab-redeploy-vm.md
+      - name: Import a VM
+        href: devtest-lab-import-vm.md                
+    - name: Use environments in a lab
+      items:
+      - name: Create an environment
+        href: devtest-lab-create-environment-from-arm.md
+      - name: Configure and use public environments
+        href: devtest-lab-configure-use-public-environments.md        
+    - name: Secure access to labs
+      items:
+      - name: Add lab owners and users
+        href: devtest-lab-add-devtest-user.md
+      - name: Customize permissions with custom roles
+        href: devtest-lab-grant-user-permissions-to-specific-lab-policies.md
+    - name: Configure a lab
+      items: 
+      - name: Set policies and schedules
+        href: devtest-lab-set-lab-policy.md
+      - name: Configure cost management
+        href: devtest-lab-configure-cost-management.md
+      - name: Configure Azure Marketplace images
+        href: devtest-lab-configure-marketplace-images.md
+      - name: Enable a licensed image
+        href: devtest-lab-enable-licensed-images.md
+      - name: Add tags to a lab
+        href: devtest-lab-add-tag.md
+      - name: Post announcement in a lab
+        href: devtest-lab-announcements.md
+      - name: Add support info to a lab
+        href: devtest-lab-internal-support-message.md
+    - name: Select custom image or formula
+      href: devtest-lab-comparing-vm-base-image-types.md
+    - name: Manage custom images
+      items:
+      - name: Create custom image from a VM
+        href: devtest-lab-create-custom-image-from-vm-using-portal.md
+      - name: Create custom image from a VHD using the Azure portal
+        href: devtest-lab-create-template.md
+      - name: Create custom image from a VHD using PowerShell
+        href: devtest-lab-create-custom-image-from-vhd-using-powershell.md
+      - name: Upload VHD file using AzCopy
+        href: devtest-lab-upload-vhd-using-azcopy.md
+      - name: Upload VHD file using PowerShell
+        href: devtest-lab-upload-vhd-using-powershell.md
+      - name: Upload VHD file using Storage Explorer
+        href: devtest-lab-upload-vhd-using-storage-explorer.md
+    - name: Manage reusable templates
+      items: 
+      - name: Add a Git repository for artifacts and templates
+        href: devtest-lab-add-artifact-repo.md
+      - name: Manage formulas
+        href: devtest-lab-manage-formulas.md
+    - name: Manage artifacts
+      items: 
+      - name: Specify mandatory artifacts 
+        href: devtest-lab-mandatory-artifacts.md
+      - name: Create custom artifacts
+        href: devtest-lab-artifact-author.md
+      - name: Diagnose artifact failures
+        href: devtest-lab-troubleshoot-artifact-failure.md
+    - name: Manage virtual networks
+      items:
+      - name: Configure virtual networks
+        href: devtest-lab-configure-vnet.md
+      - name: Select IP configuration option
+        href: devtest-lab-shared-ip.md
+    - name: Manage data disks
+      items:
+      - name: Attach and detach data disks
+        href: devtest-lab-attach-detach-data-disk.md
+    - name: Scale your lab
+      href: devtest-lab-scale-lab.md
+    - name: Integrate with CI/CD
+      items:
+      - name: Integrate labs into your Azure DevOps CI/CD pipeline
+        href: devtest-lab-integrate-ci-cd-vsts.md
+    - name: Create or modify labs using Resource Manager template
+      href: devtest-lab-use-arm-and-powershell-for-lab-resources.md
+- name: Reference
+  items:
+  - name: CLI 2.0
+    href: /cli/azure/lab
+  - name: PowerShell
+    href: /powershell/module/azurerm.devtestlabs/#devtest_labs
+  - name: REST API
+    href: https://docs.microsoft.com/rest/api/dtl/
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=developer-tools
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: DevTest Labs - FAQ
+    href: devtest-lab-faq.md
+  - name: Service Updates
+    href: https://azure.microsoft.com/updates/?product=devtest-lab
+  - name: MSDN Forum
+    href: https://social.msdn.microsoft.com/Forums/home?forum=AzureDevTestLabs
+  - name: Team Blog
+    href: https://blogs.msdn.microsoft.com/devtestlab/
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-devtest-labs
+  - name: Videos
+    href: https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/devtest-lab/
+  

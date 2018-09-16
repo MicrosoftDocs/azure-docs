@@ -1,50 +1,97 @@
 ---
-title: How To Restore a Server in Azure Database for MySQL | Microsoft Docs
+title: How To Restore a Server in Azure Database for MySQL
 description: This article describes how to restore a server in Azure Database for MySQL using the Azure portal.
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 04/01/2018
 ---
 
-# How To Backup and Restore a server in Azure Database for MySQL using the Azure portal
+# How to backup and restore a server in Azure Database for MySQL using the Azure portal
 
-## Backup happens Automatically
-When using Azure Database for MySQL, the database service automatically makes a backup of the service every 5 minutes. 
+## Backup happens automatically
+Azure Database for MySQL servers are backed up periodically to enable Restore features. Using this feature you may restore the server and all its databases to an earlier point-in-time, on a new server.
 
-The backups are available for 7 days when using Basic Tier, and 35 days when using Standard Tier. For more information, see [Azure Database for MySQL service tiers](concepts-service-tiers.md)
+## Prerequisites
+To complete this how-to guide, you need:
+- An [Azure Database for MySQL server and database](quickstart-create-mysql-server-database-using-azure-portal.md)
 
-Using this automatic backup feature you may restore the server and all its databases into a new server to an earlier point-in-time.
+## Set backup configuration
 
-## Restore in the Azure portal
-Azure Database for MySQL allows you to restore the server back to a point in time and into to a new copy of the server. You can use this new server to recover your data. 
+You make the choice between configuring your server for either locally redundant backups or geographically redundant backups at server creation, in the **Pricing Tier** window.
 
-For example, if a table was accidentally dropped at noon today, you could restore to the time just before noon and retrieve the missing table and data from that new copy of the server.
+> [!NOTE]
+> After a server is created, the kind of redundancy it has, geographically redundant vs locally redundant, can't be switched.
+>
 
-The following steps restore the sample server to a point in time:
+While creating a server through the Azure portal, the **Pricing Tier** window is where you select either **Locally Redundant** or **Geographically Redundant** backups for your server. This window is also where you select the **Backup Retention Period** - how long (in number of days) you want the server backups stored for.
 
-1. Sign into the [Azure portal](https://portal.azure.com/)
+   ![Pricing Tier - Choose Backup Redundancy](./media/howto-restore-server-portal/pricing-tier.png)
 
-2. Locate your Azure Database for MySQL server. In the left pane, select **All resources**, then select your server from the list.
+For more information about setting these values during create, see the [Azure Database for MySQL server quickstart](quickstart-create-mysql-server-database-using-azure-portal.md).
 
-3.	On the top of the server overview blade, click **Restore** on the toolbar. The Restore blade opens.
-![click restore button](./media/howto-restore-server-portal/click-restore-button.png)
+The backup retention period can be changed on a server through the following steps:
+1. Sign into the [Azure portal](https://portal.azure.com/).
+2. Select your Azure Database for MySQL server. This action opens the **Overview** page.
+3. Select **Pricing Tier** from the menu, under **SETTINGS**. Using the slider you can change the **Backup Retention Period** to your preference between 7 and 35 days.
+In the screenshot below it has been increased to 34 days.
+![Backup retention period increased](./media/howto-restore-server-portal/3-increase-backup-days.png)
 
-4. Fill out the Restore form with the required information:
+4. Click **OK** to confirm the change.
 
-- **Restore point (UTC)**: Using the Date picker and time picker, select a point-in-time to restore to. The time specified is in UTC format, so you likely need to convert the local time into UTC.
-- **Restore to new server**: Provide a new server name to restore the existing server into.
-- **Location**: The region choice automatically populates with the source server region, and cannot be changed.
-- **Pricing tier**: The pricing tier choice automatically populates with the same pricing tier as the source server, and cannot be changed here. 
-![PITR Restore](./media/howto-restore-server-portal/pitr-restore.png)
+The backup retention period governs how far back in time a point-in-time restore can be retrieved, since it's based on backups available. Point-in-time restore is described further in the following section. 
 
-5. Click **OK** to restore the server to restore to a point in time. 
+## Point-in-time restore
+Azure Database for MySQL allows you to restore the server back to a point-in-time and into to a new copy of the server. You can use this new server to recover your data, or have your client applications point to this new server.
 
-6. After the restore finishes, locate the new server that was created to verify the databases were restored as expected.
+For example, if a table was accidentally dropped at noon today, you could restore to the time just before noon and retrieve the missing table and data from that new copy of the server. Point-in-time restore is at the server level, not at the database level.
+
+The following steps restore the sample server to a point-in-time:
+1. In the Azure portal, select your Azure Database for MySQL server. 
+
+2. In the toolbar of the server's **Overview** page, select **Restore**.
+
+   ![Azure Database for MySQL - Overview - Restore button](./media/howto-restore-server-portal/2-server.png)
+
+3. Fill out the Restore form with the required information:
+
+   ![Azure Database for MySQL - Restore information ](./media/howto-restore-server-portal/3-restore.png)
+  - **Restore point**: Select the point-in-time you want to restore to.
+  - **Target server**: Provide a name for the new server.
+  - **Location**: You cannot select the region. By default it is same as the source server.
+  - **Pricing tier**: You cannot change these parameters when doing a point-in-time restore. It is same as the source server. 
+
+4. Click **OK** to restore the server to restore to a point-in-time. 
+
+5. Once the restore finishes, locate the new server that is created to verify the data was restored as expected.
+
+>[!Note]
+>Note the new server created by point-in-time restore has the same server admin login name and password that was valid for the existing server at the point-in-time chose. You can change the password from the new server's **Overview** page.
+
+## Geo restore
+If you configured your server for geographically redundant backups, a new server can be created from the backup of that existing server. This new server can be created in any region that Azure Database for MySQL is available.  
+
+1. Select the **Create a resource** button (+) in the upper-left corner of the portal. Select **Databases** > **Azure Database for MySQL**.
+
+   ![The "Azure Database for MySQL" option](./media/howto-restore-server-portal/2_navigate-to-mysql.png)
+
+2. In the form's **Select Source** dropdown, choose **Backup**. This action loads a list of servers that have geo redundant backups enabled. Select one of these backups to be the source of your new server.
+   ![Select Source: Backup and list of geo redundant backups](./media/howto-restore-server-portal/2-georestore.png)
+
+   > [!NOTE]
+   > When a server is first created it may not be immediately available for geo restore. It may take a few hours for the necessary metadata to be populated.
+   >
+
+3. Fill out the rest of the form with your preferences. You can select any **Location**. After selecting the location, you can select **Pricing Tier**. By default the parameters for the existing server you are restoring from are displayed. You can click **OK** without making any changes to inherit those settings. Or you can change **Compute Generation** (if available in the region you have chosen), number of **vCores**, **Backup Retention Period**, and **Backup Redundancy Option**. Changing **Pricing Tier** (Basic, General Purpose, or Memory Optimized) or **Storage** size during restore is not supported.
+
+>[!Note]
+>The new server created by geo restore has the same server admin login name and password that was valid for the existing server at the time the restore was initiated. The password can be changed from the new server's **Overview** page.
+
 
 ## Next steps
-- [Connection libraries for Azure Database for MySQL](concepts-connection-libraries.md)
+- Learn more about the service's [backups](concepts-backup.md).
+- Learn more about [business continuity](concepts-business-continuity.md) options.

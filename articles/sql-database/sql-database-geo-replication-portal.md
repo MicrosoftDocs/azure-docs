@@ -2,21 +2,14 @@
 title: 'Azure portal: SQL Database geo-replication | Microsoft Docs'
 description: Configure geo-replication for Azure SQL Database in the Azure portal and initiate failover
 services: sql-database
-documentationcenter: ''
-author: CarlRabeler
-manager: jhubbard
-editor: ''
-
-ms.assetid: d0b29822-714f-4633-a5ab-fb1a09d43ced
+author: anosov1960
+manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 03/06/2016
-ms.author: carlrab
-
+ms.topic: conceptual
+ms.date: 09/14/2018
+ms.author: sashan
+ms.reviewer: carlrab
 ---
 # Configure active geo-replication for Azure SQL Database in the Azure portal and initiate failover
 
@@ -36,7 +29,7 @@ The following steps create a new secondary database in a geo-replication partner
 
 To add a secondary database, you must be the subscription owner or co-owner.
 
-The secondary database has the same name as the primary database and has, by default, the same service level. The secondary database can be a single database or a database in an elastic pool. For more information, see [Service tiers](sql-database-service-tiers.md).
+The secondary database has the same name as the primary database and has, by default, the same service tier and compute size. The secondary database can be a single database or a database in an elastic pool. For more information, see [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and [vCore-based purchasing model](sql-database-service-tiers-vcore.md).
 After the secondary is created and seeded, data begins replicating from the primary database to the new secondary database.
 
 > [!NOTE]

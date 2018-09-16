@@ -1,21 +1,13 @@
----
+﻿---
 title: XEvent Event File code for SQL Database | Microsoft Docs
 description: Provides PowerShell and Transact-SQL for a two-phase code sample that demonstrates the Event File target in an extended event on Azure SQL Database. Azure Storage is a required part of this scenario.
 services: sql-database
-documentationcenter: ''
 author: MightyPen
-manager: jhubbard
-editor: ''
-tags: ''
-
-ms.assetid: bbb10ecc-739f-4159-b844-12b4be161231
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/06/2017
+ms.topic: conceptual
+ms.date: 04/01/2018
 ms.author: genemi
 
 ---
@@ -66,132 +58,121 @@ The script starts with commands to clean up after a possible previous run, and i
 
 ![PowerShell ISE, with Azure module installed, ready to run script.][30_powershell_ise]
 
-
 ### PowerShell code
+
+This PowerShell script assumes you have already run the cmdlet Import-Module for the AzureRm module. For reference documentation, see [PowerShell Module Browser](https://docs.microsoft.com/powershell/module/).
 
 ```powershell
 ## TODO: Before running, find all 'TODO' and make each edit!!
 
+cls;
+
 #--------------- 1 -----------------------
 
-
-# You can comment out or skip this Add-AzureAccount
-# command after the first run.
-# Current PowerShell environment retains the successful outcome.
-
-'Expect a pop-up window in which you log in to Azure.'
-
-
-Add-AzureAccount
+'Script assumes you have already logged your PowerShell session into Azure.
+But if not, run  Connect-AzureRmAccount (or  Connect-AzureRmAccount), just one time.';
+#Connect-AzureRmAccount;   # Same as  Connect-AzureRmAccount.
 
 #-------------- 2 ------------------------
 
-
 '
 TODO: Edit the values assigned to these variables, especially the first few!
-'
+';
 
 # Ensure the current date is between
 # the Expiry and Start time values that you edit here.
 
-$subscriptionName    = 'YOUR_SUBSCRIPTION_NAME'
-$policySasExpiryTime = '2016-01-28T23:44:56Z'
-$policySasStartTime  = '2015-08-01'
+$subscriptionName    = 'YOUR_SUBSCRIPTION_NAME';
+$resourceGroupName   = 'YOUR_RESOURCE-GROUP-NAME';
 
+$policySasExpiryTime = '2018-08-28T23:44:56Z';
+$policySasStartTime  = '2017-10-01';
 
-$storageAccountName     = 'gmstorageaccountxevent'
-$storageAccountLocation = 'West US'
-$contextName            = 'gmcontext'
-$containerName          = 'gmcontainerxevent'
-$policySasToken         = 'gmpolicysastoken'
+$storageAccountLocation = 'West US';
+$storageAccountName     = 'YOUR_STORAGE_ACCOUNT_NAME';
+$contextName            = 'YOUR_CONTEXT_NAME';
+$containerName          = 'YOUR_CONTAINER_NAME';
+$policySasToken         = ' ? ';
 
-
-# Leave this value alone, as 'rwl'.
-$policySasPermission = 'rwl'
+$policySasPermission = 'rwl';  # Leave this value alone, as 'rwl'.
 
 #--------------- 3 -----------------------
-
 
 # The ending display lists your Azure subscriptions.
 # One should match the $subscriptionName value you assigned
 #   earlier in this PowerShell script. 
 
-'Choose an existing subscription for the current PowerShell environment.'
+'Choose an existing subscription for the current PowerShell environment.';
 
-
-Select-AzureSubscription -SubscriptionName $subscriptionName
-
+Select-AzureRmSubscription -Subscription $subscriptionName;
 
 #-------------- 4 ------------------------
 
-
 '
 Clean up the old Azure Storage Account after any previous run, 
-before continuing this new run.'
-
+before continuing this new run.';
 
 If ($storageAccountName)
 {
-    Remove-AzureStorageAccount -StorageAccountName $storageAccountName
+    Remove-AzureRmStorageAccount `
+        -Name              $storageAccountName `
+        -ResourceGroupName $resourceGroupName;
 }
 
 #--------------- 5 -----------------------
 
-[System.DateTime]::Now.ToString()
+[System.DateTime]::Now.ToString();
 
 '
 Create a storage account. 
 This might take several minutes, will beep when ready.
-  ...PLEASE WAIT...'
+  ...PLEASE WAIT...';
 
-New-AzureStorageAccount `
-    -StorageAccountName $storageAccountName `
-    -Location           $storageAccountLocation
+New-AzureRmStorageAccount `
+    -Name              $storageAccountName `
+    -Location          $storageAccountLocation `
+    -ResourceGroupName $resourceGroupName `
+    -SkuName           'Standard_LRS';
 
-[System.DateTime]::Now.ToString()
-
-[System.Media.SystemSounds]::Beep.Play()
-
+[System.DateTime]::Now.ToString();
+[System.Media.SystemSounds]::Beep.Play();
 
 '
-Get the primary access key for your storage account.
-'
+Get the access key for your storage account.
+';
 
+$accessKey_ForStorageAccount = `
+    (Get-AzureRmStorageAccountKey `
+        -Name              $storageAccountName `
+        -ResourceGroupName $resourceGroupName
+        ).Value[0];
 
-$primaryAccessKey_ForStorageAccount = `
-    (Get-AzureStorageKey `
-        -StorageAccountName $storageAccountName).Primary
-
-"`$primaryAccessKey_ForStorageAccount = $primaryAccessKey_ForStorageAccount"
+"`$accessKey_ForStorageAccount = $accessKey_ForStorageAccount";
 
 'Azure Storage Account cmdlet completed.
 Remainder of PowerShell .ps1 script continues.
-'
+';
 
 #--------------- 6 -----------------------
-
 
 # The context will be needed to create a container within the storage account.
 
 'Create a context object from the storage account and its primary access key.
-'
+';
 
 $context = New-AzureStorageContext `
     -StorageAccountName $storageAccountName `
-    -StorageAccountKey  $primaryAccessKey_ForStorageAccount
-
+    -StorageAccountKey  $accessKey_ForStorageAccount;
 
 'Create a container within the storage account.
-'
-
+';
 
 $containerObjectInStorageAccount = New-AzureStorageContainer `
     -Name    $containerName `
-    -Context $context
-
+    -Context $context;
 
 'Create a security policy to be applied to the SAS token.
-'
+';
 
 New-AzureStorageContainerStoredAccessPolicy `
     -Container  $containerName `
@@ -199,42 +180,41 @@ New-AzureStorageContainerStoredAccessPolicy `
     -Policy     $policySasToken `
     -Permission $policySasPermission `
     -ExpiryTime $policySasExpiryTime `
-    -StartTime  $policySasStartTime 
+    -StartTime  $policySasStartTime;
 
 '
 Generate a SAS token for the container.
-'
+';
 Try
 {
     $sasTokenWithPolicy = New-AzureStorageContainerSASToken `
         -Name    $containerName `
         -Context $context `
-        -Policy  $policySasToken
+        -Policy  $policySasToken;
 }
 Catch 
 {
-    $Error[0].Exception.ToString()
+    $Error[0].Exception.ToString();
 }
 
 #-------------- 7 ------------------------
 
-
 'Display the values that YOU must edit into the Transact-SQL script next!:
-'
+';
 
-"storageAccountName: $storageAccountName"
-"containerName:      $containerName"
-"sasTokenWithPolicy: $sasTokenWithPolicy"
+"storageAccountName: $storageAccountName";
+"containerName:      $containerName";
+"sasTokenWithPolicy: $sasTokenWithPolicy";
 
 '
 REMINDER: sasTokenWithPolicy here might start with "?" character, which you must exclude from Transact-SQL.
-'
+';
 
 '
-(Later, return here to delete your Azure Storage account. See the preceding - Remove-AzureStorageAccount -StorageAccountName $storageAccountName)'
+(Later, return here to delete your Azure Storage account. See the preceding  Remove-AzureRmStorageAccount -Name $storageAccountName)';
 
 '
-Now shift to the Transact-SQL portion of the two-part code sample!'
+Now shift to the Transact-SQL portion of the two-part code sample!';
 
 # EOFile
 ```
@@ -265,8 +245,8 @@ The PowerShell script printed a few named values when it ended. You must edit th
 
 ### Transact-SQL code
 
-```tsql
----- TODO: First, run the PowerShell portion of this two-part code sample.
+```sql
+---- TODO: First, run the earlier PowerShell portion of this two-part code sample.
 ---- TODO: Second, find every 'TODO' in this Transact-SQL file, and edit each.
 
 ---- Transact-SQL code for Event File target on Azure SQL Database.
@@ -461,7 +441,7 @@ GO
 
 If the target fails to attach when you run, you must stop and restart the event session:
 
-```tsql
+```sql
 ALTER EVENT SESSION ... STATE = STOP;
 GO
 ALTER EVENT SESSION ... STATE = START;
@@ -539,11 +519,12 @@ Suppose you wanted to run the preceding Transact-SQL sample on Microsoft SQL Ser
 
 For more info about accounts and containers in the Azure Storage service, see:
 
-* [How to use Blob storage from .NET](../storage/storage-dotnet-how-to-use-blobs.md)
+* [How to use Blob storage from .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 * [Naming and Referencing Containers, Blobs, and Metadata](http://msdn.microsoft.com/library/azure/dd135715.aspx)
 * [Working with the Root Container](http://msdn.microsoft.com/library/azure/ee395424.aspx)
 * [Lesson 1: Create a stored access policy and a shared access signature on an Azure container](http://msdn.microsoft.com/library/dn466430.aspx)
   * [Lesson 2: Create a SQL Server credential using a shared access signature](http://msdn.microsoft.com/library/dn466435.aspx)
+* [Extended Events for Microsoft SQL Server](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events)
 
 <!--
 Image references.

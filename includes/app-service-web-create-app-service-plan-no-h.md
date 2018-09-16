@@ -1,6 +1,18 @@
-Create an App Service plan with the [az appservice plan create](/cli/azure/appservice/plan#create) command.
+---
+title: "include file"
+description: "include file"
+services: app-service
+author: cephalin
+ms.service: app-service
+ms.topic: "include"
+ms.date: 02/02/2018
+ms.author: cephalin
+ms.custom: "include file"
+---
 
-[!INCLUDE [app-service-plan](app-service-plan.md)]
+In the Cloud Shell, create an App Service plan with the [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) command.
+
+<!-- [!INCLUDE [app-service-plan](app-service-plan.md)] -->
 
 The following example creates an App Service plan named `myAppServicePlan` in the **Free** pricing tier:
 

@@ -1,21 +1,14 @@
 ---
-title: Manage Windows-based Hadoop clusters in HDInsight using the Azure portal | Microsoft Docs
+title: Manage Windows-based Hadoop clusters in HDInsight using the Azure portal 
 description: Learn how to administer HDInsight Service. Create an HDInsight cluster, open the interactive JavaScript console, and open the Hadoop command console.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-manager: jhubbard
-editor: cgronlun
+author: jasonwhowell
+ms.reviewer: jasonh
 
-ms.assetid: 9295a988-bd88-453a-8c8b-55fa103bf39c
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jgao
+ms.author: jasonh
 
 ROBOTS: NOINDEX
 
@@ -27,7 +20,7 @@ Using the [Azure portal][azure-portal], you can create Windows-based Hadoop clus
 The information in this article only applies to Window-based HDInsight clusters. For information on managing Linux-based clusters, see [Manage Hadoop clusters in HDInsight by using the Azure portal](hdinsight-administer-use-portal-linux.md).
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 
 ## Prerequisites
@@ -35,13 +28,13 @@ The information in this article only applies to Window-based HDInsight clusters.
 Before you begin this article, you must have the following:
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **Azure Storage account** - An HDInsight cluster uses an Azure Blob storage container as the default file system. For more information about how Azure Blob storage provides a seamless experience with HDInsight clusters, see [Use Azure Blob Storage with HDInsight](hdinsight-hadoop-use-blob-storage.md). For details on creating an Azure Storage account, see [How to Create a Storage Account](../storage/storage-create-storage-account.md).
+* **Azure Storage account** - An HDInsight cluster uses an Azure Blob storage container as the default file system. For more information about how Azure Blob storage provides a seamless experience with HDInsight clusters, see [Use Azure Blob Storage with HDInsight](hdinsight-hadoop-use-blob-storage.md). For details on creating an Azure Storage account, see [How to Create a Storage Account](../storage/common/storage-create-storage-account.md).
 
 ## Open the Portal
 1. Sign in to [https://portal.azure.com](https://portal.azure.com).
 2. After you open the portal, you can:
 
-   * Click **New** from the left menu to create a new cluster:
+   * Click **Create a resource** from the left menu to create a new cluster:
 
        ![new HDInsight cluster button](./media/hdinsight-administer-use-management-portal/azure-portal-new-button.png)
    * Click **HDInsight Clusters** from the left menu.
@@ -60,7 +53,7 @@ see [What version of Hadoop is in Azure HDInsight](hdinsight-component-versionin
 
 * Use Script Action to run custom scripts that can customize a cluster to either change cluster configuration or install custom components such as Giraph or Solr. For more information, see [Customize HDInsight cluster using Script Action](hdinsight-hadoop-customize-cluster.md).
 * Use the cluster customization parameters in the HDInsight .NET SDK or Azure PowerShell during cluster creation. These configuration changes are then preserved through the lifetime of the cluster and are not affected by cluster node reimages that Azure platform periodically performs for maintenance. For more information on using the cluster customization parameters, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md).
-* Some native Java components, like Mahout and Cascading, can be run on the cluster as JAR files. These JAR files can be distributed to Azure Blob storage, and submitted to HDInsight clusters through Hadoop job submission mechanisms. For more information, see [Submit Hadoop jobs programmatically](hdinsight-submit-hadoop-jobs-programmatically.md).
+* Some native Java components, like Mahout and Cascading, can be run on the cluster as JAR files. These JAR files can be distributed to Azure Blob storage, and submitted to HDInsight clusters through Hadoop job submission mechanisms. For more information, see [Submit Hadoop jobs programmatically](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 
   > [!NOTE]
   > If you have issues deploying JAR files to HDInsight clusters or calling JAR files on HDInsight clusters, contact [Microsoft Support](https://azure.microsoft.com/support/options/).
@@ -83,12 +76,12 @@ Installation of custom software on the cluster by using Remote Desktop Connectio
 
    * To customize the menu, right-click anywhere on the menu, and then click **Customize**.
    * **Settings** and **All Settings**: Displays the **Settings** blade for the cluster, which allows you to access detailed configuration information for the cluster.
-   * **Dashboard**, **Cluster Dashboard** and **URL: These are all ways to access the cluster dashboard, which is Ambari Web for Linux-based clusters.
-     -**Secure Shell**: Shows the instructions to connect to the cluster using Secure Shell (SSH) connection.
+   * **Dashboard**, **Cluster Dashboard** and **URL**: These are all ways to access the cluster dashboard, which is Ambari Web for Linux-based clusters.
+   * **Secure Shell**: Shows the instructions to connect to the cluster using Secure Shell (SSH) connection.
    * **Scale Cluster**: Allows you to change the number of worker nodes for this cluster.
    * **Delete**: Deletes the cluster.
    * **Quickstart**: Displays information that will help you get started using HDInsight.
-   * **Users: Allows you to set permissions for *portal management* of this cluster for other users on your Azure subscription.
+   * **Users**: Allows you to set permissions for *portal management* of this cluster for other users on your Azure subscription.
 
      > [!IMPORTANT]
      > This *only* affects access and permissions to this cluster in the Azure portal, and has no effect on who can connect to or submit jobs to the HDInsight cluster.
@@ -210,10 +203,10 @@ You are also charged for an HDInsight cluster, even when it is not in use. Since
 
 There are many ways you can program the process:
 
-* User Azure Data Factory. See [Azure HDInsight Linked Service](../data-factory/data-factory-compute-linked-services.md) and [Transform and analyze using Azure Data Factory](../data-factory/data-factory-data-transformation-activities.md) for on-demand and self-defined HDInsight linked services.
+* User Azure Data Factory. See [Azure HDInsight Linked Service](../data-factory/compute-linked-services.md) and [Transform and analyze using Azure Data Factory](../data-factory/transform-data.md) for on-demand and self-defined HDInsight linked services.
 * Use Azure PowerShell.  See [Analyze flight delay data](hdinsight-analyze-flight-delay-data.md).
 * Use Azure CLI. See [Manage HDInsight clusters using Azure CLI](hdinsight-administer-use-command-line.md).
-* Use HDInsight .NET SDK. See [Submit Hadoop jobs](hdinsight-submit-hadoop-jobs-programmatically.md).
+* Use HDInsight .NET SDK. See [Submit Hadoop jobs](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 
 For the pricing information, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/). To delete a cluster from the Portal, see [Delete clusters](#delete-clusters)
 
@@ -271,7 +264,7 @@ See [List and show clusters](#list-and-show-clusters).
 ## Open HDInsight Query console
 The HDInsight Query console includes the following features:
 
-* **Hive Editor**: A GUI web interface for submitting Hive jobs.  See [Run Hive queries using the Query Console](hdinsight-hadoop-use-hive-query-console.md).
+* **Hive Editor**: A GUI web interface for submitting Hive jobs.  See [Run Hive queries using the Query Console](hadoop/apache-hadoop-use-hive-query-console.md).
 
     ![HDInsight portal hive editor](./media/hdinsight-administer-use-management-portal/hdinsight-hive-editor.png)
 * **Job history**: Monitor Hadoop jobs.  
@@ -294,7 +287,7 @@ The HDInsight Query console includes the following features:
     ![HDInsight portal YARN UI](./media/hdinsight-administer-use-management-portal/hdinsight-yarn-ui.png)
 
 ## Run Hive queries
-To ran Hive jobs from the Portal, click **Hive Editor** in the HDInsight Query console. See [Open HDInsight Query console](#open-hdinsight-query-console).
+To run Hive jobs from the Portal, click **Hive Editor** in the HDInsight Query console. See [Open HDInsight Query console](#open-hdinsight-query-console).
 
 ## Monitor jobs
 To monitor jobs from the Portal, click **Job History** in the HDInsight Query console. See [Open HDInsight Query console](#open-hdinsight-query-console).
@@ -356,7 +349,7 @@ To connect to the cluster by using Remote Desktop and use the Hadoop command lin
 
     For more information on Hadoop commands, see [Hadoop commands reference](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CommandsManual.html).
 
-In the previous screenshot, the folder name has the Hadoop version number embedded. The version number can changed based on the version of the Hadoop components installed on the cluster. You can use Hadoop environment variables to refer to those folders. For example:
+In the previous screenshot, the folder name has the Hadoop version number embedded. The version number can change based on the version of the Hadoop components installed on the cluster. You can use Hadoop environment variables to refer to those folders. For example:
 
     cd %hadoop_home%
     cd %hive_home%
@@ -371,8 +364,8 @@ In this article, you have learned how to create an HDInsight cluster by using th
 * [Administer HDInsight Using Azure PowerShell](hdinsight-administer-use-powershell.md)
 * [Administer HDInsight Using Azure CLI](hdinsight-administer-use-command-line.md)
 * [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md)
-* [Submit Hadoop jobs programmatically](hdinsight-submit-hadoop-jobs-programmatically.md)
-* [Get Started with Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
+* [Submit Hadoop jobs programmatically](hadoop/submit-apache-hadoop-jobs-programmatically.md)
+* [Get Started with Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [What version of Hadoop is in Azure HDInsight?](hdinsight-component-versioning.md)
 
 [azure-portal]: https://portal.azure.com

@@ -3,8 +3,8 @@ title: Azure AD Connect sync service shadow attributes | Microsoft Docs
 description: Describes how shadow attributes work in Azure AD Connect sync service.
 services: active-directory
 documentationcenter: ''
-author: andkjell
-manager: femila
+author: billmath
+manager: mtillman
 editor: ''
 
 ms.assetid:
@@ -13,7 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2017
+ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
 
 ---

@@ -5,7 +5,7 @@ keywords: Remote desktop error,remote desktop connection error,cannot connect to
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 
@@ -14,8 +14,8 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: support-article
-ms.date: 05/26/2017
+ms.topic: article
+ms.date: 05/11/2018
 ms.author: genli
 
 ---

@@ -1,22 +1,20 @@
-﻿---
+---
 title: Automated Patching for SQL Server VMs (Classic) | Microsoft Docs
 description: Explains the Automated Patching feature for SQL Server Virtual Machines running in Azure using the classic deployment mode.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: ''
 tags: azure-service-management
-
 ms.assetid: 737b2f65-08b9-4f54-b867-e987730265a8
 ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/17/2017
+ms.date: 03/07/2018
 ms.author: jroth
-
 ---
 # Automated Patching for SQL Server in Azure Virtual Machines (Classic)
 > [!div class="op_single_selector"]
@@ -25,7 +23,12 @@ ms.author: jroth
 > 
 > 
 
-Automated Patching establishes a maintenance window for an Azure Virtual Machine running SQL Server. Automated Updates can only be installed during this maintenance window. For SQL Server, this ensures that system updates and any associated restarts occur at the best possible time for the database. Automated Patching depends on the [SQL Server IaaS Agent Extension](../classic/sql-server-agent-extension.md).
+Automated Patching establishes a maintenance window for an Azure Virtual Machine running SQL Server. Automated Updates can only be installed during this maintenance window. For SQL Server, this ensures that system updates and any associated restarts occur at the best possible time for the database. 
+
+> [!IMPORTANT]
+> Only Windows updates marked **Important** are installed. Other SQL Server updates, such as Cumulative Updates, must be installed manually. 
+
+Automated Patching depends on the [SQL Server IaaS Agent Extension](../classic/sql-server-agent-extension.md).
 
 > [!IMPORTANT] 
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. To view the Resource Manager version of this article, see [Automated Patching for SQL Server in Azure Virtual Machines Resource Manager](../sql/virtual-machines-windows-sql-automated-patching.md).
@@ -37,6 +40,7 @@ To use Automated Patching, consider the following prerequisites:
 
 * Windows Server 2012
 * Windows Server 2012 R2
+* Windows Server 2016
 
 **SQL Server version**:
 
@@ -76,7 +80,7 @@ Based on this example, the following table describes the practical effect on the
 | --- | --- |
 | **DayOfWeek** |Patches installed every Thursday. |
 | **MaintenanceWindowStartingHour** |Begin updates at 11:00am. |
-| **MaintenanceWindowsDuration** |Patches must be installed within 120 minutes. Based on the start time, they must complete by 1:00pm. |
+| **MaintenanceWindowDuration** |Patches must be installed within 120 minutes. Based on the start time, they must complete by 1:00pm. |
 | **PatchCategory** |The only possible setting for this parameter is “Important”. |
 
 It could take several minutes to install and configure the SQL Server IaaS Agent.

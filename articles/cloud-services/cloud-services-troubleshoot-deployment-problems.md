@@ -11,10 +11,10 @@ tags: top-support-issue
 ms.assetid: a18ae415-0d1c-4bc4-ab6c-c1ddea02c870
 ms.service: cloud-services
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 4/6/2017
+ms.date: 06/15/2018
 ms.author: v-six
 
 ---
@@ -24,7 +24,6 @@ When you deploy a cloud service application package to Azure, you can obtain inf
 You can find the **Properties** pane as follows:
 
 * In the Azure portal, click the deployment of your cloud service, click **All settings**, and then click **Properties**.
-* In the Azure classic portal, click the deployment of your cloud service, click **DASHBOARD**, located at the lower-right corner of the page (under **quick glance**). Be aware that there's no "Properties" label on this pane.
 
 > [!NOTE]
 > You can copy the contents of the **Properties** pane to the clipboard by clicking the icon in the upper-right corner of the pane.
@@ -80,6 +79,6 @@ For more information on how to troubleshoot for this problem, see the blog post 
 >
 
 ## Next steps
-View more [troubleshooting articles](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) for cloud services.
+View more [troubleshooting articles](https://docs.microsoft.com/azure/cloud-services/cloud-services-allocation-failures) for cloud services.
 
 To learn how to troubleshoot cloud service role issues by using Azure PaaS computer diagnostics data, see [Kevin Williamson's blog series](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).

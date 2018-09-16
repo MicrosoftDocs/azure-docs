@@ -4,8 +4,8 @@ description: Explains how the installation wizard works the second time you run 
 keywords: The Azure AD Connect installation wizard lets you configure maintenance settings the second time you run it
 services: active-directory
 documentationcenter: ''
-author: andkjell
-manager: femila
+author: billmath
+manager: mtillman
 editor: ''
 ms.assetid: d800214e-e591-4297-b9b5-d0b1581cc36a
 ms.service: active-directory
@@ -13,7 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
 
 ---
@@ -75,7 +76,7 @@ To change the state, select this option and select or unselect the checkbox.
 ![Option that is also showing the current state of staging mode](./media/active-directory-aadconnectsync-installation-wizard/stagingmodeenable.png)
 
 ## Change user sign-in
-This option allows you to change from password sync to federation or the other way around. You cannot change to **do not configure**.
+This option allows you to change the user sign-in method to and from password hash sync, pass-through authentication or federation. You cannot change to **do not configure**.
 
 For more information on this option, see [user sign-in](active-directory-aadconnect-user-signin.md#changing-the-user-sign-in-method).
 

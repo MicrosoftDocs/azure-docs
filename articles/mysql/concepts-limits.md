@@ -1,58 +1,88 @@
 ---
-title: Limitations in Azure Database for MySQL  | Microsoft Docs
-description: Describes preview limitations in Azure Database for MySQL.
+title: Limitations in Azure Database for MySQL
+description: This article describes limitations in Azure Database for MySQL, such as number of connection and storage engine options.
 services: mysql
-author: jasonh
-ms.author: kamathsun
-manager: jhubbard
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 06/30/2018
 ---
-# Limitations in Azure Database for MySQL (Preview)
-The Azure Database for MySQL service is in public preview. The following sections describe capacity and functional limits in the database service.
+# Limitations in Azure Database for MySQL
+The following sections describe capacity, storage engine support, privilege support, data manipulation statement support, and functional limits in the database service. Also see [general limitations](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) applicable to the MySQL database engine.
 
-## Service Tier Maximums
-Azure Database for MySQL has multiple service tiers you can choose from when creating a server. For more information, see [Understand what’s available in each service tier](concepts-service-tiers.md).  
+## Maximum connections
+The maximum number of connections per pricing tier and vCores are as follows: 
 
-There is a maximum number of connections, compute units, and storage in each service tier during the service preview, as follows: 
+|**Pricing Tier**|**vCore(s)**| **Max Connections**|
+|---|---|---|
+|Basic| 1| 50|
+|Basic| 2| 100|
+|General Purpose| 2| 300|
+|General Purpose| 4| 625|
+|General Purpose| 8| 1250|
+|General Purpose| 16| 2500|
+|General Purpose| 32| 5000|
+|Memory Optimized| 2| 600|
+|Memory Optimized| 4| 1250|
+|Memory Optimized| 8| 2500|
+|Memory Optimized| 16| 5000|
 
-|                            |                   |
-| :------------------------- | :---------------- |
-| **Max connections**        |                   |
-| Basic 50 Compute Units     | 50 connections    |
-| Basic 100 Compute Units    | 100 connections   |
-| Standard 100 Compute Units | 200 connections   |
-| Standard 200 Compute Units | 300 connections   |
-| Standard 400 Compute Units | 400 connections   |
-| Standard 800 Compute Units | 500 connections   |
-| **Max Compute Units**      |                   |
-| Basic service tier         | 100 Compute Units |
-| Standard service tier      | 800 Compute Units |
-| **Max storage**            |                   |
-| Basic service tier         | 1 TB              |
-| Standard service tier      | 1 TB              |
-
-When too many connections are reached, you may receive the following error:
+When connections exceed the limit, you may receive the following error:
 > ERROR 1040 (08004): Too many connections
 
-## Preview functional limitations:
-### Scale operations:
-1.	Dynamic scaling of servers across service tiers is currently not supported. That is, switching between Basic and Standard service tiers.
-2.	Dynamic on-demand increase of storage on pre-created server is currently not supported.
-3.	Decreasing server storage size is not supported.
+## Storage engine support
 
-### Server version upgrades:
-- Automated migration between major database engine versions is currently not supported.
+### Supported
+- [InnoDB](https://dev.mysql.com/doc/refman/5.7/en/innodb-introduction.html)
+- [MEMORY](https://dev.mysql.com/doc/refman/5.7/en/memory-storage-engine.html)
 
-### Subscription management:
+### Unsupported
+- [MyISAM](https://dev.mysql.com/doc/refman/5.7/en/myisam-storage-engine.html)
+- [BLACKHOLE](https://dev.mysql.com/doc/refman/5.7/en/blackhole-storage-engine.html)
+- [ARCHIVE](https://dev.mysql.com/doc/refman/5.7/en/archive-storage-engine.html)
+- [FEDERATED](https://dev.mysql.com/doc/refman/5.7/en/federated-storage-engine.html)
+
+## Privilege support
+
+### Unsupported
+- DBA role: 
+Many server parameters and settings can inadvertently degrade server performance or negate ACID properties of the DBMS. As such, to maintain the service integrity and SLA at a product level, this service does not expose the DBA role. The default user account, which is constructed when a new database instance is created, allows that user to perform most of DDL and DML statements in the managed database instance. 
+- SUPER privilege: 
+Similarly [SUPER privilege](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) is also restricted.
+
+## Data manipulation statement support
+
+### Supported
+- `LOAD DATA INFILE` is supported, but the `[LOCAL]` parameter must be specified and directed to a UNC path (Azure storage mounted through SMB).
+
+### Unsupported
+- `SELECT ... INTO OUTFILE`
+
+## Functional limitations
+
+### Scale operations
+- Dynamic scaling to and from the Basic pricing tiers is currently not supported.
+- Decreasing server storage size is not supported.
+
+### Server version upgrades
+- Automated migration between major database engine versions is currently not supported. If you would like to upgrade to the next major version, take a [dump and restore](./concepts-migrate-dump-restore.md) it to a server that was created with the new engine version.
+
+### Point-in-time-restore
+- When using the PITR feature, the new server is created with the same configurations as the server it is based on.
+- Restoring a deleted server is not supported.
+
+### VNet service endpoints
+- Support for VNet service endpoints is only for General Purpose and Memory Optimized servers.
+
+### Subscription management
 - Dynamically moving pre-created servers across subscription and resource group is currently not supported.
 
-### Point-in-time-restore:
-1.	Restoring to different service tier and/or Compute Units and Storage size is not allowed.
-2.	Restoring a dropped server is not supported.
+## Current known issues
+- MySQL server instance displays the wrong server version after connection is established. To get the correct server instance engine version, use the `select version();` command.
 
-## Next Steps:
-[What’s available in each service tier](concepts-service-tiers.md)
-[Supported MySQL Database Versions](concepts-supported-versions.md)
+## Next steps
+- [What’s available in each service tier](concepts-pricing-tiers.md)
+- [Supported MySQL database versions](concepts-supported-versions.md)

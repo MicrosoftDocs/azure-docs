@@ -4,9 +4,8 @@ description: Learn the attributes you can use with the Paper entity in the Acade
 services: cognitive-services
 author: alch-msft
 manager: kuansanw
-
 ms.service: cognitive-services
-ms.technology: academic-knowledge
+ms.component: academic-knowledge
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: alch
@@ -23,7 +22,7 @@ Name	|Description	            						|Type       | Operations
 ------- | ------------------------------------------------- | --------- | ----------------------------
 Id		|Entity ID											|Int64		|Equals
 Ti		|Paper title										|String		|Equals,<br/>StartsWith
-L 		|Paper language code seperated by "@@@"				|String		|Equals
+L 		|Paper language code seperated by "\@@@"			|String		|Equals
 Y		|Paper year											|Int32		|Equals,<br/>IsBetween
 D		|Paper date											|Date		|Equals,<br/>IsBetween
 CC		|Citation count										|Int32		|none  
@@ -56,6 +55,9 @@ S.U		| Source URL
 VFN		| Venue Full Name - full name of the Journal or Conference
 VSN		| Venue Short Name - short name of the Journal or Conference
 V		| Volume - journal volume
+BV		| Journal Name
+BT		| 
+PB		| Journal Abreviations
 I 		| Issue - journal issue
 FP		| FirstPage - first page of paper
 LP 		| LastPage - last page of paper

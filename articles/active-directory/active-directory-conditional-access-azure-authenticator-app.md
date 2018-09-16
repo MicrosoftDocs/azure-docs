@@ -9,6 +9,7 @@ editor: ''
 
 ms.assetid: b7ceca0d-5c9d-45c4-942c-b3a9b6bad36c
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -38,7 +39,7 @@ The following instructions are applicable to Samsung GS3 and above phones or Not
 4. On Activate device administrator screen, click **Activate**.
 5. On the Privacy Policy screen, select the checkbox and click **Confirm**.
 6. On the Workplace Join screen, enter the userID provided by your organization and click **Join**.
-7. To sign in to the Azure Authenticator app, enter your organizational a****ccount and password and click **Sign in**.
+7. To sign in to the Azure Authenticator app, enter your organizational account and password and click **Sign in**.
 8. The next screen that displays information about multi-factor authentication (MFA) is for added security and is optional. You will see this screen if your work or school requires second-factor authentication for creating work account. It provides instructions to further verify your account.
 9. The Workplace Join screen displays the message, “**Joining your workplace**”. The Azure authenticator app is attempting to join your device to your workplace.
 10. You should see the Workplace Joined message on the next screen.
@@ -85,7 +86,7 @@ After you have installed the Azure Authenticator app, you can also create a work
 ### Sending log files to report issues
 1. Follow the guidance on Microsoft Support to report an incident with the Azure Authenticator app, obtain an incident number, and send log files against the assigned incident number as follows:
 2. From the pop up menu, click **Logging**.
-3. If you have an open incident with Microsoft Support, make note of the incident number (you'll need it for a later step). If you have not already created a support incident and would like assistance, follow the guidance at [Microsoft Support](https://support.microsoft.com/en-us/contactus) to open a new incident.
+3. If you have an open incident with Microsoft Support, make note of the incident number (you'll need it for a later step). If you have not already created a support incident and would like assistance, follow the guidance at [Microsoft Support](https://support.microsoft.com/contactus) to open a new incident.
 4. On the logging screen, click **Send Now**.
 5. Select the email provider you want to use.
 6. If you already have an open incident Microsoft Support, contact the Support Engineer assigned to your issue to find out how to send the log data and have it associated with your incident. The Support Engineer will provide you with information for the email address and subject line. If you do not already have a support incident, please follow the guidance at Microsoft Support to open a new incident.

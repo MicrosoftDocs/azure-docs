@@ -1,22 +1,13 @@
 ---
-title: Register data sources in Azure Data Catalog | Microsoft Docs
+title: Register data sources in Azure Data Catalog
 description: This article highlights how to register data sources in Azure Data Catalog, including the metadata fields extracted during registration.
 services: data-catalog
-documentationcenter: ''
 author: steelanddata
-manager: NA
-editor: ''
-tags: ''
-
+ms.author: maroche
 ms.assetid: bab89906-186f-4d35-9ffd-61b1d903905d
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
-ms.date: 05/15/2017
-ms.author: maroche
-
+ms.topic: conceptual
+ms.date: 01/18/2018
 ---
 # Register data sources in Azure Data Catalog
 ## Introduction

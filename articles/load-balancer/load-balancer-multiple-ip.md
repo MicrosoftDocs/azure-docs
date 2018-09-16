@@ -1,9 +1,9 @@
 ---
-title: Load balancing on multiple IP configurations in Azure| Microsoft Docs
+title: Load balancing on multiple IP configurations in Azure | Microsoft Docs
 description: Load balancing across primary and secondary IP configurations.
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: na
 ms.assetid: 244907cd-b275-4494-aaf7-dcfc4d93edfe
@@ -12,115 +12,182 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/22/2017
+ms.date: 09/25/2017
 ms.author: kumud
 ---
 
-# Load balancing on multiple IP configurations using the Azure portal
+# Load balancing on multiple IP configurations by using the Azure portal
 
 > [!div class="op_single_selector"]
 > * [Portal](load-balancer-multiple-ip.md)
 > * [PowerShell](load-balancer-multiple-ip-powershell.md)
 > * [CLI](load-balancer-multiple-ip-cli.md)
 
-This article describes how to use Azure Load Balancer with multiple IP addresses on a secondary network interface (NIC).For this scenario, we have two VMs running Windows, each with a primary and a secondary NIC. Each of the secondary NICs have two IP configurations. Each VM hosts both websites contoso.com and fabrikam.com. Each website is bound to one of the IP configurations on the secondary NIC. We use Azure Load Balancer to expose two frontend IP addresses, one for each website, to distribute traffic to the respective IP configuration for the website. This scenario uses the same port number across both frontends, as well as both backend pool IP addresses.
 
-![LB scenario image](./media/load-balancer-multiple-ip/lb-multi-ip.PNG)
+In this article, we're going to show you how to use Azure Load Balancer with multiple IP addresses on a secondary network interface controller (NIC). The following diagram illustrates our scenario:
 
-##Prerequisites
-This example assumes that you have a Resource Group named *contosofabrikam* with the following configuration:
- -  includes a virtual network named *myVNet*, two VMs called *VM1* and *VM2* respectively within the same availability set named *myAvailset*. 
- - each VM has a primary NIC and a secondary NIC. The primary NICs are named *VM1NIC1* and *VM2NIC1* and the secondary NICs are named *VM1NIC2* and *VM2NIC2*. 
-For more information about creating VMs with multiple NICs, see [Create a VM with multiple NICs using PowerShell](../virtual-network/virtual-network-deploy-multinic-arm-ps.md).
+![Load balancer scenario](./media/load-balancer-multiple-ip/lb-multi-ip.PNG)
 
-## Steps to load balance on multiple IP configurations
+In our scenario, we're using the following configuration:
 
-Follow these steps below to achieve the scenario outlined in this article:
+- Two virtual machines (VMs) that are running Windows.
+- Each VM has a primary and a secondary NIC.
+- Each secondary NIC has two IP configurations.
+- Each VM hosts two websites: contoso.com and fabrikam.com.
+- Each website is bound to an IP configuration on the secondary NIC.
+- Azure Load Balancer is used to expose two front-end IP addresses, one for each website. The front-end addresses are used to distribute traffic to the respective IP configuration for each website.
+- The same port number is used for both front-end IP addresses and back-end pool IP addresses.
 
-### STEP 1: Configure the secondary NICs for each VM
+## Prerequisites
 
-For each VM in your virtual network, add set IP configuration for the secondary NIC as follows:  
+Our scenario example assumes that you have a resource group named **contosofabrikam** that is configured as follows:
 
-1. From a browser navigate to the Azure portal: http://portal.azure.com and login with your Azure account.
-2. On the top left-hand side of the screen, click the Resource Group icon, and then click the resource group the VMs are located in (for example, *contosofabrikam*). The **Resource groups** blade that lists all the resources along with the network interfaces for the VMs is now displayed.
-3. To the secondary NIC of each VM, add an IP configuration as follows:
-    1. Select the network interface you want to add the IP configuration to.
-    2. In the blade that appears for the NIC that you selected, click **IP configurations**. Then click **Add** towards the top of the blade that shows up.
-    3. In the **Add IP configurations** blade, add a second IP configuration to the NIC as follows: 
-        1. Type a name for your secondary IP configuration (for example, for VM1 and VM2 name the IP configurations as *VM1NIC2-ipconfig2* and *VM2NIC2-ipconfig2* respectively).
-        2. For **Private IP address**, for **Allocation**, select **Static**.
-        3. Click **OK**.
-        4. When the second IP configuration for the secondary NIC is complete, it is displayed in the **IP configurations** settings blade for the given NIC.
+- The resource group includes a virtual network named **myVNet**.
+- The **myVNet** network includes two VMs named **VM1** and **VM2**.
+- VM1 and VM2 are in the same availability set named **myAvailset**. 
+- VM1 and VM2 each have a primary NIC named **VM1NIC1** and **VM2NIC1**, respectively. 
+- VM1 and VM2 each have a secondary NIC named **VM1NIC2** and **VM2NIC2**, respectively.
 
-### STEP 2: Create a load balancer
+For more information about creating VMs with multiple NICs, see [Create a VM with multiple NICs by using PowerShell](../virtual-machines/windows/multiple-nics.md).
 
-Create a load balancer as follows:
+## Perform load balancing on multiple IP configurations
 
-1. From a browser navigate to the Azure portal: http://portal.azure.com and login with your Azure account.
-2. On the top left-hand side of the screen, click **New** > **Networking** > **Load Balancer**. Next, click **Create**.
-3. In the **Create load balancer** blade, type a name for your load balancer. Here it is called *mylb*.
-4. Under Public IP address, create a new public IP called **PublicIP1**.
-5. Under Resource Group, select the existing Resource group of your VMs (for example, *contosofabrikam*). Then, select an appropriate location, and then click **OK**. The load balancer will then start to deploy and will take a few minutes to successfully complete deployment.
-6. Once deployed, the load balancer is displayed as a resource in your Resource Group.
+Complete the following steps to achieve the scenario outlined in this article.
 
-### STEP 3: Configure the frontend IP pool
+### Step 1: Configure the secondary NICs
 
-Configure your frontend IP pool for each website (Contoso and Fabrikam) as follows:
+For each VM in your virtual network, add the IP configuration for the secondary NIC:  
 
-1. In the portal, click **More services** > type **Public IP address** in the filter box, and then click **Public IP addresses**. Click **Add** towards the top of the blade that shows up.
-2. Configure two Public IP addresses (*PublicIP1* and *PublicIP2*) for both websites (contoso and fabrikam) as follows:
-    1. Type a name for your frontend IP address.
-    2. For **Resource Group**, select the existing Resource Group of the VMs (for example, *contosofabrikam*).
+1. Browse to the Azure portal: http://portal.azure.com. Sign in with your Azure account.
+
+2. In the upper left of the screen, select the **Resource Group** icon. Then select the resource group where your VMs are located (for example, **contosofabrikam**). The **Resource groups** pane displays all of the resources and NICs for the VMs.
+
+3. For the secondary NIC of each VM, add the IP configuration:
+
+    1. Select the secondary NIC that you want to configure.
+    
+    2. Select **IP configurations**. In the next pane, near the top, select **Add**.
+
+    3. Under **Add IP configurations**, add a second IP configuration to the NIC: 
+
+        1. Enter a name for the secondary IP configuration. (For example, for VM1 and VM2, name the IP configuration **VM1NIC2-ipconfig2** and **VM2NIC2-ipconfig2**, respectively.)
+
+        2. For the **Private IP address**, **Allocation** setting, select **Static**.
+
+        3. Select **OK**.
+
+After the second IP configuration for the secondary NIC is complete, it's displayed under the **IP configurations** settings for the given NIC.
+
+### Step 2: Create the load balancer
+
+Create your load balancer for the configuration:
+
+1. Browse to the Azure portal: http://portal.azure.com. Sign in with your Azure account.
+
+2. In the upper left of the screen, select **Create a resource** > **Networking** > **Load Balancer**. Next, select **Create**.
+
+3. Under **Create load balancer**, type a name for your load balancer. In this scenario, we're using the name **mylb**.
+
+4. Under **Public IP address**, create a new public IP called **PublicIP1**.
+
+5. Under **Resource Group**, select the existing resource group for your VMs (for example, **contosofabrikam**). Select the location to deploy your load balancer to, and then select **OK**.
+
+The load balancer starts to deploy. Deployment can take a few minutes to successfully complete. After deployment is complete, the load balancer is displayed as a resource in your resource group.
+
+### Step 3: Configure the front-end IP pool
+
+For each website (contoso.com and fabrikam.com), configure the front-end IP pool on your load balancer:
+
+1. In the portal, select **More services**. In the filter box, type **Public IP address** and then select **Public IP addresses**. In the next pane, near the top, select **Add**.
+
+2. Configure two public IP addresses (**PublicIP1** and **PublicIP2**) for both websites (contoso.com and fabrikam.com):
+
+    1. Type a name for your front-end IP address.
+
+    2. For **Resource Group**, select the existing resource group for your VMs (for example, **contosofabrikam**).
+
     3. For **Location**, select the same location as the VMs.
-    4. Click **OK**.
-    5. Once the two Public IP addresses are created, they are both displayed in the **Public IP** addresses blade.
-3. In the portal, click **More services** > type **load balancer** in the filter box, and then click **Load Balancer**.  
-4. Select the load balancer (*mylb*) that you want to add the frontend IP pool to.
-5. Under **Settings**, select **Frontend Pools**. Then click **Add** towards the top of the blade that shows up.
-6. Type a name for your frontend IP address (*farbikamfe* or **contosofe*).
-7. Click **IP address** and on the **Choose Public IP address** blade, select the IP addresses for your frontend (*PublicIP1* or *PublicIP2*).
-8. Repeat steps 3 to 7 within this section to create the second frontend IP address.
-9. When the frontend IP pool configuration is complete, both frontend IP addresses are displayed in the **Frontend IP Pool** blade of your load balancer. 
+
+    4. Select **OK**.
+
+    After the public IP addresses are created, they are displayed under the **Public IP** addresses.
+
+3. <a name="step3-3"></a>In the portal, select **More services**. In the filter box, type **load balancer** and then select **Load Balancer**. 
+
+4. Select the load balancer (**mylb**) that you want to add the front-end IP pool to.
+
+5. Under **Settings**, select **Frontend IP configuration**. In the next pane, near the top, select **Add**.
+
+6. Type a name for your front-end IP address (for example, **contosofe** or **fabrikamfe**).
+
+7. <a name="step3-7"></a>Select **IP address**. Under **Choose Public IP address**, select the IP addresses for your front-end (**PublicIP1** or **PublicIP2**).
+
+8. Create the second front-end IP address by repeating <a href="#step3-3">step 3</a> through <a href="#step3-7">step 7</a> in this section.
+
+After the front-end pool is configured, the IP addresses are displayed under your load balancer **Frontend IP configuration** settings. 
     
-### STEP 4: Configure the backend pool   
-Configure the backend address pools on your load balancer for each website (Contoso and Fabrikam) as follows:
+### Step 4: Configure the back-end pool
+
+For each website (contoso.com and fabrikam.com), configure the back-end address pool on your load balancer:
         
-1. In the portal, click **More services** > type load balancer in the filter box, and then click **Load Balancer**.  
-2. Select the load balancer (*mylb*) that you want to add the backend pools to.
-3. Under **Settings**, select **Backend Pools**. Type a name for your backend pool (for example, *contosopool* or *fabrikampool*). Then click the **Add** button toward the top of the blade that shows up. 
+1. In the portal, select **More services**. In the filter box, type **load balancer** and then select **Load Balancer**.
+
+2. Select the load balancer (**mylb**) that you want to add the back-end pool to.
+
+3. Under **Settings**, select **Backend Pools**. Type a name for your back-end pool (for example, **contosopool** or **fabrikampool**). In the next pane, near the top, select **Add**. 
+
 4. For **Associated to**, select **Availability set**.
+
 5. For **Availability set**, select **myAvailset**.
-6. Add Target network IP configurations, for both VMs as follows (see Figure 2):  
-    1. For **Target Virtual machine**, select the VM that you want to add to the backend pool (for example, VM1 or VM2).
-    2. For **Network IP configuration**, select the secondary NICs IP configuration for that VM (for example, VM1NIC2-ipconfig2 or VM2NIC2-ipconfig2).
-    ![LB scenario image](./media/load-balancer-multiple-ip/lb-backendpool.PNG)
-            
-        **Figure 2**: Configuring the load balancer with backend pools  
-7. Click **OK**.
-8. When the backend pool configuration is complete, both backend address pools are displayed in the **Backend pool blade** of your load balancer.
 
-### STEP 5: Configure a health probe for your load balancer
-Configure a health probe for your load balancer as follows:
-    1. In the portal, click More services > type load balancer in the filter box, and then click **Load Balancer**.  
-    2. Select the load balancer that you want to add the backend pools to.
-    3. Under **Settings**, select **Health probe**. Then click **Add** towards the top of the blade that shows up.
-    4. Type a name for the health probe (for example, HTTP), and click **OK**.
+6. Add the target network IP configurations for both VMs: 
 
-### STEP 6: Configure load balancing rules
-Configure load balancing rules (*HTTPc* and *HTTPf*) for each website as follows:
+    ![Configure back-end pools for load balancer](./media/load-balancer-multiple-ip/lb-backendpool.PNG)
     
-1. Under **Settings**, select **Health probe**. Then click **Add** towards the top of the blade that shows up.
-2. For **Name**, type a name for the load balancing rule (for example, *HTTPc* for Contoso, or *HTTPf* for Fabrikam)
-3. For Frontend IP address, select the the frontend IP address (for example *Contosofe* or *Fabrikamfe*)
-4. For **Port** and **Backend port**, keep the default value **80**.
-5. For **Floating IP (direct server return)**, click **Enabled**.
-6. Click **OK**.
-7. Repeat steps 1 to 6 within this section to create the second Load Balancer rule.
-8. When the load balancing rules configuration is complete, both rules ((*HTTPc* and *HTTPf*) are displayed in the **Load balancing rules** blade of your load balancer.
+    1. For **Target virtual machine**, select the VM that you want to add to the back-end pool (for example, **VM1** or **VM2**).
 
-### STEP 7: Configure DNS records
-Finally, you must configure DNS resource records to point to the respective frontend IP address of the load balancer. You may host your domains in Azure DNS. For more information about using Azure DNS with Load Balancer, see [Using Azure DNS with other Azure services](../dns/dns-for-azure-services.md).
+    2. For **Network IP configuration**, select the IP configuration of the secondary NIC for the VM that you selected in the previous step (for example, **VM1NIC2-ipconfig2** or **VM2NIC2-ipconfig2**).
+
+7. Select **OK**.
+
+After the back-end pool is configured, the addresses are displayed under your load balancer **Backend pool** settings.
+
+### Step 5: Configure the health probe
+
+Configure a health probe for your load balancer:
+
+1. In the portal, select **More services**. In the filter box, type **load balancer** and then select **Load Balancer**.
+
+2. Select the load balancer (**mylb**) that you want to add the health probe to.
+
+3. Under **Settings**, select **Health probe**. In the next pane, near the top, select **Add**. 
+
+4. Type a name for the health probe (for example, **HTTP**). Select **OK**.
+
+### Step 6: Configure load balancing rules
+
+For each website (contoso.com and fabrikam.com), configure the load balancing rules:
+    
+1. <a name="step6-1"></a>Under **Settings**, select **Load balancing rules**. In the next pane, near the top, select **Add**. 
+
+2. For **Name**, type a name for the load balancing rule (for example, **HTTPc** for contoso.com, or **HTTPf** for fabrikam.com).
+
+3. For **Frontend IP address**, select the front-end IP address that you previously created (for example, **contosofe** or **fabrikamfe**).
+
+4. For **Port** and **Backend port**, keep the default value **80**.
+
+5. For **Floating IP (direct server return)**, select **Enabled**.
+
+6. <a name="step6-6"></a>Select **OK**.
+
+7. Create the second load balancer rule by repeating <a href="#step6-1">step 1</a> through <a href="#step6-6">step 6</a> in this section.
+
+After the rules are configured, they are displayed under your load balancer **Load balancing rules** settings.
+
+### Step 7: Configure DNS records
+
+As the last step, configure your DNS resource records to point to the respective front-end IP addresses for your load balancer. You can host your domains in Azure DNS. For more information about using Azure DNS with Load Balancer, see [Using Azure DNS with other Azure services](../dns/dns-for-azure-services.md).
 
 ## Next steps
 - Learn more about how to combine load balancing services in Azure in [Using load-balancing services in Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
-- Learn how you can use different types of logs in Azure to manage and troubleshoot load balancer in [Log analytics for Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).
+- Learn how you can use different types of logs to manage and troubleshoot load balancer in [Log analytics for Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).

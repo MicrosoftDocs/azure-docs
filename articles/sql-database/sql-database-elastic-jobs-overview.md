@@ -1,24 +1,23 @@
 ---
 title: Managing scaled-out cloud databases | Microsoft Docs
-description: Illustrates the elastic database job service
+description: Use the elastic database job service to execute a script across a group of databases.
 metakeywords: azure sql database elastic databases
 services: sql-database
-documentationcenter: ''
-manager: jhubbard
-author: ddove
-
-ms.assetid: 6fa47cf2-1162-4534-a206-6e2d95b78580
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 10/24/2016
-ms.author: ddove
+ms.topic: conceptual
+ms.date: 06/14/2018
+ms.author: sstein
 
 ---
 # Managing scaled-out cloud databases
+
+[!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
+
+**Elastic Database jobs** is a customer-hosted Azure Cloud Service that enables the execution of ad-hoc and scheduled administrative tasks, which are called **jobs**. With jobs, you can easily and reliably manage large groups of Azure SQL Databases by running Transact-SQL scripts to perform administrative operations. 
+
 To manage scaled-out sharded databases, the **Elastic Database jobs** feature (preview) enables you to reliably execute a Transact-SQL (T-SQL) script across a group of databases, including:
 
 * a custom-defined collection of databases (explained below)
@@ -31,7 +30,7 @@ To manage scaled-out sharded databases, the **Elastic Database jobs** feature (p
 * [Create and manage jobs using PowerShell](sql-database-elastic-jobs-powershell.md).
 * [Create and manage scaled out Azure SQL Databases](sql-database-elastic-jobs-getting-started.md)
 
-**Elastic Database jobs** is currently a customer-hosted Azure Cloud Service that enables the execution of ad-hoc and scheduled administrative tasks, which are called **jobs**. With jobs, you can easily and reliably manage large groups of Azure SQL Databases by running Transact-SQL scripts to perform administrative operations. 
+
 
 ![Elastic database job service][1]
 

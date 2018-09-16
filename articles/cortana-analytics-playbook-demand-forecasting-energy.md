@@ -1,20 +1,21 @@
 ---
 title: Cortana Intelligence Solution Template Playbook for demand forecasting of energy | Microsoft Docs
 description: A Solution Template with Microsoft Cortana Intelligence that helps forecast demand for an energy utility company.
-services: cortana-analytics
+services: machine-learning
 documentationcenter: ''
 author: ilanr9
-manager: ilanr9
+manager: cgronlun
 editor: yijichen
 
 ms.assetid: 8855dbb9-8543-45b9-b4c6-aa743a04d547
-ms.service: cortana-analytics
+ms.service: machine-learning
+ms.subservice: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2016
-ms.author: ilanr9;yijichen;garye
+ms.author: yijichen
 
 ---
 # Cortana Intelligence Solution Template Playbook for Demand Forecasting of Energy
@@ -170,7 +171,7 @@ Cortana Intelligence and machine learning could be highly effective in solving a
 Qualification of a use case based on the above criteria can greatly improve the success rates of a use case and establish a good beachhead for the implementation of future use cases.
 
 ### Cloud-Based Solutions
-Cortana Intelligence Suite on Azure is an integrated environment that resides in the cloud. The deployment of an advanced analytics solution in a cloud environment holds substantial benefits for businesses and at the same time may mean big change for companies that still use on-premise IT
+Cortana Intelligence Suite on Azure is an integrated environment that resides in the cloud. The deployment of an advanced analytics solution in a cloud environment holds substantial benefits for businesses and at the same time may mean big change for companies that still use on-premises IT
 solutions. Within the energy sector, there is a clear trend of gradual migration of operations into the cloud. This trend goes hand in hand along with the development of the smart grid as discussed above, in **Industry Trends**. As this playbook is focused on a cloud-based solution in the energy domain, it is important to explain the benefits and other considerations of deploying a cloud-based solution.
 
 Perhaps the biggest advantage of a cloud-based solution is the cost. As a solution makes use of cloud-deployed components, there is no upfront costs or COGS (Cost of Goods Sold) component costs associated with it. That means that there is no need to invest in hardware, software, and IT maintenance, and therefore there is a substantial reduction in business risk.
@@ -183,7 +184,7 @@ For a company that is just starting its transition into the cloud, we are highly
 represent an excellent opportunity for piloting predictive analytics solutions in the cloud.
 
 #### Business Case Justification Considerations
-In many cases, the customer may be interested in making a business justification for a given use case in which a cloud-based solution and Machine Learning are important components. Unlike an on-premise solution, in the case of a cloud-based solution, the upfront cost component is minimal and most of the cost elements are associated with actual usage. When it comes to deploying an energy forecasting solution on Cortana Intelligence Suite, multiple services can be integrated with a single common cost structure. For example, databases (*e.g.*, SQL Azure) can be used to store the raw data and then for the actual forecasts Azure ML is used to host the forecasting services. In this example, the cost structure could include storage and transactional components.
+In many cases, the customer may be interested in making a business justification for a given use case in which a cloud-based solution and Machine Learning are important components. Unlike an on-premises solution, in the case of a cloud-based solution, the upfront cost component is minimal and most of the cost elements are associated with actual usage. When it comes to deploying an energy forecasting solution on Cortana Intelligence Suite, multiple services can be integrated with a single common cost structure. For example, databases (*e.g.*, SQL Azure) can be used to store the raw data and then for the actual forecasts Azure ML is used to host the forecasting services. In this example, the cost structure could include storage and transactional components.
 
 On the other hand, one should have a good understanding of the business value of operating an energy demand forecasting (short or long term). In fact, it is important to realize the business value of each forecast operation. For example, accurately forecasting power load for the next
 24 hours can prevent overproduction or can help prevent overloads on the grid and this can be quantified in terms of financial savings on a daily basis.

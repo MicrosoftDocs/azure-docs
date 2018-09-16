@@ -4,19 +4,19 @@ description: This topic shows you how to create and publish video insights based
 services: cognitive services
 documentationcenter: ''
 author: juliako
-manager: erikre
+manager: femila
 
-ms.service: video-indexer
+ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/02/2017
-ms.author: juliako;
+ms.date: 09/15/2018
+ms.author: juliako
 
 ---
-# Create video insights from existing videos
+# Create highlights from existing videos
 
 This topic shows you how to create and publish video insights based on some other video.
 
-1. Sign in to your [Video Indexer](http://vi.microsoft.com) account.
+1. Browse to the [Video Indexer](https://www.videoindexer.ai/) website and sign in.
 2. Find a video from which you want to create your video insights.
 3. Press **Play**.
 

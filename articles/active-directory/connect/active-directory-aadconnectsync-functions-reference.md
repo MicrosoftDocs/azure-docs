@@ -3,8 +3,8 @@ title: 'Azure AD Connect sync: Functions Reference | Microsoft Docs'
 description: Reference of declarative provisioning expressions in Azure AD Connect sync.
 services: active-directory
 documentationcenter: ''
-author: andkjell
-manager: femila
+author: billmath
+manager: mtillman
 editor: ''
 
 ms.assetid: 4f525ca0-be0e-4a2e-8da1-09b6b567ed5f
@@ -13,7 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 07/12/2017
+ms.component: hybrid
 ms.author: billmath
 
 ---
@@ -152,12 +153,6 @@ Returns a DateTime based on the employee’s start time
 
 `CDate("2013-01-10 4:00 PM -8")`  
 Returns a DateTime representing "2013-01-11 12:00 AM"
-
-
-
-
-
-
 
 
 - - -
@@ -543,7 +538,7 @@ The DNComponent function returns the value of a specified DN component going fro
 * ComponentNumber: The component in the DN to return
 
 **Example:**  
-`DNComponent([dn],1)`  
+`DNComponent(CRef([dn]),1)`  
 If dn is "cn=Joe,ou=…," it returns Joe
 
 - - -
@@ -561,8 +556,8 @@ The DNComponentRev function returns the value of a specified DN component going 
 
 **Example:**  
 If dn is "cn=Joe,ou=Atlanta,ou=GA,ou=US, dc=contoso,dc=com" then  
-`DNComponentRev([dn],3)`  
-`DNComponentRev([dn],1,"DC")`  
+`DNComponentRev(CRef([dn]),3)`  
+`DNComponentRev(CRef([dn]),1,"DC")`  
 Both return US.
 
 - - -
@@ -612,12 +607,12 @@ Results in "2007-12-25".
 Can result in "20140905081453.0Z"
 
 - - -
-### GUID
+### Guid
 **Description:**  
-The function GUID generates a new random GUID
+The function Guid generates a new random GUID
 
 **Syntax:**  
-`str GUID()`
+`str Guid()`
 
 - - -
 ### IIF
@@ -825,7 +820,7 @@ The Item function is useful together with the Contains function since the latter
 Throws an error if index is out of bounds.
 
 **Example:**  
-`Mid(Item([proxyAddress],Contains([proxyAddress], "SMTP:")),6)`  
+`Mid(Item([proxyAddresses],Contains([proxyAddresses], "SMTP:")),6)`  
 Returns the primary email address.
 
 - - -
@@ -1179,7 +1174,7 @@ Process all values in a multi-valued attribute (or output of an expression) base
 * condition: any function that can process an item in the attribute
 
 **Examples:**  
-`Select($item,[otherPhone],Replace($item,“-”,“”))`  
+`Select($item,[otherPhone],Replace($item,"-",""))`  
 Return all the values in the multi-valued attribute otherPhone after hyphens (-) have been removed.
 
 - - -

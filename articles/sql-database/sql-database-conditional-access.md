@@ -2,26 +2,33 @@
 title: Conditional Access - Azure SQL Database and Data Warehouse | Microsoft Doc
 description: Learn how to configure Conditional Access for Azure SQL Database and Data Warehouse.
 services: sql-database
-author: BYHAM
-manager: jhubbard
+author: GithubMirek
+manager: johammer
 ms.custom: security
 ms.service: sql-database
-ms.topic: article
-ms.date: 06/07/2017
-ms.author: rickbyh
+ms.prod_service: sql-database, sql-data-warehouse
+ms.topic: conceptual
+ms.date: 04/01/2018
+ms.author: mireks
+ms.reviewer: vanto
 ---
 
 
 # Conditional Access (MFA) with Azure SQL Database and Data Warehouse  
 
-Both SQL Database and SQL Data Warehouse support Microsoft Conditional Access. The following steps show how to configure SQL Database to enforce a Conditional Access policy.  
+Both Azure [SQL Database](sql-database-technical-overview.md) and [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) support Microsoft Conditional Access. 
+
+> [!NOTE]
+> This topic applies to Azure SQL server, and to both SQL Database and SQL Data Warehouse databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse.
+
+The following steps show how to configure SQL Database to enforce a Conditional Access policy.  
 
 ## Prerequisites  
 - You must configure your SQL Database or SQL Data Warehouse to support Azure Active Directory authentication. For specific steps, see [Configure and manage Azure Active Directory authentication with SQL Database or SQL Data Warehouse](sql-database-aad-authentication-configure.md).  
 - When multi-factor authentication is enabled, you must connect with at supported tool, such as the latest SSMS. For more information, see [Configure Azure SQL Database multi-factor authentication for SQL Server Management Studio](sql-database-ssms-mfa-authentication-configure.md).  
 
 ## Configure CA for Azure SQL DB/DW  
-1.	Sign in to the Portal, select **Azure Active Directory**, and then select **Conditional access**. For more information, see [Azure Active Directory Conditional Access technical reference](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-technical-reference).  
+1.	Sign in to the Portal, select **Azure Active Directory**, and then select **Conditional access**. For more information, see [Azure Active Directory Conditional Access technical reference](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference).  
   ![conditional access blade](./media/sql-database-conditional-access/conditional-access-blade.png) 
      
 2.	In the **Conditional Access-Policies** blade, click **New policy**, provide a name, and then click **Configure rules**.  

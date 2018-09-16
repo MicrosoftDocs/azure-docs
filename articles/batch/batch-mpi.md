@@ -2,18 +2,18 @@
 title: Use multi-instance tasks to run MPI applications - Azure Batch | Microsoft Docs
 description: Learn how to execute Message Passing Interface (MPI) applications using the multi-instance task type in Azure Batch.
 services: batch
-documentationcenter: .net
-author: tamram
-manager: timlt
+documentationcenter: ''
+author: dlepow
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 83e34bd7-a027-4b1b-8314-759384719327
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: 5/22/2017
-ms.author: tamram
+ms.tgt_pltfrm: 
+ms.date: 06/12/2018
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
 ---
 
@@ -47,6 +47,10 @@ When you submit a task with multi-instance settings to a job, Batch performs sev
 ## Requirements for multi-instance tasks
 Multi-instance tasks require a pool with **inter-node communication enabled**, and with **concurrent task execution disabled**. To disable concurrent task execution, set the [CloudPool.MaxTasksPerComputeNode](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool#Microsoft_Azure_Batch_CloudPool_MaxTasksPerComputeNode) property to 1.
 
+> [!NOTE]
+> Batch [limits](batch-quota-limit.md#other-limits) the size of a pool that has inter-node communication enabled.
+
+
 This code snippet shows how to create a pool for multi-instance tasks using the Batch .NET library.
 
 ```csharp
@@ -54,8 +58,8 @@ CloudPool myCloudPool =
     myBatchClient.PoolOperations.CreatePool(
         poolId: "MultiInstanceSamplePool",
         targetDedicatedComputeNodes: 3
-        virtualMachineSize: "small",
-        cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4"));
+        virtualMachineSize: "standard_d1_v2",
+        cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5"));
 
 // Multi-instance tasks require inter-node communication, and those nodes
 // must run only one task at a time.
@@ -65,10 +69,7 @@ myCloudPool.MaxTasksPerComputeNode = 1;
 
 > [!NOTE]
 > If you try to run a multi-instance task in a pool with internode communication disabled, or with a *maxTasksPerNode* value greater than 1, the task is never scheduled--it remains indefinitely in the "active" state. 
->
-> Multi-instance tasks can execute only on nodes in pools created after 14 December 2015.
->
->
+
 
 ### Use a StartTask to install MPI
 To run MPI applications with a multi-instance task, you first need to install an MPI implementation (MS-MPI or Intel MPI, for example) on the compute nodes in the pool. This is a good time to use a [StartTask][net_starttask], which executes whenever a node joins a pool, or is restarted. This code snippet creates a StartTask that specifies the MS-MPI setup package as a [resource file][net_resourcefile]. The start task's command line is executed after the resource file is downloaded to the node. In this case, the command line performs an unattended install of MS-MPI.
@@ -91,7 +92,7 @@ await myCloudPool.CommitAsync();
 ```
 
 ### Remote direct memory access (RDMA)
-When you choose an [RDMA-capable size](../virtual-machines/windows/a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) such as A9 for the compute nodes in your Batch pool, your MPI application can take advantage of Azure's high-performance, low-latency remote direct memory access (RDMA) network.
+When you choose an [RDMA-capable size](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) such as A9 for the compute nodes in your Batch pool, your MPI application can take advantage of Azure's high-performance, low-latency remote direct memory access (RDMA) network.
 
 Look for the sizes specified as "RDMA capable" in the following articles:
 
@@ -104,8 +105,7 @@ Look for the sizes specified as "RDMA capable" in the following articles:
   * [Sizes for virtual machines in Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Windows)
 
 > [!NOTE]
-> To take advantage of RDMA on [Linux compute nodes](batch-linux-nodes.md), you must use **Intel MPI** on the nodes. For more information on CloudServiceConfiguration and VirtualMachineConfiguration pools, see the Pool section of the [Batch feature overview](batch-api-basics.md).
->
+> To take advantage of RDMA on [Linux compute nodes](batch-linux-nodes.md), you must use **Intel MPI** on the nodes. 
 >
 
 ## Create a multi-instance task with Batch .NET
@@ -194,7 +194,7 @@ For full details on these and the other Batch compute node environment variables
 ## Resource files
 There are two sets of resource files to consider for multi-instance tasks: **common resource files** that *all* tasks download (both primary and subtasks), and the **resource files** specified for the multi-instance task itself, which *only the primary* task downloads.
 
-You can specify one or more **common resource files** in the multi-instance settings for a task. These common resource files are downloaded from [Azure Storage](../storage/storage-introduction.md) into each node's **task shared directory** by the primary and all subtasks. You can access the task shared directory from application and coordination command lines by using the `AZ_BATCH_TASK_SHARED_DIR` environment variable. The `AZ_BATCH_TASK_SHARED_DIR` path is identical on every node allocated to the multi-instance task, thus you can share a single coordination command between the primary and all subtasks. Batch does not "share" the directory in a remote access sense, but you can use it as a mount or share point as mentioned earlier in the tip on environment variables.
+You can specify one or more **common resource files** in the multi-instance settings for a task. These common resource files are downloaded from [Azure Storage](../storage/common/storage-introduction.md) into each node's **task shared directory** by the primary and all subtasks. You can access the task shared directory from application and coordination command lines by using the `AZ_BATCH_TASK_SHARED_DIR` environment variable. The `AZ_BATCH_TASK_SHARED_DIR` path is identical on every node allocated to the multi-instance task, thus you can share a single coordination command between the primary and all subtasks. Batch does not "share" the directory in a remote access sense, but you can use it as a mount or share point as mentioned earlier in the tip on environment variables.
 
 Resource files that you specify for the multi-instance task itself are downloaded to the task's working directory, `AZ_BATCH_TASK_WORKING_DIR`, by default. As mentioned, in contrast to common resource files, only the primary task downloads resource files specified for the  multi-instance task itself.
 
@@ -265,7 +265,7 @@ await subtasks.ForEachAsync(async (subtask) =>
 The [MultiInstanceTasks][github_mpi] code sample on GitHub demonstrates how to use a multi-instance task to run an [MS-MPI][msmpi_msdn] application on Batch compute nodes. Follow the steps in [Preparation](#preparation) and [Execution](#execution) to run the sample.
 
 ### Preparation
-1. Follow the first two steps in [How to compile and run a simple MS-MPI program][msmpi_howto]. This satisfies the prerequesites for the following step.
+1. Follow the first two steps in [How to compile and run a simple MS-MPI program][msmpi_howto]. This satisfies the prerequisites for the following step.
 2. Build a *Release* version of the [MPIHelloWorld][helloworld_proj] sample MPI program. This is the program that will be run on compute nodes by the multi-instance task.
 3. Create a zip file containing `MPIHelloWorld.exe` (which you built step 2) and `MSMpiSetup.exe` (which you downloaded step 1). You'll upload this zip file as an application package in the next step.
 4. Use the [Azure portal][portal] to create a Batch [application](batch-application-packages.md) called "MPIHelloWorld", and specify the zip file you created in the previous step as version "1.0" of the application package. See [Upload and manage applications](batch-application-packages.md#upload-and-manage-applications) for more information.
@@ -277,12 +277,12 @@ The [MultiInstanceTasks][github_mpi] code sample on GitHub demonstrates how to u
 
 ### Execution
 1. Download the [azure-batch-samples][github_samples_zip] from GitHub.
-2. Open the MultiInstanceTasks **solution** in Visual Studio 2015 or newer. The `MultiInstanceTasks.sln` solution file is located in:
+2. Open the MultiInstanceTasks **solution** in Visual Studio 2017. The `MultiInstanceTasks.sln` solution file is located in:
 
     `azure-batch-samples\CSharp\ArticleProjects\MultiInstanceTasks\`
 3. Enter your Batch and Storage account credentials in `AccountSettings.settings` in the **Microsoft.Azure.Batch.Samples.Common** project.
 4. **Build and run** the MultiInstanceTasks solution to execute the MPI sample application on compute nodes in a Batch pool.
-5. *Optional*: Use the [Azure portal][portal] or the [Batch Explorer][batch_explorer] to examine the sample pool, job, and task ("MultiInstanceSamplePool", "MultiInstanceSampleJob", "MultiInstanceSampleTask") before you delete the resources.
+5. *Optional*: Use the [Azure portal][portal] or [Batch Explorer][batch_labs] to examine the sample pool, job, and task ("MultiInstanceSamplePool", "MultiInstanceSampleJob", "MultiInstanceSampleTask") before you delete the resources.
 
 > [!TIP]
 > You can download [Visual Studio Community][visual_studio] for free if you do not have Visual Studio.
@@ -332,7 +332,7 @@ Sample complete, hit ENTER to exit...
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
-[batch_explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
+[batch_labs]: https://azure.github.io/BatchExplorer/
 [blog_mpi_linux]: https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/
 [cmd_start]: https://technet.microsoft.com/library/cc770297.aspx
 [coord_cmd_example]: https://github.com/Azure/azure-batch-samples/blob/master/Python/Batch/article_samples/mpi/data/linux/openfoam/coordination-cmd

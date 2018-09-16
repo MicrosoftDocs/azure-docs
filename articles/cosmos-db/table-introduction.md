@@ -1,53 +1,61 @@
 ---
-title: Introduction to Azure Cosmos DB's Table API | Microsoft Docs
-description: Learn how you can use Azure Cosmos DB to store and query massive volumes of key-value data with low latency using the popular OSS MongoDB APIs.
+title: Introduction to the Azure Cosmos DB Table API | Microsoft Docs
+description: Learn how you can use Azure Cosmos DB to store and query massive volumes of key-value data with low latency by using the popular OSS MongoDB APIs.
 services: cosmos-db
-author: bhanupr
-manager: jhubbard
-editor: monicar
-documentationcenter: ''
+author: SnehaGunda
+manager: kfile
 
-ms.assetid: 
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 06/09/2017
-ms.author: arramac
+ms.topic: overview
+ms.date: 11/20/2017
+ms.author: sngun
 
 ---
 # Introduction to Azure Cosmos DB: Table API
 
-[Azure Cosmos DB](introduction.md) is Microsoft's globally distributed, multi-model database service for mission-critical applications. Azure Cosmos DB provides [turn-key global distribution](distribute-data-globally.md), [elastic scaling of throughput and storage](partition-data.md) worldwide, single-digit millisecond latencies at the 99th percentile, [five well-defined consistency levels](consistency-levels.md), and guaranteed high availability, all backed by [industry-leading SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/). Azure Cosmos DB [automatically indexes data](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) without requiring you to deal with schema and index management. It is multi-model and supports document, key-value, graph, and columnar data models. 
+[Azure Cosmos DB](introduction.md) provides the Table API for applications that are written for Azure Table storage and that need premium capabilities like:
 
-![Azure Table storage API and Azure Cosmos DB](./media/table-introduction/premium-tables.png) 
+* [Turnkey global distribution](distribute-data-globally.md).
+* [Dedicated throughput](partition-data.md) worldwide.
+* Single-digit millisecond latencies at the 99th percentile.
+* Guaranteed high availability.
+* [Automatic secondary indexing](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
 
-Azure Cosmos DB provides the Table API (preview) for applications that need a key-value store with flexible schema, predictable performance, global distribution, and high throughput. The Table API provides the same functionality as Azure Table storage, but leverages the benefits of the Azure Cosmos DB engine. 
+Applications written for Azure Table storage can migrate to Azure Cosmos DB by using the Table API with no code changes and take advantage of premium capabilities. The Table API has client SDKs available for .NET, Java, Python, and Node.js.
 
-You can continue to use Azure Table storage for tables with high storage and lower throughput requirements. Azure Cosmos DB will introduce support for storage-optimized tables in a future update, and existing and new Azure Table storage accounts will be upgraded to Azure Cosmos DB.
+## Table offerings
+If you currently use Azure Table Storage, you gain the following benefits by moving to the Azure Cosmos DB Table API:
 
-## Premium and standard Table APIs
-If you currently use Azure Table storage, you gain the following benefits by moving to Azure Cosmos DB's "premium table" preview:
-
-|  | Azure Table Storage | Azure Cosmos DB: Table storage (preview) |
+| | Azure Table storage | Azure Cosmos DB Table API |
 | --- | --- | --- |
-| Latency | Fast, but no upper bounds on latency | Single-digit millisecond latency for reads and writes, backed with <10 ms latency reads and <15 ms latency writes at the 99th percentile, at any scale, anywhere in the world |
-| Throughput | Highly scalable, but no dedicated throughput model. Tables have a scalability limit of 20,000 operations/s | Highly scalable with [dedicated reserved throughput per table](request-units.md), that is backed by SLAs. Accounts have no upper limit on throughput, and support >10 million operations/s per table |
-| Global Distribution | Single region with one optional readable secondary read region for HA. You cannot initiate failover | [Turn-key global distribution](distribute-data-globally.md) from one to 30+ regions, Support for [automatic and manual failovers](regional-failover.md) at any time, anywhere in the world |
-| Indexing | Only primary index on PartitionKey and RowKey. No secondary indexes | Automatic and complete indexing on all properties, no index management |
-| Query | Query execution uses index for primary key, and scans otherwise. | Queries can take advantage of automatic indexing on properties for fast query times. Azure Cosmos DB's database engine is capable of supporting aggregates, geo-spatial, and sorting. |
-| Consistency | Strong within primary region, Eventual with secondary region | [five well-defined consistency levels](consistency-levels.md) to trade off availability, latency, throughput, and consistency based on your application needs |
-| Pricing | Storage-optimized  | Throughput-optimized |
-| SLAs | 99.9% availability | 99.99% availability within a single region, and ability to add more regions for higher availability. [Industry-leading comprehensive SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/) on general availability |
+| Latency | Fast, but no upper bounds on latency. | Single-digit millisecond latency for reads and writes, backed with <10-ms latency reads and <15-ms latency writes at the 99th percentile, at any scale, anywhere in the world. |
+| Throughput | Variable throughput model. Tables have a scalability limit of 20,000 operations/s. | Highly scalable with [dedicated reserved throughput per table](request-units.md) that's backed by SLAs. Accounts have no upper limit on throughput and support >10 million operations/s per table. |
+| Global distribution | Single region with one optional readable secondary read region for high availability. You can't initiate failover. | [Turnkey global distribution](distribute-data-globally.md) from one to 30+ regions. Support for [automatic and manual failovers](regional-failover.md) at any time, anywhere in the world. |
+| Indexing | Only primary index on PartitionKey and RowKey. No secondary indexes. | Automatic and complete indexing on all properties, no index management. |
+| Query | Query execution uses index for primary key, and scans otherwise. | Queries can take advantage of automatic indexing on properties for fast query times. |
+| Consistency | Strong within primary region. Eventual within secondary region. | [Five well-defined consistency levels](consistency-levels.md) to trade off availability, latency, throughput, and consistency based on your application needs. |
+| Pricing | Storage-optimized. | Throughput-optimized. |
+| SLAs | 99.99% availability. | 99.99% availability SLA for all single region accounts and all multi-region accounts with relaxed consistency, and 99.999% read availability on all multi-region database accounts [Industry-leading comprehensive SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/) on general availability. |
 
-## How to get started
+## Get started
 
-Create an Azure Cosmos DB account in the [Azure portal](https://portal.azure.com), and get started with our [Quickstart for Table API using .NET](create-table-dotnet.md). 
+Create an Azure Cosmos DB account in the [Azure portal](https://portal.azure.com). Then get started with our [Quick Start for Table API by using .NET](create-table-dotnet.md). 
+
+> [!IMPORTANT]
+> If you created a Table API account during the preview, please create a [new Table API account](create-table-dotnet.md#create-a-database-account) to work with the generally available Table API SDKs.
+>
 
 ## Next steps
 
 Here are a few pointers to get you started:
-* Get started with [Azure Cosmos DB's Table API](create-table-dotnet.md) using existing NET Table SDK.
-* Learn about [Global distribution with Azure Cosmos DB](distribute-data-globally.md).
-* Learn about [Provisioned throughput in Azure Cosmos DB](request-units.md).
+* [Build a .NET application by using the Table API](create-table-dotnet.md)
+* [Develop with the Table API in .NET](tutorial-develop-table-dotnet.md)
+* [Query table data by using the Table API](tutorial-query-table.md)
+* [Learn how to set up Azure Cosmos DB global distribution by using the Table API](tutorial-global-distribution-table.md)
+* [Azure Cosmos DB Table .NET API](table-sdk-dotnet.md)
+* [Azure Cosmos DB Table Java API](table-sdk-java.md)
+* [Azure Cosmos DB Table Node.js API](table-sdk-nodejs.md)
+* [Azure Cosmos DB Table SDK for Python](table-sdk-python.md)
+

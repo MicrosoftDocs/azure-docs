@@ -1,21 +1,18 @@
 ---
-title: Azure Application Gateway web application firewall CRS rule groups and rules | Microsoft Docs
+title: Azure Application Gateway web application firewall CRS rule groups and rules
 description: This page provides information on web application firewall CRS rule groups and rules.
 documentationcenter: na
 services: application-gateway
-author: georgewallace
-manager: timlt
-editor: tysonn
+author: vhorne
 
-ms.assetid: e5ea5cf9-3b41-4b85-a12c-e758bff7f3ec
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.custom:
 ms.workload: infrastructure-services
-ms.date: 03/28/2017
-ms.author: gwallace
+ms.date: 4/16/2018
+ms.author: victorh
 
 ---
 
@@ -25,28 +22,8 @@ Application Gateway web application firewall (WAF) protects web applications fro
 
 The following tables are the Rule groups and rules that are available when using Application Gateway with web application firewall.  Each table represents the rules found in a rule group for a specific CRS version.
 
-##<a name="owasp30"></a> OWASP_3.0
+## <a name="owasp30"></a> OWASP_3.0
 
-### <a name="crs910"></a>  <p x-ms-format-detection="none">REQUEST-910-IP-REPUTATION</p>
-
-|RuleId|Description|
-|---|---|
-|910011|Rule 910011|
-|910012|Rule 910012|
-|910000|Request from Known Malicious Client (Based on previous traffic violations).|
-|910100|Client IP is from a HIGH Risk Country Location.|
-|910120|Rule 910120|
-|910130|Rule 910130|
-|910150|HTTP Blacklist match for search engine IP|
-|910160|HTTP Blacklist match for spammer IP|
-|910170|HTTP Blacklist match for suspicious IP|
-|910180|HTTP Blacklist match for harvester IP|
-|910013|Rule 910013|
-|910014|Rule 910014|
-|910015|Rule 910015|
-|910016|Rule 910016|
-|910017|Rule 910017|
-|910018|Rule 910018|
 
 ### <a name="crs911"></a> <p x-ms-format-detection="none">REQUEST-911-METHOD-ENFORCEMENT</p>
 
@@ -62,26 +39,6 @@ The following tables are the Rule groups and rules that are available when using
 |911017|Rule 911017|
 |911018|Rule 911018|
 
-### <a name="crs912"></a> <p x-ms-format-detection="none">REQUEST-912-DOS-PROTECTION</p>
-
-|RuleId|Description|
-|---|---|
-|912100|Rule 912100|
-|912012|Rule 912012|
-|912120|Denial of Service (DoS) attack identified from %@{tx.real_ip} (%@{tx.dos_block_counter} hits since last alert)|
-|912130|Rule 912130|
-|912140|Rule 912140|
-|912150|Rule 912150|
-|912160|Rule 912160|
-|912170|Potential Denial of Service (DoS) Attack from %@{tx.real_ip} - # of Request Bursts = %@{ip.dos_burst_counter}|
-|912013|Rule 912013|
-|912014|Rule 912014|
-|912019|Rule 912019|
-|912171|Potential Denial of Service (DoS) Attack from %@{tx.real_ip} - # of Request Bursts = %@{ip.dos_burst_counter}|
-|912015|Rule 912015|
-|912016|Rule 912016|
-|912017|Rule 912017|
-|912018|Rule 912018|
 
 ### <a name="crs913"></a> <p x-ms-format-detection="none">REQUEST-913-SCANNER-DETECTION</p>
 

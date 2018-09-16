@@ -4,19 +4,15 @@ description: Use Azure Functions to create a serverless function that is invoked
 services: azure-functions
 documentationcenter: na
 author: ggailey777
-manager: erikre
-editor: ''
-tags: ''
+manager: jeconnoc
 
 ms.assetid: d6bff41c-a624-40c1-bbc7-80590df29ded
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: get-started-article
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 05/31/2017
+ms.topic: quickstart
+ms.date: 03/27/2018
 ms.author: glenga
-ms.custom: mvc
+ms.custom: mvc, cc996988-fb4f-47
 ---
 # Create a function triggered by Azure Blob storage
 
@@ -28,8 +24,6 @@ Learn how to create a function triggered when files are uploaded to or updated i
 
 + Download and install the [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
 + An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
 ## Create an Azure Function app
 
@@ -47,19 +41,23 @@ Next, you create a function in the new function app.
 
     ![Functions quickstart page in the Azure portal](./media/functions-create-storage-blob-triggered-function/add-first-function.png)
 
-2. Select the **BlobTrigger** template for your desired language, and use the settings as specified in the table.
+2. In the search field, type `blob` and then choose your desired language for the Blob storage trigger template.
 
-    ![Create the Blob storage triggered function.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
+    ![Choose the Blob storage trigger template.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
+ 
+3. Use the settings as specified in the table below the image.
+
+    ![Create the Blob storage triggered function.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal-2.png)
 
     | Setting | Suggested value | Description |
     |---|---|---|
-    | **Path**   | mycontainer/{name}    | Location in Blob storage being monitored. The file name of the blob is passed in the binding as the _name_ parameter.  |
-    | **Storage account connection** | AzureWebJobStorage | You can use the storage account connection already being used by your function app, or create a new one.  |
-    | **Name your function** | Unique in your function app | Name of this blob triggered function. |
+    | **Name** | Unique in your function app | Name of this blob triggered function. |
+    | **Path**   | samples-workitems/{name}    | Location in Blob storage being monitored. The file name of the blob is passed in the binding as the _name_ parameter.  |
+    | **Storage account connection** | AzureWebJobsStorage | You can use the storage account connection already being used by your function app, or create a new one.  |
 
 3. Click **Create** to create your function.
 
-Next, you connect to your Azure Storage account and create the **mycontainer** container.
+Next, you connect to your Azure Storage account and create the **samples-workitems** container.
 
 ## Create the container
 
@@ -75,7 +73,7 @@ Next, you connect to your Azure Storage account and create the **mycontainer** c
 
     ![Enter the storage credentials and connect.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-connect-2.png)
 
-1. Expand the attached storage account, right-click **Blob containers**, click **Create blob container**, type `mycontainer`, and then press enter.
+1. Expand the attached storage account, right-click **Blob containers**, click **Create blob container**, type `samples-workitems`, and then press enter.
 
     ![Create a storage queue.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-create-blob-container.png)
 
@@ -85,7 +83,7 @@ Now that you have a blob container, you can test the function by uploading a fil
 
 1. Back in the Azure portal, browse to your function expand the **Logs** at the bottom of the page and make sure that log streaming isn't paused.
 
-1. In Storage Explorer, expand your storage account, **Blob containers**, and **mycontainer**. Click **Upload** and then **Upload files...**.
+1. In Storage Explorer, expand your storage account, **Blob containers**, and **samples-workitems**. Click **Upload** and then **Upload files...**.
 
     ![Upload a file to the blob container.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-upload-file-blob.png)
 

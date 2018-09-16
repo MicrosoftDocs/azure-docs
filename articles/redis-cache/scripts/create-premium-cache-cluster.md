@@ -3,8 +3,8 @@ title: Azure CLI Script Sample - Create a Premium Azure Redis Cache with cluster
 description: Azure CLI Script Sample - Create a Premium tier Azure Redis Cache with clustering
 services: redis-cache
 documentationcenter: ''
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 tags: azure-service-management
 
@@ -14,8 +14,8 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 04/14/2017
-ms.author: sdanie
+ms.date: 08/30/2017
+ms.author: wesmc
 ---
 
 # Create a Premium Azure Redis Cache with clustering
@@ -36,12 +36,12 @@ This script uses the following commands to create a resource group and a Premium
 
 | Command | Notes |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
-| [az redis create](https://docs.microsoft.com/cli/azure/redis#create) | Create Redis Cache instance. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
+| [az redis create](https://docs.microsoft.com/cli/azure/redis#az_redis_create) | Create Redis Cache instance. |
 
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
+For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
 
 Additional Azure Redis Cache CLI script samples can be found in the [Azure Redis Cache documentation](../cli-samples.md).

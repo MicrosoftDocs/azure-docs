@@ -1,28 +1,22 @@
 ---
-title: Get started with Azure Data Lake Analytics using Azure CLI 2.0 | Microsoft Docs
-description: 'Learn how to use the Azure Command-line Interface 2.0 to create a Data Lake Analytics account, create a Data Lake Analytics job using U-SQL, and submit the job. '
-services: data-lake-analytics
-documentationcenter: ''
-author: saveenr
-manager: saveenr
-editor: cgronlun
-
+title: Get started with Azure Data Lake Analytics using Azure CLI 2.0
+description: Learn how to use the Azure Command-line Interface 2.0 to create an Azure Data Lake Analytics account and submit a U-SQL job.
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 06/18/2017
-ms.author: jgao
+services: data-lake-analytics
+author: saveenr
+ms.author: saveenr
 
+ms.reviewer: jasonwhowell
+ms.topic: conceptual
+ms.date: 06/18/2017
 ---
 # Get started with Azure Data Lake Analytics using Azure CLI 2.0
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-In this tutorial, you develop a job that reads a tab separated values (TSV) file and converts it into a comma-separated values (CSV) file. To go through the same tutorial using other supported tools, use the dropdown list on the top of this section.
+This article describes how to use the Azure CLI 2.0 command-line interface to create an Azure Data Lake Analytics accounts, submit a USQL jobs, and catalogs. The job reads a tab separated values (TSV) file and converts it into a comma-separated values (CSV) file. 
 
 ## Prerequisites
-Before you begin this tutorial, you must have the following items:
+Before you begin, you need the following items:
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure CLI 2.0**. See [Install and configure Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
@@ -104,7 +98,7 @@ az dls fs upload --account "<Data Lake Store Account Name>" --source-path "<Sour
 az dls fs list --account "<Data Lake Store Account Name>" --path "<Path>"
 ```
 
-Data Lake Analytics can also access Azure Blob storage.  For uploading data to Azure Blob storage, see [Using the Azure CLI with Azure Storage](../storage/storage-azure-cli.md).
+Data Lake Analytics can also access Azure Blob storage.  For uploading data to Azure Blob storage, see [Using the Azure CLI with Azure Storage](../storage/common/storage-azure-cli.md).
 
 ## Submit Data Lake Analytics jobs
 The Data Lake Analytics jobs are written in the U-SQL language. To learn more about U-SQL, see [Get started with U-SQL language](data-lake-analytics-u-sql-get-started.md) and [U-SQL language eence](http://go.microsoft.com/fwlink/?LinkId=691348).
@@ -175,21 +169,21 @@ az dla job show --account "<Data Lake Analytics Account Name>" --job-identity "<
 az dla job cancel --account "<Data Lake Analytics Account Name>" --job-identity "<Job Id>"
 ```
 
-##Retrieve job results
+## Retrieve job results
 
 After a job is completed, you can use the following commands to list the output files, and download the files:
 
 ```
-az dls fs list --account "<Data Lake Store Account Name>" --source-path "/Output" --destination-path "<Destintion>"
+az dls fs list --account "<Data Lake Store Account Name>" --source-path "/Output" --destination-path "<Destination>"
 az dls fs preview --account "<Data Lake Store Account Name>" --path "/Output/SearchLog-from-Data-Lake.csv"
 az dls fs preview --account "<Data Lake Store Account Name>" --path "/Output/SearchLog-from-Data-Lake.csv" --length 128 --offset 0
-az dls fs downlod --account "<Data Lake Store Account Name>" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destintion-path "<Destination Path and File Name>"
+az dls fs download --account "<Data Lake Store Account Name>" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destination-path "<Destination Path and File Name>"
 ```
 
 For example:
 
 ```
-az dls fs downlod --account "myadlsaccount" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destintion-path "C:\DLA\myfile.csv"
+az dls fs download --account "myadlsaccount" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destination-path "C:\DLA\myfile.csv"
 ```
 
 ## Next steps

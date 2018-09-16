@@ -1,5 +1,5 @@
 ---
-title: Simulate faults in Azure microservices | Microsoft Docs
+title: Simulate faults in Azure Service Fabric apps | Microsoft Docs
 description: How to harden your services against graceful and ungraceful failures.
 services: service-fabric
 documentationcenter: .net
@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 44af01f0-ed73-4c31-8ac0-d9d65b4ad2d6
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017

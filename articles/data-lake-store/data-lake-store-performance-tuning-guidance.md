@@ -11,8 +11,6 @@ ms.assetid: ebde7b9f-2e51-4d43-b7ab-566417221335
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 06/30/2017
 ms.author: stewu
 
@@ -39,18 +37,18 @@ Whether you are using on-premises machines or VMs in Azure, you should carefully
 
 ### Network Connectivity to Azure Data Lake Store
 
-The network connectivity between your source data and Azure Data Lake store can sometimes be the bottleneck. When your source data is On-Premises, consider using a dedicated link with [Azure ExpressRoute](https://azure.microsoft.com/en-us/services/expressroute/) . If your source data is in Azure, the performance will be best when the data is in the same Azure region as the Data Lake Store.
+The network connectivity between your source data and Azure Data Lake store can sometimes be the bottleneck. When your source data is On-Premises, consider using a dedicated link with [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) . If your source data is in Azure, the performance will be best when the data is in the same Azure region as the Data Lake Store.
 
 ### Configure Data Ingestion tools for maximum parallelization
 
-Once you have addressed the source hardware and network connectivity bottlenecks above, you are ready to configure your ingestion tools. The following table summarizes the key settings for several popular ingestion tools and provides in-depth performance tuning articles for them.  To learn more about which tool to use for your scenario, visit this [article](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-data-scenarios).
+Once you have addressed the source hardware and network connectivity bottlenecks above, you are ready to configure your ingestion tools. The following table summarizes the key settings for several popular ingestion tools and provides in-depth performance tuning articles for them.  To learn more about which tool to use for your scenario, visit this [article](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-data-scenarios).
 
 | Tool               | Settings		| More Details                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
-| Powershell       | PerFileThreadCount, ConcurrentFileCount |	[Link](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-powershell#performance-guidance-while-using-powershell)	|
-| AdlCopy    | Azure Data Lake Analytics units	|	[Link](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob#performance-considerations-for-using-adlcopy)         |
-| DistCp            | -m (mapper)	| [Link](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-copy-data-wasb-distcp#performance-considerations-while-using-distcp)                             |
-| Azure Data Factory| parallelCopies	| [Link](../data-factory/data-factory-copy-activity-performance.md)                          |
+| Powershell       | PerFileThreadCount, ConcurrentFileCount |	[Link](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-powershell#performance-guidance-while-using-powershell)	|
+| AdlCopy    | Azure Data Lake Analytics units	|	[Link](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob#performance-considerations-for-using-adlcopy)         |
+| DistCp            | -m (mapper)	| [Link](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-wasb-distcp#performance-considerations-while-using-distcp)                             |
+| Azure Data Factory| parallelCopies	| [Link](../data-factory/copy-activity-performance.md)                          |
 | Sqoop           | fs.azure.block.size, -m (mapper)	|	[Link](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/)        |
 
 ## Structure your data set
@@ -63,7 +61,7 @@ Typically, analytics engines such as HDInsight and Azure Data Lake Analytics hav
 
 In general, organize your data into larger sized files for better performance.  As a rule of thumb, organize data sets in files of 256MB or larger. In some cases such as images and binary data, it is not possible to process them in parallel.  In these cases, it is recommended to keep individual files under 2GB.
 
-Sometimes, data pipelines have limited control over the raw data which has lots of small files.  It is recommended to have a “cooking” process that generates larger files to use for downstream applications.  
+Sometimes, data pipelines have limited control over the raw data which has lots of small files.  It is recommended to have a "cooking" process that generates larger files to use for downstream applications.
 
 ### Organizing Time Series data in folders
 
@@ -118,9 +116,9 @@ There are three layers within an HDInsight cluster that can be tuned to increase
 
 ![Data Lake Store performance](./media/data-lake-store-performance-tuning-guidance/small-containers.png)
 
-Depending on your workload, there will always be a minimum YARN container size that is needed. If you pick too small a container, your jobs will run into out-of-memory issues. Typically YARN containers should be no smaller than 1GB. It’s common to see 3GB YARN containers. For some workloads, you may need larger YARN containers.  
+Depending on your workload, there will always be a minimum YARN container size that is needed. If you pick too small a container, your jobs will run into out-of-memory issues. Typically YARN containers should be no smaller than 1GB. It's common to see 3GB YARN containers. For some workloads, you may need larger YARN containers.  
 
-**Increase cores per YARN container.**  Increase the number of cores allocated to each container to increase the number of parallel tasks that run in each container.  This works for applications like Spark which run multiple tasks per container.  For applications like Hive which run a single thread in each container, it is better to have more containers rather than more cores per container.   
+**Increase cores per YARN container.**  Increase the number of cores allocated to each container to increase the number of parallel tasks that run in each container.  This works for applications like Spark which run multiple tasks per container.  For applications like Hive which run a single thread in each container, it is better to have more containers rather than more cores per container.
 
 ### Workload Layer
 

@@ -4,22 +4,20 @@ description: Use Azure Functions to schedule a task that connects to Azure SQL D
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: erikre
-editor: ''
-tags: ''
+manager: jeconnoc
 
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 05/22/2017
 ms.author: glenga
 
 ---
 # Use Azure Functions to connect to an Azure SQL Database
-This topic shows you how to use Azure Functions to create a scheduled job that cleans up rows in a table in an Azure SQL Database. The new C# function is created based on a pre-defined timer trigger template in the Azure portal. To support this scenario, you must also set a database connection string as a setting in the function app. This scenario uses a bulk operation against the database. To have your function process individual CRUD operations in a Mobile Apps table, you should instead use [Mobile Apps bindings](functions-bindings-mobile-apps.md).
+This topic shows you how to use Azure Functions to create a scheduled job that cleans up rows in a table in an Azure SQL Database. The new C# script function is created based on a pre-defined timer trigger template in the Azure portal. To support this scenario, you must also set a database connection string as an app setting in the function app. This scenario uses a bulk operation against the database. 
+
+To have your function process individual create, read, update, and delete (CRUD) operations in a Mobile Apps table, you should instead use [Mobile Apps bindings](functions-bindings-mobile-apps.md).
 
 ## Prerequisites
 
@@ -35,7 +33,7 @@ You need to get the connection string for the database you created when you comp
  
 3. Select **SQL Databases** from the left-hand menu, and select your database on the **SQL databases** page.
 
-4. Select **Show database connection strings** and copy the complete **ADO.NET** connection string.
+4. Select **Show database connection strings** and copy the complete **ADO.NET** connection string. 
 
     ![Copy the ADO.NET connection string.](./media/functions-scenario-database-table-cleanup/adonet-connection-string.png)
 
@@ -56,7 +54,7 @@ A function app hosts the execution of your functions in Azure. It is a best prac
     | Setting       | Suggested value | Description             | 
     | ------------ | ------------------ | --------------------- | 
     | **Name**  |  sqldb_connection  | Used to access the stored connection string in your function code.    |
-    | **Value** | Copied string  | Past the connection string you copied in the previous section. |
+    | **Value** | Copied string  | Paste the connection string you copied in the previous section and replace `{your_username}` and `{your_password}` placeholders with real values. |
     | **Type** | SQL Database | Use the default SQL Database connection. |   
 
 3. Click **Save**.
@@ -65,14 +63,16 @@ Now, you can add the C# function code that connects to your SQL Database.
 
 ## Update your function code
 
-1. In your function app, select the timer-triggered function.
+1. In your function app in the portal, select the timer-triggered function.
  
-3. Add the following assembly references at the top of the existing function code:
+3. Add the following assembly references at the top of the existing C# script function code:
 
 	```cs
     #r "System.Configuration"
     #r "System.Data"
 	```
+    >[!NOTE]
+    >The code in these examples are C# script from the portal. When you are developing a precompiled C# function locally, you must instead add references to these assembles in your local project.  
 
 3. Add the following `using` statements to the function:
 	```cs
@@ -81,7 +81,7 @@ Now, you can add the C# function code that connects to your SQL Database.
     using System.Threading.Tasks;
 	```
 
-4. Replace the existing **Run** function with the following code:
+4. Replace the existing `Run` function with the following code:
 	```cs
     public static async Task Run(TimerInfo myTimer, TraceWriter log)
     {
@@ -102,7 +102,7 @@ Now, you can add the C# function code that connects to your SQL Database.
     }
 	```
 
-    This sample command updates the **Status** column based on the ship date. It should update 32 rows of data.
+    This sample command updates the `Status` column based on the ship date. It should update 32 rows of data.
 
 5. Click **Save**, watch the **Logs** windows for the next function execution, then note the number of rows updated in the **SalesOrderHeader** table.
 

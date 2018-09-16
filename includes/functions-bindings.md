@@ -1,20 +1,29 @@
-| Type | Service | Trigger* | Input | Output |  
-| --- | --- | --- | --- | --- |  
-| [Schedule](../articles/azure-functions/functions-bindings-timer.md)  |Azure Functions |✔ | | |  
-| [HTTP (REST or webhook)](../articles/azure-functions/functions-bindings-http-webhook.md) |Azure Functions |✔ |  |✔\** |  
-| [Blob Storage](../articles/azure-functions/functions-bindings-storage-blob.md) |Azure Storage |✔ |✔ |✔ |  
-| [Events](../articles/azure-functions/functions-bindings-event-hubs.md) |Azure Event Hubs |✔ | |✔ |  
-| [Queues](../articles/azure-functions/functions-bindings-storage-queue.md) |Azure Storage |✔ | |✔ |  
-| [Queues and topics](../articles/azure-functions/functions-bindings-service-bus.md) |Azure Service Bus |✔ | |✔ |  
-| [Storage tables](../articles/azure-functions/functions-bindings-storage-table.md) |Azure Storage | |✔ |✔ |  
-| [SQL tables](../articles/azure-functions/functions-bindings-mobile-apps.md) |Azure Mobile Apps | |✔ |✔ |  
-| [No-SQL DB](../articles/azure-functions/functions-bindings-documentdb.md) | Azure DocumentDB | |✔ |✔ |  
-| [Push Notifications](../articles/azure-functions/functions-bindings-notification-hubs.md) |Azure Notification Hubs | | |✔ |  
-| [Twilio SMS Text](../articles/azure-functions/functions-bindings-twilio.md) |Twilio | | |✔ |
-| [SendGrid email](../articles/azure-functions/functions-bindings-sendgrid.md) | SendGrid | | |✔ |
+The following table shows the bindings that are supported in the two major versions of the Azure Functions runtime.
 
-(\* - All triggers have associated input data)
+| Type | 1.x | 2.x | Trigger | Input | Output |  
+| ---- | :-: | :-: | :------: | :---: | :----: |
+| [Blob Storage](../articles/azure-functions/functions-bindings-storage-blob.md)          |✔|✔<sup>1</sup>|✔|✔|✔|  
+| [Cosmos DB](../articles/azure-functions/functions-bindings-documentdb.md)               |✔|✔|✔|✔|✔|  
+| [Event Grid](../articles/azure-functions/functions-bindings-event-grid.md)              |✔|✔|✔| | |  
+| [Event Hubs](../articles/azure-functions/functions-bindings-event-hubs.md)              |✔|✔|✔| |✔|  
+| [External File](../articles/azure-functions/functions-bindings-external-file.md)<sup>2</sup>    |✔|| |✔|✔|  
+| [External Table](../articles/azure-functions/functions-bindings-external-table.md)<sup>2</sup>  |✔|| |✔|✔|  
+| [HTTP](../articles/azure-functions/functions-bindings-http-webhook.md)             |✔|✔<sup>1</sup>|✔| |✔|
+| [Microsoft Graph<br/>Excel tables](../articles/azure-functions/functions-bindings-microsoft-graph.md)   ||✔| |✔|✔|
+| [Microsoft Graph<br/>OneDrive files](../articles/azure-functions/functions-bindings-microsoft-graph.md) ||✔| |✔|✔|
+| [Microsoft Graph<br/>Outlook email](../articles/azure-functions/functions-bindings-microsoft-graph.md)  ||✔| | |✔|
+| [Microsoft Graph<br/>Events](../articles/azure-functions/functions-bindings-microsoft-graph.md)         ||✔|✔|✔|✔|
+| [Microsoft Graph<br/>Auth tokens](../articles/azure-functions/functions-bindings-microsoft-graph.md)    ||✔| |✔| |
+| [Mobile Apps](../articles/azure-functions/functions-bindings-mobile-apps.md)             |✔|✔| |✔|✔|  
+| [Notification Hubs](../articles/azure-functions/functions-bindings-notification-hubs.md) |✔|| | |✔|
+| [Queue storage](../articles/azure-functions/functions-bindings-storage-queue.md)         |✔|✔<sup>1</sup>|✔| |✔|  
+| [SendGrid](../articles/azure-functions/functions-bindings-sendgrid.md)                   |✔|✔| | |✔|
+| [Service Bus](../articles/azure-functions/functions-bindings-service-bus.md)             |✔|✔|✔| |✔|  
+| [Table storage](../articles/azure-functions/functions-bindings-storage-table.md)         |✔|✔<sup>1</sup>| |✔|✔|  
+| [Timer](../articles/azure-functions/functions-bindings-timer.md)                         |✔|✔|✔| | |
+| [Twilio](../articles/azure-functions/functions-bindings-twilio.md)                       |✔|✔| | |✔|
+| [Webhooks](../articles/azure-functions/functions-bindings-http-webhook.md)             |✔||✔| |✔|
+  
+<sup>1</sup> In 2.x, all bindings except HTTP, Timer, and Azure Storage must be registered. See [Register binding extensions](../articles/azure-functions/functions-triggers-bindings.md#register-binding-extensions).
 
-(\** - The HTTP output binding requires an HTTP trigger)
-
-
+<sup>2</sup> Experimental &mdash; not supported and might be abandoned in the future.

@@ -1,24 +1,21 @@
 ---
 title: Azure Cosmos DB global distribution tutorial for MongoDB API | Microsoft Docs
-description: Learn how to setup Azure Cosmos DB global distribution using the MongoDB API.
+description: Learn how to set up Azure Cosmos DB global distribution using the MongoDB API.
 services: cosmos-db
 keywords: global distribution, MongoDB
-documentationcenter: ''
-author: mimig1
-manager: jhubbard
-editor: cgronlun
+author: SnehaGunda
+manager: kfile
 
-ms.assetid: 8b815047-2868-4b10-af1d-40a1af419a70
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-mongo
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/10/2017
-ms.author: mimig
+ms.author: sngun
+ms.custom: mvc
 
 ---
-# How to setup Azure Cosmos DB global distribution using the MongoDB API
+# Set up Azure Cosmos DB global distribution using the MongoDB API
 
 In this article, we show how to use the Azure portal to setup Azure Cosmos DB global distribution and then connect using the MongoDB API.
 
@@ -54,14 +51,14 @@ Example results:
             "region": "South India"
          },
          "hosts": [
-            "vishi-api-for-mongodb-southcentralus.documents.azure.com:10250",
-            "vishi-api-for-mongodb-westeurope.documents.azure.com:10250",
-            "vishi-api-for-mongodb-southindia.documents.azure.com:10250"
+            "vishi-api-for-mongodb-southcentralus.documents.azure.com:10255",
+            "vishi-api-for-mongodb-westeurope.documents.azure.com:10255",
+            "vishi-api-for-mongodb-southindia.documents.azure.com:10255"
          ],
          "setName": "globaldb",
          "setVersion": 1,
-         "primary": "vishi-api-for-mongodb-southindia.documents.azure.com:10250",
-         "me": "vishi-api-for-mongodb-southindia.documents.azure.com:10250"
+         "primary": "vishi-api-for-mongodb-southindia.documents.azure.com:10255",
+         "me": "vishi-api-for-mongodb-southindia.documents.azure.com:10255"
       }
    ```
 
@@ -97,7 +94,7 @@ In this tutorial, you've done the following:
 
 > [!div class="checklist"]
 > * Configure global distribution using the Azure portal
-> * Configure global distribution using the DocumentDB APIs
+> * Configure global distribution using the SQL APIs
 
 You can now proceed to the next tutorial to learn how to develop locally using the Azure Cosmos DB local emulator.
 

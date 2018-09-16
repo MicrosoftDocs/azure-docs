@@ -3,12 +3,10 @@ title: Azure CLI Script-Multiregion replication for Azure Cosmos DB | Microsoft 
 description: Azure CLI Script Sample - Multiregion replication for Azure Cosmos DB
 services: cosmos-db
 documentationcenter: cosmosdb
-author: mimig1
-manager: jhubbard
-editor: ''
+author: SnehaGunda
+manager: kfile
 tags: azure-service-management
 
-ms.assetid:
 ms.service: cosmos-db
 ms.custom: mvc
 ms.devlang: azurecli
@@ -16,7 +14,7 @@ ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 06/02/2017
-ms.author: mimig
+ms.author: sngun
 ---
 
 # Replicate an Azure Cosmos DB database account in multiple regions and configure failover priorities using the Azure CLI
@@ -45,12 +43,12 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-| [az group create](/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
-| [az cosmosdb update](/cli/azure/cosmosdb/name#update) | Updates an Azure Cosmos DB account. |
-| [az group delete](/cli/azure/resource#delete) | Deletes a resource group including all nested resources. |
+| [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
+| [az cosmosdb update](https://docs.microsoft.com/cli/azure/cosmosdb#az-cosmosdb-update) | Updates an Azure Cosmos DB account. |
+| [az group delete](https://docs.microsoft.com/cli/azure/group#az-group-delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
+For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
 
 Additional Azure Cosmos DB CLI script samples can be found in the [Azure Cosmos DB CLI documentation](../cli-samples.md).

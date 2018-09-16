@@ -1,9 +1,9 @@
 ---
-title: Service Bus REST tutorial using Azure Relay | Microsoft Docs
-description: Build a simple Azure Service Bus relay host application that exposes a REST-based interface.
+title: REST tutorial using Azure Relay | Microsoft Docs
+description: Build a simple Azure Service Bus Relay host application that exposes a REST-based interface.
 services: service-bus-relay
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/17/2017
-ms.author: sethm
+ms.date: 11/06/2017
+ms.author: spelluru
 
 ---
 # Azure WCF Relay REST tutorial
 
 This tutorial describes how to build a simple Azure Relay host application that exposes a REST-based interface. REST enables a web client, such as a web browser, to access the Service Bus APIs through HTTP requests.
 
-The tutorial uses the Windows Communication Foundation (WCF) REST programming model to construct a REST service on Service Bus. For more information, see [WCF REST Programming Model](/dotnet/framework/wcf/feature-details/wcf-web-http-programming-model) and [Designing and Implementing Services](/dotnet/framework/wcf/designing-and-implementing-services) in the WCF documentation.
+The tutorial uses the Windows Communication Foundation (WCF) REST programming model to construct a REST service on Azure Relay. For more information, see [WCF REST Programming Model](/dotnet/framework/wcf/feature-details/wcf-web-http-programming-model) and [Designing and Implementing Services](/dotnet/framework/wcf/designing-and-implementing-services) in the WCF documentation.
 
 ## Step 1: Create a namespace
 
@@ -29,9 +29,9 @@ To begin using the relay features in Azure, you must first create a service name
 
 ## Step 2: Define a REST-based WCF service contract to use with Azure Relay
 
-When you create a WCF REST-style service, you must define the contract. The contract specifies what operations the host supports. A service operation can be thought of as a web service method. Contracts are created by defining a C++, C#, or Visual Basic interface. Each method in the interface corresponds to a specific service operation. The [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) attribute must be applied to each interface, and the [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) attribute must be applied to each operation. If a method in an interface that has the [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) does not have the [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx), that method is not exposed. The code used for these tasks is shown in the example following the procedure.
+When you create a WCF REST-style service, you must define the contract. The contract specifies what operations the host supports. A service operation can be thought of as a web service method. Contracts are created by defining a C++, C#, or Visual Basic interface. Each method in the interface corresponds to a specific service operation. The [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute) attribute must be applied to each interface, and the [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute) attribute must be applied to each operation. If a method in an interface that has the [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute) does not have the [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute), that method is not exposed. The code used for these tasks is shown in the example following the procedure.
 
-The primary difference between a WCF contract and a REST-style contract is the addition of a property to the [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx): [WebGetAttribute](https://msdn.microsoft.com/library/system.servicemodel.web.webgetattribute.aspx). This property enables you to map a method in your interface to a method on the other side of the interface. In this case, we will use [WebGetAttribute](https://msdn.microsoft.com/library/system.servicemodel.web.webgetattribute.aspx) to link a method to HTTP GET. This allows Service Bus to accurately retrieve and interpret commands sent to the interface.
+The primary difference between a WCF contract and a REST-style contract is the addition of a property to the [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute): [WebGetAttribute](/dotnet/api/system.servicemodel.web.webgetattribute). This property enables you to map a method in your interface to a method on the other side of the interface. This example uses the [WebGetAttribute](/dotnet/api/system.servicemodel.web.webgetattribute) attribute to link a method to HTTP GET. This enables Service Bus to accurately retrieve and interpret commands sent to the interface.
 
 ### To create a contract with an interface
 
@@ -53,7 +53,7 @@ The primary difference between a WCF contract and a REST-style contract is the a
     using System.IO;
     ```
    
-    [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) is the namespace that enables programmatic access to basic features of WCF. WCF Relay uses many of the objects and attributes of WCF to define service contracts. You will use this namespace in most of your relay applications. Similarly, [System.ServiceModel.Channels](https://msdn.microsoft.com/library/system.servicemodel.channels.aspx) helps define the channel, which is the object through which you communicate with Azure Relay and the client web browser. Finally, [System.ServiceModel.Web](https://msdn.microsoft.com/library/system.servicemodel.web.aspx) contains the types that enable you to create web-based applications.
+    [System.ServiceModel](/dotnet/api/system.servicemodel) is the namespace that enables programmatic access to basic features of WCF. WCF Relay uses many of the objects and attributes of WCF to define service contracts. You use this namespace in most of your relay applications. Similarly, [System.ServiceModel.Channels](/dotnet/api/system.servicemodel.channels) helps define the channel, which is the object through which you communicate with Azure Relay and the client web browser. Finally, [System.ServiceModel.Web](/dotnet/api/system.servicemodel.web) contains the types that enable you to create web-based applications.
 7. Rename the `ImageListener` namespace to **Microsoft.ServiceBus.Samples**.
    
     ```csharp
@@ -95,7 +95,7 @@ The primary difference between a WCF contract and a REST-style contract is the a
     public interface IImageChannel : IImageContract, IClientChannel { }
     ```
     
-    A channel is the WCF object through which the service and client pass information to each other. Later, you will create the channel in your host application. Azure Relay then uses this channel to pass the HTTP GET requests from the browser to your **GetImage** implementation. The relay also uses the channel to take the **GetImage** return value and translate it into an HTTP GETRESPONSE for the client browser.
+    A channel is the WCF object through which the service and client pass information to each other. Later, you create the channel in your host application. Azure Relay then uses this channel to pass the HTTP GET requests from the browser to your **GetImage** implementation. The relay also uses the channel to take the **GetImage** return value and translate it into an HTTP GETRESPONSE for the client browser.
 12. From the **Build** menu, click **Build Solution** to confirm the accuracy of your work so far.
 
 ### Example
@@ -146,7 +146,7 @@ As with the previous steps, there is very little difference between implementing
     }
     ```
     Similar to other interface implementations, you can implement the definition in a different file. However, for this tutorial, the implementation appears in the same file as the interface definition and `Main()` method.
-2. Apply the [ServiceBehaviorAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicebehaviorattribute.aspx) attribute to the **IImageService** class to indicate that the class is an implementation of a WCF contract.
+2. Apply the [ServiceBehaviorAttribute](/dotnet/api/system.servicemodel.servicebehaviorattribute) attribute to the **IImageService** class to indicate that the class is an implementation of a WCF contract.
    
     ```csharp
     [ServiceBehavior(Name = "ImageService", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
@@ -155,12 +155,12 @@ As with the previous steps, there is very little difference between implementing
     }
     ```
    
-    As mentioned previously, this namespace is not a traditional namespace. Instead, it is part of the WCF architecture that identifies the contract. For more information, see the [Data Contract Names](https://msdn.microsoft.com/library/ms731045.aspx) topic in the WCF documentation.
+    As mentioned previously, this namespace is not a traditional namespace. Instead, it is part of the WCF architecture that identifies the contract. For more information, see the [Data Contract Names](https://msdn.microsoft.com/library/ms731045.aspx) article in the WCF documentation.
 3. Add a .jpg image to your project.  
    
     This is a picture that the service displays in the receiving browser. Right-click your project, then click **Add**. Then click **Existing Item**. Use the **Add Existing Item** dialog box to browse to an appropriate .jpg, and then click **Add**.
    
-    When adding the file, make sure that **All Files** is selected in the drop-down list next to the **File name:** field. The rest of this tutorial assumes that the name of the image is "image.jpg". If you have a different file, you will have to rename the image, or change your code to compensate.
+    When adding the file, make sure that **All Files** is selected in the drop-down list next to the **File name:** field. The rest of this tutorial assumes that the name of the image is "image.jpg". If you have a different file, you must rename the image, or change your code to compensate.
 4. To make sure that the running service can find the image file, in **Solution Explorer** right-click the image file, then click **Properties**. In the **Properties** pane, set **Copy to Output Directory** to **Copy if newer**.
 5. Add a reference to the **System.Drawing.dll** assembly to the project, and also add the following associated `using` statements.  
    
@@ -555,7 +555,7 @@ After building the solution, do the following to run the application:
 3. When you are finished, press **Enter** in the command prompt window to close the app.
 
 ## Next steps
-Now that you've built an application that uses the Service Bus relay service, see the following articles to learn more about Azure Relay:
+Now that you've built an application that uses the Azure Relay service, see the following articles to learn more:
 
 * [Azure Service Bus architectural overview](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
 * [Azure Relay overview](relay-what-is-it.md)

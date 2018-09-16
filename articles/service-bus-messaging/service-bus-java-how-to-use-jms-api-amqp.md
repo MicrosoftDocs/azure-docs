@@ -3,7 +3,7 @@ title: How to use AMQP 1.0 with the Java Service Bus API | Microsoft Docs
 description: How to use the Java Message Service (JMS) with Azure Service Bus and Advanced Message Queuing Protodol (AMQP) 1.0.
 services: service-bus-messaging
 documentationcenter: java
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 04/27/2017
-ms.author: sethm
+ms.date: 08/10/2017
+ms.author: spelluru
 
 ---
 # How to use the Java Message Service (JMS) API with Service Bus and AMQP 1.0
@@ -308,7 +308,7 @@ The following restrictions exist when using JMS over AMQP 1.0 with Service Bus, 
 * Only one **MessageProducer** or **MessageConsumer** is allowed per **Session**. If you need to create multiple **MessageProducers** or **MessageConsumers** in an application, create a dedicated **Session** for each of them.
 * Volatile topic subscriptions are not currently supported.
 * **MessageSelectors** are not currently supported.
-* Temporary destinations, i.e., **TemporaryQueue**, **TemporaryTopic** are not currently supported, along with the **QueueRequestor** and **TopicRequestor** APIs that use them.
+* Temporary destinations; for example, **TemporaryQueue**, **TemporaryTopic** are not currently supported, along with the **QueueRequestor** and **TopicRequestor** APIs that use them.
 * Transacted sessions and distributed transactions are not supported.
 
 ## Summary

@@ -1,35 +1,28 @@
 ---
 title: Intel Edison to cloud (C) - Connect Intel Edison to Azure IoT Hub | Microsoft Docs
-description: Connect Intel Edison to Azure IoT Hub for Intel Edison to send data to the Azure cloud.
-services: iot-hub
-documentationcenter: ''
-author: shizn
-manager: timtl
-tags: ''
-keywords: 'azure iot intel edison, intel edison iot hub, intel edison send data to cloud, intel edison to cloud'
-
-ms.assetid: 4885fa2c-c2ee-4253-b37f-ccd55f92b006
+description: Learn how to setup and connect Intel Edison to Azure IoT Hub for Intel Edison to send data to the Azure cloud platform in this tutorial.
+author: rangv
+manager: 
+keywords: azure iot intel edison, intel edison iot hub, intel edison send data to cloud, intel edison to cloud
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: c
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 4/17/2017
-ms.author: xshi
-ms.custom: H1Hack27Feb2017
-
+ms.topic: conceptual
+ms.date: 4/11/2018
+ms.author: rangv
 ---
+
 # Connect Intel Edison to Azure IoT Hub (C)
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
-In this tutorial, you begin by learning the basics of working with Intel Edison. You then learn how to seamlessly connect your devices to the cloud by using [Azure IoT Hub](iot-hub-what-is-iot-hub.md).
+In this tutorial, you begin by learning the basics of working with Intel Edison. You then learn how to seamlessly connect your devices to the cloud by using [Azure IoT Hub](about-iot-hub.md).
 
 Don't have a kit yet? Start [here](https://azure.microsoft.com/develop/iot/starter-kits)
 
 ## What you do
 
-* Setup Intel Edison and and Grove modules.
+* Setup Intel Edison and Grove modules.
 * Create an IoT hub.
 * Register a device for Edison in your IoT hub.
 * Run a sample application on Edison to send sensor data to your IoT hub.
@@ -177,7 +170,7 @@ Congratulations! You've successfully configured Edison.
 
 1. Use one of the following SSH clients from your host computer to connect to your Intel Edison. The IP address is from the configuration tool and the password is the one you've set in that tool.
     - [PuTTY](http://www.putty.org/) for Windows.
-    - The built-in SSH client on Ubuntu or macOS.
+    - The built-in SSH client on Ubuntu or macOS (run `ssh root@"the IP address"`).
 
 2. Clone the sample client app to your device. 
    

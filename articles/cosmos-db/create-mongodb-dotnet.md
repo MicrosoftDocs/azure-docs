@@ -2,55 +2,77 @@
 title: 'Azure Cosmos DB: Build a web app with .NET and the MongoDB API | Microsoft Docs'
 description: Presents a .NET code sample you can use to connect to and query the Azure Cosmos DB MongoDB API
 services: cosmos-db
-documentationcenter: ''
-author: mimig1
-manager: jhubbard
-editor: ''
+author: slyons
+manager: kfile
 
-ms.assetid: 
 ms.service: cosmos-db
+ms.component: cosmosdb-mongo
 ms.custom: quick start connect, mvc
-ms.workload: 
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: hero-article
-ms.date: 05/10/2017
-ms.author: mimig
+ms.topic: quickstart
+ms.date: 05/22/2018
+ms.author: sclyon
 
 ---
 # Azure Cosmos DB: Build a MongoDB API web app with .NET and the Azure portal
 
+> [!div class="op_single_selector"]
+> * [.NET](create-mongodb-dotnet.md)
+> * [Java](create-mongodb-java.md)
+> * [Node.js](create-mongodb-nodejs.md)
+> * [Python](create-mongodb-flask.md)
+> * [Xamarin](create-mongodb-xamarin.md)
+> * [Golang](create-mongodb-golang.md)
+>  
+
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quick start demonstrates how to create an Azure Cosmos DB account, document database, and collection using the Azure portal. You'll then build and deploy a tasks list web app built on the [MongoDB .NET driver](https://docs.mongodb.com/ecosystem/drivers/csharp/). 
+This quickstart demonstrates how to create an Azure Cosmos DB [MongoDB API](mongodb-introduction.md) account, document database, and collection using the Azure portal. You'll then build and deploy a tasks list web app built on the [MongoDB .NET driver](https://docs.mongodb.com/ecosystem/drivers/csharp/).
 
-## Prerequisites
+## Prerequisites to run the sample app
 
-If you don’t already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+To run the sample, you'll need [Visual Studio](https://www.visualstudio.com/downloads/) and a valid Azure CosmosDB account.
+
+If you don't already have Visual Studio, download [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) with the **ASP.NET and web development** workload installed with setup.
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 
 <a id="create-account"></a>
 ## Create a database account
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
 
-## Clone the sample application
+The sample described in this article is compatible with MongoDB.Driver version 2.6.1.
 
-Now let's clone a MongoDB API app from github, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
+## Clone the sample app
 
-1. Open a git terminal window, such as git bash, and `cd` to a working directory.  
+First, download the sample MongoDB API app from GitHub. It implements a task list with MongoDB's document storage model.
 
-2. Run the following command to clone the sample repository. 
+1. Open a command prompt, create a new folder named git-samples, then close the command prompt.
+
+    ```bash
+    md "C:\git-samples"
+    ```
+
+2. Open a git terminal window, such as git bash, and use the `cd` command to change to the new folder to install the sample app.
+
+    ```bash
+    cd "C:\git-samples"
+    ```
+
+3. Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer. 
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-mongodb-dotnet-getting-started.git
     ```
 
-3. Then open the solution file in Visual Studio. 
+If you don't wish to use git, you can also [download the project as a ZIP file](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-dotnet-getting-started/archive/master.zip).
 
 ## Review the code
 
-Let's make a quick review of what's happening in the app. Open the **Dal.cs** file under the **DAL** directory and you'll find that these lines of code create the Azure Cosmos DB resources. 
+This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string). 
+
+The following snippets are all taken from the Dal.cs file in the DAL directory.
 
 * Initialize the Mongo Client.
 
@@ -64,10 +86,7 @@ Let's make a quick review of what's happening in the app. Open the **Dal.cs** fi
         MongoIdentity identity = new MongoInternalIdentity(dbName, userName);
         MongoIdentityEvidence evidence = new PasswordEvidence(password);
 
-        settings.Credentials = new List<MongoCredential>()
-        {
-            new MongoCredential("SCRAM-SHA-1", identity, evidence)
-        };
+        settings.Credential = new MongoCredential("SCRAM-SHA-1", identity, evidence);
 
         MongoClient client = new MongoClient(settings);
     ```
@@ -87,6 +106,24 @@ Let's make a quick review of what's happening in the app. Open the **Dal.cs** fi
     ```cs
     collection.Find(new BsonDocument()).ToList();
     ```
+
+* Creates a task and insert it into the MongoDB collection
+
+   ```csharp
+    public void CreateTask(MyTask task)
+    {
+        var collection = GetTasksCollectionForEdit();
+        try
+        {
+            collection.InsertOne(task);
+        }
+        catch (MongoCommandException ex)
+        {
+            string msg = ex.Message;
+        }
+    }
+   ```
+   Similarly, you can update and delete documents by using the [collection.UpdateOne()](https://docs.mongodb.com/stitch/mongodb/actions/collection.updateOne/index.html) and [collection.DeleteOne()](https://docs.mongodb.com/stitch/mongodb/actions/collection.deleteOne/index.html) methods. 
 
 ## Update your connection string
 
@@ -122,10 +159,7 @@ You've now updated your app with all the info it needs to communicate with Azure
 
 ## Clean up resources
 
-If you're not going to continue to use this app, delete all resources created by this quickstart in the Azure portal with the following steps:
-
-1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you created. 
-2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
+[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## Next steps
 

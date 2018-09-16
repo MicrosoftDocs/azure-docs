@@ -1,59 +1,185 @@
 - name: Computer Vision Documentation
-  href: index.md
+  href: index.yml
 - name: Overview
-  href: Home.md
-- name: How-to
+  expanded: true
   items:
+  - name: What is Computer Vision?
+    href: Home.md
+- name: Quickstarts
+  items:
+  - name: Using REST API
+    items:
+    - name: Analyze a remote image
+      items:
+      - name: cURL
+        href: QuickStarts/curl-analyze.md
+      - name: Go
+        href: QuickStarts/go-analyze.md
+      - name: Java
+        href: QuickStarts/java-analyze.md
+      - name: JavaScript
+        href: QuickStarts/javascript-analyze.md
+      - name: Node.js
+        href: QuickStarts/node-analyze.md
+      - name: PHP
+        href: QuickStarts/php-analyze.md
+      - name: Python
+        href: QuickStarts/python-analyze.md
+      - name: Ruby
+        href: QuickStarts/ruby-analyze.md
+    - name: Analyze a local image
+      items:
+      - name: C#
+        href: QuickStarts/CSharp-analyze.md
+      - name: Python
+        href: QuickStarts/python-disk.md
+    - name: Generate a thumbnail
+      items:
+      - name: C#
+        href: QuickStarts/CSharp-thumb.md
+      - name: cURL
+        href: QuickStarts/curl-thumb.md
+      - name: Go
+        href: QuickStarts/go-thumb.md
+      - name: Java
+        href: QuickStarts/java-thumb.md
+      - name: JavaScript
+        href: QuickStarts/javascript-thumb.md
+      - name: Node.js
+        href: QuickStarts/node-thumb.md
+      - name: PHP
+        href: QuickStarts/php-thumb.md
+      - name: Python
+        href: QuickStarts/python-thumb.md
+      - name: Ruby
+        href: QuickStarts/ruby-thumb.md
+    - name: Extract printed text
+      items:
+      - name: C#
+        href: QuickStarts/CSharp-print-text.md
+      - name: cURL
+        href: QuickStarts/curl-print-text.md
+      - name: Go
+        href: QuickStarts/go-print-text.md
+      - name: Java
+        href: QuickStarts/java-print-text.md
+      - name: JavaScript
+        href: QuickStarts/javascript-print-text.md
+      - name: Node.js
+        href: QuickStarts/node-print-text.md
+      - name: PHP
+        href: QuickStarts/php-print-text.md
+      - name: Python
+        href: QuickStarts/python-print-text.md
+      - name: Ruby
+        href: QuickStarts/ruby-print-text.md
+    - name: Extract handwritten text
+      items:
+      - name: C#
+        href: QuickStarts/CSharp-hand-text.md
+      - name: Java
+        href: QuickStarts/java-hand-text.md
+      - name: JavaScript
+        href: QuickStarts/javascript-hand-text.md
+      - name: Python
+        href: QuickStarts/python-hand-text.md
+    - name: Use a domain model
+      items:
+      - name: PHP
+        href: QuickStarts/php-domain.md
+      - name: Python
+        href: QuickStarts/python-domain.md
+  - name: Using .NET SDK
+    items:
+    - name: Analyze an image
+      href: quickstarts-sdk/csharp-analyze-sdk.md
+    - name: Generate a thumbnail
+      href: quickstarts-sdk/csharp-thumb-sdk.md
+    - name: Extract handwritten text
+      href: quickstarts-sdk/csharp-hand-text-sdk.md
+- name: Concepts
+  items:
+  - name: Tagging images
+    href: concept-tagging-images.md
+  - name: Categorizing images
+    href: concept-categorizing-images.md
+  - name: Describing images
+    href: concept-describing-images.md
+  - name: Detecting faces
+    href: concept-detecting-faces.md
+  - name: Detecting image types
+    href: concept-detecting-image-types.md
+  - name: Detecting domain-specific content
+    href: concept-detecting-domain-content.md
+  - name: Detecting color schemes
+    href: concept-detecting-color-schemes.md
+  - name: Generating thumbnails
+    href: concept-generating-thumbnails.md
+  - name: Extracting text with OCR
+    href: concept-extracting-text-ocr.md
+  - name: Recognizing printed and handwritten text
+    href: concept-recognizing-text.md
+  - name: Detecting adult and racy content
+    href: concept-detecting-adult-content.md
+- name: How-to guides
+  items:
+  - name: First Computer Vision apps
+    items:
+    - name: C#
+      href: Tutorials/CSharpTutorial.md
+    - name: Java
+      href: Tutorials/java-tutorial.md
+    - name: JavaScript
+      href: Tutorials/javascript-tutorial.md
+    - name: Python
+      href: Tutorials/PythonTutorial.md
   - name: Obtain subscription keys
     href: Vision-API-How-to-Topics/HowToSubscribe.md
   - name: Call the Computer Vision API
     href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
+  - name: Use the Computer Vision Connected Service
+    href: vs-computer-vision-connected-service.md
   - name: Analyze videos in real time
     href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
-- name: Quickstarts
-  expanded: true
-  items:
-  - name: cURL
-    href: QuickStarts/curl.md
-  - name: C#
-    href: QuickStarts/CSharp.md
-  - name: Java
-    href: QuickStarts/Java.md
-  - name: JavaScript
-    href: QuickStarts/JavaScript.md
-  - name: PHP
-    href: QuickStarts/PHP.md
-  - name: Python
-    href: QuickStarts/Python.md
-  - name: Ruby
-    href: QuickStarts/Ruby.md
-- name: Tutorials
-  items:
-  - name: C#
-    href: Tutorials/CSharpTutorial.md
-  - name: Python
-    href: Tutorials/PythonTutorial.md
 - name: Reference
   items: 
-  - name: API reference
+  - name: Azure CLI
+    href: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
+  - name: Azure PowerShell
+    href: https://aka.ms/azure-powershell-cognitiveservices
+  - name: Computer Vision API v2.0
+    href: https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44
+  - name: Computer Vision API v1.0
     href: https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739
   - name: SDKs
     items:
+    - name: Windows
+      href: https://github.com/Microsoft/Cognitive-vision-windows
+    - name: Node.js
+      href: https://docs.microsoft.com/javascript/api/overview/azure/cognitive-services?view=azure-node-latest#vision-modules
+    - name: Python
+      href: https://docs.microsoft.com/python/api/overview/azure/cognitive-services?view=azure-python#vision-modules
+    - name: Go
+      href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/computervision
     - name: Android
       href: https://github.com/Microsoft/Cognitive-vision-android
     - name: Swift
       href: https://github.com/DanilaVladi/Microsoft-Cognitive-Services-Swift-SDK
-    - name: Windows
-      href: https://github.com/Microsoft/Cognitive-vision-windows
 - name: Resources
   items: 
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
   - name: Samples
-    href: https://azure.microsoft.com/resources/samples/?service=cognitive-services
-  - name: Category taxonomy
-    href: Category-Taxonomy.md
+    href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision
   - name: FAQ
     href: FAQ.md
-  - name: Research papers    
-    href: Research.md
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision
+  - name: UserVoice
+    href: https://cognitive.uservoice.com/forums/430309-computer-vision-api
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
+  - name: Regional availability
+    href: https://azure.microsoft.com/global-infrastructure/services/
+  - name: Category taxonomy
+    href: Category-Taxonomy.md

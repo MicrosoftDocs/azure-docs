@@ -1,50 +1,35 @@
 ---
 title: 'SSMS: Connect and query data in Azure SQL Database | Microsoft Docs'
-description: Learn how to connect to SQL Database on Azure by using SQL Server Management Studio (SSMS). Then, run Transact-SQL (T-SQL) statements to query and edit data.
-metacanonical: ''
+description: Learn how to connect to SQL Database on Azure by using SQL Server Management Studio (SSMS). Then run Transact-SQL (T-SQL) statements to query and edit data.
 keywords: connect to sql database,sql server management studio
 services: sql-database
-documentationcenter: ''
 author: CarlRabeler
-manager: jhubbard
-editor: ''
-
-ms.assetid: 7cd2a114-c13c-4ace-9088-97bd9d68de12
+manager: craigg
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: hero-article
-ms.date: 05/26/2017
+ms.topic: quickstart
+ms.date: 08/01/2018
 ms.author: carlrab
-
 ---
 # Azure SQL Database: Use SQL Server Management Studio to connect and query data
 
-[SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) is an integrated environment for managing any SQL infrastructure, from SQL Server to SQL Database for Microsoft Windows. This quick start demonstrates how to use SSMS to connect to an Azure SQL database, and then use Transact-SQL statements to query, insert, update, and delete data in the database. 
+[SQL Server Management Studio][ssms-install-latest-84g] (SSMS) is an integrated environment for managing any SQL infrastructure, from SQL Server to SQL Database for Microsoft Windows. This quickstart demonstrates how to use SSMS to connect to an Azure SQL database, and then use Transact-SQL statements to query, insert, update, and delete data in the database. 
 
 ## Prerequisites
 
-This quick start uses as its starting point the resources created in one of these quick starts:
+This quickstart uses as its starting point the resources created in one of these quickstarts:
 
-- [Create DB - Portal](sql-database-get-started-portal.md)
-- [Create DB - CLI](sql-database-get-started-cli.md)
-- [Create DB - PowerShell](sql-database-get-started-powershell.md)
+[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-Before you start, make sure you have installed the newest version of [SSMS](https://msdn.microsoft.com/library/mt238290.aspx). 
+This quickstart also requires that you configure a server-level firewall rule. For a quickstart showing how to do this, see [Create server-level firewall rule](sql-database-get-started-portal-firewall.md).
 
-## Get connection information
+#### Install the latest SSMS
 
-Get the connection information needed to connect to the Azure SQL database. You will need the fully qualified server name, database name, and login information in the next procedures.
+Before you start, make sure you have installed the newest version of [SSMS][ssms-install-latest-84g]. 
 
-1. Log in to the [Azure portal](https://portal.azure.com/).
-2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
-3. On the **Overview** page for your database, review the fully qualified server name as shown in the image below. You can hover over the server name to bring up the **Click to copy** option.
+## SQL server connection information
 
-   ![connection information](./media/sql-database-get-started-portal/server-name.png) 
-
-4. If you have forgotten the login information for your Azure SQL Database server, navigate to the SQL Database server page to view the server admin name and, if necessary, reset the password. 
+[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
 ## Connect to your database
 
@@ -58,13 +43,14 @@ Use SQL Server Management Studio to establish a connection to your Azure SQL Dat
 
 2. In the **Connect to Server** dialog box, enter the following information:
 
-   | Setting       | Suggested value | Description | 
-   | ------------ | ------------------ | ------------------------------------------------- | 
+   | Setting      | Suggested value    | Description | 
+   | ------------ | ------------------ | ----------- | 
    | **Server type** | Database engine | This value is required. |
    | **Server name** | The fully qualified server name | The name should be something like this: **mynewserver20170313.database.windows.net**. |
    | **Authentication** | SQL Server Authentication | SQL Authentication is the only authentication type that we have configured in this tutorial. |
    | **Login** | The server admin account | This is the account that you specified when you created the server. |
    | **Password** | The password for your server admin account | This is the password that you specified when you created the server. |
+   ||||
 
    ![connect to server](./media/sql-database-connect-query-ssms/connect.png)  
 
@@ -159,8 +145,8 @@ Use the following code to delete the new product that you previously added using
 
 ## Next steps
 
-- To learn about creating and managing servers and databases with Transact-SQL, see [Learn about Azure SQL Database servers and databases](sql-database-servers-databases.md).
 - For information about SSMS, see [Use SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).
+- To connect and query using the Azure portal, see [Connect and query with the Azure portal SQL Query editor](sql-database-connect-query-portal.md).
 - To connect and query using Visual Studio Code, see [Connect and query with Visual Studio Code](sql-database-connect-query-vscode.md).
 - To connect and query using .NET, see [Connect and query with .NET](sql-database-connect-query-dotnet.md).
 - To connect and query using PHP, see [Connect and query with PHP](sql-database-connect-query-php.md).
@@ -168,3 +154,9 @@ Use the following code to delete the new product that you previously added using
 - To connect and query using Java, see [Connect and query with Java](sql-database-connect-query-java.md).
 - To connect and query using Python, see [Connect and query with Python](sql-database-connect-query-python.md).
 - To connect and query using Ruby, see [Connect and query with Ruby](sql-database-connect-query-ruby.md).
+
+
+<!-- Article link references. -->
+
+[ssms-install-latest-84g]: https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms
+

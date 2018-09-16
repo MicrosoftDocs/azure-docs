@@ -1,64 +1,58 @@
 ---
-title: Bing Speech API in Microsoft Cognitive Services | Microsoft Docs
-description: Use the Bing Speech API to add speech-driven actions to your apps, including real-time interaction with users.
+title: Microsoft Bing Speech Service | Microsoft Docs
+description: Use Microsoft Speech API to add speech-driven actions to your apps, including real-time interaction with users.
 services: cognitive-services
-author: priyaravi20
-manager: yanbo
-
+author: zhouwangzw
+manager: wolfma
 ms.service: cognitive-services
-ms.technology: speech
+ms.component: bing-speech
 ms.topic: article
-ms.date: 02/28/2017
-ms.author: prrajan
+ms.date: 09/15/2017
+ms.author: zhouwang
 ---
-# Bing Speech API overview
-Microsoft’s *Speech to Text* and *Text to Speech* cloud offerings help you put speech to work in your application. Microsoft's
-Speech APIs can transcribe speech *to* text and can generate speech *from* text. These
-APIs enable you to create powerful experiences that delight your users.
 
-* **Speech to Text** APIs convert human speech to text that can be used as input or commands to control your application.
-* **Text to Speech** APIs convert text to audio streams that can be played back to the user of your application.
+# Microsoft Bing Speech API overview
+
+The cloud-based Microsoft Bing Speech API provides developers an easy way to create powerful speech-enabled features in their applications, like voice command control, user dialog using natural speech conversation, and speech transcription and dictation. The Microsoft Speech API supports both *Speech to Text* and *Text to Speech* conversion.
+
+- **Speech to Text** API converts human speech to text that can be used as input or commands to control your application.
+- **Text to Speech** API converts text to audio streams that can be played back to the user of your application.
+
+> [!NOTE] 
+> In May 2018, we released the new [Speech service](../speech-service/overview.md) in public preview. We encourage you to [try it out for free](../speech-service/get-started.md).
 
 ## Speech to text (speech recognition)
-The *Speech to Text* APIs *transcribe* audio streams into text that your application can display to the user or act upon as command input. The *Speech To Text* APIs come in two flavors.
 
-* A REST API, useful for apps that need to convert short spoken commands to text but do not need simultaneous user feedback. The REST API uses
-[HTTP chunked-transfer encoding](https://en.wikipedia.org/wiki/Chunked_transfer_encoding) to send the audio bytes to the service.
-* A [WebSocket](https://en.wikipedia.org/wiki/WebSocket) API, useful for apps need an
-improved user experience by using the power of the full-duplex WebSocket connection. Apps using this API
-get access to advanced features like speech recognition hypotheses. This API choice is also better for apps that need to transcribe longer audio passages.  
+Microsoft speech recognition API *transcribes* audio streams into text that your application can display to the user or act upon as command input. It provides two ways for developers to add Speech to their apps: REST APIs **or** Websocket-based client libraries.
 
-Both *Speech to Text* APIs enrich the transcribed text by adding capitalization and punctuation, masking profanity, and text normalization.
+- [REST APIs](GetStarted/GetStartedREST.md): Developers can use HTTP calls from their apps to the service for speech recognition.
+- [Client libraries](GetStarted/GetStartedClientLibraries.md): For advanced features, developers can download Microsoft Speech client libraries, and link into their apps.  The client libraries are available on various platforms (Windows, Android, iOS) using different languages (C#, Java, JavaScript, ObjectiveC). Unlike the REST APIs, the client libraries utilize Websocket-based protocol.
 
-### Comparing API options for speech recognition
-
-| Feature | WebSocket API | REST API |
+| Use cases | [REST APIs](GetStarted/GetStartedREST.md) | [Client Libraries](GetStarted/GetStartedClientLibraries.md) |
 |-----|-----|-----|
-| Speech hypotheses | Yes | No |
-| Continuous recognition | Yes | No |
-| Maximum audio input | 10 minutes of audio | 15 seconds of audio |
-| Service detects when speech ends | Yes| No |
-| Subscription key authorization | Yes | No |
+| Convert a short spoken audio, for example, commands (audio length < 15 s) without interim results | Yes | Yes |
+| Convert a long audio (> 15 s) | No | Yes |
+| Stream audio with interim results desired | No | Yes |
+| Understand the text converted from audio using LUIS | No | Yes |
 
-### Speech recognition modes
-Microsoft's *Speech to Text* APIs support multiple modes of speech recognition. Choose the mode that produces the best recognition results for your application.
+Whichever approach developers choose (REST APIs or client libraries), Microsoft speech service supports the following:
 
-| Mode | Description |
-|---|---|
-| *interactive* | "Command and control" recognition for interactive user application scenarios. Users speak short phrases intended as commands to an application. |
-| *dictation* | Continuous recognition for dictation scenarios. Users speak longer sentences that are displayed as text. Users adopt a more formal speaking style. |
-| *conversation* | Continuous recognition for transcribing conversations between humans. Users adopt a less formal speaking style and may alternate between longer sentences and shorter phrases. |
+- Advanced speech recognition technologies from Microsoft that are used by Cortana, Office Dictation, Office Translator, and other Microsoft products.
+- Real-time continuous recognition. The speech recognition API enables users to transcribe audio into text in real time, and supports to receive the intermediate results of the words that have been recognized so far. The speech service also supports end-of-speech detection. In addition, users can choose additional formatting capabilities, like capitalization and punctuation, masking profanity, and text normalization.
+- Supports optimized speech recognition results for *interactive*, *conversation*, and *dictation* scenarios. For user scenarios which require customized language models and acoustic models, [Custom Speech Service](../custom-speech-service/cognitive-services-custom-speech-home.md) allows you to create speech models that tailored to your application and your users.
+- Support many spoken languages in multiple dialects. For the full list of supported languages in each recognition mode, see [recognition languages](api-reference-rest/supportedlanguages.md).
+- Integration with language understanding. Besides converting the input audio into text, the *Speech to Text* provides applications an additional capability to understand what the text means. It uses the [Language Understanding Intelligent Service(LUIS)](../LUIS/what-is-luis.md) to extract intents and entities from the recognized text.
 
-For more information, see [Recognition Modes](api-reference-rest/bingvoicerecognition.md#recognition-modes) in the API reference.
+### Next steps
 
-### Speech recognition supported languages  
-The *Speech to Text* APIs support many spoken languages in multiple dialects. For the full list of supported languages in
-each recognition mode, see [Recognition Languages](api-reference-rest/bingvoicerecognition.md#recognition-language).
+- Get started to use Microsoft speech recognition service with [REST APIs](GetStarted/GetStartedREST.md) or [client libraries](GetStarted/GetStartedClientLibraries.md).
+- Check out [sample applications](samples.md) in your preferred programming language.
+- Go to the Reference section to find [Microsoft Speech Protocol](API-Reference-REST/websocketprotocol.md) details and API references.
 
 ## Text to speech (speech synthesis)
-*Text to Speech* APIs use REST to convert structured text to an audio stream. The APIs provide fast text to speech
-conversion in various voices and languages. For the full list of supported languages and voices, see
-[Supported Locales and Voice Fonts](api-reference-rest/bingvoiceoutput.md#a-namesuplocalesasupported-locales-and-voice-fonts).
 
-### Text to speech API
-The maximum amount of audio returned for any single request is 15 seconds.
+*Text to Speech* APIs use REST to convert structured text to an audio stream. The APIs provide fast text to speech conversion in various voices and languages. In addition users also have the ability to change audio characteristics like pronunciation, volume, pitch etc. using SSML tags.
+
+### Next steps
+
+- Get started to use Microsoft text to speech service: [Text to Speech API Reference](api-reference-rest/bingvoiceoutput.md). For the full list of languages and voices supported by Text to Speech, see [Supported Locales and Voice Fonts](api-reference-rest/bingvoiceoutput.md#SupLocales).

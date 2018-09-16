@@ -1,21 +1,21 @@
 
 ---
-title: Create Service Fabric cluster in the Azure portal | Microsoft Docs
-description: This article describes how to set up a secure Service Fabric cluster in Azure using the Azure portal and Azure Key Vault.
+title: Create a Service Fabric cluster in the Azure portal | Microsoft Docs
+description: Learn how to set up a secure Service Fabric cluster in Azure using the Azure portal and Azure Key Vault.
 services: service-fabric
 documentationcenter: .net
-author: chackdan
+author: aljo-microsoft
 manager: timlt
 editor: vturecek
 
 ms.assetid: 426c3d13-127a-49eb-a54c-6bde7c87a83b
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/21/2017
-ms.author: chackdan
+ms.date: 09/06/2018
+ms.author: aljo
 
 ---
 # Create a Service Fabric cluster in Azure using the Azure portal
@@ -25,10 +25,9 @@ ms.author: chackdan
 > 
 > 
 
-This is a step-by-step guide that walks you through the steps of setting up a secure Service Fabric cluster in Azure using the Azure portal. This guide walks you through the following steps:
+This is a step-by-step guide that walks you through the steps of setting up a Service Fabric cluster (Linux or Windows) in Azure using the Azure portal. This guide walks you through the following steps:
 
-* Set up Key Vault to manage keys for cluster security.
-* Create a secured cluster in Azure through the Azure portal.
+* Create a cluster in Azure through the Azure portal.
 * Authenticate administrators using certificates.
 
 > [!NOTE]
@@ -36,96 +35,12 @@ This is a step-by-step guide that walks you through the steps of setting up a se
 > 
 > 
 
-A secure cluster is a cluster that prevents unauthorized access to management operations, which includes deploying, upgrading, and deleting applications, services, and the data they contain. An unsecure cluster is a cluster that anyone can connect to at any time and perform management operations. Although it is possible to create an unsecure cluster, it is **highly recommended to create a secure cluster**. An unsecure cluster **cannot be secured later** - a new cluster must be created.
-
-The concepts are the same for creating secure clusters, whether the clusters are Linux clusters or Windows clusters. For more information and helper scripts for creating secure Linux clusters, please see [Creating secure clusters on Linux](service-fabric-cluster-creation-via-arm.md#secure-linux-cluster). The parameters obtained by the helper script provided can be input directly into the portal as described in the section [Create a cluster in the Azure portal](#create-cluster-portal).
-
-## Log in to Azure
-This guide uses [Azure PowerShell][azure-powershell]. When starting a new PowerShell session, log in to your Azure account and select your subscription before executing Azure commands.
-
-Log in to your azure account:
-
-```powershell
-Login-AzureRmAccount
-```
-
-Select your subscription:
-
-```powershell
-Get-AzureRmSubscription
-Set-AzureRmContext -SubscriptionId <guid>
-```
-
-## Set up Key Vault
-This part of the guide walks you through creating a Key Vault for a Service Fabric cluster in Azure and for Service Fabric applications. For a complete guide on Key Vault, see the [Key Vault getting started guide][key-vault-get-started].
-
-Service Fabric uses X.509 certificates to secure a cluster. Azure Key Vault is used to manage certificates for Service Fabric clusters in Azure. When a cluster is deployed in Azure, the Azure resource provider responsible for creating Service Fabric clusters pulls certificates from Key Vault and installs them on the cluster VMs.
-
-The following diagram illustrates the relationship between Key Vault, a Service Fabric cluster, and the Azure resource provider that uses certificates stored in Key Vault when it creates a cluster:
-
-![Certificate installation][cluster-security-cert-installation]
-
-### Create a Resource Group
-The first step is to create a new resource group specifically for Key Vault. Putting Key Vault into its own resource group is recommended so that you can remove compute and storage resource groups - such as the resource group that has your Service Fabric cluster - without losing your keys and secrets. The resource group that has your Key Vault must be in the same region as the cluster that is using it.
-
-```powershell
-
-    PS C:\Users\vturecek> New-AzureRmResourceGroup -Name mycluster-keyvault -Location 'West US'
-    WARNING: The output object type of this cmdlet will be modified in a future release.
-
-    ResourceGroupName : mycluster-keyvault
-    Location          : westus
-    ProvisioningState : Succeeded
-    Tags              :
-    ResourceId        : /subscriptions/<guid>/resourceGroups/mycluster-keyvault
-
-```
-
-### Create Key Vault
-Create a Key Vault in the new resource group. The Key Vault **must be enabled for deployment** to allow the Service Fabric resource provider to get certificates from it and install on cluster nodes:
-
-```powershell
-
-    PS C:\Users\vturecek> New-AzureRmKeyVault -VaultName 'myvault' -ResourceGroupName 'mycluster-keyvault' -Location 'West US' -EnabledForDeployment
-
-
-    Vault Name                       : myvault
-    Resource Group Name              : mycluster-keyvault
-    Location                         : West US
-    Resource ID                      : /subscriptions/<guid>/resourceGroups/mycluster-keyvault/providers/Microsoft.KeyVault/vaults/myvault
-    Vault URI                        : https://myvault.vault.azure.net
-    Tenant ID                        : <guid>
-    SKU                              : Standard
-    Enabled For Deployment?          : False
-    Enabled For Template Deployment? : False
-    Enabled For Disk Encryption?     : False
-    Access Policies                  :
-                                       Tenant ID                :    <guid>
-                                       Object ID                :    <guid>
-                                       Application ID           :
-                                       Display Name             :    
-                                       Permissions to Keys      :    get, create, delete, list, update, import, backup, restore
-                                       Permissions to Secrets   :    all
-
-
-    Tags                             :
-```
-
-If you have an existing Key Vault, you can enable it for deployment using Azure CLI:
-
-```cli
-> azure login
-> azure account set "your account"
-> azure config mode arm 
-> azure keyvault list
-> azure keyvault set-policy --vault-name "your vault name" --enabled-for-deployment true
-```
-
-
-## Add certificates to Key Vault
+## Cluster security 
 Certificates are used in Service Fabric to provide authentication and encryption to secure various aspects of a cluster and its applications. For more information on how certificates are used in Service Fabric, see [Service Fabric cluster security scenarios][service-fabric-cluster-security].
 
-### Cluster and server certificate (required)
+If this is the first time you are creating a service fabric cluster or are deploying a cluster for test workloads, you can skip to the next section (**Create cluster in the Azure Portal**) and have the system generate certificates needed for your clusters that run test workloads. If you are setting up a cluster for production workloads, then continue reading.
+
+#### Cluster and server certificate (required)
 This certificate is required to secure a cluster and prevent unauthorized access to it. It provides cluster security in a couple ways:
 
 * **Cluster authentication:** Authenticates node-to-node communication for cluster federation. Only nodes that can prove their identity with this certificate can join the cluster.
@@ -135,9 +50,9 @@ To serve these purposes, the certificate must meet the following requirements:
 
 * The certificate must contain a private key.
 * The certificate must be created for key exchange, exportable to a Personal Information Exchange (.pfx) file.
-* The certificate's subject name must match the domain used to access the Service Fabric cluster. This is required to provide SSL for the cluster's HTTPS management endpoints and Service Fabric Explorer. You cannot obtain an SSL certificate from a certificate authority (CA) for the `.cloudapp.azure.com` domain. Acquire a custom domain name for your cluster. When you request a certificate from a CA the certificate's subject name must match the custom domain name used for your cluster.
+* The certificate's **subject name must match the domain** used to access the Service Fabric cluster. This is required to provide SSL for the cluster's HTTPS management endpoints and Service Fabric Explorer. You cannot obtain an SSL certificate from a certificate authority (CA) for the `.cloudapp.azure.com` domain. Acquire a custom domain name for your cluster. When you request a certificate from a CA the certificate's subject name must match the custom domain name used for your cluster.
 
-### Client authentication certificates
+#### Client authentication certificates
 Additional client certificates authenticate administrators for cluster management tasks. Service Fabric has two access levels: **admin** and **read-only user**. At minimum, a single certificate for administrative access should be used. For additional user-level access, a separate certificate must be provided. For more information on access roles, see [role-based access control for Service Fabric clients][service-fabric-cluster-security-roles].
 
 You do not need to upload Client authentication certificates to Key Vault to work with Service Fabric. These certificates only need to be provided to users who are authorized for cluster management. 
@@ -147,136 +62,132 @@ You do not need to upload Client authentication certificates to Key Vault to wor
 > 
 > 
 
-### Application certificates (optional)
+#### Application certificates (optional)
 Any number of additional certificates can be installed on a cluster for application security purposes. Before creating your cluster, consider the application security scenarios that require a certificate to be installed on the nodes, such as:
 
 * Encryption and decryption of application configuration values
 * Encryption of data across nodes during replication 
 
-Application certificates cannot be configured when creating a cluster through the Azure portal. To configure application certificates at cluster setup time, you must [create a cluster using Azure Resource Manager][create-cluster-arm]. You can also add application certificates to the cluster after it has been created.
-
-### Formatting certificates for Azure resource provider use
-Private key files (.pfx) can be added and used directly through Key Vault. However, the Azure resource provider requires keys to be stored in a special JSON format that includes the .pfx as a base-64 encoded string and the private key password. To accommodate these requirements, keys must be placed in a JSON string and then stored as *secrets* in Key Vault.
-
-To make this process easier, a PowerShell module is [available on GitHub][service-fabric-rp-helpers]. Follow these steps to use the module:
-
-1. Download the entire contents of the repo into a local directory. 
-2. Import the module in your PowerShell window:
-
-```powershell
-  PS C:\Users\vturecek> Import-Module "C:\users\vturecek\Documents\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
-```
-
-The `Invoke-AddCertToKeyVault` command in this PowerShell module automatically formats a certificate private key into a JSON string and uploads it to Key Vault. Use it to add the cluster certificate and any additional application certificates to Key Vault. Repeat this step for any additional certificates you want to install in your cluster.
-
-```powershell
-PS C:\Users\vturecek> Invoke-AddCertToKeyVault -SubscriptionId <guid> -ResourceGroupName mycluster-keyvault -Location "West US" -VaultName myvault -CertificateName mycert -Password "<password>" -UseExistingCertificate -ExistingPfxFilePath "C:\path\to\mycertkey.pfx"
-
-    Switching context to SubscriptionId <guid>
-    Ensuring ResourceGroup mycluster-keyvault in West US
-    WARNING: The output object type of this cmdlet will be modified in a future release.
-    Using existing valut myvault in West US
-    Reading pfx file from C:\path\to\key.pfx
-    Writing secret to myvault in vault myvault
-
-
-Name  : CertificateThumbprint
-Value : <value>
-
-Name  : SourceVault
-Value : /subscriptions/<guid>/resourceGroups/mycluster-keyvault/providers/Microsoft.KeyVault/vaults/myvault
-
-Name  : CertificateURL
-Value : https://myvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0978cb100e47
-
-```
-
-These are all the Key Vault prerequisites for configuring a Service Fabric cluster Resource Manager template that installs certificates for node authentication, management endpoint security and authentication, and any additional application security features that use X.509 certificates. At this point, you should now have the following setup in Azure:
-
-* Key Vault resource group
-  * Key Vault
-    * Cluster server authentication certificate
-
-</a "create-cluster-portal" ></a>
+Application certificates cannot be configured when [creating a cluster through the Azure portal](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-fabric/service-fabric-cluster-creation-via-portal.md). To configure application certificates at cluster setup time, you must [create a cluster using Azure Resource Manager][create-cluster-arm]. You can also add application certificates to the cluster after it has been created.
 
 ## Create cluster in the Azure portal
+
+Creating a production cluster to meet your application needs involves some planning, to help you with that, it is strongly recommended that you read and understand [Service Fabric Cluster planning considerations][service-fabric-cluster-capacity] document. 
+
 ### Search for the Service Fabric cluster resource
+
+Sign in to the [Azure portal][azure-portal].
+Click **Create a resource** to add a new resource template. Search for the Service Fabric Cluster template in the **Marketplace** under **Everything**.
+Select **Service Fabric Cluster** from the list.
+
 ![search for Service Fabric cluster template on the Azure portal.][SearchforServiceFabricClusterTemplate]
 
-1. Sign in to the [Azure portal][azure-portal].
-2. Click **New** to add a new resource template. Search for the Service Fabric Cluster template in the **Marketplace** under **Everything**.
-3. Select **Service Fabric Cluster** from the list.
-4. Navigate to the **Service Fabric Cluster** blade, click **Create**,
-5. The **Create Service Fabric cluster** blade has the following four steps.
+Navigate to the **Service Fabric Cluster** blade, and click **Create**.
 
-#### 1. Basics
+The **Create Service Fabric cluster** blade has the following four steps:
+
+### 1. Basics
 ![Screen shot of creating a new resource group.][CreateRG]
 
-In the Basics blade you need to provide the basic details for your cluster.
+In the Basics blade, you need to provide the basic details for your cluster.
 
 1. Enter the name of your cluster.
-2. Enter a **user name** and **password** for Remote Desktop for the VMs.
+2. Enter a **User name** and **Password** for Remote Desktop for the VMs.
 3. Make sure to select the **Subscription** that you want your cluster to be deployed to, especially if you have multiple subscriptions.
-4. Create a **new resource group**. It is best to give it the same name as the cluster, since it helps in finding them later, especially when you are trying to make changes to your deployment or delete your cluster.
+4. Create a new **Resource group**. It is best to give it the same name as the cluster, since it helps in finding them later, especially when you are trying to make changes to your deployment or delete your cluster.
    
    > [!NOTE]
-   > Although you can decide to use an existing resource group, it is a good practice to create a new resource group. This makes it easy to delete clusters that you do not need.
+   > Although you can decide to use an existing resource group, it is a good practice to create a new resource group. This makes it easy to delete clusters and all the resources it uses.
    > 
    > 
-5. Select the **region** in which you want to create the cluster. You must use the same region that your Key Vault is in.
+5. Select the **Location** in which you want to create the cluster. If you are planning to use an existing certificate that you have already uploaded to a key vault, You must use the same region that your Key vault is in. 
 
-#### 2. Cluster configuration
+### 2. Cluster configuration
 ![Create a node type][CreateNodeType]
 
 Configure your cluster nodes. Node types define the VM sizes, the number of VMs, and their properties. Your cluster can have more than one node type, but the primary node type (the first one that you define on the portal) must have at least five VMs, as this is the node type where Service Fabric system services are placed. Do not configure **Placement Properties** because a default placement property of "NodeTypeName" is added automatically.
 
 > [!NOTE]
-> A common scenario for multiple node types is an application that contains a front-end service and a back-end service. You want to put the front-end service on smaller VMs (VM sizes like D2) with ports open to the Internet, but you want to put the back-end service on larger VMs (with VM sizes like D4, D6, D15, and so on) with no Internet-facing ports open.
-> 
+> A common scenario for multiple node types is an application that contains a front-end service and a back-end service. You want to put the front-end service on smaller VMs (VM sizes like D2_V2) with ports open to the Internet, and put the back-end service on larger VMs (with VM sizes like D3_V2, D6_V2, D15_V2, and so on) with no Internet-facing ports open.
 > 
 
 1. Choose a name for your node type (1 to 12 characters containing only letters and numbers).
-2. The minimum **size** of VMs for the primary node type is driven by the **durability** tier you choose for the cluster. The default for the durability tier is bronze. For more information on durability, see [how to choose the Service Fabric cluster reliability and durability][service-fabric-cluster-capacity].
-3. Select the VM size and pricing tier. D-series VMs have SSD drives and are highly recommended for stateful applications. Do not use any VM SKU that has partial cores or have less than 7 GB of available disk capacity. 
-4. The minimum **number** of VMs for the primary node type is driven by the **reliability** tier you choose. The default for the reliability tier is Silver. For more information on reliability, see [how to choose the Service Fabric cluster reliability and durability][service-fabric-cluster-capacity].
-5. Choose the number of VMs for the node type. You can scale up or down the number of VMs in a node type later on, but on the primary node type, the minimum is driven by the reliability level that you have chosen. Other node types can have a minimum of 1 VM.
-6. Configure custom endpoints. This field allows you to enter a comma-separated list of ports that you want to expose through the Azure Load Balancer to the public Internet for your applications. For example, if you plan to deploy a web application to your cluster, enter "80" here to allow traffic on port 80 into your cluster. For more information on endpoints, see [communicating with applications][service-fabric-connect-and-communicate-with-services]
-7. Configure cluster **diagnostics**. By default, diagnostics are enabled on your cluster to assist with troubleshooting issues. If you want to disable diagnostics change the **Status** toggle to **Off**. Turning off diagnostics is **not** recommended.
-8. Select the Fabric upgrade mode you want set your cluster to. Select **Automatic**, if you want the system to automatically pick up the latest available version and try to upgrade your cluster to it. Set the mode to **Manual**, if you want to choose a supported version.
+2. The minimum **size** of VMs for the primary node type is driven by the **Durability tier** you choose for the cluster. The default for the durability tier is bronze. For more information on durability, see [how to choose the Service Fabric cluster durability][service-fabric-cluster-durability].
+3. Select the **Virtual machine size**. D-series VMs have SSD drives and are highly recommended for stateful applications. Do not use any VM SKU that has partial cores or have less than 10 GB of available disk capacity. Refer to [service fabric cluster planning consideration document][service-fabric-cluster-capacity] for help in selecting the VM size.
+4. Choose the **Initial VM scale set capacity** for the node type. You can scale up or down the number of VMs in a node type later on, but on the primary node type, the minimum is five for production workloads. Other node types can have a minimum of one VM. The minimum **number** of VMs for the primary node type drives the **reliability** of your cluster.  
+5. **Single node cluster and three node clusters** are meant for test use only. They are not supported for any running production workloads.
+6. Configure **Custom endpoints**. This field allows you to enter a comma-separated list of ports that you want to expose through the Azure Load Balancer to the public Internet for your applications. For example, if you plan to deploy a web application to your cluster, enter "80" here to allow traffic on port 80 into your cluster. For more information on endpoints, see [communicating with applications][service-fabric-connect-and-communicate-with-services]
+7. **Enable reverse proxy**.  The [Service Fabric reverse proxy](service-fabric-reverseproxy.md) helps microservices running in a Service Fabric cluster discover and communicate with other services that have http endpoints.
+8. Under **+Show optional settings**, configure cluster **diagnostics**. By default, diagnostics are enabled on your cluster to assist with troubleshooting issues. If you want to disable diagnostics change the **Status** toggle to **Off**. Turning off diagnostics is **not** recommended. If you already have Application Insights project created, then give its key, so that the application traces are routed to it.
+9. **Include DNS service**.  The [DNS service](service-fabric-dnsservice.md) an optional service that enables you to find other services using the DNS protocol.
+10. Select the **Fabric upgrade mode** you want set your cluster to. Select **Automatic**, if you want the system to automatically pick up the latest available version and try to upgrade your cluster to it. Set the mode to **Manual**, if you want to choose a supported version. For more details on the Fabric upgrade mode see the [service-fabric-cluster-upgrade document.][service-fabric-cluster-upgrade]
 
 > [!NOTE]
-> We support only clusters that are running supported versions of service Fabric. By selecting the **Manual** mode, you are taking on the responsibility to upgrade your cluster to a supported version. For more details on the Fabric upgrade mode see the [service-fabric-cluster-upgrade document.][service-fabric-cluster-upgrade]
+> We support only clusters that are running supported versions of Service Fabric. By selecting the **Manual** mode, you are taking on the responsibility to upgrade your cluster to a supported version.
 > 
-> 
 
-#### 3. Security
-![Screen shot of security configurations on Azure portal.][SecurityConfigs]
+### 3. Security
+![Screen shot of security configurations on Azure portal.][BasicSecurityConfigs]
 
-The final step is to provide certificate information to secure the cluster using the Key Vault and certificate information created earlier.
+To make setting up a secure test cluster easy for you, we have provided the **Basic** option. If you already have a certificate and have uploaded it to your [key vault](/azure/key-vault/) (and enabled the key vault for deployment), then use the **Custom** option
 
-* Populate the primary certificate fields with the output obtained from uploading the **cluster certificate** to Key Vault using the `Invoke-AddCertToKeyVault` PowerShell command.
+#### Basic Option
+Follow the screens to add or reuse an existing key vault and add a certificate. The addition of the certificate is a synchronous process and so you will have to wait for the certificate to be created.
 
-```powershell
-Name  : CertificateThumbprint
-Value : <value>
+Resist the temptation of navigating away from the screen until the preceding process is completed.
 
-Name  : SourceVault
-Value : /subscriptions/<guid>/resourceGroups/mycluster-keyvault/providers/Microsoft.KeyVault/vaults/myvault
+![CreateKeyVault]
 
-Name  : CertificateURL
-Value : https://myvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0978cb100e47
-```
+Now that the key vault is created, edit the access policies for your key vault. 
 
-* Check the **Configure advanced settings** box to enter client certificates for **admin client** and **read-only client**. In these fields, enter the thumbprint of your admin client certificate and the thumbprint of your read-only user client certificate, if applicable. When administrators attempt to connect to the cluster, they are granted access only if they have a certificate with a thumbprint that matches the thumbprint values entered here.  
+![CreateKeyVault2]
 
-#### 4. Summary
-![Screen shot of the start board displaying "Deploying Service Fabric Cluster." ][Notifications]
+Click on the **Edit access policies**, then **Show advanced access policies** and enable access to Azure Virtual Machines for deployment. It is recommended that you enable the template deployment as well. Once you have made your selections, do not forget to click the **Save** button and close out of the **Access policies** pane.
 
-To complete the cluster creation, click **Summary** to see the configurations that you have provided, or download the Azure Resource Manager template that that used to deploy your cluster. After you have provided the mandatory settings, the **OK** button becomes green and you can start the cluster creation process by clicking it.
+![CreateKeyVault3]
 
-You can see the creation progress in the notifications. (Click the "Bell" icon near the status bar at the upper right of your screen.) If you clicked **Pin to Startboard** while creating the cluster, you will see **Deploying Service Fabric Cluster** pinned to the **Start** board.
+Enter the name of the certificate and click **OK**.
 
-### View your cluster status
+![CreateKeyVault4]
+
+#### Custom Option
+Skip this section, if you have already performed the steps in the **Basic** Option.
+
+![SecurityCustomOption]
+
+You need the CertificateThumbprint, SourceVault, and the CertificateURL information to complete the security page. If you do not have it handy, open up another browser window and do the following
+
+1. Navigate to your key vault, select the certificate. 
+2. Select the "properties"tab and Copy the 'RESOURCE ID'  to "Source Key vault" on the other browser window 
+
+    ![CertInfo0]
+
+3. Now, select the "Certificates" tab.
+4. Click on certificate thumbprint, which takes you to the Versions page.
+5. Click on the GUIDs you see under the current Version.
+
+    ![CertInfo1]
+
+6. You should now be on the screen like below. Copy the 'Thumbprint'  to "Certificate thumbprint" on the other browser window
+7. Copy the 'Secret Identifier' information to the "Certificate URL" on other browser window.
+
+    ![CertInfo2]
+
+Check the **Configure advanced settings** box to enter client certificates for **admin client** and **read-only client**. In these fields, enter the thumbprint of your admin client certificate and the thumbprint of your read-only user client certificate, if applicable. When administrators attempt to connect to the cluster, they are granted access only if they have a certificate with a thumbprint that matches the thumbprint values entered here.  
+
+### 4. Summary
+
+Now you are ready to deploy the cluster. Before you do that, download the certificate, look inside the large blue informational box for the link. Make sure to keep the cert in a safe place. you need it to connect to your cluster. Since the certificate you downloaded does not have a password, it is advised that you add one.
+
+To complete the cluster creation, click **Create**. You can optionally download the template.
+
+![Summary]
+
+You can see the creation progress in the notifications. (Click the "Bell" icon near the status bar at the upper right of your screen.) If you clicked **Pin to Startboard** while creating the cluster, you see **Deploying Service Fabric Cluster** pinned to the **Start** board.
+
+In order to perform management operations on your cluster using Powershell or CLI, you need to connect to your cluster, read more on how to at [connecting to your cluster](service-fabric-connect-to-secure-cluster.md).
+
+## View your cluster status
 ![Screen shot of cluster details in the dashboard.][ClusterDashboard]
 
 Once your cluster is created, you can inspect your cluster in the portal:
@@ -288,12 +199,12 @@ Once your cluster is created, you can inspect your cluster in the portal:
 The **Node Monitor** section on the cluster's dashboard blade indicates the number of VMs that are healthy and not healthy. You can find more details about the cluster's health at [Service Fabric health model introduction][service-fabric-health-introduction].
 
 > [!NOTE]
-> Service Fabric clusters require a certain number of nodes to be up always to maintain availability and preserve state - referred to as "maintaining quorum". Therfore, it is typically not safe to shut down all machines in the cluster unless you have first performed a [full backup of your state][service-fabric-reliable-services-backup-restore].
+> Service Fabric clusters require a certain number of nodes to be up always to maintain availability and preserve state - referred to as "maintaining quorum". Therefore, it is typically not safe to shut down all machines in the cluster unless you have first performed a [full backup of your state][service-fabric-reliable-services-backup-restore].
 > 
 > 
 
 ## Remote connect to a Virtual Machine Scale Set instance or a cluster node
-Each of the NodeTypes you specify in your cluster results in a VM Scale Set getting set-up. See [Remote connect to a VM Scale Set instance][remote-connect-to-a-vm-scale-set] for details.
+Each of the NodeTypes you specify in your cluster results in a Virtual Machine Scale Set getting set-up. <!--See [Remote connect to a Virtual Machine Scale Set instance][remote-connect-to-a-vm-scale-set] for details. -->
 
 ## Next steps
 At this point, you have a secure cluster using certificates for management authentication. Next, [connect to your cluster](service-fabric-connect-to-secure-cluster.md) and learn how to [manage application secrets](service-fabric-application-secret-management.md).  Also, learn about [Service Fabric support options](service-fabric-support.md).
@@ -307,16 +218,29 @@ At this point, you have a secure cluster using certificates for management authe
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [service-fabric-cluster-security-roles]: service-fabric-cluster-security-roles.md
 [service-fabric-cluster-capacity]: service-fabric-cluster-capacity.md
+[service-fabric-cluster-durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
 [service-fabric-connect-and-communicate-with-services]: service-fabric-connect-and-communicate-with-services.md
 [service-fabric-health-introduction]: service-fabric-health-introduction.md
 [service-fabric-reliable-services-backup-restore]: service-fabric-reliable-services-backup-restore.md
-[remote-connect-to-a-vm-scale-set]: service-fabric-cluster-nodetypes.md#remote-connect-to-a-vm-scale-set-instance-or-a-cluster-node
+<!--[remote-connect-to-a-vm-scale-set]: service-fabric-cluster-nodetypes.md#remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node -->
+[remote-connect-to-a-vm-scale-set]: service-fabric-cluster-nodetypes.md
 [service-fabric-cluster-upgrade]: service-fabric-cluster-upgrade.md
 
 <!--Image references-->
 [SearchforServiceFabricClusterTemplate]: ./media/service-fabric-cluster-creation-via-portal/SearchforServiceFabricClusterTemplate.png
 [CreateRG]: ./media/service-fabric-cluster-creation-via-portal/CreateRG.png
 [CreateNodeType]: ./media/service-fabric-cluster-creation-via-portal/NodeType.png
+[BasicSecurityConfigs]: ./media/service-fabric-cluster-creation-via-portal/BasicSecurityConfigs.PNG
+[CreateKeyVault]: ./media/service-fabric-cluster-creation-via-portal/CreateKeyVault.PNG
+[CreateKeyVault2]: ./media/service-fabric-cluster-creation-via-portal/CreateKeyVault2.PNG
+[CreateKeyVault3]: ./media/service-fabric-cluster-creation-via-portal/CreateKeyVault3.PNG
+[CreateKeyVault4]: ./media/service-fabric-cluster-creation-via-portal/CreateKeyVault4.PNG
+[CertInfo0]: ./media/service-fabric-cluster-creation-via-portal/CertInfo0.PNG
+[CertInfo1]: ./media/service-fabric-cluster-creation-via-portal/CertInfo1.PNG
+[CertInfo2]: ./media/service-fabric-cluster-creation-via-portal/CertInfo2.PNG
+[SecurityCustomOption]: ./media/service-fabric-cluster-creation-via-portal/SecurityCustomOption.PNG
+[DownloadCert]: ./media/service-fabric-cluster-creation-via-portal/DownloadCert.PNG
+[Summary]: ./media/service-fabric-cluster-creation-via-portal/Summary.PNG
 [SecurityConfigs]: ./media/service-fabric-cluster-creation-via-portal/SecurityConfigs.png
 [Notifications]: ./media/service-fabric-cluster-creation-via-portal/notifications.png
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png

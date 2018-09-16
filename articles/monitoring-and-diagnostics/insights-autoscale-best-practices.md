@@ -1,21 +1,13 @@
 ---
-title: Best practices for autoscale | Microsoft Docs
-description: Learn principles to effectively autoscale Virtual Machines, Virtual Machine Scale Sets, and Cloud Services.
-author: kamathashwin
-manager: carmonm
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.assetid: 9fa2b94b-dfa5-4106-96ff-74fd1fba4657
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/20/2017
-ms.author: ashwink
-
+title: Best practices for autoscale
+description: Autoscale patterns in Azure for Web Apps, Virtual Machine Scale sets, and Cloud Services
+author: anirudhcavale
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 07/07/2017
+ms.author: ancav
+ms.component: autoscale
 ---
 # Best practices for Autoscale
 This article teaches best practices to autoscale in Azure. Azure Monitor autoscale applies only to [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), and [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/). Other Azure services use different scaling methods.
@@ -27,8 +19,8 @@ This article teaches best practices to autoscale in Azure. Azure Monitor autosca
   An autoscale setting has a maximum, minimum, and default value of instances.
 * An autoscale job always reads the associated metric to scale by, checking if it has crossed the configured threshold for scale-out or scale-in. You can view a list of metrics that autoscale can scale by at [Azure Monitor autoscaling common metrics](insights-autoscale-common-metrics.md).
 * All thresholds are calculated at an instance level. For example, "scale out by 1 instance when average CPU > 80% when instance count is 2", means scale-out when the average CPU across all instances is greater than 80%.
-* You always receive failure notifications via email. Specifically, the owner, contributor, and readers of the target resource receive email. You also always receive a *recovery* email when autoscale recovers from a failure and starts functioning normally.
-* You can opt-in to receive a successful scale action notification via email and webhooks.
+* All autoscale failures are logged to the Activity Log. You can then configure an [activity log alert](./monitoring-activity-log-alerts.md) so that you can be notified via email, SMS, webhook, etc. whenever there is an autoscale failure.
+* Similarly, all successful scale actions are posted to the Activity Log. You can then configure an activity log alert so that you can be notified via email, SMS, webhooks, etc. whenever there is a successful autoscale action. You can also configure email or webhook notifications to get notified for successful scale actions via the notifications tab on the autoscale setting.
 
 ## Autoscale best practices
 Use the following best practices as you use autoscale.
@@ -37,13 +29,10 @@ Use the following best practices as you use autoscale.
 If you have a setting that has minimum=2, maximum=2 and the current instance count is 2, no scale action can occur. Keep an adequate margin between the maximum and minimum instance counts, which are inclusive. Autoscale always scales between these limits.
 
 ### Manual scaling is reset by autoscale min and max
-If you manually update the instance count to a value above or below the maximum, the autoscale engine automatically scales back to the minimum (if below) or the maximum (if above). For example, you set the range between 3 and 6. If you have one running instance, the autoscale engine scales to 3 instances on its next run. Likewise, it would scale-in 8 instances back to 6 on its next run.  Manual scaling is very temporary unless you reset the autoscale rules as well.
+If you manually update the instance count to a value above or below the maximum, the autoscale engine automatically scales back to the minimum (if below) or the maximum (if above). For example, you set the range between 3 and 6. If you have one running instance, the autoscale engine scales to 3 instances on its next run. Likewise, if you manually set the scale to 8 instances, on the next run autoscale will scale it back to 6 instances on its next run.  Manual scaling is very temporary unless you reset the autoscale rules as well.
 
 ### Always use a scale-out and scale-in rule combination that performs an increase and decrease
 If you use only one part of the combination, autoscale scale-in that single out, or in, until the maximum, or minimum, is reached.
-
-### Do not switch between the Azure portal and the Azure classic portal when managing Autoscale
-For Cloud Services and App Services (Web Apps), use the Azure portal (portal.azure.com) to create and manage autoscale settings. For Virtual Machine Scale Sets use PowerShell, CLI or REST API to create and manage autoscale setting. Do not switch between the Azure classic portal (manage.windowsazure.com) and the Azure portal (portal.azure.com) when managing autoscale configurations. The Azure classic portal and its underlying backend has limitations. Move to the Azure portal to manage autoscale using a graphical user interface. The options are to use the autoscale PowerShell, CLI or REST API (via Azure Resource Explorer).
 
 ### Choose the appropriate statistic for your diagnostics metric
 For diagnostics metrics, you can choose among *Average*, *Minimum*, *Maximum* and *Total* as a metric to scale by. The most common statistic is *Average*.
@@ -80,7 +69,7 @@ In this case
 5. The next time autoscale checks, the CPU continues to fall to 50. It estimates again -  50 x 3 instance = 150 / 2 instances = 75, which is below the scale-out threshold of 80, so it scales in successfully to 2 instances.
 
 ### Considerations for scaling threshold values for special metrics
- For special metrics such as Storage or Service Bus Queue length metric, the threshold is the average number of messages available per current number of instances. Carefully choose the choose the threshold value for this metric.
+ For special metrics such as Storage or Service Bus Queue length metric, the threshold is the average number of messages available per current number of instances. Carefully choose the threshold value for this metric.
 
 Let's illustrate it with an example to ensure you understand the behavior better.
 
@@ -110,7 +99,7 @@ Let's review this using an example:
 
 The image below shows an autoscale setting with a default profile of minimum instances = 2 and maximum instances = 10. In this example, rules are configured to scale-out when the message count in the queue is greater than 10 and scale-in when the message count in the queue is less than 3. So now the resource can scale between 2 and 10 instances.
 
-In addition, there is a recurring profile set for Monday. It is set for minimum instances = 2 and maximum instances = 12. This means on Monday, the first time autoscale checks for this condition, if the instance count is 2, it scales to the new minimum of 3. As long as autoscale continues to find this profile condition matched (Monday), it only processes the CPU-based scale-out/in rules configured for this profile. At this time, it does not check for the queue length. However, if you also want the queue length condition to be checked, you should include those rules from the default profile as well in your Monday profile.
+In addition, there is a recurring profile set for Monday. It is set for minimum instances = 3 and maximum instances = 10. This means on Monday, the first time autoscale checks for this condition, if the instance count is 2, it scales to the new minimum of 3. As long as autoscale continues to find this profile condition matched (Monday), it only processes the CPU-based scale-out/in rules configured for this profile. At this time, it does not check for the queue length. However, if you also want the queue length condition to be checked, you should include those rules from the default profile as well in your Monday profile.
 
 Similarly, when autoscale switches back to the default profile, it first checks if the minimum and maximum conditions are met. If the number of instances at the time is 12, it scales in to 10, the maximum allowed for the default profile.
 
@@ -140,9 +129,18 @@ On the other hand, if CPU is 25% and memory is 51% autoscale does **not** scale-
 The default instance count is important autoscale scales your service to that count when metrics are not available. Therefore, select a default instance count that's safe for your workloads.
 
 ### Configure autoscale notifications
-Autoscale notifies the administrators and contributors of the resource by email if any of the following conditions occur:
+Autoscale will post to the Activity Log if any of the following conditions occur:
 
-* autoscale service fails to take an action.
+* Autoscale issues a scale operation
+* Autoscale service successfully completes a scale action
+* Autoscale service fails to take a scale action.
 * Metrics are not available for autoscale service to make a scale decision.
 * Metrics are available (recovery) again to make a scale decision.
-  In addition to the conditions above, you can configure email or webhook notifications to get notified for successful scale actions.
+
+You can also use an Activity Log alert to monitor the health of the autoscale engine. Here are examples to [create an Activity Log Alert to monitor all autoscale engine operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert) or to [create an Activity Log Alert to monitor all failed autoscale scale in/scale out operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert).
+
+In addition to using activity log alerts, you can also configure email or webhook notifications to get notified for successful scale actions via the notifications tab on the autoscale setting.
+
+## Next Steps
+- [Create an Activity Log Alert to monitor all autoscale engine operations on your subscription.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
+- [Create an Activity Log Alert to monitor all failed autoscale scale in/scale out operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)

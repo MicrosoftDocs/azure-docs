@@ -3,7 +3,7 @@ title: AMQP 1.0 in Azure Service Bus request-response-based operations | Microso
 description: List of Microsoft Azure Service Bus request/response-based operations.
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/27/2017
-ms.author: sethm
+ms.date: 02/22/2018
+ms.author: spelluru
 
 ---
 
 # AMQP 1.0 in Microsoft Azure Service Bus: request-response-based operations
 
-This topic defines the list of Microsoft Azure Service Bus request/response-based operations. This information is based on the AMQP Management Version 1.0 working draft.  
+This article defines the list of Microsoft Azure Service Bus request/response-based operations. This information is based on the AMQP Management Version 1.0 working draft.  
   
-For a detailed wire-level AMQP 1.0 protocol guide, which explains how Service Bus implements and builds on the OASIS AMQP technical specification, see the [AMQP 1.0 in Azure Service Bus and Event Hubs protocol guide](service-bus-amqp-protocol-guide.md).  
+For a detailed wire-level AMQP 1.0 protocol guide, which explains how Service Bus implements and builds on the OASIS AMQP technical specification, see the [AMQP 1.0 in Azure Service Bus and Event Hubs protocol guide][AMQP 1.0 protocol guide].  
   
 ## Concepts  
   
 ### Entity description  
 
-An entity description refers to either a Service Bus [QueueDescription Class](/dotnet/api/microsoft.servicebus.messaging.queuedescription), [TopicDescription Class](/dotnet/api/microsoft.servicebus.messaging.topicdescription), or [SubscriptionDescription Class](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) object.  
+An entity description refers to either a Service Bus [QueueDescription class](/dotnet/api/microsoft.servicebus.messaging.queuedescription), [TopicDescription class](/dotnet/api/microsoft.servicebus.messaging.topicdescription), or [SubscriptionDescription class](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) object.  
   
 ### Brokered message  
 
@@ -67,7 +67,8 @@ role: RECEIVER,
 ### Transfer a request message  
 
 Transfers a request message.  
-  
+A transaction-state can be added optionally for operations which supports transaction.
+
 ```  
 requestLink.sendTransfer(  
         Message(  
@@ -77,8 +78,12 @@ requestLink.sendTransfer(
                 },  
                 application-properties: {  
                         "operation" -> "<operation>",  
-                },  
-        )  
+                }
+        ),
+        [Optional] State = transactional-state: {
+                txn-id: <txn-id>
+        }
+)
 ```  
   
 ### Receive a response message  
@@ -134,6 +139,10 @@ The request message must include the following application properties:
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
 |`lock-tokens`|array of uuid|Yes|Message lock tokens to renew.|  
+
+> [!NOTE]
+> Lock tokens are the `DeliveryTag` property on received messages. See the following example in the [.NET SDK](https://github.com/Azure/azure-service-bus-dotnet/blob/6f144e91310dcc7bd37aba4e8aebd535d13fa31a/src/Microsoft.Azure.ServiceBus/Amqp/AmqpMessageConverter.cs#L336) which retrieves these. The token may also appear in the 'DeliveryAnnotations' as 'x-opt-lock-token' however, this is not guaranteed and the `DeliveryTag` should be preferred. 
+> 
   
 #### Response  
 
@@ -193,7 +202,7 @@ The map representing a message must contain the following entries:
   
 ### Schedule Message  
 
-Schedules messages.  
+Schedules messages. This operation supports transaction.
   
 #### Request  
 
@@ -215,8 +224,9 @@ The map representing a message must contain the following entries:
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
 |message-id|string|Yes|`amqpMessage.Properties.MessageId` as string|  
-|session-id|string|Yes|`amqpMessage.Properties.GroupId as string`|  
-|partition-key|string|Yes|`amqpMessage.MessageAnnotations.”x-opt-partition-key"`|  
+|session-id|string|No|`amqpMessage.Properties.GroupId as string`|  
+|partition-key|string|No|`amqpMessage.MessageAnnotations.”x-opt-partition-key"`|
+|via-partition-key|string|No|`amqpMessage.MessageAnnotations."x-opt-via-partition-key"`|
 |message|array of byte|Yes|AMQP 1.0 wire-encoded message.|  
   
 #### Response  
@@ -535,6 +545,85 @@ The response message must include the following application properties:
 |statusCode|int|Yes|HTTP response code [RFC2616]<br /><br /> 200: OK – success, otherwise failed|  
 |statusDescription|string|No|Description of the status.|  
   
+### Get Rules
+
+#### Request
+
+The request message must include the following application properties:
+
+|Key|Value Type|Required|Value Contents|  
+|---------|----------------|--------------|--------------------|  
+|operation|string|Yes|`com.microsoft:enumerate-rules`|  
+|`com.microsoft:server-timeout`|uint|No|Operation server timeout in milliseconds.|  
+
+The request message body must consist of an **amqp-value** section containing a **map** with the following entries:  
+  
+|Key|Value Type|Required|Value Contents|  
+|---------|----------------|--------------|--------------------|  
+|top|int|Yes|The number of rules to fetch in the page.|  
+|skip|int|Yes|The number of rules to skip. Defines the starting index (+1) on the list of rules. | 
+
+#### Response
+
+The response message includes the following properties:
+
+|Key|Value Type|Required|Value Contents|  
+|---------|----------------|--------------|--------------------|  
+|statusCode|int|Yes|HTTP response code [RFC2616]<br /><br /> 200: OK – success, otherwise failed|  
+|rules| array of map|Yes|Array of rules. Each rule is represented by a map.|
+
+Each map entry in the array includes the following properties:
+
+|Key|Value Type|Required|Value Contents|  
+|---------|----------------|--------------|--------------------|  
+|rule-description|array of described objects|Yes|`com.microsoft:rule-description:list` with AMQP described code 0x0000013700000004| 
+
+`com.microsoft.rule-description:list` is an array of described objects. The array includes the following:
+
+|Index|Value Type|Required|Value Contents|  
+|---------|----------------|--------------|--------------------|  
+| 0 | array of described objects | Yes | `filter` as specified below. |
+| 1 | array of described object | Yes | `ruleAction` as specified below. |
+| 2 | string | Yes | name of the rule. |
+
+`filter` can be of either of the following types:
+
+| Descriptor Name | Descriptor code | Value |
+| --- | --- | ---|
+| `com.microsoft:sql-filter:list` | 0x000001370000006 | SQL filter |
+| `com.microsoft:correlation-filter:list` | 0x000001370000009 | Correlation filter |
+| `com.microsoft:true-filter:list` | 0x000001370000007 | True filter representing 1=1 |
+| `com.microsoft:false-filter:list` | 0x000001370000008 | False filter representing 1=0 |
+
+`com.microsoft:sql-filter:list` is a described array which includes:
+
+|Index|Value Type|Required|Value Contents|  
+|---------|----------------|--------------|--------------------|  
+| 0 | string | Yes | Sql Filter expression |
+
+`com.microsoft:correlation-filter:list` is a described array which includes:
+
+|Index (if exists)|Value Type|Value Contents|  
+|---------|----------------|--------------|--------------------|  
+| 0 | string | Correlation ID |
+| 1 | string | Message ID |
+| 2 | string | To |
+| 3 | string | Reply To |
+| 4 | string | Label |
+| 5 | string | Session ID |
+| 6 | string | Reply To Session ID|
+| 7 | string | Content Type |
+| 8 | Map | Map of application defined properties |
+
+`ruleAction` can be either of the following types:
+
+| Descriptor Name | Descriptor code | Value |
+| --- | --- | ---|
+| `com.microsoft:empty-rule-action:list` | 0x0000013700000005 | Empty Rule Action - No rule action present |
+| `com.microsoft:sql-rule-action:list` | 0x0000013700000006 | SQL Rule Action |
+
+`com.microsoft:sql-rule-action:list` is an array of described objects whose first entry is a string which contains the SQL rule action's expression.
+
 ## Deferred message operations  
   
 ### Receive by sequence number  
@@ -581,7 +670,7 @@ The map representing a message must contain the following entries:
   
 ### Update disposition status  
 
-Updates the disposition status of deferred messages.  
+Updates the disposition status of deferred messages. This operation supports transactions.
   
 #### Request  
 
@@ -616,9 +705,9 @@ The response message must include the following application properties:
 To learn more about AMQP and Service Bus, visit the following links:
 
 * [Service Bus AMQP overview]
-* [AMQP 1.0 support for Service Bus partitioned queues and topics]
+* [AMQP 1.0 protocol guide]
 * [AMQP in Service Bus for Windows Server]
 
 [Service Bus AMQP overview]: service-bus-amqp-overview.md
-[AMQP 1.0 support for Service Bus partitioned queues and topics]: service-bus-partitioned-queues-and-topics-amqp-overview.md
-[AMQP in Service Bus for Windows Server]: https://msdn.microsoft.com/library/dn574799.asp
+[AMQP 1.0 protocol guide]: service-bus-amqp-protocol-guide.md
+[AMQP in Service Bus for Windows Server]: https://docs.microsoft.com/previous-versions/service-bus-archive/dn282144(v=azure.100)

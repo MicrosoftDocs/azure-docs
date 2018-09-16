@@ -4,7 +4,7 @@ description: Create a Linux cluster of size H16r, H16mr, A8, or A9 VMs to use th
 services: virtual-machines-linux
 documentationcenter: ''
 author: dlepow
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 
@@ -14,39 +14,41 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/14/2017
+ms.date: 07/11/2018
 ms.author: danlep
 
 ---
 # Set up a Linux RDMA cluster to run MPI applications
-Learn how to set up a Linux RDMA cluster in Azure with [H-series or compute-intensive A-series VMs](../a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) to run parallel Message Passing Interface (MPI) applications. This article provides steps to prepare a Linux HPC image to run Intel MPI on a cluster. After preparation, you deploy a cluster of VMs using this image and one of the RDMA-capable Azure VM sizes (currently H16r, H16mr, A8, or A9). Use the cluster to run MPI applications that communicate efficiently over a low-latency, high-throughput network based on remote direct memory access (RDMA) technology.
+
+Learn how to set up a Linux RDMA cluster in Azure with [High performance compute VM sizes](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) to run parallel Message Passing Interface (MPI) applications. This article provides steps to prepare a Linux HPC image to run Intel MPI on a cluster. After preparation, you deploy a cluster of VMs using this image and one of the [RDMA-capable Azure VM sizes](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#rdma-capable-instances). Use the cluster to run MPI applications that communicate efficiently over a low-latency, high-throughput network based on remote direct memory access (RDMA) technology.
 
 > [!IMPORTANT]
-> Azure has two different deployment models for creating and working with resources: [Azure Resource Manager](../../../resource-manager-deployment-model.md) and classic. This article covers using the classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
+> Azure has two different deployment models for creating and working with resources: [Azure Resource Manager](../../../azure-resource-manager/resource-manager-deployment-model.md) and classic. This article covers using the classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
 
 ## Cluster deployment options
-Following are methods you can use to create a Linux RDMA cluster with or without a job scheduler.
+Following are different methods you can use to create a Linux RDMA cluster with or without a job scheduler.
 
 * **Azure CLI scripts**: As shown later in this article, use the [Azure command-line interface](../../../cli-install-nodejs.md) (CLI) to script the deployment of a cluster of RDMA-capable VMs. The CLI in Service Management mode creates the cluster nodes serially in the classic deployment model, so deploying many compute nodes might take several minutes. To enable the RDMA network connection when you use the classic deployment model, deploy the VMs in the same cloud service.
-* **Azure Resource Manager templates**: You can also use the Resource Manager deployment model to deploy a cluster of RDMA-capable VMs that connects to the RDMA network. You can [create your own template](../../../resource-group-authoring-templates.md), or check the [Azure quickstart templates](https://azure.microsoft.com/documentation/templates/) for templates contributed by Microsoft or the community to deploy the solution you want. Resource Manager templates can provide a fast and reliable way to deploy a Linux cluster. To enable the RDMA network connection when you use the Resource Manager deployment model, deploy the VMs in the same availability set.
+* **Azure Resource Manager templates**: You can also use the Resource Manager deployment model to deploy a cluster of RDMA-capable VMs that connects to the RDMA network. You can [create your own template](../../../resource-group-authoring-templates.md), or check the [Azure quickstart templates](https://azure.microsoft.com/documentation/templates/) for templates contributed by Microsoft or the community to deploy the solution you want. Resource Manager templates can provide a fast and reliable way to deploy a Linux cluster. To enable the RDMA network connection when you use the Resource Manager deployment model, deploy the VMs in the same availability set or virtual machine scale set.
 * **HPC Pack**: Create a Microsoft HPC Pack cluster in Azure and add RDMA-capable compute nodes that run a supported Linux distribution to access the RDMA network. For more information, see [Get started with Linux compute nodes in an HPC Pack cluster in Azure](hpcpack-cluster.md).
 
 ## Sample deployment steps in the classic model
-The following steps show how to use the Azure CLI to deploy a SUSE Linux Enterprise Server (SLES) 12 SP1 HPC VM from the Azure Marketplace, customize it, and create a custom VM image. Then you can use the image to script the deployment of a cluster of RDMA-capable VMs.
+The following steps show how to use the Azure CLI to deploy a SUSE Linux Enterprise Server (SLES) 12 HPC VM from the Azure Marketplace, customize it, and create a custom VM image. Then you can use the image to script the deployment of a cluster of RDMA-capable VMs.
 
 > [!TIP]
-> Use similar steps to deploy a cluster of RDMA-capable VMs based on CentOS-based HPC images in the Azure Marketplace. Some steps differ slightly, as noted. 
->
+> Use similar steps to deploy a cluster of RDMA-capable VMs based on CentOS-based HPC images in the Azure Marketplace. Some steps differ slightly, as noted.
 >
 
 ### Prerequisites
 * **Client computer**: You need a Mac, Linux, or Windows client computer to communicate with Azure. These steps assume you are using a Linux client.
 * **Azure subscription**: If you don't have a subscription, you can create a [free account](https://azure.microsoft.com/free/) in just a couple of minutes. For larger clusters, consider a pay-as-you-go subscription or other purchase options.
-* **VM size availability**: The following instance sizes are RDMA capable: H16r, H16mr, A8, and A9. Check [Products available by region](https://azure.microsoft.com/regions/services/) for availability in Azure regions.
+* **VM size availability**: Check [Products available by region](https://azure.microsoft.com/regions/services/) for availability of H-series or other RDMA-capable VM sizes in Azure regions.
 * **Cores quota**: You might need to increase the quota of cores to deploy a cluster of compute-intensive VMs. For example, you need at least 128 cores if you want to deploy 8 A9 VMs as shown in this article. Your subscription might also limit the number of cores you can deploy in certain VM size families, including the H-series. To request a quota increase, [open an online customer support request](../../../azure-supportability/how-to-create-azure-support-request.md) at no charge.
-* **Azure CLI**: [Install](../../../cli-install-nodejs.md) the Azure CLI and [connect to your Azure subscription](../../../xplat-cli-connect.md) from the client computer.
+* **Azure CLI**: [Install](../../../cli-install-nodejs.md) the Azure CLI and [connect to your Azure subscription](/cli/azure/authenticate-azure-cli) from the client computer.
 
-### Provision an SLES 12 SP1 HPC VM
+Also review deployment considerations for the [RDMA-capable Azure VM sizes](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#rdma-capable-instances).
+
+### Provision an SLES 12 HPC VM
 After signing in to Azure with the Azure CLI, run `azure config list` to confirm that the output shows Service Management mode. If it does not, set the mode by running this command:
 
     azure config mode asm
@@ -60,25 +62,22 @@ The current active subscription is identified with `Current` set to `true`. If t
 
     azure account set <subscription-Id>
 
-To see the publicly available SLES 12 SP1 HPC images in Azure, run a command like the following, assuming your shell environment supports **grep**:
+To see the publicly available SLES 12 HPC images in Azure, run a command like the following, assuming your shell environment supports **grep**:
 
     azure vm image list | grep "suse.*hpc"
 
-Provision an RDMA-capable VM with a SLES 12 SP1 HPC image by running a command like the following:
+Provision an RDMA-capable VM with a SLES 12 SP3 HPC image by running a command like the following:
 
-    azure vm create -g <username> -p <password> -c <cloud-service-name> -l <location> -z A9 -n <vm-name> -e 22 b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-sp1-hpc-v20160824
+    azure vm create -g <username> -p <password> -c <cloud-service-name> -l <location> -z A9 -n <vm-name> -e 22 b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-sp3-hpc-v20170913
 
 Where:
 
 * The size (A9 in this example) is one of the RDMA-capable VM sizes.
 * The external SSH port number (22 in this example, which is the SSH default) is any valid port number. The internal SSH port number is set to 22.
-* A new cloud service is created in the Azure region specified by the location. Specify a location in which the VM size you choose is available.
-* For SUSE priority support (which incurs additional charges), the SLES 12 SP1 image name currently can be one of these two options: 
+* A new cloud service is created in the Azure region specified by the location. Specify a location in which the VM size you choose is available, such as "West US".
+* For SUSE priority support (which incurs additional charges), the SLES 12 image name currently can be one of the options that has `priority` in the name, such as: 
 
- `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-sp1-hpc-v20160824`
-
-  `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-sp1-hpc-priority-v20160824`
-
+ `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-sp3-hpc-priority-v20170913`
 
 ### Customize the VM
 After the VM finishes provisioning, SSH to the VM by using the VM's external IP address (or DNS name) and the external port number you configured, and then customize it. For connection details, see [How to log on to a virtual machine running Linux](../mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Perform commands as the user you configured on the VM, unless root access is required to complete a step.
@@ -91,49 +90,55 @@ After the VM finishes provisioning, SSH to the VM by using the VM's external IP 
 * **Updates**: Install updates by using zypper. You might also want to install NFS utilities.
 
   > [!IMPORTANT]
-  > In a SLES 12 SP1 HPC VM, we recommend that you don't apply kernel updates, which can cause issues with the Linux RDMA drivers.
+  > In a SLES 12 HPC VM, we recommend that you don't apply kernel updates, which can cause issues with the Linux RDMA drivers.
   >
   >
-* **Intel MPI**: Complete the installation of Intel MPI on the SLES 12 SP1 HPC VM by running the following command:
+* **Intel MPI**: Complete the installation of Intel MPI on the VM by running the following command:
 
-        sudo rpm -v -i --nodeps /opt/intelMPI/intel_mpi_packages/*.rpm
+    ```bash
+    sudo rpm -v -i --nodeps /opt/intelMPI/intel_mpi_packages/*.rpm
+    ```
+
 * **Lock memory**: For MPI codes to lock the memory available for RDMA, add or change the following settings in the /etc/security/limits.conf file. You need root access to edit this file.
 
-    ```
+    ```bash
     <User or group name> hard    memlock <memory required for your application in KB>
 
     <User or group name> soft    memlock <memory required for your application in KB>
     ```
 
   > [!NOTE]
-  > For testing purposes, you can also set memlock to unlimited. For example: `<User or group name>    hard    memlock unlimited`. For more information, see [Best known methods for setting locked memory size](https://software.intel.com/en-us/blogs/2014/12/16/best-known-methods-for-setting-locked-memory-size).
+  > For testing purposes, you can also set memlock to unlimited. For example: `* hard memlock unlimited`. For more information, see [Best known methods for setting locked memory size](https://software.intel.com/en-us/blogs/2014/12/16/best-known-methods-for-setting-locked-memory-size).
   >
   >
 * **SSH keys for SLES VMs**: Generate SSH keys to establish trust for your user account among the compute nodes in the SLES cluster when running MPI jobs. If you deployed a CentOS-based HPC VM, don't follow this step. See instructions later in this article to set up passwordless SSH trust among the cluster nodes after you capture the image and deploy the cluster.
 
-    To create SSH keys, run the following command. When you are prompted for input, select **Enter** to generate the keys in the default location without setting a password.
+  To create SSH keys, run the `ssh-keygen` command. When you are prompted for input, select **Enter** to generate the keys in the default location without setting a password.
 
-        ssh-keygen
+  Append the public key to the authorized_keys file for known public keys.
 
-    Append the public key to the authorized_keys file for known public keys.
+  ```bash
+  cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+  ```
 
-        cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+  In the ~/.ssh directory, edit or create the `config` file. Provide the IP address range of the private network that you plan to use in Azure (10.32.0.0/16 in this example):
 
-    In the ~/.ssh directory, edit or create the config file. Provide the IP address range of the private network that you plan to use in Azure (10.32.0.0/16 in this example):
+  ```bash
+  host 10.32.0.*
+  StrictHostKeyChecking no
+  ```
 
-        host 10.32.0.*
-        StrictHostKeyChecking no
+  Alternatively, list the private network IP address of each VM in your cluster as follows:
 
-    Alternatively, list the private network IP address of each VM in your cluster as follows:
-
-    ```
-    host 10.32.0.1
-     StrictHostKeyChecking no
-    host 10.32.0.2
-     StrictHostKeyChecking no
-    host 10.32.0.3
-     StrictHostKeyChecking no
-    ```
+  ```bash
+  host 10.32.0.1
+  StrictHostKeyChecking no
+  host 10.32.0.2
+  StrictHostKeyChecking no
+  host 10.32.0.3
+  StrictHostKeyChecking no
+  ...
+  ```
 
   > [!NOTE]
   > Configuring `StrictHostKeyChecking no` can create a potential security risk when a specific IP address or range is not specified.
@@ -144,11 +149,11 @@ After the VM finishes provisioning, SSH to the VM by using the VM's external IP 
 ### Capture the image
 To capture the image, first run the following command on the Linux VM. This command deprovisions the VM but maintains user accounts and SSH keys that you set up.
 
-```
+```bash
 sudo waagent -deprovision
 ```
 
-From your client computer, run the following Azure CLI commands to capture the image. For more information, see [How to capture a classic Linux virtual machine as an image](capture-image.md).  
+From your client computer, run the following Azure CLI commands to capture the image. For more information, see [How to capture a classic Linux virtual machine as an image](capture-image-classic.md).  
 
 ```
 azure vm shutdown <vm-name>
@@ -162,9 +167,9 @@ After you run these commands, the VM image is captured for your use and the VM i
 ### Deploy a cluster with the image
 Modify the following Bash script with appropriate values for your environment and run it from your client computer. Because Azure deploys the VMs serially in the classic deployment model, it takes a few minutes to deploy the eight A9 VMs suggested in this script.
 
-```
+```bash
 #!/bin/bash -x
-# Script to create a compute cluster without a scheduler in a VNet in Azure
+# Script to create a compute cluster without a scheduler in a classic VNet in Azure
 # Create a custom private network in Azure
 # Replace 10.32.0.0 with your virtual network address space
 # Replace <network-name> with your network identifier
@@ -189,7 +194,7 @@ portnumber=101
 # In this cluster there will be 8 size A9 nodes, named cluster11 to cluster18. Specify your captured image in <image-name>. Specify the username and password you used when creating the SSH keys.
 
 for (( i=11; i<19; i++ )); do
-        azure vm create -g <username> -p <password> -c <cloud-service-name> -z A9 -n $vmname$i -e $portnumber$i -w <network-name> -b Subnet-1 <image-name>
+        azure vm create -g <username> -p <password> -c <cloud-service-name> -z A9 -n $vmname$i -e $portnumber$i -w <network-name> -b Subnet-1 <image-name>;
 done
 
 # Save this script with a name like makecluster.sh and run it in your shell environment to provision your cluster
@@ -205,17 +210,64 @@ If you want to set up a cluster based on one of the CentOS-based HPC images in t
 ### Set up passwordless SSH trust on the cluster
 On a CentOS-based HPC cluster, there are two methods for establishing trust between the compute nodes: host-based authentication and user-based authentication. Host-based authentication is outside of the scope of this article and generally must be done through an extension script during deployment. User-based authentication is convenient for establishing trust after deployment and requires the generation and sharing of SSH keys among the compute nodes in the cluster. This method is commonly known as passwordless SSH login and is required when running MPI jobs.
 
-A sample script contributed from the community is available on [GitHub](https://github.com/tanewill/utils/blob/master/user_authentication.sh) to enable easy user authentication on a CentOS-based HPC cluster. Download and use this script by using the following steps. You can also modify this script or use any other method to establish passwordless SSH authentication between the cluster compute nodes.
+A sample script `user_authentication.sh` to enable user-based authentication on a CentOS-based HPC cluster follows:
 
-    wget https://raw.githubusercontent.com/tanewill/utils/master/ user_authentication.sh
+```bash
+#!/bin/bash
+# For CentOS user must first install epel-release, sshpass, and nmap (sshpass and nmap are available from epel-release for CentOS)
+
+# usage ./user_authentication.sh [username] [password] [internalIP prefix]
+# ./user_authentication.sh azureuser Azure@123 10.32.0
+USER=$1
+PASS=$2
+IPPRE=$3
+HEADNODE=`hostname`
+
+mkdir -p .ssh
+echo -e  'y\n' | ssh-keygen -f .ssh/id_rsa -t rsa -N ''
+
+echo 'Host *' >> .ssh/config
+echo 'StrictHostKeyChecking no' >> .ssh/config
+chmod 400 .ssh/config
+chown azureuser:azureuser /home/azureuser/.ssh/config
+
+nmap -sn $IPPRE.* | grep $IPPRE. | awk '{print $5}' > nodeips.txt
+for NAME in `cat nodeips.txt`; do sshpass -p $PASS ssh -o ConnectTimeout=2 $USER@$NAME 'hostname' >> nodenames.txt;done
+
+NAMES=`cat nodenames.txt` #names from names.txt file
+for NAME in $NAMES; do
+    sshpass -p $PASS scp -o "StrictHostKeyChecking no" -o ConnectTimeout=2 /home/$USER/nodenames.txt $USER@$NAME:/home/$USER/
+    sshpass -p $PASS ssh -o ConnectTimeout=2 $USER@$NAME "mkdir .ssh && chmod 700 .ssh"
+    sshpass -p $PASS ssh -o ConnectTimeout=2 $USER@$NAME "echo -e  'y\n' | ssh-keygen -f .ssh/id_rsa -t rsa -N ''"
+    sshpass -p $PASS ssh -o ConnectTimeout=2 $USER@$NAME 'touch /home/'$USER'/.ssh/config'
+    sshpass -p $PASS ssh -o ConnectTimeout=2 $USER@$NAME 'echo "Host *" >  /home/'$USER'/.ssh/config'
+    sshpass -p $PASS ssh -o ConnectTimeout=2 $USER@$NAME 'echo StrictHostKeyChecking no >> /home/'$USER'/.ssh/config'
+    sshpass -p $PASS ssh -o ConnectTimeout=2 $USER@$NAME 'chmod 400 /home/'$USER'/.ssh/config'
+    cat .ssh/id_rsa.pub | sshpass -p $PASS ssh -o ConnectTimeout=2 $USER@$NAME 'cat >> .ssh/authorized_keys'
+    sshpass -p $PASS scp -o "StrictHostKeyChecking no" -o ConnectTimeout=2 $USER@$NAME:/home/$USER/.ssh/id_rsa.pub .ssh/sub_node.pub
+
+    for SUBNODE in `cat nodeips.txt`; do
+         sshpass -p $PASS ssh -o ConnectTimeout=2 $USER@$SUBNODE 'mkdir -p .ssh'
+         cat .ssh/sub_node.pub | sshpass -p $PASS ssh -o ConnectTimeout=2 $USER@$SUBNODE 'cat >> .ssh/authorized_keys'
+    done
+    sshpass -p $PASS ssh -o ConnectTimeout=2 $USER@$NAME 'chmod 700 .ssh/'
+    sshpass -p $PASS ssh -o ConnectTimeout=2 $USER@$NAME 'chmod 640 .ssh/authorized_keys'
+done
+```
+
+Run this script by using the following steps. You can also modify this script or use another method to establish passwordless SSH authentication between the cluster compute nodes.
 
 To run the script, you need to know the prefix for your subnet IP addresses. Get the prefix by running the following command on one of the cluster nodes. Your output should look something like 10.1.3.5, and the prefix is the 10.1.3 portion.
 
-    ifconfig eth0 | grep -w inet | awk '{print $2}'
+```bash
+ifconfig eth0 | grep -w inet | awk '{print $2}'
+```
 
 Now run the script using three parameters: the common user name on the compute nodes, the common password for that user on the compute nodes, and the subnet prefix that was returned from the previous command.
 
-    ./user_authentication.sh <myusername> <mypassword> 10.1.3
+```bash
+./user_authentication.sh <myusername> <mypassword> 10.1.3
+```
 
 This script does the following:
 
@@ -227,55 +279,12 @@ This script does the following:
 > [!WARNING]
 > Running this script can create a potential security risk. Ensure that the public key information in ~/.ssh is not distributed.
 >
->
-
-## Configure Intel MPI
-To run MPI applications on Azure Linux RDMA, you need to configure certain environment variables specific to Intel MPI. Here is a sample Bash script to configure the variables needed to run an application. Change the path to mpivars.sh as needed for your installation of Intel MPI.
-
-```
-#!/bin/bash -x
-
-# For a SLES 12 SP1 HPC cluster
-
-source /opt/intel/impi/5.0.3.048/bin64/mpivars.sh
-
-# For a CentOS-based HPC cluster
-
-# source /opt/intel/impi/5.1.3.181/bin64/mpivars.sh
-
-export I_MPI_FABRICS=shm:dapl
-
-# THIS IS A MANDATORY ENVIRONMENT VARIABLE AND MUST BE SET BEFORE RUNNING ANY JOB
-# Setting the variable to shm:dapl gives best performance for some applications
-# If your application doesn’t take advantage of shared memory and MPI together, then set only dapl
-
-export I_MPI_DAPL_PROVIDER=ofa-v2-ib0
-
-# THIS IS A MANDATORY ENVIRONMENT VARIABLE AND MUST BE SET BEFORE RUNNING ANY JOB
-
-export I_MPI_DYNAMIC_CONNECTION=0
-
-# THIS IS A MANDATORY ENVIRONMENT VARIABLE AND MUST BE SET BEFORE RUNNING ANY JOB
-
-# Command line to run the job
-
-mpirun -n <number-of-cores> -ppn <core-per-node> -hostfile <hostfilename>  /path <path to the application exe> <arguments specific to the application>
-
-#end
-```
-
-The format of the host file is as follows. Add one line for each node in your cluster. Specify private IP addresses from the virtual network defined earlier, not DNS names. For example, for two hosts with IP addresses 10.32.0.1 and 10.32.0.2, the file contains the following:
-
-```
-10.32.0.1:16
-10.32.0.2:16
-```
 
 ## Run MPI on a basic two-node cluster
 If you haven't already done so, first set up the environment for Intel MPI.
 
-```
-# For a SLES 12 SP1 HPC cluster
+```bash
+# For a SLES 12 HPC cluster
 
 source /opt/intel/impi/5.0.3.048/bin64/mpivars.sh
 
@@ -285,9 +294,9 @@ source /opt/intel/impi/5.0.3.048/bin64/mpivars.sh
 ```
 
 ### Run an MPI command
-Run an MPI command on one of the compute nodes to show that MPI is installed properly and can communicate between at least two compute nodes. The following **mpirun** command runs the **hostname** command on two nodes.
+Run an MPI command on one of the compute nodes to show that MPI is installed properly and can communicate between at least two compute nodes. The following **mpirun** command runs the **hostname** command on two nodes. For the `-hosts` parameter, pass the IP addresses of two nodes in the Azure VNet (for example, 10.32.0.4,10.32.0.5).
 
-```
+```bash
 mpirun -ppn 1 -n 2 -hosts <host1>,<host2> -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 hostname
 ```
 Your output should list the names of all the nodes that you passed as input for `-hosts`. For example, an **mpirun** command with two nodes returns output like the following:
@@ -300,8 +309,8 @@ cluster12
 ### Run an MPI benchmark
 The following Intel MPI command runs a pingpong benchmark to verify the cluster configuration and connection to the RDMA network.
 
-```
-mpirun -hosts <host1>,<host2> -ppn 1 -n 2 -env I_MPI_FABRICS=dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 IMB-MPI1 pingpong
+```bash
+mpirun -hosts <host1>,<host2> -ppn 1 -n 2 -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 IMB-MPI1 pingpong
 ```
 
 On a working cluster with two nodes, you should see output like the following. On the Azure RDMA network, expect latency at or below 3 microseconds for message sizes up to 512 bytes.
@@ -310,7 +319,7 @@ On a working cluster with two nodes, you should see output like the following. O
 #------------------------------------------------------------
 #    Intel (R) MPI Benchmarks 4.0 Update 1, MPI-1 part
 #------------------------------------------------------------
-# Date                  : Fri Jul 17 23:16:46 2015
+# Date                  : Fri Jul 6 17:16:46 2018
 # Machine               : x86_64
 # System                : Linux
 # Release               : 3.12.39-44-default
@@ -369,10 +378,50 @@ On a working cluster with two nodes, you should see output like the following. O
 # All processes entering MPI_Finalize
 
 ```
+### Sample MPI run script
+Here is a sample Bash script to configure the variables needed to run an MPI application. Change the path to `mpivars.sh` as needed for your installation of Intel MPI.
 
+```bash
+#!/bin/bash -x
+
+# For a SLES 12 HPC cluster
+
+source /opt/intel/impi/5.0.3.048/bin64/mpivars.sh
+
+# For a CentOS-based HPC cluster
+
+# source /opt/intel/impi/5.1.3.181/bin64/mpivars.sh
+
+export I_MPI_FABRICS=shm:dapl
+
+# THIS IS A MANDATORY ENVIRONMENT VARIABLE AND MUST BE SET BEFORE RUNNING ANY JOB
+# Setting the variable to shm:dapl gives best performance for some applications
+# If your application doesn’t take advantage of shared memory and MPI together, then set only dapl
+
+export I_MPI_DAPL_PROVIDER=ofa-v2-ib0
+
+# THIS IS A MANDATORY ENVIRONMENT VARIABLE AND MUST BE SET BEFORE RUNNING ANY JOB
+
+export I_MPI_DYNAMIC_CONNECTION=0
+
+# THIS IS A MANDATORY ENVIRONMENT VARIABLE AND MUST BE SET BEFORE RUNNING ANY JOB
+
+# Command line to run the MPI job. Substitute with values appropriate for your application.
+
+mpirun -n <number-of-cores> -ppn <core-per-node> -hostfile <hostfilename>  /path <path to the application exe> <arguments specific to the application>
+
+#end
+```
+
+The format of the host file is as follows. Add one line for each node in your cluster. Specify private IP addresses from the virtual network defined earlier, not DNS names. For example, for two hosts with IP addresses 10.32.0.4 and 10.32.0.4, the file contains the following:
+
+```bash
+10.32.0.4:16
+10.32.0.5:16
+```
 
 
 ## Next steps
 * Deploy and run your Linux MPI applications on your Linux cluster.
 * See the [Intel MPI Library documentation](https://software.intel.com/en-us/articles/intel-mpi-library-documentation/) for guidance on Intel MPI.
-* Try a [quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/intel-lustre-clients-on-centos) to create an Intel Lustre cluster by using a CentOS-based HPC image. For details, see [Deploying Intel Cloud Edition for Lustre on Microsoft Azure](https://blogs.msdn.microsoft.com/arsen/2015/10/29/deploying-intel-cloud-edition-for-lustre-on-microsoft-azure/).
+* Try a [quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/intel-lustre-clients-on-centos) to create an Intel Lustre cluster by using a CentOS-based HPC image. 

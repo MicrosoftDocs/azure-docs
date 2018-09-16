@@ -1,27 +1,22 @@
----
-title: SQL Data Warehouse system views | Microsoft Docs
-description: Links to system views content for SQL Data Warehouse.
+﻿---
+title: System views - Azure SQL Data Warehouse | Microsoft Docs
+description: Links to the documentation for system views supported in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: kevinvngo
-manager: jhubbard
-editor: ''
-
-ms.assetid: 21ec594b-d270-4202-a8cd-bb150e5ae12c
+author: twounder
+manager: craigg
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: reference
-ms.date: 06/01/2017
-ms.author: kevin;barbkess
-
+ms.topic: conceptual
+ms.component: manage
+ms.date: 06/13/2018
+ms.author: twounder
+ms.reviewer: igorstan
 ---
-# System views
+
+# System views supported in Azure SQL Data Warehouse
+Links to the documentation for T-SQL statements supported in Azure SQL Data Warehouse.
+
 ## SQL Data Warehouse catalog views
 * [sys.pdw_column_distribution_properties](http://msdn.microsoft.com/library/mt204022.aspx)
-* [sys.pdw_database_mappings](http://msdn.microsoft.com/library/mt203891.aspx)
 * [sys.pdw_distributions](http://msdn.microsoft.com/library/mt203892.aspx)
 * [sys.pdw_index_mappings](http://msdn.microsoft.com/library/mt203912.aspx)
 * [sys.pdw_loader_backup_run_details](https://msdn.microsoft.com/library/mt203877.aspx)
@@ -34,6 +29,7 @@ ms.author: kevin;barbkess
 * [sys.pdw_nodes_partitions](http://msdn.microsoft.com/library/mt203908.aspx)
 * [sys.pdw_nodes_pdw_physical_databases](http://msdn.microsoft.com/library/mt203897.aspx)
 * [sys.pdw_nodes_tables](http://msdn.microsoft.com/library/mt203886.aspx)
+* [sys.pdw_replicated_table_cache_state](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-pdw-replicated-table-cache-state-transact-sql)
 * [sys.pdw_table_distribution_properties](http://msdn.microsoft.com/library/mt203896.aspx)
 * [sys.pdw_table_mappings](http://msdn.microsoft.com/library/mt203876.aspx)
 
@@ -55,7 +51,7 @@ ms.author: kevin;barbkess
 * [sys.dm_pdw_sql_requests](http://msdn.microsoft.com/library/mt203889.aspx)
 * [sys.dm_pdw_sys_info](http://msdn.microsoft.com/library/mt203900.aspx)
 * [sys.dm_pdw_wait_stats](http://msdn.microsoft.com/library/mt203909.aspx)
-* [sys.dm_pdw_waits](http://msdn.microsoft.com/library/mt203909.aspx)
+* [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql)
 
 ## SQL Server DMVs applicable to SQL Data Warehouse
 The following DMVs are applicable to SQL Data Warehouse, but must be executed by connecting to the **master** database.
@@ -133,16 +129,14 @@ The following DMVs are applicable to SQL Data Warehouse, but must be executed by
 ## SQL Server DMVs available in SQL Data Warehouse
 SQL Data Warehouse exposes many of the SQL Server dynamic management views (DMVs). These views, when queried in SQL Data Warehouse, are reporting the state of SQL Databases running on the distributions.
 
-Since SQL Data Warehouse is built on Microsoft's MPP technology, both SQL Data Warehouse and Analytics Platform System's Parallel Data Warehouse (PDW) use the same system views.
-
-This is why each of these DMV's has a specific column called pdw_node_id. This is the the identifier for the Compute node. In PDW the Compute node is a stronger concept for the architecture. In SQL Data Warehouse, the architecture relies more heavily on the distributions.
+SQL Data Warehouse and Analytics Platform System's Parallel Data Warehouse (PDW) use the same system views. Each DMV has a column called pdw_node_id, which is the identifier for the Compute node. 
 
 > [!NOTE]
-> To use these view, insert ‘pdw_nodes_’ into the name, as shown in the following table.
+> To use these views, insert ‘pdw_nodes_’ into the name, as shown in the following table:
 > 
 > 
 
-| DMV name in SQL Data Warehouse | Link to SQL Server Transact-SQL topic on MSDN |
+| DMV name in SQL Data Warehouse | SQL Server Transact-SQL article|
 |:--- |:--- |
 | sys.dm_pdw_nodes_db_column_store_row_group_physical_stats | [sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql)| 
 | sys.dm_pdw_nodes_db_column_store_row_group_operational_stats | [sys.dm_db_column_store_row_group_operational_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-operational-stats-transact-sql)| 
@@ -161,7 +155,7 @@ This is why each of these DMV's has a specific column called pdw_node_id. This i
 | sys.dm_pdw_nodes_exec_query_resource_semaphores |[sys.dm_exec_query_resource_semaphores](http://msdn.microsoft.com/library/ms366321.aspx) |
 | sys.dm_pdw_nodes_exec_query_stats |[sys.dm_exec_query_stats](http://msdn.microsoft.com/library/ms189741.aspx) |
 | sys.dm_pdw_nodes_exec_requests |[sys.dm_exec_requests](http://msdn.microsoft.com/library/ms177648.aspx) |
-| sys.dm_pdw_nodes_exec_sessions |[sys.dm_exec_sessions](https://msdn.microsoft.com/en-us/library/ms176013.aspx) |
+| sys.dm_pdw_nodes_exec_sessions |[sys.dm_exec_sessions](https://msdn.microsoft.com/library/ms176013.aspx) |
 | sys.dm_pdw_nodes_io_pending_io_requests |[sys.dm_io_pending_io_requests](http://msdn.microsoft.com/library/ms188762.aspx) |
 | sys.dm_pdw_nodes_io_virtual_file_stats |[sys.dm_io_virtual_file_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) |
 | sys.dm_pdw_nodes_os_buffer_descriptors |[sys.dm_os_buffer_descriptors](http://msdn.microsoft.com/library/ms173442.aspx) |
@@ -207,6 +201,8 @@ This is why each of these DMV's has a specific column called pdw_node_id. This i
 | sys.dm_pdw_nodes_tran_top_version_generators |[sys.dm_tran_top_version_generators](http://msdn.microsoft.com/library/ms188778.aspx) |
 
 ## SQL Server 2016 PolyBase DMVs available in SQL Data Warehouse
+The following DMVs are applicable to SQL Data Warehouse, but must be executed by connecting to the **master** database.
+
 * [sys.dm_exec_compute_node_errors](http://msdn.microsoft.com/library/mt146380.aspx)
 * [sys.dm_exec_compute_node_status](http://msdn.microsoft.com/library/mt146382.aspx)
 * [sys.dm_exec_compute_nodes](https://msdn.microsoft.com/library/mt130700.aspx)
@@ -230,14 +226,4 @@ This is why each of these DMV's has a specific column called pdw_node_id. This i
 * [VIEWS](http://msdn.microsoft.com/library/ms181381.aspx)
 
 ## Next steps
-For more reference information, see [SQL Data Warehouse reference overview][SQL Data Warehouse reference overview].
-
-<!--Image references-->
-
-<!--Article references-->
-[SQL Data Warehouse reference overview]: sql-data-warehouse-overview-reference.md
-
-<!--MSDN references-->
-
-
-<!--Other Web references-->
+For more reference information, see [T-SQL statements in Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-statements.md), and [T-SQL language elements in Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-language-elements.md).

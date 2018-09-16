@@ -1,180 +1,157 @@
 ---
-title: Save IoT Hub messages to Azure data storage | Microsoft Docs
-description: Use Azure Function App to save IoT Hub messages to Azure table storage. The IoT Hub messages contain information like sensor data that is sent from your IoT device.
-services: iot-hub
-documentationcenter: ''
-author: shizn
-manager: timtl
-tags: ''
-keywords: 'iot data storage, iot sensor data storage'
-
-ms.assetid: 62fd14fd-aaaa-4b3d-8367-75c1111b6269
+title: Save your IoT hub messages to Azure data storage | Microsoft Docs
+description: Use IoT Hub message routing to save your IoT hub messages to your Azure blob storage. The IoT hub messages contain information, such as sensor data, that is sent from your IoT device.
+author: rangv
+manager: 
+keywords: iot data storage, iot sensor data storage
 ms.service: iot-hub
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/27/2017
-ms.author: xshi
-
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
+ms.date: 04/11/2018
+ms.author: rangv
 ---
-# Save IoT Hub messages that contain information like sensor data to Azure table storage
 
-![End-to-end diagram](media/iot-hub-get-started-e2e-diagram/3.png)
+# Save IoT hub messages that contain sensor data to your Azure blob storage
+
+![End-to-end diagram](./media/iot-hub-store-data-in-azure-table-storage/1_route-to-storage.png)
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-## What you will learn
+## What you learn
 
-You learn how to create an Azure storage account and an Azure Function App to store IoT Hub messages in Azure table storage.
+You learn how to create an Azure storage account and an Azure function app to store IoT hub messages in Azure Blob storage.
 
-## What you will do
+## What you do
 
 - Create an Azure storage account.
-- Prepare for IoT Hub connection to read messages.
-- Create and deploy an Azure Function App.
+- Set up your IoT hub to route messages to storage.
 
-## What you will need
+## What you need
 
-- Tutorial [Setup your device](iot-hub-raspberry-pi-kit-node-get-started.md) completed which covers the following requirements:
-  - An active Azure subscription.
-  - An Azure IoT hub under your subscription.
-  - A running application that sends messages to your Azure IoT hub.
+- [Set up your device](iot-hub-raspberry-pi-kit-node-get-started.md) to cover the following requirements:
+  - An active Azure subscription
+  - An IoT hub under your subscription 
+  - A running application that sends messages to your IoT hub
 
 ## Create an Azure storage account
 
-1. In the [Azure portal](https://portal.azure.com/), click **New** > **Storage** > **Storage account**.
-1. Enter the necessary information for the storage acount:
+1. In the [Azure portal](https://portal.azure.com/), click **Create a resource** > **Storage** > **Storage account**.
 
-   ![Create an storage account in the Azure Portal](media\iot-hub-store-data-in-azure-table-storage\1_azure-portal-create-storage-account.png)
+2. Enter the necessary information for the storage account:
 
-   **Name**: The name of the storage account. The name must be globally unique.
+   ![Create a storage account in the Azure portal](./media/iot-hub-store-data-in-azure-table-storage/1_azure-portal-create-storage-account.png)
 
-   **Resource group**: Use the same resource group that your IoT hub uses.
+   * **Name**: The name of the storage account. The name must be globally unique.
 
-   **Pin to dashboard**: Check this option for easy access to your IoT hub from the dashboard.
-1. Click **Create**.
+   * **Account Kind**: Choose `Storage (general purpose v1)`.
 
-## Prepare for IoT Hub connection to read messages
+   * **Location**: Choose the same location that your IoT hub uses.
 
-IoT Hub exposes a built-in Event Hub-compatible endpoint to enable applications to read IoT Hub messages. Meanwhile, applications use consumer groups to read data from IoT Hub. Before creating an Azure Function App to read data from your IoT hub, you need to:
+   * **Replication**: Choose `Locally-redundant storage (LRS)`.
 
-- Get the connection string of your IoT hub endpoint.
-- Create a consumer group for your IoT hub.
+   * **Performance**: Choose `Standard`.
 
-### Get the connection string of your IoT hub endpoint
+   * **Secure transfer required**: Choose `Disabled`.
 
-1. Open your IoT hub.
-1. On the **IoT Hub** pane, click **Endpoints** under **MESSAGING**.
-1. On the right pane, click **Events** under **Built-in endpoints**.
-1. In the **Properties** pane, make a note of the following values:
-   - Event Hub-compatible endpoint
-   - Event Hub-compatible name
+   * **Subscription**: Select your Azure subscription.
 
-   ![Get the connection string of your IoT hub endpoint in the Azure portal](media\iot-hub-store-data-in-azure-table-storage\2_azure-portal-iot-hub-endpoint-connection-string.png)
+   * **Resource group**: Use the same resource group that your IoT hub uses.
 
-1. On the **IoT Hub** pane, click **Shared access policies** under **SETTINGS**.
-1. Click **iothubowner**.
-1. Make a note of the **Primary key** value.
-1. Make up the connection string of your IoT hub endpoint as follows:
+   * **Pin to dashboard**: Select this option for easy access to your IoT hub from the dashboard.
 
-   `Endpoint=<Event Hub-compatible endpoint>;SharedAccessKeyName=iothubowner;SharedAccessKey=<Primary key>`
+3. Click **Create**.
 
-   > [!Note]
-   > Replace `<Event Hub-compatible endpoint>` and `<Primary key>` with the values you noted down.
+## Prepare your IoT hub to route messages to storage
 
-### Create a consumer group for your IoT hub
+IoT Hub natively supports routing messages to Azure storage as blobs. To know more about the Azure IoT Hub custom endpoints, you can refer to [List of built-in IoT Hub endpoints](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-endpoints#custom-endpoints).
 
-1. Open your IoT hub.
-1. On the **IoT Hub** pane, click **Endpoints** under **MESSAGING**.
-1. On the right pane, click **Events** under **Built-in endpoints**.
-1. In the **Properties** pane, enter a name under **Consumer groups** and make a note of the name.
-1. Click **Save**.
+### Add storage as a custom endpoint
 
-## Create and deploy an Azure Function App
+1. Navigate to your IoT hub in the Azure portal. 
 
-1. In the [Azure portal](https://portal.azure.com/), click **New** > **Compute** > **Function App**.
-1. Enter the necessary information for the Function App.
+2. Click **Endpoints** > **Add**. 
 
-   ![Create an Fuction App in the Azure portal](media\iot-hub-store-data-in-azure-table-storage\3_azure-portal-create-function-app.png)
+3. Name the endpoint and select **Azure Storage Container** as the endpoint type. 
 
-   **App name**: The name of the Function App. The name must be globally unique.
+4. Use the picker to select the storage account you created in the previous section. Create a storage container and select it, then click **OK**.
 
-   **Resource group**: Use the same resource group that your IoT Hub uses.
+   ![Create a custom endpoint in IoT Hub](./media/iot-hub-store-data-in-azure-table-storage/2_custom-storage-endpoint.png)
 
-   **Storage Account**: The storage account that you created.
+### Add a route to route data to storage
 
-   **Pin to dashboard**: Check this option for easy access to the Function App from the dashboard.
-1. Click **Create**.
-1. Open the Function App once it is created.
-1. Create a new function in the Function App.
-   1. Click **New Function**.
-   1. Select **JavaScript** for **Language**, and **Data Processing** for **Scenario**.
-   1. Click **create this function**, then click **New Function**.
-   1. Select **JavaScript** for the language, and **Data Processing** for the scenario.
-   1. Click the **EventHubTrigger-JavaScript** template.
-   1. Enter the necessary information for the template.
+1. Click **Routes** > **Add** and enter a name for the route. 
 
-      **Name your function**: The name of the function.
+2. Select **Device Messages** as the data source, and select the storage endpoint you just created as the endpoint in the route. 
 
-      **Event Hub name**: The Event Hub-compatible name you noted down.
+3. Enter `true` as the query string, then click **Save**.
 
-      **Event Hub connection**: Click new to add the connection string of your IoT hub endpoint that you made up.
-   1. Click **Create**.
-1. Configure an output of the function.
-   1. Click **Integrate** > **New Output** > **Azure Table Storage** > **Select**.
+   ![Create a route in IoT Hub](./media/iot-hub-store-data-in-azure-table-storage/3_create-route.png)
+  
+### Add a route for hot path telemetry (optional)
 
-      ![Add a table storage to your Fuction App in the Azure portal](media\iot-hub-store-data-in-azure-table-storage\4_azure-portal-function-app-add-output-table-storage.png)
-   1. Enter the necessary information.
+By default, IoT Hub routes all messages which do not match any other routes to the built-in endpoint. Since all telemetry messages now match the rule which routes the messages to storage, you need to add another route for messages to be written to the built-in endpoint. There is no additional charge to route messages to multiple endpoints.
 
-      **Table parameter name**: Use `outputTable` for the name, which will be used in the Azure Functions' code.
-      
-      **Table name**: Use `deviceData` for the name.
+> [!NOTE]
+> You can skip this step if you are not doing additional processing on your telemetry messages.
 
-      **Storage account connection**: Click **new** and select or input your storage account. If you cannot see the storage account, please refer to [Storage account requirements](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal#storage-account-requirements)
-      
-   1. Click **Save**.
-1. Under **Triggers**, click **Azure Event Hub (myEventHubTrigger)**.
-1. Under **Event Hub consumer group**, enter the name of the consumer group that you created, and then click **Save**.
-1. Click **Develop**, and then click **View files**.
-1. Replace the code in `index.js` with the following, and then click **Save**.
+1. Click **Add** from the Routes pane and enter a name for the route. 
 
-   ```javascript
-   'use strict';
+2. Select **Device Messages** as the data source and **events** as the endpoint. 
 
-   // This function is triggered each time a message is revieved in the IoTHub.
-   // The message payload is persisted in an Azure Storage Table
- 
-   module.exports = function (context, iotHubMessage) {
-    context.log('Message received: ' + JSON.stringify(iotHubMessage));
-    var date = Date.now();
-    var partitionKey = Math.floor(date / (24 * 60 * 60 * 1000)) + '';
-    var rowKey = date + '';
-    context.bindings.outputTable = {
-     "partitionKey": partitionKey,
-     "rowKey": rowKey,
-     "message": JSON.stringify(iotHubMessage)
-    };
-    context.done();
-   };
-   ```
+3. Enter `true` as the query string, then click **Save**.
 
-By now, you have created the Function App. It stores messages that your IoT hub receives in your Azure table storage.
+  ![Create a hot-path route in IoT Hub](./media/iot-hub-store-data-in-azure-table-storage/4_hot-path-route.png)
 
-> [!Note]
-> You can use the **Run** button to test the Function App. When you click **Run**, the test message is sent to your IoT hub. The arrival of the message should trigger the Function App to start and then save the message to your Azure table storage. The **Logs** pane records the details of the process.
-
-## Verify your message in your table storage
+## Verify your message in your storage container
 
 1. Run the sample application on your device to send messages to your IoT hub.
-1. [Download and install Microsoft Azure Storage Explorer](http://storageexplorer.com/).
-1. Open Microsoft Azure Storage Explorer, click **Add an Azure Account** > **Sign in**, and then sign in to your Azure account.
-1. Click your Azure subscription > **Storage Accounts** > your storage account > **Tables** > **deviceData**.
 
-   You should see messages sent from your device to your IoT hub logged in the `deviceData` table.
+2. [Download and install Azure Storage Explorer](http://storageexplorer.com/).
+
+3. Open Storage Explorer, click **Add an Azure Account** > **Sign in**, and then sign in to your Azure account.
+
+4. Click your Azure subscription > **Storage Accounts** > your storage account > **Blob Containers** > your container.
+
+   You should see messages sent from your device to your IoT hub logged in the blob container.
+
+## Clean up resources 
+
+In this tutorial, you added a storage account, and then added routing for messages from the IoT Hub to be written to the storage account. To clean up the resources you created, you remove the routing information and then delete the storage account. 
+
+1. Log into the [Azure portal](https://portal.azure.com).
+
+2. Click **Resource groups** and select the resource group you used. The list of resources in the group is displayed. 
+
+   > [!NOTE]
+   > If you want to remove all of the resources in the resource group, click **Delete** to delete the resource group, then follow the directions. This will remove everything in that resource group, so you're finished cleaning up the resources and can skip to the next section.
+
+3. Click on the IoT hub you used for this tutorial. 
+
+4. In the IoT Hub pane, click **Routes**. Click the checkbox next to the routing rule you added, then click **Delete**. When asked if you're sure you want to delete that route, click **Yes**.
+
+   ![Remove routing rule](./media/iot-hub-store-data-in-azure-table-storage/cleanup-remove-routing.png)
+
+   Close the Routing pane. You are returned to the Resource Group pane.
+
+5. Click on the IoT hub again. 
+
+6. In the IoT Hub pane, click **Endpoints**. Click the checkbox next to the endpoint you added for the storage container, then click **Delete**. When asked if you're sure you want to delete the selected endpoint, click **Yes**.
+
+    ![Remove endpoint](./media/iot-hub-store-data-in-azure-table-storage/cleanup-remove-endpoint.png)
+
+    Close the Endpoints pane. You are returned to the Resource Group pane. 
+
+7.  Click on the storage account you set up for this tutorial. 
+
+8.  On the Storage account pane, click **Delete** to remove the storage account. You are taken to the **Delete storage account** pane.
+
+   ![Remove storage account](./media/iot-hub-store-data-in-azure-table-storage/cleanup-remove-storageaccount.png)
+
+8.  Type in the storage account name, then click **Delete** at the bottom of the pane. 
 
 ## Next steps
 
-You’ve successfully created your Azure storage account and Azure Function App to store messages that your IoT hub receives in your Azure table storage.
+You’ve successfully created your Azure storage account and routed messages from IoT Hub to a blob container in that storage account.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

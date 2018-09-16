@@ -4,8 +4,8 @@ title: Create a complete Linux environment with the Azure CLI 1.0 | Microsoft Do
 description: Create storage, a Linux VM, a virtual network and subnet, a load balancer, an NIC, a public IP, and a network security group, all from the ground up by using the Azure CLI 1.0.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
-manager: timlt
+author: cynthn
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/09/2017
-ms.author: iainfou
+ms.author: cynthn
 
 ---
 # Create a complete Linux environment with the Azure CLI 1.0
@@ -29,8 +29,6 @@ The environment contains:
 * Two VMs inside an availability set.
 * A load balancer with a load-balancing rule on port 80.
 * Network security group (NSG) rules to protect your VM from unwanted traffic.
-
-![Basic environment overview](./media/create-cli-complete/environment_overview.png)
 
 To create this custom environment, you need the latest [Azure CLI 1.0](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) in Resource Manager mode (`azure config mode arm`). You also need a JSON parsing tool. This example uses [jq](https://stedolan.github.io/jq/).
 

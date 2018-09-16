@@ -5,16 +5,18 @@ services: active-directory
 keywords: device-based conditional access, device registration, enable device registration, device registration and MDM
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 
 ms.assetid: 8ad0156c-0812-4855-8563-6fbff6194174
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/11/2017
+ms.date: 01/15/2018
 ms.author: markvi
+ms.reviewer: jairoc
 
 ---
 # You can't get there from here on a Windows device
@@ -42,7 +44,7 @@ You can easily identify whether you can't access a resource due to an unsupporte
 
 !["You can't get there from here" message for unsupported browsers](./media/active-directory-conditional-access-device-remediation/02.png "Scenario")
 
-The only remediation is to use a browser that the application supports for your device platform. For a complete list of supported browsers, see [supported browsers](active-directory-conditional-access-supported-apps.md#supported-browsers).  
+The only remediation is to use a browser that the application supports for your device platform. For a complete list of supported browsers, see [supported browsers](active-directory-conditional-access-supported-apps.md).  
 
 
 ## Supported versions of Windows
@@ -154,5 +156,5 @@ If your device is not domain-joined and runs Windows 8.1, to do a Workplace Join
 
 
 ## Next steps
-[Azure Active Directory conditional access](active-directory-conditional-access.md)
+[Azure Active Directory conditional access](active-directory-conditional-access-azure-portal.md)
 

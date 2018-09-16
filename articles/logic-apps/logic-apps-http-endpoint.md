@@ -4,7 +4,7 @@ description: Set up HTTP endpoints to call, trigger, or nest workflows for Azure
 services: logic-apps
 keywords: workflows, HTTP endpoints
 author: jeffhollan
-manager: anneta
+manager: jeconnoc
 editor: ''
 documentationcenter: ''
 
@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
-ms.author: LADocs; jehollan
+ms.author: klam; LADocs
 ---
 
 # Call, trigger, or nest workflows with HTTP endpoints in logic apps
@@ -30,12 +30,12 @@ so that your logic apps can receive incoming requests:
 
 * [Request](../connectors/connectors-native-reqres.md)
 
-* [API Connection Webhook](logic-apps-workflow-actions-triggers.md#api-connection-trigger)
+* [API Connection Webhook](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnection-trigger)
 
 * [HTTP Webhook](../connectors/connectors-native-webhook.md)
 
    > [!NOTE]
-   > Although our examples use the **Request** trigger, 
+   > Although these examples use the **Request** trigger, 
    > you can use any of the listed HTTP triggers, 
    > and all principles identically apply to the other trigger types.
 
@@ -94,7 +94,7 @@ that you expect the trigger to receive.
     generates this schema:
 
     ```json
-    }
+    {
        "type": "object",
        "properties": {
           "address": {
@@ -194,6 +194,7 @@ but replace `{customerID}` with `123456`, and press Enter.
     `Hello 123456`
 
 <a name="generated-tokens"></a>
+
 ### Tokens generated from JSON schemas for your logic app
 
 When you provide a JSON schema in your **Request** trigger, 
@@ -243,6 +244,10 @@ to your trigger. You can then select from eligible logic apps.
 After you create your HTTP endpoint, 
 you can trigger your logic app through a `POST` method to the full URL. 
 Logic apps have built-in support for direct-access endpoints.
+
+> [!NOTE] 
+> To manually run a logic app at any time, 
+> on the Logic App Designer or Logic App Code View toolbar, choose **Run**.
 
 ## Reference content from an incoming request
 
@@ -295,7 +300,7 @@ of your workflow.
 ### Construct the response
 
 You can include more than one header and any type of content in the response body. 
-In our example response, the header specifies 
+In the example response, the header specifies 
 that the response has content type `application/json`. 
 and the body contains `title` and `name`, based on 
 the JSON schema updated previously for the **Request** trigger.

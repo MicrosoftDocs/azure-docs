@@ -1,9 +1,9 @@
----
+﻿---
 title: Dependency Tracking in Azure Application Insights | Microsoft Docs
 description: Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights.
 services: application-insights
 documentationcenter: .net
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: d15c4ca8-4c1a-47ab-a03d-c322b4bb2a9e
@@ -11,9 +11,9 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 05/04/2017
-ms.author: cfreeman
+ms.topic: conceptual
+ms.date: 06/08/2018
+ms.author: mbullwin
 
 ---
 # Set up Application Insights: Dependency tracking
@@ -45,7 +45,7 @@ Partial dependency information is collected automatically by the [Application In
 | Azure Cloud Service |[Use startup task](app-insights-cloudservices.md) or [Install .NET framework 4.6+](../cloud-services/cloud-services-dotnet-install-dotnet.md) |
 
 ## Where to find dependency data
-* [Application Map](#application-map) visualizes dependencies between your app and neighbouring components.
+* [Application Map](#application-map) visualizes dependencies between your app and neighboring components.
 * [Performance, browser, and failure blades](#performance-and-blades) show server dependency data.
 * [Browsers blade](#ajax-calls) shows AJAX calls from your users' browsers.
 * [Click through from slow or failed requests](#diagnose-slow-requests) to check their dependency calls.
@@ -113,7 +113,7 @@ In a different case, there is no dependency call that is particularly long. But 
 
 ![Find Calls to Remote Dependencies, identify unusual Duration](./media/app-insights-asp-net-dependencies/04-1.png)
 
-There seems to be a big gap after the first dependency call, so we should look at our code to see why that is.
+There seems to be a large gap after the first dependency call, so we should look at our code to see why that is.
 
 ### Profile your live site
 
@@ -129,7 +129,7 @@ Click through to an occurrence of a failed request, and look at its associated e
 ![Click a request type, click the instance to get to a different view of the same instance, click it to get exception details.](./media/app-insights-asp-net-dependencies/07-faildetail.png)
 
 ## Analytics
-You can track dependencies in the [Analytics query language](app-insights-analytics.md). Here are some examples.
+You can track dependencies in the [Log Analytics query language](https://docs.loganalytics.io/). Here are some examples.
 
 * Find any failed dependency calls:
 
@@ -175,7 +175,7 @@ You can write code that sends dependency information, using the same [TrackDepen
 
 For example, if you build your code with an assembly that you didn't write yourself, you could time all the calls to it, to find out what contribution it makes to your response times. To have this data displayed in the dependency charts in Application Insights, send it using `TrackDependency`.
 
-```C#
+```csharp
 
             var startTime = DateTime.UtcNow;
             var timer = System.Diagnostics.Stopwatch.StartNew();
@@ -187,6 +187,8 @@ For example, if you build your code with an assembly that you didn't write yours
             {
                 timer.Stop();
                 telemetry.TrackDependency("myDependency", "myCall", startTime, timer.Elapsed, success);
+                // The call above has been made obsolete in the latest SDK. The updated call follows this format:
+                // TrackDependency (string dependencyTypeName, string dependencyName, string data, DateTimeOffset startTime, TimeSpan duration, bool success);
             }
 ```
 
@@ -197,9 +199,13 @@ If you want to switch off the standard dependency tracking module, remove the re
 
 *SQL query not shown in full.*
 
-* Upgrade to the latest version of the SDK. If your .NET version is less than 4.6:
-  * IIS host: Install [Application Insights Agent](app-insights-monitor-performance-live-website-now.md) on the host servers.
-  * Azure web app: Open Application Insights tab in the web app control panel, and install Application Insights.
+Consult the table below and insure you have chosen the correct configuration to enable dependency monitoring for your application.
+
+| Platform | Install |
+| --- | --- |
+| IIS Server |Either [install Status Monitor on your server](app-insights-monitor-performance-live-website-now.md). Or [Upgrade your application to .NET framework 4.6 or later](http://go.microsoft.com/fwlink/?LinkId=528259) and install the [Application Insights SDK](app-insights-asp-net.md)  in your app. |
+| Azure Web App |In your web app control panel, [open the Application Insights blade in your web app control panel](app-insights-azure-web-apps.md) and choose Install if prompted. |
+| Azure Cloud Service |[Use startup task](app-insights-cloudservices.md) or [Install .NET framework 4.6+](../cloud-services/cloud-services-dotnet-install-dotnet.md) |
 
 ## Video
 

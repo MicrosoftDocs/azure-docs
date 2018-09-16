@@ -1,22 +1,15 @@
 ---
-title: Install and use Giraph on HDInsight (Hadoop) - Azure | Microsoft Docs
+title: Install and use Giraph on HDInsight (Hadoop) - Azure 
 description: Learn how to install Giraph on Linux-based HDInsight clusters using Script Actions. Script Actions allow you to customize the cluster during creation, by changing cluster configuration or installing services and utilities.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+ms.reviewer: jasonh
 
-ms.assetid: 9fcac906-8f06-4002-9fe8-473e42f8fd0f
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/04/2017
-ms.author: larryfr
+ms.topic: conceptual
+ms.date: 04/23/2018
+ms.author: jasonh
 
 ---
 # Install Giraph on HDInsight Hadoop clusters, and use Giraph to process large-scale graphs
@@ -24,7 +17,7 @@ ms.author: larryfr
 Learn how to install Apache Giraph on an HDInsight cluster. The script action feature of HDInsight allows you to customize your cluster by running a bash script. Scripts can be used to customize clusters during and after cluster creation.
 
 > [!IMPORTANT]
-> The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="whatis"></a>What is Giraph
 
@@ -69,7 +62,7 @@ This section provides instructions on how to use the sample script while creatin
 
 1. Start creating a cluster by using the steps in [Create Linux-based HDInsight clusters](hdinsight-hadoop-create-linux-clusters-portal.md), but do not complete creation.
 
-2. On the **Optional Configuration** blade, select **Script Actions**, and provide the following information:
+2. In the **Optional Configuration** section, select **Script Actions**, and provide the following information:
 
    * **NAME**: Enter a friendly name for the script action.
 
@@ -83,7 +76,7 @@ This section provides instructions on how to use the sample script while creatin
 
    * **PARAMETERS**: Leave this field blank
 
-3. At the bottom of the **Script Actions**, use the **Select** button to save the configuration. Finally, use the **Select** button at the bottom of the **Optional Configuration** blade to save the optional configuration information.
+3. At the bottom of the **Script Actions**, use the **Select** button to save the configuration. Finally, use the **Select** button at the bottom of the **Optional Configuration** section to save the optional configuration information.
 
 4. Continue creating the cluster as described in [Create Linux-based HDInsight clusters](hdinsight-hadoop-create-linux-clusters-portal.md).
 
@@ -93,19 +86,21 @@ Once the cluster has been created, use the following steps to run the SimpleShor
 
 1. Connect to the HDInsight cluster using SSH:
 
-        ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+    ```bash
+    ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+    ```
 
     For information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Use the following command to create a file named **tiny_graph.txt**:
 
-    ```
+    ```bash
     nano tiny_graph.txt
     ```
 
     Use the following text as the contents of this file:
 
-    ```
+    ```text
     [0,0,[[1,1],[3,3]]]
     [1,0,[[0,1],[2,2],[3,1]]]
     [2,0,[[1,2],[4,4]]]
@@ -123,13 +118,13 @@ Once the cluster has been created, use the following steps to run the SimpleShor
 
 4. Use the following to store the data into primary storage for your HDInsight cluster:
 
-    ```
+    ```bash
     hdfs dfs -put tiny_graph.txt /example/data/tiny_graph.txt
     ```
 
 5. Run the SimpleShortestPathsComputation example using the following command:
 
-    ```
+    ```bash
     yarn jar /usr/hdp/current/giraph/giraph-examples.jar org.apache.giraph.GiraphRunner org.apache.giraph.examples.SimpleShortestPathsComputation -ca mapred.job.tracker=headnodehost:9010 -vif org.apache.giraph.io.formats.JsonLongDoubleFloatDoubleVertexInputFormat -vip /example/data/tiny_graph.txt -vof org.apache.giraph.io.formats.IdWithValueTextOutputFormat -op /example/output/shortestpaths -w 2
     ```
 
@@ -151,11 +146,11 @@ Once the cluster has been created, use the following steps to run the SimpleShor
 
 6. Once the job has finished, the results are stored in the **/example/out/shotestpaths** directory. The output file names begin with **part-m-** and end with a number indicating the first, second, etc. file. Use the following command to view the output:
 
-    ```
+    ```bash
     hdfs dfs -text /example/output/shortestpaths/*
     ```
 
-    The output should appear similar to the following text:
+    The output appears similar to the following text:
 
         0    1.0
         4    5.0

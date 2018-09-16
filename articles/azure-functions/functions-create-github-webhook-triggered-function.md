@@ -1,22 +1,18 @@
 ---
 title: Create a function in Azure triggered by a GitHub webhook | Microsoft Docs
 description: Use Azure Functions to create a serverless function that is invoked by a GitHub webhook.
-services: azure-functions
+services: functions
 documentationcenter: na
 author: ggailey777
-manager: erikre
-editor: ''
-tags: ''
+manager: jeconnoc
 
 ms.assetid: 36ef34b8-3729-4940-86d2-cb8e176fcc06
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: get-started-article
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 05/31/2017
+ms.topic: quickstart
+ms.date: 03/28/2018
 ms.author: glenga
-ms.custom: mvc
+ms.custom: mvc, cc996988-fb4f-47
 ---
 # Create a function triggered by a GitHub webhook
 
@@ -28,8 +24,6 @@ Learn how to create a function that is triggered by an HTTP webhook request with
 
 + A GitHub account with at least one project.
 + An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
 ## Create an Azure Function app
 
@@ -47,9 +41,13 @@ Next, you create a function in the new function app.
 
     ![Functions quickstart page in the Azure portal](./media/functions-create-github-webhook-triggered-function/add-first-function.png)
 
-2. Select the **GitHubWebHook** template for your desired language. **Name your function**, then select **Create**.
+2. In the search field, type `github` and then choose your desired language for the GitHub webhook trigger template. 
 
-     ![Create a GitHub webhook triggered function in the Azure portal](./media/functions-create-github-webhook-triggered-function/functions-create-github-webhook-trigger.png) 
+     ![Choose the GitHub webhook trigger template](./media/functions-create-github-webhook-triggered-function/functions-create-github-webhook-trigger.png) 
+
+2. Type a **Name** for your function, then select **Create**. 
+
+     ![Configure the GitHub webhook triggered function in the Azure portal](./media/functions-create-github-webhook-triggered-function/functions-create-github-webhook-trigger-2.png) 
 
 3. In your new function, click **</> Get function URL**, then copy and save the values. Do the same thing for **</> Get GitHub secret**. You use these values to configure the webhook in GitHub.
 
@@ -61,19 +59,23 @@ Next, you create a webhook in your GitHub repository.
 
 1. In GitHub, navigate to a repository that you own. You can also use any repository that you have forked. If you need to fork a repository, use <https://github.com/Azure-Samples/functions-quickstart>.
 
-1. Click **Settings**, then click **Webhooks**, and  **Add webhook**.
+2. Choose **Settings** > **Options** and make sure that **Issues** is enabled under **Features**.
+
+   ![Enable Issues](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook.png)
+
+1. In **Settings**, choose **Webhooks** > **Add webhook**.
 
     ![Add a GitHub webhook](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook-2.png)
 
-1. Use settings as specified in the table, then click **Add webhook**.
+1. Use settings as specified in the following table, then click **Add webhook**:
 
     ![Set the webhook URL and secret](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook-3.png)
 
 | Setting | Suggested value | Description |
 |---|---|---|
 | **Payload URL** | Copied value | Use the value returned by  **</> Get function URL**. |
-| **Secret**   | Copied value | Use the value returned by  **</> Get GitHub secret**. |
 | **Content type** | application/json | The function expects a JSON payload. |
+| **Secret**   | Copied value | Use the value returned by  **</> Get GitHub secret**. |
 | Event triggers | Let me select individual events | We only want to trigger on issue comment events.  |
 | | Issue comment |  |
 
@@ -99,6 +101,8 @@ Now, the webhook is configured to trigger your function when a new issue comment
 
 ## Next steps
 
-You have created a function that runs when a request is received from a GitHub webhook. 
+You have created a function that is triggered when a request is received from a GitHub webhook.
+
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
+
 For more information about webhook triggers, see [Azure Functions HTTP and webhook bindings](functions-bindings-http-webhook.md).

@@ -1,9 +1,9 @@
----
+﻿---
 title: Azure Application Insights for JavaScript web apps | Microsoft Docs
 description: Get page view and session counts, web client data, and track usage patterns. Detect exceptions and performance issues in JavaScript web pages.
 services: application-insights
 documentationcenter: ''
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: 3b710d09-6ab4-4004-b26a-4fa840039500
@@ -11,9 +11,9 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 03/14/2017
-ms.author: cfreeman
+ms.author: mbullwin
 
 ---
 # Application Insights for web pages
@@ -23,7 +23,7 @@ Application Insights can be used with any web pages - you just add a short piece
 
 ![In portal.azure.com, open your app's resource and click Browser](./media/app-insights-javascript/03.png)
 
-You need a subscription to [Microsoft Azure](https://azure.com). If your team has an organizational subscription, ask the owner to add your Microsoft Account to it. Development and small-scale use won't cost anything.
+You need a subscription to [Microsoft Azure](https://azure.com). If your team has an organizational subscription, ask the owner to add your Microsoft Account to it.
 
 ## Set up Application Insights for your web page
 Add the loader code snippet to your web pages, as follows.
@@ -47,6 +47,28 @@ If you don't have one, create it:
 In Quick Start, get the script for web pages:
 
 ![On your app overview blade, choose Quick Start, Get code to monitor my web pages. Copy the script.](./media/app-insights-javascript/02-monitor-web-page.png)
+
+> [!NOTE]
+> The *Getting Started* experience varies depending on the application type you select when creating your Application Insights resource. If the script is not present for your app as seen in the preceding screenshot, just use the following script.
+
+```HTML
+<!-- 
+To collect user behavior analytics about your application, 
+insert the following script into each page you want to track.
+Place this code immediately before the closing </head> tag,
+and before any other scripts. Your first data will appear 
+automatically in just a few seconds.
+-->
+<script type="text/javascript">
+var appInsights=window.appInsights||function(a){
+  function b(a){c[a]=function(){var b=arguments;c.queue.push(function(){c[a].apply(c,b)})}}var c={config:a},d=document,e=window;setTimeout(function(){var b=d.createElement("script");b.src=a.url||"https://az416426.vo.msecnd.net/scripts/a/ai.0.js",d.getElementsByTagName("script")[0].parentNode.appendChild(b)});try{c.cookie=d.cookie}catch(a){}c.queue=[];for(var f=["Event","Exception","Metric","PageView","Trace","Dependency"];f.length;)b("track"+f.pop());if(b("setAuthenticatedUserContext"),b("clearAuthenticatedUserContext"),b("startTrackEvent"),b("stopTrackEvent"),b("startTrackPage"),b("stopTrackPage"),b("flush"),!a.disableExceptionTracking){f="onerror",b("_"+f);var g=e[f];e[f]=function(a,b,d,e,h){var i=g&&g(a,b,d,e,h);return!0!==i&&c["_"+f](a,b,d,e,h),i}}return c
+  }({
+      instrumentationKey:"<your instrumentation key>"
+  });
+  
+window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&appInsights.trackPageView();
+</script>
+```
 
 Insert the script just before the `</head>` tag of every page you want to track. If your website has a master page, you can put the script there. For example:
 
@@ -88,11 +110,8 @@ The [available parameters](https://github.com/Microsoft/ApplicationInsights-JS/b
     // Time page load up to execution of first trackPageView().
     overridePageViewDuration: boolean,
 
-    // Set these dynamically for an authenticated user.
-    appUserId: string,
+    // Set dynamically for an authenticated user.
     accountId: string,
-
-
 
 ## <a name="run"></a>Run your app
 Run your web app, use it a while to generate telemetry, and wait a few seconds. You can either run it using the **F5** key on your development machine, or publish it and let users play with it.
@@ -104,7 +123,7 @@ Open the Browser blade to show aggregated performance data from your users' brow
 
 ![In portal.azure.com, open your app's resource and click Settings, Browser](./media/app-insights-javascript/03.png)
 
-*No data yet? Click **Refresh** at the top of the page. Still nothing? See [Troubleshooting](app-insights-troubleshoot-faq.md).*
+No data yet? Click **Refresh** at the top of the page. Still nothing? See [Troubleshooting](app-insights-troubleshoot-faq.md).
 
 The Browser blade is a [Metrics Explorer blade](app-insights-metrics-explorer.md) with preset filters and chart selections. You can edit the time range, filters, and chart configuration if you want, and save the result as a favorite. Click **Restore defaults** to get back to the original blade configuration.
 
@@ -192,7 +211,7 @@ Select any event to see more detail. In the details page, click "..." to see eve
 > 
 > 
 
-You can also use the powerful [Analytics query language](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-tour#browser-timings-table) to search page views.
+You can also use the powerful [Log Analytics query language](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-tour#browser-timings-table) to search page views.
 
 ### Page view properties
 * **Page view duration** 
@@ -213,7 +232,7 @@ The page name can contain the same characters as a URL, but anything after "#" o
 ## Usage tracking
 Want to find out what your users do with your app?
 
-* [Learn about usage tracking](app-insights-web-track-usage.md)
+* [Learn about the user behavior analytics tools](app-insights-web-track-usage.md)
 * [Learn about custom events and metrics API](app-insights-api-custom-events-metrics.md).
 
 ## <a name="video"></a> Video

@@ -1,9 +1,9 @@
-﻿---
+---
 title: Collect Azure service logs and metrics for Log Analytics | Microsoft Docs
 description: Configure diagnostics on Azure resources to write logs and metrics to Log Analytics.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 84105740-3697-4109-bc59-2452c1131bfe
@@ -11,12 +11,12 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.custom: H1Hack27Feb2017
-
+ms.component: na
 ---
+
 # Collect Azure service logs and metrics for use in Log Analytics
 
 There are four different ways of collecting logs and metrics for Azure services:
@@ -52,7 +52,7 @@ There are four different ways of collecting logs and metrics for Azure services:
 | Virtual Machines        | Microsoft.Compute/virtualMachines       | Extension   | Extension <br> Diagnostics  | |
 | Virtual Machines scale sets | Microsoft.Compute/virtualMachines <br> Microsoft.Compute/virtualMachineScaleSets/virtualMachines |             | Diagnostics | |
 | Web Server farms        | Microsoft.Web/serverfarms               |             | Diagnostics | |
-| Web Sites               | Microsoft.Web/sites <br> Microsoft.Web/sites/slots |             | Diagnostics | [Azure Web Apps Analytics (Preview)](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureWebAppsAnalyticsOMS?tab=Overview) |
+| Web Sites               | Microsoft.Web/sites <br> Microsoft.Web/sites/slots |             | Diagnostics | [Azure Web Apps Analytics (Preview)](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-web-apps-analytics) |
 
 
 > [!NOTE]
@@ -65,8 +65,15 @@ Many Azure resources are able to write diagnostic logs and metrics directly to L
 
 Azure resources that support [Azure monitor](../monitoring-and-diagnostics/monitoring-overview.md) can send their logs and metrics directly to Log Analytics.
 
+> [!NOTE]
+> Sending multi-dimensional metrics to Log Analytics via diagnostic settings is not currently supported. Metrics with dimensions are exported as flattened single dimensional metrics, aggregated across dimension values.
+>
+> *For example*: The 'Incoming Messages' metric on an Event Hub can be explored and charted on a per queue level. However, when exported via diagnostic settings the metric is represented as all incoming messages across all queues in the Event Hub.
+>
+>
+
 * For the details of the available metrics, refer to [supported metrics with Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
-* For the details of the available logs, refer to [supported services and schema for diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#supported-services-and-schema-for-diagnostic-logs).
+* For the details of the available logs, refer to [supported services and schema for diagnostic logs](../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md).
 
 ### Enable diagnostics with PowerShell
 You need the November 2016 (v2.3.0) or later release of [Azure PowerShell](/powershell/azure/overview).
@@ -141,7 +148,7 @@ Learn more about the [Application Insights connector](https://blogs.technet.micr
 
 For Azure services that do not provide a direct way to send logs and metrics to Log Analytics you can use an Azure Automation script to collect the log and metrics. The script can then send the data to Log Analytics using the [data collector API](log-analytics-data-collector-api.md)
 
-The Azure template gallery has [examples of using Azure Automation](https://azure.microsoft.com/en-us/resources/templates/?term=OMS) to collect data from services and sending it to Log Analytics.
+The Azure template gallery has [examples of using Azure Automation](https://azure.microsoft.com/resources/templates/?term=OMS) to collect data from services and sending it to Log Analytics.
 
 ## Next steps
 

@@ -3,17 +3,17 @@ title: Polymorphism in the Reliable Actors framework | Microsoft Docs
 description: Build hierarchies of .NET interfaces and types in the Reliable Actors framework to reuse functionality and API definitions.
 services: service-fabric
 documentationcenter: .net
-author: seanmck
+author: vturecek
 manager: timlt
 editor: vturecek
 
 ms.assetid: ef0eeff6-32b7-410d-ac69-87cba8b8fd46
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/29/2017
+ms.date: 11/02/2017
 ms.author: vturecek
 
 ---

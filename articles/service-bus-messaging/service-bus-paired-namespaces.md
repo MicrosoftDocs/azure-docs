@@ -3,7 +3,7 @@ title: Azure Service Bus paired namespaces | Microsoft Docs
 description: Paired namespace implementation details and cost
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/25/2017
-ms.author: sethm
+ms.date: 12/21/2017
+ms.author: spelluru
 
 ---
 # Paired namespace implementation details and cost implications
+
 The [PairNamespaceAsync][PairNamespaceAsync] method, using a [SendAvailabilityPairedNamespaceOptions][SendAvailabilityPairedNamespaceOptions] instance, performs visible tasks on your behalf. Because there are cost considerations when using the feature, it is useful to understand those tasks so that you expect the behavior when it happens. The API engages the following automatic behavior on your behalf:
 
 * Creation of backlog queues.
@@ -92,7 +93,7 @@ At least one executable program in the application should be actively running th
 4. Receive from the primary.
 
 ## Close/fault behavior
-Within an application that hosts the syphon, once the primary or secondary [MessagingFactory][MessagingFactory] faults or is closed without its partner also being faulted/closed and the syphon detects this state, the syphon acts. If the other [MessagingFactory][MessagingFactory] is not closed within 5 seconds, the syphon will fault the still open [MessagingFactory][MessagingFactory].
+Within an application that hosts the syphon, once the primary or secondary [MessagingFactory][MessagingFactory] faults or is closed without its partner also being faulted or closed and the syphon detects this state, the syphon acts. If the other [MessagingFactory][MessagingFactory] is not closed within 5 seconds, the syphon faults the still open [MessagingFactory][MessagingFactory].
 
 ## Next steps
 See [Asynchronous messaging patterns and high availability][Asynchronous messaging patterns and high availability] for a detailed discussion of Service Bus asynchronous messaging. 

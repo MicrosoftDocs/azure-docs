@@ -1,26 +1,29 @@
 ---
-title: Synonyms preview tutorial in Azure Search | Microsoft Docs
-description: Add the synonyms preview feature to an index in Azure Search.
-services: search
-manager: jhubbard
-documentationcenter: ''
+title: Synonyms C# tutorial in Azure Search | Microsoft Docs
+description: In this tutorial, add the synonyms feature to an index in Azure Search.
+manager: cgronlun
 author: HeidiSteen
+services: search
 ms.service: search
-ms.devlang: NA
-ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.date: 03/31/2017
+ms.topic: tutorial
+ms.date: 07/10/2018
 ms.author: heidist
+#Customer intent: As a developer, I want to understand synonym implementation, benefits, and tradeoffs.
 ---
-# Synonym (preview) C# tutorial for Azure Search
+# Tutorial: Add synonyms for Azure Search in C#
 
-Synonyms expand a query by matching on terms considered semantically equivalent to the input term. For example, you might want "car" to match documents containing the terms "automobile" or "vehicle".
+Synonyms expand a query by matching on terms considered semantically equivalent to the input term. For example, you might want "car" to match documents containing the terms "automobile" or "vehicle". 
 
-In Azure Search, synonyms are defined in a *synonym map*, through *mapping rules* that associate equivalent terms. You can create multiple synonym maps, post them as a service-wide resource available to any index, and then reference which one to use at the field level. At query time, in addition to searching an index, Azure Search does a lookup in a synonym map, if one is specified on fields used in the query.
+In Azure Search, synonyms are defined in a *synonym map*, through *mapping rules* that associate equivalent terms. This tutorial covers essential steps for adding and using synonyms with an existing index. You learn how to:
+
+> [!div class="checklist"]
+> * Enable synonyms by creating and posting mapping rules 
+> * Reference a synonym map in a query string
+
+You can create multiple synonym maps, post them as a service-wide resource available to any index, and then reference which one to use at the field level. At query time, in addition to searching an index, Azure Search does a lookup in a synonym map, if one is specified on fields used in the query.
 
 > [!NOTE]
-> The synonyms feature is currently in preview and only supported in the latest preview API and SDK versions (api-version=2016-09-01-Preview, SDK version 4.x-preview). There is no Azure portal support at this time. Preview APIs are not under SLA and preview features may change, so we do not recommend using them in production applications.
+> Synonyms are supported in the latest API and SDK versions (api-version=2017-11-11, SDK version 5.0.0). There is no Azure portal support at this time. If Azure portal support for synonyms would be useful to you, please provide your feedback on the [UserVoice](https://feedback.azure.com/forums/263029-azure-search)
 
 ## Prerequisites
 
@@ -28,12 +31,12 @@ Tutorial requirements include the following:
 
 * [Visual Studio](https://www.visualstudio.com/downloads/)
 * [Azure Search service](search-create-service-portal.md)
-* [Preview version of Microsoft.Azure.Search .NET library](https://aka.ms/search-sdk-preview)
+* [Microsoft.Azure.Search .NET library](https://aka.ms/search-sdk)
 * [How to use Azure Search from a .NET Application](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
 
 ## Overview
 
-Before-and-after queries demonstrate the value of synonyms. In this tutorial, we use a sample application that executes queries and returns results on a sample index. The sample application creates a small index named "hotels" populated with two documents. The application executes search queries using terms and phrases that do not appear in the index, enables the synonyms feature, then issues the same searches again. The code below demonstrates the overall flow.
+Before-and-after queries demonstrate the value of synonyms. In this tutorial, use a sample application that executes queries and returns results on a sample index. The sample application creates a small index named "hotels" populated with two documents. The application executes search queries using terms and phrases that do not appear in the index, enables the synonyms feature, then issues the same searches again. The code below demonstrates the overall flow.
 
 ```csharp
   static void Main(string[] args)
@@ -71,7 +74,7 @@ The steps to create and populate the sample index are explained in [How to use A
 
 ## "Before" queries
 
-In `RunQueriesWithNonExistentTermsInIndex`, we issue search queries with "five star", "internet", and "economy AND hotel".
+In `RunQueriesWithNonExistentTermsInIndex`, issue search queries with "five star", "internet", and "economy AND hotel".
 ```csharp
 Console.WriteLine("Search the entire index for the phrase \"five star\":\n");
 results = indexClient.Documents.Search<Hotel>("\"five star\"", parameters);
@@ -157,8 +160,13 @@ Adding synonyms completely changes the search experience. In this tutorial, the 
 ## Sample application source code
 You can find the full source code of the sample application used in this walk through on [GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToSynonyms).
 
+## Clean up resources
+
+The fastest way to clean up after a tutorial is by deleting the resource group containing the Azure Search service. You can delete the resource group now to permanently delete everything in it. In the portal, the resource group name is on the Overview page of Azure Search service.
+
 ## Next steps
 
-* Review [How to use synonyms in Azure Search](search-synonyms.md)
-* Review [Synonyms REST API documentation](https://aka.ms/rgm6rq)
-* Browse the references for the [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) and [REST API](https://docs.microsoft.com/rest/api/searchservice/).
+This tutorial demonstrated the [Synonyms REST API](https://aka.ms/rgm6rq) in C# code to create and post mapping rules and then call the synonym map on a query. Additional information can be found in the [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) and [REST API](https://docs.microsoft.com/rest/api/searchservice/) reference documentation.
+
+> [!div class="nextstepaction"]
+> [How to use synonyms in Azure Search](search-synonyms.md)

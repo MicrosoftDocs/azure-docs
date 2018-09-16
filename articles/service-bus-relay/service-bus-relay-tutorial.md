@@ -1,9 +1,9 @@
 ---
 title: Azure Service Bus WCF Relay tutorial | Microsoft Docs
-description: Build a Service Bus client application and service using WCF Relay.
+description: Build a client and service application using WCF Relay.
 services: service-bus-relay
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/02/2017
-ms.author: sethm
+ms.date: 11/02/2017
+ms.author: spelluru
 
 ---
 # Azure WCF Relay tutorial
 
-This tutorial describes how to build a simple WCF Relay client application and service using Azure Relay. For a similar tutorial that uses [Service Bus Messaging](../service-bus-messaging/service-bus-messaging-overview.md#brokered-messaging), see [Get started with Service Bus queues](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
+This tutorial describes how to build a simple WCF Relay client application and service using Azure Relay. For a similar tutorial that uses [Service Bus messaging](../service-bus-messaging/service-bus-messaging-overview.md), see [Get started with Service Bus queues](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
 
 Working through this tutorial gives you an understanding of the steps that are required to create a WCF Relay client and service application. Like their original WCF counterparts, a service is a construct that exposes one or more endpoints, each of which exposes one or more service operations. The endpoint of a service specifies an address where the service can be found, a binding that contains the information that a client must communicate with the service, and a contract that defines the functionality provided by the service to its clients. The main difference between WCF and WCF Relay is that the endpoint is exposed in the cloud instead of locally on your computer.
 
@@ -51,7 +51,7 @@ The service contract specifies what operations (the web service terminology for 
 
 3. Install the Service Bus NuGet package. This package automatically adds references to the Service Bus libraries, as well as the WCF **System.ServiceModel**. [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) is the namespace that enables you to programmatically access the basic features of WCF. Service Bus uses many of the objects and attributes of WCF to define service contracts.
 
-    In Solution Explorer, right-click the project, and then click **Manage NuGet Packages...**. Click the **Browse** tab, then search for `Microsoft Azure Service Bus`. Ensure that the project name is selected in the **Version(s)** box. Click **Install**, and accept the terms of use.
+    In Solution Explorer, right-click the project, and then click **Manage NuGet Packages...**. Click the **Browse** tab, then search for **WindowsAzure.ServiceBus**. Ensure that the project name is selected in the **Version(s)** box. Click **Install**, and accept the terms of use.
 
     ![][3]
 4. In Solution Explorer, double-click the Program.cs file to open it in the editor, if it is not already open.
@@ -713,15 +713,13 @@ namespace Microsoft.ServiceBus.Samples
 
 ## Next steps
 
-This tutorial showed how to build an Azure Relay client application and service using the WCF Relay capabilities of Service Bus. For a similar tutorial that uses [Service Bus Messaging](../service-bus-messaging/service-bus-messaging-overview.md#brokered-messaging), see [Get started with Service Bus queues](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
+This tutorial showed how to build an Azure Relay client application and service using the WCF Relay capabilities of Service Bus. For a similar tutorial that uses [Service Bus Messaging](../service-bus-messaging/service-bus-messaging-overview.md), see [Get started with Service Bus queues](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
 
 To learn more about Azure Relay, see the following topics.
 
 * [Azure Service Bus architectural overview](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md#relays)
 * [Azure Relay overview](relay-what-is-it.md)
 * [How to use the WCF relay service with .NET](relay-wcf-dotnet-get-started.md)
-
-[Azure classic portal]: http://manage.windowsazure.com
 
 [2]: ./media/service-bus-relay-tutorial/create-console-app.png
 [3]: ./media/service-bus-relay-tutorial/install-nuget.png

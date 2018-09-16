@@ -1,54 +1,52 @@
 ---
-title: Monitor XTP in-memory storage | Microsoft Docs
-description: Estimate and monitor XTP in-memory storage use, capacity; resolve capacity error 41823
+title: Monitor XTP In-memory storage | Microsoft Docs
+description: Estimate and monitor XTP In-memory storage use, capacity; resolve capacity error 41823
 services: sql-database
-documentationcenter: ''
 author: jodebrui
-manager: jhubbard
-editor: ''
-
-ms.assetid: b617308e-692c-4938-8fa2-070034a3ecef
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 12/19/2016
+ms.topic: conceptual
+ms.date: 09/14/2018
 ms.author: jodebrui
 
 ---
-# Monitor In-Memory OLTP Storage
-When using [In-Memory OLTP](sql-database-in-memory.md), data in memory-optimized tables and table variables resides in In-Memory OLTP storage. Each Premium service tier has a maximum In-Memory OLTP storage size, which is documented in the [SQL Database Service Tiers article](sql-database-service-tiers.md#single-database-service-tiers-and-performance-levels). Once this limit is exceeded, insert and update operations may start failing (with error 41823). At that point you will need to either delete data to reclaim memory, or upgrade the performance tier of your database.
+# Monitor In-Memory OLTP storage
+When using [In-Memory OLTP](sql-database-in-memory.md), data in memory-optimized tables and table variables resides in In-Memory OLTP storage. Each Premium and Business Critical service tier has a maximum In-Memory OLTP storage size. See [DTU-based resource limits - single database](sql-database-dtu-resource-limits-single-databases.md), [DTU-based resource limits - elastic pools](sql-database-dtu-resource-limits-elastic-pools.md),[vCore-based resource limits - single databases](sql-database-vcore-resource-limits-single-databases.md) and [vCore-based resource limits - elastic pools](sql-database-vcore-resource-limits-elastic-pools.md).
 
-## Determine whether data will fit within the in-memory storage cap
-Determine the storage cap: consult the [SQL Database Service Tiers article](sql-database-service-tiers.md#single-database-service-tiers-and-performance-levels) for the storage caps of the different Premium service tiers.
+Once this limit is exceeded, insert and update operations may start failing with error 41823 for standalone databases and error 41840 for elastic pools. At that point you need to either delete data to reclaim memory, or upgrade the service tier or compute size of your database.
 
-Estimating memory requirements for a memory-optimized table works the same way for SQL Server as it does in Azure SQL Database. Take a few minutes to review that topic on [MSDN](https://msdn.microsoft.com/library/dn282389.aspx).
+## Determine whether data fits within the In-Memory OLTP storage cap
+Determine the storage caps of the different service tiers. See [DTU-based resource limits - single database](sql-database-dtu-resource-limits-single-databases.md), [DTU-based resource limits - elastic pools](sql-database-dtu-resource-limits-elastic-pools.md),[vCore-based resource limits - single databases](sql-database-vcore-resource-limits-single-databases.md) and [vCore-based resource limits - elastic pools](sql-database-vcore-resource-limits-elastic-pools.md).
 
-Note that the table and table variable rows, as well as indexes, count toward the max user data size. In addition, ALTER TABLE needs enough room to create a new version of the entire table and its indexes.
+Estimating memory requirements for a memory-optimized table works the same way for SQL Server as it does in Azure SQL Database. Take a few minutes to review that article on [MSDN](https://msdn.microsoft.com/library/dn282389.aspx).
+
+Table and table variable rows, as well as indexes, count toward the max user data size. In addition, ALTER TABLE needs enough room to create a new version of the entire table and its indexes.
 
 ## Monitoring and alerting
-You can monitor in-memory storage use as a percentage of the [storage cap for your performance tier](sql-database-service-tiers.md#single-database-service-tiers-and-performance-levels) in the Azure [portal](https://portal.azure.com/): 
+You can monitor In-memory storage use as a percentage of the storage cap for your compute size in the [Azure portal](https://portal.azure.com/): 
 
-* On the Database blade, locate the Resource utilization box and click on Edit.
-* Then select the metric `In-Memory OLTP Storage percentage`.
-* To add an alert, click on the Resource Utilization box to open the Metric blade, then click on Add alert.
+1. On the Database blade, locate the Resource utilization box and click on Edit.
+2. Select the metric `In-Memory OLTP Storage percentage`.
+3. To add an alert, click on the Resource Utilization box to open the Metric blade, then click on Add alert.
 
-Or use the following query to show the in-memory storage utilization:
+Or use the following query to show the In-memory storage utilization:
 
     SELECT xtp_storage_percent FROM sys.dm_db_resource_stats
 
 
-## Correct out-of-memory situations - Error 41823
-Running out-of-memory results in INSERT, UPDATE, and CREATE operations failing with error message 41823.
+## Correct out-of-In-Memory OLTP storage situations - Errors 41823 and 41840
+Hitting the In-Memory OLTP storage cap in your database results in INSERT, UPDATE, ALTER and CREATE operations failing with error message 41823 (for standalone databases) or error 41840 (for elastic pools). Both errors cause the active transaction to abort.
 
-Error message 41823 indicates that the memory-optimized tables and table variables have exceeded the maximum size.
+Error messages 41823 and 41840 indicate that the memory-optimized tables and table variables in the database or pool have reached the maximum In-Memory OLTP storage size.
 
 To resolve this error, either:
 
 * Delete data from the memory-optimized tables, potentially offloading the data to traditional, disk-based tables; or,
 * Upgrade the service tier to one with enough in-memory storage for the data you need to keep in memory-optimized tables.
+
+> [!NOTE] 
+> In rare cases, errors 41823 and 41840 can be transient, meaning there is enough available In-Memory OLTP storage, and retrying the operation succeeds. We therefore recommend to both monitor the overall available In-Memory OLTP storage and to retry when first encountering error 41823 or 41840. For more information about retry logic, see [Conflict Detection and Retry Logic with In-Memory OLTP](https://docs.microsoft.com/sql/relational-databases/In-memory-oltp/transactions-with-memory-optimized-tables#conflict-detection-and-retry-logic).
 
 ## Next steps
 For monitoring guidance, see [Monitoring Azure SQL Database using dynamic management views](sql-database-monitoring-with-dmvs.md).

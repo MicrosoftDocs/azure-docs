@@ -1,75 +1,225 @@
 {
-	"build_entry_point": "docs",
-	"need_generate_pdf_url_template": true,
-	"need_generate_intellisense": false,
-	"enable_push_aggregation": true,
-	"enable_pull_request_aggregation": true,	
-	"branch_target_mapping": {
-		"live": ["Publish", "PDF"],
-		"master": ["Publish", "PDF"]
-		},
-	"docsets_to_publish": [{
-		"docset_name": "azure-documents",
-		"build_source_folder": ".",
-		"build_output_subfolder": "azure",
-		"locale": "en-us",
-		"version": 0,
-		"open_to_public_contributors": true,
-		"type_mapping": {
-			"Conceptual": "Content",
-			"ManagedReference": "Content",
-      "LandingData": "Content",
-			"RestApi": "Content"
-		},
-		"build_entry_point": "docs",
-		"template_folder": "_themes"
-	}],
-	"Targets": {
-		"Pdf": {
-			"template_folder": "_themes.pdf"
-		}
-	},
-	"notification_subscribers": [],
-	"branches_to_filter": [],	
-	"skip_source_output_uploading": false,
-	"need_preview_pull_request": true,
-	"git_repository_url_open_to_public_contributors": "https://github.com/Microsoft/azure-docs",
-	"git_repository_branch_open_to_public_contributors": "master",
-	"enable_incremental_build": true,
-	"dependent_repositories": [{
-		"path_to_root": "_themes",
-		"url": "https://github.com/Microsoft/templates.docs.msft",
-		"branch": "master",
-		"branch_mapping": {
-			
-		}
-	},
-	{
-		"path_to_root": "_themes.pdf",
-		"url": "https://github.com/Microsoft/templates.docs.msft.pdf",
-		"branch": "master"
-	},
-	{
-		"path_to_root": "cli_scripts",
-		"url": "https://github.com/Azure/azure-docs-cli-python-samples",
-		"branch": "master",
-		"branch_mapping":
-		{
-			"release-build-mysql": "release-build",
-			"release-build-postgresql": "release-build",
-			"release-build-stellar": "release-build" 
-		}
-	},
-	{
-		"path_to_root": "powershell_scripts",
-		"url": "https://github.com/Azure/azure-docs-powershell-samples",
-		"branch": "master",
-		"branch_mapping":
-		{
-			"release-build-mysql": "release-build",
-			"release-build-postgresql": "release-build",
-			"release-build-stellar": "release-build" 
-		}
-	}
-	]
+  "build_entry_point": "docs",
+  "docsets_to_publish": [
+    {
+      "docset_name": "azure-documents",
+      "build_source_folder": ".",
+      "build_output_subfolder": "azure",
+      "locale": "en-us",
+      "monikers": [],
+      "moniker_ranges": [],
+      "open_to_public_contributors": true,
+      "type_mapping": {
+        "Conceptual": "Content",
+        "ManagedReference": "Content",
+        "LandingData": "Content",
+        "RestApi": "Content",
+        "ContextObject": "Toc"
+      },
+      "build_entry_point": "docs",
+      "template_folder": "_themes",
+      "version": 0
+    }
+  ],
+  "notification_subscribers": [],
+  "branches_to_filter": [],
+  "git_repository_url_open_to_public_contributors": "https://github.com/Microsoft/azure-docs",
+  "git_repository_branch_open_to_public_contributors": "master",
+  "skip_source_output_uploading": false,
+  "need_preview_pull_request": true,
+  "contribution_branch_mappings": {},
+  "dependent_repositories": [
+    {
+      "path_to_root": "_themes",
+      "url": "https://github.com/Microsoft/templates.docs.msft",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "_themes.pdf",
+      "url": "https://github.com/Microsoft/templates.docs.msft.pdf",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "cli_scripts",
+      "url": "https://github.com/Azure/azure-docs-cli-python-samples",
+      "branch": "master",
+      "branch_mapping": {
+        "release-build-mysql": "release-build",
+        "release-build-postgresql": "release-build",
+        "release-build-stellar": "release-build"
+      }
+    },
+    {
+      "path_to_root": "powershell_scripts",
+      "url": "https://github.com/Azure/azure-docs-powershell-samples",
+      "branch": "master",
+      "branch_mapping": {
+        "release-build-mysql": "release-build",
+        "release-build-postgresql": "release-build",
+        "release-build-stellar": "release-build"
+      }
+    },
+    {
+      "path_to_root": "policy-templates",
+      "url": "https://github.com/Azure/azure-policy",
+      "branch": "master",
+      "branch_mapping": {
+        "release-build-mysql": "release-build",
+        "release-build-postgresql": "release-build",
+        "release-build-stellar": "release-build"
+      }
+    },
+    {
+      "path_to_root": "azure-docs-json-samples",
+      "url": "https://github.com/Azure/azure-docs-json-samples",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "samples-mediaservices-integration",
+      "url": "https://github.com/Azure-Samples/media-services-dotnet-functions-integration",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "samples-mediaservices-encryptiondrm",
+      "url": "https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "samples-mediaservices-encryptionfairplay",
+      "url": "https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-fairplay",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "samples-mediaservices-encryptionaes",
+      "url": "https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "samples-mediaservices-copyblob",
+      "url": "https://github.com/Azure-Samples/media-services-dotnet-copy-blob-into-asset",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "samples-mediaservices-deliverplayready",
+      "url": "https://github.com/Azure-Samples/media-services-dotnet-deliver-playready-widevine-licenses",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "samples-mediaservices-livestream",
+      "url": "https://github.com/Azure-Samples/media-services-dotnet-encode-live-stream-with-ams-clear",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "samples-mediaservices-encoderstandard",
+      "url": "https://github.com/Azure-Samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-app-service-multi-container",
+      "url": "https://github.com/Azure-Samples/multicontainerwordpress",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "samples-durable-functions",
+      "url": "https://github.com/Azure/azure-functions-durable-extension",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "samples-luis",
+      "url": "https://github.com/Microsoft/Luis-Samples",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "api-management-policy-samples",
+      "url": "https://github.com/Azure/api-management-policy-snippets",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "WebApp-OpenIdConnect-DotNet",
+      "url": "https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet",
+      "branch": "GuidedSetup",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "iot-samples-node",
+      "url": "https://github.com/Azure-Samples/azure-iot-samples-node",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "samples-cognitive-services-speech-sdk",
+      "url": "https://github.com/Azure-Samples/cognitive-services-speech-sdk",
+      "branch": "docs-201807",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "media-services-v3-dotnet-quickstarts",
+      "url": "https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts",
+      "branch": "master",
+      "branch_mapping": {}
+    },  
+    {
+      "path_to_root": "media-services-v3-dotnet-tutorials",
+      "url": "https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "samples-javascript",
+      "url": "https://github.com/Microsoft/tsiclient",
+      "branch": "tutorial",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "media-services-v3-dotnet-core-tutorials",
+      "url": "https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "media-services-v3-rest-postman",
+      "url": "https://github.com/Azure-Samples/media-services-v3-rest-postman",
+      "branch": "master",
+      "branch_mapping": {}
+    }    
+  ],
+  "branch_target_mapping": {
+    "live": [
+      "Publish",
+      "PDF"
+    ],
+    "master": [
+      "Publish",
+      "PDF"
+    ],
+    "release-event-grid": [
+      "Publish",
+      "PDF"
+    ],
+    "hd-insight-pdf": [
+      "Publish",
+      "PDF"
+    ]
+  },
+  "need_generate_pdf_url_template": true,
+  "Targets": {
+    "Pdf": {
+      "template_folder": "_themes.pdf"
+    }
+  }
 }

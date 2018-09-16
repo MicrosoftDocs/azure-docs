@@ -3,8 +3,8 @@ title: Cache ASP.NET Output Cache Provider
 description: Learn how to cache ASP.NET Page Output using Azure Redis Cache
 services: redis-cache
 documentationcenter: na
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: tysonn
 
 ms.assetid: 78469a66-0829-484f-8660-b2598ec60fbf
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 02/14/2017
-ms.author: sdanie
+ms.author: wesmc
 
 ---
 # ASP.NET Output Cache Provider for Azure Redis Cache
@@ -44,8 +44,11 @@ The NuGet package downloads and adds the required assembly references and adds t
 <caching>
   <outputCachedefault Provider="MyRedisOutputCache">
     <providers>
+      <!-- For more details check https://github.com/Azure/aspnet-redis-providers/wiki -->
+      <!-- Either use 'connectionString' OR 'settingsClassName' and 'settingsMethodName' OR use 'host','port','accessKey','ssl','connectionTimeoutInMilliseconds' and 'operationTimeoutInMilliseconds'. -->
+      <!-- 'databaseId' and 'applicationName' can be used with both options. -->
       <!--
-      <add name="MyRedisOutputCache"
+      <add name="MyRedisOutputCache" 
         host = "127.0.0.1" [String]
         port = "" [number]
         accessKey = "" [String]
@@ -53,11 +56,19 @@ The NuGet package downloads and adds the required assembly references and adds t
         databaseId = "0" [number]
         applicationName = "" [String]
         connectionTimeoutInMilliseconds = "5000" [number]
-        operationTimeoutInMilliseconds = "5000" [number]
+        operationTimeoutInMilliseconds = "1000" [number]
+        connectionString = "<Valid StackExchange.Redis connection string>" [String]
+        settingsClassName = "<Assembly qualified class name that contains settings method specified below. Which basically return 'connectionString' value>" [String]
+        settingsMethodName = "<Settings method should be defined in settingsClass. It should be public, static, does not take any parameters and should have a return type of 'String', which is basically 'connectionString' value.>" [String]
+        loggingClassName = "<Assembly qualified class name that contains logging method specified below>" [String]
+        loggingMethodName = "<Logging method should be defined in loggingClass. It should be public, static, does not take any parameters and should have a return type of System.IO.TextWriter.>" [String]
+        redisSerializerType = "<Assembly qualified class name that implements Microsoft.Web.Redis.ISerializer>" [String]
       />
       -->
-      <add name="MyRedisOutputCache" type="Microsoft.Web.Redis.RedisOutputCacheProvider" host="127.0.0.1" accessKey="" ssl="false"/>
-    </providers>
+      <add name="MyRedisOutputCache" type="Microsoft.Web.Redis.RedisOutputCacheProvider"
+           host=""
+           accessKey=""
+           ssl="true" />
   </outputCache>
 </caching>
 ```

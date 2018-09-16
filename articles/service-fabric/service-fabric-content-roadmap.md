@@ -10,10 +10,10 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/14/2017
+ms.date: 12/08/2017
 ms.author: ryanwi
 
 ---
@@ -51,9 +51,9 @@ A named application is a collection of named services that performs a certain fu
 
 After creating a named application, you can create an instance of one of its service types (a named service) within the cluster by specifying the service type (using its name/version). Each service type instance is assigned a URI name scoped under its named application's URI. For example, if you create a "MyDatabase" named service within a "MyNamedApp" named application, the URI looks like: *fabric:/MyNamedApp/MyDatabase*. Within a named application, you can create one or more named services. Each named service can have its own partition scheme and instance/replica counts. 
 
-There are two types of services: stateless and stateful. Stateless services can store persistent state in an external storage service such as Azure Storage, Azure SQL Database, or Azure Cosmos DB. Use a stateless service when the service has no persistent storage at all. A stateful service uses Service Fabric to manage your service's state via its Reliable Collections or Reliable Actors programming models. 
+There are two types of services: stateless and stateful. Stateless services do not store state within the service. Stateless services have no persistent storage at all or store persistent state in an external storage service such as Azure Storage, Azure SQL Database, or Azure Cosmos DB. A stateful service stores state within the service and uses Reliable Collections or Reliable Actors programming models to manage state. 
 
-When creating a named service, you specify a partition scheme. Services with large amounts of state split the data across partitions. Each partition is responsible for a portion of the complete state of the service, which is spread across the cluster's nodes. Within a partition, stateless named services have instances while stateful named services have replicas. Usually, stateless named services only ever have one partition since they have no internal state. Stateful named services maintain their state within replicas and each partition has its own replica set. Read and write operations are performed at one replica (called the Primary). Changes to state from write operations are replicated to multiple other replicas (called Active Secondaries). 
+When creating a named service, you specify a partition scheme. Services with large amounts of state split the data across partitions. Each partition is responsible for a portion of the complete state of the service, which is spread across the cluster's nodes.  
 
 The following diagram shows the relationship between applications and service instances, partitions, and replicas.
 
@@ -80,7 +80,7 @@ Why have stateful microservices along with stateless ones? The two main reasons 
 Service Fabric offers multiple ways to write and manage your services. Services can use the Service Fabric APIs to take full advantage of the platform's features and application frameworks. Services can also be any compiled executable program written in any language and hosted on a Service Fabric cluster. For more information, see [Supported programming models](service-fabric-choose-framework.md).
 
 ### Containers
-By default, Service Fabric deploys and activates services as processes. Service Fabric can also deploy services in [containers](service-fabric-containers-overview.md). Importantly, you can mix services in processes and services in containers in the same application. Service Fabric supports deployment of Linux containers  Windows containers on Windows Server 2016. You can deploy existing applications, stateless services, or stateful services in containers. 
+By default, Service Fabric deploys and activates services as processes. Service Fabric can also deploy services in [containers](service-fabric-containers-overview.md). Importantly, you can mix services in processes and services in containers in the same application. Service Fabric supports deployment of Linux containers and Windows containers on Windows Server 2016. You can deploy existing applications, stateless services, or stateful services in containers. 
 
 ### Reliable Services
 [Reliable Services](service-fabric-reliable-services-introduction.md) is a lightweight framework for writing services that integrate with the Service Fabric platform and benefit from the full set of platform features. Reliable Services can be stateless (similar to most service platforms, such as web servers or Worker Roles in Azure Cloud Services), where state is persisted in an external solution, such as Azure DB or Azure Table Storage. Reliable Services can also be stateful, where state is persisted directly in the service itself using Reliable Collections. State is made [highly available](service-fabric-availability-services.md) through replication and distributed through [partitioning](service-fabric-concepts-partitioning.md), all managed automatically by Service Fabric.
@@ -89,15 +89,18 @@ By default, Service Fabric deploys and activates services as processes. Service 
 Built on top of Reliable Services, the [Reliable Actor](service-fabric-reliable-actors-introduction.md) framework is an application framework that implements the Virtual Actor pattern, based on the actor design pattern. The Reliable Actor framework uses independent units of compute and state with single-threaded execution called actors. The Reliable Actor framework provides built in communication for actors and pre-set state persistence and scale-out configurations.
 
 ### ASP.NET Core
-Service Fabric integrates with [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) as a first class programming model for building web and API applications
+Service Fabric integrates with [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) as a first class programming model for building web and API applications.  ASP.NET Core can be used in two different ways in Service Fabric:
+
+- Hosted as a guest executable. This is primarily used to run existing ASP.NET Core applications on Service Fabric with no code changes.
+- Run inside a Reliable Service. This allows better integration with the Service Fabric runtime and allows stateful ASP.NET Core services.
 
 ### Guest executables
-A [guest executable](service-fabric-deploy-existing-app.md) is an existing, arbitrary executable (written in any language) hosted on a Service Fabric cluster alongside other services. Guest executables do not integrate directly with Service Fabric APIs. However they still benefit from features the platform offers, such as custom health and load reporting and service discoverability by calling REST APIs. They also have full application lifecycle support. 
+A [guest executable](service-fabric-guest-executables-introduction.md) is an existing, arbitrary executable (written in any language) hosted on a Service Fabric cluster alongside other services. Guest executables do not integrate directly with Service Fabric APIs. However they still benefit from features the platform offers, such as custom health and load reporting and service discoverability by calling REST APIs. They also have full application lifecycle support. 
 
 ## Application lifecycle
 As with other platforms, an application on Service Fabric usually goes through the following phases: design, development, testing, deployment, upgrade, maintenance, and removal. Service Fabric provides first-class support for the full application lifecycle of cloud applications, from development through deployment, daily management, and maintenance to eventual decommissioning. The service model enables several different roles to participate independently in the application lifecycle. [Service Fabric application lifecycle](service-fabric-application-lifecycle.md) provides an overview of the APIs and how they are used by the different roles throughout the phases of the Service Fabric application lifecycle. 
 
-The entire app lifecycle can be managed using [PowerShell cmdlets](/powershell/module/ServiceFabric/), [C# APIs](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [Java APIs](/java/api/system.fabric._application_management_client), and [REST APIs](/rest/api/servicefabric/). You can also set up continuous integration/continuous deployment pipelines using tools such as [Visual Studio Team Services](service-fabric-set-up-continuous-integration.md) or [Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
+The entire app lifecycle can be managed using [PowerShell cmdlets](/powershell/module/ServiceFabric/), [CLI commands](service-fabric-sfctl.md), [C# APIs](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [Java APIs](/java/api/system.fabric._application_management_client), and [REST APIs](/rest/api/servicefabric/). You can also set up continuous integration/continuous deployment pipelines using tools such as [Azure Pipelines](service-fabric-set-up-continuous-integration.md) or [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md).
 
 The following Microsoft Virtual Academy video describes how to manage your application lifecycle:
 <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=My3Ka56yC_6106218965">
@@ -105,7 +108,7 @@ The following Microsoft Virtual Academy video describes how to manage your appli
 </a></center>
 
 ## Test applications and services
-To create truly cloud-scale services, it is critical to verify that your applications and services can withstand real-world failures. The Fault Analysis Service is designed for testing services that are built on Service Fabric. With the Fault Analysis Service,](service-fabric-testability-overview.md) you can induce meaningful faults and run complete test scenarios against your applications. These faults and scenarios exercise and validate the numerous states and transitions that a service will experience throughout its lifetime, all in a controlled, safe, and consistent manner.
+To create truly cloud-scale services, it is critical to verify that your applications and services can withstand real-world failures. The Fault Analysis Service is designed for testing services that are built on Service Fabric. With the [Fault Analysis Service](service-fabric-testability-overview.md), you can induce meaningful faults and run complete test scenarios against your applications. These faults and scenarios exercise and validate the numerous states and transitions that a service will experience throughout its lifetime, all in a controlled, safe, and consistent manner.
 
 [Actions](service-fabric-testability-actions.md) target a service for testing using individual faults. A service developer can use these as building blocks to write complicated scenarios. Examples of simulated faults are:
 
@@ -134,14 +137,14 @@ Running Service Fabric clusters on Azure provides integration with other Azure f
 
 You can create a cluster on Azure through the [Azure portal](service-fabric-cluster-creation-via-portal.md), from a [template](service-fabric-cluster-creation-via-arm.md), or from [Visual Studio](service-fabric-cluster-creation-via-visual-studio.md).
 
-The preview of Service Fabric on Linux enables you to build, deploy, and manage highly available, highly scalable applications on Linux just as you would on Windows. The Service Fabric frameworks (Reliable Services and Reliable Actors) are available in Java on Linux, in addition to C# (.NET Core). You can also build [guest executable services](service-fabric-deploy-existing-app.md) with any language or framework. In addition, the preview also supports orchestrating Docker containers. Docker containers can run guest executables or native Service Fabric services, which use the Service Fabric frameworks. For more information, read [Service Fabric on Linux](service-fabric-linux-overview.md).
+Service Fabric on Linux enables you to build, deploy, and manage highly available, highly scalable applications on Linux just as you would on Windows. The Service Fabric frameworks (Reliable Services and Reliable Actors) are available in Java on Linux, in addition to C# (.NET Core). You can also build [guest executable services](service-fabric-guest-executables-introduction.md) with any language or framework. Orchestrating Docker containers is also supported. Docker containers can run guest executables or native Service Fabric services, which use the Service Fabric frameworks. For more information, read about [Service Fabric on Linux](service-fabric-deploy-anywhere.md).
 
-Since Service Fabric on Linux is a preview, there are some features that are supported on Windows, but not on Linux. To learn more, read [Differences between Service Fabric on Linux and Windows](service-fabric-linux-windows-differences.md).
+There are some features that are supported on Windows, but not on Linux. To learn more, read [Differences between Service Fabric on Linux and Windows](service-fabric-linux-windows-differences.md).
 
 ### Standalone clusters
 Service Fabric provides an installation package for you to create standalone Service Fabric clusters on-premises or on any cloud provider. Standalone clusters give you the freedom to host a cluster wherever you want. If your data is subject to compliance or regulatory constraints, or you want to keep your data local, you can host your own cluster and applications. Service Fabric applications can run in multiple hosting environments with no changes, so your knowledge of building applications carries over from one hosting environment to another. 
 
-[Create your first Service Fabric standalone cluster](service-fabric-get-started-standalone-cluster.md)
+[Create your first Service Fabric standalone cluster](service-fabric-cluster-creation-for-windows-server.md)
 
 Linux standalone clusters are not yet supported.
 
@@ -172,21 +175,40 @@ The Service Fabric reporters monitor identified conditions of interest. They rep
 
 Reporting can be done from:
 * The monitored Service Fabric service replica or instance.
-* Internal watchdogs deployed as a Service Fabric service (for example, a Service Fabric stateless service that monitors conditions and issues reports). The watchdogs can be deployed an all nodes or can be affinitized to the monitored service.
+* Internal watchdogs deployed as a Service Fabric service (for example, a Service Fabric stateless service that monitors conditions and issues reports). The watchdogs can be deployed on all nodes or can be affinitized to the monitored service.
 * Internal watchdogs that run on the Service Fabric nodes but are not implemented as Service Fabric services.
 * External watchdogs that probe the resource from outside the Service Fabric cluster (for example, monitoring service like Gomez).
 
 Out of the box, Service Fabric components report health on all entities in the cluster. [System health reports](service-fabric-understand-and-troubleshoot-with-system-health-reports.md) provide visibility into cluster and application functionality and flag issues through health. For applications and services, system health reports verify that entities are implemented and are behaving correctly from the perspective of the Service Fabric runtime. The reports do not provide any health monitoring of the business logic of the service or detect hung processes. To add health information specific to your service's logic, [implement custom health reporting](service-fabric-report-health.md) in your services.
 
 Service Fabric provides multiple ways to [view health reports](service-fabric-view-entities-aggregated-health.md) aggregated in the health store:
-* [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) or other visualization tools/
-* Health queries (through [PowerShell](/powershell/module/ServiceFabric/), the [C# FabricClient APIs](/api/system.fabric.fabricclient.healthclient) and [Java FabricClient APIs](/java/api/system.fabric._health_client), or [REST APIs](/rest/api/servicefabric)).
-* General queries that return a list of entities that have health as one of the properties (through PowerShell, the API, or REST).
+* [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) or other visualization tools.
+* Health queries (through [PowerShell](/powershell/module/ServiceFabric/), [CLI](service-fabric-sfctl.md), the [C# FabricClient APIs](/dotnet/api/system.fabric.fabricclient.healthclient) and [Java FabricClient APIs](/java/api/system.fabric), or [REST APIs](/rest/api/servicefabric)).
+* General queries that return a list of entities that have health as one of the properties (through PowerShell, CLI, the APIs, or REST).
 
 The following Microsoft Virtual Academy video describes the Service Fabric health model and how it's used:
 <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
 <img src="./media/service-fabric-content-roadmap/HealthIntroVid.png" WIDTH="360" HEIGHT="244">
 </a></center>
+
+## Monitoring and diagnostics
+[Monitoring and diagnostics](service-fabric-diagnostics-overview.md) are critical to developing, testing, and deploying applications and services in any environment. Service Fabric solutions work best when you plan and implement monitoring and diagnostics that help ensure applications and services are working as expected in a local development environment or in production.
+
+The main goals of monitoring and diagnostics are to:
+
+- Detect and diagnose hardware and infrastructure issues
+- Detect software and app issues, reduce service downtime
+- Understand resource consumption and help drive operations decisions
+- Optimize application, service, and infrastructure performance
+- Generate business insights and identify areas of improvement
+ 
+The overall workflow of monitoring and diagnostics consists of three steps:
+
+1. Event generation: this includes events (logs, traces, custom events) at the infrastructure (cluster), platform, and application / service level
+2. Event aggregation: generated events need to be collected and aggregated before they can be displayed
+3. Analysis: events need to be visualized and accessible in some format, to allow for analysis and display as needed
+
+Multiple products are available that cover these three areas, and you are free to choose different technologies for each. For more information, read [Monitoring and diagnostics for Azure Service Fabric](service-fabric-diagnostics-overview.md).
 
 ## Next steps
 * Learn how to create a [cluster in Azure](service-fabric-cluster-creation-via-portal.md) or a [standalone cluster on Windows](service-fabric-cluster-creation-for-windows-server.md).

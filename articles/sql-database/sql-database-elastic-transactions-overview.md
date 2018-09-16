@@ -2,20 +2,14 @@
 title: Distributed transactions across cloud databases
 description: Overview of Elastic Database Transactions with Azure SQL Database
 services: sql-database
-documentationcenter: ''
-author: torsteng
-manager: jhubbard
-editor: torsteng
-
-ms.assetid: e14df7a3-7788-4cfb-bcd1-7ad6433ef1f9
+author: stevestein
+manager: craigg
 ms.service: sql-database
+ms.topic: conceptual
 ms.custom: scale out apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: sql-database
-ms.date: 05/27/2016
-ms.author: torsteng
+ms.workload: "On Demand"
+ms.date: 04/01/2018
+ms.author: sstein
 
 ---
 # Distributed transactions across cloud databases
@@ -92,7 +86,7 @@ The following code sample illustrates this approach. It assumes that a variable 
 
 
 ## .NET installation for Azure Cloud Services
-Azure provides several offerings to host .NET applications. A comparison of the different offerings is available in [Azure App Service, Cloud Services, and Virtual Machines comparison](../app-service-web/choose-web-site-cloud-service-vm.md). If the guest OS of the offering is smaller than .NET 4.6.1 required for elastic transactions, you need to upgrade the guest OS to 4.6.1. 
+Azure provides several offerings to host .NET applications. A comparison of the different offerings is available in [Azure App Service, Cloud Services, and Virtual Machines comparison](../app-service/choose-web-site-cloud-service-vm.md). If the guest OS of the offering is smaller than .NET 4.6.1 required for elastic transactions, you need to upgrade the guest OS to 4.6.1. 
 
 For Azure App Services, upgrades to the guest OS are currently not supported. For Azure Virtual Machines, simply log into the VM and run the installer for the latest .NET framework. For Azure Cloud Services, you need to include the installation of a newer .NET version into the startup tasks of your deployment. The concepts and steps are documented in [Install .NET on a Cloud Service Role](../cloud-services/cloud-services-dotnet-install-dotnet.md).  
 
@@ -131,14 +125,14 @@ Use Dynamic Management Views (DMVs) in SQL DB to monitor status and progress of 
 
 These DMVs are particularly useful:
 
-* **sys.dm\_tran\_active\_transactions**: Lists currently active transactions and their status. The UOW (Unit Of Work) column can identify the different child transactions that belong to the same distributed transaction. All transactions within the same distributed transaction carry the same UOW value. See the [DMV documentation](https://msdn.microsoft.com/library/ms174302.aspx) for more details.
-* **sys.dm\_tran\_database\_transactions**: Provides additional information about transactions, such as placement of the transaction in the log. See the [DMV documentation](https://msdn.microsoft.com/library/ms186957.aspx) for more details.
-* **sys.dm\_tran\_locks**: Provides information about the locks that are currently held by ongoing transactions. See the [DMV documentation](https://msdn.microsoft.com/library/ms190345.aspx) for more details.
+* **sys.dm\_tran\_active\_transactions**: Lists currently active transactions and their status. The UOW (Unit Of Work) column can identify the different child transactions that belong to the same distributed transaction. All transactions within the same distributed transaction carry the same UOW value. See the [DMV documentation](https://msdn.microsoft.com/library/ms174302.aspx) for more information.
+* **sys.dm\_tran\_database\_transactions**: Provides additional information about transactions, such as placement of the transaction in the log. See the [DMV documentation](https://msdn.microsoft.com/library/ms186957.aspx) for more information.
+* **sys.dm\_tran\_locks**: Provides information about the locks that are currently held by ongoing transactions. See the [DMV documentation](https://msdn.microsoft.com/library/ms190345.aspx) for more information.
 
 ## Limitations
 The following limitations currently apply to elastic database transactions in SQL DB:
 
-* Only transactions across databases in SQL DB are supported. Other [X/Open XA](https://en.wikipedia.org/wiki/X/Open_XA) resource providers and databases outside of SQL DB cannot participate in elastic database transactions. That means that elastic database transactions cannot stretch across on premises SQL Server and Azure SQL Databases. For distributed transactions on premises, continue to use MSDTC. 
+* Only transactions across databases in SQL DB are supported. Other [X/Open XA](https://en.wikipedia.org/wiki/X/Open_XA) resource providers and databases outside of SQL DB cannot participate in elastic database transactions. That means that elastic database transactions cannot stretch across on premises SQL Server and Azure SQL Database. For distributed transactions on premises, continue to use MSDTC. 
 * Only client-coordinated transactions from a .NET application are supported. Server-side support for T-SQL such as BEGIN DISTRIBUTED TRANSACTION is planned, but not yet available. 
 * Transactions across WCF services are not supported. For example, you have a WCF service method that executes a transaction. Enclosing the call within a transaction scope will fail as a [System.ServiceModel.ProtocolException](https://msdn.microsoft.com/library/system.servicemodel.protocolexception).
 

@@ -4,18 +4,15 @@ description: Create a new function app in Azure App Service from the portal.
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: erikre
-editor: ''
-tags: ''
+manager: jeconnoc
 
 ms.assetid: 
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: quickstart
 ms.date: 04/11/2017
 ms.author: glenga
+ms.custom: mvc
 
 ---
 # Create a function app from the Azure portal
@@ -36,7 +33,7 @@ After the function app is created, you can create individual functions in one or
 
 Azure Functions has two different service plans: Consumption plan and App Service plan. The Consumption plan automatically allocates compute power when your code is running, scales-out as necessary to handle load, and then scales-in when code is not running. The App Service plan gives your function app access to all the facilities of App Service. You must choose your service plan when your function app is created, and it cannot currently be changed. For more information, see [Choose an Azure Functions hosting plan](functions-scale.md).
 
-If you are planning to run JavaScript functions on an App Service plan, you should choose a plan with fewer cores. For more information, see the [JavaScript reference for Functions](functions-reference-node.md#choose-single-core-app-service-plans).
+If you are planning to run JavaScript functions on an App Service plan, you should choose a plan with fewer cores. For more information, see the [JavaScript reference for Functions](functions-reference-node.md#choose-single-vcpu-app-service-plans).
 
 <a name="storage-account-requirements"></a>
 
@@ -47,7 +44,7 @@ When creating a function app in App Service, you must create or link to a genera
 >[!NOTE]
 >When using the Consumption hosting plan, your function code and binding configuration files are stored in Azure File storage in the main storage account. When you delete the main storage account, this content is deleted and cannot be recovered.
 
-To learn more about storage account types, see [Introducing the Azure Storage Services] (../storage/storage-introduction.md#introducing-the-azure-storage-services).
+To learn more about storage account types, see [Introducing the Azure Storage Services](../storage/common/storage-introduction.md#azure-storage-services). 
 
 ## Next steps
 

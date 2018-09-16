@@ -1,10 +1,10 @@
-﻿---
+---
 title: Download a Windows VHD from Azure | Microsoft Docs
 description: Download a Windows VHD using the Azure portal.
 services: virtual-machines-windows
 documentationcenter: ''
-author: davidmu1
-manager: timlt
+author: cynthn
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -14,15 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 06/26/2017
-ms.author: davidmu
+ms.date: 06/01/2018
+ms.author: cynthn
 ---
 
 # Download a Windows VHD from Azure
 
-In this article, you learn how to download a [Windows virtual hard disk (VHD)](../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) file from Azure using the Azure portal. 
-
-Virtual machines (VMs) in Azure use [disks](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) as a place to store an operating system, applications, and data. All Azure VMs have at least two disks – a Windows operating system disk and a temporary disk. The operating system disk is initially created from an image, and both the operating system disk and the image are VHDs stored in an Azure storage account. Virtual machines also can have one or more data disks, that are also stored as VHDs.
+In this article, you learn how to download a [Windows virtual hard disk (VHD)](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) file from Azure using the Azure portal. 
 
 ## Stop the VM
 
@@ -47,7 +45,7 @@ To use the VHD as a disk for a new instance of an existing VM or data disk, comp
 
 ## Generate SAS URL
 
-To download the VHD file, you need to generate a [shared access signature (SAS)](../../storage/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) URL. When the URL is generated, an expiration time is assigned to the URL.
+To download the VHD file, you need to generate a [shared access signature (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) URL. When the URL is generated, an expiration time is assigned to the URL.
 
 1.	On the menu of the blade for the VM, click **Disks**.
 2.	Select the operating system disk for the VM, and then click **Export**.
@@ -74,6 +72,6 @@ To download the VHD file, you need to generate a [shared access signature (SAS)]
 ## Next steps
 
 - Learn how to [upload a VHD file to Azure](upload-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
-- [Create managed disks from unmanaged disks in a storage account](create-managed-disk-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- [Create managed disks from unmanaged disks in a storage account](attach-disk-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 - [Manage Azure disks with PowerShell](tutorial-manage-data-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

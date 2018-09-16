@@ -9,14 +9,13 @@ editor: cgronlun
 ms.assetid: 164ada5a-222e-4be2-bd32-e51dbe993bc0
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 06/08/2017
+ms.topic: conceptual
+ms.date: 05/29/2018
 ms.author: nitinme
 
 ---
 # Use Azure PowerShell to create an HDInsight cluster with Data Lake Store (as additional storage)
+
 > [!div class="op_single_selector"]
 > * [Using Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
 > * [Using PowerShell (for default storage)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
@@ -62,7 +61,7 @@ Follow these steps to create a Data Lake Store.
 1. From your desktop, open a new Azure PowerShell window, and enter the following snippet. When prompted to log in, make sure you log in as one of the subscription administrator/owner:
 
         # Log in to your Azure account
-        Login-AzureRmAccount
+        Connect-AzureRmAccount
 
         # List all the subscriptions associated to your account
         Get-AzureRmSubscription
@@ -119,7 +118,8 @@ Follow these steps to create a Data Lake Store.
 
 
 ## Set up authentication for role-based access to Data Lake Store
-Every Azure subscription is associated with an Azure Active Directory. Users and services that access resources of the subscription using the Azure Classic Portal or Azure Resource Manager API must first authenticate with that Azure Active Directory. Access is granted to Azure subscriptions and services by assigning them the appropriate role on an Azure resource.  For services, a service principal identifies the service in the Azure Active Directory (AAD). This section illustrates how to grant an application service, like HDInsight, access to an Azure resource (the Azure Data Lake Store account you created earlier) by creating a service principal for the application and assigning roles to that via Azure PowerShell.
+
+Every Azure subscription is associated with an Azure Active Directory. Users and services that access resources of the subscription using the Azure portal or Azure Resource Manager API must first authenticate with that Azure Active Directory. Access is granted to Azure subscriptions and services by assigning them the appropriate role on an Azure resource.  For services, a service principal identifies the service in the Azure Active Directory (AAD). This section illustrates how to grant an application service, like HDInsight, access to an Azure resource (the Azure Data Lake Store account you created earlier) by creating a service principal for the application and assigning roles to that via Azure PowerShell.
 
 To set up Active Directory authentication for Azure Data Lake, you must perform the following tasks.
 
@@ -127,6 +127,7 @@ To set up Active Directory authentication for Azure Data Lake, you must perform 
 * Create an application in Azure Active Directory and a Service Principal
 
 ### Create a self-signed certificate
+
 Make sure you have [Windows SDK](https://dev.windows.com/en-us/downloads) installed before proceeding with the steps in this section. You must have also created a directory, such as **C:\mycertdir**, where the certificate will be created.
 
 1. From the PowerShell window, navigate to the location where you installed Windows SDK (typically, `C:\Program Files (x86)\Windows Kits\10\bin\x86` and use the [MakeCert][makecert] utility to create a self-signed certificate and a private key. Use the following commands.
@@ -144,13 +145,14 @@ Make sure you have [Windows SDK](https://dev.windows.com/en-us/downloads) instal
     When prompted enter the private key password you specified earlier. The value you specify for the **-po** parameter is the password that is associated with the .pfx file. After the command successfully completes, you should also see a CertFile.pfx in the certificate directory you specified.
 
 ### Create an Azure Active Directory and a service principal
+
 In this section, you perform the steps to create a service principal for an Azure Active Directory application, assign a role to the service principal, and authenticate as the service principal by providing a certificate. Run the following commands to create an application in Azure Active Directory.
 
 1. Paste the following cmdlets in the PowerShell console window. Make sure the value you specify for the **-DisplayName** property is unique. Also, the values for **-HomePage** and **-IdentiferUris** are placeholder values and are not verified.
 
         $certificateFilePath = "$certificateFileDir\CertFile.pfx"
 
-        $password = Read-Host –Prompt "Enter the password" # This is the password you specified for the .pfx file
+        $password = Read-Host -Prompt "Enter the password" # This is the password you specified for the .pfx file
 
         $certificatePFX = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($certificateFilePath, $password)
 
@@ -261,6 +263,7 @@ This should list the file that you uploaded earlier to the Data Lake Store.
 You can also use the `hdfs dfs -put` command to upload some files to the Data Lake Store, and then use `hdfs dfs -ls` to verify whether the files were successfully uploaded.
 
 ## See Also
+* [Use Data Lake Store with Azure HDInsight clusters](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
 * [Portal: Create an HDInsight cluster to use Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx

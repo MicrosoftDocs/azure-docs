@@ -1,0 +1,69 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Bing Image Search Documentation 
+metadata:
+  document_id: ce69fd12-adf8-11e7-abc4-cec278b6b50a
+  title: Bing Image Search Documentation - Tutorials, quickstarts, API references | Microsoft Docs
+  description: Learn how to use Bing Image Search API to obtain images from the Web relevant to user queries. Tutorials show you how to build apps that use the service.
+  services: cognitive-services
+  author: v-jerkin
+  manager: carolz
+  ms.service: bing-image-search
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 10/10/2017
+  ms.author: v-jerkin
+abstract:
+  description: Bing Image Search API provides an experience similar to Bing.com/images by returning images that Bing determines are relevant to a user's query.
+sections:
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Get started using the Bing Image Search API by making a query and viewing the JSON response:'
+  - type: list
+    style: icon48
+    items:
+      - image:
+          src: media/index/logo_csharp.svg
+        href: quickstarts/csharp
+        text: "C&#35;"
+      - image:
+          src: media/index/logo_java.svg
+        href: quickstarts/java
+        text: "Java"
+      - image:
+          src: media/index/logo_nodejs.svg
+        href: quickstarts/nodejs
+        text: "Node.js"
+      - image:
+          src: media/index/logo_php.svg
+        href: quickstarts/php
+        text: "PHP"
+      - image:
+          src: media/index/logo_python.svg
+        href: quickstarts/python
+        text: "Python"
+      - image:
+          src: media/index/logo_ruby.svg
+        href: quickstarts/ruby
+        text: "Ruby"  
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: 'Learn how to develop applications using the Bing Image Search API:'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="tutorial-bing-image-search-single-page-app">Single-page web app</a> &#124; <a href="tutorial-bing-image-search-single-page-app-source">Source code</a>
+    - html: <a href="tutorial-image-post">Bing image upload for insights</a> &#124; <a href="tutorial-image-post-source">Source code</a>
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: APIs
+      html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference">Bing Image Search API v7</a></p><p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference/">Bing Image Search API v5</p>
+    - title: SDKs
+      html: <p><a href="sdk.md">Bing Search SDK</a></p>

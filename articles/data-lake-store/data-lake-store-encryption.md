@@ -1,19 +1,13 @@
 ---
 title: Encryption in Azure Data Lake Store | Microsoft Docs
-description: Understand how encryption and key rotation work in Azure Data Lake Store
+description: Encryption in Azure Data Lake Store helps you protect your data, implement enterprise security policies, and meet regulatory compliance requirements. This article provides an overview of the design, and discusses some of the technical aspects of implementation.
 services: data-lake-store
 documentationcenter: ''
-author: yagupta
-manager:
-editor:
+author: esung22
 
-ms.assetid: 
 ms.service: data-lake-store
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 4/14/2017
+ms.topic: conceptual
+ms.date: 03/26/2018
 ms.author: yagupta
 ---
 
@@ -103,7 +97,7 @@ The following diagram illustrates these concepts:
 4.	Store the encrypted data block of data on persistent storage.
 
 > [!NOTE] 
-> For performance reasons, the DEK in the clear is cached in memory for a short time, and is immediately erased afterward. On persistent media, it is always stored encrypted by the MEK.
+> The DEK is always stored encrypted by the MEK, whether on persistent media or cached in memory.
 
 ## Key rotation
 
@@ -135,3 +129,6 @@ Note that if you use the default options for encryption, your data is always enc
     ![Screenshot of Data Lake Store window with message and Rotate Key highlighted](./media/data-lake-store-encryption/rotatekey.png)
 
 This operation should take less than two minutes, and there is no expected downtime due to key rotation. After the operation is complete, the new version of the key is in use.
+
+> [!IMPORTANT]
+> After the key rotation operation is complete, the old version of the key is no longer actively used for encrypting your data.  However, in rare instances of unexpected failure where even redundant copies of your data are impacted, data may be restored from a backup that is still using the old key. To ensure your data is accessible in these rare circumstances, keep a copy of the previous version of your encryption key. See [Disaster recovery guidance for data in Data Lake Store](data-lake-store-disaster-recovery-guidance.md) for best practices for your disaster recovery planning. 

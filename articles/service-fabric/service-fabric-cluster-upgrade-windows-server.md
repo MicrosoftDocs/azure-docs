@@ -10,49 +10,49 @@ editor: ''
 ms.assetid: 66296cc6-9524-4c6a-b0a6-57c253bdf67e
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/02/2017
+ms.date: 10/15/2017
 ms.author: dekapur
 
 ---
-# Upgrade your standalone Azure Service Fabric on Windows Server cluster
+# Upgrade your standalone Azure Service Fabric cluster on Windows Server 
 > [!div class="op_single_selector"]
-> * [Azure Cluster](service-fabric-cluster-upgrade.md)
-> * [Standalone Cluster](service-fabric-cluster-upgrade-windows-server.md)
+> * [Azure cluster](service-fabric-cluster-upgrade.md)
+> * [Standalone cluster](service-fabric-cluster-upgrade-windows-server.md)
 >
 >
 
-For any modern system, the ability to upgrade is a key to the long-term success of your product. An Azure Service Fabric cluster is a resource that you own. This article describes how you can make sure that the cluster always runs supported versions of Service Fabric code and configurations.
+For any modern system, the ability to upgrade is key to the long-term success of your product. An Azure Service Fabric cluster is a resource that you own. This article describes how you can make sure that the cluster always runs supported versions of Service Fabric code and configurations.
 
 ## Control the Service Fabric version that runs on your cluster
-To set your cluster to download updates of Service Fabric when Microsoft releases a new version, set the **fabricClusterAutoupgradeEnabled** cluster configuration to true. To select a supported version of Service Fabric that you want your cluster to be on, set the **fabricClusterAutoupgradeEnabled** cluster configuration to false.
+To set your cluster to download updates of Service Fabric when Microsoft releases a new version, set the fabricClusterAutoupgradeEnabled cluster configuration to *true*. To select a supported version of Service Fabric that you want your cluster to be on, set the fabricClusterAutoupgradeEnabled cluster configuration to *false*.
 
 > [!NOTE]
 > Make sure that your cluster always runs a supported Service Fabric version. When Microsoft announces the release of a new version of Service Fabric, the previous version is marked for end of support after a minimum of 60 days from the date of the announcement. New releases are announced [on the Service Fabric team blog](https://blogs.msdn.microsoft.com/azureservicefabric/). The new release is available to choose at that point.
 >
 >
 
-You can upgrade your cluster to the new version only if you are using a production-style node configuration, where each Service Fabric node is allocated on a separate physical or virtual machine. If you have a development cluster, where more than one Service Fabric node is on a single physical or virtual machine, you must re-create the cluster with the new version.
+You can upgrade your cluster to the new version only if you're using a production-style node configuration, where each Service Fabric node is allocated on a separate physical or virtual machine. If you have a development cluster, where more than one Service Fabric node is on a single physical or virtual machine, you must re-create the cluster with the new version.
 
-Two distinct workflows can upgrade your cluster to the latest version or a supported Service Fabric version. One workflow is for clusters that have connectivity to download the latest version automatically. The other workflow is for clusters that do not have connectivity to download the latest Service Fabric version.
+Two distinct workflows can upgrade your cluster to the latest version or a supported Service Fabric version. One workflow is for clusters that have connectivity to download the latest version automatically. The other workflow is for clusters that don't have connectivity to download the latest Service Fabric version.
 
 ### Upgrade clusters that have connectivity to download the latest code and configuration
-Use these steps to upgrade your cluster to a supported version if your cluster nodes have Internet connectivity to [http://download.microsoft.com](http://download.microsoft.com).
+Use these steps to upgrade your cluster to a supported version if your cluster nodes have internet connectivity to the [Microsoft Download Center](http://download.microsoft.com).
 
-For clusters that have connectivity to [http://download.microsoft.com](http://download.microsoft.com), Microsoft periodically checks for the availability of new Service Fabric versions.
+For clusters that have connectivity to the [Microsoft Download Center](http://download.microsoft.com), Microsoft periodically checks for the availability of new Service Fabric versions.
 
 When a new Service Fabric version is available, the package is downloaded locally to the cluster and provisioned for upgrade. Additionally, to inform the customer of this new version, the system shows an explicit cluster health warning that's similar to the following:
 
-“The current cluster version [version#] support ends [Date]."
+"The current cluster version [version #] support ends [date]."
 
 After the cluster is running the latest version, the warning goes away.
 
 #### Cluster upgrade workflow
-After you see the cluster health warning, do the following:
+When you see the cluster health warning, do the following:
 
-1. Connect to the cluster from any machine that has administrator access to all the machines that are listed as nodes in the cluster. The machine that this script is run on does not have to be part of the cluster.
+1. Connect to the cluster from any machine that has administrator access to all the machines that are listed as nodes in the cluster. The machine that this script is run on doesn't have to be part of the cluster.
 
     ```powershell
 
@@ -78,9 +78,9 @@ After you see the cluster health warning, do the following:
 
     You should get an output similar to this:
 
-    ![get fabric versions][getfabversions]
+    ![Get Service Fabric versions][getfabversions]
 3. Start a cluster upgrade to an available version by using the
-   [Start-ServiceFabricClusterUpgrade](https://msdn.microsoft.com/library/mt125872.aspx) PowerShell cmd.
+   [Start-ServiceFabricClusterUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterupgrade) Windows PowerShell command.
 
     ```Powershell
 
@@ -91,34 +91,34 @@ After you see the cluster health warning, do the following:
     Start-ServiceFabricClusterUpgrade -Code -CodePackageVersion 5.3.301.9590 -Monitored -FailureAction Rollback
 
     ```
-   To monitor the progress of the upgrade, you can use Service Fabric Explorer or run the following Windows PowerShell command.
+   To monitor the progress of the upgrade, you can use Service Fabric Explorer or run the following PowerShell command:
 
     ```powershell
 
     Get-ServiceFabricClusterUpgrade
     ```
 
-    If the cluster health policies are not met, the upgrade is rolled back. To specify custom health policies for the **Start-ServiceFabricClusterUpgrade** command, see documentation for [Start-ServiceFabricClusterUpgrade](https://msdn.microsoft.com/library/mt125872.aspx).
+    If the cluster health policies aren't met, the upgrade is rolled back. To specify custom health policies for the Start-ServiceFabricClusterUpgrade command, see the documentation for [Start-ServiceFabricClusterUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterupgrade).
 
-After you fix the issues that resulted in the rollback, initiate the upgrade again by following the same steps as previously described.
+    After you fix the issues that resulted in the rollback, initiate the upgrade again by following the same steps as previously described.
 
-### Upgrade clusters that have <U>no connectivity</u> to download the latest code and configuration
-Use these steps to upgrade your cluster to a supported version if your cluster nodes do not have Internet connectivity to [http://download.microsoft.com](http://download.microsoft.com).
+### Upgrade clusters that have *no connectivity* to download the latest code and configuration
+Use these steps to upgrade your cluster to a supported version if your cluster nodes don't have internet connectivity to the [Microsoft Download Center](http://download.microsoft.com).
 
 > [!NOTE]
-> If you are running a cluster that is not connected to the Internet, you will have to monitor the Service Fabric team blog to learn about a new release. The system does not show a cluster health warning to alert you of a new release.  
+> If you're running a cluster that isn't connected to the internet, you have to monitor the Service Fabric team blog to learn about new releases. The system doesn't show a cluster health warning to alert you of new releases.  
 >
 >
 
-#### Auto Provisioning vs Manual Provisioning
-To enable automatic downloading and registration for the latest code version, set up Service Fabric Update Service. Refer to the Tools\ServiceFabricUpdateService.zip\Readme_InstructionsAndHowTos.txt inside the [Standalone Package](service-fabric-cluster-standalone-package-contents.md) for instructions.
-For manual process, follow the instructions below.
+#### Auto provisioning vs. manual provisioning
+To enable automatic downloading and registration for the latest code version, set up the Service Fabric Update Service. For instructions, see Tools\ServiceFabricUpdateService.zip\Readme_InstructionsAndHowTos.txt inside the [standalone package](service-fabric-cluster-standalone-package-contents.md).
+For the manual process, follow these instructions.
 
-Modify your cluster configuration to set the following property to false before you start a configuration upgrade.
+Modify your cluster configuration to set the following property to *false* before you start a configuration upgrade:
 
         "fabricClusterAutoupgradeEnabled": false,
 
-Refer to [Start-ServiceFabricClusterConfigurationUpgrade PS cmd ](https://msdn.microsoft.com/en-us/library/mt788302.aspx) for usage details. Make sure to update 'clusterConfigurationVersion' in your JSON before you start the configuration upgrade.
+For usage details, see the [Start-ServiceFabricClusterConfigurationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade) PowerShell command. Make sure to update 'clusterConfigurationVersion' in your JSON before you start the configuration upgrade.
 
 ```powershell
 
@@ -128,8 +128,9 @@ Refer to [Start-ServiceFabricClusterConfigurationUpgrade PS cmd ](https://msdn.m
 
 #### Cluster upgrade workflow
 
-1. Run Get-ServiceFabricClusterUpgrade from one of the nodes in the cluster and note the TargetCodeVersion.
-2. Run the following from an internet connected machine to list all upgrade compatible versions with the current version and download the corresponding package from the associated download links.
+1. Run [Get-ServiceFabricClusterUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclusterupgrade) from one of the nodes in the cluster and note the *TargetCodeVersion*.
+
+2. Run the following from an internet-connected machine to list all upgrade-compatible versions with the current version and download the corresponding package from the associated download links:
 
     ```powershell
 
@@ -137,7 +138,7 @@ Refer to [Start-ServiceFabricClusterConfigurationUpgrade PS cmd ](https://msdn.m
     Get-ServiceFabricRuntimeUpgradeVersion -BaseVersion <TargetCodeVersion as noted in Step 1> 
 	```
 
-3. Connect to the cluster from any machine that has administrator access to all the machines that are listed as nodes in the cluster. The machine that this script is run on does not have to be part of the cluster
+3. Connect to the cluster from any machine that has administrator access to all the machines that are listed as nodes in the cluster. The machine that this script is run on doesn't have to be part of the cluster.
 
     ```powershell
 
@@ -158,7 +159,7 @@ Refer to [Start-ServiceFabricClusterConfigurationUpgrade PS cmd ](https://msdn.m
     Register-ServiceFabricClusterPackage -Code -CodePackagePath <name of the .cab file>
 
     ###### Here is a filled-out example
-    Register-ServiceFabricClusterPackage -Code -CodePackagePath MicrosoftAzureServiceFabric.5.3.301.9590.cab
+    Register-ServiceFabricClusterPackage -Code -CodePackagePath .\MicrosoftAzureServiceFabric.5.3.301.9590.cab
 
      ```
 6. Start a cluster upgrade to an available version.
@@ -171,20 +172,37 @@ Refer to [Start-ServiceFabricClusterConfigurationUpgrade PS cmd ](https://msdn.m
     Start-ServiceFabricClusterUpgrade -Code -CodePackageVersion 5.3.301.9590 -Monitored -FailureAction Rollback
 
     ```
-   You can monitor the progress of the upgrade on Service Fabric Explorer, or you can run the following PowerShell command.
+   You can monitor the progress of the upgrade on Service Fabric Explorer, or you can run the following PowerShell command:
 
     ```powershell
 
     Get-ServiceFabricClusterUpgrade
     ```
 
-    If the cluster health policies are not met, the upgrade is rolled back. To specify custom health policies for the **Start-ServiceFabricClusterUpgrade** command, see the documentation for [Start-ServiceFabricClusterUpgrade](https://msdn.microsoft.com/library/mt125872.aspx).
+    If the cluster health policies aren't met, the upgrade is rolled back. To specify custom health policies for the Start-ServiceFabricClusterUpgrade command, see the documentation for [Start-ServiceFabricClusterUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterupgrade).
 
-After you fix the issues that resulted in the rollback, initiate the upgrade again by following the same steps as previously described.
+    After you fix the issues that resulted in the rollback, initiate the upgrade again by following the same steps as previously described.
 
 
 ## Upgrade the cluster configuration
-To upgrade the cluster configuration upgrade, run **Start-ServiceFabricClusterConfigurationUpgrade**. The configuration upgrade is processed upgrade domain by upgrade domain.
+Before you initiate the configuration upgrade, you can test your new cluster configuration JSON by running the following PowerShell script in the standalone package:
+
+```powershell
+
+    TestConfiguration.ps1 -ClusterConfigFilePath <Path to the new Configuration File> -OldClusterConfigFilePath <Path to the old Configuration File>
+
+```
+Or use this script:
+
+```powershell
+
+    TestConfiguration.ps1 -ClusterConfigFilePath <Path to the new Configuration File> -OldClusterConfigFilePath <Path to the old Configuration File> -FabricRuntimePackagePath <Path to the .cab file which you want to test the configuration against>
+
+```
+
+Some configurations can't be upgraded, such as endpoints, cluster name, node IP, etc. The new cluster configuration JSON is tested against the old one and throws errors in the PowerShell window if there's an issue.
+
+To upgrade the cluster configuration upgrade, run [Start-ServiceFabricClusterConfigurationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade). The configuration upgrade is processed upgrade domain by upgrade domain.
 
 ```powershell
 
@@ -193,11 +211,17 @@ To upgrade the cluster configuration upgrade, run **Start-ServiceFabricClusterCo
 ```
 
 ### Cluster certificate config upgrade  
-Cluster certificate is used for authentication between cluster nodes, so the certificate roll over should be performed with extra caution because failure will block the communication among cluster nodes.  
-Technically, two options are supported:  
+A cluster certificate is used for authentication between cluster nodes. The certificate rollover should be performed with extra caution because failure blocks the communication among cluster nodes.
 
-1. Single certificate upgrade: The upgrade path is 'Certificate A (Primary) -> Certificate B (Primary) -> Certificate C (Primary) -> ...'.   
-2. Double certificate upgrade: The upgrade path is 'Certificate A (Primary) -> Certificate A (Primary) and B (Secondary) -> Certificate B (Primary) -> Certificate B (Primary) and C (Secondary) -> Certificate C (Primary) -> ...'.
+Technically, four options are supported:  
+
+* Single certificate upgrade: The upgrade path is Certificate A (Primary) -> Certificate B (Primary) -> Certificate C (Primary) ->....
+
+* Double certificate upgrade: The upgrade path is Certificate A (Primary) -> Certificate A (Primary) and B (Secondary) -> Certificate B (Primary) -> Certificate B (Primary) and C (Secondary) -> Certificate C (Primary) ->....
+
+* Certificate type upgrade: Thumbprint-based certificate configuration <-> CommonName-based certificate configuration. For example, Certificate Thumbprint A (Primary) and Thumbprint B (Secondary) -> Certificate CommonName C.
+
+* Certificate issuer thumbprint upgrade: The upgrade path is Certificate CN=A,IssuerThumbprint=IT1 (Primary) -> Certificate CN=A,IssuerThumbprint=IT1,IT2 (Primary) -> Certificate CN=A,IssuerThumbprint=IT2 (Primary).
 
 
 ## Next steps

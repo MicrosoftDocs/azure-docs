@@ -3,19 +3,13 @@ title: Elastic Database tools glossary | Microsoft Docs
 description: Explanation of terms used for elastic database tools
 services: sql-database
 documentationcenter: ''
-manager: jhubbard
-author: ddove
-editor: ''
-
-ms.assetid: a23a4e81-6706-452d-afc1-a550e5e47af9
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 10/24/2016
-ms.author: ddove
+ms.topic: conceptual
+ms.date: 09/14/2018
+ms.author: sstein
 
 ---
 # Elastic Database tools glossary
@@ -80,7 +74,7 @@ Here is a representation of **sharded** single and multi-tenant databases.
 
 **Split**: The act of moving several shardlets from one shard to another (typically new) shard. A sharding key is provided by the user as the split point.
 
-**Vertical Scaling**: The act of scaling up (or down) the performance level of an individual shard. For example, changing a shard from Standard to Premium (which results in more computing resources). 
+**Vertical Scaling**: The act of scaling up (or down) the compute size of an individual shard. For example, changing a shard from Standard to Premium (which results in more computing resources). 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

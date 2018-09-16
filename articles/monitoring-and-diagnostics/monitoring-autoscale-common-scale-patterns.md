@@ -1,21 +1,13 @@
 ---
-title: Overview of common autoscale patterns | Microsoft Docs
+title: Overview of common autoscale patterns
 description: Learn some of the common patterns to auto scale your resource in Azure.
-author: rajram
-manager: rboucher
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.assetid: d37d3fda-8ef1-477c-a360-a855b418de84
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+author: anirudhcavale
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 05/07/2017
-ms.author: rajram
-
+ms.author: ancav
+ms.component: autoscale
 ---
 # Overview of common autoscale patterns
 This article describes some of the common patterns to scale your resource in Azure.

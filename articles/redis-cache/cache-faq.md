@@ -3,8 +3,8 @@ title: Azure Redis Cache FAQ | Microsoft Docs
 description: Learn the answers to common questions, patterns and best practices for Azure Redis Cache
 services: redis-cache
 documentationcenter: ''
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: ''
 
 ms.assetid: c2c52b7d-b2d1-433a-b635-c20180e5cab2
@@ -13,8 +13,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 06/12/2017
-ms.author: sdanie
+ms.date: 07/27/2017
+ms.author: wesmc
 
 ---
 # Azure Redis Cache FAQ
@@ -108,7 +108,7 @@ The following are considerations for choosing a Cache offering.
 * **Redis Cluster**: To create caches larger than 53 GB, or to shard data across multiple Redis nodes, you can use Redis clustering, which is available in the Premium tier. Each node consists of a primary/replica cache pair for high availability. For more information, see [How to configure clustering for a Premium Azure Redis Cache](cache-how-to-premium-clustering.md).
 * **Enhanced security and network isolation**: Azure Virtual Network (VNET) deployment provides enhanced security and isolation for your Azure Redis Cache, as well as subnets, access control policies, and other features to further restrict access. For more information, see [How to configure Virtual Network support for a Premium Azure Redis Cache](cache-how-to-premium-vnet.md).
 * **Configure Redis**: In both the Standard and Premium tiers, you can configure Redis for Keyspace notifications.
-* **Maximum number of client connections**: The Premium tier offers the maximum number of clients that can connect to Redis, with a higher number of connections for larger sized caches. For more information, see [Azure Redis Cache pricing](https://azure.microsoft.com/pricing/details/cache/).
+* **Maximum number of client connections**: The Premium tier offers the maximum number of clients that can connect to Redis, with a higher number of connections for larger sized caches. Clustering does not increase the number of connections available for a clustered cache. For more information, see [Azure Redis Cache pricing](https://azure.microsoft.com/pricing/details/cache/).
 * **Dedicated Core for Redis Server**: In the Premium tier, all cache sizes have a dedicated core for Redis. In the Basic/Standard tiers, the C1 size and above have a dedicated core for Redis server.
 * **Redis is single-threaded** so having more than two cores does not provide additional benefit over having just two cores, but larger VM sizes typically have more bandwidth than smaller sizes. If the cache server or client reaches the bandwidth limits, then you receive timeouts on the client side.
 * **Performance improvements**: Caches in the Premium tier are deployed on hardware that has faster processors, giving better performance compared to the Basic or Standard tier. Premium tier Caches have higher throughput and lower latencies.
@@ -116,36 +116,36 @@ The following are considerations for choosing a Cache offering.
 <a name="cache-performance"></a>
 
 ### Azure Redis Cache performance
-The following table shows the maximum bandwidth values observed while testing various sizes of Standard and Premium caches using `redis-benchmark.exe` from an Iaas VM against the Azure Redis Cache endpoint. 
+The following table shows the maximum bandwidth values observed while testing various sizes of Standard and Premium caches using `redis-benchmark.exe` from an Iaas VM against the Azure Redis Cache endpoint. For SSL throughput, redis-benchmark is used with stunnel to connect to the Azure Redis Cache endpoint.
 
 >[!NOTE] 
 >These values are not guaranteed and there is no SLA for these numbers, but should be typical. You should load test your own application to determine the right cache size for your application.
->
+>These numbers might change as we post newer results periodically.
 >
 
 From this table, we can draw the following conclusions:
 
-* Throughput for the caches that are the same size is higher in the Premium tier as compared to the Standard tier. For example, with a 6 GB Cache, throughput of P1 is 140K RPS as compared to 49K for C3.
-* With Redis clustering, throughput increases linearly as you increase the number of shards (nodes) in the cluster. For example, if you create a P4 cluster of 10 shards, then the available throughput is 250K *10 = 2.5 Million RPS.
+* Throughput for the caches that are the same size is higher in the Premium tier as compared to the Standard tier. For example, with a 6 GB Cache, throughput of P1 is 180,000 RPS as compared to 100,000 for C3.
+* With Redis clustering, throughput increases linearly as you increase the number of shards (nodes) in the cluster. For example, if you create a P4 cluster of 10 shards, then the available throughput is 400,000 *10 = 4 Million RPS.
 * Throughput for bigger key sizes is higher in the Premium tier as compared to the Standard Tier.
 
-| Pricing tier | Size | CPU cores | Available bandwidth | 1 KB value size |
-| --- | --- | --- | --- | --- |
-| **Standard cache sizes** | | |**Megabits per sec (Mb/s) / Megabytes per sec (MB/s)** |**Requests per second (RPS)** |
-| C0 |250 MB |Shared |5 / 0.625 |600 |
-| C1 |1 GB |1 |100 / 12.5 |12200 |
-| C2 |2.5 GB |2 |200 / 25 |24000 |
-| C3 |6 GB |4 |400 / 50 |49000 |
-| C4 |13 GB |2 |500 / 62.5 |61000 |
-| C5 |26 GB |4 |1000 / 125 |115000 |
-| C6 |53 GB |8 |2000 / 250 |150000 |
-| **Premium cache sizes** | |**CPU cores per shard** | |**Requests per second (RPS), per shard** |
-| P1 |6 GB |2 |1000 / 125 |140000 |
-| P2 |13 GB |4 |2000 / 250 |220000 |
-| P3 |26 GB |4 |2000 / 250 |220000 |
-| P4 |53 GB |8 |4000 / 500 |250000 |
+| Pricing tier | Size | CPU cores | Available bandwidth | 1 KB value size | 1 KB value size |
+| --- | --- | --- | --- | --- | --- |
+| **Standard cache sizes** | | |**Megabits per sec (Mb/s) / Megabytes per sec (MB/s)** |**Requests per second (RPS) Non-SSL** |**Requests per second (RPS) SSL** |
+| C0 |250 MB |Shared |100 / 12.5 |15,000 |7,500 |
+| C1 |1 GB |1 |500 / 62.5 |38,000 |20,720 |
+| C2 |2.5 GB |2 |500 / 62.5 |41,000 |37,000 |
+| C3 |6 GB |4 |1000 / 125 |100,000 |90,000 |
+| C4 |13 GB |2 |500 / 62.5 |60,000 |55,000 |
+| C5 |26 GB |4 |1,000 / 125 |102,000 |93,000 |
+| C6 |53 GB |8 |2,000 / 250 |126,000 |120,000 |
+| **Premium cache sizes** | |**CPU cores per shard** | **Megabits per sec (Mb/s) / Megabytes per sec (MB/s)** |**Requests per second (RPS) Non-SSL, per shard** |**Requests per second (RPS) SSL, per shard** |
+| P1 |6 GB |2 |1,500 / 187.5 |180,000 |172,000 |
+| P2 |13 GB |4 |3,000 / 375 |350,000 |341,000 |
+| P3 |26 GB |4 |3,000 / 375 |350,000 |341,000 |
+| P4 |53 GB |8 |6,000 / 750 |400,000 |373,000 |
 
-For instructions on downloading the Redis tools such as `redis-benchmark.exe`, see the [How can I run Redis commands?](#cache-commands) section.
+For instructions on setting up stunnel or downloading the Redis tools such as `redis-benchmark.exe`, see the [How can I run Redis commands?](#cache-commands) section.
 
 <a name="cache-region"></a>
 
@@ -243,9 +243,7 @@ You can use any of the commands listed at [Redis commands](http://redis.io/comma
 * You can also use the Redis command-line tools. To use them, perform the following steps:
 * Download the [Redis command-line tools](https://github.com/MSOpenTech/redis/releases/).
 * Connect to the cache using `redis-cli.exe`. Pass in the cache endpoint using the -h switch and the key using -a as shown in the following example:
-* `redis-cli -h <your cache="" name="">
-  .redis.cache.windows.net -a <key>
-  `
+* `redis-cli -h <redis cache name>.redis.cache.windows.net -a <key>`
 
 > [!NOTE]
 > The Redis command-line tools do not work with the SSL port, but you can use a utility such as `stunnel` to securely connect the tools to the SSL port by following the directions in the [Announcing ASP.NET Session State Provider for Redis Preview Release](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) blog post.
@@ -356,7 +354,7 @@ The following commands provide an example of using redis-benchmark.exe. For accu
 ### Important details about ThreadPool growth
 The CLR ThreadPool has two types of threads - "Worker" and "I/O Completion Port" (aka IOCP) threads.
 
-* Worker threads are used when for things like processing `Task.Run(…)` or `ThreadPool.QueueUserWorkItem(…)` methods. These threads are also used by various components in the CLR when work needs to happen on a background thread.
+* Worker threads are used for things like processing the `Task.Run(…)`, or `ThreadPool.QueueUserWorkItem(…)` methods. These threads are also used by various components in the CLR when work needs to happen on a background thread.
 * IOCP threads are used when asynchronous IO happens (e.g. reading from the network).
 
 The thread pool provides new worker threads or I/O completion threads on demand (without any throttling) until it reaches the "Minimum" setting for each type of thread. By default, the minimum number of threads is set to the number of processors on a system.
@@ -384,13 +382,16 @@ Given this information, we strongly recommend that customers set the minimum con
 
 How to configure this setting:
 
-* In ASP.NET, use the ["minIoThreads" configuration setting]["minIoThreads" configuration setting] under the `<processModel>` configuration element in web.config. If you are running inside of Azure WebSites, this setting is not exposed through the configuration options. However, you should still be able to configure this setting programmatically (see below) from your Application_Start method in global.asax.cs.
+* In ASP.NET, use the ["minIoThreads" or "minWorkerThreads" configuration setting]["minIoThreads" configuration setting] under the `<processModel>` configuration element in web.config. If you are running inside of Azure WebSites, this setting is not exposed through the configuration options. However, you should still be able to configure this setting programmatically (see below) from your Application_Start method in global.asax.cs.
 
   > [!NOTE] 
   > The value specified in this configuration element is a *per-core* setting. For example, if you have a 4 core machine and want your minIOThreads setting to be 200 at runtime, you would use `<processModel minIoThreads="50"/>`.
   >
 
-* Outside of ASP.NET, use the [ThreadPool.SetMinThreads(…)](https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads.aspx) API.
+* Outside ASP.NET, and Azure WebSites global.asax, use the [ThreadPool.SetMinThreads (...)] (https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads.aspx) API.
+
+  > [!NOTE]
+  > The value specified by this API is a global setting, affecting the whole AppDomain. If you have a 4 core machine, and want to set minWorkerThreads and minIOThreads to 50 per CPU during run-time, you would use ThreadPool.SetMinThreads (200, 200).
 
 <a name="server-gc"></a>
 

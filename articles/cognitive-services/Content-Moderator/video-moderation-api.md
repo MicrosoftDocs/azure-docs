@@ -1,36 +1,66 @@
 ---
-title: Video Moderation API in Content Moderator | Microsoft Docs
-description: Sign up for the video moderation in Content Moderator to use the adult content classifier running within Azure Media Services.
+title: Azure Content Moderator - video moderation | Microsoft Docs
+description: Use video moderation to scan for possible adult and racy content.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
-
 ms.service: cognitive-services
-ms.technology: content-moderator
+ms.component: content-moderator
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 02/02/2018
 ms.author: sajagtap
 ---
 
-# Video Moderation API
+# Video moderation
 
-Today, online viewers are generating billions of video views across popular and regional social media web sites and increasing. With proactive detection of adult content in your video files, you can significantly lower the cost of your moderation efforts. Furthermore, gaining this type of early insight can enable you to make better decisions and create safer experiences for your customers.
+Today, online viewers generate billions of video views across popular and regional social media web sites and increasing. By applying machine-learning based services to predict potential adult and racy content, you lower the cost of your moderation efforts.
 
-## How it works
+## Sign up for the Content Moderator media processor (preview)
 
-The Content Moderator video moderation capability is powered by the adult content classifier running within the **Azure Media Services**. The capability is currently in private preview and available at no charge. Here are the steps you need to follow to try the service:
+### Create a free Azure account
 
-1. [Sign up](https://azure.microsoft.com/en-us/free/) for a free Microsoft Azure subscription if you don't have one already.
-1. [Submit a support request](https://ms.portal.azure.com/#create/Microsoft.Support) for enabling the East US 2 region for your Azure Subscription ID.
-1. [Contact us](https://cognitive.uservoice.com/ "Contact Us") with your Azure Subscription ID for enabling the Video Content Moderator in the East US 2 region.
-1. [Create a **Media Services** account](https://ms.portal.azure.com/#create/Microsoft.MediaService) in the East US 2 region on the Azure portal.
+[Start here](https://azure.microsoft.com/free/) to create a free Azure account if you don't have one already.
 
-The free tiers can help you in evaluating the video moderation with your content. Depending on your volumes and purchase options, your expenses will include just the media storage and compute costs.
+### Create an Azure Media Services account
 
-## Code Sample
+The Content Moderator's video capability is available as a public preview **media processor** in Azure Media Services (AMS) at no charge.
 
-The following is a sample C# program set that will get you started with your first Content Moderator job. This code requires both the [Azure Media Services C# SDK](https://github.com/Azure/azure-sdk-for-media-services "Azure Media Services SDK") and [SDK Extensions packages](https://github.com/Azure/azure-sdk-for-media-services-extensions "SDK Extensions") (available on [NuGet](http://www.nuget.org/packages?q=Azure+Media+Services+.NET+SDK "Nuget")).
+[Create an Azure Media Services account](https://docs.microsoft.com/azure/media-services/media-services-portal-create-account) in your Azure subscription.
 
+### Get Azure Active Directory credentials
+
+   1. Read the [Azure Media Services portal article](https://docs.microsoft.com/azure/media-services/media-services-portal-get-started-with-aad) to learn how to use the Azure portal to get your Azure AD authentication credentials.
+   1. Read the [Azure Media Services .NET article](https://docs.microsoft.com/azure/media-services/media-services-dotnet-get-started-with-aad) to learn how to use your Azure Active Directory credentials with the .NET SDK.
+
+   > [!NOTE]
+   > The sample code in this quickstart uses the **service principal authentication** method described in both the articles.
+
+Once you get your AMS credentials, there are two ways to try the Content Moderator media processor.
+
+## Use Azure Media Services Explorer
+
+Use the interactive [Azure Media Services (AMS) explorer](https://azure.microsoft.com/blog/managing-media-workflows-with-the-new-azure-media-services-explorer-tool/) to browse your AMS account, upload videos, and scan with the Content Moderator media processor. [Download and install it](https://github.com/Azure/Azure-Media-Services-Explorer/releases) from GitHub, and [browse the source code](http://github.com/Azure/Azure-Media-Services-Explorer) to dive into using the AMS SDK.
+
+![Azure Media Services explorer with Content Moderator](images/ams-explorer-content-moderator.PNG)
+
+## .NET QuickStart with Visual Studio and C#
+
+1. Add a new **Console app (.NET Framework)** project to your solution.
+
+   In the sample code, name the project **VideoModeration**.
+
+1. Select this project as the single startup project for the solution.
+
+### Install required packages
+
+Install the following NuGet packages available on [NuGet](https://www.nuget.org/).
+
+- windowsazure.mediaservices
+- windowsazure.mediaservices.extensions
+
+### Update the program's using statements
+
+Modify the program's using statements.
 
 	using System;
 	using System.Linq;
@@ -38,175 +68,361 @@ The following is a sample C# program set that will get you started with your fir
 	using Microsoft.WindowsAzure.MediaServices.Client;
 	using System.IO;
 	using System.Threading;
+	using Microsoft.WindowsAzure.Storage.Blob;
+	using Microsoft.WindowsAzure.Storage;
+	using Microsoft.WindowsAzure.Storage.Auth;
+	using System.Collections.Generic;
 
-	namespace ContentModeratorAmsSample
-	{
 
-	class Program
+### Initialize application-specific settings
+
+Add the following static fields to the **Program** class in Program.cs.
+
+	// declare constants and globals
+    private static CloudMediaContext _context = null;
+    private static CloudStorageAccount _StorageAccount = null;
+
+    // Azure Media Services (AMS) associated Storage Account, Key, and the Container that has 
+    // a list of Blobs to be processed.
+    static string STORAGE_NAME = "YOUR AMS ASSOCIATED BLOB STORAGE NAME";
+    static string STORAGE_KEY = "YOUR AMS ASSOCIATED BLOB STORAGE KEY";
+    static string STORAGE_CONTAINER_NAME = "YOUR BLOB CONTAINER FOR VIDEO FILES";
+
+    private static StorageCredentials _StorageCredentials = null;
+
+    // Azure Media Services authentication. See the quickstart for how to get these.
+    private const string AZURE_AD_TENANT_NAME = "microsoft.onmicrosoft.com";
+    private const string CLIENT_ID = "YOUR CLIENT ID"
+    private const string CLIENT_SECRET = "YOUR CLIENT SECRET";
+
+    // REST API endpoint, for example "https://accountname.restv2.westcentralus.media.azure.net/API".      
+    private const string REST_API_ENDPOINT = "YOUR API ENDPOINT";
+
+    // Content Moderator Media Processor Nam
+    private const string MEDIA_PROCESSOR = "Azure Media Content Moderator";
+
+	// Input and Output files in the current directory of the executable
+    private const string INPUT_FILE = "VIDEO FILE NAME";
+    private const string OUTPUT_FOLDER = "";
+
+### Create a preset file (json)
+
+Create a JSON file in the current directory with the version number.
+
+	private static readonly string CONTENT_MODERATOR_PRESET_FILE = "preset.json";
+    //Example file content:
+    //        {
+    //             "version": "2.0"
+    //        }
+    private static readonly string CONTENT_MODERATOR_PRESET_FILE = "preset.json";
+
+### Add the following code to the main method
+
+The main method first creates an Azure Media Context and then an Azure Storage Context in case your videos are in blob storage.
+The remaining code scans a video from a local folder, blob, or multiple blobs within an Azure storage container.
+You can try all options by commenting out the other lines of code.
+
+	// Create Azure Media Context
+    CreateMediaContext();
+
+    // Create Storage Context
+    CreateStorageContext();
+
+    // Use a file as the input.
+    // IAsset asset = CreateAssetfromFile();
+    
+	// -- OR ---
+    
+	// Or a blob as the input
+    // IAsset asset = CreateAssetfromBlob((CloudBlockBlob)GetBlobsList().First());
+
+    // Then submit the asset to Content Moderator
+    // RunContentModeratorJob(asset);
+
+    //-- OR ----
+
+	// Just run the content moderator on all blobs in a list (from a Blob Container)
+    RunContentModeratorJobOnBlobs();
+
+### Add the code to create an Azure Media Context
+
+	/// <summary>
+	/// Creates a media context from azure credentials
+    /// </summary>
+    static void CreateMediaContext()
     {
-        // declare constants and globals
-        private static CloudMediaContext _context = null;
-        private static readonly string _accountName = { ACCOUNT_NAME };
-        private static readonly string _accountKey = { ACCOUNT_KEY };
-        private const string _mpName = "Azure Media Content Moderator";
-        private static readonly string _inputFile = { INPUT_FILE_PATH };
-        private static readonly string _outputFolder = { OUTPUT_FOLDER_PATH };
+		// Get Azure AD credentials
+		var tokenCredentials = new AzureAdTokenCredentials(AZURE_AD_TENANT_NAME,
+        	new AzureAdClientSymmetricKey(CLIENT_ID, CLIENT_SECRET),
+            AzureEnvironments.AzureCloudEnvironment);
 
-        //a json file with the configuration and version the supported Modes are Speed, Balance, Quality, which provide Moderator readings over a 16-/32-/48-frame granularity.
-        //Example file:
-       //        {
-        //             "version": "1.0",
-        //             "Options": { "Mode": "Quality" }
-        //        }
+		// Initialize an Azure AD token
+        var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
-        private static readonly string _moderatorConfiguration = { CONFIGURATION_FILE_PATH };
+        // Create a media context
+        _context = new CloudMediaContext(new Uri(REST_API_ENDPOINT), tokenProvider);
+	}
 
-        static void Main(string[] args)
+### Add the code to create an Azure Storage Context
+You use the Storage Context, created from your Storage credentials, to access your blob storage.
+
+	/// <summary>
+    /// Creates a storage context from the AMS associated storage name and key
+    /// </summary>
+    static void CreateStorageContext()
+    {
+    	// Get a reference to the storage account associated with a Media Services account. 
+        if (_StorageCredentials == null)
         {
-            _context = new CloudMediaContext(_accountName, _accountKey);
-            string configuration = File.ReadAllText(_moderatorConfiguration);
-            RunContentModeratorJob(_inputFile, _outputFolder, configuration);
+        	_StorageCredentials = new StorageCredentials(STORAGE_NAME, STORAGE_KEY);
         }
+        _StorageAccount = new CloudStorageAccount(_StorageCredentials, false);
+	}
 
-        static void RunContentModeratorJob(string inputFilePath, string output, string configuration)
+### Add the code to create Azure Media Assets from local file and blob
+The Content Moderator media processor runs jobs on **Assets** within the Azure Media Services platform.
+These methods create the Assets from a local file or an associated blob.
+
+	/// <summary>
+    /// Creates an Azure Media Services Asset from the video file
+    /// </summary>
+    /// <returns>Asset</returns>
+    static IAsset CreateAssetfromFile()
+    {
+    	return _context.Assets.CreateFromFile(INPUT_FILE, AssetCreationOptions.None); ;
+    }
+
+    /// <summary>
+    /// Creates an Azure Media Services asset from your blog storage
+    /// </summary>
+    /// <param name="Blob"></param>
+    /// <returns>Asset</returns>
+    static IAsset CreateAssetfromBlob(CloudBlockBlob Blob)
+    {
+    	// Create asset from the FIRST blob in the list and return it
+        return _context.Assets.CreateFromBlob(Blob, _StorageCredentials, AssetCreationOptions.None);
+	}
+
+### Add the code to scan a collection of videos (as blobs) within a container
+
+	/// <summary>
+    /// Runs the Content Moderator Job on all Blobs in a given container name
+    /// </summary>
+    static void RunContentModeratorJobOnBlobs()
+    {
+		// Get the reference to the list of Blobs. See the following method.
+        var blobList = GetBlobsList();
+
+        // Iterate over the Blob list items or work on specific ones as needed
+        foreach (var sourceBlob in blobList)
         {
-            // create asset with input file
-            IAsset asset = _context.Assets.CreateFromFile(inputFilePath, AssetCreationOptions.None);
+        	// Create an Asset
+            IAsset asset = _context.Assets.CreateFromBlob((CloudBlockBlob)sourceBlob,
+            	               _StorageCredentials, AssetCreationOptions.None);
+            asset.Update();
 
-            // grab instance of Azure Media Content Moderator MP
-            IMediaProcessor mp = _context.MediaProcessors.GetLatestMediaProcessorByName(_mpName);
+            // Submit to Content Moderator
+            RunContentModeratorJob(asset);
+        }
+	}
 
-            // create Job with Content Moderator task
-            IJob job = _context.Jobs.Create(String.Format("Content Moderator {0}",
-                Path.GetFileName(inputFilePath) + "_" + Guid.NewGuid()));
+    /// <summary>
+    /// Get all blobs in your container
+    /// </summary>
+    /// <returns></returns>
+    static IEnumerable<IListBlobItem> GetBlobsList()
+    {
+    	// Get a reference to the Container within the Storage Account
+        // that has the files (blobs) for moderation
+        CloudBlobClient CloudBlobClient = _StorageAccount.CreateCloudBlobClient();
+        CloudBlobContainer MediaBlobContainer = CloudBlobClient.GetContainerReference(STORAGE_CONTAINER_NAME);
 
-            ITask contentModeratorTask = job.Tasks.AddNew("Adult classifier task",
-                mp,configuration,
+        // Get the reference to the list of Blobs 
+        var blobList = MediaBlobContainer.ListBlobs();
+        return blobList;
+	}
+
+### Add the method to run the Content Moderator Job
+
+	/// <summary>
+    /// Run the Content Moderator job on the designated Asset from local file or blob storage
+    /// </summary>
+    /// <param name="asset"></param>
+    static void RunContentModeratorJob(IAsset asset)
+    {
+    	// Grab the presets
+        string configuration = File.ReadAllText(CONTENT_MODERATOR_PRESET_FILE);
+
+        // grab instance of Azure Media Content Moderator MP
+        IMediaProcessor mp = _context.MediaProcessors.GetLatestMediaProcessorByName(MEDIA_PROCESSOR);
+
+        // create Job with Content Moderator task
+        IJob job = _context.Jobs.Create(String.Format("Content Moderator {0}",
+                asset.AssetFiles.First() + "_" + Guid.NewGuid()));
+
+        ITask contentModeratorTask = job.Tasks.AddNew("Adult and racy classifier task",
+        		mp, configuration,
                 TaskOptions.None);
-            contentModeratorTask.InputAssets.Add(asset);
-            contentModeratorTask.OutputAssets.AddNew("Adult classifier output",
-            AssetCreationOptions.None);
+        contentModeratorTask.InputAssets.Add(asset);
+        contentModeratorTask.OutputAssets.AddNew("Adult and racy classifier output",
+    	    AssetCreationOptions.None);
 
-            job.Submit();
+        job.Submit();
 
-            // Create progress printing and querying tasks
-            Task progressPrintTask = new Task(() =>
+
+        // Create progress printing and querying tasks
+        Task progressPrintTask = new Task(() =>
+        {
+        	IJob jobQuery = null;
+            do
             {
-                IJob jobQuery = null;
-                do
-                {
-                    var progressContext = _context;
-                    jobQuery = progressContext.Jobs
-                    .Where(j => j.Id == job.Id)
-                    .First();
+            	var progressContext = _context;
+                jobQuery = progressContext.Jobs
+                .Where(j => j.Id == job.Id)
+                	.First();
                     Console.WriteLine(string.Format("{0}\t{1}",
                     DateTime.Now,
                     jobQuery.State));
                     Thread.Sleep(10000);
-                }
-                while (jobQuery.State != JobState.Finished &&
-                jobQuery.State != JobState.Error &&
-                jobQuery.State != JobState.Canceled);
-            });
-            progressPrintTask.Start();
+             }
+             while (jobQuery.State != JobState.Finished &&
+             jobQuery.State != JobState.Error &&
+             jobQuery.State != JobState.Canceled);
+		});
+        progressPrintTask.Start();
 
-            Task progressJobTask = job.GetExecutionProgressTask(
-            CancellationToken.None);
-            progressJobTask.Wait();
+        Task progressJobTask = job.GetExecutionProgressTask(
+        CancellationToken.None);
+        progressJobTask.Wait();
 
-            // If job state is Error, the event handling
-            // method for job progress should log errors.  Here we check
-            // for error state and exit if needed.
-            if (job.State == JobState.Error)
-            {
-                ErrorDetail error = job.Tasks.First().ErrorDetails.First();
-                Console.WriteLine(string.Format("Error: {0}. {1}",
-                error.Code,
-                error.Message));
-            }
-
-            DownloadAsset(job.OutputMediaAssets.First(), output);
-        }
-
-        static void DownloadAsset(IAsset asset, string outputDirectory)
+        // If job state is Error, the event handling 
+        // method for job progress should log errors.  Here we check 
+        // for error state and exit if needed.
+        if (job.State == JobState.Error)
         {
-            foreach (IAssetFile file in asset.AssetFiles)
-            {
-                file.Download(Path.Combine(outputDirectory, file.Name));
-            }
+        	ErrorDetail error = job.Tasks.First().ErrorDetails.First();
+            Console.WriteLine(string.Format("Error: {0}. {1}",
+            error.Code,
+            error.Message));
         }
 
-        // event handler for Job State
-        static void StateChanged(object sender, JobStateChangedEventArgs e)
-        {
-            Console.WriteLine("Job state changed event:");
-            Console.WriteLine("  Previous state: " + e.PreviousState);
-            Console.WriteLine("  Current state: " + e.CurrentState);
-            switch (e.CurrentState)
-            {
-                case JobState.Finished:
-                    Console.WriteLine();
-                    Console.WriteLine("Job finished.");
-                    break;
-                case JobState.Canceling:
-                case JobState.Queued:
-                case JobState.Scheduled:
-                case JobState.Processing:
-                    Console.WriteLine("Please wait...\n");
-                    break;
-                case JobState.Canceled:
-                    Console.WriteLine("Job is canceled.\n");
-                    break;
-                case JobState.Error:
-                    Console.WriteLine("Job failed.\n");
-                    break;
-                default:
-                    break;
-            }
-        }
-    }
-
+        DownloadAsset(job.OutputMediaAssets.First(), OUTPUT_FOLDER);
 	}
 
-## Sample Response (JSON)
+### Add a couple of helper functions
+
+These methods download the Content Moderator output file (JSON) from the Azure Media Services asset, and help track the status of the moderation job so that the program can log a running status to the console.
+
+	static void DownloadAsset(IAsset asset, string outputDirectory)
+    {
+    	foreach (IAssetFile file in asset.AssetFiles)
+        {
+        	file.Download(Path.Combine(outputDirectory, file.Name));
+        }
+	}
+
+    // event handler for Job State
+    static void StateChanged(object sender, JobStateChangedEventArgs e)
+    {
+    	Console.WriteLine("Job state changed event:");
+        Console.WriteLine("  Previous state: " + e.PreviousState);
+        Console.WriteLine("  Current state: " + e.CurrentState);
+        switch (e.CurrentState)
+        {
+        	case JobState.Finished:
+            	Console.WriteLine();
+                Console.WriteLine("Job finished.");
+                break;
+            case JobState.Canceling:
+            case JobState.Queued:
+            case JobState.Scheduled:
+            case JobState.Processing:
+            	Console.WriteLine("Please wait...\n");
+                break;
+            case JobState.Canceled:
+                Console.WriteLine("Job is canceled.\n");
+                break;
+            case JobState.Error:
+                Console.WriteLine("Job failed.\n");
+                break;
+            default:
+                break;
+		}
+	}
+
+### Run the program and review the output
+
+After the Content Moderation job is completed, analyze the JSON response. It consists of these elements:
+
+- Video information summary
+- **Shots** as "**fragments**"
+- **Key frames** as "**events**" with a **reviewRecommended" (= true or false)"** flag based on **Adult** and **Racy** scores
+- **start**, **duration**, **totalDuration**, and **timestamp** are in "ticks". Divide by **timescale** to get the number in seconds.
+ 
+> [!NOTE]
+
+> - `adultScore` represents the potential presence and prediction score of content that may be considered sexually explicit or adult in certain situations.
+> - `racyScore` represents the potential presence and prediction score of content that may be considered sexually suggestive or mature in certain situations.
+> - `adultScore` and `racyScore` are between 0 and 1. The higher the score, the higher the model is predicting that the category may be applicable. This preview relies on a statistical model rather than manually coded outcomes. We recommend testing with your own content to determine how each category aligns to your requirements.
+> - `reviewRecommended` is either true or false depending on the internal score thresholds. Customers should assess whether to use this value or decide on custom thresholds based on their content policies.
+>
 
     {
-	  	"version": 1,
-	  	"timescale": 1000,
-	  	"offset": 0,
-      	"framerate": 29.97,
-      	"width": 1440,
-		"height": 1080,
-		"fragments": [
-    	{
-      		"start": 0,
-      		"duration": 1067,
-      		"interval": 1067,
-      		"events": [
-        	  [
-          		{
-            		"isAdultContent": false,
-            		"adultConfidence": 0.05699,
-            		"index": 0,
-            		"timestamp": 0
-          		}
-        	 ]
-      		]
-    	},
-    	{
-      		"start": 7474,
-      		"duration": 1067,
-      		"interval": 1067,
-      		"events": [
-        	[
-          	  {
-            		"isAdultContent": true,
-            		"adultConfidence": 0.51886,
-            		"index": 224,
-            		"timestamp": 7474
-          	  }
-        	]
-      	   ]
-    	}
-	  ]
-	}
+    "version": 2,
+    "timescale": 90000,
+    "offset": 0,
+    "framerate": 50,
+    "width": 1280,
+    "height": 720,
+    "totalDuration": 18696321,
+    "fragments": [
+    {
+      "start": 0,
+      "duration": 18000
+    },
+    {
+      "start": 18000,
+      "duration": 3600,
+      "interval": 3600,
+      "events": [
+        [
+          {
+            "reviewRecommended": false,
+            "adultScore": 0.00001,
+            "racyScore": 0.03077,
+            "index": 5,
+            "timestamp": 18000,
+            "shotIndex": 0
+          }
+        ]
+      ]
+    },
+    {
+      "start": 18386372,
+      "duration": 119149,
+      "interval": 119149,
+      "events": [
+        [
+          {
+            "reviewRecommended": true,
+            "adultScore": 0.00000,
+            "racyScore": 0.91902,
+            "index": 5085,
+            "timestamp": 18386372,
+            "shotIndex": 62
+          }
+        ]
+      ]
+    }
+    ]
+    }
+
+## Next steps
+
+Learn how to generate [video reviews](video-reviews-quickstart-dotnet.md) from your moderation output.
+
+Add [transcript moderation](video-transcript-moderation-review-tutorial-dotnet.md) to your video reviews.
+
+Check out the detailed tutorial on how to build a [complete video and transcript moderation solution](video-transcript-moderation-review-tutorial-dotnet.md).
+
+[Download the Visual Studio solution](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) for this and other Content Moderator quickstarts for .NET.

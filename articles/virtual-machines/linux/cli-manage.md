@@ -4,7 +4,7 @@ description: Learn some of the common Azure CLI 2.0 commands to get you started 
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 

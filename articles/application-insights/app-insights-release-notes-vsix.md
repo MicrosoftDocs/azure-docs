@@ -1,9 +1,9 @@
----
+﻿---
 title: Release notes for Visual Studio Extension for Developer Analytics
 description: The latest updates for Visual Studio tools for Developer Analytics.
 services: application-insights
 documentationcenter: ''
-author: acearun
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: 2001db30-efc5-417a-a413-93c1b218975f
@@ -11,9 +11,10 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/20/2017
-ms.author: cfreeman
+ms.reviewer: aruna
+ms.author: mbullwin
 
 ---
 # Release Notes for Developer Analytics Tools
@@ -164,7 +165,7 @@ When you are connected, you will see the upload form in the dialog.
 
 ![Upload dialog for Universal Windows apps](./media/app-insights-release-notes-vsix/UniversalUploadDialog.png)
 
-Select the content to upload (an .appxbundle or .appx file), and then choose release options in the wizard. Optionally, you can add release notes on the next page. Choose **Finish** to begin the upload.
+Select the content to upload (a .appxbundle or .appx file), and then choose release options in the wizard. Optionally, you can add release notes on the next page. Choose **Finish** to begin the upload.
 
 When the upload is complete, a HockeyApp notification with confirmation and a link to the app in the HockeyApp portal appears.
 
@@ -189,7 +190,7 @@ This opens the HockeyApp upload dialog, which is similar to the one in a Univers
 
 Note a new field in this wizard, for specifying the version of the app. For Universal Windows apps, the information is populated from the manifest. Windows Forms apps, unfortunately, don’t have an equivalent to this feature. You will need to specify them manually.
 
-The rest of the flow is similar to Universal Windows apps: choose build and release options, add release notes, upload, and manage in the HockeyApp portal.
+The rest of the flow is similar to Universal Windows apps: choose Azure Pipelines options, add release notes, upload, and manage in the HockeyApp portal.
 
 It’s as simple as that. Give it a try and let us know what you think.
 
@@ -286,8 +287,3 @@ You no longer have to sign in to Azure to add Application Insights packages to y
 
 ![New Project dialog](./media/app-insights-release-notes-vsix/newproject.png)
 
-### Device support
-At *Connect();* 2015, we [announced](https://azure.microsoft.com/blog/deep-diagnostics-for-web-apps-with-application-insights/) that our mobile developer experience for devices is HockeyApp. HockeyApp helps you distribute beta builds to your testers, collect and analyze all crashes from your app, and collect feedback directly from your customers.
-HockeyApp supports your app on whichever platform you choose to build it, whether that be iOS, Android, or Windows, or a cross-platform solution like Xamarin, Cordova, or Unity.
-
-In future releases of the Application Insights extension, we’ll introduce a more integrated experience between HockeyApp and Visual Studio. For now, you can start with HockeyApp by simply adding the NuGet reference. See the [documentation](http://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone) for more information.

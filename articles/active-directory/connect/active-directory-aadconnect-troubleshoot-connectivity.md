@@ -3,8 +3,8 @@ title: 'Azure AD Connect: Troubleshoot connectivity issues | Microsoft Docs'
 description: Explains how to troubleshoot connectivity issues with Azure AD Connect.
 services: active-directory
 documentationcenter: ''
-author: andkjell
-manager: femila
+author: billmath
+manager: mtillman
 editor: ''
 
 ms.assetid: 3aa41bb5-6fcb-49da-9747-e7a3bd780e64
@@ -13,7 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 07/18/2017
+ms.component: hybrid
 ms.author: billmath
 
 ---
@@ -47,7 +48,7 @@ Of these URLs, the following table is the absolute bare minimum to be able to co
 | \*.microsoftonline.com |HTTPS/443 |Used to configure your Azure AD directory and import/export data. |
 
 ## Errors in the wizard
-The installation wizard is using two different security contexts. On the page **Connect to Azure AD**, it is using the currently signed in user. On the page **Configure**, it is changing to the [account running the service for the sync engine](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account). If there is an issue, it appears most likely already at the **Connect to Azure AD** page in the wizard since the proxy configuration is global.
+The installation wizard is using two different security contexts. On the page **Connect to Azure AD**, it is using the currently signed in user. On the page **Configure**, it is changing to the [account running the service for the sync engine](active-directory-aadconnect-accounts-permissions.md#adsync-service-account). If there is an issue, it appears most likely already at the **Connect to Azure AD** page in the wizard since the proxy configuration is global.
 
 The following issues are the most common errors you encounter in the installation wizard.
 
@@ -93,6 +94,9 @@ If the proxy is not correctly configured, you get an error:
 | --- | --- | --- |
 | 403 |Forbidden |The proxy has not been opened for the requested URL. Revisit the proxy configuration and make sure the [URLs](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) have been opened. |
 | 407 |Proxy Authentication Required |The proxy server required a sign-in and none was provided. If your proxy server requires authentication, make sure to have this setting configured in the machine.config. Also make sure you are using domain accounts for the user running the wizard and for the service account. |
+
+### Proxy idle timeout setting
+When Azure AD Connect sends an export request to Azure AD, Azure AD can take up to 5 minutes to process the request before generating a response. This can happen especially if there are a number of group objects with large group memberships included in the same export request. Ensure the Proxy idle timeout is configured to be greater than 5 minutes. Otherwise, intermittent connectivity issue with Azure AD may be observed on the Azure AD Connect server.
 
 ## The communication pattern between Azure AD Connect and Azure AD
 If you have followed all these preceding steps and still cannot connect, you might at this point start looking at network logs. This section is documenting a normal and successful connectivity pattern. It is also listing common red herrings that can be ignored when you are reading the network logs.
@@ -155,28 +159,28 @@ Network or proxy configuration issues. The network cannot be reached. See [Troub
 ### User Password Expired
 Your credentials have expired. Change your password.
 
-### AuthorizationFailure
-Unknown issue.
+### Authorization Failure
+Failed to authorize user to perform action in Azure AD.
 
 ### Authentication Cancelled
 The multi-factor authentication (MFA) challenge was cancelled.
 
-### ConnectToMSOnline
+### Connect To MS Online Failed
 Authentication was successful, but Azure AD PowerShell has an authentication problem.
 
-### AzureRoleMissing
-Authentication was successful. You are not a global administrator.
+### Azure AD Global Admin Role Needed
+User was authenticated successfully. However user is not assigned global admin role. This is [how you can assign global admin role](../users-groups-roles/directory-assign-admin-roles.md) to the user. 
 
-### PrivilegedIdentityManagement
-Authentication was successful. Privileged identity management has been enabled and you are currently not a global administrator. For more information, see [Privileged Identity Management](../active-directory-privileged-identity-management-getting-started.md).
+### Privileged Identity Management Enabled
+Authentication was successful. Privileged identity management has been enabled and you are currently not a global administrator. For more information, see [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md).
 
-### CompanyInfoUnavailable
+### Company Information Unavailable
 Authentication was successful. Could not retrieve company information from Azure AD.
 
-### RetrieveDomains
+### Domain Information Unavailable
 Authentication was successful. Could not retrieve domain information from Azure AD.
 
-### Unexpected exception
+### Unspecified Authentication Failure
 Shown as Unexpected error in the installation wizard. Can happen if you try to use a **Microsoft Account** rather than a **school or organization account**.
 
 ## Troubleshooting steps for previous releases.

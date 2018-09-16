@@ -1,22 +1,14 @@
 ---
-title: Troubleshooting guide for Azure Stream Analytics | Microsoft Docs
-description: How to troubleshoot your Stream Analytics job
-keywords: troubleshoot guide
-documentationcenter: ''
+title: Troubleshooting guide for Azure Stream Analytics
+description: This article describes techniques to troubleshoot your Azure Stream Analytics jobs, connections, inputs, outputs, queries, and data.
 services: stream-analytics
-author: jeffstokes72
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 
+author: jseb225
+ms.author: jeanb
+manager: kfile
+ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 04/20/2017
-ms.author: jeffstok
-
 ---
 
 # Troubleshooting guide for Azure Stream Analytics
@@ -45,6 +37,7 @@ For best results in troubleshooting your Stream Analytics job, use the following
 
 5.  Eliminate common pitfalls, such as:
     - A [**WHERE**](https://msdn.microsoft.com/library/azure/dn835048.aspx) clause in the query filtered out all events, preventing any output from being generated.
+    - A [**CAST**](https://msdn.microsoft.com/azure/stream-analytics/reference/cast-azure-stream-analytics) function fails, causing the job to fail. To avoid type cast failures, use [**TRY_CAST**](https://msdn.microsoft.com/azure/stream-analytics/reference/try-cast-azure-stream-analytics) instead.
     - When you use window functions, wait for the entire window duration to see an output from the query.
     - The timestamp for events precedes the job start time and, therefore, events are being dropped.
 
@@ -68,7 +61,7 @@ For best results in troubleshooting your Stream Analytics job, use the following
                 - Query processing resulted in zero output events.
                 - Events or its fields might be malformed, resulting in zero output after query processing.
                 - The job was unable to push data to the [output sink](stream-analytics-select-into.md) for connectivity or authentication reasons.
-        - In all the previously mentioned error cases, operations log messages explain additional details (including what is happening), except in cases where the query logic filtered out all events. If the processing of multiple events generates errors, Stream Analytics logs the first three error messages of the same type within 10 minutes to Operations logs. It then suppresses additional identical errors with a message that reads “Errors are happening too rapidly, these are being suppressed.”
+        - In all the previously mentioned error cases, operations log messages explain additional details (including what is happening), except in cases where the query logic filtered out all events. If the processing of multiple events generates errors, Stream Analytics logs the first three error messages of the same type within 10 minutes to Operations logs. It then suppresses additional identical errors with a message that reads "Errors are happening too rapidly, these are being suppressed."
 
 8. Debug by using audit and diagnostic logs:
     - Use [Audit Logs](../azure-resource-manager/resource-group-audit.md), and filter to identify and debug errors.
@@ -86,7 +79,7 @@ For best results in troubleshooting your Stream Analytics job, use the following
 
 ## Get help
 
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## Next steps
 

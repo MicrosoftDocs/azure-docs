@@ -1,8 +1,8 @@
----
+﻿---
 title: Azure Advisor Documentation - Tutorials | Microsoft Docs
 description:	
 services: advisor
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -37,7 +37,7 @@ Azure Advisor is a personalized cloud consultant that helps you follow best prac
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/resources/videos/index/?services=advisor">
+        <a href="https://azure.microsoft.com/resources/videos/index/?services=advisor">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -83,8 +83,10 @@ Azure Advisor is a personalized cloud consultant that helps you follow best prac
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>REST</h3>
+                        <h3>REST API</h3>
                         <p><a href="/rest/api/advisor">REST API Reference</a></p>
+                        <h3>CLI</h3>
+                        <p><a href="/cli/azure/advisor">CLI Reference</a></p>
                     </div>
                 </div>
             </div>

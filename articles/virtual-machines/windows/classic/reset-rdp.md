@@ -3,8 +3,8 @@ title: Reset the password or Remote Desktop configuration on a Windows VM in Azu
 description: Learn how to reset an account password or Remote Desktop services on a Windows VM created using the Classic deployment model using the Azure portal or Azure PowerShell.
 services: virtual-machines-windows
 documentationcenter: ''
-author: iainfoulds
-manager: timlt
+author: cynthn
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 
@@ -15,12 +15,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: iainfou
+ms.author: cynthn
 
 ---
 # How to reset the Remote Desktop service or its login password in a Windows VM created using the Classic deployment model
 > [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. You can also [perform these steps for VMs created with the Resource Manager deployment model](../reset-rdp.md).
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
+
 
 If you can't connect to a Windows virtual machine (VM), you can reset the local administrator password or reset the Remote Desktop service configuration. You can use either the Azure portal or the VM Access extension in Azure PowerShell to reset the password.
 
