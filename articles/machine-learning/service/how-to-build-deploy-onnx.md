@@ -26,7 +26,7 @@ You can export ONNX models from many frameworks, including PyTorch, Chainer, Mic
 
 There is also an ecosystem of tools for visualizing and accelerating ONNX models. A number of pre-trained ONNX models are also available for common scenarios.
 
-[ONNX models can be deployed](#deploy) to the cloud using Azure Machine Learning and the ONNX Runtime. They can also be deployed to Windows 10 devices using Windows ML. They can even be deployed to other platforms using converters that are available from the ONNX community. 
+[ONNX models can be deployed](#deploy) to the cloud using Azure Machine Learning and the ONNX Runtime. They can also be deployed to Windows 10 devices using [Windows ML](https://docs.microsoft.com/windows/ai/). They can even be deployed to other platforms using converters that are available from the ONNX community. 
 
 [ ![ONNX flow diagram showing training, converters, and deployment](media/concept-onnx/onnx.png) ]
 (./media/concept-onnx/onnx.png#lightbox)
@@ -40,11 +40,9 @@ You can create ONNX models in several ways:
 
 + Generate a customized ONNX model from [Azure Custom Vision service](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/)
 
-Once you have an ONNX model, you can deploy it with Azure Machine Learning. You can also deploy the same ONNX model to Windows 10 devices using [Windows ML](https://docs.microsoft.com/windows/ai/).
-
 ## Export/convert your models to ONNX
 
-You can also convert your models to ONNX.
+You can also convert your existing models to ONNX.
 + For **PyTorch** models, try out [this Jupyter notebook](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb)
 
 + For **Microsoft Cognitive Toolkit (CNTK)** models, try out [this Jupyter notebook](https://github.com/onnx/tutorials/blob/master/tutorials/CntkOnnxExport.ipynb)
@@ -94,7 +92,7 @@ results = session.run(["output1", "output2"], {"input1": indata1, "input2": inda
 results = session.run([], {"input1": indata1, "input2": indata2})
 ```
 
-For complete API reference, see the [documentation](https://aka.ms/onnxruntime).
+For complete API reference, see the [documentation](https://docs.microsoft.com/en-us/python/api/overview/azure/main?view=azure-onnx-py).
 
 ### Example deployment steps
 
@@ -189,13 +187,13 @@ Here is an example for deploying an ONNX model:
 
 ## Examples
  
-The following notebook demonstrate how pipelines work with Azure Machine Learning: http://aka.ms/aml-onnx-training-notebook.
+The following notebooks demonstrate how to deploy ONNX models with Azure Machine Learning: http://aka.ms/aml-onnx-notebook.
  
 Get this notebook:
  
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
-## Next steps
+## More info
 
 Learn more about ONNX or contribute to the project:
 + [ONNX project website](http://onnx.ai)
