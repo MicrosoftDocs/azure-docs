@@ -17,11 +17,11 @@ This article shows how to query user data from Azure Cosmos DB Cassandra API acc
 
 ## Prerequisites
 
-* This article belongs to a multi-part tutorial. Before you start with this doc, make sure to [create the Cassandra API account, keyspace, table](create-cassandra-api-account-java.md), and [load sample data into the table](cassandra-api-load-data.md). 
+* This article belongs to a multi-part tutorial. Before you start, make sure to complete the previous steps to [create the Cassandra API account, keyspace, table](create-cassandra-api-account-java.md) and [load sample data into the table](cassandra-api-load-data.md). 
 
 ## Query data
 
-Open the `UserRepository.java` file under the folder `src\main\java\com\azure\cosmosdb\cassandra`. Append the following code block. This code provides functions to query all users in the database, to query a specific user filtered by user ID, and to delete a table. 
+Open the `UserRepository.java` file under the folder `src\main\java\com\azure\cosmosdb\cassandra`. Append the following code block. This code provides three functions: to query all users in the database, to query a specific user filtered by user ID, and to delete a table. 
 
 ```java
 /**
