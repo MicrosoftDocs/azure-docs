@@ -20,10 +20,13 @@ ms.author: mbullwin
 Local forwarder is an agent that collects Application Insights or [OpenCensus](https://opencensus.io/) telemetry from a variety of SDKs and routes it to Application Insights. It's capable of running under Windows and Linux. You may also be able to run it under macOS, but that is not officially supported at this time.
 
 ## Running Local forwarder
+
 Local forwarder is an [open source project on GitHub](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/releases). There are a variety of ways to run local forwarder on multiple platforms.
 
 ### Windows
+
 #### Windows Service
+
 The easiest way of running local forwarder under Windows is by installing it as a Windows Service. The release comes with a Windows Service executable (*WindowsServiceHost/Microsoft.LocalForwarder.WindowsServiceHost.exe*) which can be easily registered with the operating system.
 
 > [!NOTE]
@@ -82,6 +85,7 @@ E:\uncdrop\ConsoleHost\win-x64\publish>Microsoft.LocalForwarder.ConsoleHost.exe
 ```
 
 ### Linux
+
 As with Windows, the release comes with the following executable versions of the console host:
 * a framework-dependent .NET Core binary */ConsoleHost/publish/Microsoft.LocalForwarder.ConsoleHost.dll*. Running this binary requires a .NET Core runtime to be installed; refer to this download [page](https://www.microsoft.com/net/download/dotnet-core/2.1) for details.
 
@@ -160,6 +164,7 @@ host.Stop();
 ```
 
 ## Configuring local forwarder
+
 * When running one of local forwarder's own hosts (Console Host or Windows Service Host), you will find **LocalForwarder.config** placed next to the binary.
 * When self-hosting the local forwarder NuGet, the configuration of the same format must be provided in code (see section on self-hosting). For the configuration syntax, check the [LocalForwarder.config](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/blob/master/src/ConsoleHost/LocalForwarder.config) in the GitHub repository. 
 
@@ -167,6 +172,7 @@ host.Stop();
 > Configuration may change from release to release, so pay attention to which version you're using.
 
 ## Monitoring local forwarder
+
 Traces are written out to the file system next to the executable that runs local forwarder (look for **.log* files). You can place a file with a name of *NLog.config* next to the executable to provide your own configuration in place of the default one. See [documentation](https://github.com/NLog/NLog/wiki/Configuration-file#configuration-file-format) for the description of the format.
 
 If no configuration file is provided (which is the default), Local forwarder will use the default configuration, which can be found [here](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/blob/master/src/Common/NLog.config).
