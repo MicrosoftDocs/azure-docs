@@ -1,17 +1,19 @@
 ---
-title: C# quickstart for Cognitive Services, Text Analytics API | Microsoft Docs
-description: Get information and code samples to help you quickly get started with using the Text Analytics API in Microsoft Cognitive Services on Azure.
+title: 'Quickstart: Using C# to call the Text Analytics API'
+titleSuffix: Azure Cognitive Services
+description: Get information and code samples to help you quickly get started with using the Text Analytics API.
 services: cognitive-services
-documentationcenter: ''
 author: luiscabrer
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: text-analytics
-ms.topic: article
-ms.date: 09/20/2017
+ms.topic: quickstart
+ms.date: 09/12/2018
 ms.author: ashmaka
 ---
 
-# Quickstart for the Text Analytics API with C# 
+# Quickstart: Using C# to call the Text Analytics Cognitive Service
 <a name="HOLTop"></a>
 
 This article shows you how to detect language, analyze sentiment, and extract key phrases by using the [Text Analytics APIs](//go.microsoft.com/fwlink/?LinkID=759711) with C#. The code was written to work on a .NET Core application, with minimal references to external libraries, so you can also run it on Linux or MacOS.
@@ -30,7 +32,7 @@ You must also have the [endpoint and access key](../How-tos/text-analytics-how-t
 1. Right-click the solution and select **Manage NuGet Packages for Solution**.
 1. Select the **Include Prerelease** check box.
 1. Select the **Browse** tab, and search for **Microsoft.Azure.CognitiveServices.Language**.
-1. Select the NuGet package and install it.
+1. Select the **Microsoft.Azure.CognitiveServices.Language.TextAnalytics** NuGet package and install it.
 
 > [!Tip]
 > Although you can call the [HTTP endpoints](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) directly from C#, the Microsoft.Azure.CognitiveServices.Language SDK makes it much easier to call the service without having to worry about serializing and deserializing JSON.
@@ -52,6 +54,7 @@ using Microsoft.Azure.CognitiveServices.Language.TextAnalytics;
 using Microsoft.Azure.CognitiveServices.Language.TextAnalytics.Models;
 using System.Collections.Generic;
 using Microsoft.Rest;
+using System.Linq;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -82,7 +85,13 @@ namespace ConsoleApp1
             };
 
             Console.OutputEncoding = System.Text.Encoding.UTF8;
+```
 
+## Detect language
+
+The Language Detection API detects the language of a text document, using the [Detect Language method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7).
+
+```csharp
             // Extracting language.
             Console.WriteLine("===== LANGUAGE EXTRACTION ======");
 
@@ -99,7 +108,13 @@ namespace ConsoleApp1
             {
                 Console.WriteLine("Document ID: {0} , Language: {1}", document.Id, document.DetectedLanguages[0].Name);
             }
+```
 
+## Extract key phrases
+
+The Key Phrase Extraction API extracts key-phrases from a text document, using the [Key Phrases method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6).
+
+```csharp
             // Getting key phrases.
             Console.WriteLine("\n\n===== KEY-PHRASE EXTRACTION ======");
 
@@ -124,8 +139,14 @@ namespace ConsoleApp1
                     Console.WriteLine("\t\t" + keyphrase);
                 }
             }
+```
 
-            // Extracting sentiment.
+## Analyze sentiment
+
+The Sentiment Analysis API detects the sentiment of a set of text records, using the [Sentiment method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9).
+
+```csharp
+            // Analyzing sentiment.
             Console.WriteLine("\n\n===== SENTIMENT ANALYSIS ======");
 
             SentimentBatchResult result3 = client.SentimentAsync(
@@ -144,6 +165,29 @@ namespace ConsoleApp1
             {
                 Console.WriteLine("Document ID: {0} , Sentiment Score: {1:0.00}", document.Id, document.Score);
             }
+```
+
+## Identify linked entities
+
+The Entity Linking API identifies well-known entities in a text document, using the [Entity Linking method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634).
+
+```csharp
+            // Linking entities
+            Console.WriteLine("\n\n===== ENTITY LINKING ======");
+
+            EntitiesBatchResult result4 = client.EntitiesAsync(
+                    new MultiLanguageBatchInput(
+                        new List<MultiLanguageInput>()
+                        {
+                            new MultiLanguageInput("en", "0", "I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable."),
+                            new MultiLanguageInput("en", "1", "The Seattle Seahawks won the Super Bowl in 2014."),
+                        })).Result;
+
+            // Printing entity results.
+            foreach (var document in result4.Documents)
+            {
+                Console.WriteLine("Document ID: {0} , Entities: {1}", document.Id, String.Join(", ", document.Entities.Select(entity => entity.Name)));
+            }
         }
     }
 }
@@ -158,4 +202,3 @@ namespace ConsoleApp1
 
  [Text Analytics overview](../overview.md)  
  [Frequently asked questions (FAQ)](../text-analytics-resource-faq.md)
-

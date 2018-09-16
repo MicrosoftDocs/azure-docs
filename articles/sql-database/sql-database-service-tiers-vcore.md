@@ -6,7 +6,7 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 09/14/2018
 manager: craigg
 ms.author: carlrab
 
@@ -15,13 +15,13 @@ ms.author: carlrab
 
 The vCore-based purchasing model enables you to independently scale compute and storage resources, match on-premises performance, and optimize price. It also enables you to choose generation of hardware:
 - Gen 4 - Up to 24 logical CPUs based on Intel E5-2673 v3 (Haswell) 2.4 GHz processors, vCore = 1 PP (physical core), 7 GB per core, attached SSD
-- Gen 5 - Up to 80 logical CPUs based on Intel E5-2673 v4 (Broadwell) 2.3 GHz processors, vCore=1 LP (hyper-thread), 5.5. GB per core, fast eNVM SSD
+- Gen 5 - Up to 80 logical CPUs based on Intel E5-2673 v4 (Broadwell) 2.3 GHz processors, vCore=1 LP (hyper-thread), 5.1. GB per core, fast eNVM SSD
 
 vCore model also allows you to use [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) to gain cost savings.
 
 ## Service tier characteristics
 
-The vCore model provides two service tiers General Purpose and Business Critical. Service tiers are differentiated by a range of performance levels, high availability design, fault isolation, types of storage and IO range. The customer  must separately configure the required storage and retention period for backups.
+The vCore model provides two service tiers General Purpose and Business Critical. Service tiers are differentiated by a range of compute sizes, high availability design, fault isolation, types of storage and IO range. The customer  must separately configure the required storage and retention period for backups.
 
 The following table helps you understand the differences between these two tiers:
 
@@ -29,7 +29,7 @@ The following table helps you understand the differences between these two tiers
 |---|---|---|
 |Best for|Most business workloads. Offers budget oriented balanced and scalable compute and storage options.|Business applications with high IO requirements. Offers highest resilience to failures using several isolated replicas.|
 |Compute|Gen4: 1 to 24 vCore<br/>Gen5: 1 to 80 vCore|Gen4: 1 to 24 vCore<br/>Gen5: 1 to 80 vCore|
-|Memory|Gen4: 7 GB per core<br>Gen5: 5.5 GB per core | Gen4: 7 GB per core<br>Gen5: 5.5 GB per core |
+|Memory|Gen4: 7 GB per core<br>Gen5: 5.1 GB per core | Gen4: 7 GB per core<br>Gen5: 5.1 GB per core |
 |Storage|[Premium remote storage](../virtual-machines/windows/premium-storage.md),<br/>Single Database: 5 GB – 4 TB<br/>Managed Instance: 32 GB - 8 TB |Local SSD storage,<br/>Single Database: 5 GB – 1 TB<br/>Managed Instance: 32 GB - 4 TB |
 |IO throughput (approximate)|Single Database: 500 IOPS per vCore with 7000 maximum IOPS</br>Managed Instance: Depends on [size of file](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 IOPS per core with 200000 maximum IOPS|
 |Availability|1 replica, no read-scale|3 replicas, 1 [read-scale replica](sql-database-read-scale-out.md),<br/>zone redundant HA|
@@ -48,7 +48,7 @@ See [SQL Database FAQ](sql-database-faq.md) for answers to frequently asked ques
 
 Consider the following:
 - The allocated storage is used by data files (MDF) and log files (LDF) files.
-- Each single database performance level supports a maximum database size, with a default max size of 32 GB.
+- Each single database compute size supports a maximum database size, with a default max size of 32 GB.
 - When you configure the required single database size (size of MDF), 30% of additional storage is automatically added to support LDF
 - Storage size in Managed Instance must be specified in multiples of 32 GB.
 - You can select any singleton database size between 10 GB and the supported maximum
@@ -108,13 +108,13 @@ Migration of failover groups with multiple databases requires individual migrati
 
 ### Creation of a geo-replication secondary
 
-You can only create a geo-secondary using the same service tier as the primary. For database with high log generation rate, it is advised that the secondary is created with the same performance level as the primary. If you are creating a geo-secondary in the elastic pool for a single primary database, it is advised that the pool has the `maxVCore` setting that matches the primary database performance level. If you are creating a geo-secondary in the elastic pool for a primary in another elastic pool, it is advised that the pools have the same `maxVCore` settings
+You can only create a geo-secondary using the same service tier as the primary. For database with high log generation rate, it is advised that the secondary is created with the same compute size as the primary. If you are creating a geo-secondary in the elastic pool for a single primary database, it is advised that the pool has the `maxVCore` setting that matches the primary database compute size. If you are creating a geo-secondary in the elastic pool for a primary in another elastic pool, it is advised that the pools have the same `maxVCore` settings
 
 ### Using database copy to convert a DTU-based database to a vCore-based database.
 
-You can copy any database with a DTU-based performance level to a database with a vCore-based performance level without restrictions or special sequencing as long as the target performance level supports the maximum database size of the source database. This is because the database copy creates a snapshot of data as of the starting time of the copy operation and does not perform data synchronization between the source and the target. 
+You can copy any database with a DTU-based compute size to a database with a vCore-based compute size without restrictions or special sequencing as long as the target compute size supports the maximum database size of the source database. This is because the database copy creates a snapshot of data as of the starting time of the copy operation and does not perform data synchronization between the source and the target. 
 
 ## Next steps
 
-- For details on specific performance levels and storage size choices available for single database, see [SQL Database vCore-based resource limits for single databases](sql-database-vcore-resource-limits-single-databases.md#single-database-storage-sizes-and-performance-levels)
-- For details on specific performance levels and storage size choices available for elastic pools see [SQL Database vCore-based resource limits for elastic pools](sql-database-vcore-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-performance-levels).
+- For details on specific compute sizes and storage size choices available for single database, see [SQL Database vCore-based resource limits for single databases](sql-database-vcore-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes)
+- For details on specific compute sizes and storage size choices available for elastic pools see [SQL Database vCore-based resource limits for elastic pools](sql-database-vcore-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes).

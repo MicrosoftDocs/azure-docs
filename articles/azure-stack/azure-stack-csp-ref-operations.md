@@ -3,7 +3,7 @@ title: Register tenants for usage tracking in Azure Stack | Microsoft Docs
 description: Details about operations used to manage  tenant registrations and how tenant usage is tracked in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 
@@ -13,7 +13,7 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: alfredo
 
 ---
@@ -151,4 +151,4 @@ You can remove tenant mappings using the DELETE operation.
 
 ## Next steps
 
- - To learn more about how to retrieve resource usage information from Azure Stack, see [Usage and billing in Azure Stack](/azure-stack-billing-and-chargeback.md).
+ - To learn more about how to retrieve resource usage information from Azure Stack, see [Usage and billing in Azure Stack](azure-stack-billing-and-chargeback.md).
