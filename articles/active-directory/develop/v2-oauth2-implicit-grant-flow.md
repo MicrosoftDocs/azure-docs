@@ -1,6 +1,6 @@
 ---
-title: Secure single page applications using the Azure AD v2.0 implicit flow | Microsoft Docs
-description: Building web applications using Azure AD's v2.0 implementation of the implicit flow for single page apps.
+title: Secure single-page applications using the Azure AD v2.0 implicit flow | Microsoft Docs
+description: Building web applications using Azure AD's v2.0 implementation of the implicit flow for single-page apps.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -22,7 +22,7 @@ ms.custom: aaddev
 
 # v2.0 Protocols - SPAs using the implicit flow
 
-With the v2.0 endpoint, you can sign users into your single page apps with both personal and work/school accounts from Microsoft. Single page and other JavaScript apps that run primarily in a browser face a few interesting challenges when it comes to authentication:
+With the v2.0 endpoint, you can sign users into your single-page apps with both personal and work/school accounts from Microsoft. Single page and other JavaScript apps that run primarily in a browser face a few interesting challenges when it comes to authentication:
 
 * The security characteristics of these apps are significantly different from traditional server-based web applications.
 * Many authorization servers & identity providers do not support CORS requests.
@@ -32,7 +32,7 @@ For these applications (think: AngularJS, Ember.js, React.js, etc) Azure AD supp
 
 If you want to use the implicit flow and Azure AD to add authentication to your JavaScript app, we recommend you use our open source JavaScript library, [adal.js](https://github.com/AzureAD/azure-activedirectory-library-for-js). There are few AngularJS tutorials available [here](v2-overview.md#getting-started) to help you get started.
 
-However, if you would prefer not to use a library in your single page app and send protocol messages yourself, follow the general steps below.
+However, if you would prefer not to use a library in your single-page app and send protocol messages yourself, follow the general steps below.
 
 > [!NOTE]
 > Not all Azure Active Directory scenarios & features are supported by the v2.0 endpoint. To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
@@ -142,7 +142,7 @@ Once you have completely validated the id_token, you can begin a session with th
 
 ## Get access tokens
 
-Now that you've signed the user into your single page app, you can get access tokens for calling web APIs secured by Azure AD, such as the [Microsoft Graph](https://graph.microsoft.io). Even if you already received a token using the `token` response_type, you can use this method to acquire tokens to additional resources without having to redirect the user to sign in again.
+Now that you've signed the user into your single-page app, you can get access tokens for calling web APIs secured by Azure AD, such as the [Microsoft Graph](https://graph.microsoft.io). Even if you already received a token using the `token` response_type, you can use this method to acquire tokens to additional resources without having to redirect the user to sign in again.
 
 In the normal OpenID Connect/OAuth flow, you would do this by making a request to the v2.0 `/token` endpoint. However, the v2.0 endpoint does not support CORS requests, so making AJAX calls to get and refresh tokens is out of the question. Instead, you can use the implicit flow in a hidden iframe to get new tokens for other web APIs: 
 

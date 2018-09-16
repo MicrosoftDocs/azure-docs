@@ -29,7 +29,7 @@ The following diagram illustrates the scenarios and application types, and how d
 
 These are the five primary application scenarios supported by Azure AD:
 
-- **[Single Page Application (SPA)](single-page-application.md)**: A user needs to sign in to a single page application that is secured by Azure AD.
+- **[Single-page application (SPA)](single-page-application.md)**: A user needs to sign in to a single-page application that is secured by Azure AD.
 - **[Web browser to web application](web-app.md)**: A user needs to sign in to a web application that is secured by Azure AD.
 - **[Native application to web API](native-app.md)**: A native application that runs on a phone, tablet, or PC needs to authenticate a user to get resources from a web API that is secured by Azure AD.
 - **[Web application to web API](web-api.md)**: A web application needs to get resources from a web API secured by Azure AD.

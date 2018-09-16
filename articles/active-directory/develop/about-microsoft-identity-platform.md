@@ -30,9 +30,15 @@ To expand and evolve the capabilities of the Microsoft identity platform, you ca
 
 Applications using the latest ADAL and the latest MSAL will SSO with each other. Applications updated from ADAL to MSAL will maintain user sign-in state. Developers can choose to update their applications to MSAL as they see fit, as applications built with ADAL will continue to work and be supported.
 
+## Microsoft identity platform experience
+
+This diagram describes the Microsoft identity experience at a high-level, including the app registration experience, SDKs, endpoints, and supported identities.
+
+![Microsoft identity platform today](./media/about-microsoft-identity-platform/microsoft-identity-platform-today.png)
+
 ## Next steps
 
-Learn about v1.0 and v2.0.
+Learn more about v1.0 and v2.0.
 
 * [About v1.0](azure-ad-developers-guide.md)
 * [About v2.0](azure-ad-developers-guide.md)

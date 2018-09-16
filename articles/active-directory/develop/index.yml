@@ -54,7 +54,7 @@ sections:
     - type: paragraph
       text: 'Follow these quickstarts to quickly build an app and add functionality like getting tokens, refreshing tokens, signing in a user, displaying some user info, and more.'
     - type: paragraph
-      text: <b>Single page apps</b>
+      text: <b>Single-page apps</b>
     - type: table
       style: dataMatrix
       columns:
@@ -183,7 +183,7 @@ sections:
     - type: paragraph
       text: 'Use the Microsoft identity platform and follow in-depth, scenario-based procedures for the top auth developer tasks such as obtaining access tokens, implementing sign-in with Microsoft, and more.'
     - type: paragraph
-      text: <b>Single page apps</b>
+      text: <b>Single-page apps</b>
     - type: table
       style: dataMatrix
       columns:

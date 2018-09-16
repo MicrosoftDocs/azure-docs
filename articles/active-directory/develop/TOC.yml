@@ -19,7 +19,7 @@
         href: quickstart-v1-update-azure-ad-app.md
       - name: Remove an app
         href: quickstart-v1-remove-azure-ad-app.md
-    - name: Single page apps
+    - name: Single-page apps
       items:
       - name: AngularJS
         href: quickstart-v1-angularjs-spa.md
@@ -182,10 +182,6 @@
     - name: Azure AD Authentication Libraries
       displayName: ADAL
       href: active-directory-authentication-libraries.md
-    - name: Application object API
-      href: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
-    - name: Service Principal API
-      href: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity 
     - name: Azure AD Graph API
       href: active-directory-graph-api.md
     - name: Claims in Azure AD security tokens
@@ -213,7 +209,7 @@
         href: quickstart-v1-update-azure-ad-app.md
       - name: Remove an app
         href: quickstart-v1-remove-azure-ad-app.md
-    - name: Single page apps
+    - name: Single-page apps
       items:
       - name: Angular JS
         href: 
@@ -251,7 +247,7 @@
         href: https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2
   - name: Tutorials
     items:
-    - name: Single page apps
+    - name: Single-page apps
       items:
       - name: JavaScript
         href: tutorial-v2-javascript-spa.md
