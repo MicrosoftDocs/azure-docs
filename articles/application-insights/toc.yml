@@ -70,13 +70,17 @@
     - name: JavaScript
       href: app-insights-javascript.md
   - name: Monitor Azure Functions
-    href: ../azure-functions/functions-monitoring.md?toc=%2fazure%2fapplication-insights%2ftoc.json 
+    href: ../azure-functions/functions-monitoring.md?toc=%2fazure%2fapplication-insights%2ftoc.json
   - name: Monitor other platforms
     items:
     - name: SharePoint sites
       href: app-insights-sharepoint.md
     - name: More platforms
       href: app-insights-platforms.md
+  - name: Distributed tracing
+    items: 
+    - name: Local forwarder
+      href: local-forwarder.md
 - name: How-to guides
   items:
   - name: Plan and design
