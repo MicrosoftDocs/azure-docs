@@ -1,6 +1,6 @@
 ---
-title: Use the Azure Database Migration Service to perform an online migration of MySQL to Azure Database for MySQL | Microsoft Docs
-description: Learn to perform an online migration from MySQL on-premises to Azure Database for MySQL by using the Azure Database Migration Service.
+title: Use the Azure Database Migration Service to perform an online migration of PostgreSQL to Azure Database for MySQL | Microsoft Docs
+description: Learn to perform an online migration from PostgreSQL on-premises to Azure Database for PostgreSQL by using the Azure Database Migration Service.
 services: dms
 author: HJToland3
 ms.author: scphang
@@ -13,8 +13,8 @@ ms.topic: article
 ms.date: 09/24/2018
 ---
 
-# Migrate MySQL to Azure Database for PostgreSQL online using DMS
-You can use the Azure Database Migration Service to migrate the databases from an on-premises MySQL instance to [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/) with minimal downtime. In other words, migration can be achieved with minimum downtime to the application. In this tutorial, you migrate the **DVD Rental** sample database from an on-premises instance of PostgreSQL 9.6 to Azure Database for PostgreSQL by using an online migration activity in the Azure Database Migration Service.
+# Migrate PostgreSQL to Azure Database for PostgreSQL online using DMS
+You can use the Azure Database Migration Service to migrate the databases from an on-premises PostgreSQL instance to [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/) with minimal downtime. In other words, migration can be achieved with minimum downtime to the application. In this tutorial, you migrate the **DVD Rental** sample database from an on-premises instance of PostgreSQL 9.6 to Azure Database for PostgreSQL by using an online migration activity in the Azure Database Migration Service.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -30,7 +30,7 @@ In this tutorial, you learn how to:
 ## Prerequisites
 To complete this tutorial, you need to:
 
-- Download and install [PostgreSQL community edition](https://www.postgresql.org/download/) 9.5, 9.6, or 10.3. Note that the source PostgreSQL Server version must be 9.5.11, 9.6.7, 10.3, or later. For more information, see the article [Supported PostgreSQL Databse Versions](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions).
+- Download and install [PostgreSQL community edition](https://www.postgresql.org/download/) 9.5, 9.6, or 10.3. The source PostgreSQL Server version must be 9.5.11, 9.6.7, 10.3, or later. For more information, see the article [Supported PostgreSQL Databse Versions](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions).
 
     In addition, the on-premises PostgreSQL version must match the Azure Database for PostgreSQL version. For example, PostgreSQL 9.5.11.5 can only migrate to Azure Database for PostgreSQL 9.5.11 and not to version 9.6.7.
 
@@ -118,7 +118,7 @@ To complete all the database objects like table schemas, indexes and stored proc
 
     Run the drop foreign key (which is the second column) in the query result.
 
-5.	Triggers in the data (insert or update triggers) will enforce data integrity in the target ahead of the replicated data from the source. It is recommended that you disable triggers in all the tables at the target during migration and then re-enable the triggers after migration is complete.
+5.	Triggers in the data (insert or update triggers) will enforce data integrity in the target ahead of the replicated data from the source. It is recommended that you disable triggers in all the tables **at the target** during migration and then re-enable the triggers after migration is complete.
 
     To disable triggers in target database, use the following command:
 
@@ -132,29 +132,47 @@ To complete all the database objects like table schemas, indexes and stored proc
 ## Provisioning an instance of the Database Migration Service using the CLI
 
 1.	Install the dms sync extension:
-    - Log in to Azure: Run az login
+    - Sign in to Azure by running the following command:        
+        ```
+        az login
+        ```
+
     - When prompted, open a web browser and enter a code to authenticate your device. Follow the instructions as listed.
-    - Add the dms extension: Run az extension add --source https://azcliorcas.blob.core.windows.net/azclipath/dms_pg_mysql-0.2.0-py3-none-any.whl
-    - Type **y** to install.
-    - Verify that you have the dms extension installed correctly by running the az extension list -otable
+    - Add the dms extension:
+        - To list the available extensions, run the following command:
 
-    You should see the following output:
+            ```
+            az extension list-available –otable
+            ```
+        - To install the extension, run the following command:
 
-    ```
-    ExtensionType    Name
-    ---------------  ------
-    whl              dms
-    ```
+            ```
+            az extension add –n dms-preview
+            ```
 
-- At any time, view all commands supported in DMS by running:
-    ```
-    az dms -h
-    ```
-- If you have multiple Azure subscriptions, run the following command to set the subscription that you want to use to provision an instance of the DMS service.
+    - To verify you have dms extension installed correct, run the following command:
+ 
+        ```
+        az extension list -otable
+        ```
+        You should see the following output:     
 
-     ```
-	az account set -s 97181df2-909d-420b-ab93-1bff15acb6b7
-     ```
+        ```
+        ExtensionType    Name
+        ---------------  ------
+        whl              dms
+        ```
+
+    - At any time, view all commands supported in DMS by running:
+        ```
+        az dms -h
+        ```
+    - If you have multiple Azure subscriptions, run the following command to set the subscription that you want to use to provision an instance of the DMS service.
+
+         ```
+    	az account set -s 97181df2-909d-420b-ab93-1bff15acb6b7
+         ```
+
 2.	Provision an instance of DMS by running the following command:
 
     ```
@@ -291,7 +309,7 @@ To complete all the database objects like table schemas, indexes and stored proc
         az dms project task create -g PostgresDemo --project-name PGMigration --source-platform postgresql --target-platform azuredbforpostgresql --source-connection-json c:\DMS\source.json --database-options-json C:\DMS\option.json --service-name PostgresCLI --target-connection-json c:\DMS\target.json –task-type OnlineMigration -n runnowtask    
         ``` 
 
-    At this point, you have successfully submitted a migration task.
+    At this point, you've successfully submitted a migration task.
 
 7.	To show progress of the task, run the following command:
 
