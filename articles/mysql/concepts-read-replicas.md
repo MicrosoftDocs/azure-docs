@@ -72,11 +72,12 @@ Users on the master server are replicated to the read replicas. You can only con
 - Creating a replica of a replica is not supported.
 - In-memory tables may cause replicas to become out of sync. This is a limitation of the MySQL replication technology. Read more in the [MySQL reference documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html) for more information.
 - Tuning the [`innodb_file_per_table`](https://dev.mysql.com/doc/refman/5.7/en/innodb-multiple-tablespaces.html) parameter on a master server after creating a replica server may cause the replica to become out of sync. The replica server is not aware of the different tablespaces.
+- Read the full list of MySQL replication limitations in the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html)
+
 
 ## Next steps
 
 - Learn how to [create and manage read replicas using the Azure portal](howto-read-replicas-portal.md)
-- Learn more about the MySQL replication features and issues from the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html)
 
 <!--
 - Learn how to [create and manage read replicas using the Azure CLI](howto-read-replicas-using-cli.md)
