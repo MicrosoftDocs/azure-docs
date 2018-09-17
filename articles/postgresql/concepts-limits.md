@@ -43,9 +43,6 @@ The Azure system requires five connections to monitor the Azure Database for Pos
 ### Server version upgrades
 - Automated migration between major database engine versions is currently not supported.
 
-### Subscription management
-- Dynamically moving servers across subscriptions and resource groups is currently not supported.
-
 ### VNet service endpoints
 - Support for VNet service endpoints is only for General Purpose and Memory Optimized servers.
 
