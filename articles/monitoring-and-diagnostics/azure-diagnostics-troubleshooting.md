@@ -47,7 +47,7 @@ Following are the paths to some important logs and artifacts. We refer to this i
 | **MonAgentHost log file** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ## Metric data doesn't appear in the Azure portal
-Azure Diagnostics provides metric data that can be displayed in the Azure portal. If you have problems seeing the data in portal, check the WADMetrics\* table in the Azure Diagnostics storage account to see if the corresponding metric records are there. 
+Azure Diagnostics provides metric data that can be displayed in the Azure portal. If you have problems seeing the data in portal, check the WADMetrics\* table in the Azure Diagnostics storage account to see if the corresponding metric records are there.
 
 Here, the **PartitionKey** of the table is the resource ID, virtual machine, or virtual machine scale set. **RowKey** is the metric name (also known as the performance counter name).
 
@@ -77,7 +77,7 @@ If the configuration is set correctly but you still can't see the metric data, u
 
 
 ## Azure Diagnostics isn't starting
-For information about why Azure Diagnostics failed to start, see the **DiagnosticsPluginLauncher.log** and **DiagnosticsPlugin.log** files in the log files location that was provided earlier. 
+For information about why Azure Diagnostics failed to start, see the **DiagnosticsPluginLauncher.log** and **DiagnosticsPlugin.log** files in the log files location that was provided earlier.
 
 If these logs indicate `Monitoring Agent not reporting success after launch`, it means there was a failure launching MonAgentHost.exe. Look at the logs in the location that's indicated for `MonAgentHost log file` in the previous section.
 
@@ -99,14 +99,14 @@ The most common reason that event data doesn't appear at all is that the storage
 
 Solution: Correct your Diagnostics configuration and reinstall Diagnostics.
 
-If the storage account is configured correctly, remote access into the machine and verify that DiagnosticsPlugin.exe and MonAgentCore.exe are running. If they aren't running, follow the steps in [Azure Diagnostics is not starting](#azure-diagnostics-is-not-starting). 
+If the storage account is configured correctly, remote access into the machine and verify that DiagnosticsPlugin.exe and MonAgentCore.exe are running. If they aren't running, follow the steps in [Azure Diagnostics is not starting](#azure-diagnostics-is-not-starting).
 
 If the processes are running, go to [Is data getting captured locally?](#is-data-getting-captured-locally) and follow the instructions there.
 
 ### Part of the data is missing
 If you are getting some data but not all, it means that the data collection/transfer pipeline is set correctly. Follow the subsections here to narrow down the issue.
 
-#### Is the collection configured? 
+#### Is the collection configured?
 The Diagnostics configuration contains instructions for a particular type of data to be collected. [Review your configuration](#how-to-check-diagnostics-extension-configuration) to verify that you are only looking for data that you've configured for the collection.
 
 #### Is the host generating data?
@@ -121,16 +121,16 @@ If you don't see trace logs being generated, see [More about trace logs missing]
 
 #### Is data getting captured locally?
 Next, make sure the data is getting captured locally.
-The data is locally stored in `*.tsf` files in [the local store for diagnostics data](#log-artifacts-path). Different kinds of logs get collected in different `.tsf` files. The names are similar to the table names in Azure Storage. 
+The data is locally stored in `*.tsf` files in [the local store for diagnostics data](#log-artifacts-path). Different kinds of logs get collected in different `.tsf` files. The names are similar to the table names in Azure Storage.
 
 For example, `Performance Counters` get collected in `PerformanceCountersTable.tsf`. Event logs get collected in `WindowsEventLogsTable.tsf`. Use the instructions in the [Local log extraction](#local-log-extraction) section to open the local collection files and verify that you see them getting collected on disk.
 
-If you don't see logs getting collected locally, and have already verified that the host is generating data, you likely have a configuration issue. Review your configuration carefully. 
+If you don't see logs getting collected locally, and have already verified that the host is generating data, you likely have a configuration issue. Review your configuration carefully.
 
 Also review the configuration that was generated for MonitoringAgent [MaConfig.xml](#log-artifacts-path). Verify that there is a section that describes the relevant log source. Then verify that it is not lost in translation between the Diagnostics configuration and the monitoring agent configuration.
 
 #### Is data getting transferred?
-If you have verified that the data is getting captured locally but you still don't see it in your storage account, take the following steps: 
+If you have verified that the data is getting captured locally but you still don't see it in your storage account, take the following steps:
 
 - Verify that you have provided a correct storage account, and that you haven't rolled over keys for the given storage account. For Azure Cloud Services, sometimes we see that people don't update `useDevelopmentStorage=true`.
 
@@ -209,7 +209,7 @@ The easiest way to check your extension configuration is to go to [Azure Resourc
 
 Alternatively, remote desktop into the machine and look at the Azure Diagnostics Configuration file that's described in the [Log artifacts path section](#log-artifacts-path).
 
-In either case, search for **Microsoft.Azure.Diagnostics**, and then for the **xmlCfg** or **WadCfg** field. 
+In either case, search for **Microsoft.Azure.Diagnostics**, and then for the **xmlCfg** or **WadCfg** field.
 
 If you're searching on a virtual machine and the **WadCfg** field is present, it means the config is in JSON format. If the **xmlCfg** field is present, it means the config is in XML and is base64-encoded. You need to [decode it](http://www.bing.com/search?q=base64+decoder) to see the XML that was loaded by Diagnostics.
 
@@ -241,22 +241,22 @@ The plugin returns the following exit codes:
 | -112 |General error |
 
 ### Local log extraction
-The monitoring agent collects logs and artifacts as `.tsf` files. The `.tsf` file is not readable but you can convert it into a `.csv` as follows: 
+The monitoring agent collects logs and artifacts as `.tsf` files. The `.tsf` file is not readable but you can convert it into a `.csv` as follows:
 
 ```
 <Azure diagnostics extension package>\Monitor\x64\table2csv.exe <relevantLogFile>.tsf
 ```
 A new file called `<relevantLogFile>.csv` is created in the same path as the corresponding `.tsf` file.
 
->[!NOTE] 
+>[!NOTE]
 > You only need to run this utility against the main .tsf file (for example, PerformanceCountersTable.tsf). The accompanying files (for example, PerformanceCountersTables_\*\*001.tsf, PerformanceCountersTables_\*\*002.tsf, and so on) are automatically processed.
 
-### More about missing trace logs 
+### More about missing trace logs
 
 >[!NOTE]
-> The following information applies mostly to Azure Cloud Services unless you have configured the DiagnosticsMonitorTraceListener on an application that's running on your IaaS VM. 
+> The following information applies mostly to Azure Cloud Services unless you have configured the DiagnosticsMonitorTraceListener on an application that's running on your IaaS VM.
 
-- Make sure the **DiagnosticMonitorTraceListener** is configured in the web.config or app.config.  This is configured by default in cloud service projects. However, some customers comment it out, which causes the trace statements to not be collected by diagnostics. 
+- Make sure the **DiagnosticMonitorTraceListener** is configured in the web.config or app.config.  This is configured by default in cloud service projects. However, some customers comment it out, which causes the trace statements to not be collected by diagnostics.
 
 - If logs are not getting written from the **OnStart** or **Run** method, make sure the **DiagnosticMonitorTraceListener** is in the app.config.  By default it is in the web.config, but that only applies to code running within w3wp.exe. So you need it in app.config to capture traces that are running in WaIISHost.exe.
 
@@ -269,11 +269,11 @@ Here is a list of known issues with known mitigations:
 
 **1. .NET 4.5 dependency**
 
-Windows Azure Diagnostics Extension has a runtime dependency on .NET 4.5 framework or later. At the time of writing, all machines that are provisioned for Azure Cloud Services, as well as all official images that are based on Azure virtual machines, have .NET 4.5 or later installed. 
+Windows Azure Diagnostics Extension has a runtime dependency on .NET 4.5 framework or later. At the time of writing, all machines that are provisioned for Azure Cloud Services, as well as all official images that are based on Azure virtual machines, have .NET 4.5 or later installed.
 
 It is still possible encounter a situation where you try to run Windows Azure Diagnostics Extension on a machine that doesn't have .NET 4.5 or later. This happens when you create your machine from an old image or snapshot, or when you bring your own custom disk.
 
-This generally manifests as an exit code **255** when running **DiagnosticsPluginLauncher.exe.** Failure happens due to the following unhandled exception: 
+This generally manifests as an exit code **255** when running **DiagnosticsPluginLauncher.exe.** Failure happens due to the following unhandled exception:
 ```
 System.IO.FileLoadException: Could not load file or assembly 'System.Threading.Tasks, Version=1.5.11.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies
 ```
@@ -284,8 +284,6 @@ System.IO.FileLoadException: Could not load file or assembly 'System.Threading.T
 
 The portal experience in the virtual machines shows certain performance counters by default. If you don't see the performance counters, and you know that the data is getting generated because it is available in storage, check the following:
 
-- Whether the data in storage has counter names in English. If the counter names are not in English, the portal metric chart won't able to recognize it.
+- Whether the data in storage has counter names in English. If the counter names are not in English, the portal metric chart won't able to recognize it. **Mitigation**: Change the machine's language to English for system accounts. To do this, select **Control Panel** > **Region** > **Administrative** > **Copy Settings**. Next, deselect **Welcome screen and system accounts** so that the custom language is not applied to the system account.
 
-- If you are using wildcards (\*) in your performance counter names, the portal won't able to correlate the configured and collected counter.
-
-**Mitigation**: Change the machine's language to English for system accounts. To do this, select **Control Panel** > **Region** > **Administrative** > **Copy Settings**. Next, deselect **Welcome screen and system accounts** so that the custom language is not applied to the system account. Also make sure you do not use wildcards if you want the portal to be your primary consumption experience.
+- If you are using wildcards (\*) in your performance counter names, the portal won't able to correlate the configured and collected counter when the performance counters are sent to the Azure Storage sink. **Mitigation**: To make sure you can use wildcards and have the portal expand the (\*), route your performance counters to the ["Azure Monitor" sink](azure-diagnostics-schema.md#diagnostics-extension-111).
