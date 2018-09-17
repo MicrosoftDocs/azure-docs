@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: List of frequently asked questions for QnA Maker service
 services: cognitive-services
 author: tulasim88
-manager: cgronlun
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article

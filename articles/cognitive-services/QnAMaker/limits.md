@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Comprehensive list of limits across QnA Maker.
 services: cognitive-services
 author: tulasim88
-manager: cgronlun
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article

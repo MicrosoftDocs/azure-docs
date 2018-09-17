@@ -4,7 +4,7 @@ titleSuffix: Azure
 description: a step-by-step tutorial on integrating QnA Maker and LUIS
 services: cognitive-services
 author: tulasim88
-manager: cgronlun
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: QnAMaker
 ms.topic: article

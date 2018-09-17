@@ -4,7 +4,7 @@ titleSuffix: Azure
 description: a guide to choosing capacity for your QnA Maker deployment
 services: cognitive-services
 author: nstulasi88
-manager: cgronlun
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: QnAMaker
 ms.topic: article
