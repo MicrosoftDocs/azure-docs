@@ -133,7 +133,7 @@ This option uses the SDK method, Webservice.deploy().
     service_name = 'aci-mnist-1'
     service = Webservice.deploy(deployment_config = aciconfig,
                                     image_config = image_config,
-                                    model_paths = ['sklearn_mnist.pkl'],
+                                    model_paths = ['sklearn_mnist_model.pkl'],
                                     name = service_name,
                                     workspace = ws)
     
