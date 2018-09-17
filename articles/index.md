@@ -1103,6 +1103,12 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/data-explorer/">
+                                                <img src="media/logos/logo_azure" alt="" />
+                                                <p>Azure Data Explorer</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/stream-analytics/">
                                                 <img src="media/index/StreamAnalytics.svg" alt="" />
                                                 <p>Stream Analytics</p>
@@ -3154,6 +3160,25 @@ featureFlags:
                                                 <div class="cardText">
                                                     <h3>Data Factory</h3>
                                                     <p>Orchestrate and manage data transformation and movement</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/data-explorer/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/logos/logo_azure.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Data Explorer</h3>
+                                                    <p>Fast and highly scalable data exploration service for log and telemetry data</p>
                                                 </div>
                                             </div>
                                         </div>
