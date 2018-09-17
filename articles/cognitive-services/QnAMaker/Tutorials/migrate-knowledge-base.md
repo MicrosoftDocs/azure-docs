@@ -3,7 +3,7 @@ title: Migrate preview knowledge bases - Qna Maker
 titleSuffix: Azure Cognitive Services
 description: How to import a knowledge base
 services: cognitive-services
-author: nstulasi88
+author: tulasim88
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: qna-maker
