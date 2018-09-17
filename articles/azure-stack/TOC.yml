@@ -5,7 +5,7 @@
   - name: What is Azure Stack?
     href: azure-stack-poc.md
   - name: Release notes
-    href: azure-stack-update-1808.md
+    href: azure-stack-servicing-policy#update-package-release-cadence 
     expanded: true
     items:
     - name: 1808 update 
