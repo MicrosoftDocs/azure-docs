@@ -17,7 +17,7 @@ ms.author: ccompy
 ---
 # App Service Environment management addresses
 
-The App Service Environment (ASE) is a deployment of the Azure App Service into a subnet in your Azure Virtual Network (VNet).  The ASE must be accessible from the management plane used by the Azure App Service.  This ASE management traffic traverses the user-controlled network. If this traffic is blocked or misrouted, the ASE will become suspended. For details on the ASE networking dependencies read [Networking considerations and the App Service Environment][networking]. For general information on the ASE, you can start with [Introduction to the App Service Environment][intro].
+The App Service Environment (ASE) is a deployment of the Azure App Service into a subnet in your Azure Virtual Network (VNet).  The ASE must be accessible from the management plane used by the Azure App Service.  This ASE management traffic traverses the user-controlled network. If this traffic is blocked or misrouted, the ASE will become suspended. For details on the ASE networking dependencies, read [Networking considerations and the App Service Environment][networking]. For general information on the ASE, you can start with [Introduction to the App Service Environment][intro].
 
 This document lists the App Service source addresses for management traffic to the ASE and serves two important purposes.  
 
@@ -35,13 +35,13 @@ All ASEs have a public VIP which management traffic comes into. The incoming man
 
 ## Get your management addresses from API ##
 
-There is an API call that can be made to obtain the list of management addresses that match to your ASE.  The call is:
+You can list the management addresses that match to your ASE with the following API call.
 
     get /subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Web/hostingEnvironments/<ASE Name>/inboundnetworkdependenciesendpoints?api-version=2016-09-01
 
-This call returns a JSON document that includes all of the inbound addresses for your ASE which includes the management addresses, the VIP used by your ASE and the ASE subnet itself.  
+The API returns a JSON document that includes all of the inbound addresses for your ASE. The list of addresses includes the management addresses, the VIP used by your ASE and the ASE subnet address range itself.  
 
-To call the API with the [armclient](http://github.com/projectkudu/ARMClient) use the following commands but substitue in your subscription ID, resource group and ASE name.  
+To call the API with the [armclient](http://github.com/projectkudu/ARMClient) use the following commands but substitute in your subscription ID, resource group and ASE name.  
 
     armclient login
     armclient get /subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Web/hostingEnvironments/<ASE Name>/inboundnetworkdependenciesendpoints?api-version=2016-09-01
