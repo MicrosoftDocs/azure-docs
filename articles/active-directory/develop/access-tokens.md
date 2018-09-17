@@ -38,7 +38,7 @@ If your application is a resource (web API) that clients can request access to, 
 
 ## Claims in access tokens
 
-JWTs are split into three pieces - header, payload, and signature, each seperated by a period (`.`) and seperately Base64 encoded.  The header provides information about how to [validate  the token](Validating-tokens) - information about the type of token and how it was signed.  The payload contains all of the important data about the user or app that is attempting to call your service.  Finally, the signature is the raw material used to validate the token.  
+JWTs are split into three pieces - header, payload, and signature, each seperated by a period (`.`) and seperately Base64 encoded.  The header provides information about how to [validate  the token](#validating-tokens) - information about the type of token and how it was signed.  The payload contains all of the important data about the user or app that is attempting to call your service.  Finally, the signature is the raw material used to validate the token.  
 
 > [! Important]
 >Claims are present only if a value exists to fill it.  Thus, your app should not take a dependency on a claim being present.  Examples include `pwd_exp` (not every tenant requires passwords to expire) or `family_name` ([client credential](v1-oauth2-client-creds-grant-flow.md) flows are on behalf of applications, which don't have names).  Claims used for access token validation will always be present.
@@ -67,7 +67,7 @@ JWTs are split into three pieces - header, payload, and signature, each seperate
 |`exp` |  int, a UNIX timestamp | The "exp" (expiration time) claim identifies the expiration time on or after which the JWT MUST NOT be accepted for processing.  It's important to note that a resource may reject the token before this time as well - if for example a change in authentication is required or a token revocation has been detected.  The best way to   |
 |`acr` |  String, a "0" or "1" | The "Authentication context class" claim. A value of "0" indicates the end-user authentication did not meet the requirements of ISO/IEC 29115. |
 |`aio` |  Opaque String | An internal claim used by Azure AD to record data for token re-use. Should not be used by resources.|
-|`amr` |  JSON array of strings | Identifies how the subject of the token was authenticated. See [the amr claim section](The-amr-claim) for more details.  |
+|`amr` |  JSON array of strings | Identifies how the subject of the token was authenticated. See [the amr claim section](#the-amr-claim) for more details.  |
 |`appid` |  String, a GUID | The application ID of the client using the token.   The application can act as itself or on behalf of a user. The application ID typically represents an application object, but it can also represent a service principal object in Azure AD.|
 |`appidacr` |  "0", "1", or "2" | Indicates how the client was authenticated. For a public client, the value is 0. If client ID and client secret are used, the value is 1. If a client certificate was used for authentication, the value is 2.  |
 |`preferred_name`  | String | The primary username that represents the user. It could be an email address, phone number, or a generic username without a specified format. Its value is mutable and might change over time. Since it is mutable, this value must not be used to make authorization decisions. The `profile` scope is required in order to receive this claim.|
@@ -105,7 +105,7 @@ Microsoft identities can authenticate in a variety of ways, which may be relevan
 |Value |  Description |
 |-----|-------------|
 |`pwd` | Password authentication, either a user's Microsoft password or an app's client secret. |
-|`rsa` |  Authentication was based on the proof of an RSA key, for example with the [Microsoft Authenticator pp](https://aka.ms/authapp).  This includes if authentication was performed by a self-signed JWT with a service owned X509 certificate. |
+|`rsa` |  Authentication was based on the proof of an RSA key, for example with the [Microsoft Authenticator pp](https://aka.ms/AA2kvvu).  This includes if authentication was performed by a self-signed JWT with a service owned X509 certificate. |
 |`otp` | One-time passcode using an email or a text message. |
 |`fed` | A federated authentication assertion (e.g. JWT or SAML) was used. |
 |`wia` | Windows Integrated Authentication. |

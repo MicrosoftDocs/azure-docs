@@ -21,7 +21,7 @@ ms.custom: aaddev
 ---
 # ID Tokens
 
-id_tokens are sent to the client application as part of an [OpenID Connect](https://openid.net/connect/) flow.  They can be sent along side or instead of an access token, and are used by the client to authenticate the user.  
+id_tokens are sent to the client application as part of an [OpenID Connect](v1-protocols-oidc.md) flow.  They can be sent along side or instead of an access token, and are used by the client to authenticate the user.  
 
 ## Using the id_token
 
@@ -59,16 +59,16 @@ View this v1.0 sample token in [jwt.ms](https://jwt.ms/#id_token=eyJ0eXAiOiJKV1Q
 |`exp` |  int, a UNIX timestamp | The "exp" (expiration time) claim identifies the expiration time on or after which the JWT MUST NOT be accepted for processing.  It's important to note that a resource may reject the token before this time as well - if for example a change in authentication is required or a token revocation has been detected. |
 | `c_hash`| String |The code hash is included in ID tokens only when the ID token is issued with an OAuth 2.0 authorization code. It can be used to validate the authenticity of an authorization code. For details about performing this validation, see the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html). |
 |`at_hash`| String |The access token hash is included in ID tokens only when the ID token is issued with an OAuth 2.0 access token. It can be used to validate the authenticity of an access token. For details about performing this validation, see the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html). |
-|`aio` |  Opaque String | An internal claim used by Azure AD to record data for token re-use. Should not be used by resources.|
+|`aio` |  Opaque String | An internal claim used by Azure AD to record data for token re-use. Should be ignored.|
 |`preferred_username`  | String | The primary username that represents the user. It could be an email address, phone number, or a generic username without a specified format. Its value is mutable and might change over time. Since it is mutable, this value must not be used to make authorization decisions. The `profile` scope is required in order to receive this claim.|
 |`name` |  String | The `name` claim provides a human-readable value that identifies the subject of the token. The value is not guaranteed to be unique, it is mutable, and it's designed to be used only for display purposes. The `profile` scope is required in order to receive this claim. |
-|`nonce`| String | The nonce matches the parameter included in the original /authorize request to the IDP.  If it does not match, your application should reject the token.|
-|`oid` |  String, a GUID | The immutable identifier for an object in the Microsoft identity system, in this case, a user account. This ID uniquely identifies the user across applications - two different applications signing in the same user will receive the same value in the `oid` claim. The Microsoft Graph will return this ID as the `id` property for a given user account. Because the `oid` allows multiple apps to correlate users, the `profile` scope is required in order to receive this claim. Note that if a single user exists in multiple tenants, the user will contain a different object ID in each tenant - they are considered different accounts, even though the user logs into each account with the same credentials |
-|`rh` |  Opaque String |An internal claim used by Azure to revalidate tokens. Should not be used by resources. |
+|`nonce`| String | The nonce matches the parameter included in the original /authorize request to the IDP.  If it does not match, your application should reject the token. |
+|`oid` |  String, a GUID | The immutable identifier for an object in the Microsoft identity system, in this case, a user account. This ID uniquely identifies the user across applications - two different applications signing in the same user will receive the same value in the `oid` claim. The Microsoft Graph will return this ID as the `id` property for a given user account. Because the `oid` allows multiple apps to correlate users, the `profile` scope is required in order to receive this claim. Note that if a single user exists in multiple tenants, the user will contain a different object ID in each tenant - they are considered different accounts, even though the user logs into each account with the same credentials. |
+|`rh` |  Opaque String |An internal claim used by Azure to revalidate tokens. Should be ignored. |
 |`sub` |  String, a GUID | The principal about which the token asserts information, such as the user of an app. This value is immutable and cannot be reassigned or reused. The subject is a pairwise identifier - it is unique to a particular application ID. Therefore, if a single user signs into two different apps using two different client IDs, those apps will receive two different values for the subject claim. This may or may not be desired depending on your architecture and privacy requirements. |
 |`tid` |  String, a GUID | A GUID that represents the Azure AD tenant that the user is from. For work and school accounts, the GUID is the immutable tenant ID of the organization that the user belongs to. For personal accounts, the value is `9188040d-6c67-4c5b-b112-36a304b66dad`. The `profile` scope is required in order to receive this claim.  |
 |`unique_name` |  String | Provides a human readable value that identifies the subject of the token. This value is not guaranteed to be unique within a tenant and is designed to be used only for display purposes. Only issued in v1.0 id_tokens. |
-|`uti` |  Opaque String | An internal claim used by Azure to revalidate tokens. Should not be used by resources. |
+|`uti` |  Opaque String | An internal claim used by Azure to revalidate tokens. Should be ignored. |
 |`ver` |  String, either 1.0 or 2.0 | Indicates the version of the id_token. |
 
 ## Validating id_tokens
