@@ -422,7 +422,7 @@ Now you have defined your **Connected Air Conditioner** device template, you can
     | Title                   | Serial number |
     | Settings and Properties | Serial Number |
 
-    ![Serial number property settings](./media/tutorial-define-device-type/propertysettings1.png)
+    ![Serial number property settings](./media/tutorial-define-device-type/propertysettings3.png)
 
     Then choose **Save**.
 
@@ -437,7 +437,7 @@ Now you have defined your **Connected Air Conditioner** device template, you can
     | Title                   | Firmware version |
     | Settings and Properties | Firmware Version |
 
-    ![Serial number property settings](./media/tutorial-define-device-type/propertysettings2.png)
+    ![Serial number property settings](./media/tutorial-define-device-type/propertysettings3.png)
 
     Then choose **Save**.
 
