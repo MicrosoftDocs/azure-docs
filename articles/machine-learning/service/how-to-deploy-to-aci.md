@@ -99,7 +99,7 @@ from azureml.core.model import Model
 model_name = "sklearn_mnist"
 model = Model.register(model_path = "sklearn_mnist_model.pkl",
                         model_name = model_name,
-                        tags = ['mnist','classification'],
+                        tags = {"data": "mnist", "type": "classification"},
                         description = "Mnist handwriting recognition",
                         workspace = ws)
 ```
