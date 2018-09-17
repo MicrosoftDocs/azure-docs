@@ -40,7 +40,7 @@ If you don't have a logic app, see
 
 You can create or enable a managed identity for your logic app 
 through the Azure portal, Azure Resource Manager templates, 
-Azure PowerShell, or Azure CLI. 
+or Azure PowerShell. 
 
 ### Azure portal
 
@@ -137,8 +137,8 @@ workflow definition includes these additional properties:
 
 To disable a managed identity on your logic app, 
 you can follow the steps similar to how you created 
-the identity through the Azure portal, Azure PowerShell, 
-or Azure CLI. 
+the identity through the Azure portal, Azure Resource 
+Manager deployment templates, or Azure PowerShell. 
 
 When you delete your logic app, 
 Azure automatically removes your logic app's 
