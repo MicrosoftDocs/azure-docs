@@ -1,4 +1,4 @@
-- name: Data Box Gateway and Data Box Edge Documentation
+- name: Documentation - Azure Data Box for online transfer
   href: /azure/databox-online/
 - name: Data Box Gateway
   items:
@@ -44,6 +44,5 @@
     href: https://azure.microsoft.com/pricing/
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=databox
-  - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=databox
+
 
