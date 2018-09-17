@@ -18,7 +18,7 @@ ms.custom: mvc
 ---
 # Migrate a ASP.NET app to Azure App Service using a Windows container (Preview)
 
-[Azure App Service](app-service-web-overview.md) provides pre-defined application stacks on Windows like ASP.NET or Node.js, running on IIS. The preconfigured Windows environment locks down the operating system from administrative access, software installations, changes to the global assembly cache, and so on (see [Operating system functionality on Azure App Service](web-sites-available-operating-system-functionality.md)). However, using a custom Windows container in App Service lets you make OS changes that your app needs, so it's easy to migrate on-premises app that require custom OS and software configuration. This tutorial demonstrates how to migrate to App Service an ASP.NET app that use custom fonts installed in the Windows font library. You deploy a custom-configured Windows image from Visual Studio to [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/), and then run it in App Service.
+[Azure App Service](app-service-web-overview.md) provides pre-defined application stacks on Windows like ASP.NET or Node.js, running on IIS. The preconfigured Windows environment locks down the operating system from administrative access, software installations, changes to the global assembly cache, and so on (see [Operating system functionality on Azure App Service](web-sites-available-operating-system-functionality.md)). However, using a custom Windows container in App Service lets you make OS changes that your app needs, so it's easy to migrate on-premises app that requires custom OS and software configuration. This tutorial demonstrates how to migrate to App Service an ASP.NET app that uses custom fonts installed in the Windows font library. You deploy a custom-configured Windows image from Visual Studio to [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/), and then run it in App Service.
 
 ![](media/app-service-web-tutorial-windows-containers-custom-fonts/app-running.png)
 
@@ -42,11 +42,11 @@ In this step, you set up the local .NET project.
 - [Download the sample project](https://github.com/Azure-Samples/custom-font-win-container/archive/master.zip).
 - Extract (unzip) the  *custom-font-win-container.zip* file.
 
-The sample project contains a simple ASP.NET application that uses a custom font that is installed into the Windows font library. It's not necessary to install fonts, but it's an example of an app that is integrated with the underlying OS. To migrate an app like it, you can either rearchitect your code to remove the integration, or you can migrate it to App Service as-is in a custom Windows container.
+The sample project contains a simple ASP.NET application that uses a custom font that is installed into the Windows font library. It's not necessary to install fonts, but it's an example of an app that is integrated with the underlying OS. To migrate such an app to App Service, you either rearchitect your code to remove the integration, or migrate it as-is in a custom Windows container.
 
 ### Install the font
 
-In Windows Explorer, navigate to _custom-font-win-container-master/CustomFontSample_, right-click _FrederickatheGreat-Regular.ttf_ and select **Install**.
+In Windows Explorer, navigate to _custom-font-win-container-master/CustomFontSample_, right-click _FrederickatheGreat-Regular.ttf_, and select **Install**.
 
 This font is publicly available from [Google Fonts](https://fonts.google.com/specimen/Fredericka+the+Great).
 
