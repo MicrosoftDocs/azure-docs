@@ -77,6 +77,12 @@ The _device sets_ page shows device sets created by the builder. A device set is
 
 The analytics page shows charts that help you understand how the devices connected to your application are behaving. An operator uses this page to monitor and investigate issues with connected devices. The builder can define the charts shown on this page. To learn more, see the [Create custom analytics for your Azure IoT Central application](howto-create-analytics.md) article.
 
+## Jobs
+
+![Jobs page](media/overview-iot-central-tour/jobs.png)
+
+The jobs page allows you to perform bulk device management operations onto your devices. The builder uses this page to update device properties, settings, and commands. To learn more, see the [Run a job](howto-run-a-job.md) article.
+
 ## Application Builder
 
 ![Application Builder page](media/overview-iot-central-tour/applicationbuilder.png)
