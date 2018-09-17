@@ -49,14 +49,14 @@ Customers must be able to set up appropriate access control for Virtual WAN in t
 * Get tenant ID
 * Assign application to role "Contributor"
 
-###  <a name="branch"></a>3. Upload branch information
+###  <a name="branch"></a>3. Upload branch device information
 
 Design the user-experience to upload branch (on-premises site) information to Azure. [REST APIs](https://docs.microsoft.com/rest/api/virtualwan/vpnsites) for VPNSite can be used to create the site information in Virtual WAN. You can provide all branch SDWAN/VPN devices or select device customizations as appropriate.
 
 
-### <a name="device"></a>Device configuration
+### <a name="device"></a>Device configuration download and connectivity
 
-In this step, a customer that is not using a provider would manually download the Azure configuration and apply it to their on-premises SDWAN/VPN device. As a provider, you should automate this step. The device controller can call 'GetVpnConfiguration' REST API to download the Azure configuration, which will typically look similar to the following file.
+This step involves downloading Azure configuration and setting up connectivity from the branch device into Azure Virtual WAN. In this step, a customer that is not using a provider would manually download the Azure configuration and apply it to their on-premises SDWAN/VPN device. As a provider, you should automate this step. The device controller can call 'GetVpnConfiguration' REST API to download the Azure configuration, which will typically look similar to the following file.
 
 **Configuration notes**
 
