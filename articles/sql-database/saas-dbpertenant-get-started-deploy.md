@@ -236,7 +236,7 @@ Browse to the server **tenants1-dpt-&lt;user&gt;**, and select **Pool1** to vi
 - The first chart, labeled **Resource utilization**, shows pool eDTU utilization.
 - The second chart shows eDTU utilization of the five most active databases in the pool.
 
-The two charts illustrate that elastic pools and SQL Database are well suited to unpredictable SaaS application workloads. The charts show that four databases are each bursting to as much as 40 eDTUs, and yet all the databases are comfortably supported by a 50-eDTU pool. The 50-eDTU pool can support even heavier workloads. If the databases are provisioned as standalone databases, each one needs to be an S2 (50 DTU) to support the bursts. The cost of four standalone S2 databases is nearly three times the price of the pool. In real-world situations, SQL Database customers run up to 500 databases in 200 eDTU pools. For more information, see the [Performance monitoring tutorial](saas-dbpertenant-performance-monitoring.md).
+The two charts illustrate that elastic pools and SQL Database are well suited to unpredictable SaaS application workloads. The charts show that four databases are each bursting to as much as 40 eDTUs, and yet all the databases are comfortably supported by a 50-eDTU pool. The 50-eDTU pool can support even heavier workloads. If the databases are provisioned as single databases, each one needs to be an S2 (50 DTU) to support the bursts. The cost of four standalone S2 databases is nearly three times the price of the pool. In real-world situations, SQL Database customers run up to 500 databases in 200 eDTU pools. For more information, see the [Performance monitoring tutorial](saas-dbpertenant-performance-monitoring.md).
 
 ## Additional resources
 
