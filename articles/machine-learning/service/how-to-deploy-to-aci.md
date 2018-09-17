@@ -56,7 +56,7 @@ Configure the Docker image that is used to store all the model files.
                                                       runtime = "python",
                                                       conda_file = "myenv.yml",
                                                       description = "Image with mnist model",
-                                                      tags = ["mnist","classification"]
+                                                      tags = {"data": "mnist", "type": "classification"}
                                                      )
     ```
 
@@ -69,7 +69,7 @@ from azureml.core.webservice import AciWebservice
 
 aciconfig = AciWebservice.deploy_configuration(cpu_cores = 1, 
                                                memory_gb = 1, 
-                                               tags = ['mnist','classification'], 
+                                               tags = {"data": "mnist", "type": "classification"},
                                                description = 'Handwriting recognition')
 ```
 
@@ -99,7 +99,7 @@ from azureml.core.model import Model
 model_name = "sklearn_mnist"
 model = Model.register(model_path = "sklearn_mnist_model.pkl",
                         model_name = model_name,
-                        tags = ['mnist','classification'],
+                        tags = {"data": "mnist", "type": "classification"},
                         description = "Mnist handwriting recognition",
                         workspace = ws)
 ```
@@ -133,7 +133,7 @@ This option uses the SDK method, Webservice.deploy().
     service_name = 'aci-mnist-1'
     service = Webservice.deploy(deployment_config = aciconfig,
                                     image_config = image_config,
-                                    model_paths = ['sklearn_mnist.pkl'],
+                                    model_paths = ['sklearn_mnist_model.pkl'],
                                     name = service_name,
                                     workspace = ws)
     
@@ -190,16 +190,16 @@ Deploy a registered model (`model`) using `Webservice.deploy_from_image()`. This
 
 1. Deploy the Docker image as a service using `Webservice.deploy_from_image()`
 
-Now deploy the image to ACI.  
-
+    Now deploy the image to ACI.  
+    
     ```python
     from azureml.core.webservice import Webservice
     
     service_name = 'aci-mnist-3'
     service = Webservice.deploy_from_image(deployment_config = aciconfig,
-                                               image = image,
-                                               name = service_name,
-                                               workspace = ws)
+                                                image = image,
+                                                name = service_name,
+                                                workspace = ws)
     service.wait_for_deployment(show_output = True)
     print(service.state)
     ```   
