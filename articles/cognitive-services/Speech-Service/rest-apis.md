@@ -25,16 +25,6 @@ The endpoints for the Speech to Text REST API are shown in the table below. Use 
 
 This API supports only short utterances. Requests may contain up to 10 seconds of audio and last a maximum of 14 seconds overall. The REST API only returns final results, not partial or interim results. The Speech Service also has a [batch transcription](batch-transcription.md) API that can transcribe longer audio.
 
-### Recognition mode
-
-The recognition mode optimizes recognition for specific scenarios. The URIs above incorporate the `conversation` recognition mode. Use one of the following values in this position to declare the recognition mode.
-
-|Recognition mode|Intended scenario|
-|----------------|-----|
-| `interactive` | User makes short (2-3 seconds) requests and expects the application to perform an action in response.|
-| `conversation` | Users are engaged in a machine-mediated human-to-human conversation where both users can see the recognized text.|
-| `dictation` | Users speak full sentences (5-8 seconds) which are transcribed for further processing.|
-
 ### Query parameters
 
 The following parameters may be included in the query string of the REST request.
