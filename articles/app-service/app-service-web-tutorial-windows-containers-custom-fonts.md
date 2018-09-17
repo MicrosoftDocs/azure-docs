@@ -1,5 +1,5 @@
 ---
-title: Migrate a ASP.NET app to Azure App Service using a Windows container (Preview) | Microsoft Docs
+title: Migrate an ASP.NET app to Azure App Service using a Windows container (Preview) | Microsoft Docs
 description: Learn how to deploy a custom Windows container into Azure App Service.
 services: app-service\web
 documentationcenter: ''
@@ -16,7 +16,7 @@ ms.date: 09/17/2018
 ms.author: cephalin
 ms.custom: mvc
 ---
-# Migrate a ASP.NET app to Azure App Service using a Windows container (Preview)
+# Migrate an ASP.NET app to Azure App Service using a Windows container (Preview)
 
 [Azure App Service](app-service-web-overview.md) provides pre-defined application stacks on Windows like ASP.NET or Node.js, running on IIS. The preconfigured Windows environment locks down the operating system from administrative access, software installations, changes to the global assembly cache, and so on (see [Operating system functionality on Azure App Service](web-sites-available-operating-system-functionality.md)). However, using a custom Windows container in App Service lets you make OS changes that your app needs, so it's easy to migrate on-premises app that requires custom OS and software configuration. This tutorial demonstrates how to migrate to App Service an ASP.NET app that uses custom fonts installed in the Windows font library. You deploy a custom-configured Windows image from Visual Studio to [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/), and then run it in App Service.
 
