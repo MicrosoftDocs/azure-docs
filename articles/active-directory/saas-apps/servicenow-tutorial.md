@@ -273,11 +273,6 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 			> [!NOTE]
 			> You can configure Azure AD to emit either the Azure AD user ID (user principal name) or the email address as the unique identifier in the SAML token by going to the **ServiceNow > Attributes > Single Sign-On** section of the Azure portal and mapping the desired field to the **nameidentifier** attribute. The value stored for the selected attribute in Azure AD (for example, user principal name) must match the value stored in ServiceNow for the entered field (for example, user_name)
 
-		* Under **x509 Certificate**, lists the certificate you have created in the previous step.
-
-			> [!NOTE]
-			> ServiceNow does not allow activation of the Idp without clicking on the test connection button, to override the same, please follow the below steps.
-		
 		* Click on **Test Connection** at the top right corner of the page.
 
 		* After clicking on the **Test Connection**, you will get the popup window where you need to enter credentials and the below page with results is shown. The **SSO Logout Test Results** error is expected please ignore the error and click **Activate** button.
