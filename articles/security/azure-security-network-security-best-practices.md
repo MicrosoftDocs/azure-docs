@@ -99,7 +99,7 @@ Many organizations have chosen the hybrid IT route. In hybrid IT, some of the co
 
 In the hybrid IT scenario, there is usually some type of cross-premises connectivity. Cross-premises connectivity allows the company to connect its on-premises networks to Azure virtual networks. Two cross-premises connectivity solutions are available:
 
-* **Site-to-site VPN**: It’s a trusted, reliable, and established technology, but the connection takes place over the internet. Bandwidth is constrained to a maximum of about 200 Mbps. Site-to-site VPN is a desirable option in some scenarios and is discussed further in the section [Disable RDP/SSH access to virtual machines](azure-security-network-security-best-practices.md#disable-rdp/ssh-access-to-virtual-machines).
+* **Site-to-site VPN**: It’s a trusted, reliable, and established technology, but the connection takes place over the internet. Bandwidth is constrained to a maximum of about 200 Mbps. Site-to-site VPN is a desirable option in some scenarios and is discussed further in the section [Disable RDP/SSH access to virtual machines](azure-security-network-security-best-practices.md#disable-rdpssh-access-to-virtual-machines).
 * **Azure ExpressRoute**: We recommend that you use [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) for your cross-premises connectivity. ExpressRoute is a dedicated WAN link between your on-premises location or an Exchange hosting provider. Because this is a telco connection, your data doesn’t travel over the internet and therefore is not exposed to the potential risks of internet communications.
 
 ## Optimize uptime and performance
@@ -124,7 +124,7 @@ We recommend that you employ load balancing whenever you can, and as appropriate
 - Have stateless applications that accept incoming requests from the internet.
 - Don’t require sticky sessions or SSL offload. Sticky sessions is a method used with Application Load Balancing, to achieve server-affinity.
 
-**Load-balancing option**: Use the Azure portal to [create an external load balancer](../load-balancer/quickstart-create-basic-load-balancer-portal?toc=%2Fazure%2Fnetworking%2Ftoc.json) that spreads incoming requests across multiple VMs to provide a higher level of availability.
+**Load-balancing option**: Use the Azure portal to [create an external load balancer](../load-balancer/quickstart-create-basic-load-balancer-portal.md) that spreads incoming requests across multiple VMs to provide a higher level of availability.
 
 **Scenario**: You need to load balance connections from VMs that are not on the internet. In most cases, the connections that are accepted for load balancing are initiated by devices on an Azure virtual network, such as SQL Server instances or internal web servers.   
 **Load-balancing option**: Use the Azure portal to [create an internal load balancer](../load-balancer/quickstart-create-basic-load-balancer-powershell.md) that spreads incoming requests across multiple VMs to provide a higher level of availability.
