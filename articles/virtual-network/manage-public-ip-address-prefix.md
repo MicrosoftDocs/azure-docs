@@ -52,14 +52,14 @@ Public IP address prefixes have a charge. For details, see [pricing](https://azu
    |Resource group|Yes|Can exist in the same, or different, [resource group](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) as the resource you want to associate the public IP address to.|
    |Name|Yes|The name must be unique within the resource group you select.|
    |Region|Yes|Must exist in the same [region](https://azure.microsoft.com/regions)as the public IP addresses you'll assign addresses from the range. Prefix is currently is preview in West Central US, West US, West US 2, Central US, North Europe, West Europe, and Southeast Asia.|
-   |Prefix size|Yes| The size of the prefix you need. A /28 or 16 IP addresses is the default. To create a larger block, [open an online customer support request at no charge](../azure-resource-manager/resource-manager-quota-errors.md). 
+   |Prefix size|Yes| The size of the prefix you need. A /28 or 16 IP addresses is the default. 
 
 **Commands**
 
 
 |Tool|Command|
 |---|---|
-|CLI|[az network public-ip prefix create]((/cli/azure/network/public-ip/prefix/az-network-public-ip-prefix-create)|
+|CLI|[az network public-ip prefix create](/cli/azure/network/public-ip/prefix/az-network-public-ip-prefix-create)|
 |PowerShell|[New-AzureRmPublicIpAddressPrefix](/powershell/module/azurerm.network/new-azurermpublicipaddressprefix)|
 
 ## Create a static public IP address from a prefix
@@ -67,19 +67,14 @@ Once you create a prefix, you must create static IP addresses from the prefix. I
 
 1. In the box that contains the text *Search resources* at the top of the Azure portal, type *public ip address prefix*. When **Public IP address prefixes** appear in the search results, select it.
 2. Select the prefx you want to create public IPs from.
-3. Search for Public IP addresses. When it appears in the search results, select it and click on **+Add**
+3. When it appears in the search results, select it and click on **+Add IP address** in the Overview section. In case you don't see this, make sure you are using the right link for preview: https://aka.ms/publicipprefixportal
 4. Enter or select values for the following settings under **Create public IP address**. Since a prefix is for Standard SKU, IPv4, and static, you only need to provide the following informtion:
 
    |Setting|Required?|Details|
 	|---|---|---|
-    |Name|Yes|The name must be unique within the resource group you select.|
-   |Subscription|Yes|Must exist in the same [subscription](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) as the resource you want to associate the public IP address to.|
-   |Resource group|Yes|Can exist in the same, or different, [resource group](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) as the resource you want to associate the public IP address to.|
-   |Name|Yes|The name of the public IP address must be unique within the resource group you select.|
-   |Region|Yes|Must exist in the same [region](https://azure.microsoft.com/regions) as the resource you want to associate the public IP address to.|
+    |Name|Yes|The name of the public IP address must be unique within the resource group you select.|
    |Idle timeout (minutes)|No|How many minutes to keep a TCP or HTTP connection open without relying on clients to send keep-alive messages. |
    |DNS name label|No|Must be unique within the Azure region you create the name in (across all subscriptions and all customers). Azure automatically registers the name and IP address in its DNS so you can connect to a resource with the name. Azure appends a default subnet such as *location.cloudapp.azure.com* (where location is the location you select) to the name you provide, to create the fully qualified DNS name.For more information, see [Use Azure DNS with an Azure public IP address](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).|
-   |Availability zone|	No | This setting only appears if you select a supported region. For a list of supported locations, see [Availability zones overview](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).Zone-redundant is automatically selected for you and makes your data path resilient to zone failure. If you prefer to guarantee a specific zone, which is not resilient to zone failure, you may select a specific zone.
 
 ## View or delete a prefix
 
