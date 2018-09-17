@@ -24,7 +24,7 @@ To complete this quickstart, first [create a test cluster and database](create-c
 
 ## Sign in to the application
 
-Sign in to [the application](https://kusto.azure.com/).
+Sign in to [the application](https://dataexplorer.azure.com/).
 
 ## Add clusters
 

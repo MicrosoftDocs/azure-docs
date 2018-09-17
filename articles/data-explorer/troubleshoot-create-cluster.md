@@ -18,7 +18,7 @@ In the unlikely event that cluster creation fails in Azure Data Explorer, follow
 
 1. Ensure that there are no validation errors related to the cluster name you entered under **Create cluster** in the Azure portal.
 
-1. Check the [Azure service health dashboard](https://azure.microsoft.com/en-us/status/>). Look for the status of Azure Data Explorer in the region where you're trying to create the cluster.
+1. Check the [Azure service health dashboard](https://azure.microsoft.com/status/>). Look for the status of Azure Data Explorer in the region where you're trying to create the cluster.
 
     If the status isn't **Good** (green check mark), try creating the cluster after the status improves.
 
