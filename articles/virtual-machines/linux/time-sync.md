@@ -64,6 +64,7 @@ By default, most Azure Marketplace images for Linux are configured to sync from 
 
 In newer Linux distributions, the VMICTimeSync service uses the precision time protocol (PTP), but earlier distributions may not support PTP and will fall-back to NTP for getting time from the host.
 
+To confirm NTP is synchronizing correctly run the `ntpq -p` command.
 
 ### Host-only 
 
