@@ -38,7 +38,7 @@ To enable replication of ADE VMs from portal, the user should have the below per
 
 You can manage the permissions by navigating to key vault resource in portal and adding the required permissions to the user.
 
-    ![keyvaultpermissions](./media/azure-to-azure-how-to-enable-replication-ade-vms/keyvaultpermissions.png)
+![keyvaultpermissions](./media/azure-to-azure-how-to-enable-replication-ade-vms/keyvaultpermissions.png)
 
 If the user enabling disaster recovery (DR) does not have the required permissions to copy the keys, the below script can be given to the security administrator with appropriate permissions to copy the encryption secrets and keys to the target region.
 
@@ -49,6 +49,7 @@ If the user enabling disaster recovery (DR) does not have the required permissio
 ## Copy Azure disk encryption keys to DR region using PowerShell Script
 
 1. Copy the below script to a file and name it 'Copy-keys.ps1'.
+
     ```powershell
 
     ### +--------------------------------------------------------------
