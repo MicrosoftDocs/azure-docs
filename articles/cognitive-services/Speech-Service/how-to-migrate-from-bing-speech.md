@@ -38,10 +38,7 @@ From a developer standpoint, the main differences between Bing Speech and the Sp
     * [Custom speech-to-text](https://cris.ai/CustomSpeech)
     * [Text-to-speech](text-to-speech.md)
     * [Custom text-to-speech voices](https://cris.ai/CustomVoice)
-    * [Speech translation](speech-translation.md)
-
-    > [!NOTE]
-    > [Text translation](https://docs.microsoft.com/azure/cognitive-services/translator/translator-info-overview) is not part of the Speech Service and requires its own subscription.
+    * [Speech translation](speech-translation.md) (does not include [Text translation](https://docs.microsoft.com/azure/cognitive-services/translator/translator-info-overview))
 
 * A [Language Understanding Service](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) endpoint key can also be used with the Speech Service. See the [intent recognition tutorial](how-to-recognize-intents-from-speech-csharp.md) for details.
 

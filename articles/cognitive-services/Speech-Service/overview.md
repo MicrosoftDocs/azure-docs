@@ -88,22 +88,17 @@ The Speech service incorporates many upgrades to these other services, including
     * [Custom speech-to-text](https://cris.ai/CustomSpeech)
     * [Text-to-speech](text-to-speech.md)
     * [Custom text-to-speech voices](https://cris.ai/CustomVoice)
-    * [Speech translation](speech-translation.md)
-
-    > [!NOTE]
-    > [Text translation](https://docs.microsoft.com/azure/cognitive-services/translator/translator-info-overview) is not part of the Speech Service and requires its own subscription.
+    * [Speech translation](speech-translation.md) (does not include [Text translation](https://docs.microsoft.com/azure/cognitive-services/translator/translator-info-overview))
 
 * The Speech Service speech-to-text function integrates with the [Language Understanding Service](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) to recognize speaker intent. A LUIS endpoint key can also be used with the Speech Service. See the [intent recognition tutorial](how-to-recognize-intents-from-speech-csharp.md) for details.
 
-* The Speech Service supports 24-KHz voices for text-to-speech, improving audio quality. At this writing, there are two such voices (US English only): Jessa24kRUS and Guy24kRUS.
+* The Speech Service supports 24-KHz voices for text-to-speech, improving audio quality. At this writing, there are two such voices (US English only): `Jessa24kRUS` and `Guy24kRUS`.
 
-* THe Speech Service's [batch transcription](batch-transcription.md) allows high volumes of speech recordings, such as call center recordings, to be transcribed to text efficiently, so they can be easily analyzed and searched.
+* THe Speech Service's [batch transcription](batch-transcription.md) allows high volumes of recorded speech, such as call center recordings, to be transcribed to text efficiently, so they can be easily analyzed and searched.
 
 * The [Speech SDK](speech-sdk.md) provides a consistent API to the Speech service across several programming languages and execution environments (including Windows 10, UWP, and .NET Core), making development easier, especially on multiple platforms.
 
-* The Speech Service is compatible with the REST APIs and WebSockets protocol used by Bing Speech, making it easy to migrate existing Bing Speech client applications to the Speech service.
-
-
+* The Speech Service is compatible with the REST APIs and WebSockets protocol used by other Azure speech services, making it easy to migrate existing client applications to the Speech service.
 
 ## Speech scenarios
 
