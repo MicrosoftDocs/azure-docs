@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/17/2018
 ms.author: sethm
 ms.reviewer: sijuman
 
@@ -44,7 +44,7 @@ The following table lists the required API profile version and PowerShell admini
 | Versions before 1804 | 2017-03-09-profile | 1.2.11 |
 
 > [!Note]  
-> To upgrade from the 1.2.11 version, see the [migration guide](https://aka.ms/azspowershellmigration).
+> To upgrade from the 1.2.11 version, see the [Migration Guide](https://aka.ms/azpsh130migration).
 
 ## Install a profile
 

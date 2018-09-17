@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 09/14/2018
+ms.date: 09/17/2018
 ms.author: sethm
 ms.reviewer: thoroet
 ---
@@ -98,6 +98,9 @@ Run the following PowerShell script to install these modules on your development
 
     Install-Module -Name AzureStack -RequiredVersion 1.5.0 -Force
     ```
+
+> [!Note]  
+> To upgrade Azure PowerShell from the **2017-03-09-profile** to **2018-03-01-hybrid**, Please see the [Migration guide](https://github.com/bganapa/azure-powershell/blob/migration-guide/documentation/migration-guides/Stack/migration-guide.2.3.0.md).
 
   - Azure Stack 1807 or earlier.
 
