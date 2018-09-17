@@ -21,7 +21,7 @@ metadata:
 abstract:
   description: |
     Via our Speech SDK, the <a href="overview">Speech service</a> helps developers add speech-enabled features to their apps.
-    Features include <i>speech-to-text</i> (speech recognition/SR), <i>intent</i>, <i>translation</i>, and <i>text-to-speech</i> (TTS).
+    Features include: <i>speech to text</i> (speech recognition/SR), <i>intent</i>, <i>translation</i>, and <i>text to speech</i> (TTS).
 
 sections:
 - title: 5-minute SDK download and quickstart
@@ -118,7 +118,7 @@ sections:
     items:
     - title: Samples
       html: |
-        &nbsp;&#8226; <a href="speech-to-text-sample.md">Speech to Text (speech recognition)</a><br/>
+        &nbsp;&#8226; <a href="speech-to-text-sample.md">Speech to text (speech recognition)</a><br/>
         &nbsp;&#8226; <a href="intent.md">Intent recognition</a><br/>
         &nbsp;&#8226; <a href="translation.md">Translation</a>
     - title: API Reference
@@ -128,9 +128,9 @@ sections:
         &nbsp;&#8226; <a href="https://aka.ms/csspeech/javaref">Java API</a>
     - title: FAQs
       html: |
-        &nbsp;&#8226; <a href="faq-stt">Speech to Text</a><br/>
-        &nbsp;&#8226; <a href="faq-text-to-speech">Text to Speech</a><br/>
-        &nbsp;&#8226; <a href="https://www.microsoft.com/translator/faq.aspx">Speech Translation</a>
+        &nbsp;&#8226; <a href="faq-stt">Speech to text</a><br/>
+        &nbsp;&#8226; <a href="faq-text-to-speech">Text to speech</a><br/>
+        &nbsp;&#8226; <a href="https://www.microsoft.com/translator/faq.aspx">Translation</a>
   - type: paragraph
     text: Use these samples and API with your subscription key (see <a href="get-started.md">Try the Speech service for free</a>).
 
