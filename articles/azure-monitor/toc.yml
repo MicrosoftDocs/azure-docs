@@ -697,7 +697,7 @@
       - name: Alerts from Operations Manager
         href: ../log-analytics/log-analytics-solution-alert-management.md?toc=/azure/azure-monitor/toc.json
       - name: Managing Alerts
-         items:
+        items:
         - name: Alert Instances
           href: ../monitoring-and-diagnostics/monitoring-alerts-managing-alert-instances.md?toc=/azure/azure-monitor/toc.json
         - name: Smart Groups Instances
