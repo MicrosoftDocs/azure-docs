@@ -12,7 +12,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/10/2018
+ms.date: 09/17/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 
@@ -453,8 +453,8 @@ The following is an example of a cron schedule in /etc/crontab:
 ```
 00 1-23 * * * ./azure_hana_backup.pl hana hourlyhana 15min 46
 10 00 * * *  ./azure_hana_backup.pl hana dailyhana 15min 28
-00,05,10,15,20,25,30,35,40,45,50,55 * * * *  Perform SAP HANA transaction log backup
-22 12 * * *  ./azure_hana_backup.pl log dailylogback 3min 28
+00,05,10,15,20,25,30,35,40,45,50,55 * * * * ./azure_hana_backup.pl logs regularlogback 3min 28
+22 12 * * *  ./azure_hana_backup.pl logs dailylogback 3min 28
 30 00 * * *  ./azure_hana_backup.pl boot TypeI dailyboot 15min 28
 ```
 In the previous example, there is an hourly combined snapshot that covers the volumes that contain the /hana/data and /hana/shared (includes /usr/sap) locations. Use this type of snapshot for a faster point-in-time recovery within the past two days. Additionally, there is a daily snapshot on those volumes. So, you have two days of coverage by hourly snapshots, plus four weeks of coverage by daily snapshots. Additionally, the transaction log backup volume is backed up daily. These backups are kept for four weeks as well. As you see in the third line of crontab, the backup of the HANA transaction log is scheduled to execute every 5 minutes. The start times of the different cron jobs that execute storage snapshots are staggered, so that those snapshots are not executed all at once at a certain point in time. 
@@ -463,8 +463,8 @@ In the following example, you perform a combined snapshot that covers the volume
 
 ```
 10 0-23 * * * ./azure_hana_backup.pl hana hourlyhana 15min 48
-0,5,10,15,20,25,30,35,40,45,50,55 * * * *  Perform SAP HANA transaction log backup
-2,7,12,17,22,27,32,37,42,47,52,57 * * * *  ./azure_hana_backup.pl log logback 3min 48
+0,5,10,15,20,25,30,35,40,45,50,55 * * * * ./azure_hana_backup.pl logs regularlogback 3min 28
+2,7,12,17,22,27,32,37,42,47,52,57 * * * *  ./azure_hana_backup.pl logs logback 3min 48
 30 00 * * *  ./azure_hana_backup.pl boot TypeII dailyboot 15min 28
 ```
 
