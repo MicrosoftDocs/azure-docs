@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2018
+ms.date: 09/17/2018
 ms.author: jeedes
 ms.reviewer: jeedes
 
@@ -81,7 +81,7 @@ In this section, you configure and test Azure AD single sign-on with FreshDesk b
 
 For single sign-on to work, Azure AD needs to know what the counterpart user in FreshDesk is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in FreshDesk needs to be established.
 
-This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in FreshDesk.
+This link relationship is established by assigning the value of the **email address** in Azure AD as the value of the **email address** in FreshDesk.
 
 To configure and test Azure AD single sign-on with FreshDesk, you need to complete the following building blocks:
 
@@ -112,47 +112,43 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	a. In the **Sign on URL** textbox, type a URL using the following pattern: `https://<tenant-name>.freshdesk.com` or any other value Freshdesk has suggested.
 
 	> [!NOTE]
-	> Please note that this is not the real value. You have to update the value with the actual Sign-on URL. Contact [FreshDesk Client support team](https://freshdesk.com/helpdesk-software?utm_source=Google-AdWords&utm_medium=Search-IND-Brand&utm_campaign=Search-IND-Brand&utm_term=freshdesk&device=c&gclid=COSH2_LH7NICFVUDvAodBPgBZg) to get this value.  
+	> Please note that this is not the real value. You have to update the value with the actual Sign-on URL. Contact [FreshDesk Client support team](https://freshdesk.com/helpdesk-software?utm_source=Google-AdWords&utm_medium=Search-IND-Brand&utm_campaign=Search-IND-Brand&utm_term=freshdesk&device=c&gclid=COSH2_LH7NICFVUDvAodBPgBZg) to get this value.
 
-4. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
+4. Your application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this. The default value of **User Identifier** is **user.userprincipalname** but **FreshDesk** expects this to be mapped with the user's email address. For that you can use **user.mail** attribute from the list or use the appropriate attribute value based on your organization configuration.
+
+	![Configure Single Sign-On](./media/freshdesk-tutorial/tutorial_attribute.png)
+
+5. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
 	![Configure Single Sign-On](./media/freshdesk-tutorial/tutorial_freshdesk_certificate.png)
 
 	> [!NOTE]
 	> If you have any issues, please refer this [link](https://support.freshdesk.com/support/discussions/topics/317543).
 
-5. Click **Save** button.
+6. Click **Save** button.
 
 	![Configure Single Sign-On](./media/freshdesk-tutorial/tutorial_general_400.png)
 
-6. Install **OpenSSL** in your system, if you have not installed in your system.
+7. Install **OpenSSL** in your system, if you have not installed in your system.
 
-7. Open **Command Prompt** and run the following commands:
+8. Open **Command Prompt** and run the following commands:
 
 	a. Enter `openssl x509 -inform DER -in FreshDesk.cer -out certificate.crt` value in the command prompt.
 
 	> [!NOTE]
 	> Here **FreshDesk.cer** is the certificate which you have downloaded from the Azure portal.
 
-	b. Enter `openssl x509 -noout -fingerprint -sha256 -inform pem -in certificate.crt` value in the command prompt. Here **certificate.crt** is the output certificate which is generated in the previous step.
+	b. Enter `openssl x509 -noout -fingerprint -sha256 -inform pem -in [certificate-file.crt]` value in the command prompt. Here **certificate.crt** is the output certificate which is generated in the previous step.
 
 	c. Copy the **Thumbprint** value and paste it into the Notepad. Remove colons from Thumbprint and obtain the final Thumbprint value.
 
-8. On the **FreshDesk Configuration** section, click **Configure FreshDesk** to open Configure sign-on window. Copy the SAML Single Sign-On Service URL and Sign-Out URL from the **Quick Reference** section.
+9. On the **FreshDesk Configuration** section, click **Configure FreshDesk** to open Configure sign-on window. Copy the SAML Single Sign-On Service URL and Sign-Out URL from the **Quick Reference** section.
 
 	![Configure Single Sign-On](./media/freshdesk-tutorial/tutorial_freshdesk_configure.png)
 
-9. In a different web browser window, log into your Freshdesk company site as an administrator.
+10. In a different web browser window, log into your Freshdesk company site as an administrator.
 
-10. In the menu on the top, click **Admin**.
-
-	![Admin](./media/freshdesk-tutorial/IC776768.png "Admin")
-
-11. In the **General Settings** tab, click **Security**.
-  
-	![Security](./media/freshdesk-tutorial/IC776769.png "Security")
-
-12. In the **Security** section, perform the following steps:
+11. Select the **Settings icon** and in the **Security** section, perform the following steps:
 
 	![Single Sign On](./media/freshdesk-tutorial/IC776770.png "Single Sign On")
   
@@ -225,9 +221,9 @@ In the case of FreshDesk, provisioning is a manual task.
 
    ![Agent Information](./media/freshdesk-tutorial/IC776775.png "Agent Information")
 
-   a. In the **Full Name** textbox, type the name of the Azure AD account you want to provision.
-
-   b. In the **Email** textbox, type the Azure AD email address of the Azure AD account you want to provision.
+   a. In the **Email** textbox, type the Azure AD email address of the Azure AD account you want to provision.
+   
+   b. In the **Full Name** textbox, type the name of the Azure AD account you want to provision.
 
    c. In the **Title** textbox, type the title of the Azure AD account you want to provision.
 
