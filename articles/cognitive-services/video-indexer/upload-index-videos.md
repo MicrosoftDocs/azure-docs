@@ -4,11 +4,11 @@ description: This topic demonstrates how to use APIs to upload and index your vi
 services: cognitive services
 documentationcenter: ''
 author: juliako
-manager: erikre
+manager: femila
 
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 08/17/2018
+ms.date: 09/15/2018
 ms.author: juliako
 
 ---
