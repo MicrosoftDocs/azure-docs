@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2018
+ms.date: 09/17/2018
 ms.author: magoedte
 ---
 
@@ -36,23 +36,23 @@ This section outlines the default health criteria defined to monitor Azure Windo
 - Average Disk Seconds Per Write (Disk)
 - Average Logical Disk Seconds Per Read
 - Average Logical Disk Seconds Per Transfer
-- Average Physical Disk Seconds Per Read
-- Average Physical Disk Seconds Per Transfer
+- Average Disk Seconds Per Read
+- Average Disk Seconds Per Transfer
 - Current Disk Queue Length (Logical Disk)
 - Current Disk Queue Length (Disk)
+- Disk Percent Idle Time
+- File system error or corruption
 - Logical Disk Free Space (%) Low
 - Logical Disk Free Space (MB) Low
 - Logical Disk Percent Idle Time
-- DHCP Client Service Health
-- DNS Client Service Health
-- File system error or corruption
-- Free System Page Table Entries
 - Memory Pages Per Second
 - Percent Bandwidth Used Read
 - Percent Bandwidth Used Total
 - Percent Bandwidth Used Write
 - Percentage of Committed Memory in Use
 - Physical Disk Percent Idle Time
+- DHCP Client Service Health
+- DNS Client Service Health
 - RPC Service Health
 - Server Service Health
 - Total CPU Utilization Percentage
@@ -64,6 +64,7 @@ This section outlines the default health criteria defined to monitor Azure Windo
 - Disk Avg. Disk sec/Transfer 
 - Disk Avg. Disk sec/Read 
 - Disk Avg. Disk sec/Write 
+- Disk Health
 - Logical Disk Free Space
 - Logical Disk % Free Space
 - Logical Disk % Free Inodes
@@ -72,15 +73,13 @@ This section outlines the default health criteria defined to monitor Azure Windo
 - Processor Percent Processor Time
 - Total Percent Processor Time
 - Total Percent DPC Time
-- Available Megabytes of Memory
+- Operating System Available Megabytes of Memory
 
 ## Sign in to the Azure portal
 Sign in to the [Azure portal](https://portal.azure.com). 
 
 ## Introduction to Health experience
 Before diving into using the Health feature for a single virtual machine or group of VMs, it's important we provide a brief introduction so you understand how the information is presented and what the visualizations represent.  
-
-
 
 ## View health directly from a virtual machine 
 To view the health of an Azure VM, select **Insights (preview)** from the left-hand pane of the virtual machine. On the VM insights page, **Health** is open by default and shows the health view of the VM.  
@@ -105,7 +104,7 @@ When accessing Health from an Azure VM running the Windows operating system, the
 ## Aggregate virtual machine perspective
 To view health collection for all of your virtual machines in a resource group, from the navigation list in the portal, select **Azure Monitor** and then select **Virtual Machines (preview)**.  
 
-![VM Insights monitoring view from Azure Monitor](./media/monitoring-vminsights-health/vminsights-aggregate-view-01.png)
+![VM Insights monitoring view from Azure Monitor](./media/monitoring-vminsights-health/vminsights-aggregate-health.png)
 
 From the **Subscription** and **Resource Group** drop-down lists, select the appropriate one that includes the target VMs onboarded to view their health state. 
 

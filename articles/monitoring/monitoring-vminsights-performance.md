@@ -82,7 +82,7 @@ To access directly from a virtual machine, perform the following.
 2. From the list, choose a VM and in the **Monitoring** section choose **Insights (preview)**.  
 3. Select the **Performance** tab. 
 
-This page not only includes performance utilization charts, but also a table showing for each logical disk discovered, its capacity and utilization for each logical disk and total average for each measure.  
+This page not only includes performance utilization charts, but also a table showing for each logical disk discovered, its capacity, utilization, and total average by each measure.  
 
 The following capacity utilization charts are provided:
 
