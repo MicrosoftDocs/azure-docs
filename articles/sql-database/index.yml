@@ -39,10 +39,10 @@ sections:
           src: media/index/i_managed.svg
         title: Fully managed
       - href: /azure/sql-database/sql-database-service-tiers
-        html: <p>Tailor price/performance ratio to your needs with flexible performance tiers that span from affordable $5/month to powerful 80-core databases.</p>
+        html: <p>Tailor price/performance ratio to your needs with flexible service tiers that span from affordable $5/month to powerful 80-core databases.</p>
         image:
           src: media/index/i_perftier.svg
-        title: Price/performance tiers
+        title: Price/service tiers
       - href: /azure/sql-database/sql-database-scale-resources
         html: <p>Easily scale up, scale out, or shard your databases depending on your needs to improve performance of your application.</p>
         image:
@@ -136,7 +136,7 @@ sections:
           - href:
       - title: Configure Azure network for Managed Instance
         values:
-          - href: /azure/sql-database/sql-database-managed-instance-create-tutorial-portal
+          - href: /azure/sql-database/sql-database-managed-instance-get-started
           - href: 
           - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/25/quick-start-script-setup-azure-network-environment-for-azure-sql-managed-instance/
           - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment
