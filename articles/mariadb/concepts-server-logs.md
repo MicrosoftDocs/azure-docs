@@ -22,9 +22,9 @@ In the Azure portal, select your Azure Database for MariaDB server. Under the **
 <!-- For more information on Azure CLI, see [Configure and access server logs using Azure CLI](howto-configure-server-logs-in-cli.md).-->
 
 ## Log retention
-Logs are available for up to seven days from their creation. If the total size of the available logs exceeds 7.5 GB, then the oldest files are deleted until space is available.
+Logs are available for up to seven days from their creation. If the total size of the available logs exceeds 7 GB, then the oldest files are deleted until space is available.
 
-Logs are rotated every 24 hours or 7.5 GB, whichever comes first.
+Logs are rotated every 24 hours or 7 GB, whichever comes first.
 
 ## Configure logging
 By default the slow query log is disabled. To enable it, set slow_query_log to ON.
