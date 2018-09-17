@@ -22,7 +22,7 @@ Finally, the Speech service offers a free, low-volume tier that's suitable for d
 
 ## Free trial
 
-The 30-day free trial gives you access to the S0 standard pricing tier for a limited time. 
+The 30-day free trial gives you access to the standard pricing tier for a limited time.
 
 To sign up for a 30-day free trial:
 
