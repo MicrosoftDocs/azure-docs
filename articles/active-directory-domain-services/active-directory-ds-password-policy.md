@@ -22,7 +22,7 @@ ms.author: maheshu
 This article explains the default password policies on a managed domain. It also covers how you can configure these policies.
 
 ## Fine grained password policies (FGPP)
-Use fine-grained password policies to specify multiple password policies within a single domain. FGPP enables you to apply different restrictions for password and account lockout policies to different sets of users in a domain. For example, you can apply strict password settings to privileged accounts.
+Use fine-grained password policies to specify many password policies within a single domain. FGPP enables you to apply different restrictions for password and account lockout policies to different sets of users in a domain. For example, you can apply strict password settings to privileged accounts.
 
 You can configure the following password settings using FGPP:
 * Minimum password length
@@ -61,8 +61,8 @@ On a managed domain, the following account lockout policies are configured by de
 Effectively, user accounts are locked out for 30 minutes if five invalid passwords are used within 2 minutes. Accounts are automatically unlocked after 30 minutes.
 
 
-## Create a custom fine grained password policy on a managed domain
-You can create a custom fine grained password policy and configure it to apply to specific groups in your managed domain. This configuration effectively overrides the default FGPP configured for the managed domain.
+## Create a custom fine grained password policy (FGPP) on a managed domain
+You can create a custom FGPP and apply it to specific groups in your managed domain. This configuration effectively overrides the default FGPP configured for the managed domain.
 
 > [!TIP]
 > Only members of the **'AAD DC Administrators'** group have the permissions to create custom fine grained password policies.
@@ -104,7 +104,7 @@ To create a custom FGPP on your managed domain:
 
   ![Select the group to apply FGPP](./media/how-to/fgpp-apply-group.png)
 
-* The name of the group is displayed in **Directly Applies To** section. Click the **OK** button to save these changes.
+12. The name of the group is displayed in **Directly Applies To** section. Click the **OK** button to save these changes.
 
   ![FGPP applied](./media/how-to/fgpp-applied.png)
 
