@@ -17,7 +17,7 @@ ms.date: 9/20/2018
 ms.author: rkarlin
 
 ---
-# Onboard Azure Security Center using PowerShell
+# Automate onboarding of Azure Security Center using PowerShell
 
 You can secure your Azure workloads programmatically, using the Azure Security Center PowerShell module.
 This enables you to automate tasks and avoid the human error inherent in manual tasks This is especially useful in large-scale deployments that involve dozens of subscriptions with hundreds and thousands of resources – all of which must be secured from the beginning.

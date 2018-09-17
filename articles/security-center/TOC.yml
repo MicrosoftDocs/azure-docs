@@ -189,7 +189,8 @@
       href: security-center-review-policy-compliance.md
     - name: Assess subscriptions (REST)
       href: security-center-compliance-rest-api.md
-
+    - name: Automate onboarding using PowerShell
+      href: security-center-powershell-onboarding.md
  
   - name: Scenarios
     items:
