@@ -240,10 +240,6 @@ resource "azurerm_virtual_machine" "myterraformvm" {
 To bring all these sections together and see Terraform in action, create a file called *terraform_azure.tf* and paste the following content:
 
 ```tf
-variable "resourcename" {
-  default = "myResourceGroup"
-}
-
 # Configure the Microsoft Azure Provider
 provider "azurerm" {
     subscription_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
