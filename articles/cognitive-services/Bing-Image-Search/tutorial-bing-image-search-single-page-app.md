@@ -19,9 +19,6 @@ The Bing Image Search API enables you search the web for high-quality, relevant 
 ![[Single-page Bing Image Search app]](media/cognitive-services-bing-images-api/image-search-spa-demo.png)
 -->
 
-> [!NOTE]
-> The JSON and HTTP headings at the bottom of the page reveal the JSON response and HTTP request information when clicked. These details are useful when exploring the service.
-
 The tutorial app illustrates how to:
 
 > [!div class="checklist"]
@@ -37,7 +34,7 @@ The full source code for this tutorial is available on Github.
 * The latest version of [Node.js](https://nodejs.org/).
 * The [Express.js](https://expressjs.com/) framework for Node.js. Installation instructions for the source code are available in the sample. 
 
-[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## Manage and store user subscription keys
 
