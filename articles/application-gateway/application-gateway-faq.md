@@ -360,7 +360,7 @@ Yes, Application Gateway does support alerts, alerts are configured off metrics.
 
 **Q. How do I analyse traffic statistics for Application Gateway?**
 
-We have published an ARM template that installs and runs the popular [GoAccess](https://goaccess.io/) log analyzer for Application Gateway Access Logs. GoAccess provides valuable HTTP traffic statistics such as Unique Visitors, Requested Files, Hosts, Operating Systems, Browsers, HTTP Status codes and more. For more details please see the [Readme file in the ARM template folder in GitHub](https://aka.ms/appgwgoaccessblog).
+We have published a Resource Manager template that installs and runs the popular [GoAccess](https://goaccess.io/) log analyzer for Application Gateway Access Logs. GoAccess provides valuable HTTP traffic statistics such as Unique Visitors, Requested Files, Hosts, Operating Systems, Browsers, HTTP Status codes and more. For more details, please see the [Readme file in the Resource Manager template folder in GitHub](https://aka.ms/appgwgoaccessreadme).
 
 **Q. Backend health returns unknown status, what could be causing this status?**
 
