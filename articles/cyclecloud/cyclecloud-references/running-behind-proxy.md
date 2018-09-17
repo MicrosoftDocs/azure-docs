@@ -10,10 +10,9 @@ ms.date: 08/31/2018
 ms.author: mirequa
 ---
 
-# Configuring CycleCloud to use an HTTP/HTTPs Proxy
+# Configuring CycleCloud to Use an HTTP/HTTPs Proxy
 
-Azure CycleCloud can be configured to use a webproxy for all internet bound traffic. This feature is
-only supported for passwordless web proxies.
+Azure CycleCloud can be configured to use a webproxy for all internet bound traffic. Please note that this feature is only supported for passwordless web proxies.
 
 ## Configuring the CycleCloud JVM
 

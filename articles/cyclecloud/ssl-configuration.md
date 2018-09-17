@@ -48,7 +48,7 @@ CycleCloud supports certificates from [Let's Encrypt](https://letsencrypt.org/).
 
 You can enable Let's Encrypt support with the **SSL** option on the settings page, or with `cycle_server keystore automatic DOMAIN_NAME` from the CycleCloud machine.
 
-## Generating a certificate signing request with CycleCloud
+## Generating a Certificate Signing Request with CycleCloud
 
 Using a CA-generated certificate will allow web access to your CycleCloud installation without displaying the trusted certificate error. To start the process, first run:
 
@@ -71,7 +71,7 @@ If they provided multiple certificate files, you should import them all at once 
 > [!NOTE]
 > `keystore update` sub-command works with PEM (Base64 ASCII armored) format files only.
 
-## Import private key and signed certificate generated outside of CycleCloud
+## Import Private Keys and Signed Certificates
 
 If you have previously created a CA-signed certificate, you can import this into the CycleCloud keystore with the following command:
 
@@ -79,14 +79,14 @@ If you have previously created a CA-signed certificate, you can import this into
 ./cycle_server keystore import key.pem server.pem
 ```
 
-If the CA provided separate files for a chain of trust.  Then you could import them all at once appending the names to that same command, separated by spaces:
+If the CA provided separate files for a chain of trust, you could import them all at once by appending the names to that same command, separated by spaces:
 
 ```bash
 ./cycle_server keystore import key.pem server.pem ca_cert_chain.pem
 ```
 
 > [!NOTE]
-> `keystore import` sub-command works with PEM (Base64 ASCII armored) format files only.  A known bug is preventing unencrypted private key files from being imported.  You can use `openssl rsa -in encrypted_key.pem -out key.pem` to remove the import password from the file, prior to importing the private key into the CycleCloud keystore.
+> `keystore import` sub-command works with PEM (Base64 ASCII armored) format files only. A known bug is preventing unencrypted private key files from being imported. You can use `openssl rsa -in encrypted_key.pem -out key.pem` to remove the import password from the file, prior to importing the private key into the CycleCloud keystore.
 
 ## Configuring CycleCloud to use Native HTTPS
 
