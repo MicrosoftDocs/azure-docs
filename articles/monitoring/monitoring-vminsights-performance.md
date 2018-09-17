@@ -33,11 +33,11 @@ On the **Top N Charts** tab, if you have more than one Log Analytics workspace, 
 
 The five capacity utilization charts shown on the page are:
 
-* CPU Utilization % - shows the top machines with the highest average processor utilization 
-* Available Memory - shows the top machines with the lowest average amount of available memory 
-* Logical Disk Space Used % - shows the top machines with the highest average disk space used % across all disk volumes 
-* Bytes Sent Rate - shows the top machines with highest average of bytes sent 
-* Bytes Receive Rate - shows the top machines with highest average of bytes sent 
+* CPU Utilization % - shows the top 5 machines with the highest average processor utilization 
+* Available Memory - shows the top 5 machines with the lowest average amount of available memory 
+* Logical Disk Space Used % - shows the top 5 machines with the highest average disk space used % across all disk volumes 
+* Bytes Sent Rate - shows the top 5 machines with highest average of bytes sent 
+* Bytes Receive Rate - shows the top 5 machines with highest average of bytes sent 
 
 Clicking on the upper right-hand corner of any one of the five charts will open **Top N List** view.  Here you see the resource utilization for that performance metric by individual VM in a list view and which machine is trending highest.  
 
