@@ -35,6 +35,8 @@
       href: logic-apps-create-logic-apps-from-templates.md
     - name: Migrate from BizTalk Services
       href: logic-apps-move-from-mabs.md
+    - name: Create logic apps - Visual Studio Code
+      href: create-logic-apps-visual-studio-code.md
     - name: Control workflow execution
       items:
       - name: Conditional statements
