@@ -14,7 +14,7 @@ ms.date: 09/24/2018
 
 There are several factors that impact the health of an Azure Data Explorer cluster, including CPU, memory, and the disk subsystem. This article shows some basic steps you can take to gauge the health of a cluster.
 
-1. Sign in to [https://kusto.azure.com](https://kusto.azure.com).
+1. Sign in to [https://dataexplorer.azure.com](https://dataexplorer.azure.com).
 
 1. In the left pane, select your cluster, and run the following command.
 
