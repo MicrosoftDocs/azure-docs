@@ -11,8 +11,8 @@ ms.component: video-indexer
 ms.topic: conceptual
 ms.date: 08/23/2018
 ms.author: juliako
-
 ---
+
 # Manage a Video Indexer account connected to Azure
 
 This article demonstrates how to manage a Video Indexer account that is connected to your Azure subscription and an Azure Media Services account.
