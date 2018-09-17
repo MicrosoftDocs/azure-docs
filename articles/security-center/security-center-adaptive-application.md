@@ -99,10 +99,10 @@ After you select Create, Azure Security Center automatically creates the appropr
 
   The list includes:
 
-  - **NAME**: the name of the subscription and group
+  - **Name**: the name of the subscription and group
   - **VMs**: the number of virtual machines in the group
-  - **MODE**: Audit mode will log attempts to run non-whitelisted applications; Enforce will not allow non-whitelisted applications to run
-  - **ISSUES**: any current violations
+  - **Mode**: Audit mode will log attempts to run non-whitelisted applications; Enforce will not allow non-whitelisted applications to run
+  - **Alerts**: any current violations
 
 2. Click on a group to make changes in the **Edit application control policy** page.
 
@@ -113,21 +113,17 @@ After you select Create, Azure Security Center automatically creates the appropr
   - **Audit**: in this mode, the application control solution does not enforce the rules, and only audits the activity on the protected VMs. This is recommended for scenarios where you want to first observe the overall behavior before blocking an app to run in the target VM.
   - **Enforce**: in this mode, the application control solution does enforce the rules, and makes sure that applications that are not allowed to run are blocked.
 
-> [!NOTE]
-> As previously mentioned, by default a new application control policy is always configured in *Audit* mode. 
->
+   > [!NOTE]
+   > As previously mentioned, by default a new application control policy is always configured in *Audit* mode. 
+   >
 
 4. Under **Policy extension**, you can add any application path that you want to allow. After you add these paths, Security Center updates the application whielisting policy on the VMs within the selected group of VMS and creates the appropriate rules for these applications, in addition to the rules that are already in place.
 
-  In the **Recent alerts** section, any current violations are listed.
-
-  This list includes:
+5. Review the current violations listed in the **Recent alerts** section. Click on each line to be redirected to the **Alerts** page within Azure Security Center, and view all the alerts that were detected by Azure Security Center on the associated VMs.
   - **Alerts**: any violations that were logged.
-  - **No. of VMs**: the number of virtual machines with this issue type.
+  - **No. of VMs**: the number of virtual machines with this alert type.
 
-  If you click on each line, you are redirected to the **Alerts** page within Azure Security Center where you can see all the alerts that were detected by Azure Security Center on the associated VMs.
-
-The following sections include the application whitelisting rules that are currently configured on the VMs within a group, according to the rule collection type- **Publisher whitelisting rules**, **Path whitelisting rules**, **Hash whitelisting rules**. Within each rule collection type, the following information is available:
+6. Under **Publisher whitelisting rules**, **Path whitelisting rules**, and **Hash whitelisting rules**  you can see which application whitelisting rules are currently configured on the VMs within a group, according to the rule collection type. For each rule you can see:
 
   - **Rule**: The specific parameters according to which an application is examined by AppLocker to determine if an application is allowed to run.
   - **File type**: The file types that are covered by a specific rule. This can be any of the following: EXE, Script, MSI, or any permutation of those file types.
@@ -135,9 +131,9 @@ The following sections include the application whitelisting rules that are curre
 
    ![Whitelisting rules](./media/security-center-adaptive-application/security-center-adaptive-application-fig9.png)
 
-  If you click on the three dots at the end of each line you can delete the specific rule or edit the allowed users.
+7. Click on the three dots at the end of each line if you want to delete the specific rule or edit the allowed users.
 
-5. After making changes to an **Adaptive application controls** policy, click **Save**. If you decide to not apply the changes, click **Discard**.
+8. After making changes to an **Adaptive application controls** policy, click **Save**.
 
 ### Not recommended list
 
