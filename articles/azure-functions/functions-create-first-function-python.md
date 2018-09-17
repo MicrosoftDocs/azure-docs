@@ -96,7 +96,7 @@ To create a function, run the following command:
 func new
 ```
 
-Pick `HTTP Trigger` as the desired template and press enter to use the default name for the function.
+Pick `HTTP Trigger` as the desired template and enter a **function name** of `HttpTrigger`.
 
 ```output
 Select a template:
@@ -111,21 +111,19 @@ Select a template:
 9. Timer trigger
 
 Choose option: 5
-Function name: [HttpTriggerPython]
+Function name: HttpTrigger
 ```
 
 You will see something like the following output.
 
 ```output
-Writing /MyFunctionProj/HttpTriggerPython/sample.dat
-Writing /MyFunctionProj/HttpTriggerPython/__init__.py
-Writing /MyFunctionProj/HttpTriggerPython/function.json
-The function "HttpTriggerPython" was created successfully from the "HTTP trigger" template.
+Writing /MyFunctionProj/HttpTrigger/sample.dat
+Writing /MyFunctionProj/HttpTrigger/__init__.py
+Writing /MyFunctionProj/HttpTrigger/function.json
+The function "HttpTrigger" was created successfully from the "HTTP trigger" template.
 ```
 
-
-A sub-folder named _HttpTriggerPython_ is created. This contains `__init__.py` which is the primary script file and `function.json` file which describes the trigger and bindings used by the function. To learn more about the programming model, you can refer to the [Azure Functions Python developer guide](functions-reference-python.md).
-
+A sub-folder named _HttpTrigger_ is created. This contains `__init__.py` which is the primary script file and `function.json` file which describes the trigger and bindings used by the function. To learn more about the programming model, you can refer to the [Azure Functions Python developer guide](functions-reference-python.md).
 
 ## Run the function locally
 
@@ -158,17 +156,16 @@ Application started. Press Ctrl+C to shut down.
 
 Http Functions:
 
-        HttpTrigger: http://localhost:7071/api/HttpTriggerPython
+        HttpTrigger: http://localhost:7071/api/HttpTrigger
 ```
 
 Copy the URL of your function from the output and paste it into your browser's address bar. Append the query string `?name=<yourname>` to this URL and execute the request.
 
-    http://localhost:7071/api/HttpTriggerPython?name=<yourname>
+    http://localhost:7071/api/HttpTrigger?name=<yourname>
 
 The following screenshot shows the response from the function, when it is triggered from the browser:
 
 ![test](./media/functions-create-first-function-python/function-test-local-browser.png)
-
 
 You are now ready to create a Function App and other required resources for publishing to Azure.
 
@@ -221,15 +218,7 @@ Deployment completed successfully.
 Syncing triggers...
 ```
 
-## Test the function
-
-Enter the URL below in your browser's address bar. Replace the `<app_name>` placeholder with the name of your function app, and append the query string `&name=<yourname>` to the URL and execute the request.
-
-    http://<app_name>.azurewebsites.net/api/HttpTriggerPython?name=<yourname>
-
-The screenshot below shows the response to your function.
-
-![Function response shown in a browser.](../../media/functions-test-function-code/functions-azure-cli-function-test-browser.png)
+[!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
 
 [!INCLUDE [functions-cleanup-resources](../../includes/functions-cleanup-resources.md)]
 
