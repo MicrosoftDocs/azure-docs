@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/31/2018
+ms.date: 09/14/2018
 ms.author: alkohli
 ms.custom: 
 ---
@@ -29,8 +29,8 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a new resource
-> * Get the activation key
 > * Download the virtual device image
+> * Get the activation key
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -104,32 +104,17 @@ Perform the following steps in the Azure portal to create a Data Box resource.
     |Subscription    |Subscription is linked to your billing account. |
     |Resource group  |Select an existing group or create a new group.<br>Learn more about [Azure Resource Groups](../azure-resource-manager/resource-group-overview.md).     |
     |Location     |For this release, East US, West US 2, South East Asia, and West Europe are available. <br> Choose a location closest to the geographical region where you want to deploy your device.|
-  
-4. Check **Pin to dashboard** to get a quick link to this resource on your dashboard.
-5. Click **Create**.
+    
+    ![Create Data Box Gateway resource](media/data-box-gateway-deploy-prep/data-box-gateway-resource.png)
+    
+4. Click **OK**.
  
 The resource creation takes a few minutes. After the resource is successfully created, you are notified appropriately.
 
-## Get the activation key
-
-After the Data Box Gateway resource is up and running, you will need to get the activation key. This key is used to activate and connect your Data Box Gateway device with the resource.
-
-The activation key is used to register all the Data Box Gateway devices that need to activate with your Data Box Gateway resource. Perform the following steps in the [Azure portal](https://portal.azure.com/).
-
-
-1. Click the resource that you created and then click **Overview**.
-
-2. Click **Generate key** to create an activation key.
-
-3. Click copy icon to copy the key and save it for later use.  
-
-> [!IMPORTANT]
-> - The activation key expires 3 days after it is generated. 
-> - If the key has epxired, generate a new key. The older key is not valid.
 
 ## Download the virtual device image
 
-After you have the activation key, download the appropriate virtual device image to provision a virtual device on your host system. The virtual device images are operating system specific and can be downloaded from the **Quickstart** blade of your resource in the Azure portal.
+After the Data Box Gateway resource is created, download the appropriate virtual device image to provision a virtual device on your host system. The virtual device images are operating system specific and can be downloaded from the **Quickstart** blade of your resource in the Azure portal.
 
 > [!IMPORTANT]
 > The software running on the Data Box Gateway may only be used with the Data Box Gateway resource.
@@ -137,15 +122,35 @@ After you have the activation key, download the appropriate virtual device image
 
 Perform the following steps in the [Azure portal](https://portal.azure.com/).
 
-1. Sign into the [Azure portal](https://portal.azure.com/). 
-2. In the Azure portal, click **Browse > Azure Data Box Gateway**.
-3. Select an existing Azure Data Box Gateway resource. Click on the resource and then click **Quickstart**. 
-4. Click the link corresponding to the image that you want to download. The image files are approximately 4.8 GB.
+1. Click the resource that you created and then click **Overview**. If you have an existing Azure Data Box Gateway resource, click on the resource and go to **Overview**.
+
+    ![New Data Box Gateway resource](media/data-box-gateway-deploy-prep/data-box-gateway-resource-created.png)
+
+4. In the quickstart in the right pane, click the link corresponding to the image that you want to download. The image files are approximately 4.8 GB.
    
    * [VHDX for Hyper-V on Windows Server 2012 R2 and later](https://aka.ms/dbe-vhdx-2012).
    * [VMDK for VMWare ESXi 6.0 or 6.5](https://aka.ms/dbe-vmdk).
+
 5. Download and unzip the file to a local drive, making a note of where the unzipped file is located.
 
+
+## Get the activation key
+
+After the Data Box Gateway resource is up and running, you will need to get the activation key. This key is used to activate and connect your Data Box Gateway device with the resource.
+
+The activation key is used to register all the Data Box Gateway devices that need to activate with your Data Box Gateway resource. You can get this key now while you are in the Azure portal.
+
+1. Click the resource that you created and then click **Overview**.
+
+    ![New Data Box Gateway resource](media/data-box-gateway-deploy-prep/data-box-gateway-resource-created.png)
+
+2. Click **Generate key** to create an activation key. Click copy icon to copy the key and save it for later use.
+
+    ![Get activation key](media/data-box-gateway-deploy-prep/get-activation-key.png)
+
+> [!IMPORTANT]
+> - The activation key expires 3 days after it is generated. 
+> - If the key has epxired, generate a new key. The older key is not valid.
 
 ## Next steps
 
@@ -153,8 +158,8 @@ In this tutorial, you learned about Data Box Gateway topics such as:
 
 > [!div class="checklist"]
 > * Create a new resource
-> * Get the activation key
 > * Download the virtual device image
+> * Get the activation key
 
 Advance to the next tutorial to learn how to provision a virtual machine for your Data Box Gateway. Depending on your host operating system, see the detailed instructions in:
 
