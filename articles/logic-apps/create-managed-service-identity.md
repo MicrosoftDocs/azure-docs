@@ -28,9 +28,6 @@ and use a managed identity for your logic app. For more information, see
 > replacement name for the service formerly
 > known as Managed Service Identity (MSI).
 
-* To manually enable a managed identity for your logic app in the Azure portal, 
-you need a previously created [user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity).
-
 ## Prerequisites
 
 * An Azure subscription, or if you don't have a subscription, 
@@ -40,13 +37,20 @@ you need a previously created [user-assigned managed identity](../active-directo
 If you don't have a logic app, see 
 [Create your first logic app workflow](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-## Create managed identity - portal
+## Create managed identity
 
-To have  your logic app use a managed identity, 
-turn on the **Register with Azure Active Directory** 
-setting in your logic app's workflow settings.
+You can create or enable a managed identity for your logic app 
+through the Azure portal, Azure Resource Manager templates, 
+Azure PowerShell, or Azure CLI. 
 
-1. In the Azure portal, open your logic app in Logic App Designer.
+### Azure portal
+
+To create a managed identity for your logic app through the Azure portal, 
+turn on the **Register with Azure Active Directory** setting in your 
+logic app's workflow settings.
+
+1. In the [Azure portal](https://portal.azure.com), 
+open your logic app in Logic App Designer.
 
 1. Follow these steps: 
 
@@ -71,18 +75,16 @@ setting in your logic app's workflow settings.
       | **Tenant ID** | <*Azure-AD-tenant--ID-GUID*> | A Globally Unique Identifier (GUID) that represents the Azure AD tenant where your logic app is now a member. Inside the Azure AD tenant, the service principal has the same name as the logic app instance. | 
       ||| 
 
-### Create managed identity - deployment template
+### Deployment template
 
-To automate deployment for Azure resources such as logic apps, 
-you can set up Azure Resource Manager templates that create 
-and deploy your logic app. For more information, see 
+To automate creating and deploying Azure resources such as logic apps, 
+you can set up Azure Resource Manager templates. For more information, see 
 [Create and deploy logic apps with Azure Resource Manager templates](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md). 
 
-If you want to create a managed identity for your logic app 
-through a deployment template, add the **identity** element 
-and **type** property to your logic app workflow definition 
-in your deployment template. These settings indicate that 
-Azure creates and manages this identity for your logic app:
+To create a managed identity for your logic app through a template, 
+add the **identity** element and **type** property to your logic 
+app workflow definition in your deployment template. These settings 
+indicate that Azure creates and manages this identity for your logic app:
 
 ```json
 "identity": {
@@ -121,25 +123,27 @@ workflow definition includes these additional properties:
 ```json
 "identity": {
     "type": "SystemAssigned",
-    "principalId": "<principal-ID>",
-    "tenantId": "<Azure-AD-tenant-ID>"
+    "principalId": "<principal-ID-GUID>",
+    "tenantId": "<Azure-AD-tenant-ID>-GUID"
 }
 ```
 
 | Property | Value | Description | 
 |----------|-------|-------------|
-| **principalId** | <*principal-ID*> | A Globally Unique Identifier (GUID) that represents the logic app in the Azure AD tenant | 
-| **tenantId** | <*Azure-AD-tenant--ID*> | A Globally Unique Identifier (GUID) that represents the Azure AD tenant where the logic app is now a member. Inside the Azure AD tenant, the service principal has the same name as the logic app instance. | 
+| **principalId** | <*principal-ID-GUID*> | A Globally Unique Identifier (GUID) that represents the logic app in the Azure AD tenant | 
+| **tenantId** | <*Azure-AD-tenant--ID-GUID*> | A Globally Unique Identifier (GUID) that represents the Azure AD tenant where the logic app is now a member. Inside the Azure AD tenant, the service principal has the same name as the logic app instance. | 
 ||| 
 
 ## Remove managed identity
 
 To disable a managed identity on your logic app, 
-you can follow the steps that are similar to how 
-you created the identity through the Azure portal, 
-Azure PowerShell, or Azure CLI. Or, when you delete 
-your logic app, Azure automatically removes your 
-logic app's system-assigned identitiy from Azure AD.
+you can follow the steps similar to how you created 
+the identity through the Azure portal, Azure PowerShell, 
+or Azure CLI. 
+
+When you delete your logic app, 
+Azure automatically removes your logic app's 
+system-assigned identity from Azure AD.
 
 ### Azure portal
 
@@ -153,16 +157,16 @@ logic app's system-assigned identitiy from Azure AD.
    1. Under **Managed service identity**, choose **Off** 
    for the **Register with Azure Active Directory** property.
 
-      ![Turn off managed identity setting](./media/create-managed-service-identity/turn-off-managed-service-identity.png)
-
    1. When you're done, choose **Save** on the toolbar.
 
-### Deployment template or REST API
+      ![Turn off managed identity setting](./media/create-managed-service-identity/turn-off-managed-service-identity.png)
+
+### Deployment template
 
 If you created the logic app's managed identity with 
-a Resource Manager deployment template or a REST API, 
-set the `"identity"` element to `"None"`. This action 
-also deletes the principal ID from Azure AD. 
+an Azure Resource Manager deployment template, set the 
+`"identity"` element to `"None"`. This action also 
+deletes the principal ID from Azure AD. 
 
 ```json
 "identity": {
