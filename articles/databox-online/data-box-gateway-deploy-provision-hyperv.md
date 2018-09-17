@@ -110,7 +110,7 @@ Perform the following steps to provision a device in your hypervisor.
    ![](./media/data-box-gateway-deploy-provision-hyperv/image4.png)
 7. On the **Assign memory** page, specify a **Startup memory** of at least **8192 MB**, don't enable dynamic memory, and then click **Next**.
 
-   <!--![](./media/data-box-gateway-deploy-provision-hyperv/image5.png)-->  
+   ![](./media/data-box-gateway-deploy-provision-hyperv/image5.png) 
 8. On the **Configure networking** page, specify the virtual switch that is connected to the Internet and then click **Next**.
 
    ![](./media/data-box-gateway-deploy-provision-hyperv/image6.png)
@@ -163,7 +163,6 @@ Perform the following steps to start your virtual device and connect to it.
    ![](./media/data-box-gateway-deploy-provision-hyperv/image18.png)
 2. After the device is running, select the device, right click, and select **Connect**.
 
-   ![](./media/data-box-gateway-deploy-provision-hyperv/image19.png)
 3. You may have to wait 10-15 minutes for the device to be ready. A status message is displayed on the console to indicate the progress. After the device is ready, go to **Action**. Press `Ctrl + Alt + Delete` to log in to the virtual device. The default user is *EdgeUser* and the default password is *Password1*.
 
    ![](./media/data-box-gateway-deploy-provision-hyperv/image21.png)

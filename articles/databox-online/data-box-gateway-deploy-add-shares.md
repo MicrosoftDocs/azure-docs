@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/31/2018
+ms.date: 09/17/2018
 ms.author: alkohli
 ms.custom: 
 ---
@@ -32,38 +32,27 @@ In this tutorial, you learn how to:
 > * Add a share
 > * Connect to share
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-
 > [!IMPORTANT]
 > - Data Box Gateway is in preview. Review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you order and deploy this solution. 
  
 ## Prerequisites
 
-Before you configure and set up your Data Box Gateway, make sure that:
+Before you add shares to your Data Box Gateway, make sure that:
 
-* You have provisioned a virtual device and connected to it as detailed in the [Provision a Data Box Gateway in Hyper-V](data-box-gateway-deploy-provision-hyperv.md) or [Provision a Data Box Gateway in VMware](data-box-gateway-deploy-provision-vmware.md).
+* You have provisioned a virtual device and connected to it as detailed in the [Provision a Data Box Gateway in Hyper-V](data-box-gateway-deploy-provision-hyperv.md) or [Provision a Data Box Gateway in VMware](data-box-gateway-deploy-provision-vmware.md). 
 
-* You have the activation key from the Data Box Gateway service that you created to manage Data Box Gateway devices. For more information, go to [Prepare to deploy Azure Data Box Gateway](data-box-gateway-deploy-prep.md).
+    The virtual device is activated as detailed in [Connect and activate your Azure Data Box Gateway](data-box-gateway-deploy-connect-setup-activate.md) and ready for you to create shares and transfer data.
 
-<!--* If this is the second or subsequent virtual device that you are registering with an existing Data Box Gateway service, you should have the service data encryption key. This key was generated when the first device was successfully activated with this service. If you have lost this key, see [Get the service data encryption key](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) for your Data Box Gateway.-->
 
 ## Add a share
 
 Perform the following steps in the [Azure portal](https://portal.azure.com/) to create a share.
 
-1. Return to the Azure portal. Go to **All resources**, and search for your Data Box Gateway service.
+1. Return to the Azure portal. Go to **All resources**, and search for your Data Box Gateway resource.
     
-    <!--![](./media/data-box-gateway-deploy-fs-setup/searchdevicemanagerservice1.png)--> 
-
-2. In the filtered list, select your Data Box Gateway service and and then navigate to **Overview**. You should see a notification that the device is successfully configured.
-    
-    <!--![Configure a file server](./media/data-box-gateway-deploy-fs-setup/deployfs2m.png)-->
-
-
-3. Click **+ Add share** on the device command bar.
+2. In the filtered list of resources, select your Data Box Gateway resource and and then navigate to **Overview**. Click **+ Add share** on the device command bar.
    
-   <!--![Add a share](./media/data-box-gateway-deploy-add-shares/deployfs15m.png)-->
+   ![Add a share](./media/data-box-gateway-deploy-add-shares/click-add-share.png)
 
 4. In **Add Share**, specify the share settings. Provide a unique name for your share. 
 
@@ -77,14 +66,22 @@ Perform the following steps in the [Azure portal](https://portal.azure.com/) to 
    
 8. This step depends on whether you are creating an SMB or an NFS share. 
      
-    - **If creating an SMB share** - In the Full privilege user field, choose from Create new or Use existing. If creating a new local user, provide the user name, password, and then confirm password. This assigns the permissions to the local user. After you have assigned the permissions here, you can then use File Explorer to modify these permissions.
+    - **If creating an SMB share** - In the All privilege local user field, choose from **Create new** or **Use existing**. If creating a new local user, provide the **username**, **password**, and then **confirm password**. This assigns the permissions to the local user. After you have assigned the permissions here, you can then use File Explorer to modify these permissions.
+
+        If you check **allow only read operations** for this share data, then you will have the option to specify read-only users.
+
+        ![Add SMB share](./media/data-box-gateway-deploy-add-shares/add-share-smb-1.png)
+
     
     - **If creating an NFS share** - You need to supply the IP addresses of the allowed clients that can access the share.
+
+        ![Add NFS share](./media/data-box-gateway-deploy-add-shares/add-share-nfs-1.png)
    
 9. Click **Create** to create the share. 
     
     You are notified that the share creation is in progress. After the share is created with the specified settings, the **Shares** blade updates to reflect the new share. 
-     
+    
+    ![Updated list of shares](./media/data-box-gateway-deploy-add-shares/updated-list-of-shares.png) 
 
 ## Connect to the share
 
@@ -95,13 +92,25 @@ Perform these steps on your Windows Server client connected to your Data Box Gat
 
     `net use \\<IP address of the device>\<share name>  /u:<user name for the share>`
 
-    Enter the password for the share when prompted.
+    Enter the password for the share when prompted. The sample output of this command is presented here.
+
+    ```powershell
+    Microsoft Windows [Version 18.8.16299.192) 
+    (c) 2817 microsoft Corporation. All rights reserved . 
+    
+    C: \Users\GatewayUser>net use \\10.10.10.60\newtestuser /u:Tota11yNewUser 
+    Enter the password for 'TotallyNewUser' to connect to '10.10.10.60' • 
+    The command completed successfully. 
+    
+    C: \Users\GatewayUser>
+    ```   
+
 
 2. Press  Windows + R. In the **Run** window, specify the `\\<device IP address>`. Click **OK**. This opens File Explorer. You should now be able to see the shares that you created as folders. Select and double-click a share (folder) to view the content.
  
-    <!--![Connect to SMB share](./media/data-box-gateway-deploy-add-shares/deployfs22m.png)-->
+    ![Connect to SMB share](./media/data-box-gateway-deploy-add-shares/connect-to-share2.png)-->
 
-    The data is written to these shares as it is being generated and the device pushes the data to cloud.
+    The data is written to these shares as it is generated and the device pushes the data to cloud.
 
 ### Connect to an NFS share
 
@@ -111,17 +120,17 @@ Perform these steps on your Linux client connected to your Data Box Edge.
 
    `sudo apt-get install nfs-common`
 
-    For more information, go to Install NFSv4 client.
+    For more information, go to [Install NFSv4 client](https://help.ubuntu.com/community/SettingUpNFSHowTo#NFSv4_client).
 
-2. After the NFS client is installed, use the following command to mount the NFS share you created on your Gateway device:
+2. After the NFS client is installed, use the following command to mount the NFS share you created on your Data Box Gateway device:
 
-   `sudo mount <Gateway device IP>:/<NFS share on Gateway device> /home/username/<Folder on local Linux computer>`
+   `sudo mount <device IP>:/<NFS share on device> /home/username/<Folder on local Linux computer>`
 
     Prior to setting up the mounts, make sure the directories that will act as mountpoints on your local computer are already created and also do not contain any files or sub-folders.
 
-    The following example shows how to connect via NFS to a share on Gateway device. The virtual device IP is `10.161.23.130`, the share `mylinuxshare2` is mounted on the ubuntuVM, mount point being `/home/databoxubuntuhost/gateway`.
+    The following example shows how to connect via NFS to a share on Gateway device. The virtual device IP is `10.10.10.60`, the share `mylinuxshare2` is mounted on the ubuntuVM, mount point being `/home/databoxubuntuhost/gateway`.
 
-    `sudo mount -t nfs 10.161.23.130:/mylinuxshare2 /home/databoxubuntuhost/gateway`
+    `sudo mount -t nfs 10.10.10.60:/mylinuxshare2 /home/databoxubuntuhost/gateway`
 
 > [!NOTE] 
 > The following caveats are applicable to the preview release:
@@ -140,6 +149,6 @@ In this tutorial, you learned about  Data Box Gateway topics such as:
 Advance to the next tutorial to learn how to administer your Data Box Gateway.
 
 > [!div class="nextstepaction"]
-> [Use local web UI to administer a Data Box Gateway](/http://aka.ms/DBG-docs)
+> [Use local web UI to administer a Data Box Gateway](/http://aka.ms/dbg-docs)
 
 
