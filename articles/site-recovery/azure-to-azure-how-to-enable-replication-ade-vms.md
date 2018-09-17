@@ -24,13 +24,15 @@ This article assumes that you've already set up Site Recovery for this scenario,
 
 To enable replication of ADE VMs from portal, the user should have the below permissions.
 - Key vault permissions
+    list
     Create
     Get
-    List
+
 -	Key vault secret permissions
+    List
     Create
     Get
-    List
+
 - Key vault key permissions (required only if the VMs use Key Encryption Key to encrypt Disk Encryption keys)
     List
     Get
@@ -39,6 +41,16 @@ To enable replication of ADE VMs from portal, the user should have the below per
     Decrypt
 
 You can manage the permissions by navigating to key vault resource in portal and adding the required permissions to the user.
+
+    ![key vault permissions](./media/azure-to-azure-how-to-enable-replication-ade-vms/keyvaultpermissions.png)
+
+If the user enabling disaster recovery (DR) does not have the required permissions to copy the keys, the below script can be given to the security administrator with appropriate permissions to copy the encryption secrets and keys to the target region.
+
+>[!NOTE]
+>To enable replication of ADE VM from portal, you at least need "List" permissions on the key vaults, secrets and keys
+>
+
+### Script to copy ADE keys to the DR region
 
 
 ## Enable replication
