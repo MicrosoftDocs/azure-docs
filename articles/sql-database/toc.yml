@@ -312,10 +312,12 @@
     items:
     - name: Intelligent performance   
       items:
-      - name: Intelligent query processing
-        href: https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json
-      - name: Adaptive query processing
-        href: https://docs.microsoft.com/sql/relational-databases/performance/adaptive-query-processing?toc=/azure/sql-database/toc.json
+      - name: Querying
+        items:
+        - name: Intelligent query processing
+          href: https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json
+        - name: Adaptive query processing
+          href: https://docs.microsoft.com/sql/relational-databases/performance/adaptive-query-processing?toc=/azure/sql-database/toc.json
       - name: Monitoring and tuning
         items:
         - name: Monitoring and tuning overview
