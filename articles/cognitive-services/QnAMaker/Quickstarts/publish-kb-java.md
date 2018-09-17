@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: How to publish a knowledge base in Java for QnA Maker.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: cjgronlund
 
 ms.service: cognitive-services
 ms.technology: qna-maker
