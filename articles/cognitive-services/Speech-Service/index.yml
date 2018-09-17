@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Speech service and SDK (Preview)
+title: Speech Service and SDK (Preview)
 metadata:
-  title: Speech service documentation - Tutorials, quickstarts, API reference - Cognitive Services | Microsoft Docs
+  title: Speech Service documentation - Tutorials, quickstarts, API reference - Cognitive Services | Microsoft Docs
   meta.description: |
     The Speech service gives developers an easy way to add powerful speech-enabled features to their applications.
     Examples include voice command control and dialogue, natural speech conversation, speech transcription and dictation, and speech translation.
