@@ -101,7 +101,7 @@ COPY . /home/site/wwwroot
 > When hosting an image in a private container registry, you should add the connection settings to the function app by using **ENV** variables in the Dockerfile. Because this tutorial cannot guarantee that you use a private registry, the connection settings are [added after the deployment by using the Azure CLI](#configure-the-function-app) as a security best practice.
 
 ### Run the Build command
-In the root folder, run the [docker build](https://docs.docker.com/engine/reference/commandline/build/) command, and provide a name, `mydockerimage`, and tag, `v1.0.0`. Replace `<docker-id>` with your Docker Hub account ID. This builds the Docker image for the container. 
+In the root folder, run the [docker build](https://docs.docker.com/engine/reference/commandline/build/) command, and provide a name, `mydockerimage`, and tag, `v1.0.0`. Replace `<docker-id>` with your Docker Hub account ID. This command builds the Docker image for the container.
 
 ```bash
 docker build --tag <docker-id>/mydockerimage:v1.0.0 .
@@ -124,7 +124,7 @@ Successfully tagged <docker-id>/mydockerimage:v1.0.0
 ```
 
 ### Test the image locally
-Verify that the image you just built works by running the Docker image in a local container. Issue the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command and pass the name and tag of the image to it. Be sure to specify the port using the `-p` argument.
+Verify that the image you built works by running the Docker image in a local container. Issue the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command and pass the name and tag of the image to it. Be sure to specify the port using the `-p` argument.
 
 ```bash
 docker run -p 8080:80 -it <docker-ID>/mydockerimage:v1.0.0
@@ -142,7 +142,7 @@ After you have verified the function app in the container, stop the execution. N
 
 ## Push the custom image to Docker Hub
 
-A registry is an application that hosts images and provides services image and container services. In order to share your image, you must push it to a registry. Docker Hub is a registry for Docker images that allows you to host your own repositories, either public or private. 
+A registry is an application that hosts images and provides services image and container services. To share your image, you must push it to a registry. Docker Hub is a registry for Docker images that allows you to host your own repositories, either public or private.
 
 Before you can push an image, you must sign in to Docker Hub using the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command. Replace `<docker-id>` with your account name and type in your password into the console at the prompt. For other Docker Hub password options, see the [docker login command documentation](https://docs.docker.com/engine/reference/commandline/login/).
 
@@ -176,7 +176,7 @@ Now, you can use this image as the deployment source for a new function app in A
 
 ## Create a Linux App Service plan
 
-Linux hosting for Functions is currently not supported on consumption plans. You must run on a Linux App Service plan. To learn more about hosting, see [Azure Functions hosting plans comparison](functions-scale.md). 
+Linux hosting for Functions is currently not supported on consumption plans. You have to host Linux container apps in a Linux App Service plan. To learn more about hosting, see [Azure Functions hosting plans comparison](functions-scale.md).
 
 [!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
 
@@ -215,7 +215,7 @@ The _deployment-container-image-name_ parameter indicates the image hosted on Do
 
 ## Configure the function app
 
-The function needs the connection string to connect to the default storage account. When you are publishing your custom image to a private container account, you should instead set these application settings as environment variables in the Dockerfile using the [ENV instruction](https://docs.docker.com/engine/reference/builder/#env), or equivalent.
+The function needs the connection string to connect to the default storage account. When you are publishing your custom image to a private container account, you should instead set these application settings as environment variables in the Dockerfile using the [ENV instruction](https://docs.docker.com/engine/reference/builder/#env), or something similar.
 
 In this case, `<storage_account>` is the name of the storage account you created. Get the connection string with the [az storage account show-connection-string](/cli/azure/storage/account#show-connection-string) command. Add these application settings in the function app with the [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) command.
 

@@ -19,7 +19,7 @@ The following command starts the function app. The app runs using the same Azure
 func host start --build
 ```
 
-The `--build` option is required to compile C# projects. You do not need this option for a JavaScript project.
+The `--build` option is required to compile C# projects. You don't need this option for a JavaScript project.
 
 When the Functions host starts, it write something like the following output, which has been truncated for readability:
 
@@ -55,6 +55,6 @@ Http Functions:
 
 Copy the URL of your `HTTPTrigger` function from the runtime output and paste it into your browser's address bar. Append the query string `?name=<yourname>` to this URL and execute the request. The following shows the response in the browser to the GET request returned by the local function:
 
-![Test locally in the browser](./media/functions-run-function-local-test/functions-test-local-browser.png)
+![Test locally in the browser](./media/functions-run-function-test-local/functions-test-local-browser.png)
 
 Now that you have run your function locally, you can create the function app and other required resources in Azure.
