@@ -9,16 +9,18 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create function - portal
-    href: functions-create-first-azure-function.md
   - name: Create function - Visual Studio
     href: functions-create-your-first-function-visual-studio.md
   - name: Create function - Visual Studio Code
     href: functions-create-first-function-vs-code.md
   - name: Create function - Java/Maven
     href: functions-create-first-java-maven.md
+  - name: Create function - Python
+    href: functions-create-first-function-python.md
   - name: Create function - Azure CLI
     href: functions-create-first-azure-function-azure-cli.md
+  - name: Create function - portal
+    href: functions-create-first-azure-function.md
   - name: Create function - Linux
     href: functions-create-first-azure-function-azure-cli-linux.md
   - name: Triggers
@@ -90,6 +92,8 @@
       href: functions-reference-node.md   
     - name: Java
       href: functions-reference-java.md 
+    - name: Python
+      href: functions-reference-python.md
   - name: Diagnostics
     href: ../app-service/app-service-diagnostics.md
   - name: Performance considerations
@@ -156,6 +160,8 @@
        href: functions-create-maven-intellij.md
      - name: Eclipse development
        href: functions-create-maven-eclipse.md
+     - name: Create Linux function app  
+       href: create-function-app-linux-app-service-plan.md
      - name: Manage connections
        href: manage-connections.md
      - name: Error handling
