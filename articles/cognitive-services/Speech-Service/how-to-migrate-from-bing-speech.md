@@ -40,6 +40,10 @@ From a developer standpoint, the main differences between Bing Speech and the Sp
     * [Custom text-to-speech voices](https://cris.ai/CustomVoice)
     * [Speech translation](speech-translation.md) (does not include [Text translation](https://docs.microsoft.com/azure/cognitive-services/translator/translator-info-overview))
 
+* Recognition modes are no longer used for speech-to-text transcription. However, endpoint URIs for REST API calls that contain recognition modes still work.
+
+* When using the Speech SDK, there is no time limit on streaming speech-to-text transcription.
+
 * A [Language Understanding Service](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) endpoint key can also be used with the Speech Service. See the [intent recognition tutorial](how-to-recognize-intents-from-speech-csharp.md) for details.
 
 * The Speech Service supports 24-KHz voices for text-to-speech, improving audio quality. At this writing, there are two such voices (US English only): `Jessa24kRUS` and `Guy24kRUS`.
@@ -53,6 +57,8 @@ From a developer standpoint, the main differences between Bing Speech and the Sp
 ## Speech SDK
 
 If you're using a Bing Speech client library for a specific programming language, migrating to the Speech SDK will require changes to your application because the API is different. Migrating to the Speech SDK can make your code simpler, as well as giving you access to new features now and in the future, making it a good investment of your time.
+
+At this writing, the Speech SDK supports C# (Windows 10, UWP, .NET Standard), Java (Android and custom devices), and C++ (Windows and Linux). APIs on all platforms are similar to ease multi-platform development. Support for additional platforms may be added from time to time.
 
 To get started with the new Speech SDK:
 

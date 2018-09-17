@@ -92,9 +92,13 @@ The Speech service incorporates many upgrades to these other services, including
 
 * The Speech Service speech-to-text function integrates with the [Language Understanding Service](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) to recognize speaker intent. A LUIS endpoint key can also be used with the Speech Service. See the [intent recognition tutorial](how-to-recognize-intents-from-speech-csharp.md) for details.
 
+* Speech-to-text no longer requires that you specify a recognition mode.
+
 * The Speech Service supports 24-KHz voices for text-to-speech, improving audio quality. At this writing, there are two such voices (US English only): `Jessa24kRUS` and `Guy24kRUS`.
 
 * THe Speech Service's [batch transcription](batch-transcription.md) allows high volumes of recorded speech, such as call center recordings, to be transcribed to text efficiently, so they can be easily analyzed and searched.
+
+* When using the Speech SDK, there is no time limit on streaming speech-to-text transcription.
 
 * The [Speech SDK](speech-sdk.md) provides a consistent API to the Speech service across several programming languages and execution environments (including Windows 10, UWP, and .NET Core), making development easier, especially on multiple platforms.
 
