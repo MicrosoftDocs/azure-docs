@@ -156,6 +156,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "acr-tasks",
+      "url": "https://github.com/Azure-Samples/acr-tasks",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "iot-samples-node",
       "url": "https://github.com/Azure-Samples/azure-iot-samples-node",
       "branch": "master",
@@ -178,7 +184,7 @@
       "url": "https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts",
       "branch": "master",
       "branch_mapping": {}
-    },  
+    },
     {
       "path_to_root": "media-services-v3-dotnet-tutorials",
       "url": "https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials",
@@ -202,7 +208,7 @@
       "url": "https://github.com/Azure-Samples/media-services-v3-rest-postman",
       "branch": "master",
       "branch_mapping": {}
-    }    
+    }
   ],
   "branch_target_mapping": {
     "live": [
