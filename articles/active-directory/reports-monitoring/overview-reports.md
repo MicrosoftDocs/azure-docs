@@ -1,7 +1,7 @@
 ---
 
-title: Azure Active Directory reporting | Microsoft Docs
-description: Provides a general overview of Azure Active Directory reporting.
+title: What are Azure Active Directory reports? | Microsoft Docs
+description: Provides a general overview of Azure Active Directory reports.
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
@@ -11,7 +11,7 @@ editor: ''
 ms.assetid: 6141a333-38db-478a-927e-526f1e7614f4
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
@@ -19,9 +19,10 @@ ms.date: 01/15/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk  
 ---
-# Azure Active Directory reporting
 
-With Azure Active Directory reporting, you can gain insights into how your environment is doing.  
+# What are Azure Active Directory reports?
+
+With Azure Active Directory reports, you can gain insights into how your environment is doing.  
 The provided data enables you to:
 
 - Determine how your apps and services are utilized by your users
@@ -46,6 +47,7 @@ There are two types of security reports in Azure Active Directory:
 - **Risky sign-ins** - With the [risky sign-in security report](concept-risky-sign-ins.md), you get an indicator for sign-in attempts that might have been performed by someone who is not the legitimate owner of a user account. 
 
 **What Azure AD license do you need to access a security report?**  
+
 All editions of Azure Active Directory provide you with users flagged for risk and risky sign-ins reports.  
 However, the level of report granularity varies between the editions: 
 
@@ -65,9 +67,7 @@ There are two types of activity reports in Azure Active Directory:
 - **Sign-ins** -  With the [sign-ins activity report](concept-sign-ins.md), you can determine, who has performed the tasks reported by the audit logs report.
 
 
-
-The **audit logs report** provides you with records of system activities for compliance.
-Amongst others, the provided data enables you to address common scenarios such as:
+The **audit logs report** provides you with records of system activities for compliance. This data enables you to address common scenarios such as:
 
 - Someone in my tenant got access to an admin group. Who gave them access? 
 
@@ -77,10 +77,10 @@ Amongst others, the provided data enables you to address common scenarios such a
 
 
 **What Azure AD license do you need to access the audit logs report?**  
+
 The audit logs report is available for features for which you have licenses. If you have a license for a specific feature, you also have access to the audit log information for it.
 
 For more details, see **Comparing generally available features of the Free, Basic, and Premium editions** in [Azure Active Directory features and capabilities](https://www.microsoft.com/cloud-platform/azure-active-directory-features).   
-
 
 
 The **sign-ins activity report** enables you to find answers to questions such as:
@@ -91,8 +91,8 @@ The **sign-ins activity report** enables you to find answers to questions such a
 
 
 **What Azure AD license do you need to access the sign-ins activity report?**  
-To access the sign-ins activity report, your tenant must have an Azure AD Premium license associated with it.
 
+To access the sign-ins activity report, your tenant must have an Azure AD Premium license associated with it.
 
 ## Programmatic access
 
@@ -101,17 +101,6 @@ In addition to the user interface, Azure Active Directory reporting also provide
 
 ## Next steps
 
-If you want to know more about the various report types in Azure Active Directory, see:
-
-- [Users flagged for risk report](concept-user-at-risk.md)
 - [Risky sign-ins report](concept-risky-sign-ins.md)
 - [Audit logs report](concept-audit-logs.md)
 - [Sign-ins logs report](concept-sign-ins.md)
-
-If you want to know more about accessing the reporting data using the reporting API, see: 
-
-- [Getting started with the Azure Active Directory reporting API](concept-reporting-api.md)
-
-
-<!--Image references-->
-[1]: ./media/active-directory-reporting-azure-portal/ic195031.png
