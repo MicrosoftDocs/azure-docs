@@ -20,7 +20,7 @@ This article describes how to [validate an HTTP endpoint](security-authenticatio
 
 ## Prerequisites
 
-* You'll need a function app with an [HTTP triggered function](../azure-functions/functions-create-generic-webhook-triggered-function.md)
+You need a function app with an HTTP triggered function.
 
 ## Add dependencies
 
