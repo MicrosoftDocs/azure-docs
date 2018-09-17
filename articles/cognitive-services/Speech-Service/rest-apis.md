@@ -117,8 +117,8 @@ HTTP code|Meaning|Possible reason
 100|Continue|The initial request has been accepted. Proceed with sending the rest of the data. (Used with chunked transfer.)
 200|OK|The request was successful; the response body is a JSON object.
 400|Bad request|Language code not provided or is not a supported language.
-401|Unauthorized|Subscription key or authorization token is invalid in the specified region
-403|Forbidden|Bad endpoint URI or missing key/token.
+401|Unauthorized|Subscription key or authorization token is invalid in the specified region, or invalid endpoint.
+403|Forbidden|Missing subscription key or authorization token.
 
 ### JSON response
 
@@ -239,7 +239,7 @@ The text to be synthesized into speech is sent as the body of an HTTP `POST` req
 
 ### Sample request
 
-The following HTTP request uses an SSML body to choose the voice.
+The following HTTP request uses an SSML body to choose the voice. The body must be no longer than 1,000 characters.
 
 ```xml
 POST /cognitiveservices/v1 HTTP/1.1
@@ -259,10 +259,11 @@ The HTTP status of the response indicates common error conditions.
 
 HTTP code|Meaning|Possible reason
 -|-|-|
-200|OK|The request was successful; the response body is a JSON object.
-400|Bad request|Language code not provided or is not a supported language.
-401|Unauthorized|Subscription key or authorization token is invalid in the specified region
-403|Forbidden|Bad endpoint URI or missing key/token.
+200|OK|The request was successful; the response body is an audio file.
+400|Bad request|Required header field missing, value too long, or invalid SSML document.
+401|Unauthorized|Subscription key or authorization token is invalid in the specified region, or invalid endpoint.
+403|Forbidden|Missing subscription key or authorization token.
+413|Request entity too large|The input text is longer than 1,000 characters.
 
 If the HTTP status is `200 OK`, the body of the response contains an audio file in the requested format. This file may be played as it is transferred, or saved to a buffer or file for later playback or other use.
 
