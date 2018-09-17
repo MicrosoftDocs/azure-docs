@@ -148,6 +148,8 @@
           href: azure-stack-manage-storage-physical-memory-capacity.md
         - name: Add scale unit nodes
           href: azure-stack-add-scale-node.md
+        - name: Add public IP addresses
+          href: azure-stack-add-ips.md
     - name: Replace hardware
       items:
       - name: Node actions
