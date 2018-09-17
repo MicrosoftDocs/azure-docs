@@ -1,13 +1,14 @@
 ---
-title: Language Understanding (LUIS) in Azure frequently asked questions | Microsoft Docs
-description: Get answers to frequently asked questions about Language Understanding (LUIS)
+title: Frequently asked questions - Language Understanding (LUIS)
+titleSuffix: Azure Cognitive Services
+description: This article contains answers to frequently asked questions about Language Understanding (LUIS).
 author: diberry
 manager: cjgronlund
 services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 09/10/2018
 ms.author: diberry
 ---
 # Language Understanding FAQ
@@ -57,7 +58,7 @@ Cortana prebuilt apps were deprecated in 2017. They are no longer supported.
 LUIS [tokenizes](luis-glossary.md#token) the utterance based on the [culture](luis-supported-languages.md#tokenization). Both the original value and the tokenized value are available for [data extraction](luis-concept-data-extraction.md#tokenized-entity-returned).
 
 ### How do I create and assign a LUIS endpoint key?
-[Create the endpoint key](luis-how-to-azure-subscription.md#create-luis-endpoint-key) in Azure for your [service](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) level. [Assign the key](luis-how-to-manage-keys.md#assign-endpoint-key) on the **[Publish](luis-how-to-publish-app.md)** page. There is no corresponding API for this action. Then you must change the HTTP request to the endpoint to [use the new endpoint key](luis-concept-keys.md#use-endpoint-key-in-query).
+[Create the endpoint key](luis-how-to-azure-subscription.md#create-luis-endpoint-key) in Azure for your [service](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) level. [Assign the key](luis-how-to-manage-keys.md#assign-endpoint-key) on the **[Keys and endpoints](luis-how-to-manage-keys.md)** page. There is no corresponding API for this action. Then you must change the HTTP request to the endpoint to [use the new endpoint key](luis-concept-keys.md#use-endpoint-key-in-query).
 
 ### How do I interpret LUIS scores? 
 Your system should use the highest scoring intent regardless of its value. For example, a score below 0.5 (less than 50%) does not necessarily mean that LUIS has low confidence. Providing more training data can help increase the score of the most-likely intent.
@@ -109,13 +110,18 @@ See [Prediction differences between copies of same app](luis-concept-prediction-
 ## App publishing
 
 ### What is the tenant ID in the "Add a key to your app" window?
-In Azure, a tenant represents the client or organization that's associated with a service. Find your tenant ID in the Azure portal in the **Directory ID** box by selecting **Azure Active Directory** > **Manage** > **Properties**.
+In Azure, a tenant represents the client or organization that is associated with a service. Find your tenant ID in the Azure portal in the **Directory ID** box by selecting **Azure Active Directory** > **Manage** > **Properties**.
 
 ![Tenant ID in the Azure portal](./media/luis-manage-keys/luis-assign-key-tenant-id.png)
 
 <a name="why-are-there-more-subscription-keys-on-my-apps-publish-page-than-i-assigned-to-the-app"></a>
-### Why are there more endpoint keys on my app's publish page than I assigned to the app? 
-Each LUIS app has the authoring/starter key. LUIS endpoint keys created during the GA time frame are visible on your publish page, regardless if you added them to the app. This was done to make GA migration easier. Any new LUIS endpoint keys do not appear on the publish page. 
+<a name="why-are-there-more-endpoint-keys-on-my-apps-publish-page-than-i-assigned-to-the-app"></a>
+
+
+### Why are there more endpoint keys assigned to my app than I assigned? 
+Each LUIS app has the authoring/starter key in the endpoint list as a convenience. This key allows only a few endpoint hits so you can try out LUIS.  
+
+If your app existed before LUIS was generally available (GA), LUIS endpoint keys in your subscription are assigned automatically. This was done to make GA migration easier. Any new LUIS endpoint keys in the Azure portal are _not_ automatically assigned to LUIS. 
 
 ## App management
 

@@ -31,7 +31,7 @@ Learn about a public IP address prefix and how to create, change, and delete one
 Complete the following tasks before completing steps in any section of this article:
 
 - If you don't already have an Azure account, sign up for a [free trial account](https://azure.microsoft.com/free).
-- If using the portal, open https://portal.azure.com, and log in with your Azure account.
+- If using the portal, open https://aka.ms/publicipprefixportal, and log in with your Azure account.
 - If using PowerShell commands to complete tasks in this article, either run the commands in the [Azure Cloud Shell](https://shell.azure.com/powershell), or by running PowerShell from your computer. The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. This tutorial requires the AzureRm.Network PowerShell module version 6.3.1 or later. Run `Get-Module -ListAvailable AzureRM.Network` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](https://github.com/Azure/azure-powershell/releases/tag/AzureRm.Network.6.3.1). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure.
 - If using Azure Command-line interface (CLI) commands to complete tasks in this article, either run the commands in the [Azure Cloud Shell](https://shell.azure.com/bash), or by running the CLI from your computer. This tutorial requires the Azure CLI version 2.0.41 or later. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). If you are running the Azure CLI locally, you also need to run `az login` to create a connection with Azure.
 
@@ -59,7 +59,7 @@ Public IP address prefixes have a charge. For details, see [pricing](https://azu
 
 |Tool|Command|
 |---|---|
-|CLI|[az network public-ip prefix create](/cli/azure/network/public-ip-prefix#az-network-public-ip-prefix-create)|
+|CLI|[az network public-ip prefix create]((/cli/azure/network/public-ip/prefix/az-network-public-ip-prefix-create)|
 |PowerShell|[New-AzureRmPublicIpAddressPrefix](/powershell/module/azurerm.network/new-azurermpublicipaddressprefix)|
 
 ## Create a static public IP address from a prefix
@@ -93,7 +93,7 @@ Once you create a prefix, you must create static IP addresses from the prefix. I
 
 |Tool|Command|
 |---|---|
-|CLI|[az network public-ip prefix list](/cli/azure/network/public-ip-prefix#az-network-public-ip-prefix-list) to list public IP addresses, [az network public-ip prefix show](/cli/azure/network/public-ip#az-network-public-ip-prefix-show) to show settings; [az network public-ip prefix update](/cli/azure/network/public-ip-prefix#az-network-public-ip-prefix-update) to update; [az network public-ip prefix delete](/cli/azure/network/public-ip#az-network-public-ip-prefix-delete) to delete|
+|CLI|[az network public-ip prefix list](/cli/azure/network/public-ip/prefix/az-network-public-ip-prefix-list) to list public IP addresses, [az network public-ip prefix show]((/cli/azure/network/public-ip/prefix/az-network-public-ip-prefix-show) to show settings; [az network public-ip prefix update](/cli/azure/network/public-ip-prefix#az-network-public-ip-prefix-update) to update; [az network public-ip prefix delete](/(/cli/azure/network/public-ip/prefix/az-network-public-ip-prefix-delete) to delete|
 |PowerShell|[Get-AzureRmPublicIpAddressPrefix](/powershell/module/azurerm.network/get-azurermpublicipaddressprefix) to retrieve a public IP address object and view its settings, [Set-AzureRmPublicIpAddressPrefix](/powershell/module/azurerm.network/set-azurermpublicipaddressprefix) to update settings; [Remove-AzureRmPublicIpAddressPrefix](/powershell/module/azurerm.network/remove-azurermpublicipaddressprefix) to delete|
 
 ## Permissions

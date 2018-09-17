@@ -38,9 +38,7 @@ You can use the [Azure portal](#portal), the Azure [command-line interface](#cli
 
 ## <a name="portal"></a>Create peering - Azure portal
 
-If the virtual networks that you want to peer are in subscriptions that are associated to different Azure Active Directory tenants, complete the following steps before continuing:
- - Add the user from each Azure Active Directory tenant as a [guest user](../active-directory/b2b/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory) in the opposite Azure Active Directory tenant.
- - Each user has to accept the guest user invitation from the opposite Active Directory tenant.
+If the virtual networks that you want to peer are in subscriptions that are associated to different Azure Active Directory tenants, follow steps in the CLI and PowerShell section of this article. Portal does not have support to peer virtual networks belonging to subscriptions from different Active Directory Tenants.
 
 The following steps use different accounts for each subscription. If you're using an account that has permissions to both subscriptions, you can use the same account for all steps, skip the steps for logging out of the portal, and skip the steps for assigning another user permissions to the virtual networks.
 
@@ -98,7 +96,8 @@ The following steps use different accounts for each subscription. If you're usin
 
 ## <a name="cli"></a>Create peering - Azure CLI
 
-This tutorial uses different accounts for each subscription. If you're using an account that has permissions to both subscriptions, you can use the same account for all steps, skip the steps for logging out of Azure, and remove the lines of script that create user role assignments. Replace UserA@azure.com and UserB@azure.com in all of the following scripts with the usernames you're using for UserA and UserB. If the virtual networks are in different subscriptions, and the subscriptions are associated to different Azure Active Directory tenants, complete the following steps before continuing:
+This tutorial uses different accounts for each subscription. If you're using an account that has permissions to both subscriptions, you can use the same account for all steps, skip the steps for logging out of Azure, and remove the lines of script that create user role assignments. Replace UserA@azure.com and UserB@azure.com in all of the following scripts with the usernames you're using for UserA and UserB. 
+If the virtual networks are in different subscriptions, and the subscriptions are associated to different Azure Active Directory tenants, complete the following steps before continuing:
  - Add the user from each Active Directory tenant as a [guest user](../active-directory/b2b/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory) in the opposite Azure Active Directory tenant.
  - Each user has to accept the guest user invitation from the opposite Azure Active Directory tenant.
 
@@ -178,7 +177,8 @@ Any Azure resources you create in either virtual network are now able to communi
  
 ## <a name="powershell"></a>Create peering - PowerShell
 
-This tutorial uses different accounts for each subscription. If you're using an account that has permissions to both subscriptions, you can use the same account for all steps, skip the steps for logging out of Azure, and remove the lines of script that create user role assignments. Replace UserA@azure.com and UserB@azure.com in all of the following scripts with the usernames you're using for UserA and UserB. If the virtual networks are in different subscriptions, and the subscriptions are associated to different Azure Active Directory tenants, complete the following steps before continuing:
+This tutorial uses different accounts for each subscription. If you're using an account that has permissions to both subscriptions, you can use the same account for all steps, skip the steps for logging out of Azure, and remove the lines of script that create user role assignments. Replace UserA@azure.com and UserB@azure.com in all of the following scripts with the usernames you're using for UserA and UserB. 
+If the virtual networks are in different subscriptions, and the subscriptions are associated to different Azure Active Directory tenants, complete the following steps before continuing:
  - Add the user from each Active Directory tenant as a [guest user](../active-directory/b2b/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory) in the opposite Azure Active Directory tenant.
  - Each user has to accept the guest user invitation from the opposite Active Directory tenant.
 

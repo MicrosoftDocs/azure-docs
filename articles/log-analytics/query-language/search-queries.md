@@ -20,7 +20,9 @@ ms.component: na
 # Search queries in Log Analytics
 
 > [!NOTE]
-> You should complete [Get started with queries in Log Analytics](get-started-queries.md) before completing this tutorial.
+> You should complete [Get started with queries in Log Analytics](get-started-queries.md) before completing this lesson.
+
+[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
 Azure Log Analytics queries can start with either a table name or a search command. This tutorial covers search-based queries. There are advantages to each method.
 
@@ -30,7 +32,7 @@ why these queries could take longer to complete and might return very large resu
 ## Search a term
 The **search** command is typically used to search a specific term. In the following example, all columns in all tables are scanned for the term "error":
 
-```OQL
+```KQL
 search "error"
 | take 100
 ```
@@ -40,13 +42,13 @@ While they're easy to use, unscoped queries like the one showed above are not ef
 ### Table scoping
 To search a term in a specific table, add `in (table-name)` just after the **search** operator:
 
-```OQL
+```KQL
 search in (Event) "error"
 | take 100
 ```
 
 or in multiple tables:
-```OQL
+```KQL
 search in (Event, SecurityEvent) "error"
 | take 100
 ```
@@ -54,7 +56,7 @@ search in (Event, SecurityEvent) "error"
 ### Table and column scoping
 By default, **search** will evaluate all columns in the data set. To search only a specific column, use this syntax:
 
-```OQL
+```KQL
 search in (Event) Source:"error"
 | take 100
 ```
@@ -65,7 +67,7 @@ search in (Event) Source:"error"
 ## Case-sensitivity
 By default, term search is case-insensitive, so searching "dns" could yield results such as "DNS", "dns", or "Dns". To make the search case-sensitive, use the `kind` option:
 
-```OQL
+```KQL
 search kind=case_sensitive in (Event) "DNS"
 | take 100
 ```
@@ -74,26 +76,26 @@ search kind=case_sensitive in (Event) "DNS"
 The **search** command supports wild cards, at the beginning, end or middle of a term.
 
 To search terms that start with "win":
-```OQL
+```KQL
 search in (Event) "win*"
 | take 100
 ```
 
 To search terms that end with ".com":
-```OQL
+```KQL
 search in (Event) "*.com"
 | take 100
 ```
 
 To search terms that contain "www":
-```OQL
+```KQL
 search in (Event) "*www*"
 | take 100
 ```
 
 To search terms that starts with "corp" and ends in ".com", such as "corp.mydomain.com""
 
-```OQL
+```KQL
 search in (Event) "corp*.com"
 | take 100
 ```
@@ -106,21 +108,21 @@ You can also get everything in a table by using just a wild card: `search in (Ev
 ## Add *and* / *or* to search queries
 Use **and** to search for records that contain multiple terms:
 
-```OQL
+```KQL
 search in (Event) "error" and "register"
 | take 100
 ```
 
 Use **or** to get records that contain at least one of the terms:
 
-```OQL
+```KQL
 search in (Event) "error" or "register"
 | take 100
 ```
 
 If you have multiple search conditions, you can combine them into the same query using parentheses:
 
-```OQL
+```KQL
 search in (Event) "error" and ("register" or "marshal*")
 | take 100
 ```
@@ -130,7 +132,7 @@ The results of this example would be records that contain the term "error" and a
 ## Pipe search queries
 Just like any other command, **search** can be piped so search results can be filtered, sorted, and aggregated. For example, to get the number of *Event* records that contain "win":
 
-```OQL
+```KQL
 search in (Event) "win"
 | count
 ```
