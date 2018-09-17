@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/03/2018
+ms.date: 09/14/2018
 ms.author: cynthn
 ms.custom: mvc
 ---
@@ -45,26 +45,27 @@ Log in to the Azure portal at http://portal.azure.com
 
 1. Choose **Create a resource** in the upper left-hand corner of the Azure portal.
 
-2. In the search box above the list of Azure Marketplace resources, search for and select **Ubuntu Server 16.04 LTS** by Canonical, then choose **Create**.
+1. In the search box above the list of Azure Marketplace resources, search for and select **Ubuntu Server 16.04 LTS** by Canonical, then choose **Create**.
 
-3. Provide a VM name, such as *myVM*, leave the disk type as *SSD*, then provide a username, such as *azureuser*.
+1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** under **Resource group**. In the pop-up, type *myResourceGroup* for the name of the resource group and then choose **OK*. 
 
-4. For **Authentication type**, select **SSH public key**, then paste your public key into the text box. Take care to remove any leading or trailing white space in your public key.
+	![Create a new resource group for your VM](./media/quick-create-portal/project-details.png)
 
-    ![Enter basic information about your VM in the portal blade](./media/quick-create-portal/create-vm-portal-basic-blade.png)
+1. Under **Instance details**, type *myVM* for the **Virtual machine name** and choose *East US* for your your **Region**. Leave the other defaults.
 
-5. Choose to **Create new** resource group, then provide a name, such as *myResourceGroup*. Choose your desired **Location**, then select **OK**.
+	![Instance details section](./media/quick-create-portal/instance-details.png)
 
-4. Select a size for the VM. You can filter by *Compute type* or *Disk type*, for example. A suggested VM size is *D2s_v3*.
+1. Under **Administrator account**, select **SSH public key**, type your user name, then paste your public key into the text box. Remove any leading or trailing white space in your public key.
 
-    ![Screenshot that shows VM sizes](./media/quick-create-portal/create-linux-vm-portal-sizes.png)
+    ![Administrator account](./media/quick-create-portal/administrator-account.png)
 
-5. On the **Settings** page, in **Network** > **Network Security Group** > **Select public inbound ports**, select **HTTP** and **SSH (22)**. Leave the rest of the defaults and select **OK**.
+1. Under **Inbound port rules** > **Public inbound ports**, choose **Allow selected ports** and then select **SSH (22)** and **HTTP (80)** from the drop-down. 
 
-6. On the summary page, select **Create** to start the VM deployment.
+	![Open ports for RDP and HTTP](./media/quick-create-portal/inbound-port-rules.png)
 
-7. The VM is pinned to the Azure portal dashboard. Once the deployment has completed, the VM summary automatically opens.
+1. Leave the remaining defaults and then select the **Review + create** button at the bottom of the page.
 
+	
 ## Connect to virtual machine
 
 Create an SSH connection with the VM.
