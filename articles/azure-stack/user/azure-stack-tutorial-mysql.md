@@ -175,11 +175,11 @@ After the SQL AlwaysOn availability group has been created, configured, and adde
 
    ![Create MySQL database](./media/azure-stack-tutorial-mysqlrp/createdb1.png)
 
-3. Select **SKU** and then choose the appropriate MySQL Hosting Server SKU to use. In this example, the Azure Stack Operator has created the MySQL-HA SKU to support high availability for MySQL clusters.
+3. Select **SKU** and then choose the appropriate MySQL Hosting Server SKU to use. In this example, the Azure Stack Operator has created the **MySQL-HA** SKU to support high availability for MySQL cluster databases.
 
    ![Select SKU](./media/azure-stack-tutorial-mysqlrp/createdb2.png)
 
-4. Select **Login** > **Create a new login** and then provide the SQL authentication credentials to be used for the new database. When finished, click **OK** and then **Create** to begin the database deployment process.
+4. Select **Login** > **Create a new login** and then provide the MySQL authentication credentials to be used for the new database. When finished, click **OK** and then **Create** to begin the database deployment process.
 
    ![Add login](./media/azure-stack-tutorial-mysqlrp/createdb3.png)
 

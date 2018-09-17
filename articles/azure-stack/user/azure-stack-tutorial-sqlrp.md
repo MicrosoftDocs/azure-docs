@@ -166,7 +166,7 @@ After the SQL AlwaysOn availability group has been created, configured, and adde
 
    ![Create SQL database](./media/azure-stack-tutorial-sqlrp/createdb1.png)
 
-3. Select **SKU** and then choose the appropriate SQL Hosting Server SKU to use. In this example, the Azure Stack Operator has created the Enterprise-HA SKU to support high availability for SQL AlwaysOn availability groups.
+3. Select **SKU** and then choose the appropriate SQL Hosting Server SKU to use. In this example, the Azure Stack Operator has created the **Enterprise-HA** SKU to support high availability for SQL AlwaysOn availability groups.
 
    ![Select SKU](./media/azure-stack-tutorial-sqlrp/createdb2.png)
 
