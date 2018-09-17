@@ -1057,8 +1057,10 @@ Enable replication. This procedure assumes that the primary Azure region is East
 
 You can modify the default target settings used by Site Recovery.
 
-1. Click **Customize:** to modify default settings:
-  - In **Target subscription**, select the subscription from the list of all the subscriptions available in the same Azure Active Directory (AAD) tenant.
+
+1. Click **Customize:** next to 'Target subscription' to modify the default target subscription. Select the subscription from the list of all the subscriptions available in the same Azure Active Directory (AAD) tenant.
+
+2. Click **Customize:** to modify default settings:
 	- In **Target resource group**, select the resource group from the list of all the resource groups in the target location of the subscription.
 	- In **Target virtual network**, select the network from a list of all the virtual network in the target location.
 	- In **Availability set**, you can add availability set settings to the VM, if they're part of an availability set in the source region.
