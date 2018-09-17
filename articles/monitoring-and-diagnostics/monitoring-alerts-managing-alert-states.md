@@ -31,7 +31,7 @@ This article shows you how to use the Alert States/Smart Group States to manage 
     1. In the Smart Group list page, you can click the checkbox next to the smart groups you wish to change the state of and click Change State  
     ![Monitoring](./media/monitoring-alerts-managing-alert-states/state-sg-list.jpg)
     1. In the Smart Group Details page, you can click change state        
-    ![Monitoring](./media/monitoring-alerts-managing-alert-states/state-sg--details.jpg)
+    ![Monitoring](./media/monitoring-alerts-managing-alert-states/state-sg-details.jpg)
 1. On clicking Change State, a popup opens up allowing you to select the state (New/Acknowledged/Closed) and enter a comment if necessary. **Note:** Changing the state of a smart group does not change the state of the member alerts.
 ![Monitoring](./media/monitoring-alerts-managing-alert-states/state-sg-change.jpg)
 1. Once this is done, the state change is recorded in the history of the respective smart group. This can be viewed by opening the respective Details page, and checking the history section.
