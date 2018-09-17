@@ -41,7 +41,7 @@ In addition to Azure and Power BI subscriptions, you need the following to compl
 
 Before jumping into Power BI, let's look at how to render visuals in Azure Data Explorer. This is great for some quick analysis.
 
-1. Sign in to [https://kusto.azure.com](https://kusto.azure.com).
+1. Sign in to [https://dataexplorer.azure.com](https://dataexplorer.azure.com).
 
 1. In the left pane, select the test database that contains the StormEvents sample data.
 

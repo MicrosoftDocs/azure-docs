@@ -151,7 +151,7 @@ df
 
 ## Run troubleshooting queries
 
-Sign in [https://kusto.azure.com](https://kusto.azure.com) and connect to your cluster. Run the following command in your database to see if there were any ingestion failures in the last four hours. Replace the database name before running.
+Sign in [https://dataexplorer.azure.com](https://dataexplorer.azure.com) and connect to your cluster. Run the following command in your database to see if there were any ingestion failures in the last four hours. Replace the database name before running.
     
 ```Kusto
     .show ingestion failures

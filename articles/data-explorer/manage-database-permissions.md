@@ -49,7 +49,7 @@ Azure Data Explorer has the following roles:
 
 ## Manage permissions with management commands
 
-1. Sign-in to [https://kusto.azure.com](https://kusto.azure.com), and add your cluster if it's not already available.
+1. Sign-in to [https://dataexplorer.azure.com](https://dataexplorer.azure.com), and add your cluster if it's not already available.
 
 1. In the left pane, select the appropriate database.
 
