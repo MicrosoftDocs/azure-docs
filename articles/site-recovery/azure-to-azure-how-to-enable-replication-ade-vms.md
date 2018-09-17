@@ -16,11 +16,7 @@ ms.author: sutalasi
 
 This article describes how to enable replication of Azure disk encryption (ADE) enabled VMs, from one Azure region to another.
 
-## Prerequisites
-
-This article assumes that you've already set up Site Recovery for this scenario, as described in the [Azure to Azure tutorial](azure-to-azure-tutorial-enable-replication.md). Make sure that you've prepared the prerequisites, and created the Recovery Services vault.
-
-### Required user permissions
+## Required user permissions
 
 To enable replication of ADE VMs from portal, the user should have the below permissions.
 - Key vault permissions
@@ -50,7 +46,7 @@ If the user enabling disaster recovery (DR) does not have the required permissio
 >To enable replication of ADE VM from portal, you at least need "List" permissions on the key vaults, secrets and keys
 >
 
-### Copy Azure disk encryption keys to DR region using PowerShell Script
+## Copy Azure disk encryption keys to DR region using PowerShell Script
 
 1. Copy the below script to a file and name it 'Copy-keys.ps1'.
     ```powershell
@@ -1050,8 +1046,8 @@ This procedure assumes that the primary Azure region is East Asia, and the secon
     - **Replica managed disks (If your source VM uses managed disks)**: Site Recovery creates new replica managed disks in the target region to mirror the source VM's managed disks with the same storage type (Standard or premium) as the source VM's managed disk.
     - **Cache Storage accounts**: Site Recovery needs extra storage account called cache storage in the source region. All the changes happening on the source VMs are tracked and sent to cache storage account before replicating those to the target location.
     - **Availability set**: By default, Azure Site Recovery creates a new availability set in the target region with name having "asr" suffix. In case availability set created by Azure Site Recovery already exists, it is reused.
-    - **Disk encryption key vaults**: By default, Azure Site Recovery creates a new key vault in the target region with name having "asr" suffix based on the source region configuration. In case availability set created by Azure Site Recovery already exists, it is reused.
-    - **Key encryption key vaults**:
+    - **Disk encryption key vaults**: By default, Azure Site Recovery creates a new key vault in the target region with name having "asr" suffix based on the source VM disk encryption keys. In case key vault created by Azure Site Recovery already exists, it is reused.
+    - **Key encryption key vaults**: By default, Azure Site Recovery creates a new key vault in the target region with name having "asr" suffix based on the source VM key encryption keys. In case key vault created by Azure Site Recovery already exists, it is reused.
     - **Replication Policy**: It defines the settings for recovery point retention history and app consistent snapshot frequency. By default, Azure Site Recovery creates a new replication policy with default settings of ‘24 hours’ for recovery point retention and ’60 minutes’ for app consistent snapshot frequency.
 
 	![Enable replication](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)
@@ -1064,7 +1060,7 @@ You can modify the default target settings used by Site Recovery.
 
 1. Click **Customize:** next to 'Target subscription' to modify the default target subscription. Select the subscription from the list of all the subscriptions available in the same Azure Active Directory (AAD) tenant.
 
-2. Click **Customize:** to modify default settings:
+2. Click **Customize:** next to 'Resource group, Storage, Network and Availability sets to modify the below default settings:
 	- In **Target resource group**, select the resource group from the list of all the resource groups in the target location of the subscription.
 	- In **Target virtual network**, select the network from a list of all the virtual network in the target location.
 	- In **Availability set**, you can add availability set settings to the VM, if they're part of an availability set in the source region.
@@ -1072,8 +1068,12 @@ You can modify the default target settings used by Site Recovery.
 
 		![Enable replication](./media/site-recovery-replicate-azure-to-azure/customize.PNG)
 
-2. Click **Create target resource** > **Enable Replication**.
-3. After the VMs are enabled for replication, you can check the status of VM health under **Replicated items**
+2. Click **Customize:** next to 'Encryption settings' to modify the below default settings:
+	- In **Target disk encryption key vault**, select the target disk encryption key vault from the list of all the key vaults in the target location of the subscription.
+  - In **Target key encryption key vault**, select the target key encryption key vault from the list of all the key vaults in the target location of the subscription.
+
+3. Click **Create target resource** > **Enable Replication**.
+4. After the VMs are enabled for replication, you can check the status of VM health under **Replicated items**
 
 >[!NOTE]
 >During initial replication the status might take some time to refresh, without progress. Click the **Refresh** button, to get the latest status.
