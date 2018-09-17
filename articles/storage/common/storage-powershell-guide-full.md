@@ -154,7 +154,7 @@ To regenerate the other key, use `key2` as the key  name instead of `key1`.
 Regenerate one of your keys and then retrieve it again to see the new value.
 
 > [!NOTE] 
-> You should perform careful planning before regenerating the key for a production storage account. Regenerating one or both keys will invalidate the access for any application using the key that was regenerated. For more information, please see [Regenerate storage access keys](storage-create-storage-account.md#regenerate-storage-access-keys).
+> You should perform careful planning before regenerating the key for a production storage account. Regenerating one or both keys will invalidate the access for any application using the key that was regenerated. For more information, see [Access keys](storage-account-manage.md#access-keys).
 
 
 ### Delete a storage account 
