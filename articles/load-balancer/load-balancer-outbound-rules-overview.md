@@ -78,7 +78,7 @@ Use the following parameter to allocate 10,000 SNAT ports per VM (NIC IP configu
 
           "allocatedOutboundPorts": 10000
 
-Each public IP address from all frontends of an outbound rule contributes up to 64,000 ephemeral ports for us as SNAT ports.  Load Balancer allocates SNAT ports in multiples of 8. If you provide a value not divisible by 8, the configuration operation is rejected.  If you attempt to allocate more SNAT ports than are available based on the number of public IP addresses, the configuration operation is rejected.  For example, if you allocate 10,000 ports per VM and 7 VM's in a backend pool would share a single public IP address, the configuration is rejected (7 x 10,0000 SNAT ports > 64,000 SNAT ports).  You can add more public IP addresses to the frontend of the outbound rule to enable the scenario.
+Each public IP address from all frontends of an outbound rule contributes up to 64,000 ephemeral ports for us as SNAT ports.  Load Balancer allocates SNAT ports in multiples of 8. If you provide a value not divisible by 8, the configuration operation is rejected.  If you attempt to allocate more SNAT ports than are available based on the number of public IP addresses, the configuration operation is rejected.  For example, if you allocate 10,000 ports per VM and 7 VMs in a backend pool would share a single public IP address, the configuration is rejected (7 x 10,0000 SNAT ports > 64,000 SNAT ports).  You can add more public IP addresses to the frontend of the outbound rule to enable the scenario.
 
 ### <a name="idletimeout"></a> Control outbound flow idle timeout
 
@@ -134,7 +134,7 @@ If you set disableOutboundSnat to true on the load balancing rule, the load bala
 
 ### Reuse existing or define new backend pools
 
-Outbound rules do not introduce a new concept for defining the group of VM's to which the rule should apply.  Instead, they reuse the concept of a backend pool, which is also used for load balancing rules. You can use this to simplify the configuration by either reusing an existing backend pool definition or creating one specifically for an outbound rule.
+Outbound rules do not introduce a new concept for defining the group of VMs to which the rule should apply.  Instead, they reuse the concept of a backend pool, which is also used for load balancing rules. You can use this to simplify the configuration by either reusing an existing backend pool definition or creating one specifically for an outbound rule.
 
 ## Scenarios
 
@@ -145,8 +145,8 @@ You can use an outbound rule to groom outbound connections to appear to originat
 1. Create [public IP prefix](https://aka.ms/lbpublicipprefix) (or public IP addresses from public IP prefix)
 2. Create a public Standard Load Balancer
 3. Create frontends referencing the public IP prefix (or public IP addresses) you wish to use
-4. Reuse a backend pool or create a backend pool and place the VM's into a backend pool of the public Load Balancer
-5. Configure an outbound rule on the public Load Balancer to program outbound NAT for these VM's using the frontends
+4. Reuse a backend pool or create a backend pool and place the VMs into a backend pool of the public Load Balancer
+5. Configure an outbound rule on the public Load Balancer to program outbound NAT for these VMs using the frontends
    
 If you do not wish for the load balancing rule to be used for outbound, you need to [disable outbound SNAT](#disablesnat) on the load balancing rule.
 
@@ -154,29 +154,29 @@ If you do not wish for the load balancing rule to be used for outbound, you need
 
 You can use outbound rules to tune the [automatic SNAT port allocation based on backend pool size](load-balancer-outbound-connections.md#preallocatedports).
 
-For example, if you have two virtual machines sharing a single public IP address for outbound NAT, you may wish to increase the number of SNAT ports allocated from the default 1024 ports if you are experiencing SNAT exhaustion. Each public IP address can contribute up to 64,000 ephemeral ports.  If you configure an outbound rule with a single public IP address frontend, you can distribute a total of 64,000 SNAT ports to VM's in the backend pool.  For two VMs, a maximum of 32,000 SNAT ports can be allocated with an outbound rule (2x 32,000 = 64,000).
+For example, if you have two virtual machines sharing a single public IP address for outbound NAT, you may wish to increase the number of SNAT ports allocated from the default 1024 ports if you are experiencing SNAT exhaustion. Each public IP address can contribute up to 64,000 ephemeral ports.  If you configure an outbound rule with a single public IP address frontend, you can distribute a total of 64,000 SNAT ports to VMs in the backend pool.  For two VMs, a maximum of 32,000 SNAT ports can be allocated with an outbound rule (2x 32,000 = 64,000).
 
 Review [outbound connections](load-balancer-outbound-connections.md) and the details on how [SNAT](load-balancer-outbound-connections.md#snat) ports are allocated and used.
 
 ### <a name="outboundonly"></a> Enable outbound only
 
-You can use a public Standard Load Balancer to provide outbound NAT for a group of VM's.  In this scenario, you can use an outbound rule by itself, without the need for any additional rules.
+You can use a public Standard Load Balancer to provide outbound NAT for a group of VMs.  In this scenario, you can use an outbound rule by itself, without the need for any additional rules.
 
-#### Outbound NAT for VM's only (no inbound)
+#### Outbound NAT for VMs only (no inbound)
 
-Define a public Standard Load Balancer, place the VM's into the backend pool, and configure an outbound rule to program outbound NAT and groom the outbound connections to originate from a specific public IP address.  You can also use a public IP prefix simplify whitelisting the source of outbound connections.
+Define a public Standard Load Balancer, place the VMs into the backend pool, and configure an outbound rule to program outbound NAT and groom the outbound connections to originate from a specific public IP address.  You can also use a public IP prefix simplify whitelisting the source of outbound connections.
 
 1. Create a public Standard Load Balancer
-2. Create a backend pool and place the VM's into a backend pool of the public Load Balancer
-3. Configure an outbound rule on the public Load Balancer to program outbound NAT for these VM's.
+2. Create a backend pool and place the VMs into a backend pool of the public Load Balancer
+3. Configure an outbound rule on the public Load Balancer to program outbound NAT for these VMs.
 
 #### Outbound NAT for internal Standard Load Balancer scenarios
 
-When using an internal Standard Load Balancer, outbound NAT is not available until a public Standard Load Balancer has also been configured.  You can change this by using and outbound rule to create outbound connectivity for VM's behind an internal Standard Load Balancer.
+When using an internal Standard Load Balancer, outbound NAT is not available until a public Standard Load Balancer has also been configured.  You can change this by using and outbound rule to create outbound connectivity for VMs behind an internal Standard Load Balancer.
 
 1. Create a public Standard Load Balancer
-2. Create a backend pool and place the VM's into a backend pool of the public Load Balancer
-3. Configure an outbound rule on the public Load Balancer to program outbound NAT for these VM's.
+2. Create a backend pool and place the VMs into a backend pool of the public Load Balancer
+3. Configure an outbound rule on the public Load Balancer to program outbound NAT for these VMs.
 
 #### Enable both TCP & UDP protocols for outbound NAT with a public Standard Load Balancer
 
@@ -184,12 +184,12 @@ When using an internal Standard Load Balancer, outbound NAT is not available unt
 
    1. Disable outbound SNAT on the load balancing rule.
    2. Configure an outbound rule on the same Load Balancer.
-   3. Reuse the backend pool already used by your VM's.
+   3. Reuse the backend pool already used by your VMs.
    4. Specify "protocol": "All" as part of the outbound rule.
 
 - When only inbound NAT rules are used, no outbound NAT is provided.
 
-   1. Place VM's in a backend pool.
+   1. Place VMs in a backend pool.
    2. Define one or more frontend IP configurations with public IP address(es) or public IP prefix.
    3. Configure an outbound rule on the same Load Balancer.
    4. Specify "protocol": "All" as part of the outbound rule
