@@ -1,7 +1,6 @@
 ---
-title: Access resources and authenticate without credentials in Azure Logic Apps
-description: To authenticate and access resources without your credentials, you can create a managed identity for your logic app instead. 
-in other Azure Active Directory (Azure AD) tenants, Create a  managed identity for your logic app so you can sign in to resources  Azures Logic apps can easily connect to resources in other Azure Active Directory (Azure AD) directories or tenants 
+title: Access and authenticate without signing in - Azure Logic Apps
+description: Create a managed identity so your logic app can authenticate your identity and access resources in other Azure Active Directory (Azure AD) tenants without your credentials
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
