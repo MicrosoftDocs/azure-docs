@@ -67,6 +67,9 @@ An acoustic dataset for customizing the acoustic model consists of two parts: (1
 | Archive Format | .zip |
 | Maximum Archive Size | 2 GB |
 
+> [!NOTE]
+> File names should use only latin characters and follow the format 'filename.extention'
+
 ## Language support
 
 For a full list of languages that are supported for custom **Speech to Text** language models, see [Supported languages for the Speech Service](supported-languages.md).
