@@ -308,44 +308,46 @@
         href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
   - name: SQL features comparison
     href: sql-database-features.md
-  - name: Monitor and tune
+  - name: Performance and tuning
     items:
-    - name: Monitor and tune
-      href: sql-database-troubleshoot-performance.md
-    - name: Intelligent performance
+    - name: Intelligent performance   
       items:
-      - name: Perf monitoring 
-        href: sql-database-single-database-monitor.md
-      - name: Intelligent query processing
-        href: https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json
-      - name: Adaptive query processing
-        href: https://docs.microsoft.com/sql/relational-databases/performance/adaptive-query-processing?toc=/azure/sql-database/toc.json
-      - name: Automatic tuning
+      - name: Querying
         items:
-        - name: Automatic tuning
-          href: sql-database-automatic-tuning.md
-        - name: Enable automatic tuning
-          href: sql-database-automatic-tuning-enable.md
-        - name: Perf recommendations
+        - name: Intelligent query processing
+          href: https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json
+        - name: Adaptive query processing
+          href: https://docs.microsoft.com/sql/relational-databases/performance/adaptive-query-processing?toc=/azure/sql-database/toc.json
+      - name: Monitoring and tuning
+        items:
+        - name: Monitoring and tuning overview
+          href: sql-database-monitor-tune-overview.md
+        - name: Database advisor performance recommendations
           href: sql-database-advisor.md
-        - name: Performance recommendations
+        - name: Tuning actions and recommendations
           href: sql-database-performance.md
         - name: Apply performance recommendations
           href: sql-database-advisor-portal.md
-        - name: Enable E-mail notifications
-          href: sql-database-automatic-tuning-email-notifications.md
       - name: Intelligent Insights
         items:
-        - name: Intelligent Insights
+        - name: Intelligent Insights overview
           href: sql-database-intelligent-insights.md
         - name: Diagnostic logging
           href: sql-database-metrics-diag-logging.md
-        - name: Use diagnostics log
+        - name: Use the diagnostics log
           href: sql-database-intelligent-insights-use-diagnostics-log.md
         - name: Performance troubleshooting
           href: sql-database-intelligent-insights-troubleshoot-performance.md
-      - name: Use Query Performance Insight
+      - name: Query Performance Insight
         href: sql-database-query-performance.md
+      - name: Automatic performance tuning
+        items:
+        - name: Automatic tuning overview
+          href: sql-database-automatic-tuning.md
+        - name: Enable automatic tuning
+          href: sql-database-automatic-tuning-enable.md
+        - name: Enable E-mail notifications
+          href: sql-database-automatic-tuning-email-notifications.md
     - name: Manual tuning
       items:
       - name: Manual tuning
@@ -354,16 +356,16 @@
         href: sql-database-monitoring-with-dmvs.md
       - name: Operate query store
         href: sql-database-operate-query-store.md
-    - name: Monitor in-memory
-      href: sql-database-in-memory-oltp-monitoring.md
-    - name: Extended events
-      items:
+      - name: In-memory
+        href: sql-database-in-memory-oltp-monitoring.md
       - name: Extended events
-        href: sql-database-xevent-db-diff-from-svr.md
-      - name: Extended events - event file
-        href: sql-database-xevent-code-event-file.md
-      - name: Extended events - ring buffer
-        href: sql-database-xevent-code-ring-buffer.md
+        items:
+        - name: Extended events
+          href: sql-database-xevent-db-diff-from-svr.md
+        - name: Extended events - event file
+          href: sql-database-xevent-code-event-file.md
+        - name: Extended events - ring buffer
+          href: sql-database-xevent-code-ring-buffer.md
     - name: Create alerts
       href: sql-database-insights-alerts-portal.md
     - name: Troubleshoot connectivity
