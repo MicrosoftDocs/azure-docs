@@ -81,7 +81,7 @@ In this section, you configure and test Azure AD single sign-on with FreshDesk b
 
 For single sign-on to work, Azure AD needs to know what the counterpart user in FreshDesk is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in FreshDesk needs to be established.
 
-This link relationship is established by assigning the value of the **email address** in Azure AD as the value of the **email address** in FreshDesk.
+This link relationship is established by assigning the value of the **email address** in Azure AD as the value of the **Username** in FreshDesk.
 
 To configure and test Azure AD single sign-on with FreshDesk, you need to complete the following building blocks:
 
@@ -138,7 +138,10 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE]
 	> Here **FreshDesk.cer** is the certificate which you have downloaded from the Azure portal.
 
-	b. Enter `openssl x509 -noout -fingerprint -sha256 -inform pem -in [certificate-file.crt]` value in the command prompt. Here **certificate.crt** is the output certificate which is generated in the previous step.
+	b. Enter `openssl x509 -noout -fingerprint -sha256 -inform pem -in certificate.crt` value in the command prompt. 
+	
+	> [!NOTE]
+	> Here **certificate.crt** is the output certificate which is generated in the previous step.
 
 	c. Copy the **Thumbprint** value and paste it into the Notepad. Remove colons from Thumbprint and obtain the final Thumbprint value.
 
@@ -227,16 +230,13 @@ In the case of FreshDesk, provisioning is a manual task.
 
    c. In the **Title** textbox, type the title of the Azure AD account you want to provision.
 
-   d. Select **Agents role**, and then click **Assign**.
-
-   e. Click **Save**.
+   d. Click **Save**.
 
 	>[!NOTE]
 	>The Azure AD account holder will get an email that includes a link to confirm the account before it is activated.
 	>
 	>[!NOTE]
-	>You can use any other Freshdesk user account creation tools or APIs provided by Freshdesk to provision AAD user accounts.
-	to FreshDesk.
+	>You can use any other Freshdesk user account creation tools or APIs provided by Freshdesk to provision AAD user accounts to FreshDesk.
 
 ### Assigning the Azure AD test user
 
