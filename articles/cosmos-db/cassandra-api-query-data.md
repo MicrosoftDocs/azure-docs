@@ -94,5 +94,9 @@ You can now open Data Explorer in the Azure portal to confirm that the user tabl
 
 ## Next steps
 
-* To learn about Apache Cassandra features supported by Azure Cosmos DB Cassandra API, see [Cassandra support](cassandra-support.md) article.
+* In this tutorial, you've learned how to query data from Azure Cosmos DB Cassandra API account. You can now proceed to the next article:
+
+> [!div class="nextstepaction"]
+> [Migrate data to Cassandra API account](cassandra-import-data.md)
+
 

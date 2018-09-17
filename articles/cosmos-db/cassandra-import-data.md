@@ -1,19 +1,20 @@
 ---
-title: Migrate Cassandra data into Azure Cosmos DB
-description: Learn how to use the CQL Copy command to copy Cassandra data into Azure Cosmos DB.
+title: Migrate your data to Azure Cosmos DB Cassandra API account
+description: Learn how to use the CQL Copy command & Spark to copy data from Apache Cassandra to Azure Cosmos DB Cassandra API.
 services: cosmos-db
+author: kanshiG
+
 ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
-author: kanshiG
 ms.author: govindk
-ms.devlang: dotnet
 ms.topic: tutorial
-ms.custom: mvc
 ms.date: 09/24/2018
+ms.reviewer: sngun
 ---
+
 # Migrate your data to Azure Cosmos DB Cassandra API account
 
-This tutorial provides instructions on migrating Cassandra data into Azure Cosmos DB by using the Cassandra Query Language (CQL) COPY command. 
+This tutorial provides instructions on how to migrate Apache Cassandra data into Azure Cosmos DB Cassandra API. 
 
 This tutorial covers the following tasks:
 
@@ -22,13 +23,13 @@ This tutorial covers the following tasks:
 > * Importing data by using the cqlsh COPY command
 > * Importing using the Spark connector 
 
-# Prerequisites
+## Prerequisites for migration
 
-* Install [Apache Cassandra](http://cassandra.apache.org/download/) and specifically ensure *cqlsh* is present.  
+* **Create tables in Azure Cosmos DB Cassandra API account:** Before you start the migrating data, pre-create all your tables from the Azure portal or from cqlsh.
 
-* Increase throughput: The duration of your data migration depends on the amount of throughput you provisioned for your tables. Be sure to increase the throughput for larger data migrations. After you've completed the migration, decrease the throughput to save costs. For more information about increasing throughput in the [Azure portal](https://portal.azure.com), see [Set throughput for Azure Cosmos DB containers](set-throughput.md).  
+* **Increase throughput:** The duration of your data migration depends on the amount of throughput you provisioned for the tables in Azure Cosmos DB. Increase the throughput for the duration of migration. With the higher throughput, you can avoid rate limiting and migrate in less time. After you've completed the migration, decrease the throughput to save costs. For more information about increasing throughput, see [set throughput](set-throughput.md) for Azure Cosmos DB containers. It’s also recommended to have Azure Cosmos DB account in the same region as your source database. 
 
-* Enable SSL: Azure Cosmos DB has strict security requirements and standards. Be sure to enable SSL when you interact with your account. When you use CQL with SSH, you have an option to provide SSL information. 
+* **Enable SSL:** Azure Cosmos DB has strict security requirements and standards. Be sure to enable SSL when you interact with your account. When you use CQL with SSH, you have an option to provide SSL information.
 
 ## Get your connection string
 

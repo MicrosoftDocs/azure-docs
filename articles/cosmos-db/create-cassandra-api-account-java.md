@@ -218,4 +218,7 @@ This section describes how to add a database (keyspace) and a table, using  the 
 
 ## Next steps
 
-* Proceed to the next article in the series, [load sample data to the Cassandra API table](cassandra-api-load-data.md).
+In this tutorial, you've learned how to create an Azure Cosmos DB Cassandra API account, database, and a table by using a Java application. You can now proceed to the next article:
+
+> [!div class="nextstepaction"]
+> [load sample data to the Cassandra API table](cassandra-api-load-data.md).

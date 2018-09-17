@@ -83,4 +83,7 @@ You can now open Data Explorer in the Azure portal to confirm that the user info
 	
 ## Next steps
 
-* Proceed to the next article [query data from the Cassandra API account](cassandra-api-query-data.md)
+In this tutorial, you've learned how to load sample data to Azure Cosmos DB Cassandra API account. You can now proceed to the next article:
+
+> [!div class="nextstepaction"]
+> [Query data from the Cassandra API account](cassandra-api-query-data.md)
