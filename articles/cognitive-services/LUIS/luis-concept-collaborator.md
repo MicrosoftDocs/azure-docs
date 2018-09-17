@@ -28,7 +28,7 @@ The account that creates an app is the owner. Each app has a single owner. The o
 ## Authorization roles
 LUIS doesn't support different roles for owners and collaborators with one exception. The owner is the only account that can delete the app.
 
-If you are interested in controlling access to the model, consider slicing the model into smaller LUIS apps, where each smaller app has a more limited set of collaborators. Use [Dispatch](https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch) to allow a parent LUIS app to manage the coordination between parent and child apps.
+If you are interested in controlling access to the model, consider slicing the model into smaller LUIS apps, where each smaller app has a more limited set of collaborators. Use [Dispatch](https://aka.ms/dispatch-tool) to allow a parent LUIS app to manage the coordination between parent and child apps.
 
 ## Transfer ownership
 LUIS doesn't provide transfer of ownership, however any collaborator can export the app, and then create an app by importing it. Be aware the new app has a different App ID. The new app needs to be trained, published, and the new endpoint used.
