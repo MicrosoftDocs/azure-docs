@@ -33,6 +33,8 @@ The source code for this sample is available on [GitHub](https://github.com/Azur
 
 * Any edition of [Visual studio 2017](https://visualstudio.microsoft.com/downloads/). 
 
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+
 ## Construct an image details search request 
 
 The following is the `/details` endpoint, which accepts POST requests with image data in the body of the request.
