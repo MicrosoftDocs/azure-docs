@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Data Explorer Documentation
+title: Azure Data Explorer Documentation
 metadata:
-  title: Data Explorer Documentation - Quickstarts, tutorials, and language and API references | Microsoft Docs
-  description: Data Explorer is a log analytics cloud platform optimized for ad-hoc big data queries.
+  title: Azure Data Explorer Documentation - Quickstarts, tutorials, and language and API references | Microsoft Docs
+  description: Azure Data Explorer is a log analytics cloud platform optimized for ad-hoc big data queries.
   author: mgblythe
   manager: kfile
   ms.service: data-explorer
@@ -13,7 +13,7 @@ metadata:
   ms.date: 09/24/2018
   ms.author: mblythe
 abstract:
-  description: Data Explorer is a log analytics cloud platform optimized for ad-hoc big data queries.</p>
+  description: <p>Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. It helps you to handle the many data streams emitted by modern software, so you can collect, store, and analyze data. Azure Data Explorer is ideal for analyzing large volumes of diverse data from any data source, such as websites, applications, and IoT devices.</p><p>Learn how to use Azure Data Explorer with our quickstarts, tutorials, and reference content.</p>
 sections:
 - title: 5-Minute Quickstarts
   items:
@@ -49,14 +49,14 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="/azure/data-explorer/write-queries">Write queries in Kusto Query Language</a>
+    - html: <a href="/azure/data-explorer/visualize-power-bi">Visualize data from Azure Data Explorer in Power BI</a>
 - title: Free Pluralsight Video Training
   items:
   - type: list
     style: cards
     className: cardsFTitle
     items:
-    - title: Kusto Query Language (KQL)
+    - title: Query language for Azure Data Explorer
       href: https://app.pluralsight.com/library/courses/kusto-query-language-kql-from-scratch
       image: 
         src: /azure/data-explorer/media/index/logo-pluralsight.svg
@@ -68,4 +68,4 @@ sections:
     className: cardsD
     items:
     - title: Languages and API
-      html: <p><a href="https://aka.ms/kustolangref">Kusto Query Language (KQL), Management commands, and APIs</a>
+      html: <p><a href="https://aka.ms/kustolangref">Query language, management commands, and APIs</a>
