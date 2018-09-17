@@ -52,9 +52,9 @@ You can run the commands that follow in the [Azure Cloud Shell](https://shell.az
 
 1. Retrieve the ID of your subscription into a variable that is used in a later step:
 
-   	```azurecli-interactive
+   ```azurecli-interactive
    subscriptionId=$(az account show \
-     --query id \
+   --query id \
      --out tsv)
    ```
 
@@ -73,9 +73,9 @@ You can run the commands that follow in the [Azure Cloud Shell](https://shell.az
 
 4. If the destination for the virtual network TAP is the network interface on the network virtual appliance for collector or analytics tool -  
 
-	4a. Retrieve the IP configuration of the network virtual appliance's network interface into a variable that is used in a later step. The ID is the end point that will aggregate the tapped traffic. The following example retrieves the ID of the *ipconfig1* IP configuration for a network interface named *myNetworkInterface*, in a resource group named *myResourceGroup*:
+   4a. Retrieve the IP configuration of the network virtual appliance's network interface into a variable that is used in a later step. The ID is the end point that will aggregate the tapped traffic. The following example retrieves the ID of the *ipconfig1* IP configuration for a network interface named *myNetworkInterface*, in a resource group named *myResourceGroup*:
 
-   	```azurecli-interactive
+       ```azurecli-interactive
    IpConfigId=$(az network nic ip-config show \
      --name ipconfig1 \
      --nic-name myNetworkInterface \
