@@ -10,6 +10,10 @@
     href: virtual-wan-site-to-site-portal.md
   - name: Steer traffic from a virtual hub to an NVA
     href: virtual-wan-route-table.md
+- name: Concepts
+  items:
+  - name: Locations and partners
+    href: virtual-wan-locations-partners.md
 - name: How-to guides
   items:
   - name: Configure automation - WAN Partners
