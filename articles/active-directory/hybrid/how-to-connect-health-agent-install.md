@@ -17,7 +17,7 @@ ms.author: billmath
 
 ---
 # Azure AD Connect Health Agent Installation
-This document walks you through installing and configuring the Azure AD Connect Health Agents. You can download the agents from [here](whatis-hybrid-identity-health.md#download-and-install-azure-ad-connect-health-agent).
+This document walks you through installing and configuring the Azure AD Connect Health Agents. You can download the agents from [here](how-to-connect-install-roadmap.md#download-and-install-azure-ad-connect-health-agent).
 
 ## Requirements
 The following table is a list of requirements for using Azure AD Connect Health.
