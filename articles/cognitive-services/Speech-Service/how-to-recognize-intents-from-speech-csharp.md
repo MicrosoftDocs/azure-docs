@@ -54,13 +54,13 @@ LUIS uses two kinds of keys:
 
 The endpoint key is the LUIS key needed for this tutorial. This tutorial uses the example Home Automation LUIS app, which you can create by following [Use prebuilt Home automation app](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app). If you have created a LUIS app of your own, you can use it instead.
 
-When you create a LUIS app, a starter key is automatically generated so you can test the app using text queries. This key does not enable the Speech service integration and won't work with this tutorial. You must create a LUIS resource in your Azure dashboard and assign it to the LUIS app. You can use the free subscription tier for this tutorial. 
+When you create a LUIS app, a starter key is automatically generated so you can test the app using text queries. This key does not enable the Speech service integration and won't work with this tutorial. You must create a LUIS resource in the Azure dashboard and assign it to the LUIS app. You can use the free subscription tier for this tutorial. 
 
-After creating the LUIS resource in the Azure dashboard, log into the [LUIS portal](https://www.luis.ai/home), choose your application on the My Apps page, then switch to the app's Publish page.
+After creating the LUIS resource in the Azure dashboard, log into the [LUIS portal](https://www.luis.ai/home), choose your application on the My Apps page, then switch to the app's Manage page. Finally, click **Keys and Endpoints** in the sidebar.
 
-![LUIS portal Publish page](media/sdk/luis-publish.png)
+![LUIS portal keys and endpoint settings](media/sdk/luis-keys-endpoints-page.png)
 
-On the Publish page:
+On the Keys and Endpoint settings page:
 
 1. Scroll down to the Resources and Keys section and click **Add key**.
 1. In the **Assign a key to your app** dialog, choose the following:
@@ -69,7 +69,7 @@ On the Publish page:
     * Under Subscription Name, choose the Azure subscription that contains the LUIS resource you want to use.
     * Under Key, choose the LUIS resource that you want to use with the app.
 
-After a moment, the new subscription appears in the table at the bottom of the page. Click the icon next to a key to copy it to the clipboard. (You may use either key.)
+In a moment, the new subscription appears in the table at the bottom of the page. Click the icon next to a key to copy it to the clipboard. (You may use either key.)
 
 ![LUIS app subscription keys](media/sdk/luis-keys.png)
 
