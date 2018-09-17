@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Automatically train a classification model with Azure Automated Machine Learning service"
-description: In this tutorial, you'll learn how to automatically generate a  machine learning model which can then be deployed with Azure Machine Learning service.
+title: "Tutorial: Train a classification model with Automated Machine Learning"
+description: In this tutorial, you'll learn how to generate a machine learning model using Automated ML which can then be deployed with Azure Machine Learning service.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -10,23 +10,23 @@ author: nacharya1
 ms.author: nilesha
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-# As an app developer or data scientist I can automatically generate a  machine learning model.
+# As an app developer or data scientist I can generate a  machine learning model using Automated ML.
 ---
 
-# Tutorial: Automatically train a classification model with Azure Automated Machine Learning
+# Tutorial: Train a classification model with Automated Machine Learning
 
-In this tutorial, you'll learn how to automatically generate a  machine learning model.  This model can then be deployed following the workflow in the [Deploy a model](tutorial-deploy-models-with-aml.md) tutorial.
+In this tutorial, you'll learn how to generate a  machine learning model using Automated ML.  Automated ML is a capability of Azure Machine Learning that performs data preprocessing, algorithm selection and hyper parameter selection in automated way. This model can then be deployed following the workflow in the [Deploy a model](tutorial-deploy-models-with-aml.md) tutorial.
 
 [ ![flow diagram](./media/tutorial-auto-train-models/flow2.png) ](./media/tutorial-auto-train-models/flow2.png#lightbox)
 
-Similar to the [train models tutorial](tutorial-train-models-with-aml.md), this tutorial classifies handwritten images of digits (0-9) from the [MNIST](http://yann.lecun.com/exdb/mnist/) dataset.
+Similar to the [train models tutorial](tutorial-train-models-with-aml.md), this tutorial classifies handwritten images of digits (0-9) from the [MNIST](http://yann.lecun.com/exdb/mnist/) dataset. With Automated ML, you don't need to specify an algorithm or tune hyper parameters. Automated ML will perform algorithm and hyper parameter selection by iterating many combinations of algorithms and hyper parameters. With Automated ML, you don't need to know which algorithm works well for your dataset.
 
 You'll learn how to:
 
 > [!div class="checklist"]
 > * Set up your development environment
 > * Access and examine the data
-> * Train using an automated classifier locally with custom parameters
+> * Train using an automated classifier on your local computer
 > * Explore the results
 > * Review training results
 > * Register the best model
@@ -91,8 +91,6 @@ Once you have a workspace object, specify a name for the experiment and create a
 ws = Workspace.from_config()
 # choose a name for the run history container in the workspace
 experiment_name = 'automl-classifier'
-# project folder
-project_folder = './automl-classifier'
 
 import os
 
@@ -109,7 +107,7 @@ pd.DataFrame(data=output, index=['']).T
 
 ## Explore data
 
-The initial training tutorial used a high-resolution version  of the MNIST dataset (28x28 pixels).  Since auto training requires many iterations, this tutorial uses a smaller resolution version  of the images (8x8 pixels) to demonstrate the concepts while speeding up the time needed for each iteration.  
+The initial training tutorial used a high-resolution version  of the MNIST dataset (28x28 pixels).  Since Automated ML training requires many iterations, this tutorial uses a smaller resolution version  of the images (8x8 pixels) to demonstrate the concepts while speeding up the time needed for each iteration.  
 
 ```python
 from sklearn import datasets
@@ -149,14 +147,14 @@ A random sample of images displays:
 
 You now have the necessary packages and data ready for auto training for your model. 
 
-## Auto train a model 
+## Train a model with Automated ML 
 
-To auto train a model, first define settings for autogeneration and tuning and then run the automatic classifier.
+To train a model with Automated ML, first define configuration settings for the experiment and then run the experiment.
 
 
-### Define settings for autogeneration and tuning
+### Define settings for Automated ML
 
-Define the experiment parameters and models settings for autogeneration and tuning.  
+Define the experiment settings and model settings for Automated ML.  
 
 
 |Property| Value in this tutorial |Description|
@@ -168,7 +166,7 @@ Define the experiment parameters and models settings for autogeneration and tuni
 |**preprocess**|True| *True/False* Enables experiment to perform preprocessing on the input.  Preprocessing handles *missing data*, and performs some common *feature extraction*|
 |**exit_score**|0.994|*double* value indicating the target for *primary_metric*. Once the target is surpassed the run terminates|
 |**blacklist_algos**|['kNN','LinearSVM']|*Array* of *strings* indicating algorithms to ignore.
-|**concurrent_iterations**|5|Max number of iterations that would be run in parallel. This number should be less than the number of cores on the DSVM. Used in remote training.|
+|
 
 ```python
 from azureml.train.automl import AutoMLConfig
@@ -185,7 +183,7 @@ Automl_config = AutoMLConfig(task = 'classification',
                              path=project_folder)
 ```
 
-### Run the automatic classifier
+### Run the Automated ML experiment
 
 Start the experiment to run locally. Define the compute target as local and set the output to true to view progress on the experiment.
 
@@ -221,7 +219,7 @@ Output such as the following appears one line at a time as each iteration progre
 
 ## Explore the results
 
-Explore the results of automatic training with a Jupyter widget or by examining the experiment history.
+Explore the results of experiment with a Jupyter widget or by examining the experiment history.
 
 ### Jupyter widget
 
@@ -504,7 +502,7 @@ local_run.model_id # Use this id to deploy the model as a web service in Azure
 
 ## Test the best model
 
-Use the model to predict a few random digits.  Display the predicted and the image.  Red font and inverse image (white on black) is used to highlight the misclassified samples.
+Use the model to predict a few random digits.  Display the predicted value and the image.  Red font and inverse image (white on black) is used to highlight the misclassified samples.
 
 Since the model accuracy is high, you might have to run the following code a few times before you can see a misclassified sample.
 
