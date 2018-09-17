@@ -14,7 +14,7 @@
 ## Plan and design
 ### [Plans and billing](scheduler-plans-billing.md)
 ### [Limits, quotas, and default values](scheduler-limits-defaults-errors.md)
-### [High-availability and reliability](scheduler-high-availability-reliability.md)
+### [High availability and reliability](scheduler-high-availability-reliability.md)
 
 ## Develop
 ### [Build complex schedules and advanced recurrences](scheduler-advanced-complexity.md)

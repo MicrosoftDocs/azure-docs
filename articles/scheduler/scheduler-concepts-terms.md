@@ -12,7 +12,7 @@ ms.topic: get-started-article
 ms.date: 08/18/2016
 ---
 
-# Concepts, terminology, and entity hierarchy in Azure Scheduler
+# Concepts, terminology, and entities in Azure Scheduler
 
 > [!IMPORTANT]
 > [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 

@@ -1,6 +1,6 @@
 ---
-title: Build complex schedules and advanced recurrences for jobs - Azure Scheduler
-description: Learn how to create complex schedules and advanced recurrences for jobs in Azure Scheduler
+title: Build advanced job schedules and recurrences - Azure Scheduler
+description: Learn how to create advanced schedules and recurrences for jobs in Azure Scheduler
 services: scheduler
 ms.service: scheduler
 author: derek1ee
@@ -12,7 +12,7 @@ ms.topic: article
 ms.date: 08/18/2016
 ---
 
-# Build complex schedules and advanced recurrence for jobs in Azure Scheduler
+# Build advanced schedules and recurrences for jobs in Azure Scheduler
 
 > [!IMPORTANT]
 > [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
