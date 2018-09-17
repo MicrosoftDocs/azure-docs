@@ -311,11 +311,8 @@
   - name: Monitor and tune
     items:
     - name: Monitor and tune
-      href: sql-database-troubleshoot-performance.md
-    - name: Intelligent performance
+      href: sql-database-monitor-tune-overview.md
       items:
-      - name: Perf monitoring 
-        href: sql-database-single-database-monitor.md
       - name: Intelligent query processing
         href: https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json
       - name: Adaptive query processing
@@ -354,16 +351,16 @@
         href: sql-database-monitoring-with-dmvs.md
       - name: Operate query store
         href: sql-database-operate-query-store.md
-    - name: Monitor in-memory
-      href: sql-database-in-memory-oltp-monitoring.md
-    - name: Extended events
-      items:
+      - name: In-memory
+        href: sql-database-in-memory-oltp-monitoring.md
       - name: Extended events
-        href: sql-database-xevent-db-diff-from-svr.md
-      - name: Extended events - event file
-        href: sql-database-xevent-code-event-file.md
-      - name: Extended events - ring buffer
-        href: sql-database-xevent-code-ring-buffer.md
+        items:
+        - name: Extended events
+          href: sql-database-xevent-db-diff-from-svr.md
+        - name: Extended events - event file
+          href: sql-database-xevent-code-event-file.md
+        - name: Extended events - ring buffer
+          href: sql-database-xevent-code-ring-buffer.md
     - name: Create alerts
       href: sql-database-insights-alerts-portal.md
     - name: Troubleshoot connectivity
