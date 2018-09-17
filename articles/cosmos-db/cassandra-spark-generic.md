@@ -19,13 +19,11 @@ ms.author: ankhanol
 This article is one among a series of articles on Azure Cosmos DB Cassandra API integration from Spark. The articles cover connectivity, Data Definition Language(DDL) operations, basic Data Manipulation Language(DML) operations, and advanced Azure Cosmos DB Cassandra API integration from Spark. 
 
 ## Prerequisites
-
 * [Provision an Azure Cosmos DB Cassandra API account.](create-cassandra-dotnet.md#create-a-database-account)
 
 * Provision your choice of Spark environment [[Azure Databricks](https://docs.microsoft.com/en-us/azure/azure-databricks/quickstart-create-databricks-workspace-portal) | [Azure HDInsight-Spark](https://docs.microsoft.com/en-us/azure/hdinsight/spark/apache-spark-jupyter-spark-sql) | Others].
 
 ## Dependencies for connectivity
-
 * **Datastax Spark connector for Cassandra:**
   Datastax Spark connector is used to connect to Azure Cosmos DB Cassandra API.  Identify and use the version of the connector located in [Maven central]( https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) that is compatible with the Spark and Scala versions of your Spark environment.
 
@@ -82,7 +80,7 @@ While the sections above were specfic to Azure Spark-based PaaS services, this s
 #### Connector dependencies:
 
 1. Add the maven coordinates for the [Datastax Cassandra connector for Spark](cassandra-spark-generic.md#dependencies-for-connectivity)
-2. Add the maven coordinates for the [Azure Cosmos DB helper library]((cassandra-spark-generic.md#dependencies-for-connectivity)) for Cassandra API
+2. Add the maven coordinates for the [Azure Cosmos DB helper library]((cassandra-spark-generic.md#dependencies-for-connectivity) for Cassandra API
 
 #### Imports:
 
