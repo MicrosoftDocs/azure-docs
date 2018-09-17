@@ -24,7 +24,7 @@ ms.reviewer: scottnap
 Learn how to add more Public IP Addresses to Azure Stack.  In this article, we refer to the External Addresses as Public IP Addresses, but in Azure Stack this is meant to refer to adding IP Address blocks to your External network.  Whether that External network is Public Internet routable or is on an Intranet and uses private address space doesn’t really matter for the purposes of this article.  The steps are the same. 
 
 ## Add a Public IP Address Pool
-You can add Public IP Addresses to you Azure Stack system at any time after the initial deployment of the Azure Stack system. Check out how to [View Public IP address consumption](azure-stack-viewing-public-ip-address-consumption.md) to see what the current usage and Public IP Address availability is on your Azure Stack.
+You can add Public IP Addresses to your Azure Stack system at any time after the initial deployment of the Azure Stack system. Check out how to [View Public IP address consumption](azure-stack-viewing-public-ip-address-consumption.md) to see what the current usage and Public IP Address availability is on your Azure Stack.
 
 At a high level, the process of adding a new Public IP Address block to Azure Stack looks like this:
 
@@ -38,7 +38,7 @@ The first thing you’ll need to do is to obtain the address block you want to a
 
 ## Add the IP address range to Azure Stack
 
-1. In an Internet browser, navigate to your admin portal dashboard.  For this example we’ll use https://adminportal.local.azurestack.external.  
+1. In an Internet browser, navigate to your admin portal dashboard.  For this example, we’ll use https://adminportal.local.azurestack.external.  
 2.	Sign in to the Azure Stack administration portal as a cloud operator.
 3.	On the default dashboard – find the Region management list and select the region you want to manage, for this example, local.
 4.	Find the Resource providers tile and click on the Network Resource Provider.
