@@ -26,7 +26,7 @@ To keep your environment protected, you might want to block suspicious users fro
 
 This quickstart shows how to configure a sign-in risk conditional access policy that blocks a sign-in when a medium and above sign-in risk level has been detected. 
 
-![Create policy](./media/quickstart-sign-in-risk-policy/1003.png)
+![Create policy](./media/quickstart-sign-in-risk-policy/1004.png)
 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -79,35 +79,31 @@ This section shows how to create the required sign-in risk conditional access po
 
 1. Sign in to your [Azure portal](https://portal.azure.com) as global administrator.
 
-2. In the Azure portal, on the left navbar, click **All services**. 
-
-4. In the **Filter** textbox, type **identity protection**.
-
-5. Click **Azure AD Identity Protection**.   
+2. Go to the [Azure AD Identity Protection page](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/Overview).
  
-6. On the **Azure AD Identity Protection** page, in the **Configure** section, click **Sign-in risk policy**.
+3. On the **Azure AD Identity Protection** page, in the **Configure** section, click **Sign-in risk policy**.
  
-5. On the policy page, in the **Assignments** section, click **Users**.
+4. On the policy page, in the **Assignments** section, click **Users**.
 
-6. On the **Users** page, click **Select users**.
+5. On the **Users** page, click **Select users**.
 
-7. On the **Select users** page, select **Alain Charon**, and then click **Select**.
+6. On the **Select users** page, select **Alain Charon**, and then click **Select**.
 
-8. On the **Users** page, click **Done**. 
+7. On the **Users** page, click **Done**. 
 
-9. On the policy page, in the **Assignments** section, click **Conditions**.
+8. On the policy page, in the **Assignments** section, click **Conditions**.
 
-10. On the **Conditions** page, click **Sign-in risk**.
+9. On the **Conditions** page, click **Sign-in risk**.
 
-11. On the **Sign-in risk** page, select **Medium and above**, and then click **Select**. 
+10. On the **Sign-in risk** page, select **Medium and above**, and then click **Select**. 
 
-12. On the **Conditions** page, click **Done**.
+11. On the **Conditions** page, click **Done**.
 
-13. On the policy page, in the **Controls** section, click **Access**.
+12. On the policy page, in the **Controls** section, click **Access**.
 
-14. On the **Access** page, click **Allow access**, select **Require multi-factor authentication**, and then click **Select**.
+13. On the **Access** page, click **Allow access**, select **Require multi-factor authentication**, and then click **Select**.
 
-15. On the policy page, click **Save**.  
+14. On the policy page, click **Save**.  
 
 
 ## Test your conditional access policy
