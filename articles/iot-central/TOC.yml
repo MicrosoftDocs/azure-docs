@@ -50,7 +50,7 @@
       - name: Prepare and connect a Windows IoT Core device
         href: howto-connect-windowsiotcore.md
       - name: Monitor device connectivity using command line
-        href: howto-use-iotcexplorer-cli.md
+        href: howto-use-iotc-explorer.md
   - name: Manage devices
     items:
       - name: Set up a device template

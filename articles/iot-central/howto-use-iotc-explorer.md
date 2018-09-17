@@ -16,13 +16,13 @@ manager: peterpr
 
 Use the IoT Central Explorer CLI to see messages your devices are sending to IoT Central and observe changes in the IoT Hub twin. You can use this open-source tool to gain deeper insight into the state of device connectivity and diagnose issues of device messages not reaching the cloud or devices not responding to twin changes.
 
-## [Visit the `iotc-explorer` repo in Github](https://aka.ms/iotciotcexplorercligithub)
+## [Visit the iotc-explorer repo in GitHub](https://aka.ms/iotciotcexplorercligithub)
 
 ## Prerequisites
 + Node.js version 8.x or higher - https://nodejs.org
 + You will need to get an administrator of your app to generate an access token for you to use in iotc-explorer
 
-## Installing `iotc-explorer`
+## Installing iotc-explorer
 
 Run the following command from your command line to install:
 
@@ -33,7 +33,7 @@ npm install -g iotc-explorer
 > [!NOTE]
 > You will typically need to run the install command with `sudo` in Unix-like environments.
 
-## Running `iotc-explorer`
+## Running iotc-explorer
 
 Below are some commands and common options that you can run when using
 `iotc-explorer`. To view the full set of commands and options, you can pass
@@ -102,7 +102,7 @@ iotc-explorer get-twin <your-device-id>
 ```
 
 Output:
-![get-twin command output](media/howto-use-iotcexplorer-cli/getdevicetwin.PNG)
+![get-twin command output](media/howto-use-iotc-explorer/getdevicetwin.PNG)
 
 As with `monitor-messages`, you can get a more machine-friendly output by
 passing the `--raw` option:
