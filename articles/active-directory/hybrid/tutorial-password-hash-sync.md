@@ -177,7 +177,7 @@ Now we need to create an Azure AD tenant so that we can synchronize our users to
 1. Browse to the [Azure portal](https://portal.azure.com) and sign in with an account that has an Azure subscription.
 2. Select the **plus icon (+)** and search for **Azure Active Directory**.
 3. Select **Azure Active Directory** in the search results.
-4. Select **Create**.
+4. Select **Create**.</br>
 ![Create](media/tutorial-password-hash-sync/create1.png)</br>
 5. Provide a **name for the organization** along with the **initial domain name**. Then select **Create**. This will create your directory.
 6. Once this has completed, click the **here** link, to manage the directory.
@@ -188,8 +188,8 @@ Now that we have an Azure AD tenant, we will create a global administrator accou
 1.  Under **Manage**, select **Users**.</br>
 ![Create](media/tutorial-password-hash-sync/gadmin1.png)</br>
 2.  Select **All users** and then select **+ New user**.
-3.  Provide a name and username for this user. This will be your Global Admin for the tenant. You will also want to change the **Directory role** to **Global administrator.** You can also show the temporary password. When you are done, select **Create**.
-![Create](media/tutorial-password-hash-sync/gadmin2.png)
+3.  Provide a name and username for this user. This will be your Global Admin for the tenant. You will also want to change the **Directory role** to **Global administrator.** You can also show the temporary password. When you are done, select **Create**.</br>
+![Create](media/tutorial-password-hash-sync/gadmin2.png)</br>
 4. Once this has completed, open a new web browser and sign-in to myapps.microsoft.com using the new global administrator account and the temporary password.
 5. Change the password for the global administrator to something that you will remember.
 
@@ -199,7 +199,7 @@ Now it is time to download and install Azure AD Connect.  Once it has been insta
 1. Download [Azure AD Connect](https://www.microsoft.com/en-us/download/details.aspx?id=47594)
 2. Navigate to and double-click **AzureADConnect.msi**.
 3. On the Welcome screen, select the box agreeing to the licensing terms and click **Continue**.  
-4. On the Express settings screen, click **Use express settings**.  
+4. On the Express settings screen, click **Use express settings**.</br>  
 ![Create](media/tutorial-password-hash-sync/express1.png)</br>
 5. On the Connect to Azure AD screen, enter the username and password the global administrator for Azure AD. Click **Next**.  
 6. On the Connect to AD DS screen, enter the username and password for an enterprise admin account. Click **Next**.  
@@ -215,13 +215,13 @@ We will now verify that the users that we had in our on-premises directory have 
 1. Browse to the [Azure portal](https://portal.azure.com) and sign in with an account that has an Azure subscription.
 2. On the left, select **Azure Active Directory**
 3. Under **Manage**, select **Users**.
-4. Verify that you see the new users in our tenant
-![Synch](media/tutorial-password-hash-sync/synch1.png)
+4. Verify that you see the new users in our tenant</br>
+![Synch](media/tutorial-password-hash-sync/synch1.png)</br>
 
 ## Test signing in with one of our users
 
 1.  Browse to [http://myapps.microsoft.com](http://myapps.microsoft.com)
-2. Sign-in with a user account that was created in our new tenant.  You will need to sign-in using the following format: (user@domain.onmicrosoft.com). Use the same password that the user uses to sign-in on-premises.
-![Verify](media/tutorial-password-hash-sync/verify1.png)
+2. Sign-in with a user account that was created in our new tenant.  You will need to sign-in using the following format: (user@domain.onmicrosoft.com). Use the same password that the user uses to sign-in on-premises.</br>
+![Verify](media/tutorial-password-hash-sync/verify1.png)</br>
 
 You have now successfully setup a hybrid identity environment that you can use to test and familiarize yourself with what Azure has to offer.

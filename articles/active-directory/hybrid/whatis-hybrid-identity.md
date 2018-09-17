@@ -19,7 +19,7 @@ ms.author: billmath
 ---
 
 # What is hybrid identity
-Today, businesses and corporations are a becoming more and more a mixture of utilizing on-premises and cloud applications.  Having applications and users who require access to those applications, on-premises and in the cloud, has become a challenging scenario.
+Today, businesses and corporations are a becoming more and more a mixture of on-premises and cloud applications.  Having applications and users who require access to those applications, on-premises and in the cloud, has become a challenging scenario.
 
 Microsoft’s identity solutions span on-premises and cloud-based capabilities, creating a single user identity for authentication and authorization to all resources, regardless of location. We call this hybrid identity.
 
