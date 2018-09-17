@@ -56,7 +56,7 @@ Use the steps in this section to deploy the MySQL Server cluster using the [MySQ
 - A virtual network
 - A network security group
 - A storage account
-- An availablity set
+- An availability set
 - Three network interfaces (one for each of the default VMs)
 - A public IP address (for the primary MySQL cluster VM)
 - Three Linux VMs to host the MySQL cluster
@@ -72,7 +72,7 @@ Use the steps in this section to deploy the MySQL Server cluster using the [MySQ
 
    ![Custom template deployment](media/azure-stack-tutorial-mysqlrp/createcluster1.png)
 
-3. Provide basic deployent information on the **Basics** page. Review the default values and change as needed and click **OK**.<br><br>At a minimum, provide the following:
+3. Provide basic deployment information on the **Basics** page. Review the default values and change as needed and click **OK**.<br><br>At a minimum, provide the following:
    - Deployment name (default is mysql)
    - Application root password. Provide a 12 character alphanumeric password with **no special characters**
    - Application database name (default is bitnami)
@@ -119,7 +119,7 @@ By default, no public access is configured for MySQL into the tenant VM. For the
 ### Configure external access to the MySQL cluster
 Before the MySQL cluster can be added as an Azure Stack MySQL Server host, external access must be enabled.
 
-1. Using an SSH client, this example uses [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html), log into the primary MySQL machine from a computer than can access the public IP. The primary MySQL VM name usually ends with **0** and has a public IP assigned to it.<br><br>Use the public IP and log into the VM with the username of **bitnami** and the application password you created earlier without special characters.
+1. Using an SSH client, this example uses [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html), log into the primary MySQL machine from a computer that can access the public IP. The primary MySQL VM name usually ends with **0** and has a public IP assigned to it.<br><br>Use the public IP and log into the VM with the username of **bitnami** and the application password you created earlier without special characters.
 
    ![LinuxLogin](media/azure-stack-tutorial-mysqlrp/bitnami1.png)
 
@@ -141,52 +141,51 @@ Before the MySQL cluster can be added as an Azure Stack MySQL Server host, exter
    ![Create admin user](media/azure-stack-tutorial-mysqlrp/bitnami3.png)
 
 
-4. Record the new MySQL user information.<br><br>You will need to provide this username and password, along with the the public IP address or full FQDN of the public IP for the cluster, to an Azure Stack Operator so they can create a MySQL hosting server using this MySQL cluster.
+4. Record the new MySQL user information.<br><br>You will need to provide this username and password, along with the public IP address or full FQDN of the public IP for the cluster, to an Azure Stack Operator so they can create a MySQL hosting server using this MySQL cluster.
 
 
 ## Create an Azure Stack MySQL Hosting Server
-After the SQL Server AlwayOn availability group has been created, and properly configured, an Azure Stack Operator must create an Azure Stack SQL Hosting Server to make the additional capacity available for users to create databases. 
+After the MySQL Server cluster has been created, and properly configured, an Azure Stack Operator must create an Azure Stack MySQL Hosting Server to make the additional capacity available for users to create databases. 
 
-Be sure to provide the Azure Stack Operator the public IP or full FQDN for the public IP of the SQL load balancer that was recorded previously when the SQL AlwaysOn availablity group's resource group was created (**SQLPIPsql\<resource group name\>**). In addition, the operator will need to know the SQL Server authentication credentials used to access the SQL instances in the AlwaysOn availability group.
+Be sure to provide the Azure Stack Operator the public IP or full FQDN for the public IP of the MySQL cluster primary VM that was recorded previously when the MySQL cluster's resource group was created (**mysqlip**). In addition, the operator will need to know the SQL Server authentication credentials you created to remotely access the MySQL cluster database.
 
 > [!NOTE]
 > This step must be run from the Azure Stack administration portal by an Azure Stack Operator.
 
-With the SQL AlwaysOn availability group's load balancer listener Public IP and SQL authentication login information provided by the tenant user, an Azure Stack Operator can now [create a SQL Hosting Server using the SQL AlwaysOn availablity group](.\.\azure-stack-sql-resource-provider-hosting-servers.md#provide-high-availability-using-sql-always-on-availability-groups). 
+With the MySQL cluster's Public IP and SQL authentication login information provided by the tenant user, an Azure Stack Operator can now [create a MySQL Hosting Server using the new MySQL cluster](.\.\azure-stack-mysql-resource-provider-hosting-servers.md#connect-to-a-mysql-hosting-server). 
 
-Also ensure that the Azure Stack Operator has created plans and offers to make SQL AlwaysOn database creation available for users. The operator will need to add the **Microsoft.SqlAdapter** service to a plan and create a new quota specifically for highly available databases. For more information about creating plans, see [Plan, offer, quota, and subscription overview](.\.\azure-stack-plan-offer-quota-overview.md).
+Also ensure that the Azure Stack Operator has created plans and offers to make MySQL database creation available for users. The operator will need to add the **Microsoft.MySqlAdapter** service to a plan and create a new quota specifically for highly available databases. For more information about creating plans, see [Plan, offer, quota, and subscription overview](.\.\azure-stack-plan-offer-quota-overview.md).
 
 > [!TIP]
-> The **Microsoft.SqlAdapter** service will not be available to add to plans until the [SQL Server resource provider has been deployed](.\.\azure-stack-sql-resource-provider-deploy.md).
+> The **Microsoft.MySqlAdapter** service will not be available to add to plans until the [MySQL Server resource provider has been deployed](.\.\azure-stack-mysql-resource-provider-deploy.md).
 
 
 
+## Create a highly available MySQL database
+After the SQL AlwaysOn availability group has been created, configured, and added as an Azure Stack SQL Hosting Server by an Azure Stack Operator, a tenant user with a subscription including SQL Server database capabilities can create SQL databases supporting AlwaysOn functionality by following the steps in this section. 
 
+> [!NOTE]
+> Run these steps from the Azure Stack user portal as a tenant user with a subscription providing SQL Server capabilities (Microsoft.SQLAdapter service).
 
+1. Sign in to the user portal:
+    - For an integrated system deployment, the portal address will vary based on your solution's region and external domain name. It will be in the format of https://portal.&lt;*region*&gt;.&lt;*FQDN*&gt;.
+    - If you’re using the Azure Stack Development Kit (ASDK), the user portal address is [https://portal.local.azurestack.external](https://portal.local.azurestack.external).
 
+2. Select **\+** **Create a resource** > **Data \+ Storage**, and then **MySQL Database**.<br><br>Provide the required database property information including name, collation, the subscription to use, and location to use for the deployment. 
 
+   ![Create MySQL database](./media/azure-stack-tutorial-mysqlrp/createdb1.png)
 
+3. Select **SKU** and then choose the appropriate MySQL Hosting Server SKU to use. In this example, the Azure Stack Operator has created the MySQL-HA SKU to support high availability for MySQL clusters.
 
+   ![Select SKU](./media/azure-stack-tutorial-mysqlrp/createdb2.png)
 
+4. Select **Login** > **Create a new login** and then provide the SQL authentication credentials to be used for the new database. When finished, click **OK** and then **Create** to begin the database deployment process.
 
+   ![Add login](./media/azure-stack-tutorial-mysqlrp/createdb3.png)
 
+5. When the MySQL database deployment completes successfully, review the database properties to discover the connection string to use for connecting to the new highly available database. 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Create a highly available SQL database
-
-
+   ![View connection string](./media/azure-stack-tutorial-mysqlrp/createdb4.png)
 
 ## Next steps
 
@@ -199,4 +198,4 @@ In this tutorial you learned how to:
 
 Advance to the next tutorial to learn how to:
 > [!div class="nextstepaction"]
-> [Create highly available MySQL databases](azure-stack-tutorial-mysql.md)
+> [Deploy apps to Azure and Azure Stack](azure-stack-solution-pipeline.md)

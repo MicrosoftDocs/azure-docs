@@ -31,7 +31,7 @@ What you will learn:
 > * Create an Azure Stack SQL Hosting Server
 > * Create a highly available SQL database
 
-In this tutorial, a two VM SQL Server AlwaysOn availablity group will be created and configured using available Azure Stack marketplace items. 
+In this tutorial, a two VM SQL Server AlwaysOn availability group will be created and configured using available Azure Stack marketplace items. 
 
 Before starting the steps in this tutorial, ensure that the Azure Stack Operator has made the following items available in the Azure Stack marketplace:
 
@@ -55,7 +55,7 @@ Use the steps in this section to deploy the SQL Server AlwaysOn availability gro
 - A network security group
 - A virtual network
 - Four storage accounts (one for Active Directory (AD), one for SQL, one for file share witness and one for VM diagnostics)
-- Four public IP address (one for AD, two for each SQL VM, and one for public load balancer bound to SQL AlwaysOn listener)
+- Four public IP addresses (one for AD, two for each SQL VM, and one for public load balancer bound to SQL AlwaysOn listener)
 - One external load balancer for SQL VMs with Public IP bound to the SQL AlwaysOn listener
 - One VM (Windows Server 2016) configured as Domain Controller for a new forest with a single domain
 - Two VMs (Windows Server 2016) configured with SQL Server 2016 SP1 or SP2 Enterprise, Standard, or Developer Edition and clustered. These must be marketplace images.
@@ -101,7 +101,7 @@ Use the steps in this section to deploy the SQL Server AlwaysOn availability gro
 ### Enable automatic seeding
 After the template has successfully deployed and configured the SQL AlwaysON availability group, you must enable [automatic seeding](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) on each instance of SQL Server in the availability group. 
 
-When you create an availability group with automatic seeding, SQL Server automatically creates the secondary replicas for every database in the group without any other manual intervention necessary to ensure high availablity of AlwaysOn databases.
+When you create an availability group with automatic seeding, SQL Server automatically creates the secondary replicas for every database in the group without any other manual intervention necessary to ensure high availability of AlwaysOn databases.
 
 Use these SQL commands to configure automatic seeding for the AlwaysOn availability group.
 
@@ -140,7 +140,7 @@ Use these commands to set the contained database authentication server option fo
 ## Create an Azure Stack SQL Hosting Server
 After the SQL Server AlwayOn availability group has been created, and properly configured, an Azure Stack Operator must create an Azure Stack SQL Hosting Server to make the additional capacity available for users to create databases. 
 
-Be sure to provide the Azure Stack Operator the public IP or full FQDN for the public IP of the SQL load balancer that was recorded previously when the SQL AlwaysOn availablity group's resource group was created (**SQLPIPsql\<resource group name\>**). In addition, the operator will need to know the SQL Server authentication credentials used to access the SQL instances in the AlwaysOn availability group.
+Be sure to provide the Azure Stack Operator the public IP or full FQDN for the public IP of the SQL load balancer that was recorded previously when the SQL AlwaysOn availability group's resource group was created (**SQLPIPsql\<resource group name\>**). In addition, the operator will need to know the SQL Server authentication credentials used to access the SQL instances in the AlwaysOn availability group.
 
 > [!NOTE]
 > This step must be run from the Azure Stack administration portal by an Azure Stack Operator.
@@ -153,7 +153,7 @@ Also ensure that the Azure Stack Operator has created plans and offers to make S
 > The **Microsoft.SqlAdapter** service will not be available to add to plans until the [SQL Server resource provider has been deployed](.\.\azure-stack-sql-resource-provider-deploy.md).
 
 ## Create a highly available SQL database
-After the SQL AlwaysOn availablity group has been created, configured, and added as an Azure Stack SQL Hosting Server by an Azure Stack Operator, a tenant user with a subscription including SQL Server database capablities can create SQL databases supporting AlwaysOn functionality by following the steps in this section. 
+After the SQL AlwaysOn availability group has been created, configured, and added as an Azure Stack SQL Hosting Server by an Azure Stack Operator, a tenant user with a subscription including SQL Server database capabilities can create SQL databases supporting AlwaysOn functionality by following the steps in this section. 
 
 > [!NOTE]
 > Run these steps from the Azure Stack user portal as a tenant user with a subscription providing SQL Server capabilities (Microsoft.SQLAdapter service).
@@ -166,17 +166,20 @@ After the SQL AlwaysOn availablity group has been created, configured, and added
 
    ![Create SQL database](./media/azure-stack-tutorial-sqlrp/createdb1.png)
 
-3. Select **SKU** and then choose the appropriate SQL Hosting Server SKU to use. In this example, the Azure Stack Operator has created the Enterprise-HA SKU to support high availablity for SQL AlwaysOn availability groups.
+3. Select **SKU** and then choose the appropriate SQL Hosting Server SKU to use. In this example, the Azure Stack Operator has created the Enterprise-HA SKU to support high availability for SQL AlwaysOn availability groups.
 
    ![Select SKU](./media/azure-stack-tutorial-sqlrp/createdb2.png)
 
 4. Select **Login** > **Create a new login** and then provide the SQL authentication credentials to be used for the new database. When finished, click **OK** and then **Create** to begin the database deployment process.
 
-   ![Select SKU](./media/azure-stack-tutorial-sqlrp/createdb3.png)
+   ![Create login](./media/azure-stack-tutorial-sqlrp/createdb3.png)
 
-5. When the SQL database deployment completes successfully, review the databse properties to discover the connection string to use for connecting to the new highly available database. 
+5. When the SQL database deployment completes successfully, review the database properties to discover the connection string to use for connecting to the new highly available database. 
 
    ![View connection string](./media/azure-stack-tutorial-sqlrp/createdb4.png)
+
+
+
 
 ## Next steps
 
