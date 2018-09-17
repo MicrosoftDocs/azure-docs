@@ -40,7 +40,7 @@ To sign up for a 30-day free trial:
 
    ![Agree to terms](media/index/try-speech-api-free-trial3.png)
 
-1. Sign in by using your Microsoft, Facebook, LinkedIn, or GitHub account. 
+1. Sign in by using your Microsoft, Facebook, LinkedIn, or GitHub account.
 
     You can sign up for a free Microsoft account at the [Microsoft account portal](https://account.microsoft.com/account). To get started, click **Sign in with Microsoft** and then, when asked to sign in, click **Create one.** Follow the steps to create and verify your new Microsoft account.
 
@@ -53,27 +53,11 @@ After you sign in to Try Cognitive Services, your free trial begins. The display
 
 New Azure accounts receive a $200 service credit that is available for up to 30 days. You can use this credit to further explore the Speech service or to begin application development.
 
-To sign up for a new Azure account:
+To sign up for a new Azure account, go to the [Azure sign-up page](https://azure.microsoft.com/free/ai/), click **Start Free,** and create a new Azure account using your Microsoft account.
 
-1. Go to the [Azure sign-up page](https://azure.microsoft.com/free/ai/). 
+You can sign up for a free Microsoft account at the [Microsoft account portal](https://account.microsoft.com/account). To get started, click **Sign in with Microsoft** and then, when asked to sign in, click **Create one.** Follow the steps to create and verify your new Microsoft account.
 
-1. Select **Start free**.
-
-    ![Start free](media/index/try-speech-api-new-azure1.png)
-
-1. Sign in with your Microsoft account.
-
-    You can sign up for a free Microsoft account at the [Microsoft account portal](https://account.microsoft.com/account). To get started, click **Sign in with Microsoft** and then, when asked to sign in, click **Create one.** Follow the steps to create and verify your new Microsoft account.
-
-1. Enter the rest of the requested information. Specify your country and your name and provide a phone number and e-mail address.
-
-    ![Enter information](media/index/try-speech-api-new-azure2.png)
-
-    Verify your identity by phone and by providing a credit card number. (Your credit card will not be billed.) Then accept the Azure user agreement. 
-
-    ![Accept agreement](media/index/try-speech-api-new-azure3.png)
-
-Your free Azure account is now active. Follow the steps in the next section to start a subscription to the Speech service.
+After creating your Azure account, follow the steps in the next section to start a subscription to the Speech service.
 
 ## Create a Speech resource in Azure
 
