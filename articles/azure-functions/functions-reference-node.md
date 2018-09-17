@@ -90,6 +90,13 @@ context.bindings.myOutput = {
 
 Note that you can choose to define output binding data using the `context.done` method instead of the `context.binding` object (see below).
 
+### context.bindingData property
+
+```
+context.bindingData
+```
+Returns a named object that contains trigger metadata and function invocation data (`invocationId`, `sys.methodName`, `sys.utcNow`, `sys.randGuid`). For an example of trigger metadata, see this [event hubs example](functions-bindings-event-hubs.md#trigger---javascript-example).
+
 ### context.done method
 ```
 context.done([err],[propertyBag])
@@ -257,8 +264,9 @@ When you work with HTTP triggers, you can access the HTTP request and response o
     ```javascript
     context.bindings.response = { status: 201, body: "Insert succeeded." };
     ```
++ _[Response only]_ By calling `context.res.send(body?: any)`. An HTTP response is created with input `body` as the response body. `context.done()` is implicitly called.
 
-+ [Response only] By calling `context.done()`. A special kind of HTTP binding returns the response that is passed to the `context.done()` method. The following HTTP output binding defines a `$return` output parameter:
++ _[Response only]_ By calling `context.done()`. A special kind of HTTP binding returns the response that is passed to the `context.done()` method. The following HTTP output binding defines a `$return` output parameter:
 
     ```json
     {
