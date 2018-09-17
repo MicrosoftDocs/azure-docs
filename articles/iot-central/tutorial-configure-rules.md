@@ -13,7 +13,7 @@ manager: peterpr
 
 # Tutorial: Configure rules and actions for your device in Azure IoT Central
 
-This tutorial shows you, as a builder, how to configure telemetry-based rules and actions in your Microsoft Azure IoT Central application.
+*This article applies to operators, builders, and administrators.*
 
 In this tutorial, you create a rule that sends an email when the temperature in a connected air conditioner device exceeds 90&deg; F.
 
@@ -39,11 +39,13 @@ Before you begin, you should complete the [Define a new device type in your appl
 
     ![Connected air conditioner page](media/tutorial-configure-rules/builderdevicelist1.png)
 
-3. To start adding a rule in the **Rules** view, choose **Rules**:
+3. To start adding a rule in the **Rules** view, choose **Rules** and then click **Edit Template**:
 
-    ![Rules view](media/tutorial-configure-rules/builderrulesview1.png)
+    ![Rules view](media/tutorial-configure-rules/builderedittemplate.png)
 
-4. To start creating the threshold-based telemetry rule, select **Edit Template**, click **New Rule**, and then **Telemetry**.
+4. To create a threshold-based telemetry rule, click **New Rule**, and then **Telemetry**.
+
+    ![Edit Template](media/tutorial-configure-rules/buildernewrule.png)
 
 5. To define your rule, use the information in the following table:
 
@@ -80,6 +82,9 @@ When you define a rule, you also define an action to run when the rule condition
 3. Choose **Save**. Your rule is listed on the **Rules** page:
 
     ![Application Builder rules](media/tutorial-configure-rules/builderrules1.png)
+
+4. Choose **Done** to exit the **Edit Template** mode.
+ 
 
 ## Test the rule
 

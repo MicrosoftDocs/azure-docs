@@ -1,17 +1,19 @@
 ---
-title: Call the Computer Vision API | Microsoft Docs
-description: Learn how to call the Computer Vision API by using REST in Cognitive Services.
+title: "Example: Call the Computer Vision API"
+titlesuffix: Azure Cognitive Services
+description: Learn how to call the Computer Vision API by using REST in Azure Cognitive Services.
 services: cognitive-services
 author: KellyDF
-manager: corncar
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: article
+ms.topic: sample
 ms.date: 01/20/2017
 ms.author: kefre
 ---
 
-# How to call the Computer Vision API
+# Example: How to call the Computer Vision API
 
 This guide demonstrates how to call Computer Vision API using REST. The samples are written both in C# using the Computer Vision API client library, and as HTTP POST/GET calls. We will focus on:
 
