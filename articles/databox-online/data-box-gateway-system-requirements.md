@@ -1,24 +1,24 @@
 ---
 title: Microsoft Azure Data Box Gateway system requirements| Microsoft Docs
 description: Learn about the software and networking requirements for your Azure Data Box Gateway
-services: databox-gateway
+services: databox-edge-gateway
 documentationcenter: NA
 author: alkohli
 manager: twooley
 editor: ''
 
 ms.assetid: 
-ms.service: databox-gateway
+ms.service: databox-edge-gateway
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/11/2018
+ms.date: 09/24/2018
 ms.author: alkohli
 ---
 # Azure Data Box Gateway system requirements (Preview)
 
-This article describes the important system requirements for your Microsoft Azure Data Box Gateway solution and for the clients connecting to the Data Box Gateway. We recommend that you review the information carefully before you deploy your Data Box Gateway, and then refer back to it as necessary during the deployment and subsequent operation.
+This article describes the important system requirements for your Microsoft Azure Data Box Gateway solution and for the clients connecting to Azure Data Box Gateway. We recommend that you review the information carefully before you deploy your Data Box Gateway, and then refer back to it as necessary during the deployment and subsequent operation.
 
 The system requirements for the Data Box Gateway virtual device include:
 

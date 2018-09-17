@@ -1,19 +1,19 @@
 ---
 title: Azure Data Box Gateway limits | Microsoft Docs
 description: Describes system limits and recommended sizes for the Microsoft Azure Data Box Gateway.
-services: databox
+services: databox-edge-gateway
 documentationcenter: NA
 author: alkohli
 manager: twooley
 editor: ''
 
 ms.assetid: 
-ms.service: databox
+ms.service: databox-edge-gateway
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 09/11/2018
+ms.date: 09/24/2018
 ms.author: alkohli
 ms.custom: 
 

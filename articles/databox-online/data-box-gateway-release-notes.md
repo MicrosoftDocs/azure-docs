@@ -1,19 +1,19 @@
 ---
 title: Azure Data Box Gateway Preivew release notes| Microsoft Docs
 description: Describes critical open issues and resolutions for the Azure Data Box Gateway running Preview release.
-services: databox-edge
+services: databox-edge-gateway
 documentationcenter: ''
 author: alkohli
 manager: twooley
 editor: ''
 
 ms.assetid: 
-ms.service: databox-edge
+ms.service: databox-edge-gateway
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/11/2018
+ms.date: 09/24/2018
 ms.author: alkohli
 
 ---
@@ -25,11 +25,7 @@ The following release notes identify the critical open issues and the resolved i
 
 The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they are added. Before you deploy your Data Box Gateway, carefully review the information contained in the release notes.
 
-Preview release corresponds to the software version **Data Box Gateway Version 1.1**.
-
-> [!IMPORTANT]
-> - Updates are disruptive and restart your device. If I/O are in progress, the device incurs downtime. <!--For detailed instructions on how to apply the release, go to [Install Preview release](data-box-gateway-install-update.md).-->
-
+Preview release corresponds to the software version **Data Box Gateway Preview Version 2.0**.
 
 ## Issues fixed in Preview release
 
