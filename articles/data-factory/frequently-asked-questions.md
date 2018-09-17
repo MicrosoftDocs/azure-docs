@@ -80,7 +80,7 @@ Since the initial Public Preview release in 2017, Data Factory has added the fol
 -	Managed Instance (MI)
 -	Elastic pool
 -	Support for Azure Resource Manager Virtual Network (VNet) on top of Classic VNet that will be deprecated in the future – This lets you inject/join your Azure-SSIS Integration Runtime (IR) to a VNet that is configured for Azure SQL DB with VNet service endpoints/MI/on-premises data access, see:
-https://docs.microsoft.com/en-us/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network 
+https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network 
 -	Support for Azure Active Directory (AAD) authentication on top of SQL authentication to connect to your SSISDB - This lets you use AAD authentication with your ADF Managed Service Identity (MSI)
 -	Support for bringing your own on-premises SQL Server license to earn substantial cost savings from Azure Hybrid Benefit (AHB) option
 -	Support for Enterprise Edition of Azure-SSIS IR that lets you use advanced/premium features, custom setup to install additional components/extensions, and 3rd party ecosystem, see: 

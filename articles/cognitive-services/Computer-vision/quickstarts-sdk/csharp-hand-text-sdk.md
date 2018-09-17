@@ -1,20 +1,22 @@
 ---
 title: "Quickstart: Extract handwritten text - SDK, C# - Computer Vision"
 titleSuffix: "Azure Cognitive Services"
-description: In this quickstart, you extract handwritten text from an image using the Computer Vision Windows C# client library in Cognitive Services.
+description: In this quickstart, you extract handwritten text from an image using the Computer Vision Windows C# client library.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
-ms.author: v-deken
+ms.date: 09/14/2018
+ms.author: nolachar
 ---
-# Quickstart: Extract handwritten text - SDK, C&#35; - Computer Vision
+# Quickstart: Extract handwritten text using the Computer Vision SDK and C#
 
 In this quickstart, you extract handwritten text from an image using the Computer Vision Windows client library.
+
+Get the latest code as a Visual Studio solution from the [Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision) GitHub repository.
 
 ## Prerequisites
 
@@ -35,7 +37,7 @@ To run the sample, do the following steps:
     1. Select **Microsoft.Azure.CognitiveServices.Vision.ComputerVision** when it displays, then click the checkbox next to your project name, and **Install**.
 1. Replace `Program.cs` with the following code.
 1. Replace `<Subscription Key>` with your valid subscription key.
-1. Change `computerVision.AzureRegion = AzureRegions.Westcentralus` to the location where you obtained your subscription keys, if necessary.
+1. Change `computerVision.Endpoint` to the Azure region associated with your subscription keys, if necessary.
 1. Replace `<LocalImage>` with the path and file name of a local image.
 1. Optionally, set `remoteImageUrl` to a different image.
 1. Run the program.
@@ -67,20 +69,20 @@ namespace ImageHandText
 
         static void Main(string[] args)
         {
-            ComputerVisionAPI computerVision = new ComputerVisionAPI(
+            ComputerVisionClient computerVision = new ComputerVisionClient(
                 new ApiKeyServiceClientCredentials(subscriptionKey),
                 new System.Net.Http.DelegatingHandler[] { });
 
             // You must use the same region as you used to get your subscription
             // keys. For example, if you got your subscription keys from westus,
-            // replace "Westcentralus" with "Westus".
+            // replace "westcentralus" with "westus".
             //
             // Free trial subscription keys are generated in the westcentralus
             // region. If you use a free trial subscription key, you shouldn't
             // need to change the region.
 
             // Specify the Azure region
-            computerVision.AzureRegion = AzureRegions.Westcentralus;
+            computerVision.Endpoint = "https://westcentralus.api.cognitive.microsoft.com";
 
             Console.WriteLine("Images being analyzed ...");
             var t1 = ExtractRemoteHandTextAsync(computerVision, remoteImageUrl);
@@ -93,7 +95,7 @@ namespace ImageHandText
 
         // Recognize text from a remote image
         private static async Task ExtractRemoteHandTextAsync(
-            ComputerVisionAPI computerVision, string imageUrl)
+            ComputerVisionClient computerVision, string imageUrl)
         {
             if (!Uri.IsWellFormedUriString(imageUrl, UriKind.Absolute))
             {
@@ -111,7 +113,7 @@ namespace ImageHandText
 
         // Recognize text from a local image
         private static async Task ExtractLocalHandTextAsync(
-            ComputerVisionAPI computerVision, string imagePath)
+            ComputerVisionClient computerVision, string imagePath)
         {
             if (!File.Exists(imagePath))
             {
@@ -133,7 +135,7 @@ namespace ImageHandText
 
         // Retrieve the recognized text
         private static async Task GetTextAsync(
-            ComputerVisionAPI computerVision, string operationLocation)
+            ComputerVisionClient computerVision, string operationLocation)
         {
             // Retrieve the URI where the recognized text will be
             // stored from the Operation-Location header
@@ -160,7 +162,7 @@ namespace ImageHandText
             // Display the results
             Console.WriteLine();
             var lines = result.RecognitionResult.Lines;
-            foreach(Line line in lines)
+            foreach (Line line in lines)
             {
                 Console.WriteLine(line.Text);
             }
