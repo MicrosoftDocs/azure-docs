@@ -64,14 +64,14 @@ For the _vmSize_ field, you can use any suppported VM size listed in the [Ubuntu
 >[!TIP]
 > For [deep learning workloads](how-to-use-gpu.md) you can deploy to GPU powered VMs.
 
-- [General Purpose VMs](/virtual-machines/linux/sizes-general.md)
+- [General Purpose VMs](../../virtual-machines/linux/sizes-general.md)
   - Standard_DS2_v2 
   - Standard_DS3_v2 
   - Standard_DS4_v2 
   - Standard_DS12_v2 
   - Standard_DS13_v2 
   - Standard_DS14_v2 
-- [GPU powered VMs](/virtual-machines/linux/sizes-gpu.md)
+- [GPU powered VMs](../../virtual-machines/linux/sizes-gpu.md)
   - Standard_NC6 
   - Standard_NC12 
   - Standard_NC24 

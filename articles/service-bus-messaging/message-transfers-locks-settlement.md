@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2018
-ms.author: sethm
+ms.author: spelluru
 
 ---
 
@@ -59,7 +59,7 @@ for (int i = 0; i < 100; i++)
 {
   tasks.Add(client.SendAsync(…));
 }
-await Task.WhenAll(tasks.ToArray());
+await Task.WhenAll(tasks);
 ```
 
 It is important to note that all asynchronous programming models use some form of memory-based, hidden work queue that holds pending operations. When [SendAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.sendasync#Microsoft_Azure_ServiceBus_QueueClient_SendAsync_Microsoft_Azure_ServiceBus_Message_) (C#) or **Send** (Java) return, the send task is queued up in that work queue but the protocol gesture only commences once it is the task's turn to run. For code that tends to push bursts of messages and where reliability is a concern, care should be taken that not too many messages are put "in flight" at once, because all sent messages take up memory until they have factually been put onto the wire.
@@ -76,7 +76,7 @@ for (int i = 0; i < 100; i++)
 
   tasks.Add(client.SendAsync(…).ContinueWith((t)=>semaphore.Release()));
 }
-await Task.WhenAll(tasks.ToArray());
+await Task.WhenAll(tasks);
 ```
 
 Applications should **never** initiate an asynchronous send operation in a "fire and forget" manner without retrieving the outcome of the operation. Doing so can load the internal and invisible task queue up to memory exhaustion, and prevent the application from detecting send errors:

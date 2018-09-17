@@ -42,7 +42,7 @@ The following flows are not supported:
 
    You'll then see an endpoint such as this example:
 
-   `https://login.microsoftonline.com/yourtenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1_ROPC_Auth`
+   `https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1_ROPC_Auth`
 
 
 ## Register an application
@@ -60,7 +60,7 @@ Use your favorite API development application to generate an API call, and revie
 - Replace *\<B2C_1A_ROPC_Auth>* with the full name of your resource owner password credentials policy.
 - Replace *\<bef2222d56-552f-4a5b-b90a-1988a7d634c3>* with the Application ID from your registration.
 
-`https://login.microsoftonline.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
+`https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
 | Key | Value |
 | --- | ----- |
@@ -77,7 +77,7 @@ The actual POST request looks like the following:
 
 ```
 POST /yourtenant.onmicrosoft.com/oauth2/v2.0/token?B2C_1_ROPC_Auth HTTP/1.1
-Host: login.microsoftonline.com
+Host: yourtenant.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
 username=leadiocl%40trashmail.ws&password=Passxword1&grant_type=password&scope=openid+bef22d56-552f-4a5b-b90a-1988a7d634ce+offline_access&client_id=bef22d56-552f-4a5b-b90a-1988a7d634ce&response_type=token+id_token
@@ -100,7 +100,7 @@ A successful response with offline-access looks like the following example:
 
 Construct a POST call like the one shown here with the information in the following table as the body of the request:
 
-`https://login.microsoftonline.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
+`https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
 | Key | Value |
 | --- | ----- |

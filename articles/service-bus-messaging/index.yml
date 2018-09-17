@@ -6,14 +6,14 @@ metadata:
   title: Azure Service Bus Messaging Documentation - Tutorials, quickstarts, API Reference
   meta.description: Learn how to set up messaging that connects applications and services across on-premises and cloud environments.
   services: service-bus-messaging
-  author: sethmanheim
-  manager: timlt
+  author: spelluru
+  manager: femila
   ms.service: service-bus-messaging
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 05/16/2018
-  ms.author: sethm
+  ms.author: spelluru
 abstract:
   description: Azure Service Bus is a multi-tenant cloud messaging service that sends information between applications and services. The asynchronous operations give you flexible, brokered messaging, along with structured first-in, first-out (FIFO) messaging, and publish/subscribe capabilities.​
   aside:

@@ -16,6 +16,8 @@ ms.reviewer: igorstan
 
 Instead of Extract, Transform, and Load (ETL), design an Extract, Load, and Transform (ELT) process for loading data into Azure SQL Data Warehouse. This article introduces ways to design an ELT process that moves data into an Azure data warehouse.
 
+> [!VIDEO https://www.youtube.com/embed/l9-wP7OdhDk]
+
 ## What is ELT?
 
 Extract, Load, and Transform (ELT) is a process by which data moves from a source system to a destination data warehouse. This process is performed on a regular basis, for example hourly or daily, to get newly generated data into the data warehouse. The ideal way to get data from source to data warehouse is to develop an ELT process that uses PolyBase to load data into SQL Data Warehouse.

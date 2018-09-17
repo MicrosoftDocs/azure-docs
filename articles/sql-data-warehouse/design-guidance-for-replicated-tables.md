@@ -15,6 +15,8 @@ ms.reviewer: igorstan
 # Design guidance for using replicated tables in Azure SQL Data Warehouse
 This article gives recommendations for designing replicated tables in your SQL Data Warehouse schema. Use these recommendations to improve query performance by reducing data movement and query complexity.
 
+> [!VIDEO https://www.youtube.com/embed/1VS_F37GI9U]
+
 ## Prerequisites
 This article assumes you are familiar with data distribution and data movement concepts in SQL Data Warehouse.  For more information, see the [architecture](massively-parallel-processing-mpp-architecture.md) article. 
 

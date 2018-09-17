@@ -4,11 +4,10 @@ description: Map styles supported by Azure Maps
 author: walsehgal
 ms.author: v-musehg
 ms.date: 08/28/2018
-ms.topic: concepts
+ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: mvc
 ---
 
 # Azure Maps supported map styles
@@ -47,4 +46,4 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 ![gray_scale](./media/supported-map-styles/grayscale_dark.png)
 
 **Applicable APIs:**
-* JS map control
+* JS map control 

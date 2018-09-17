@@ -4,11 +4,11 @@ description: This topic demonstrates how to find exact moments within videos.
 services: cognitive services
 documentationcenter: ''
 author: juliako
-manager: erikre
+manager: femila
 
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 07/31/2018
+ms.date: 09/15/2018
 ms.author: juliako
 
 ---
@@ -16,7 +16,7 @@ ms.author: juliako
 
 This topic shows you the search options that enable you to find exact moments within videos.
 
-1. Sign in to your [Video Indexer](https://api-portal.videoindexer.ai/) account.
+1. Browse to the [Video Indexer](https://www.videoindexer.ai/) website and sign in.
 2. Search among all videos in your account.
 
 	In the following example, we searched for all videos created by Channel9 with Scott Hanselman.

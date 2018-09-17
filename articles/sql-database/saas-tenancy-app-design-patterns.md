@@ -8,7 +8,7 @@ manager: "craigg"
 ms.service: "sql-database"
 ms.custom: "scale out apps"
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 09/14/2018
 ms.reviewer: genemi
 ms.author: "billgib"
 ---
@@ -167,7 +167,7 @@ In the hybrid model, all databases have the tenant identifier in their schema.  
 
 At any time, you can move a particular tenant to its own multi-tenant database.  And at any time, you can change your mind and move the tenant back to a database that contains multiple tenants.  You can also assign a tenant to new single-tenant database when you provision the new database.
 
-The hybrid model shines when there are large differences between the resource needs of identifiable groups of tenants.  For example, suppose that tenants participating in a free trial are not guaranteed the same high level of performance that subscribing tenants are.  The policy might be for tenants in the free trial phase to be stored in a multi-tenant database that is shared among all the free trial tenants.  When a free trial tenant subscribes to the basic service level, the tenant can be moved to another multi-tenant database that might have fewer tenants.  A subscriber that pays for the premium service level could be moved to its own new single-tenant database.
+The hybrid model shines when there are large differences between the resource needs of identifiable groups of tenants.  For example, suppose that tenants participating in a free trial are not guaranteed the same high level of performance that subscribing tenants are.  The policy might be for tenants in the free trial phase to be stored in a multi-tenant database that is shared among all the free trial tenants.  When a free trial tenant subscribes to the basic service tier, the tenant can be moved to another multi-tenant database that might have fewer tenants.  A subscriber that pays for the premium service tier could be moved to its own new single-tenant database.
 
 #### Pools
 

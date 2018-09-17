@@ -36,5 +36,5 @@ To make a custom DNS configuration is compatible with the Managed Instance, you 
 ## Next steps
 
 - For an overview, see [What is a Managed Instance](sql-database-managed-instance.md)
-- For a tutorial showing you how to create a new Managed Instance, see [Creating a Managed Instance](sql-database-managed-instance-create-tutorial-portal.md).
+- For a tutorial showing you how to create a new Managed Instance, see [Creating a Managed Instance](sql-database-managed-instance-get-started.md).
 - For information about configuring a VNet for a Managed Instance, see [VNet configuration for Managed Instances](sql-database-managed-instance-vnet-configuration.md)

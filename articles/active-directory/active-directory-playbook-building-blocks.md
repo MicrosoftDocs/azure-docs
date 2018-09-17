@@ -337,7 +337,7 @@ If the application has provisioning enabled, you might need to wait a few minute
 | Step | Resources |
 | --- | --- |
 | Remove the user from the group the app is assigned to | [Manage group membership for users in your Azure Active Directory tenant](fundamentals/active-directory-groups-members-azure-portal.md) |
-| Wait for a few minutes for de-provisioning | [Automated SaaS App User Provisioning in Azure AD: How does automated provisioning work?](active-directory-saas-app-provisioning.md#how-does-automatic-provisioning-work) |
+| Wait for a few minutes for de-provisioning | [Automated SaaS App User Provisioning in Azure AD: How does automated provisioning work?](manage-apps/user-provisioning.md#how-does-automatic-provisioning-work) |
 | On a separate browser session, log in as the information worker to my apps portal and confirm that tile is missing | http://myapps.microsoft.com |
 
 
@@ -557,7 +557,7 @@ Approximate time to complete: 20 minutes
 | Step | Resources |
 | --- | --- |
 | Enable "Certificate Authentication" on ADFS | [Configure Authentication Policies: To configure primary authentication globally in Windows Server 2012 R2](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-authentication-policies#to-configure-primary-authentication-globally-in-windows-server-2012-r2) |
-| Optional: Enable Certificate Authentication in Azure AD for Exchange Active Sync clients | [Get started with certificate-based authentication in Azure Active Directory](active-directory-certificate-based-authentication-get-started.md) |
+| Optional: Enable Certificate Authentication in Azure AD for Exchange Active Sync clients | [Get started with certificate-based authentication in Azure Active Directory](./authentication/active-directory-certificate-based-authentication-get-started.md) |
 | Navigate to Access Panel and authenticate using User Certificate | https://myapps.microsoft.com |
 
 ### Considerations

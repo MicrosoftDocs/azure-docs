@@ -37,7 +37,7 @@ In addition to these three accounts used to run Azure AD Connect, you will also 
 - **AD DS Enterprise Administrator account**:      used to install Azure AD Connect
 - **Azure AD Global Administrator account**:  used to create the Azure AD Connector account and configure Azure AD.
 
-- **SQL SA account (optional)**:     used to create the ADSync database when using the full version of SQL Server.  This SQL Server may be local or remote to the Azure AD Connect installation.  This account may be the same account as the Enterprise Administrator.  Provisioning the database can now be performed out of band by the SQL administrator and then installed by the Azure AD Connect administrator with database owner rights.  For information on this see [Install Azure AD Connect using SQL delegated administrator permissions]()
+- **SQL SA account (optional)**:     used to create the ADSync database when using the full version of SQL Server.  This SQL Server may be local or remote to the Azure AD Connect installation.  This account may be the same account as the Enterprise Administrator.  Provisioning the database can now be performed out of band by the SQL administrator and then installed by the Azure AD Connect administrator with database owner rights.  For information on this see [Install Azure AD Connect using SQL delegated administrator permissions](active-directory-aadconnect-sql-delegation.md)
 
 ## Installing Azure AD Connect
 The Azure AD Connect installation wizard offers two different paths:
