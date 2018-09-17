@@ -27,7 +27,7 @@ This API supports only short utterances. Requests may contain up to 10 seconds o
 
 ### Recognition mode
 
-The recognition mode optimizes recognition for specific scenarios. The URIs above incorporate the `conversation` recognition mode in the URI. Use one of the following values in this position to declare the recognition mode.
+The recognition mode optimizes recognition for specific scenarios. The URIs above incorporate the `conversation` recognition mode. Use one of the following values in this position to declare the recognition mode.
 
 |Recognition mode|Intended scenario|
 |----------------|-----|
@@ -42,8 +42,8 @@ The following parameters may be included in the query string of the REST request
 |Parameter name|Required/optional|Meaning|
 |-|-|-|
 |`language`|Required|The identifier of the language to be recognized. See [Supported languages](supported-languages.md#speech-to-text).|
-|`format`|Optional<br>default: `simple`|Result format, `simple` or `detailed`. Detailed results include N-best values,`RecognitionStatus`, `Offset`, and duration.|
-|`profanity`|Optional<br>default: `masked`|Include profanity in recognition results. May be `masked` (replaces profanity with asterisks), `removed` (removes all profanity), or `raw` (includes profanity)
+|`format`|Optional<br>default: `simple`|Result format, `simple` or `detailed`. Simple results include `RecognitionStatus`, `DisplayText`, `Offset`, and duration. Detailed results include multiple candidates with confidence values and four different representations.|
+|`profanity`|Optional<br>default: `masked`|How to handle profanity in recognition results. May be `masked` (replaces profanity with asterisks), `removed` (removes all profanity), or `raw` (includes profanity).
 
 ### Request headers
 
@@ -55,7 +55,7 @@ The following fields are sent in the HTTP request header.
 |`Authorization`|An authorization token preceded by the word `Bearer`. Either this header or `Ocp-Apim-Subscription-Key` must be provided. See [Authentication](#authentication).|
 |`Content-type`|Describes the format and codec of the audio data. Currently, this value must be `audio/wav; codec=audio/pcm; samplerate=16000`.|
 |`Transfer-Encoding`|Optional. If given, must be `chunked` to allow audio data to be sent in multiple small chunks instead of a single file.|
-|`Expect`|If using chunked transfer, send `Expect: 100-continue`. The Speech service will acknowledge the initial request and awaits additional data.|
+|`Expect`|If using chunked transfer, send `Expect: 100-continue`. The Speech service acknowledges the initial request and awaits additional data.|
 |`Accept`|Optional. If provided, must include `application/json`, as the Speech service provides results in JSON format. (Some Web request frameworks provide an incompatible default value if you do not specify one, so it is good practice to always include `Accept`)|
 
 ### Audio format
@@ -64,7 +64,7 @@ The audio is sent in the body of the HTTP `PUT` request and should be in 16-bit 
 
 ### Chunked transfer
 
-Chunked transfer (`Transfer-Encoding: chunked`) can help reduce recognition latency because it allows the Speech service to begin processing the audio file to before it has been transmitted. The REST API does not provide partial or interim results; this option is intended solely to improve responsiveness.
+Chunked transfer (`Transfer-Encoding: chunked`) can help reduce recognition latency because it allows the Speech service to begin processing the audio file to while it is being transmitted. The REST API does not provide partial or interim results; this option is intended solely to improve responsiveness.
 
 The following code illustrates how to send audio in chunks. `request` is an HTTPWebRequest object connected to the appropriate REST endpoint. `audioFile` is the path to an audio file on disk.
 
@@ -110,7 +110,7 @@ Expect: 100-continue
 
 ### HTTP status
 
-The HTTP status of the response indicates common error conditions.
+The HTTP status of the response indicates success or common error conditions.
 
 HTTP code|Meaning|Possible reason
 -|-|-|
@@ -142,7 +142,7 @@ The `RecognitionStatus` field may contain the following values.
 | `Error` | The recognition service encountered an internal error and could not continue. Try again if possible. |
 
 > [!NOTE]
-> If the user speaks only profanity, and the `profanity` query parameter is set to `remove`, the service does not return a speech result unless the recognition mode is `interactive`. In this case, he service returns a speech result with a `RecognitionStatus` of `NoMatch`. 
+> If the user speaks only profanity, and the `profanity` query parameter is set to `remove`, the service does not return a speech result unless the recognition mode is `interactive`. In this case, the service returns a speech result with a `RecognitionStatus` of `NoMatch`. 
 
 The `detailed` format includes the same fields as the `simple` format, along with an `NBest` field. The `NBest` field is a list of alternative interpretations of the same speech, ranked from most likely to least likely. The first entry is the same as the main recognition result. Each entry contains the following fields:
 
@@ -195,7 +195,7 @@ Below is a typical response for `detailed` recognition.
 
 ## Text to Speech
 
-The following are the REST endpoints for the unified Speech service Text to Speech API. Use the endpoint that matches your subscription region.
+The following are the REST endpoints for the Speech service's Text to Speech API. Use the endpoint that matches your subscription region.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
@@ -220,11 +220,11 @@ The following fields are sent in the HTTP request header.
 |`Authorization`|An authorization token preceded by the word `Bearer`. Required. See [Authentication](#authentication).|
 |`Content-Type`|The input content type: `application/ssml+xml`.|
 |`X-Microsoft-OutputFormat`|The output audio format. See next table.|
-|`X-Search-AppId`|Hex-only GUID (no dashes) that uniquely identifies the client application. This can be the store ID or, if it is not a store app, you can generate one yourself.|
+|`X-Search-AppId`|Hex-only GUID (no dashes) that uniquely identifies the client application. This can be the store ID. Ff it is not a store app, you can use any GUID.|
 |`X-Search-ClientId`|Hex-only GUID (no dashes) that uniquely identifies an application instance for each installation.|
 |`User-Agent`|Application name. Required; must contain fewer than 255 characters.|
 
-The available audio output formats incorporate both a bitrate and an encoding.
+The available audio output formats (`X-Microsoft-OutputFormat`) incorporate both a bitrate and an encoding.
 
 |||
 |-|-|
@@ -237,7 +237,7 @@ The available audio output formats incorporate both a bitrate and an encoding.
 
 ### Request body
 
-The text to be synthesized into speech is sent as the body of an HTTP `POST` request in either plain text or [Speech Synthesis Markup Language](speech-synthesis-markup.md) (SSML) format with UTF-8 text encoding. You must use SSML if you want to use a voice other than the service's default voice and language.
+The text to be synthesized into speech is sent as the body of an HTTP `POST` request in either plain text or [Speech Synthesis Markup Language](speech-synthesis-markup.md) (SSML) format with UTF-8 text encoding. You must use SSML if you want to use a voice other than the service's default voice.
 
 ### Sample request
 
@@ -249,15 +249,18 @@ POST /cognitiveservices/v1 HTTP/1.1
 X-Microsoft-OutputFormat: raw-16khz-16bit-mono-pcm
 Content-Type: application/ssml+xml
 Host: westus.tts.speech.microsoft.com
-Content-Length: 211
+Content-Length: 225
 Authorization: Bearer [Base64 access_token]
 
-<speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female' name='Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)'>Microsoft Speech Service Text-to-Speech API</voice></speak>
+<speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female' 
+    name='Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)'>
+        Microsoft Speech Service Text-to-Speech API
+</voice></speak>
 ```
 
 ### HTTP response
 
-The HTTP status of the response indicates common error conditions.
+The HTTP status of the response indicates success or common error conditions.
 
 HTTP code|Meaning|Possible reason
 -|-|-|
