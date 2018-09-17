@@ -72,7 +72,7 @@
       href: how-to-connect-install-existing-tenant.md
     - name: Post installation tasks
       href: how-to-connect-post-installation.md
-  - name: Plan and Design
+  - name: Plan and design
     items:
     - name: Design concepts
       href: plan-connect-design-concepts.md
@@ -170,7 +170,7 @@
       href: how-to-connect-pta-security-deep-dive.md
     - name: Pass-through authentication FAQ
       href: how-to-connect-pta-faq.md
-  - name: Manage Single Sign-On 
+  - name: Manage single sign-On 
     items:
     - name: What is Single Sign-On?
       href: how-to-connect-sso.md
@@ -252,8 +252,6 @@
       href: tshoot-connect-recover-from-localdb-10gb-limit.md
     - name: SQL connectivity
       href: tshoot-connect-tshoot-sql-connectivity.md
-
-
 - name: Reference
   items:
   - name: Hybrid Identity Required Ports and Protocols
