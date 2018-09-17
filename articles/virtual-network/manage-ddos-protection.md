@@ -140,10 +140,10 @@ DDoS Protection Standard applies three auto-tuned mitigation policies (TCP SYN, 
 
 Policy thresholds are auto-configured via Azure machine learning-based network traffic profiling. Only when the policy threshold is breached does DDoS mitigation occur for the IP address under attack.
 
-##Configure DDoS attack analytics
+## Configure DDoS attack analytics
 Azure DDoS Protection standard provides detailed attack insights and visualization with DDoS Attack Analytics. Customers protecting their virtual networks against DDoS attacks have detailed visibility into attack traffic and actions taken to mitigate the attack via attack mitigation reports & mitigation flow logs. 
 
-##Configure DDoS attack mitigation reports
+## Configure DDoS attack mitigation reports
 Attack mitigation reports uses the Netflow protocol data which is aggregated to provide detailed information about the attack on your resource. Anytime a public IP resource is under attack, the report generation will start as soon as the mitigation starts. There will be an incremental report generated every 5 mins and a post-mitigation report for the whole mitigation period. This is to ensure that in an event the DDoS attack continues for a longer duration of time, you will be able to view the most current snapshot of mitigation report every 5 minutes and a complete summary once the attack mitigation is over. 
 
 1. Select **All services** on the top, left of the portal.
@@ -165,7 +165,7 @@ Both the incremental & post-attack mitigation reports include the following fiel
 5. Top 10 source countries or regions
 6. Top 10 source ASNs
 
-##Configure DDoS attack mitigation flow logs
+## Configure DDoS attack mitigation flow logs
 Attack Mitigation Flow Logs allow you to review the dropped traffic, forwarded traffic and other interesting datapoints during an active DDoS attack in near-real time. You can ingest the constant stream of this data into your SIEM systems via event hub for near-real time monitoring, take potential actions and address the need of your defense operations. 
 
 1. Select **All services** on the top, left of the portal.
