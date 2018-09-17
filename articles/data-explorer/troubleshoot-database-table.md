@@ -48,7 +48,7 @@ For more information about permissions, see [Manage database permissions](manage
 
 ## General guidance
 
-1. Check the [Azure service health dashboard](https://azure.microsoft.com/en-us/status/>). Look for the status of Azure Data Explorer in the region where you're trying to work with a database or table.
+1. Check the [Azure service health dashboard](https://azure.microsoft.com/status/>). Look for the status of Azure Data Explorer in the region where you're trying to work with a database or table.
 
     If the status isn't **Good** (green check mark), try again after the status improves.
 

@@ -924,7 +924,7 @@ StormEvents
 
 ## Functions
 
-This section covers [**functions**](https://review.docs.microsoft.com/en-us/kusto/query/functions): reusable queries that are stored on the server. Functions can be invoked by queries and other functions (recursive functions are not supported).
+This section covers [**functions**](https://docs.microsoft.com/azure/kusto/query/functions): reusable queries that are stored on the server. Functions can be invoked by queries and other functions (recursive functions are not supported).
 
 > [!NOTE]
 > You cannot create functions on the help cluster, which is read-only. Use your own test cluster for this part.
