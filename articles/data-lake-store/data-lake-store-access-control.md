@@ -17,7 +17,7 @@ ms.author: nitinme
 ---
 # Access control in Azure Data Lake Storage Gen1
 
-Azure Data Lake Storage Gen1 implements an access control model that derives from HDFS, which in turn derives from the POSIX access control model. This article summarizes the basics of the access control model for Data Lake Storage Gen1. To learn more about the HDFS access control model, see [HDFS Permissions Guide](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html).
+Azure Data Lake Storage Gen1 implements an access control model that derives from HDFS, which in turn derives from the POSIX access control model. This article summarizes the basics of the access control model for Data Lake Storage Gen1. 
 
 ## Access control lists on files and folders
 
@@ -37,18 +37,6 @@ Both Access ACLs and Default ACLs have the same structure.
 >
 >
 
-## Users and identities
-
-Every file and folder has distinct permissions for these identities:
-
-* The owning user
-* The owning group
-* Named users
-* Named groups
-* All other users
-
-The identities of users and groups are Azure Active Directory (Azure AD) identities. So unless otherwise noted, a "user," in the context of Data Lake Storage Gen1, can either mean an Azure AD user or an Azure AD security group.
-
 ## Permissions
 
 The permissions on a filesystem object are **Read**, **Write**, and **Execute**, and they can be used on files and folders as shown in the following table:
@@ -65,10 +53,10 @@ The permissions on a filesystem object are **Read**, **Write**, and **Execute**,
 
 | Numeric form | Short form |      What it means     |
 |--------------|------------|------------------------|
-| 7            | RWX        | Read + Write + Execute |
-| 5            | R-X        | Read + Execute         |
-| 4            | R--        | Read                   |
-| 0            | ---        | No permissions         |
+| 7            | `RWX`        | Read + Write + Execute |
+| 5            | `R-X`        | Read + Execute         |
+| 4            | `R--`        | Read                   |
+| 0            | `---`        | No permissions         |
 
 
 ### Permissions do not inherit
@@ -81,13 +69,13 @@ Following are some common scenarios to help you understand which permissions are
 
 |    Operation             |    /    | Seattle/ | Portland/ | Data.txt     |
 |--------------------------|---------|----------|-----------|--------------|
-| Read Data.txt            |   --X   |   --X    |  --X      | R--          |
-| Append to Data.txt       |   --X   |   --X    |  --X      | RW-          |
-| Delete Data.txt          |   --X   |   --X    |  -WX      | ---          |
-| Create Data.txt          |   --X   |   --X    |  -WX      | ---          |
-| List /                   |   R-X   |   ---    |  ---      | ---          |
-| List /Seattle/           |   --X   |   R-X    |  ---      | ---          |
-| List /Seattle/Portland/  |   --X   |   --X    |  R-X      | ---          |
+| Read Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
+| Append to Data.txt       |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
+| Delete Data.txt          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| Create Data.txt          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| List /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
+| List /Seattle/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
+| List /Seattle/Portland/  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
 
 
 > [!NOTE]
@@ -95,27 +83,20 @@ Following are some common scenarios to help you understand which permissions are
 >
 >
 
-### Permissions needed to enumerate a folder
 
-![Data Lake Storage Gen1 ACLs](./media/data-lake-store-access-control/data-lake-store-acls-6.png)
+## Users and identities
 
-* For the folder to enumerate, the caller needs **Read + Execute** permissions.
-* For all the ancestor folders, the caller needs **Execute** permissions.
+Every file and folder has distinct permissions for these identities:
 
+* The owning user
+* The owning group
+* Named users
+* Named groups
+* All other users
 
-From the **Data Explorer** blade of the Data Lake Storage Gen1 account, click **Access** to see the ACLs for the file or folder being viewed in the Data Explorer. Click **Access** to see the ACLs for the **catalog** folder under the **mydatastorage** account.
+The identities of users and groups are Azure Active Directory (Azure AD) identities. So unless otherwise noted, a "user," in the context of Data Lake Storage Gen1, can either mean an Azure AD user or an Azure AD security group.
 
-![Data Lake Storage Gen1 ACLs](./media/data-lake-store-access-control/data-lake-store-show-acls-1.png)
-
-On this blade, the top section shows the owners permissions. (In the screenshot, the owning user is Bob.) Following that, the assigned Access ACLs are shown. 
-
-![Data Lake Storage Gen1 ACLs](./media/data-lake-store-access-control/data-lake-store-show-acls-simple-view.png)
-
-Click **Advanced View** to see the more advanced view, where the Default ACLs, mask, and a description of super-users are shown.  This blade also provides a way to recursively set Access and Default ACLs for child files and folders based on the permissions of the current folder.
-
-![Data Lake Storage Gen1 ACLs](./media/data-lake-store-access-control/data-lake-store-show-acls-advance-view.png)
-
-## The super-user
+### The super-user
 
 A super-user has the most rights of all the users in the Data Lake Storage Gen1 account. A super-user:
 
@@ -123,19 +104,14 @@ A super-user has the most rights of all the users in the Data Lake Storage Gen1 
 * Can change the permissions on any file or folder.
 * Can change the owning user or owning group of any file or folder.
 
-In Azure, a Data Lake Storage Gen1 account has several Azure roles, including:
+All users that are part of the **Owners** role for a Data Lake Storage Gen1 account are automatically a super-user.
 
-* Owners
-* Contributors
-* Readers
-
-Everyone in the **Owners** role for a Data Lake Storage Gen1 account is automatically a super-user for that account. To learn more, see [Role-based access control](../role-based-access-control/role-assignments-portal.md).
 If you want to create a custom role-based-access control (RBAC) role that has super-user permissions, it needs to have the following permissions:
 - Microsoft.DataLakeStore/accounts/Superuser/action
 - Microsoft.Authorization/roleAssignments/write
 
 
-## The owning user
+### The owning user
 
 The user who created the item is automatically the owning user of the item. An owning user can:
 
@@ -147,16 +123,18 @@ The user who created the item is automatically the owning user of the item. An o
 >
 >
 
-## The owning group
+### The owning group
 
-In the POSIX ACLs, every user is associated with a "primary group." For example, user "alice" might belong to the "finance" group. Alice might also belong to multiple groups, but one group is always designated as her primary group. In POSIX, when Alice creates a file, the owning group of that file is set to her primary group, which in this case is "finance."
+**Background**
 
-When a new filesystem item is created, Data Lake Storage Gen1 assigns a value to the owning group.
+In the POSIX ACLs, every user is associated with a "primary group." For example, user "alice" might belong to the "finance" group. Alice might also belong to multiple groups, but one group is always designated as her primary group. In POSIX, when Alice creates a file, the owning group of that file is set to her primary group, which in this case is "finance." The owning group otherwise behaves similarly to assigned permissions for other users/groups.
+
+**Assiging the owning group for a new file or folder**
 
 * **Case 1**: The root folder "/". This folder is created when a Data Lake Storage Gen1 account is created. In this case, the owning group is set to the user who created the account.
 * **Case 2** (Every other case): When a new item is created, the owning group is copied from the parent folder.
 
-The owning group otherwise behaves similarly to assigned permissions for other users/groups.
+**Changing the owning group**
 
 The owning group can be changed by:
 * Any super-users.
@@ -165,9 +143,10 @@ The owning group can be changed by:
 > [!NOTE]
 > The owning group *cannot* change the ACLs of a file or folder.  While the owning group is set to the user who created the account in the case of the root folder, **Case 1** above, a single user account is not valid for providing permissions via the owning group.  You can assign this permission to a valid user group if applicable.
 
+
 ## Access check algorithm
 
-The following psuedocode represents the access check algorithm for Data Lake Storage Gen1 accounts.
+The following pseudocode represents the access check algorithm for Data Lake Storage Gen1 accounts.
 
 ```
 def access_check( user, desired_perms, path ) : 
@@ -177,30 +156,33 @@ def access_check( user, desired_perms, path ) :
   # path is the file or folder
   # Note: the "sticky bit" is not illustrated in this algorithm
   
-# Handle super users
-    if (is_superuser(user)) :
-      return True
+# Handle super users.
+  if (is_superuser(user)) :
+    return True
 
-  # Handle the owning user. Note that mask is not used.
-    if (is_owning_user(path, user))
-      perms = get_perms_for_owning_user(path)
-      return ( (desired_perms & perms) == desired_perms )
+  # Handle the owning user. Note that mask IS NOT used.
+  entry = get_acl_entry( path, OWNER )
+  if (user == entry.identity)
+      return ( (desired_perms & e.permissions) == desired_perms )
 
-  # Handle the named user. Note that mask is used.
-  if (user in get_named_users( path )) :
-      perms = get_perms_for_named_user(path, user)
-      mask = get_mask( path )
-      return ( (desired_perms & perms & mask ) == desired_perms)
+  # Handle the named users. Note that mask IS used.
+  entries = get_acl_entries( path, NAMED_USER )
+  for entry in entries:
+      if (user == entry.identity ) :
+          mask = get_mask( path )
+          return ( (desired_perms & entry.permmissions & mask) == desired_perms)
 
-  # Handle groups (named groups and owning group)
-  belongs_to_groups = [g for g in get_groups(path) if is_member_of(user, g) ]
-  if (len(belongs_to_groups)>0) :
-    group_perms = [get_perms_for_group(path,g) for g in belongs_to_groups]
-    perms = 0
-    for p in group_perms : perms = perms | p # bitwise OR all the perms together
-    mask = get_mask( path )
-    return ( (desired_perms & perms & mask ) == desired_perms)
-
+  # Handle named groups and owning group
+  member_count = 0
+  perms = 0
+  entries = get_acl_entries( path, NAMED_GROUP | OWNING_GROUP )
+  for entry in entries:
+    if (user_is_member_of_group(user, entry.identity)) :
+      member_count += 1
+      perms | =  entry.permissions
+  if (member_count>0) :
+    return ((desired_perms & perms & mask ) == desired_perms)
+ 
   # Handle other
   perms = get_perms_for_other(path)
   mask = get_mask( path )
@@ -216,7 +198,7 @@ As illustrated in the Access Check Algorithm, the mask limits access for **named
 >
 >
 
-#### The sticky bit
+### The sticky bit
 
 The sticky bit is a more advanced feature of a POSIX filesystem. In the context of Data Lake Storage Gen1, it is unlikely that the sticky bit will be needed. In summary, if the sticky bit is enabled on a folder,  a child item can only be deleted or renamed by the child item's owning user.
 
@@ -235,20 +217,20 @@ When creating a file or folder, umask is used to modify how the default ACLs are
 
 The umask for Azure Data Lake Storage Gen1 a constant value that is set to 007. This value translates to
 
-| umask component     | Value    |
-|---------------------|----------|
-| umask.owning_user   | 0 (---)  |
-| umask.owning_group  | 0 (---)  |
-| umask.other         | 7 (RWX)  |
+| umask component     | Numeric form | Short form | Meaning |
+|---------------------|--------------|------------|---------|
+| umask.owning_user   |    0         |   `---`      | For owning user, copy the parent's Default ACL to the child's Access ACL | 
+| umask.owning_group  |    0         |   `---`      | For owning group, copy the parent's Default ACL to the child's Access ACL | 
+| umask.other         |    7         |   `RWX`      | For other, remove all permissions on the child's Access ACL |
 
-This umask value effectively means that the value for other is never transmitted by default on new children - regardless of what the Default ACL indicates. 
+The umask value used by Azure Data Lake Storage Gen1 effectively means that the value for other is never transmitted by default on new children - regardless of what the Default ACL indicates. 
 
-The following psuedocode shows how the umask is applied when creating the ACLs for a child item.
+The following pseudocode shows how the umask is applied when creating the ACLs for a child item.
 
 ```
 def set_default_acls_for_new_child(parent, child):
     child.acls = []
-    foreach entry in parent.acls :
+    for entry in parent.acls :
         new_entry = None
         if (entry.type == OWNING_USER) :
             new_entry = entry.clone(perms = entry.perms & (~umask.owning_user))

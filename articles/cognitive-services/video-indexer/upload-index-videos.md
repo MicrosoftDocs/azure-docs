@@ -4,11 +4,11 @@ description: This topic demonstrates how to use APIs to upload and index your vi
 services: cognitive services
 documentationcenter: ''
 author: juliako
-manager: erikre
+manager: femila
 
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 08/17/2018
+ms.date: 09/15/2018
 ms.author: juliako
 
 ---
@@ -29,7 +29,7 @@ The article also discusses some of the parameters that you can set on the API to
 ## Uploading considerations
     
 - When uploading your video based on the URL (preferred) the endpoint must be secured with TLS 1.2 (or higher)
-- The byte array option is limited to 4GB and times out after 30 min
+- The byte array option is limited to 2GB and times out after 30 min
 - The URL provided in the `videoURL` param needs to be encoded
 
 ## Configurations and params

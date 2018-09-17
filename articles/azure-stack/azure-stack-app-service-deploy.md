@@ -13,7 +13,7 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/12/2018
 ms.author: anwestg
 
 ---
@@ -224,7 +224,7 @@ After you deploy and register the App Service resource provider, test it to make
 
 To create a test web app, follow these steps:
 
-1. In the Azure Stack tenant portal, select **New** > **Web + Mobile** > **Web App**.
+1. In the Azure Stack user portal, select **+ Create a resource** > **Web + Mobile** > **Web App**.
 
 2. Under **Web App**, enter a name in **Web app**.
 
