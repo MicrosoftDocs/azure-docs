@@ -230,7 +230,7 @@ The following pseudocode shows how the umask is applied when creating the ACLs f
 ```
 def set_default_acls_for_new_child(parent, child):
     child.acls = []
-    foreach entry in parent.acls :
+    for entry in parent.acls :
         new_entry = None
         if (entry.type == OWNING_USER) :
             new_entry = entry.clone(perms = entry.perms & (~umask.owning_user))

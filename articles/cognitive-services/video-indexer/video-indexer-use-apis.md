@@ -4,7 +4,7 @@ description: This article shows how to get started using the Video Indexer API.
 services: cognitive services
 documentationcenter: ''
 author: juliako
-manager: erikre
+manager: femila
 
 ms.service: cognitive-services
 ms.topic: article

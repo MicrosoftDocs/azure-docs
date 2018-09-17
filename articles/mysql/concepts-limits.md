@@ -68,7 +68,7 @@ Similarly [SUPER privilege](https://dev.mysql.com/doc/refman/5.7/en/privileges-p
 - Decreasing server storage size is not supported.
 
 ### Server version upgrades
-- Automated migration between major database engine versions is currently not supported.
+- Automated migration between major database engine versions is currently not supported. If you would like to upgrade to the next major version, take a [dump and restore](./concepts-migrate-dump-restore.md) it to a server that was created with the new engine version.
 
 ### Point-in-time-restore
 - When using the PITR feature, the new server is created with the same configurations as the server it is based on.
