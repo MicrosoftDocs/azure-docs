@@ -5,6 +5,7 @@
   - name: What is Azure Stack?
     href: azure-stack-poc.md
   - name: Release notes
+    href: azure-stack-update-1808.md
     items:
     - name: 1808 update 
       href: azure-stack-update-1808.md 
