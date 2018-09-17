@@ -4,7 +4,7 @@ description: This article shows how to create a Video Indexer account connected 
 services: cognitive services
 documentationcenter: ''
 author: juliako
-manager: erikre
+manager: femila
 
 ms.service: cognitive-services
 ms.topic: article
