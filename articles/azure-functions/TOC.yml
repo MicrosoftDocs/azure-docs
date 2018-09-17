@@ -248,6 +248,8 @@
       href: functions-bindings-sendgrid.md
     - name: Service Bus
       href: functions-bindings-service-bus.md
+    - name: SignalR Service
+      href: functions-bindings-signalr-service.md
     - name: Table storage
       href: functions-bindings-storage-table.md
     - name: Timer
