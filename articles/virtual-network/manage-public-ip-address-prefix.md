@@ -52,7 +52,7 @@ Public IP address prefixes have a charge. For details, see [pricing](https://azu
    |Resource group|Yes|Can exist in the same, or different, [resource group](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) as the resource you want to associate the public IP address to.|
    |Name|Yes|The name must be unique within the resource group you select.|
    |Region|Yes|Must exist in the same [region](https://azure.microsoft.com/regions)as the public IP addresses you'll assign addresses from the range. Prefix is currently is preview in West Central US, West US, West US 2, Central US, North Europe, West Europe, and Southeast Asia.|
-   |Prefix size|Yes| The size of the prefix you need. A /28 or 16 IP addresses is the default. To create a larger block, [open an online customer support request at no charge](azure-resource-manager/resource-manager-quota-errors.md). 
+   |Prefix size|Yes| The size of the prefix you need. A /28 or 16 IP addresses is the default. To create a larger block, [open an online customer support request at no charge](../azure-resource-manager/resource-manager-quota-errors.md). 
 
 **Commands**
 
