@@ -1104,7 +1104,7 @@ featureFlags:
                                         </li>
                                         <li>
                                             <a href="/azure/data-explorer/">
-                                                <img src="media/logos/logo_azure" alt="" />
+                                                <img src="https://docs.microsoft.com/media/logos/logo_azure.svg" alt="" />
                                                 <p>Azure Data Explorer</p>
                                             </a>
                                         </li>
@@ -3173,7 +3173,7 @@ featureFlags:
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/logos/logo_azure.svg" alt="" />
+                                                        <img src="https://docs.microsoft.com/en-us/media/logos/logo_azure.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
