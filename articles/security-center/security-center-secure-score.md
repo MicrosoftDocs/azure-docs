@@ -58,7 +58,7 @@ The **Recommendation impact** lets you know how much your secure score will impr
 
 The recommendation shows which threats your workload is exposed to if the remediation steps are not taken.
 
-![individual recommendation secure score]()
+![individual recommendation secure score](./media/security-center-secure-score/indiv-recommendation-secure-score.png)
 
 ## Next steps
 This article showed you how to improve your security posture using **Secure score** in Azure Security Center. To learn more about Security Center, see the following:

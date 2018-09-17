@@ -23,7 +23,7 @@ Learn how to configure application control in Azure Security Center using this w
 ## What are adaptive application controls in Security Center?
 Adaptive application controls is an intelligent, automated end-to-end application whitelisting solution from Azure Security Center. It helps you control which applications can run on your VMs located in Azure, which among other benefits helps harden your VMs against malware. Security Center uses machine learning to analyze the applications running on your VMs and helps you apply the specific whitelisting rules using this intelligence. This capability greatly simplifies the process of configuring and maintaining application whitelisting policies, enabling you to:
 
-- Block or alert on attempts to run malicious applications, including those that might otherwise be missed by antimalware solutions
+- Block or alert on attempts to run malicious applications, including those that might otherwise be missed by antimalware solutions.
 - Comply with your organization's security policy that dictates the use of only licensed software.
 - Avoid unwanted software to be used in your environment.
 - Avoid old and unsupported apps to run.
