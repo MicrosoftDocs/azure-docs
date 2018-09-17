@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/21/2018
+ms.date: 08/27/2018
 ms.author: Kumud
 ---
 
@@ -215,5 +215,6 @@ The various resource health statuses and their descriptions are listed in the fo
 
 - Learn more about [Standard Load Balancer](load-balancer-standard-overview.md).
 - Learn more about your [Load balancer outbound connectivity](https://aka.ms/lboutbound).
+- Learn about the [Azure Monitor Metrics REST API](https://docs.microsoft.com/rest/api/monitor/metrics/).
 
 

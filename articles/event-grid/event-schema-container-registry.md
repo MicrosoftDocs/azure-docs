@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: reference
-ms.date: 07/20/2018
+ms.date: 08/13/2018
 ms.author: tomfitz
 ---
 
@@ -113,8 +113,6 @@ The data object has the following properties:
 | action | string | The action that encompasses the provided event. |
 | target | object | The target of the event. |
 | request | object | The request that generated the event. |
-| actor | object | The agent that initiated the event. For most situations, this value could be from the authorization context of the request. |
-| source | object | The registry node that generated the event. Put differently, while the actor initiates the event, the source generates it. |
 
 The target object has the following properties:
 
@@ -125,7 +123,6 @@ The target object has the following properties:
 | digest | string | The digest of the content, as defined by the Registry V2 HTTP API Specification. |
 | length | integer | The number of bytes of the content. Same as Size field. |
 | repository | string | The repository name. |
-| url | string | The direct URL to the content. |
 | tag | string | The tag name. |
 
 The request object has the following properties:
@@ -137,19 +134,6 @@ The request object has the following properties:
 | host | string | The externally accessible hostname of the registry instance, as specified by the http host header on incoming requests. |
 | method | string | The request method that generated the event. |
 | useragent | string | The user agent header of the request. |
-
-The actor object has the following properties:
-
-| Property | Type | Description |
-| -------- | ---- | ----------- |
-| name | string | The subject or username associated with the request context that generated the event. |
-
-The source object has the following properties:
-
-| Property | Type | Description |
-| -------- | ---- | ----------- |
-| addr | string | The IP or hostname and the port of the registry node that generated the event. Generally, this value will be resolved by os.Hostname() along with the running port. |
-| instanceID | string | The running instance of an application. Changes after each restart. |
 
 ## Next steps
 

@@ -18,15 +18,17 @@ ms.author: kavyako
 ---
 # Connect to a secure service with the reverse proxy
 
-This article explains how to establish secure connection between the reverse proxy and services, thus enabling an end to end secure channel.
+This article explains how to establish secure connection between the reverse proxy and services, thus enabling an end to end secure channel. To learn more about reverse proxy, see [Reverse proxy in Azure Service Fabric](service-fabric-reverseproxy.md)
 
-Connecting to secure services is supported only when reverse proxy is configured to listen on HTTPS. Rest of the document assumes this is the case.
-Refer to [Reverse proxy in Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy) to configure the reverse proxy in Service Fabric.
+Connecting to secure services is supported only when reverse proxy is configured to listen on HTTPS. This article assumes this is the case.
+Refer to [Setup reverse proxy in Azure Service Fabric](service-fabric-reverseproxy-setup.md) to configure the reverse proxy in Service Fabric.
 
 ## Secure connection establishment between the reverse proxy and services 
 
 ### Reverse proxy authenticating to services:
-The reverse proxy identifies itself to services using its certificate, specified with ***reverseProxyCertificate*** property in the **Cluster** [Resource type section](../azure-resource-manager/resource-group-authoring-templates.md). Services can implement the logic to verify the certificate presented by the reverse proxy. The services can specify the accepted client certificate details as configuration settings in the configuration package. This can be read at runtime and used to validate the certificate presented by the reverse proxy. Refer to [Manage application parameters](service-fabric-manage-multiple-environment-app-configuration.md) to add the configuration settings. 
+The reverse proxy identifies itself to services using its certificate. For Azure clusters the certificate is specified with ***reverseProxyCertificate*** property in the [**Microsoft.ServiceFabric/clusters**](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters) [Resource type section](../azure-resource-manager/resource-group-authoring-templates.md) of the Resource Manager template. For standalone clusters, the certificate is specified with either the ***ReverseProxyCertificate*** or the ***ReverseProxyCertificateCommonNames*** property in the **Security** section of ClusterConfig.json. To learn more, see [Enable reverse proxy on standalone clusters](service-fabric-reverseproxy-setup.md#enable-reverse-proxy-on-standalone-clusters). 
+
+Services can implement the logic to verify the certificate presented by the reverse proxy. The services can specify the accepted client certificate details as configuration settings in the configuration package. This can be read at runtime and used to validate the certificate presented by the reverse proxy. Refer to [Manage application parameters](service-fabric-manage-multiple-environment-app-configuration.md) to add the configuration settings. 
 
 ### Reverse proxy verifying the service's identity via the certificate presented by the service:
 Reverse proxy supports the following policies to perform server certificate validation of the certificates presented by services: None, ServiceCommonNameAndIssuer, and ServiceCertificateThumbprints.
@@ -191,6 +193,7 @@ If the client does not present a certificate, reverse proxy forwards an empty he
 
 
 ## Next steps
+* [Set up and configure reverse proxy on a cluster](service-fabric-reverseproxy-setup.md).
 * Refer to [Configure reverse proxy to connect to secure services](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample#configure-reverse-proxy-to-connect-to-secure-services) for Azure Resource Manager template samples to configure secure reverse proxy with the different service certificate validation options.
 * See an example of HTTP communication between services in a [sample project on GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started).
 * [Remote procedure calls with Reliable Services remoting](service-fabric-reliable-services-communication-remoting.md)

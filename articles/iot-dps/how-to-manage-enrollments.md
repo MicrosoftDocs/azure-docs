@@ -1,8 +1,8 @@
 ---
 title: Manage device enrollments with Azure portal | Microsoft Docs
-description: How to manage device enrollments for your DPS service in the Azure Portal
-author: dsk-2015
-ms.author: dkshir
+description: How to manage device enrollments for your Device Provisioning Service in the Azure Portal
+author: wesmc7777
+ms.author: wesmc
 ms.date: 04/05/2018
 ms.topic: conceptual
 ms.service: iot-dps

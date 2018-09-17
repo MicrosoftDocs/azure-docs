@@ -1,5 +1,5 @@
 ---
-title: Introduction to device management in Azure Active Directory | Microsoft Docs
+title: What is device management in Azure Active Directory? | Microsoft Docs
 description: Learn how device management can help you to get control over the devices that are accessing resources in your environment.
 services: active-directory
 documentationcenter: ''
@@ -13,13 +13,14 @@ ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/21/2018
+ms.topic: overview
+ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: jairoc
+#Customer intent: As a IT admin, I want to learn how to bring the devices that are accessing my resources under control, so that I can ensure that that my users are accessing my resources from devices that meet my standards for security and compliance.
 
 ---
-# Introduction to device management in Azure Active Directory
+# What is device management in Azure Active Directory?
 
 In a mobile-first, cloud-first world, Azure Active Directory (Azure AD) enables single sign-on to devices, apps, and services from anywhere. With the proliferation of devices - including Bring Your Own Device (BYOD), IT professionals are faced with two opposing goals:
 
@@ -28,7 +29,7 @@ In a mobile-first, cloud-first world, Azure Active Directory (Azure AD) enables 
 
 Through devices, your users are getting access to your corporate assets. To protect your corporate assets, as an IT administrator, you want to have control over these devices. This enables you to make sure that your users are accessing your resources from devices that meet your standards for security and compliance. 
 
-Device management is also the foundation for [device-based conditional access](../active-directory-conditional-access-policy-connected-applications.md). With device-based conditional access, you can ensure that access to resources in your environment is only possible with managed devices.   
+Device management is also the foundation for [device-based conditional access](../conditional-access/require-managed-devices.md). With device-based conditional access, you can ensure that access to resources in your environment is only possible with managed devices.   
 
 This article explains how device management in Azure Active Directory works.
 
@@ -118,7 +119,7 @@ For more than a decade, many organizations have used the domain join to their on
 
 Typically, organizations with an on-premises footprint rely on imaging methods to provision devices, and they often use **System Center Configuration Manager (SCCM)** or **group policy (GP)** to manage them.
 
-If your environment has an on-premises AD footprint and you also want benefit from the capabilities provided by Azure Active Directory, you can implement hybrid Azure AD joined devices. These are devices that are both, joined to your on-premises Active Directory and your Azure Active Directory.
+If your environment has an on-premises AD footprint and you also want benefit from the capabilities provided by Azure Active Directory, you can implement hybrid Azure AD joined devices. These are devices that are joined to your on-premises Active Directory and registered with your Azure Active Directory.
 
 ![Azure AD registered devices](./media/overview/01.png)
 
@@ -175,7 +176,7 @@ As a rule of a thumb, you should use:
 
 - To get an overview of how to manage device in the Azure portal, see [managing devices using the Azure portal](device-management-azure-portal.md)
 
-- To learn more about device-based conditional access, see [configure Azure Active Directory device-based conditional access policies](../active-directory-conditional-access-policy-connected-applications.md).
+- To learn more about device-based conditional access, see [configure Azure Active Directory device-based conditional access policies](../conditional-access/require-managed-devices.md).
 
 - To setup:
     - Azure Active Directory registered Windows 10 devices, see [how to configure Azure Active Directory registered Windows 10 devices](../user-help/device-management-azuread-registered-devices-windows10-setup.md)

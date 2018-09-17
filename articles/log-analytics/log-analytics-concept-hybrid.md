@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/02/2018
+ms.date: 08/03/2018
 ms.author: magoedte
 ms.component: na
 ---
@@ -74,7 +74,7 @@ If you plan to use the Azure Automation Hybrid Runbook Worker to connect to and 
 
 The Windows and Linux agent supports communicating either through a proxy server or OMS Gateway to the Log Analytics service using the HTTPS protocol.  Both anonymous and basic authentication (username/password) are supported.  For the Windows agent connected directly to the service, the proxy configuration is specified during installation or [after deployment](log-analytics-agent-manage.md#update-proxy-settings) from Control Panel or  with PowerShell.  
 
-For the Linux agent, the proxy server is specified during installation or [after installation](/log-analytics-agent-manage.md#update-proxy-settings) by modifying the proxy.conf configuration file.  The Linux agent proxy configuration value has the following syntax:
+For the Linux agent, the proxy server is specified during installation or [after installation](log-analytics-agent-manage.md#update-proxy-settings) by modifying the proxy.conf configuration file.  The Linux agent proxy configuration value has the following syntax:
 
 `[protocol://][user:password@]proxyhost[:port]`
 

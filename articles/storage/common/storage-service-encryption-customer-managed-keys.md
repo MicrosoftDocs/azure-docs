@@ -3,12 +3,11 @@ title: Azure Storage Service Encryption using customer-managed keys in Azure Key
 description: Use the Azure Storage Service Encryption feature to encrypt Azure Blob storage and Azure Files on the service side when storing the data, and decrypt it when retrieving the data using customer-managed keys.
 services: storage
 author: lakasa
-manager: jeconnoc
-
 ms.service: storage
 ms.topic: article
 ms.date: 08/01/2018
 ms.author: lakasa
+ms.component: common
 ---
 
 # Storage Service Encryption using customer-managed keys in Azure Key Vault
@@ -30,7 +29,7 @@ To use customer-managed keys with SSE, you can either create a new key vault and
 First, create a storage account if you don't have one already. For more information, see [Create a new storage account](storage-quickstart-create-account.md).
 
 ### Step 2: Enable SSE for Blob and File storage
-To enable SSE using customer-managed keys, two key protection features, Soft Delete and Do Not Purge, must also be enabled. These settings ensure the keys cannot be accidently or intentionally deleted. The maximum retention period of the keys is set to 90 days, protecting users against malicious actors or ransomware attacks.
+To enable SSE using customer-managed keys, two key protection features, Soft Delete and Do Not Purge, must also be enabled in Azure Key Vault. These settings ensure the keys cannot be accidently or intentionally deleted. The maximum retention period of the keys is set to 90 days, protecting users against malicious actors or ransomware attacks.
 
 If you want to programmatically enable customer-managed keys for SSE, you can use the [Azure Storage Resource Provider REST API](https://docs.microsoft.com/rest/api/storagerp), the [Storage Resource Provider Client Library for .NET](https://docs.microsoft.com/dotnet/api), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview), or the [Azure CLI](https://docs.microsoft.com/azure/storage/storage-azure-cli).
 

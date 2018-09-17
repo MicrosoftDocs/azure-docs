@@ -175,20 +175,7 @@ such as *Southeast Asia* during the initiative assignment, because it is not par
 
 ## Maximum count of Policy objects
 
-There is a maximum count for each object type for Azure Policy. An entry of _Scope_ means either
-the subscription or the management group.
-
-| Where | What | Maximum count |
-|---|---|---|
-| Scope | Policy Definitions | 250 |
-| Scope | Initiative Definitions | 100 |
-| Tenant | Initiative Definitions | 1000 |
-| Scope | Policy/Initiative Assignments | 100 |
-| Policy Definition | Parameters | 20 |
-| Initiative Definition | Policies | 100 |
-| Initiative Definition | Parameters | 100 |
-| Policy/Initiative Assignments | Exclusions (notScopes) | 100 |
-| Policy Rule | Nested Conditionals | 512 |
+[!INCLUDE [policy-limits](../../includes/azure-policy-limits.md)]
 
 ## Recommendations for managing policies
 
@@ -221,7 +208,7 @@ an initiative.
 The following overview of Azure Policy is from Build 2018. For slides or video download, please
 visit [Govern your Azure environment through Azure Policy](https://channel9.msdn.com/events/Build/2018/THR2030) on Channel 9.
 
-> [!VIDEO https://channel9.msdn.com/events/Build/2018/THR2030/player]
+> [!VIDEO https://www.youtube.com/embed/dxMaYF2GB7o]
 
 ## Next steps
 

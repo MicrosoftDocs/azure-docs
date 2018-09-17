@@ -13,7 +13,7 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2018
+ms.date: 08/20/2018
 ms.author: anwestg
 
 ---
@@ -25,7 +25,7 @@ ms.author: anwestg
 Before you deploy Azure App Service on Azure Stack, you must complete the prerequisite steps in this article.
 
 > [!IMPORTANT]
-> Apply the 1804 update to your Azure Stack integrated system or deploy the latest Azure Stack Development Kit (ASDK) before you deploy Azure App Service 1.2.
+> Apply the 1807 update to your Azure Stack integrated system or deploy the latest Azure Stack Development Kit (ASDK) before you deploy Azure App Service 1.3.
 
 ## Download the installer and helper scripts
 
@@ -238,27 +238,6 @@ net share %WEBSITES_SHARE% /delete
 net share %WEBSITES_SHARE%=%WEBSITES_FOLDER% /grant:Everyone,full
 ```
 
-### Add the FileShareOwners group to the local Administrators group
-
-For Windows Remote Management to work properly, you must add the FileShareOwners group to the local Administrators group.
-
-#### Active Directory
-
-Run the following commands at an elevated command prompt on the file server or on every file server that acts as a failover cluster node. Replace the value for `<DOMAIN>` with the domain name that you want to use.
-
-```DOS
-set DOMAIN=<DOMAIN>
-net localgroup Administrators %DOMAIN%\FileShareOwners /add
-```
-
-#### Workgroup
-
-Run the following command at an elevated command prompt on the file server:
-
-```DOS
-net localgroup Administrators FileShareOwners /add
-```
-
 ### Configure access control to the shares
 
 Run the following commands at an elevated command prompt on the file server or on the failover cluster node, which is the current cluster resource owner. Replace values in italics with values that are specific to your environment.
@@ -350,6 +329,7 @@ Follow these steps:
 | AzureStackAdminCredential | Required | Null | Azure AD service admin credential. |
 | CertificateFilePath | Required | Null | **Full path** to the identity application certificate file generated earlier. |
 | CertificatePassword | Required | Null | Password that helps protect the certificate private key. |
+| Environment | Optional | AzureCloud | The name of the supported Cloud Environment in which the target Azure Active Directory Graph Service is available.  Allowed values: 'AzureCloud', 'AzureChinaCloud', 'AzureUSGovernment', 'AzureGermanCloud'.|
 
 ## Create an Active Directory Federation Services application
 

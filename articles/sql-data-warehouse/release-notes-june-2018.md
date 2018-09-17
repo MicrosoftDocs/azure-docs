@@ -3,7 +3,7 @@ title: Azure SQL Data Warehouse Release Notes June 2018 | Microsoft Docs
 description: Release notes for Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: twounder
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
@@ -18,7 +18,7 @@ Azure SQL Data Warehouse receives improvements continually. This article describ
 ## User Defined Restore Points
 SQL Data Warehouse automatically takes snapshots of your data warehouse every 8 hours guaranteeing an eight-hour recovery point objective (RPO). While this automated snapshots ease the management burden of running your data warehouse, there is a need to take snapshots at critical times based on your business need. For example, taking a snapshot right before a significant data load or the deployment of new scripts into the data warehouse to enable a restore point right before the operation. 
 
-SQL Data Warehouse now supports [user-defined restore points](https://azure.microsoft.com/blog/quick-recovery-time-with-sql-data-warehouse-using-user-defined-restore-points/) through the [New-AzureRmSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaserestorepoin) cmdlet.
+SQL Data Warehouse now supports [user-defined restore points](https://azure.microsoft.com/blog/quick-recovery-time-with-sql-data-warehouse-using-user-defined-restore-points/) through the [New-AzureRmSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaserestorepoint) cmdlet.
 
 ```PowerShell
 New-AzureRmSqlDatabaseRestorePoint
@@ -45,7 +45,7 @@ The SELECT permission was denied on the column 'SSN' of the object 'Membership',
 ```
 
 ## OBJECT_SCHEMA_NAME
-The [OBJECT_SCHEMA_NAME()]() function returns the database schema name for schema-scoped objects. This function has become common in ETL tools when do object schema validation. 
+The [OBJECT_SCHEMA_NAME()](https://docs.microsoft.com/sql/t-sql/functions/object-schema-name-transact-sql) function returns the database schema name for schema-scoped objects. This function has become common in ETL tools when do object schema validation. 
 
 ```sql
 SELECT

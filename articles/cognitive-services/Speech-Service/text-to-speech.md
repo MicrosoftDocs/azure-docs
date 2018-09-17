@@ -33,6 +33,21 @@ The Microsoft **Text-to-Speech** service offers more than 75 voices in more than
 
 If you want a unique voice for your application, you can create [custom voice fonts](how-to-customize-voice-font.md) from your own speech samples.
 
+## API capabilities
+
+A lot of the capabilities of the **Text to Speech** API -especially around customization- are available via REST. The following table summarizes the capabilities of each method of accessing the API. For a full list of capabilities and API details please consult [Swagger](https://swagger/service/11ed9226-335e-4d08-a623-4547014ba2cc#/)
+
+| Use case | REST | SDKs |
+|-----|-----|-----|----|
+| Upload datasets for voice adaptation | Yes | No |
+| Create & manage voice font models | Yes | No |
+| Create & manage voice font deployments | Yes | No |
+| Create & manage voice font tests| Yes | No |
+| Manage Subscriptions | Yes | No |
+
+> [!NOTE]
+> The API implements throttling that limits the API requests to 25 per 5 seconds. Message hearders will inform of the limits.
+
 ## Next steps
 
 * [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)

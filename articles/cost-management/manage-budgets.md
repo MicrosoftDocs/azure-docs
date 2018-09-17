@@ -78,5 +78,5 @@ In the Cost vs. Budget Over Time report, click **Actions** and then select **Sch
 
 ## Next steps
 
-- If you haven't already completed the first tutorial for Cost Management, read it at  [Review usage and costs](https://docs.microsoft.com/en-us/azure/cost-management/tutorial-review-usage).
+- If you haven't already completed the first tutorial for Cost Management, read it at  [Review usage and costs](https://docs.microsoft.com/azure/cost-management/tutorial-review-usage).
 - Learn more about the [reports available in Cost Management](use-reports.md).

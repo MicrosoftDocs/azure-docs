@@ -1,5 +1,16 @@
 <!--author=alkohli last changed:02/10/2017-->
 
+---
+title: "include file"
+description: "include file"
+services: storage
+author: alkohli
+ms.service: storage
+ms.topic: "include"
+ms.date: 08/20/2018
+ms.author: alkohli
+ms.custom: "include file"
+---
 
 #### To create a new service
 
@@ -24,7 +35,7 @@
    4. Supply a **Location** for your service. In general, choose a location closest to the geographical region where you want to deploy your device. You may also want to factor in the following considerations: 
       
       * If you have existing workloads in Azure that you also intend to deploy with your StorSimple device, you should use that datacenter.
-      * Your StorSimple Device Manager service and Azure storage can be in two separate locations. In such a case, you are required to create the StorSimple Device Manager and Azure storage account separately. To create an Azure storage account, go to the Azure Storage service in the Azure portal and follow the steps in [Create an Azure Storage account](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account). After you create this account, add it to the StorSimple Device Manager service by following the steps in [Configure a new storage account for the service](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#configure-a-new-storage-account-for-the-service).
+      * Your StorSimple Device Manager service and Azure storage can be in two separate locations. In such a case, you are required to create the StorSimple Device Manager and Azure storage account separately. To create an Azure storage account, go to the Azure Storage service in the Azure portal and follow the steps in [Create an Azure Storage account](../articles/storage/common/storage-quickstart-create-account.md). After you create this account, add it to the StorSimple Device Manager service by following the steps in [Configure a new storage account for the service](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#configure-a-new-storage-account-for-the-service).
 
    5. Select **Create a new storage account** to automatically create a storage account with the service. Specify a name for this storage account. If you need your data in a different location, uncheck this box.
 

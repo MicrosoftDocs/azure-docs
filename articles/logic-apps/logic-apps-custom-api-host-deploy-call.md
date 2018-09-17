@@ -1,24 +1,18 @@
 ---
 title: Deploy and call web APIs & REST APIs from Azure Logic Apps | Microsoft Docs
-description: Deploy and call your web APIs & REST APIs for system integration workflows in  Azure Logic Apps
-keywords: web APIs, REST APIs, connectors, workflows, system integrations, authenticate
+description: Deploy and call web APIs & REST APIs for system integratio workflows in Azure Logic Apps
 services: logic-apps
-author: stepsic-microsoft-com
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-
-ms.assetid: f113005d-0ba6-496b-8230-c1eadbd6dbb9
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, stepsic, LADocs
 ms.topic: article
+ms.assetid: f113005d-0ba6-496b-8230-c1eadbd6dbb9
 ms.date: 05/26/2017
-ms.author: LADocs; stepsic
 ---
 
-# Deploy and call custom APIs from logic app workflows
+# Deploy and call custom APIs from workflows in Azure Logic Apps
 
 After you [create custom APIs](./logic-apps-create-api-app.md) 
 for use in logic app workflows, you must deploy your APIs before you can call them. 

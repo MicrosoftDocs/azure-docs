@@ -3,17 +3,18 @@ title: Azure Event Grid blob storage event schema
 description: Describes the properties that are provided for blob storage events with Azure Event Grid
 services: event-grid
 author: tfitzmac
-manager: timlt
 
 ms.service: event-grid
 ms.topic: reference
-ms.date: 01/30/2018
+ms.date: 08/17/2018
 ms.author: tomfitz
 ---
 
 # Azure Event Grid event schema for Blob storage
 
 This article provides the properties and schema for blob storage events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
+
+For a list of sample scripts and tutorials, see [Storage event source](event-sources.md#storage).
 
 ## Available event types
 

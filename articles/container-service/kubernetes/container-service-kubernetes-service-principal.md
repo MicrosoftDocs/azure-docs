@@ -16,7 +16,7 @@ ms.custom: mvc
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
-In Azure Container Service, a Kubernetes cluster requires an [Azure Active Directory service principal](../../active-directory/develop/active-directory-application-objects.md) to interact with Azure APIs. The service principal is needed to dynamically manage
+In Azure Container Service, a Kubernetes cluster requires an [Azure Active Directory service principal](../../active-directory/develop/app-objects-and-service-principals.md) to interact with Azure APIs. The service principal is needed to dynamically manage
 resources such as [user-defined routes](../../virtual-network/virtual-networks-udr-overview.md)
 and the [Layer 4 Azure Load Balancer](../../load-balancer/load-balancer-overview.md).
 

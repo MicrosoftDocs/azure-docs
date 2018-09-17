@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/02/2018
+ms.date: 08/17/2018
 ms.author: terrylan
 
 ---
@@ -53,6 +53,9 @@ Azure supports several types of network access control, such as:
 ### Network layer control
 
 Any secure deployment requires some measure of network access control. The goal of network access control is to restrict virtual machine communication to the necessary systems. Other communication attempts are blocked.
+
+>[!NOTE]
+Storage Firewalls are covered in the [Azure storage security overview](security-storage-overview.md) article
 
 #### Network security rules (NSGs)
 
@@ -319,7 +322,6 @@ You can also use [Microsoft Power BI](https://powerbi.microsoft.com/what-is-powe
 Learn more:
 
 * [Log Analytics for Network Security Groups (NSGs)](../virtual-network/virtual-network-nsg-manage-log.md)
-
 
 ## Azure DDoS protection
 

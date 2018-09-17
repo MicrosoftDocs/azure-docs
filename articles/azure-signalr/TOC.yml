@@ -23,7 +23,7 @@
   - name: SignalR Roadmap
     href: https://github.com/aspnet/Home/wiki/Roadmap
   - name: Pricing
-    href: https://azure.microsoft.com
+    href: https://azure.microsoft.com/pricing/details/signalr-service/
   - name: Videos
     href: https://www.youtube.com/results?search_query=Azure+SignalR+Core
   - name: ASP.NET Forums

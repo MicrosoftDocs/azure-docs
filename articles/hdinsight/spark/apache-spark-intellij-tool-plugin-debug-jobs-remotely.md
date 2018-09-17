@@ -1,21 +1,14 @@
 ---
-title: 'Azure Toolkit for IntelliJ: Debug applications remotely in HDInsight Spark | Microsoft Docs'
+title: 'Azure Toolkit for IntelliJ: Debug applications remotely in HDInsight Spark '
 description: Learn how use HDInsight Tools in Azure Toolkit for IntelliJ to remotely debug Spark applications that run on HDInsight clusters through VPN.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-
-ms.assetid: 55fb454f-c7dc-46de-a978-e242e9a94f4c
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/28/2017
-ms.author: nitinme
-
 ---
 # Use Azure Toolkit for IntelliJ to debug Spark applications remotely in HDInsight through VPN
 
@@ -133,7 +126,7 @@ We recommend that you also create an Apache Spark cluster in Azure HDInsight tha
     To add these files to your project, copy them under the **/src** folder in your project tree, for example `<your project directory>\src`.
 1. Update the `core-site.xml` file to make the following changes:
 
-   a. Replace the encrypted key. The `core-site.xml` file includes the encrypted key to the storage account associated with the cluster. In the `core-site.xml` file that you added to the project, replace the encrypted key with the actual storage key associated with the default storage account. For more information, see [Manage your storage access keys](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
+   a. Replace the encrypted key. The `core-site.xml` file includes the encrypted key to the storage account associated with the cluster. In the `core-site.xml` file that you added to the project, replace the encrypted key with the actual storage key associated with the default storage account. For more information, see [Manage your storage access keys](../../storage/common/storage-account-manage.md#access-keys).
 
            <property>
                  <name>fs.azure.account.key.hdistoragecentral.blob.core.windows.net</name>

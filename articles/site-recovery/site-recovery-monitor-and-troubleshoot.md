@@ -84,7 +84,7 @@ The **Infrastructure view** shows the infrastructure components involved in repl
 - A red line with the verlaid error icon indicates the existence of one or more error symptoms that impact connectivity.
 -  Hover the mouse pointer over the error icon to show the error and the number of impacted entities. Click the icon for a filtered list of impacted entities.
 
-    ![Site Recovery infrastructure view (vault)]Re(./media/site-recovery-monitor-and-troubleshoot/site-recovery-vault-infra-view.png)
+    ![Site Recovery infrastructure view (vault)](./media/site-recovery-monitor-and-troubleshoot/site-recovery-vault-infra-view.png)
 
 ## Tips for monitoring the infrastructure
 
@@ -150,13 +150,13 @@ In addition dashboard, you can monitor machines in the virtual machines page.
 4. Click **Filter** to view information based on specific parameters such as replication health, or a particular replication policy.
 5. Right-click a machine to initiate operations such as test failover for it, or to view specific error details associated with it.
 6. Click a machine to drill into more details for it. Details include:
-        - **Replication information**: Current status and health of the machine.
-        - **RPO** (recovery point objective): Current RPO for the virtual machine and the time at which the RPO was last computed.
-        - **Recovery points**: Latest available recovery points for the machine.
-        - **Failover readiness**: Indicates whether a test failover was run for the machine, the agent version running on the machine (for machines running the Mobility service), and any configuration issues.
-        - **Errors**: List of replication error symptoms currently observed on the machine, and possible causes/actions.
-        - **Events**: A chronological list of recent events impacting the machine. Error details shows the currently observable error symptoms, while events is a historical record of issues that have impacted the machine.
-        - **Infrastructure view**: Shows state of infrastructure for the scenario when machines are replicating to Azure.
+      - **Replication information**: Current status and health of the machine.
+      - **RPO** (recovery point objective): Current RPO for the virtual machine and the time at which the RPO was last computed.
+      - **Recovery points**: Latest available recovery points for the machine.
+      - **Failover readiness**: Indicates whether a test failover was run for the machine, the agent version running on the machine (for machines running the Mobility service), and any configuration issues.
+      - **Errors**: List of replication error symptoms currently observed on the machine, and possible causes/actions.
+      - **Events**: A chronological list of recent events impacting the machine. Error details shows the currently observable error symptoms, while events is a historical record of issues that have impacted the machine.
+      - **Infrastructure view**: Shows state of infrastructure for the scenario when machines are replicating to Azure.
 
     ![Site Recovery replicated item details/overview](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
 

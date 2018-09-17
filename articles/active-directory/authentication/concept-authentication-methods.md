@@ -129,17 +129,19 @@ The Microsoft Authenticator app is available for [Android](https://go.microsoft.
 The Microsoft Authenticator app can help prevent unauthorized access to accounts and stop fraudulent transactions by pushing a notification to your smartphone or tablet. Users view the notification, and if it's legitimate, select Verify. Otherwise, they can select Deny.
 
 > [!WARNING]
-> For self-service password reset when only one method is required for reset, verification code is the only option available to users.
+> For self-service password reset when only one method is required for reset, verification code is the only option available to users **to ensure the highest level of security**.
 >
 > When two methods are required users will be able to reset using **EITHER** notification **OR** verification code in addition to any other enabled methods.
 >
+
+If you enable the use of both notification through mobile app and verification code from mobile app, users who register the Microsoft Authenticator app using a notification are able to use both notification and code to verify their identity.
 
 ### Verification code from mobile app
 
 The Microsoft Authenticator app or other third-party apps can be used as a software token to generate an OATH verification code. After entering your username and password, you enter the code provided by the app into the sign-in screen. The verification code provides a second form of authentication.
 
 > [!WARNING]
-> For self-service password reset when only one method is required for reset verification code is the only option available to users.
+> For self-service password reset when only one method is required for reset verification code is the only option available to users **to ensure the highest level of security**.
 >
 
 ## Mobile phone
@@ -195,5 +197,7 @@ If your organization is federated for SSO with Azure AD and you are going to be 
 [Enable self service password reset for your organization](quickstart-sspr.md)
 
 [Enable Azure Multi-Factor Authentication for your organization](howto-mfa-getstarted.md)
+
+[Enable converged registration for Azure Multi-Factor Authentication and Azure AD self-service password reset](concept-registration-mfa-sspr-converged.md)
 
 [End-user authentication method configuration documentation](https://aka.ms/securityinfoguide)
