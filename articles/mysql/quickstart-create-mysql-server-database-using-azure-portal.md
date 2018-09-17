@@ -9,7 +9,7 @@ editor: jasonwhowell
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 03/20/2018
+ms.date: 09/12/2018
 ---
 
 # Create an Azure Database for MySQL server by using the Azure portal
@@ -46,7 +46,7 @@ Follow these steps to create an Azure Database for MySQL server:
     Password | *Your choice* | Provide a new password for the server admin account. It must contain from 8 to 128 characters. Your password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers (0-9), and non-alphanumeric characters (!, $, #, %, and so on).
     Confirm password | *Your choice*| Confirm the admin account password.
     Location | *The region closest to your users*| Choose the location that is closest to your users or your other Azure applications.
-    Version | *The latest version*| The latest version (unless you have specific requirements that require another version).
+    Version | *The latest major version*| The latest major version (unless you have specific requirements that require another version).
     Pricing tier | **General Purpose**, **Gen 4**, **2 vCores**, **5 GB**, **7 days**, **Geographically Redundant** | The compute, storage, and backup configurations for your new server. Select **Pricing tier**. Next, select the **General Purpose** tab. *Gen 4*, *2 vCores*, *5 GB*, and *7 days* are the default values for **Compute Generation**, **vCore**, **Storage**, and **Backup Retention Period**. You can leave those sliders as is. To enable your server backups in geo-redundant storage, select **Geographically Redundant** from the **Backup Redundancy Options**. To save this pricing tier selection, select **OK**. The next screenshot captures these selections.
   
     > [!IMPORTANT]
