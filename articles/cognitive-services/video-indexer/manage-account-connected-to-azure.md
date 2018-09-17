@@ -4,11 +4,11 @@ description: This article shows how to manage a Video Indexer account connected 
 services: cognitive services
 documentationcenter: ''
 author: juliako
-manager: erikre
+manager: femila
 
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 08/23/2018
+ms.date: 09/15/2018
 ms.author: juliako
 
 ---
