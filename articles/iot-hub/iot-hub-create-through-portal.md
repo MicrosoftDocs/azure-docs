@@ -93,7 +93,7 @@ Click **Create** to add this newly created policy to the existing list.
 
 ## Message Routing for an IoT hub
 
-Click **Message Routing** under **Messaging** to see the Message Routing pane, where you define routes and endpoints for the hub. Routes enable you to manage how data is sent from your devices to your endpoints. First, you select or add a route. While configuring the route, you define the endpoint. You can create your own endpoints (custom endpoints) or use the built-in endpoints.
+Click **Message Routing** under **Messaging** to see the Message Routing pane, where you define routes and custom endpoints for the hub. [Message routing](iot-hub-devguide-messages-d2c.md) enables you to manage how data is sent from your devices to your endpoints. The first step is to add a new route. Then you can add an existing endpoint to the route, or create a new one of the types supported, such as blob storage. 
 
 ![Message routing pane](./media/iot-hub-create-through-portal/iot-hub-message-routing.png)
 
@@ -105,7 +105,7 @@ Routes is the first tab on the Message Routing pane. To add a new route, click +
 
 Name your hub. The name must be unique within the list of routes for that hub. 
 
-For **Endpoint**, you can select one from the dropdown list, or add a new one. In this example, a storage account and container are already available. To add them as an endpoint, click +**Add** next to the Endpoint dropdown and select **Azure Blob Storage**. The following screen shows where the storage account and container are specified.
+For **Endpoint**, you can select one from the dropdown list, or add a new one. In this example, a storage account and container are already available. To add them as an endpoint, click +**Add** next to the Endpoint dropdown and select **Blob Storage**. The following screen shows where the storage account and container are specified.
 
 ![Screenshot showing adding a storage endpoint for the routing rule](./media/iot-hub-create-through-portal/iot-hub-routing-add-storage-endpoint.png)
 
@@ -123,36 +123,15 @@ Click **Save** to save the routing rule. You return to the Message Routing pane,
 
 Click the **Custom endpoints** tab. You see any custom endpoints already created. From here, you can add new endpoints or delete existing endpoints. 
 
+> [!NOTE]
+> If you delete a route, it does not delete the endpoints assigned to that route. To delete an endpoint, click the Custom endpoints tab, select the endpoint you want to delete, and click Delete.
+>
+
 You can read more about custom endpoints in [Reference - IoT hub endpoints](iot-hub-devguide-endpoints.md).
 
 You can define up to 10 custom endpoints for an IoT hub. 
 
 To see a full example of how to use custom endpoints with routing, see [Message routing with IoT Hub](tutorial-routing.md).
-
-### Built-in endpoints
-
-There are two built-in endpoints: **Events** and **Cloud to device messaging**.
-
-* **Events** settings: This setting has several subsettings, some of which are read-only. The following list describes these settings:
-
-  * **Partitions**: A default value is set when the IoT hub is created. You can change the number of partitions through this setting.
-
-  * **Event Hub-compatible name** and **Event Hub-compatible endpoint**: When the IoT hub is created, an Event Hub is created internally that you may need to access under certain circumstances. You cannot customize the Event Hub-compatible name and endpoint values but you can copy them by clicking **Copy**.
-
-  * **Retention Time**: This value is set to one day by default but you can change it using the drop-down list. This value is in days for the device-to-cloud setting.
-
-  * **Consumer Groups**: Consumer groups enable multiple readers to read messages independently from the IoT hub. Every IoT hub is created with a default consumer group. However, you can add or delete consumer groups to your IoT hubs using this setting.
-
-  > [!NOTE]
-  > The default consumer group cannot be edited or deleted.
-
-* **Cloud to device messaging** settings: 
-
-   * **Default TTL**: time-to-live, in hours, for the messages.
-
-   * **Feedback retention time**: retention time, in hours, for the messages. 
-   
-   * **Maximum delivery count**: maximum number of times to try delivering a cloud-to-device message to a device. 
 
 ## Find a specific IoT hub
 
