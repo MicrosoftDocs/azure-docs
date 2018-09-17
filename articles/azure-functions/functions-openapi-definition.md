@@ -28,6 +28,9 @@ In this tutorial, you learn how to:
 > * Modify the definition to provide additional metadata
 > * Test the definition by calling the function
 
+> [!IMPORTANT]
+> The OpenAPI preview feature is only available today in the 1.x runtime. Information on how to create a 1.x function app [can be found here](./functions-versions.md#creating-1x-apps).
+
 ## Create a function app
 
 You must have a function app to host the execution of your functions. A function app lets you group functions as a logic unit for easier management, deployment, scaling, and sharing of resources. 

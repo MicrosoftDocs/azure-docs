@@ -36,6 +36,9 @@ Optional storage account connection string for storing logs and displaying them 
 |---|------------|
 |AzureWebJobsDashboard|DefaultEndpointsProtocol=https;AccountName=[name];AccountKey=[key]|
 
+> [!TIP]
+> For performance and experience, it is recommended to use APPINSIGHTS_INSTRUMENTATIONKEY and App Insights for monitoring instead of AzureWebJobsDashboard
+
 ## AzureWebJobsDisableHomepage
 
 `true` means disable the default landing page that is shown for the root URL of a function app. Default is `false`.
@@ -106,11 +109,19 @@ Valid values are "readwrite" and "readonly".
 
 ## FUNCTIONS\_EXTENSION\_VERSION
 
-The version of the Azure Functions runtime to use in this function app. A tilde with major version means use the latest version of that major version (for example, "~1"). When new versions for the same major version are available, they are automatically installed in the function app. To pin the app to a specific version, use the full version number (for example, "1.0.12345"). Default is "~1".
+The version of the Azure Functions runtime to use in this function app. A tilde with major version means use the latest version of that major version (for example, "~2"). When new versions for the same major version are available, they are automatically installed in the function app. To pin the app to a specific version, use the full version number (for example, "2.0.12345"). Default is "~2".
 
 |Key|Sample value|
 |---|------------|
-|FUNCTIONS\_EXTENSION\_VERSION|~1|
+|FUNCTIONS\_EXTENSION\_VERSION|~2|
+
+## FUNCTIONS\_WORKER\_RUNTIME
+
+The language worker runtime to load in the function app.  This will correspond to the language being used in your application (for example, "dotnet"). For functions in multiple languages you will need to publish them to multiple apps, each with a corresponding worker runtime value.  Valid values are `dotnet`, `node`, `java`, and `python` (for Linux hosted apps).
+
+|Key|Sample value|
+|---|------------|
+|FUNCTIONS\_WORKER\_RUNTIME|dotnet|
 
 ## WEBSITE_CONTENTAZUREFILECONNECTIONSTRING
 
@@ -133,19 +144,19 @@ For consumption plans only. The file path to the function app code and configura
 The maximum number of instances that the function app can scale out to. Default is no limit.
 
 > [!NOTE]
-> This setting is for a preview feature.
+> This setting is a preview feature - and only reliable if set to a value <= 5
 
 |Key|Sample value|
 |---|------------|
-|WEBSITE\_MAX\_DYNAMIC\_APPLICATION\_SCALE\_OUT|10|
+|WEBSITE\_MAX\_DYNAMIC\_APPLICATION\_SCALE\_OUT|5|
 
 ## WEBSITE\_NODE\_DEFAULT_VERSION
 
-Default is "6.5.0".
+Default is "8.11.1".
 
 |Key|Sample value|
 |---|------------|
-|WEBSITE\_NODE\_DEFAULT_VERSION|6.5.0|
+|WEBSITE\_NODE\_DEFAULT_VERSION|8.11.1|
 
 ## WEBSITE\_RUN\_FROM\_PACKAGE
 
