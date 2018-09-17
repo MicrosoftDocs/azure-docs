@@ -53,7 +53,7 @@ When you assign users or security groups to Data Lake Storage Gen1 accounts, you
 
 2. In your Data Lake Storage Gen1 account blade, click **Access Control (IAM)**. The blade by default lists the subscription owners as the owner.
    
-	![Assign security group to Azure Data Lake Storage Gen1 account](./media/data-lake-store-secure-data/adl.select.user.icon.png "Assign security group to Azure Data Lake Storage Gen1 account")
+	![Assign security group to Azure Data Lake Storage Gen1 account](./media/data-lake-store-secure-data/adl.select.user.icon1.png "Assign security group to Azure Data Lake Storage Gen1 account")
 
 3. In the **Access Control (IAM)** blade, click **Add** to open the **Add permissions** blade. In the **Add permissions** blade, select a **Role** for the user/group. Look for the security group you created earlier in Azure Active Directory and select it. If you have a lot of users and groups to search from, use the **Select** text box to filter on the group name. 
    
