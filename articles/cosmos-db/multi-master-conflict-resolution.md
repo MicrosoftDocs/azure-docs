@@ -6,7 +6,7 @@ author: markjbrown
 
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/18/2018
+ms.date: 09/24/2018
 ms.author: mjbrown
 ms.reviewer: sngun
 

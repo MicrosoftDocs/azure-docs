@@ -1,21 +1,19 @@
 ---
-title: Query data from an Azure Cosmos DB Cassandra API account | Microsoft Docs
-description: This article shows how to query user data from Azure Cosmos DB Cassandra API account by using a java application.
+title: Query data from an Azure Cosmos DB Cassandra API account
+description: This article shows how to query user data from Azure Cosmos DB Cassandra API account by using a Java application.
 services: cosmos-db
-author: kanshiG
-
 ms.service: cosmos-db
-ms.component: cosmosdb-cassandra
-ms.topic: tutorial
-ms.date: 09/18/2018
+author: kanshiG
 ms.author: govindk
 ms.reviewer: sngun
- 
+ms.component: cosmosdb-cassandra
+ms.topic: tutorial
+ms.date: 09/24/2018
 ---
 
 # Query data from an Azure Cosmos DB Cassandra API account
 
-This tutorial shows how to query user data from Azure Cosmos DB Cassandra API account by using a java application. The java application uses the [Datastax Java driver](https://github.com/datastax/java-driver) and queries user data such as user ID, user name, user city. 
+This tutorial shows how to query user data from Azure Cosmos DB Cassandra API account by using a Java application. The Java application uses the [Datastax Java driver](https://github.com/datastax/java-driver) and queries user data such as user ID, user name, user city. 
 
 This tutorial covers the following tasks:
 
@@ -25,11 +23,11 @@ This tutorial covers the following tasks:
 
 ## Prerequisites
 
-* This article belongs to a multi-part tutorial. Before you start with this doc, make sure to [create the Cassandra API account, keyspace, table](create-cassandra-api-account-java.md), and [load sample data into the table](cassandra-api-load-data.md). 
+* This article belongs to a multi-part tutorial. Before you start, make sure to complete the previous steps to [create the Cassandra API account, keyspace, table](create-cassandra-api-account-java.md) and [load sample data into the table](cassandra-api-load-data.md). 
 
 ## Query data
 
-Open the “UserRepository.java” file under “src\main\java\com\azure\cosmosdb\cassandra” folder and append the code to query all users in the database or a specific user filtered by user ID and to delete a table. 
+Open the `UserRepository.java` file under the folder `src\main\java\com\azure\cosmosdb\cassandra`. Append the following code block. This code provides three functions: to query all users in the database, to query a specific user filtered by user ID, and to delete a table. 
 
 ```java
 /**
@@ -66,7 +64,7 @@ public void deleteTable() {
 }
 ```
 
-Open the “UserProfile.java” file under “src\main\java\com\azure\cosmosdb\cassandra” folder. This class contains the main method that calls the createKeyspace and createTable, insert data methods you defined earlier. Now append the following code that queries all users or a specific user:
+Open the `UserProfile.java` file under the folder `src\main\java\com\azure\cosmosdb\cassandra`. This class contains the main method that calls the createKeyspace and createTable, insert data methods you defined earlier. Now append the following code that queries all users or a specific user:
 
 ```java
 LOGGER.info("Select all users");
@@ -79,20 +77,26 @@ LOGGER.info("Delete the users profile table");
 repository.deleteTable();
 ```
 
-## Run the app
-Open command prompt or terminal window and change the folder path to where you have created the project. Run “mvn clean install” command to generate the cosmosdb-cassandra-examples.jar file within the target folder and run the application. 
+## Run the Java app
+1. Open a command prompt or terminal window. Paste the following code block. 
 
-```bash
-cd "cassandra-demo"
+   This code changes directory (cd) to the folder path where you created the project. Then, it runs the `mvn clean install` command to generate the `cosmosdb-cassandra-examples.jar` file within the target folder. Finally, it runs the Java application.
 
-mvn clean install
+   ```bash
+   cd "cassandra-demo"
+   
+   mvn clean install
+   
+   java -cp target/cosmosdb-cassandra-examples.jar com.azure.cosmosdb.cassandra.examples.UserProfile
+   ```
 
-java -cp target/cosmosdb-cassandra-examples.jar com.azure.cosmosdb.cassandra.examples.UserProfile
-```
-
-You can now open Data Explorer in the Azure portal to confirm that the user table is deleted.
+2. Now, in the Azure portal, open the **Data Explorer** and confirm that the user table is deleted.
 
 ## Next steps
 
-* To learn about Apache Cassandra features supported by Azure Cosmos DB Cassandra API, see [Cassandra support](cassandra-support.md) article.
+* In this tutorial, you've learned how to query data from Azure Cosmos DB Cassandra API account. You can now proceed to the next article:
+
+> [!div class="nextstepaction"]
+> [Migrate data to Cassandra API account](cassandra-import-data.md)
+
 

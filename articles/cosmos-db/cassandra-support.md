@@ -9,7 +9,7 @@ ms.reviewer: sngun
 ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
 ms.topic: overview
-ms.date: 09/18/2018
+ms.date: 09/24/2018
 ---
 
 # Apache Cassandra features supported by Azure Cosmos DB Cassandra API 
