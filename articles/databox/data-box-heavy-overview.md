@@ -109,8 +109,8 @@ Data Box Heavy can transfer data based on the region in which service is deploye
 - **Service availability** - For this release, Data Box Heavy is available in the following regions:
     - All public cloud regions in the United States - West Central US, West US2, West US, South Central US, Central US, North Central US, East US, and East US2.
     - European Union - West Europe and North Europe.
-<!--    - UK - UK South and UK West.
-    - France - France Central and France South.-->
+    - UK - UK South and UK West.
+    - France - France Central and France South.
 
 - **Destination Storage accounts** - The storage accounts that store the data are available in all Azure regions where the service is available. 
 
