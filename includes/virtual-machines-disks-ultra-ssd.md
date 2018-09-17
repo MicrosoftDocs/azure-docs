@@ -18,19 +18,19 @@ Azure Ultra SSD (preview) delivers high throughput, high IOPS, and consistent lo
 
 **Managed Disks**: Ultra SSDs are only available as Managed Disks. Ultra SSDs cannot be deployed as an Unmanaged Disk or Page Blob. While creating a Managed Disk, you specify the disk sku type as UltraSSD_LRS and indicate the size of disk, the IOPS, and throughput you need, and Azure creates and manages the disk for you.  
 
-**Virtual Machines**: Ultra SSDs are designed to work with all Premium SSD enabled Azure Virtual Machine SKUs, however at preview time the VM sizes will be limited to ES/DS v3 VM instances.  
-
-**Highly durable and available**: Ultra SSDs are built on the same Azure Disks platform, which has consistently delivered high availability and durability for disks. Like all Managed Disks, Ultra SSDs will also offer Local Redundant Storage (LRS). With LRS, the platform maintains multiple replicas of data for every disk and has consistently delivered enterprise-grade durability for IaaS disks, with an industry-leading ZERO percent Annualized Failure Rate.
+**Virtual Machines**: Ultra SSDs are designed to work with all Premium SSD enabled Azure Virtual Machine SKUs, however at preview time the VM sizes will be limited to ES/DS v3 VM instances.
 
 **Dynamic Performance Configuration**: Ultra SSDs allow you to dynamically change the performance (IOPS and throughput) of the disk along with your workload needs without having to restart your virtual machines.
 
 ## Scalability and performance targets
 
-When you provision an Ultra SSD Disk, you will have the option to independently configure the capacity and the performance of the disk. Ultra SSD Disks come in several fixed sizes from 4 GiB up to 64 TiB and feature a flexible performance configuration model that allows you to independently configure IOPS and throughput. Ultra SSD Disks can only be leveraged as data disks. We recommend using Premium SSD Disks as OS disks.
+When you provision an Ultra SSD, you will have the option to independently configure the capacity and the performance of the disk. Ultra SSDs come in several fixed sizes from 4 GiB up to 64 TiB and feature a flexible performance configuration model that allows you to independently configure IOPS and throughput. Ultra SSDs can only be leveraged as data disks. We recommend using Premium SSDs as OS disks.
 
-- Disk Capacity: Ultra SSD offers you a range of different disk sizes from 4 GiB up to 64 TiB 
-- Disk IOPS: Ultra SSD Disks support IOPS limits of 300 IOPS/GiB, up to a maximum of 160 K IOPS per disk. To achieve the IOPS that you provisioned, ensure that the selected Disk IOPS are less than the VM IOPS. The minimum disk IOPS is 100 IOPS.
-- Disk Throughput: With Ultra SSD Disks, the throughput limit of a single disk is 256 KiB/s for each provisioned IOPS, up to a maximum of 2000 MBps per disk (where MBps = 10^6 Bytes per second)
+Some key capabilities of Ultra SSD are:
+
+- Disk Capacity: Ultra SSD offers you a range of different disk sizes from 4 GiB up to 64 TiB.
+- Disk IOPS: Ultra SSDs support IOPS limits of 300 IOPS/GiB, up to a maximum of 160 K IOPS per disk. To achieve the IOPS that you provisioned, ensure that the selected Disk IOPS are less than the VM IOPS. The minimum disk IOPS is 100 IOPS.
+- Disk Throughput: With Ultra SSDs, the throughput limit of a single disk is 256 KiB/s for each provisioned IOPS, up to a maximum of 2000 MBps per disk (where MBps = 10^6 Bytes per second) The minimum disk throughput is 1 MiB.
 
 The following table summarizes the different configurations supported for different disk sizes:  
 
@@ -91,7 +91,7 @@ At preview, Ultra SSD Disks:
 - Are only supported on ES/DS v3 VMs
 - Are only available as data disks and only support 4k physical sector size  
 - Can only be created as Empty disks  
-- Can only be deployed using Resource Manager templates. In the coming weeks, we will enable support for Portal and API/PS/CLI tools
+- Currently can only be deployed using Resource Manager templates, CLI, and Python SDK.
 - Will not support disk snapshots, VM Images, Availability Sets, Virtual Machine Scale Sets and Azure Disk Encryption. Support for these service management operations is under development
 - Will not support integration with Azure Backup or Azure Site Recovery. Support for these service management operations is under development
 - As with [most previews](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/), this feature should not be used for production workloads until General Availability (GA).
