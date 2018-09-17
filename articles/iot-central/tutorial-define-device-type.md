@@ -328,7 +328,7 @@ You use _commands_ to enable an operator to run commands directly on the device.
 
     You can create commands of different types based on your requirements. 
 
-1. Click **New Command** to add a command to your device.
+1. Click **New Command** to add a command to your device .
 
 1. To configure your new command, use the information in the following table:
 
