@@ -380,10 +380,10 @@ Follow the above steps to view the list of compute targets, then use the followi
 
 ## Examples
 The following notebooks demonstrate concepts in this article:
-* `00.Getting Started/02.train-on-local/02.train-on-local.ipynb`
-* `00.Getting Started/04.train-on-remote-vm/04.train-on-remote-vm`
-* `00.Getting Started/05.train-in-spark/05.train-in-spark.ipynb`
-* `00.Getting Started/07.hyperdrive-with-sklearn/07.hyperdrive-with-sklearn.ipynb`
+* `01.getting-started/02.train-on-local/02.train-on-local.ipynb`
+* `01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb`
+* `01.getting-started/05.train-in-spark/05.train-in-spark.ipynb`
+* `01.getting-started/07.hyperdrive-with-sklearn/07.hyperdrive-with-sklearn.ipynb`
 
 Get these notebooks:
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
