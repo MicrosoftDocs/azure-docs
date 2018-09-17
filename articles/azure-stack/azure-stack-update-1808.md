@@ -3,7 +3,7 @@ title: Azure Stack 1808 Update | Microsoft Docs
 description: Learn about what's new in the 1808 update for Azure Stack integrated systems, including the known issues and where to download the update.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
-ms.author: brenduns
+ms.date: 09/17/2018
+ms.author: sethm
 ms.reviewer: justini
 
 ---
@@ -139,6 +139,17 @@ This update also contains the mitigation for the speculative execution side chan
 The following are post-installation known issues for this build version.
 
 ### Portal
+
+- <!-- TBD - IS ASDK --> You might see a blank dashboard in the portal. To recover the dashboard, click **Edit Dashboard**, then right click and select **Reset to default state**.
+
+- <!-- 2930718 - IS ASDK --> In the administrator portal, when accessing the details of any user subscription, after closing the blade and clicking on **Recent**, the user subscription name does not appear.
+
+- <!-- 3060156 - IS ASDK --> In both the administrator and user portals, clicking on the portal settings and selecting **Delete all settings and private dashboards** does not work as expected. An error notification is displayed. 
+
+- <!-- 2930799 - IS ASDK --> In both the administrator and user portals, under **All services**, the asset **DDoS protection plans** is incorrectly listed. It is not actually available in Azure Stack. If you try to create it, an error is displayed stating that the portal could not create the marketplace item. 
+
+- <!-- 2930820 - IS ASDK --> In both the administrator and user portals, if you search for "Docker," the item is incorrectly returned. It is not actually available in Azure Stack. If you try to create it, a blade with an error indication is displayed. 
+
 - <!-- 2967387 – IS, ASDK --> The account you use to sign in to the Azure Stack admin or user portal displays as **Unidentified user**. This occurs when the account does not have either a *First* or *Last* name specified. To work around this issue, edit the user account to provide either the First or Last name. You must then sign out and then sign back in to the portal. 
 
 -  <!--  2873083 - IS ASDK --> When you use the portal to create a virtual machine scale set (VMSS), the *instance size* dropdown doesn’t load correctly when you use Internet Explorer. To work around this problem, use another browser while using the portal to create a VMSS.  
@@ -148,8 +159,6 @@ The following are post-installation known issues for this build version.
 - <!--2760466 – IS  ASDK --> When you install a new Azure Stack environment that runs this version, the alert that indicates *Activation Required* might not display. [Activation](azure-stack-registration.md) is required before you can use marketplace syndication.  
 
 - <!-- TBD - IS ASDK --> The two administrative subscription types that were [introduced with version 1804](azure-stack-update-1804.md#new-features) should not be used. The subscription types are **Metering subscription**, and **Consumption subscription**. These subscription types are visible in new Azure Stack environments beginning with version 1804 but are not yet ready for use. You should continue to use the **Default Provider** subscription type.
-
-- <!-- TBD - IS --> You might see a blank dashboard in the portal. To recover the dashboard, select the gear icon in the upper right corner of the portal, and then select **Restore default settings**.
 
 - <!-- TBD - IS ASDK --> Deleting user subscriptions results in orphaned resources. As a workaround, first delete user resources or the entire resource group, and then delete user subscriptions.
 

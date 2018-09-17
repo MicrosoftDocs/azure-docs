@@ -27,13 +27,23 @@ The following versions of the Windows operating system are officially supported 
 
 The following Linux distributions are officially supported. However, the Linux agent might also run on other distributions not listed. Unless otherwise noted, all minor releases are supported for each major version listed.  
 
-* Amazon Linux 2012.09 to 2015.09 (x86/x64)
-* CentOS Linux 5, 6, and 7 (x86/x64)  
-* Oracle Linux 5, 6, and 7 (x86/x64)
-* Red Hat Enterprise Linux Server 5, 6 and 7 (x86/x64)
-* Debian GNU/Linux 6, 7, and 8 (x86/x64)
-* Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)
-* SUSE Linux Enterprise Server 11 and 12 (x86/x64)
+### 64-bit
+
+* CentOS 6 and 7
+* Amazon Linux 2017.09
+* Oracle Linux 6 and 7
+* Red Hat Enterprise Linux Server 6 and 7
+* Debian GNU/Linux 8 and 9
+* Ubuntu Linux 14.04 LTS, 16.04 LTS and 18.04 LTS
+* SUSE Linux Enterprise Server 12
+
+### 32-bit
+
+* CentOS 6
+* Oracle Linux 6
+* Red Hat Enterprise Linux Server 6
+* Debian GNU/Linux 8 and 9
+* Ubuntu Linux 14.04 LTS and 16.04 LTS
 
 ## Enable Change Tracking and Inventory
 
@@ -140,6 +150,7 @@ Other limitations:
 The Change Tracking solution is currently experiencing the following issues:
 
 * Hotfix updates are not collected for Windows 10 Creators Update and Windows Server 2016 Core RS3 machines.
+* For Windows files, Change Tracking does not currently detect when a new file has been added to a tracked folder path
 
 ## Change Tracking data collection details
 
