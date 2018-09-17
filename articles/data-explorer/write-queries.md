@@ -476,7 +476,7 @@ MyTrace
 
 ### make-series
 
-[**make-series**](https://review.docs.microsoft.com/kusto/query/make-seriesoperator.html): aggregates together groups of rows like [summarize](https://review.docs.microsoft.com/kusto/query/summarizeoperator), but generates a (time) series vector per each combination of by values.
+[**make-series**](https://review.docs.microsoft.com/kusto/query/make-seriesoperator): aggregates together groups of rows like [summarize](https://review.docs.microsoft.com/kusto/query/summarizeoperator), but generates a (time) series vector per each combination of by values.
 
 The following query returns a set of time series for the count of storm events per day. The query covers a three-month period for each state, filling missing bins with the constant 0:
 
@@ -543,7 +543,7 @@ StormEvents
 
 ### dcount()
 
-[**dcount()**](https://review.docs.microsoft.com/kusto/query/dcount_aggfunction): Returns an estimate of the number of distinct values of an expression in the group. Use [**count()**](https://review.docs.microsoft.com/kusto/query/countoperator) to count all values.
+[**dcount()**](https://review.docs.microsoft.com/kusto/query/dcount-aggfunction): Returns an estimate of the number of distinct values of an expression in the group. Use [**count()**](https://review.docs.microsoft.com/kusto/query/countoperator) to count all values.
 
 The following query counts distinct `Source` by `State`.
 
@@ -556,7 +556,7 @@ StormEvents
 
 ### dcountif()
 
-[**dcountif()**](https://review.docs.microsoft.com/kusto/query/dcountif_aggfunction): Returns an estimate of the number of distinct values of the expression for rows for which the predicate evaluates to true.
+[**dcountif()**](https://review.docs.microsoft.com/kusto/query/dcountif-aggfunction): Returns an estimate of the number of distinct values of the expression for rows for which the predicate evaluates to true.
 
 The following query counts the distinct values of `Source` where `DamageProperty < 5000`.
 
@@ -744,7 +744,7 @@ StormEvents
 
 ### Cross-database and cross-cluster queries
 
-[Cross-database and cross-cluster queries](https://review.docs.microsoft.com/kusto/query/syntax): You can query a database on the same cluster by referring it as `database("MyDatabase").MyTable`. You can query a database on a remote cluster by referring to it as `cluster("MyCluster").database("MyDatabase").MyTable`.
+[Cross-database and cross-cluster queries](https://review.docs.microsoft.com/kusto/query/cross-cluster-or-database-queries): You can query a database on the same cluster by referring it as `database("MyDatabase").MyTable`. You can query a database on a remote cluster by referring to it as `cluster("MyCluster").database("MyDatabase").MyTable`.
 
 The following query is called from one cluster and queries data from `MyCluster` cluster. To run this query, use your own cluster name and database name.
 
@@ -846,7 +846,7 @@ range _day from _start to _end step 1d
 
 ### new_activity_metrics plugin
 
-[**new_activity_metrics plugin**](https://review.docs.microsoft.com/kusto/query/new_activity-metrics-plugin):
+[**new_activity_metrics plugin**](https://review.docs.microsoft.com/kusto/query/new-activity-metrics-plugin):
 Calculates useful activity metrics (distinct count values, distinct count of new values, retention rate, and churn rate) for the cohort of new users. The concept of this plugin is similar to [**activity_metrics plugin**](https://review.docs.microsoft.com/kusto/query/activity-metrics-plugin), but focuses on new users.
 
 The following query calculates a retention and churn rate with a week-over-week window for the new users cohort (users that arrived on the first week).
