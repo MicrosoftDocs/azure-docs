@@ -20,11 +20,11 @@ ms.prod: microsoft-iot-central
 manager: peterpr
 ---
 
-# Create and Run a Job in your Azure IoT Central Application
+# Create and run a job in your Azure IoT Central Application
 
 You can use Microsoft Azure IoT Central to manage your connected devices at scale using jobs. The jobs functionality enables you to perform bulk updates to device properties, settings, and commands. This article will walk you through how to get started using jobs in your own application.
 
-## Create and Run a Job
+## Create and run a job
 
 This section shows you how to create and run a job. Each step goes through an example that demonstrates how to run a job for refrigerated vending machine devices that need to have their fan speed increased.
 
@@ -50,21 +50,21 @@ This section shows you how to create and run a job. Each step goes through an ex
 
     ![View job](./media/howto-run-a-job/viewjob.png)
 
-> [!NOTE]
-> You will be able to view the history of your previously run jobs for up to 30 days.
+    > [!NOTE]
+    > You will be able to view the history of your previously run jobs for up to 30 days.
 
 1. To get an overview of your job, click on the job name you wish to view from your list. This overview contains the job details, devices, and device statuses.
 
     ![View device status](./media/howto-run-a-job/viewdevicestatus.png)
 
-### Stop a Running Job
+### Stop a running job
 
 If you would like to stop a job that is currently running, click on the name of the running job that you would like to stop. Choose the **Stop** button on the panel. You’ll see the job status has changed to reflect that the job has been stopped.
 
 > [!NOTE]
 > Once a job has been stopped it cannot be restarted. You must create another job with the desired operations and devices.
 
-## View the Job Status
+## View the job status
 
 Once a job has been created, the **Status** column will update with the latest status message of the job. The status messages mean the following:
 
@@ -83,7 +83,7 @@ The status message is followed by an overview of the devices within the job. The
     | Succeeded            | The number of devices which the job has successfully executed on.  |
     | Failed               | The number of devices which the job has failed to execute on.      |
 
-### View the Device Status
+### View the device status
 
 In order to view the status of each device in the job, click on the job name. Here you'll see the details of the job and all of the devices that were a part of this specific job. Next to each device name, you'll see one of the following status messages:
 
@@ -96,7 +96,7 @@ In order to view the status of each device in the job, click on the job name. He
 > [!NOTE]
 > If a device has been deleted, you won't be able to select the device and it will display as deleted with the device ID.
 
-## Next Steps
+## Next steps
 
 Now that you have learned how to create jobs in your Azure IoT Central application, here are some next steps:
 
