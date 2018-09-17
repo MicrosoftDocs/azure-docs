@@ -23,15 +23,13 @@ The Azure Machine Learning Command Line Interface (CLI) extension is for data sc
 
 This machine learning CLI is an extension of [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) and was built on top of the Python-based <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a> for Azure Machine Learning service.
 
-NOTE: The CLI is still in early preview and is not yet at full parity with the SDK. Please use the SDK if you need to use the full set of supported AML features.
+NOTE: The CLI is currently in early preview and will be updated on a weekly basis until it reaches parity with the SDK.
 
 ## Installing & Removing
 
 You can install the CLI using this command from our preview PyPi index:
 ```AzureCLI
 az extension add -s https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1/azure_cli_ml-0.1.13-py2.py3-none-any.whl --pip-extra-index-urls  https://azuremlsdktestpypi.azureedge.net/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1
-
-
 ```
 
 You can remove the CLI using this command:
