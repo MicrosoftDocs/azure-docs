@@ -1,12 +1,12 @@
 ---
-title: Access and authenticate without signing in - Azure Logic Apps
-description: Create a managed identity so your logic app can authenticate your identity and access resources in other Azure Active Directory (Azure AD) tenants without your credentials
+title: Access and authenticate without signing in - Azure Logic Apps | Microsoft Docs
+description: Create a managed identity so your logic app can authenticate and access resources in other Azure Active Directory (Azure AD) tenants without your credentials
+author: kevinlam1
+ms.author: klam
+ms.reviewer: estfan, LADocs
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
-author: kevinlam1
-ms.author: klam 
-ms.reviewer: estfan, LADocs
 ms.topic: article
 ms.date: 09/24/2018
 ---
@@ -20,7 +20,7 @@ that your logic app uses instead of your credentials. Azure manages this
 identity for you, and helps secure your credentials because you don't 
 have to provide or rotate secrets. This article shows how to create 
 and use a managed identity for your logic app. For more information, see 
-[Manage identities for Azure resources](../app-service/app-service-managed-service-identity.md)
+[Manage identities for Azure resources](../app-service/app-service-managed-service-identity.md).
 
 > [!NOTE]
 > Managed identities for Azure resources is the 
@@ -164,8 +164,8 @@ system-assigned identity from Azure AD.
 
 If you created the logic app's managed identity with 
 an Azure Resource Manager deployment template, set the 
-`"identity"` element to `"None"`. This action also 
-deletes the principal ID from Azure AD. 
+`"identity"` element's `"type"` property to `"None"`. 
+This action also deletes the principal ID from Azure AD. 
 
 ```json
 "identity": {
