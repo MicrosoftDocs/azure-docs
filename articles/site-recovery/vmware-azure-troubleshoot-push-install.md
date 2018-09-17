@@ -14,16 +14,14 @@ ms.date: 09/17/2018
 ---
 # Troubleshoot Mobility Service push installation issues
 
-Installation of Mobility service is a key step during Enable Replication. The success of the step depends solely on meeting prerequisites and working with supported configurations. The most common failures you face during Mobility service installation are due to
+Installation of Mobility service is a key step during Enable Replication. The success of this step depends solely on meeting prerequisites and working with supported configurations. The most common failures you face during Mobility service installation are due to
 
 * Connectivity/Credential errors
 * Unsupported Operating systems
 
-## Step by step guidance to troubleshoot connectivity/credential errors
+When you enable replication, Azure Site Recovery tries to push install mobility service agent on your virtual machine. As part of this, Configuration server tries to connect with the virtual machine and copy the Agent. To enable successful installation, please follow the step by step troubleshooting guidance given below
 
-When you enable replication, Azure Site Recovery tries to push install mobility service agent on your virtual machine. As part of this, Configuration server tries to connect with the virtual machine and copy the Agent. To enable successful installation, please follow the below steps
-
-**1. Credentials check (ErrorID: 95107 & 95108):**
+## **1. Credentials check (ErrorID: 95107 & 95108):**
 
 * Verify if the user account chosen during enable replication is **valid, accurate**.
 * Azure site recovery requires **administrator privilege** to perform push installation.
@@ -36,7 +34,7 @@ When you enable replication, Azure Site Recovery tries to push install mobility 
 
 If you wish to modify the credentials of chosen user account, follow the instructions given [here](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation).
 
-**2. Connectivity check (ErrorID: 95117 & 97118):**
+## **2. Connectivity check (ErrorID: 95117 & 97118):**
 
 * Ensure you are able to ping your Source machine from the Configuration server. If you have chosen scale-out process server during enable replication, ensure you are able to ping your Source machine from process server.
   * From Source Server machine command line, use Telnet to ping the configuration server/ scale-out process server with https port (default 9443) as shown below to see if there are any network connectivity issues or firewall port blocking issues.
@@ -58,7 +56,7 @@ If you wish to modify the credentials of chosen user account, follow the instruc
 * A connection attempt could have failed if there is no proper response after a period of time, or established connection failed because connected host has failed to respond.
 * It may be a Connectivity/network/domain related issue. It could also be due to DNS name resolving issue or TCP port exhaustion issue. Please check if there are any such known issues in your domain.
 
-**3. File and Printer sharing services check (ErrorID: 95105 & 95106):**
+## **3. File and Printer sharing services check (ErrorID: 95105 & 95106):**
 
 After connectivity check, verify if File and printer sharing service is enabled on your virtual machine.
 
@@ -74,7 +72,7 @@ For **windows 2008 R2 and prior versions**,
 
 For **later versions**, follow the instructions provided [here](vmware-azure-install-mobility-service.md#install-mobility-service-by-push-installation-from-azure-site-recovery) to enable file and printer sharing
 
-**4. Windows Management Instrumentation (WMI) configuration check:**
+## **4. Windows Management Instrumentation (WMI) configuration check:**
 
 After file and printer services check, enable WMI service through firewall.
 
