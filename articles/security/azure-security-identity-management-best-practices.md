@@ -119,7 +119,7 @@ This is the most flexible way to enable two-step verification for your users. En
 - Configure automated responses to detected suspicious actions that are related to your organization’s identities.
 - Investigate suspicious incidents and take appropriate action to resolve them.
 
-This method uses the Azure AD Identity Protection risk evaluation to determine if two-step verification is required based on user and sign-in risk for all cloud applications. This method requires Azure Active Directory P2 licensing. You can find more information on this method in [Azure Active Directory Identity Protection](../active-directory/identity-protection/overview.md#risky-sign-ins).
+This method uses the Azure AD Identity Protection risk evaluation to determine if two-step verification is required based on user and sign-in risk for all cloud applications. This method requires Azure Active Directory P2 licensing. You can find more information on this method in [Azure Active Directory Identity Protection](../active-directory/identity-protection/overview.md).
 
 > [!Note]
 > Option 1, enabling Multi-Factor Authentication by changing the user state, overrides conditional policies. Because options 2 and 3 use conditional access policies, you cannot use option 1 with them.
