@@ -64,7 +64,7 @@ Load the API profile and administrator module for your version of Azure Stack.
     Install-Module -Name AzureStack -RequiredVersion 1.4.0 -Force
   ```
 
-  - Azure Stack 1803 or earlier.
+  - Azure Stack 1804 or earlier.
 
   ```PowerShell  
     Use-AzureRmProfile -Profile 2017-03-09-profile -Force
@@ -144,7 +144,7 @@ Load the API profile and administrator module for your version of Azure Stack.
       Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.4.0
     ````
 
-  - Azure Stack 1803 or earlier.
+  - Azure Stack 1804 or earlier.
 
     ````PowerShell  
     Import-Module -Name PowerShellGet -ErrorAction Stop

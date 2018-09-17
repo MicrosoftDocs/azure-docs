@@ -110,7 +110,7 @@ Run the following PowerShell script to install these modules on your development
     Install-Module -Name AzureStack -RequiredVersion 1.4.0 -Force
     ```
 
-  - Azure Stack 1803 or earlier.
+  - Azure Stack 1804 or earlier.
 
     ```PowerShell  
     Install-Module -Name AzureRm.BootStrapper
@@ -157,7 +157,7 @@ Sign in to a computer with Internet connectivity and use the following scripts t
       Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.4.0
     ````
 
-  - Azure Stack 1803 or earlier.
+  - Azure Stack 1804 or earlier.
 
     ````PowerShell  
     Import-Module -Name PowerShellGet -ErrorAction Stop
