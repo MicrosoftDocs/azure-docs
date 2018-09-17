@@ -203,6 +203,8 @@ The IoT Edge runtime can route messages sent from downstream devices just like m
 
 Refer to the [module composition article][lnk-module-composition] for more details on message routing.
 
+[!INCLUDE [](includes/extended-offline-preview.md)]
+
 ## Next steps
 [Understand the requirements and tools for developing IoT Edge modules][lnk-module-dev].
 
