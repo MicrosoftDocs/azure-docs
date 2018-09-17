@@ -12,7 +12,7 @@ ms.author: v-jerkin
 ---
 # Speech service REST APIs
 
-The REST APIs of the unified Speech service are similar to the APIs provided by the [Bing Speech API](https://docs.microsoft.com/azure/cognitive-services/Speech). The endpoints differ from the endpoints used by the previous Speech service. Regional endpoints are available, and you must use a subscription key corresponding to to the endpoint you're using.
+The REST APIs of the unified Speech service are similar to the APIs provided by the [Bing Speech API](https://docs.microsoft.com/azure/cognitive-services/Speech). The endpoints differ from the endpoints used by the Bing Speech service. Regional endpoints are available, and you must use a subscription key corresponding to the endpoint you're using.
 
 ## Speech to Text
 
@@ -53,9 +53,9 @@ The following fields are sent in the HTTP request header.
 |------|-------|
 |`Ocp-Apim-Subscription-Key`|Your Speech service subscription key. Either this header or `Authorization` must be provided.|
 |`Authorization`|An authorization token preceded by the word `Bearer`. Either this header or `Ocp-Apim-Subscription-Key` must be provided. See [Authentication](#authentication).|
-|`Content-type`|Describes the format and codec of the audio data. Currently, this must be `audio/wav; codec=audio/pcm; samplerate=16000`.|
+|`Content-type`|Describes the format and codec of the audio data. Currently, this value must be `audio/wav; codec=audio/pcm; samplerate=16000`.|
 |`Transfer-Encoding`|Optional. If given, must be `chunked` to allow audio data to be sent in multiple small chunks instead of a single file.|
-|`Expect`|If using chunked transfer, send `Expect: 100-continue`. The Speech service will acknolwedge the initial request and awaits additional data.|
+|`Expect`|If using chunked transfer, send `Expect: 100-continue`. The Speech service will acknowledge the initial request and awaits additional data.|
 |`Accept`|Optional. If provided, must include `application/json`, as the Speech service provides results in JSON format. (Some Web request frameworks provide an incompatible default value if you do not specify one, so it is good practice to always include `Accept`)|
 
 ### Audio format
@@ -64,7 +64,7 @@ The audio is sent in the body of the HTTP `PUT` request and should be in 16-bit 
 
 ### Chunked transfer
 
-Chunked transfer (`Transfer-Encoding: chunked`) can help reduce recognition latency because it allows the Speech service to begin processing the audio file to before it has been completely transmitted. Note that the REST API does not provide partial or interim results; this option is intended solely to improve responsiveness.
+Chunked transfer (`Transfer-Encoding: chunked`) can help reduce recognition latency because it allows the Speech service to begin processing the audio file to before it has been transmitted. The REST API does not provide partial or interim results; this option is intended solely to improve responsiveness.
 
 The following code illustrates how to send audio in chunks. `request` is an HTTPWebRequest object connected to the appropriate REST endpoint. `audioFile` is the path to an audio file on disk.
 
@@ -118,7 +118,7 @@ HTTP code|Meaning|Possible reason
 200|OK|The request was successful; the response body is a JSON object.
 400|Bad request|Language code not provided or is not a supported language.
 401|Unauthorized|Subscription key or authorization token is invalid in the specified region
-403|Forbidden|Bad enpdoint URI or missing key/token.
+403|Forbidden|Bad endpoint URI or missing key/token.
 
 ### JSON response
 
@@ -200,7 +200,7 @@ The following are the REST endpoints for the unified Speech service Text to Spee
 > [!NOTE]
 > If you created a custom voice font, use the associated custom endpoint instead.
 
-The Speech Service supports 24-KHz audio output in addition to the 16-Khz output supported by Bing Speech. Four 24-KHz output formats are available for use in the `X-Microsoft-OutputFormat` HTTP header, as are two 24 KHz voices, `Jessa24kRUS` and `Guy24kRUS`.
+The Speech Service supports 24-KHz audio output in addition to the 16-Khz output supported by Bing Speech. Four 24-KHz output formats are available for use in the `X-Microsoft-OutputFormat` HTTP header, as are two 24-KHz voices, `Jessa24kRUS` and `Guy24kRUS`.
 
 Locale | Language   | Gender | Service name mapping
 -------|------------|--------|------------
@@ -220,7 +220,7 @@ The following fields are sent in the HTTP request header.
 |`X-Microsoft-OutputFormat`|The output audio format. See next table.|
 |`X-Search-AppId`|Hex-only GUID (no dashes) that uniquely identifies the client application. This can be the store ID or, if it is not a store app, you can generate one yourself.|
 |`X-Search-ClientId`|Hex-only GUID (no dashes) that uniquely identifies an application instance for each installation.|
-|`User-Agent`|Application name. Required; must be less than 255 characters in lengthe.|
+|`User-Agent`|Application name. Required; must contain fewer than 255 characters.|
 
 The available audio output formats incorporate both a bitrate and an encoding.
 
@@ -262,13 +262,13 @@ HTTP code|Meaning|Possible reason
 200|OK|The request was successful; the response body is a JSON object.
 400|Bad request|Language code not provided or is not a supported language.
 401|Unauthorized|Subscription key or authorization token is invalid in the specified region
-403|Forbidden|Bad enpdoint URI or missing key/token.
+403|Forbidden|Bad endpoint URI or missing key/token.
 
 If the HTTP status is `200 OK`, the body of the response contains an audio file in the requested format. This file may be played as it is transferred, or saved to a buffer or file for later playback or other use.
 
 ## Authentication
 
-Sending a request to the Speech service's REST API requires either a subscription key or an an access token. In general, it is easiest to send the subscription key directly; the Speech service then obtains the access token for you. However, to minimize response time, you may wish to use an access token instead.
+Sending a request to the Speech service's REST API requires either a subscription key or an access token. In general, it is easiest to send the subscription key directly; the Speech service then obtains the access token for you. However, to minimize response time, you may wish to use an access token instead.
 
 You obtain a token by presenting your subscription key to a regional Speech service `issueToken` endpoint, shown in the table below. Use the endpoint that matches your subscription region.
 
