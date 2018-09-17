@@ -18,7 +18,7 @@ ms.author: glenga
 
 This article explains how to work with HTTP triggers and output bindings in Azure Functions. Azure Functions supports HTTP triggers and output bindings.
 
-An HTTP trigger can be customized to respond to [webhooks](https://en.wikipedia.org/wiki/Webhook). A webhook trigger accepts only a  JSON payload and validates the JSON. There are special versions of the webhook trigger that make it easier to handle webhooks from certain providers, such as GitHub and Slack.
+An HTTP trigger can be customized to respond to [webhooks](https://en.wikipedia.org/wiki/Webhook).
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -308,164 +308,6 @@ public HttpResponseMessage<String> hello(@HttpTrigger(name = "req", methods = {"
     }
 }
 ```
-     
-## Trigger - webhook example
-
-See the language-specific example:
-
-* [C#](#webhook---c-example)
-* [C# script (.csx)](#webhook---c-script-example)
-* [F#](#webhook---f-example)
-* [JavaScript](#webhook---javascript-example)
-
-### Webhook - C# example
-
-The following example shows a [C# function](functions-dotnet-class-library.md) that sends an HTTP 200 in response to a generic JSON request.
-
-```cs
-[FunctionName("HttpTriggerCSharp")]
-public static HttpResponseMessage Run([HttpTrigger(AuthorizationLevel.Anonymous, WebHookType = "genericJson")] HttpRequestMessage req)
-{
-    return req.CreateResponse(HttpStatusCode.OK);
-}
-```
-
-### Webhook - C# script example
-
-The following example shows a webhook trigger binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function logs GitHub issue comments.
-
-Here's the *function.json* file:
-
-```json
-{
-  "bindings": [
-    {
-      "type": "httpTrigger",
-      "direction": "in",
-      "webHookType": "github",
-      "name": "req"
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "res"
-    }
-  ],
-  "disabled": false
-}
-```
-
-The [configuration](#trigger---configuration) section explains these properties.
-
-Here's the C# script code:
-
-```csharp
-#r "Newtonsoft.Json"
-
-using System;
-using System.Net;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-
-public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
-{
-    string jsonContent = await req.Content.ReadAsStringAsync();
-    dynamic data = JsonConvert.DeserializeObject(jsonContent);
-
-    log.Info($"WebHook was triggered! Comment: {data.comment.body}");
-
-    return req.CreateResponse(HttpStatusCode.OK, new {
-        body = $"New GitHub comment: {data.comment.body}"
-    });
-}
-```
-
-### Webhook - F# example
-
-The following example shows a webhook trigger binding in a *function.json* file and an [F# function](functions-reference-fsharp.md) that uses the binding. The function logs GitHub issue comments.
-
-Here's the *function.json* file:
-
-```json
-{
-  "bindings": [
-    {
-      "type": "httpTrigger",
-      "direction": "in",
-      "webHookType": "github",
-      "name": "req"
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "res"
-    }
-  ],
-  "disabled": false
-}
-```
-
-The [configuration](#trigger---configuration) section explains these properties.
-
-Here's the F# code:
-
-```fsharp
-open System.Net
-open System.Net.Http
-open FSharp.Interop.Dynamic
-open Newtonsoft.Json
-
-type Response = {
-    body: string
-}
-
-let Run(req: HttpRequestMessage, log: TraceWriter) =
-    async {
-        let! content = req.Content.ReadAsStringAsync() |> Async.AwaitTask
-        let data = content |> JsonConvert.DeserializeObject
-        log.Info(sprintf "GitHub WebHook triggered! %s" data?comment?body)
-        return req.CreateResponse(
-            HttpStatusCode.OK,
-            { body = sprintf "New GitHub comment: %s" data?comment?body })
-    } |> Async.StartAsTask
-```
-
-### Webhook - JavaScript example
-
-The following example shows a webhook trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function logs GitHub issue comments.
-
-Here's the binding data in the *function.json* file:
-
-```json
-{
-  "bindings": [
-    {
-      "type": "httpTrigger",
-      "direction": "in",
-      "webHookType": "github",
-      "name": "req"
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "res"
-    }
-  ],
-  "disabled": false
-}
-```
-
-The [configuration](#trigger---configuration) section explains these properties.
-
-Here's the JavaScript code:
-
-```javascript
-module.exports = function (context, data) {
-    context.log('GitHub WebHook triggered!', data.comment.body);
-    context.res = { body: 'New GitHub comment: ' + data.comment.body };
-    context.done();
-};
-```
 
 ## Trigger - attributes
 
@@ -476,7 +318,7 @@ You can set the authorization level and allowable HTTP methods in attribute cons
 ```csharp
 [FunctionName("HttpTriggerCSharp")]
 public static HttpResponseMessage Run(
-    [HttpTrigger(AuthorizationLevel.Anonymous, WebHookType = "genericJson")] HttpRequestMessage req)
+    [HttpTrigger(AuthorizationLevel.Anonymous)] HttpRequestMessage req)
 {
     ...
 }
@@ -496,7 +338,7 @@ The following table explains the binding configuration properties that you set i
 | <a name="http-auth"></a>**authLevel** |  **AuthLevel** |Determines what keys, if any, need to be present on the request in order to invoke the function. The authorization level can be one of the following values: <ul><li><code>anonymous</code>&mdash;No API key is required.</li><li><code>function</code>&mdash;A function-specific API key is required. This is the default value if none is provided.</li><li><code>admin</code>&mdash;The master key is required.</li></ul> For more information, see the section about [authorization keys](#authorization-keys). |
 | **methods** |**Methods** | An array of the HTTP methods to which the function  responds. If not specified, the function responds to all HTTP methods. See [customize the http endpoint](#customize-the-http-endpoint). |
 | **route** | **Route** | Defines the route template, controlling to which request URLs your function responds. The default value if none is provided is `<functionname>`. For more information, see [customize the http endpoint](#customize-the-http-endpoint). |
-| **webHookType** | **WebHookType** |Configures the HTTP trigger to act as a [webhook](https://en.wikipedia.org/wiki/Webhook) receiver for the specified provider. Don't set the `methods` property if you set this property. The webhook type can be one of the following values:<ul><li><code>genericJson</code>&mdash;A general-purpose webhook endpoint without logic for a specific provider. This setting restricts requests to only those using HTTP POST and with the `application/json` content type.</li><li><code>github</code>&mdash;The function responds to [GitHub webhooks](https://developer.github.com/webhooks/). Do not use the  _authLevel_ property with GitHub webhooks. For more information, see the GitHub webhooks section later in this article.</li><li><code>slack</code>&mdash;The function responds to [Slack webhooks](https://api.slack.com/outgoing-webhooks). Do not use the _authLevel_ property with Slack webhooks. For more information, see the Slack webhooks section later in this article.</li></ul>|
+| **webHookType** | **WebHookType** |**V1 runtime only - does not work for Functions 2.0**<br/><br/>Configures the HTTP trigger to act as a [webhook](https://en.wikipedia.org/wiki/Webhook) receiver for the specified provider. Don't set the `methods` property if you set this property. The webhook type can be one of the following values:<ul><li><code>genericJson</code>&mdash;A general-purpose webhook endpoint without logic for a specific provider. This setting restricts requests to only those using HTTP POST and with the `application/json` content type.</li><li><code>github</code>&mdash;The function responds to [GitHub webhooks](https://developer.github.com/webhooks/). Do not use the  _authLevel_ property with GitHub webhooks. For more information, see the GitHub webhooks section later in this article.</li><li><code>slack</code>&mdash;The function responds to [Slack webhooks](https://api.slack.com/outgoing-webhooks). Do not use the _authLevel_ property with Slack webhooks. For more information, see the Slack webhooks section later in this article.</li></ul>|
 
 ## Trigger - usage
 
@@ -504,21 +346,10 @@ For C# and F# functions, you can declare the type of your trigger input to be ei
 
 For JavaScript functions, the Functions runtime provides the request body instead of the request object. For more information, see the [JavaScript trigger example](#trigger---javascript-example).
 
-### GitHub webhooks
-
-To respond to GitHub webhooks, first create your function with an HTTP Trigger, and set the **webHookType** property to `github`. Then copy its URL and API key into the **Add webhook** page of your GitHub repository. 
-
-![](./media/functions-bindings-http-webhook/github-add-webhook.png)
-
-For an example, see [Create a function triggered by a GitHub webhook](functions-create-github-webhook-triggered-function.md).
-
-### Slack webhooks
-
-The Slack webhook generates a token for you instead of letting you specify it, so you must configure a function-specific key with the token from Slack. See [Authorization keys](#authorization-keys).
 
 ### Customize the HTTP endpoint
 
-By default when you create a function for an HTTP trigger, or WebHook, the function is addressable with a route of the form:
+By default when you create a function for an HTTP trigger, the function is addressable with a route of the form:
 
     http://<yourapp>.azurewebsites.net/api/<funcname> 
 
@@ -599,10 +430,13 @@ By default, all function routes are prefixed with *api*. You can also customize 
 
 ### Authorization keys
 
-Functions lets you use keys to make it harder to access your HTTP function endpoints during development.  A standard HTTP trigger may require such an API key be present in the request. Webhooks may use keys to authorize requests in a variety of ways, depending on what the provider supports.
+Functions lets you use keys to make it harder to access your HTTP function endpoints during development.  A standard HTTP trigger may require such an API key be present in the request. 
 
 > [!IMPORTANT]
 > While keys may help obfuscate your HTTP endpoints during development, they are not intended as a way to secure an HTTP trigger in production. To learn more, see [Secure an HTTP endpoint in production](#secure-an-http-endpoint-in-production).
+
+> [!NOTE]
+> In the Functions 1.x runtime, webhook providers may use keys to authorize requests in a variety of ways, depending on what the provider supports. This is covered in [Webhooks and keys](#webhooks-and-keys). Functions 2.x does not include support for webhook providers.
 
 There are two types of keys:
 
@@ -637,26 +471,43 @@ You can allow anonymous requests, which do not require keys. You can also requir
 > [!NOTE]
 > When running functions locally, authorization is disabled regardless of the specified authentication level setting. After publishing to Azure, the `authLevel` setting in your trigger is enforced.
 
-### Keys and webhooks
 
-Webhook authorization is handled by the webhook receiver component, part of the HTTP trigger, and the mechanism varies based on the webhook type. Each mechanism does rely on a key. By default, the function key named "default" is used. To use a different key, configure the webhook provider to send the key name with the request in one of the following ways:
-
-* **Query string**: The provider passes the key name in the `clientid` query string parameter, such as `https://<yourapp>.azurewebsites.net/api/<funcname>?clientid=<keyname>`.
-* **Request header**: The provider passes the key name in the `x-functions-clientid` header.
-
-For an example of a webhook secured with a key, see [Create a function triggered by a GitHub webhook](functions-create-github-webhook-triggered-function.md).
 
 ### Secure an HTTP endpoint in production
 
 To fully secure your function endpoints in production, you should consider implementing one of the following function app-level security options:
 
-* Turn on App Service authorization/authentication for your function app. The App Service platform lets use Azure Active Directory (AAD), service principal authentication, and trusted third-party identity providers to authenticate users. With this feature enabled, only authenticated users can access your function app. To learn more, see [Configure your App Service app to use Azure Active Directory login](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md).
+* Turn on App Service Authentication / Authorization for your function app. The App Service platform lets use Azure Active Directory (AAD) and several third-party identity providers to authenticate clients. You can use this to implement custom authorization rules for your functions, and you can work with user information from your function code. To learn more, see [Authentication and authorization in Azure App Service](../app-service/app-service-authentication-overview.md).
 
 * Use Azure API Management (APIM) to authenticate requests. APIM provides a variety of API security options for incoming requests. To learn more, see [API Management authentication policies](../api-management/api-management-authentication-policies.md). With APIM in place, you can configure your function app to accept requests only from the PI address of your APIM instance. To learn more, see [IP address restrictions](ip-addresses.md#ip-address-restrictions).
 
 * Deploy your function app to an Azure App Service Environment (ASE). ASE provides a dedicated hosting environment in which to run your functions. ASE lets you configure a single front-end gateway that you can use to authenticate all incoming requests. For more information, see [Configuring a Web Application Firewall (WAF) for App Service Environment](../app-service/environment/app-service-app-service-environment-web-application-firewall.md).
 
 When using one of these function app-level security methods, you should set the HTTP-triggered function authentication level to `anonymous`.
+
+
+### Webhooks
+
+The webhook mode is only available in Functions V1. This provides additional validation to webhook payloads. In V2, the base HTTP trigger will still work and is the recommended approach.
+
+#### GitHub webhooks
+
+To respond to GitHub webhooks, first create your function with an HTTP Trigger, and set the **webHookType** property to `github`. Then copy its URL and API key into the **Add webhook** page of your GitHub repository. 
+
+![](./media/functions-bindings-http-webhook/github-add-webhook.png)
+
+For an example, see [Create a function triggered by a GitHub webhook](functions-create-github-webhook-triggered-function.md).
+
+#### Slack webhooks
+
+The Slack webhook generates a token for you instead of letting you specify it, so you must configure a function-specific key with the token from Slack. See [Authorization keys](#authorization-keys).
+
+### Webhooks and keys
+
+Webhook authorization is handled by the webhook receiver component, part of the HTTP trigger, and the mechanism varies based on the webhook type. Each mechanism does rely on a key. By default, the function key named "default" is used. To use a different key, configure the webhook provider to send the key name with the request in one of the following ways:
+
+* **Query string**: The provider passes the key name in the `clientid` query string parameter, such as `https://<yourapp>.azurewebsites.net/api/<funcname>?clientid=<keyname>`.
+* **Request header**: The provider passes the key name in the `x-functions-clientid` header.
 
 ## Trigger - limits
 
@@ -688,7 +539,7 @@ The following table explains the binding configuration properties that you set i
 
 To send an HTTP response, use the language-standard response patterns. In C# or C# script, make the function return type `HttpResponseMessage` or `Task<HttpResponseMessage>`. In C#, a return value attribute isn't required.
 
-For example responses, see the [trigger example](#trigger---example) and the [webhook example](#trigger---webhook-example).
+For example responses, see the [trigger example](#trigger---example).
 
 ## Next steps
 
