@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.author: magoedte; bwren
+ms.author: bwren
 ms.component: na
 ---
 
@@ -65,6 +65,7 @@ Your browser requires access to the following addresses to access the Log Analyt
 
 ## Log search (classic)
 Open the Log search page from **Logs (Classic)** in the Log Analytics menu or from **Log Analytics** in the Azure Monitor menu. This is the classic page used for working with Log Analytics queries that lacks the additional the features of the [Log Analytics page](#log-analytics-page) listed above.
+
 
 
 ![Log Search page](media/log-analytics-log-search-portals/log-search-portal.png)
