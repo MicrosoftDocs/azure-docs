@@ -70,7 +70,7 @@ You may be prompted to log in.  Copy the code in the message, then click on the 
 
  ![login](./media/quickstart-get-started/login.png)
 
-The second cell reads from `config.json` to connect to your workspace.
+In the notebook, the second cell reads from `config.json` to connect to your workspace.
 ```
 ws = Workspace.from_config()
 ```
