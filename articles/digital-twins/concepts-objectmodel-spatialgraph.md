@@ -1,8 +1,8 @@
 ---
 title: Understanding Digital Twins Object Model and Spatial Intelligence Graph with Azure Digital Twins | Microsoft Docs
-description: 'Overview of Digital Twins object model and spatial Intelligence graph: Model relationships between people, places, and device twins'
+description: Using Azure Digital Twins to model relationships between people, places, and devices
 author: alinamstanciu
-manager: bertv
+manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
@@ -45,7 +45,7 @@ Other categories of objects are:
 
 **Spatial Graph** is the hierarchical graph of instances of objects defined in the **Digital Twins Object Model**. The spatial graph supports _inheritance_, _filtering_, _traversing_, _scalability_, and _extensibility_. The graph is exposing a collection of REST APIs for management and interaction with your spatial graph and a Swagger companion specification. 
 
-Users who deploys Digital Twins service in own subscription becames the tenant of the root node and gets automatically full access to entire structure. User then provisions the entire graph using Space Management APIs. We do offer [open source tools](https://github.com/Azure-Samples/digital-twins-samples-csharp) for bulk graph provisioning in addition to APIs.
+Users who deploys Digital Twins service in own subscription becames the tenant of the root node and gets automatically full access to entire structure. User then provisions the entire graph using `Space` Management APIs. We do offer [open source tools](https://github.com/Azure-Samples/digital-twins-samples-csharp) for bulk graph provisioning in addition to APIs.
 
 In the picture above, the Building-specific graph could be navigated on depth, as well as on breadth. On depth, the graph could be _traversed_ top-down or bottom-up using navigation `traverse`, `minLevel`, `maxLevel` parameters and/or could be filtered by specific `spaceId` or other defined properties. On breadth, the graph could be navigated to get sibling nodes directly attached to a parent space or one of its descendants. When querying an object(s), you could get all related objects that have relationships to that object(s) using `includes` parameter of the GET APIs.
 
@@ -57,12 +57,12 @@ Graph _scalability_ is our promise to you that we can handle your real-world wor
 
 Graph _extensibility_ allows you to extend model with extended types and ontologies, but also to add properties and values to enrich your twins' digital data.
 
-### Management APIs
-Once you deploy Azure Digital Twins from Azure portal, the URL of the Management APIs is generated in portal in the **Overview** section and has the following format `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger`. 
+### Spatial Intelligence Graph Management APIs
+> Note:  For more details on how to use the Spatial Intelligence Graph, please visit your Digital Twins Management APIs URL.
 
-All API calls must be authenticated using [OAuth](https://docs.microsoft.com/azure/active-directory/develop/v1-protocols-oauth-code). The APIs follow [Microsoft REST API Guidelines conventions](https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md). Most of the APIs that return collections support limited [OData](http://www.odata.org/getting-started/basic-tutorial/#queryData) system query options.
+Once you deploy Azure Digital Twins from the Azure Portal, the URL of the Management APIs is generated in portal in the **Overview** section and has the following format `https://[yourDigitalTwinsName].[yourLocation].azuresmartspaces.net/management/swagger`. Browse the URL and learn about each object model APIs.
 
-> Note:  For more details on how to use the Spatial Intelligence Graph and Management APIs, please visit your Digital Twins Management APIs URL.
+All API calls must be authenticated using [OAuth](https://docs.microsoft.com/azure/active-directory/develop/v1-protocols-oauth-code). The APIs follow [Microsoft REST API Guidelines conventions](https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md). Most of the APIs that return collections support [OData](http://www.odata.org/getting-started/basic-tutorial/#queryData) system query options.
 
 <!-- Images -->
 [1]: media/concepts/digital-twins-spatial-graph-building.png

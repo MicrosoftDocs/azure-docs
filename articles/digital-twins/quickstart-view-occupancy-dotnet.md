@@ -2,7 +2,7 @@
 title: Find available rooms with fresh air with Azure Digital Twins quickstart (C#) | Microsoft Docs
 description: In this quickstart, you run two .NET Core sample applications to send simulated motion and CO2 telemetry to a space in Azure Digital Twins. The goal is to find available rooms with fresh air from Management APIs after computed processing in the cloud.
 author: alinamstanciu
-manager: bertv
+manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.devlang: csharp
@@ -46,7 +46,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    * **Name**: Create a unique name for your Digital Twins. If the name you enter is available, a green check mark appears.
    ![Create Digital Twins][2]
 1. Review your Digital Twins information, then click **Create**. Your Digital Twins might take a few minutes to create. You can monitor the progress in the **Notifications** pane.
-1. Digital Twins provides a collection of REST APIs for management and interaction with your topology. These APIs are called Management APIs. The URL is generated in portal in **Overview** section and has the following format `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger`. You will need this URL in the proceeding steps.
+1. Digital Twins provides a collection of REST APIs for management and interaction with your topology. These APIs are called Management APIs. The URL is generated in the **Overview** section and has the following format `https://[yourDigitalTwinsName].[yourLocation].azuresmartspaces.net/management/swagger`. You will need this URL in the proceeding steps.
 
 ## Grant permissions to the console applications to interact with Digital Twins Management APIs
 [!INCLUDE [digital-twins-permissions](../../includes/digital-twins-permissions.md)]
