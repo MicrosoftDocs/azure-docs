@@ -24,6 +24,8 @@ ms.custom: aaddev
 
 ## Personal accounts and work and school accounts
 
+![Who can sign-in with v1.0 and v2.0 endpoints](media/azure-ad-endpoint-comparison/who-can-sign-in.jpg)
+
 The v2.0 endpoint allows developers to write apps that accept sign-in from both personal (outlook.com, hotmail.com) and work and school accounts, giving you the ability to write your app completely account-agnostic. For instance, if your app calls the [Microsoft Graph](https://graph.microsoft.io), some additional functionality and data will be available to enterprise users, such as their SharePoint sites or Directory data. But for many actions, such as [Reading a user's mail](https://graph.microsoft.io/docs/api-reference/v1.0/resources/message), the same code can access the email for both personal and work and school accounts.
 
 You can use a single set of endpoints and single library (MSAL) to gain access to both the consumer, educational and enterprise worlds. To learn more about authentication libraries, see this article.
@@ -32,48 +34,52 @@ You can use a single set of endpoints and single library (MSAL) to gain access t
 
 ## Incremental and dynamic consent
 
-Apps registered in Azure AD v1.0 endpoint need to specify their required OAuth 2.0 permissions in the Azure portal in advance:
+Apps using the Azure AD v1.0 endpoint are required to specify their required OAuth 2.0 permissions in advance, for example:
 
 ![Permissions Registration UI](./media/azure-ad-endpoint-comparison/app_reg_permissions.png)
 
-The permissions an app required were configured **statically**. While static permissions of the app defined in the Azure portal and kept the code nice and simple, it might present a few issues for developers:
+The permissions set directly on the application registration are **static**. While static permissions of the app defined in the Azure portal and kept the code nice and simple, it might present a few issues for developers:
 
 * The app need know all of the permissions it would ever need at app creation time. Adding permissions over time was a difficult process.
 * The app need to know all of the resources it would ever access ahead of time. It was difficult to create apps that could access an arbitrary number of resources.
 * The app need to request all the permissions it would ever need upon the user's first sign-in. In some cases this led to a long list of permissions, which discouraged end users from approving the app's access on initial sign-in.
 
-With the v2.0 endpoint, although recommended - mainly when an admin need to consent to the application permissions on behalf of the organization - you can also ignore the statically defined permissions defined in the app registration information in Azure portal and specify the permissions your app needs **dynamically**, at runtime, during regular usage of your app. To do so, you can specify the scopes your app needs at any given point in your application time by including the new scopes in the `scope` parameter when requesting an access token - without the need to pre-define them in the application registration information. 
+With the v2.0 endpoint, you can ignore the statically defined permissions defined in the app registration information in the Azure portal and specify the permissions your app needs **dynamically** at runtime, during regular use of your app, regardless of statically defined permissions in the application registration information.
+
+To do so, you can specify the scopes your app needs at any given point in your application time by including the new scopes in the `scope` parameter when requesting an access token - without the need to pre-define them in the application registration information.
 
 If the user has yet not consented to new scopes added to the request, they will be prompted to consent only to the new permissions. To learn more, you can read up on [permissions, consent, and scopes](v2-permissions-and-consent.md).
 
-Allowing an app to request permissions dynamically through the `scope` parameter gives developers full control over your user's experience. If you wish, you can choose to front load your consent experience and ask for all permissions in one initial authorization request. Or if your app requires a large number of permissions, you can choose to gather those permissions from the user incrementally, as they attempt to use certain features of your app over time.
+Allowing an app to request permissions dynamically through the `scope` parameter gives developers full control over your user's experience. If you wish, you can also choose to front load your consent experience and ask for all permissions in one initial authorization request. Or if your app requires a large number of permissions, you can choose to gather those permissions from the user incrementally, as they attempt to use certain features of your app over time.
+
+A note is that - when an admin need to consent to the application permissions on behalf of the organization, it is still recommended that you set the static permissions in the app registration for apps using the v2.0 endpoint, so cycles requiring the intervention of an organization's admin are reduced.
 
 ## Scopes, not resources
 
-In Azure AD, an app can behave as a **resource**, or a recipient of tokens. A resource can define a number of **scopes** or **oAuth2Permissions** that it understands, allowing client apps to request tokens to that resource for a certain set of scopes. Consider the Azure AD Graph API as an example of a resource:
+For apps using the v1.0 endpoint, an app can behave as a **resource**, or a recipient of tokens. A resource can define a number of **scopes** or **oAuth2Permissions** that it understands, allowing client apps to request tokens to that resource for a certain set of scopes. Consider the Azure AD Graph API as an example of a resource:
 
 * Resource Identifier, or `AppID URI`: `https://graph.windows.net/`
 * Scopes, or `OAuth2Permissions`: `Directory.Read`, `Directory.Write`, and so on.
 
-All of this holds true for the v2.0 endpoint. An app can still behave as resource, define scopes, and be identified by a URI. Client apps can still request access to those scopes. However, the way that a client requests those permissions has changed. In the past, an OAuth 2.0 authorize request to Azure AD might have looked like:
+All of this holds true for the v2.0 endpoint. An app can still behave as resource, define scopes, and be identified by a URI. Client apps can still request access to those scopes. However, the way that a client requests those permissions has changed. For the v1.0 endpoint, an OAuth 2.0 authorize request to Azure AD might have looked like:
 
-```
+```text
 GET https://login.microsoftonline.com/common/oauth2/authorize?
 client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
-&resource=https%3A%2F%2Fgraph.windows.net%2F
+&resource=https://graph.windows.net/
 ...
 ```
 
-where the **resource** parameter indicated which resource the client app is requesting authorization for. Azure AD computed the permissions required by the app based on static configuration in the Azure portal, and issued tokens accordingly. Now, the same OAuth 2.0 authorize request looks like:
+where the **resource** parameter indicated which resource the client app is requesting authorization for. Azure AD computed the permissions required by the app based on static configuration in the Azure portal, and issued tokens accordingly. For applications using the v2.0 endpoint, the same OAuth 2.0 authorize request looks like:
 
-```
+```text
 GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
 client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
-&scope=https%3A%2F%2Fgraph.windows.net%2Fdirectory.read%20https%3A%2F%2Fgraph.windows.net%2Fdirectory.write
+&scope=https://graph.windows.net/directory.read%20https://graph.windows.net/directory.write
 ...
 ```
 
-where the **scope** parameter indicates which resource and permissions the app is requesting authorization for. The desired resource is still present in the request - it is simply encompassed in each of the values of the scope parameter. Using the scope parameter in this manner allows the v2.0 endpoint to be more compliant with the OAuth 2.0 specification, and aligns more closely with common industry practices. It also enables apps to perform [incremental consent](#incremental-and-dynamic-consent), which is described in the next section.
+Where the **scope** parameter indicates which resource and permissions the app is requesting authorization for. The desired resource is still present in the request - it is simply encompassed in each of the values of the scope parameter. Using the scope parameter in this manner allows the v2.0 endpoint to be more compliant with the OAuth 2.0 specification, and aligns more closely with common industry practices. It also enables apps to perform [incremental consent](#incremental-and-dynamic-consent), which is described earlier.
 
 ## Well-known scopes
 
