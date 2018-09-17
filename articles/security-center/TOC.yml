@@ -35,13 +35,17 @@
 
 - name: How-to guides
   items:
+  - name: Improve your secure score
+    href: security-center-secure-score.md
   - name: Upgrade to advanced security
     href: security-center-onboarding.md
   - name: Server protection with WATP (Preview)
     href: security-center-wdatp.md
-  - name: Set Security policy
+  - name: Set security policy
   - name: Set security policies
     href: security-center-azure-policy.md
+  - name: Customize the information protection policy
+    href: security-center-info-protection-policy.md
   - name: Security policy settings
     href: security-center-policies-overview.md
     items:

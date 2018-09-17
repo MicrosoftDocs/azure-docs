@@ -23,9 +23,9 @@ ms.author: rkarlin
 ## Recommendations
 Use the tables below as a reference to help you understand the available containers hosted on IaaS Linux machines and security assessment of their Docker configurations.
 
-| Recommendation | Description |
-| --- | --- |
-| [Enable data collection for subscriptions](security-center-enable-data-collection.md) |Recommends that you turn on data collection in the security policy for each of your subscriptions and all virtual machines (VMs) in your subscriptions. |
+| Recommendation | Description | Remediation |
+| --- | --- | --- |
+|Remediate vulnerabilities in container security configurations |Remediate vulnerabilities in container security configurations based on configuration best practices.| To remediate vulnerabilities in the container security configurations:<br>1. Review the list of failed rules.<br>2. Fix each rule according to the specified instructions.|
 
 
 ## Next steps
