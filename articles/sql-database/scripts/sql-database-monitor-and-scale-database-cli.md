@@ -7,7 +7,6 @@ author: CarlRabeler
 manager: craigg
 editor: carlrab
 tags: azure-service-management
-
 ms.assetid:
 ms.service: sql-database
 ms.custom: monitor & tune, mvc
@@ -15,13 +14,13 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 04/01/2018
+ms.date: 09/14/2018
 ms.author: carlrab
 ---
 
 # Use CLI to monitor and scale a single SQL database
 
-This Azure CLI script example scales a single Azure SQL database to a different performance level after querying the size information of the database. 
+This Azure CLI script example scales a single Azure SQL database to a different compute size after querying the size information of the database. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -53,7 +52,7 @@ This script uses the following commands. Each command in the table links to comm
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
 | [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#az_sql_server_create) | Creates a logical server that hosts a database. |
 | [az sql db show-usage](https://docs.microsoft.com/cli/azure/sql/db#az_sql_db_show_usage) | Shows the size usage information for a database. |
-| [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#az_sql_db_update) | Updates database properties (such as the service tier or performance level) or moves a database into, out of, or between elastic pools. |
+| [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#az_sql_db_update) | Updates database properties (such as the service tier or compute size) or moves a database into, out of, or between elastic pools. |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Deletes a resource group including all nested resources. |
 |||
 
