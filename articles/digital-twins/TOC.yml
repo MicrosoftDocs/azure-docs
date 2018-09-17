@@ -15,7 +15,7 @@
 #   - name: Create app to manage facilities
 #     href: tutorial-facilities-app.md
 - name: Concepts
- items:
+  items:
  - name: Understanding Object Model and Spatial Intelligence Graph
    href: concepts-objectmodel-spatialgraph.md
 #- name: How-to guides
