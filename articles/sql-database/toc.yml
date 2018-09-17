@@ -308,18 +308,18 @@
         href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
   - name: SQL features comparison
     href: sql-database-features.md
-  - name: Monitor and tune
+  - name: Performance and tuning
     items:
     - name: Intelligent performance   
       items:
-      - name: Querying
-        items:
-        - name: Intelligent query processing
-          href: https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json
-        - name: Adaptive query processing
-          href: https://docs.microsoft.com/sql/relational-databases/performance/adaptive-query-processing?toc=/azure/sql-database/toc.json
+      - name: Intelligent query processing
+        href: https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json
+      - name: Adaptive query processing
+        href: https://docs.microsoft.com/sql/relational-databases/performance/adaptive-query-processing?toc=/azure/sql-database/toc.json
       - name: Monitoring and tuning
-        href: sql-database-monitor-tune-overview.md
+        items:
+        - name: Monitoring and tuning overview
+          href: sql-database-monitor-tune-overview.md
         - name: Database advisor performance recommendations
           href: sql-database-advisor.md
         - name: Tuning actions and recommendations
@@ -338,7 +338,6 @@
           href: sql-database-intelligent-insights-troubleshoot-performance.md
       - name: Query Performance Insight
         href: sql-database-query-performance.md
-    - name: Manual tuning
       - name: Automatic performance tuning
         items:
         - name: Automatic tuning overview
@@ -347,6 +346,7 @@
           href: sql-database-automatic-tuning-enable.md
         - name: Enable E-mail notifications
           href: sql-database-automatic-tuning-email-notifications.md
+    - name: Manual tuning
       items:
       - name: Manual tuning
         href: sql-database-performance-guidance.md
