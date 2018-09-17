@@ -12,20 +12,21 @@ ms.author: cherylmc
 ---
 # ExpressRoute monitoring, metrics, and alerts
 
-Azure Monitor is one stop shop for all metrics, alerting, diagnostic logs across all of Azure. 
+Azure Monitor is one stop shop for all metrics, alerting, diagnostic logs across all of Azure. Use the following screenshots to better understand monitoring.
 
 ## Circuit metrics
 
 ![circuit metrics](./media/expressroute-monitoring-metrics-alerts/ermetricspeering.jpg)
 
-## Metrics per peering : private/ public/ Microsoft peering in bits/second
+## Metrics per peering
+
+You can view metrics for private, public, and Microsoft peering in bits/second.
 
 ![metrics per peering](./media/expressroute-monitoring-metrics-alerts/erpeeringmetrics.jpg) 
 
 ### You can only select Inbound or Outbound Metrics
 
 ![select metrics](./media/expressroute-monitoring-metrics-alerts/inout.png ) 
-
 
 ## ExpressRoute gateway connections in bits/seconds
 
@@ -61,7 +62,6 @@ Azure Monitor is one stop shop for all metrics, alerting, diagnostic logs across
 In the **Alert Criteria**, you can select **Activity Log** for the Signal Type and select the Signal.
 
   ![another](./media/expressroute-monitoring-metrics-alerts/alertshowto6activitylog.jpg)
-
 
 ## Next steps
 * Configure your ExpressRoute connection.

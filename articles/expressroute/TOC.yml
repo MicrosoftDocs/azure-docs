@@ -103,8 +103,12 @@
       href: expressroute-config-samples-routing.md
     - name: Router configuration samples for NAT
       href: expressroute-config-samples-nat.md
-  - name: Configure Network Performance Monitor for ExpressRoute
-    href: how-to-npm.md
+  - name: Monitoring
+    items:
+    - name: ExpressRoute monitoring, metrics, and alerts
+      href: expressroute-monitoring-metrics-alerts.md
+    - name: Configure Network Performance Monitor for ExpressRoute
+      href: how-to-npm.md
   - name: Classic deployment model articles
     items:
     - name: Modify a circuit
