@@ -21,7 +21,7 @@ ms.reviewer: Anjay.Ajodha
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-Learn how to direct traffic to specific endpoints based on various metrics using Geo-Distributed Apps. Creating a Traffic Manager profile with geographic-based routing and endpoint configuration effectively and ensures information is correctly routed to endpoints based on regional requirements, corporate and international regulation, and data needs.
+Learn how to direct traffic to specific endpoints based on various metrics using the geo-distributed apps pattern. Creating a Traffic Manager profile with geographic-based routing and endpoint configuration ensures information is routed to endpoints based on regional requirements, corporate and international regulation, and your data needs.
 
 In this tutorial, you will build a sample environment to:
 
@@ -29,36 +29,29 @@ In this tutorial, you will build a sample environment to:
 > - Create a Geo-Distributed App.
 > - Use Traffic Manager to target your app.
 
-> [!Tip]  
-> ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
-> Microsoft Azure Stack is an extension of Azure. Azure Stack brings the agility and innovation of cloud computing to your on-premises environment and enabling the only hybrid cloud that allows you to build and deploy hybrid apps anywhere.  
-> 
-> The whitepaper [Design Considerations for Hybrid Applications](https://aka.ms/hybrid-cloud-applications-pillars) reviews pillars of software quality (placement, scalability, availability, resiliency, manageability and security) for designing, deploying and operating hybrid applications. The design considerations assist in optimizing hybrid application design, minimizing challenges in production environments.
+## Use the geo-distributed apps pattern
 
+With the geo-distributed pattern, your app can spans regions. You can default to the public cloud, but some of users may require that their data remain in their region. You can direct users to the most suitable cloud based on their requirements.
 
-## Prerequisites
+### Issues and considerations
 
-The list above of components is the list of prerequisites. An Azure subscription and Azure Stack installation are required.
+#### Scalability considerations
 
-## Issues and Considerations
+The solution you will build with this tutorial is not to accommodate scalability. However, if used in combination with other Azure and On-Premises technologies and solutions you can accommodate scalability requirements. For information on creating a hyrbid solution with auto-scaling via traffic manager, see [Create cross-cloud scaling solutions with Azure](azure-stack-solution-cloud-burst.md).
 
-### Scalability considerations
-
-This solution as-is and not built to accommodate scalability. However, if used in combination with other Azure and On-Premises technologies and solutions, scalability would be easily achieved.
-
-### Availability considerations
+#### Availability considerations
 
 As is the case with scalability considerations, this solution doesn't directly address availability. However, also similar to our scalability considerations, Azure, and on-premises technologies and solutions can be implemented within this solution to ensure high availability for all components involved.
 
-## When to use this pattern
+### When to use this pattern
 
--   My organization has international branches requiring custom regional security and distribution policies.
+- Your organization has international branches requiring custom regional security and distribution policies.
 
--   Each of my organizations offices pulls employee, business, and facility data, requiring reporting activity per local regulations and time zone.
+- Each of your organizations offices pulls employee, business, and facility data, requiring reporting activity per local regulations and time zone.
 
--   High scale requirements can be met by horizontally scaling out apps, with multiple app deployments being made within a single region, as well as across regions, to handle extreme load requirements.
+- High scale requirements can be met by horizontally scaling out apps, with multiple app deployments being made within a single region, as well as across regions, to handle extreme load requirements.
 
-## Planning the Topology
+### Planning the topology
 
 Before building out a distributed app footprint, it helps to have the following knowledge:
 
@@ -72,30 +65,50 @@ Before building out a distributed app footprint, it helps to have the following 
 
 -   **Naming convention for the apps:** Since multiple instances of the app will be deployed, a name is needed for each instance of the deployed app. With App Service Environments the same app name can be used across multiple App Service Environments. Since each App Service Environment has a unique domain suffix, developers can choose to reuse the exact same app name in each environment. For example, a developer could have apps named as follows: *myapp.foo1.p.azurewebsites.net*, *myapp.foo2.p.azurewebsites.net*, *myapp.foo3.p.azurewebsites.net*, etc. For the app in this scenario, each app instance has a unique name. The app instance names used are *webfrontend1*, *webfrontend2*, and *webfrontend3*.
 
-## Geo-Distributed App Steps
+> [!Tip]  
+> ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
+> Microsoft Azure Stack is an extension of Azure. Azure Stack brings the agility and innovation of cloud computing to your on-premises environment and enabling the only hybrid cloud that allows you to build and deploy hybrid apps anywhere.  
+> 
+> The whitepaper [Design Considerations for Hybrid Applications](https://aka.ms/hybrid-cloud-applications-pillars) reviews pillars of software quality (placement, scalability, availability, resiliency, manageability and security) for designing, deploying, and operating hybrid applications. The design considerations assist in optimizing hybrid application design, minimizing challenges in production environments.
 
-## Obtain a custom domain and configure DNS
+## Part 1: Create a geo-distributed app
 
-Update the DNS zone file for the domain. Azure AD can then verify ownership of the custom domain name. Use [Azure DNS](https://docs.microsoft.com/azure/dns/dns-getstarted-portal) for Azure/Office 365/external DNS records within Azure, or add the DNS entry at [a different DNS registrar](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/).
+In this part, you will create a web app.
 
-1.  Register a custom domain with a public Registrar.
+> [!div class="checklist"]
+> - Create web apps and publish
+> - Add Code to VSTS Project
+> - Point the app build to multiple cloud targets.
+> - Manage and configure the CD process
 
-2.  Sign in to the domain name registrar for the domain. An approved admin may be required to make the DNS updates.
+### Prerequisites
 
-3.  Update the DNS zone file for the domain by adding the DNS entry provided by Azure AD. The DNS entry doesn't change behaviors such as mail routing or web hosting.
+An Azure subscription and Azure Stack installation are required.
 
-## Create web apps and publish
+### Geo-distributed app steps
+
+### Obtain a custom domain and configure DNS
+
+Update the DNS zone file foCreate web apps and publishr the domain. Azure AD can then verify ownership of the custom domain name. Use [Azure DNS](https://docs.microsoft.com/azure/dns/dns-getstarted-portal) for Azure/Office 365/external DNS records within Azure, or add the DNS entry at [a different DNS registrar](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/).
+
+1. Register a custom domain with a public Registrar.
+
+2. Sign in to the domain name registrar for the domain. An approved admin may be required to make the DNS updates.
+
+3. Update the DNS zone file for the domain by adding the DNS entry provided by Azure AD. The DNS entry doesn't change behaviors such as mail routing or web hosting.
+
+### Create web apps and publish
 
 Set up hybrid CI/CD to deploy Web App to Azure and Azure Stack, and auto push changes to both clouds.
 
 > [!Note]  
->*  Azure Stack with proper images syndicated to run (Windows Server and SQL) and App Service deployment are required. Review the App Service documentation "Prerequisites" section for Azure Stack Operator Requirements. 
+> Azure Stack with proper images syndicated to run (Windows Server and SQL) and App Service deployment are required. Review the App Service documentation "[Before you get started with App Service on Azure Stack](/articles/azure-stack/azure-stack-app-service-before-you-get-started)" section for Azure Stack Operator.
 
-### Add Code to VSTS Project
+#### Add Code to VSTS Project
 
 1. Sign in to Visual Studio with an **account that has project creation rights** on VSTS.
 
-Hybrid CI/CD can apply to both application code and infrastructure code. Use [Azure Resource Manager templates](https://azure.microsoft.com/resources/templates/) for both private and hosted cloud development.
+    Hybrid Continuous Integration/Continuous Delivery (CI/CD) can apply to both application code and infrastructure code. Use [Azure Resource Manager templates](https://azure.microsoft.com/resources/templates/) for both private and hosted cloud development.
 
     ![Alt text](media\azure-stack-solution-geo-distributed\image1.JPG)
 
@@ -103,7 +116,7 @@ Hybrid CI/CD can apply to both application code and infrastructure code. Use [Az
 
     ![Alt text](media\azure-stack-solution-geo-distributed\image2.png)
 
-## Createweb app deployment in both clouds
+### Create web app deployment in both clouds
 
 1.  Edit the **WebApplication.csproj** file: Select **Runtimeidentifier** and add **win10-x64**. (See [Self-contained Deployment](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) documentation.)
 
@@ -113,7 +126,7 @@ Hybrid CI/CD can apply to both application code and infrastructure code. Use [Az
 
 2.  Confirm that the **application code** has been checked into Visual Studio Team Services.
 
-## Create the build definition
+### Create the build definition
 
 1. **Log into VSTS** to confirm ability to create build definitions.
 
@@ -127,16 +140,16 @@ Hybrid CI/CD can apply to both application code and infrastructure code. Use [Az
 
 Using a hosted agent in VSTS is a convenient option to build and deploy web apps. Maintenance and upgrades are automatically performed by Microsoft Azure, enabling continual, uninterrupted development, testing, and deployment.
 
-## Manage and configure the CD process
+### Manage and configure the CD process
 
 Visual Studio Team Services (VSTS) and Team Foundation Server (TFS) provide a highly configurable and manageable pipeline for releases to multiple environments such as development, staging, QA, and production environments; including requiring approvals at specific stages.
 
-### Create release definition
+#### Create release definition
 
 
 ![Alt text](media\azure-stack-solution-geo-distributed\image5.png)
 
-1.  Select the **plus** button to add a new Release under the **Releases tab** in the Build and Release page of VSO.
+1.  Select the **plus** button to add a new Release under the **Releases tab** in the Build and Release page of Visual Studio Online (VSO).
 
     ![Alt text](media\azure-stack-solution-geo-distributed\image6.png)
 
@@ -208,7 +221,7 @@ Visual Studio Team Services (VSTS) and Team Foundation Server (TFS) provide a hi
 
     ![Alt text](media\azure-stack-solution-geo-distributed\image24.png)
 
-18. Under Variable tab add a variable named **VSTS\_ARM\_REST\_IGNORE\_SSL\_ERRORS**, set its value as **true**, and scope to **Azure Stack**.
+18. Under **Variable** tab add a variable named `VSTS\_ARM\_REST\_IGNORE\_SSL\_ERRORS`, set its value as `true`, and scope to `Azure Stack`.
 
     ![Alt text](media\azure-stack-solution-geo-distributed\image25.png)
 
@@ -221,24 +234,26 @@ Visual Studio Team Services (VSTS) and Team Foundation Server (TFS) provide a hi
 21. Save all changes.
 
 > [!Note]  
->  Some settings for the tasks may have been automatically defined as[environment variables](https://docs.microsoft.com/vsts/build-release/concepts/definitions/release/variables?view=vsts#custom-variables)when you created a release definition from a template. These settings cannot be modified in the task settings; instead you must select the parent environment item to edit these settings.
+>  Some settings for the tasks may have been automatically defined as [environment variables](https://docs.microsoft.com/vsts/build-release/concepts/definitions/release/variables?view=vsts#custom-variables) when you created a release definition from a template. These settings cannot be modified in the task settings; instead you must select the parent environment item to edit these settings.
 
-## Update Web app options
+## Part 2: Update web app options
 
-## Map an existing custom DNS name to Azure Web Apps
-
-[Azure Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview)provides a highly scalable, self-patching web hosting service. This tutorial shows how to map an existing custom DNS name to Azure Web Apps.
+[Azure Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview) provides a highly scalable, self-patching web hosting service. 
 
 ![Alt text](media\azure-stack-solution-geo-distributed\image27.png)
 
-Use a **CNAME recorder an**A record** to map a custom DNS name to App Service.
+> [!div class="checklist"]
+> - Map an existing custom DNS name to Azure Web Apps
+> - Use a **CNAME recorder an **A record** to map a custom DNS name to App Service.
+
+### Map an existing custom DNS name to Azure Web Apps
 
 > [!Note]  
 >  Use a CNAME for all custom DNS names except a root domain (for example,northwind.com).
 
-To migrate a live site and its DNS domain name to App Service, see[Migrate an active DNS name to Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-custom-domain-name-migrate).
+To migrate a live site and its DNS domain name to App Service, see [Migrate an active DNS name to Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-custom-domain-name-migrate).
 
-## Prerequisites
+### Prerequisites
 
 To complete this tutorial:
 
@@ -246,7 +261,7 @@ To complete this tutorial:
 
 -   Purchase a domain name and ensure access to the DNS registry for the domain provider.
 
-> []{#_Hlk518047090 .anchor}Update the DNS zone file for the domain. Azure AD will verify ownership of the custom domain name. Use [Azure DNS](https://docs.microsoft.com/azure/dns/dns-getstarted-portal) for Azure/Office 365/external DNS records within Azure, or add the DNS entry at [a different DNS registrar](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/).
+Update the DNS zone file for the domain. Azure AD will verify ownership of the custom domain name. Use [Azure DNS](https://docs.microsoft.com/azure/dns/dns-getstarted-portal) for Azure/Office 365/external DNS records within Azure, or add the DNS entry at [a different DNS registrar](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/).
 
 -   Register a custom domain with a public Registrar.
 
@@ -257,14 +272,17 @@ To complete this tutorial:
 For example, to add DNS entries fornorthwindcloud.comandwww.northwindcloud.com, configure DNS settings for thenorthwindcloud.com root domain.
 
 > [!Note]  
->  A domain name may be purchased using the [Azure portal.](https://docs.microsoft.com/azure/app-service/custom-dns-web-site-buydomains-web-app)  -   To map a custom DNS name to a web app, the web app's[App Service plan](https://azure.microsoft.com/pricing/details/app-service/)must be a paid tier (**Shared**, **Basic**, **Standard**, or **Premium**).
+>  A domain name may be purchased using the [Azure portal](https://docs.microsoft.com/azure/app-service/custom-dns-web-site-buydomains-web-app).  
+> To map a custom DNS name to a web app, the web app's [App Service plan](https://azure.microsoft.com/pricing/details/app-service/) must be a paid tier (**Shared**, **Basic**, **Standard**, or **Premium**).
 
-## Create and map CNAME and A records
 
-### Access DNS records with domain provider
+
+### Create and map CNAME and A records
+
+#### Access DNS records with domain provider
 
 > [!Note]  
->  Use Azure DNS to configure a custom DNS name for Azure Web Apps. For more information, see[Use Azure DNS to provide custom domain settings for an Azure service](https://docs.microsoft.com/azure/dns/dns-custom-domain).
+>  Use Azure DNS to configure a custom DNS name for Azure Web Apps. For more information, see [Use Azure DNS to provide custom domain settings for an Azure service](https://docs.microsoft.com/azure/dns/dns-custom-domain).
 
 1.  Sign in to the website of the main provider.
 
@@ -276,7 +294,7 @@ The following screenshot is an example of a DNS records page:
 
 ![Example DNS records page](media\azure-stack-solution-geo-distributed\image28.png)
 
-1.  In Domain Name Registrar, select**Add or Create to create a record. Some providers have different links to add different record types. Consult the provider's documentation.
+1.  In Domain Name Registrar, select **Add or Create** to create a record. Some providers have different links to add different record types. Consult the provider's documentation.
 
 2.  Add a CNAME record to map a subdomain to the app's default hostname.
 
@@ -286,7 +304,7 @@ After adding the CNAME, the DNS records page looks like the following example:
 
 ![Portal navigation to Azure app](media\azure-stack-solution-geo-distributed\image29.png)
 
-## Enable the CNAME record mapping in Azure
+### Enable the CNAME record mapping in Azure
 
 1.  In a new tab, sign in to the Azure portal,
 
@@ -302,13 +320,13 @@ After adding the CNAME, the DNS records page looks like the following example:
 
 2.  Select **Validate**.
 
-3.  If indicated, add additional records of other types (A or TXT) to the domain name registrars DNS records. Azure will provide the values and types of these records:
+3.  If indicated, add additional records of other types (`A` or `TXT`) to the domain name registrars DNS records. Azure will provide the values and types of these records:
 
-    a.  An **A**record to map to the app's IP address.
+    a.  An **A** record to map to the app's IP address.
 
     b.  A **TXT** record to map to the app's default hostname <app_name>.azurewebsites.net. App Service uses this record only at configuration time, to verify custom domain ownership. After verification, delete the TXT record.
 
-4.  Complete this task in the domain registrar tab and revalidate until the **Add hostname**button is activated.
+4.  Complete this task in the domain registrar tab and revalidate until the **Add hostname** button is activated.
 
 5.  Make sure that **Hostname record type is set to **CNAME (www.example.com or any subdomain)**.
 
@@ -324,39 +342,40 @@ After adding the CNAME, the DNS records page looks like the following example:
 
 11. **Add hostname**.
 
-  It might take some time for the new hostnames to be reflected in the app's**Custom domains** page. Try refreshing the browser to update the data. ![Alt text](media\azure-stack-solution-geo-distributed\image31.png) In the case of an error, a verification error notification will appear at the bottom of the page. ![Verification error](media\azure-stack-solution-geo-distributed\image32.png)
+  It might take some time for the new hostnames to be reflected in the app's **Custom domains** page. Try refreshing the browser to update the data.
+  
+  ![Alt text](media\azure-stack-solution-geo-distributed\image31.png) 
+  
+  In the case of an error, a verification error notification will appear at the bottom of the page. ![Verification error](media\azure-stack-solution-geo-distributed\image32.png)
 
 > [!Note]  
 >  The above steps may be repeated to map a wildcard domain (\*.northwindcloud.com).. This allows the addition of any additional subdomains to this app service without having to create a separate CNAME record for each one. Follow the registrar instructions to configure this setting.
 
-### Test in a browser
+#### Test in a browser
 
-Browse to the DNS name(s) configured earlier (for example, northwindcloud.com, www.northwindcloud.com.
+Browse to the DNS name(s) configured earlier (for example, `northwindcloud.com`, www.northwindcloud.com.
 
-## Bind an existing custom SSL certificate to Azure Web Apps
+## Part 3: Bind a custom SSL cert
 
-In this tutorial:
+In this part:
 
--   Bind the custom SSL certificate to App Service
-
--   Enforce HTTPS for the app
-
--   Automate SSL certificate binding with scripts
+> [!div class="checklist"]
+> - Bind the custom SSL certificate to App Service
+> - Enforce HTTPS for the app
+> - Automate SSL certificate binding with scripts
 
 > [!Note]  
-> If needed, obtain a customer SSL certificate in the Azure portal and bind it to the web app. Follow the[App Service Certificates tutorial](https://docs.microsoft.com/azure/app-service/web-sites-purchase-ssl-web-site).
+> If needed, obtain a customer SSL certificate in the Azure portal and bind it to the web app. Follow the [App Service Certificates tutorial](https://docs.microsoft.com/azure/app-service/web-sites-purchase-ssl-web-site).
 
-## Prerequisites
+### Prerequisites
 
 To complete this tutorial:
 
 -   [Create an App Service app](https://docs.microsoft.com/azure/app-service/)
-
 -   [Map a custom DNS name to your web app](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain)
-
 -   Acquire an SSL certificate from a trusted certificate authority and use the key to sign the request
 
-## Requirements for your SSL certificate
+### Requirements for your SSL certificate
 
 To use a certificate in App Service, the certificate must meet all the following requirements:
 
@@ -371,31 +390,31 @@ To use a certificate in App Service, the certificate must meet all the following
 > [!Note]  
 >  **Elliptic Curve Cryptography (ECC) certificates** work with App Service but are not included in this guide. Consult a certificate authority for assistance in creating ECC certificates. 
 
-### Prepare the web app
+#### Prepare the web app
 
 To bind a custom SSL certificate to the web app, the [App Service plan](https://azure.microsoft.com/pricing/details/app-service/) must be in the **Basic**, **Standard**, or **Premium** tier.
 
-### Sign in to Azure
+#### Sign in to Azure
 
-1.  Open the[Azure portal](https://portal.azure.com/) and navigate to the web app.
+1.  Open the [Azure portal](https://portal.azure.com/) and navigate to the web app.
 
 2.  From the left menu, select **App Services**, and then select the web app name.
 
 ![Select web app](media\azure-stack-solution-geo-distributed\image33.png)
 
-### Check the pricing tier
+#### Check the pricing tier
 
-1.  In the left-hand navigation of the web app page, scroll to the **Settings** section and select** Scale up (App Service plan)**.
+1.  In the left-hand navigation of the web app page, scroll to the **Settings** section and select **Scale up (App Service plan)**.
 
-![Scale-up menu](media\azure-stack-solution-geo-distributed\image34.png)
+    ![Scale-up menu](media\azure-stack-solution-geo-distributed\image34.png)
 
 1.  Ensure the web app is not in the **Free** or **Shared** tier. The web app's current tier is highlighted in a dark blue box.
 
-![Check pricing tier](media\azure-stack-solution-geo-distributed\image35.png)
+    ![Check pricing tier](media\azure-stack-solution-geo-distributed\image35.png)
 
-Custom SSL is not supported in the **Free**or**Shared** tier. To upscale, follow the steps in the next section, or **Choose your pricing tier** page and skip to [Upload and bind your SSL certificate](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl).
+Custom SSL is not supported in the **Free** or **Shared** tier. To upscale, follow the steps in the next section, or **Choose your pricing tier** page and skip to [Upload and bind your SSL certificate](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl).
 
-### Scale up your App Service plan
+#### Scale up your App Service plan
 
 1.  Select one of the **Basic**, **Standard**, or **Premium** tiers.
 
@@ -407,7 +426,7 @@ The scale operation is complete when notification is displayed.
 
 ![Scale up notification](media\azure-stack-solution-geo-distributed\image37.png)
 
-### Bind your SSL certificate and merge intermediate certificates
+#### Bind your SSL certificate and merge intermediate certificates
 
 Merge multiple certificates in the chain.
 
@@ -442,7 +461,7 @@ Merge multiple certificates in the chain.
     -----END CERTIFICATE-----
     ```
 
-### Export certificate to PFX
+#### Export certificate to PFX
 
 Export merged SSL certificate with the private key generated by the certificate.
 
@@ -454,9 +473,9 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 When prompted, define an export password for uploading your SSL certificate to App Service later.
 
-When IIS or*Certreq.exe*are used to generate the certificate request, install the certificate to a local machine and then [export the certificate to PFX](https://technet.microsoft.com/library/cc754329(v=ws.11).aspx).
+When IIS or **Certreq.exe** are used to generate the certificate request, install the certificate to a local machine and then [export the certificate to PFX](https://technet.microsoft.com/library/cc754329(v=ws.11).aspx).
 
-### Upload the SSL certificate
+#### Upload the SSL certificate
 
 1.  Select **SSL settings** in the left navigation of the web app.
 
@@ -474,18 +493,18 @@ When App Service finishes uploading the certificate, it appears in the **SSL set
 
 ![Alt text](media\azure-stack-solution-geo-distributed\image39.png)
 
-### Bind your SSL certificate
+#### Bind your SSL certificate
 
 1.  In the **SSL bindings** section, select **Add binding**.
 
-> [!Note]  
->  If certificate has been uploaded, but does not appear in domain name(s) in the **Hostname** dropdown, try refreshing the browser page.
+    > [!Note]  
+    >  If the certificate has been uploaded, but does not appear in domain name(s) in the **Hostname** dropdown, try refreshing the browser page.
 
 1.  In the **Add SSL Binding** page, use the drop downs to select the domain name to secure, and the certificate to use.
 
 2.  In **SSL Type**, select whether to use [**Server Name Indication (SNI)**](http://en.wikipedia.org/wiki/Server_Name_Indication)or IP-based SSL.
 
--   **SNI-based SSL**- Multiple SNI-based SSL bindings may be added. This option allows multiple SSL certificates to secure multiple domains on the same IP address. Most modern browsers (including Internet Explorer, Chrome, Firefox, and Opera) support SNI (find more comprehensive browser support information at[Server Name Indication](http://wikipedia.org/wiki/Server_Name_Indication)).
+-   **SNI-based SSL**- Multiple SNI-based SSL bindings may be added. This option allows multiple SSL certificates to secure multiple domains on the same IP address. Most modern browsers (including Internet Explorer, Chrome, Firefox, and Opera) support SNI (find more comprehensive browser support information at [Server Name Indication](http://wikipedia.org/wiki/Server_Name_Indication)).
 
 -   **IP-based SSL**- Only one IP-based SSL binding may be added. This option allows only one SSL certificate to secure a dedicated public IP address. To secure multiple domains, secure them all using the same SSL certificate. This is the traditional option for SSL binding.
 
@@ -497,17 +516,17 @@ When App Service finishes uploading the certificate, it appears in the **SSL bin
 
 ![Alt text](media\azure-stack-solution-geo-distributed\image41.png)
 
-### Remap the A record for IP SSL
+#### Remap the A record for IP SSL
 
-If IP-based SSL is not used in the web app, skip to[Test HTTPS for your custom domain](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl).
+If IP-based SSL is not used in the web app, skip to [Test HTTPS for your custom domain](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl).
 
 By default, the web app uses a shared public IP address. When the certificate is bound with IP-based SSL, App Service creates a new and dedicated IP address for the web app.
 
 When an A record is mapped to the web app, the domain registry must be updated with the dedicated IP address.
 
-The **Custom domain** page is updated with the new, dedicated IP address. Copy this IP address](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain), then remap the A record](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain)to this new IP address.
+The **Custom domain** page is updated with the new, dedicated IP address. Copy this [IP address](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain), then remap the [A record](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain) to this new IP address.
 
-### Test HTTPS
+#### Test HTTPS
 
 In various browsers, browse to https://<your.custom.domain>to ensure the web ap is served.
 
@@ -516,7 +535,7 @@ In various browsers, browse to https://<your.custom.domain>to ensure the web ap 
 > [!Note]  
 > If certificate validation errors occur, a self-signed certificate may be the cause, or intermediate certificates may have been left off when exporting to the PFX file.
 
-### Enforce HTTPS
+#### Enforce HTTPS
 
 By default, anyone may access the web app using HTTP. all HTTP requests to the HTTPS port may be redirected.
 
@@ -527,14 +546,12 @@ In the web app page, select **SL settings**. Then, in **HTTPS Only**, select **O
 When the operation is complete, navigate to any of the HTTP URLs that point to the app. For example:
 
 -   http://<app_name>.azurewebsites.net
-
 -   http://northwindcloud.com
-
 -   <http://www.northwindcloud.com>
 
-### Enforce TLS 1.1/1.2
+#### Enforce TLS 1.1/1.2
 
-The app allows [TLS](https://wikipedia.org/wiki/Transport_Layer_Security)1.0 by default, which is no longer considered secure by industry standards, such as[PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard). To enforce higher TLS versions, follow these steps:
+The app allows [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0 by default, which is no longer considered secure by industry standards, such as [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard). To enforce higher TLS versions, follow these steps:
 
 1.  In web app page, in the left navigation, select **SSL settings**.
 
@@ -542,7 +559,7 @@ The app allows [TLS](https://wikipedia.org/wiki/Transport_Layer_Security)1.0 by 
 
 ![Enforce TLS 1.1 or 1.2](media\azure-stack-solution-geo-distributed\image44.png)
 
-## Create a Traffic Manager profile
+### Create a Traffic Manager profile
 
 1.  Select **Create a resource** > **Networking** > **Traffic Manager profile** > **Create**.
 
@@ -564,21 +581,21 @@ The app allows [TLS](https://wikipedia.org/wiki/Transport_Layer_Security)1.0 by 
 
     ![Alt text](media\azure-stack-solution-geo-distributed\image45.png)
 
-## Add Traffic Manager endpoints
+### Add Traffic Manager endpoints
 
 1.  In the portals search bar, search for the **Traffic Manager profile **name created in the preceding section and select the traffic manager profile in the results that the displayed.
 
-2.  In **Traffic Manager profile**, in the**Settings**section, select **Endpoints**.
+2.  In **Traffic Manager profile**, in the **Settings** section, select **Endpoints**.
 
-3.  Select **Add**
+3.  Select **Add**.
 
 4.  Adding the Azure Stack Endpoint.
 
 5.  For **Type**, select **External endpoint**.
 
-6.  Provide a **Name** for this endpoint (ideally the name of the Azure Stack).
+6.  Provide a **Name** for this endpoint, ideally the name of the Azure Stack.
 
-7.  For fully qualified domain name (**FQDN)**, the use external URL for the Azure Stack Web App.
+7.  For fully qualified domain name (**FQDN**), the use external URL for the Azure Stack Web App.
 
 8.  Under Geo-mapping, select a region/continent where the resource is located, for example, **Europe.**
 
@@ -588,11 +605,11 @@ The app allows [TLS](https://wikipedia.org/wiki/Transport_Layer_Security)1.0 by 
 
 11. Select **OK**.
 
-12. Adding the Azure Endpoint
+12. Adding the Azure Endpoint:
 
     1.  For **Type**, select **Azure endpoint**.
 
-    2.  Provide a **Name for this endpoint.
+    2.  Provide a **Name** for this endpoint.
 
     3.  For **Target resource type**, select **App Service**.
 
@@ -615,4 +632,8 @@ The app allows [TLS](https://wikipedia.org/wiki/Transport_Layer_Security)1.0 by 
 
 **Global Enterprise relies on Azure Geo-Distribution capabilities**
 
-Directing data traffic via Azure Traffic Manager and geography-specific endpoints enables global enterprises to adhere to regional regulations and keep data compliant and secure  crucial to the success of local business and across remote locations. 
+Directing data traffic via Azure Traffic Manager and geography-specific endpoints enables global enterprises to adhere to regional regulations and keep data compliant and secure  crucial to the success of local business and across remote locations.
+
+## Next steps
+
+- To learn more about Azure Cloud Patterns, see [Cloud Design Patterns](https://docs.microsoft.com/azure/architecture/patterns).
