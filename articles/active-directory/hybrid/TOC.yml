@@ -18,7 +18,8 @@
   items:
   - name: Installation and upgrade
     items:
-    
+    - name: Installation Roadmap
+      href: how-to-connect-install-roadmap.md
     - name: Installation Prerequisites
       href: how-to-connect-install-prerequisites.md
     - name: Choose the installation type
