@@ -18,35 +18,29 @@ Starting with WAD version 1.11, you can write metrics directly to the Azure Moni
 
 If you are new to Resource Manager templates,  learn about [template deployments](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview.md), and their structure and syntax.  
 
-## Pre-requisites: 
 
-- You will need to be a [Service Administrator or co-administrator](https://docs.microsoft.com/en-us/azure/billing/billing-add-change-azure-subscription-administrator.d) on your Azure subscription 
-- Your subscription must be registered with [Microsoft.Insights](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-6.8.1) 
-- You will need to have [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-6.8.1)  installed, or you can use [Azure CloudShell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview.md) 
+## Author Resource Manager template 
+For this example, you can use a publicly available sample template. The starting templates are at
+https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-autoscale  
+
+- **Azuredeploy.json** is a pre-configured ARM template for deployment of a Virtual Machine Scale set
+
+- **Azuredeploy.parameters.json** is a parameters file that stores information like what username and password you would like to set for your VM. During deployment the Resource Manager template uses the parameters set in this file. 
+
+Alertnatively, the sample files with the modification listed in this article are available at the following links. You will still have to skim the steps to fill in some variables.  
+
+- [Modified **Azuredeploy.json**](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/monitoring-and-diagnostics/code/metrics-custom-guestos-resource-manager-VMSS/azuredeploy.json)
+
+- [Modified **Azuredeploy.parameters.json**](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/monitoring-and-diagnostics/code/metrics-custom-guestos-resource-manager-VMSS/azuredeploy.parameters.json) 
 
 
-Setup Azure Monitor as a data sink 
+### Steps to modify original template
 
-The Azure Diagnostics extension uses a feature called “data sinks” to route metrics and logs to different locations.  Use the new data sink “Azure Monitor” for this process.  
+1. Save both files locally. 
 
-The following steps show how to use a Resource Manager template and PowerShell to deploy a VM using the new “Azure Monitor” data sink.  
+2. Open the azuredeploy.parameters.json file 
 
-Author an ARM Template for a VMSS with the diagnostics extension and sink configured 
-
-For this example, you can use a publicly available sample template.  
-
-https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-autoscale 
-
-Azuredeploy.json is a pre-configured ARM template for deployment of a VMSS. 
-
-Azuredeploy.parameters.json is a parameters file that stores information like what username and password you would like to set for your VMSS. During deployment the Resource Manager template uses the parameters set in this file. 
-
- 
-
-Save both files locally. 
-
-Open the azuredeploy.parameters.json file 
-
+STOPPED HERE
 Provide a vmSKU you would like to deploy (we recommend Standard_D2_v3) 
 
 Specify a windowsOSVersion you would like for your VMSS (we recommend 2016-Datacenter) 

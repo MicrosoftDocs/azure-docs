@@ -3,10 +3,10 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "adminUsername": {
-      "value": "rboucher"
+      "value": "myAdminUser"
     },
     "adminPassword": {
-      "value": "OntosOn70!OntosOn70!"
+      "value": "mysuperlongPassword_changethishere27#$"
     },
     "dnsLabelPrefix": {
       "value": "imunique"

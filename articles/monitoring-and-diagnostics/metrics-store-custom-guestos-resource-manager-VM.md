@@ -27,10 +27,7 @@ If you are new to Resource Manager templates,  learn about [template deployments
 
 
 ## Setup Azure Monitor as a data sink 
-The Azure Diagnostics extension uses a feature called “data sinks” to route metrics and logs to different locations.  Use the new data sink “Azure Monitor” for this process.  
-
-The following steps show how to use a Resource Manager template and PowerShell to deploy a VM using the new “Azure Monitor” data sink. 
-
+The Azure Diagnostics extension uses a feature called "data sinks" to route metrics and logs to different locations.  The following steps show how to use a Resource Manager template and PowerShell to deploy a VM using the new "Azure Monitor" data sink. 
 
 ## Author Resource Manager template 
 For this example, you can use a publicly available sample template. The starting templates are at
@@ -52,7 +49,9 @@ Alertnatively, the sample files with the modification listed in this are availab
 
 1. Open the *azuredeploy.parameters.json* file 
 
-1. Enter values for *adminUsername* and *adminPassword* for the VM. These parameters are used for remote access to the VM. 
+1. Enter values for *adminUsername* and *adminPassword* for the VM. These parameters are used for remote access to the VM. DO NOT use the ones in this template to avoid having your VM highjacked. Bots scan the internet for usernames and passwords in public Github repositories. They are likely to be testing VMs with these defaults.  
+
+1. Create a unique dnsname for the VM.  
 
 1. Open the *azuredeploy.json* file 
 
@@ -70,7 +69,7 @@ Alertnatively, the sample files with the modification listed in this are availab
     ```
 1. Add this Managed Service Identity (MSI) extension to the template at the top of the "resources" section.  The extension ensures that Azure Monitor accepts the metrics being emitted.  
 
-    [!code-json[extension](./code/metrics-custom-guestos-resource-manager-VM/azuredeploy.json?range=56-77&highlight=3-19)]
+    [!code-json[extension](./code/metrics-custom-guestos-resource-manager-VM/azuredeploy.json?range=56-77&highlight=3-20)]
 
     ```json
     //Find this code 
@@ -97,7 +96,7 @@ Alertnatively, the sample files with the modification listed in this are availab
 
 1. Add the "identity" configuration to the VM resource to ensure Azure assigns the MSI extension a system identity. This step ensures the VM can emit guest metrics about itself to Azure Monitor 
 
-    [!code-json[storageaccount](./code/metrics-custom-guestos-resource-manager-VM/azuredeploy.json?range=145-157&highlight=7-9)]
+    [!code-json[identity](./code/metrics-custom-guestos-resource-manager-VM/azuredeploy.json?range=145-157&highlight=7-9)]
 
     ```json
     // Find this section
@@ -128,107 +127,120 @@ Alertnatively, the sample files with the modification listed in this are availab
             ...
     ```
 
-1. Add the following configuration to enable the diagnostics extension on a Windows Virtual Machine.  For a simple Resource Manager-based Virtual Machine, we can add the extension configuration to the resources array for the Virtual Machine. The highlighted sections enable the extension to emit metrics directly to Azure Monitor. Feel free to add/remove performance counters as needed 
+1. Add the following configuration to enable the diagnostics extension on a Windows Virtual Machine.  For a simple Resource Manager-based Virtual Machine, we can add the extension configuration to the resources array for the Virtual Machine. The line "sinks": "AzMonSink",  and the corresponding "SinksConfig" later in the section enable the extension to emit metrics directly to Azure Monitor. Feel free to add/remove performance counters as needed.  
 
-```json
-"diagnosticsProfile": { 
-  "bootDiagnostics": { 
-   "enabled": true, 
-   "storageUri": "[reference(resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))).primaryEndpoints.blob]" 
-   } 
- } 
-}, 
-//Start of section to add 
-"resources": [        
- { 
-          "type": "extensions", 
-          "name": "Microsoft.Insights.VMDiagnosticsSettings", 
-          "apiVersion": "2015-05-01-preview", 
-          "location": "[resourceGroup().location]", 
-          "dependsOn": [ 
-            "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]" 
-          ], 
-          "properties": { 
-            "publisher": "Microsoft.Azure.Diagnostics", 
-            "type": "IaaSDiagnostics", 
-            "typeHandlerVersion": "1.4", 
-            "autoUpgradeMinorVersion": true, 
-            "settings": { 
-              "WadCfg": { 
-                "DiagnosticMonitorConfiguration": { 
-  "overallQuotaInMB": 4096, 
-  "DiagnosticInfrastructureLogs": { 
-                    "scheduledTransferLogLevelFilter": "Error" 
-      }, 
-                  "Directories": { 
-                    "scheduledTransferPeriod": "PT1M", 
-    "IISLogs": { 
-                      "containerName": "wad-iis-logfiles" 
+
+    [!code-json[identity](./code/metrics-custom-guestos-resource-manager-VM/azuredeploy.json?range=185-284&highlight=8-93)]
+
+    ```json
+            "networkProfile": {
+              "networkInterfaces": [
+                {
+                  "id": "[resourceId('Microsoft.Network/networkInterfaces',variables('nicName'))]"
+                }
+              ]
+            },
+    "diagnosticsProfile": { 
+      "bootDiagnostics": { 
+      "enabled": true, 
+      "storageUri": "[reference(resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))).primaryEndpoints.blob]" 
+      } 
+    } 
+    }, 
+    //Start of section to add 
+    "resources": [        
+    { 
+              "type": "extensions", 
+              "name": "Microsoft.Insights.VMDiagnosticsSettings", 
+              "apiVersion": "2015-05-01-preview", 
+              "location": "[resourceGroup().location]", 
+              "dependsOn": [ 
+                "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]" 
+              ], 
+              "properties": { 
+                "publisher": "Microsoft.Azure.Diagnostics", 
+                "type": "IaaSDiagnostics", 
+                "typeHandlerVersion": "1.4", 
+                "autoUpgradeMinorVersion": true, 
+                "settings": { 
+                  "WadCfg": { 
+                    "DiagnosticMonitorConfiguration": { 
+      "overallQuotaInMB": 4096, 
+      "DiagnosticInfrastructureLogs": { 
+                        "scheduledTransferLogLevelFilter": "Error" 
+          }, 
+                      "Directories": { 
+                        "scheduledTransferPeriod": "PT1M", 
+        "IISLogs": { 
+                          "containerName": "wad-iis-logfiles" 
+                        }, 
+                        "FailedRequestLogs": { 
+                          "containerName": "wad-failedrequestlogs" 
+                        } 
+                      }, 
+                      "PerformanceCounters": { 
+                        "scheduledTransferPeriod": "PT1M", 
+                        "sinks": "AzMonSink", 
+                        "PerformanceCounterConfiguration": [ 
+                          { 
+                            "counterSpecifier": "\\Memory\\Available Bytes", 
+                            "sampleRate": "PT15S" 
+                          }, 
+                          { 
+                            "counterSpecifier": "\\Memory\\% Committed Bytes In Use", 
+                            "sampleRate": "PT15S" 
+                          }, 
+                          { 
+                            "counterSpecifier": "\\Memory\\Committed Bytes", 
+                            "sampleRate": "PT15S" 
+                          } 
+                        ] 
+                      }, 
+                      "WindowsEventLog": { 
+                        "scheduledTransferPeriod": "PT1M", 
+                        "DataSource": [ 
+                          { 
+                            "name": "Application!*" 
+                          } 
+                        ] 
+                      }, 
+                      "Logs": { 
+                        "scheduledTransferPeriod": "PT1M", 
+                        "scheduledTransferLogLevelFilter": "Error" 
+                      } 
                     }, 
-                    "FailedRequestLogs": { 
-                      "containerName": "wad-failedrequestlogs" 
+                    "SinksConfig": { 
+                      "Sink": [ 
+                        { 
+                          "name" : "AzMonSink", 
+                          "AzureMonitor" : {} 
+                        } 
+                      ] 
                     } 
                   }, 
-                  "PerformanceCounters": { 
-                    "scheduledTransferPeriod": "PT1M", 
-                    "sinks": "AzMonSink", 
-                    "PerformanceCounterConfiguration": [ 
-                      { 
-                        "counterSpecifier": "\\Memory\\Available Bytes", 
-                        "sampleRate": "PT15S" 
-                      }, 
-                      { 
-                        "counterSpecifier": "\\Memory\\% Committed Bytes In Use", 
-                        "sampleRate": "PT15S" 
-                      }, 
-                      { 
-                        "counterSpecifier": "\\Memory\\Committed Bytes", 
-                        "sampleRate": "PT15S" 
-                      } 
-                    ] 
-                  }, 
-                  "WindowsEventLog": { 
-                    "scheduledTransferPeriod": "PT1M", 
-                    "DataSource": [ 
-                      { 
-                        "name": "Application!*" 
-                      } 
-                    ] 
-                  }, 
-                  "Logs": { 
-                    "scheduledTransferPeriod": "PT1M", 
-                    "scheduledTransferLogLevelFilter": "Error" 
-                  } 
+                  "StorageAccount": "[variables('storageAccountName')]" 
                 }, 
-                "SinksConfig": { 
-                  "Sink": [ 
-                    { 
-                      "name" : "AzMonSink", 
-                      "AzureMonitor" : {} 
-                    } 
-                  ] 
+                "protectedSettings": { 
+                  "storageAccountName": "[variables('storageAccountName')]", 
+                  "storageAccountKey": "[listKeys(variables('accountid'),'2015-06-15').key1]", 
+                  "storageAccountEndPoint": "https://core.windows.net/" 
                 } 
-              }, 
-              "StorageAccount": "[variables('storageAccountName')]" 
-            }, 
-            "protectedSettings": { 
-              "storageAccountName": "[variables('storageAccountName')]", 
-              "storageAccountKey": "[listKeys(variables('accountid'),'2015-06-15').key1]", 
-              "storageAccountEndPoint": "https://core.windows.net/" 
+              } 
             } 
-          } 
-        } 
-      ] 
-//End of section to add 
-```
+          ] 
+    //End of section to add 
+    ```
 
-Save and close both files 
+1. Save and close both files 
 
-Note: You must be running the Azure Diagnostics extension version 1.5 or higher AND have the "autoUpgradeMinorVersion": property set to ‘true’ in your Resource Manager template.  Azure then loads the proper extension when it starts the VM. If you do not have these settings in your template, change them and redeploy the template. 
 
  
 
 ## Deploy the ARM template 
+
+> [!NOTE]
+> You must be running the Azure Diagnostics extension version 1.5 or higher AND have the "autoUpgradeMinorVersion": property set to ‘true’ in your Resource Manager template.  Azure then loads the proper extension when it starts the VM. If you do not have these settings in your template, change them and redeploy the template. 
+
 
 To deploy the ARM template we will leverage Azure PowerShell.  
 
@@ -236,10 +248,12 @@ To deploy the ARM template we will leverage Azure PowerShell.
 1. Login to Azure using `Login-AzureRmAccount`
 1. Get your list of subscriptions using `Get-AzureRmSubscription`
 1. Set the subscription you will be creating/updating the virtual machine in 
+
    ```PowerShell
    Select-AzureRmSubscription -SubscriptionName "<Name of the subscription>" 
    ```
 1. Create a new resource group for the VM being deployed, run the below command 
+
    ```PowerShell
     New-AzureRmResourceGroup -Name "<Name of Resource Group>" -Location "<Azure Region>" 
    ```
@@ -247,32 +261,36 @@ To deploy the ARM template we will leverage Azure PowerShell.
    Note: Remember to use an Azure region that is enabled for custom metrics. 
  
 1. Execute the following commands to deploy the VM with the  
-
+   > [!NOTE] 
+   > If you wish to update an existing VM, simply add *-Mode Incremental* to the end of the following command. 
+ 
    ```PowerShell
    New-AzureRmResourceGroupDeployment -Name "<NameThisDeployment>" -ResourceGroupName "<Name of the Resource Group>" -TemplateFile "<File path of your ARM template>" -TemplateParameterFile "File path of your parameters file>" 
    ```
-   Note: If you wish to update an existing VM, simply add ‘-Mode Incremental’ to the end of the above command 
- 
+  
 1. Once your deployment succeeds you should be able to find the VM in the Azure Portal, and it should be emitting metrics to Azure Monitor. 
 
-    Note: You may run into errors around the selected vmSkuSize. If this happens, go back to your azuredeploy.json file and update the default value of the vmSkuSize parameter (we recommend “Standard_DS1_v2”). 
-
+   > [!NOTE] 
+   > You may run into errors around the selected vmSkuSize. If this happens, go back to your azuredeploy.json file and update the default value of the vmSkuSize parameter. In this case, we recommend trying  "Standard_DS1_v2"). 
 
 ## Chart your metrics 
 
 1. Log-in to the Azure Portal 
+
 1. In the left-hand menu click **Monitor** 
+
 1. On the Monitor page click **Metrics (preview)**. 
+
 1. Change the aggregation period to **Last 30 minutes**.  
+
 1. In the resource drop-down select the VM just created. If you didn't change the name in the template, it should be *SimpleWinVM2*.  
+
 1. In the namespaces drop-down select **azure.vm.windows.guest** 
+
 1. In the metrics drop down, select **Memory\%Committed Bytes in Use**.  
 
 You should see something like the screen shot below.  
-
+ TODO
 
 ## Next steps
-- Learn more about [alerts](monitoring-overview-alerts.md).
-
-
-[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_Create&highlight=4,6-7,14-21)]`
+- Learn more about [custom metrics](metrics-custom-overview.md).
