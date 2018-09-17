@@ -28,7 +28,7 @@ There are two versions of Azure Functions Core Tools. The version you use depend
 
 + [Version 2.x](#v2): supports [version 2.x of the runtime](functions-versions.md). This version supports [Windows](#windows-npm), [macOS](#brew), and [Linux](#linux). Uses platform-specific package managers or npm for installation.
 
-Unless otherwise noted, the examples in this article are for version 2.x. To receive important updates on version 2.x, including breaking changes announcements, watch the [Azure App Service announcements](https://github.com/Azure/app-service-announcements/issues) repository.
+Unless otherwise noted, the examples in this article are for version 2.x. 
 
 ## Install the Azure Functions Core Tools
 
