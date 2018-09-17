@@ -16,6 +16,10 @@ ms.author: sutalasi
 
 This article describes how to enable replication of Azure disk encryption (ADE) enabled VMs, from one Azure region to another.
 
+>[!NOTE]
+>Only Azure VMs running Windows OS enabled for [encryption with Azure AD app](https://aka.ms/ade-aad-app)are currently supported by Azure Site Recovery.
+>
+
 ## Required user permissions
 
 To enable replication of ADE VMs from portal, the user should have the below permissions.
