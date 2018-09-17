@@ -34,14 +34,14 @@ If you don’t already have Visual Studio 2017 installed, you can download and u
 Sign in to the Azure portal at <https://portal.azure.com/> with your Azure account.
 
 
-[!INCLUDE [](includes/signalr-quickstart-create-instance.md)]
+[!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
-[!INCLUDE [](includes/signalr-quickstart-clone-application.md)]
+[!INCLUDE [Clone application](includes/signalr-quickstart-clone-application.md)]
 
 
 ## Configure and run the Azure Function app
 
-1. Start Visual Studio and open the solution in the *src\csharp* folder of the cloned repository.
+1. Start Visual Studio and open the solution in the *chat\src\csharp* folder of the cloned repository.
 
 1. In the browser where the Azure portal is opened, confirm the SignalR Service instance you deployed earlier was successfully created by searching for its name in the search box at the top of the portal. Select the instance to open it.
 
@@ -65,7 +65,7 @@ Sign in to the Azure portal at <https://portal.azure.com/> with your Azure accou
     ![Debug the application](media/signalr-quickstart-azure-functions-csharp/signalr-quickstart-debug-vs.png)
 
 
-[!INCLUDE [](includes/signalr-quickstart-run-web-application.md)]
+[!INCLUDE [Run web application](includes/signalr-quickstart-run-web-application.md)]
 
 
-[!INCLUDE [](includes/signalr-quickstart-cleanup.md)]
+[!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
