@@ -80,7 +80,9 @@ Otherwise, select the values that you want:
 
    1. Select **Send to Log Analytics**. 
    2. Under **Log Analytics**, choose **Configure**. 
-   3. Under **OMS Workspaces**, select the Log Analytics workspace to use for logging.
+   3. Under **Log Analytics workspaces**, select the workspace to use for logging. 
+   > [!NOTE]
+   > OMS workspaces are now referred to as Log Analytics workspaces. 
    4. Under **Log**, select the **IntegrationAccountTrackingEvents** category.
    5. Choose **Save**.
 
@@ -121,7 +123,7 @@ Otherwise, select the values that you want:
 
    1. Select **Send to Log Analytics**. 
    2. Under **Log Analytics**, choose **Configure**. 
-   3. Under **OMS Workspaces**, select the Log Analytics workspace 
+   3. Under **Log Analytics workspaces**, select the workspace 
    to use for logging.
    4. Under **Log**, select the **IntegrationAccountTrackingEvents** category.
    5. When you're done, choose **Save**.
@@ -167,6 +169,6 @@ which all have fixed schemas except the Custom type.
 
 ## Next steps
 
-* [Track B2B messages in Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md "Track B2B messages in OMS")
+* [Track B2B messages in Azure Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md "Track B2B messages in Azure Log Analytics")
 * [Learn more about the Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")
 

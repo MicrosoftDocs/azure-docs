@@ -79,7 +79,7 @@ and choose **Log Analytics** as shown:
 
 3. Under **Management**, choose **Overview**.
 
-   ![Choose "OMS Portal"](media/logic-apps-monitor-your-logic-apps-oms/ibiza-portal-page.png)
+   ![Choose "Overview"](media/logic-apps-monitor-your-logic-apps-oms/ibiza-portal-page.png)
 
 4. On the Overview page, choose **Add** to open the Management Solutions tile. 
 

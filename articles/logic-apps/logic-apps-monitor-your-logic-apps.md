@@ -122,7 +122,7 @@ choose **Diagnostics** > **Diagnostic Settings**.
 
    1. Select **Send to Log Analytics**. 
    2. Under **Log Analytics**, choose **Configure**. 
-   3. Under **OMS Workspaces**, select the Log Analytics workspace 
+   3. Under **Log Analytics workspaces**, select the workspace 
    to use for logging.
    4. Under **Log**, select the **WorkflowRuntime** category.
    5. Choose the metric interval.
