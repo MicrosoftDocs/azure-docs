@@ -51,7 +51,7 @@ This article covers how to access Azure Cosmos DB Cassandra API data from [Azure
 
 ## Sample notebooks
 
-A list of Azure Databricks [sample notebooks](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-notebooks-databricks/tree/master/notebooks/scala) are available in Github repo for you to download. After you download the sample, you can [import it](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-manage.html#create-a-notebook) into your Databricks cluster workspace and run it. 
+A list of Azure Databricks [sample notebooks](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-notebooks-databricks/tree/master/notebooks/scala) are available in Github repo for you to download. These samples include how to connect to Azure Cosmos DB Cassandra API from Spark and perform different CRUD operations on the data. You can also [import all the notebooks](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-notebooks-databricks/tree/master/dbc) into your Databricks cluster workspace and run it. 
 
 ## Accessing Azure Cosmos DB Cassandra API from Spark Scala program
 
