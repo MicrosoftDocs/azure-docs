@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: A confidence score indicates the degree of match between the user question and the response returned.
 services: cognitive-services
 author: tulasim88
-manager: cgronlun
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
