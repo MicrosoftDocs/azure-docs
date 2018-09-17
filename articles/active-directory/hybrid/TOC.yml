@@ -14,6 +14,26 @@
     href: tutorial-passthrough-authentication.md
   - name: Federate a single AD forest environment to the cloud
     href: tutorial-federation.md
+- name: Concepts
+  items:
+   - name: Azure AD Connect Sync
+     items:
+     - name: Azure AD Connect Sync technical concepts
+       href: how-to-connect-sync-technical-concepts.md
+     - name: Understanding Azure AD Connect Sync architecture
+       href: concept-azure-ad-connect-sync-architecture.md
+     - name: Understanding Declarative Provisioning
+       href: concept-azure-ad-connect-sync-declarative-provisioning.md
+     - name: Understanding Declarative Provisioning Expressions
+       href: concept-azure-ad-connect-sync-declarative-provisioning-expressions.md
+     - name: Understanding the defualt configuration
+       href: concept-azure-ad-connect-sync-default-configuration.md
+     - name: Understanding users and contacts
+       href: concept-azure-ad-connect-sync-user-and-contacts.md
+     - name: Understandingr shadow attributes
+       href: how-to-connect-syncservice-shadow-attributes.md
+   - name: Identity synchronization and duplicate attribute resiliency
+     href: how-to-connect-syncservice-duplicate-attribute-resiliency.md
 - name: How-to guides
   items:
   - name: Installation and upgrade
@@ -232,26 +252,7 @@
       href: tshoot-connect-recover-from-localdb-10gb-limit.md
     - name: SQL connectivity
       href: tshoot-connect-tshoot-sql-connectivity.md
-- name: Concepts
-  items:
-   - name: Azure AD Connect Sync
-     items:
-     - name: Azure AD Connect Sync technical concepts
-       href: how-to-connect-sync-technical-concepts.md
-     - name: Understanding Azure AD Connect Sync architecture
-       href: concept-azure-ad-connect-sync-architecture.md
-     - name: Understanding Declarative Provisioning
-       href: concept-azure-ad-connect-sync-declarative-provisioning.md
-     - name: Understanding Declarative Provisioning Expressions
-       href: concept-azure-ad-connect-sync-declarative-provisioning-expressions.md
-     - name: Understanding the defualt configuration
-       href: concept-azure-ad-connect-sync-default-configuration.md
-     - name: Understanding users and contacts
-       href: concept-azure-ad-connect-sync-user-and-contacts.md
-     - name: Understandingr shadow attributes
-       href: how-to-connect-syncservice-shadow-attributes.md
-   - name: Identity synchronization and duplicate attribute resiliency
-     href: how-to-connect-syncservice-duplicate-attribute-resiliency.md
+
 
 - name: Reference
   items:
