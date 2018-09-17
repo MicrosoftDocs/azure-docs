@@ -22,7 +22,7 @@ ms.custom: aaddev
 
 # Comparing the Azure AD v2.0 endpoint with v1.0 endpoint
 
-## Personal accounts and work and school accounts
+## Who can sign-in
 
 ![Who can sign-in with v1.0 and v2.0 endpoints](media/azure-ad-endpoint-comparison/who-can-sign-in.jpg)
 
