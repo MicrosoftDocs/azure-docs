@@ -55,7 +55,7 @@ Approximate time to Complete: one hour for less than 1,000 PoC users
 | --- | --- |
 | Server to Run Azure AD Connect | [Prerequisites for Azure AD Connect](hybrid/how-to-connect-install-prerequisites.md) |
 | Target POC users, in the same domain and part of a security group, and OU | [Custom installation of Azure AD Connect](hybrid/how-to-connect-install-custom.md#domain-and-ou-filtering) |
-| Azure AD Connect Features needed for the POC are identified | [Connect Active Directory with Azure Active Directory - Configure sync features](hybrid/whatis-hybrid-identity.md#configure-sync-features) |
+| Azure AD Connect Features needed for the POC are identified | [Connect Active Directory with Azure Active Directory - Configure sync features](hybrid/how-to-connect-install-roadmap.md#configure-sync-features) |
 | You have needed credentials for on-premises and cloud environments  | [Azure AD Connect: Accounts and permissions](hybrid/reference-connect-accounts-permissions.md) |
 
 ### Steps
@@ -63,7 +63,7 @@ Approximate time to Complete: one hour for less than 1,000 PoC users
 | Step | Resources |
 | --- | --- |
 | Download the latest version of Azure AD Connect | [Download Microsoft Azure Active Directory Connect](https://www.microsoft.com/download/details.aspx?id=47594) |
-| Install Azure AD Connect with the simplest path: Express <br/>1. Filter to the target OU to minimize the Sync Cycle time<br/>2. Choose target set of users in the on-premises group.<br/>3. Deploy the features needed by the other POC Themes | [Azure AD Connect: Custom installation: Domain and OU filtering](hybrid/how-to-connect-install-custom.md#domain-and-ou-filtering) <br/>[Azure AD Connect: Custom installation: Group based filtering](hybrid/how-to-connect-install-custom.md#sync-filtering-based-on-groups)<br/>[Azure AD Connect: Integrating your on-premises identities with Azure Active Directory: Configure Sync Features](hybrid/whatis-hybrid-identity.md#configure-sync-features) |
+| Install Azure AD Connect with the simplest path: Express <br/>1. Filter to the target OU to minimize the Sync Cycle time<br/>2. Choose target set of users in the on-premises group.<br/>3. Deploy the features needed by the other POC Themes | [Azure AD Connect: Custom installation: Domain and OU filtering](hybrid/how-to-connect-install-custom.md#domain-and-ou-filtering) <br/>[Azure AD Connect: Custom installation: Group based filtering](hybrid/how-to-connect-install-custom.md#sync-filtering-based-on-groups)<br/>[Azure AD Connect: Integrating your on-premises identities with Azure Active Directory: Configure Sync Features](hybrid/how-to-connect-install-roadmap.md#configure-sync-features) |
 | Open the Azure AD Connect UI and see the running profiles completed (Import, sync, and export) | [Azure AD Connect sync: Scheduler](hybrid/how-to-connect-sync-feature-scheduler.md) |
 | Open the [Azure AD management portal](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/), go to the "All Users" blade, add "Source of authority" column and see that the users appear, marked properly as coming from "Windows Server AD" | [Azure AD management portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) |
 

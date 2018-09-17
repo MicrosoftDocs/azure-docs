@@ -56,7 +56,7 @@ The following table describes the features shown in the blade.
 | FEDERATED DOMAINS |Shows the number of federated domains currently configured. |
 
 ## Installation
-To install Azure AD Connect, you can use the documentation [here](whatis-hybrid-identity.md#install-azure-ad-connect).
+To install Azure AD Connect, you can use the documentation [here](how-to-connect-install-roadmap.md).
 
 ## Advanced features and Additional Information
 For additional information and guidance on custom settings or advanced configurations, start with [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).  This page provides information and links to additional guidance.
