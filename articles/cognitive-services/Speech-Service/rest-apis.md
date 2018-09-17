@@ -23,7 +23,7 @@ The endpoints for the Speech to Text REST API are shown in the table below. Use 
 > [!NOTE]
 > If you customized the acoustic model or language model, or pronunciation, use your custom endpoint instead.
 
-The Speech to Text REST API supports only short utterances. Requests may contain up to 10 seconds of audio and last a maximum of 14 seconds overall. The REST API only returns final results, not partial or interim results.
+This API supports only short utterances. Requests may contain up to 10 seconds of audio and last a maximum of 14 seconds overall. The REST API only returns final results, not partial or interim results. The Speech Service also has a [batch transcription](batch-transcription.md) API that can transcribe longer audio.
 
 ### Recognition mode
 
