@@ -19,12 +19,12 @@ ms.reviewer: scottnap
 
 ---
 # Add Public IP Addresses
-*Applies to: Azure Stack integrated systems* 
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*  
 
 Learn how to add more Public IP Addresses to Azure Stack.  In this article, we refer to the External Addresses as Public IP Addresses, but in Azure Stack this is meant to refer to adding IP Address blocks to your External network.  Whether that External network is Public Internet routable or is on an Intranet and uses private address space doesn’t really matter for the purposes of this article.  The steps are the same. 
 
 ## Add a Public IP Address Pool
-You can add Public IP Addresses to you Azure Stack system at any time after the initial deployment of the Azure Stack system. Check out how to [View Public IP Address Consumptio](azure-stack-viewing-public-ip-address-consumption.md) to see what the current usage and Public IP Address availability is on your Azure Stack.
+You can add Public IP Addresses to you Azure Stack system at any time after the initial deployment of the Azure Stack system. Check out how to [View Public IP address consumption](azure-stack-viewing-public-ip-address-consumption.md) to see what the current usage and Public IP Address availability is on your Azure Stack.
 
 At a high level, the process of adding a new Public IP Address block to Azure Stack looks like this:
 
@@ -56,4 +56,4 @@ You need to contact your OEM and work with them to update the ACLs on ToR switch
 
 
 ## Next steps 
-Review [Node actions](azure-stack-node-actions.md) 
+[Review scale unit node actions](azure-stack-node-actions.md) 
