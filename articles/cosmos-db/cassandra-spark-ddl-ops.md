@@ -1,5 +1,5 @@
 ---
-title: DDL operations in Cosmos DB Cassandra API from Spark
+title: DDL operations in Azure Cosmos DB Cassandra API from Spark
 description: This article details keyspace and table DDL operations against Cosmos DB Cassandra API from Spark.
 services: cosmos-db
 author: anagha-microsoft
@@ -13,7 +13,7 @@ ms.author: ankhanol
 
 ---
 
-# DDL operations in Cosmos DB Cassandra API from Spark
+# DDL operations in Azure Cosmos DB Cassandra API from Spark
 
 This article is part of a series which shows how to use Comos DB from Spark using scala. This article details keyspace and table DDL operations against Cosmos DB Cassandra API from Spark.
 
