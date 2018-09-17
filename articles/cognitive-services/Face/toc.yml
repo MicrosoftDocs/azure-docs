@@ -7,8 +7,10 @@
     href: Overview.md
 - name: Quickstarts
   items:
-  - name: C#
+  - name: C# API
     href: QuickStarts/CSharp.md
+  - name: C# SDK
+    href: QuickStarts/csharp-detect-sdk.md
   - name: cURL
     href: QuickStarts/curl.md
   - name: Go
