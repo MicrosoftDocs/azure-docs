@@ -38,7 +38,7 @@ When you create public IP address resources, Azure assign an available public IP
 
 - You can create public IP address resources from a known range.
 - You, or your business partners can create firewall rules with ranges that include public IP addresses you've currently assigned, as well as addresses you haven't assigned yet. This eliminates the need to change firewall rules as you assign IP addresses to new resources.
-- The default size of a range you can create is /28 or 16 IP addresses. To create larger ranges, please [open an online customer support request at no charge.](../azure-resource-manager/resource-manager-quota-errors.md) You can also learn how to [view your current resource usage against your subscription limits](../networking/check-usage-against-limits.md).
+- The default size of a range you can create is /28 or 16 IP addresses.
 - There are no limits as to how many ranges you can create, however, there are limits on the maximum number of static public IP addresses you can have in an Azure subscription. As a result, the number of ranges you create can't encompass more static public IP addresses than you can have in your subscription. For more information, see [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 - The addresses that you create using addresses from the prefix can be assigned to any Azure resource that you can assign a public IP address to.
 - You can easily see which IP addresses that are allocated and not yet allocated within the range.
