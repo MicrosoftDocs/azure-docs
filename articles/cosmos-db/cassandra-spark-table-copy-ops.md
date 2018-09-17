@@ -139,3 +139,11 @@ import com.datastax.spark.connector._
 readBooksDF: org.apache.spark.sql.DataFrame = [book_id: string, book_author: string ... 3 more fields]
 newBooksDF: org.apache.spark.sql.DataFrame = [book_id: string, book_author: string ... 3 more fields]
 ```
+
+## Next steps
+
+* Get started with [creating a Cassandra API account, database, and a table](create-cassandra-api-account-java.md) by using a Java application.
+
+* [Load sample data to the Cassandra API table](cassandra-api-load-data.md) by using a Java application.
+
+* [Query data from the Cassandra API account](cassandra-api-query-data.md) by using a Java application.
