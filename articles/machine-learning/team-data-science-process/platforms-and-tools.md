@@ -19,7 +19,7 @@ ms.author: deguhath
 ---
 
 
-# Platforms and tools for data science team projects
+# Platforms and tools for data science projects
 
 Microsoft provides a full spectrum of data and analytics services and resources for both cloud or on-premises platforms. They can be deployed to make the execution of your data science projects efficient and scalable. Guidance for teams implementing data science projects in a trackable, version controlled, and collaborative way is provided by the [Team Data Science Process](overview.md) (TDSP).  For an outline of the personnel roles, and their associated tasks that are handled by a data science team standardizing on this process, see [Team Data Science Process roles and tasks](roles-tasks.md).
 
@@ -124,7 +124,7 @@ Run the following bash command to install Git on Linux (CentOS) machines:
 
 ### Generate public SSH key on Linux (CentOS) machines
 
-If you are using Linux (CentOS) machines to run the git commands, you need to add the public SSH key of your machine to your VSTS server, so that this machine is recognized by the VSTS server. First, you need to generate a public SSH key and add the key to SSH public keys in your VSTS security setting page. 
+If you are using Linux (CentOS) machines to run the git commands, you need to add the public SSH key of your machine to your Azure DevOps Services, so that this machine is recognized by the Azure DevOps Services. First, you need to generate a public SSH key and add the key to SSH public keys in your Azure DevOps Services security setting page. 
 
 - To generate the SSH key, run the following two commands: 
 
@@ -134,7 +134,7 @@ If you are using Linux (CentOS) machines to run the git commands, you need to ad
 ![](./media/platforms-and-tools/resources-1-generate_ssh.png)
 
 - Copy the entire ssh key including *ssh-rsa*. 
-- Log in to your VSTS server. 
+- Log in to your Azure DevOps Services. 
 - Click **<Your Name\>** at the top right corner of the page and click **security**. 
 	
 	![](./media/platforms-and-tools/resources-2-user-setting.png)

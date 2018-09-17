@@ -8,7 +8,7 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/06/2018
+ms.date: 09/08/2018
 ---
 
 # Create a Kubernetes cluster with Azure Kubernetes Service and Terraform
@@ -71,7 +71,7 @@ Create the Terraform configuration file that declares the Azure provider.
 
     ```JSON
     provider "azurerm" {
-        version = "~>1.5.0"
+        version = "~>1.5"
     }
 
     terraform {
@@ -290,7 +290,14 @@ In this section, you see how to use the `terraform init` command to create the r
 
     ![Example of "terraform init" results](./media/terraform-create-k8s-cluster-with-tf-and-aks/terraform-init-complete.png)
 
-1. Run the `terraform plan` command to create the Terraform plan that defines the infrastructure elements. The command will request two values: **var.client_id** and **var.client_secret**. For the **var.client_id** variable, enter the **appId** value associated with your service principal. For the **var.client_secret** variable, enter the **password** value associated with your service principal.
+1. Export your service principal credentials. Replace the &lt;your-client-id> and &lt;your-client-secret> placeholders with the **appId** and **password** values associated with your service principal, respectively.
+
+    ```bash
+    export TF_VAR_client_id=<your-client-id>
+    export TF_VAR_client_secret=<your-client-secret>
+    ```
+
+1. Run the `terraform plan` command to create the Terraform plan that defines the infrastructure elements. 
 
     ```bash
     terraform plan -out out.plan

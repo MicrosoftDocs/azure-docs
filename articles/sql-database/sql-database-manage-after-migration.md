@@ -7,11 +7,11 @@ manager: craigg
 ms.service: sql-database
 ms.custom: migrate
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 09/14/2018
 ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
-ms.component: migration
+ms.component: data-movement
 ---
 
 # New DBA in the cloud – Managing your database in Azure SQL Database
@@ -31,9 +31,9 @@ This article discusses some of the core characteristics of Azure SQL DB as a pla
 Business continuity and disaster recovery abilities enable you to continue your business, as usual, in case of a disaster. The disaster could be a database level event (for example, someone mistakenly drops a crucial table) or a data-centre level event (regional catastrophe, for example a tsunami). 
 
 ### How do I create and manage backups on SQL Database?
-You don’t create backups on Azure SQL DB and that is because you don’t have to. SQL Database automatically backs up databases for you, so you no longer must worry about scheduling, taking and managing backups. The platform takes a full backup every week, differential backup every few hours and a log backup every 5 minutes to ensure the disaster recovery is efficient, and the data loss minimal. The first full backup happens as soon as you create a database. These backups are available to you for a certain period called the “Retention Period” and varies according to the performance tier you choose.  SQL Database provides you the ability to restore to any point in time within this retention period using [Point in Time Recovery (PITR)](sql-database-recovery-using-backups.md#point-in-time-restore).
+You don’t create backups on Azure SQL DB and that is because you don’t have to. SQL Database automatically backs up databases for you, so you no longer must worry about scheduling, taking and managing backups. The platform takes a full backup every week, differential backup every few hours and a log backup every 5 minutes to ensure the disaster recovery is efficient, and the data loss minimal. The first full backup happens as soon as you create a database. These backups are available to you for a certain period called the “Retention Period” and varies according to the service tier you choose. SQL Database provides you the ability to restore to any point in time within this retention period using [Point in Time Recovery (PITR)](sql-database-recovery-using-backups.md#point-in-time-restore).
 
-|Performance tier|Retention period in days|
+|Service tier|Retention period in days|
 |---|:---:|
 |Basic|7|
 |Standard|35|
@@ -205,7 +205,7 @@ From this chart, you can also configure alerts by resource. These alerts allow y
 
    ![Query Performance Insight](./media/sql-database-manage-after-migration/query-performance-insight.png)
 
-- **Azure SQL Analytics (Preview) in Log Analytics**: [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md) allows you to collect and visualize key Azure SQL Azure performance metrics, supporting up to 150,000 SQL Databases and 5,000 SQL Elastic Pools per workspace. You can use it to monitor and receive notifications. You can monitor SQL Database and elastic pool metrics across multiple Azure subscriptions and elastic pools and can be used to identify issues at each layer of an application stack.
+- **Azure SQL Analytics (Preview) in Log Analytics**: [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md) allows you to collect and visualize key Azure SQL Azure performance metrics, supporting up to 150,000 SQL Databases and 5,000 SQL Elastic pools per workspace. You can use it to monitor and receive notifications. You can monitor SQL Database and elastic pool metrics across multiple Azure subscriptions and elastic pools and can be used to identify issues at each layer of an application stack.
 
 ### I am noticing performance issues: How does my SQL Database troubleshooting methodology differ from SQL Server?
 A major portion of the troubleshooting techniques you would use for diagnosing query and database performance issues remain the same. After all the same SQL Server engine powers the cloud. However, the platform - Azure SQL DB has built in ‘intelligence’. It can help you troubleshoot and diagnose performance issues even more easily. It can also perform some of these corrective actions on your behalf and in some cases, proactively fix them - automatically. 
@@ -214,23 +214,23 @@ Your approach towards troubleshooting performance issues can significantly benef
 
 With performance troubleshooting, it is important to identify whether it is just the application or the database backing it, that’s impacting your application performance. Often the performance problem lies in the application layer. It could be the architecture or the data access pattern. For example, consider you have a chatty application that is sensitive to network latency. In this case, your application suffers because there would be many short requests going back and forth ("chatty") between the application and the server and on a congested network, these roundtrips add up fast. To improve the performance in this case, you can use [Batch Queries](sql-database-performance-guidance.md#batch-queries). Using batches helps you tremendously because now your requests get processed in a batch; thus, helping you cut down on the roundtrip latency and improve your application performance. 
 
-Additionally, if you notice a degradation in the overall performance of your database, you can monitor the [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) and [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) dynamic management views in order to understand CPU, IO, and memory consumption. Your performance maybe impacted because your database is starved of resources. It could be that you may need to change the performance level and/or service tier based on the growing and shrinking workload demands. 
+Additionally, if you notice a degradation in the overall performance of your database, you can monitor the [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) and [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) dynamic management views in order to understand CPU, IO, and memory consumption. Your performance maybe impacted because your database is starved of resources. It could be that you may need to change the compute size and/or service tier based on the growing and shrinking workload demands. 
 
 For a comprehensive set of recommendations for tuning performance issues, see: [Tune your database](sql-database-performance-guidance.md#tune-your-database).
 
-### How do I ensure I am using the appropriate service tier and performance level?
-SQL Database offers various service tiers Basic, Standard, and Premium. Each service tier you get a guaranteed predictable performance tied to that service level. Depending on your workload, you may have bursts of activity where your resource utilization might hit the ceiling of the current performance level that you are in. In such cases, it is useful to first start by evaluating whether any tuning can help (for example, adding or altering an index etc.). If you still encounter limit issues, consider moving to a higher performance level or service level. 
+### How do I ensure I am using the appropriate service tier and compute size?
+SQL Database offers various service tiers Basic, Standard, and Premium. Each service tier you get a guaranteed predictable performance tied to that service tier. Depending on your workload, you may have bursts of activity where your resource utilization might hit the ceiling of the current compute size that you are in. In such cases, it is useful to first start by evaluating whether any tuning can help (for example, adding or altering an index etc.). If you still encounter limit issues, consider moving to a higher service tier or compute size. 
 
-|**Service level**|**Common Use Case Scenarios**|
+|**Service tier**|**Common Use Case Scenarios**|
 |---|---|
 |**Basic**|Applications with a handful users and a database that doesn’t have high concurrency, scale, and performance requirements. |
 |**Standard**|Applications with a considerable concurrency, scale, and performance requirements coupled with low to medium IO demands. |
 |**Premium**|Applications with lots of concurrent users, high CPU/memory, and high IO demands. High concurrency, high throughput, and latency sensitive apps can leverage the Premium level. |
 |||
 
-For making sure you’re on the right performance level, you can monitor your query and database resource consumption through one of the above-mentioned ways in “How do I monitor the performance and resource utilization in SQL Database”. Should you find that your queries/databases are consistently running hot on CPU/Memory etc. you can consider scaling up to a higher performance level. Similarly, if you note that even during your peak hours, you don’t seem to use the resources as much; consider scaling down from the current performance level. 
+For making sure you’re on the right compute size, you can monitor your query and database resource consumption through one of the above-mentioned ways in “How do I monitor the performance and resource utilization in SQL Database”. Should you find that your queries/databases are consistently running hot on CPU/Memory etc. you can consider scaling up to a higher compute size. Similarly, if you note that even during your peak hours, you don’t seem to use the resources as much; consider scaling down from the current compute size. 
 
-If you have a SaaS app pattern or a database consolidation scenario, consider using an Elastic Pool for cost optimization. Elastic pool is a great way to achieve database consolidation and cost-optimization. To read more about managing multiple databases using Elastic Pool, see: [Manage pools and databases](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases). 
+If you have a SaaS app pattern or a database consolidation scenario, consider using an Elastic pool for cost optimization. Elastic pool is a great way to achieve database consolidation and cost-optimization. To read more about managing multiple databases using Elastic Pool, see: [Manage pools and databases](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases). 
 
 ### How often do I need to run database integrity checks for my database?
 SQL Database uses some smart techniques that allow it to handle certain classes of data corruption automatically and without any data loss. These techniques are built in to the service and are leveraged by the service when need arises. On a regular basis, your database backups across the service are tested by restoring them and running DBCC CHECKDB on it. If there are issues, SQL Database proactively addresses them. [Automatic page repair](/sql/sql-server/failover-clusters/automatic-page-repair-availability-groups-database-mirroring) is leveraged for fixing pages that are corrupt or have data integrity issues. The database pages are always verified with the default CHECKSUM setting that verifies the integrity of the page. SQL Database proactively monitors and reviews the data integrity of your database and, if issues arise, addresses them with the highest priority. In addition to these, you may choose to optionally run your own integrity checks at your will.  For more information, see [Data Integrity in SQL Database](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/)

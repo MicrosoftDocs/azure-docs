@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 09/14/2018
 ms.author: carlrab
 
 ---
@@ -21,14 +21,14 @@ For DTU-based purchasing model limits, see [SQL Database DTU-based resource limi
 > Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](sql-database-file-space-management.md).
 
 
-## Single database: Storage sizes and performance levels
+## Single database: Storage sizes and compute sizes
 
-For single databases, the following tables show the resources available for a single database at each service tier and performance level. You can set the service tier, performance level, and storage amount for a single database using the [Azure portal](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-logical-servers-and-databases), [PowerShell](sql-database-single-databases-manage.md#powershell-manage-logical-servers-and-databases), the [Azure CLI](sql-database-single-databases-manage.md#azure-cli-manage-logical-servers-and-databases), or the [REST API](sql-database-single-databases-manage.md#rest-api-manage-logical-servers-and-databases).
+For single databases, the following tables show the resources available for a single database at each service tier and compute size. You can set the service tier, compute size, and storage amount for a single database using the [Azure portal](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-logical-servers-and-databases), [PowerShell](sql-database-single-databases-manage.md#powershell-manage-logical-servers-and-databases), the [Azure CLI](sql-database-single-databases-manage.md#azure-cli-manage-logical-servers-and-databases), or the [REST API](sql-database-single-databases-manage.md#rest-api-manage-logical-servers-and-databases).
 
 ### General Purpose service tier
 
 #### Generation 4 compute platform
-|Performance level|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|GP_Gen4_24
+|Compute size|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|GP_Gen4_24
 |:--- | --: |--: |--: |--: |--: |--: |
 |H/W generation|4|4|4|4|4|4|
 |vCores|1|2|4|8|16|24|
@@ -50,7 +50,7 @@ For single databases, the following tables show the resources available for a si
 |||
 
 #### Generation 5 compute platform
-|Performance level|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40| GP_Gen5_80|
+|Compute size|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40| GP_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |
 |H/W generation|5|5|5|5|5|5|5|
 |vCores|2|4|8|16|24|32|40|80|
@@ -74,7 +74,7 @@ For single databases, the following tables show the resources available for a si
 ### Business Critical service tier
 
 #### Generation 4 compute platform
-|Performance level|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|BC_Gen4_24|
+|Compute size|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|BC_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |H/W generation|4|4|4|4|4|4|
 |vCores|1|2|4|8|16|24|
@@ -96,7 +96,7 @@ For single databases, the following tables show the resources available for a si
 |||
 
 #### Generation 5 compute platform
-|Performance level|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
+|Compute size|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |--: |
 |H/W generation|5|5|5|5|5|5|5|5|
 |vCores|2|4|8|16|24|32|40|80|
@@ -120,4 +120,5 @@ For single databases, the following tables show the resources available for a si
 ## Next steps
 
 - See [SQL Database FAQ](sql-database-faq.md) for answers to frequently asked questions.
+- See [Overview Azure SQL Database resource limits](sql-database-resource-limits.md) for information about limits at the server and subscription levels.
 - For information about general Azure limits, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).

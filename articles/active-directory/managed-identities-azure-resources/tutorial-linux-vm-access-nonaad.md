@@ -1,4 +1,4 @@
----
+﻿---
 title: Use a Linux VM system-assigned managed identity to access Azure Key Vault 
 description: A tutorial that walks you through the process of using a Linux VM system-assigned managed identity to access Azure Resource Manager.
 services: active-directory
@@ -19,7 +19,7 @@ ms.author: daveba
 
 # Tutorial: Use a Linux VM system-assigned managed identity to access Azure Key Vault 
 
-[!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
+[!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 This tutorial shows you how to to use a system-assigned managed identity for a Linux virtual machine (VM) to access Azure Key Vault. Serving as a bootstrap, Key Vault makes it possible for your client application to then use the secret to access resources not secured by Azure Active Directory (AD). Managed identities for Azure resources are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication, without needing to insert credentials into your code. 
 

@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 08/28/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.reviewer: carlrab
+ms.reviewer: vanto
 ---
 # Use Virtual Network service endpoints and rules for Azure SQL Database and SQL Data Warehouse
 
@@ -180,7 +180,7 @@ If you choose to use this feature with a Storage account that is being used by a
 PolyBase is commonly used to load data into Azure SQLDW from Storage accounts. If the Storage account that you are loading data from limits access only to a set of VNet-subnets, connectivity from PolyBase to the Account will break. There is a mitigation for this, and you may contact Microsoft support for more information.
 
 #### Azure SQLDB Blob Auditing
-Blob auditing pushes audit logs to your own storage account. If this storage account uses the VENT Service endpoints feature then connectivity from Azure SQLDB to the storage account will break.
+Blob auditing pushes audit logs to your own storage account. If this storage account uses the VNet Service endpoints feature then connectivity from Azure SQLDB to the storage account will break.
 
 ## Adding a VNET Firewall rule to your server without turning On VNET Service Endpoints
 

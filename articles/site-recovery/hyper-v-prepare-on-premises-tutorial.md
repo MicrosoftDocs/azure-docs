@@ -5,7 +5,7 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 09/12/2018
 ms.author: raynew
 ms.custom: MVC
 ---
@@ -57,13 +57,15 @@ Prepare VMM for network mapping as follows:
 ## Verify internet access
 
 1. For the purposes of the tutorial, the simplest configuration is for the Hyper-V hosts and VMM server to have direct access to the internet without using a proxy. 
-2. Make sure that Hyper-V hosts, and the VMM server if relevant, can access these URLs: 
-
-    [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
-    
+2. Make sure that Hyper-V hosts, and the VMM server if relevant, can access the required URLs below.   
 3. If you're controlling access by IP address, make sure that:
     - IP address-based firewall rules can connect to [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653), and the HTTPS (443) port.
     - Allow IP address ranges for the Azure region of your subscription.
+    
+### Required URLs
+
+
+[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
 
 
 ## Prepare to connect to Azure VMs after failover
