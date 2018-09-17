@@ -116,7 +116,7 @@ HTTP code|Meaning|Possible reason
 -|-|-|
 100|Continue|The initial request has been accepted. Proceed with sending the rest of the data. (Used with chunked transfer.)
 200|OK|The request was successful; the response body is a JSON object.
-400|Bad request|Language code not provided or is not a supported language.
+400|Bad request|Language code not provided or is not a supported language; invalid audio file.
 401|Unauthorized|Subscription key or authorization token is invalid in the specified region, or invalid endpoint.
 403|Forbidden|Missing subscription key or authorization token.
 
