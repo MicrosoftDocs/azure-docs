@@ -1,6 +1,6 @@
 ---
 title: Use Azure Storage as a Terraform backend
-description: An introduction to storing Terrafom state in Azure Storage.
+description: An introduction to storing Terraform state in Azure Storage.
 services: terraform
 author: neilpeterson
 
@@ -22,7 +22,7 @@ Terraform includes the concept of a state backend, which is remote storage for T
 
 ## Configure storage account
 
-Before using Azure Storage as a backend, a storage account must be created. The storage account can be created with the Azure portal, PowerShell, the Azure CLI, or Terraform itself. Use the following sample to configure the store account with the Azure CLI.
+Before using Azure Storage as a backend, a storage account must be created. The storage account can be created with the Azure portal, PowerShell, the Azure CLI, or Terraform itself. Use the following sample to configure the storage account with the Azure CLI.
 
 ```azurecli-interactive
 #!/bin/bash
@@ -31,7 +31,7 @@ RESOURCE_GROUP_NAME=tfstatestorage
 STORAGE_ACCOUNT_NAME=tfstatestorage$RANDOM
 CONTAINER_NAME=tfstatestorage
 
-# Ceeate resoruce group
+# Create resource group
 az group create --name $RESOURCE_GROUP_NAME --location eastus
 
 # Create storage account
@@ -45,7 +45,7 @@ az storage container create --name $CONTAINER_NAME --account-name $STORAGE_ACCOU
 
 echo "storage_account_name: $STORAGE_ACCOUNT_NAME"
 echo "container_name: $CONTAINER_NAME"
-echo "ARM_ACCESS_KEY: $ACCOUNT_KEY"
+echo "access_key: $ACCOUNT_KEY"
 ```
 
 Take note of the storage account name, container name, and storage access key. These values are needed when configuring the remote state.
@@ -59,7 +59,7 @@ The Terraform state backend is configured when running *Terraform init*. In orde
 - key - The name of the state store file to be created.
 - access_key - The storage access key.
 
-Each of these values can be specified in the Terraform configuration file or on the command line, however it is recommended to use an Environment variable for the `access_key`. Using an environment variable prevents the key from being written to disk.
+Each of these values can be specified in the Terraform configuration file or on the command line, however it is recommended to use an environment variable for the `access_key`. Using an environment variable prevents the key from being written to disk.
 
 Create an environment variable named `ARM_ACCESS_KEY` with the value of the Azure Storage access key.
 
@@ -75,7 +75,7 @@ export ARM_ACCESS_KEY=$(az keyvault secret show --name terraform-backend-key --v
 
 To configure Terraform to use the backend, include a *backend* configuration with a type of *azurerm* inside of the Terraform configuration. Add the *storage_account_name*, *container_name*, and *key* values to the configuration block.
 
-The following example configures a Terraform back end and creates and Azure Resource Group.
+The following example configures a Terraform backend and creates and Azure resource group.
 
 ```json
 terraform {
@@ -87,7 +87,7 @@ terraform {
 }
 
 resource "azurerm_resource_group" "state-demo-secure" {
-  name     = "state-demoe"
+  name     = "state-demo"
   location = "eastus"
 }
 ```
@@ -98,7 +98,7 @@ Now, initialize the configuration with *Terraform init* and then run the configu
 
 When using an Azure Storage Blob for state storage, the blob is automatically locked before any operation that writes state. This configuration prevents multiple concurrent state operations, which can cause corruption. For more information, see [State Locking][terraform-state-lock] on the Terraform documentation.
 
-The lock can be see when examining the blob though the Azure portal or other Azure management tooling.
+The lock can be seen when examining the blob though the Azure portal or other Azure management tooling.
 
 ![Azure blob with lock](media/terraform-backend/lock.png)
 
