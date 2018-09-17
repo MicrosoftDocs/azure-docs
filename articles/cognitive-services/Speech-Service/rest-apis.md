@@ -141,6 +141,9 @@ The `RecognitionStatus` field may contain the following values.
 | `BabbleTimeout` | The start of the audio stream contained only noise, and the service timed out waiting for speech. |
 | `Error` | The recognition service encountered an internal error and could not continue. Try again if possible. |
 
+> [!NOTE]
+> If the user speaks only profanity, and the `profanity` query parameter is set to `remove`, the service does not return a speech result unless the recognition mode is `interactive`. In this case, he service returns a speech result with a `RecognitionStatus` of `NoMatch`. 
+
 The `detailed` format includes the same fields as the `simple` format, along with an `NBest` field. The `NBest` field is a list of alternative interpretations of the same speech, ranked from most likely to least likely. The first entry is the same as the main recognition result. Each entry contains the following fields:
 
 |Field name|Content|
@@ -150,7 +153,6 @@ The `detailed` format includes the same fields as the `simple` format, along wit
 |`ITN`|The inverse-text-normalized ("canonical") form of the recognized text, with phone numbers, numbers, abbreviations ("doctor smith" to "dr smith"), and other transformations applied.
 |`MaskedITN`| The ITN form with profanity masking applied, if requested.
 |`Display`| The display form of the recognized text, with punctuation and capitalization added. Same as `DisplayText` in the top-level result.
-
 
 ### Sample responses
 
