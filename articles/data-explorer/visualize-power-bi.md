@@ -217,7 +217,7 @@ If you don't want to keep the report you created, simply delete the *storm-event
 
 1. Under **My workspace**, scroll down to **REPORTS** and find **storm-events**.
 
-1. Select the ellipsis (**. . . **) next to **storm-events**, then select **REMOVE**.
+1. Select the ellipsis (**. . .**) next to **storm-events**, then select **REMOVE**.
 
     ![Remove report](media/visualize-power-bi/remove-report.png)
 
