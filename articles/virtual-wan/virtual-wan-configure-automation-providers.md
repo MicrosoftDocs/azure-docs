@@ -49,7 +49,7 @@ Customers must be able to set up appropriate access control for Virtual WAN in t
 * Get tenant ID
 * Assign application to role "Contributor"
 
-###  <a name="branch"></a>3. Upload branch device information
+###  <a name="branch"></a>Upload branch device information
 
 Design the user-experience to upload branch (on-premises site) information to Azure. [REST APIs](https://docs.microsoft.com/rest/api/virtualwan/vpnsites) for VPNSite can be used to create the site information in Virtual WAN. You can provide all branch SDWAN/VPN devices or select device customizations as appropriate.
 
