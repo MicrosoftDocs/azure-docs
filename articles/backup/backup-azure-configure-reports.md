@@ -77,7 +77,7 @@ After configuring storage account for reports using recovery services vault, it 
 4. Enter the storage account name configured in step 5 above and click **Next** button.
 
     ![Enter storage account name](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)    
-5. Enter the storage account key for this storage account. You can [view and copy storage access keys](../storage/common/storage-create-storage-account.md#manage-your-storage-account) by navigating to your storage account in Azure portal. 
+5. Enter the storage account key for this storage account. You can [view and copy storage access keys](../storage/common/storage-account-manage.md#access-keys) by navigating to your storage account in Azure portal. 
 
      ![Enter storage account](./media/backup-azure-configure-reports/content-pack-storage-account-key.png) <br/>
      
