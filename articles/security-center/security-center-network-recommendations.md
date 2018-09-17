@@ -106,7 +106,7 @@ If you don't have Security Center Standard tier, this section explains how to vi
 
 To access this information, in the Networking blade, click **View legacy networking**. 
 
-![Legacy Networking](./media/security-center-nework-recommendations/legacy-networking.png)
+![Legacy Networking](./media/security-center-network-recommendations/legacy-networking.png)
 
 ### Internet facing endpoints section
 In the **Internet facing endpoints** section, you can see the virtual machines that are currently configured with an Internet facing endpoint and its status.
