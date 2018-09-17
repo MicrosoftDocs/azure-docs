@@ -99,7 +99,7 @@ Many organizations have chosen the hybrid IT route. In hybrid IT, some of the co
 
 In the hybrid IT scenario, there is usually some type of cross-premises connectivity. Cross-premises connectivity allows the company to connect its on-premises networks to Azure virtual networks. Two cross-premises connectivity solutions are available:
 
-* **Site-to-site VPN**: It’s a trusted, reliable, and established technology, but the connection takes place over the internet. Bandwidth is constrained to a maximum of about 200 Mbps. Site-to-site VPN is a desirable option in some scenarios and is discussed further in the section [Disable RDP/SSH access to virtual machines](azure-security-network-security-best-practices.md#disable-rdpssh-access-to-virtual-machines).
+* **Site-to-site VPN**: It’s a trusted, reliable, and established technology, but the connection takes place over the internet. Bandwidth is constrained to a maximum of about 200 Mbps. Site-to-site VPN is a desirable option in some scenarios and is discussed further in the section [Disable RDP/SSH access to virtual machines](#disable-rdpssh-access-to-virtual-machines).
 * **Azure ExpressRoute**: We recommend that you use [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) for your cross-premises connectivity. ExpressRoute is a dedicated WAN link between your on-premises location or an Exchange hosting provider. Because this is a telco connection, your data doesn’t travel over the internet and therefore is not exposed to the potential risks of internet communications.
 
 ## Optimize uptime and performance
