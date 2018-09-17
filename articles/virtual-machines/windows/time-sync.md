@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 09/04/2018
+ms.date: 09/017/2018
 ms.author: cynthn
 ---
 
@@ -22,6 +22,7 @@ ms.author: cynthn
 Time sync is important for security and event correlation. Sometimes it is used for distributed transactions implementation. Time accuracy between multiple computer systems is achieved through synchronization. Synchronization can be affected by multiple things, including reboots and network traffic between the time source and the computer fetching the time. 
 
 Azure is now backed by infrastructure running Windows Server 2016. Windows Server 2016 has improved algorithms used to correct time and condition the local clock to synchronize with UTC.  Windows Server 2016 also improved the VMICTimeSync service that governs how VMs sync with the host for accurate time. Improvements include more accurate initial time on VM start or VM restore and interrupt latency correction for samples provided to Windows Time (W32time). 
+
 
 >[!NOTE]
 >For a quick overview of Windows Time service, take a look at this [high-level overview video](https://aka.ms/WS2016TimeVideo).
@@ -32,22 +33,24 @@ Azure is now backed by infrastructure running Windows Server 2016. Windows Serve
 
 Accuracy for a computer clock is gauged on how close the computer clock is to the Coordinated Universal Time (UTC) time standard. UTC is defined by a multinational sample of very precise atomic clocks that can only be off by one second in 300 years. But, reading UTC directly requires specialized hardware. Instead, time servers are synced to UTC and are accessed from other computers to provide scalability and robustness. Every computer has time synchronization service running that knows what time servers to use and periodically checks if computer clock needs to be corrected and adjusts time if needed. 
 
-In Azure, virtual machines can either depend on their host to synchronize with time.windows.com and pass the accurate time (*host time*) on to the VM or the VM can directly get time from a time server, or a combination of both. On stand alone hardware, the Linux OS only reads the host hardware clock on boot. After that, the clock is maintained using the interrupt timer in the Linux kernel. In this configuration, the clock can drift over time. In newer Linux distributions on Azure, VMs can use the VMICTimeSync provider, included in the Linux integration services (LIS), to query for clock updates from the host more frequently.
+Azure hosts are syncronized to internal Microsoft time servers that take their time from Microsoft-owned Stratum 1 devices, with GPS antennas. Virtual machines in Azure can either depend on their host to pass the accurate time (*host time*) on to the VM or the VM can directly get time from a time server, or a combination of both. 
 
 Virtual machine interactions with the host can also affect the clock. During [memory preserving maintenance](maintenance-and-updates.md#memory-preserving-maintenance), VMs are paused for up to 30 seconds. For example, before maintenance begins the VM clock shows 10:00:00 AM and lasts 28 seconds. After the VM resumes, the clock on the VM would still show 10:00:00 AM, which would be 28 seconds off. To correct for this, the VMICTimeSync service monitors what is happening on the host and prompts for changes to happen on the VMs to compensate.
 
-Without time synchronization working, the clock on the VM would accumulate errors. When there is only one VM, the effect might not be that significant unless the workload requires highly accurate timekeeping. But in most cases, we have multiple, interconnected VMs that use time to track transactions and the time needs to be consistent throughout the entire deployment. When time between VMs is different, you could see the following affects:
+Without time synchronization working, the clock on the VM would accumulate errors. When there is only one VM, the effect might not be that significant unless the workload requires highly accurate timekeeping. But in most cases, we have multiple, interconnected VMs that use time to track transactions and the time needs to be consistent throughout the entire deployment. When time between VMs is different, you could see the following effects:
 
-- Security protocols like Kerberos or certificate-dependent technology rely on time being consistent across the systems. 
+- Authentication will fail. Security protocols like Kerberos or certificate-dependent technology rely on time being consistent across the systems. 
 - It's very hard to figure out what have happened in a system if logs (or other data) don't agree on time. The same event would look like it occurred at different times, making correlation difficult.
 - If clock is off, the billing could be calculated incorrectly.
+
+The best results for Windows deployments is achieved by using Windows Server 2016 as the guest operating system, which ensures you can use the latest improvements in time synchronization.
 
 ## Configuration options
 
 There are three options for configuring time sync for your Windows VMs hosted in Azure:
 
 - Host time and time.windows.com. This is the default configuration used in Azure Marketplace images.
-- Host-only 
+- Host-only.
 - Use another, external time server with or without using host time.
 
 
@@ -55,8 +58,8 @@ There are three options for configuring time sync for your Windows VMs hosted in
 
 By default Windows OS VM images are configured for w32time to sync from two sources: 
 
-- The NtpClient provider, which gets information from time.windows.com 
-- The VMICTimeSync service, used to communicate the host time to the VMs and make corrections after the VM is paused for maintenance. Azure hosts use time.microsoft.com to keep accurate time.
+- The NtpClient provider, which gets information from time.windows.com.
+- The VMICTimeSync service, used to communicate the host time to the VMs and make corrections after the VM is paused for maintenance. Azure hosts use Microsoft-owned Stratum 1 devices to keep accurate time.
 
 w32time would prefer the time provider in the following order of priority: stratum level, root delay, root dispersion, time offset. In most cases, w32time would prefer time.windows.com to the host because time.windows.com reports lower stratum. 
 
@@ -65,42 +68,20 @@ For domain joined machines the domain itself establishes time sync hierarchy, bu
 
 ### Host-only 
 
-Because time.windows.com is public a NTP server that requires sending traffic over the internet, varying packet delays can negatively affect quality of the time sync. Removing time.windows.com by switching to host-only sync can sometimes improve your time sync results.
+Because time.windows.com is public a NTP server, syncing time with it requires sending traffic over the internet, varying packet delays can negatively affect quality of the time sync. Removing time.windows.com by switching to host-only sync can sometimes improve your time sync results.
 
 Switching to host-only time sync makes sense if you experience time sync issues using the default configuration. Try out the host-only sync to see if that would improve the time sync on VM. 
 
 ### External time server
 
-If you have specific time sync requirements, there is also an option of using external time servers. Such time servers can provide specific time, for example for test scenarios or for time uniformity with machines hosted in not-MS datacenters or if you need to handle leap seconds in a special way.
+If you have specific time sync requirements, there is also an option of using external time servers. External time servers can provide specific time, which can be useful for test scenarios, ensuring time uniformity with machines hosted in non-Microsoft datacenters, or handling leap seconds in a special way.
 
-You can use an external time server as the NtpClient alone, or combine it with the VMICTimeSync service and VMICTimeProvider to provide results similar to the default configuration. 
+You can combine external servers with the VMICTimeSync service and VMICTimeProvider to provide results similar to the default configuration. 
 
 ## Check your configuration
 
-Below are some basic commands for checking your time sync configuration. For more details what each setting and command does, see these links:
 
-- [Windows Time Service Tools and Settings](https://docs.microsoft.com/en-us/windows-server/networking/windows-time-service/Windows-Time-Service-Tools-and-Settings)
-- [Windows Server 2016 Improvements
-](https://docs.microsoft.com/en-us/windows-server/networking/windows-time-service/windows-server-2016-improvements)
-- [Accurate Time for Windows Server 2016](https://docs.microsoft.com/en-us/windows-server/networking/windows-time-service/accurate-time)
-- [Support boundary to configure the Windows Time service for high-accuracy environments](https://docs.microsoft.com/en-us/windows-server/networking/windows-time-service/support-boundary)
-
-
-
-
-Check to see if VMICTimeSync service is enabled. 
-
-```
-w32tm /dumpreg /subkey:TimeProviders\VMICTimeProvider | findstr /i "enabled"
-```
-
-If VMICTimeSync time is enabled you would get the following output:
-
-```
-Enabled           REG_DWORD           1
-```
-
-Check if the NtpClient time provider is configured to use NTP servers (NTP) or domain time sync (NT5DS).
+Check if the NtpClient time provider is configured to use explicit NTP servers (NTP) or domain time sync (NT5DS).
 
 ```
 w32tm /dumpreg /subkey:Parameters | findstr /i "type"
@@ -113,7 +94,7 @@ Value Name                 Value Type          Value Data
 Type                       REG_SZ              NTP
 ```
 
-See what server the NtpClient time provider is using.
+To see what time server the NtpClient time provider is using, at an elavated command prompt type:
 
 ```
 w32tm /dumpreg /subkey:Parameters | findstr /i "ntpserver"
@@ -180,7 +161,7 @@ reg add HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\w32time\Config /v U
 w32tm /config /update
 ```
 
-For w32time to be able to use the new poll intervals, the  NtpServers need to use them. If servers are annotated with 0x1 bitflag mask, that would override this mechanism and w32time would use SpecialPollInterval instead. Make sure that specified NTP servers are either using 0x8 flag or no flag at all:
+For w32time to be able to use the new poll intervals, the NtpServers be marked as using them. If servers are annotated with 0x1 bitflag mask, that would override this mechanism and w32time would use SpecialPollInterval instead. Make sure that specified NTP servers are either using 0x8 flag or no flag at all:
 
 Check what flags are being used for the used NTP servers.
 
@@ -190,7 +171,12 @@ w32tm /dumpreg /subkey:Parameters | findstr /i "ntpserver"
 
 ## Next steps
 
-To learn more about the Windows Server 2016 host improvements, see [Windows Server 2016 Improvements
+Below are links to more details about the time sync:
+
+- [Windows Time Service Tools and Settings](https://docs.microsoft.com/en-us/windows-server/networking/windows-time-service/Windows-Time-Service-Tools-and-Settings)
+- [Windows Server 2016 Improvements
 ](https://docs.microsoft.com/en-us/windows-server/networking/windows-time-service/windows-server-2016-improvements)
+- [Accurate Time for Windows Server 2016](https://docs.microsoft.com/en-us/windows-server/networking/windows-time-service/accurate-time)
+- [Support boundary to configure the Windows Time service for high-accuracy environments](https://docs.microsoft.com/en-us/windows-server/networking/windows-time-service/support-boundary)
 
 
