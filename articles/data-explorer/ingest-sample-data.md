@@ -22,7 +22,7 @@ To complete this how-to, first [create a test cluster and database](create-clust
 
 The **StormEvents** sample data set contains weather-related data from the [National Centers for Environmental Information](https://www.ncdc.noaa.gov/stormevents/).
 
-1. Sign-in to [https://kusto.azure.com](https://kusto.azure.com).
+1. Sign in to [https://kusto.azure.com](https://kusto.azure.com).
 
 1. In the upper-left of the application, select **Add cluster**.
 
@@ -49,6 +49,6 @@ The **StormEvents** sample data set contains weather-related data from the [Nati
 
 ## Next steps
 
-[Write Kusto queries](write-kusto-queries.md)
+[Write queries](write-queries.md)
 
 [Azure Data Explorer data ingestion](ingest-data-overview.md)
