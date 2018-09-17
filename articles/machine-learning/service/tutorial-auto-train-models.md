@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Train a classification model with Automated Machine Learning"
-description: In this tutorial, you'll learn how to generate a machine learning model using Automated ML which can then be deployed with Azure Machine Learning service.
+title: "Tutorial: Train a classification model with automated ML in Azure Machine Learning service"
+description: In this tutorial, you'll learn how to generate a machine learning model using automated ML which can then be deployed with Azure Machine Learning service.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -13,13 +13,13 @@ ms.date: 09/24/2018
 # As an app developer or data scientist I can generate a  machine learning model using Automated ML.
 ---
 
-# Tutorial: Train a classification model with Automated Machine Learning
+# Tutorial: Train a classification model with automated Machine Learning
 
-In this tutorial, you'll learn how to generate a  machine learning model using Automated ML.  Automated ML is a capability of Azure Machine Learning that performs data preprocessing, algorithm selection and hyper parameter selection in automated way. This model can then be deployed following the workflow in the [Deploy a model](tutorial-deploy-models-with-aml.md) tutorial.
+In this tutorial, you'll learn how to generate a  machine learning model using automated Machine Learning (ML).  Azure Machine Learning can perform data preprocessing, algorithm selection and hyperparameter selection in an automated way for you. The final model can then be deployed following the workflow in the [Deploy a model](tutorial-deploy-models-with-aml.md) tutorial.
 
 [ ![flow diagram](./media/tutorial-auto-train-models/flow2.png) ](./media/tutorial-auto-train-models/flow2.png#lightbox)
 
-Similar to the [train models tutorial](tutorial-train-models-with-aml.md), this tutorial classifies handwritten images of digits (0-9) from the [MNIST](http://yann.lecun.com/exdb/mnist/) dataset. With Automated ML, you don't need to specify an algorithm or tune hyper parameters. Automated ML will perform algorithm and hyper parameter selection by iterating many combinations of algorithms and hyper parameters. With Automated ML, you don't need to know which algorithm works well for your dataset.
+Similar to the [train models tutorial](tutorial-train-models-with-aml.md), this tutorial classifies handwritten images of digits (0-9) from the [MNIST](http://yann.lecun.com/exdb/mnist/) dataset. You don't need to specify an algorithm or tune hyperparameters. The automated ML technique iterates over many combinations of algorithms and hyperparameters until it finds the best model based on your criterion.
 
 You'll learn how to:
 
@@ -44,9 +44,9 @@ For your convenience, this tutorial is available as a Jupyter notebook. Use eith
     1. Use [these instructions](https://aka.ms/aml-how-to-configure-environment) to:
         * Create a workspace and its configuration file (**config.json**) 
         * Configure your notebook server
-        * In step 4 the new packages you need are matplotlib, scikit-learn, pandas, and seaborn:
+        * In step 4 the new packages you need are matplotlib, scikit-learn, and pandas:
             ```shell
-            conda install -y matplotlib scikit-learn pandas seaborn
+            conda install -y matplotlib scikit-learn pandas 
             ```
     1. Clone [the GitHub repository](https://aka.ms/aml-notebooks) or start a new notebook and copy code from this article.
     1. Add your **config.json** file to the same folder as the notebook.
@@ -74,7 +74,6 @@ from azureml.train.automl.run import AutoMLRun
 import time
 import logging
 from sklearn import datasets
-import seaborn as sns
 from matplotlib import pyplot as plt
 from matplotlib.pyplot import imshow
 import random
@@ -107,7 +106,7 @@ pd.DataFrame(data=output, index=['']).T
 
 ## Explore data
 
-The initial training tutorial used a high-resolution version  of the MNIST dataset (28x28 pixels).  Since Automated ML training requires many iterations, this tutorial uses a smaller resolution version  of the images (8x8 pixels) to demonstrate the concepts while speeding up the time needed for each iteration.  
+The initial training tutorial used a high-resolution version  of the MNIST dataset (28x28 pixels).  Since automated ML training requires many iterations, this tutorial uses a smaller resolution version  of the images (8x8 pixels) to demonstrate the concepts while speeding up the time needed for each iteration.  
 
 ```python
 from sklearn import datasets
@@ -147,15 +146,14 @@ A random sample of images displays:
 
 You now have the necessary packages and data ready for auto training for your model. 
 
-## Train a model with Automated ML 
+## Train a model
 
-To train a model with Automated ML, first define configuration settings for the experiment and then run the experiment.
+To automatically train a model, first define configuration settings for the experiment and then run the experiment.
 
 
-### Define settings for Automated ML
+### Define settings
 
-Define the experiment settings and model settings for Automated ML.  
-
+Define the experiment settings and model settings.
 
 |Property| Value in this tutorial |Description|
 |----|----|---|
@@ -183,7 +181,7 @@ Automl_config = AutoMLConfig(task = 'classification',
                              path=project_folder)
 ```
 
-### Run the Automated ML experiment
+### Run the experiment
 
 Start the experiment to run locally. Define the compute target as local and set the output to true to view progress on the experiment.
 
@@ -223,7 +221,7 @@ Explore the results of experiment with a Jupyter widget or by examining the expe
 
 ### Jupyter widget
 
-Use the Jupyter notebook widget to see a graph and a table of all results. 
+Use the Jupyter notebook widget to see a graph and a table of all results.
 
 ```python
 from azureml.train.widgets import RunDetails
@@ -244,18 +242,15 @@ children = list(local_run.get_children())
 metricslist = {}
 for run in children:
     properties = run.get_properties()
-    metrics = {k: v for k, v in run.get_metrics().items() if isinstance(v, float)}   
+    metrics = {k: v for k, v in run.get_metrics().items() if isinstance(v, float)}
     metricslist[int(properties['iteration'])] = metrics
 
 import pandas as pd
-import seaborn as sns
 rundata = pd.DataFrame(metricslist).sort_index(1)
-cm = sns.light_palette("lightgreen", as_cmap = True)
-s = rundata.style.background_gradient(cmap = cm)
-s
+rundata
 ```
 
-This table shows the results.  When you run this code in the notebook you will see varying shades of green to highlight high/low values. Here the table is shown without the colors:
+This table shows the results:
 
 
 <!-- hello world -->
