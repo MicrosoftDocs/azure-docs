@@ -4,10 +4,11 @@ description: This topic demonstrates how to view and edit Video Indexer insights
 services: cognitive services
 documentationcenter: ''
 author: juliako
+manager: femila
 
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 09/09/2018
+ms.date: 09/15/2018
 ms.author: juliako
 
 ---
