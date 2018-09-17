@@ -43,7 +43,7 @@ Without time synchronization working, the clock on the VM would accumulate error
 - It's very hard to figure out what have happened in a system if logs (or other data) don't agree on time. The same event would look like it occurred at different times, making correlation difficult.
 - If clock is off, the billing could be calculated incorrectly.
 
-The best results for Windows deployments is achieved by using Windows Server 2016 as the guest operating system, which ensures you can use the latest improvements in time synchronization.
+The best results for Windows deployments are achieved by using Windows Server 2016 as the guest operating system, which ensures you can use the latest improvements in time synchronization.
 
 ## Configuration options
 
@@ -63,7 +63,7 @@ By default Windows OS VM images are configured for w32time to sync from two sour
 
 w32time would prefer the time provider in the following order of priority: stratum level, root delay, root dispersion, time offset. In most cases, w32time would prefer time.windows.com to the host because time.windows.com reports lower stratum. 
 
-For domain joined machines the domain itself establishes time sync hierarchy, but the forest root still need to take time from somewhere and the following considerations would still hold true.
+For domain joined machines the domain itself establishes time sync hierarchy, but the forest root still needs to take time from somewhere and the following considerations would still hold true.
 
 
 ### Host-only 
@@ -94,7 +94,7 @@ Value Name                 Value Type          Value Data
 Type                       REG_SZ              NTP
 ```
 
-To see what time server the NtpClient time provider is using, at an elavated command prompt type:
+To see what time server the NtpClient time provider is using, at an elevated command prompt type:
 
 ```
 w32tm /dumpreg /subkey:Parameters | findstr /i "ntpserver"
