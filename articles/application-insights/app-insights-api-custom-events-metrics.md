@@ -120,23 +120,6 @@ For example, in a game app, send an event whenever a user wins the game:
 
     telemetry.trackEvent({name: "WinGame"});
 
-### View your events in the Microsoft Azure portal
-To see a count of your events, open a [Metrics Explorer](app-insights-metrics-explorer.md) blade, add a new chart, and select **Events**.  
-
-![See a count of custom events](./media/app-insights-api-custom-events-metrics/01-custom.png)
-
-To compare the counts of different events, set the chart type to **Grid**, and group by event name:
-
-![Set the chart type and grouping](./media/app-insights-api-custom-events-metrics/07-grid.png)
-
-On the grid, click through an event name to see individual occurrences of that event. To see more detail - click any occurrence in the list.
-
-![Drill through the events](./media/app-insights-api-custom-events-metrics/03-instances.png)
-
-To focus on specific events in either Search or Metrics Explorer, set the blade's filter to the event names that you're interested in:
-
-![Open Filters, expand Event name, and select one or more values](./media/app-insights-api-custom-events-metrics/06-filter.png)
-
 ### Custom events in Analytics
 
 The telemetry is available in the `customEvents` table in [Application Insights Analytics](app-insights-analytics.md). Each row represents a call to `trackEvent(..)` in your app. 
@@ -438,7 +421,7 @@ In Search, the operation context is used to create the **Related Items** list:
 
 See [Track custom operations with Application Insights .NET SDK](application-insights-custom-operations-tracking.md) for more information on custom operations tracking.
 
-### Requests in Analytics 
+### Requests in Analytics
 
 In [Application Insights Analytics](app-insights-analytics.md), requests show up in the `requests` table.
 
@@ -826,26 +809,6 @@ There are some [limits on the number of properties, property values, and metrics
 >
 >
 
-*If you used metrics*, open Metrics Explorer and select the metric from the **Custom** group:
-
-![Open Metrics Explorer, select the chart, and select the metric](./media/app-insights-api-custom-events-metrics/03-track-custom.png)
-
-> [!NOTE]
-> If your metric doesn't appear, or if the **Custom** heading isn't there, close the selection blade and try again later. Metrics can sometimes take an hour to be aggregated through the pipeline.
-
-*If you used properties and metrics*, segment the metric by the property:
-
-![Set grouping, and then select the property under Group by](./media/app-insights-api-custom-events-metrics/04-segment-metric-event.png)
-
-*In Diagnostic Search*, you can view the properties and metrics of individual occurrences of an event.
-
-![Select an instance, and then select "..."](./media/app-insights-api-custom-events-metrics/appinsights-23-customevents-4.png)
-
-Use the **Search** field to see event occurrences that have a particular property value.
-
-![Type a term into Search](./media/app-insights-api-custom-events-metrics/appinsights-23-customevents-5.png)
-
-[Learn more about search expressions](app-insights-diagnostic-search.md).
 
 ### Alternative way to set properties and metrics
 If it's more convenient, you can collect the parameters of an event in a separate object:
@@ -1140,5 +1103,3 @@ To determine how long data is kept, see [Data retention and privacy](app-insight
 * [Search events and logs](app-insights-diagnostic-search.md)
 
 * [Troubleshooting](app-insights-troubleshoot-faq.md)
-
-
