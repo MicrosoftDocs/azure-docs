@@ -49,6 +49,6 @@ The **StormEvents** sample data set contains weather-related data from the [Nati
 
 ## Next steps
 
-[Write Kusto queries](write-kusto-queries.md)
+[Write queries](write-queries.md)
 
 [Azure Data Explorer data ingestion](ingest-data-overview.md)

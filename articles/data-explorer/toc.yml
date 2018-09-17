@@ -13,16 +13,19 @@
     items:
     - name: Streaming data - Event Hub
       href: ingest-data-event-hub.md
-    - name: Queued data - Python
+    - name: Batching data - Python
       href: python-ingest-data.md
   - name: Query data
     expanded: true
     items:
-    - name: Web explorer
+    - name: Web UI
       href: web-query-data.md
     - name: Python
       href: python-query-data.md
 - name: Tutorials
+  items:
+  - name: Visualize data - Power BI
+    href: visualize-power-bi.md  
 - name: Concepts
   items:
   - name: Data ingestion overview
@@ -30,7 +33,7 @@
 - name: How-to guides
   items:
   - name: Write queries
-    href: write-kusto-queries.md
+    href: write-queries.md
   - name: Ingest sample data
     href: ingest-sample-data.md
   - name: Manage database permissions
