@@ -8,7 +8,7 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 09/17/2018
 ---
 # Monitoring in Azure Database for MySQL
 Monitoring data about your servers helps you troubleshoot and optimize for your workload. Azure Database for MySQL provides various metrics that give insight into the behavior of the resources supporting the MySQL server. 
@@ -27,9 +27,11 @@ These metrics are available for Azure Database for MySQL:
 |storage_percent|Storage percentage|Percent|The percentage of storage used out of the server's maximum.|
 |storage_used|Storage used|Bytes|The amount of storage in use. The storage used by the service includes the database files, transaction logs, and the server logs.|
 |storage_limit|Storage limit|Bytes|The maximum storage for this server.|
-|active_connections|Total active connections|Count|The number of active connections to the server.|
-|connections_failed|Total failed connections|Count|The number of failed connections to the server.|
-
+|active_connections|Active Connections|Count|The number of active connections to the server.|
+|connections_failed|Failed Connections|Count|The number of failed connections to the server.|
+|seconds_behind_master|Replication lag in seconds|Count|The number of seconds the replica server is lagging against the master server.|
+|network_bytes_egress|Network Out|Bytes|Network Out across active connections.|
+|network_bytes_ingress|Network In|Bytes|Network In across active connections.|
 
 ## Next steps
 - See [How to set up alerts](howto-alert-on-metric.md) for guidance on creating an alert on a metric.

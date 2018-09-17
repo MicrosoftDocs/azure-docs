@@ -21,19 +21,13 @@ ms.custom: aaddev
 
 # Single-page applications
 
-Single-page applications (SPAs) are typically structured as a JavaScript presentation layer (front end) that runs in the browser, and a web API back end that runs on a server and implements the application’s business logic.
+Single-page applications (SPAs) are typically structured as a JavaScript presentation layer (front end) that runs in the browser, and a web API back end that runs on a server and implements the application’s business logic.To learn more about the implicit authorization grant, and help you decide whether it's right for your application scenario, see [Understanding the OAuth2 implicit grant flow in Azure Active Directory](v1-oauth2-implicit-grant-flow.md).
 
-Many modern apps have a single-page app front end that is primarily written in JavaScript. Often, it's written by using a framework like AngularJS, Ember.js, or Durandal.js. The Azure AD v2.0 endpoint supports these apps by using the [OAuth 2.0 implicit flow](v2-oauth2-implicit-grant-flow.md).
-
-In the OAuth 2.0 implicit flow, the app receives tokens directly from the v2.0 authorize endpoint, without any server-to-server exchanges. All authentication logic and session handling takes place entirely in the JavaScript client, without extra page redirects.
-
-![Implicit authentication flow](./media/v2-app-types/convergence_scenarios_implicit.png)
-
-In this scenario, when the user signs in, the JavaScript front end uses [Microsoft Authentication Library for JavaScript (MSAL.JS)](https://github.com/AzureAD/microsoft-authentication-library-for-js) and the implicit authorization grant to obtain an ID token (id_token) from Azure AD. The token is cached and the client attaches it to the request as the bearer token when making calls to its Web API back end, which is secured using the OWIN middleware.
+In this scenario, when the user signs in, the JavaScript front end uses [Active Directory Authentication Library for JavaScript (ADAL.JS)](https://github.com/AzureAD/azure-activedirectory-library-for-js) and the implicit authorization grant to obtain an ID token (id_token) from Azure AD. The token is cached and the client attaches it to the request as the bearer token when making calls to its Web API back end, which is secured using the OWIN middleware.
 
 ## Diagram
 
-![Single Page Application diagram](./media/authentication-scenarios/single_page_app.png)
+![Single-page application diagram](./media/authentication-scenarios/single_page_app.png)
 
 ## Protocol flow
 
@@ -48,11 +42,9 @@ In this scenario, when the user signs in, the JavaScript front end uses [Microso
 
 ## Code samples
 
-See the [code samples for single-page application scenarios](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Samples). Be sure to check back frequently as new samples are added frequently.
+See the [code samples for single-page application scenarios](sample-v1-code.md#single-page-applications). Be sure to check back frequently as new samples are added frequently.
 
 ## App registration
-
-To register a single-page app, see [Register an app with the Azure AD v2.0 endpoint](quickstart-v2-register-an-app.md).
 
 * Single tenant - If you are building an application just for your organization, it must be registered in your company’s directory by using the Azure portal.
 * Multi-tenant - If you are building an application that can be used by users outside your organization, it must be registered in your company’s directory, but also must be registered in each organization’s directory that will be using the application. To make your application available in their directory, you can include a sign-up process for your customers that enables them to consent to your application. When they sign up for your application, they will be presented with a dialog that shows the permissions the application requires, and then the option to consent. Depending on the required permissions, an administrator in the other organization may be required to give consent. When the user or administrator consents, the application is registered in their directory.
@@ -61,14 +53,14 @@ After registering the application, it must be configured to use OAuth 2.0 implic
 
 ## Token expiration
 
-Using MSAL.js helps with:
+Using ADAL.js helps with:
 
-* refreshing an expired token
-* requesting an access token to call a web API resource
+* Refreshing an expired token
+* Requesting an access token to call a web API resource
 
-After a successful authentication, Azure AD writes a cookie in the user's browser to establish a session. Note the session exists between the user and Azure AD (not between the user and the web application). When a token expires, MSAL.js uses this session to silently obtain another token. MSAL.js uses a hidden iFrame to send and receive the request using the OAuth implicit grant protocol. MSAL.js can also use this same mechanism to silently obtain access tokens for other web API resources the application calls as long as these resources support cross-origin resource sharing (CORS), are registered in the user’s directory, and any required consent was given by the user during sign-in.
+After a successful authentication, Azure AD writes a cookie in the user's browser to establish a session. Note the session exists between the user and Azure AD (not between the user and the web application). When a token expires, ADAL.js uses this session to silently obtain another token. ADAL.js uses a hidden iFrame to send and receive the request using the OAuth implicit grant protocol. ADAL.js can also use this same mechanism to silently obtain access tokens for other web API resources the application calls as long as these resources support cross-origin resource sharing (CORS), are registered in the user’s directory, and any required consent was given by the user during sign-in.
 
 ## Next steps
 
-- Learn more about other [Application types and scenarios](app-types.md)
-- Learn about the Azure AD [authentication basics](authentication-scenarios.md)
+* Learn more about other [Application types and scenarios](app-types.md)
+* Learn about the Azure AD [authentication basics](authentication-scenarios.md)
