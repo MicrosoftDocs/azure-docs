@@ -157,7 +157,7 @@ so you can set up your SAP action.
 
    Of the properties marked as optional, following are required if **Logon Type** is **Application Server**
 
-   ![Create SAP application server connection](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png) 
+   ![Create SAP application server connection](media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png) 
 
    Of the properties marked as optional, following are required if **Logon Type** is **Group**
 
@@ -293,7 +293,7 @@ so you can set up your SAP action.
 
    Of the properties marked as optional, following are required if **Logon Type** is **Application Server**
 
-   ![Create SAP application server connection](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png) 
+   ![Create SAP application server connection](media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png) 
 
    Of the properties marked as optional, following are required if **Logon Type** is **Group**
 
@@ -383,7 +383,7 @@ so you can set up your SAP action.
 
    Of the properties marked as optional, following are required if **Logon Type** is **Application Server**
 
-   ![Create SAP application server connection](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png) 
+   ![Create SAP application server connection](media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png) 
 
    Of the properties marked as optional, following are required if **Logon Type** is **Group**
 
