@@ -145,7 +145,7 @@
       items:
       - name: Enable Azure to Azure replication
         href: azure-to-azure-how-to-enable-replication.md
-      - name: Enable replication for encrypted VMs
+      - name: Enable Azure to Azure replication for encrypted VMs
         href: azure-to-azure-how-to-enable-replication-ade-vms.md
       - name: Reprotect from an Azure secondary region to primary
         href: azure-to-azure-how-to-reprotect.md
