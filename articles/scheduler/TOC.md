@@ -1,26 +1,26 @@
 # [Scheduler Documentation](index.md)
 
 # Overview
-## [What is Scheduler?](scheduler-intro.md)
+## [What is Azure Scheduler?](scheduler-intro.md)
 
 # Get started
-## [Create and manage jobs](scheduler-get-started-portal.md)
+## [Create and manage jobs - portal](scheduler-get-started-portal.md)
 ## [Migrate from Scheduler to Logic Apps](migrate-from-scheduler-to-logic-apps.md)
 
 # Concepts
-## [Concepts and terminology](scheduler-concepts-terms.md)
+## [Concepts, terms, and entities](scheduler-concepts-terms.md)
 
 # How-to guides
 ## Plan and design
 ### [Plans and billing](scheduler-plans-billing.md)
-### [Quotas and limits](scheduler-limits-defaults-errors.md)
+### [Limits, quotas, and default values](scheduler-limits-defaults-errors.md)
 ### [High-availability and reliability](scheduler-high-availability-reliability.md)
 
 ## Develop
-### [Complex schedules using REST API](scheduler-advanced-complexity.md)
+### [Build complex schedules and advanced recurrences](scheduler-advanced-complexity.md)
 
 ## Secure
-### [Outbound authentication](scheduler-outbound-authentication.md)
+### [Authenticate outbound calls](scheduler-outbound-authentication.md)
 
 # Reference
 ## [Azure PowerShell](/powershell/module/azurerm.scheduler)

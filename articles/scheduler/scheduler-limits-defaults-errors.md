@@ -1,6 +1,6 @@
 ---
-title: Limits, quotas, and default values in Azure Scheduler
-description: Learn about the quotas, limits, default values, and throttle thresholds for Azure Scheduler
+title: Limits, quotas, and thresholds in Azure Scheduler
+description: Learn about limits, quotas, default values, and throttle thresholds for Azure Scheduler
 services: scheduler
 ms.service: scheduler
 author: derek1ee
@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 08/18/2016
 ---
 
-# Quotas, limits, default values, and throttle thresholds in Azure Scheduler
+# Limits, quotas, and throttle thresholds in Azure Scheduler
 
 > [!IMPORTANT]
 > [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
@@ -20,7 +20,7 @@ ms.date: 08/18/2016
 > not Azure Scheduler. Learn how to 
 > [migrate from Azure Scheduler to Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md).
 
-## Quotas, limits, defaults, and throttles
+## Limits, quotas, and thresholds
 
 [!INCLUDE [scheduler-limits-table](../../includes/scheduler-limits-table.md)]
 
