@@ -3,13 +3,13 @@ title: Limits and boundaries - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: Comprehensive list of limits across QnA Maker.
 services: cognitive-services
-author: nstulasi
-manager: cgronlun
+author: tulasim88
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
-ms.author: nstulasi
+ms.author: tulasim88
 ---
 
 # QnA Maker Limits
