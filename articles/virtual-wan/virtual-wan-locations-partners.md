@@ -20,39 +20,17 @@ Azure Virtual WAN is a networking service that provides optimized and automated 
 
 The list of regions supported and available are as follows:
 
-
-|Regions|
-|---|
-|asia-pacific-east|
-|asia-pacific-southeast|
-|australia-central|
-|australia-central-2|
-|australia-east|
-|australia-southeast|
-|brazil-south|
-|canada-central|
-|canada-east|
-|central-india|
-|europe-north|
-|europe-west|
-|france-central|
-|france-south|
-|japan-east|
-|japan-west|
-|korea-central|
-|korea-south|
-|south-india|
-|united-kingdom-south|
-|united-kingdom-west|
-|us-central|
-|us-east|
-|us-east-2|
-|us-north-central|
-|us-south-central|
-|us-west|
-|us-west-2|
-|us-west-central|
-|west-india|
+|Geopolitical region | Azure regions|
+|---|---|
+|North America | East US, West US, East US 2, West US 2, Central US, South Central US, North Central US, West Central US, Canada Central, Canada East |
+|South America |Brazil South |
+| Europe | France Central, France South, North Europe, West Europe, UK West, UK South |
+| Asia | East Asia, Southeast Asia |
+| Japan  | Japan West, Japan East |
+| Australia | Australia Southeast, Australia East | 
+| Australia Government | Australia Central, Australia Central 2 |
+| India | India West, India Central, India South |
+| South Korea | Korea Central, Korea South | 
 
 ## Automation from connectivity partners
 
