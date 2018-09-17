@@ -1,40 +1,91 @@
 ---
-title: View all existing groups in Azure AD | Microsoft Docs
-description: How to view or search for groups in Azure Active Directory
+title: Quickstart to search for and view your groups and assigned members using Azure Active Directory | Microsoft Docs
+description: Quickstart with steps for how to search for and view all of your groups and their assigned members using Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
+
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
 ms.topic: quickstart
-ms.date: 08/28/2017
+ms.date: 08/30/2018
 ms.author: lizross
-ms.custom: H1Hack27Feb2017;it-pro
+ms.custom: it-pro
 ms.reviewer: krbain
 ---
+# Quickstart: Search for a specific group and view its members using Azure Active Directory
+You can search for a specific group and review the assigned members using Azure Active Directory.
 
-# View or search for your user groups in Azure Active Directory
-This article explains how to view groups in Azure Active Directory (Azure AD). One of the features of Azure AD user management is that you can use groups to perform management tasks such as assigning licenses or permissions to a number of users at once.
+In this quickstart, you’ll view all your existing groups, select the **MDM policy – West** group, and then view the assigned members.
 
-## How do I see all the groups?
-1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
-2. Select **All services**, enter **Users and groups** in the text box, and then select **Enter**.
+If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. 
 
-   ![Opening users and groups](./media/active-directory-groups-view-azure-portal/search-user-management.png)
-3. On the **Users and groups** blade, select **All groups**.
+## Prerequisites
+Before you begin, you’ll need to:
 
-   ![Opening the groups blade](./media/active-directory-groups-view-azure-portal/view-groups-blade.png)
-4. On the **Users and groups - All groups** blade, you can add or remove display columns, filter the list to search for a group, or make changes to groups that you have sufficient permissions to change.
+1. Create an Azure Active Directory tenant. For more information, see [Access the Azure Active Directory portal and create a new tenant](active-directory-access-create-new-tenant.md).
+
+2.	Create the _MDM policy - West_ group and add member, _Alain Charon_. For more information, see [Create a basic group and add members](active-directory-groups-create-azure-portal.md).
+
+## Sign in to the Azure portal
+You must sign in to the [Azure portal](https://portal.azure.com/) using a Global administrator account for the directory.
+
+## View your existing groups
+You can see all the groups for your organization in the **Groups - All groups** page of the Azure portal.
+
+- Select Azure **Active Directory**, and then select **Groups**.
+
+    The **Groups - All groups** page appears, showing all your active groups.
+
+    ![Groups-All groups page, showing all existing groups](media/active-directory-groups-view-azure-portal/groups-all-groups-blade-with-all-groups.png)
+
+## Search for a specific group
+Search the **Groups – All groups** page to find the **MDM policy – West** group.
+
+1. From the **Groups - All groups** page, type _MDM_ into the **Search** box.
+
+    The search results appear under the **Search** box, including the _MDM policy - West_ group.
+
+    ![Groups – All groups page with search box filled out](media/active-directory-groups-view-azure-portal/search-for-specific-group.png)
+
+3. Select the group **MDM policy – West**.
+
+4. View the group info on the **MDM policy - West Overview** page, including the number of members of that group.
+
+    ![MDM policy – West Overview page with member info](media/active-directory-groups-view-azure-portal/group-overview-blade.png)
+
+## View members of the MDM policy – West group
+Now that you’ve found the group, you can view all the assigned members.
+
+- Select **Members** from the **Manage** area, and then review the complete list of member names assigned to that specific group, including _Alain Charon_.
+
+    ![List of members assigned to the MDM policy – West group](media/active-directory-groups-view-azure-portal/groups-all-members.png)
+
+## Clean up resources
+If you’re not going to continue to use this application, you can delete the group and its assigned members with the following steps:
+
+1. On the **Groups - All groups** page, search for the **MDM policy - West** group.
+
+2.	Select the **MDM policy - West** group.
+
+    The **MDM policy - West Overview** page appears.
+
+3. Select **Delete**.
+
+    The group and its associated members are deleted.
+
+    ![MDM policy – West Overview page with Delete link highlighted](media/active-directory-groups-view-azure-portal/group-overview-blade-delete.png)
+
+    >[!Important]
+    >This doesn't delete the user Alain Charon, just his membership in the deleted group.
 
 ## Next steps
-These articles provide additional information on Azure Active Directory.
+After you find your group and see the members, you can continue to:
+- [Add or remove members](active-directory-groups-members-azure-portal.md)
 
-* [See existing groups](active-directory-groups-view-azure-portal.md)
-* [Create a new group and adding members](active-directory-groups-create-azure-portal.md)
-* [Manage settings of a group](active-directory-groups-settings-azure-portal.md)
-* [Manage members of a group](active-directory-groups-members-azure-portal.md)
-* [Manage memberships of a group](active-directory-groups-membership-azure-portal.md)
-* [Manage dynamic rules for users in a group](../users-groups-roles/groups-dynamic-membership.md)
+- [Use the group to manage access to resources](active-directory-manage-groups.md)
+
+- [Add group owners](active-directory-accessmanagement-managing-group-owners.md)
+
+For more complex concepts and processes about groups, such as creating and using dynamic groups, delegating, and working with SaaS apps, see the [Azure Active Directory users, groups, roles, and licenses documentation](https://docs.microsoft.com/azure/active-directory/users-groups-roles/).
