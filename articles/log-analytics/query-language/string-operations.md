@@ -176,7 +176,7 @@ print Duration_seconds =  extract("Duration=([0-9.]+)", 1, Trace, typeof(real)) 
 
 ### Syntax
 
-```
+```Kusto
 isempty(value)
 isnotempty(value)
 ```

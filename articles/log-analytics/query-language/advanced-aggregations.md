@@ -67,6 +67,7 @@ Heartbeat
 | where TimeGenerated > ago(1h)
 | project Computer, Solutions
 ```
+
 | Computer | Solutions | 
 |--------------|----------------------|
 | computer1 | "security", "updates", "changeTracking" |
@@ -76,11 +77,13 @@ Heartbeat
 
 Use `mvexpand` to show each value in a separate row instead of a comma-separated list:
 
+```Kusto
 Heartbeat
 | where TimeGenerated > ago(1h)
 | project Computer, split(Solutions, ",")
 | mvexpand Solutions
 ```
+
 | Computer | Solutions | 
 |--------------|----------------------|
 | computer1 | "security" |

@@ -74,7 +74,7 @@ This query searches the *SecurityEvent* table for records that contain the phras
 ## Sort and top
 While **take** is useful to get a few records, the results are selected and displayed in no particular order. To get an ordered view, you could **sort** by the preferred column:
 
-```
+```Kusto
 SecurityEvent	
 | sort by TimeGenerated desc
 ```
