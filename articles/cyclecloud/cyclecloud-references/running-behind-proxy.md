@@ -25,6 +25,17 @@ update the configuration as follows:
 webServerJvmOptions= -Dhttp.proxyHost=10.10.0.2 -Dhttp.proxyPort=3127
 ```
 
+HTTP and HTTPS proxy attributes are individually available and can all be used simultaneously.
+See the table below append any relevant proxy configurations
+to the `webServerJvmOptions=` list with the `-D` prefix.
+
+JVM Proxy Options | Definition
+------ | ----------
+http.proxyHost | HTTP proxy host address or name
+http.proxyHost | HTTP proxy port
+https.proxyHost | HTTPS proxy host address or name
+https.proxyPort | HTTPS proxy port
+
 ## Configuring Data Transfers
 
 Enabling use of proxy in data transfers is configured in a distinct way. To enable
