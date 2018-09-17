@@ -114,7 +114,7 @@ You can use this parameter in two ways:
 - Optional suppression of using the inbound IP address for outbound NAT.  Outbound rules are incremental to load balancing rules and with this parameter set, the outbound rule is in control.
   
 - Tune the outbound NAT parameters of an IP address used for inbound and outbound simultaneously.  The automatic outbound NAT programming must be disabled to allow an outbound rule to take control.  For example, in order to change the SNAT port allocation of an address also used for inbound, this parameter must be set to true.  If you attempt to use an outbound rule to redefine the parameters of an IP address also used for inbound and have not released outbound NAT programming of the load balancing rule, the operation to configure an outbound rule will fail.
-- 
+
 >[!IMPORTANT]
 > Your virtual machine will not have outbound connectivity if you set this parameter to true and do not have an outbound rule (or [instance-level public IP scenario](load-balancer-outbound-connections.md#ilpip) to define outbound connectivity.  Some operations of your VM or your application may depend on having outbound connectivity available. Make sure you understand the dependencies of your scenario and have considered impact of making this change.
 
