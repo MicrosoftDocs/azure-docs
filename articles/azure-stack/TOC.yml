@@ -6,6 +6,7 @@
     href: azure-stack-poc.md
   - name: Release notes
     href: azure-stack-update-1808.md
+    expanded: true
     items:
     - name: 1808 update 
       href: azure-stack-update-1808.md 
