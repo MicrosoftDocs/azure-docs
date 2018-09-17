@@ -158,7 +158,7 @@ If you plan to continue on to work with subsequent tutorials, do not clean up th
  
 7. Once the backup item is verified (a checkmark appears), **Stop backup** button is enabled. Click **Stop Backup** to stop the policy and delete the restore points. 
 
-    ![click Stop backup to delete vault](./media/tutorial-backup-vm-at-scale/provide-reason-for-delete.png).
+    ![click Stop backup to delete vault](./media/tutorial-backup-vm-at-scale/provide-reason-for-delete.png)
 
 8. In the **myRecoveryServicesVault** menu, click **Delete**.
 
