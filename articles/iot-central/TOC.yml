@@ -53,12 +53,12 @@
         href: howto-set-up-template.md
       - name: Manage your devices
         href: howto-manage-devices.md
+      - name: Run a job
+        href: howto-run-a-job.md
       - name: Use device sets
         href: howto-use-device-sets.md
       - name: Version device template
         href: howto-version-devicetemplate.md
-      - name: Run a job
-        href: howto-run-a-job.md
   - name: Monitoring and analytics
     items:
       - name: Create telemetry rule
