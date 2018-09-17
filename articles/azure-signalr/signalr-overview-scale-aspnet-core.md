@@ -19,7 +19,7 @@ ms.author: zhshang
 
 ## Developing SignalR apps
 
-Currently, there are two versions of SignalR you can use with your web applications: SignalR for ASP.NET, and ASP.NET Core SignalR, which is the newest version. The Azure SignalR Service is an Azure-managed service built on ASP.NET Core SignalR. 
+Currently, there are [two versions](https://docs.microsoft.com/en-us/aspnet/core/signalr/version-differences) of SignalR you can use with your web applications: SignalR for ASP.NET, and ASP.NET Core SignalR, which is the newest version. The Azure SignalR Service is an Azure-managed service built on ASP.NET Core SignalR. 
 
 ASP.NET Core SignalR is a rewrite of the previous version. As a result, ASP.NET Core SignalR is not backward compatible with the earlier SignalR version. The APIs and behaviors are different. The ASP.NET Core SignalR SDK targets .NET Standard so you can still use it with the .NET Framework. However, you must use the new APIs instead of old ones. If you're using SignalR and want to move to ASP.NET Core SignalR, or Azure SignalR Service, you'll need to change your code to handle differences in the APIs.
 
