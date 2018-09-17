@@ -47,7 +47,7 @@ For a list of libraries that work with the v2.0 endpoint, see the next sections 
 
 ## Microsoft-supported client libraries
 
-> Client authentication libraries are used to acquire a token to call a protected Web API
+Client authentication libraries are used to acquire a token to call a protected Web API
 
 | Platform | Library | Download | Source Code | Sample | Reference | Conceptual Doc | Roadmap |
 | --- | --- | --- | --- | --- | --- | --- | ---| ---|
