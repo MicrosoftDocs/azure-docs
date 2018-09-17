@@ -50,6 +50,10 @@
     href: load-balancer-multivip-overview.md
   - name: Outbound connections
     href: load-balancer-outbound-connections.md
+  - name: Outbound Rules
+    href: load-balancer-outbound-rules-overview.md
+  - name: TCP reset on idle timeout
+    href: load-balancer-tcp-reset.md
   - name: Standard Load Balancer and Availability Zones
     href: load-balancer-standard-availability-zones.md
   - name: Standard Load Balancer metrics and diagnostics
