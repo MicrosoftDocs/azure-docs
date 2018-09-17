@@ -31,7 +31,7 @@ This article covers how to access Azure Cosmos DB Cassandra API data from [Azure
 
 * **Cassandra API instance configuration for Datastax Cassandra connector:**
 
-  The Datastax connector requires that the Cassandra API connection configuration is initialized as a part of the Spark context. You can initialize the configuration by adding the Cassandra API connection configuration to the Spark cluster. Initializing connection configuration is a one-time activity per cluster. Add the following code to the Spark configuration as a space separated key value pair:
+  The Datastax connector for Cassandra requires the Cassandra connection details to be initialized as part of the spark context. When you launch a Databricks notebook, the spark context is already initialized and it is not advisable to stop and reinitialize it. One solution is to add the Cassandra API instance configuration at a cluster level, in the cluster spark configuration. This is a one-time activity per cluster. Add the following code to the Spark configuration as a space separated key value pair:
  
   ```scala
   spark.cassandra.connection.host YOUR_COSMOSDB_ACCOUNT_NAME.cassandra.cosmosdb.azure.com
@@ -59,9 +59,8 @@ Spark programs are automated processes that are submitted to the cluster by usin
 
 ## Next steps:
 
-* [Connect to Azure Cosmos DB Cassandra API from Spark](cassandra-spark-generic.md)
-* [Read operations](cassandra-spark-read-ops.md)
-* [Upsert operations](cassandra-spark-upsert-ops.md)
-* [Delete operations](cassandra-spark-delete-ops.md)
-* [Aggregation operations](cassandra-spark-aggregation-ops.md)
-* [Table copy operations](cassandra-spark-table-copy-ops.md)
+* [How to connect to Azure Cosmos DB Cassandra API from a Spark Scala program](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-connector-sample/blob/master/src/main/scala/com/microsoft/azure/cosmosdb/cassandra/SampleCosmosDBApp.scala)
+
+* [How to run a Spark Scala program as an automated job on Azure Databricks](https://docs.azuredatabricks.net/user-guide/jobs.html)
+
+* [Complete list of code samples for working with Cassandra API](cassandra-spark-generic.md#next-steps)
