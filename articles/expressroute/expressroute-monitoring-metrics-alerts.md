@@ -49,7 +49,7 @@ You can view metrics for private, public, and Microsoft peering in bits/second.
 
   ![action group](./media/expressroute-monitoring-metrics-alerts/alerthowto3.jpg)
 
-  Add action group.
+5. Add the action group.
 
   ![add action group](./media/expressroute-monitoring-metrics-alerts/actiongroup.png)
 
