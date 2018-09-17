@@ -152,7 +152,7 @@ For an example of using an experiment, see the [Quickstart: Get started with Azu
 
 ## Compute target
 
-A compute target is the compute resource used to run your training script or host your web service deployment. You can create compute targets by using the Azure Machine Learning SDK and CLI. If you have compute targets that were created by another process (for example, the Azure portal or Azure CLI), you can add (attach) them to your workspace. The supported compute targets are: 
+A compute target is the compute resource used to run your training script or host your web service deployment. The supported compute targets are: 
 
 * Your local computer
 * A Linux VM in Azure (such as the Data Science Virtual Machine)
@@ -162,6 +162,8 @@ A compute target is the compute resource used to run your training script or hos
 * Azure Kubernetes Service
 
 Compute targets are attached to a workspace. Computer targets other than the local machine are shared by users of the workspace.
+
+Most compute targets can be created directly through the workspace by using the Azure Portal, Azure Machine Learning SDK, or Azure CLI. If you have compute targets that were created by another process (for example, the Azure portal or Azure CLI), you can add (attach) them to your workspace. Some compute targets must be created outside the workspace, and then attached.
 
 For information on selecting a compute target for training, see the [Select and use a compute target to train your model](how-to-set-up-training-targets.md) document.
 
