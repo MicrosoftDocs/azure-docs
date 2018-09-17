@@ -13,9 +13,16 @@ ms.date: 09/24/2018
 ---
 # Quickstart: Build a Cassandra app with Python and Azure Cosmos DB
 
+> [!div class="op_single_selector"]
+> * [.NET](create-cassandra-dotnet.md)
+> * [Java](create-cassandra-java.md)
+> * [Node.js](create-cassandra-nodejs.md)
+> * [Python](create-cassandra-python.md)
+>  
+
 This quickstart shows how to use Python and the Azure Cosmos DB [Cassandra API](cassandra-introduction.md) to build a profile app by cloning an example from GitHub. This quickstart also shows you how to use the web-based Azure portal to create an Azure Cosmos DB account.
 
-Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, table, key-value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB.   
+Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, table, key-value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB.
 
 ## Prerequisites
 
@@ -157,15 +164,15 @@ Now go back to the Azure portal to get your connection string information and co
 
 1. Download the Baltimore CyberTrust Root certificate locally from [https://cacert.omniroot.com/bc2025.crt](https://cacert.omniroot.com/bc2025.crt). Rename the file using the file extension `.cer`.
 
-   The certificate has serial number `02:00:00:b9` and SHA1 fingerprint `d4🇩🇪20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74`. 
+   The certificate has serial number `02:00:00:b9` and SHA1 fingerprint `d4🇩🇪20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74`.
 
-2. Open pyquickstart.py and change the 'path\to\cert' to point to your new certificate.
+2. Open `pyquickstart.py` and change the `path\to\cert` to point to your new certificate.
 
-3. Save pyquickstart.py.
+3. Save `pyquickstart.py`.
 
 ## Run the Python app
 
-1. Use the cd command in the git terminal to change into the azure-cosmos-db-cassandra-python-getting-started folder. 
+1. Use the cd command in the git terminal to change into the `azure-cosmos-db-cassandra-python-getting-started` folder. 
 
 2. Run the following commands to install the required modules:
 

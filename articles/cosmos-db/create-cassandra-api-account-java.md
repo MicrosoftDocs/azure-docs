@@ -1,10 +1,10 @@
 ---
 title: Create an Azure Cosmos DB Cassandra API account, a database, and a table by using a Java application
 description: This article shows how to create a Cassandra API account, add a database (also referred as a keyspace) and a table to that account by using a java application.
-services: cosmos-db
 author: kanshiG
 ms.author: govindk
 ms.reviewer: sngun
+services: cosmos-db
 ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
 ms.topic: tutorial
@@ -13,7 +13,16 @@ ms.date: 09/24/2018
 
 # Create an Azure Cosmos DB Cassandra API account, database, and a table by using a Java application
 
-This article describes how to use a Java application to create a Cassandra API account in Azure Cosmos DB, add a database (also referred as a keyspace), and add a table. The Java application uses the [Datastax Java driver](https://github.com/datastax/java-driver) to create a user database that contains details such as user ID, user name, user city.  
+This tutorial describes how to use a Java application to create a Cassandra API account in Azure Cosmos DB, add a database (also referred as a keyspace), and add a table. The Java application uses the [Datastax Java driver](https://github.com/datastax/java-driver) to create a user database that contains details such as user ID, user name, user city.  
+
+This tutorial covers the following tasks:
+
+> [!div class="checklist"]
+> * Create a Cassandra database account
+> * Get the account connection string
+> * Create Maven project and dependencies
+> * Add a database and a table
+> * Run the app
 
 ## Prerequisites 
 
@@ -191,9 +200,9 @@ This section describes how to add a database (keyspace) and a table, using  the 
  
 ## Run the app 
 
-1. Open command prompt or terminal window. Change directory (cd) into the folder path to where you have created the project. 
+1. Open a command prompt or terminal window. Paste the following code block. 
 
-2. Run `mvn clean install` command to generate the cosmosdb-cassandra-examples.jar file within the target folder and run the application.  
+   This code changes directory (cd) to the folder path where you created the project. Then, it runs the `mvn clean install` command to generate the `cosmosdb-cassandra-examples.jar` file within the target folder. Finally, it runs the Java application.
 
    ```bash
    cd cassandra-demo
@@ -205,7 +214,7 @@ This section describes how to add a database (keyspace) and a table, using  the 
 
    The terminal window displays notifications that the keyspace and table are created. 
    
-3. Now, in the Azure portal, open **Data Explorer** to confirm that the keyspace and table were created.
+2. Now, in the Azure portal, open **Data Explorer** to confirm that the keyspace and table were created.
 
 ## Next steps
 
