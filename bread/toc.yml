@@ -6,7 +6,7 @@
     tocHref: /azure/active-directory/
     topicHref: /azure/active-directory/
     items:
-      - name: Hybrid idenity
+      - name: Hybrid identity
         tocHref: /azure/active-directory/hybrid/
         topicHref: /azure/active-directory/hybrid/    
       - name: Identity Protection
