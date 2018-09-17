@@ -21,6 +21,12 @@
       href: ../application-insights/app-insights-java-quick-start.md?toc=/azure/azure-monitor/toc.json
     - name: Mobile application
       href: ../application-insights/app-insights-mobile-center-quickstart.md?toc=/azure/azure-monitor/toc.json
+  - name: Alerts
+    items:
+    - name: Alert (classic) on metric condition
+      href: ../monitoring-and-diagnostics/monitor-quick-resource-metric-alert-portal.md?toc=/azure/azure-monitor/toc.json
+    - name: Alert on subscription activity
+      href: ../monitoring-and-diagnostics/monitor-quick-audit-notify-action-in-subscription.md?toc=/azure/azure-monitor/toc.json
   - name: Virtual machines
     items:
     - name: Collect - Azure VMs
@@ -65,6 +71,8 @@
       href: ../monitoring/monitoring-data-collection.md?toc=/azure/azure-monitor/toc.json
     - name: Data sources
       href: ../monitoring/monitoring-data-sources.md?toc=/azure/azure-monitor/toc.json
+    - name: Azure data sources
+      href: ../monitoring-and-diagnostics/monitoring-data-sources.md?toc=/azure/azure-monitor/toc.json
     - name: Activity log
       href: ../monitoring-and-diagnostics/monitoring-overview-activity-logs.md?toc=/azure/azure-monitor/toc.json
     - name: Diagnostic logs
@@ -81,12 +89,16 @@
         href: ../application-insights/app-insights-data-retention-privacy.md?toc=/azure/azure-monitor/toc.json
   - name: Insights
     items:
-    - name: Application monitoring
+    - name: Application Insights
       items:
       - name: Overview
         href: ../application-insights/app-insights-overview.md?toc=/azure/azure-monitor/toc.json
       - name: DevOps
         href: ../application-insights/app-insights-detect-triage-diagnose.md?toc=/azure/azure-monitor/toc.json
+    - name: Containers
+      href: https://aka.ms/AzureMonitorContainers
+    - name: Virtual Machines
+      href: https://aka.ms/AzureMonitorVirtualMachines
     - name: Monitoring solutions
       href: ../monitoring/monitoring-solutions-inventory.md?toc=/azure/azure-monitor/toc.json
   - name: Analyze data
@@ -197,6 +209,8 @@
           href: ../monitoring-and-diagnostics/azure-diagnostics-troubleshooting.md?toc=/azure/azure-monitor/toc.json
         - name: Enable diagnostic settings with Resource Manager templates
           href: ../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md?toc=/azure/azure-monitor/toc.json
+        - name: Prepare for JSON Lines diagnostic logs format
+          href: ../monitoring-and-diagnostics/monitor-diagnostic-logs-append-blobs.md?toc=/azure/azure-monitor/toc.json
       - name: Troubleshoot
         items:
         - name: Troubleshoot VM Extension
@@ -455,6 +469,8 @@
           href: ../application-insights/app-insights-usage-flows.md?toc=/azure/azure-monitor/toc.json
         - name: Workbooks
           href: ../application-insights/app-insights-usage-workbooks.md?toc=/azure/azure-monitor/toc.json
+      - name: Web App Analytics solution
+        href: ../log-analytics/log-analytics-azure-web-apps-analytics.md?toc=/azure/azure-monitor/toc.json
     - name: Monitor containers
       items:
       - name: Monitoring Containers overview
@@ -493,6 +509,8 @@
       items:
       - name: Agent Health
         href: ../monitoring/monitoring-solution-agenthealth.md?toc=/azure/azure-monitor/toc.json
+      - name: Capacity and performance
+        href: ../log-analytics/log-analytics-capacity.md?toc=/azure/azure-monitor/toc.json
       - name: VMWare Analytics
         href: ../log-analytics/log-analytics-vmware.md?toc=/azure/azure-monitor/toc.json
       - name: Wire Data
@@ -702,11 +720,14 @@
         href: ../monitoring-and-diagnostics/monitoring-service-notifications.md?toc=/azure/azure-monitor/toc.json
       - name: Configure alerts on service notifications
         href: ../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md?toc=/azure/azure-monitor/toc.json
-    - name: IT Service Management Connector
-      href: ../log-analytics/log-analytics-itsmc-overview.md?toc=/azure/azure-monitor/toc.json
+    - name: IT Service Management
       items:
+      - name: IT Service Management Connector
+        href: ../log-analytics/log-analytics-itsmc-overview.md?toc=/azure/azure-monitor/toc.json
       - name: IT Service Management connections
         href: ../log-analytics/log-analytics-itsmc-connections.md?toc=/azure/azure-monitor/toc.json
+      - name: Create Service Manager web app
+        href: ../log-analytics/log-analytics-itsmc-service-manager-script.md?toc=/azure/azure-monitor/toc.json
   - name: Manage usage and cost
     items:
     - name: Usage and estimated costs
@@ -781,8 +802,16 @@
         href: ../monitoring/monitoring-solutions-resources-views.md?toc=/azure/azure-monitor/toc.json
       - name: Best practices
         href: ../monitoring/monitoring-solutions-best-practices.md?toc=/azure/azure-monitor/toc.json
+      - name: Collect monitoring data from a runbook
+        href: ../monitoring/monitoring-runbook-datacollect.md?toc=/azure/azure-monitor/toc.json
 - name: Reference
   items:
+  - name: Application Insights
+    items:
+    - name: Dependency auto-collection
+      href: ../application-insights/auto-collect-dependencies.md?toc=/azure/azure-monitor/toc.json
+    - name: Telemetry correlation
+      href: ../application-insights/application-insights-correlation.md?toc=/azure/azure-monitor/toc.json
   - name: Application Insights data model
     items:
     - name: Overview
@@ -801,8 +830,6 @@
       href: ../application-insights/application-insights-data-model-metric-telemetry.md?toc=/azure/azure-monitor/toc.json
     - name: Context
       href: ../application-insights/application-insights-data-model-context.md?toc=/azure/azure-monitor/toc.json
-  - name: Telemetry correlation
-    href: ../application-insights/application-insights-correlation.md?toc=/azure/azure-monitor/toc.json
   - name: Azure CLI
     href: /cli/azure/monitor?view=azure-cli-latest
   - name: Azure PowerShell
