@@ -62,16 +62,18 @@ The last block of code adds a style picker object to the map by using the atlas 
 
 ## Next steps
 
-Learn more about the classes and methods used in this article: 
-* [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
-    * [addControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol)
+Learn more about the classes and methods used in this article:
 
-* [Atlas](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas?view=azure-iot-typescript-latest)
-    * [CompassControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.compasscontrol?view=azure-iot-typescript-latest#compasscontrol)
-    * [ZoomControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.zoomcontrol?view=azure-iot-typescript-latest)
-    * [PitchControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.pitchcontrol?view=azure-iot-typescript-latest)
-    * [StyleControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.stylecontrol?view=azure-iot-typescript-latest#stylecontrol)
-    
-For more code examples to add to your maps, see the following articles: 
-* [Add a pin](./map-add-pin.md)
-* [Add a popup](./map-add-popup.md)
+> [!div class="nextstepaction"]
+> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+
+> [!div class="nextstepaction"]
+> [Atlas](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas?view=azure-iot-typescript-latest)
+
+See the following articles for full code samples:
+
+> [!div class="nextstepaction"]
+>[Add a pin](./map-add-pin.md)
+
+> [!div class="nextstepaction"]
+> d[Add a popup](./map-add-popup.md)
