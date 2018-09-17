@@ -190,16 +190,16 @@ Deploy a registered model (`model`) using `Webservice.deploy_from_image()`. This
 
 1. Deploy the Docker image as a service using `Webservice.deploy_from_image()`
 
-Now deploy the image to ACI.  
-
+    Now deploy the image to ACI.  
+    
     ```python
     from azureml.core.webservice import Webservice
     
     service_name = 'aci-mnist-3'
     service = Webservice.deploy_from_image(deployment_config = aciconfig,
-                                               image = image,
-                                               name = service_name,
-                                               workspace = ws)
+                                                image = image,
+                                                name = service_name,
+                                                workspace = ws)
     service.wait_for_deployment(show_output = True)
     print(service.state)
     ```   
