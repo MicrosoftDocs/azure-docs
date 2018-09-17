@@ -85,7 +85,7 @@ Azure Stack has gone through a formal assessment by a 3rd party independent audi
 
 The assessments include the following standards:
 
-- PCI-DSS and the CSA Cloud Control Matrix. [PCI-DSS](https://www.pcisecuritystandards.org/pci_security/) addresses the payment card industry.
+- [PCI-DSS](https://www.pcisecuritystandards.org/pci_security/) addresses the payment card industry.
 - [CSA Cloud Control Matrix](https://cloudsecurityalliance.org/group/cloud-controls-matrix/#_overview) is a comprehensive mapping across multiple standards, including FedRAMP Moderate, ISO27001, HIPAA, HITRUST, ITAR, NIST SP800-53, and others.
 - [FedRAMP High](https://www.fedramp.gov/fedramp-releases-high-baseline/) for government customers.
 
