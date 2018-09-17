@@ -31,7 +31,7 @@ There are two options for configuring certificates with your ILB ASE.  You can s
 - **Subject:** This attribute must be set to *.[your-root-domain-here] for a wildcard ILB ASE certificate. If creating the certificate for your app, then it should be [appname].[your-root-domain-here]
 - **Subject Alternative Name:** This attribute must include both *.[your-root-domain-here] and *.scm.[your-root-domain-here] for the wildcard ILB ASE certificate. If creating the certificate for your app, then it should be [appname].[your-root-domain-here] and [appname].scm.[your-root-domain-here].
 
-As a third variant, you can create an ILB ASE certificate that include all of your individual app names in the SAN of the certificate instead of using a wildcard reference. The problem with this method is that you need to know up front the names of the apps that you are putting in the ASE or you need to keep updating the ILB ASE certificate.
+As a third variant, you can create an ILB ASE certificate that includes all of your individual app names in the SAN of the certificate instead of using a wildcard reference. The problem with this method is that you need to know up front the names of the apps that you are putting in the ASE or you need to keep updating the ILB ASE certificate.
 
 ### Upload certificate to ILB ASE ###
 
@@ -60,7 +60,7 @@ Apps that are hosted in an ASE can use the app-centric certificate features that
 - IP-based SSL, which is only supported with an External ASE.  An ILB ASE does not support IP-based SSL.
 - KeyVault hosted certificates 
 
-The instructions for uploading and managing those certificates are available in the App Service SSL tutorial https://docs.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-custom-ssl  If you are simply configuring certificates to match a custom domain name that you have assigned to your web app, then those instructions will suffice. If you are uploading the certificate for an ILB ASE web app with the default domain name, then specify the scm site in the SAN of the certificate as noted earlier. 
+The instructions for uploading and managing those certificates are available in the App Service SSL tutorial https://docs.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-custom-ssl.  If you are simply configuring certificates to match a custom domain name that you have assigned to your web app, then those instructions will suffice. If you are uploading the certificate for an ILB ASE web app with the default domain name, then specify the scm site in the SAN of the certificate as noted earlier. 
 
 ## TLS settings ##
 
@@ -68,7 +68,7 @@ You can configure the TLS setting at an app level.
 
 ## Private client certificate ##
 
-A common use case is to configure your app as a client in a client-server model. If this is done where the server is secured with a private CA certificate, you will need to upload the client certificate to your app.  The following instructions will load certificates to the truststore of the workers that your app is running on. This means that if you load the certificate to one app, you can use it with your other apps in the same App Service plan without uploading the certificate again.
+A common use case is to configure your app as a client in a client-server model. If you secure your server with a private CA certificate, you will need to upload the client certificate to your app.  The following instructions will load certificates to the truststore of the workers that your app is running on. If you load the certificate to one app, you can use it with your other apps in the same App Service plan without uploading the certificate again.
 
 To upload the certificate to your app in your ASE:
 
@@ -82,7 +82,7 @@ To upload the certificate to your app in your ASE:
 
 The certificate will be available by all the apps in the same app service plan as the app, which configured that setting. If you need it to be available for apps in a different App Service plan, you will need to repeat the App Setting operation in an app in that App Service plan. To check that the certificate is set, go to the Kudu console and issue this command dir cert:\localmachine\root in the PowerShell debug console. 
 
-To perform some simple testing, you can create a self signed certificate and generate a *.cer* file with the following PowerShell: 
+To perform testing, you can create a self signed certificate and generate a *.cer* file with the following PowerShell: 
 
 	$certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com
 
