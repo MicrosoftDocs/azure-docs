@@ -76,14 +76,14 @@ You can configure a custom FGPP for the following reasons:
 * To configure a default password lifetime setting for the managed domain.
 
 To create a custom FGPP on your managed domain:
-* Sign in to the Windows VM you use to administer your managed domain. If you don't have one, follow the instructions to [administer a managed domain](active-directory-ds-admin-guide-administer-domain.md)
-* Launch the **Active Directory Administrative Center** on the VM.
-* Click the domain name (for example, 'contoso100.com').
-* Double-click **System** to open the System container.
-* Double-click **Password Settings Container**.
-* You see the default built-in FGPP for the managed domain called **AADDSSTFPSO**. You can't modify this built-in FGPP. You can however, create a new custom FGPP override the default FGPP.
-* On the **Tasks** panel in the right, click **New** and click **Password Settings**.
-* In the **Create Password Settings** dialog, specify the custom password settings to apply as part of the custom FGPP. Remember to set the precedence appropriately to override the default FGPP.
+1. Sign in to the Windows VM you use to administer your managed domain. If you don't have one, follow the instructions to [administer a managed domain](active-directory-ds-admin-guide-administer-domain.md)
+2. Launch the **Active Directory Administrative Center** on the VM.
+3. Click the domain name (for example, 'contoso100.com').
+4. Double-click **System** to open the System container.
+5. Double-click **Password Settings Container**.
+6. You see the default built-in FGPP for the managed domain called **AADDSSTFPSO**. You can't modify this built-in FGPP. You can however, create a new custom FGPP override the default FGPP.
+7. On the **Tasks** panel in the right, click **New** and click **Password Settings**.
+8. In the **Create Password Settings** dialog, specify the custom password settings to apply as part of the custom FGPP. Remember to set the precedence appropriately to override the default FGPP.
 
   ![Create custom FGPP](./media/how-to/custom-fgpp.png)
 
@@ -92,15 +92,15 @@ To create a custom FGPP on your managed domain:
   >
   >
 
-* In **Directly Applies To**, click the **Add** button. In the **Select Users or Groups** dialog, click the **Locations** button.
+9. In **Directly Applies To**, click the **Add** button. In the **Select Users or Groups** dialog, click the **Locations** button.
 
   ![Select users and groups](./media/how-to/fgpp-applies-to.png)
 
-* In the **Locations** dialog, expand the domain name and click **AADDC Users**. You can now select a group from the built-in users OU, to which to apply the FGPP.
+10. In the **Locations** dialog, expand the domain name and click **AADDC Users**. You can now select a group from the built-in users OU, to which to apply the FGPP.
 
   ![Select the OU that group belongs to](./media/how-to/fgpp-container.png)
 
-* Type the name of the group and click the **Check Names** button to validate the group exists.
+11. Type the name of the group and click the **Check Names** button to validate the group exists.
 
   ![Select the group to apply FGPP](./media/how-to/fgpp-apply-group.png)
 
