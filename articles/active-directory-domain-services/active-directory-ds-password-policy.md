@@ -22,17 +22,15 @@ ms.author: maheshu
 This article explains the default password policies on a managed domain. It also covers how you can configure these policies.
 
 ## Fine grained password policies (FGPP)
-You can use fine-grained password policies to specify multiple password policies within a single domain. You can use fine-grained password policies to apply different restrictions for password and account lockout policies to different sets of users in a domain.
-
-For example, you can apply stricter settings to privileged accounts and less strict settings to the accounts of other users. In other cases, you might want to apply a special password policy for accounts whose passwords are synchronized with other data sources.
+Use fine-grained password policies to specify multiple password policies within a single domain. FGPP enables you to apply different restrictions for password and account lockout policies to different sets of users in a domain. For example, you can apply strict password settings to privileged accounts.
 
 You can configure the following password settings using FGPP:
-* Enforce minimum password length
-* Enforce password history
+* Minimum password length
+* Password history
 * Passwords must meet complexity requirements
-* Enforce minimum password age
-* Enforce maximum password age
-* Enforce account lockout policy
+* Minimum password age
+* Maximum password age
+* Account lockout policy
     * Account lockout duration
     * Number of failed logon attempts allowed
     * Reset failed logon attempts count after
@@ -44,15 +42,15 @@ The following screenshot illustrates the default fine grained password policy co
 ![Default fine grained password policy](./media/how-to/default-fgpp.png)
 
 > [!NOTE]
-> You cannot modify or delete the default built-in fine grained password policy. Members of the 'AAD DC Administrators' group can create custom FGPP and configure it to override (take precedence over) the default built-in FGPP.
+> You can't modify or delete the default built-in fine grained password policy. Members of the 'AAD DC Administrators' group can create custom FGPP and configure it to override (take precedence over) the default built-in FGPP.
 >
 >
 
 ## Password policy settings
 On a managed domain, the following password policies are configured by default:
-* Minimum password length: 7 characters
+* Minimum password length (characters): 7
 * Maximum password age (lifetime): 90 days
-* Passwords must meet complexity requirements.
+* Passwords must meet complexity requirements
 
 ### Account lockout settings
 On a managed domain, the following account lockout policies are configured by default:
@@ -64,7 +62,7 @@ Effectively, user accounts are locked out for 30 minutes if five invalid passwor
 
 
 ## Create a custom fine grained password policy on a managed domain
-You can create a custom fine grained password policy and configure it to apply to the default OU in your managed domain. This effectively overrides the default FGPP configured for the managed domain.
+You can create a custom fine grained password policy and configure it to apply to specific groups in your managed domain. This configuration effectively overrides the default FGPP configured for the managed domain.
 
 > [!TIP]
 > Only members of the **'AAD DC Administrators'** group have the permissions to create custom fine grained password policies.
@@ -78,12 +76,12 @@ You can configure a custom FGPP for the following reasons:
 * To configure a default password lifetime setting for the managed domain.
 
 To create a custom FGPP on your managed domain:
-* Log-in to the Windows VM you use to administer your managed domain. If you don't have one, follow the instructions to [administer a managed domain](active-directory-ds-admin-guide-administer-domain.md)
+* Sign in to the Windows VM you use to administer your managed domain. If you don't have one, follow the instructions to [administer a managed domain](active-directory-ds-admin-guide-administer-domain.md)
 * Launch the **Active Directory Administrative Center** on the VM.
 * Click the domain name (for example, 'contoso100.com').
-* Double click **System** to open the System container.
-* Double click **Password Settings Container**.
-* You see the default built-in FGPP for the managed domain. It is named **AADDSSTFPSO**. You cannot modify this built-in FGPP. You can however, create a new custom FGPP override the default FGPP.
+* Double-click **System** to open the System container.
+* Double-click **Password Settings Container**.
+* You see the default built-in FGPP for the managed domain called **AADDSSTFPSO**. You can't modify this built-in FGPP. You can however, create a new custom FGPP override the default FGPP.
 * On the **Tasks** panel in the right, click **New** and click **Password Settings**.
 * In the **Create Password Settings** dialog, specify the custom password settings to apply as part of the custom FGPP. Remember to set the precedence appropriately to override the default FGPP.
 
@@ -94,7 +92,7 @@ To create a custom FGPP on your managed domain:
   >
   >
 
-* In the **Directly Applies To** section, click **Add**. In the **Select Users or Groups** dialog, click the **Locations** button.
+* In **Directly Applies To**, click the **Add** button. In the **Select Users or Groups** dialog, click the **Locations** button.
 
   ![Select users and groups](./media/how-to/fgpp-applies-to.png)
 
@@ -106,7 +104,7 @@ To create a custom FGPP on your managed domain:
 
   ![Select the group to apply FGPP](./media/how-to/fgpp-apply-group.png)
 
-* The name of the group is displayed in the **Directly Applies To** section. Click the **OK** button to save these changes.
+* The name of the group is displayed in **Directly Applies To** section. Click the **OK** button to save these changes.
 
   ![FGPP applied](./media/how-to/fgpp-applied.png)
 
