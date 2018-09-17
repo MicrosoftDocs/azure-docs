@@ -23,7 +23,9 @@ This article assumes that you have already read the [Azure Functions developer r
 
 ## Exporting a function
 
-JavaScript functions must be exported via [`module.exports`](https://nodejs.org/api/modules.html#modules_module_exports) (or [`exports`](https://nodejs.org/api/modules.html#modules_exports)). By default, the function that executes when triggered is from `index.js` and is the only export from that file, the export named `run`, or the export named `index`. In this default case, `index.js` shares the same parent directory as its `function.json`. Note that the name of `function.json`'s parent directory is always the name of your function. For more advanced scenarios, read about [configuring your function entry point](functions-reference-node.md#configure-function-entry-point) below.
+JavaScript functions must be exported via [`module.exports`](https://nodejs.org/api/modules.html#modules_module_exports) (or [`exports`](https://nodejs.org/api/modules.html#modules_exports)). In the default case, this function should be the only export from the file, the export named `run`, or the export named `index`. The triggered function should also be in `index.js`, where `index.js` shares the same parent directory as the corresponding `function.json`. Note that the name of `function.json`'s parent directory is always the name of your function. 
+
+To configure file location and export name of your function, read about [configuring your function's entry point](functions-reference-node.md#configure-function-entry-point) below.
 
 Your exported function entry point must always take a `context` object as the first parameter.
 
