@@ -1,7 +1,7 @@
 ---
 title: Search responses - Bing Web Search API
 titleSuffix: Azure Cognitive Services
-description: Learn about answer types and responses provided by the Bing Web Search API.
+description: Learn about answer types and responses from by the Bing Web Search API.
 services: cognitive-services
 author: erhopf
 manager: cgronlun

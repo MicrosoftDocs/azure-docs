@@ -1,7 +1,7 @@
 ---
 title: How to use decoration markers to highlight text - Bing Web Search API
 titleSuffix: Azure Cognitive Services
-description: Shows how to enable text decorations in search responses.
+description: Learn how to use text decorations and hit highlighting in your search results using the Bing Web Search API.
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun

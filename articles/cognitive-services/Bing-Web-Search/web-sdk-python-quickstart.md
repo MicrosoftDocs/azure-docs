@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Use the Bing Web Search SDK for Python"
 titleSuffix: Azure Cognitive Services
-description: Learn how to use the Bing Web Search SDK for Python.
+description: The Bing Web Search SDK makes it easy to integrate Bing Web Search into your Python application. In this quickstart, you'll learn how to send a request, receive a JSON response, and filter and parse the results.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
