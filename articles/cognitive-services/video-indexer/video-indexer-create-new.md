@@ -9,10 +9,10 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: video-indexer
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 09/15/2018
 ms.author: juliako
-
 ---
+
 # Tutorial: Create highlights from existing videos
 
 This topic shows you how to create and publish video insights based on some other video.
