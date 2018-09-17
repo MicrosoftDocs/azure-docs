@@ -217,7 +217,6 @@ The following sections list the supported policy combinations when Azure is the 
 * AES_128, SHA_1, PFS_NONE
 * CBC_3DES, SHA_256, PFS_NONE
 
-
 ### Responder
 
 The following sections list the supported policy combinations when Azure is the responder for the tunnel.
