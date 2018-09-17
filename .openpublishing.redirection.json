@@ -1302,8 +1302,18 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/sql-database/sql-database-sql-database-managed-instance-create-tutorial-portal.md",
+            "source_path": "articles/sql-database/sql-database-managed-instance-create-tutorial-portal.md",
             "redirect_url": "/azure/sql-database/sql-database-managed-instance-get-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-single-database-monitor.md",
+            "redirect_url": "/azure/sql-database/sql-database-monitor-tune-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-troubleshoot-performance.md",
+            "redirect_url": "/azure/sql-database/sql-database-monitor-tune-overview",
             "redirect_document_id": false
         },
         {
@@ -22351,6 +22361,11 @@
             "source_path": "articles/service-fabric/service-fabric-set-up-continuous-integration.md",
             "redirect_url": "/azure/service-fabric/service-fabric-tutorial-deploy-app-with-cicd-vsts",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/marketplace/enable-trial-using-azure-ad.md",
+            "redirect_url": "/azure/marketplace/enable-appsource-marketplace-using-azure-ad",
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/marketplace-publishing/marketplace-publishing-csp-incentive.md",
