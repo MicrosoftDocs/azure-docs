@@ -251,6 +251,6 @@ Get these notebooks:
 
 Try these next steps to learn how to use this Azure Machine Learning SDK for Python:
 
-1. See an example of how to register the best model and deploy it in the tutorial, [Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md).
+* See an example of how to register the best model and deploy it in the tutorial, [Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md).
 
-2. Learn how to [Train PyTorch Models with Azure Machine Learning](how-to-train-pytorch.md).
+* Learn how to [Train PyTorch Models with Azure Machine Learning](how-to-train-pytorch.md).
