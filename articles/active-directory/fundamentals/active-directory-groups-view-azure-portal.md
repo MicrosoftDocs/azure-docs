@@ -88,4 +88,4 @@ After you find your group and see the members, you can continue to:
 
 - [Add group owners](active-directory-accessmanagement-managing-group-owners.md)
 
-For more complex concepts and processes about groups, such as creating and using dynamic groups, delegating, and working with SaaS apps, see the [Azure Active Directory users, groups, roles, and licenses documentation](https://docs.microsoft.com/azure/active-directory/users-groups-roles/).
+Or you can perform other group management tasks, such as creating and using dynamic groups, delegating, and working with SaaS apps, see the [Azure Active Directory users, groups, roles, and licenses documentation](https://docs.microsoft.com/azure/active-directory/users-groups-roles/).
