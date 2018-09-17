@@ -222,7 +222,7 @@ In the case of FreshDesk, provisioning is a manual task.
    ![Agent Information](./media/freshdesk-tutorial/IC776775.png "Agent Information")
 
    a. In the **Email** textbox, type the Azure AD email address of the Azure AD account you want to provision.
-   
+
    b. In the **Full Name** textbox, type the name of the Azure AD account you want to provision.
 
    c. In the **Title** textbox, type the title of the Azure AD account you want to provision.
