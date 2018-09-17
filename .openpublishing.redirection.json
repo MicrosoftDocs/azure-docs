@@ -17980,6 +17980,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/active-directory-named-locations.md",
+            "redirect_url": "/azure/active-directory/reports-monitoring/quickstart-configure-named-locations",
+            "redirect_document_id": true
+        },        
+        {
             "source_path": "articles/active-directory/active-directory-reporting-activity-sign-ins.md",
             "redirect_url": "/azure/active-directory/reports-monitoring/concept-sign-ins",
             "redirect_document_id": false
@@ -18118,6 +18123,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md",
+            "redirect_url": "/azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub",
+            "redirect_document_id": true
+        },        
+        {
             "source_path": "articles/active-directory/reporting-azure-monitor-diagnostics-azure-storage-account.md",
             "redirect_url": "/azure/active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account",
             "redirect_document_id": false
@@ -18127,6 +18137,11 @@
             "redirect_url": "/azure/active-directory/reports-monitoring/overview-activity-logs-in-azure-monitor",
             "redirect_document_id": false
         },
+        {
+            "source_path": "articles/active-directory/reports-monitoring/overview-activity-logs-in-azure-monitor.md",
+            "redirect_url": "/azure/active-directory/reports-monitoring/concept-activity-logs-in-azure-monitor",
+            "redirect_document_id": true
+        },        
         {
             "source_path": "articles/active-directory/reporting-azure-monitor-diagnostics-sign-in-log-schema.md",
             "redirect_url": "/azure/active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema",
