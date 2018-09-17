@@ -13,8 +13,6 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/24/2018
-
-
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
 ---
@@ -408,11 +406,11 @@ To bind a custom SSL certificate to the web app, the [App Service plan](https://
 
 1.  In the left-hand navigation of the web app page, scroll to the **Settings** section and select **Scale up (App Service plan)**.
 
-![Scale-up menu](media\azure-stack-solution-geo-distributed\image34.png)
+    ![Scale-up menu](media\azure-stack-solution-geo-distributed\image34.png)
 
 1.  Ensure the web app is not in the **Free** or **Shared** tier. The web app's current tier is highlighted in a dark blue box.
 
-![Check pricing tier](media\azure-stack-solution-geo-distributed\image35.png)
+    ![Check pricing tier](media\azure-stack-solution-geo-distributed\image35.png)
 
 Custom SSL is not supported in the **Free** or **Shared** tier. To upscale, follow the steps in the next section, or **Choose your pricing tier** page and skip to [Upload and bind your SSL certificate](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl).
 
@@ -499,8 +497,8 @@ When App Service finishes uploading the certificate, it appears in the **SSL set
 
 1.  In the **SSL bindings** section, select **Add binding**.
 
-> [!Note]  
->  If the certificate has been uploaded, but does not appear in domain name(s) in the **Hostname** dropdown, try refreshing the browser page.
+    > [!Note]  
+    >  If the certificate has been uploaded, but does not appear in domain name(s) in the **Hostname** dropdown, try refreshing the browser page.
 
 1.  In the **Add SSL Binding** page, use the drop downs to select the domain name to secure, and the certificate to use.
 
@@ -635,3 +633,7 @@ The app allows [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0 by
 **Global Enterprise relies on Azure Geo-Distribution capabilities**
 
 Directing data traffic via Azure Traffic Manager and geography-specific endpoints enables global enterprises to adhere to regional regulations and keep data compliant and secure  crucial to the success of local business and across remote locations.
+
+## Next steps
+
+- To learn more about Azure Cloud Patterns, see [Cloud Design Patterns](https://docs.microsoft.com/azure/architecture/patterns).
