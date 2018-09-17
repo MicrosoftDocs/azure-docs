@@ -4,11 +4,11 @@ description: This topic examines the Video Indexer output produced by v2 API.
 services: cognitive services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 09/09/2018
+ms.date: 09/15/2018
 ms.author: juliako
 ---
 
@@ -768,7 +768,7 @@ Video Indexer makes inference of main topics from transcripts. When possible, th
 |confidence|The confidence score in the range [0,1]. Higher is more confident.|
 |language|The language used in the topic.|
 |iptcName|The IPTC media code name, if detected.|
-|instances |Currently, the whole video.|
+|instances |Currently, Video Indexer does not index a topic to time intervals, so the whole video is used as the interval.|
 
 ```json
 "topics": [{
