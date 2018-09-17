@@ -623,9 +623,9 @@
         - name: Language reference
           href: https://aka.ms/LogAnalyticsLanguageReference
         - name: app expression
-          href: query-language/app-expression.md
+          href: ../log-analytics/query-language/app-expression.md?toc=/azure/azure-monitor/toc.json
         - name: workspace expression
-          href: query-language/workspace-expression.md
+          href: ../log-analytics/query-language/workspace-expression.md?toc=/azure/azure-monitor/toc.json
       - name: Application data
         href: ../application-insights/app-insights-analytics.md?toc=/azure/azure-monitor/toc.json
       - name: Standard properties
