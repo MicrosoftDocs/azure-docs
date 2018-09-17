@@ -125,6 +125,8 @@
       href: stream-analytics-tools-for-visual-studio-install.md
     - name: Test a job locally
       href: stream-analytics-vs-tools-local-run.md
+    - name: Test live data locally
+      href: stream-analytics-live-data-local-testing.md
     - name: View jobs in Visual Studio
       href: stream-analytics-vs-tools.md
     - name: Develop an Edge job
@@ -133,8 +135,6 @@
       href: stream-analytics-tools-for-visual-studio-cicd.md
     - name: Write C# UDF for Edge
       href: stream-analytics-edge-csharp-udf-methods.md
-    - name: Test live data locally
-      href: stream-analytics-live-data-local-testing.md
   - name: Troubleshoot
     items:
     - name: Troubleshooting steps
