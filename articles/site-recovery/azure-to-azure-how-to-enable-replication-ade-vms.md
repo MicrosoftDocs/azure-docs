@@ -1022,9 +1022,10 @@ If the user enabling disaster recovery (DR) does not have the required permissio
 2. Open the Windows PowerShell application and go to the folder where the file exists.
 3. Launch 'Copy-keys.ps1'
 
+
 ## Enable replication
 
-Enable replication. This procedure assumes that the primary Azure region is East Asia, and the secondary region is South East Asia.
+This procedure assumes that the primary Azure region is East Asia, and the secondary region is South East Asia.
 
 1. In the vault, click **+Replicate**.
 2. Note the following fields:
