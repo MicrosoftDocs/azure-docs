@@ -57,7 +57,7 @@ After you identify the requirements of your existing workload, you should create
     }
   ```
 
-* **Allocate the required throughput:** Azure Cosmos DB can automatically scale storage and throughput as your requirements grow. You can estimate your throughput needs by using the [Azure Cosmos DB request unit calculator](). 
+* **Allocate the required throughput:** Azure Cosmos DB can automatically scale storage and throughput as your requirements grow. You can estimate your throughput needs by using the [Azure Cosmos DB request unit calculator](https://www.documentdb.com/capacityplanner). 
 
 ## Prerequisites for migration
 
@@ -94,9 +94,13 @@ You can move data from existing Cassandra workloads to Azure Cosmos DB by using 
 
 ## Migrate data using Spark 
 
-- provision Azure Databricks or HDInsight cluster, connect to source Cassandra cluster, and then move data to destination Cassandra API endpoint. Migrating data by using spark jobs is also a recommended option if you have data residing in an existing cluster in Azure virtual machines. This requires spark to be set up as intermediary for one time or regular ingestion.
+Use the following steps to migrate data to Azure Cosmos DB Cassandra API with Spark:
 
-For data residing in an existing cluster in Azure virtual machines, importing data using Spark is a viable option. To do so, set up Spark as an intermediary for one time or regular ingestion. 
+- Provision an [Azure Databricks](cassandra-spark-databricks.md) or a [HDInsight cluster](cassandra-spark-hdinsight.md)
+
+- Move data to destination Cassandra API endpoint by using [table copy operation](cassandra-spark-table-copy-ops.md) 
+
+Migrating data by using spark jobs is also a recommended option if you have data residing in an existing cluster in Azure virtual machines. This requires spark to be set up as intermediary for one time or regular ingestion.
 
 ## Next steps
 
