@@ -28194,7 +28194,7 @@
         {
             "source_path": "articles/application-insights/app-insights-analytics-tour.md",
             "redirect_url": "/azure/log-analytics/query-language/get-started-analytics-portal",
-            "redirect_document_id" : true
+            "redirect_document_id" : false
         },
         {
             "source_path": "articles/application-insights/app-insights-analytics-using.md",
