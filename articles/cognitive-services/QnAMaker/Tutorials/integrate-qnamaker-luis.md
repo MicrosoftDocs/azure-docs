@@ -1,14 +1,14 @@
 ---
-title: Integrate QnA Maker and LUIS - Microsoft Cognitive Services | Microsoft Docs
-titleSuffix: Azure
-description: a step-by-step tutorial on integrating QnA Maker and LUIS
+title: LUIS and QnAMaker - Bot Integration 
+titleSuffix: Azure Cognitive Services
+description: A step-by-step tutorial on integrating QnA Maker and LUIS in a bot.
 services: cognitive-services
 author: tulasim88
 manager: cjgronlund
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 04/21/2018
+ms.date: 09/12/2018
 ms.author: tulasim
 ---
 

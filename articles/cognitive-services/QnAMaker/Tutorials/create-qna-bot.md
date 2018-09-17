@@ -1,15 +1,14 @@
 ---
-title: Create QnA bot with Azure Bot Service v3
+title: QnA bot with Azure Bot Service - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: This tutorial walks you through building a QnA bot with Azure Bot service v3 on the Azure portal.
 services: cognitive-services
-author: tulasim88
+author: nstulasi
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/24/2018
-ms.author: tulasim
+ms.date: 09/12/2018
+ms.author: nstulasi
 ---
 
 # Create a QnA Bot with Azure Bot Service v3

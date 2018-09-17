@@ -1,6 +1,6 @@
 ---
-title: Set up SAP HANA System Replication on Azure virtual machines (VMs) | Microsoft Docs
-description: Establish high availability of SAP HANA on Azure virtual machines (VMs).
+title: High availability of SAP HANA on Azure VMs on SUSE Linux Enterprise Server | Microsoft Docs
+description: High availability of SAP HANA on Azure VMs on SUSE Linux Enterprise Server
 services: virtual-machines-linux
 documentationcenter: 
 author: MSSedusch
@@ -16,7 +16,7 @@ ms.date: 08/16/2018
 ms.author: sedusch
 
 ---
-# High availability of SAP HANA on Azure virtual machines
+# High availability of SAP HANA on Azure VMs on SUSE Linux Enterprise Server
 
 [dbms-guide]:dbms-guide.md
 [deployment-guide]:deployment-guide.md
@@ -107,7 +107,7 @@ To deploy the template, follow these steps:
     - **System Availability**: Select **HA**.
     - **Admin Username and Admin Password**: A new user is created that can be used to log on to the machine.
     - **New Or Existing Subnet**: Determines whether a new virtual network and subnet should be created or an existing subnet used. If you already have a virtual network that's connected to your on-premises network, select **Existing**.
-    - **Subnet ID**: The ID of the subnet to which the virtual machines should be connected. To connect the virtual machine to your on-premises network, select the subnet of your VPN or Azure ExpressRoute virtual network. The ID usually looks like **/subscriptions/\<subscription ID>/resourceGroups/\<resource group name>/providers/Microsoft.Network/virtualNetworks/\<virtual network name>/subnets/\<subnet name>**.
+    - **Subnet ID**: If you want to deploy the VM into an existing VNet where you have a subnet defined the VM should be assigned to, name the ID of that specific subnet. The ID usually looks like **/subscriptions/\<subscription ID>/resourceGroups/\<resource group name>/providers/Microsoft.Network/virtualNetworks/\<virtual network name>/subnets/\<subnet name>**.
 
 ### Manual deployment
 
@@ -967,7 +967,7 @@ NOTE: The following tests are designed to be run in sequence and depend on the e
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
 
-   Pacemaker will detect the stopped HANA instance and mark the resource as failed on node hn1-db-1. Run the following command to clean up the failed state. Pacemaker should then automatically restart the HANA instance.
+   Pacemaker will detect the stopped HANA instance and mark the resource as failed on node hn1-db-1. Pacemaker should automatically restart the HANA instance. Run the following command to clean up the failed state.
 
    <pre><code># run as root
    hn1-db-1:~ # crm resource cleanup msl_SAPHana_HN1_HDB03 hn1-db-1
