@@ -48,7 +48,7 @@ Go to the [Azure portal](https://portal.azure.com/) and sign in with your creden
 
 ## Create an Azure SignalR Service instance
 
-You will build and test the Azure Functions app locally. The app will access SignalR Service in Azure that needs to be created ahead of time.
+You will build and test the Azure Functions app locally. The app will access a SignalR Service instance in Azure that needs to be created ahead of time.
 
 1. Click on the **Create a resource** (**+**) button for creating a new Azure resource.
 
@@ -87,7 +87,7 @@ You will build and test the Azure Functions app locally. The app will access Sig
 
 ### Install function app extensions
 
-This tutorial uses Azure Functions bindings to interact with Azure SignalR Service. Like most other Azure Functions bindings, the SignalR Service bindings are available as an extension that needs to be installed using the Azure Functions Core Tools CLI before they can be used.
+This tutorial uses Azure Functions bindings to interact with Azure SignalR Service. Like most other bindings, the SignalR Service bindings are available as an extension that needs to be installed using the Azure Functions Core Tools CLI before they can be used.
 
 1. Open a terminal in VS Code by selecting **View > Integrated Terminal** from the menu (Ctrl-`).
 
@@ -131,9 +131,9 @@ When running and debugging the Azure Functions runtime locally, application sett
     ![Update local settings](media/signalr-authenticate-azure-functions/signalr-update-local-settings.png)
 
 
-## Create an Azure Function to authenticate users to SignalR Service
+## Create a function to authenticate users to SignalR Service
 
-When the chat app first starts up, it requires valid connection credentials to connect to Azure SignalR Service. You'll create an HTTP triggered function named *SignalRInfo* in your function app to return this connection information.
+When the chat app first opens in the browser, it requires valid connection credentials to connect to Azure SignalR Service. You'll create an HTTP triggered function named *SignalRInfo* in your function app to return this connection information.
 
 1. Open the VS Code command palette (`Ctrl-Shift-P`, macOS: `Cmd-Shift-P`).
 
@@ -143,7 +143,7 @@ When the chat app first starts up, it requires valid connection credentials to c
 
     | Name | Value |
     |---|---|
-    | Function app folder | select the main project folder |
+    | Function app folder | Select the main project folder |
     | Template | HTTP Trigger |
     | Name | SignalRInfo |
     | Authorization level | Anonymous |
@@ -192,9 +192,9 @@ When the chat app first starts up, it requires valid connection credentials to c
     This function takes the SignalR connection information from the input binding and returns it to the client in the HTTP response body.
 
 
-## Create an Azure Function to send chat messages
+## Create a function to send chat messages
 
-The app also requires an HTTP API to send messages. You will create an HTTP triggered function named *SendMessage* that sends messages to all connected clients using SignalR Service.
+The web app also requires an HTTP API to send chat messages. You will create an HTTP triggered function named *SendMessage* that sends messages to all connected clients using SignalR Service.
 
 1. Open the VS Code command palette (`Ctrl-Shift-P`, macOS: `Cmd-Shift-P`).
 
@@ -240,7 +240,7 @@ The app also requires an HTTP API to send messages. You will create an HTTP trig
         ]
     }
     ```
-    This makes two changes to the function:
+    This makes two changes to the original function:
     * Changes the route to `messages` and restricts the HTTP trigger to the **POST** HTTP method.
     * Adds a SignalR Service output binding that sends message(s) to all clients connected to a SignalR Service hub named `chat`.
 
@@ -250,9 +250,7 @@ The app also requires an HTTP API to send messages. You will create an HTTP trig
     ```javascript
     module.exports = function (context, req) {
         const message = req.body;
-        if (req.headers && req.headers['x-ms-client-principal-name']) {
-            message.sender = req.headers['x-ms-client-principal-name'];
-        }
+        message.sender = req.headers && req.headers['x-ms-client-principal-name'] || '';
             
         let recipientUserId = '';
         if (message.recipient) {
@@ -261,14 +259,14 @@ The app also requires an HTTP API to send messages. You will create an HTTP trig
         }
     
         context.bindings.signalRMessages = [{
-            "userId": recipientUserId,
-            "target": "newMessage",
-            "arguments": [ message ]
+            'userId': recipientUserId,
+            'target': 'newMessage',
+            'arguments': [ message ]
         }];
         context.done();
     };
     ```
-    This function takes the body from the HTTP request and sends it to clients connected to SignalR Service.
+    This function takes the body from the HTTP request and sends it to clients connected to SignalR Service, invoking a function named `newMessage` on each client.
 
     The function can read the sender's identity and can accept a *recipient* value in the message body to allow for a message to be sent privately to a single user. These functionalities will be used later in the tutorial.
 
@@ -277,7 +275,7 @@ The app also requires an HTTP API to send messages. You will create an HTTP trig
 
 ## Create and run the chat client web user interface
 
-The chat application's UI is a simple single page application (SPA) created with Vue JavaScript framework. It will be hosted separately from the function app. Locally, you will run the web interface using the Live Server VS Code extension.
+The chat application's UI is a simple single page application (SPA) created with the Vue JavaScript framework. It will be hosted separately from the function app. Locally, you will run the web interface using the Live Server VS Code extension.
 
 1. In VS Code, create a new folder named **content** at the root of the main project folder.
 
@@ -291,14 +289,12 @@ The chat application's UI is a simple single page application (SPA) created with
 
 1. With **index.html** open, start Live Server by opening the VS Code command palette (`Ctrl-Shift-P`, macOS: `Cmd-Shift-P`) and selecting **Live Server: Open with Live Server**. Live Server will open the application in a browser.
 
-1. When the application prompts for a username, enter one. If you tested the function earlier, messages from your testing session will appear.
-
-1. Enter a message in the chat box and press enter. Refresh the application to see new messages.
+1. The application opens. Enter a message in the chat box and press enter. Refresh the application to see new messages. Because no authentication was configured, all messages will be sent as "anonymous".
 
 
-## Deploy to Azure
+## Deploy to Azure and enable authentication
 
-You have been running the function app and chat application locally. You will now deploy them to Azure.
+You have been running the function app and chat application locally. You will now deploy them to Azure and enable authentication and private messaging in the application.
 
 
 ### Log into Azure with VS Code
@@ -314,11 +310,11 @@ You have been running the function app and chat application locally. You will no
 
 So far, the chat app works anonymously. In Azure, you will use [App Service Authentication](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview) to authenticate the user. The user ID or username of the authenticated user can be passed to the *SignalRConnectionInfo* binding to generate connection information that is authenticated as the user.
 
-When a sending message, the app can decide between sending it to all connected clients, or only the clients that have been authenticated to a given user.
+When a sending message, the app can decide whether to send it to all connected clients, or only to the clients that have been authenticated to a given user.
 
 1. In VS Code, open **SendMessage/function.json**.
 
-1. Add a [binding expression](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings#binding-expressions-and-patterns) to the *userId* property of the *SignalRConnectionInfo* binding: `{headers.x-ms-client-principal-name}`. This sets the value to the username of the authenticated user. The attribute should now look like this.
+1. Insert a [binding expression](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings#binding-expressions-and-patterns) into the *userId* property of the *SignalRConnectionInfo* binding: `{headers.x-ms-client-principal-name}`. This sets the value to the username of the authenticated user. The attribute should now look like this.
 
     ```json
     {
@@ -350,7 +346,7 @@ When a sending message, the app can decide between sending it to all connected c
     | Storage account name | Enter a unique name (3-24 characters, alphanumeric only) |
     | Location | Select a location close to you |
     
-    A new function app is created in Azure and the deployment begins.
+    A new function app is created in Azure and the deployment begins. Wait for the deployment to complete.
 
 
 ### Upload function app local settings
@@ -381,7 +377,7 @@ Although there is a CORS setting in **local.settings.json**, it is not propagate
 
 1. Select the subscription and function app name to open the function app in the Azure portal.
 
-1. Under the **Platform features** tab, select **CORS**.
+1. In the portal that was opened, under the **Platform features** tab, select **CORS**.
 
     ![Find CORS](media/signalr-authenticate-azure-functions/signalr-find-cors.png)
 
@@ -394,7 +390,7 @@ Although there is a CORS setting in **local.settings.json**, it is not propagate
     ![Set CORS](media/signalr-authenticate-azure-functions/signalr-set-cors.png)
 
 > [!NOTE]
-> In a real-world application, instead of allowing CORS on all domains (`*`), a more secure approach is to enter specific CORS entries for each domains that requires it.
+> In a real-world application, instead of allowing CORS on all origins (`*`), a more secure approach is to enter specific CORS entries for each domains that requires it.
 
 
 ### Update the web app
@@ -408,14 +404,14 @@ Although there is a CORS setting in **local.settings.json**, it is not propagate
 
 1. In VS Code, open **index.html** and replace the value of `apiBaseUrl` with the function app's URL.
 
-1. The application can be configured with authentication using Azure Active Directory, Facebook, Twitter, Microsoft account, and Google. Select the authentication provider that you will use by setting the value of `authProvider`.
+1. The application can be configured with authentication using Azure Active Directory, Facebook, Twitter, Microsoft account, or Google. Select the authentication provider that you will use by setting the value of `authProvider`.
 
 1. Save the file.
 
 
-### Deploy web UI to blob storage
+### Deploy the web application to blob storage
 
-The web UI will be hosted using Azure Blob Storage's static websites feature.
+The web application will be hosted using Azure Blob Storage's static websites feature.
 
 1. Click on the **New** (**+**) button for creating a new Azure resource.
 
@@ -426,13 +422,11 @@ The web UI will be hosted using Azure Blob Storage's static websites feature.
     | Name | Value |
     |---|---|
     | Name | A unique name for the blob storage account |
-    | Deployment model | Resource manager |
     | Account kind | StorageV2 (general purpose V2) |
     | Location | Select the same region as your other resources |
     | Replication | Locally-redundant storage (LRS) |
     | Performance | Standard |
     | Access tier | Hot |
-    | Secure transfer required | Enabled |
     | Resource group | Select the same resource group as the other resources in this tutorial |
 
 1. Click **Create**.
@@ -453,7 +447,7 @@ The web UI will be hosted using Azure Blob Storage's static websites feature.
 
 1. Click on the **$web** link on the page to open the blob container.
 
-1. Click **Upload** and upload all the files in the **content** folder.
+1. Click **Upload** and upload **index.html** in the **content** folder.
 
 1. Go back to the **Static website** page. Note the **Primary endpoint**. This is the URL of the web application.
 
@@ -462,13 +456,13 @@ The web UI will be hosted using Azure Blob Storage's static websites feature.
 
 App Service Authentication supports authentication with Azure Active Directory, Facebook, Twitter, Microsoft account, and Google.
 
-1. With the function app still open in the portal, locate the **Platform features** tab, select **Authentication / Authorization**.
+1. With the function app still open in the portal, locate the **Platform features** tab, select **Authentication/Authorization**.
 
 1. Turn **On** App Service Authentication.
 
-1. In **Action to take when request is not authenticated**, select "Log in with Active Directory" (or another login provider of your choice).
+1. In **Action to take when request is not authenticated**, select "Log in with {authentication provider you selected earlier}".
 
-1. In **Allowed External Redirect URLs**, enter the URL of your storage account primary web endpoint from the previous section.
+1. In **Allowed External Redirect URLs**, enter the URL of your storage account primary web endpoint that you previously noted.
 
 1. Follow the documentation for the login provider of your choice to complete the configuration.
 
