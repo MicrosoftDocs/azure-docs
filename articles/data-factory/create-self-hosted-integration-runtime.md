@@ -29,7 +29,7 @@ This document introduces how you can create and configure Self-hosted IR.
 	```powershell
 	Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
 	```
-2. Download and install self-hosted integration runtime (on local machine).
+2. [Download](https://www.microsoft.com/download/details.aspx?id=39717) and install self-hosted integration runtime (on local machine).
 3. Retrieve authentication key and register self-hosted integration runtime with the key. Here is a PowerShell example:
 
 	```powershell
