@@ -77,8 +77,22 @@
       href: concepts-business-continuity.md
     - name: Backup and restore
       href: concepts-backup.md
-  - name: Monitor
-    href: concepts-monitoring.md
+  - name: Monitor and tune
+    items:
+    - name: Monitor and tune
+      href: concepts-monitoring.md
+    - name: Query Store
+      items:
+        - name: Query Store
+          href: concepts-query-store.md
+        - name: Query Store usage scenarios
+          href: concepts-query-store-scenarios.md
+        - name: Query Store best practices
+          href: concepts-query-store-best-practices.md
+    - name: Query Performance Insight
+      href: concepts-query-performance-insight.md
+    - name: Performance Recommendations
+      href: concepts-performance-recommendations.md
   - name: Development
     items:
     - name: Connection libraries
