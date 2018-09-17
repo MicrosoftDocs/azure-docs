@@ -1,6 +1,6 @@
 ---
 title: Deploy Azure virtual network container networking | Microsoft Docs
-description: Learn how to deploy the Azure Virtual Network container network interface (CNI) plug-in for Kubernetes clusters and Docker containers.
+description: Learn how to deploy the Azure Virtual Network container network interface (CNI) plug-in for Kubernetes clusters that you deploy yourself and for Docker containers.
 services: virtual-network
 documentationcenter: na
 author: aanandr
@@ -22,7 +22,7 @@ ms.custom:
 
 # Deploy the Azure Virtual Network container network interface plug-in
 
-Bring the rich set of Azure network capabilities to containers, by utilizing the same software defined networking stack that powers virtual machines. The Azure Virtual Network container network interface (CNI) plug-in installs in an Azure virtual machine. To learn more about the plug-in, see [Enable containers to use Azure Virtual Network capabilities](container-networking-overview.md). You can deploy the plug-in to provide Azure Virtual Network capabilities to containers in Kubernetes clusters, or when using Docker on your computer. Alternatively, you can enable containers deployed with the Azure Kubernetes Service (AKS) or the ACS-Engine to utilize the plug-in. For details, see [Using the plug-in](container-networking-overview.md#using-the-plug-in).
+Bring the rich set of Azure network capabilities to containers, by utilizing the same software defined networking stack that powers virtual machines. The Azure Virtual Network container network interface (CNI) plug-in installs in an Azure virtual machine. To learn more about the plug-in, see [Enable containers to use Azure Virtual Network capabilities](container-networking-overview.md). You can deploy the plug-in to provide Azure Virtual Network capabilities to containers in Kubernetes clusters that you deploy, or when using Docker on your computer. Alternatively, you can enable containers deployed with the Azure Kubernetes Service (AKS) or the ACS-Engine to utilize the plug-in. For details, see [Using the plug-in](container-networking-overview.md#using-the-plug-in).
 
 ## Download and install the plug-in
 
@@ -78,7 +78,7 @@ Follow the previous steps to [download and install](#download-the-cni-plug-in) t
 ./docker-run.sh \<container-name\> \<container-namespace\> \<image\>
 ```
 
-The containers automatically start receiving IP addresses from the allocated pool.
+The containers automatically start receiving IP addresses from the allocated pool. If you want to load balance traffic to the Docker containers, they must be placed behind a software load balancer, and you must configure a load balancer probe, the same way you create a policy and probes for a virtual machine.
 
 ### CNI network configuration file
 
