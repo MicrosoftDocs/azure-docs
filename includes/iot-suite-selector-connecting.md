@@ -5,7 +5,7 @@
  author: dominicbetts
  ms.service: iot-suite
  ms.topic: include
- ms.date: 04/24/2018
+ ms.date: 09/17/2018
  ms.author: dobett
  ms.custom: include file
 ---
@@ -16,7 +16,7 @@
 > * [C on Raspberry Pi](../articles/iot-accelerators/iot-accelerators-connecting-pi-c.md)
 > * [Node.js (generic)](../articles/iot-accelerators/iot-accelerators-connecting-devices-node.md)
 > * [Node.js on Raspberry Pi](../articles/iot-accelerators/iot-accelerators-connecting-pi-node.md)
-> * [MXChip IoT DevKit AZ3166](../articles/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md)
+> * [MXChip IoT DevKit](../articles/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md)
 
 In this tutorial, you implement a **Chiller** device that sends the following telemetry to the Remote Monitoring [solution accelerator](../articles/iot-accelerators/about-iot-accelerators.md):
 

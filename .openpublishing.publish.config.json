@@ -163,8 +163,8 @@
     },
     {
       "path_to_root": "iot-samples-c",
-      "url": "https://github.com/dominicbetts/azure-iot-sdk-c",
-      "branch": "add-remote-monitoring-sample",
+      "url": "https://github.com/Azure/azure-iot-sdk-c",
+      "branch": "master",
       "branch_mapping": {}
     },
     {

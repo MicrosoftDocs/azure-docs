@@ -6,7 +6,7 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.date: 08/31/2018
+ms.date: 09/17/2018
 ms.author: dobett
 ---
 
@@ -20,31 +20,35 @@ As with most embedded applications that run on constrained devices, the client c
 
 ## Prerequisites
 
-To complete the steps in this how-to guide, you need Visual Studio 2017 installed on your Windows machine.
+To complete the steps in this how-to guide follow the steps in [set up your Windows development environment](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#set-up-a-windows-development-environment) to add the required development tools and libraries to your Windows machine.
 
 ## View the code
 
-The sample code used in this guide is available in the Azure IoT C SDKs GitHub repository.
+The [sample code](https://github.com/Azure/azure-iot-sdk-c/tree/master/samples/solutions/remote_monitoring) used in this guide is available in the Azure IoT C SDKs GitHub repository.
 
-### Download the source code and prepare the solution
+### Download the source code and prepare the project
 
-To prepare the solution, clone or download the [Azure IoT C SDKs repository](https://github.com/Azure/azure-iot-sdk-c) from GitHub.
+To prepare the project, clone or download the [Azure IoT C SDKs repository](https://github.com/Azure/azure-iot-sdk-c) from GitHub.
 
-The sample is located in the **samples\solutions\RemoteMonitoring** folder. The Visual Studio solution and project files are in the **windows** subfolder.
+The sample is located in the **samples/solutions/remote_monitoring** folder.
 
-Download the **parson.c** and **parson.h** source files from [https://github.com/kgabis/parson](https://github.com/kgabis/parson) and save them in the sample folder alongside the **RemoteMonitoring.c** file. The sample uses the Parson json parser.
-
-Open the **RemoteMonitoringClient.sln** file in the **windows** folder in Visual Studio 2017.
+Open the **remote_monitoring.c** file in the **samples/solutions/remote_monitoring** folder in a text editor.
 
 [!INCLUDE [iot-accelerators-connecting-code](../../includes/iot-accelerators-connecting-code.md)]
 
 ## Build and run the sample
 
-1. Edit the **RemoteMonitoring.c** file to replace `<connectionstring>` with the device connection string you noted at the start of this how-to guide when you added a device to the solution accelerator.
+1. Edit the **remote_monitoring.c** file to replace `<connectionstring>` with the device connection string you noted at the start of this how-to guide when you added a device to the solution accelerator.
 
-1. Choose **Build** and then **Build Solution** to build the device application.
+1. Follow the steps in [Build the C SDK in Windows](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#build-the-c-sdk-in-windows) to build the SDK and the remote monitoring client application.
 
-1. In **Solution Explorer**, right-click the **RemoteMonitoringClient** project, choose **Debug**, and then choose **Start new instance** to run the sample. The console displays messages as:
+1. At the command-prompt you used to build the solution, run:
+
+    ```cmd
+    samples\solutions\remote_monitoring\Release\remote_monitoring_client.exe
+    ```
+
+    The console displays messages as:
 
     - The application sends sample telemetry to the solution accelerator.
     - Responds to methods invoked from the solution dashboard.
