@@ -67,19 +67,20 @@ Although this article shows you how to run the microservices locally, they depen
 
  4. Run the **set-env-uri.cmd or set-env-uri.sh** script.
  
- 5. Update your git sub-modules to make sure you have the latest ones: ```cd <repo-name>``` and then run the following command ```git submodule foreach git pull origin master```
+ 5. Update your git submodules to make sure you have the latest ones: ```cd <repo-name>``` and then run the following command ```git submodule foreach git pull origin master```
 
 > [!NOTE]
 > If you have cloned azure-iot-pcs-remote-monitoring-dotnet repository, the scripts folder is present under services submodule (folder).
 The start script requires **Node.js** to execute, please install latest stable Node 8 (donot use Node 10) before using this script. Also, this script might require administartive privileges or sudo permission as it tries to install [pcs-cli](https://github.com/Azure/pcs-cli) a cli interface for remote-monitoring deployments.  
 
 ### Existing users
-For users who have already created the required azure resources and just need to update them, please do one of the following:
+For users who have already created the required azure resources and just need to update them, complete only **one** of the following steps:
 
  1. Set the environment variables globally on your machine.
  2. **VS Code:** Set the environment variables in the launch configurations of the IDE i.e. launch.json
  3. **Visual Studio:** Set the environment variables for WebService project of the microservices by adding it to Properties → Debug → Environment variables
- 4. Update your git sub-modules to make sure you have the latest ones: ```cd <repo-name>``` and then run the following command ```git submodule foreach git pull origin master```
+ 
+Finally, update your git submodules to make sure you have the latest ones: ```cd <repo-name>``` and then run the following command ```git submodule foreach git pull origin master```
  
 Although not recommended, environment variables can also be set in appsettings.ini file present under WebService folder for each of the microservices.
 
