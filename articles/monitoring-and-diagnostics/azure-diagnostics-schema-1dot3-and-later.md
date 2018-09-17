@@ -161,12 +161,9 @@ For more information about using Azure Diagnostics, see [Azure Diagnostics Exten
 
 ```  
 > [!NOTE]
-> The public config Azure Monitor sink definition has two properties, resourceId and region. These are only required for Classic VMs and Classic Cloud services.
-> These properties should not be used for Resource Manager Virtual Machines or Virtual Machine Scale sets.
-> There is also an additional Private Config element for the Azure Monitor sink, that passes in a Principal Id and Secret. This is only required for Classic VMs
-> and Classic Cloud Services. For Resource Manager VMs and VMSS the Azure Monitor definition in the private config element can be excluded.
+> The public config Azure Monitor sink definition has two properties, resourceId and region. These are only required for Classic VMs and Classic Cloud services. These properties should not be used for Resource Manager Virtual Machines or Virtual Machine Scale sets.
+> There is also an additional Private Config element for the Azure Monitor sink, that passes in a Principal Id and Secret. This is only required for Classic VMs and Classic Cloud Services. For Resource Manager VMs and VMSS the Azure Monitor definition in the private config element can be excluded.
 >
-> Click these links to learn more about how to configure the Azure Monitor Sink for Classic VMs, Cloud Services, VMSS, and Resource Manager VMs
 
 JSON equivalent of the previous XML configuration file.
 
@@ -351,7 +348,6 @@ The PublicConfig and PrivateConfig are separated because in most json usage case
 > The public config Azure Monitor sink definition has two properties, resourceId and region. These are only required for Classic VMs and Classic Cloud services.
 > These properties should not be used for Resource Manager Virtual Machines or Virtual Machine Scale sets.
 >
-> Click these links to learn more about how to configure the Azure Monitor Sink for Classic VMs, Cloud Services, VMSS, and Resource Manager VMs
 
 ```json
 "PrivateConfig" {
@@ -394,10 +390,10 @@ The PublicConfig and PrivateConfig are separated because in most json usage case
 ```
 
 > [!NOTE]
-> There is an additional Private Config element for the Azure Monitor sink, that passes in a Principal Id and Secret. This is only required for Classic VMs
-> and Classic Cloud Services. For Resource Manager VMs and VMSS the Azure Monitor definition in the private config element can be excluded.
+> There is an additional Private Config element for the Azure Monitor sink, that passes in a Principal Id and Secret. This is only required for Classic VMs and Classic Cloud Services. 
+> For Resource Manager VMs and VMSS the Azure Monitor definition in the private config element can be excluded.
 >
-> Click these links to learn more about how to configure the Azure Monitor Sink for Classic VMs, Cloud Services, VMSS, and Resource Manager VMs
+
 
 ## Reading this page  
  The tags following are roughly in order shown in the preceding example.  If you don't see a full description where you expect it, search the page for the element or attribute.  
