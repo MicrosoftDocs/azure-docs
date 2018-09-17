@@ -158,12 +158,12 @@ Attack mitigation reports uses the Netflow protocol data which is aggregated to 
     - **Send to Log Analytics**: Writes logs to the Azure OMS Log Analytics service. To learn more about this option, see [Collect logs for use in Log Analytics](../log-analytics/log-analytics-azure-storage.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Both the incremental & post-attack mitigation reports include the following fields
-1. Attack vectors
-2. Traffic statistics
-3. Reason for dropped packets
-4. Protocols involved
-5. Top 10 source countries or regions
-6. Top 10 source ASNs
+- Attack vectors
+- Traffic statistics
+- Reason for dropped packets
+- Protocols involved
+- Top 10 source countries or regions
+- Top 10 source ASNs
 
 ## Configure DDoS attack mitigation flow logs
 Attack Mitigation Flow Logs allow you to review the dropped traffic, forwarded traffic and other interesting datapoints during an active DDoS attack in near-real time. You can ingest the constant stream of this data into your SIEM systems via event hub for near-real time monitoring, take potential actions and address the need of your defense operations. 
@@ -181,12 +181,12 @@ Attack Mitigation Flow Logs allow you to review the dropped traffic, forwarded t
 7. To view the flow logs data in Azure analytics dashboard, you can import the sample dashboard from https://github.com/Anupamvi/Azure-DDoS-Protection/raw/master/flowlogsbyip.zip
 
 Flow logs will have the following fields: 
-1. Source IP 
-2. Destination IP 
-3. Source Port 
-4. Destination port 
-5. Protocol type 
-6. Action taken during mitigation
+- Source IP
+- Destination IP
+- Source Port 
+- Destination port 
+- Protocol type 
+- Action taken during mitigation
 
 
 
