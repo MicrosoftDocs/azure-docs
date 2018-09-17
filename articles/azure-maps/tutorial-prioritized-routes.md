@@ -25,8 +25,8 @@ This tutorial shows how to use your Azure Maps account and the route service to 
 
 Before you proceed, follow the steps in the first tutorial to [create your Azure Maps account](./tutorial-search-location.md#createaccount), and [get the subscription key for your account](./tutorial-search-location.md#getkey).
 
+## Create a new map
 
-## Create a new map 
 The following steps show you how to create a static HTML page embedded with the Map Control API.
 
 1. On your local machine, create a new file and name it **MapTruckRoute.html**.
@@ -40,9 +40,9 @@ The following steps show you how to create a static HTML page embedded with the 
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, user-scalable=no" />
         <title>Map Truck Route</title>
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1" type="text/css" /> 
-        <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1"></script> 
-        <script src="https://atlas.microsoft.com/sdk/js/atlas-service.min.js?api-version=1"></script> 
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1" type="text/css" />
+        <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1"></script>
+        <script src="https://atlas.microsoft.com/sdk/js/atlas-service.min.js?api-version=1"></script>
         <style>
             html,
             body {
@@ -58,7 +58,7 @@ The following steps show you how to create a static HTML page embedded with the 
             }
         </style>
     </head>
-    
+
     <body>
         <div id="map"></div>
         <script>
@@ -76,8 +76,8 @@ The following steps show you how to create a static HTML page embedded with the 
     var MapsAccountKey = "<your account key>";
     var map = new atlas.Map("map", {
         "subscription-key": MapsAccountKey
-         center: [-118.2437, 34.0522], 
-         zoom: 12 
+         center: [-118.2437, 34.0522],
+         zoom: 12
     });
     ```
     The **atlas.Map** provides the control for a visual and interactive web map, and is a component of the Azure Map Control API.
@@ -88,8 +88,8 @@ The following steps show you how to create a static HTML page embedded with the 
 
 ## Visualize traffic flow
 
-1. If you don't tell the map where to focus, you see the whole world view. To be able to view the traffic data, set a center point and a zoom level on your map. Replace the code that declares a `new atlas.Map` with the following JavaScript code: 
-    
+1. If you don't tell the map where to focus, you see the whole world view. To be able to view the traffic data, set a center point and a zoom level on your map. Replace the code that declares a `new atlas.Map` with the following JavaScript code:
+
     ```JavaScript
     var map = new atlas.Map("map", {
         "subscription-key": MapsAccountKey,
@@ -98,9 +98,9 @@ The following steps show you how to create a static HTML page embedded with the 
     });
     ```
 
-    This code sets the center point for the map, and declares a zoom level so that you can focus on a particular area by default. 
+    This code sets the center point for the map, and declares a zoom level so that you can focus on a particular area by default.
 
-1. Add the traffic flow display to the map:
+2. Add the traffic flow display to the map:
 
     ```JavaScript
     // Add Traffic Flow to the Map
@@ -108,9 +108,9 @@ The following steps show you how to create a static HTML page embedded with the 
         flow: "relative"
     });
     ```
-    This code sets the traffic flow to `relative`, which is the speed of the road relative to free-flow. You could also set it to `absolute` speed of the road or `relative-delay`, which displays the relative speed where it differs from free-flow. 
+    This code sets the traffic flow to `relative`, which is the speed of the road relative to free-flow. You could also set it to `absolute` speed of the road or `relative-delay`, which displays the relative speed where it differs from free-flow.
 
-2. Save the **MapTruckRoute.html** file and refresh the page in your browser. You should see the streets of Los Angeles with their current traffic data.
+3. Save the **MapTruckRoute.html** file and refresh the page in your browser. You should see the streets of Los Angeles with their current traffic data.
 
    ![View traffic map](./media/tutorial-prioritized-routes/traffic-map.png)
 
@@ -157,20 +157,18 @@ For this tutorial, set the start point as a fictitious company in Seattle called
         textFont: "SegoeUi-Regular",
         textOffset: [0, -20]
     });
-    ``` 
+    ```
     The **map.setCameraBounds** call adjusts the map window according to the coordinates of the start and end points. The API **map.addPins** adds the points to the Map control as visual components.
 
-3. Save the file and refresh your browser to see the pins displayed on your map. Even though you declared your map with a center point in Los Angeles, the **map.setCameraBounds** moved the view to display the start and end points. 
+3. Save the file and refresh your browser to see the pins displayed on your map. Even though you declared your map with a center point in Los Angeles, the **map.setCameraBounds** moved the view to display the start and end points.
 
    ![View map with start and finish points](./media/tutorial-prioritized-routes/pins-map.png)
-
 
 <a id="multipleroutes"></a>
 
 ## Render routes prioritized by mode of travel
 
 This section shows how to use the Maps route service API to find multiple routes from a given start point to a destination based on your mode of transport. The route service provides APIs to plan *fastest*, *shortest*, *eco*, or *thrilling* routes between two locations, considering the current traffic conditions. It also allows users to plan routes in the future by using Azure's extensive historic traffic database and predicting route durations for any day and time. For more information, see [Get route directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections).
-
 
 1. First, add a new layer on the map to display the route path, or *linestring*. In this tutorial, there are two different routes, **car-route** and **truck-route**, each with their own styling. Add the following JavaScript code to the *script* block:
 
@@ -201,33 +199,34 @@ This section shows how to use the Maps route service API to find multiple routes
 
     ```JavaScript
     // Instantiate the service client  
-        var client = new atlas.service.Client(MapsAccountKey); 
- 
-        // Construct the route query string 
-        var routeQuery = startPoint.coordinates[1] + 
-            "," + 
-            startPoint.coordinates[0] + 
-            ":" + 
-            destinationPoint.coordinates[1] + 
-            "," + 
-            destinationPoint.coordinates[0]; 
- 
-        // Execute the truck route query then add the route to the map once a response is received  
-        client.route.getRouteDirections(routeQuery, { 
-            travelMode: "truck", 
-            vehicleWidth: 2, 
-            vehicleHeight: 2, 
-            vehicleLength: 5, 
-            vehicleLoadType: "USHazmatClass2" 
-        }).then(response => { 
-            // Parse the response into GeoJSON 
-            var geoJsonResponse = new atlas.service.geojson.GeoJsonRouteDirectionsResponse(response); 
- 
-            // Get the first in the array of routes and add it to the map 
-            map.addLinestrings([geoJsonResponse.getGeoJsonRoutes().features[0]], { 
-                name: truckRouteLayerName 
-            }); 
-        }); 
+    var client = new atlas.service.Client(MapsAccountKey);
+
+    // Construct the route query string
+    var routeQuery = startPoint.coordinates[1] +
+        "," +
+        startPoint.coordinates[0] +
+        ":" +
+        destinationPoint.coordinates[1] +
+        "," +
+        destinationPoint.coordinates[0];
+
+    // Execute the truck route query then add the route to the map once a response is received  
+    client.route.getRouteDirections(routeQuery, {
+        travelMode: "truck",
+        vehicleWidth: 2,
+        vehicleHeight: 2,
+        vehicleLength: 5,
+        vehicleLoadType: "USHazmatClass2"
+    }).then(response => {
+        // Parse the response into GeoJSON
+        var geoJsonResponse = new atlas.service.geojson
+            .GeoJsonRouteDirectionsResponse(response);
+
+        // Get the first in the array of routes and add it to the map
+        map.addLinestrings([geoJsonResponse.getGeoJsonRoutes().features[0]], {
+            name: truckRouteLayerName
+        });
+    });
     ```
     This code snippet above instantiates a service client, and constructs a route query string. It then queries the Azure Maps routing service through the [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest#getroutedirections) method and then parses the response into GeoJSON format using the [getGeoJsonRouteDirectionsResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest). And then creates an array of coordinates for the route returned, and adds it to the map's `truckRouteLayerName` layer.
 
@@ -235,25 +234,27 @@ This section shows how to use the Maps route service API to find multiple routes
 
     ```JavaScript
     // Execute the car route query then add the route to the map once a response is received  
-        client.route.getRouteDirections(routeQuery).then(response => { 
-            // Parse the response into GeoJSON 
-            var geoJsonResponse = new atlas.service.geojson.GeoJsonRouteDirectionsResponse(response); 
- 
-            // Get the first in the array of routes and add it to the map 
-            map.addLinestrings([geoJsonResponse.getGeoJsonRoutes().features[0]], { 
-                name: carRouteLayerName 
-            }); 
-    }); 
+    client.route.getRouteDirections(routeQuery).then(response => {
+        // Parse the response into GeoJSON
+        var geoJsonResponse = new tlas.service.geojson
+            .GeoJsonRouteDiraectionsResponse(response);
+
+        // Get the first in the array of routes and add it to the map 
+        map.addLinestrings([geoJsonResponse.getGeoJsonRoutes().features[0]], {
+            name: carRouteLayerName
+        });
+    });
     ```
     This code snippet uses the same truck route query for a car. It queries the Azure Maps routing service through the [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest#getroutedirections) method and then parses the response into GeoJSON format using the [getGeoJsonRouteDirectionsResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest). And then creates an array of coordinates for the route returned, and adds it to the map's `carRouteLayerName` layer.
 
-3. Save the **MapTruckRoute.html** file and refresh your browser to observe the result. For a successful connection with the Maps' APIs, you should see a map similar to the following.
+4. Save the **MapTruckRoute.html** file and refresh your browser to observe the result. For a successful connection with the Maps' APIs, you should see a map similar to the following.
 
     ![Prioritized routes with Azure Route Service](./media/tutorial-prioritized-routes/prioritized-routes.png)
 
     The truck route is blue and thicker, while the car route is purple and thinner. The car route goes across Lake Washington via I-90, which goes through tunnels under residential areas and so restricts hazardous waste cargo. The truck route, which specifies a USHazmatClass2 cargo type, is correctly directed to use a different highway.
 
 ## Next steps
+
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]
@@ -262,6 +263,12 @@ In this tutorial, you learned how to:
 > * Create route queries that declare mode of travel
 > * Display multiple routes on your map
 
-To learn more about the coverage and capabilities of Azure Maps, see [Zoom levels and tile grid](zoom-levels-and-tile-grid.md) and the other Concepts articles.
+To learn more about the coverage and capabilities of Azure Maps:
 
-For more code examples and an interactive coding experience, see [How to use the map control](how-to-use-map-control.md) and the other How-to guides.
+> [!div class="nextstepaction"]
+> [Zoom levels and tile grid](zoom-levels-and-tile-grid.md)
+
+To see more code examples and an interactive coding experience:
+
+> [!div class="nextstepaction"]
+> [How to use the map control](how-to-use-map-control.md)

@@ -6,11 +6,9 @@ documentationcenter: na
 author: rloutlaw
 manager: justhe
 keywords: azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture, java
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: routlaw
 ---

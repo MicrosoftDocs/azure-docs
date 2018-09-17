@@ -23,7 +23,7 @@ Azure Active Directory (Azure AD) B2C tenants tend to be very large. This means 
 For B2C tenants, there are two primary modes of communicating with the Graph API.
 
 * For interactive, run-once tasks, you should act as an administrator account in the B2C tenant when you perform the tasks. This mode requires an administrator to sign in with credentials before that admin can perform any calls to the Graph API.
-* For automated, continuous tasks, you should use some type of service account that you provide with the necessary privileges to perform management tasks. In Azure AD, you can do this by registering an application and authenticating to Azure AD. This is done by using an **Application ID** that uses the [OAuth 2.0 client credentials grant](../active-directory/develop/authentication-scenarios.md#daemon-or-server-application-to-web-api). In this case, the application acts as itself, not as a user, to call the Graph API.
+* For automated, continuous tasks, you should use some type of service account that you provide with the necessary privileges to perform management tasks. In Azure AD, you can do this by registering an application and authenticating to Azure AD. This is done by using an **Application ID** that uses the [OAuth 2.0 client credentials grant](../active-directory/develop/service-to-service.md). In this case, the application acts as itself, not as a user, to call the Graph API.
 
 In this article, you learn how to perform the automated-use case. You'll build a .NET 4.5 `B2CGraphClient` that performs user create, read, update, and delete (CRUD) operations. The client will have a Windows command-line interface (CLI) that allows you to invoke various methods. However, the code is written to behave in a noninteractive, automated fashion.
 

@@ -1,4 +1,4 @@
----
+﻿---
 title: "Bing Custom Search: Create a custom search web page | Microsoft Docs"
 description: Describes how to configure a custom search instance and integrate it into a web page
 services: cognitive-services
@@ -91,7 +91,7 @@ Custom Search provides a hosted UI to render the JSON response of your custom se
 
     ![Screen shot of the Hosted UI additional configurations step](./media/custom-search-hosted-ui-subscription-key.png)
 
-[!INCLUDE[publish or revert](../includes/publish-revert.md)]
+[!INCLUDE [publish or revert](../includes/publish-revert.md)]
 
 <a name="consuminghostedui"></a>
 ## Consuming Hosted UI

@@ -67,13 +67,13 @@
         href: iot-accelerators-connecting-devices.md
       - name: C on Linux
         href: iot-accelerators-connecting-devices-linux.md
-      - name: Node.js (generic
+      - name: C on Raspberry Pi
+        href: iot-accelerators-connecting-pi-c.md
+      - name: Node.js (generic)
         href: iot-accelerators-connecting-devices-node.md
       - name: Node.js on Raspberry Pi
         href: iot-accelerators-connecting-pi-node.md
-      - name: C on Raspberry Pi
-        href: iot-accelerators-connecting-pi-c.md
-      - name: MX Chip AZ3166 DevKit
+      - name: MXChip IoT DevKit
         href: iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2.md
     - name: Integrate SIM data
       href: iot-accelerators-remote-monitoring-telefonica-sim.md
@@ -91,8 +91,8 @@
       href: iot-accelerators-remote-monitoring-deploy-local.md
     - name: Visualize telemetry with PowerBI
       href: iot-accelerators-integrate-data-powerbi.md
-    - name: Visualize telemetry with Time Series Insights
-      href: iot-accelerators-remote-monitoring-time-series-insights.md
+    - name: Integrate Azure Time Series Insights with Remote Monitoring
+      href: iot-accelerators-remote-monitoring-integrate-time-series-insights.md
     - name: Analyze telemetry with Data Lake
       href: iot-accelerators-integrate-data-lake.md
     - name: Configure role-based access controls

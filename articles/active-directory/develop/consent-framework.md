@@ -47,15 +47,16 @@ The following steps show you how the consent experience works for both the appli
 
   ![User consent experience](./media/quickstart-v1-integrate-apps-with-azure-ad/consent.png)
 
-1. After the user grants consent, an authorization code is returned to your application, which is redeemed to acquire an access token and refresh token. For more information about this flow, see the [Web application to web API section in Authentication Scenarios for Azure AD](authentication-scenarios.md#web-application-to-web-api).
+1. After the user grants consent, an authorization code is returned to your application, which is redeemed to acquire an access token and refresh token. For more information about this flow, see [Web API app type](web-api.md).
 
 1. As an administrator, you can also consent to an application's delegated permissions on behalf of all the users in your tenant. Administrative consent prevents the consent dialog from appearing for every user in the tenant, and can be done in the [Azure portal](https://portal.azure.com) by users with the administrator role. From the **Settings** page for your application, select **Required permissions** and click on the **Grant permissions** button.
 
   ![Grant permissions for explicit admin consent](./media/quickstart-v1-integrate-apps-with-azure-ad/grantpermissions.png)
 
   > [!IMPORTANT]
-  > Granting explicit consent using the **Grant permissions** button is currently required for single page applications (SPA) that use ADAL.js. Otherwise, the application fails when the access token is requested.
+  > Granting explicit consent using the **Grant permissions** button is currently required for single-page applications (SPA) that use ADAL.js. Otherwise, the application fails when the access token is requested.
 
 ## Next steps
 
-* [How to convert an app to be multi-tenant](howto-convert-app-to-be-multi-tenant.md)
+* See [how to convert an app to be multi-tenant](howto-convert-app-to-be-multi-tenant.md)
+* For more depth, learn [how consent is supported at the OAuth 2.0 protocol layer during the authorization code grant flow.](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code#request-an-authorization-code)

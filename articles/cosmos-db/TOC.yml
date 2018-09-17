@@ -119,7 +119,7 @@
     items:
     - name: SQL API Docs
       items:
-      - name: Overview
+      - name: Introduction
         href: sql-api-introduction.md
       - name: Write SQL queries
         href: sql-api-sql-query.md
@@ -221,7 +221,7 @@
           href: sql-api-sql-query-reference.md
     - name: MongoDB API Docs
       items: 
-      - name: Overview
+      - name: Introduction
         href: mongodb-introduction.md
       - name: MongoDB support
         href: mongodb-feature-support.md
@@ -271,7 +271,7 @@
           href: mongodb-indexing.md
     - name: Gremlin API Docs
       items: 
-      - name: Overview
+      - name: Introduction
         href: graph-introduction.md
       - name: Gremlin support
         href: gremlin-support.md
@@ -285,7 +285,7 @@
           href: bulk-executor-graph-dotnet.md
     - name: Cassandra API Docs
       items: 
-      - name: Overview
+      - name: Introduction
         href: cassandra-introduction.md
       - name: Tutorials
         items:
@@ -295,7 +295,7 @@
           href: cassandra-import-data.md
     - name: Table API Docs
       items:
-      - name: Overview
+      - name: Introduction
         href: table-introduction.md
       - name: Tutorials
         items:
@@ -455,7 +455,9 @@
       href: https://azure.microsoft.com/pricing/details/cosmos-db/
     - name: Use cases
       items:
-    - name: Social media apps
-      href: social-media-apps.md
+      - name: Common use cases
+        href: use-cases.md
+      - name: Social media apps
+        href: social-media-apps.md
 
 

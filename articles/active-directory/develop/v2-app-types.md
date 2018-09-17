@@ -1,5 +1,5 @@
 ---
-title: App types for the Azure Active Directory v2.0 endpoint | Microsoft Docs
+title: Application types for v2.0 | Azure
 description: The types of apps and scenarios supported by the Azure Active Directory v2.0 endpoint.
 services: active-directory
 documentationcenter: ''
@@ -14,15 +14,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 09/24/2018
 ms.author: celested
-ms.reviewer: hirsin
+ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ---
 
-# App types for the Azure Active Directory v2.0 endpoint
+# Application types for v2.0
 
-The Azure Active Directory (Azure AD) v2.0 endpoint supports authentication for a variety of modern app architectures, all of them based on industry-standard protocols [OAuth 2.0 or OpenID Connect](active-directory-v2-protocols.md). This article describes the types of apps that you can build by using Azure AD v2.0, regardless of your preferred language or platform. The information in this article is designed to help you understand high-level scenarios before you [start working with the code](active-directory-appmodel-v2-overview.md#getting-started).
+The Azure Active Directory (Azure AD) v2.0 endpoint supports authentication for a variety of modern app architectures, all of them based on industry-standard protocols [OAuth 2.0 or OpenID Connect](active-directory-v2-protocols.md). This article describes the types of apps that you can build by using Azure AD v2.0, regardless of your preferred language or platform. The information in this article is designed to help you understand high-level scenarios before you [start working with the code](v2-overview.md#getting-started).
 
 > [!NOTE]
 > The v2.0 endpoint doesn't support all Azure Active Directory scenarios and features. To determine whether you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
@@ -43,7 +43,16 @@ After the app is registered, the app communicates with Azure AD by sending reque
 https://login.microsoftonline.com/common/oauth2/v2.0/authorize
 https://login.microsoftonline.com/common/oauth2/v2.0/token
 ```
-<!-- TODO: Need a page for libraries to link to -->
+
+## Single-page apps (JavaScript)
+
+Many modern apps have a single-page app front end that primarily is written in JavaScript. Often, it's written by using a framework like AngularJS, Ember.js, or Durandal.js. The Azure AD v2.0 endpoint supports these apps by using the [OAuth 2.0 implicit flow](v2-oauth2-implicit-grant-flow.md).
+
+In this flow, the app receives tokens directly from the v2.0 authorize endpoint, without any server-to-server exchanges. All authentication logic and session handling takes place entirely in the JavaScript client, without extra page redirects.
+
+![Implicit authentication flow](./media/v2-app-types/convergence_scenarios_implicit.png)
+
+To see this scenario in action, try one of the single-page app code samples in the [v2.0 getting started](v2-overview.md#getting-started) section.
 
 ## Web apps
 
@@ -70,11 +79,12 @@ In web server apps, the sign-in authentication flow takes these high-level steps
 
 You can ensure the user's identity by validating the ID token with a public signing key that is received from the v2.0 endpoint. A session cookie is set, which can be used to identify the user on subsequent page requests.
 
-To see this scenario in action, try one of the web app sign-in code samples in our v2.0 [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) section.
+To see this scenario in action, try one of the web app sign-in code samples in the [v2.0 getting started](v2-overview.md#getting-started) section.
 
 In addition to simple sign-in, a web server app might need to access another web service, such as a REST API. In this case, the web server app engages in a combined OpenID Connect and OAuth 2.0 flow, by using the [OAuth 2.0 authorization code flow](active-directory-v2-protocols.md). For more information about this scenario, read about [getting started with web apps and Web APIs](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md).
 
 ## Web APIs
+
 You can use the v2.0 endpoint to secure web services, such as your app's RESTful Web API. Instead of ID tokens and session cookies, a Web API uses an OAuth 2.0 access token to secure its data and to authenticate incoming requests. The caller of a Web API appends an access token in the authorization header of an HTTP request, like this:
 
 ```
@@ -93,27 +103,20 @@ A Web API can receive access tokens from all types of apps, including web server
 
 ![Web API authentication flow](./media/v2-app-types/convergence_scenarios_webapi.png)
 
-To learn how to secure a Web API by using OAuth2 access tokens, check out the Web API code samples in our [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) section.
+To learn how to secure a Web API by using OAuth2 access tokens, check out the Web API code samples in the [v2.0 getting started](v2-overview.md#getting-started) section.
 
 In many cases, web APIs also need to make outbound requests to other downstream web APIs secured by Azure Active Directory. To do so, web APIs can take advantage of Azure AD's **On Behalf Of** flow, which allows the web API to exchange an incoming access token for another access token to be used in outbound requests. The v2.0 endpoint's On Behalf Of flow is described in [detail here](v2-oauth2-on-behalf-of-flow.md).
 
 ## Mobile and native apps
+
 Device-installed apps, such as mobile and desktop apps, often need to access back-end services or Web APIs that store data and perform functions on behalf of a user. These apps can add sign-in and authorization to back-end services by using the [OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md).
 
 In this flow, the app receives an authorization code from the v2.0 endpoint when the user signs in. The authorization code represents the app's permission to call back-end services on behalf of the user who is signed in. The app can exchange the authorization code in the background for an OAuth 2.0 access token and a refresh token. The app can use the access token to authenticate to Web APIs in HTTP requests, and use the refresh token to get new access tokens when older access tokens expire.
 
 ![Native app authentication flow](./media/v2-app-types/convergence_scenarios_native.png)
 
-## Single-page apps (JavaScript)
-Many modern apps have a single-page app front end that primarily is written in JavaScript. Often, it's written by using a framework like AngularJS, Ember.js, or Durandal.js. The Azure AD v2.0 endpoint supports these apps by using the [OAuth 2.0 implicit flow](v2-oauth2-implicit-grant-flow.md).
-
-In this flow, the app receives tokens directly from the v2.0 authorize endpoint, without any server-to-server exchanges. All authentication logic and session handling takes place entirely in the JavaScript client, without extra page redirects.
-
-![Implicit authentication flow](./media/v2-app-types/convergence_scenarios_implicit.png)
-
-To see this scenario in action, try one of the single-page app code samples in our [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) section.
-
 ## Daemons and server-side apps
+
 Apps that have long-running processes or that operate without interaction with a user also need a way to access secured resources, such as Web APIs. These apps can authenticate and get tokens by using the app's identity, rather than a user's delegated identity, with the OAuth 2.0 client credentials flow.
 
 In this flow, the app interacts directly with the `/token` endpoint to obtain endpoints:

@@ -107,7 +107,7 @@ az storage account create \
 
 Create an Azure file share called `myshare` in the account, using the `az storage share create` command:
 
-```azurecli-interactibve
+```azurecli-interactive
 az storage share create \
     --name myshare \
     --account-name mystorageaccount
