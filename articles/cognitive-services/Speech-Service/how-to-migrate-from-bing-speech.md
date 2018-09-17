@@ -3,13 +3,13 @@ title: How to migrate to the Speech Service
 titleSuffix: "Microsoft Cognitive Services"
 description: Learn the differences between Bing Speech and the Speech Service from a developer standpoint and migrate your application to use the Speech Service.
 services: cognitive-services
-author: wolfma61
+author: wsturman
 
 ms.service: cognitive-services
 ms.technology: Speech
 ms.topic: article
 ms.date: 09/12/2018
-ms.author: nitinme
+ms.author: gracez
 
 # Customer intent: As a developer currently using the deprecated Bing Speech, I want to learn the differences between Bing Speech and the Speech Service so that I can migrate my application to the Speech Service.
 ---
