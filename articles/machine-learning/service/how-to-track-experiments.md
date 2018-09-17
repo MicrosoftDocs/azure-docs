@@ -241,8 +241,8 @@ You can also view any outputs or logs for the run, or download the snapshot of t
 
 ## Examples
 The following notebooks demonstrate concepts in this article:
-* `00.Getting Started/01.train-within-notebook/01.train-within-notebook.ipynb`
-* `00.Getting Started/02.train-on-local/02.train-on-local.ipynb`
+* `01.getting-started/01.train-within-notebook/01.train-within-notebook.ipynb`
+* `01.getting-started/02.train-on-local/02.train-on-local.ipynb`
 
 Get these notebooks:
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
