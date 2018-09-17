@@ -208,7 +208,7 @@ secret = dprep.register_secret("dpr3pTestU$er", "anySecretId")
 
 ds = dprep.MSSQLDataSource(server_name="dprep-sql-test.database.windows.net",
                            database_name="dprep-sql-test",
-                           user_name="dprepTestUser",
+                           user_name="dpr3pTestU$er",
                            password=secret)
 ```
 As you can see, the password parameter of `MSSQLDataSource` accepts a secret object. You can get a secret object in two ways:

@@ -21,7 +21,7 @@
     href: tutorial-train-models-with-aml.md
   - name: '2. Deploy models'
     href: tutorial-deploy-models-with-aml.md
-  - name: Auto-select and tune algorithms
+  - name: Train automated ML models 
     href: tutorial-auto-train-models.md
 - name: Concepts   
   items: 
@@ -56,7 +56,7 @@
       href: how-to-write-data.md
   - name: Train and tune models
     items:    
-    - name: Use automated modeling	
+    - name: Use automated ML	
       items:
       - name: Configure auto training
         href: how-to-configure-auto-train.md 
@@ -92,7 +92,7 @@
          href: how-to-deploy-fpga-web-service.md  
        - name: Deploy to IoT Edge
          href: how-to-deploy-to-iot.md  
-  - name: Manage quotas
+  - name: Manage resource quotas
     href: how-to-manage-quotas.md
   - name: Export and delete data
     href: how-to-export-delete-data.md

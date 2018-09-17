@@ -83,9 +83,9 @@ model = Model(ws, model_name)
 
 Create a Docker image to store all model files. 
 
-1. Create a **scoring script**, named score.py, using the script steps in this [image classification tutorial](tutorial-deploy-models-with-aml.md#make-script)
+1. Create a **scoring script**, named score.py, using the script steps in this [image classification tutorial](tutorial-deploy-models-with-aml.md#make-script).
 
-1. Create an environment file , named myenv.yml, using the environment file steps in this [image classification tutorial](tutorial-deploy-models-with-aml.md#make-myenv)
+1. Create an environment file , named myenv.yml, using the environment file steps in this [image classification tutorial](tutorial-deploy-models-with-aml.md#make-myenv).
 
 1. Configure the Docker image.
     
@@ -102,7 +102,8 @@ Create a Docker image to store all model files.
                         )
     ```    
 
-1. Create the image using the model and image configuration. 
+1. Create the image using the model and image configuration.
+
    Estimated time to complete: **about 5 minutes**
 
     ```python
