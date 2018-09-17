@@ -1,17 +1,19 @@
 ﻿---
-title: Computer Vision API C# tutorial | Microsoft Docs
-description: Explore a basic Windows app that uses the Computer Vision API in Microsoft Cognitive Services. Perform OCR, create thumbnails, and work with visual features in an image.
+title: "Tutorial: Use the Computer Vision API C#"
+titlesuffix: "Azure Cognitive Services"
+description: Explore a basic Windows app that uses the Computer Vision API in Azure Cognitive Services. Perform OCR, create thumbnails, and work with visual features in an image.
 services: cognitive-services
 author: KellyDF
-manager: corncar
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: kefre
 ---
 
-# Computer Vision API C&#35; Tutorial
+# Tutorial: Computer Vision API C#
 
 Explore a basic Windows application that uses Computer Vision API to perform optical character recognition (OCR), create smart-cropped thumbnails, plus detect, categorize, tag and describe visual features, including faces, in an image. The below example lets you submit an image URL or a locally stored file. You can use this open source example as a template for building your own app for Windows using the Vision API and WPF (Windows Presentation Foundation), a part of .NET Framework.
 
@@ -23,7 +25,7 @@ The below example has been developed for the .NET Framework using [Visual Studio
 
 #### Subscribe to Computer Vision API and get a subscription key 
 
-Before creating the example, you must subscribe to Computer Vision API which is part of the Microsoft Cognitive Services (formerly Project Oxford). For subscription and key management details, see [Subscriptions](https://azure.microsoft.com/try/cognitive-services/). Both the primary and secondary key can be used in this tutorial. 
+Before creating the example, you must subscribe to Computer Vision API which is part of the Azure Cognitive Services (formerly Project Oxford). For subscription and key management details, see [Subscriptions](https://azure.microsoft.com/try/cognitive-services/). Both the primary and secondary key can be used in this tutorial. 
 
 > [!NOTE]
 > The tutorial is designed to use subscription keys in the **westcentralus** region. The subscription keys generated in the Computer Vision free trail use the **westcentralus** region, so they work correctly. If you generated your subscription keys using your Azure account through [https://azure.microsoft.com/](https://azure.microsoft.com/), you must specify the **westcentralus** region. Keys generated outside the **westcentralus** region will not work.
@@ -56,9 +58,9 @@ You can choose to persist your subscription key on your PC or laptop by clicking
 
 ### <a name="Review">Review and Learn</a>
 
-Now that you have a running application, let us review how this example app integrates with Cognitive Services technology. This will make it easier to either continue building onto this app or develop your own app using Microsoft Computer Vision API.
+Now that you have a running application, let us review how this example app integrates with Cognitive Services technology. This will make it easier to either continue building onto this app or develop your own app using the Computer Vision API.
 
-This example app makes use of the Computer Vision API Client Library, a thin C# client wrapper for the Microsoft Computer Vision API. When you built the example app as described above, you got the Client Library from a NuGet package. You can review the Client Library source code in the folder titled “**Client Library**” under **Vision**, **Windows**, **Client Library**, which is part of the downloaded file repository mentioned above in Prerequisites.
+This example app makes use of the Computer Vision API Client Library, a thin C# client wrapper for the Computer Vision API. When you built the example app as described above, you got the Client Library from a NuGet package. You can review the Client Library source code in the folder titled “**Client Library**” under **Vision**, **Windows**, **Client Library**, which is part of the downloaded file repository mentioned above in Prerequisites.
 
 You can also find out how to use the Client Library code in Solution Explorer: Under **VisionAPI-WPF_Samples**, expand **AnalyzePage.xaml** to locate **AnalyzePage.xaml.cs**, which is used for submitting an image to the image analysis endpoint. Double-click the .xaml.cs files to have them open in new windows in Visual Studio.
 
