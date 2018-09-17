@@ -121,24 +121,39 @@ Load the API profile and administrator module for your version of Azure Stack.
 
   - Azure Stack 1808 or later.
 
-  ```PowerShell  
-    Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
-    Install-Module -Name AzureStack -RequiredVersion 1.5.0 -Force
-  ```
+    ````PowerShell  
+    Import-Module -Name PowerShellGet -ErrorAction Stop
+    Import-Module -Name PackageManagement -ErrorAction Stop
+
+      $Path = "<Path that is used to save the packages>"
+      Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.3.0
+      Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.5.0
+    ````
 
   - Azure Stack 1807 or earlier.
 
-  ```PowerShell  
-    Use-AzureRmProfile -Profile 2017-03-09-profile -Force
-    Install-Module -Name AzureStack -RequiredVersion 1.4.0 -Force
-  ```
+    > [!Note]  
+    To upgrade from the 1.2.11 version, see the [Migration Guide](https://aka.ms/azspowershellmigration).
+
+    ````PowerShell  
+    Import-Module -Name PowerShellGet -ErrorAction Stop
+    Import-Module -Name PackageManagement -ErrorAction Stop
+
+      $Path = "<Path that is used to save the packages>"
+      Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 1.2.11
+      Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.4.0
+    ````
 
   - Azure Stack 1803 or earlier.
 
-  ```PowerShell  
-    Use-AzureRmProfile -Profile 2017-03-09-profile -Force
-    Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
-  ```
+    ````PowerShell  
+    Import-Module -Name PowerShellGet -ErrorAction Stop
+    Import-Module -Name PackageManagement -ErrorAction Stop
+
+      $Path = "<Path that is used to save the packages>"
+      Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 1.2.11
+      Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.3.0
+    ````
 
 Download the Azure Stack tools and connect.
 
