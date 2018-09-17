@@ -3,7 +3,7 @@ title: Add a new Azure Stack tenant account in Azure Active Directory | Microsof
 description: After deploying Microsoft Azure Stack Development Kit, you’ll need to create at least one tenant user account so you can explore the tenant portal.
 services: azure-stack
 documentationcenter: ''
-author: PatAltimore
+author: jeffgilb
 manager: femila
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
-ms.author: patricka
+ms.author: jeffgilb
 ms.reviewer: unknown
 ---
 
