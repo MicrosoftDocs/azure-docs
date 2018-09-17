@@ -63,7 +63,7 @@ In a [hybrid identity](https://resources.office.com/ww-landing-M365E-EMS-IDAM-Hy
 
 Even if you decide to use federation with Active Directory Federation Services (AD FS) or other identity providers, you can optionally set up password hash synchronization as a backup in case your on-premises servers fail or become temporarily unavailable. This enables users to sign in to the service by using the same password that they use to sign in to their on-premises Active Directory instance. It also allows Identity Protection to detect compromised credentials by comparing those password hashes with passwords known to be compromised, if a user has used their same email address and password on other services not connected to Azure AD.
 
-For more information, see [Implement password hash synchronization with Azure AD Connect sync](../active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization).
+For more information, see [Implement password hash synchronization with Azure AD Connect sync](../active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md).
 
 Organizations that don’t integrate their on-premises identity with their cloud identity can have more overhead in managing accounts. This overhead increases the likelihood of mistakes and security breaches.
 
@@ -119,7 +119,7 @@ This is the most flexible way to enable two-step verification for your users. En
 - Configure automated responses to detected suspicious actions that are related to your organization’s identities.
 - Investigate suspicious incidents and take appropriate action to resolve them.
 
-This method uses the Azure AD Identity Protection risk evaluation to determine if two-step verification is required based on user and sign-in risk for all cloud applications. This method requires Azure Active Directory P2 licensing. You can find more information on this method in [Azure Active Directory Identity Protection](../active-directory/active-directory-identityprotection.md#risky-sign-ins).
+This method uses the Azure AD Identity Protection risk evaluation to determine if two-step verification is required based on user and sign-in risk for all cloud applications. This method requires Azure Active Directory P2 licensing. You can find more information on this method in [Azure Active Directory Identity Protection](../active-directory/identity-protection/overview.md#risky-sign-ins).
 
 > [!Note]
 > Option 1, enabling Multi-Factor Authentication by changing the user state, overrides conditional policies. Because options 2 and 3 use conditional access policies, you cannot use option 1 with them.
@@ -129,7 +129,7 @@ Organizations that don’t add extra layers of identity protection, such as two-
 ## Use role-based access control (RBAC)
 Restricting access based on the [need to know](https://en.wikipedia.org/wiki/Need_to_know) and [least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) security principles is imperative for organizations that want to enforce security policies for data access. You can use [role-based access control (RBAC)](../role-based-access-control/overview.md) to assign permissions to users, groups, and applications at a certain scope. The scope of a role assignment can be a subscription, a resource group, or a single resource.
 
-You can use [built-in RBAC](../role-based-access-control/built-in-roles) roles in Azure to assign privileges to users. Organizations that do not enforce data access control by using capabilities such as RBAC might be giving more privileges than necessary to their users. This can lead to data compromise by allowing user access to certain types of data (for example, high business impact) that they shouldn’t have.
+You can use [built-in RBAC](../role-based-access-control/built-in-roles.md) roles in Azure to assign privileges to users. Organizations that do not enforce data access control by using capabilities such as RBAC might be giving more privileges than necessary to their users. This can lead to data compromise by allowing user access to certain types of data (for example, high business impact) that they shouldn’t have.
 
 ## Lower exposure of privileged accounts
 Securing privileged access is a critical first step to protecting business assets. Minimizing the number of people who have access to secure information or resources reduces the chance of a malicious user getting access, or an authorized user inadvertently affecting a sensitive resource.
@@ -165,7 +165,7 @@ The following summarizes the best practices found in [Securing privileged access
 Evaluate the accounts that are assigned or eligible for the global admin role. If you don’t see any cloud-only accounts by using the `*.onmicrosoft.com` domain (intended for emergency access), create them. For more information, see Managing emergency access administrative accounts in Azure AD.
 
 **Best practice**: Turn on Multi-Factor Authentication, and register all other highly privileged single-user non-federated admin accounts.  
-**Detail**: Require Azure Multi-Factor Authentication at sign-in for all individual users who are permanently assigned to one or more of the Azure AD admin roles: global administrator, privileged role administrator, Exchange Online administrator, and SharePoint Online administrator. Use the guide to enable [Multi-Factor Authentication for your admin accounts](;;/active-directory/authentication/howto-mfa-userstates.md) and ensure that all those users have [registered](https://aka.ms/mfasetup).
+**Detail**: Require Azure Multi-Factor Authentication at sign-in for all individual users who are permanently assigned to one or more of the Azure AD admin roles: global administrator, privileged role administrator, Exchange Online administrator, and SharePoint Online administrator. Use the guide to enable [Multi-Factor Authentication for your admin accounts](../active-directory/authentication/howto-mfa-userstates.md) and ensure that all those users have [registered](https://aka.ms/mfasetup).
 
 **Best practice**: Take steps to mitigate the most frequently used attacked techniques.  
 **Detail**:
