@@ -3,7 +3,7 @@ title: include file
 description: include file
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
+author: navyasric
 manager: mtillman
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/19/2018
-ms.author: andret
+ms.date: 09/17/2018
+ms.author: nacanuma
 ms.custom: include file
 
 ---
@@ -30,9 +30,9 @@ ms.custom: include file
 > And then  skip to the [Configuration step](#register-your-application) to configure the code sample before executing it.
 
 ## Prerequisites
-A local web server such as [Node.js](https://nodejs.org/en/download/), [.NET Core](https://www.microsoft.com/net/core), or IIS Express integration with [Visual Studio 2017](https://www.visualstudio.com/downloads/) is required to run this guided setup.
+A local web server such as [Node.js](https://nodejs.org/en/download/), [.NET Core](https://www.microsoft.com/net/core), or IIS Express integration with [Visual Studio 2017](https://www.visualstudio.com/downloads/) is required to run this tutorial.
 
-Instructions in this guide are based on both Node and Visual Studio 2017, but feel free to use any other development environment or Web Server.
+Instructions in this guide are based on both Node.js and Visual Studio 2017, but feel free to use any other development environment or Web Server.
 
 ## Create your project
 
