@@ -1,11 +1,10 @@
 ---
-title: Load Balancer Outbound Rules | Microsoft Docs
+title: Outbound rules in Azure Load Balancer| Microsoft Docs
 description: Use outbound rules to define outbound network address translations
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
-editor: ''
+manager: jpconnock
 tags: azure-resource-manager
 
 ms.service: load-balancer

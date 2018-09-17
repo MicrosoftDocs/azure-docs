@@ -18,12 +18,12 @@ ms.date: 09/16/2018
 ms.author: kumud
 ---
 
-# Load Balancer with TCP Reset on idle timeout (Preview)
+# Load Balancer with TCP Reset on idle timeout (Public Preview)
 
 You can use [Standard Load Balancer](load-balancer-standard-overview.md) to create a more predictable application behavior for your scenarios with bidirectional TCP Resets (TCP RST packet) for each configurable idle timeouts.  Load Balancer's default behavior is to silently drop flows when the idle timeout of a flow is reached.
 
 >[!NOTE] 
->This ability is available as Preview at this time and available in a limited set of [regions](#regions).
+>Load Balancer with TCP reset on idle timeout functionality is available as Public Preview at this time and available in a limited set of [regions](#regions). This preview is provided without a service level agreement and is not recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
  
 You change this default behavior and enable sending TCP Resets on idle timeout on inbound NAT rules, load balancing rules, and [outbound rules](https://aka.ms/lboutboundrules).  When enabled per rule, Load Balancer will send bidirectional TCP Reset (TCP RST packets) to both client and server endpoints at the time of idle timeout for all matching flows.
 
