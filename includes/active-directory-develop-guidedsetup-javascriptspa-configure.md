@@ -28,9 +28,9 @@ Now you need to register your application in the *Microsoft Application Registra
 
 <p/>
 
-> #### Setting Redirect URL for Python
-> For Python, you can set the web server port via command line. This guided setup uses the port 8080 for reference but feel free to use any other port available. In any case, follow the instructions below to set up a redirect URL in the application registration information:<br/>
-> - Switch back to the *Application Registration Portal* and set `http://localhost:8080/` as a `Redirect URL`, or use `http://localhost:[port]/` if you are using a custom TCP port (where *[port]* is the custom TCP port number) and click 'Save'
+> #### Setting Redirect URL for Node
+> For Node, you can set the web server port in the *server.js* file. This guided setup uses the port 30662 for reference but feel free to use any other port available. In any case, follow the instructions below to set up a redirect URL in the application registration information:<br/>
+> - Switch back to the *Application Registration Portal* and set `http://localhost:30662/` as a `Redirect URL`, or use `http://localhost:[port]/` if you are using a custom TCP port (where *[port]* is the custom TCP port number) and click 'Save'
 
 
 #### Configure your JavaScript SPA

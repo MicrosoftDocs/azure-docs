@@ -15,28 +15,28 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/19/2018
 ms.author: andret
-ms.custom: include file 
+ms.custom: include file
 
 ---
 
 ## Setting up your web server or project
 
-> Prefer to download this sample's project instead? 
+> Prefer to download this sample's project instead?
 > - [Download the Visual Studio project](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/VisualStudio.zip)
 >
 > or
-> - [Download the project files](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/core.zip) for a local web server, such as Python
+> - [Download the project files](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/core.zip) for a local web server, such as Node
 >
 > And then  skip to the [Configuration step](#register-your-application) to configure the code sample before executing it.
 
 ## Prerequisites
-A local web server such as [Python http.server](https://www.python.org/downloads/), [http-server](https://www.npmjs.com/package/http-server/), [.NET Core](https://www.microsoft.com/net/core), or IIS Express integration with [Visual Studio 2017](https://www.visualstudio.com/downloads/) is required to run this guided setup. 
+A local web server such as [Node.js](https://nodejs.org/en/download/), [.NET Core](https://www.microsoft.com/net/core), or IIS Express integration with [Visual Studio 2017](https://www.visualstudio.com/downloads/) is required to run this guided setup.
 
-Instructions in this guide are based on both Python and Visual Studio 2017, but feel free to use any other development environment or Web Server.
+Instructions in this guide are based on both Node and Visual Studio 2017, but feel free to use any other development environment or Web Server.
 
-## Create your project 
+## Create your project
 
-> ### Option 1: Visual Studio 
+> ### Option 1: Visual Studio
 > If you are using Visual Studio and are creating a new project, follow the steps below to create a new Visual Studio solution:
 > 1.	In Visual Studio:  `File` > `New` > `Project`
 > 2.	Under `Visual C#\Web`, select `ASP.NET Web Application (.NET Framework)`
@@ -45,8 +45,8 @@ Instructions in this guide are based on both Python and Visual Studio 2017, but 
 
 <p/><!-- -->
 
-> ### Option 2: Python/ other web servers
-> Make sure you have installed [Python](https://www.python.org/downloads/), then follow the step below:
+> ### Option 2: Node/ other web servers
+> Make sure you have installed [Node.js](https://nodejs.org/en/download/), then follow the step below:
 > -	Create a folder to host your application.
 
 

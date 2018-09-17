@@ -15,9 +15,9 @@ Configure the `Redirect URL` field with the URL for your index.html page based o
 
 <p/>
 
-> #### Setting Redirect URL for Python
-> For Python, you can set the web server port via command line. This guided setup uses the port 8080 for reference but feel free to use any other port available. In any case, use the following instructions to set up a redirect URL in the application registration information:<br/>
-> Set `http://localhost:8080/` as a `Redirect URL` on the top of this page, or use `http://localhost:[port]/` if you are using a custom TCP port (where *[port]* is the custom TCP port number), and then click 'Update'
+> #### Setting Redirect URL for Node
+> For Node, you can set the web server port in the *server.js* file. This guided setup uses the port 30662 for reference but feel free to use any other port available. In any case, use the following instructions to set up a redirect URL in the application registration information:<br/>
+> Set `http://localhost:30662/` as a `Redirect URL` on the top of this page, or use `http://localhost:[port]/` if you are using a custom TCP port (where *[port]* is the custom TCP port number) and then click 'Update'
 
 ### Configure your JavaScript SPA application
 

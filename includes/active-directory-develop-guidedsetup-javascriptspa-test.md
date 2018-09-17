@@ -3,20 +3,21 @@
 ### Test with Visual Studio
 If you're using Visual Studio, press **F5** to run your project. The browser opens to the http://<span></span>localhost:{port} location and you see the **Call Microsoft Graph API** button.
 
-<p/><!-- --> 
+<p/><!-- -->
 
-### Test with Python or other web server
-If you're not using Visual Studio, make sure your web server is started. Configure the server to listen to a TCP port that's based on the location of your **index.html** file. For Python, start to listen to the port by running the command prompt terminal from the application folder:
- 
+### Test with Node or other web server
+If you're not using Visual Studio, make sure your web server is started. Configure the server to listen to a TCP port that's based on the location of your **index.html** file. For Node, start the web server to listen to the port by running the following commands on a command line prompt from the application folder:
+
 ```bash
-python -m http.server 8080
+npm install
+node server.js
 ```
-Open the browser and type http://<span></span>localhost:8080 or http://<span></span>localhost:{port} where **port** is the port that your web server is listening to. You should see the contents of your index.html file and the **Call Microsoft Graph API** button.
+Open the browser and type http://<span></span>localhost:30662 or http://<span></span>localhost:{port} where **port** is the port that your web server is listening to. You should see the contents of your index.html file and the **Call Microsoft Graph API** button.
 
 ## Test your application
 
 After the browser loads your index.html file, select **Call Microsoft Graph API**. The first time that you run your application, the browser redirects you to the Microsoft Azure Active Directory (Azure AD) v2.0 endpoint and you're prompted to sign in:
- 
+
 ![Sign in to your JavaScript SPA account](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspascreenshot1.png)
 
 
