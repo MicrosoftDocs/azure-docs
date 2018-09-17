@@ -14,10 +14,10 @@
 #   items:
 #   - name: Create app to manage facilities
 #     href: tutorial-facilities-app.md
-#- name: Concepts
-#  items:
-#  - name: Overview of device management
-#    href: iot-hub-device-management-overview.md
+- name: Concepts
+ items:
+ - name: Understanding Object Model and Spatial Intelligence Graph
+   href: concepts-objectmodel-spatialgraph.md
 #- name: How-to guides
 #  items:
 #- name: Reference
