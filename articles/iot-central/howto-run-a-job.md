@@ -53,6 +53,10 @@ This section shows you how to create and run a job. Each step goes through an ex
 > [!NOTE]
 > You will be able to view the history of your previously run jobs for up to 30 days.
 
+1. To get an overview of your job, click on the job name you wish to view from your list. This overview contains the job details, devices, and device statuses.
+
+    ![View device status](./media/howto-run-a-job/viewdevicestatus.png)
+
 ### Stop a Running Job
 
 If you would like to stop a job that is currently running, click on the name of the running job that you would like to stop. Choose the **Stop** button on the panel. You’ll see the job status has changed to reflect that the job has been stopped.
@@ -91,8 +95,6 @@ In order to view the status of each device in the job, click on the job name. He
 
 > [!NOTE]
 > If a device has been deleted, you won't be able to select the device and it will display as deleted with the device ID.
-
-    ![View device status](./media/howto-run-a-job/viewdevicestatus.png)
 
 ## Next Steps
 
