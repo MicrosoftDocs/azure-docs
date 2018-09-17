@@ -12,11 +12,11 @@ manager: carmonm
 ---
 # Manage pre and post scripts
 
-Pre and post scripts lets you run scripts before (pre-task) and after (post-task) an update deployment. These tasks can target any PowerShell runbook that is in your Automation Account. Pre and post scripts run in Azure and not the local machines.
+Pre and post scripts let you run PowerShell runbooks in your Automation Account before (pre-task) and after (post-task) an update deployment. Pre and post scripts run in the Azure context and not locally.
 
 ## Passing parameters
 
-When you configure pre and post scripts you can pass in parameters just like scheduling a runbook. Parameters are defined at the time of update deployment creation. In addition to your standard runbook parameters an additional parameter is provided. This parameter is **SoftwareUpdateConfigurationRunContext**. This parameter is a JSON string, and if you define the paramter in your pre or post script, it is automatically passed in by the update deployment. The parameter contains information about the update deployment. The following table shows you the properties that are provided in the variable:
+When you configure pre and post scripts you can pass in parameters just like scheduling a runbook. Parameters are defined at the time of update deployment creation. In addition to your standard runbook parameters an additional parameter is provided. This parameter is **SoftwareUpdateConfigurationRunContext**. This parameter is a JSON string, and if you define the parameter in your pre or post script, it is automatically passed in by the update deployment. The parameter contains information about the update deployment which is a subset of information returned by the [SoftwareUpdateconfigurations API](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration) The following table shows you the properties that are provided in the variable:
 
 ### SoftwareUpdateConfigurationRunContext properties
 
@@ -26,7 +26,7 @@ When you configure pre and post scripts you can pass in parameters just like sch
 |SoftwareUpdateConfigurationRunId     | The unique id for the run.        |
 |SoftwareUpdateConfigurationSettings     | A collection of properties related to the Software Update Configuration         |
 |SoftwareUpdateConfigurationSettings.operatingSystem     | The operating systems targeted for the update deployment         |
-|SoftwareUpdateConfigurationSettings.duration     | The duration of the update deployment run as `PT[n]H[n]M[n]S` as per ISO8601          |
+|SoftwareUpdateConfigurationSettings.duration     | The maxiumum duration of the update deployment run as `PT[n]H[n]M[n]S` as per ISO8601, also called the "maintenance window"          |
 |SoftwareUpdateConfigurationSettings.Windows     | A collection of properties related to Windows computers         |
 |SoftwareUpdateConfigurationSettings.Windows.excludedKbNumbers     | A list of KBs that are excluded from the update deployment        |
 |SoftwareUpdateConfigurationSettings.Windows.includedUpdateClassifications     | Update classifications selected for the update deployment        |
@@ -38,7 +38,7 @@ The following is an example of a JSON string passed in to the **SoftwareUpdateCo
 
 ```json
 "SoftwareUpdateConfigurationRunContext":{
-      "SoftwareUpdateConfigurationName":"sampleSUC",
+      "SoftwareUpdateConfigurationName":"sampleConfiguration",
       "SoftwareUpdateConfigurationRunId":"00000000-0000-0000-0000-000000000000",
       "SoftwareUpdateConfigurationSettings":{
          "operatingSystem":"Windows",
@@ -63,6 +63,8 @@ The following is an example of a JSON string passed in to the **SoftwareUpdateCo
       }
    }
 ```
+
+A full example with all properties can be found at: [Software Update Configurations - Get By Name](/rest/api/automation/softwareupdateconfigurations/getbyname#examples)
 
 ## Samples
 
@@ -105,6 +107,7 @@ $AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConn
 #endregion BoilerplateAuthentication
 
 #If you wish to use the run context, it must be converted from JSON
+
 $context = ConvertFrom-Json  $SoftwareUpdateConfigurationRunContext
 #Access the properties of the SoftwareUpdateConfigurationRunContext
 $vmIds = $context.SoftwareUpdateConfigurationSettings.AzureVirtualMachines
@@ -146,10 +149,10 @@ Add-AzureRmAccount `
 
 $AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
 
-$resourceGroup = "DefaultResourceGroup-WCUS"
-$aaName = "Automate-5c028ac2-6c43-4fd8-875c-6d059beb2ef5-WCUS"
+$resourceGroup = "AzureAutomationResourceGroup"
+$aaName = "AzureAutomationAccountName"
 
-$output = Start-AzureRmAutomationRunbook -Name "StartService" -ResourceGroupName $resourceGroup  -AutomationAccountName $aaName -RunOn "frontendDemoWorker"
+$output = Start-AzureRmAutomationRunbook -Name "StartService" -ResourceGroupName $resourceGroup  -AutomationAccountName $aaName -RunOn "hybridWorker"
 
 $status = Get-AzureRmAutomationJob -Id $output.jobid -ResourceGroupName $resourceGroup  -AutomationAccountName $aaName
 while ($status.status -ne "Completed")
