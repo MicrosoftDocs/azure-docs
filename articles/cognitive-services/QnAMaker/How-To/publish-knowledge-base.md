@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Publishing your knowledge base is the final step in making your knowledge base available as a question-answering endpoint. When you publish a knowledge base, the QnA contents of your knowledge base moves from the test index to a production index in Azure search.
 services: cognitive-services
 author: tulasim88
-manager: cgronlun
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
