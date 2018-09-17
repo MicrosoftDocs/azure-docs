@@ -17,10 +17,13 @@ ms.date: 09/21/2018
 ms.author: rkarlin
 
 ---
-# Secure score in Azure Security Center
-[!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
+# Improve your secure score in Azure Security Center
+
 
 With so many services offering security benefits, it's often hard to know what steps to take first to secure and harden your workload. The Azure Security Center secure score reviews your security recommendations and prioritizes them for you, so you know which recommendations to perform first, helping you find the most serious security vulnerabilities so you can prioritize investigation. Secure score is a measurement tool that helps you harden your security to achieve a secure workload.
+
+[!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
+
 
 ![Secure score dashboard](./media/security-center-secure-score/secure-score-dashboard.png)
 
