@@ -41,8 +41,6 @@
     href: application-gateway-ssl-policy-overview.md
   - name: Web application firewall
     href: waf-overview.md
-  - name: Autoscaling and zone-redundant Application Gateway
-    href: application-gateway-autoscaling-zone-redundant.md
   - name: URL routing
     href: url-route-overview.md
   - name: Multiple site hosting
@@ -55,8 +53,6 @@
     href: application-gateway-probe-overview.md
   - name: WebSocket support
     href: application-gateway-websocket.md
-  - name: WAF configuration
-    href: application-gateway-waf-configuration.md 
 - name: How-to guides
   items:
   - name: Manage web traffic
