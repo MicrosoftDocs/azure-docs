@@ -175,4 +175,4 @@ Share your feedback about this preview feature or report issues using it on the 
 
 ## Next steps
 
-For more information on Azure Active Directory, see [What is Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) and [How to get started with Azure Active Directory](../../active-directory/fundamentals/get-started-azure-ad.md)
+For more information on Azure Active Directory, see [What is Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)

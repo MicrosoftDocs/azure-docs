@@ -4,11 +4,11 @@ description: This topic demonstrates how to find exact moments within videos.
 services: cognitive services
 documentationcenter: ''
 author: juliako
-manager: erikre
+manager: femila
 
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 09/09/2018
+ms.date: 09/15/2018
 ms.author: juliako
 
 ---

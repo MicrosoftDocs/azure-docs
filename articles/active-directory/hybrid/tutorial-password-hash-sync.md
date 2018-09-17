@@ -10,7 +10,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2018
+ms.date: 09/17/2018
 ms.component: hybrid
 ms.author: billmath
 
@@ -25,10 +25,15 @@ The following tutorial will walk you through creating a hybrid identity environm
 ## Prerequisites
 The following are prerequisites required for completing this tutorial
 - A computer with [Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-technology-overview) installed.  It is suggested to do this on either a [Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/about/supported-guest-os) or a [Windows Server 2016](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) computer.
+- An [external network adapter](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/connect-to-network) to allow the virtual machine to communicate with the internet.
 - An [Azure subscription](https://azure.microsoft.com/en-us/free)
 - A copy of Windows Server 2016
 
 > [!NOTE]
+> This tutorial uses PowerShell scripts so that you can create the tutorial environment in the quickest amount of time.  Each of the scripts uses variables that are declared at the beginning of the scripts.  You can and should change the variables to reflect your environment.
+>
+>The scripts used create a general Active Directory environment prior to installing Azure AD Connect.  They are relevant for all of the tutorials.
+>
 > Copies of the PowerShell scripts that are used in this tutorial are available on Github [here](https://github.com/billmath/tutorial-phs).
 
 ## Create a Virtual Machine
@@ -173,7 +178,7 @@ Now we need to create an Azure AD tenant so that we can synchronize our users to
 2. Select the **plus icon (+)** and search for **Azure Active Directory**.
 3. Select **Azure Active Directory** in the search results.
 4. Select **Create**.
-![Create](media/tutorial-password-hash-sync/create1.png)
+![Create](media/tutorial-password-hash-sync/create1.png)</br>
 5. Provide a **name for the organization** along with the **initial domain name**. Then select **Create**. This will create your directory.
 6. Once this has completed, click the **here** link, to manage the directory.
 
@@ -182,7 +187,6 @@ Now that we have an Azure AD tenant, we will create a global administrator accou
 
 1.  Under **Manage**, select **Users**.</br>
 ![Create](media/tutorial-password-hash-sync/gadmin1.png)</br>
-
 2.  Select **All users** and then select **+ New user**.
 3.  Provide a name and username for this user. This will be your Global Admin for the tenant. You will also want to change the **Directory role** to **Global administrator.** You can also show the temporary password. When you are done, select **Create**.
 ![Create](media/tutorial-password-hash-sync/gadmin2.png)
@@ -196,7 +200,7 @@ Now it is time to download and install Azure AD Connect.  Once it has been insta
 2. Navigate to and double-click **AzureADConnect.msi**.
 3. On the Welcome screen, select the box agreeing to the licensing terms and click **Continue**.  
 4. On the Express settings screen, click **Use express settings**.  
-![Create](media/tutorial-password-hash-sync/express1.png)
+![Create](media/tutorial-password-hash-sync/express1.png)</br>
 5. On the Connect to Azure AD screen, enter the username and password the global administrator for Azure AD. Click **Next**.  
 6. On the Connect to AD DS screen, enter the username and password for an enterprise admin account. Click **Next**.  
 7. On the Ready to configure screen, click **Install**.

@@ -12,20 +12,20 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/05/2018
+ms.date: 09/17/2018
 ms.reviewer: olegan
 ms.author: mbullwin
 
 ---
 # Configuring the Application Insights SDK with ApplicationInsights.config or .xml
-The Application Insights .NET SDK consists of a number of NuGet packages. The
+The Application Insights SDKs consists of a number of NuGet packages. The
 [core package](http://www.nuget.org/packages/Microsoft.ApplicationInsights) provides the API for sending telemetry to
 the Application Insights. [Additional packages](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights) provide
 telemetry *modules* and *initializers* for automatically tracking telemetry from your application and its context. By
 adjusting the configuration file, you can enable or disable telemetry modules and initializers, and set parameters for
 some of them.
 
-The configuration file is named `ApplicationInsights.config` or `ApplicationInsights.xml`, depending on the type of your
+The configuration file is named `ApplicationInsights.config` (.NET) or `ApplicationInsights.xml` (Java), depending on the type of your
 application. It is automatically added to your project when you [install most versions of the SDK][start]. It is also added to a web app
 by [Status Monitor on an IIS server][redfield], or when you select the Application Insights
 [extension for an Azure website or VM](app-insights-azure-web-apps.md).
@@ -180,8 +180,6 @@ There is also a standard [sampling telemetry processor](app-insights-api-filteri
 
 ```
 
-
-
 ## Channel parameters (Java)
 These parameters affect how the Java SDK should store and flush the telemetry data that it collects.
 
@@ -239,7 +237,20 @@ Determines the maximum size in MB that is allotted to the persistent storage on 
    </ApplicationInsights>
 ```
 
+#### Local forwarder
 
+[Local forwarder](https://docs.microsoft.com/azure/application-insights/local-forwarder) is an agent that collects Application Insights or [OpenCensus](https://opencensus.io/) telemetry from a variety of SDKs and frameworks and routes it to Application Insights. It's capable of running under Windows and Linux. 
+
+```Java
+<Channel type="com.microsoft.applicationinsights.channel.concrete.localforwarder.LocalForwarderTelemetryChannel">
+   <DeveloperMode>false</DeveloperMode>
+   <EndpointAddress><!-- put the hostname:port of your LocalForwarder instance here --></EndpointAddress>
+
+   <!-- The properties below are optional. The values shown are the defaults for each property -->
+   <FlushIntervalInSeconds>5</FlushIntervalInSeconds><!-- must be between [1, 500]. values outside the bound will be rounded to nearest bound -->
+   <MaxTelemetryBufferCapacity>500</MaxTelemetryBufferCapacity><!-- units=number of telemetry items; must be between [1, 1000] -->
+</Channel>
+```
 
 ## InstrumentationKey
 This determines the Application Insights resource in which your data appears. Typically you create a separate resource, with a separate key, for each of your applications.
