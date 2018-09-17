@@ -22,9 +22,9 @@
 - name: Tutorials
   items:
   - name: Create highly available SQL databases
-    href: azure-stack-tutorial-sqlrp.md
+    href: azure-stack-tutorial-sql.md
   - name: Create highly available MySQL databases
-    href: azure-stack-tutorial-mysqlrp.md
+    href: azure-stack-tutorial-mysql.md
   - name: Deploy apps to Azure and Azure Stack
     href: azure-stack-solution-pipeline.md
   - name: Configure hybrid cloud identity
