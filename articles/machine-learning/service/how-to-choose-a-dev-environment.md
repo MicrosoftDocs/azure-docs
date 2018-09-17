@@ -16,7 +16,7 @@ ms.date: 8/6/2018
 
 Learn about the development environments that you can use with the Azure Machine Learning service. 
 
-The Azure Machine Learning service is platform agnostic, and doesn't require much from a development environment. It requires __Python 3__, and we recommend using __Conda__ to create isolated environments. __If you already have a development environment that meets those requirements__, you can skip this document and go to the [Configure your development environment](how-to-configure-environment.md) document.
+The Azure Machine Learning service is platform agnostic, and doesn't require a specific development environment. It requires __Python 3__, and we recommend using __Conda__ to create isolated environments. __If you already have a development environment that meets those requirements__, you can skip this document and go to the [Configure your development environment](how-to-configure-environment.md) document.
 
 The rest of this document discusses the development environments that we recommend:
 
