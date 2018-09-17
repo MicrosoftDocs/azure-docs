@@ -8,6 +8,10 @@
   items:
   - name: Create a site-to-site connection
     href: virtual-wan-site-to-site-portal.md
+- name: Concepts
+  items:
+  - name: Locations and partners
+    href: virtual-wan-locations-partners.md
 - name: How-to guides
   items:
   - name: Virtual WAN partners - automation
