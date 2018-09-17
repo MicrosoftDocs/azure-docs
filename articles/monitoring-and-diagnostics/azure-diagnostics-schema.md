@@ -59,8 +59,8 @@ Different versions of Azure diagnostics use different configuration schemas.
 ## Version history
 
 ### Diagnostics extension 1.11
-Added support for the Azure Monitor sink. This sink is only applicable to Performance Counters. Enables sending performance counters collected on your VM, VMSS, or cloud service to Azure Monitor as custom metrics. Metrics sent to the Azure Monitor will support:
-* Retrieving all performance counters sent to Azure Monitor via the [Azure Monitor metrics APIs.](https://docs.microsoft.com/rest/api/monitor/)
+Added support for the Azure Monitor sink. This sink is only applicable to performance counters. Enables sending performance counters collected on your VM, VMSS, or cloud service to Azure Monitor as custom metrics. The Azure Monitor sink supports:
+* Retrieving all performance counters sent to Azure Monitor via the [Azure Monitor metrics APIs.](https://docs.microsoft.com/rest/api/monitor/metrics/list)
 * Alerting on all performance counters sent to Azure Monitor via the new [unified alerts experience](monitoring-overview-unified-alerts.md) in Azure Monitor
 * Treating wildcard operator in performance counters as the "Instance" dimension on your metric. For example if you collected the "LogicalDisk(\*)/DiskWrites/sec" counter you would be able to filter and split on the "Instance" dimension to plot or alert on the Disk Writes/sec for each Logical Disk (C:, D:, etc.)
 
