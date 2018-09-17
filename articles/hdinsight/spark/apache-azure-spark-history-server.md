@@ -12,7 +12,7 @@ ms.date: 09/14/2018
 ---
 # Use extended Spark History Server to debug and diagnose Spark applications
 
-This article provides guidance on how to use extended Spark History Server to debug and diagnose completed and running Spark applications. The extension includes data tab and graph tab and diagnosis tab. In data tab, users can check the input and output data of the Spark job. In graph tab, users can check the data flow and replay the job graph. In diagnosis tab,user can refer to Data skew, Time skew and Executor Usage analysis.
+This article provides guidance on how to use extended Spark History Server to debug and diagnose completed and running Spark applications. The extension includes data tab and graph tab and diagnosis tab. On the **Data** tab, users can check the input and output data of the Spark job. On the **Graph** tab, users can check the data flow and replay the job graph. On the **Diagnosis** tab, user can refer to **Data Skew**, **Time Skew** and **Executor Usage Analysis**.
 
 ## Get access to Spark History Server
 
@@ -160,15 +160,15 @@ Select job ID then click **Diagnosis** on the tool menu to get the job Diagnosis
     ![Diagnosis tabs](./media/apache-azure-spark-history-server/sparkui-diagnosis-tabs.png)
 
 ### Data Skew
-The **Data Skew** tab displays skewed tasks based on task data read. 
+Click **Data Skew** tab, the corresponding skewed tasks are displayed based on the specified parameters. 
 
-+ **Specify Parameters** - The first section displays the parameters which are used to detect Data Skew. The built-in rule is: Task Data Read is greater than 3 times of the average task data read, and the task data read is more than 10MB. If you want to define your own rule for skewed tasks, you can go to **Specify Parameters** section and choose your parameters, the **Skewed Stage** and **Skew Char** section will be refreshed accordingly. 
++ **Specify Parameters** - The first section displays the parameters which are used to detect Data Skew. The built-in rule is: Task Data Read is greater than 3 times of the average task data read, and the task data read is more than 10MB. If you want to define your own rule for skewed tasks, you can choose your parameters, the **Skewed Stage**, and **Skew Char** section will be refreshed accordingly.
 
-+ **Skewed Stage** - The second section displays stages which have skewed tasks meeting the criteria specified above. If there are more than one skewed task in a stage, the skewed stage table only displays the most skewed task (e.g. the largest data for data skew). The columns here display information around Stage, Task, Data Read and Execution Time which are helpful for you to troubleshoot and investigate more details. Click **Data Skew**, then filtered result is displayed in **Skewed Stage** section according to the parameters set in section **Specify Parameters**.
++ **Skewed Stage** - The second section displays stages which have skewed tasks meeting the criteria specified above. If there are more than one skewed task in a stage, the skewed stage table only displays the most skewed task (e.g. the largest data for data skew).
 
     ![Data skew section2](./media/apache-azure-spark-history-server/sparkui-diagnosis-dataskew-section2.png)
 
-+ **Skew Chart** – When a row in the skew stage table is selected, the skew chart displays more task distributions details based on data read and execution time. The skewed tasks are marked in red and the normal tasks are marked in blue. For performance consideration, the chart only displays up to 100 sample tasks. The task information is displayed in right bottom panel.
++ **Skew Chart** – When a row in the skew stage table is selected, the skew chart displays more task distributions details based on data read and execution time. The skewed tasks are marked in red and the normal tasks are marked in blue. For performance consideration, the chart only displays up to 100 sample tasks. The task details are displayed in right bottom panel.
 
     ![Data skew section3](./media/apache-azure-spark-history-server/sparkui-diagnosis-dataskew-section3.png)
 
@@ -177,7 +177,7 @@ The **Time Skew** tab displays skewed tasks based on task execution time.
 
 + **Specify Parameters** - The first section displays the parameters which are used to detect Time Skew. The default criteria to detect time skew is: task execution time is greater than 3 times of average execution time and task execution time is greater than 30 seconds. You can change the parameters based on your needs. The **Skewed Stage** and **Skew Chart** display the corresponding stages and tasks information just like the **Data Skew** tab above.
 
-+ Click **Time Skew**, then filtered result is displayed in **Skewed Stage** section according to the parameters set in section **Specify Parameters**. Click one item in **Skewed Stage** section, then the corresponding chart is drafted in section3, and the task information is displayed in right bottom panel.
++ Click **Time Skew**, then filtered result is displayed in **Skewed Stage** section according to the parameters set in section **Specify Parameters**. Click one item in **Skewed Stage** section, then the corresponding chart is drafted in section3, and the task details are displayed in right bottom panel.
 
     ![Time skew section2](./media/apache-azure-spark-history-server/sparkui-diagnosis-timeskew-section2.png)
 
@@ -312,7 +312,7 @@ If you want to upgrade with hotfix, use the script below which will upgrade spar
     ![upload log or upgrade hotfix](./media/apache-azure-spark-history-server/sparkui-upload2.png)
 
 
-## Known issue
+## Known issues
 
 1.	Currently, it only works for Spark 2.3 cluster.
 
