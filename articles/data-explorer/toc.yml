@@ -3,6 +3,7 @@
 - name: Overview
   items:
   - name: What is Data Explorer?
+    href: data-explorer-overview.md
 - name: Quickstarts
   expanded: true
   items:

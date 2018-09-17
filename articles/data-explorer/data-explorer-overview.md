@@ -14,13 +14,16 @@ ms.date: 09/24/2018
 
 # What is Azure Data Explorer?
 
-Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. It helps you to manage the many data streams emitted by modern software, so you can collect, store, and analyze data. Azure Data Explorer is ideal for analyzing large volumes of diverse data from any data source, such as websites, applications, and IoT devices. This data is used for diagnostics, monitoring, reporting, machine learning, and additional analytics capabilities. Azure Data Explorer makes it simple to ingest this data and enables you to perform complex ad-hoc queries on the data in seconds.
+Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. It helps you to handle the many data streams emitted by modern software, so you can collect, store, and analyze data. Azure Data Explorer is ideal for analyzing large volumes of diverse data from any data source, such as websites, applications, and IoT devices. This data is used for diagnostics, monitoring, reporting, machine learning, and additional analytics capabilities. Azure Data Explorer makes it simple to ingest this data and enables you to perform complex ad-hoc queries on the data in seconds.
 
 ## What makes Azure Data Explorer unique?
 
 - Supplies quick scaling to terabytes of data, in minutes, allowing rapid iterations of data exploration to discover relevant insights.
+
 - Offers an innovative query language, optimized for high performance data analytics.
+
 - Supports analysis of high volumes of heterogeneous data (structured and unstructured).
+
 - Provides the ability to build and deploy exactly what you need by combining with other services to supply an encompassing, powerful and interactive data analytics solution.
 
 ## Data warehousing workflow
@@ -43,7 +46,7 @@ Work in Azure Data Explorer generally follows this pattern:
 
 1. **Ingest data:** Load data into database tables so that you can run queries against it. [Quickstart: Ingest data from Event Hub into Azure Data Explorer](ingest-data-event-hub.md)
 
-1. **Query database:** Use our web application to run, review and share queries and results. It is available in the Azure portal and as a stand-alone application. In addition, you can send queries programmatically (using an SDK) or to a REST API endpoint. [Quickstart: Query data in Azure Data Explorer](web-query-data.md)
+1. **Query database:** Use our web application to run, review, and share queries and results. It is available in the Azure portal and as a stand-alone application. In addition, you can send queries programmatically (using an SDK) or to a REST API endpoint. [Quickstart: Query data in Azure Data Explorer](web-query-data.md)
 
 ## Query experience
 
@@ -51,7 +54,7 @@ A query in Azure Data Explorer is a read-only request to process data and return
 
 Azure Data Explorer handles large amounts of structured, semi-structured (JSON-like nested types) and unstructured (free-text) data equally well. It allows you to search for specific text terms, locate particular events, and perform metric-style calculations on structured data. Azure Data Explorer bridges the worlds of unstructured text logs and structured numbers and dimensions by extracting values in runtime from free-form text fields. Data exploration is simplified by combining fast text indexing, column store, and time series operations.
 
-Azure Data Explorer capabilities are extended by other services built on its powerful query language, including [Log Analytics](../log-analytics/), [Application Insights](../application-insights/), [Time Series Insights](../time-series-insights/), and [Windows Defender Advanced Threat Protection](/windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection/).
+Azure Data Explorer capabilities are extended by other services built on its powerful query language, including [Log Analytics](/azure/log-analytics/), [Application Insights](/azure/application-insights/), [Time Series Insights](/azure/time-series-insights/), and [Windows Defender Advanced Threat Protection](/windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection/).
 
 ## Feedback
 
@@ -59,7 +62,7 @@ We would be thrilled to hear your feedback regarding Azure Data Explorer and its
 
 - [Ask questions on the forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureKusto)
 
-- [Make product suggestion in User Voice](http://aka.ms/kustouservoice)
+- [Make product suggestions in User Voice](http://aka.ms/kustouservoice)
 
 ## Next steps
 
