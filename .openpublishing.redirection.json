@@ -15133,6 +15133,11 @@
             "redirect_url": "/azure/active-directory/develop/active-directory-developers-guide",
             "redirect_document_id": false
         },
+		        {
+            "source_path": "articles/active-directory/hybrid/whatis-hybrid-identity-health.md",
+            "redirect_url": "/azure/active-directory/hybrid/whatis-hybrid-identity",
+            "redirect_document_id": false
+        },
         {
             "source_path": "articles/active-directory/develop/GuidedSetups/active-directory-mobileanddesktopapp-android-intro.md",
             "redirect_url": "active-directory-android",
@@ -25634,7 +25639,7 @@
         },
 {
             "source_path": "articles/active-directory/connect-health/active-directory-aadconnect-health.md",
-            "redirect_url": "/azure/active-directory/hybrid/whatis-hybrid-identity-health",
+            "redirect_url": "/azure/active-directory/hybrid/whatis-hybrid-identity",
            "redirect_document_id": false
 },
         {
