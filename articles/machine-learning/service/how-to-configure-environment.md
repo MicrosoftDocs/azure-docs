@@ -35,27 +35,31 @@ The recommended approach is to use Continuum Anaconda [conda virtual environment
 
 ## Create workspace configuration file
 
-The workspace configuration file is used by the SDK to communicate with your Azure Machine Learning service workspace. To create the configuration file, use the following steps:
+The workspace configuration file is used by the SDK to communicate with your Azure Machine Learning service workspace.  There are two ways to get this file:
 
-1. Open your workspace in the [Azure portal](https://portal.azure.com). Copy the __Workspace name__, __Resource group__, and __Subscription ID__. These values are used to create the configuration file.
+* When you complete the [quickstart](quickstart-get-started.md), you will notice the file `config.json` is created for you in Azure notebooks.  This is the configuration file.  Download it into the same directory as the scripts or notebooks that reference it.
 
-    ![Azure portal](./media/how-to-configure-environment/configure.png) 
+* Create the configuration file yourself with following steps:
 
-3. In a text editor, create a file called **config.json**.  Add the following content to that file, inserting your values from the portal:
-
-    ```json
-    {
-    "subscription_id": "<subscription-id>",
-    "resource_group": "<resource-group>",
-    "workspace_name": "<workspace-name>"
-    }
-    ```
-
-    >[!NOTE] 
-    >Later in your code, you read this file with:  `ws = Workspace.from_config()`
-
-4. Be sure to save **config.json** into the same directory as the scripts or notebooks that reference it.
-
+    1. Open your workspace in the [Azure portal](https://portal.azure.com). Copy the __Workspace name__, __Resource group__, and __Subscription ID__. These values are used to create the configuration file.
+    
+        ![Azure portal](./media/how-to-configure-environment/configure.png) 
+    
+    3. In a text editor, create a file called **config.json**.  Add the following content to that file, inserting your values from the portal:
+    
+        ```json
+        {
+        "subscription_id": "<subscription-id>",
+        "resource_group": "<resource-group>",
+        "workspace_name": "<workspace-name>"
+        }
+        ```
+    
+        >[!NOTE] 
+        >Later in your code, you read this file with:  `ws = Workspace.from_config()`
+    
+    4. Be sure to save **config.json** into the same directory as the scripts or notebooks that reference it.
+    
 ## Azure Notebooks and Data Science Virtual Machine
 
 Azure Notebooks and Azure Data Science Virtual Machines (DSVM) are pre-configured to work with the Azure Machine Learning service. Required components, such as the Azure Machine Learning SDK, are pre-installed on these environments.
