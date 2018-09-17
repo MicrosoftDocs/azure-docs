@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/13/2018
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
@@ -35,24 +35,14 @@ To understand the basic scenario for each sample type, see [Authentication scena
 
 You can also contribute to our samples on GitHub. To learn how, see [Microsoft Azure Active Directory samples and documentation](https://github.com/Azure-Samples?page=3&query=active-directory).
 
-## Desktop and mobile public client applications calling Microsoft Graph or a Web API
+## Single-page applications
 
-The following samples illustrate public client applications (desktop/mobile applications) that access the Microsoft Graph or a Web API in the name of a user. Depending on the devices and platforms, applications can sign in users in different ways (flows/grants): 
+This sample shows how to write a single-page application secured with Azure AD.
 
-- interactively,
-- silently (with Integrated Windows Authentication on Windows, or Username/Password), 
-- or even by delegating the interactive sign-in to another device (device code flow used on devices which don't provide web controls).
-
-Client application | Platform | Flow/Grant | Calls Microsoft Graph | Calls an ASP.NET or ASP.NET Core 2.x Web API
------------------- | -------- | ---------- | -------------------- | -------------------------
-Desktop (WPF)           | ![.NET/C#](media/sample-v2-code/logo_NET.png)  | Interactive | Part of [dotnet-native-multitarget](https://github.com/azure-samples/active-directory-dotnet-native-multitarget) | [Dotnet-native-desktop](https://github.com/Azure-Samples/active-directory-dotnet-native-desktop) </p> [dotnet-native-aspnetcore](https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore/)</p> [dotnet-webapi-manual-jwt-validation](https://github.com/azure-samples/active-directory-dotnet-webapi-manual-jwt-validation)
-Mobile (UWP)            | .![.NET/C#/UWP](media/sample-v2-code/logo_Windows.png)   | Interactive | [dotnet-native-uwp-wam](https://github.com/azure-samples/active-directory-dotnet-native-uwp-wam) </p> This sample uses [WAM](https://docs.microsoft.com/en-us/windows/uwp/security/web-account-manager), not [ADAL.NET](https://aka.ms/adalnet)|  [dotnet-windows-store](https://github.com/Azure-Samples/active-directory-dotnet-windows-store) (UWP application using ADAL.NET to call a single tenant Web API) </p> [dotnet-webapi-multitenant-windows-store](https://github.com/Azure-Samples/active-directory-dotnet-webapi-multitenant-windows-store) (UWP application using ADAL.NET to call a multi-tenant Web API)|
-Mobile (Android, iOS, UWP)   | ![.NET/C# (Xamarin)](media/sample-v2-code/logo_xamarin.png) | Interactive | [dotnet-native-multitarget](https://github.com/azure-samples/active-directory-dotnet-native-multitarget) |
-Mobile (Android)           | ![Android / Java](media/sample-v2-code/logo_Android.png) | Interactive |   [android](https://github.com/Azure-Samples/active-directory-android) |
-Mobile (iOS)           | ![iOS / Objective C or swift](media/sample-v2-code/logo_iOS.png) | Interactive |   [nativeClient-iOS](https://github.com/azureadquickstarts/nativeclient-ios) |
-Desktop (Console)          | ![.NET/C#](media/sample-v2-code/logo_NET.png) | Username / Password </p>  Integrated Windows Authentication | | [dotnet-native-headless](https://github.com/azure-samples/active-directory-dotnet-native-headless)
-Desktop (Console)          | ![Java console](media/sample-v2-code/logo_Java.png) | Username / Password | | [java-native-headless](https://github.com/Azure-Samples/active-directory-java-native-headless)
-Desktop (Console)           | ![.NET Core/C#](media/sample-v2-code/logo_NETcore.png) | Device code flow | | [dotnet-deviceprofile](https://github.com/Azure-Samples/active-directory-dotnet-deviceprofile)
+ Platform | Calls its own API | Calls another Web API
+ -------- |  --------------------- | ------------------ | ----------------
+![JavaScript](media/sample-v2-code/logo_js.png) | [javascript-singlepageapp](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |
+![Angular JS](media/sample-v2-code/logo_angular.png) | [angularjs-singlepageapp](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp) | [angularjs-singlepageapp-cors](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp-dotnet-webapi)
 
 ## Web Applications
 
@@ -75,6 +65,25 @@ The following samples show how to implement role-based access control (RBAC). RB
 Platform | Sample
  -------- | -------------------
 ![ASP.NET 4.5](media/sample-v2-code/logo_NETframework.png)<p/> ASP.NET 4.5 | [dotnet-webapp-groupclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-groupclaims) <p/>  [dotnet-webapp-roleclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) | A .NET 4.5 MVC web app that uses Azure AD **roles** for authorization
+
+## Desktop and mobile public client applications calling Microsoft Graph or a Web API
+
+The following samples illustrate public client applications (desktop/mobile applications) that access the Microsoft Graph or a Web API in the name of a user. Depending on the devices and platforms, applications can sign in users in different ways (flows/grants): 
+
+- interactively,
+- silently (with Integrated Windows Authentication on Windows, or Username/Password), 
+- or even by delegating the interactive sign-in to another device (device code flow used on devices which don't provide web controls).
+
+Client application | Platform | Flow/Grant | Calls Microsoft Graph | Calls an ASP.NET or ASP.NET Core 2.x Web API
+------------------ | -------- | ---------- | -------------------- | -------------------------
+Desktop (WPF)           | ![.NET/C#](media/sample-v2-code/logo_NET.png)  | Interactive | Part of [dotnet-native-multitarget](https://github.com/azure-samples/active-directory-dotnet-native-multitarget) | [Dotnet-native-desktop](https://github.com/Azure-Samples/active-directory-dotnet-native-desktop) </p> [dotnet-native-aspnetcore](https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore/)</p> [dotnet-webapi-manual-jwt-validation](https://github.com/azure-samples/active-directory-dotnet-webapi-manual-jwt-validation)
+Mobile (UWP)            | .![.NET/C#/UWP](media/sample-v2-code/logo_Windows.png)   | Interactive | [dotnet-native-uwp-wam](https://github.com/azure-samples/active-directory-dotnet-native-uwp-wam) </p> This sample uses [WAM](https://docs.microsoft.com/windows/uwp/security/web-account-manager), not [ADAL.NET](https://aka.ms/adalnet)|  [dotnet-windows-store](https://github.com/Azure-Samples/active-directory-dotnet-windows-store) (UWP application using ADAL.NET to call a single tenant Web API) </p> [dotnet-webapi-multitenant-windows-store](https://github.com/Azure-Samples/active-directory-dotnet-webapi-multitenant-windows-store) (UWP application using ADAL.NET to call a multi-tenant Web API)|
+Mobile (Android, iOS, UWP)   | ![.NET/C# (Xamarin)](media/sample-v2-code/logo_xamarin.png) | Interactive | [dotnet-native-multitarget](https://github.com/azure-samples/active-directory-dotnet-native-multitarget) |
+Mobile (Android)           | ![Android / Java](media/sample-v2-code/logo_Android.png) | Interactive |   [android](https://github.com/Azure-Samples/active-directory-android) |
+Mobile (iOS)           | ![iOS / Objective C or swift](media/sample-v2-code/logo_iOS.png) | Interactive |   [nativeClient-iOS](https://github.com/azureadquickstarts/nativeclient-ios) |
+Desktop (Console)          | ![.NET/C#](media/sample-v2-code/logo_NET.png) | Username / Password </p>  Integrated Windows Authentication | | [dotnet-native-headless](https://github.com/azure-samples/active-directory-dotnet-native-headless)
+Desktop (Console)          | ![Java console](media/sample-v2-code/logo_Java.png) | Username / Password | | [java-native-headless](https://github.com/Azure-Samples/active-directory-java-native-headless)
+Desktop (Console)           | ![.NET Core/C#](media/sample-v2-code/logo_NETcore.png) | Device code flow | | [dotnet-deviceprofile](https://github.com/Azure-Samples/active-directory-dotnet-deviceprofile)
 
 ## Daemon applications (accessing Web APIs with the application's identity)
 
@@ -105,15 +114,6 @@ The following samples demonstrate a web API that calls another web API. The seco
  Platform |  Calls Microsoft Graph | Calls another ASP.NET or ASP.NET Core 2.0 Web API
  -------- |  --------------------- | -------------------------
 ![ASP.NET 4.5](media/sample-v2-code/logo_NETframework.png)<p/> ASP.NET 4.5 | [dotnet-webapi-onbehalfof](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof) <p/> [dotnet-webapi-onbehalfof-ca](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof-ca) |[dotnet-webapi-onbehalfof](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof) <p/> [dotnet-webapi-onbehalfof-ca](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof-ca)
-
-## Single page applications
-
-This sample shows how to write a single page application secured with Azure AD.
-
- Platform | Calls its own API | Calls another Web API
- -------- |  --------------------- | ------------------ | ----------------
-![JavaScript](media/sample-v2-code/logo_js.png) | [javascript-singlepageapp](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |
-![Angular JS](media/sample-v2-code/logo_angular.png) | [angularjs-singlepageapp](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp) | [angularjs-singlepageapp-cors](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp-dotnet-webapi)
 
 ## Other Microsoft Graph samples
 
