@@ -28072,6 +28072,11 @@
             "redirect_document_id" : true
         },
         {
+            "source_path": "articles/billing/billing-cost-analysis.md",
+            "redirect_url": "/azure/cost-management/quick-acm-cost-analysis",
+            "redirect_document_id" : true
+        },
+        {
             "source_path": "articles/dev-spaces/azure-dev-spaces.md",
             "redirect_url": "/azure/dev-spaces/index",
             "redirect_document_id" : true
