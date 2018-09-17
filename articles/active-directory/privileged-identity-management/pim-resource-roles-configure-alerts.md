@@ -48,5 +48,4 @@ Customize settings on the different alerts to work with your environment and sec
 
 ## Next steps
 
-- [Require multi-factor authentication for Azure resource roles in PIM](pim-resource-roles-require-mfa.md)
 - [Configure security alerts for Azure resource roles in PIM](pim-resource-roles-configure-alerts.md)

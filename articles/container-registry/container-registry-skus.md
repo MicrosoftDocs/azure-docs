@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 08/28/2018
+ms.date: 08/30/2018
 ms.author: marsma
 ---
 
@@ -17,9 +17,9 @@ Azure Container Registry (ACR) is available in multiple service tiers, known as 
 
 | SKU | Managed | Description |
 | --- | :-------: | ----------- |
-| **Basic** | Yes | A cost-optimized entry point for developers learning about Azure Container Registry. Basic registries have the same programmatic capabilities as Standard and Premium (Azure Active Directory authentication integration, image deletion, and web hooks), however, there are size and usage constraints. |
-| **Standard** | Yes | Standard registries offer the same capabilities as Basic, with increased storage limits and image throughput. Standard registries should satisfy the needs of most production scenarios. |
-| **Premium** | Yes | Premium registries provide higher limits on constraints such as storage and concurrent operations, enabling high-volume scenarios. In addition to higher image throughput capacity, Premium adds features like [geo-replication][container-registry-geo-replication] for managing a single registry across multiple regions, maintaining a network-close registry to each deployment. |
+| **Basic** | Yes | A cost-optimized entry point for developers learning about Azure Container Registry. Basic registries have the same programmatic capabilities as Standard and Premium (Azure Active Directory authentication integration, image deletion, and web hooks). However, the included storage and image throughput are most appropriate for lower usage scenarios. |
+| **Standard** | Yes | Standard registries offer the same capabilities as Basic, with increased included storage and image throughput. Standard registries should satisfy the needs of most production scenarios. |
+| **Premium** | Yes | Premium registries provide the highest amount of included storage and concurrent operations, enabling high-volume scenarios. In addition to higher image throughput, Premium adds features like [geo-replication][container-registry-geo-replication] for managing a single registry across multiple regions, and [content trust (preview)](container-registry-content-trust.md) for image tag signing. |
 | Classic<sup>1</sup> | No | This SKU enabled the initial release of the Azure Container Registry service in Azure. Classic registries are backed by a storage account that Azure creates in your subscription, which limits the ability for ACR to provide higher-level capabilities such as increased throughput and geo-replication. |
 
 <sup>1</sup> The Classic SKU will be **deprecated** in **March 2019**. Use Basic, Standard, or Premium for all new container registries.

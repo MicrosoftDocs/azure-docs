@@ -42,7 +42,7 @@ Storage](../articles/storage/common/storage-introduction.md).
 
 **Standard Storage**: Azure Standard Storage supports Azure Disks, Azure Blobs, Azure Files, Azure Tables, and Azure Queues. To use Standard Storage services, start with [Create an Azure Storage account](../articles/storage/common/storage-quickstart-create-account.md).
 
-**Standard SSD disks:** Standard SSD disks provide more reliable performance than Standard HDD disks, and are currently available in preview. For more information about region availability of Standard SSD disks, see [region availability of Standard SSD disks (Preview)](../articles/virtual-machines/windows/faq-for-disks.md#standard-ssds-azure-regions).
+**Standard SSD disks:** Standard SSD disks provide more reliable performance than Standard HDD disks, and are currently available. For more information about region availability of Standard SSD disks, see [region availability of Standard SSD disks](../articles/virtual-machines/windows/faq-for-disks.md#standard-ssds-azure-regions).
 
 **Standard HDD disks:** Standard HDD disks can be attached to all Azure VMs including size-series VMs used with Premium Storage such as the DSv2 and GS series. A Standard HDD disk can only be attached to one VM. However, you can attach one or more of these disks to a VM, up to the maximum disk count defined for that VM size. In the following section on Standard Storage Scalability and Performance Targets, we describe the specifications in more detail.
 

@@ -30,16 +30,16 @@ Tier 1 systems can be thought of as officially supported. This means that Micros
 Generally available
 | Operating System | AMD64 | ARM32 |
 | ---------------- | ----- | ----- |
-| Ubuntu Server 18.04 | Yes | No |
-| Ubuntu Server 16.04 | Yes | No |
 | Raspbian-stretch | No | Yes|
+| Ubuntu Server 16.04 | Yes | No |
+| Ubuntu Server 18.04 | Yes | No |
 
 Public Preview
 | Operating System | AMD64 | ARM32 |
 | ---------------- | ----- | ----- |
-| Windows 10 Server 1803 | Yes | No |
-| Windows 10 IoT Enterprise (April 2018 update) | Yes | No |
 | Windows 10 IoT Core (April 2018 update) | Yes | No |
+| Windows 10 IoT Enterprise (April 2018 update) | Yes | No |
+| Windows 10 Server 1803 | Yes | No |
 
 ### Tier 2
 Tier 2 systems can be thought of as compatible with Azure IoT Edge and can be used relatively easily. This means that:
@@ -48,14 +48,14 @@ Tier 2 systems can be thought of as compatible with Azure IoT Edge and can be us
 
 | Operating System | AMD64 | ARM32 |
 | ---------------- | ----- | ----- |
-| Ubuntu 18.04 | Yes | Yes |
-| Ubuntu 16.04 | Yes | Yes |
 | CentOS 7.5 | Yes | Yes |
-| RHEL 7.5 | Yes | Yes |
-| Wind River 8 | Yes | No |
-| Yocto | Yes | No |
 | Debian 8 | Yes | Yes |
 | Debian 9 | Yes | Yes |
+| RHEL 7.5 | Yes | Yes |
+| Ubuntu 18.04 | Yes | Yes |
+| Ubuntu 16.04 | Yes | Yes |
+| Wind River 8 | Yes | No |
+| Yocto | Yes | No |
 
 ## Container engines
 Azure IoT Edge needs a container engine to launch modules, regardless of the operating system on which it is running. Microsoft provides a container engine, moby-engine, to fulfill this requirement. It is based on the Moby open-source project. Docker CE and Docker EE are other popular container engines. They are also based on the Moby opens-source project and are compatible with Azure IoT Edge. Microsoft provides best effort support for systems using those container engines; however, Microsoft does not have the ability to ship fixes for issues in them. For this reason, Microsoft recommends using moby-engine on production systems.

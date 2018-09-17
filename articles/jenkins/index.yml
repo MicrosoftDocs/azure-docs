@@ -2,7 +2,7 @@
 documentType: LandingData
 title: Jenkins on Azure
 metadata:
-  title: Jenkins in Azure Documentation - Tutorials, samples, reference, and resources
+  title: Jenkins on Azure Documentation - Tutorials, samples, reference, and resources
   description: Deploy and integrate Jenkins with Azure 
   ms.service: jenkins
   keywords: jenkins, azure, devops, tutorials, samples, reference

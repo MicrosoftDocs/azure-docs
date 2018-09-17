@@ -1,6 +1,6 @@
 ---
-title: Azure hot, cool, and archive storage for blobs | Microsoft Docs
-description: Hot, cool, and archive storage for Azure storage accounts.
+title: Premium, hot, cool, and archive storage for blobs - Azure Storage
+description: Premium, hot, cool, and archive storage for Azure storage accounts.
 services: storage
 author: kuhussai
 
@@ -11,13 +11,33 @@ ms.author: kuhussai
 ms.component: blobs
 ---
 
-# Azure Blob storage: Hot, cool, and archive storage tiers
+# Azure Blob storage: Premium (preview), hot, cool, and archive storage tiers
 
 ## Overview
 
-Azure storage offers three storage tiers for Blob object storage so that you can store your data most cost-effectively depending on how you use it. The Azure **hot storage tier** is optimized for storing data that is accessed frequently. The Azure **cool storage tier** is optimized for storing data that is infrequently accessed and stored for at least 30 days. The Azure **archive storage tier** is optimized for storing data that is rarely accessed and stored for at least 180 days with flexible latency requirements (on the order of hours). The archive storage tier is only available at the blob level and not at the storage account level. Data in the cool storage tier can tolerate slightly lower availability, but still requires high durability and similar time-to-access and throughput characteristics as hot data. For cool data, a slightly lower availability SLA and higher access costs compared to hot data are acceptable trade-offs for lower storage costs. Archive storage is offline and offers the lowest storage costs but also the highest access costs. Only the hot and cool storage tiers (not archive) can be set at the account level. All three tiers can be set at the object level.
+Azure storage offers different storage tiers which allow you to store Blob object data in the most cost-effective manner. The available tiers include:
 
-Today, data stored in the cloud is growing at an exponential pace. To manage costs for your expanding storage needs, it's helpful to organize your data based on attributes like frequency-of-access and planned retention period to optimize costs. Data stored in the cloud can be different in terms of how it is generated, processed, and accessed over its lifetime. Some data is actively accessed and modified throughout its lifetime. Some data is accessed frequently early in its lifetime, with access dropping drastically as the data ages. Some data remains idle in the cloud and is rarely, if ever, accessed once stored.
+- **Premium storage (preview)** provides high performance hardware for data that is accessed frequently.
+ 
+- **Hot storage**: is optimized for storing data that is accessed frequently. 
+
+- **Cool storage** is optimized for storing data that is infrequently accessed and stored for at least 30 days.
+ 
+- **Archive storage** is optimized for storing data that is rarely accessed and stored for at least 180 days with flexible latency requirements (on the order of hours).
+
+The following considerations accompany the different storage tiers:
+
+- The archive storage tier is only available at the blob level and not at the storage account level.
+ 
+- Data in the cool storage tier can tolerate slightly lower availability, but still requires high durability and similar time-to-access and throughput characteristics as hot data. For cool data, a slightly lower availability SLA and higher access costs compared to hot data are acceptable trade-offs for lower storage costs.
+
+- Archive storage is offline and offers the lowest storage costs but also the highest access costs.
+ 
+- Only the hot and cool storage tiers (not archive) can be set at the account level.
+ 
+- All tiers can be set at the object level.
+
+Data stored in the cloud grows at an exponential pace. To manage costs for your expanding storage needs, it's helpful to organize your data based on attributes like frequency-of-access and planned retention period to optimize costs. Data stored in the cloud can be different in terms of how it is generated, processed, and accessed over its lifetime. Some data is actively accessed and modified throughout its lifetime. Some data is accessed frequently early in its lifetime, with access dropping drastically as the data ages. Some data remains idle in the cloud and is rarely, if ever, accessed once stored.
 
 Each of these data access scenarios benefits from a different storage tier that is optimized for a particular access pattern. With hot, cool, and archive storage tiers, Azure Blob storage addresses this need for differentiated storage tiers with separate pricing models.
 
@@ -26,6 +46,22 @@ Each of these data access scenarios benefits from a different storage tier that 
 You may only tier your object storage data to hot, cool, or archive in Blob storage or General Purpose v2 (GPv2) accounts. General Purpose v1 (GPv1) accounts do not support tiering. However, customers can easily convert their existing GPv1 or Blob storage accounts to GPv2 accounts through a simple one-click process in the Azure portal. GPv2 provides a new pricing structure for blobs, files, and queues, and access to a variety of other new storage features as well. Furthermore, going forward some new features and prices cuts will only be offered in GPv2 accounts. Therefore, customers should evaluate using GPv2 accounts but only use them after reviewing the pricing for all services as some workloads can be more expensive on GPv2 than GPv1. See [Azure storage account options](../common/storage-account-options.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) to learn more.
 
 Blob storage and GPv2 accounts expose the **Access Tier** attribute at the account level, which allows you to specify the default storage tier as hot or cool for any blob in the storage account that does not have the tier set at the object level. For objects with the tier set at the object level, the account tier will not apply. The archive tier can only be applied at the object level. You can switch between these storage tiers at any time.
+
+## Premium access tier
+
+Available in preview is a Premium access tier which makes frequently accessed data available via high-performance hardware. Data stored in this tier is stored on solid-state drives, which are optimized for lower latency an higher transactional rates compared to traditional hard drives. 
+
+The Premium access tier is only available via the Block Blob storage account type.
+
+This tier is ideal for workloads that require fast and consistent response times. Data that involves end-users such as interactive video editing, static web content, online transactions and the like are a good candidates for the Premium access tier. This tier is tailored for workloads that perform many small transactions, such as capturing telemetry data, messaging, and data transformation.
+
+To use this tier, provision a new Block Blob storage account and start creating containers and blobs using the [Blob Service REST API](/rest/api/storageservices/blob-service-rest-api), [AzCopy](/azure/storage/common/storage-use-azcopy), or [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
+
+During preview, the Premium access tier:
+
+- Is available as locally redundant storage (LRS)
+- Is only available in the following regions: North Europe, US East 2, US Central, and US West
+- Does not support automatic tiering and data lifecycle management
 
 ## Hot access tier
 
@@ -68,8 +104,10 @@ Blobs in all three storage tiers can co-exist within the same account. Any blob 
 > [!NOTE]
 > Archive storage and blob-level tiering only support block blobs. You also cannot change the tier of a block blob that has snapshots.
 
+Data stored in the Premium access tier cannot be tiered to Hot, Cool or Archive using [Set Blob Tier](/rest/api/storageservices/set-blob-tier) or using Azure Blob Storage lifecycle management. To move data, you must synchronously copy blobs from Premium access to Hot using the [Put Block From URL API](/rest/api/storageservices/put-block-from-url) or a version of AzCopy that supports this API. The *Put Block From URL* API synchronously copies data on the server, meaning the call completes only once all the data is moved from the original server location to the destination location.
+
 ### Blob lifecycle management
-Blob Storage lifecycle management (Preview) offers a rich, rule-based policy which you can use to transition your data to the best access tier and to expire data at the end of its lifecycle. See [Manage the Azure Blob storage lifecycle](https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts) to learn more.  
+Blob Storage lifecycle management (Preview) offers a rich, rule-based policy which you can use to transition your data to the best access tier and to expire data at the end of its lifecycle. See [Manage the Azure Blob storage lifecycle](https://docs.microsoft.com/azure/storage/common/storage-lifecycle-managment-concepts) to learn more.  
 
 ### Blob-level tiering billing
 
@@ -187,7 +225,7 @@ Data storage along with other limits are set at the account level and not per st
 
 [Check availability of hot, cool, and archive by region](https://azure.microsoft.com/regions/#services)
 
-[Manage the Azure Blob storage lifecycle](https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts)
+[Manage the Azure Blob storage lifecycle](https://docs.microsoft.com/azure/storage/common/storage-lifecycle-managment-concepts)
 
 [Evaluate usage of your current storage accounts by enabling Azure Storage metrics](../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 

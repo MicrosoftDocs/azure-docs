@@ -1,18 +1,13 @@
 ---
 title: Azure Disk Encryption with Azure AD App Prerequisites (previous release) | Microsoft Docs
 description: This article provides prerequisites for using Microsoft Azure Disk Encryption for IaaS VMs.
-services: security
-documentationcenter: na
 author: mestew
-manager: MBaldwin
-ms.assetid: 973cbdc1-12bc-4e0e-90cd-f19b045417a2
 ms.service: security
-ms.devlang: na
+ms.subservice: Azure Disk Encryption
 ms.topic: article
-ms.tgt_pltfrm: na 
-ms.workload: na
-ms.date: 08/28/2018
 ms.author: mstewart
+ms.date: 09/10/2018
+
 ---
 # Azure Disk Encryption prerequisites (previous release)
 
@@ -198,7 +193,7 @@ You can create a key vault by using the [Resource Manager template](https://gith
 
 
 ## <a name="bkmk_ADapp"></a> Set up an Azure AD app and service principal 
-When you need encryption to be enabled on a running VM in Azure, Azure Disk Encryption generates and writes the encryption keys to your key vault. Managing encryption keys in your key vault requires Azure AD authentication. Create an Azure AD application for this purpose. For authentication purposes, you can use either client secret-based authentication or [client certificate-based Azure AD authentication](../active-directory/active-directory-certificate-based-authentication-get-started.md).
+When you need encryption to be enabled on a running VM in Azure, Azure Disk Encryption generates and writes the encryption keys to your key vault. Managing encryption keys in your key vault requires Azure AD authentication. Create an Azure AD application for this purpose. For authentication purposes, you can use either client secret-based authentication or [client certificate-based Azure AD authentication](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md).
 
 
 ### <a name="bkmk_ADappPSH"></a> Set up an Azure AD app and service principal with Azure PowerShell 
