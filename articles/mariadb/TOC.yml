@@ -91,6 +91,8 @@
       href: howto-data-in-replication.md
 - name: Reference
   items:
+  - name: REST API
+    href: /rest/api/mariadb
   - name: Data-in replication stored procedures
     href: reference-data-in-stored-procedures.md
 - name: Resources
