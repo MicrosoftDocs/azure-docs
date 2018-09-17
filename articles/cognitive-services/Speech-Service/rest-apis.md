@@ -12,20 +12,186 @@ ms.author: v-jerkin
 ---
 # Speech service REST APIs
 
-The REST APIs of the unified Speech service are similar to the APIs provided by the [Speech API](https://docs.microsoft.com/azure/cognitive-services/Speech) (formerly known as the Bing Speech Service). The endpoints differ from the endpoints used by the previous Speech service.
+The REST APIs of the unified Speech service are similar to the APIs provided by the [Bing Speech API](https://docs.microsoft.com/azure/cognitive-services/Speech). The endpoints differ from the endpoints used by the previous Speech service.
 
 ## Speech to Text
 
-In the Speech to Text API, only the endpoints used differ from the previous Speech service Speech Recognition API. The new endpoints are shown in the table below. Use the one that matches your subscription region.
+The endpoints for the Speech to Text REST API are shown in the table below. Use the one that matches your subscription region.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
 
-The Speech to Text API is otherwise similar to the [REST API](https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedrest) for the previous Speech API.
+> [!NOTE]
+> If you customized the acoustic model or language model, or pronunciation, use your custom endpoint instead.
 
 The Speech to Text REST API supports only short utterances. Requests may contain up to 10 seconds of audio and last a maximum of 14 seconds overall. The REST API only returns final results, not partial or interim results.
 
-> [!NOTE]
-> If you customized the acoustic model or language model, or pronunciation, use your custom endpoint instead.
+### Recognition mode
+
+The recognition mode optimizes recognition for specific scenarios. The URIs above incorporate the `conversation` recognition mode in the URI. Use one of the following values in this position to declare the recognition mode.
+
+|Recognition mode|Intended scenario|
+|----------------|-----|
+| `interactive` | User makes short (2-3 seconds) requests and expects the application to perform an action in response.|
+| `conversation` | Users are engaged in a machine-mediated human-to-human conversation where both users can see the recognized text.|
+| `dictation` | Users speak full sentences (5-8 seconds) which are transcribed for further processing.|
+
+### Query parameters
+
+The following parameters may be included in the query string of the REST request.
+
+|Parameter name|Required/optional|Meaning|
+|-|-|-|
+|`language`|Required|The identifier of the language to be recognized. See [Supported languages](supported-languages.md).|
+|`format`|Optional<br>default: `simple`|Result format, `simple` or `detailed`. Detailed results include N-best values,`RecognitionStatus`, `Offset`, and duration.|
+|`profanity`|Optional<br>default: `masked`|Include profanity in recognition results. May be `masked` (replaces profanity with asterisks), `removed` (removes all profanity), or `raw` (includes profanity)
+
+### Request headers
+
+The following fields must be sent in the request header.
+
+|Header|Meaning|
+|------|-------|
+|`Ocp-Apim-Subscription-Key`|Your Speech service subscription key. Either this header or `Authorization` must be provided.|
+|`Authorization`|An authorization token preceded by the word `Bearer`. Either this header or `Ocp-Apim-Subscription-Key` must be provided. See [Authentication](#authentication).|
+|`Content-type`|Describes the format and codec of the audio data. Currently, this must be `audio/wav; codec=audio/pcm; samplerate=16000`.|
+|`Transfer-Encoding`|Optional. If given, must be `chunked` to allow audio data to be sent in multiple small chunks instead of a single file.|
+|`Expect`|If using chunked transfer, send `Expect: 100-continue`. The Speech service will acknolwedge the initial request and awaits additional data.|
+|`Accept`|Optional. If provided, must include `application/json`, as the Speech service provides results in JSON format. (Some Web request frameworks provide a default value if you do not specify one, so it is good practice to always include `Accept`)|
+
+### Audio format
+
+The audio is sent in the body of the HTTP `PUT` request and should be in 16-bit WAV format with PCM single channel (mono) at 16 KHz.
+
+### Chunked transfer
+
+Chunked transfer (`Transfer-Encoding: chunked`) can help reduce recognition latency because it allows the Speech service to begin processing the audio file to before it has been completely transmitted. Note that the REST API does not provide partial or interim results; this feature is intended solely to improve responsiveness.
+
+The following code illustrates how to send audio in chunks. `request` is an HTTPWebRequest object connected to the appropriate REST endpoint. `audioFile` is the path to an audio file on disk.
+
+```csharp
+using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
+{
+
+    /*
+    * Open a request stream and write 1024 byte chunks in the stream one at a time.
+    */
+    byte[] buffer = null;
+    int bytesRead = 0;
+    using (Stream requestStream = request.GetRequestStream())
+    {
+        /*
+        * Read 1024 raw bytes from the input audio file.
+        */
+        buffer = new Byte[checked((uint)Math.Min(1024, (int)fs.Length))];
+        while ((bytesRead = fs.Read(buffer, 0, buffer.Length)) != 0)
+        {
+            requestStream.Write(buffer, 0, bytesRead);
+        }
+
+        // Flush
+        requestStream.Flush();
+    }
+}
+```
+
+### Example request
+
+The following is a typical request.
+
+```HTTP
+POST speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed HTTP/1.1
+Accept: application/json;text/xml
+Content-Type: audio/wav; codec=audio/pcm; samplerate=16000
+Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
+Host: westus.stt.speech.microsoft.com
+Transfer-Encoding: chunked
+Expect: 100-continue
+```
+
+### HTTP status
+
+The HTTP status of the response indicates common error conditions.
+
+HTTP code|Meaning|Possible reason
+-|-|-|
+100|Continue|The initial request has been accepted. Proceed with sending the rest of the data. (Used with chunked transfer.)
+200|OK|The request was successful; the response body is a JSON object.
+400|Bad request|Language code not provided or is not a supported language.
+401|Unauthorized|Subscription key or authorization token is invalid in the specified region
+403|Forbidden|Bad enpdoint URI.
+
+
+
+### JSON response
+
+Results are returned in JSON format. The `simple` format includes only the following top-level fields.
+
+|Field name|Content|
+|-|-|
+|`RecognitionStatus`|Status, such as `Success` for successful recognition. See next table.|
+|`DisplayText`|The recognized text after capitalization, punctuation, inverse text normalization (conversion of spoken text to shorter forms, such as 200 for "two hundred" or "Dr. Smith" for "doctor smith"), and profanity masking. Present only on success.|
+|`Offset`|The time (in 100-nanosecond units) at which the recognized speech begins in the audio stream.|
+|`Duration`|The duration (in 100-nanosecond units) of the recognized speech in the audio stream.|
+
+The `RecognitionStatus` field may contain the following values.
+
+|Status value|Description
+|-|-|
+| `Success` | The recognition was successful and the DisplayText field is present. |
+| `NoMatch` | Speech was detected in the audio stream, but no words from the target language were matched. Usually means the recognition language is a different language from the one the user is speaking. |
+| `InitialSilenceTimeout` | The start of the audio stream contained only silence, and the service timed out waiting for speech. |
+| `BabbleTimeout` | The start of the audio stream contained only noise, and the service timed out waiting for speech. |
+| `Error` | The recognition service encountered an internal error and could not continue. Try again if possible. |
+
+The `detailed` format includes the same fields as the `simple` format, along with an `NBest` field. The `NBest` field is a list of alternative interpretations of the same speech, ranked from most likely to least likely. The first entry is the same as the main recognition result. Each entry contains the following fields:
+
+|Field name|Content|
+|-|-|
+|`Confidence`|The confidence score of the entry from 0.0 (no confidence) to 1.0 (full confidence)
+|`Lexical`|The lexical form of the recognized text: the actual words recognized.
+|`ITN`|The inverse-text-normalized ("canonical") form of the recognized text, with phone numbers, numbers, abbreviations ("doctor smith" to "dr smith"), and other transformations applied.
+|`MaskedITN`| The ITN form with profanity masking applied, if requested.
+|`Display`| The display form of the recognized text, with punctuation and capitalization added. Same as `DisplayText` in the top-level result.
+
+
+### Sample responses
+
+The following is a typical response for `simple` recognition.
+
+```json
+{
+  "RecognitionStatus": "Success",
+  "DisplayText": "Remind me to buy 5 pencils.",
+  "Offset": "1236645672289",
+  "Duration": "1236645672289"
+}
+```
+
+Below is a typical response for `detailed` recognition.
+
+```json
+{
+  "RecognitionStatus": "Success",
+  "Offset": "1236645672289",
+  "Duration": "1236645672289",
+  "NBest": [
+      {
+        "Confidence" : "0.87",
+        "Lexical" : "remind me to buy five pencils",
+        "ITN" : "remind me to buy 5 pencils",
+        "MaskedITN" : "remind me to buy 5 pencils",
+        "Display" : "Remind me to buy 5 pencils.",
+      },
+      {
+        "Confidence" : "0.54",
+        "Lexical" : "rewind me to buy five pencils",
+        "ITN" : "rewind me to buy 5 pencils",
+        "MaskedITN" : "rewind me to buy 5 pencils",
+        "Display" : "Rewind me to buy 5 pencils.",
+      }
+  ]
+}
+```
 
 ## Text to Speech
 
