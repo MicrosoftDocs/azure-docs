@@ -51,7 +51,7 @@ To add a real device to your application, you use the **Connected Air Conditione
 
    ![Start adding a new, real connected air conditioner device](media/tutorial-add-device/newreal.png)
 
-3. Optionally, you can rename your new device by choosing the device name and editing the value:
+3. Enter the Device Id (**should be lower case**) or use the suggested Device Id. You can also enter the name for your new device.  
 
    ![Rename the device](media/tutorial-add-device/rename.png)
 
