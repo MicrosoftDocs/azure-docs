@@ -1,5 +1,5 @@
 ---
-title: Bing Image Upload for Insights 
+title: "Tutorial: Extract image details using the Bing Image Search API and C#"
 titleSuffix: Azure Cognitive Services
 description: Use this article to create a C# application that extracts image details using the Bing Image Search API 
 services: cognitive-services
@@ -26,6 +26,8 @@ This tutorial explains how to:
 > * Use URL parameters to specify results
 > * Upload the image data and send the `POST` request
 > * Print the JSON results to the console
+
+The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingGetSimilarImages.cs).
 
 ## Prerequisites
 

@@ -1,6 +1,6 @@
 ---
 title: Bing Image Search single-page Web app
-titleSuffix: Microsoft Docs
+titleSuffix: Azure cognitive services
 description: Learn how to embed images and Bing Image Search options in a single-page Web application.
 services: cognitive-services
 author: aahi
