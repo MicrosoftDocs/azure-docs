@@ -44,7 +44,7 @@ This section shows you how to create and run a job. Each step goes through an ex
 
 1. On the right-hand side, pick and choose the devices you’d like to run the job on. By clicking the top check box, all devices are selected in the entire device set. By clicking the check box near Name, all devices on the current page are selected.
 
-1. Once your desired devices have been selected, choose **Run**. The job will now appear on your main **Jobs** page. On this view, you are able to see your currently running job and the history of any previously run jobs.
+1. Once your desired devices have been selected, choose **Run**. The job will now appear on your main **Jobs** page. On this view, you are able to see your currently running job and the history of any previously run jobs. Your running job will always show up at the top of the list.
 
     ![Run job](./media/howto-run-a-job/runjob.png)
 
@@ -88,10 +88,11 @@ In order to view the status of each device in the job, click on the job name. He
     | Completed            | The job has been executed on this device.                                     |
     | Failed               | The job has failed to execute on this device. The accompanying error message will show more information.  |
     | Pending              | The job has not yet executed on this device.                                  |
-    | Running              | The job is currently running on this device.                                  |
 
 > [!NOTE]
 > If a device has been deleted, you won't be able to select the device and it will display as deleted with the device ID.
+
+    ![View device status](./media/howto-run-a-job/viewdevicestatus.png)
 
 ## Next Steps
 
