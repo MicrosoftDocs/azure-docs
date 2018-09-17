@@ -14,9 +14,9 @@
 
 Azure Ultra SSD (preview) delivers high throughput, high IOPS, and consistent low latency disk storage for Azure IaaS VMs. This new offering provides top of the line performance at the same availability levels as our existing disks offerings. Additional benefits of Ultra SSD include the ability to dynamically change the performance of the disk along with your workloads without the need to restart your virtual machines. Ultra SSD is suited for data-intensive workloads such as SAP HANA, top tier databases, and transaction-heavy workloads.
 
-To enable access to the new disk type [fill out this survey requesting access](https://aka.ms/UltraSSDPreviewSignUp).
+To enable access to the new disk type, [fill out this survey requesting access](https://aka.ms/UltraSSDPreviewSignUp).
 
-Once approved, run one of the following commands to determine which zone to deploy Ultra SSD to in East US 2:
+Once approved, run one of the following commands to determine which zone in East US 2 to deploy your Ultra SSD to:
 
 PowerShell: `Get-AzureRmComputeResourceSku | where {$_.ResourceType -eq "disks" -and $_.Name -eq "UltraSSD_LRS" }`
 
