@@ -23,9 +23,8 @@ ms.author: jdial
 
 Integrating Azure services to an Azure virtual network enables private access to the service from virtual machines or compute resources in the virtual network.
 You can integrate Azure services in your virtual network with the following options:
-1.	Directly deploying dedicated instances of the service into a virtual network. The services can then be privately accessed within the virtual network and from on-premises networks.
-2.	By extending a virtual network to the service, through service endpoints. Service endpoints allow individual service resources to be secured to the virtual network.
-3.	By projecting the service to the virtual network, through interface endpoints. Interface Endpoints allows private connectivity to services from within the virtual network and from on-premises networks.
+	Directly deploying dedicated instances of the service into a virtual network. The services can then be privately accessed within the virtual network and from on-premises networks.
+	By extending a virtual network to the service, through service endpoints. Service endpoints allow individual service resources to be secured to the virtual network.
 
 To integrate multiple Azure services to your virtual network, you can combine one or more of the above patterns. For example, you can deploy HDInsight into your virtual network and secure a storage account to the HDInsight subnet through Service endpoints.
  
@@ -42,33 +41,29 @@ Deploying services within a virtual network provides the following capabilities:
 - Virtual networks can be [peered](virtual-network-peering-overview.md) to enable resources in the virtual networks to communicate with each other, using private IP addresses.
 - Service instances in a virtual network are fully managed by the Azure service, to monitor health of the instances, and provide required scale, based on load.
 - Service instances are deployed into a subnet in a virtual network. Inbound and outbound network access must be opened through [network security groups](security-overview.md#network-security-groups) for the subnet, per guidance provided by the services.
-- Optionally, services might require a [delegated subnet](virtual-network-manage-subnet#add-a-subnet) as an explicit identifier that a subnet can host a particular service. Subnet Delegation gives explicit permissions to the service to create service-specific resources in the subnet.
+- Optionally, services might require a [delegated subnet](virtual-network-manage-subnet.md#add-a-subnet) as an explicit identifier that a subnet can host a particular service. Subnet Delegation gives explicit permissions to the service to create service-specific resources in the subnet.
 
 ### Services that can be deployed into a virtual network
 
-Each service directly deployed into virtual network has specific requirements for routing and the types of traffic that must be allowed into and out of subnets. The different services that can be deployed into a virtual network are categorized as below. Click the specific service in the table to learn more about it and how to integrate it with your Virtual Network. 
+Each service directly deployed into virtual network has specific requirements for routing and the types of traffic that must be allowed into and out of subnets. The different services that can be deployed into a virtual network are categorized below. Select the specific service in the table to learn more about it and how to integrate it with your virtual network. 
 
 
 |Category|Service|
 |-|-|
 | Compute | Virtual machines: [Linux](../virtual-machines/linux/infrastructure-networking-guidelines.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Windows](../virtual-machines/windows/infrastructure-networking-guidelines.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Virtual machine scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-existing-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Cloud Service](https://msdn.microsoft.com/library/azure/jj156091): Virtual network (classic) only<br/> [Azure Batch](../batch/batch-api-basics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-network-vnet-and-firewall-configuration)  |
-| Network | [Application Gateway (internal)](../application-gateway/application-gateway-ilb-arm.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure Firewall](../firewall/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) <br/>[Network Virtual Applicances](windowsserverdocs/WindowsServerDocs/networking/sdn/manage/Use-Network-Virtual-Appliances-on-a-VN.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 
+| Network | [Application Gateway - WAF](../application-gateway/application-gateway-ilb-arm.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure Firewall](../firewall/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) <br/>[Network Virtual Applicances](/windowsserverdocs/WindowsServerDocs/networking/sdn/manage/Use-Network-Virtual-Appliances-on-a-VN.md) 
 |Data|[RedisCache](../redis-cache/cache-how-to-premium-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance-vnet-configuration.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 Analytics | [Azure HDInsight](../hdinsight/hdinsight-extend-hadoop-virtual-network.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure Databricks](../azure-databricks/what-is-azure-databricks.md?toc=%2fazure%2fvirtual-network%2ftoc.json) |
 | Identity | [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-getting-started-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json) |
 | Containers | [Azure Kubernetes Service (AKS)](../aks/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure Container Instance (ACI)](../aks/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure Container Service Engine](https://github.com/Azure/acs-engine) with Azure Virtual Network CNI [plug-in](https://github.com/Azure/acs-engine/tree/master/examples/vnet)||
 | Web | [API Management](../api-management/api-management-using-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[App Service Environment](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[WebApps](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-| Hosted*| [Azure NetApp Files (ANF)](../azure-netapp-files/azure-netapp-files-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure Dedicated Hardware Security Module](aka.ms/azurededicatedhsm)
+| Hosted*| [Azure NetApp Files (ANF)](../azure-netapp-files/azure-netapp-files-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure Dedicated Hardware Security Module](http://www.aka.ms/azurededicatedhsm)
 | | |
 <br/>
 *Specialized services typically running on purpose-built hardware.
 
 
 
-## 2. Service endpoints for Azure services
+## Service endpoints for Azure services
 
 Some Azure services can't be deployed in virtual networks. You can restrict access to some of the service resources to only specific virtual network subnets, if you choose, by enabling a virtual network service endpoint.  Learn more about [virtual network service endpoints](virtual-network-service-endpoints-overview.md), and the services that endpoints can be enabled for.
-
-## 3. Interface Endpoints for Azure services
-
-With interface endpoints, Azure services can be mapped in virtual networks using private IP addresses, you can communicate privately from within the virtual network or on-premises. Learn more about [virtual network interface endpoints](virtual-network-interface-endpoints-overview.md) and the services that it can be enabled for.
