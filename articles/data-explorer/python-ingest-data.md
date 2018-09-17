@@ -177,4 +177,4 @@ If you plan to follow our other quickstarts and tutorials, keep the resources yo
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Write Kusto queries](write-kusto-queries.md)
+> [Write queries](write-queries.md)
