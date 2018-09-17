@@ -239,6 +239,12 @@ myenv.add_conda_package("scikit-learn")
 with open("myenv.yml","w") as f:
     f.write(myenv.serialize_to_string())
 ```
+Review the content of the `myenv.yml` file.
+
+```python
+with open("myenv.yml","r") as f:
+    print(f.read())
+```
 
 ### Create configuration file
 
