@@ -59,7 +59,7 @@ The maximum number of share snapshots that Azure Files allows today is 200. Afte
 
 There is no limit to the simultaneous calls for creating share snapshots. There is no limit to amount of space that share snapshots of a particular file share can consume. 
 
-Today, it is not possible to mount an Azure share snapshots on Linux. This is because the Linux SMB client does not support mounting snapshots like Windows does.
+Today, it is not possible to mount share snapshots on Linux. This is because the Linux SMB client does not support mounting snapshots like Windows does.
 
 ## Copying data back to a share from share snapshot
 Copy operations that involve files and share snapshots follow these rules:
