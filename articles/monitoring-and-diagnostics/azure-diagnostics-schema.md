@@ -40,7 +40,7 @@ The Azure Diagnostics extension is used with other Microsoft diagnostics product
 |2.96              |1.8                            |"|
 |2.96              |1.8.1                          |"|
 |2.96              |1.9                            |"|
-
+|2.96              |1.11                           |"|
 
 
  Azure Diagnostics version 1.0 first shipped in a plug-in model -- meaning that when you installed the Azure SDK, you got the version of Azure diagnostics shipped with it.  
@@ -62,7 +62,7 @@ Different versions of Azure diagnostics use different configuration schemas.
 Added support for the Azure Monitor sink. This sink is only applicable to Performance Counters. Enables sending performance counters collected on your VM, VMSS, or cloud service to Azure Monitor as custom metrics. Metrics sent to the Azure Monitor will support:
 * Retrieving all performance counters sent to Azure Monitor via the [Azure Monitor metrics APIs.](https://docs.microsoft.com/rest/api/monitor/)
 * Alerting on all performance counters sent to Azure Monitor via the new [unified alerts experience](monitoring-overview-unified-alerts.md) in Azure Monitor
-* Treating wildcard operator in performance counters as the "Instance" dimension on your Metric. For example if you collected the "LogicalDisk(\*)/DiskWrites/sec" counter you would be able to filter and split on the "Instance" dimension to plot or alert on the Disk Writes/sec for each Disk.
+* Treating wildcard operator in performance counters as the "Instance" dimension on your metric. For example if you collected the "LogicalDisk(\*)/DiskWrites/sec" counter you would be able to filter and split on the "Instance" dimension to plot or alert on the Disk Writes/sec for each Logical Disk (C:, D:, etc.)
 
 Define Azure Monitor as a new sink in your diagnostics extension configuration
 ```json
@@ -75,15 +75,16 @@ Define Azure Monitor as a new sink in your diagnostics extension configuration
     ]
 }
 ```
+
 ```XML
-<SinksConfig>   <!-- Added in 1.5 -->  
+<SinksConfig>  
   <Sink name="AzureMonitorSink">
       <AzureMonitor/>
   </Sink>
 </SinksConfig>
 ```
 > [!NOTE]
-> Configuring the Azure Monitor sink for Classic VMs and Classic CLoud Service requires more parameters to be defined in the Diagnostics Extension's private config.
+> Configuring the Azure Monitor sink for Classic VMs and Classic CLoud Service requires more parameters to be defined in the Diagnostics extension's private config.
 >
 > For more details please reference the [detailed diagnostics extension schema documentation.](azure-diagnostics-schema-1dot3-and-later.md)
 
