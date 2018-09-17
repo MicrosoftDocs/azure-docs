@@ -27,7 +27,7 @@ After you create a file share, you can periodically create a share snapshot of t
 ## Capabilities
 A share snapshot is a point-in-time, read-only copy of your data. You can create, delete, and manage snapshots by using the REST API. Same capabilities are also available in the client library, Azure CLI, and Azure portal. 
 
-You can view snapshots of a share by using both the REST API and SMB. You can retrieve the list of versions of the directory or file, and you can mount a specific version directly as a drive. 
+You can view snapshots of a share by using both the REST API and SMB. You can retrieve the list of versions of the directory or file, and you can mount a specific version directly as a drive (only available on Windows - see [Limits](#Limits)). 
 
 After a share snapshot is created, it can be read, copied, or deleted, but not modified. You can't copy a whole share snapshot to another storage account. You have to do that file by file, by using AzCopy or other copying mechanisms.
 
