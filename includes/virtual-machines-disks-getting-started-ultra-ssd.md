@@ -10,11 +10,11 @@
  ms.custom: include file
 ---
 
-# Enabling Azure Ultra SSDs (preview)
+# Enabling Azure Ultra SSDs
 
-Azure Ultra SSD (preview) delivers high throughput, high IOPS, and consistent low latency disk storage for Azure IaaS VMs. This new offering provides top of the line performance at the same availability levels as our existing disks offerings. Additional benefits of Ultra SSD include the ability to dynamically change the performance of the disk along with your workloads without the need to restart your virtual machines. Ultra SSD is suited for data-intensive workloads such as SAP HANA, top tier databases, and transaction-heavy workloads.
+Azure Ultra SSD delivers high throughput, high IOPS, and consistent low latency disk storage for Azure IaaS VMs. This new offering provides top of the line performance at the same availability levels as our existing disks offerings. Additional benefits of Ultra SSD include the ability to dynamically change the performance of the disk along with your workloads without the need to restart your virtual machines. Ultra SSD is suited for data-intensive workloads such as SAP HANA, top tier databases, and transaction-heavy workloads.
 
-To enable access to the new disk type, [fill out this survey requesting access](https://aka.ms/UltraSSDPreviewSignUp).
+Currently, Ultra SSds are in preview and you must enroll in the preview in order to access them. To request access to the preview, [fill out this survey requesting access](https://aka.ms/UltraSSDPreviewSignUp).
 
 Once approved, run one of the following commands to determine which zone in East US 2 to deploy your Ultra SSD to:
 
@@ -35,7 +35,7 @@ Now that you know which zone to deploy to, follow the deployment steps in this a
 ## Deploying an Ultra SSD
 
 First, determine the VM Size to deploy. As part of this preview, only DsV3 and EsV3 VM families are supported. Refer to the second table on this [blog](https://azure.microsoft.com/en-us/blog/introducing-the-new-dv3-and-ev3-vm-sizes/) for additional details about these VM sizes.
-Also refer to the sample [Create a VM with multiple Ultra SSD disks](https://aka.ms/UltraSSDTemplate) which shows how to create a VM with multiple Ultra SSD disks.
+Also refer to the sample [Create a VM with multiple Ultra SSD disks](https://aka.ms/UltraSSDTemplate), which shows how to create a VM with multiple Ultra SSD disks.
 
 The following describe the new/modified Resource Manager template changes:
 **apiVersion** for `Microsoft.Compute/virtualMachines` and `Microsoft.Compute/Disks` must be set as `2018-06-01` (or later).
