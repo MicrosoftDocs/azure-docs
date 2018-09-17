@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/02/2018
+ms.date: 09/15/2018
 ms.author: bwren
 
 ---
@@ -25,15 +25,18 @@ Visualizations such as charts and graphs can help you analyze your monitoring da
 ## Azure Dashboards
 [Azure dashboards](../azure-portal/azure-portal-dashboards.md) are the primary dashboarding technology for Azure. They're particularly useful in providing single pane of glass over your Azure infrastructure and services allowing you to quickly identify important issues.
 
+![Dashboard](media/visualizations/dashboard.png)
+
 ### Advantages
 - Deep integration into Azure. Visualizations can be pinned to dashboards from multiple Azure pages including Metrics explorer, Log Analytics, and Application Insights.
-- Combine data from multiple sources including output from [Metrics explorer](../monitoring-and-diagnostics/monitoring-metric-charts.md), [Log Analytics queries](), and [maps]() and [availability]() in Application Insights.
+- Supports both metrics and logs.
+- Combine data from multiple sources including output from [Metrics explorer](../monitoring-and-diagnostics/monitoring-metric-charts.md), [Log Analytics queries](../log-analytics/log-analytics-queries.md), and [maps](../application-insights/app-insights-app-map.md) and [availability]() in Application Insights.
 - Option for personal or shared dashboards. Integrated with Azure [role based authentication (RBAC)](../role-based-access-control/overview.md).
 - Automatic refresh. Metrics refresh depends on time range with minimum of five minutes. Logs refresh at one minute.
 - Parametrized metrics dashboards with timestamp and custom parameters.
 - Flexible layout options.
 - Full screen mode.
-- Limited contextual drill-down.
+
 
 ### Limitations
 - Limited control over Log Analytics visualizations with no support for data tables. Total number of data series is limited to 10 with further data series grouped under an _other_ bucket.
@@ -41,11 +44,12 @@ Visualizations such as charts and graphs can help you analyze your monitoring da
 - Log Analytics charts are limited to last 30 days.
 - Log Analytics charts can only be pinned to shared dashboards.
 - No interactivity with dashboard data.
-
+- Limited contextual drill-down.
 
 ## Azure Monitor Views
 [Views in Azure Monitor](../log-analytics/log-analytics-view-designer.md)  allow you to create custom visualizations with log data stored in Log Analytics. They are used by [monitoring solutions](../monitoring/monitoring-solutions.md) to present the data they collect.
 
+![View](media/visualizations/view.png)
 
 ### Advantages
 - Rich visualizations for Log Analytics data.
@@ -55,7 +59,7 @@ Visualizations such as charts and graphs can help you analyze your monitoring da
 - Interactive, supports multi-level drill-in (view that drills into another view)
 
 ### Limitations
-- Only includes data from Log Analytics. No support for metrics.
+- Supports logs but not metrics.
 - No personal views. Available to all users with access to the workspace.
 - No automatic refresh.
 - Limited layout options.
@@ -67,8 +71,10 @@ Visualizations such as charts and graphs can help you analyze your monitoring da
 ## Application Insights Workbooks
 [Workbooks](../application-insights/app-insights-usage-workbooks.md) are interactive documents that provide deep insights into your data, investigation, and collaboration inside the team. Specific examples where workbooks are useful are troubleshooting guides and incident postmortem.
 
+![Workbook](media/visualizations/workbook.png)
+
 ### Advantages
-- Support both metrics and logs.
+- Supports both metrics and logs.
 - Supports parameters  enabling interactive reports where selecting an element in a table will dynamically update associated charts and visualizations.
 - Document-like flow.
 - Option for personal or shared workbooks.
@@ -83,8 +89,10 @@ Visualizations such as charts and graphs can help you analyze your monitoring da
 ## Power BI
 [Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) is particularly useful for creating business-centric dashboards and reports, as well as reports analyzing long-term KPI trends. You can [import the results of a Log Analytics query](../log-analytics/log-analytics-powerbi.md) into a Power BI dataset so you can take advantage of its features such as combining data from different sources and sharing reports on the web and mobile devices.
 
+![Power BI](media/visualizations/power-bi.png)
+
 ### Advantages
-- Very rich visualizations.
+- Rich visualizations.
 - Extensive interactivity including zoom-in and cross-filtering.
 - Easy to share throughout your organization.
 - Integration with other data from multiple data sources.
@@ -92,7 +100,7 @@ Visualizations such as charts and graphs can help you analyze your monitoring da
 
 
 ### Limitations
-- Only import data from Log Analytics. No support for metrics.
+- Supports logs but not metrics.
 - No Azure integration. Can't manage dashboards and models through Azure Resource Manager.
 - Query results need to be imported into Power BI model to configure. Limitation on result size and refresh.
 - Limited data refresh of eight times per day.
@@ -101,14 +109,16 @@ Visualizations such as charts and graphs can help you analyze your monitoring da
 ## Grafana
 [Grafana](https://grafana.com/) is an open platform that excels in operational dashboards. It's particularly useful for detecting and isolating and triaging operational incidents. You can add [Grafana Azure Monitor data source plugin](../monitoring-and-diagnostics/monitor-send-to-grafana.md) to your Azure subscription to have it visualize your Azure metrics data.
 
+![Grafana](media/visualizations/grafana.png)
+
 ### Advantages
-- Very rich visualizations.
+- Rich visualizations.
 - Rich ecosystem of datasources.
 - Data interactivity including zoom in.
 - Supports parameters.
 
 ### Limitations
-- Only includes data from metrics. Currently, no support for logs.
+- Supports metrics but not logs.
 - No Azure integration. Can't manage dashboards and models through Azure Resource Manager.
 - Cost to support additional Grafana infrastructure or additional cost for Grafana Cloud.
 

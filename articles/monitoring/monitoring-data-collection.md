@@ -40,7 +40,7 @@ Each metric value has the following properties:
 * The value itself.
 * Some metrics may have multiple dimensions as described in the next section. Custom metrics can have up to 10 dimensions.
 
-## Multi-dimensional metrics
+### Multi-dimensional metrics
 Dimensions of a metric are name-value pairs that carry additional data to describe the metric value. For example, a metric "Available disk space" can have a dimension called "Drive" with values "C:", "D:", which would allow viewing either available disk space across all drives or for each drive individually. 
 
 The example below illustrates two datasets for a hypothetical metric called "Network Throughput". The first dataset has no dimensions. The second dataset shows the values with two dimensions, "IP Address" and "Direction":
@@ -71,7 +71,7 @@ This non-dimensional metric can only answer a basic question like "what was my n
 
 This metric can answer questions such as "what was the network throughput for each IP address?", and "how much data was sent versus received?" Multi-dimensional metrics carry additional analytical and diagnostic value compared to non-dimensional metrics. 
 
-## Value of metrics
+### Value of metrics
 Individual metrics typically provide little insight on their own. They provide a single value without any context other than comparison to a simple threshold. They're valuable when combined with other metrics to identify patterns and trends, or when combined with logs that provide context around particular values. 
 
 For example, a certain number of users on your application at a given time might tell you little about the health of the application. But a sudden drop in users, indicated by multiple values of the same metric, might indicate a problem. Excessive exceptions thrown by the application, and indicated by a separate metric, might identify an application issue that's causing the drop. Events that the application creates to identify failures in its components can help you identify the root cause.
@@ -98,7 +98,7 @@ Tasks that you can perform with metrics include the following:
 - Configure a [metric alert rule](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) that sends a notification or takes [automated action](../monitoring-and-diagnostics/monitoring-action-groups.md) when the metric crosses a threshold.
 - Use [Autoscale](../monitoring-and-diagnostics/monitoring-overview-autoscale.md) to increase or decrease resources based on a metric crossing a threshold.
 - Route metrics to Log Analytics to analyze metric data together with log data and to store metric values for longer than 93 days. 
-- Stream metrics to an [Event Hub](../monitoring-and-diagnostics/monitoring-overview-metrics.md#export-metrics) to route them to [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) or to external systems.
+- Stream metrics to an [Event Hub](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md) to route them to [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) or to external systems.
 - [Archive](../monitoring-and-diagnostics/monitor-tutorial-archive-monitoring-data.md) the performance or health history of your resource for compliance, auditing, or offline reporting purposes.
 - Access metric values from a command line or custom application using  [PowerShell cmdlets](https://docs.microsoft.com/powershell/module/azurerm.insights/?view=azurermps-6.7.0) or [REST API](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
 
@@ -139,7 +139,7 @@ Log Analytics can collect data from a variety of sources both within Azure and f
 - Application data collected by [Application Insights](https://docs.microsoft.com/azure/application-insights/).
 - Data providing insights into a particular application or service from [monitoring solutions](../monitoring/monitoring-solutions.md) or features such as Container Insights, VM Insights, or Resource Group Insights.
 - Security data collected by [Azure Security Center](https://docs.microsoft.com/azure/security-center/).
-- [Metrics](../monitoring-and-diagnostics/monitoring-overview-metrics.md#export-metrics) from Azure resources. This allows you to store metrics for longer than 93 days and to analyze it with other log data.
+- [Metrics](#metrics) from Azure resources. This allows you to store metrics for longer than 93 days and to analyze it with other log data.
 - Telemetry written to [Azure Storage](../log-analytics/log-analytics-azure-storage-iis-table.md).
 - Custom data from any REST API client using the [HTTP Data Collector API](../log-analytics/log-analytics-data-collector-api.md) client or from an [Azure Logic App](https://docs.microsoft.com/azure/logic-apps/) workflow.
 
