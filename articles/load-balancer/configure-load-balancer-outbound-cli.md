@@ -17,7 +17,7 @@ ms.author: kumud
 ---
 # Configure outbound rules in Standard Load Balancer using Azure CLI 2.0
 
-This quickstart shows you how configure outbound rules in Standard Load Balancer using Azure CLI 2.0. To test the load balancer, you deploy two virtual machines (VMs) running Ubuntu server and load balance a web app between the two VMs.
+This quickstart shows you how configure outbound rules in Standard Load Balancer using Azure CLI 2.0. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
