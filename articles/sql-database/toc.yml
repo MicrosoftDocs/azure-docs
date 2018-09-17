@@ -310,39 +310,42 @@
     href: sql-database-features.md
   - name: Monitor and tune
     items:
-    - name: Monitor and tune
-      href: sql-database-monitor-tune-overview.md
+    - name: Intelligent performance   
       items:
-      - name: Intelligent query processing
-        href: https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json
-      - name: Adaptive query processing
-        href: https://docs.microsoft.com/sql/relational-databases/performance/adaptive-query-processing?toc=/azure/sql-database/toc.json
-      - name: Automatic tuning
+      - name: Querying
         items:
-        - name: Automatic tuning
-          href: sql-database-automatic-tuning.md
-        - name: Enable automatic tuning
-          href: sql-database-automatic-tuning-enable.md
-        - name: Perf recommendations
+        - name: Intelligent query processing
+          href: https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json
+        - name: Adaptive query processing
+          href: https://docs.microsoft.com/sql/relational-databases/performance/adaptive-query-processing?toc=/azure/sql-database/toc.json
+      - name: Monitoring and tuning
+        href: sql-database-monitor-tune-overview.md
+        - name: Database advisor performance recommendations
           href: sql-database-advisor.md
-        - name: Performance recommendations
+        - name: Tuning actions and recommendations
           href: sql-database-performance.md
         - name: Apply performance recommendations
           href: sql-database-advisor-portal.md
+      - name: Automatic performance tuning
+        items:
+        - name: Automatic tuning overview
+          href: sql-database-automatic-tuning.md
+        - name: Enable automatic tuning
+          href: sql-database-automatic-tuning-enable.md
         - name: Enable E-mail notifications
           href: sql-database-automatic-tuning-email-notifications.md
       - name: Intelligent Insights
         items:
-        - name: Intelligent Insights
+        - name: Intelligent Insights overview
           href: sql-database-intelligent-insights.md
         - name: Diagnostic logging
           href: sql-database-metrics-diag-logging.md
-        - name: Use diagnostics log
+        - name: Use the diagnostics log
           href: sql-database-intelligent-insights-use-diagnostics-log.md
         - name: Performance troubleshooting
           href: sql-database-intelligent-insights-troubleshoot-performance.md
-      - name: Use Query Performance Insight
-        href: sql-database-query-performance.md
+        - name: Query Performance Insight
+          href: sql-database-query-performance.md
     - name: Manual tuning
       items:
       - name: Manual tuning
