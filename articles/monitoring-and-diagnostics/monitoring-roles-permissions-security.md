@@ -166,6 +166,23 @@ A similar pattern can be followed with event hubs, but first you need to create 
    New-AzureRmRoleDefinition -Role $role 
    ```
 
+## Monitoring and secured Azure storage and networks
+
+Azure monitor needs to send logs and metrics to and from your Azure resources to provide the services you enable. With the following features, you can securely monitor your resources.
+
+### Secured Storage Accounts 
+
+Monitoring data is often written to a storage account. Many people want to make sure that the data copied to a Storage Account cannot be accessed by unauthorized users. For additional security, you can lock down network access to only allow your specified resources and trusted Microsoft services access a storage account by restricting a storage account to use "selected networks". Azure Monitor is considered one of these trusted services and so will still have access provided you allow other Azure services with access. Data written under these protected condition includes Azure Monitor diagnostic logs, activity log, and metrics. Currently, network flow logs are not supported. 
+
+For more information, see [Network security and Azure Storage](../storage/common/storage-network-security.md)
+ 
+### Secured Virtual Networks with Service Endpoints 
+
+Virtual Networks (VNets) allow you to restrict traffic to allow only specified traffic to communicate with your Azure resources. You can specify Service Endpoints to extend your VNet to include Azure Monitor and securely send logging and metric information.  
+
+For more information, see [../virtual-network/virtual-network-service-endpoints-overview.md](Virtual Network Endpoints). 
+
+
 ## Next steps
 * [Read about RBAC and permissions in Resource Manager](../role-based-access-control/overview.md)
 * [Read the overview of monitoring in Azure](monitoring-overview.md)

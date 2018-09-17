@@ -39,7 +39,7 @@ Here are some of the things you can do with diagnostic logs:
 You can use a storage account or Event Hubs namespace that is not in the same subscription as the one emitting logs. The user who configures the setting must have the appropriate RBAC access to both subscriptions.
 
 > [!NOTE]
->  You cannot currently archive data to a storage account that behind a secured virtual network.
+>  You cannot currently archive network flow logs to a storage account that behind a secured virtual network.
 
 > [!WARNING]
 > The format of the log data in the storage account will change to JSON Lines on Nov. 1st, 2018. [See this article for a description of the impact and how to update your tooling to handle the new format.](./monitor-diagnostic-logs-append-blobs.md) 
