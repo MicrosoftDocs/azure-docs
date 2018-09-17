@@ -60,7 +60,7 @@ and deploy your logic app. For more information, see
 
 To have your deployment template create a managed identity for your logic app, 
 add this element and property to your logic app workflow definition in the 
-deplyment template. This setting indicates that Azure create and manage this 
+deployment template. This setting indicates that Azure creates and manages this 
 identity for your logic app:
 
 ```json
@@ -94,7 +94,7 @@ For example, your logic app might look like this version:
 }
 ```
 
-When Azure creates your logic app, the logic app's 
+When Azure creates your logic app, that logic app's 
 workflow definition includes these additional properties:
 
 ```json
