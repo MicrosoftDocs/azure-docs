@@ -42,7 +42,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 6. Set up your values as seen in the following diagram.
 
-    ![Configure the logic app trigger in the portal panel](./media/monitor-quick-resource-metric-alert-portal/create-logic-app-triggers.png). 
+    ![Configure the logic app trigger in the portal panel](./media/monitor-quick-resource-metric-alert-portal/create-logic-app-triggers.png) 
 
 7. In the designer, select the **Recurrence** trigger.
 
