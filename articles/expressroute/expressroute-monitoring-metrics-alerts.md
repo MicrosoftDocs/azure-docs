@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 09/21/2018
 ms.author: cherylmc
 
 ---
@@ -24,7 +24,8 @@ Azure Monitor is one stop shop for all metrics, alerting, diagnostic logs across
 
 ### You can only select Inbound or Outbound Metrics
 
-**(missing file)**
+![select metrics](./media/expressroute-monitoring-metrics-alerts/inout.png ) 
+
 
 ## ExpressRoute gateway connections in bits/seconds
 
@@ -34,33 +35,32 @@ Azure Monitor is one stop shop for all metrics, alerting, diagnostic logs across
 
 1. Navigate to Azure Monitor and click **Alerts**.
 
-  ![alerts](./media/expressroute-monitoring-metrics-alerts/eralertshowto.jpg) "alerts"
+  ![alerts](./media/expressroute-monitoring-metrics-alerts/eralertshowto.jpg)
 
 2. Click **+Select Target** and select the ExpressRoute gateway connection resource.
 
-  ![target]( ./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg) "target"
+  ![target]( ./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg)
 3. Define the alert details.
 
-  ![details](./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg) "details"
+  ![details](./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg)
   
 4. Define the action group.
 
-  ![action group](./media/expressroute-monitoring-metrics-alerts/alerthowto3.jpg) "action group"
+  ![action group](./media/expressroute-monitoring-metrics-alerts/alerthowto3.jpg)
 
   Add action group.
 
-  ![add action group](./media/expressroute-monitoring-metrics-alerts/actiongroup.png) "add action group"
-  
- ![what](./media/expressroute-monitoring-metrics-alerts/alerthowto4.jpg)
+  ![add action group](./media/expressroute-monitoring-metrics-alerts/actiongroup.png)
 
-  ![another](./media/expressroute-monitoring-metrics-alerts/alertshowtopeering5.jpg)
-  
+## Alerts based on each peering
+
+ ![what](./media/expressroute-monitoring-metrics-alerts/basedpeering.jpg)
+
+## Configure alerts for activity logs on circuits
+
+In the **Alert Criteria**, you can select **Activity Log** for the Signal Type and select the Signal.
 
   ![another](./media/expressroute-monitoring-metrics-alerts/alertshowto6activitylog.jpg)
-
-  ![another](./media/expressroute-monitoring-metrics-alerts/metricsconfiguralertscomingsoon.jpg)
-
-
 
 
 ## Next steps
