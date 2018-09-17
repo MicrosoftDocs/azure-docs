@@ -302,8 +302,10 @@
         items:
         - name: Introduction
           href: cassandra-spark-generic.md
-        - name: Connect using Azure Databricks
+        - name: Connect using Databricks
           href: cassandra-spark-databricks.md
+        - name: Connect using HDInsight
+          href: cassandra-spark-hdinsight.md
         - name: Create keyspace & table
           href: cassandra-spark-ddl-ops.md
         - name: Insert data
