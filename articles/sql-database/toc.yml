@@ -9,13 +9,27 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create DB - Portal
-    href: sql-database-get-started-portal.md
-  - name: Create DB - Azure CLI
-    href: sql-database-get-started-cli.md
-  - name: Create DB - Azure PowerShell
-    href: sql-database-get-started-powershell.md
-  - name: Connect and query
+  - name: Create
+    items: 
+    - name: Single database
+      href: sql-database-get-started-portal.md
+    - name: Managed Instance
+      href: sql-database-managed-instance-get-started.md
+  - name: Configure
+    items:
+    - name: Logical server firewall rule
+      href: sql-database-get-started-portal-firewall.md
+    - name: Client VM connection to a Managed Instance
+      href: sql-database-managed-instance-configure-vm.md
+    - name: Point-to-site connection to a Managed Instance
+      href: sql-database-managed-instance-configure-p2s.md
+  - name: Load data
+    items:
+    - name: Import BACPAC into a single database
+      href: sql-database-import.md
+    - name: Restore a database backup to a Managed Instance
+      href: sql-database-managed-instance-get-started-restore.md
+  - name: Query
     href: sql-database-connect-query.md
     items:
     - name: SSMS
@@ -56,13 +70,9 @@
     href: sql-database-security-tutorial.md
   - name: 5 - Implement a geo-distributed database
     href: sql-database-implement-geo-distributed-database.md 
-  - name: 6 - Create Managed Instance
-    href: sql-database-managed-instance-create-tutorial-portal.md
-  - name: 7 - Restore a backup to a Managed Instance
-    href: sql-database-managed-instance-restore-from-backup-tutorial.md
-  - name: 8 - Migrate to a Managed Instance using DMS
+  - name: 6 - Migrate to a Managed Instance using DMS
     href: ../dms/tutorial-sql-server-to-managed-instance.md
-  - name: 9 - Set up Azure SQL Data Sync
+  - name: 7 - Set up Azure SQL Data Sync
     href: sql-database-get-started-sql-data-sync.md
 - name: Samples
   items:
@@ -83,7 +93,9 @@
     - name: DTU model
       href: sql-database-service-tiers-dtu.md
     - name: Resource limits
-      href: sql-database-resource-limits.md  
+      href: sql-database-resource-limits.md
+    - name: Prepay for reserved capacity
+      href: sql-database-reserved-capacity.md
   - name: Logical servers
     items: 
     - name: Create and manage
@@ -124,10 +136,14 @@
       href: sql-database-managed-instance-custom-dns.md
     - name: Sync network configuration
       href: sql-database-managed-instance-sync-network-configuration.md
+    - name: Connectivity architecture
+      href: sql-database-managed-instance-connectivity-architecture.md
     - name: Connect applications
       href: sql-database-managed-instance-connect-app.md
     - name: T-SQL differences
       href: sql-database-managed-instance-transact-sql-information.md
+    - name: Transactional replication
+      href: https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance?toc=/azure/sql-database/toc.json
   - name: Business continuity
     items:
     - name: Business continuity
@@ -140,7 +156,7 @@
       items:
       - name: Long-term backup retention
         href: sql-database-long-term-retention.md
-      - name: Configure using Axure blob storage
+      - name: Configure using Azure blob storage
         href: sql-database-long-term-backup-retention-configure.md
       - name: Configure using Azure vault (deprecated)
         href: sql-database-long-term-backup-retention-configure-vault.md
@@ -230,6 +246,18 @@
         href: sql-database-always-encrypted.md
       - name: Use the Azure key vault
         href: sql-database-always-encrypted-azure-key-vault.md
+    - name: TDE with Azure SQL
+      items:
+      - name: TDE with Azure SQL  
+        href: transparent-data-encryption-azure-sql.md
+      - name: TDE with Bring Your Own Key
+        href: transparent-data-encryption-byok-azure-sql.md
+      - name: Configure TDE with BYOK
+        href: transparent-data-encryption-byok-azure-sql-configure.md
+      - name: Rotate TDE BYOK keys
+        href: transparent-data-encryption-byok-azure-sql-key-rotation.md
+      - name: Remove TDE protector
+        href: transparent-data-encryption-byok-azure-sql-remove-tde-protector.md
   - name: Elastic scalability
     items:
     - name: Resource scalability
@@ -284,34 +312,40 @@
     items:
     - name: Monitor and tune
       href: sql-database-troubleshoot-performance.md
-    - name: Perf monitoring 
-      href: sql-database-single-database-monitor.md
-    - name: Perf recommendations
-      href: sql-database-advisor.md
-    - name: Automatic tuning
+    - name: Intelligent performance
       items:
+      - name: Perf monitoring 
+        href: sql-database-single-database-monitor.md
+      - name: Intelligent query processing
+        href: https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json
+      - name: Adaptive query processing
+        href: https://docs.microsoft.com/sql/relational-databases/performance/adaptive-query-processing?toc=/azure/sql-database/toc.json
       - name: Automatic tuning
-        href: sql-database-automatic-tuning.md
-      - name: Enable automatic tuning
-        href: sql-database-automatic-tuning-enable.md
-      - name: Enable E-mail notifications
-        href: sql-database-automatic-tuning-email-notifications.md
-    - name: Intelligent Insights
-      items:
+        items:
+        - name: Automatic tuning
+          href: sql-database-automatic-tuning.md
+        - name: Enable automatic tuning
+          href: sql-database-automatic-tuning-enable.md
+        - name: Perf recommendations
+          href: sql-database-advisor.md
+        - name: Performance recommendations
+          href: sql-database-performance.md
+        - name: Apply performance recommendations
+          href: sql-database-advisor-portal.md
+        - name: Enable E-mail notifications
+          href: sql-database-automatic-tuning-email-notifications.md
       - name: Intelligent Insights
-        href: sql-database-intelligent-insights.md
-      - name: Diagnostic logging
-        href: sql-database-metrics-diag-logging.md
-      - name: Use diagnostics log
-        href: sql-database-intelligent-insights-use-diagnostics-log.md
-      - name: Performance troubleshooting
-        href: sql-database-intelligent-insights-troubleshoot-performance.md
-    - name: Performance recommendations
-      href: sql-database-performance.md
-    - name: Use Query Performance Insight
-      href: sql-database-query-performance.md
-    - name: Apply performance recommendations
-      href: sql-database-advisor-portal.md
+        items:
+        - name: Intelligent Insights
+          href: sql-database-intelligent-insights.md
+        - name: Diagnostic logging
+          href: sql-database-metrics-diag-logging.md
+        - name: Use diagnostics log
+          href: sql-database-intelligent-insights-use-diagnostics-log.md
+        - name: Performance troubleshooting
+          href: sql-database-intelligent-insights-troubleshoot-performance.md
+      - name: Use Query Performance Insight
+        href: sql-database-query-performance.md
     - name: Manual tuning
       items:
       - name: Manual tuning
@@ -458,7 +492,7 @@
       href: sql-database-develop-cplusplus-simple.md
     - name: Excel
       href: sql-database-connect-excel.md
-  - name: Multi-tenant SaaS reference architecture
+  - name: Multi-tenant SaaS sample application
     items:
     - name: Wingtip Tickets sample
       href: saas-tenancy-welcome-wingtip-tickets-app.md
@@ -580,4 +614,4 @@
   - name: Architecture center
     href: /azure/architecture/
   - name: Customer stories
-    href: https://customers.microsoft.com/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
+    href: http://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc

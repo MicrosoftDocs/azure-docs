@@ -2,13 +2,14 @@
 title: Apply performance recommendations - Azure SQL Database | Microsoft Docs
 description: Use the Azure portal to find performance recommendations that can optimize performance of your Azure SQL Database.
 services: sql-database
-author: stevestein
+author: danimir
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
 ms.date: 04/01/2018
-ms.author: sstein
+ms.author: v-daljep
+ms.reviewer: carlrab
 
 ---
 # Find and apply performance recommendations
@@ -108,7 +109,7 @@ Select any recommendation and then click **View script**. Run this script agains
 *Indexes that are manually executed are not monitored and validated for performance impact by the service* so it is suggested that you monitor these indexes after creation to verify they provide performance gains and adjust or delete them if necessary. For details about creating indexes, see [CREATE INDEX (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx).
 
 ### Canceling recommendations
-Recommendations that are in a **Pending**, **Verifying**, or **Success** status can be canceled. Recommendations with a status of **Executing** cannot be canceled.
+Recommendations that are in a **Pending**, **Validating**, or **Success** status can be canceled. Recommendations with a status of **Executing** cannot be canceled.
 
 1. Select a recommendation in the **Tuning History** area to open the **recommendations details** page.
 2. Click **Cancel** to abort the process of applying the recommendation.
@@ -120,7 +121,7 @@ Applying a recommendation might not happen instantaneously. The portal provides 
 |:--- |:--- |
 | Pending |Apply recommendation command has been received and is scheduled for execution. |
 | Executing |The recommendation is being applied. |
-| Verifying |Recommendation was successfully applied and the service is measuring the benefits. |
+| Validating |Recommendation was successfully applied and the service is measuring the benefits. |
 | Success |Recommendation was successfully applied and benefits have been measured. |
 | Error |An error occurred during the process of applying the recommendation. This can be a transient issue, or possibly a schema change to the table and the script is no longer valid. |
 | Reverting |The recommendation was applied, but has been deemed non-performant and is being automatically reverted. |

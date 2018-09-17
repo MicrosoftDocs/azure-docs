@@ -5,8 +5,8 @@ title: Overview of how to create and deploy an offer to the Marketplace | Micros
 description: Understand the steps required to become an approved Microsoft developer and create and deploy a virtual machine image, template, data service, or developer service in the Azure Marketplace
 services: marketplace-publishing
 documentationcenter: ''
-author: msmbaldwin
-manager: mbaldwin
+author: HannibalSII
+manager: hascipio
 editor: ''
 
 ms.assetid: 5343bd26-c6e4-4589-85b7-4a2c00bba8ab
@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2017
-ms.author: mbaldwin
+ms.author: hascipio
 
 ---
 > [!NOTE]
@@ -64,21 +64,21 @@ To publish a solution to the Marketplace, follow these steps:
 
     c. Fulfill the [solution template technical prerequisites](marketplace-publishing-solution-template-creation-prerequisites.md).
 
-1. Create your offer.
+2. Create your offer.
 
     a. Create a [virtual machine](marketplace-publishing-vm-image-creation.md) offer.
 
     b. Create a [solution template](marketplace-publishing-solution-template-creation.md) offer.
 
-1. Create your offer [marketing content](marketplace-publishing-push-to-staging.md).
+3. Create your offer [marketing content](marketplace-publishing-push-to-staging.md).
 
-1. Test your offer in staging.
+4. Test your offer in staging.
 
     a. Test your VM offer in [staging](marketplace-publishing-vm-image-test-in-staging.md).
 
     b. Test your solution template offer in [staging](marketplace-publishing-solution-template-test-in-staging.md).
 
-1. Deploy your offer to the [Marketplace](marketplace-publishing-push-to-production.md).
+5. Deploy your offer to the [Marketplace](marketplace-publishing-push-to-production.md).
 
 
 ### Create and manage a virtual machine image

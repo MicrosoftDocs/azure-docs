@@ -113,7 +113,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	`https://<company name>.Intralinks.com/?PartnerIdpId=https://sts.windows.net/<AzureADTenantID>`
 
 	> [!NOTE] 
-	> This value is not real. Update this value with the actual Sign-On URL. Contact [Intralinks Client support team](https://www.intralinks.com/contact-1) to get this value. 
+	> This value is not real. Update this value with the actual Sign-On URL. Contact [Intralinks Client support team](https://www.intralinks.com/contact) to get this value. 
  
 1. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
@@ -123,7 +123,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/intralinks-tutorial/tutorial_general_400.png)
 
-1. To configure single sign-on on **Intralinks** side, you need to send the downloaded **Metadata XML** [Intralinks support team](https://www.intralinks.com/contact-1). They set this setting to have the SAML SSO connection set properly on both sides.
+1. To configure single sign-on on **Intralinks** side, you need to send the downloaded **Metadata XML** [Intralinks support team](https://www.intralinks.com/contact). They set this setting to have the SAML SSO connection set properly on both sides.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -161,7 +161,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Creating an Intralinks test user
 
-In this section, you create a user called Britta Simon in Intralinks. Please work with [Intralinks support team](https://www.intralinks.com/contact-1) to add the users in the Intralinks platform.
+In this section, you create a user called Britta Simon in Intralinks. Please work with [Intralinks support team](https://www.intralinks.com/contact) to add the users in the Intralinks platform.
 
 ### Assigning the Azure AD test user
 
@@ -235,7 +235,7 @@ After that you can follow the below procedure to add another Intralinks applicat
  
 	![Configure Single Sign-On](./media/intralinks-tutorial/tutorial_intralinks_linkedsignon.png)
 
-1. Get the SP Initiated SSO URL from [Intralinks team](https://www.intralinks.com/contact-1) for the other Intralinks application and enter it in **Configure Sign-on URL** as shown below. 
+1. Get the SP Initiated SSO URL from [Intralinks team](https://www.intralinks.com/contact) for the other Intralinks application and enter it in **Configure Sign-on URL** as shown below. 
     
      ![Configure Single Sign-On](./media/intralinks-tutorial/tutorial_intralinks_customappurl.png)
     

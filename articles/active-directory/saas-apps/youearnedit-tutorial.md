@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 08/10/2018
 ms.author: jeedes
 
 ---
@@ -46,13 +46,15 @@ To test the steps in this tutorial, you should follow these recommendations:
 - If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario description
+
 In this tutorial, you test Azure AD single sign-on in a test environment. 
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding YouEarnedIt from the gallery
-1. Configuring and testing Azure AD single sign-on
+2. Configuring and testing Azure AD single sign-on
 
 ## Adding YouEarnedIt from the gallery
+
 To configure the integration of YouEarnedIt into Azure AD, you need to add YouEarnedIt from the gallery to your list of managed SaaS apps.
 
 **To add YouEarnedIt from the gallery, perform the following steps:**
@@ -61,15 +63,15 @@ To configure the integration of YouEarnedIt into Azure AD, you need to add YouEa
 
 	![The Azure Active Directory button][1]
 
-1. Navigate to **Enterprise applications**. Then go to **All applications**.
+2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
 	![The Enterprise applications blade][2]
-	
-1. To add new application, click **New application** button on the top of dialog.
+
+3. To add new application, click **New application** button on the top of dialog.
 
 	![The New application button][3]
 
-1. In the search box, type **YouEarnedt**, select  **YouEarnedt**  from result panel then click **Add** button to add the application.
+4. In the search box, type **YouEarnedt**, select  **YouEarnedt**  from result panel then click **Add** button to add the application.
 
 	![YouEarnedIt in the results list](./media/youearnedit-tutorial/tutorial_youearnedit_addfromgallery.png)
 
@@ -84,10 +86,10 @@ In YouEarnedIt, assign the value of the **user name** in Azure AD as the value o
 To configure and test Azure AD single sign-on with YouEarnedIt, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Create a YouEarnedIt test user](#create-a-youearnedit-test-user)** - to have a counterpart of Britta Simon in YouEarnedIt that is linked to the Azure AD representation of user.
-1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-1. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+3. **[Create a YouEarnedIt test user](#create-a-youearnedit-test-user)** - to have a counterpart of Britta Simon in YouEarnedIt that is linked to the Azure AD representation of user.
+4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
@@ -99,11 +101,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure single sign-on link][4]
 
-1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
  
 	![Single sign-on dialog box](./media/youearnedit-tutorial/tutorial_youearnedit_samlbase.png)
 
-1. On the **YouEarnedIt Domain and URLs** section, perform the following steps:
+3. On the **YouEarnedIt Domain and URLs** section, perform the following steps:
 
 	![YouEarnedIt Domain and URLs single sign-on information](./media/youearnedit-tutorial/tutorial_youearnedit_url.png)
 
@@ -120,24 +122,21 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| Sandbox  |`https://<company name>.sandbox.youearnedit.com` |
 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [YouEarnedIt Client support team](https://youearnedit.freshdesk.com/support/tickets/new) to get these values. 
- 
-1. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
+	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact your assigned YouEarnedIt Customer Success manager to get these values.
+
+4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
 	![The Certificate download link](./media/youearnedit-tutorial/tutorial_youearnedit_certificate.png) 
 
-1. Click **Save** button.
+5. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/youearnedit-tutorial/tutorial_general_400.png)
 
-1. On the **YouEarnedIt Configuration** section, click **Configure YouEarnedIt** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
+6. On the **YouEarnedIt Configuration** section, click **Configure YouEarnedIt** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![YouEarnedIt Configuration](./media/youearnedit-tutorial/tutorial_youearnedit_configure.png) 
 
-1. To configure single sign-on on **YouEarnedIt** side, you need to send the downloaded **Certificate(Base64)** and **SAML Single Sign-On Service URL** to [YouEarnedIt support team](https://youearnedit.freshdesk.com/support/tickets/new). They set this setting to have the SAML SSO connection set properly on both sides.
-
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+7. To configure single sign-on on the **YouEarnedIt** side, you need to send the downloaded ***Certificate(Base64)*** and ***SAML Single Sign-On Service URL*** to your assigned **YouEarnedIt** Customer Success manager. They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user
 
@@ -151,15 +150,15 @@ The objective of this section is to create a test user in the Azure portal calle
 
     ![The Azure Active Directory button](./media/youearnedit-tutorial/create_aaduser_01.png)
 
-1. To display the list of users, go to **Users and groups**, and then click **All users**.
+2. To display the list of users, go to **Users and groups**, and then click **All users**.
 
     ![The "Users and groups" and "All users" links](./media/youearnedit-tutorial/create_aaduser_02.png)
 
-1. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
+3. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
 
     ![The Add button](./media/youearnedit-tutorial/create_aaduser_03.png)
 
-1. In the **User** dialog box, perform the following steps:
+4. In the **User** dialog box, perform the following steps:
 
     ![The User dialog box](./media/youearnedit-tutorial/create_aaduser_04.png)
 
@@ -170,10 +169,10 @@ The objective of this section is to create a test user in the Azure portal calle
     c. Select the **Show Password** check box, and then write down the value that's displayed in the **Password** box.
 
     d. Click **Create**.
- 
+
 ### Create a YouEarnedIt test user
 
-In this section, you create a user called Britta Simon in YouEarnedIt. Please work with YouEarnedIt support team to add the users in the YouEarnedIt platform.
+In this section, you create a user called Britta Simon in YouEarnedIt. Please work with  your assigned YouEarnedIt Customer Success manager to add the users in the YouEarnedIt platform.
 
 >[!NOTE]
 >YouEarnedIt expect the Identity Provider to supply an EmailAddress  or UserName in the NameID attribute. Authentication will fail if a corresponding UserName or EmailAddress is not found within the database or does not match exactly. This will require that accounts be imported into the YouEarnedIt system before the SSO integration (Typically either via API or CSV import).
@@ -182,45 +181,43 @@ In this section, you create a user called Britta Simon in YouEarnedIt. Please wo
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting access to YouEarnedIt.
 
-![Assign the user role][200] 
+![Assign the user role][200]
 
 **To assign Britta Simon to YouEarnedIt, perform the following steps:**
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+	![Assign User][201]
 
-1. In the applications list, select **YouEarnedIt**.
+2. In the applications list, select **YouEarnedIt**.
 
 	![The YouEarnedIt link in the Applications list](./media/youearnedit-tutorial/tutorial_youearnedit_app.png)  
 
-1. In the menu on the left, click **Users and groups**.
+3. In the menu on the left, click **Users and groups**.
 
 	![The "Users and groups" link][202]
 
-1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
 	![The Add Assignment pane][203]
 
-1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
-1. Click **Select** button on **Users and groups** dialog.
+6. Click **Select** button on **Users and groups** dialog.
 
-1. Click **Assign** button on **Add Assignment** dialog.
-	
+7. Click **Assign** button on **Add Assignment** dialog.
+
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the YouEarnedIt tile in the Access Panel, you should get automatically signed-on to your YouEarnedIt application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## Additional resources
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-
 
 <!--Image references-->
 
@@ -235,4 +232,3 @@ For more information about the Access Panel, see [Introduction to the Access 
 [201]: ./media/youearnedit-tutorial/tutorial_general_201.png
 [202]: ./media/youearnedit-tutorial/tutorial_general_202.png
 [203]: ./media/youearnedit-tutorial/tutorial_general_203.png
-

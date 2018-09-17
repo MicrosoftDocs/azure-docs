@@ -1,20 +1,12 @@
 ---
-title: Troubleshoot Spark by using Azure HDInsight | Microsoft Docs
+title: Troubleshoot Spark in Azure HDInsight
 description: Get answers to common questions about working with Apache Spark and Azure HDInsight.
-keywords: Azure HDInsight, Spark, FAQ, troubleshooting guide, common problems, application configuration, Ambari
-services: Azure HDInsight
-documentationcenter: na
-author: arijitt
-manager: ''
-editor: ''
-
-ms.assetid: 25D89586-DE5B-4268-B5D5-CC2CE12207ED
-ms.service: multiple
-ms.devlang: na
-ms.topic: article
+services: hdinsight
+ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+ms.topic: conceptual
 ms.date: 11/2/2017
-ms.author: arijitt
-
 ---
 
 # Troubleshoot Spark by using Azure HDInsight

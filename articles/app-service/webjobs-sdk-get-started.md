@@ -3,7 +3,7 @@ title: Get started with the Azure WebJobs SDK
 description: Introduction to the WebJobs SDK for event-driven background processing. Learn how to access data in Azure services and third-party services.
 services: app-service\web, storage
 documentationcenter: .net
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: 
 
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
-ms.author: tdykstra
+ms.author: glenga
 ---
 
 # Get started with the Azure WebJobs SDK for event-driven background processing
@@ -98,7 +98,7 @@ The `JobHost` object is the runtime container for functions: it listens for trig
 
 ## Enable console logging
 
-There are several options for logging in WebJobs SDK project. The one we recommend is the [logging framework that was developed for ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging). This framework offers better performance and more flexibility in storage media and filtering. 
+There are several options for logging in WebJobs SDK project. The one we recommend is the [logging framework that was developed for ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging). This framework offers better performance and more flexibility in storage media and filtering. 
 
 In this section, you set up console logging that uses the new framework.
 

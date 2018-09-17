@@ -59,18 +59,12 @@
       items:
       - name: Create standalone Automation account
         href: automation-create-standalone-account.md
-      - name: Create Azure AD user account
-        href: automation-create-aduser-account.md
+      - name: Manage Automation Run As account
+        href: manage-runas-account.md
       - name: Configure authentication with AWS
         href: automation-config-aws-account.md
-      - name: Create Automation Run As account
-        href: automation-create-runas-account.md
-      - name: Validate Automation account config
-        href: automation-verify-runas-authentication.md
       - name: Manage role-based access control
         href: automation-role-based-access-control.md
-      - name: Manage Automation account
-        href: automation-manage-account.md
     - name: Create runbooks
       items:
         - name: Runbook types
@@ -113,14 +107,12 @@
           href: automation-runbook-graphical-error-handling.md
         - name: Track a runbook job
           href: automation-runbook-execution.md
-        - name: Change runbook settings
-          href: automation-runbook-settings.md
         - name: Manage Azure Automation data
           href: automation-managing-data.md
-        - name: Call Azure Automation Runbook from Log Analytics alert
-          href: automation-invoke-runbook-from-omsla-alert.md
         - name: Pass a JSON object to an Azure Automation runbook
           href: automation-pass-json-string.md
+        - name: Start/stop VMs during off-hours
+          href: automation-solution-vm-management.md
     - name: Hybrid Runbook Worker
       items:
         - name: Hybrid Runbook Worker overview
@@ -131,21 +123,23 @@
           href: automation-linux-hrw-install.md
         - name: Run runbooks on a Hybrid Runbook Worker
           href: automation-hrw-run-runbooks.md
-    - name: Deploy configuration management (DSC)
+    - name: State Configuration
       items:
-        - name: Desired State Configuration (DSC) overview
+        - name: State Configuration overview
           href: automation-dsc-overview.md
         - name: Getting started
           href: automation-dsc-getting-started.md
-        - name: Configure servers to a desired state and manage drift with Azure Automation
+        - name: Configure servers to a desired state and manage drift with State Configuration
           href: tutorial-configure-servers-desired-state.md
         - name: Onboarding machines for management
           href: automation-dsc-onboarding.md
         - name: Compiling DSC configurations
           href: automation-dsc-compile.md
+        - name: Composing DSC Configurations using Composite Resources
+          href: compose-configurationwithcompositeresources.md
         - name: Continuous deployment using Chocolatey
           href: automation-dsc-cd-chocolatey.md
-        - name: Forward Azure Automation DSC reporting data to OMS Log Analytics
+        - name: Forward State Configuration reporting data to Log Analytics
           href: automation-dsc-diagnostics.md
     - name: Manage shared resources
       items:
@@ -173,16 +167,12 @@
           href: automation-create-alert-triggered-runbook.md 
         - name: Create Amazon Web Service VM
           href: automation-scenario-aws-deployment.md
-        - name: Start/stop VMs during off-hours
-          href: automation-solution-vm-management.md
         - name: Remove resource group
           href: automation-scenario-remove-resourcegroup.md
         - name: Source control integration with GitHub Enterprise
           href: automation-scenario-source-control-integration-with-github-ent.md
-        - name: Source control integration with VSTS
+        - name: Source control integration with Azure DevOps
           href: automation-scenario-source-control-integration-with-VSTS.md
-        - name: Call Azure Automation Runbook from Log Analytics alert
-          href: automation-invoke-runbook-from-omsla-alert.md
         - name: Deploy an Azure Resource Manager template in an Azure Automation PowerShell runbook
           href: automation-deploy-template-runbook.md
         - name: Integrate Azure Automation with Event Grid and Microsoft Teams
@@ -197,8 +187,6 @@
       items:
         - name: Migrate from Orchestrator
           href: automation-orchestrator-migration.md
-        - name: Move Automation account
-          href: automation-migrate-account-subscription.md
     - name: Troubleshoot
       items:
         - name: Onboarding

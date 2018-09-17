@@ -24,4 +24,4 @@ Azure AD B2C uses detection and mitigation techniques like SYN cookies, and rate
 
 Azure AD B2C also has mitigation techniques in place for password attacks. Mitigation includes brute-force password attacks and dictionary password attacks. Passwords that are set by users are required to be reasonably complex. By using various signals, Azure AD B2C analyzes the integrity of requests. Azure AD B2C is designed to intelligently differentiate intended users from hackers and botnets. Azure AD B2C provides a sophisticated strategy to lock accounts based on the passwords entered, in the likelihood of an attack.
 
-For more information, visit the [Microsoft Trust Center](https://www.microsoft.com/en-us/trustcenter/default.aspx).
+For more information, visit the [Microsoft Trust Center](https://www.microsoft.com/trustcenter/default.aspx).

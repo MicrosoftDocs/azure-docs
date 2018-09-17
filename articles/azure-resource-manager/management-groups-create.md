@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/31/2018
+ms.date: 08/21/2018
 ms.author: rithorn
 ---
 
@@ -24,7 +24,7 @@ The first management group created in the directory could take up to 15 minutes 
 
 ## Create a management group
 
-You can create the management group by using the portal, PowerShell, or Azure CLI.
+You can create the management group by using the portal, PowerShell, or Azure CLI. Currently, you can't use Resource Manager templates to create management groups.
 
 ### Create in portal
 

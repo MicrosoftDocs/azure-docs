@@ -37,11 +37,11 @@ The following guided setups walk you through building an app on your preferred p
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| <center>![Mobile and desktop apps](./media/azure-ad-developers-guide/NativeApp_Icon.png)<br />Mobile and desktop apps</center> | [Overview](authentication-scenarios.md#native-application-to-web-api)<br /><br />[iOS](active-directory-devquickstarts-ios.md)<br /><br />[Android](active-directory-devquickstarts-android.md) | [.NET (WPF)](active-directory-devquickstarts-dotnet.md)<br /><br />[Xamarin](active-directory-devquickstarts-xamarin.md) |
-| <center>![Web apps](./media/azure-ad-developers-guide/Web_app.png)<br />Web apps</center> | [Overview](authentication-scenarios.md#web-browser-to-web-application)<br /><br />[ASP.NET](quickstart-v1-aspnet-webapp.md)<br /><br />[Java](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect) | [Python](https://github.com/Azure-Samples/active-directory-python-webapp-graphapi)<br/><br/> [Node.js](active-directory-devquickstarts-openidconnect-nodejs.md) |
-| <center>![Single page apps](./media/azure-ad-developers-guide/SPA.png)<br />Single page apps</center> | [Overview](authentication-scenarios.md#single-page-application-spa)<br /><br />[AngularJS](active-directory-devquickstarts-angular.md)<br /><br />[JavaScript](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |  |
-| <center>![Web APIs](./media/azure-ad-developers-guide/Web_API.png)<br />Web APIs</center> | [Overview](authentication-scenarios.md#web-application-to-web-api)<br /><br />[ASP.NET](active-directory-devquickstarts-webapi-dotnet.md)<br /><br />[Node.js](active-directory-devquickstarts-webapi-nodejs.md) | &nbsp; |
-| <center>![Service-to-service](./media/azure-ad-developers-guide/Service_App.png)<br />Service-to-service</center> | [Overview](authentication-scenarios.md#daemon-or-server-application-to-web-api)<br /><br />[.NET](active-directory-code-samples.md#daemon-applications-accessing-web-apis-with-the-applications-identity)|  |
+| <center>![Mobile and desktop apps](./media/azure-ad-developers-guide/NativeApp_Icon.png)<br />Mobile and desktop apps</center> | [Overview](authentication-scenarios.md#native-application-to-web-api)<br /><br />[iOS](quickstart-v1-ios.md)<br /><br />[Android](quickstart-v1-android.md) | [.NET (WPF)](quickstart-v1-dotnet.md)<br /><br />[Xamarin](quickstart-v1-xamarin.md) |
+| <center>![Web apps](./media/azure-ad-developers-guide/Web_app.png)<br />Web apps</center> | [Overview](authentication-scenarios.md#web-browser-to-web-application)<br /><br />[ASP.NET](quickstart-v1-aspnet-webapp.md)<br /><br />[Java](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect) | [Python](https://github.com/Azure-Samples/active-directory-python-webapp-graphapi)<br/><br/> [Node.js](quickstart-v1-openid-connect-code.md) |
+| <center>![Single page apps](./media/azure-ad-developers-guide/SPA.png)<br />Single page apps</center> | [Overview](authentication-scenarios.md#single-page-application-spa)<br /><br />[AngularJS](quickstart-v1-angularjs-spa.md)<br /><br />[JavaScript](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |  |
+| <center>![Web APIs](./media/azure-ad-developers-guide/Web_API.png)<br />Web APIs</center> | [Overview](authentication-scenarios.md#web-application-to-web-api)<br /><br />[ASP.NET](quickstart-v1-dotnet-webapi.md)<br /><br />[Node.js](quickstart-v1-nodejs-webapi.md) | &nbsp; |
+| <center>![Service-to-service](./media/azure-ad-developers-guide/Service_App.png)<br />Service-to-service</center> | [Overview](authentication-scenarios.md#daemon-or-server-application-to-web-api)<br /><br />[.NET](sample-v1-code.md#daemon-applications-accessing-web-apis-with-the-applications-identity)|  |
 |  |  |  |  |  |
 
 ## How-to guides
@@ -49,9 +49,9 @@ These guides walk you through some of the most common tasks in Azure AD.
 
 |                                                                           |  |
 |---------------------------------------------------------------------------| --- |
-|[Application registration](active-directory-integrating-applications.md)           | How to register an application in Azure AD. |
-|[Multi-tenant applications](active-directory-devhowto-multi-tenant-overview.md)    | How to sign in any Microsoft work account. |
-|[OAuth and OpenID Connect protocols](active-directory-protocols-openid-connect-code.md)| How to sign in users and call web APIs by using the Microsoft authentication protocols. |
+|[Application registration](quickstart-v1-integrate-apps-with-azure-ad.md)           | How to register an application in Azure AD. |
+|[Multi-tenant applications](howto-convert-app-to-be-multi-tenant.md)    | How to sign in any Microsoft work account. |
+|[OAuth and OpenID Connect protocols](v1-protocols-openid-connect-code.md)| How to sign in users and call web APIs by using the Microsoft authentication protocols. |
 |  |  |
 
 ## Reference topics
@@ -60,8 +60,8 @@ The following articles provide detailed information about APIs, protocol message
 |                                                                                   | |
 | ----------------------------------------------------------------------------------| --- |
 | [Authentication Libraries (ADAL)](active-directory-authentication-libraries.md)   | An overview of the libraries and SDKs that are provided by Azure AD. |
-| [Code samples](active-directory-code-samples.md)                                  | A list of all of the Azure AD code samples. |
-| [Glossary](active-directory-dev-glossary.md)                                      | Terminology and definitions of words that are used throughout this documentation. |
+| [Code samples](sample-v1-code.md)                                  | A list of all of the Azure AD code samples. |
+| [Glossary](developer-glossary.md)                                      | Terminology and definitions of words that are used throughout this documentation. |
 |  |  |
 
 

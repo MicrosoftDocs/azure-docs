@@ -19,7 +19,7 @@ Microsoft Translator Text API is part of the Microsoft [Cognitive Services API](
 
 ## About Microsoft Translator
 
-Microsoft Translator is a cloud-based machine translation service. At the core of this service are the Translator Text API and [Translator Speech API](https://www.microsoft.com/en-us/translator/speech.aspx) which power various Microsoft products and services and are used by thousands of businesses worldwide in their applications and workflows, allowing their content to reach a worldwide audience.
+Microsoft Translator is a cloud-based machine translation service. At the core of this service are the Translator Text API and [Translator Speech API](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-translation) which power various Microsoft products and services and are used by thousands of businesses worldwide in their applications and workflows, allowing their content to reach a worldwide audience.
 
 Speech translation is also available through the [Cognitive Services Speech preview](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/), which combines existing Translator Speech API, Bing Speech API, and Custom Speech Service (preview) into a unified and fully customizable service.  
 
@@ -51,7 +51,7 @@ Learn more about [how NMT works](https://www.microsoft.com/en-us/translator/mt.a
 
 - [Quickstart](quickstarts/csharp.md) is a walkthrough of the REST API calls written in C#. Learn how to translate text from one language to another with minimal code.
 
-- [API reference documentation](https://aka.ms/translator-text-api) provides the technical documentation for the APIs.
+- [API reference documentation](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference) provides the technical documentation for the APIs.
 
 ## See also
 

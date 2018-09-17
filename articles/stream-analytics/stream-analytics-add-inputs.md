@@ -21,7 +21,7 @@ Stream Analytics has first-class integration from three kinds of resources as in
 
 These input resources can live in same Azure subscription as your Stream Analytics job, or from a different subscription.
 
-You can use the [Azure portal](stream-analytics-quick-create-portal.md#configure-input-to-the-job),  [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/New-AzureRmStreamAnalyticsInput), [.Net API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.inputsoperationsextensions), [REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-input), and [Visual Studio](stream-analytics-tools-for-visual-studio.md) to create, edit, and test Stream Analytics job inputs.
+You can use the [Azure portal](stream-analytics-quick-create-portal.md#configure-input-to-the-job),  [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/New-AzureRmStreamAnalyticsInput), [.Net API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.inputsoperationsextensions), [REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-input), and [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) to create, edit, and test Stream Analytics job inputs.
 
 ## Stream and reference inputs
 As data is pushed to a data source, it's consumed by the Stream Analytics job and processed in real time. Inputs are divided into two types: data stream inputs and reference data inputs.
@@ -36,7 +36,7 @@ Stream Analytics also supports input known as *reference data*. Reference data i
 
 For more information about reference data inputs, see [Using reference data for lookups in Stream Analytics](stream-analytics-use-reference-data.md)
 
-This article is a step in the [Stream Analytics learning path](/documentation/learning-paths/stream-analytics/).
+This article is a step in the [Stream Analytics learning path](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/).
 
 ## Next steps
 > [!div class="nextstepaction"]

@@ -102,7 +102,7 @@ Metric alerts: They can then notify you via email or fire a webhook that can be 
 
  ![Metrics and alert rules in Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview4.png)
 
-Newer metric alerts have the ability to monitor multiple metrics, and thresholds, for a resource and then notify you via an [Action Group](/monitoring-action-groups.md). Learn more about [newer alerts here](https://aka.ms/azuremonitor/near-real-time-alerts).
+Newer metric alerts have the ability to monitor multiple metrics, and thresholds, for a resource and then notify you via an [Action Group](monitoring-action-groups.md). Learn more about [newer alerts here](https://aka.ms/azuremonitor/near-real-time-alerts).
 
 
 ### Autoscale your Azure resources

@@ -5,7 +5,7 @@ services: service-bus-relay
 author: clemensv
 ms.service: service-bus-relay
 ms.topic: include
-ms.date: 05/02/2018
+ms.date: 08/16/2018
 ms.author: clemensv
 ms.custom: include file
 
@@ -36,6 +36,7 @@ In Visual Studio, create a new **Console App (.NET Framework)** project.
     using System.IO;
     using System.Threading;
     using System.Threading.Tasks;
+    using System.Net.Http;
     using Microsoft.Azure.Relay;
     ```
 2. Add constants to the `Program` class for the hybrid connection details. Replace the placeholders in brackets with the values that you obtained when you created the hybrid connection. Be sure to use the fully qualified namespace name.
@@ -63,7 +64,7 @@ In Visual Studio, create a new **Console App (.NET Framework)** project.
         };
         request.Headers.Add("ServiceBusAuthorization", token);
         var response = await client.SendAsync(request);
-        Console.WriteLine(await response.Content.ReadAsStringAsync());
+        Console.WriteLine(await response.Content.ReadAsStringAsync());        Console.ReadLine();
     }
     ```
 4. Add the following line of code to the `Main` method in the `Program` class.

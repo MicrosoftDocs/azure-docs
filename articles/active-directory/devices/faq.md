@@ -33,7 +33,7 @@ ms.reviewer: jairoc
 
 **Remarks:**
 
-- The users that are included in your conditional access policy need a [supported version of Office for macOS](../active-directory-conditional-access-technical-reference.md#client-apps-condition) to access resources. 
+- The users that are included in your conditional access policy need a [supported version of Office for macOS](../conditional-access/technical-reference.md#client-apps-condition) to access resources. 
 
 - During the first access attempt, your users are prompted to enroll the device using the company portal.
 
@@ -95,12 +95,12 @@ For down-level Windows OS versions that are on-premises AD domain-joined:
 
 **Q: My users cannot search printers from Azure AD Joined devices. How can I enable printing from Azure AD Joined devices ?**
 
-**A:** For deploying printers for Azure AD Joined devices, see [Hybrid cloud print](https://docs.microsoft.com/en-us/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). You will need an on-premises Windows Server to deploy hybrid cloud print. Currently, cloud-based print service is not available. 
+**A:** For deploying printers for Azure AD Joined devices, see [Hybrid cloud print](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). You will need an on-premises Windows Server to deploy hybrid cloud print. Currently, cloud-based print service is not available. 
 
 ---
 
 **Q: How do I connect to a remote Azure AD joined device?**
-**A:** Refer to the article https://docs.microsoft.com/en-us/windows/client-management/connect-to-remote-aadj-pc for details.
+**A:** Refer to the article https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc for details.
 
 ---
 
@@ -144,7 +144,7 @@ Please evaluate the conditional access policy rules and ensure that the device i
 **Q: I see the device record under the USER info in the Azure portal and can see the state as registered on the device. Am I setup correctly for using conditional access?**
 
 **A:** The device join state, reflected by deviceID, must match with that on Azure AD and meet any evaluation criteria for conditional access. 
-For more information, see [Require managed devices for cloud app access with conditional access](../active-directory-conditional-access-policy-connected-applications.md).
+For more information, see [Require managed devices for cloud app access with conditional access](../conditional-access/require-managed-devices.md).
 
 ---
 

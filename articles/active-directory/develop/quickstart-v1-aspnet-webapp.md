@@ -27,7 +27,7 @@ This guide demonstrates how to implement sign-in with Microsoft using an ASP.NET
 At the end of this guide, your application will accept sign ins of work and school accounts from organizations that have integrated with Azure Active Directory.
 
 > [!NOTE]
-> This guided setup helps you to enable sign-ins from work and school accounts in your ASP.NET application. If you are interested to enable sign-ins for personal accounts in addition to work and school accounts, you can use the [v2 endpoint](active-directory-v2-compare.md). See [this ASP.NET guided setup for the v2 endpoint](tutorial-v2-asp-webapp.md) as well as [this document](active-directory-v2-limitations.md) explaining the current limitations of the v2 endpoint.
+> This guided setup helps you to enable sign-ins from work and school accounts in your ASP.NET application. If you are interested to enable sign-ins for personal accounts in addition to work and school accounts, you can use the [v2 endpoint](azure-ad-endpoint-comparison.md). See [this ASP.NET guided setup for the v2 endpoint](tutorial-v2-asp-webapp.md) as well as [this document](active-directory-v2-limitations.md) explaining the current limitations of the v2 endpoint.
 <br/><br/>
 
 <!--separator-->
@@ -215,7 +215,7 @@ Follow the following steps if you want to accept sign ins of work and school acc
 2. Under `All Settings` select `Properties`
 3. Change `Multi-tenanted` property to `Yes` and click `Save`
 
-For more information about this setting and the concept of multi-tenant applications, see [this article](active-directory-devhowto-multi-tenant-overview.md "Multi-tenant overview").
+For more information about this setting and the concept of multi-tenant applications, see [this article](howto-convert-app-to-be-multi-tenant.md "Multi-tenant overview").
 
 ### Restrict users from only one organization's Active Directory instance to sign in to your application (single-tenant)
 

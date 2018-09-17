@@ -9,11 +9,13 @@
   - name: Azure logging and auditing
     href: azure-log-audit.md
   - name: Azure network security
-    href: azure-network-security.md
+    href: abstract-azure-network-security.md
   - name: Azure serverless platform security
     href: abstract-serverless-platform-security.md
+  - name: Container security in Azure
+    href: abstract-container-security-microsoft-azure.md
   - name: Enabling operational security
-    href: azure-operational-security.md
+    href: abstract-azure-operational-security.md
   - name: Governance in Azure
     href: governance-in-azure.md
   - name: Isolation in the Azure cloud
@@ -39,22 +41,35 @@
     - name: Data encryption-at-rest
       href: azure-security-encryption-atrest.md
     - name: Disk encryption for IaaS VMs
-      href: azure-security-disk-encryption-overview.md
       items:
-      - name: Disk encryption prerequisites
-        href: azure-security-disk-encryption-prerequisites.md
-      - name: Disk encryption for Windows VMs
-        href: azure-security-disk-encryption-windows.md
-      - name: Disk encryption for Linux VMs
-        href: azure-security-disk-encryption-linux.md
+      - name: About Azure Disk Encryption
+        href: azure-security-disk-encryption-overview.md
+      - name: Quickstarts
+        items:
+        - name: Encrypt VM - Azure PowerShell
+          href: quick-encrypt-vm-powershell.md
+      - name: Azure Disk Encryption
+        items:
+        - name: Disk encryption prerequisites
+          href: azure-security-disk-encryption-prerequisites.md
+        - name: Disk encryption for Windows VMs
+          href: azure-security-disk-encryption-windows.md
+        - name: Disk encryption for Linux VMs
+          href: azure-security-disk-encryption-linux.md
       - name: Appendix for disk encryption
         href: azure-security-disk-encryption-appendix.md
       - name: Disk encryption FAQ
         href: azure-security-disk-encryption-faq.md
       - name: Troubleshooting
         href: azure-security-disk-encryption-tsg.md
-    - name: Encrypt an Azure VM
-      href: ../security-center/security-center-disk-encryption.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
+      - name: Azure Disk Encryption with Azure AD app (previous release)
+        items:
+        - name: Disk encryption with Azure AD app prerequisites 
+          href: azure-security-disk-encryption-prerequisites-aad.md
+        - name: Disk encryption with Azure AD app for Windows VMs 
+          href: azure-security-disk-encryption-windows-aad.md
+        - name: Disk encryption with Azure AD app for Linux VMs 
+          href: azure-security-disk-encryption-linux-aad.md
   - name: Azure Storage security
     href: security-storage-overview.md
   - name: Storage security guide
@@ -172,6 +187,12 @@
       href: azure-operational-security-checklist.md
 - name: Governance and compliance
   items:
+  - name: AU PROTECTED
+    items:
+    - name: IaaS web application
+      href: ./blueprints/au-protected-iaaswa-overview.md
+    - name: PaaS web application
+      href: ./blueprints/au-protected-paaswa-overview.md
   - name: FedRAMP
     items:
     - name: Data analytics
