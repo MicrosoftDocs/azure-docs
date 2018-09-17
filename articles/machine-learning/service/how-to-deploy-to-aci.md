@@ -56,7 +56,7 @@ Configure the Docker image that is used to store all the model files.
                                                       runtime = "python",
                                                       conda_file = "myenv.yml",
                                                       description = "Image with mnist model",
-                                                      tags = ["mnist","classification"]
+                                                      tags = {"data": "mnist", "type": "classification"}
                                                      )
     ```
 
@@ -69,7 +69,7 @@ from azureml.core.webservice import AciWebservice
 
 aciconfig = AciWebservice.deploy_configuration(cpu_cores = 1, 
                                                memory_gb = 1, 
-                                               tags = ['mnist','classification'], 
+                                               tags = {"data": "mnist", "type": "classification"},
                                                description = 'Handwriting recognition')
 ```
 
