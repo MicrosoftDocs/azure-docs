@@ -1,11 +1,11 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Speech Service and SDK (Preview)
+title: Speech service and SDK (Preview)
 metadata:
-  title: Speech Service Documentation - Tutorials, Quickstarts, API Reference - Cognitive Services | Microsoft Docs
+  title: Speech service documentation - Tutorials, quickstarts, API reference - Cognitive Services | Microsoft Docs
   meta.description: |
-    The Speech Service provides developers an easy way to add powerful speech-enabled features to their applications.
-    Examples include&#58; voice command control & dialog, natural speech conversation, speech transcription & dictation, and speech translation.
+    The Speech service gives developers an easy way to add powerful speech-enabled features to their applications.
+    Examples include voice command control and dialogue, natural speech conversation, speech transcription and dictation, and speech translation.
   services: cognitive-services
   author: noellelacharite
   manager: nolachar
@@ -20,14 +20,14 @@ metadata:
 
 abstract:
   description: |
-    Via our Speech SDK, the <a href="overview">Speech Service</a> helps developers add speech-enabled features to their apps.
-    Features include&#58; <i>speech-to-text</i> (speech recognition/SR), <i>intent</i>, <i>translation</i>, and <i>text-to-speech</i> (TTS).
+    Via our Speech SDK, the <a href="overview">Speech service</a> helps developers add speech-enabled features to their apps.
+    Features include <i>speech-to-text</i> (speech recognition/SR), <i>intent</i>, <i>translation</i>, and <i>text-to-speech</i> (TTS).
 
 sections:
 - title: 5-minute SDK download and quickstart
   items:
   - type: paragraph
-    text: Learn how to download, install, and use by clicking on the desired arrow link <img src="media/index/link.jpg" height="15" width="15"></img> below.
+    text: Learn how to download, install, and use the SDK by selecting an arrow link <img src="media/index/link.jpg" height="15" width="15"></img>.
   - type: table
     style: dataMatrix
     columns:
@@ -118,8 +118,8 @@ sections:
     items:
     - title: Samples
       html: |
-        &nbsp;&#8226; <a href="speech-to-text-sample.md">Speech-to-text (SR)</a><br/>
-        &nbsp;&#8226; <a href="intent.md">Intent Recognition</a><br/>
+        &nbsp;&#8226; <a href="speech-to-text-sample.md">Speech to Text (speech recognition)</a><br/>
+        &nbsp;&#8226; <a href="intent.md">Intent recognition</a><br/>
         &nbsp;&#8226; <a href="translation.md">Translation</a>
     - title: API Reference
       html: |
@@ -128,24 +128,24 @@ sections:
         &nbsp;&#8226; <a href="https://aka.ms/csspeech/javaref">Java API</a>
     - title: FAQs
       html: |
-        &nbsp;&#8226; <a href="faq-stt">Speech-to-text</a><br/>
-        &nbsp;&#8226; <a href="faq-text-to-speech">Text-to-speech</a><br/>
-        &nbsp;&#8226; <a href="https://www.microsoft.com/translator/faq.aspx">Translation</a>
+        &nbsp;&#8226; <a href="faq-stt">Speech to Text</a><br/>
+        &nbsp;&#8226; <a href="faq-text-to-speech">Text to Speech</a><br/>
+        &nbsp;&#8226; <a href="https://www.microsoft.com/translator/faq.aspx">Speech Translation</a>
   - type: paragraph
-    text: Use the samples and API above with your subscription key (see <a href="get-started.md">Try the speech service for free</a>).
+    text: Use these samples and API with your subscription key (see <a href="get-started.md">Try the Speech service for free</a>).
 
-- title: Customizing speech with your own data
+- title: Customize speech by using your own data
   items:
   - type: paragraph
     text: |
-      Our Speech Service also lets you customize models to accommodate specialized vocabulary, noisy environments, and different ways of speaking.<br/>
-      &nbsp;&#8226; <a href="how-to-customize-speech-models">Customized speech-to-text</a><br/>
-      &nbsp;&#8226; <a href="https://www.microsoft.com/translator/customization.aspx">Customized speech-translation</a><br/>
-      &nbsp;&#8226; <a href="https://cris.ai/Home/customvoice">Customized text-to-speech</a>
-- title: Speech enabled HW reference design
+      You can also use our Speech service to customize models to accommodate specialized vocabulary, noisy environments, and different ways of speaking.<br/>
+      &nbsp;&#8226; <a href="how-to-customize-speech-models">Customized speech to text</a><br/>
+      &nbsp;&#8226; <a href="https://www.microsoft.com/translator/customization.aspx">Customized speech translation</a><br/>
+      &nbsp;&#8226; <a href="https://cris.ai/Home/customvoice">Customized text to speech</a>
+- title: Speech-enabled hardware reference design
   items:
   - type: paragraph
     text: |
-      For those wishing to build new speech-enabled device HW, see our reference device at
+      To build new speech-enabled device hardware, see our reference device at
       <a href='https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk'>Speech Devices SDK</a>.
 
