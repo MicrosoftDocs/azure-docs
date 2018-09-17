@@ -80,7 +80,7 @@
          href: monitoring-vminsights-maps.md
        - name: Monitor performance
          href: monitoring-vminsights-performance.md
-       - name: Query data with Azure Monitor Logs
+       - name: Query data with Log Analytics
          href: monitoring-vminsights-log-search.md
     - name: Agent Health
       href: ../monitoring/monitoring-solution-agenthealth.md?toc=%2fazure%2fmonitoring%2ftoc.json
