@@ -9,7 +9,7 @@
     href: overview-what-happened-to-workbench.md
   - name: How to migrate
     href: how-to-migrate.md             
-  - name: Compare machine learning products
+  - name: Compare ML products at Microsoft
     href: overview-more-machine-learning.md    
 - name: Quickstarts
   items:
@@ -92,7 +92,7 @@
          href: how-to-deploy-fpga-web-service.md  
        - name: Deploy to IoT Edge
          href: how-to-deploy-to-iot.md  
-  - name: Manage quotas
+  - name: Manage resource quotas
     href: how-to-manage-quotas.md
   - name: Export and delete data
     href: how-to-export-delete-data.md

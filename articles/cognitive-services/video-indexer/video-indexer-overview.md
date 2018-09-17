@@ -4,12 +4,12 @@ description: This topic gives an overview of the Video Indexer service.
 services: cognitive services
 documentationcenter: ''
 author: juliako
-manager: erikre
+manager: femila
 
 ms.service: cognitive-services
 ms.component: video-indexer
 ms.topic: overview
-ms.date: 09/06/2018
+ms.date: 09/15/2018
 ms.author: nolachar
 
 ---

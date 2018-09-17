@@ -58,7 +58,7 @@ The following scenarios use FPGA on Project Brainwave architecture:
 
 + [Land cover mapping](https://blogs.technet.microsoft.com/machinelearning/2018/05/29/how-to-use-fpgas-for-deep-learning-inference-to-perform-land-cover-mapping-on-terabytes-of-aerial-images/)
 
-## How to deploy to FPGAs?
+## Deploy to FPGAs on Azure
 
 Here is the workflow for creating an image recognition service in Azure using supported DNNs as a featurizer for deployment on Azure FPGAs:
 
