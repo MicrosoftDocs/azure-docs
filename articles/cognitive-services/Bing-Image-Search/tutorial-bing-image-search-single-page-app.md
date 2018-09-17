@@ -27,7 +27,7 @@ The tutorial app illustrates how to:
 > * Display and page through search results
 > * Request and handle an API subscription key, and Bing client ID.
 
-The full source code for this tutorial is available on Github.
+The full source code for this tutorial is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Image-Search).
 
 ## Prerequisites
 
