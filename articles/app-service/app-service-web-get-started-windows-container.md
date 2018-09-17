@@ -12,13 +12,13 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/07/2018
+ms.date: 09/17/2018
 ms.author: cephalin
 ms.custom: mvc
 ---
 # Run a custom Windows container in Azure (Preview)
 
-[Azure App Service](app-service-web-overview.md) provides pre-defined application stacks on Windows like ASP.NET or Node.js, running on IIS. The preconfigured Windows environment locks down the operating system from administrative access, software installations, changes to the global assembly cache, and so on (see [Operating system functionality on Azure App Service](web-sites-available-operating-system-functionality.md)). If your application requires more access than the preconfigured environment allows, you can deploy a custom Windows container instead. This quickstart shows how to deploy custom Docker image to [Docker Hub](https://hub.docker.com/) in Visual Studio and run it in a Windows container in Azure App Service.
+[Azure App Service](app-service-web-overview.md) provides pre-defined application stacks on Windows like ASP.NET or Node.js, running on IIS. The preconfigured Windows environment locks down the operating system from administrative access, software installations, changes to the global assembly cache, and so on (see [Operating system functionality on Azure App Service](web-sites-available-operating-system-functionality.md)). If your application requires more access than the preconfigured environment allows, you can deploy a custom Windows container instead. This quickstart shows how to deploy an ASP.NET app in a Windows image to [Docker Hub](https://hub.docker.com/) from Visual Studio and run it in a custom container in Azure App Service.
 
 ![](media/app-service-web-get-started-windows-container/app-running-vs.png)
 
@@ -53,7 +53,7 @@ Select **OK**.
 
 If the _Dockerfile_ file isn't opened automatically, open it from the **Solution Explorer**.
 
-Change the [parent image](#use-a-different-parent-image) by replacing the `FROM` line with the following code and save the file:
+You need to use a [supported parent image](#use-a-different-parent-image). Change the parent image by replacing the `FROM` line with the following code and save the file:
 
 ```Dockerfile
 FROM microsoft/aspnet:4.7.1
@@ -121,7 +121,7 @@ A new browser page is opened to the following page:
 
 ![](media/app-service-web-get-started-windows-container/app-starting.png)
 
-Wait a few minutes and try again, until you get the IIS welcome page:
+Wait a few minutes and try again, until you get the default ASP.NET home page:
 
 ![](media/app-service-web-get-started-windows-container/app-running-vs.png)
 
@@ -183,3 +183,8 @@ It takes some time to download a parent image during app start-up. However, you 
 - [microsoft/aspnet](https://hub.docker.com/r/microsoft/aspnet/):4.7.2-windowsservercore-ltsc2016, 4.7.2, latest
 - [microsoft/dotnet](https://hub.docker.com/r/microsoft/dotnet/):2.1-aspnetcore-runtime
 - [microsoft/dotnet](https://hub.docker.com/r/microsoft/dotnet/):2.1-sdk
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Migrate to Windows container in Azure](app-service-web-tutorial-windows-containers-custom-fonts.md)
