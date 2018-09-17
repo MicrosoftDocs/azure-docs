@@ -1,19 +1,19 @@
 ---
 title: Overview of Azure Monitor for VMs | Microsoft Docs
 description: Azure Monitor for VMs is a feature of Azure Monitor that combines health and performance monitoring of the Azure VM operating system, as well as automatically discovering application components and dependencies with other resources and maps the communication between them. This article provides an overview.
-services:  monitoring
+services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
 
 ms.assetid: 
-ms.service:  monitoring
+ms.service: azure-monitor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2018
+ms.date: 09/17/2018
 ms.author: magoedte
 
 ---
@@ -46,21 +46,7 @@ DevOps can effectively deliver predictable performance and availability of vital
 
 ## Data usage 
 
-As soon as you onboard the solution, data collected by your VMs is ingested and stored in Azure Monitor.  Azure Monitor for VMs is billed for the data ingested and retained, number of health criteria metric time-series monitored, alert rules created, notifications sent, per pricing published on the Azure Monitor [pricing page](https://azure.microsoft.com/pricing/details/monitor/)
-
-The cost of data can be considerable depending on the following factors: 
-
-* Number of systems you are collecting from and the collection frequency
-* Type of data created by the source.  In this case, performance metrics, virtual machine process identity information, and detailed connection events.
-* The period data is retained in the workspace
-
-Based on our testing with the default configuration of Azure Monitor for VMs, the following table provides an estimate of data consumption.
-
-|Data type | Estimated data generated |
-|----------|--------------------------|
-|Performance |0.5 GB /month at 60 second interval |
-|Maps |1.2 GB /month for connection and identity data |
-|Average Graph Store ingested data | 471 MB per VM /month|
+As soon as you onboard Azure Monitor for VMs, data collected by your VMs is ingested and stored in Azure Monitor.  Azure Monitor for VMs is billed for the data ingested and retained, number of health criteria metric time-series monitored, alert rules created, notifications sent, per pricing published on the Azure Monitor [pricing page](https://azure.microsoft.com/pricing/details/monitor/)
 
 The log size varies based on string lengths of counters and can increase with the number of logical disks and network adapters.  If you already have a workspace and are collecting these counters, there will not be any duplicate charges applied.  If you are already using Service Map, the only change you’ll see is the additional connection data being sent to Azure Monitor.​
 

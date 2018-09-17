@@ -67,19 +67,16 @@ The Azure Monitor for VMs Map feature is based on Service Map, but has the follo
 * The side panels have been updated, but do not yet have the full set of integration's that were supported in Service Map - Update Management, Change Tracking, Security, and Service Desk. 
 * The option for choosing groups and machines to map has been updated and now supports Subscriptions, Resource Groups, Azure virtual machine scale sets, Service fabric clusters, and Cloud services.
 * You cannot create new Service Map machine groups in the Azure Monitor for VMs Map feature.  
- 
+
+## Why do my performance charts show dotted lines?
+
+This can occur for a few reasons.  In cases where there is a gap in data collection we depict the lines as dotted.  If you have modified the data sampling frequency for the performance counters enabled (the default setting is to collect data every 60 seconds), you can see dotted lines in the chart if you choose a narrow time range for the chart and your sampling frequency is less than the bucket size used in the chart (for example, the sampling frequency is every 10 minutes and each bucket on the chart is 5 minutes).  Choosing a wider time range to view should cause the chart lines to appear as solid lines rather than dots in this case.
+
 ## Are groups supported with Azure Monitor for VMs?
 The Performance feature supports groups based on Subscription, Resource Group, Computer Group, Service Map machine group, as well as grouping based on a particular Azure virtual machine scale set, Service Fabric cluster, and Cloud service.
 
 ## How do I see the details for what is driving the 95th percentile line in the aggregate performance charts?
-We are improving the drill-down process for this, but in the near term we recommend that you select the **List** tab and then choose the metric that you are interested in. By default, the list will be sorted to show you the VMs that have the highest value for the 95th percentile for the selected metric.
-
-## Why do some rows in the list view have more icons that other rows?
-The icons are displayed dynamically, based on what features from Azure Monitor for VMs the particular VM has enabled.
-
-* VM blade icon – when the Dependency agent is installed and detects it's installed on an Azure VM
-* Azure Monitor for VMs icon – displayed for all rows
-* Map icon – when the dependency agent is installed
+By default, the list is sorted to show you the VMs that have the highest value for the 95th percentile for the selected metric.  Clicking on the chart will open the **Top N List**  view with the appropriate metric selected.
 
 ## How does the Map feature handle duplicate IPs across different vnets and subnets?
 If you are duplicating IP ranges either with VMs or Azure virtual machine scale sets across subnets and vnets, it can cause Azure Monitor for VMs Map to display incorrect information. This is a known issue and we are investigating options to improve this experience.
