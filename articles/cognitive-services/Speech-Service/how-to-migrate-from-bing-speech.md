@@ -48,7 +48,7 @@ From a developer standpoint, the main differences between Bing Speech and the Sp
 
 * The Speech Service WebSockets protocols are also compatible with those used by Bing Speech. We recommend that new development target the Speech Service SDK, rather than using WebSockets, and we encourage you to migrate existing code to the SDK as well. However, as with the REST APIs, existing code that uses Bing Speech via WebSockets requires only a change in endpoint and an updated key.
 
-* The Speech Service provides SDKs for several popular programming languagse. The APIs of these SDKs are different from those of the Bing Speech client libraries. See the following section.
+* The Speech Service provides SDKs for several popular programming languages. The APIs of these SDKs are different from those of the Bing Speech client libraries. See the following section.
 
 ## Speech SDK
 
