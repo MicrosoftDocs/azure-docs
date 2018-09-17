@@ -53,8 +53,6 @@
     href: application-gateway-probe-overview.md
   - name: WebSocket support
     href: application-gateway-websocket.md
-  - name: WAF configuration
-    href: application-gateway-waf-configuration.md 
 - name: How-to guides
   items:
   - name: Manage web traffic
