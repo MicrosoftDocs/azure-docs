@@ -20,16 +20,16 @@ ms.author: kumud
 
 Azure Load Balancer provides outbound connectivity from a virtual network in addition to inbound.  Outbound rules make it simple to configure public [Standard Load Balancer](load-balancer-standard-overview.md)'s outbound network address translation (NAT).  You have full declarative control over outbound connectivity to scale and tune this ability to your specific needs.
 
-With outbound rules allow you, can use Load Balancer to 
-- define outbound NAT from scratch or
+With outbound rules, you can use Load Balancer to: 
+- define outbound NAT from scratch.
 - scale and tune the behavior of existing outbound NAT. 
 
-Outbound rules allow you to control
-- which virtual machines should be translated to which public IP addresses, 
-- how [outbound SNAT ports](load-balancer-outbound-connections.md#snat) should be allocated,
-- which protocols to provide outbound translation for,
-- what duration to use for outbound connection idle timeout, and 
-- whether to send a TCP Reset on idle timeout (Preview). 
+Outbound rules allow you to control:
+- which virtual machines should be translated to which public IP addresses. 
+- how [outbound SNAT ports](load-balancer-outbound-connections.md#snat) should be allocated.
+- which protocols to provide outbound translation for.
+- what duration to use for outbound connection idle timeout.
+- whether to send a TCP Reset on idle timeout (in Public Preview). 
 
 Outbound rules expand [scenario 2](load-balancer-outbound-connections.md#lb) in described in the [outbound connections](load-balancer-outbound-connections.md) article and the scenario precedence remains as-is.
 
@@ -59,7 +59,7 @@ API version "2018-07-01" permits an outbound rule definition structured as follo
 >[!NOTE]
 >The effective outbound NAT configuration is a composite of all outbound rules and load balancing rules. Outbound rules are incremental to load balancing rules. Review [disabling outbound NAT for a load balancing rule](#disablesnat) to manage the effective outbound NAT translation when multiple rules apply to a VM. You must [disable outbound SNAT](#disablesnat) when defining an outbound rule which is using the same public IP address as a load balancing rule.
 
-### <a name="scale"></a> Scale Outbound NAT with multiple IP addresses
+### <a name="scale"></a> Scale outbound NAT with multiple IP addresses
 
 While an outbound rule can be used with just a single public IP address, outbound rules ease the configuration burden for scaling outbound NAT. You can use multiple IP addresses to plan for large scale scenarios and you can use outbound rules to mitigate [SNAT exhaustion](load-balancer-outbound-connections.md#snatexhaust) prone patterns.  
 
@@ -160,22 +160,22 @@ Review [outbound connections](load-balancer-outbound-connections.md) and the det
 
 ### <a name="outboundonly"></a> Enable outbound only
 
-You can use a public Standard Load Balancer to provide outbound NAT for a group of VMs.  In this scenario, you can use an outbound rule by itself, without the need for any additional rules.
+You can use a public Standard Load Balancer to provide outbound NAT for a group of VMs. In this scenario, you can use an outbound rule by itself, without the need for any additional rules.
 
 #### Outbound NAT for VMs only (no inbound)
 
-Define a public Standard Load Balancer, place the VMs into the backend pool, and configure an outbound rule to program outbound NAT and groom the outbound connections to originate from a specific public IP address.  You can also use a public IP prefix simplify whitelisting the source of outbound connections.
+Define a public Standard Load Balancer, place the VMs into the backend pool, and configure an outbound rule to program outbound NAT and groom the outbound connections to originate from a specific public IP address. You can also use a public IP prefix simplify white-listing the source of outbound connections.
 
-1. Create a public Standard Load Balancer
-2. Create a backend pool and place the VMs into a backend pool of the public Load Balancer
+1. Create a public Standard Load Balancer.
+2. Create a backend pool and place the VMs into a backend pool of the public Load Balancer.
 3. Configure an outbound rule on the public Load Balancer to program outbound NAT for these VMs.
 
 #### Outbound NAT for internal Standard Load Balancer scenarios
 
-When using an internal Standard Load Balancer, outbound NAT is not available until a public Standard Load Balancer has also been configured.  You can change this by using and outbound rule to create outbound connectivity for VMs behind an internal Standard Load Balancer.
+When using an internal Standard Load Balancer, outbound NAT is not available until a public Standard Load Balancer has also been configured. You can change this by using and outbound rule to create outbound connectivity for VMs behind an internal Standard Load Balancer.
 
-1. Create a public Standard Load Balancer
-2. Create a backend pool and place the VMs into a backend pool of the public Load Balancer
+1. Create a public Standard Load Balancer.
+2. Create a backend pool and place the VMs into a backend pool of the public Load Balancer.
 3. Configure an outbound rule on the public Load Balancer to program outbound NAT for these VMs.
 
 #### Enable both TCP & UDP protocols for outbound NAT with a public Standard Load Balancer
