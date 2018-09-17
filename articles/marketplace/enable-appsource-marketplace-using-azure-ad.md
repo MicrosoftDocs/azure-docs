@@ -31,9 +31,9 @@ Microsoft AppSource and Azure Marketplace customers use in-product experiences t
 
 As detailed in the section below, certain offers are required to implement Azure AD to publish to Marketplace.
 
-## Azure Active Directory Requirements by listing options and offer types
+## Azure Active Directory requirements
 
-There are different [listing options and offer types](https://docs.microsoft.com/en-us/azure/marketplace/determine-your-listing-type) for Microsoft AppSource and Azure Marketplace.  Azure AD requirements for these listing options and offer types are shown below:
+There are different [listing options and offer types](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type) for Microsoft AppSource and Azure Marketplace.  Azure AD requirements for these listing options and offer types are shown below:
 
 | **Offer Type**    | **AAD SSO Required?**  |  |   |  |
 | :------------------- | :-------------------|:-------------------|:-------------------|:-------------------|
@@ -45,13 +45,13 @@ There are different [listing options and offer types](https://docs.microsoft.com
 | Containers  | N/A | N/A | N/A | No |
 | Consulting Services  | No | N/A | N/A | N/A |
 
-For more information about SaaS technical requirements, see [SaaS applications Offer Publishing Guide](https://docs.microsoft.com/en-us/azure/marketplace/marketplace-saas-applications-technical-publishing-guide).
+For more information about SaaS technical requirements, see [SaaS applications Offer Publishing Guide](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide).
 
 ## Integration with Azure Active Directory
 
 For information on how to integrate with Azure AD to enable SSO, visit https://aka.ms/aaddev.
 
-For more information about Azure AD SSO, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/what-is-single-sign-on)?
+For more information about Azure AD SSO, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)?
 
 ## Enable a trial listing by using Azure Active Directory
 
