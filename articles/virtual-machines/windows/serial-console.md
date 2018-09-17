@@ -61,9 +61,8 @@ To enable Serial console for Windows virtual machines created before February 20
 * `bcdedit /emssettings EMSPORT:1 EMSBAUDRATE:115200`
 3. Reboot the system for the SAC console to be enabled
 
-![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
 
-If needed SAC can be enabled offline as well, 
+If needed, the SAC can be enabled offline as well:
 
 1. Attach the windows disk you want SAC configured for as a data disk to existing VM. 
 2. From an Administrative command prompt, run the following commands 
