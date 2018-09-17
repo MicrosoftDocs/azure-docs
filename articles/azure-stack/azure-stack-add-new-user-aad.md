@@ -38,8 +38,8 @@ You must have an Azure subscription to use the Azure portal.
 
     - **Name (required).** The first and last name of the new user. For example, Mary Parker.
     - **User name (required).** The user name of the new user. For example, mary@contoso.com.
-        The domain part of the user name must use either the initial default domain name, <_yourdomainname_>.onmicrosoft.com, or a custom domain name, such as contoso.com. For more information about how to create a custom domain name, see [How to add a custom domain name to Azure Active Directory](add-custom-domain.md).
-    - **Profile.** Optionally, you can add more information about the user. You can also add user information at a later time. For more information about adding user info, see [How to add or change user profile information](active-directory-users-profile-azure-portal.md).
+        The domain part of the user name must use either the initial default domain name, <_yourdomainname_>.onmicrosoft.com, or a custom domain name, such as contoso.com. For more information about how to create a custom domain name, see [How to add a custom domain name to Azure Active Directory](../active-directory/fundamentals/add-custom-domain.md).
+    - **Profile.** Optionally, you can add more information about the user. You can also add user information at a later time. For more information about adding user info, see [How to add or change user profile information](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
     - **Directory role.**  choose **User**.
 
 5. Check **Show Password** and copy the auto-generated password provided in the **Password** box. You'll need this password for the initial sign-in process.
