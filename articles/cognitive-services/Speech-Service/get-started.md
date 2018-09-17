@@ -126,7 +126,7 @@ To add a Speech service resource to your Azure account:
 1. Under **Quickstart**, select the **Keys** link under step 1 to display your subscription keys. Each subscription has two keys; you can use either key in your application. Select the button next to each key to copy it to the clipboard for pasting into your code.
 
 > [!NOTE]
-> You can create an unlimited number of standard-tier subscriptions in one or multiple regions. However, you can create only one free-tier subscription.
+> You can create an unlimited number of standard-tier subscriptions in one or multiple regions. However, you can create only one free-tier subscription. Model deployments on the free tier that remain unused for 7 days will be decomissioned automatically.
 
 ## Next steps
 
