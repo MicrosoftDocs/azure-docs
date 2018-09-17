@@ -2,7 +2,7 @@
 title: Configure replication for Azure disk encryption (ADE) enabled VMs in Azure Site Recovery | Microsoft Docs
 description: This article describes how to configure replication for ADE VMs, from one Azure region to another using Site Recovery.
 services: site-recovery
-author: sutalasi
+author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
