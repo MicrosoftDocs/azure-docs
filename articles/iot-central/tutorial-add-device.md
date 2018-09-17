@@ -63,7 +63,7 @@ The real device is created from the **Connected Air Conditioner** device templat
 
     ![Settings show syncing](media/tutorial-add-device/settingssyncing.png)
 
-2. On the **Properties** page for your new, real connected air conditioner device, set **Serial Number** to **rcac0010**, and **Firmware version** to 9.75. Then choose **Save**:
+2. On the **Properties** page for your new, real connected air conditioner device, set **Serial Number** to **10001**, and **Firmware version** to 9.75. Then choose **Save**:
 
     ![Set properties for real device](media/tutorial-add-device/setproperties.png)
 
@@ -93,9 +93,6 @@ A device developer needs to embed the *device connection details* for your real 
     dps_cstr <scope_id> <device_id> <Primary Key(for device)>
     ```
     Learn more about the [command line tool here](https://www.npmjs.com/package/dps-keygen).
-
-> [!NOTE]
-> Azure IoT Central has transitioned to using Azure IoT Hub Device Provisioning service (DPS) for all device connections, follow these instrustions to [get the device connection string](concepts-connectivity.md#getting-device-connection-string) and continue with the rest of the tutorial.
 
 ## Prepare the client code
 
