@@ -3,7 +3,7 @@ title: "Quickstart: Python Update knowledge base - QnA Maker"
 description: How to update a knowledge base in Python for QnA Maker.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: cjgronlund
 
 ms.service: cognitive-services
 ms.component: qna-maker

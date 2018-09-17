@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: How to update a knowledge base in Node.js for QnA Maker.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: cjgronlund
 
 ms.service: cognitive-services
 ms.component: qna-maker
