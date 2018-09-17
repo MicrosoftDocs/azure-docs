@@ -27,7 +27,7 @@ This article covers how to access Azure Cosmos DB Cassandra API data from [Azure
 
 * [Review the code samples for working with Cassandra API](cassandra-spark-generic.md#next-steps)
 
-* [Use cqlsh for validation if you so prefer](cassandra-spark-generic.md#connect-to-cosmos-db-cassandra-api-from-cqlsh)
+* [Use cqlsh for validation if you so prefer](cassandra-spark-generic.md#connecting-to-azure-cosmos-db-cassandra-api-from-spark)
 
 * **Cassandra API instance configuration for Datastax Cassandra connector:**
 
