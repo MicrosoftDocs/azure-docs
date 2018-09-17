@@ -2234,6 +2234,6 @@ This allows the application to understand that this is a storage account endpoin
 
 The data has been sanitized of sensitive data by the Azure Stack Hosted Kubernetes Machine Learning and uploaded to the Azure Public Cloud from the on-prem Azure Stack, via Azure Stack Hosted Function Apps, and can stage the data for uploads in an edge/disconnected scenario.
 
-### Next steps
+## Next steps
 
  - To learn more about Azure Cloud Patterns, see [Cloud Design Patterns](https://docs.microsoft.com/azure/architecture/patterns).
