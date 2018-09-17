@@ -55,36 +55,38 @@ For stereo audio streams, Batch transcription splits the left and right channel 
 
 ## Authorization token
 
-As with all features of the Unified Speech Service, you create a subscription key from the [Azure portal](https://portal.azure.com). In addition, you acquire an API key from the Speech portal: 
+As with all features of the Unified Speech Service, you create a subscription key from the [Azure portal](https://portal.azure.com) following our [Get-Started guide](get-started.md). If you plan to get transcriptions from our baseline models then this is all you need to do. 
+
+If you plan on customizing and using a custom model then you need to add this subscritpion key to the custom speech portal as follows:
 
 1. Sign in to [Custom Speech](https://customspeech.ai).
 
 2. Select **Subscriptions**.
 
-3. Select **Generate API Key**.
+3. Select **Connect Existing Subscription**.
+
+4. Add the Subscription key and an alias in the view that pops up
 
     ![Screenshot of Custom Speech Subscriptions page](media/stt/Subscriptions.jpg)
 
-4. Copy and paste that key in the client code in the following sample.
+5. Copy and paste that key in the client code in the following sample.
 
 > [!NOTE]
-> If you plan to use a custom model, you will need the ID of that model too. Note that this is not the deployment or endpoint ID that you find on the Endpoint Details view. It is the model ID that you can retrieve when you select the details of that model.
+> If you plan to use a custom model, you will need the ID of that model too. Note that this is not the endpoint ID that you find on the Endpoint Details view. It is the model ID that you can retrieve when you select the details of that model.
 
 ## Sample code
 
 Customize the following sample code with a subscription key and an API key. This allows you to obtain a bearer token.
 
 ```cs
-    public static async Task<CrisClient> CreateApiV1ClientAsync(string username, string key, string hostName, int port)
+     public static CrisClient CreateApiV2Client(string key, string hostName, int port)
+
         {
             var client = new HttpClient();
             client.Timeout = TimeSpan.FromMinutes(25);
             client.BaseAddress = new UriBuilder(Uri.UriSchemeHttps, hostName, port).Uri;
-
-            var tokenProviderPath = "/oauth/ctoken";
-            var clientToken = await CreateClientTokenAsync(client, hostName, port, tokenProviderPath, username, key).ConfigureAwait(false);
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", clientToken.AccessToken);
-
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
+         
             return new CrisClient(client);
         }
 ```
@@ -94,56 +96,71 @@ After you obtain the token, you must specify the SAS URI pointing to the audio f
 ```cs
    static async Task TranscribeAsync()
         { 
+            private const string SubscriptionKey = "<your Speech[Preview] subscription key>";
+            private const string HostName = "westus.cris.ai";
+            private const int Port = 443;
+    
             // Creating a Batch transcription API Client
-            var client = 
-                await CrisClient.CreateApiV1ClientAsync(
-                    "<your msa>", // MSA email
-                    "<your api key>", // API key
-                    "stt.speech.microsoft.com",
-                    443).ConfigureAwait(false);
+            var client = CrisClient.CreateApiV2Client(SubscriptionKey, HostName, Port);
             
-            var newLocation = 
-                await client.PostTranscriptionAsync(
-                    "<selected locale i.e. en-us>", // Locale 
-                    "<your subscription key>", // Subscription Key
-                    new Uri("<SAS URI to your file>")).ConfigureAwait(false);
+            var transcriptions = await client.GetTranscriptionAsync().ConfigureAwait(false);
 
-            var transcription = await client.GetTranscriptionAsync(newLocation).ConfigureAwait(false);
+            var transcriptionLocation = await client.PostTranscriptionAsync(Name, Description, Locale, new Uri(RecordingsBlobUri), new[] { AdaptedAcousticId, AdaptedLanguageId }).ConfigureAwait(false);
+
+            // get the transcription Id from the location URI
+            var createdTranscriptions = new List<Guid>();
+            createdTranscriptions.Add(new Guid(transcriptionLocation.ToString().Split('/').LastOrDefault()))
 
             while (true)
             {
-                transcription = await client.GetTranscriptionAsync(transcription.Id).ConfigureAwait(false);
+                // get all transcriptions for the user
+                transcriptions = await client.GetTranscriptionAsync().ConfigureAwait(false);
+                completed = 0; running = 0; notStarted = 0;
 
-                if (transcription.Status == "Failed" || transcription.Status == "Succeeded")
+                // for each transcription in the list we check the status
+                foreach (var transcription in transcriptions)
                 {
-                    Console.WriteLine("Transcription complete!");
-
-                    if (transcription.Status == "Succeeded")
+                    switch(transcription.Status)
                     {
-                        var resultsUri = transcription.ResultsUrls["channel_0"];
+                        case "Failed":
+                        case "Succeeded":
 
-                        WebClient webClient = new WebClient();
-
-                        var filename = Path.GetTempFileName();
-                        webClient.DownloadFile(resultsUri, filename);
-
-                        var results = File.ReadAllText(filename);
-                        Console.WriteLine(results);
+                            // we check to see if it was one of the transcriptions we created from this client.
+                            if (!createdTranscriptions.Contains(transcription.Id))
+                            {
+                                // not creted form here, continue
+                                continue;
+                            }
+                            
+                            completed++;
+                            
+                            // if the transcription was successfull, check the results
+                            if (transcription.Status == "Succeeded")
+                            {
+                                var resultsUri = transcription.ResultsUrls["channel_0"];
+                                WebClient webClient = new WebClient();
+                                var filename = Path.GetTempFileName();
+                                webClient.DownloadFile(resultsUri, filename);
+                                var results = File.ReadAllText(filename);
+                                Console.WriteLine("Transcription succedded. Results: ");
+                                Console.WriteLine(results);
+                            }
+                            break;
+                        case "Running":
+                            running++;
+                            break;
+                        case "NotStarted":
+                            notStarted++;
+                            break;
                     }
-
-                    await client.DeleteTranscriptionAsync(transcription.Id).ConfigureAwait(false);
-
-                    break;
                 }
-                else
-                {
-                    Console.WriteLine("Transcription status: " + transcription.Status);
-                }
+
+                Console.WriteLine(string.Format("Transcriptions status: {0} completed, {1} running, {2} not started yet", completed, running, notStarted));
 
                 await Task.Delay(TimeSpan.FromSeconds(5)).ConfigureAwait(false);
             }
 
-            Console.ReadLine();
+            Console.WriteLine("Press any key...");
         }
 ```
 

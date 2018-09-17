@@ -99,7 +99,7 @@ Assuming the sample was both representative and ten percent of the entire data s
 
 Some customers prefer to start with dedicated resources that can accommodate larger sampling and processing times, and then develop realistic estimates of index quantity, size, and query volumes during development. Initially, a service is provisioned based on a best-guess estimate, and then as the development project matures, teams usually know whether the existing service is over or under capacity for projected production workloads. 
 
-1. [Review service limits at each tier](https://docs.microsoft.com/en-us/azure/search/search-limits-quotas-capacity#index-limits) to determine whether lower tiers can support the quantity of indexes you need. Across the **Basic**-**S1**- **S2** tiers, index limits are 15-50-200, respectively.
+1. [Review service limits at each tier](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#index-limits) to determine whether lower tiers can support the quantity of indexes you need. Across the **Basic**-**S1**- **S2** tiers, index limits are 15-50-200, respectively.
 
 1. [Create a service at a billable tier](search-create-service-portal.md):
 

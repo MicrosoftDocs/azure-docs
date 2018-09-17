@@ -3,7 +3,7 @@ title: Show information about a coordinate with Azure Maps | Microsoft Docs
 description: How to display information about an address on the map when a user selects a coordinate
 author: jingjing-z
 ms.author: jinzh
-ms.date: 09/07/2018
+ms.date: 09/08/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -17,7 +17,7 @@ This article shows you how to make a reverse address search, and upon a mouse cl
 
 There are two ways to make a reverse address search, one is by querying the [Azure Maps Reverse Address Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) through a service module and the other is by making a [XMLHttpRequest](https://xhr.spec.whatwg.org/) to the API to query the address. We discuss both below.
 
-## Use the service module to make a reverse address search
+## Making a reverse search request via service module
 
 ### Understand the code
 
@@ -36,7 +36,7 @@ The last block of code adds an event listener for mouse clicks. Upon a mouse cli
 
 For a successful response, it collects the address for the clicked location, and defines the popup content and position via [setPopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#setpopupoptions) function of the popup class.
 
-## Use XMLHTTPRequest to make a reverse address search
+## Making a reverse search request via XMLHttpRequest
 
 ### Understand the code
 

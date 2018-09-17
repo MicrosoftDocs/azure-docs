@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 09/11/2018
 ms.author: raynew
 ms.custom: MVC
 ---
@@ -70,7 +70,7 @@ Verify the VM properties, and make sure that the VM complies with [Azure require
 1. In **Settings** > **Replicated items**, click the VM > **Failover**.
 
 2. In **Failover**, select a **Recovery Point** to fail over to. You can use one of the following options:
-   - **Latest** (default): This option first processes all the data sent to Site Recovery. It
+   - **Latest**: This option first processes all the data sent to Site Recovery. It
      provides the lowest RPO (Recovery Point Objective) because the Azure VM created after failover
      has all the data that was replicated to Site Recovery when the failover was triggered.
    - **Latest processed**: This option fails over the VM to the latest recovery point processed by
@@ -92,11 +92,14 @@ In some scenarios, failover requires additional processing that takes around eig
 
 ## Connect to failed over virtual machine in Azure
 
-1. After failover, go to the virtual machine and validate by [connecting](../virtual-machines/windows/connect-logon.md) to it.
-2. Post validation, click on **Commit** to finalize the recovery point of the virtual machine after failover. Post commit, all the other available recovery points are deleted. This completes the failover activity.
+1. If you want to connect to Azure VMs using RDP/SSH after failover, follow the requirements summarized in the table [here](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
+2. After failover, go to the virtual machine and validate by [connecting](../virtual-machines/windows/connect-logon.md) to it.
+3. Post validation, click on **Commit** to finalize the recovery point of the virtual machine after failover. Post commit, all the other available recovery points are deleted. This completes the failover activity.
 
 >[!TIP]
 > **Change recovery point** helps you in choosing a different recovery point after failover if you are not satisfied with the failed over virtual machine. After **commit**, this option will no longer be available.
+
+Follow the steps described [here](site-recovery-failover-to-azure-troubleshoot.md) to troubleshoot any connectivity issues post failover.
 
 ## Preparing for reprotection of Azure VM
 

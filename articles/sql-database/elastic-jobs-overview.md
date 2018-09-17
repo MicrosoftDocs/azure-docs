@@ -200,7 +200,7 @@ It is worth noting a couple of differences between SQL Server Agent (available o
 
 |  |Elastic Jobs  |SQL Server Agent |
 |---------|---------|---------|
-|Scope     |  Any number of Azure SQL Databases and/or data warehouses in the same Azure cloud as the job agent. Targets can be in different logical servers, subscriptions, and/or regions. <br><br>Target groups can be composed of individual databases or data warehouses, or all databases in a server, pool, or shardmap (dynamically enumerated at job runtime). | Any single database in the same SQL Server instance as the SQL agent. |
+|Scope     |  Any number of Azure SQL databases and/or data warehouses in the same Azure cloud as the job agent. Targets can be in different logical servers, subscriptions, and/or regions. <br><br>Target groups can be composed of individual databases or data warehouses, or all databases in a server, pool, or shardmap (dynamically enumerated at job runtime). | Any single database in the same SQL Server instance as the SQL agent. |
 |Supported APIs and Tools     |  Portal, PowerShell, T-SQL, Azure Resource Manager      |   T-SQL, SQL Server Management Studio (SSMS)     |
 
 

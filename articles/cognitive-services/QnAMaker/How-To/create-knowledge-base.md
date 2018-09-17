@@ -1,13 +1,14 @@
 ---
-title: How to create a knowledge base - QnA Maker - Azure Cognitive Services | Microsoft Docs
-description: How to create a knowledge base 
+title: Create a knowledge base - QnA Maker
+titleSuffix: Azure Cognitive Services
+description: Adding chit-chat to your bot makes it more conversational and engaging. QnA Maker allows you to easily add a pre-populated set of the top chit-chat, into your KB. This can be a starting point for your bot's chit-chat and save you the time and cost of writing them from scratch.   
 services: cognitive-services
 author: nstulasi
-manager: sangitap
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/12/2018
 ms.author: saneppal
 ---
 
