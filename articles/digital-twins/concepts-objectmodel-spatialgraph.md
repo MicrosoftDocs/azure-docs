@@ -2,7 +2,7 @@
 title: Understanding Digital Twins Object Model and Spatial Intelligence Graph with Azure Digital Twins | Microsoft Docs
 description: 'Overview of Digital Twins object model and spatial Intelligence graph: Model relationships between people, places, and device twins'
 author: alinamstanciu
-manager: timlt
+manager: bertv
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
@@ -65,4 +65,4 @@ All API calls must be authenticated using [OAuth](https://docs.microsoft.com/azu
 > Note:  For more details on how to use the Spatial Intelligence Graph and Management APIs, please visit your Digital Twins Management APIs URL.
 
 <!-- Images -->
-[1]: /media/concepts/digital-twins-spatial-graph-building.png
+[1]: media/concepts/digital-twins-spatial-graph-building.png

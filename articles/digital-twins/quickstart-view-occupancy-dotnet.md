@@ -82,5 +82,5 @@ Quickstarts should always have a Next steps H2 that points to the next logical q
 Do not use a "More info section" or a "Resources section" or a "See also section". --->
 
 <!-- Images -->
-[1]: /media/quickstart-view-occupancy-dotnet/create-digital-twins-portal.png
-[2]: /media/quickstart-view-occupancy-dotnet/create-digital-twins-param.png
+[1]: media/quickstart-view-occupancy-dotnet/create-digital-twins-portal.png
+[2]: media/quickstart-view-occupancy-dotnet/create-digital-twins-param.png

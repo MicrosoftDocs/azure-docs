@@ -2,10 +2,10 @@
  title: include file
  description: include file
  services: digital-twins
- author: dominicbetts
+ author: alinamstanciu
  ms.service: digital-twins
  ms.topic: include
-ms.date: 08/30/2018
+ ms.date: 08/30/2018
  ms.author: alinast
  ms.custom: include file
 ---
@@ -55,9 +55,6 @@ As a solution developer, you might need to create a middle-tier application that
 	```
 
 <!-- Images -->
-[1]: /media/quickstart-view-occupancy-dotnet/aad-app-registration1.png
-[2]: /media/quickstart-view-occupancy-dotnet/aad-app-registration2.png
-[3]: /media/quickstart-view-occupancy-dotnet/aad-app-registration3.png
-
-
-
+[1]: ./media/digital-twins-permissions/aad-app-registration1.png
+[2]: ./media/digital-twins-permissions/aad-app-registration2.png
+[3]: ./media/digital-twins-permissions/aad-app-registration3.png
