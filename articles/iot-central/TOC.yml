@@ -47,12 +47,16 @@
         href: howto-connect-raspberry-pi-csharp.md
       - name: Prepare and connect a Windows IoT Core device
         href: howto-connect-windowsiotcore.md
+      - name: Monitor device connectivity using command line
+        href: howto-use-iotc-explorer.md
   - name: Manage devices
     items:
       - name: Set up a device template
         href: howto-set-up-template.md
       - name: Manage your devices
         href: howto-manage-devices.md
+      - name: Run a job
+        href: howto-run-a-job.md
       - name: Use device sets
         href: howto-use-device-sets.md
       - name: Version device template
