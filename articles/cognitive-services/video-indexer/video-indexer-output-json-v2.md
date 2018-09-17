@@ -4,11 +4,11 @@ description: This topic examines the Video Indexer output produced by v2 API.
 services: cognitive services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 09/09/2018
+ms.date: 09/15/2018
 ms.author: juliako
 ---
 
