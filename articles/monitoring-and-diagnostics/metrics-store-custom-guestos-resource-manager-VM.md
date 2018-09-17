@@ -58,21 +58,24 @@ Alertnatively, the sample files with the modification listed in this are availab
 
 1. Add a storage account ID to the **variables** section of the template after the entry for **storageAccountName**.  
 
-    [!code-json[storageaccount](./code/metrics-custom-guestos-resource-manager-VM/azuredeploy.json?range=46-51&highlight=48)]
+    [!code-json[](./code/metrics-custom-guestos-resource-manager-VM/azuredeploy.json?range=46-51&highlight=2)]
 
     ```json
     // Find these lines 
     "variables": { 
         "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'sawinvm')]", 
     
-    // Add this line below.  
+    // Add this line directly below.  
         "accountid": "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]", 
     ```
-Add this new resource to the template at the top of the “resources” section.  It is the Managed Service Identity (MSI) extension that ensures that Azure Monitor accepts the metrics being emitted.  
+1. Add this Managed Service Identity (MSI) extension to the template at the top of the "resources" section.  The extension ensures that Azure Monitor accepts the metrics being emitted.  
 
-    [!code-json[storageaccount](./code/metrics-custom-guestos-resource-manager-VM/azuredeploy.json?range=56-77&highlight=59-75-)]
+    [!code-json[extension](./code/metrics-custom-guestos-resource-manager-VM/azuredeploy.json?range=56-77&highlight=3-19)]
 
     ```json
+    //Find this code 
+    "resources": [
+    // Add this code directly below
      { 
         "type": "Microsoft.Compute/virtualMachines/extensions", 
         "name": "WADExtensionSetup", 
@@ -92,19 +95,40 @@ Add this new resource to the template at the top of the “resources” section.
      }, 
     ```
 
-Add the following configuration to the VM resource to ensure Azure assigns the MSI extension a system identity. This step ensures the VM can emit guest metrics about itself to Azure Monitor 
-```json
-{ 
-      "apiVersion": "2017-03-30", 
-      "type": "Microsoft.Compute/virtualMachines", 
-      "name": "[variables('vmName')]", 
-      "location": "[resourceGroup().location]", 
-      "identity": {  
-"type": "systemAssigned" 
-       }, 
-```
+1. Add the "identity" configuration to the VM resource to ensure Azure assigns the MSI extension a system identity. This step ensures the VM can emit guest metrics about itself to Azure Monitor 
 
-Add the following configuration to enable the diagnostics extension on a Windows Virtual Machine.  For a simple Resource Manager based Virtual Machine add the extension configuration to the resources array for the Virtual Machine. The highlighted sections enable the extension to emit metrics directly to Azure Monitor. Feel free to add/remove performance counters as needed 
+    [!code-json[storageaccount](./code/metrics-custom-guestos-resource-manager-VM/azuredeploy.json?range=145-157&highlight=7-9)]
+
+    ```json
+    // Find this section
+                  "subnet": {
+                "id": "[variables('subnetRef')]"
+              }
+            }
+          }
+        ]
+      }
+    },
+    { 
+          "apiVersion": "2017-03-30", 
+          "type": "Microsoft.Compute/virtualMachines", 
+          "name": "[variables('vmName')]", 
+          "location": "[resourceGroup().location]", 
+    // add these 3 lines below
+          "identity": {  
+            "type": "SystemAssigned" 
+          }, 
+
+          "dependsOn": [
+            "[resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
+            "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
+          ],
+          "properties": {
+            "hardwareProfile": {   
+            ...
+    ```
+
+1. Add the following configuration to enable the diagnostics extension on a Windows Virtual Machine.  For a simple Resource Manager-based Virtual Machine, we can add the extension configuration to the resources array for the Virtual Machine. The highlighted sections enable the extension to emit metrics directly to Azure Monitor. Feel free to add/remove performance counters as needed 
 
 ```json
 "diagnosticsProfile": { 
@@ -250,3 +274,5 @@ You should see something like the screen shot below.
 ## Next steps
 - Learn more about [alerts](monitoring-overview-alerts.md).
 
+
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_Create&highlight=4,6-7,14-21)]`

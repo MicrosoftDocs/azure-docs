@@ -149,7 +149,7 @@
       "name": "[variables('vmName')]",
       "location": "[parameters('location')]",
       "identity": { 
-		"type": "systemAssigned"
+		     "type": "SystemAssigned"
          },
       "dependsOn": [
         "[resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
