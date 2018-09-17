@@ -9,7 +9,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: video-indexer
 ms.topic: conceptual
-ms.date: 09/09/2018
+ms.date: 09/15/2018
 ms.author: juliako
 ---
 

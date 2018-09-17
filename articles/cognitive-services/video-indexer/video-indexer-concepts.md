@@ -9,10 +9,10 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: video-indexer
 ms.topic: conceptual
-ms.date: 07/31/2018
+ms.date: 09/15/2018
 ms.author: juliako
-
 ---
+
 # Video Indexer concepts
  
 This article describes some concepts of the Video Indexer service.
