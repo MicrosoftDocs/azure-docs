@@ -12,7 +12,7 @@ ms.component: alerts
 
 # Overview
 
-You can now view your alerts from SCOM, Zabbix and Nagios in the unified alerts experience. These alerts come from integrations with Nagios/Zabbix servers or SCOM into Log Analytics. 
+You can now view your alerts from Nagios, Zabbix, and System Center Operations Manager in the unified alerts experience. These alerts come from integrations with Nagios/Zabbix servers or System Center Operations Manager into Log Analytics. 
 
 ## Prerequisites
 Any records in the Log Analytics repository with a type of Alert will get imported into the unified alerts experience, so you must perform whatever configuration is required to collect these records.
