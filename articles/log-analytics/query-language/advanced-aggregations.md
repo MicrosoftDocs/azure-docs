@@ -94,7 +94,7 @@ Heartbeat
 | computer3 | "antiMalware" |
 | computer3 | "changeTracking" |
 | ... | ... | ... |
-```
+
 
 You could then use `makelist` again to group items together, and this time see the list of computers per solution:
 
