@@ -1,27 +1,44 @@
 ---
-title: Configure replication for Azure VMs in Azure Site Recovery | Microsoft Docs
-description: This article describes how to configure replication for Azure VMs, from one Azure region to another using Site Recovery.
+title: Configure replication for Azure disk encryption (ADE) enabled VMs in Azure Site Recovery | Microsoft Docs
+description: This article describes how to configure replication for ADE VMs, from one Azure region to another using Site Recovery.
 services: site-recovery
-author: asgang
+author: sutalasi
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
-ms.author: asgang
+ms.date: 09/14/2018
+ms.author: sutalasi
 
 ---
 
 
-# Replicate Azure virtual machines to another Azure region
+# Replicate Azure disk encryption (ADE) enabled virtual machines to another Azure region
 
-
-
-This article describes how to enable replication of Azure VMs, from one Azure region to another.
+This article describes how to enable replication of Azure disk encryption enabled VMs, from one Azure region to another.
 
 ## Prerequisites
 
 This article assumes that you've already set up Site Recovery for this scenario, as described in the [Azure to Azure tutorial](azure-to-azure-tutorial-enable-replication.md). Make sure that you've prepared the prerequisites, and created the Recovery Services vault.
 
+### Required user permissions
+
+To enable replication of ADE VMs from portal, the user should have the below permissions.
+- Key vault permissions
+    Create
+    Get
+    List
+-	Key vault secret permissions
+    Create
+    Get
+    List
+- Key vault key permissions (required only if the VMs use Key Encryption Key to encrypt Disk Encryption keys)
+    List
+    Get
+    Create
+    Encrypt
+    Decrypt
+
+You can manage the permissions by navigating to key vault resource in portal and adding the required permissions to the user.
 
 
 ## Enable replication
@@ -51,9 +68,12 @@ Enable replication. This procedure assumes that the primary Azure region is East
     - **Replica managed disks (If your source VM uses managed disks)**: Site Recovery creates new replica managed disks in the target region to mirror the source VM's managed disks with the same storage type (Standard or premium) as the source VM's managed disk.
     - **Cache Storage accounts**: Site Recovery needs extra storage account called cache storage in the source region. All the changes happening on the source VMs are tracked and sent to cache storage account before replicating those to the target location.
     - **Availability set**: By default, Azure Site Recovery creates a new availability set in the target region with name having "asr" suffix. In case availability set created by Azure Site Recovery already exists, it is reused.
+    - **Disk encryption key vault**:
     - **Replication Policy**: It defines the settings for recovery point retention history and app consistent snapshot frequency. By default, Azure Site Recovery creates a new replication policy with default settings of ‘24 hours’ for recovery point retention and ’60 minutes’ for app consistent snapshot frequency.
 
 	![Enable replication](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)
+
+## Copy Azure disk encryption keys using PowerShell Script
 
 ## Customize target resources
 
