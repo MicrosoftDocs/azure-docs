@@ -27,7 +27,7 @@ After you create a file share, you can periodically create a share snapshot of t
 ## Capabilities
 A share snapshot is a point-in-time, read-only copy of your data. You can create, delete, and manage snapshots by using the REST API. Same capabilities are also available in the client library, Azure CLI, and Azure portal. 
 
-You can view snapshots of a share by using both the REST API and SMB. You can retrieve the list of versions of the directory or file, and you can mount a specific version directly as a drive. 
+You can view snapshots of a share by using both the REST API and SMB. You can retrieve the list of versions of the directory or file, and you can mount a specific version directly as a drive (only available on Windows - see [Limits](#limits)). 
 
 After a share snapshot is created, it can be read, copied, or deleted, but not modified. You can't copy a whole share snapshot to another storage account. You have to do that file by file, by using AzCopy or other copying mechanisms.
 
@@ -58,6 +58,8 @@ Snapshots don't count toward your 5-TB share limit. There is no limit to how muc
 The maximum number of share snapshots that Azure Files allows today is 200. After 200 share snapshots, you have to delete older share snapshots in order to create new ones. 
 
 There is no limit to the simultaneous calls for creating share snapshots. There is no limit to amount of space that share snapshots of a particular file share can consume. 
+
+Today, it is not possible to mount share snapshots on Linux. This is because the Linux SMB client does not support mounting snapshots like Windows does.
 
 ## Copying data back to a share from share snapshot
 Copy operations that involve files and share snapshots follow these rules:
