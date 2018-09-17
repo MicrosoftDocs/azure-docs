@@ -42,7 +42,7 @@ For more information, see [Supported languages](supported-languages.md).
 
 ## Migrating from 1.x to 2.x
 
-You may wish to move an existing app written in 1.x to 2.x.  Most of the considerations required in moving between versions are related to the language runtime changes listed above (for example C# moving from .NET Framework 4.7 to .NET Core 2).  You'll need to make sure your code and libraries are compatible with the language runtimes being used.
+You may wish to move an existing app written in 1.x to 2.x.  Most of the considerations required in moving between versions are related to the language runtime changes listed above (for example C# moving from .NET Framework 4.7 to .NET Core 2).  You'll need to make sure your code and libraries are compatible with the language runtimes being used.  Also be sure to note any changes in trigger, bindings, and features highlighted below.
 
 ### Changes in triggers and bindings
 
@@ -52,6 +52,7 @@ While most of the trigger and binding properties and configurations remain the s
 
 In addition to changes in languages and bindings, there are some features that have been removed, updated, or replaced between versions.  Below are some of the main considerations to make when starting with 2.x after using 1.x.  In v2.x the following changes were made:
 
+* Keys for calling a function will always be stored in encrypted blob storage. In 1.x by default they were in file storage and could be moved to blob if enabling features like slots.  If upgrading a 1.x app to 2.x and secrets are in file storage currently they will be reset.
 * To improve performance, "webhook" type triggers are removed and replaced with "HTTP" triggers.
 * Host configuration (`host.json`) should either be empty or contain `version` of `2.0` for one of the properties.
 * To improve monitoring and observability, the WebJobs Dashboard (`AzureWebJobsDashboard`) is replaced with [Azure Application Insights](functions-monitoring.md) (`APPINSIGHTS_INSTRUMENTATIONKEY`)
