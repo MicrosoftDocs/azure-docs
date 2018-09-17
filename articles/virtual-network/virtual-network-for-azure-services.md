@@ -28,7 +28,7 @@ You can integrate Azure services in your virtual network with the following opti
 
 To integrate multiple Azure services to your virtual network, you can combine one or more of the above patterns. For example, you can deploy HDInsight into your virtual network and secure a storage account to the HDInsight subnet through Service endpoints.
  
-## 1. Deploy Azure services into virtual networks
+## Deploy Azure services into virtual networks
 
 When you deploy dedicated Azure services in a [virtual network](virtual-networks-overview.md), you can communicate with the service resources privately, through private IP addresses.
 
