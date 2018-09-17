@@ -18,7 +18,7 @@ This article describes how to refine a group by visualizing dependencies of all 
 > Groups for which you want to visualize dependencies shouldn't contain more than 10 machines. If you have more than 10 machines in the group, we recommend you to split it into smaller groups to leverage the dependency visualization functionality.
 
 
-# Prepare for dependency visualization
+## Prepare for dependency visualization
 Azure Migrate leverages Service Map solution in Log Analytics to enable dependency visualization of machines.
 
 ### Associate a Log Analytics workspace
