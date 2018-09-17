@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
-ms.author: saneppal
+ms.author: tulasim
 ---
 
 # Create a knowledge base
