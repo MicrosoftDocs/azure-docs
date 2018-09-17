@@ -277,7 +277,6 @@ function handleBingResponse() {
 ```
 
 > [!IMPORTANT]
-
 > Successful HTTP requests may contain failed search information. If an error occurs during the search operation, the Bing Image Search API will return a non-200 HTTP status code and error information in the JSON response. Additionally, if the request was rate-limited, the API will return an empty response.
 
 ## Display the search results
@@ -316,8 +315,7 @@ function renderImageResults(items) {
 }
 ```
 
-The Bing Image Search API can return four types of related search results, each in its own top-level object. They are:
-The Bing Image Search API can provide four types of suggestions to help guide users' search experiences:
+The Bing Image Search API can return four types of search suggestions to help guide users' search experiences, each in its own top-level object:
 
 | Suggestion         | Description                                                                                                                                                                                                         |
 |--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -347,15 +345,12 @@ These renderer functions accept the following parameters:
 | `index` | The index of the result item within its collection.                                          |
 | `count` | The number of items in the search result item's collection.                                  |
 
-The `index` and `count` parameters are used to attach numbers to results, generate HTML for the beginning/end of collections, and organizes the content. If a renderer does not need this functionality, it does not need to accept these two parameters.
+The `index` and `count` parameters are used to number results, generate HTML for collections, and organize the content. Specifically, it:
 
-Below is the source code for the images renderer, which performs the following functions:
-
-> [!div class="checklist"]
-> * Calculates the image thumbnail size (width varies, with a minimum of 120 pixels, while height is fixed at 90 pixels).
-> * Builds the HTML `<img>` tag to display the image thumbnail. 
-> * Builds the HTML `<a>` tags that link to the image and the page that contains it.
-> * Builds the description that displays information about the image and the site it's on.
+* Calculates the image thumbnail size (width varies, with a minimum of 120 pixels, while height is fixed at 90 pixels).
+* Builds the HTML `<img>` tag to display the image thumbnail. 
+* Builds the HTML `<a>` tags that link to the image and the page that contains it.
+* Builds the description that displays information about the image and the site it's on.
 
 ```javascript
     images: function (item, index, count) {
@@ -375,9 +370,7 @@ Below is the source code for the images renderer, which performs the following f
     }, // relatedSearches renderer omitted
 ```
 
-We test the `index` variable in order to insert a `<p>` tag before the first image result. The thumbnails otherwise butt up against each other and wrap as needed in the browser window.
-
-The thumbnail image's `height` and `width` are used in both the `<img>` tag and the `h` and `w` fields in the thumbnail's URL. The [Bing thumbnail service](resize-and-crop-thumbnails.md) then delivers a thumbnail of exactly that size.
+The thumbnail image's `height` and `width` are used in both the `<img>` tag and the `h` and `w` fields in the thumbnail's URL. This enables Bing to return [a thumbnail](resize-and-crop-thumbnails.md) of exactly that size.
 
 ## Persisting client ID
 
