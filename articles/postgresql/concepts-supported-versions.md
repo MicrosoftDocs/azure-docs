@@ -25,7 +25,7 @@ Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/9.6/stat
 Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/9.5/static/release-9-5-13.html) to learn about improvements and fixes in this minor version.
 
 ## Managing updates and upgrades
-Azure Database for PostgreSQL automatically manages patching for minor version updates. Currently, major version upgrade is not supported. For example, upgrading from PostgreSQL 9.5 to PostgreSQL 9.6 is not supported.
+Azure Database for PostgreSQL automatically manages patching for minor version updates. Currently, major version upgrade is not supported. For example, upgrading from PostgreSQL 9.5 to PostgreSQL 9.6 is not supported. If you would like to upgrade to the next major version, take a [dump and restore](./howto-migrate-using-dump-and-restore.md) it to a server that was created with the new engine version.
 
 ## Next steps
 For information about the support of different PostgreSQL extensions, see [PostgreSQL Extensions](concepts-extensions.md).

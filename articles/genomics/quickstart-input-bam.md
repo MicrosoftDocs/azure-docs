@@ -1,14 +1,12 @@
 ---
-title: 'Quickstart: Submit a workflow using a BAM file input | Microsoft Docs'
+title: 'Quickstart: Submit a workflow using a BAM file input - Microsoft Genomics'
 titleSuffix: Azure
 description: The quickstart assumes you have the msgen client installed and have successfully run the sample data through the service.  
-services: microsoft-genomics
+services: genomics
 author: grhuynh
-manager: jhubbard
-editor: jasonwhowell
+manager: cgronlun
 ms.author: grhuynh
-ms.service: microsoft-genomics
-ms.workload: genomics
+ms.service: genomics
 ms.topic: quickstart
 ms.date: 12/07/2017
 

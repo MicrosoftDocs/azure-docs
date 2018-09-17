@@ -26,6 +26,10 @@ sections:
         src: /azure/virtual-machines/linux/media/index/portal.svg
       text: Azure Portal
       href: /azure/mariadb/quickstart-create-mariadb-server-database-using-azure-portal
+    - image: 
+        src: /azure/virtual-machines/linux/media/index/cli.svg
+      text: Azure CLI
+      href: /azure/mariadb/quickstart-create-mariadb-server-database-using-azure-cli
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
