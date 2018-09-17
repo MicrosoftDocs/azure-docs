@@ -428,63 +428,6 @@ By default, all function routes are prefixed with *api*. You can also customize 
 }
 ```
 
-### Working with client identities
-
-If your function app is using [App Service Authentication / Authorization](../app-service/app-service-authentication-overview.md), you can view information about authenticated clients from your code. This capability is only available to the Functions 2.x runtime.
-
-For non-.NET languages, identities are available via an `identities` binding data property. This will be an array of identity objects, each one containing:
-- `authenticationType` - the name of the identity provider being used. App Service Authentication / Authorization provides the following options: `aad`, `facebook`, `google`, `twitter`, and `microsoftaccount`.
-- `nameClaimType` - A schema for the name claim. The value will be "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name".
-- `roleClaimType` - A schema for the role claim. The value will be "http://schemas.microsoft.com/ws/2008/06/identity/claims/role".
-- `claims` - An array of claims objects representing attributes of the subject which may be useful. Each object has a `type` and `value` property.
-
-In JavaScript, this would be referenced as follows:
-
-```javascript
-module.exports = async function (context, req) {
-    let identities = context.bindings.identities;
-    for (let id of identities) {
-        context.log(id.authenticationType);
-        //...
-    }
-    //...
-    context.done();
-};
-```
-
-In .NET languagues, this information is available as a [ClaimsPrincipal](https://docs.microsoft.com/en-us/dotnet/api/system.security.claims.claimsprincipal?view=netstandard-2.0). The ClaimsPrincipal is available as part of the request context as shown in the following example:
-
-```csharp
-using System.Net;
-using Microsoft.AspNetCore.Mvc;
-using System.Security.Claims;
-
-public static IActionResult Run(HttpRequest req, ILogger log)
-{
-    ClaimsPrincipal identities = req.HttpContext.User;
-    // ...
-    return new OkResult();
-}
-```
-
-Alternatively, the ClaimsPrincipal can simply be included as an additional parameter in the function signature:
-
-```csharp
-#r "Newtonsoft.Json"
-
-using System.Net;
-using Microsoft.AspNetCore.Mvc;
-using System.Security.Claims;
-using Newtonsoft.Json.Linq;
-
-public static void Run(JObject input, ClaimsPrincipal identities, ILogger log)
-{
-    // ...
-    return;
-}
-
-```
-
 ### Authorization keys
 
 Functions lets you use keys to make it harder to access your HTTP function endpoints during development.  A standard HTTP trigger may require such an API key be present in the request. 
@@ -534,7 +477,7 @@ You can allow anonymous requests, which do not require keys. You can also requir
 
 To fully secure your function endpoints in production, you should consider implementing one of the following function app-level security options:
 
-* Turn on App Service Authentication / Authorization for your function app. The App Service platform lets use Azure Active Directory (AAD) and several third-party identity providers to authenticate clients. You can use this to implement custom authorization rules for your functions, and you can work with user information from your function code. To learn more, see [Authentication and authorization in Azure App Service](../app-service/app-service-authentication-overview.md) and [Working with client identities](#working-with-client-identities).
+* Turn on App Service Authentication / Authorization for your function app. The App Service platform lets use Azure Active Directory (AAD) and several third-party identity providers to authenticate clients. You can use this to implement custom authorization rules for your functions, and you can work with user information from your function code. To learn more, see [Authentication and authorization in Azure App Service](../app-service/app-service-authentication-overview.md).
 
 * Use Azure API Management (APIM) to authenticate requests. APIM provides a variety of API security options for incoming requests. To learn more, see [API Management authentication policies](../api-management/api-management-authentication-policies.md). With APIM in place, you can configure your function app to accept requests only from the PI address of your APIM instance. To learn more, see [IP address restrictions](ip-addresses.md#ip-address-restrictions).
 
