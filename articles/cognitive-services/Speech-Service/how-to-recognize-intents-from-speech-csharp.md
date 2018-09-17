@@ -62,7 +62,7 @@ After creating the LUIS resource in the Azure dashboard, log into the [LUIS port
 
 On the Keys and Endpoint settings page:
 
-1. Scroll down to the Resources and Keys section and click **Add key**.
+1. Scroll down to the Resources and Keys section and click **Assign resource**.
 1. In the **Assign a key to your app** dialog, choose the following:
 
     * Choose Microsoft as the Tenant.
@@ -71,7 +71,7 @@ On the Keys and Endpoint settings page:
 
 In a moment, the new subscription appears in the table at the bottom of the page. Click the icon next to a key to copy it to the clipboard. (You may use either key.)
 
-![LUIS app subscription keys](media/sdk/luis-keys.png)
+![LUIS app subscription keys](media/sdk/luis-keys-assigned.png)
 
 
 ## Create a speech project in Visual Studio
