@@ -34,7 +34,7 @@ The following example shows a query that joins performance and event data for ea
 ```Kusto
 Perf 
 | where CounterName == "% User Time" and CounterValue  > 50 and _ResourceId != "" 
-| join type=inner (     
+| join kind=inner (     
     Event 
     | where EventID == 101 
 ) on _ResourceId
