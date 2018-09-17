@@ -75,8 +75,8 @@ Use the steps in this section to deploy the MySQL Server cluster using the [MySQ
 3. Provide basic deployent information on the **Basics** page. Review the default values and change as needed and click **OK**.<br><br>At a minimum, provide the following:
    - Deployment name (default is mysql)
    - Application root password. Provide a 12 character alphanumeric password with **no special characters**
-   - Application database name (defalt is bitnami)
-   - Number of cluster computers to create (default is 2)
+   - Application database name (default is bitnami)
+   - Number of MySQL database replica VMs to create (default is 2)
    - Select the subscription to use
    - Select the resource group to use or create a new one
    - Select the location (default is local for ASDK)
@@ -105,7 +105,7 @@ Click **OK**
 7. After all deployments have completed successfully, review the resource group items and select the **mysqlip** Public IP address item. Record the public IP address and full FQDN of the public IP for the cluster.<br><br>You will need to provide this to an Azure Stack Operator so they can create a MySQL hosting server leveraging this MySQL cluster.
 
 
-### Configure an NSG rule
+### Create a network security group rule
 By default, no public access is configured for MySQL into the tenant VM. For the Azure Stack MySQL resource provider to connect and manage the MySQL cluster, an inbound network security group (NSG) rule needs to be created.
 
 1. In the user portal, navigate to the resource group created when deploying the MySQL cluster and select the network security group (**default-subnet-sg**):
@@ -140,10 +140,48 @@ Before the MySQL cluster can be added as an Azure Stack MySQL Server host, exter
    ```
    ![Create admin user](media/azure-stack-tutorial-mysqlrp/bitnami3.png)
 
- 4. Record the new MySQL user information.<br><br>You will need to provide this username and password to an Azure Stack Operator so they can create a MySQL hosting server leveraging this MySQL cluster.
+
+4. Record the new MySQL user information.<br><br>You will need to provide this username and password, along with the the public IP address or full FQDN of the public IP for the cluster, to an Azure Stack Operator so they can create a MySQL hosting server using this MySQL cluster.
 
 
-## Create an Azure Stack SQL Hosting Server
+## Create an Azure Stack MySQL Hosting Server
+After the SQL Server AlwayOn availability group has been created, and properly configured, an Azure Stack Operator must create an Azure Stack SQL Hosting Server to make the additional capacity available for users to create databases. 
+
+Be sure to provide the Azure Stack Operator the public IP or full FQDN for the public IP of the SQL load balancer that was recorded previously when the SQL AlwaysOn availablity group's resource group was created (**SQLPIPsql\<resource group name\>**). In addition, the operator will need to know the SQL Server authentication credentials used to access the SQL instances in the AlwaysOn availability group.
+
+> [!NOTE]
+> This step must be run from the Azure Stack administration portal by an Azure Stack Operator.
+
+With the SQL AlwaysOn availability group's load balancer listener Public IP and SQL authentication login information provided by the tenant user, an Azure Stack Operator can now [create a SQL Hosting Server using the SQL AlwaysOn availablity group](.\.\azure-stack-sql-resource-provider-hosting-servers.md#provide-high-availability-using-sql-always-on-availability-groups). 
+
+Also ensure that the Azure Stack Operator has created plans and offers to make SQL AlwaysOn database creation available for users. The operator will need to add the **Microsoft.SqlAdapter** service to a plan and create a new quota specifically for highly available databases. For more information about creating plans, see [Plan, offer, quota, and subscription overview](.\.\azure-stack-plan-offer-quota-overview.md).
+
+> [!TIP]
+> The **Microsoft.SqlAdapter** service will not be available to add to plans until the [SQL Server resource provider has been deployed](.\.\azure-stack-sql-resource-provider-deploy.md).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ## Create a highly available SQL database
