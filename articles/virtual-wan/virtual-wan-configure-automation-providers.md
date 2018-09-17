@@ -20,8 +20,8 @@ A branch device (a customer on-premises VPN device or SDWAN CPE) typically uses 
 ## <a name ="before"></a>Before you begin automating
 
 * Verify that your device supports IPsec IKEv1/IKEv2. See [default policies](#default).
-* See the REST APIs that you will use to automate connectivity to Azure Virtual WAN.
-* Test out the portal experience of Azure Virtual WAN. 
+* See the [REST APIs](https://docs.microsoft.com/rest/api/azure/) that you will use to automate connectivity to Azure Virtual WAN.
+* Test out the portal experience of Azure Virtual WAN.
 * Then, decide which part of the connectivity steps you would like to automate. At a minimum, we recommend automating:
 
   * Access Control
@@ -270,10 +270,8 @@ Your on-premises SDWAN/VPN device or SD-WAN configuration must match or contain 
 * IPsec integrity algorithm
 * PFS Group
 
-## <a name="questions"></a>Additional Questions
-
-For any additional information, please send an email to <azurevirtualwan@microsoft.com>. Include your company name in “[ ]” in the subject line. 
-
 ## Next steps
 
 For more information about Virtual WAN, see [About Azure Virtual WAN](virtual-wan-about.md) and the [Azure Virtual WAN FAQ](virtual-wan-faq.md).
+
+For any additional information, please send an email to <azurevirtualwan@microsoft.com>. Include your company name in “[ ]” in the subject line.
