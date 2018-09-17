@@ -358,6 +358,10 @@ Audit logs are available for Application Gateway. In the portal, click **Activit
 
 Yes, Application Gateway does support alerts, alerts are configured off metrics. Application Gateway currently has a metric of "throughput", which can be configured to alert. To learn more about alerts, visit [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
 
+**Q. How do I analyse traffic statistics for Application Gateway?**
+
+We have published an ARM template that installs and runs the popular [GoAccess](https://goaccess.io/) log analyzer for Application Gateway Access Logs. GoAccess provides valuable HTTP traffic statistics such as Unique Visitors, Requested Files, Hosts, Operating Systems, Browsers, HTTP Status codes and more. For more details please see the [Readme file in the ARM template folder in GitHub](https://aka.ms/appgwgoaccessblog).
+
 **Q. Backend health returns unknown status, what could be causing this status?**
 
 The most common reason is access to the backend is being blocked by an NSG or custom DNS. Visit [Backend health, diagnostics logging, and metrics for Application Gateway](application-gateway-diagnostics.md) to learn more.
