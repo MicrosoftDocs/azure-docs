@@ -1,21 +1,22 @@
 ---
 title: Microsoft Azure Data Box Gateway overview | Microsoft Docs
 description: Describes Azure Data Box Gateway, a virtual appliance storage solution that enables you to transfer data into Azure
-services: databox-edge
+services: databox-edge-gateway
 documentationcenter: NA
 author: alkohli
 manager: twooley
 editor: ''
 
 ms.assetid: 
-ms.service: databox-edge
+ms.service: databox-edge-gateway
 ms.devlang: NA
 ms.topic: overview
 ms.custom:
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 09/07/2018
+ms.date: 09/24/2018
 ms.author: alkohli
+Customer intent: As an IT admin, I need to understand what Data Box Gateway is and how it works so I can use it to send data to Azure.
 ---
 # What is Azure Data Box Gateway? (Preview)
 
@@ -30,7 +31,7 @@ Data Box Gateway is a virtual device based on a virtual machine provisioned in y
 
 Data Box Gateway can be leveraged for transferring data to the cloud such as cloud archival, disaster recovery, or if there is a need to process your data at cloud scale. Here are the various scenarios where Data Box Gateway can be used for data transfer.
 
-- **Cloud archival** - Copy hundreds of TBs of data to Azure storage using Databox Gateway in a secure and efficient manner. The data can be ingested one time or an ongoing basis for archival scenarios.
+- **Cloud archival** - Copy hundreds of TBs of data to Azure storage using Data Box Gateway in a secure and efficient manner. The data can be ingested one time or an ongoing basis for archival scenarios.
 
 - **Data aggregation** - Aggregate data from multiple sources into a single location in Azure Storage for data processing and analytics.  
 
@@ -83,7 +84,7 @@ The Data Box Gateway solution comprises of Data Box Gateway resource, Data Box G
 
 * **Data Box Gateway virtual device** - A device based on a virtual machine provisioned in your virtualized environment or hypervisor and allows you to send data to Azure. 
     
-* **Data Box Gateway resource** – A resoruce in the Azure portal that lets you manage a Data Box Gateway device from a web interface that you can access from different geographical locations. Use the Data Box Gateway resource to create and manage resources, view, and manage devices and alerts, and manage shares.  
+* **Data Box Gateway resource** – A resource in the Azure portal that lets you manage a Data Box Gateway device from a web interface that you can access from different geographical locations. Use the Data Box Gateway resource to create and manage resources, view, and manage devices and alerts, and manage shares.  
 
     <!--![The Data Box Gateway service in Azure portal](media/data-box-overview/data-box-Gateway-service1.png)-->
 

@@ -1,7 +1,7 @@
 ---
 title: Microsoft Azure Data Box Edge overview | Microsoft Docs
-description: Describes Azure Data Box Edge, a storage solution that uses a physical device for network based transfer into Azure
-services: databoxedge-gateway
+description: Describes Azure Data Box Edge, a storage solution that uses a physical device for network based transfer into Azure.
+services: databox-edge-gateway
 documentationcenter: NA
 author: alkohli
 manager: twooley
@@ -14,8 +14,9 @@ ms.topic: overview
 ms.custom:
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 09/10/2018
+ms.date: 09/24/2018
 ms.author: alkohli
+Customer intent: As an IT admin, I need to understand what Data Box Edge is and how it works so I can use it to process and transform data before sending to Azure.
 ---
 # What is Azure Data Box Edge? (Preview)
 
@@ -62,7 +63,7 @@ Data Box Edge has the following capabilities:
 |Capability |Description  |
 |---------|---------|
 |High performance     | Fully automated and highly optimized data transfer and bandwidth.|
-|Supported protocols     | Support for standard SMB and NFS protocols for data ingestion. <br> For more information on supported versions, go to [Data Box Edge system requirements](http://aka.ms/dbe-pp-docs).|
+|Supported protocols     | Support for standard SMB and NFS protocols for data ingestion. <br> For more information on supported versions, go to [Data Box Edge system requirements](http://aka.ms/dbe-docs).|
 |Computing       |Allows analysis, processing, filtering of data.|
 |Data access     | Direct data access from Azure Storage Blobs and Azure Files using cloud APIs for additional data processing in the cloud.|
 |Fast access     | Local cache on the device for fast access of most recently used files.|
@@ -79,14 +80,13 @@ The Data Box Edge physical device has the following features:
 | Features/specifications                                          | Description              |
 |---------------------------------------------------------|--------------------------|
 | Dimensions   | Width: 17.25” Depth: 27.25” Height: 1.75”<br>(excludes ears and PSU handles)  |            
-| Weight  | XX lbs.|
 | Rack space|1U when placed in the rack|
 | Cables| 2 X Power cable<br>2 X 1 Gbps RJ45 cables<br>2 X 10 Gbps SFP+ copper cables|
 | Components|2 built-in Power Supply Units (PSUs)|
 | CPU|2 processors with 10 cores each  |
 | Memory| 64 GB RAM|
 | Disks| 8 NVMe SSDs, each disk is 1.6 TB <br> The system fails if one NVMe SSD fails. |
-| Local storage capacity| 12.8 TB total capacity<br>X TB usable capacity |
+| Local storage capacity| 12.8 TB total capacity|
 | Network interfaces| 2 X 1 GbE interfaces – 1 management, not user configurable, used for initial setup. The other data interface is user configurable and is DHCP by default. <br>2 X 25 GbE interfaces – These can also operate as 10 GbE interfaces. These data interfaces can be configured by user as DHCP (default) or static. <br> 2 X 25 GbE interfaces - These data interfaces can be configured by user as DHCP (default) or static.|
 
 ## Components
@@ -99,13 +99,13 @@ The Data Box Edge solution comprises of Data Box Edge resource, Data Box Edge ph
 
     <!--![The Data Box Edge service in Azure portal](media/data-box-overview/data-box-Edge-service1.png)-->
 
-    <!--For more information, go to [Use the Data Box Edge service to administer your Data Box Edge device](data-box-Edge-portal-ui-admin.md).-->
+    For more information, go to [Use the Data Box Edge service to administer your Data Box Edge device](http://aka.ms/dbe-docs).
 
 * **Data Box local web UI** - Use the local web UI to run diagnostics, shut down and restart the Data Box Edge device, view copy logs, and contact Microsoft Support to file a service request.
 
     <!--![The Data Box Edge local web UI](media/data-box-Edge-overview/data-box-Edge-local-web-ui.png)-->
 
-    <!-- For information about using the web-based UI, go to [Use the web-based UI to administer your Data Box](data-box-Edge-portal-ui-admin.md).-->
+    For information about using the web-based UI, go to [Use the web-based UI to administer your Data Box](http://aka.ms/dbe-docs).
 
 
 ## Region availability
@@ -127,29 +127,22 @@ Data Box Edge physical device, Azure resource, and target storage account to whi
 Data Box Edge is in preview and you need to sign up. Perform the following steps to sign up for Data Box Gateway:
 
 1. Sign into the Azure portal at: [https://aka.ms/databox-edge](https://aka.ms/databox-edge).
-2. Click **+** to create a new resource. Search for **Data Box Edge**. Select **Data Box Edge/Data Box Gateway (Preview)**.
-    
-    ![The Data Box Edge sign up 1](media/data-box-edge-overview/data-box-edge-sign-up1.png)
 
-3. Click **Create**.
-
-    ![The Data Box Edge sign up 2](media/data-box-edge-overview/data-box-edge-sign-up2.png)
-
-4. Pick the subscription that you want to use for Data Box Edge preview. Select the region where you want to deploy the Data Box Edge resource. In the Data Box Edge option, click **Sign up**.
+2. Pick the subscription that you want to use for Data Box Edge preview. Select the region where you want to deploy the Data Box Edge resource. In the Data Box Edge option, click **Sign up**.
 
     ![The Data Box Edge sign up 3](media/data-box-edge-overview/data-box-edge-sign-up3.png)
 
-5.  Answer the questions regarding data residence country, time-frame, target Azure service for data transfer, network bandwidth, and data transfer frequency. Review **Privacy and terms** and select the checkbox against **Microsoft can use your email address to contact you**.
+3.  Answer the questions regarding data residence country, time-frame, target Azure service for data transfer, network bandwidth, and data transfer frequency. Review **Privacy and terms** and select the checkbox against **Microsoft can use your email address to contact you**.
 
     ![The Data Box Edge sign up 4](media/data-box-edge-overview/data-box-edge-sign-up4.png)
 
-6. Once you are signed up and enabled for preview, you can order a Data Box Edge.
+4. Once you are signed up and enabled for preview, you can order a Data Box Edge.
 
 ## Next steps
 
-- Review the [Data Box Edge system requirements](http://aka.ms/dbe-pp-docs).
-- Understand the [Data Box Edge limits](http://aka.ms/dbe-pp-docs).
-- Deploy [Azure Data Box Edge](http://aka.ms/dbe-pp-docs) in Azure portal.
+- Review the [Data Box Edge system requirements](http://aka.ms/dbe-docs).
+- Understand the [Data Box Edge limits](http://aka.ms/dbe-docs).
+- Deploy [Azure Data Box Edge](http://aka.ms/dbe-docs) in Azure portal.
 
 
 
