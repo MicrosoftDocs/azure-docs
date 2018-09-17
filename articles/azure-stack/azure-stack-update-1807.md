@@ -170,7 +170,7 @@ The following are post-installation known issues for this build version.
 
 ### Portal
 
-- The ability to open a new support request from the dropdown within the administrator portal is not available. Instead, for Azure Stack integrated systems, use the following link: [https://aka.ms/newsupportrequest](https://aka.ms/newsupportrequest).
+- The ability to [open a new support request from the dropdown](azure-stack-manage-portals.md#quick-access-to-help-and-support) within the administrator portal is not available. Instead, for Azure Stack integrated systems, use the following link: [https://aka.ms/newsupportrequest](https://aka.ms/newsupportrequest).
 
 - <!-- 2931230 – IS  ASDK --> Plans that are added to a user subscription as an add-on plan cannot be deleted, even when you remove the plan from the user subscription. The plan will remain until the subscriptions that reference the add-on plan are also deleted. 
 
