@@ -54,110 +54,17 @@ Writing local.settings.json
 Initialized empty Git repository in C:/functions/MyFunctionProj/.git/
 ```
 
-## Create a function
-
-The following command navigates to the new project and creates an HTTP triggered function named `MyHtpTrigger`.
+Use the following command to navigate to the new `MyFunctionProj` project folder.
 
 ```bash
 cd MyFunctionProj
-func new --name MyHttpTrigger --template "HttpTrigger"
 ```
 
-When the command executes, you see something like the following output, which is a JavaScript function:
+[!INCLUDE [functions-create-function-core-tools](../../includes/functions-create-function-core-tools.md)]
 
-```output
-Writing C:\functions\MyFunctionProj\MyHttpTrigger\index.js
-Writing C:\functions\MyFunctionProj\MyHttpTrigger\sample.dat
-Writing C:\functions\MyFunctionProj\MyHttpTrigger\function.json
-```
+[!INCLUDE [functions-update-function-code](../../includes/functions-update-function-code.md)]
 
-## Edit the function
-
-By default, the template creates a function that requires a function key when making requests. To make it easier to test the function in Azure, you need to update the function to allow anonymous access. The way that you make this change depends on your functions project language.
-
-### C\#
-
-Open the MyHttpTrigger.cs code file that is your new function and update the **AuthorizationLevel** attribute in the function definition to a value of `anonymous` and save your changes.
-
-```csharp
-[FunctionName("MyHttpTrigger")]
-        public static IActionResult Run([HttpTrigger(AuthorizationLevel.Anonymous, 
-            "get", "post", Route = null)]HttpRequest req, ILogger log)
-```
-
-### JavaScript
-
-Open the function.json file for your new function, open it in a text editor, update the **authLevel** property in **bindings.httpTrigger** to `anonymous`, and save your changes.
-
-```json
-  "bindings": [
-    {
-      "authLevel": "anonymous",
-      "type": "httpTrigger",
-      "direction": "in",
-      "name": "req",
-      "methods": [
-        "get",
-        "post"
-      ]
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "$return"
-    }
-  ]
-```
-
-Now you can call the function in Azure without having to supply the function key. The function key is never required when running locally.
-
-## Run the function locally
-
-The following command starts the function app. The app runs using the same Azure Functions runtime that is in Azure.
-
-```bash
-func host start --build
-```
-
-The `--build` option is required to compile C# projects. You do not need this option for a JavaScript project.
-
-When the Functions host starts, it write something like the following output, which has been truncated for readability:
-
-```output
-
-                  %%%%%%
-                 %%%%%%
-            @   %%%%%%    @
-          @@   %%%%%%      @@
-       @@@    %%%%%%%%%%%    @@@
-     @@      %%%%%%%%%%        @@
-       @@         %%%%       @@
-         @@      %%%       @@
-           @@    %%      @@
-                %%
-                %
-
-...
-
-Content root path: C:\functions\MyFunctionProj
-Now listening on: http://0.0.0.0:7071
-Application started. Press Ctrl+C to shut down.
-
-...
-
-Http Functions:
-
-        HttpTrigger: http://localhost:7071/api/HttpTrigger
-
-[8/27/2018 10:38:27 PM] Host started (29486ms)
-[8/27/2018 10:38:27 PM] Job host started
-```
-
-Copy the URL of your `HTTPTrigger` function from the runtime output and paste it into your browser's address bar. Append the query string `?name=<yourname>` to this URL and execute the request. The following shows the response in the browser to the GET request returned by the local function:
-
-![Test locally in the browser](./media/functions-create-first-azure-function-azure-cli/functions-test-local-browser.png)
-
-Now that you have run your function locally, you can create the function app and other required resources in Azure.
+[!INCLUDE [functions-run-function-test-local](../../includes/functions-run-function-test-local.md)]
 
 [!INCLUDE [functions-create-resource-group](../../includes/functions-create-resource-group.md)]
 
