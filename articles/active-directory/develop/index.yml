@@ -33,17 +33,17 @@ sections:
       className: cardsM
       columns: 3
       items:
-      - href: 
+      - href: /azure/active-directory/develop/about-microsoft-identity-platform
         html: <p>Learn more about the Microsoft identity platform and its features and capabilities.</p>
         image:
           src: ./media/index/i_get-started.svg
         title: About Microsoft identity platform
-      - href: /azure/active-directory/develop/authentication-scenarios/
+      - href: /azure/active-directory/develop/azure-ad-developers-guide/
         html: <p>Authenticate Azure AD identities (work and school accounts) by requesting tokens from the Azure AD v1.0 endpoint, using Azure AD Authentication Library (ADAL), Azure portal, and Azure AD Graph API.</p>
         image:
           src: ./media/index/i_advanced.svg
         title: v1.0
-      - href: 
+      - href: /azure/active-directory/develop/v2-overview
         html: <p>Authenticate a broader set of Microsoft identities through what has been known as the Azure AD v2.0 endpoint, using Microsoft Authentication Library (MSAL), Azure portal, and Microsoft Graph API.</p>
         image: 
           src: ./media/index/i_investigate.svg
@@ -72,7 +72,42 @@ sections:
         - title: v2.0
           values:
           - href: 
+          - href: quickstart-v2-javascript.md
+    - type: paragraph
+      text: <b>Web apps</b>
+    - type: table
+      style: dataMatrix
+      columns:
+        - image:
+            src: ./media/index/logo_NET.svg
+          title: ASP .NET
+        - image:
+            src: ./media/index/logo_NETcore.svg
+          title: ASP .NET Core    
+        - image:
+            src: ./media/index/logo_java.svg
+          title: Java
+        - image:
+            src: ./media/index/logo_nodejs.svg
+          title: NodeJS
+        - image:
+            src: ./media/index/logo_python.svg
+          title: Python
+      rows:
+        - title: v1.0
+          values:
+          - href: quickstart-v1-aspnet-webapp.md
           - href: 
+          - href: https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect
+          - href: quickstart-v1-openid-connect-code.md
+          - href: https://github.com/Azure-Samples/active-directory-python-webapp-graphapi
+        - title: v2.0
+          values:
+          - href: quickstart-v2-aspnet-webapp.md
+          - href: quickstart-v2-aspnet-core-webapp.md
+          - href: 
+          - href: https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs
+          - href:
     - type: paragraph
       text: <b>Web APIs</b>
     - type: table
@@ -95,50 +130,20 @@ sections:
           - href: quickstart-v1-nodejs-webapi.md
         - title: v2.0
           values:
+          - href: https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet
+          - href: https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore-v2
           - href: 
-          - href: 
-          - href: 
-    - type: paragraph
-      text: <b>Web apps</b>
-    - type: table
-      style: dataMatrix
-      columns:
-        - image:
-            src: ./media/index/logo_NET.svg
-          title: ASP .NET
-        - image:
-            src: ./media/index/logo_nodejs.svg
-          title: NodeJS
-        - image:
-            src: ./media/index/logo_java.svg
-          title: Java
-        - image:
-            src: ./media/index/logo_python.svg
-          title: Python
-      rows:
-        - title: v1.0
-          values:
-          - href: quickstart-v1-aspnet-webapp.md
-          - href: quickstart-v1-nodejs-webapp.md
-          - href: https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect
-          - href: https://github.com/Azure-Samples/active-directory-python-webapp-graphapi
-        - title: v2.0
-          values:
-          - href: 
-          - href: 
-          - href:
-          - href:
     - type: paragraph
       text: <b>Mobile & desktop apps</b>
     - type: table
       style: dataMatrix
       columns:
         - image:
-            src: ./media/index/logo_ios.svg
-          title: iOS
-        - image:
             src: ./media/index/logo_android.svg
           title: Android
+        - image:
+            src: ./media/index/logo_ios.svg
+          title: iOS
         - image:
             src: ./media/index/logo_Windows.svg
           title: Windows Desktop .NET
@@ -151,17 +156,18 @@ sections:
       rows:
         - title: v1.0
           values:
-          - href: quickstart-v1-ios.md
           - href: quickstart-v1-android.md
+          - href: quickstart-v1-ios.md
           - href: quickstart-v1-dotnet.md
           - href:
           - href: quickstart-v1-xamarin.md
         - title: v2.0
           values:
-          - href: 
-          - href: 
-          - href: 
-          - href: 
+          - href: quickstart-v2-android.md
+          - href: quickstart-v2-ios.md
+          - href: quickstart-v2-windows-desktop.md
+          - href: quickstart-v2-uwp.md
+          - href:
     - type: paragraph
       text: <b>Service-to-service</b>
     - type: table
@@ -218,17 +224,17 @@ sections:
       style: dataMatrix
       columns:
         - image:
-            src: ./media/index/logo_ios.svg
-          title: iOS
-        - image:
             src: ./media/index/logo_android.svg
           title: Android
         - image:
-            src: ./media/index/logo_Windows.svg
-          title: Windows Desktop .NET
+            src: ./media/index/logo_ios.svg
+          title: iOS
         - image:
             src: ./media/index/logo_Windows.svg
           title: Universal Windows Platform
+        - image:
+            src: ./media/index/logo_Windows.svg
+          title: Windows Desktop .NET
       rows:
         - title: v1.0
           values:
@@ -238,10 +244,10 @@ sections:
           - href:
         - title: v2.0
           values:
-          - href: tutorial-v2-ios.md
           - href: tutorial-v2-android.md
-          - href: tutorial-v2-windows-desktop.md
+          - href: tutorial-v2-ios.md
           - href: tutorial-v2-windows-uwp.md
+          - href: tutorial-v2-windows-desktop.md
 
   - title: Samples
     items:

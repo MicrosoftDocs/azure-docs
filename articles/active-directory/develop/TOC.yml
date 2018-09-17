@@ -29,10 +29,10 @@
       items:
       - name: ASP .NET
         href: quickstart-v1-aspnet-webapp.md
-      - name: NodeJS
-        href: quickstart-v1-openid-connect-code.md
       - name: Java
         href: https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect
+      - name: NodeJS
+        href: quickstart-v1-openid-connect-code.md
       - name: Python
         href: https://github.com/Azure-Samples/active-directory-python-webapp-graphapi
     - name: Web APIs
@@ -43,15 +43,15 @@
         href: quickstart-v1-nodejs-webapi.md
     - name: Mobile and desktop apps
       items:
-      - name: iOS
-        href: quickstart-v1-ios.md
       - name: Android
         href: quickstart-v1-android.md
+      - name: iOS
+        href: quickstart-v1-ios.md
       - name: Windows Desktop .NET
         href: quickstart-v1-dotnet.md
       - name: Xamarin
         href: quickstart-v1-xamarin.md
-    - name: Service to service
+    - name: Service-to-service
       href: sample-v1-code.md#server-or-daemon-application-to-web-api
   - name: Samples
     href: sample-v1-code.md
@@ -70,33 +70,33 @@
         href: native-app.md
       - name: Daemon or server application
         href: service-to-service.md
-    - name: Protocols
-      items:
-      - name: OAuth and the OpenID Connect protocol
-        items:
-        - name: OAuth 2.0 implicit grant flow
-          href: v1-oauth2-implicit-grant-flow.md
-        - name: OAuth 2.0 auth code grant
-          href: v1-protocols-oauth-code.md
-        - name: OAuth 2.0 on-behalf-of flow
-          href: v1-oauth2-on-behalf-of-flow.md
-        - name: OAuth 2.0 client credentails grant
-          href: v1-oauth2-client-creds-grant-flow.md
-      - name: SAML 2.0
-        items:
-        - name: Single sign-on
-          href: single-sign-on-saml-protocol.md
-        - name: Signout
-          href: single-sign-out-saml-protocol.md
-      - name: WS-Federation
-        items:
-        - name: Federation metadata
-          href: azure-ad-federation-metadata.md
-      - name: Signing key rollover
-        href: active-directory-signing-key-rollover.md
     - name: Authentication
       href: authentication-scenarios.md
       items:
+      - name: Protocols
+        items:
+        - name: OAuth and the OpenID Connect protocol
+          items:
+          - name: OAuth 2.0 implicit grant flow
+            href: v1-oauth2-implicit-grant-flow.md
+          - name: OAuth 2.0 auth code grant
+            href: v1-protocols-oauth-code.md
+          - name: OAuth 2.0 on-behalf-of flow
+            href: v1-oauth2-on-behalf-of-flow.md
+          - name: OAuth 2.0 client credentails grant
+            href: v1-oauth2-client-creds-grant-flow.md
+        - name: SAML 2.0
+          items:
+          - name: Single sign-on
+            href: single-sign-on-saml-protocol.md
+          - name: Signout
+            href: single-sign-out-saml-protocol.md
+        - name: WS-Federation
+          items:
+          - name: Federation metadata
+            href: azure-ad-federation-metadata.md
+        - name: Signing key rollover
+          href: active-directory-signing-key-rollover.md
       - name: ID tokens
         href: 
       - name: Access tokens
@@ -223,8 +223,6 @@
         href: https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs
     - name: Web APIs
       items:
-      - name: v2.0
-        items:
       - name: ASP .NET
         href: https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet
       - name: ASP .NET Core
@@ -235,11 +233,11 @@
         href: quickstart-v2-android.md
       - name: iOS
         href: quickstart-v2-ios.md
-      - name: Windows Desktop .NET
-        href: quickstart-v2-windows-desktop.md
       - name: Universal Windows Platform
         href: quickstart-v2-uwp.md
-    - name: Service to service
+      - name: Windows Desktop .NET
+        href: quickstart-v2-windows-desktop.md
+    - name: Service-to-service
       items:
       - name: ASP .NET
         href: https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2
@@ -255,14 +253,14 @@
         href: tutorial-v2-asp-webapp.md
     - name: Mobile and desktop apps
       items:
-      - name: iOS
-        href: tutorial-v2-ios.md
       - name: Android
         href: tutorial-v2-android.md
-      - name: Windows Desktop .NET
-        href: tutorial-v2-windows-desktop.md
+      - name: iOS
+        href: tutorial-v2-ios.md
       - name: Universal Windows Platform
         href: tutorial-v2-windows-uwp.md
+      - name: Windows Desktop .NET
+        href: tutorial-v2-windows-desktop.md
   - name: Samples
     href: sample-v2-code.md
   - name: Concepts
@@ -271,21 +269,21 @@
       href: azure-ad-endpoint-comparison.md
     - name: Application types
       href: v2-app-types.md
-    - name: Protocols
-      items:
-      - name: OAuth and the OpenID Connect protocol
-        items:
-        - name: OAuth 2.0 implicit grant flow
-          href: v2-oauth2-implicit-grant-flow.md
-        - name: OAuth 2.0 auth code grant
-          href: v2-oauth2-auth-code-flow.md
-        - name: OAuth 2.0 on-behalf-of flow
-          href: v2-oauth2-on-behalf-of-flow.md
-        - name: OAuth 2.0 client credentails grant
-          href: v2-oauth2-client-creds-grant-flow.md
     - name: Authentication
       href: authentication-scenarios.md
       items:
+      - name: Protocols
+        items:
+        - name: OAuth and the OpenID Connect protocol
+          items:
+          - name: OAuth 2.0 implicit grant flow
+            href: v2-oauth2-implicit-grant-flow.md
+          - name: OAuth 2.0 auth code grant
+            href: v2-oauth2-auth-code-flow.md
+          - name: OAuth 2.0 on-behalf-of flow
+            href: v2-oauth2-on-behalf-of-flow.md
+          - name: OAuth 2.0 client credentails grant
+            href: v2-oauth2-client-creds-grant-flow.md
       - name: ID tokens
         href: 
       - name: Access tokens
@@ -307,6 +305,12 @@
         href: ../application-consent-experience.md
   - name: How-to guides
     items:
+    - name: Authentication
+      items:
+      - name: Configure role claims
+        href: ../active-directory-enterprise-app-role-management.md
+      - name: Customize claims
+        href: active-directory-saml-claims-customization.md
     - name: Application configuration
       items:
       - name: Convert a single-tenant app to a multi-tenant app
@@ -319,12 +323,6 @@
         href: howto-add-branding-in-azure-ad-apps.md
       - name: Terms of Service and Privacy Statement
         href: howto-add-terms-of-service-privacy-statement.md
-    - name: Configure claims
-      items:
-      - name: Configure role claims
-        href: ../active-directory-enterprise-app-role-management.md
-      - name: Customize claims
-        href: active-directory-saml-claims-customization.md
     - name: Work with Visual Studio
       items:
       - name: Use the Active Directory connected service
