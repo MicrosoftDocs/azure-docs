@@ -9,6 +9,7 @@ ms.date: 07/14/2018
 ms.author: hux
 ms.component: common
 ---
+
 # Azure Storage account options
 
 ## Overview
@@ -37,6 +38,9 @@ GPv2 storage accounts expose the **Access Tier** attribute at the account level,
 >
 > Microsoft recommends using general-purpose v2 storage accounts over Blob storage accounts for most scenarios.
 
+> [!NOTE]
+> The [Premium access tier](../blobs/storage-blob-storage-tiers.md#premium-access-tier) is available in preview as a locally redundant storage (LRS) account in the North Europe, US East 2, US Central and US West regions.
+
 ### Upgrade a storage account to GPv2
 
 Users can upgrade a GPv1 or Blob storage account to a GPv2 account at any time using Azure portal, PowerShell, or Azure CLI. This change cannot be reversed, and no other account type changes are permitted. For more information on evaluating your existing storage account, see the [Evaluating and migrating to GPv2 storage accounts](#evaluating-and-migrating-to-gpv2-storage-accounts) section.
@@ -61,7 +65,7 @@ To upgrade a GPv1 or Blob storage account to a GPv2 account using Azure CLI, fir
 
 ```cli
 az storage account update -g <resource-group> -n <storage-account> --set kind=StorageV2
-```` 
+``` 
 
 ### General-purpose v1 accounts
 
