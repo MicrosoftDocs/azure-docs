@@ -187,6 +187,8 @@
       href: change-vm-size.md
     - name: Swap the OS disk
       href: os-disk-swap.md
+    - name: Time sync
+      href: time-sync.md
     - name: Tag a VM
       href: tag.md
     - name: Run scripts on a VM
