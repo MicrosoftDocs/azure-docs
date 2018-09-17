@@ -34,7 +34,9 @@ In the examples following, replace the text in {} with the instance names that d
 
 ### Delete an entire workspace
 
-Use this call to delete an entire workspace.  Warning: All information will be deleted and the workspace will no longer be usable.
+Use this call to delete an entire workspace.  
+> [!WARNING]
+> All information will be deleted and the workspace will no longer be usable.
 
     https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}?api-version=2018-03-01-preview
 
