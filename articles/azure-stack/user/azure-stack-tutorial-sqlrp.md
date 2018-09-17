@@ -13,11 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/12/2018
+ms.date: 09/18/2018
 ms.author: jeffgilb
-ms.reviewer: jeffgo
-ms.custom: mvc
-
+ms.reviewer: quying
 ---
 
 # Tutorial: create highly available SQL databases
@@ -85,7 +83,7 @@ Use the steps in this section to deploy the SQL Server AlwaysOn availability gro
 
     - Provide complex passwords for the ADMINPASSWORD, SQLSERVERSERVICEACCOUNTPASSWORD, and SQLAUTHPASSWORD parameters.
     - Enter the DNS Suffix for reverse lookup in all lowercase letters for the DNSSUFFIX parameter (**azurestack.external** for ASDK installations).
-
+    
     ![Custom deployment parameters](./media/azure-stack-tutorial-sqlrp/edit-parameters.png)
 
 5. On the **Custom deployment** blade, choose the subscription to use and create a new resource group or select an existing resource group for the custom deployment.<br><br> Next, select the resource group location (**local** for ASDK installations) and then click **Create**. The custom deployment settings will be validated and then the deployment will start.
