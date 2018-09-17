@@ -96,9 +96,9 @@ You can move data from existing Cassandra workloads to Azure Cosmos DB by using 
 
 Use the following steps to migrate data to Azure Cosmos DB Cassandra API with Spark:
 
-- Provision an [Azure Databricks](https://review.docs.microsoft.com/en-us/azure/cosmos-db/cassandra-spark-databricks.md?branch=pr-en-us-52162) or a [HDInsight cluster](https://review.docs.microsoft.com/en-us/azure/cosmos-db/cassandra-spark-hdinsight.md?branch=pr-en-us-52162) 
+- Provision an [Azure Databricks](cassandra-spark-databricks.md) or a [HDInsight cluster](cassandra-spark-hdinsight.md) 
 
-- Move data to destination Cassandra API endpoint by using [table copy operation](https://review.docs.microsoft.com/en-us/azure/cosmos-db/cassandra-spark-table-copy-ops?branch=pr-en-us-52162) 
+- Move data to destination Cassandra API endpoint by using [table copy operation](cassandra-spark-table-copy-ops.md) 
 
 Migrating data by using spark jobs is also a recommended option if you have data residing in an existing cluster in Azure virtual machines. This requires spark to be set up as intermediary for one time or regular ingestion.
 
