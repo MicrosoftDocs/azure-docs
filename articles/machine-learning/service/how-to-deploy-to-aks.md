@@ -45,7 +45,7 @@ from azureml.core.model import Model
 
 model = Model.register(model_path = "model.pkl", # this points to a local file
                         model_name = "best_model", # this is the name the model is registered as
-                        tags = ["diabetes", "regression"],
+                        tags = {"data": "diabetes", "type": "regression"},
                         description = "Ridge regression model to predict diabetes",
                         workspace = ws)
 ```
@@ -70,7 +70,7 @@ Azure Kubernetes Service uses Docker images. To create the image, use the follow
                                                         runtime = "python",
                                                         conda_file = "myenv.yml",
                                                         description = "Image with ridge regression model",
-                                                        tags = ["diabetes","regression"]
+                                                        tags = {"data": "diabetes", "type": "regression"}
                                                         )
     ```
 
@@ -108,7 +108,7 @@ aks_target = ComputeTarget.create(workspace = ws,
                                     provisioning_configuration = prov_config)
 
 # Wait for the create process to complete
-aks_target.wait_for_provisioning(show_output = True)
+aks_target.wait_for_completion(show_output = True)
 print(aks_target.provisioning_state)
 print(aks_target.provisioning_errors)
 ```
