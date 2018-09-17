@@ -63,7 +63,7 @@ You can check the following links to gather more information about services offe
 |[Riverbed Technology](https://www.riverbed.com/go/steelconnect-azurewan.html)|
 |[128 Technology](https://www.128technology.com/partners/azure) |
 
-## Next Steps
+## Next steps
 
 For more information about Virtual WAN, see the [Virtual WAN FAQ](virtual-wan-faq.md).
 
