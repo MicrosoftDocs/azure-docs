@@ -170,7 +170,7 @@
       href: how-to-connect-pta-security-deep-dive.md
     - name: Pass-through authentication FAQ
       href: how-to-connect-pta-faq.md
-  - name: Manage single sign-On 
+  - name: Manage single sign-on 
     items:
     - name: What is Single Sign-On?
       href: how-to-connect-sso.md
@@ -244,7 +244,7 @@
       href: tshoot-connect-password-hash-synchronization.md
     - name: Pass-through autentication
       href: tshoot-connect-pass-through-authentication.md
-    - name: Single Sign-On
+    - name: Single sign-on
       href: tshoot-connect-sso.md
     - name: LargeObject error caused by userCertificate
       href: tshoot-connect-largeobjecterror-usercertificate.md
