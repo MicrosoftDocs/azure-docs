@@ -3,14 +3,14 @@ title: "Quickstart: API C# - Create knowledge base - QnA Maker"
 titlesuffix: Azure Cognitive Services 
 description: This quickstart walks you through creating a sample QnA maker knowledge base, programmatically, that will appear in your Azure Dashboard of your Cognitive Services API account.
 services: cognitive-services
-author: diberry
+author: tulasim88
 manager: cgronlun
 
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: quickstart
 ms.date: 09/12/2018
-ms.author: diberry
+ms.author: tulasim
 ---
 
 # Create a new knowledge base in C#
