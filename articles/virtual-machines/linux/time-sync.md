@@ -26,7 +26,7 @@ Azure is backed by infrastructure running Windows Server 2016. Windows Server 20
 >[!NOTE]
 >For a quick overview of Windows Time service, take a look at this [high-level overview video](https://aka.ms/WS2016TimeVideo).
 >
-> For more information, see [Accurate time for Windows Server 2016](https://docs.microsoft.com/en-us/windows-server/networking/windows-time-service/accurate-time). 
+> For more information, see [Accurate time for Windows Server 2016](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time). 
 
 ## Overview
 
@@ -136,7 +136,7 @@ On Red Hat Enterprise Linux and CentOS 7.x, [chrony](https://chrony.tuxfamily.or
 refclock PHC /dev/ptp0 poll 3 dpoll -2 offset 0
 ```
 
-For more information on Red Hat and NTP, see [Configure NTP](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/s1-configure_ntp). 
+For more information on Red Hat and NTP, see [Configure NTP](https://access.redhat.com/documentation/red_hat_enterprise_linux/7/html/system_administrators_guide/s1-configure_ntp). 
 
 For more information on chrony, see [Using chrony](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/sect-using_chrony).
 
@@ -151,6 +151,6 @@ On Ubuntu and SUSE time sync is configured using [systemd](https://www.freedeskt
 
 ## Next steps
 
-For more information, see [Accurate time for Windows Server 2016](https://docs.microsoft.com/en-us/windows-server/networking/windows-time-service/accurate-time).
+For more information, see [Accurate time for Windows Server 2016](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time).
 
 

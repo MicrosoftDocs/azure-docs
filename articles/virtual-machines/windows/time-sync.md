@@ -27,7 +27,7 @@ Azure is now backed by infrastructure running Windows Server 2016. Windows Serve
 >[!NOTE]
 >For a quick overview of Windows Time service, take a look at this [high-level overview video](https://aka.ms/WS2016TimeVideo).
 >
-> For more information, see [Accurate time for Windows Server 2016](https://docs.microsoft.com/en-us/windows-server/networking/windows-time-service/accurate-time). 
+> For more information, see [Accurate time for Windows Server 2016](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time). 
 
 ## Overview
 
@@ -173,10 +173,10 @@ w32tm /dumpreg /subkey:Parameters | findstr /i "ntpserver"
 
 Below are links to more details about the time sync:
 
-- [Windows Time Service Tools and Settings](https://docs.microsoft.com/en-us/windows-server/networking/windows-time-service/Windows-Time-Service-Tools-and-Settings)
+- [Windows Time Service Tools and Settings](https://docs.microsoft.com/windows-server/networking/windows-time-service/Windows-Time-Service-Tools-and-Settings)
 - [Windows Server 2016 Improvements
-](https://docs.microsoft.com/en-us/windows-server/networking/windows-time-service/windows-server-2016-improvements)
-- [Accurate Time for Windows Server 2016](https://docs.microsoft.com/en-us/windows-server/networking/windows-time-service/accurate-time)
-- [Support boundary to configure the Windows Time service for high-accuracy environments](https://docs.microsoft.com/en-us/windows-server/networking/windows-time-service/support-boundary)
+](https://docs.microsoft.com/windows-server/networking/windows-time-service/windows-server-2016-improvements)
+- [Accurate Time for Windows Server 2016](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time)
+- [Support boundary to configure the Windows Time service for high-accuracy environments](https://docs.microsoft.com/windows-server/networking/windows-time-service/support-boundary)
 
 
