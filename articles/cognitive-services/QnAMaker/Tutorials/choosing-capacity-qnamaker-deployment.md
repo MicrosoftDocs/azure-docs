@@ -3,13 +3,13 @@ title: Choosing capacity for your QnA Maker deployment - Microsoft Cognitive Ser
 titleSuffix: Azure
 description: a guide to choosing capacity for your QnA Maker deployment
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: nstulasi88
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: QnAMaker
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: saneppal
+ms.author: tulasim
 ---
 
 # Choosing capacity for your QnA Maker deployment

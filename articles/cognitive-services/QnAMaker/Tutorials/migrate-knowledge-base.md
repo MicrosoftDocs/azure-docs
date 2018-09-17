@@ -3,13 +3,13 @@ title: How to import a knowledge base - Microsoft Cognitive Services | Microsoft
 titleSuffix: Azure
 description: How to import a knowledge base
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: nstulasi88
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: QnAMaker
 ms.topic: article
 ms.date: 04/21/2018
-ms.author: saneppal
+ms.author: tulasim88
 ---
 # Migrate a knowledge base using export-import
 QnA Maker announced General Availability on May 7, 2018 at the \\\build\ conference. QnA Maker GA has a new architecture built on Azure. Knowledge bases created with QnA Maker Free Preview will need to be migrated to QnA Maker GA. QnA Maker Preview will be deprecated in November 2018. For more information about the changes in QnA Maker GA, see the QnA Maker GA announcement [blog post](https://aka.ms/qnamakerga-blog).
