@@ -19,20 +19,20 @@ ms.author: rkarlin
 ---
 # Onboard Azure Security Center using PowerShell
 
-You can secure your Azure workloads programmatically, using the Azure Security Center  PowerShell module.
-If you, like many administrators, are looking for ways to automate tasks to both and avoid the human error inherent in manual tasks, and take advantage of the potential for duplicative work, onboarding using PowerShell can help you. This is especially useful in large-scale deployments that involve dozens of subscriptions with hundreds and thousands of resources – all of which must be secured from the beginning.
+You can secure your Azure workloads programmatically, using the Azure Security Center PowerShell module.
+This enables you to automate tasks and avoid the human error inherent in manual tasks This is especially useful in large-scale deployments that involve dozens of subscriptions with hundreds and thousands of resources – all of which must be secured from the beginning.
 
 Onboarding Azure Security Center using PowerShell enables you to programmatically automate onboarding and management of your Azure resources and add the necessary security controls.
 
-This article provides a sample PowerShell script that can be modified and used in your network to roll out Security Center across your subscriptions. 
+This article provides a sample PowerShell script that can be modified and used in your environment to roll out Security Center across your subscriptions. 
 
 In this example, we will enable Security Center on a subscription with ID: d07c0080-170c-4c24-861d-9c817742786c and apply the recommended settings that provide a high level of protection, by implementing the Standard tier of Security Center, which provides advanced threat protection and detection capabilities:
 
-1. Set the [`ASC standard` level of protection](https://azure.microsoft.com/pricing/details/security-center/). 
+1. Set the [ASC standard level of protection](https://azure.microsoft.com/pricing/details/security-center/). 
  
-3. Set the Log Analytics workspace to which the Microsoft Monitoring Agent will send the data it collects on the VMs associated with the subscription – in this example, an existing user defined workspace (myWorkspace).
+2. Set the Log Analytics workspace to which the Microsoft Monitoring Agent will send the data it collects on the VMs associated with the subscription – in this example, an existing user defined workspace (myWorkspace).
 
-4. Activate Security Center’s automatic agent provisioning which [deploys to Microsoft Monitoring Agent](security-center-enable-data-collection.md#auto-provision-mma).
+3. Activate Security Center’s automatic agent provisioning which [deploys the Microsoft Monitoring Agent](security-center-enable-data-collection.md#auto-provision-mma).
 
 5. Set the organization’s [CISO as the security contact for ASC alerts and notable events](security-center-provide-security-contact-details.md).
 
@@ -51,46 +51,42 @@ These steps should be performed before you run the Security Center cmdlets:
         Install-Module -Name AzureRM.profile -RequiredVersion 5.5.0
 6.	Restart PowerShell
 
-## Onboard Security Center using PowerShell
-
-1. In PowerShell, run the following commands:
+7. In PowerShell, run the following commands:
 
          Install-Module -Name AzureRM.Security -AllowPrerelease -Force
 
-2.	Register your subscriptions to the Security Center Resource Provider
+## Onboard Security Center using PowerShell
+
+1.	Register your subscriptions to the Security Center Resource Provider
 
         Set-AzureRmContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c”
         Register-AzureRmResourceProvider -ProviderNamespace ‘Microsoft.Security’ 
 
-3.	Optional: Set the coverage level (pricing tier) of the subscriptions (If not defined, the pricing tier is set to Free)
+2.	Optional: Set the coverage level (pricing tier) of the subscriptions (If not defined, the pricing tier is set to Free).
 
         Set-AzureRmContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c”
         Set-AzureRmSecurityPricing -Name "default" -PricingTier "Standard"
 
-4.	Create a Log Analytics workspace to which the subscription’s VMs will report to. You can define multiple subscriptions to report to the same workspace. If not defined, the default workspace will be used)
+3.	Configure a Log Analytics workspace to which the agents will report. For this to work, you must create a Log Analytics workspace that the subscription’s VMs will report to. You can define multiple subscriptions to report to the same workspace. If not defined, the default workspace will be used.
 
         Set-AzureRmSecurityWorkspaceSetting -Name "default" -Scope
         "/subscriptions/d07c0080-170c-4c24-861d-9c817742786c" -WorkspaceId"/subscriptions/d07c0080-170c-4c24-861d-9c817742786c/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace"
 
-5.	Choose if you want manual or auto provision installation of the Microsoft Monitoring Agent on your Azure VMs:
+4.	Auto-provision installation of the Microsoft Monitoring Agent on your Azure VMs:
     
-     **Manual**:
-
         Set-AzureRmContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c”
     
-     **Auto provisioning**:
-     
         Set-AzureRmSecurityAutoProvisioningSetting -Name "default" -EnableAutoProvision
 
 > [!NOTE]
 > It is recommended to enable auto provisioning to make sure that your Azure virtual machines are automatically protected by Azure Security Center.
 >
 
-6.	Optional: It is highly recommended that you define the security contact details for the subscriptions you onboard, which will be used as the recipients of alerts and notifications generated by Security Center:
+5.	Optional: It is highly recommended that you define the security contact details for the subscriptions you onboard, which will be used as the recipients of alerts and notifications generated by Security Center:
 
         Set-AzureRmSecurityContact -Name "default1" -Email "CISO@my-org.com" -Phone "2142754038" -AlertsAdmin -NotifyOnAlert 
 
-7.	Assign the default Security Center policy initiative:
+6.	Assign the default Security Center policy initiative:
 
         Register-AzureRmResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
         $Policy = Get-AzureRmPolicySetDefinition -Name ' [Preview]: Enable Monitoring in Azure Security Center'
@@ -98,7 +94,7 @@ These steps should be performed before you run the Security Center cmdlets:
 
 You now successfully onboarded Azure Security Center with PowerShell!
 
-You can now use these PowerShell cmdlets with automation scripts to programmatically iterate on multiple subscriptions and resources and reduce the overheard caused by manually performing these actions, as well as reduce the potential risk of human error resulting from manual actions. You can use this sample script as reference.
+You can now use these PowerShell cmdlets with automation scripts to programmatically iterate on multiple subscriptions and resources and reduce the overheard caused by manually performing these actions, as well as reduce the potential risk of human error resulting from manual actions. You can use this [sample script](https://github.com/Microsoft/Azure-Security-Center/blob/master/quickstarts/ASC-Samples.ps1) as reference.
 
 
 
