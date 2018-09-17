@@ -10,7 +10,9 @@ services: iot-central
 manager: peterpr
 ---
 
-# Create an eEvent rule and set up notifications in your Azure IoT Central application
+# Create an Event rule and set up notifications in your Azure IoT Central application
+
+*This article applies to operators, builders, and administrators.*
 
 You can use Azure IoT Central to remotely monitor your connected devices. Azure IoT Central rules enable you to monitor your devices in near real time and automatically invoke actions, such as send an email or trigger Microsoft Flow. In just a few clicks, you can define the condition for which to monitor your device data and configure the corresponding action. This article explains how to create rules to monitor events sent by the device.
 
@@ -32,10 +34,10 @@ To create an event rule, the device template must have at least one event measur
     ![No rules yet](media\howto-create-event-rules\Rules_Landing_Page.png)
 
 
-1. On the **Rules** tab, click **+ New Rule** to see the types of rules you can create.
+1. On the **Rules** tab, click **Edit Template** and then **+ New Rule** to see the types of rules you can create.
 
 
-1. Click on the **Event** tile to create a rule.
+1. Click on the **Event** tile to create an event monitoring rule.
 
     ![Rule types](media\howto-create-event-rules\Rule_Types.png)
 
@@ -87,6 +89,8 @@ This section shows you how to set up actions to take when the rule is fired. Act
    ![Configure Action](media\howto-create-event-rules\Configure_Action.png)
 
 1. To save the rule, choose **Save**. The rule goes live within a few minutes and starts monitoring the events being sent to your application. When the condition specified in the rule matches, the rule triggers the configured email action.
+
+1. Choose **Done** to exit the **Edit Template** mode.
 
 You can add other actions to the rule such as Microsoft Flow and webhooks. You can add up to 5 actions per rule.
 
