@@ -54,6 +54,8 @@ git clone --recurse-submodules  https://github.com/Azure/azure-iot-pcs-remote-mo
 Although this article shows you how to run the microservices locally, they depend on Azure services running in the cloud. You can deploy these Azure services [manually through the Azure portal](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Manual-steps-to-create-azure-resources-for-local-setup), or use the provided script. The following script examples assume you're using the .NET repository on a Windows machine. If you're working in another environment, adjust the paths, file extensions, and path separators appropriately. To use the provided script:
 
 ### New users
+For users who have **not yet** created the required Azure resources, proceed to follow the steps below:
+
  1. In your command-line environment, navigate to the **azure-iot-pcs-remote-monitoring-dotnet\services\scripts\local\launch** folder in your cloned copy of the repository.
 
  2. Run the **start.cmd or start.sh** script and follow the prompts. The script prompts you for the following information:
@@ -76,9 +78,9 @@ The start script requires **Node.js** to execute, please install latest stable N
 ### Existing users
 For users who have already created the required azure resources and just need to update them, complete only **one** of the following steps:
 
- 1. Set the environment variables globally on your machine.
- 2. **VS Code:** Set the environment variables in the launch configurations of the IDE i.e. launch.json
- 3. **Visual Studio:** Set the environment variables for WebService project of the microservices by adding it to Properties → Debug → Environment variables
+ * Set the environment variables globally on your machine.
+ * **VS Code:** Set the environment variables in the launch configurations of the IDE i.e. launch.json
+ * **Visual Studio:** Set the environment variables for WebService project of the microservices by adding it to Properties → Debug → Environment variables
  
 Finally, update your git submodules to make sure you have the latest ones: ```cd <repo-name>``` and then run the following command ```git submodule foreach git pull origin master```
  
