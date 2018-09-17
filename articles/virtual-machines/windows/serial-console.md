@@ -17,7 +17,7 @@ ms.date: 08/07/2018
 ms.author: harijay
 ---
 
-# Virtual Machine Serial Console (preview) 
+# Virtual Machine Serial Console
 
 
 The Virtual Machine Serial Console on Azure provides access to a text-based console for Windows virtual machines. This serial connection is to the COM1 serial port of the virtual machine, providing access to the virtual machine that is independent of a virtual machine's network or operating system state. Access to the serial console for a virtual machine can currently only be done via the Azure portal and is allowed only for those users who have VM Contributor or above access to the virtual machine. 
@@ -25,8 +25,7 @@ The Virtual Machine Serial Console on Azure provides access to a text-based cons
 For serial console documentation for Linux VMs, [click here](../linux/serial-console.md).
 
 > [!Note] 
-> Previews are made available to you on the condition that you agree to the terms of use. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews.] (https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
->Currently this service is in **public preview** and access to the serial console for virtual machines is available to global Azure regions. At this point serial console is not available Azure Government, Azure Germany, and Azure China cloud.
+> Serial Console for virtual machines is generally available in global Azure regions. At this point serial console is not yet available Azure Government or Azure China cloud.
 
  
 
@@ -48,7 +47,7 @@ Serial console for virtual machines is only accessible via [Azure portal](https:
   1. Open the Azure portal
   2. In the left menu, select virtual machines.
   3. Click on the VM in the list. The overview page for the VM will open.
-  4. Scroll down to the Support + Troubleshooting section and click on the serial console (Preview) option. A new pane with the serial console will open and start the connection.
+  4. Scroll down to the Support + Troubleshooting section and click on the "Serial console" option. A new pane with the serial console will open and start the connection.
 
 ![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
 
@@ -62,9 +61,8 @@ To enable Serial console for Windows virtual machines created before February 20
 * `bcdedit /emssettings EMSPORT:1 EMSBAUDRATE:115200`
 3. Reboot the system for the SAC console to be enabled
 
-![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
 
-If needed SAC can be enabled offline as well, 
+If needed, the SAC can be enabled offline as well:
 
 1. Attach the windows disk you want SAC configured for as a data disk to existing VM. 
 2. From an Administrative command prompt, run the following commands 
@@ -188,7 +186,7 @@ Web socket is closed or could not be opened. | You may need to whitelist `*.cons
 Only health information is shown when connecting to a Windows VM| This will show up if the Special Administrative Console has not been enabled for your Windows image. See [Access Serial Console for Windows](#access-serial-console-for-windows) for instructions on how to manually enable SAC on your Windows VM. More details can be found at [Windows Health Signals](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Windows_Health_Info.md).
 
 ## Known issues 
-As we are still in the preview stages for serial console access, we are working through some known issues, below is the list of these with possible workarounds 
+We are aware of some issues with the serial console. Here is a list of these issues and steps for mitigation.
 
 Issue                             |   Mitigation 
 :---------------------------------|:--------------------------------------------|
@@ -196,13 +194,12 @@ Hitting enter after the connection banner does not show a log in prompt | Please
 Unable to type at SAC prompt if kernel debugging is enabled | RDP to VM and run `bcdedit /debug {current} off` from an elevated command prompt. If you can't RDP you can instead attach the OS disk to another Azure VM and modify it while attached as a data disk using `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off`, then swap the disk back.
 Pasting into PowerShell in SAC results in a third character if original content had a repeating character | A workaround is to unload the PSReadLine module from the current session. Run `Remove-Module PSReadLine` to unload the PSReadLine module from the current session - this will not delete or uninstall the module.
 Some keyboard inputs produce strange SAC output (e.g. `[A`, `[3~`) | [VT100](https://aka.ms/vtsequences) escape sequences are not supported by the SAC prompt.
-A 'Forbidden' response was encountered when accessing this VM's boot diagnostic storage account. | Ensure that boot diagnostics does not have an account firewall. An accessible boot diagnostic storage account is necessary for serial console to function.
 Pasting very long strings does not work | Serial console limits the length of strings pasted into the terminal to 2048 characters. This is to prevent overwhelming the serial port bandwidth.
 
 ## Frequently asked questions 
 **Q. How can I send feedback?**
 
-A. Provide feedback as an issue by going to https://aka.ms/serialconsolefeedback. Alternatively (less preferred) Send feedback via azserialhelp@microsoft.com or in the virtual machine category of http://feedback.azure.com
+A. Provide feedback as an issue by going to https://aka.ms/serialconsolefeedback. Alternatively (less preferred) send feedback via azserialhelp@microsoft.com or in the virtual machine category of http://feedback.azure.com
 
 **Q. Does serial console support copy/paste?**
 

@@ -2,13 +2,13 @@
 title: Azure SQL Database connectivity architecture | Microsoft Docs
 description: This document explains the Azure SQLDB connectivity architecture from within Azure or from outside of Azure.
 services: sql-database
-author: CarlRabeler
+author: DhruvMsft
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 01/24/2018
-ms.author: carlrab
+ms.author: dhruv
 ---
 # Azure SQL Database Connectivity Architecture 
 

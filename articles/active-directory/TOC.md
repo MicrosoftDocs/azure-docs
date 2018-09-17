@@ -12,7 +12,6 @@
 
 
 # Get started
-## [Get started with Azure AD](fundamentals/get-started-azure-ad.md)
 ## [Sign up for Azure AD Premium](fundamentals/active-directory-get-started-premium.md)
 ## [Add a custom domain name](fundamentals/add-custom-domain.md)
 ## [Configure company branding](fundamentals/customize-branding.md)
@@ -20,6 +19,7 @@
 ## [Assign licenses to users](fundamentals/license-users-groups.md)
 ## [Configure Self-service password reset](authentication/quickstart-sspr.md)
 ## [Add your organization's privacy info in Azure AD](active-directory-properties-area.md)
+## [Access Azure Active Directory to create a new tenant](fundamentals/active-directory-access-create-new-tenant.md)
 
 
 # How to
@@ -91,11 +91,13 @@
 ### [Users at risk](reports-monitoring/concept-user-at-risk.md)
 ### [Risky sign-ins](reports-monitoring/concept-risky-sign-ins.md)
 ### [Risk events](reports-monitoring/concept-risk-events.md)
-### [Monitoring logs using Azure Monitor](reports-monitoring/overview-activity-logs-in-azure-monitor.md)
+### [Monitoring logs using Azure Monitor](reports-monitoring/concept-activity-logs-in-azure-monitor.md)
 ### [FAQ](reports-monitoring/reports-faq.md)
 
 ### Tasks
-#### [Configure named locations](active-directory-named-locations.md)
+#### [Download a sign-in report](reports-monitoring/quickstart-download-sign-in-report.md)
+#### [Download an audit report](reports-monitoring/quickstart-download-audit-report.md)
+#### [Configure named locations](reports-monitoring/quickstart-configure-named-locations.md)
 #### [Find activity reports](reports-monitoring/howto-find-activity-reports.md)
 #### [Use the Azure AD Power BI Content Pack](reports-monitoring/howto-power-bi-content-pack.md)
 #### [Remediate users flagged for risk](reports-monitoring/howto-remediate-users-flagged-for-risk.md)
