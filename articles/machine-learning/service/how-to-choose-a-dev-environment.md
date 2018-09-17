@@ -1,6 +1,6 @@
 ---
-title: How to choose a development environment for Azure Machine Learning  | Microsoft Docs
-description: This how-to guide explains how to select a development environment when working with Azure Machine Learning.
+title: Development environments for Azure Machine Learning  | Microsoft Docs
+description: An overview of development using Jupyter Notebooks, Azure Notebooks, and IDE/code editors. All of these can be used with the Azure Machine Learning service, as it only requires Python 3.
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -12,19 +12,25 @@ ms.topic: conceptual
 ms.date: 8/6/2018
 ---
 
-# How to choose a development environment for Azure Machine Learning 
+# Development environment for Azure Machine Learning 
 
-Learn about the development environments that you can use with the Azure Machine Learning service. While this document talks specifically about several popular development environments, all environments fall into two categories:
+Learn about the development environments that you can use with the Azure Machine Learning service. 
 
-* __Jupyter Notebooks__ are great for interactive experimentation and data visualization. They are also a great way to share your findings, as the output of your experiment is stored in the notebook. You can share the notebook with someone and when they open it they see the output of your last run.
+The Azure Machine Learning service is platform agnostic, and doesn't require much from a development environment. It requires __Python 3__, and we recommend using __Conda__ to create isolated environments. __If you already have a development environment that meets those requirements__, you can skip this document and go to the [Configure your development environment](how-to-configure-environment.md) document.
 
-    The downside of notebooks is that they don't provide tools for code improvement or integrating with things like version control systems.
+The rest of this document discusses the development environments that we recommend:
 
-    Notebook environments discussed in this document are __Jupyter Notebooks__, and __Azure Notebooks__.
+* __Jupyter Notebooks__
+* __Azure Notebooks__
+* __Integrated development environments (IDE) and code editors__
+* __Data Science Virtual Machine__
 
-* __Integrated Development Environments (IDE)__ and __code editors__ are more suited for creating production code. They provide tools that help make your code better or make the process of coding easier. For example, syntax highlighting, linting, debugging, and profiling. They may also provide integration with version control systems and build systems.
+A comparison between these environments is difficult, as both notebooks and IDEs can be extended. For example, some IDEs can be used as clients to Jupyter Notebooks. Generally speaking, __notebooks__ are designed for __interactive experimentation__ and __visualization__. __IDEs and code editors__ provide tools to __improve code quality__ and __integrate with external systems__ such as version control.
 
-You can extract the code from a notebook and use it with your IDE or code editor, so you can combine both as part of your development process.
+> [!TIP]
+> Using one environment doesn't lock you out of using the other. Notebooks and IDEs are just tools, and can be mixed as needed. For example, you might start experimenting in a notebook, then export to a python script for editing and debugging in an IDE.
+>
+> This is why the Data Science Virtual Machine provides both Jupyter Notebooks and several popular Python IDEs.
 
 ## Jupyter Notebooks
 
