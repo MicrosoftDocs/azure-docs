@@ -6,6 +6,12 @@
     tocHref: /azure/active-directory/
     topicHref: /azure/active-directory/
     items:
+      - name: Hybrid identity
+        tocHref: /azure/active-directory/hybrid/
+        topicHref: /azure/active-directory/hybrid/    
+      - name: Identity Protection
+        tocHref: /azure/active-directory/identity-protection/
+        topicHref: /azure/active-directory/identity-protection/
       - name: Devices
         tocHref: /azure/active-directory/devices/
         topicHref: /azure/active-directory/devices/
@@ -15,12 +21,6 @@
       - name: Authentication
         tocHref: /azure/active-directory/authentication/
         topicHref: /azure/active-directory/authentication/
-      - name: Connect
-        tocHref: /azure/active-directory/connect/
-        topicHref: /azure/active-directory/connect/
-      - name: Connect Health
-        tocHref: /azure/active-directory/connect-health/
-        topicHref: /azure/active-directory/connect-health/
       - name: Develop
         tocHref: /azure/active-directory/develop/
         topicHref: /azure/active-directory/develop/
@@ -42,9 +42,16 @@
       - name: Users, groups, and roles
         tocHref: /azure/active-directory/users-groups-roles/
         topicHref: /azure/active-directory/users-groups-roles/
+      - name: Access reviews
+        tocHref: /azure/active-directory/governance/
+        topicHref: /azure/active-directory/governance/
       - name: Manage applications
         tocHref: /azure/active-directory/manage-apps/
         topicHref: /azure/active-directory/manage-apps/
+      - name: Reports and monitoring
+        tocHref: /azure/active-directory/reports-monitoring/
+        topicHref: /azure/active-directory/reports-monitoring/
+        
   - name: Analysis Services
     tocHref: /azure/analysis-services/
     topicHref: /azure/analysis-services/

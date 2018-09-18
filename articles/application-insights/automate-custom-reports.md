@@ -111,7 +111,7 @@ availabilityResults
     * SendGridAPI =SendGrid API Key
 
     > [!NOTE]
-    > If you don't have a SendGrid account you can create one. SendGrid's documentation for Azure Functions is [here](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-sendgrid). If just want a minimal explanation of how to setup SendGrid and generate an API key one is provided at the end of this article. 
+    > If you don't have a SendGrid account you can create one. SendGrid's documentation for Azure Functions is [here](https://docs.microsoft.com/azure/azure-functions/functions-bindings-sendgrid). If just want a minimal explanation of how to setup SendGrid and generate an API key one is provided at the end of this article. 
 
 9. Select **Integrate** and under Outputs click **SendGrid ($return)**.
 
