@@ -1,3 +1,15 @@
+---
+ title: include file
+ description: include file
+ services: virtual-machines
+ author: roygara
+ ms.service: virtual-machines
+ ms.topic: include
+ ms.date: 09/24/2018
+ ms.author: rogarana
+ ms.custom: include file
+---
+
 **Standard managed virtual machine disks**
 
 | Standard Disk Type  | S4               | S6               | S10             | S15 | S20              | S30              | S40              | S50              | S60              | S70              | S80              |
