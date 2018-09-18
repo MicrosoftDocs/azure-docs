@@ -1,13 +1,13 @@
 ---
-title: "Quickstart: Search for images using the Bing Image Search SDK and Node.js"
-description:  In this quickstart, you request and filter the images returned by Bing Image Search, using Node.js.
+title: "Quickstart: Search for images with the Bing Image Search SDK for Node.js"
+description: Use this quickstart to make your first image search using the Bing Image Search SDK, which is a wrapper for the API and contains the same features. This simple Node.js application sends an image search query, parses the JSON response, and displays the URL of the first image returned.
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
-manager: cagronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: aahi
 ---
@@ -44,10 +44,10 @@ The source code for this sample is available on [GitHub](https://github.com/Azur
     //replace this value with your valid subscription key.
     let serviceKey = "ENTER YOUR KEY HERE";
 
-    //the search term for the request 
+    //the search term for the request
     let searchTerm = "canadian rockies";
 
-    //instantiate the the image search client 
+    //instantiate the the image search client
     let credentials = new CognitiveServicesCredentials(serviceKey);
     let imageSearchApiClient = new Search.ImageSearchAPIClient(credentials);
 
@@ -62,7 +62,7 @@ The source code for this sample is available on [GitHub](https://github.com/Azur
         return await imageSearchApiClient.imagesOperations.search(searchTerm);
     };
     ```
-## Send a query and handle the response 
+## Send a query and handle the response
 
 1. Call the helper function and handle its `promise` to parse the image results returned in the response.
 
@@ -76,11 +76,11 @@ The source code for this sample is available on [GitHub](https://github.com/Azur
             console.log(`Total number of images returned: ${imageResults.value.length}`);
             let firstImageResult = imageResults.value[0];
             //display the details for the first image result. After running the application,
-            //you can copy the resulting URLs from the console into your browser to view the image. 
+            //you can copy the resulting URLs from the console into your browser to view the image.
             console.log(`Total number of images found: ${imageResults.value.length}`);
             console.log(`Copy these URLs to view the first image returned:`);
             console.log(`First image thumbnail url: ${firstImageResult.thumbnailUrl}`);
-            console.log(`First image content url: ${firstImageResult.contentUrl}`); 
+            console.log(`First image content url: ${firstImageResult.contentUrl}`);
         }
       })
       .catch(err => console.error(err))
@@ -91,11 +91,11 @@ The source code for this sample is available on [GitHub](https://github.com/Azur
 > [!div class="nextstepaction"]
 > [Bing Image Search single-page app tutorial](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app)
 
-## See also 
+## See also
 
 * [What is Bing Image Search?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
 * [Try an online interactive demo](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
-* [Get a free Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api) 
-* [Node.js samples for the Azure Cognitive Services SDK](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples) 
+* [Get a free Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)
+* [Node.js samples for the Azure Cognitive Services SDK](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
 * [Azure Cognitive Services Documentation](https://docs.microsoft.com/azure/cognitive-services)
 * [Bing Image Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
