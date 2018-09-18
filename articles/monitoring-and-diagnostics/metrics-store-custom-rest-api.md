@@ -71,7 +71,8 @@ NOTE: The REST API only permits sending custom metrics for Azure resources. To s
 1. In your command prompt window, post the metric data 
     - Azure Region – Must match the deployment region of the resource you are emitting metrics for. 
     - ResourceID –  Resource ID of the Azure resource you are tracking the metric against.  
-    - Access Token – Paste the token acquired in step 5 
+    - Access Token – Paste the token acquired earlier
+
     ```Shell 
     curl -X POST curl -X POST https://<azureRegion>.monitoring.azure.com/<resourceId> /metrics -H "Content-Type: application/json" -H "Authorization: Bearer <AccessToken>" -d @custommetric.json 
     ```
@@ -84,7 +85,7 @@ If you receive an error with some part of the process, considering the following
 1. You cannot issue metrics against a subscription or resource group as your Azure resource.  It must be a lower-level resource. 
 1. You can't put a metric into the store that is over 20 minutes old. The metric store is optimized for alerting and real-time charting. 
 2. The number of dimension names should match the values and vice-versa. Check the values. 
-2. You my be emitting metrics against region that doesn’t support custom metrics. See [supported custom metric (preview) regions#supported-regions](metrics-custom-overview.md) 
+2. You my be emitting metrics against region that doesn’t support custom metrics. See [supported custom metric (preview) regions](metrics-custom-overview.md#supported-regions) 
 
 
 
