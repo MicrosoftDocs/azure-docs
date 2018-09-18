@@ -1,12 +1,11 @@
-
 - name: Text Analytics API Documentation
   href: index.yml
 - name: Overview
+  expanded: true
   items:
   - name: What is the Text Analytics API?
     href: overview.md
 - name: Quickstarts
-  expanded: true
   items:
   - name: C#
     href: quickstarts/csharp.md
