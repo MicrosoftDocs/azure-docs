@@ -18,8 +18,6 @@ ms.author: wolfma
 
 In this article, you create a C# console application for .NET Core on Windows using the Cognitive Services [Speech SDK](speech-sdk.md) to transcribe speech to text in real time from your PC's microphone. The application is built with the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2017 (any edition).
 
-## Prerequisites
-
 > [!NOTE]
 > .NET Core is an open-source, cross-platform .NET platform implementing the [.NET Standard](https://docs.microsoft.com/dotnet/standard/net-standard) specification.
 
