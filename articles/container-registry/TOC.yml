@@ -25,8 +25,6 @@
       href: container-registry-tutorial-build-task.md
     - name: 3 - Base image update builds
       href: container-registry-tutorial-base-image-update.md
-    - name: 4 - Multi-step build tasks (preview)
-      href: container-registry-tutorial-multi-step-task.md
   - name: Geo-replicate a registry
     items:
     - name: 1 - Prepare container registry
@@ -75,6 +73,8 @@
     items:
       - name: ACR Tasks
         href: container-registry-build-overview.md
+      - name: Multi-step tasks (preview)
+        href: container-registry-tasks-multi-step.md
       - name: Multi-step task reference (preview)
         href: container-registry-tasks-reference-yaml.md
   - name: Registries and other Azure services
