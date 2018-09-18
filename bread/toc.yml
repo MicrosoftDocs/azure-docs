@@ -102,6 +102,9 @@
   - name: Azure Databricks
     tocHref: /azure/azure-databricks/
     topicHref: /azure/azure-databricks/
+  - name: Azure Data Explorer
+    tocHref: /azure/data-explorer/
+    topicHref: /azure/data-explorer/
   - name: Container Registry
     tocHref: /azure/container-registry/
     topicHref: /azure/container-registry/
