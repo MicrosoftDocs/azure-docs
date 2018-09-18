@@ -103,9 +103,9 @@ Read more here about [Using Azure AD Connect Health with AD DS](how-to-connect-h
 - [Azure AD Connect and federation](how-to-connect-fed-whatis.md)
 - [Install Azure AD Connect Health agents](how-to-connect-health-agent-install.md) 
 - [Azure AD Connect sync](how-to-connect-sync-whatis.md)
-- [Version history](reference-connect-version-history.md)|
-- [Directory integration tools comparison](plan-hybrid-identity-design-considerations-tools-comparison.md)|
-- [Azure AD Connect FAQ](reference-connect-faq.md)|
+- [Version history](reference-connect-version-history.md)
+- [Directory integration tools comparison](plan-hybrid-identity-design-considerations-tools-comparison.md)
+- [Azure AD Connect FAQ](reference-connect-faq.md)
 
 
 
