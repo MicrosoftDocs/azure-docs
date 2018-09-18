@@ -162,12 +162,12 @@ so you can set up your SAP action.
    in the Azure portal for your gateway installation.
 
    If the **Logon Type** property is set to **Application Server**, 
-   these properties are required:
+   these usually optional properties are required:
 
    ![Create SAP application server connection](media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png) 
 
    If the **Logon Type** property is set to **Group**, 
-   these properties are required: 
+   these usually optional properties are required: 
 
    ![Create SAP message server connection](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png) 
 
@@ -306,12 +306,12 @@ so you can set up your SAP action.
    created in the Azure portal for your gateway installation.
 
       If the **Logon Type** property is set to **Application Server**, 
-      these properties are required:
+      these usually properties are required:
 
       ![Create SAP application server connection](media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png) 
 
       If the **Logon Type** property is set to **Group**, 
-      these properties are required:
+      these usually optional properties are required:
 
       ![Create SAP message server connection](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)  
 
@@ -417,13 +417,13 @@ so you can set up your SAP action.
    For the **Data Gateway** property, select the data gateway you 
    created in the Azure portal for your gateway installation.
 
-      If the **Logon Type** property is set to **Application**, 
-      these properties are required:
+      If the **Logon Type** property is set to **Application Server**, 
+      these usually optional properties are now required:
 
       ![Create SAP application server connection](media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png) 
 
       If the **Logon Type** property is set to **Group**, 
-      these properties are required:  
+      these usually optional properties are now required:  
    
       ![Create SAP message server connection](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png) 
 
