@@ -32,8 +32,8 @@ sections:
       href: /azure/data-explorer/ingest-data-event-hub
     - image: 
         src: /azure/data-explorer/media/index/portal.svg
-      text: Query data with Web Explorer
-      href: /azure/data-explorer/explore-data
+      text: Query data with the web UI
+      href: /azure/data-explorer/web-query-data
     - image: 
         src: /azure/data-explorer/media/index/logo-python.svg
       text: Ingest queued data with Python
