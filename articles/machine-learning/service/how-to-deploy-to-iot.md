@@ -117,15 +117,13 @@ Azure IoT needs the credentials for the container registry that Azure Machine Le
 
 1. Sign in to the [Azure portal](https://portal.azure.com/signin/index).
 
-1. Navigate to the resource group that contains your Azure Machine Learning workspace. The entry that ends in 'acr' is the container registry.
+1. Navigate to the resource group that contains your Azure Machine Learning workspace. The container registry for the workspace is listed here. You can also use the portal to search for all resources of the type __Container registry__, and then look for the entry that begins with the resource group name that contains your workspace.
 
     ![An image of the container registry entry](./media/how-to-deploy-to-iot/findregisteredcontainer.png)
 
-    You can also use the portal to search for all resources of the type __Container registry__, and then look for the entry that begins with the resource group name that contains your workspace.
-
 1. Once in the container registry, select **Access Keys** and then enable the admin user.
 
-    ![](./media/how-to-deploy-to-iot/findaccesskey.png)
+    ![An image of the access keys screen](./media/how-to-deploy-to-iot/findaccesskey.png)
 
 1. Save the values for login server, username, and password. 
 
