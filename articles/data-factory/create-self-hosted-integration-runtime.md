@@ -1,5 +1,5 @@
 ---
-title: Create self-hosted integration runtime in Azure Data Factory | Microsoft Docs
+title: Create a self-hosted integration runtime in Azure Data Factory | Microsoft Docs
 description: Learn how to create self-hosted integration runtime in Azure Data Factory, which allows data factories to access data stores in a private network.
 services: data-factory
 documentationcenter: ''
@@ -16,72 +16,72 @@ ms.date: 01/15/2018
 ms.author: abnarain
 
 ---
-# How to create and configure Self-hosted Integration Runtime
-The Integration Runtime (IR) is the compute infrastructure used by Azure Data Factory to provide data integration capabilities across different network environments. For details about IR, see [Integration Runtime Overview](concepts-integration-runtime.md).
+# Create and configure a self-hosted integration runtime
+The integration runtime (IR) is the compute infrastructure that Azure Data Factory uses to provide data-integration capabilities across different network environments. For details about IR, see [Integration runtime overview](concepts-integration-runtime.md).
 
-A self-hosted integration runtime is capable of running copy activities between a cloud data stores and a data store in private network and dispatching transform activities against compute resources in an on-premises or Azure Virtual Network. Install Self-hosted integration runtime needs on an on-premises machine or a virtual machine inside a private network.  
+A self-hosted integration runtime can run copy activities between a cloud data store and a data store in a private network and dispatch transform activities against compute resources in an on-premises network or an Azure virtual network. The installation of a self-hosted integration runtime needs on an on-premises machine or a virtual machine inside a private network.  
 
-This document introduces how you can create and configure Self-hosted IR.
+This document describes how you can create and configure a self-hosted IR.
 
-## High-level steps to install self-hosted IR
-1. Create a Self-hosted integration runtime. You can use ADF UI for creating the self-hosted IR. Here is a PowerShell example:
+## High-level steps to install a self-hosted IR
+1. Create a self-hosted integration runtime. You can use the Azure Data Factory UI for this task. Here is a PowerShell example:
 
 	```powershell
 	Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
 	```
-2. Download and install self-hosted integration runtime (on local machine).
-3. Retrieve authentication key and register self-hosted integration runtime with the key. Here is a PowerShell example:
+2. Download and install the self-hosted integration runtime on a local machine.
+3. Retrieve the authentication key and register the self-hosted integration runtime with the key. Here is a PowerShell example:
 
 	```powershell
 	Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
 	```
 
-## Setting up self-hosted IR on Azure VM using Azure Resource Manager Template (automation)
-You can automate self-hosted IR setup on an Azure VM using [this Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vms-with-selfhost-integration-runtime). This provides an easy way to have a fully functioning Self-hosted IR inside Azure VNet with High Avalaibility and Scalability feature (as long as you set node count to be 2 or higher).
+## Setting up a self-hosted IR on an Azure VM by using an Azure Resource Manager template (automation)
+You can automate self-hosted IR setup on an Azure virtual machine (VM) by using [this Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vms-with-selfhost-integration-runtime). This template provides an easy way to have a fully functioning self-hosted IR inside an Azure virtual network with high-availability and scalability features (as long as you set the node count to 2 or higher).
 
 ## Command flow and data flow
-When you move the data between on-premises and cloud, the activity uses a self-hosted integration runtime to transfer the data from on-premises data source to cloud and vice versa.
+When you move data between on-premises and the cloud, the activity uses a self-hosted integration runtime to transfer the data from an on-premises data source to the cloud and vice versa.
 
-Here is a high-level data flow for the summary of steps for copy with self-hosted IR:
+Here is a high-level data flow for the summary of steps for copying with a self-hosted IR:
 
 ![High-level overview](media\create-self-hosted-integration-runtime\high-level-overview.png)
 
-1. Data developer creates a self-hosted integration runtime within an Azure data factory using a PowerShell cmdlet. Currently, the Azure portal does not support this feature.
-2. Data developer creates a linked service for an on-premises data store by specifying the self-hosted integration runtime instance that it should use to connect to data stores. As part of setting up the linked service, data developer uses the ‘Credential Manager’ application (currently, not supported) for setting authentication types and credentials. The Credential manager application dialog communicates with the data store to test connection and the self-hosted integration runtime to save credentials.
-   - Self-hosted integration runtime node encrypts the credential using Windows Data Protection Application Programming Interface (DPAPI) and saves it locally. If multiple nodes are set for high availability, the credentials are further synchronized across other nodes. Each node encrypts it using DPAPI and stores it locally. Credential synchronization is transparent to the data developer and is handled by self-hosted IR.    
-   - Data Factory service communicates with the self-hosted integration runtime for scheduling & management of jobs via **control channel** that uses a shared Azure service bus queue. When an activity job needs to be run, Data Factory queues the request along with any credential information (in case credentials are not already stored on the self-hosted integration runtime). Self-hosted integration runtime kicks off the job after polling the queue.
-   - Self-hosted integration runtime copies data from an on-premises store to a cloud storage, or vice versa depending on how the copy activity is configured in the data pipeline. For this step, the self-hosted integration runtime directly communicates with cloud-based storage services such as Azure Blob Storage over a secure (HTTPS) channel.
+1. The data developer creates a self-hosted integration runtime within an Azure data factory by using a PowerShell cmdlet. Currently, the Azure portal does not support this feature.
+2. The data developer creates a linked service for an on-premises data store by specifying the self-hosted integration runtime instance that it should use to connect to data stores. As part of setting up the linked service, the data developer uses the Credential Manager application (currently not supported) for setting authentication types and credentials. The Credential Manager application communicates with the data store to test the connection and the self-hosted integration runtime to save credentials.
+   - The self-hosted integration runtime node encrypts the credentials by using Windows Data Protection Application Programming Interface (DPAPI) and saves the credentials locally. If multiple nodes are set for high availability, the credentials are further synchronized across other nodes. Each node encrypts the credentials by using DPAPI and stores them locally. Credential synchronization is transparent to the data developer and is handled by the self-hosted IR.    
+   - The Data Factory service communicates with the self-hosted integration runtime for scheduling and management of jobs via a *control channel* that uses a shared Azure Service Bus queue. When an activity job needs to be run, Data Factory queues the request along with any credential information (in case credentials are not already stored on the self-hosted integration runtime). The self-hosted integration runtime kicks off the job after polling the queue.
+   - The self-hosted integration runtime copies data from an on-premises store to a cloud storage, or vice versa depending on how the copy activity is configured in the data pipeline. For this step, the self-hosted integration runtime directly communicates with cloud-based storage services such as Azure Blob storage over a secure (HTTPS) channel.
 
 ## Considerations for using self-hosted IR
 
-- A single self-hosted integration runtime can be used for multiple on-premises data sources. A **single self-hosted integration runtime  can** be shared with another data factory within the same Azure Active Directory tenant. For more details, see [sharing a self-hosted integration runtime](#sharing-the-self-hosted-integration-runtime-ir-with-multiple-data-factories).
-- You can have **only one instance of self-hosted integration runtime** installed on a single machine. Suppose, you have two data factories that need to access on-premises data sources, you need to install self-hosted integration runtime on two on-premises computers. In other words, a self-hosted integration runtime is tied to a specific data factory
-- The **self-hosted integration runtime does not need to be on the same machine as the data source**. However, having self-hosted integration runtime closer to the data source reduces the time for the self-hosted integration runtime to connect to the data source. We recommend that you install the self-hosted integration runtime on a machine that is different from the one that hosts on-premises data source. When the self-hosted integration runtime and data source are on different machines, the self-hosted integration runtime does not compete for resources with data source.
-- You can have **multiple self-hosted integration runtimes on different machines connecting to the same on-premises data source**. For example, you may have two self-hosted integration runtime serving two data factories but the same on-premises data source is registered with both the data factories.
-- If you already have a gateway installed on your computer serving a **Power BI** scenario, install a **separate self-hosted integration runtime for Azure Data Factory** on another machine.
-- Self-hosted integration runtime must be used for supporting data integration within Azure Virtual Network.
-- Treat your data source as an on-premises data source (that is behind a firewall) even when you use **ExpressRoute**. Use the self-hosted integration runtime to establish connectivity between the service and the data source.
-- You must use the self-hosted integration runtime even if the data store is in the cloud on an **Azure IaaS virtual machine**.
-- Tasks may fail in a Self-hosted Integration Runtime installed on a Windows Server on which FIPS-compliant encryption is enabled. To work around this issue, disable FIPS-compliant encryption on the server. To disable FIPS-compliant encryption, change the following registry value from 1 (enabled) to 0 (disabled): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled`.
+- A single self-hosted integration runtime can be used for multiple on-premises data sources. A single self-hosted integration runtime  can be shared with another data factory within the same Azure Active Directory tenant. For more details, see [Sharing a self-hosted integration runtime](#sharing-the-self-hosted-integration-runtime-ir-with-multiple-data-factories).
+- You can have only one instance of a self-hosted integration runtime installed on a single machine. If you have two data factories that need to access on-premises data sources, you need to install self-hosted integration runtime on two on-premises computers. In other words, a self-hosted integration runtime is tied to a specific data factory.
+- The self-hosted integration runtime does not need to be on the same machine as the data source. However, having the self-hosted integration runtime closer to the data source reduces the time for the self-hosted integration runtime to connect to the data source. We recommend that you install the self-hosted integration runtime on a machine that is different from the one that hosts on-premises data source. When the self-hosted integration runtime and data source are on different machines, the self-hosted integration runtime does not compete for resources with the data source.
+- You can have multiple self-hosted integration runtimes on different machines that connect to the same on-premises data source. For example, you might have two self-hosted integration runtimes serving two data factories, but the same on-premises data source is registered with both the data factories.
+- If you already have a gateway installed on your computer to serve a Power BI scenario, install a separate self-hosted integration runtime for Azure Data Factory on another machine.
+- The self-hosted integration runtime must be used for supporting data integration within an Azure virtual network.
+- Treat your data source as an on-premises data source that is behind a firewall, even when you use Azure ExpressRoute. Use the self-hosted integration runtime to establish connectivity between the service and the data source.
+- You must use the self-hosted integration runtime even if the data store is in the cloud on an Azure IaaS virtual machine.
+- Tasks might fail in a self-hosted integration runtime that's installed on a Windows server on which FIPS-compliant encryption is enabled. To work around this problem, disable FIPS-compliant encryption on the server. To disable FIPS-compliant encryption, change the following registry value from 1 (enabled) to 0 (disabled): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled`.
 
 ## Prerequisites
 
-- The supported **Operating System** versions are Windows 7 Service Pack 1, Windows 8.1, Windows 10, Windows Server 2008 R2 SP1, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016. Installation of the self-hosted integration runtime on a **domain controller is not supported**.
-- **.NET Framework 4.6.1 or above** is required. If you are installing self-hosted integration runtime on a Windows 7 machine, install .NET Framework 4.6.1 or later. See [.NET Framework System Requirements](/dotnet/framework/get-started/system-requirements) for details.
-- The recommended **configuration** for the self-hosted integration runtime machine is at least 2 GHz, 4 cores, 8-GB RAM, and 80-GB disk.
-- If the host machine hibernates, the self-hosted integration runtime does not respond to data requests. Therefore, configure an appropriate power plan on the computer before installing the self-hosted integration runtime. If the machine is configured to hibernate, the self-hosted integration runtime installation prompts a message.
+- The supported operating system versions are Windows 7 Service Pack 1, Windows 8.1, Windows 10, Windows Server 2008 R2 SP1, Windows Server 2012, Windows Server 2012 R2, and Windows Server 2016. Installation of the self-hosted integration runtime on a domain controller is not supported.
+- .NET Framework 4.6.1 or later is required. If you're installing the self-hosted integration runtime on a Windows 7 machine, install .NET Framework 4.6.1 or later. See [.NET Framework System Requirements](/dotnet/framework/get-started/system-requirements) for details.
+- The recommended configuration for the self-hosted integration runtime machine is at least 2 GHz, 4 cores, 8 GB of RAM, and an 80-GB disk.
+- If the host machine hibernates, the self-hosted integration runtime does not respond to data requests. Configure an appropriate power plan on the computer before you install the self-hosted integration runtime. If the machine is configured to hibernate, the self-hosted integration runtime installation prompts a message.
 - You must be an administrator on the machine to install and configure the self-hosted integration runtime successfully.
-- As copy activity runs happen on a specific frequency, the resource usage (CPU, memory) on the machine also follows the same pattern with peak and idle times. Resource utilization also depends heavily on the amount of data being moved. When multiple copy jobs are in progress, you see resource usage go up during peak times.
+- Copy activity runs happen on a specific frequency. Resource usage (CPU, memory) on the machine follows the same pattern with peak and idle times. Resource utilization also depends heavily on the amount of data being moved. When multiple copy jobs are in progress, you see resource usage go up during peak times.
 
 ## Installation best practices
-Self-hosted integration runtime can be installed by downloading an MSI setup package from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=39717). See [Move data between on-premises and cloud article](tutorial-hybrid-copy-powershell.md) for step-by-step instructions.
+You can install the self-hosted integration runtime by downloading an MSI setup package from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=39717). See [Move data between on-premises and cloud article](tutorial-hybrid-copy-powershell.md) for step-by-step instructions.
 
 - Configure power plan on the host machine for the self-hosted integration runtime so that the machine does not hibernate. If the host machine hibernates, the self-hosted integration runtime turns offline.
 - Back up the credentials associated with the self-hosted integration runtime regularly.
 
 ## Install and Register Self-hosted IR from download center
 
-1. Navigate to [Microsoft Integration Runtime download page](https://www.microsoft.com/download/details.aspx?id=39717).
+1. Navigate to the [Microsoft integration runtime download page](https://www.microsoft.com/download/details.aspx?id=39717).
 2. Click **Download**, select the appropriate version (**32-bit** vs. **64-bit**), and click **Next**.
 3. Run the **MSI** directly or save it to your hard disk and run.
 4. On the **Welcome** page, select a **language** click **Next**.
@@ -101,14 +101,14 @@ Self-hosted integration runtime can be installed by downloading an MSI setup pac
 
 
 ## High Availability and Scalability
-A Self-hosted Integration Runtime can be associated to multiple on-premises machines. These machines are called nodes. You can have up to four nodes associated with a Self-hosted Integration Runtime. The benefits of having multiple nodes (on-premises machines with gateway installed) for a logical gateway are:
-1. Higher availability of Self-hosted Integration Runtime so that it is no longer the single point of failure in your Big Data	solution or cloud data integration with Azure Data Factory, ensuring continuity with up to 4 nodes.
+A self-hosted integration runtime can be associated to multiple on-premises machines. These machines are called nodes. You can have up to four nodes associated with a self-hosted integration runtime. The benefits of having multiple nodes (on-premises machines with gateway installed) for a logical gateway are:
+1. Higher availability of self-hosted integration runtime so that it is no longer the single point of failure in your Big Data	solution or cloud data integration with Azure Data Factory, ensuring continuity with up to 4 nodes.
 2. Improved performance and throughput during data movement between on-premises and cloud data stores. Get more information on [performance comparisons](copy-activity-performance.md).
 
-You can associate multiple nodes by simply installing the Self-hosted Integration Runtime software from the [download center](https://www.microsoft.com/download/details.aspx?id=39717) and by registering it by either of the Authentication Keys obtained from New-AzureRmDataFactoryV2IntegrationRuntimeKey cmdlet as described in the [Tutorial](tutorial-hybrid-copy-powershell.md)
+You can associate multiple nodes by simply installing the self-hosted integration runtime software from the [download center](https://www.microsoft.com/download/details.aspx?id=39717) and by registering it by either of the Authentication Keys obtained from New-AzureRmDataFactoryV2IntegrationRuntimeKey cmdlet as described in the [Tutorial](tutorial-hybrid-copy-powershell.md)
 
 > [!NOTE]
-> You do not need to create new Self-hosted Integration Runtime for associating each node. You can install the self-hosted integration runtime on another machine and register it using the same Authentication Key. 
+> You do not need to create new self-hosted integration runtime for associating each node. You can install the self-hosted integration runtime on another machine and register it using the same Authentication Key. 
 
 > [!NOTE]
 > Before adding another node for **High Availability and Scalability**, please ensure **'Remote access to intranet'** option is **enabled** on the 1st node (Microsoft Integration Runtime Configuration Manager -> Settings -> Remote access to intranet). 
@@ -135,7 +135,7 @@ Here are the requirements for the TLS/SSL certificate that is used for securing 
 - Supports any key size supported by Windows Server 2012 R2 for SSL certificates.
 - Certificate using CNG keys are not supported.  
 
-## Sharing the self-hosted Integration Runtime (IR) with multiple data factories
+## Sharing the self-hosted integration runtime with multiple data factories
 
 You can reuse an existing self-hosted integration runtime infrastructure that you may already have setup in a data factory. This allows you to create a **linked self-hosted integration runtime** in a different data factory by referencing an already existing self-hosted IR (Shared).
 
@@ -300,7 +300,7 @@ If you select **Use system proxy** setting for the HTTP proxy, self-hosted integ
 	```xml
 	<proxy autoDetect="true|false|unspecified" bypassonlocal="true|false|unspecified" proxyaddress="uriString" scriptLocation="uriString" usesystemdefault="true|false|unspecified "/>
 	```
-3. Save the configuration file into the original location, then restart the Self-hosted Integration Runtime Host service, which picks up the changes. To restart the service: use services applet from the control panel, or from the **Integration Runtime Configuration Manager** > click the **Stop Service** button, then click the **Start Service**. If the service does not start, it is likely that an incorrect XML tag syntax has been added into the application configuration file that was edited.
+3. Save the configuration file into the original location, then restart the self-hosted Integration Runtime Host service, which picks up the changes. To restart the service: use services applet from the control panel, or from the **Integration Runtime Configuration Manager** > click the **Stop Service** button, then click the **Start Service**. If the service does not start, it is likely that an incorrect XML tag syntax has been added into the application configuration file that was edited.
 
 > [!IMPORTANT]
 > Do not forget to update both diahost.exe.config and diawp.exe.config.
