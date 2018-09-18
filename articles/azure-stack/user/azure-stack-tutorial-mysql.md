@@ -147,7 +147,7 @@ Before the MySQL cluster can be added as an Azure Stack MySQL Server host, exter
 ## Create an Azure Stack MySQL Hosting Server
 After the MySQL Server cluster has been created, and properly configured, an Azure Stack Operator must create an Azure Stack MySQL Hosting Server to make the additional capacity available for users to create databases. 
 
-Be sure to provide the Azure Stack Operator the public IP or full FQDN for the public IP of the MySQL cluster primary VM that was recorded previously when the MySQL cluster's resource group was created (**mysqlip**). In addition, the operator will need to know the SQL Server authentication credentials you created to remotely access the MySQL cluster database.
+Be sure to provide the Azure Stack Operator the public IP or full FQDN for the public IP of the MySQL cluster primary VM that was recorded previously when the MySQL cluster's resource group was created (**mysqlip**). In addition, the operator will need to know the MySQL Server authentication credentials you created to remotely access the MySQL cluster database.
 
 > [!NOTE]
 > This step must be run from the Azure Stack administration portal by an Azure Stack Operator.
@@ -162,10 +162,10 @@ Also ensure that the Azure Stack Operator has created plans and offers to make M
 
 
 ## Create a highly available MySQL database
-After the SQL AlwaysOn availability group has been created, configured, and added as an Azure Stack SQL Hosting Server by an Azure Stack Operator, a tenant user with a subscription including SQL Server database capabilities can create SQL databases supporting AlwaysOn functionality by following the steps in this section. 
+After the MySQL cluster has been created, configured, and added as an Azure Stack MySQL Hosting Server by an Azure Stack Operator, a tenant user with a subscription including MySQL Server database capabilities can create highly available MySQL databases by following the steps in this section. 
 
 > [!NOTE]
-> Run these steps from the Azure Stack user portal as a tenant user with a subscription providing SQL Server capabilities (Microsoft.SQLAdapter service).
+> Run these steps from the Azure Stack user portal as a tenant user with a subscription providing MySQL Server capabilities (Microsoft.MySQLAdapter service).
 
 1. Sign in to the user portal:
     - For an integrated system deployment, the portal address will vary based on your solution's region and external domain name. It will be in the format of https://portal.&lt;*region*&gt;.&lt;*FQDN*&gt;.
