@@ -40,7 +40,7 @@ ms.author: mtillman
                                                             <div class="card">
                                                                 <div class="cardImageOuter">
                                                                     <div class="cardImage">
-                                                                        <img alt="" src="https://docs.microsoft.com/en-us/media/common/i_learn-about.svg" data-linktype="external">
+                                                                        <img alt="" src="https://docs.microsoft.com/media/common/i_learn-about.svg" data-linktype="external">
                                                                     </div>
                                                                 </div>
                                                                 <div class="cardText" style="padding-left: 0px">
@@ -67,7 +67,7 @@ ms.author: mtillman
                                                             <div class="card">
                                                                 <div class="cardImageOuter">
                                                                     <div class="cardImage">
-                                                                        <img alt="" src="https://docs.microsoft.com/en-us/media/common/i_learn-about.svg" data-linktype="external">
+                                                                        <img alt="" src="https://docs.microsoft.com/media/common/i_learn-about.svg" data-linktype="external">
                                                                     </div>
                                                                 </div>
                                                                 <div class="cardText" style="padding-left: 0px">
@@ -113,7 +113,7 @@ ms.author: mtillman
 														<br><br>
                                                         <h3><a href="/azure/azure-active-directory-b2c/index">Business to consumer (B2C)</a></h3>
                                                         <p>
-                                                            <a href="/azure/active-directory-b2c/tutorial-create-tenant">Create an AAD B2C tenant</a><br>
+                                                            <a href="/azure/active-directory-b2c/tutorial-create-tenant">Create an Azure AD B2C tenant</a><br>
                                                             <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-web-app">Enable a web app to authenticate</a><br>
                                                             <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-web-api">Grant access to an ASP.NET web API</a>
                                                         </p>
