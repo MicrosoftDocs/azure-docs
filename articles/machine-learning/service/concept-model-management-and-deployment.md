@@ -1,5 +1,5 @@
 ---
-title: Model Management and Deployment in Azure Machine Learning
+title: Manage and deploy models in Azure Machine Learning
 description: Learn how to use Azure Machine Learning to deploy, manage, and monitor your models to continuously improve them. You can deploy the models you trained with Azure Machine Learning, on your local machine, or from other sources.  
 services: machine-learning
 ms.service: machine-learning

@@ -1,10 +1,11 @@
 ---
-title: How to deploy a model as a web service on an FPGA with Azure Machine Learning 
+title: Deploy a model as a web service on an FPGA with Azure Machine Learning 
 description: Learn how to deploy a web service with a model running on an FPGA with Azure Machine Learning. 
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
+manager: cgronlun
 ms.reviewer: jmartens
 ms.author: tedway
 author: tedway

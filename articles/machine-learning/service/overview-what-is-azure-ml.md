@@ -1,18 +1,18 @@
 ---
-title: What is Azure Machine Learning service? | Microsoft Docs
+title: What is Azure Machine Learning service?
 description: Explains basic concepts of machine learning in the cloud, describes what you can use it for, and defines machine learning terms. Overview of Azure Machine Learning -- an integrated, end-to-end data science solution for professional data scientists to develop, experiment, and deploy advanced analytics applications at cloud scale.
 services: machine-learning
-author: mwinkle
-ms.author: mwinkle
-manager: cgronlun
 ms.service: machine-learning
 ms.component: core
-ms.workload: data-services
 ms.topic: overview
+manager: cgronlun
+ms.reviewer: jmartens
+author: garyericson
+ms.author: garye
 ms.date: 09/24/2018
 ---
 
-# What is Azure Machine Learning service?
+# What is Azure Machine Learning service (preview)?
 
 Azure Machine Learning service (Preview) is a cloud service that you can use to develop and deploy machine learning models. Using Azure Machine Learning service, you can track your models as you build, train, deploy, and manage them, all at the broad scale that the cloud provides.
 

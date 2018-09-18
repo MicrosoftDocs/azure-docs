@@ -1,13 +1,19 @@
 ---
 title: FPGA package for hardware acceleration for Azure Machine Learning
 description: Learn about the python packages available for Azure Machine Learning users. 
+services: machine-learning
 ms.service: machine-learning
 ms.component: core
-ms.topic: conceptual
+ms.topic: reference
+manager: cgronlun
 ms.reviewer: jmartens
 ms.author: tedway
 author: tedway
 ms.date: 05/07/2018
+
+
+ROBOTS: NOINDEX
+
 ---
 # Azure Machine Learning Hardware Acceleration package
 
