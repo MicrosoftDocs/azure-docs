@@ -52,7 +52,11 @@
 - name: How To
   items:
   - name: Configure performance routing in Traffic Manager
-    href: traffic-manager-configure-performance-routing-method.md 
+    href: traffic-manager-configure-performance-routing-method.md
+  - name: Configure multivalue routing in Traffic Manager
+    href: traffic-manager-configure-multivalue-routing-method.md
+  - name: Configure subnet routing in Traffic Manager
+    href: traffic-manager-configure-subnet-routing-method.md 
   - name: Send Real User Measurements to Traffic Manager
     items:
     - name: Using Visual Studio SDK
