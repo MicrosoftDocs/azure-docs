@@ -46,8 +46,8 @@ Unlike Windows 10 machines, Windows 7, 8, and 8.1 machines do not have an Azure 
 
 ### Silent installation
 
-* For silent install use command “msiexec /i SsprWindowsLogon.PROD.msi /qn”
-* For silent un-install use command “msiexec /x SsprWindowsLogon.PROD.msi /qn”
+* For silent install, use the command “msiexec /i SsprWindowsLogon.PROD.msi /qn”
+* For silent uninstall, use the command “msiexec /x SsprWindowsLogon.PROD.msi /qn”
 
 ## Caveats
 
@@ -65,14 +65,14 @@ Azure AD Events will include information about the IP address and ClientType whe
 
 ![Example Windows 7 logon screen password reset in the Azure AD Audit log](media/howto-sspr-windows-7-8/windows-7-sspr-azure-ad-audit-log.png)
 
-If additional logging is required a registry key on the machine can be changed to enable verbose logging. Enable verbose logging for troubleshooting purposes only.
+If additional logging is required, a registry key on the machine can be changed to enable verbose logging. Enable verbose logging for troubleshooting purposes only.
 
 ```
 HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{86D2F0AC-2171-46CF-9998-4E33B3D7FD4F}
 ```
 
-* To enable verbose logging Create a REG_DWORD: “EnableLogging”, and set it to 1.
-* To disable verbose logging change the REG_DWORD “EnableLogging” to 0.
+* To enable verbose logging, create a REG_DWORD: “EnableLogging”, and set it to 1.
+* To disable verbose logging, change the REG_DWORD “EnableLogging” to 0.
 
 ## Next steps
 
