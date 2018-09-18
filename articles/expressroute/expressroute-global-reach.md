@@ -16,11 +16,11 @@ ms.author: cherylmc
 
 ExpressRoute is a private and resilient way to connect your on-premises networks to Microsoft Cloud. You can access many Microsoft cloud services such as Azure, Office 365, and Dynamics 365 from your private data center or your corporate network. For example, you may have a branch office in San Francisco with an ExpressRoute circuit in Silicon Valley and another branch office in Baltimore with an ExpressRoute circuit in Washington DC. 
 
-Both branch offices can have high speed connectivity to Azure resources in both East US and West US. However, the branch offices cannot talk directly to each other. In other words, 10.0.1.0/24 can talk to 10.0.3.0/24 and 10.0.4.0/24, but NOT to 10.0.2.0/24.
+Both branch offices can have high speed connectivity to Azure resources in both East US and West US.However, the branch offices cannot exchange data directly with each other. In other words, 10.0.1.0/24 can exchange data with 10.0.3.0/24 and 10.0.4.0/24, but NOT with 10.0.2.0/24.
 
 ![without][1]
 
-With **ExpressRoute Global Reach**, you can link ExpressRoute circuits together to make a private network between your on-premises networks. In the example above, with the addition of ExpressRoute Global Reach, your San Francisco office (10.0.1.0/24) can directly talk to your Baltimore office (10.0.2.0/24) through the existing ExpressRoute circuits and via Microsoft's global network. 
+With **ExpressRoute Global Reach**, you can link ExpressRoute circuits together to make a private data network between your on-premises networks. In the above example, with the addition of ExpressRoute Global Reach, your San Francisco office (10.0.1.0/24) can directly exchange data with your Baltimore office (10.0.2.0/24) through the existing ExpressRoute circuits and via Microsoft's global network. 
 
 ![with][2]
 
