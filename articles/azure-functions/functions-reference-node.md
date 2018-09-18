@@ -17,12 +17,43 @@ ms.author: glenga
 ---
 # Azure Functions JavaScript developer guide
 
-The JavaScript experience for Azure Functions makes it easy to export a function, which is passed as a `context` object for communicating with the runtime and for receiving and sending data via bindings.
+A JavaScript function is an exported `function` that will execute when triggered ([triggers are configured in function.json](functions-triggers-bindings.md)). Each function is passed a `context` object which is used for receiving and sending binding data, logging, and communicating with the runtime.
 
-This article assumes that you've already read the [Azure Functions developer reference](functions-reference.md).
+This article assumes that you have already read the [Azure Functions developer reference](functions-reference.md). It is also recommended that you have followed a tutorial under "Quickstarts" to [create your first function](functions-create-first-function-vs-code.md).
+
+## Folder structure
+
+The folder structure for a JavaScript project looks like the following:
+
+```
+FunctionsProject
+ | - MyFirstFunction
+ | | - index.js
+ | | - function.json
+ | - MySecondFunction
+ | | - index.js
+ | | - function.json
+ | - SharedCode
+ | | - myFirstHelperFunction.js
+ | | - mySecondHelperFunction.js
+ | - node_modules
+ | - host.json
+ | - package.json
+ | - extensions.csproj
+ | - bin
+```
+
+There's a shared [host.json] (functions-host-json.md) file that can be used to configure the function app. Each function has its own code file (.js) and binding configuration file (function.json).
+
+The binding extensions required in [version 2.x](functions-versions.md) of the Functions runtime are defined in the `extensions.csproj` file, with the actual library files in the `bin` folder. When developing locally, you must [register binding extensions](functions-triggers-bindings.md#local-development-azure-functions-core-tools). When developing functions in the Azure portal, this registration is done for you.
 
 ## Exporting a function
-Each JavaScript function must export a single `function` via `module.exports` for the runtime to find the function and run it. This function must always take a `context` object as the first parameter.
+
+JavaScript functions must be exported via [`module.exports`](https://nodejs.org/api/modules.html#modules_module_exports) (or [`exports`](https://nodejs.org/api/modules.html#modules_exports)). In the default case, your exported function should be the only export from its file, the export named `run`, or the export named `index`. The default location of your function is `index.js`, where `index.js` shares the same parent directory as the corresponding `function.json`. Note that the name of `function.json`'s parent directory is always the name of your function. 
+
+To configure the file location and export name of your function, read about [configuring your function's entry point](functions-reference-node.md#configure-function-entry-point) below.
+
+Your exported function entry point must always take a `context` object as the first parameter.
 
 ```javascript
 // You must include a context, other arguments are optional
@@ -91,6 +122,13 @@ context.bindings.myOutput = {
 
 Note that you can choose to define output binding data using the `context.done` method instead of the `context.binding` object (see below).
 
+### context.bindingData property
+
+```
+context.bindingData
+```
+Returns a named object that contains trigger metadata and function invocation data (`invocationId`, `sys.methodName`, `sys.utcNow`, `sys.randGuid`). For an example of trigger metadata, see this [event hubs example](functions-bindings-event-hubs.md#trigger---javascript-example).
+
 ### context.done method
 ```
 context.done([err],[propertyBag])
@@ -98,7 +136,7 @@ context.done([err],[propertyBag])
 
 Informs the runtime that your code has finished. If your function uses the JavaScript [`async function`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) declaration (available using Node 8+ in Functions version 2.x), you do not need to use `context.done()`. The `context.done` callback is implicitly called.
 
-If your function is not an async function, **you must call `context.done`** to inform the runtime that your function is complete. The execution will time out if it is missing.
+If your function is not an async function, **you must call** `context.done` to inform the runtime that your function is complete. The execution will time out if it is missing.
 
 The `context.done` method allows you to pass back both a user-defined error to the runtime and a JSON object containing output binding data. Properties passed to `context.done` will overwrite anything set on the `context.bindings` object.
 
@@ -258,8 +296,9 @@ When you work with HTTP triggers, you can access the HTTP request and response o
     ```javascript
     context.bindings.response = { status: 201, body: "Insert succeeded." };
     ```
++ _[Response only]_ By calling `context.res.send(body?: any)`. An HTTP response is created with input `body` as the response body. `context.done()` is implicitly called.
 
-+ [Response only] By calling `context.done()`. A special kind of HTTP binding returns the response that is passed to the `context.done()` method. The following HTTP output binding defines a `$return` output parameter:
++ _[Response only]_ By calling `context.done()`. A special kind of HTTP binding returns the response that is passed to the `context.done()` method. The following HTTP output binding defines a `$return` output parameter:
 
     ```json
     {
@@ -332,6 +371,71 @@ function GetEnvironmentVariable(name)
     return name + ": " + process.env[name];
 }
 ```
+
+## Configure function entry point
+
+The `function.json` properties `scriptFile` and `entryPoint` can be used to configure the location and name of your exported function. These can be important if your JavaScript is transpiled.
+
+### Using `scriptFile`
+
+By default, a JavaScript function is executed from `index.js`, a file that shares the same parent directory as its corresponding `function.json`.
+
+`scriptFile` can be used to get a folder structure that looks like this:
+```
+FunctionApp
+ | - host.json
+ | - myNodeFunction
+ | | - function.json
+ | - lib
+ | | - nodeFunction.js
+ | - node_modules
+ | | - ... packages ...
+ | - package.json
+```
+
+The `function.json` for `myNodeFunction` should include a `scriptFile` property pointing to the file with the exported function to run.
+```json
+{
+  "scriptFile": "../lib/nodeFunction.js",
+  "bindings": [
+    ...
+  ]
+}
+```
+
+### Using `entryPoint`
+
+In `scriptFile` (or `index.js`), a function must be exported using `module.exports` in order to be found and run. By default, the function that executes when triggered is the only export from that file, the export named `run`, or the export named `index`.
+
+This can be configured using `entryPoint` in `function.json`:
+```json
+{
+  "entryPoint": "logFoo",
+  "bindings": [
+    ...
+  ]
+}
+```
+
+In Functions v2.x, which supports the `this` parameter in user functions, the function code could then be as follows:
+```javascript
+class MyObj {
+    constructor() {
+        this.foo = 1;
+    };
+    
+    function logFoo(context) { 
+        context.log("Foo is " + this.foo); 
+        context.done(); 
+    }
+}
+
+const myObj = new MyObj();
+module.exports = myObj;
+```
+
+In this example, it is important to note that although an object is being exported, there are no guarantess around preserving state between executions.
+
 ## Considerations for JavaScript functions
 
 When you work with JavaScript functions, be aware of the considerations in the following two sections.

@@ -41,19 +41,19 @@ Before you can associate or add your subscription, you must perform the followin
 
 2. Select **Change directory**.
 
-    ![Subscriptions page, with Change directory option highlighted](/media/active-directory-how-subscriptions-associated-directory/change-directory-button.png)
+    ![Subscriptions page, with Change directory option highlighted](media/active-directory-how-subscriptions-associated-directory/change-directory-button.png)
 
 3. Review any warnings that appear, and then select **Change**.
 
-    ![Change the directory page, showing the directory to change to](/media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.png)
+    ![Change the directory page, showing the directory to change to](media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.png)
 
     The directory is changed for the subscription and you get a success message.
 
-    ![Success message](/media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)    
+    ![Success message](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)    
 
 4. Use the Directory switcher to go to your new directory. It might take up to 10 minutes for everything to show up properly.
 
-    ![Directory switcher page](/media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
+    ![Directory switcher page](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
 
 Changing the subscription directory is a service-level operation, so it doesn't affect subscription billing ownership. The Account Admin can still change the Service Admin from the [Account Center](https://account.azure.com/subscriptions). To delete the original directory, you must transfer the subscription billing ownership to a new Account Admin. To learn more about transferring billing ownership, see [Transfer ownership of an Azure subscription to another account](../../billing/billing-subscription-transfer.md). 
 
