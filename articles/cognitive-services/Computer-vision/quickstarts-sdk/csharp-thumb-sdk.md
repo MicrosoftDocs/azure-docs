@@ -16,7 +16,7 @@ ms.author: nolachar
 
 In this quickstart, you generate a thumbnail from an image using the Computer Vision Windows client library.
 
-Get the latest code as a Visual Studio solution from the [Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision) GitHub repository.
+The source code for this sample is available on [Github](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision).
 
 ## Prerequisites
 

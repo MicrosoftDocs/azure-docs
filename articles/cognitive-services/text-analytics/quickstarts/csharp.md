@@ -20,6 +20,8 @@ This article shows you how to detect language, analyze sentiment, and extract ke
 
 Refer to the [API definitions](//go.microsoft.com/fwlink/?LinkID=759346) for technical documentation for the APIs.
 
+The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/TextAnalytics).
+
 ## Prerequisites
 
 You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with the Text Analytics API. You can use the *free tier for 5,000 transactions/month* to complete this quickstart.
