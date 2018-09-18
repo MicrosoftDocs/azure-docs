@@ -160,6 +160,8 @@
           href: azure-stack-manage-storage-physical-memory-capacity.md
         - name: Add scale unit nodes
           href: azure-stack-add-scale-node.md
+        - name: Add public IP addresses
+          href: azure-stack-add-ips.md
     - name: Replace hardware
       items:
       - name: Node actions
@@ -220,8 +222,6 @@
       href: azure-stack-solution-template-kubernetes-cluster-add.md
   - name: Offer services
     href: azure-stack-offer-services-overview.md
-  - name: PaaS services overview
-    href: azure-stack-tools-paas-services.md
   - name: Offer SQL as PaaS
     href: azure-stack-sql-resource-provider.md
     items:
