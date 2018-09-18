@@ -31,6 +31,15 @@
     href: azure-stack-ethereum.md
 - name: Concepts
   items:
+  - name: Capacity Planning
+    href: capacity-planning.md
+    items:
+    - name: Compute capacity planning
+      href: capacity-planning-compute.md
+    - name: Storage capacity planning
+      href: capacity-planning-storage.md
+    - name: Azure Stack Capacity Planner
+      href: capacity-planning-spreadsheet.md
   - name: Datacenter integration
     items:
     - name: General Azure Stack integration considerations

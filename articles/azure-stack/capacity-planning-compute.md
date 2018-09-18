@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 09/18/2018
 ms.author: jeffgilb
 ms.reviewer: prchint
 ms.custom: mvc
@@ -28,7 +28,7 @@ In Azure Stack, there is no way for a tenant to specify a specific server to use
 
 In Azure, to achieve high availability of a multi-VM production system, VMs are placed in an availability set to be spread across multiple fault domains. This would mean that VMs placed in an availability set are physically isolated from each other at a rack to allow for failure resiliency as shown in the following diagram:
 
-   ![Azure fault and update domain](media/capacity-planning/azure-fault-and update-domain.png)
+![Fault and update domains](media\azure-stack-capacity-planning\domains.png)
 
 While the infrastructure of Azure Stack is resilient to failures, the underlying technology (failover clustering) still incurs some downtime for VMs on an impacted physical server in the event of a hardware failure. Currently, Azure Stack supports having an availability set with a maximum of three fault domains to be consistent with Azure. VMs placed in an availability set will be physically isolated from each other by spreading them as evenly as possible over multiple fault domains (Azure Stack nodes). If there is a hardware failure, VMs from the failed fault domain will be restarted in other nodes, but, if possible, kept in separate fault domains from the other VMs in the same availability set. When the hardware comes back online, VMs will be rebalanced to maintain high availability.
 
