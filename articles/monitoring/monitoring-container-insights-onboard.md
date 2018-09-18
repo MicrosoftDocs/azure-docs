@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2018
+ms.date: 09/18/2018
 ms.author: magoedte
 ---
 
@@ -133,7 +133,6 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
 
 1. Copy and paste the following JSON syntax into your file:
 
-    
     ```json
     {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
