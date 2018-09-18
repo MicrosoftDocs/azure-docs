@@ -1,6 +1,6 @@
 ---
-title: Train TensorFlow Models with Azure Machine Learning
-description: Learn how to run single-node and distributed training of TensorFlow models with the AML TensorFlow Estimator
+title: Train TensorFlow models with Azure Machine Learning
+description: Learn how to run single-node and distributed training of TensorFlow models with the TensorFlow estimator
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -13,7 +13,7 @@ ms.date: 09/24/2018
 
 # How To Train TensorFlow Models
 
-For deep neural network (DNN) training using TensorFlow, Azure ML provides a custom TensorFlow class of the Estimator. The AML SDK's TensorFlow Estimator (not to be conflated with the [`tf.estimator.Estimator`](https://www.tensorflow.org/api_docs/python/tf/estimator/Estimator) class) enables you to easily submit TensorFlow training jobs for both single-node and distributed runs on Azure compute.
+For deep neural network (DNN) training using TensorFlow, Azure Machine Learning provides a custom TensorFlow class of the Estimator. The Azure SDK's TensorFlow Estimator (not to be conflated with the [`tf.estimator.Estimator`](https://www.tensorflow.org/api_docs/python/tf/estimator/Estimator) class) enables you to easily submit TensorFlow training jobs for both single-node and distributed runs on Azure compute.
 
 ## Single-node training
 Training with the TensorFlow Estimator is similar to using the [base Estimator](), so first read through the how-to article and make sure you understand the concepts introduced there.
@@ -82,7 +82,7 @@ The above code exposes the following new parameters to the TensorFlow constructo
 * `node_count`: The number of nodes to use for your training job. This argument defaults to `1`
 * `backend`: The backend for launching distributed training. To train using Horovod, set `backend='mpi'`. For parallel and distributed runs, `backend` will default to `'mpi'`, and `None` for non data-parallel runs.
 * `process_count_per_node`: The number of processes (or "workers") to run on each node. This argument defaults to `1`
-* `backend`: The backend for launching distributed training. This argument defaults to `None`. If you want to carry out parallel or distributed training (e.g. `node_count`>1 or `process_count_per_node`>1 or both) with MPI (and Horovod), set `backend='mpi'`. The MPI implementation used by AML is [Open MPI](https://www.open-mpi.org/).
+* `backend`: The backend for launching distributed training. This argument defaults to `None`. If you want to carry out parallel or distributed training (e.g. `node_count`>1 or `process_count_per_node`>1 or both) with MPI (and Horovod), set `backend='mpi'`. The MPI implementation used by Azure Machine Learning is [Open MPI](https://www.open-mpi.org/).
 
 The above example will run distributed training with two workers, one worker per node.
 

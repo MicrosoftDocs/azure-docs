@@ -19,7 +19,7 @@ In this tutorial, you'll learn how to generate a  machine learning model using a
 
 [ ![flow diagram](./media/tutorial-auto-train-models/flow2.png) ](./media/tutorial-auto-train-models/flow2.png#lightbox)
 
-Similar to the [train models tutorial](tutorial-train-models-with-aml.md), this tutorial classifies handwritten images of digits (0-9) from the [MNIST](http://yann.lecun.com/exdb/mnist/) dataset. You don't need to specify an algorithm or tune hyperparameters. The automated ML technique iterates over many combinations of algorithms and hyperparameters until it finds the best model based on your criterion.
+Similar to the [train models tutorial](tutorial-train-models-with-aml.md), this tutorial classifies handwritten images of digits (0-9) from the [MNIST](http://yann.lecun.com/exdb/mnist/) dataset. But this time you don't to specify an algorithm or tune hyperparameters. The automated ML technique iterates over many combinations of algorithms and hyperparameters until it finds the best model based on your criterion.
 
 You'll learn how to:
 
@@ -38,20 +38,6 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 For your convenience, this tutorial is available as a Jupyter notebook. Use either of these methods to run the `tutorials/03.auto-train-models.ipynb` notebook:
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
-
-* **Your own Jupyter notebook server**
-
-    1. Use [these instructions](https://aka.ms/aml-how-to-configure-environment) to:
-        * Create a workspace and its configuration file (**config.json**) 
-        * Configure your notebook server
-        * In step 4 the new packages you need are matplotlib, scikit-learn, and pandas:
-            ```shell
-            conda install -y matplotlib scikit-learn pandas 
-            ```
-    1. Clone [the GitHub repository](https://aka.ms/aml-notebooks) or start a new notebook and copy code from this article.
-    1. Add your **config.json** file to the same folder as the notebook.
-    1. Start your notebook server.
-    1. Open the notebook.
 
 
 ## Set up your development environment
