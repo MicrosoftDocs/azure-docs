@@ -15,13 +15,13 @@ ms.author: wolfma
 
 This article provides information to help you solve issues you might encounter when you use the Speech SDK.
 
-## Error: "WebSocket Upgrade failed with an authentication error (403)"
+## Error: WebSocket Upgrade failed with an authentication error (403)
 
 You might have the wrong endpoint for your region or service. Check the URI to make sure it's correct. 
 
 Also, there might be a problem with your subscription key or authorization token. For more information, see the next section.
 
-## Error: "HTTP 403 Forbidden" or "HTTP 401 Unauthorized"
+## Error: HTTP 403 Forbidden or HTTP 401 Unauthorized
 
 This error often is caused by authentication issues. Connection requests without a valid `Ocp-Apim-Subscription-Key` or `Authorization` header are rejected with a status of 403 or 401.
 
@@ -97,11 +97,11 @@ If you use an authorization token for authentication, run one of the following c
 
 ---
 
-## Error: "HTTP 400 Bad Request"
+## Error: HTTP 400 Bad Request
 
 This error usually occurs when the request body contains invalid audio data. Only WAV format is supported. Also, check the request's headers to make sure you specify appropriate values for `Content-Type` and `Content-Length`.
 
-## Error: "HTTP 408 Request Timeout"
+## Error: HTTP 408 Request Timeout
 
 The error most likely occurs because no audio data is being sent to the service. This error also might be caused by network issues.
 
