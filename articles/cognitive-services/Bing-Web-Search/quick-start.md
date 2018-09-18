@@ -1,13 +1,14 @@
 ---
-title: Web Search API quick start | Microsoft Docs
+title: Web Search API quick start
+titleSuffix: Azure Cognitive Services
 description: Shows how to get started using the Bing Web Search API.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
+manager: cgronlun
 ms.assetid: 27B4B51A-D017-44C8-8E4E-9684DC553886
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 04/15/2017
 ms.author: scottwhi
 ---
@@ -17,7 +18,7 @@ ms.author: scottwhi
 Before you can make your first call, you need to get a Cognitive Services subscription key. To get a key, see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).
 
 To get Web search results, you'd send a GET request to the following endpoint:  
-  
+
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/search
 ```  
@@ -25,24 +26,24 @@ https://api.cognitive.microsoft.com/bing/v7.0/search
 The request must use the HTTPS protocol.
 
 We recommend that all requests originate from a server. Distributing the key as part of a client application provides more opportunity for a malicious third-party to access it. Also, making calls from a server provides a single upgrade point for future versions of the API.  
-  
+
 The request must specify the [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#query) query parameter, which contains the user's search term. Although it's optional, the request should also specify the [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#mkt) query parameter, which identifies the market where you want the results to come from. For a list of optional query parameters such as `responseFilter` and `textDecorations`, see [Query Parameters](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#query-parameters). All query parameter values must be URL encoded.  
-  
+
 The request must specify the [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#subscriptionkey) header. Although optional, you are encouraged to also specify the following headers:  
-  
+
 -   [User-Agent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#useragent)  
 -   [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#clientid)  
 -   [X-Search-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#clientip)  
 -   [X-Search-Location](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#location)  
 
-The client IP and location headers are important for returning location aware content. For example, if the user's query is *sailing+lessons*, they're probably interested in lessons located nearby their location. If you want the results to contain lessons that are available near the user's location, you need to include the location header and optionally, the client IP header. It's less important if the query term explicitly mentions a location (for example, sailing+lessons+florida+keys). 
+The client IP and location headers are important for returning location aware content. For example, if the user's query is *sailing+lessons*, they're probably interested in lessons located nearby their location. If you want the results to contain lessons that are available near the user's location, you need to include the location header and optionally, the client IP header. It's less important if the query term explicitly mentions a location (for example, sailing+lessons+florida+keys).
 
 For a list of all request and response headers, see [Headers](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#headers).
 
 ## The request
 
-The following shows a search request that includes all the suggested query parameters and headers. If it's your first time calling any of the Bing APIs, don't include the client ID header. Only include the client ID if you've previously called a Bing API and Bing returned a client ID for the user and device combination. 
-  
+The following shows a search request that includes all the suggested query parameters and headers. If it's your first time calling any of the Bing APIs, don't include the client ID header. Only include the client ID if you've previously called a Bing API and Bing returned a client ID for the user and device combination.
+
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+lessons+seattle&mkt=en-us HTTP/1.1  
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
@@ -260,6 +261,6 @@ BingAPIs-Market: en-US
 
 ## Next steps
 
-Try out the API. Go to [Web Search API Testing Console](https://dev.cognitive.microsoft.com/docs/services/56b43eeccf5ff8098cef3807/operations/56b4447dcf5ff8098cef380d). 
+Try out the API. Go to [Web Search API Testing Console](https://dev.cognitive.microsoft.com/docs/services/56b43eeccf5ff8098cef3807/operations/56b4447dcf5ff8098cef380d).
 
 For details about consuming the response objects, see [Searching the Web](./search-the-web.md).
