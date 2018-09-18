@@ -173,6 +173,32 @@ This action also deletes the principal ID from Azure AD.
 }
 ```
 
+## Access other resources 
+
+After you create a managed identity for your logic app, you can 
+[give that identity access to other resources](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). You can then use that managed identity for authentication, just like any other 
+[service principal](../active-directory/develop/app-objects-and-service-principals.md). 
+
+For example, suppose you've already set up a logic app 
+with a managed identity that has access to another resource. 
+You can now add an HTTP action so your logic app can send 
+an HTTP request or call to that resource. 
+
+1. In your logic app, add the **HTTP** action. 
+
+1. Provide the necessary details for that action, 
+such as the request **Method** and **URI** location 
+for the resource you want to call.
+
+1. In the HTTP action, choose **Show advanced options**. 
+
+1. From the **Authentication** list, select **Managed Service Identity**, 
+which then shows the **Audience** property for you to set:
+
+   ![Select "Managed Service Identity"](./media/create-managed-service-identity/select-managed-service-identity.png)
+
+1. Continue building the logic app the way you want.
+
 ## Get support
 
 * For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
