@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2018
+ms.date: 09/18/2018
 ms.author: magoedte
 ---
 
@@ -23,7 +23,7 @@ This article describes how to set up Azure Monitor for VMs to monitor the operat
 Enabling Azure Monitor for VMs is accomplished by using one of the following methods, and details on using each method are provided later in the article.  
 
 * A single Azure virtual machine by selecting **Insights (preview)** directly from the VM.
-* Multiple Azure VMs or virtual machine scale sets using Azure Policy to ensure existing and new VMs evaluated have the required dependencies installed and are properly configured.  Non-compliant VMs are reported so you can decide based on what isn't compliant, how you want to remediate.  
+* Multiple Azure VMs using Azure Policy to ensure existing and new VMs evaluated have the required dependencies installed and are properly configured.  Non-compliant VMs are reported so you can decide based on what isn't compliant, how you want to remediate.  
 * Multiple Azure VMs or virtual machine scale sets across a specified subscription or resource group using PowerShell.
 
 ## Prerequisites
@@ -58,10 +58,9 @@ The following versions of the Windows and Linux operating systems are officially
 |Windows Server 2012 | X | X | |  
 |Windows Server 2008 R2 | X | X| |  
 |RHEL 7, 6| X | X| X |  
-|Ubuntu 16.04, 14.04 | X | X| X |  
+|Ubuntu 18.04, 16.04, 14.04 | X | X| X |  
 |Cent OS Linux 7, 6 | X | X| X |  
 |SLES 12 | X | X | X |  
-|SLES 11 | X | X | X |  
 |Oracle Linux 7 | X<sup>1</sup> | | X |  
 |Oracle Linux 6 | X | X | X |  
 |Debian 9.4, 8 | X<sup>1</sup> | | X | 
@@ -138,11 +137,30 @@ Azure Monitor for VMs configures a Log Analytics Workspace to collect performanc
 |Network |Total Bytes Transmitted |  
 |Processor |% Processor Time |  
 
+## Enable from the Azure portal
+To enable monitoring of your Azure VM in the Azure portal, do the following:
+
+1. In the Azure portal, select **Virtual Machines**. 
+2. From the list, select a VM. 
+3. On the VM page, in the **Monitoring** section, select **Insights (preview)**.
+4. On the **Insights (preview)** page, select **Try now**.
+
+    ![Enable Azure Monitor for VMs for a VM](./media/monitoring-vminsights-onboard/onboard-vminsights-vm-portal.png)
+
+5. On the **Azure Monitor Insights Onboarding** page, if you have an existing Log Analytics workspace in the same subscription, select it in the drop-down list.  The list preselects the default workspace and location that the virtual machine is deployed to in the subscription. 
+
+    >[!NOTE]
+    >If you want to create a new Log Analytics workspace for storing the monitoring data from the VM, follow the instructions in [Create a Log Analytics workspace](../log-analytics/log-analytics-quick-create-workspace.md). Be sure to create the workspace in the same subscription that the VM is deployed to. 
+
+After you've enabled monitoring, it might take about 10 minutes before you can view health metrics for the virtual machine. 
+
+![Enable Azure Monitor for VMs monitoring deployment processing](./media/monitoring-vminsights-onboard/onboard-vminsights-vm-portal-status.png)
+
 ## Enable using Azure Policy
 To enable the solution for multiple Azure VMs that ensures consistent compliance and automatic enablement for new VMs provisioned, [Azure Policy](../azure-policy/azure-policy-introduction.md) is recommended.  Using Azure Policy with the policies provided delivers the following benefits for new VMs:
 
 * Enabling Azure Monitor for VMs for each VM in the defined scope
-* Deploy Log Analytics Agent and configure performance collection rules to measure  performance utilization
+* Deploy Log Analytics Agent 
 * Deploy Dependency Agent to discover application dependencies and show in the Map
 * Audit if your Azure VM OS image is in a pre-defined list in policy definition  
 * Audit if your Azure VM  is logging to workspace other than one specified
@@ -157,14 +175,9 @@ To activate it for your tenant, this process requires:
 - Review the compliance results
 
 ### Add the policies and initiative to your subscription
-To use the policies, we have provided a script `Add-VMInsightsPolicy.ps1` which adds the policies and an initiative to your subscription.  Perform the following steps to configure Azure Policy in your subscription. 
+To use the policies, you can use a provided PowerShell script - [Add-VMInsightsPolicy.ps1](https://www.powershellgallery.com/packages/Add-VMInsightsPolicy/1.2) available from the Azure PowerShell Gallery to complete this task. The script adds the policies and an initiative to your subscription.  Perform the following steps to configure Azure Policy in your subscription. 
 
-1. Download the PowerShell script to your local file system by running the following commands:
-
-    ```powershell  
-    $client = new-object System.Net.WebClient  
-    $client.DownloadFile(“https://raw.githubusercontent.com/dougbrad/OnBoardVMInsights/Policy/Policy/Add-VMInsightsPolicy.ps1”,“Add-VMInsightsPolicy.ps1”)  
-    ```  
+1. Download the PowerShell script to your local file system.
 
 2. Use the following PowerShell command in the folder to add policies. The script supports the following optional parameters: 
 
@@ -190,13 +203,12 @@ To use the policies, we have provided a script `Add-VMInsightsPolicy.ps1` which 
 ### Create a policy assignment
 After you run the `Add-VMInsightsPolicy.ps1` PowerShell script, the following initiative and policies are added:
 
-**Enable VM insights for VMs Preview**  
-- **Deploy Log Analytics Agent for Windows VMs Preview**  
-- **Deploy Log Analytics Agent for Linux VMs Preview**  
-- **Deploy Dependency Agent for Windows VMs Preview**  
-- **Deploy Dependency Agent for Linux VMs Preview**  
-- **VMs not in OS scope of Log Analytics Agent deployment policy Preview**  
-- **VMs not in OS scope of Dependency Agent deployment policy Preview**  
+* **Deploy Log Analytics Agent for Windows VMs - Preview**
+* **Deploy Log Analytics Agent for Linux VMs - Preview**
+* **Deploy Dependency Agent for Windows VMs - Preview**
+* **Deploy Dependency Agent for Linux VMs - Preview**
+* **Audit Log Analytics Agent Deployment - VM Image (OS) unlisted - Preview**
+* **Audit Dependency Agent Deployment - VM Image (OS) unlisted - Preview**
 
 The following initiative parameter is added:
 
@@ -212,36 +224,10 @@ The following standalone optional policy is added:
 
 With this initial release, you can only create the policy assignment from the Azure portal. To understand how to complete these steps, see [Create a policy assignment from the Azure portal](../azure-policy/assign-policy-definition.md).
 
-## Enable from the Azure portal
-To enable monitoring of your Azure VM in the Azure portal, do the following:
-
-1. In the Azure portal, select **Virtual Machines**. 
-2. From the list, select a VM. 
-3. On the VM page, in the **Monitoring** section, select **Insights (preview)**.
-4. On the **Insights (preview)** page, select **Try VM insights**.
-
-    ![Enable Azure Monitor for VMs for a VM](./media/monitoring-vminsights-onboard/onboard-vminsights-vm-portal.png)
-
-5. On the **Azure Monitor Insights Onboarding** page, if you have an existing Log Analytics workspace in the same subscription, select it in the drop-down list.  The list preselects the default workspace and location that the virtual machine is deployed to in the subscription. 
-
-    >[!NOTE]
-    >If you want to create a new Log Analytics workspace for storing the monitoring data from the VM, follow the instructions in [Create a Log Analytics workspace](../log-analytics/log-analytics-quick-create-workspace.md). Be sure to create the workspace in the same subscription that the VM is deployed to. 
-
-After you've enabled monitoring, it might take about 10 minutes before you can view health metrics for the virtual machine. 
-
-![Enable Azure Monitor for VMs monitoring deployment processing](./media/monitoring-vminsights-onboard/onboard-vminsights-vm-portal-status.png)
-
 ## Enable with PowerShell
-To enable Azure Monitor for VMs for multiple VMs or VM scale sets, you can use a provided PowerShell script - [Install-VMInsights.ps1](https://github.com/dougbrad/OnBoardVMInsights/blob/master/Install-VMInsights.ps1) to complete this task.  This script will iterate through every virtual machine and VM scale set in your subscription, in the scoped resource group specified by *ResourceGroup*, or to a single VM or scale set specified by *Name*.  For each VM or VM scale set the script verifies if the VM extension is already installed, and if not attempt to reinstall it.  Otherwise, it proceeds to install the Log Analytics and Dependency Agent VM extensions.   
+To enable Azure Monitor for VMs for multiple VMs or VM scale sets, you can use a provided PowerShell script - [Install-VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights/1.0) available from the Azure PowerShell Gallery to complete this task.  This script will iterate through every virtual machine and VM scale set in your subscription, in the scoped resource group specified by *ResourceGroup*, or to a single VM or scale set specified by *Name*.  For each VM or VM scale set the script verifies if the VM extension is already installed, and if not attempt to reinstall it.  Otherwise, it proceeds to install the Log Analytics and Dependency Agent VM extensions.   
 
 This script requires Azure PowerShell module version 5.7.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure.
-
-To download the PowerShell script to your local file system, run the following commands:
-
-```powershell
-$client = new-object System.Net.WebClient
-$client.DownloadFile(“https://raw.githubusercontent.com/dougbrad/OnBoardVMInsights/master/Install-VMInsights.ps1”,“Install-VMInsights.ps1”) 
-```
 
 To get help about the script, you can run `Get-Help` to get a list of argument details and example usage.   
 
@@ -249,14 +235,25 @@ To get help about the script, you can run `Get-Help` to get a list of argument d
 Get-Help .\Install-VMInsights.ps1 -Detailed
 
 SYNOPSIS
-    Configure VM's and VM Scale Sets for Azure Monitor for VMs:
-    - Installs Log Analytics VM Extension configured to supplied Log Analytics Workspace
-    - Installs Dependency Agent VM Extension
+    This script installs VM extensions for Log Analytics and Dependency Agent as needed for VM Insights.
+
+
+SYNTAX
+    .\Install-VMInsights.ps1 [-WorkspaceId] <String> [-WorkspaceKey] <String> [-SubscriptionId] <String> [[-ResourceGroup]
+    <String>] [[-Name] <String>] [[-PolicyAssignmentName] <String>] [-ReInstall] [-TriggerVmssManualVMUpdate] [-Approve] [-WorkspaceRegion] <String>
+    [-WhatIf] [-Confirm] [<CommonParameters>]
+
+
+DESCRIPTION
+    This script installs or re-configures following on VM's and VM Scale Sets:
+    - Log Analytics VM Extension configured to supplied Log Analytics Workspace
+    - Dependency Agent VM Extension
 
     Can be applied to:
     - Subscription
     - Resource Group in a Subscription
     - Specific VM/VM Scale Set
+    - Compliance results of a policy for a VM or VM Extension
 
     Script will show you list of VM's/VM Scale Sets that will apply to and let you confirm to continue.
     Use -Approve switch to run without prompting, if all required parameters are provided.
@@ -264,13 +261,8 @@ SYNOPSIS
     If the extensions are already installed will not install again.
     Use -ReInstall switch if you need to for example update the workspace.
 
-    Use -WhatIf if you would like to see what would happen in terms of installs, what workspace configured to, and status of the
-    extension.
+    Use -WhatIf if you would like to see what would happen in terms of installs, what workspace configured to, and status of the extension.
 
-SYNTAX
-    D:\GitHub\OnBoardVMInsights\Install-VMInsights.ps1 [-WorkspaceId] <String> [-WorkspaceKey] <String> [-SubscriptionId]
-    <String> [[-ResourceGroup] <String>] [[-Name] <String>] [-ReInstall] [-TriggerVmssManualVMUpdate] [-Approve] [-WhatIf]
-    [-Confirm] [<CommonParameters>]
 
 PARAMETERS
     -WorkspaceId <String>
@@ -281,6 +273,7 @@ PARAMETERS
 
     -SubscriptionId <String>
         SubscriptionId for the VMs/VM Scale Sets
+        If using PolicyAssignmentName parameter, subscription that VM's are in
 
     -ResourceGroup <String>
         <Optional> Resource Group to which the VMs or VM Scale Sets belong to
@@ -288,21 +281,27 @@ PARAMETERS
     -Name <String>
         <Optional> To install to a single VM/VM Scale Set
 
+    -PolicyAssignmentName <String>
+        <Optional> Take the input VM's to operate on as the Compliance results from this Assignment
+        If specified will only take from this source.
+
     -ReInstall [<SwitchParameter>]
-        <Optional> If VM/VM Scale Set is already configured for a different workspace, set this to change to the
-        new workspace
+        <Optional> If VM/VM Scale Set is already configured for a different workspace, set this to change to the new workspace
 
     -TriggerVmssManualVMUpdate [<SwitchParameter>]
-        <Optional> Set this flag to trigger update of VM instances in a scale set whose upgrade policy is set to
-        Manual
+        <Optional> Set this flag to trigger update of VM instances in a scale set whose upgrade policy is set to Manual
 
     -Approve [<SwitchParameter>]
         <Optional> Gives the approval for the installation to start with no confirmation prompt for the listed VM's/VM Scale Sets
 
+    -WorkspaceRegion <String>
+        Region the Log Analytics Workspace is in
+        Suported values: "East US","eastus","Southeast Asia","southeastasia","West Central US","westcentralus","West Europe","westeurope"
+        For Health supported is: "East US","eastus","West Central US","westcentralus"
+
     -WhatIf [<SwitchParameter>]
         <Optional> See what would happen in terms of installs.
-        If extension is already installed will show what workspace is currently configured, and status of the VM
-        extension
+        If extension is already installed will show what workspace is currently configured, and status of the VM extension
 
     -Confirm [<SwitchParameter>]
         <Optional> Confirm every action
@@ -314,9 +313,22 @@ PARAMETERS
         about_CommonParameters (https:/go.microsoft.com/fwlink/?LinkID=113216).
 
     -------------------------- EXAMPLE 1 --------------------------
+    .\Install-VMInsights.ps1 -WorkspaceRegion eastus -WorkspaceId <WorkspaceId>-WorkspaceKey <WorkspaceKey> -SubscriptionId <SubscriptionId>
+    -ResourceGroup <ResourceGroup>
 
-    .\Install-VMInsights.ps1 -WorkspaceId <WorkspaceId>-WorkspaceKey <WorkspaceKey> -SubscriptionId
-    <SubscriptionId> -ResourceGroup <ResourceGroup>        
+    Install for all VM's in a Resource Group in a subscription
+
+    -------------------------- EXAMPLE 2 --------------------------
+    .\Install-VMInsights.ps1 -WorkspaceRegion eastus -WorkspaceId <WorkspaceId>-WorkspaceKey <WorkspaceKey> -SubscriptionId <SubscriptionId>
+    -ResourceGroup <ResourceGroup> -ReInstall
+
+    Specify to ReInstall extensions even if already installed, for example to update to a different workspace
+
+    -------------------------- EXAMPLE 3 --------------------------
+    .\Install-VMInsights.ps1 -WorkspaceRegion eastus -WorkspaceId <WorkspaceId>-WorkspaceKey <WorkspaceKey> -SubscriptionId <SubscriptionId>
+    -PolicyAssignmentName a4f79f8ce891455198c08736 -ReInstall
+
+    Specify to use a PolicyAssignmentName for source, and to ReInstall (move to a new workspace)
 ```
 
 The following example demonstrates using the PowerShell commands in the folder to enable Azure Monitor for VMs and understand the expected output:
@@ -325,7 +337,7 @@ The following example demonstrates using the PowerShell commands in the folder t
 $WorkspaceId = "<GUID>"
 $WorkspaceKey = "<Key>"
 $SubscriptionId = "<GUID>"
-.\Install-VMInsights.ps1 -WorkspaceId $WorkspaceId -WorkspaceKey $WorkspaceKey -SubscriptionId $SubscriptionId -ResourceGroup db-ws
+.\Install-VMInsights.ps1 -WorkspaceId $WorkspaceId -WorkspaceKey $WorkspaceKey -SubscriptionId $SubscriptionId -WorkspaceRegion eastus
 
 Getting list of VM's or VM ScaleSets matching criteria specified
 
@@ -336,7 +348,7 @@ db-ws2012 VM running
 
 This operation will install the Log Analytics and Dependency Agent extensions on above 2 VM's or VM Scale Sets.
 VM's in a non-running state will be skipped.
-Extension will not be re-installed if already installed. Use /ReInstall if desired, for example to update workspace
+Extension will not be re-installed if already installed. Use -ReInstall if desired, for example to update workspace
 
 Confirm
 Continue?
@@ -429,7 +441,7 @@ Files for the Dependency agent are placed in the following directories:
 | Binary storage files | /var/opt/microsoft/dependency-agent/storage |
 
 ### Enable performance counters
-If the Log Analytics workspace referenced by the solution isn't configured to already collect the performance counters required by the solution, they will need to be enabled. This can be accomplished manually as described [here](../log-analytics/log-analytics-data-sources-performance-counters.md), or by downloading and running a PowerShell script hosted on our GitHub [repo](https://github.com/dougbrad/OnBoardVMInsights/blob/master/Enable-VMInsightsPerfCounters.ps1) for the solution.
+If the Log Analytics workspace referenced by the solution isn't configured to already collect the performance counters required by the solution, they will need to be enabled. This can be accomplished manually as described [here](../log-analytics/log-analytics-data-sources-performance-counters.md), or by downloading and running a PowerShell script available from [Azure Powershell Gallery](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1).
  
 ### Onboard Azure Monitor for VMs
 This method includes a JSON template that specifies the configuration to enable the solution components to your Log Analytics workspace.  

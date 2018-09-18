@@ -66,10 +66,12 @@
       href: ../log-analytics/log-analytics-azure-sql.md?toc=%2fazure%2fmonitoring%2ftoc.json
   - name: Virtual machines
     items:
-    - name: VM Insights
+    - name: Azure Monitor for VMs
       items:
        - name: Overview
          href: monitoring-vminsights-overview.md
+       - name: Known issues
+         href: monitoring-vminsights-known-issues.md
        - name: FAQ
          href: monitoring-vminsights-faq.md
        - name: Onboard

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/17/2018
+ms.date: 09/18/2018
 ms.author: magoedte
 ---
 
@@ -31,7 +31,7 @@ There are internally generated properties you can use to identify unique process
 Because multiple records can exist for a specified process and computer in a specified time range, queries can return more than one record for the same computer or process. To include only the most recent record, add "| dedup ResourceId" to the query.
 
 ### Connections
-Connection metrics are written to two new tables in Log Analytics - *VMConnection* and *VMBoundPort*. These tables provide information about the connections for a machine (inbound and outbound), as well as the server ports that are open/active on them. Connection Metrics are also exposed with APIs that provide the means to obtain a specific metric during a time window.  TCP connections resulting from "*accept*-ing on a listening socket are inbound, while those created by *connect*-ing to a given IP and port are outbound. The direction of a connection is represented by the Direction property, which can be set to either **inbound** or **outbound**. 
+Connection metrics are written to a new table in Log Analytics - VMConnection. This table provides information about the connections for a machine (inbound and outbound). Connection Metrics are also exposed with APIs that provide the means to obtain a specific metric during a time window.  TCP connections resulting from "*accept*-ing on a listening socket are inbound, while those created by *connect*-ing to a given IP and port are outbound. The direction of a connection is represented by the Direction property, which can be set to either **inbound** or **outbound**. 
 
 Records in these tables are generated from data reported by the Dependency agent. Every record represents an observation over a one minute time interval. The TimeGenerated property indicates the start of the time interval. Each record contains information to identify the respective entity, that is, connection or port, as well as metrics associated with that entity. Currently, only network activity that occurs using TCP over IPv4 is reported.
 
@@ -191,6 +191,47 @@ ServiceMapProcess_CL | where ExecutableName_s == "curl" | distinct ProductVersio
 ### Create a computer group of all computers running CentOS
 ServiceMapComputer_CL | where OperatingSystemFullName_s contains_cs "CentOS" | distinct ComputerName_s
 
+### Summarize the outbound connections from a group of machines
+```
+// the machines of interest
+let machines = datatable(m: string) ["m-82412a7a-6a32-45a9-a8d6-538354224a25"];
+// map of ip to monitored machine in the environment
+let ips=materialize(ServiceMapComputer_CL
+| summarize ips=makeset(todynamic(Ipv4Addresses_s)) by MonitoredMachine=ResourceName_s
+| mvexpand ips to typeof(string));
+// all connections to/from the machines of interest
+let out=materialize(VMConnection
+| where Machine in (machines)
+| summarize arg_max(TimeGenerated, *) by ConnectionId);
+// connections to localhost augmented with RemoteMachine
+let local=out
+| where RemoteIp startswith "127."
+| project ConnectionId, Direction, Machine, Process, ProcessName, SourceIp, DestinationIp, DestinationPort, Protocol, RemoteIp, RemoteMachine=Machine;
+// connections not to localhost augmented with RemoteMachine
+let remote=materialize(out
+| where RemoteIp !startswith "127."
+| join kind=leftouter (ips) on $left.RemoteIp == $right.ips
+| summarize by ConnectionId, Direction, Machine, Process, ProcessName, SourceIp, DestinationIp, DestinationPort, Protocol, RemoteIp, RemoteMachine=MonitoredMachine);
+// the remote machines to/from which we have connections
+let remoteMachines = remote | summarize by RemoteMachine;
+// all augmented connections
+(local)
+| union (remote)
+//Take all outbound records but only inbound records that come from either //unmonitored machines or monitored machines not in the set for which we are computing dependencies.
+| where Direction == 'outbound' or (Direction == 'inbound' and RemoteMachine !in (machines))
+| summarize by ConnectionId, Direction, Machine, Process, ProcessName, SourceIp, DestinationIp, DestinationPort, Protocol, RemoteIp, RemoteMachine
+// identify the remote port
+| extend RemotePort=iff(Direction == 'outbound', DestinationPort, 0)
+// construct the join key we'll use to find a matching port
+| extend JoinKey=strcat_delim(':', RemoteMachine, RemoteIp, RemotePort, Protocol)
+// find a matching port
+| join kind=leftouter (VMBoundPort 
+| where Machine in (remoteMachines) 
+| summarize arg_max(TimeGenerated, *) by PortId 
+| extend JoinKey=strcat_delim(':', Machine, Ip, Port, Protocol)) on JoinKey
+// aggregate the remote information
+| summarize Remote=makeset(iff(isempty(RemoteMachine), todynamic('{}'), pack('Machine', RemoteMachine, 'Process', Process1, 'ProcessName', ProcessName1))) by ConnectionId, Direction, Machine, Process, ProcessName, SourceIp, DestinationIp, DestinationPort, Protocol
+```
 
 ## REST API
 All the server, process, and dependency data in Service Map is available via the [Service Map REST API](https://docs.microsoft.com/rest/api/servicemap/).

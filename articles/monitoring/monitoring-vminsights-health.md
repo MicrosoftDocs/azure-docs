@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/17/2018
+ms.date: 09/18/2018
 ms.author: magoedte
 ---
 
@@ -99,7 +99,7 @@ Selecting **View health diagnostics** opens a page showing all the components of
 
 Under the **Component health** section, the table shows a health rollup status of the primary performance categories monitored by health criteria for those areas, specifically **CPU**, **Memory**, **Disk**, and **Network**.  Selecting any one of the components opens a page listing all of the individual health criterion monitoring aspects of that component and the respective health state of each.  
 
-When accessing Health from an Azure VM running the Windows operating system, the health state of the top 5 core Windows services are shown under the section **Core services health**.  Selecting any one of the services opens a page listing the health criteria monitoring that component and its health state.  Clicking on the name of the health criteria will open the property pane, and from here you can review the configuration details, including if the health criteria has a corresponding Azure Monitor alert defined. 
+When accessing Health from an Azure VM running the Windows operating system, the health state of the top 5 core Windows services are shown under the section **Core services health**.  Selecting any one of the services opens a page listing the health criteria monitoring that component and its health state.  Clicking on the name of the health criteria will open the property pane, and from here you can review the configuration details, including if the health criteria has a corresponding Azure Monitor alert defined. To learn more about this, see [Health Diagnostics and working with health criteria](#health-diagnostics).  
 
 ## Aggregate virtual machine perspective
 To view health collection for all of your virtual machines in a resource group, from the navigation list in the portal, select **Azure Monitor** and then select **Virtual Machines (preview)**.  
@@ -223,7 +223,8 @@ In the configuration pane for the selected health criteria, in this example the 
 >
 
 ![Configuring a health criteria of a unit monitor example](./media/monitoring-vminsights-health/health-diagnostics-linuxvm-example-04.png)
- 
+
+
 ### State changes
 The right-most column in the Health diagnostics page is **State Changes**. It lists all the state changes associated with the health criteria that is selected in the **Health Criteria** section or the state change of the VM if a VM was selected from the **Component Model** or **Health Criteria** column of the table. 
 

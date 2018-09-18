@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/17/2018
+ms.date: 09/18/2018
 ms.author: magoedte
 
 ---
@@ -36,9 +36,12 @@ These features are organized into three perspectives:
 >Currently, the Health feature is only offered for Azure virtual machines.
 >
 
-Integration with Log Analytics delivers powerful aggregation, filtering, and ability to perform trend analysis of the data over time. The comprehensive monitoring of your workloads can't be achieved alone with Azure Monitor, Service Maps, or Log Analytics.  
+Integration with Log Analytics delivers powerful aggregation, filtering, and ability to perform trend analysis of the data over time. The comprehensive monitoring of your workloads can't be achieved alone with Azure Monitor, Service Map, or Log Analytics.  
 
-You can view this data in the context of single instance of the VM from the virtual machine directly, and as an aggregated view of all VMs in your subscription from Azure Monitor. 
+You can view this data in the context of single VM from the virtual machine directly, or with Azure Monitor it delivers an aggregated view of your VMs based on the following perspective for each feature:
+
+* Health - VMs related to a resource group
+* Map and Performance - VMs configured to report to a specific Log Analytics workspace
 
 ![Virtual machine insights perspective from portal](./media/monitoring-vminsights-overview/vminsights-azmon-directvm-01.png)
 

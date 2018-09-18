@@ -1,24 +1,24 @@
 ---
 title: How to view app dependencies with Azure Monitor for VMs | Microsoft Docs
 description: Map is a feature of the Azure Monitor for VMs that automatically discovers application components on Windows and Linux systems and maps the communication between services. This article provides details on how to use it in a variety of scenarios.
-services:  log-analytics
+services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
 
 ms.assetid: 
-ms.service:  log-analytics
+ms.service: azure-monitor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2018
+ms.date: 09/17/2018
 ms.author: magoedte
 ---
 
 # Using Azure Monitor for VMs Map to understand application components
-Viewing the discovered application components on Windows and Linux virtual machines running in Azure your your environment can be observed in two ways with Azure Monitor for VMs, from a virtual machine directly or across all VMs in a subscription from Azure Monitor. 
+Viewing the discovered application components on Windows and Linux virtual machines running in Azure your your environment can be observed in two ways with Azure Monitor for VMs, from a virtual machine directly or across groups of VMs from Azure Monitor. 
 
 This article will help you understand the experience between the two perspectives and how to use the Map feature. For information about configuring Azure Monitor for VMs, see [Enable Azure Monitor for VMs](monitoring-vminsights-onboard.md).
 
@@ -30,17 +30,17 @@ Before diving into viewing Map for a single virtual machine or group of VMs, it'
 
 Whether you select the Map feature directly from a VM or from Azure Monitor, it presents a consistent experience.  The only difference is from Azure Monitor you can see all the members of a multi-tier application or cluster in one map.
 
-Maps visualizes the VMs dependencies by discovering running processes with active network connections between servers, inbound and outbound connection latency, and ports across any TCP-connected architecture over a specified time range.  Expanding a VM shows process details and only those processes that communicate with the VM are shown. The count of agentless front-end clients that connect into the virtual machine is indicated with the Port Group, along with other connections to the same port number.  Expand the Port Group to see the detailed list of servers connected over that port.   
+Maps visualizes the VMs dependencies by discovering running processes with active network connections between servers, inbound and outbound connection latency, and ports across any TCP-connected architecture over a specified time range.  Expanding a VM shows process details and only those processes that communicate with the VM are shown. The count of front-end clients that connect into the virtual machine is indicated with the Client Group. The count of back-end servers the VM connects to are indicated on the Server Port Groups. Expand a Server Port Group to see the detailed list of servers connected over that port.  
 
 When you click on the virtual machine, the **Properties** pane is expanded on the right to show the properties of the item selected, such as system information reported by the operating system, properties of the Azure VM, and a doughnut summarizing the discovered connections. 
 
 ![System properties of the computer](./media/monitoring-vminsights-maps/properties-pane-01.png)
 
-On the right-side of the pane, click on the **Log Events** icon to switch focus of the pane to show a list of tables that collected data from the VM has sent to Log Analytics and is available for querying.  Clicking on any one of the record types listed will open the **Log search** page to view the results for that type with a pre-configured query filtered against the specific virtual machine.  
+On the right-side of the pane, click on the **Log Events** icon to switch focus of the pane to show a list of tables that collected data from the VM has sent to Log Analytics and is available for querying.  Clicking on any one of the record types listed will open the **Logs** page to view the results for that type with a pre-configured query filtered against the specific virtual machine.  
 
 ![Log search list in Properties pane](./media/monitoring-vminsights-maps/properties-pane-logs-01.png)
 
-Close *Log search** and return to the **Properties** pane and select **Alerts** to view alerts that alerts raised for the VM from health criteria. Map integrates with Azure Alerts to show fired alerts for the selected server in the selected time range. The server displays an icon if there are current alerts, and the Machine Alerts pane lists the alerts. 
+Close *Logs** and return to the **Properties** pane and select **Alerts** to view alerts that alerts raised for the VM from health criteria. Map integrates with Azure Alerts to show fired alerts for the selected server in the selected time range. The server displays an icon if there are current alerts, and the Machine Alerts pane lists the alerts. 
 
 ![Machine alerts in Properties pane](./media/monitoring-vminsights-maps/properties-pane-alerts-01.png)
 
@@ -65,7 +65,7 @@ Failed connections are shown in the map for processes and computers, with a dash
 Understanding failed connections can help with troubleshooting, migration validation, security analysis, and understanding the overall architecture of the service. Failed connections are sometimes harmless, but they often point directly to a problem, such as a failover environment suddenly becoming unreachable, or two application tiers being unable to communicate with each other after a cloud migration.
 
 ### Client Groups
-Client Groups on the map represent client machines that do not have the Dependency agent installed. A single Client Group represents the clients for an individual process or machine.
+Client Groups on the map represent client machines that have connections into the mapped machine. A single Client Group represents the clients for an individual process or machine.
 
 ![Client Groups example on the map](./media/monitoring-vminsights-maps/map-group-client-groups-01.png)
 
@@ -73,10 +73,14 @@ To see the monitored clients and IP addresses of the systems in a Client Group, 
 
 ![Client group IP address list example on the map](./media/monitoring-vminsights-maps/map-group-client-group-iplist-01.png)
 
+If the group includes monitored and un-monitored clients, you can select the appropriate section of the doughnut chart on the group to filter the clients.
+
 ### Server Port Groups
-Server Port Groups represent server ports on servers that do not have the Dependency agent installed.  The group contains the server port and a count of the number of servers with connections to that port. Select the group to see the individual servers and connections listed. 
+Server Port Groups represent server ports on servers that have inbound connections from the mapped machine. The group contains the server port and a count of the number of servers with connections to that port. Select the group to see the individual servers and connections listed. 
 
 ![Server Port Group example on the map](./media/monitoring-vminsights-maps/map-group-server-port-groups-01.png)  
+
+If the group includes monitored and un-monitored servers, you can select the appropriate section of the doughnut chart on the group to filter the servers.
 
 ## View Map directly from a virtual machine 
 
