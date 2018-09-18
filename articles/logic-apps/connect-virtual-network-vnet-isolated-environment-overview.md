@@ -103,7 +103,7 @@ logic apps have direct access to those systems without the
 [on-premises data gateway](../logic-apps/logic-apps-gateway-install.md):
 
 * The on-premises system exists inside a VNET that's linked to your ISE.
-* The on-premises sysetm provides an ISE connector, for example, SQL Server.
+* The on-premises system provides an ISE connector, for example, SQL Server.
 
 Otherwise, for on-premises systems that don't have an ISE 
 connector or don't sit inside in your VNET, you still have to 
