@@ -15,7 +15,7 @@ ms.author: ankhanol
 
 # Access Azure Cosmos DB Cassandra API from Spark on YARN with HDInsight
 
-This article covers how to access Azure Cosmos DB Cassandra API from Spark on YARN with HDInsight-Spark from spark-shell. HDInsight is Microsoft's Hortonworks Hadoop PaaS on Azure that leverages object storage for HDFS, and comes in several flavors including [Spark](../hdinsight/spark/apache-spark-overview).  While the content in this document references HDInsight-Spark, it is applicable to all Hadoop distributions.  
+This article covers how to access Azure Cosmos DB Cassandra API from Spark on YARN with HDInsight-Spark from spark-shell. HDInsight is Microsoft's Hortonworks Hadoop PaaS on Azure that leverages object storage for HDFS, and comes in several flavors including [Spark](../hdinsight/spark/apache-spark-overview.md).  While the content in this document references HDInsight-Spark, it is applicable to all Hadoop distributions.  
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ This article covers how to access Azure Cosmos DB Cassandra API from Spark on YA
 
 * [Review the basics of connecting to Azure Cosmos DB Cassandra API](cassandra-spark-generic.md)
 
-* [Provision a HDInsight-Spark cluster](../hdinsight/spark/apache-spark-jupyter-spark-sql)
+* [Provision a HDInsight-Spark cluster](../hdinsight/spark/apache-spark-jupyter-spark-sql.md)
 
 * [Review the code samples for working with Cassandra API](cassandra-spark-generic.md#next-steps)
 
@@ -130,7 +130,7 @@ For automated processes in production, Spark programs are submitted to the clust
 
 ## Next steps
 
-* [How to build a Spark Scala program in an IDE and submit it to the HDInsight Spark cluster through Livy for execution](../hdinsight/spark/apache-spark-create-standalone-application)
+* [How to build a Spark Scala program in an IDE and submit it to the HDInsight Spark cluster through Livy for execution](../hdinsight/spark/apache-spark-create-standalone-application.md)
 
 * [How to connect to Azure Cosmos DB Cassandra API from a Spark Scala program](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-connector-sample/blob/master/src/main/scala/com/microsoft/azure/cosmosdb/cassandra/SampleCosmosDBApp.scala)
 

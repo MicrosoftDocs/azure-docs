@@ -23,7 +23,7 @@ This article covers how to access Azure Cosmos DB Cassandra API data from [Azure
 
 * [Review the basics of connecting to Azure Cosmos DB Cassandra API](cassandra-spark-generic.md)
 
-* [Provision an Azure Databricks cluster](../azure-databricks/quickstart-create-databricks-workspace-portal)
+* [Provision an Azure Databricks cluster](../azure-databricks/quickstart-create-databricks-workspace-portal.md)
 
 * [Review the code samples for working with Cassandra API](cassandra-spark-generic.md#next-steps)
 
