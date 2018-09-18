@@ -33,7 +33,7 @@ ds = ws.get_default_datastore()
 ```
 
 ### Register a datastore
-If you already have existing Azure Storage, you can register it as a datastore on your workspace. Azure ML provides the functionality to register an Azure Blob Container or Azure File Share as a datastore. All the register methods are on the `Datastore` class and have the form `register_azure_*`.
+If you already have existing Azure Storage, you can register it as a datastore on your workspace. Azure Machine Learning provides the functionality to register an Azure Blob Container or Azure File Share as a datastore. All the register methods are on the `Datastore` class and have the form `register_azure_*`.
 
 #### Azure Blob Container Datastore
 To register an Azure Blob Container datastore:
@@ -113,6 +113,8 @@ There are two supported ways to make your datastore available on the remote comp
     * Conversely, you can also upload data that was produced from your training run up to a datastore. For example, if your training script creates a `foo.pkl` file in the current working directory on the remote compute, you can specify for it to get uploaded to your datastore after the script has been run: `ds.as_upload(path_on_compute='./foo.pkl')`. This will upload the file to the root of your datastore.
     
 If you want to reference a specific folder or file in your datastore, you can use the datastore's **`path`** function. For example, if your datastore has a directory with relative path `./bar`, and you only want to download the contents of this folder to the compute target, you can do so as follows: `ds.path('./bar').as_download()`
+
+Any `ds` or `ds.path` object resolves to an environment variable name of the format `"$AZUREML_DATAREFERENCE_XXXX"` whose value represents the mount/download path on the remote compute. The datastore path on the remote compute might not be the same as the execution path for the script.
 
 To access your datastore during training, you can pass it into your training script as a command-line argument via `script_params`:
 
