@@ -14,42 +14,58 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2018
+ms.date: 09/18/2018
 ms.author: celested
 ms.reviewer: hirsin, jesakowi, justhu
 ms.custom: aaddev
 
 ---
-# Scopes, permissions, and consent in the Azure Active Directory v2.0 endpoint
+# Scopes, permissions, and consent in the v2.0 endpoint
 
-Apps that integrate with Azure Active Directory (Azure AD) follow an authorization model that gives users control over how an app can access their data. The v2.0 implementation of the authorization model has been updated, and it changes how an app must interact with Azure AD. This article covers the basic concepts of this authorization model, including scopes, permissions, and consent.
+Applications that integrate with Microsoft identity platform follow an authorization model that gives users and administrators control over how data can be accessed. The implementation of the authorization model has been updated on the v2.0 endpoint, and it changes how an app must interact with the Microsoft identity platform. This article covers the basic concepts of this authorization model, including scopes, permissions, and consent.
 
 > [!NOTE]
-> The v2.0 endpoint does not support all Azure Active Directory scenarios and features. To determine whether you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
+> The v2.0 endpoint does not support all scenarios and features. To determine whether you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
 
 ## Scopes and permissions
 
-Azure AD implements the [OAuth 2.0](active-directory-v2-protocols.md) authorization protocol. OAuth 2.0 is a method through which a third-party app can access web-hosted resources on behalf of a user. Any web-hosted resource that integrates with Azure AD has a resource identifier, or *Application ID URI*. For example, some of Microsoft's web-hosted resources include:
+The Microsoft identity platform implements the [OAuth 2.0](active-directory-v2-protocols.md) authorization protocol. OAuth 2.0 is a method through which a third-party app can access web-hosted resources on behalf of a user. Any web-hosted resource that integrates with the Microsoft identity platform has a resource identifier, or *Application ID URI*. For example, some of Microsoft's web-hosted resources include:
 
-* The Office 365 Unified Mail API: `https://outlook.office.com`
-* The Azure AD Graph API: `https://graph.windows.net`
 * Microsoft Graph: `https://graph.microsoft.com`
+* Office 365 Mail API: `https://outlook.office.com`
+* Azure AD Graph: `https://graph.windows.net`
 
-The same is true for any third-party resources that have integrated with Azure AD. Any of these resources also can define a set of permissions that can be used to divide the functionality of that resource into smaller chunks. As an example, [Microsoft Graph](https://graph.microsoft.io) has defined permissions to do the following tasks, among others:
+> [!NOTE]
+> We strongly recommend that you use Microsoft Graph instead of Azure AD Graph, Office 365 Mail API, etc.
+
+The same is true for any third-party resources that have integrated with the Microsoft identity platform. Any of these resources also can define a set of permissions that can be used to divide the functionality of that resource into smaller chunks. As an example, [Microsoft Graph](https://graph.microsoft.com) has defined permissions to do the following tasks, among others:
 
 * Read a user's calendar
 * Write to a user's calendar
 * Send mail as a user
 
-By defining these types of permissions, the resource has fine-grained control over its data and how the data is exposed. A third-party app can request these permissions from an app user. The app user must approve the permissions before the app can act on the user's behalf. By chunking the resource's functionality into smaller permission sets, third-party apps can be built to request only the specific permissions that they need to perform their function. App users can know exactly how an app will use their data, and they can be more confident that the app is not behaving with malicious intent.
+By defining these types of permissions, the resource has fine-grained control over its data and how API functionality is exposed. A third-party app can request these permissions from users and administrators, who must approve the request before the app can access data or act on a user's behalf. By chunking the resource's functionality into smaller permission sets, third-party apps can be built to request only the specific permissions that they need to perform their function. Users and administrators can know exactly what data the app has access to, and they can be more confident that it is not behaving with malicious intent. Developers should always abide by the concept of least privilege, asking for only the permissions they need for their applications to function.
 
-In Azure AD and OAuth, these types of permissions are called *scopes*. They also sometimes are referred to as *oAuth2Permissions*. A scope is represented in Azure AD as a string value. Continuing with the Microsoft Graph example, the scope value for each permission is:
+In OAuth, these types of permissions are called *scopes*. They also often simply referred to as *permissions*. A permission is represented in the Microsoft identity platform as a string value. Continuing with the Microsoft Graph example, the string value for each permission is:
 
 * Read a user's calendar by using `Calendars.Read`
 * Write to a user's calendar by using `Calendars.ReadWrite`
 * Send mail as a user using by `Mail.Send`
 
-An app can request these permissions by specifying the scopes in requests to the v2.0 endpoint.
+An app most commonly requests these permissions by specifying the scopes in requests to the v2.0 authorize endpoint. However, certain high privilege permissions can only be granted through administrator consent and generally requested/granted using the [administrator consent endpoint](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-scopes#admin-restricted-scopes). Read on to learn more.
+
+## Delegated permissions, Application permissions, and Effective permissions
+Microsoft Graph has two types of permissions: **delegated permissions** and **application permissions**.
+
+- **Delegated permissions** are used by apps that have a signed-in user present. For these apps either the user or an administrator consents to the permissions that the app requests and the app is delegated permission to act as the signed-in user when making calls to the target resource. Some delegated permissions can be consented to by non-administrative users, but some higher-privileged permissions require [administrator consent](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-scopes#admin-restricted-scopes).  
+
+- **Application permissions** are used by apps that run without a signed-in user present; for example, apps that run as background services or daemons.  Application permissions can only be [consented by an administrator](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant). 
+
+_Effective permissions_ are the permissions that your app will have when making requests to the target resource. It is important to understand the difference between the delegated and application permissions that your app is granted and its effective permissions when making calls to the target resource.
+
+- For delegated permissions, the _effective permissions_ of your app will be the least privileged intersection of the delegated permissions the app has been granted (via consent) and the privileges of the currently signed-in user. Your app can never have more privileges than the signed-in user. Within organizations, the privileges of the signed-in user may be determined by policy or by membership in one or more administrator roles. For more information about administrator roles, see [Assigning administrator roles in Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-assign-admin-roles).<br/><br/>For example, assume your app has been granted the _User.ReadWrite.All_ delegated permission. This permission nominally grants your app permission to read and update the profile of every user in an organization. If the signed-in user is a global administrator, your app will be able to update the profile of every user in the organization. However, if the signed-in user is not in an administrator role, your app will be able to update only the profile of the signed-in user. It will not be able to update the profiles of other users in the organization because the user that it has permission to act on behalf of does not have those privileges.
+  
+- For application permissions, the _effective permissions_ of your app will be the full level of privileges implied by the permission. For example, an app that has the _User.ReadWrite.All_ application permission can update the profile of every user in the organization. 
 
 ## OpenID Connect scopes
 
@@ -78,10 +94,10 @@ For more information about how to get and use refresh tokens, see the [v2.0 prot
 ## Accessing v1.0 resources
 v2.0 applications can request tokens and consent for v1.0 applications (such as the PowerBI API `https://analysis.windows.net/powerbi/api` or Sharepoint API `https://{tenant}.sharepoint.com`).  To do so, you can reference the app URI and scope string in the `scope` parameter.  For example, `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All` would request the PowerBI `View all Datasets` permission for your application. 
 
-To request multiple permissions, append the entire URI with a space or `+`, e.g. `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All+https://analysis.windows.net/powerbi/api/Report.Read.All`.  This requests both the `View all Datasets` and `View all Reports` permissions.  Note that as with all Azure AD scopes and permissions, applications can only make a request to one resource at a time - so the request `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All+https://api.skypeforbusiness.com/Conversations.Initiate`, which requests both the PowerBI `View all Datasets` permission and the Skype for Business `Initiate conversations` permission, will be rejected due to requesting permissions on two different resources.  
+To request multiple permissions, append the entire URI with a space or `+`, e.g. `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All+https://analysis.windows.net/powerbi/api/Report.Read.All`.  This requests both the `View all Datasets` and `View all Reports` permissions.  Note that as with all Microsoft identity platform scopes and permissions, applications can only make a request to one resource at a time - so the request `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All+https://api.skypeforbusiness.com/Conversations.Initiate`, which requests both the PowerBI `View all Datasets` permission and the Skype for Business `Initiate conversations` permission, will be rejected due to requesting permissions on two different resources.  
 
 ### v1.0 resources and tenancy
-Both the v1.0 and v2.0 Azure AD protocols use a `{tenant}` parameter embedded in the URI (`https://login.microsoftonline.com/{tenant}/oauth2/`).  When using the v2.0 endpoint to access a v1.0 organizational resource, the `common` and `consumers` tenants cannot be used, as these resources are only accessible with organizational (Azure AD) accounts.  Thus, when accessing these resources, only the tenant GUID or `organizations` can be used as the `{tenant}` parameter.  
+Both the v1.0 and v2.0 Microsoft identity platform protocols use a `{tenant}` parameter embedded in the URI (`https://login.microsoftonline.com/{tenant}/oauth2/`).  When using the v2.0 endpoint to access a v1.0 organizational resource, the `common` and `consumers` tenants cannot be used, as these resources are only accessible with organizational (Azure AD) accounts.  Thus, when accessing these resources, only the tenant GUID or `organizations` can be used as the `{tenant}` parameter.  
 
 If an application attempts to access an organizational v1.0 resource using an incorrect tenant, an error similar to the one below will be returned. 
 
@@ -104,40 +120,51 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.send
 &state=12345
 ```
 
-The `scope` parameter is a space-separated list of scopes that the app is requesting. Each scope is indicated by appending the scope value to the resource's identifier (the Application ID URI). In the request example, the app needs permission to read the user's calendar and send mail as the user.
+The `scope` parameter is a space-separated list of delegated permissions that the app is requesting. Each permission is indicated by appending the permission value to the resource's identifier (the Application ID URI). In the request example, the app needs permission to read the user's calendar and send mail as the user.
 
-After the user enters their credentials, the v2.0 endpoint checks for a matching record of *user consent*. If the user has not consented to any of the requested permissions in the past, the v2.0 endpoint asks the user to grant the requested permissions.
+After the user enters their credentials, the v2.0 endpoint checks for a matching record of *user consent*. If the user has not consented to any of the requested permissions in the past, nor has an administrator consented to these permissions on behalf of the entire organization, the v2.0 endpoint asks the user to grant the requested permissions.
 
 ![Work account consent](./media/v2-permissions-and-consent/work_account_consent.png)
 
-When the user approves the permission, the consent is recorded so that the user doesn't have to consent again on subsequent account sign-ins.
+When the user approves the permission request, consent is recorded and the user doesn't have to consent again on subsequent sign-ins to the application.
 
 ## Requesting consent for an entire tenant
 
-Often, when an organization purchases a license or subscription for an application, the organization wants to fully provision the application for its employees. As part of this process, an administrator can grant consent for the application to act on behalf of any employee. If the admin grants consent for the entire tenant, the organization's employees won't see a consent page for the application.
+Often, when an organization purchases a license or subscription for an application, the organization wants to proactively set up the application for use by all members of the organization. As part of this process, an administrator can grant consent for the application to act on behalf of any user in the tenant. If the admin grants consent for the entire tenant, the organization's users won't see a consent page for the application.
 
-To request consent for all users in a tenant, your app can use the admin consent endpoint.
+To request consent for delegated permissions for all users in a tenant, your app can use the admin consent endpoint.
 
-## Admin-restricted scopes
+Additionally, applications must use the admin consent endpoint to request Application Permissions.
 
-Some high-privilege permissions in the Microsoft ecosystem can be set to *admin-restricted*. Examples of these kinds of scopes include the following permissions:
+## Admin-restricted permissions
 
-* Read an organization's directory data by using `Directory.Read`
-* Write data to an organization's directory by using `Directory.ReadWrite`
-* Read security groups in an organization's directory by using `Groups.Read.All`
+Some high-privilege permissions in the Microsoft ecosystem can be set to *admin-restricted*. Examples of these kinds of permissions include the following:
+
+* Read all user's full profiles by using `User.Read.All`
+* Write data to an organization's directory by using `Directory.ReadWrite.All`
+* Read all groups in an organization's directory by using `Groups.Read.All`
 
 Although a consumer user might grant an application access to this kind of data, organizational users are restricted from granting access to the same set of sensitive company data. If your application requests access to one of these permissions from an organizational user, the user receives an error message that says they are not authorized to consent to your app's permissions.
 
 If your app requires access to admin-restricted scopes for organizations, you should request them directly from a company administrator, also by using the admin consent endpoint, described next.
 
-When an administrator grants these permissions via the admin consent endpoint, consent is granted for all users in the tenant.
+If the application is requesting high privilege delegated permissions and an administrator grants these permissions via the admin consent endpoint, consent is granted for all users in the tenant.
+
+If the application is requesting application permissions and an administrator grants these permissions via the admin consent endpoint, this grant is not done on behalf of any specific user. Instead, the client application is granted permissions *directly*. These types of permissions are generally only used by daemon servies and other non-interactive applications that run in the background.
 
 ## Using the admin consent endpoint
 
-If you follow these steps, your app can gather permissions for all users in a tenant, including admin-restricted scopes. To see a code sample that implements the steps, see the [admin-restricted scopes sample](https://github.com/Azure-Samples/active-directory-dotnet-admin-restricted-scopes-v2).
+When a Company Administrator uses your application and is directed to the authorize endpoint, Microsoft identity platform will detect the user's role and ask them if they would like to consent on behalf of the entire tenant for the permissions you have requested. However, there is also a dedicated admin consent endpoint you can use if you would like to proactively request that an administrator grants permission on behalf of the entire tenant. Using this endpoint is also necessary for requesting Application Permissions (which cannot be requested using the authorize endpoint).
+
+If you follow these steps, your app can request permissions for all users in a tenant, including admin-restricted scopes. This is a high privilege operation and should only be done if necessary for your scenario.
+
+To see a code sample that implements the steps, see the [admin-restricted scopes sample](https://github.com/Azure-Samples/active-directory-dotnet-admin-restricted-scopes-v2).
 
 ### Request the permissions in the app registration portal
 
+The admin consent does not accept a scope parameter, so any permissions being requested must be statically defined in the application's registration. In general it is best practice to ensure that the permissions statically defined for a given application are a superset of the permissions that it will be requesting dynamically/incrementally.
+
+To configure the list of statically requested permissions for an application: 
 1. Go to your application in the [Application Registration Portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), or [create an app](quickstart-v2-register-an-app.md) if you haven't already.
 2. Locate the **Microsoft Graph Permissions** section, and then add the permissions that your app requires.
 3. **Save** the app registration.
@@ -229,3 +256,7 @@ Content-Type: application/json
 You can use the resulting access token in HTTP requests to the resource. It reliably indicates to the resource that your app has the proper permission to perform a specific task. 
 
 For more information about the OAuth 2.0 protocol and how to get access tokens, see the [v2.0 endpoint protocol reference](active-directory-v2-protocols.md).
+
+## Troubleshooting
+
+If you or your application's users are seeing unexpected errors during the consent process, please reference this article for troubleshooting steps: [Unexpected error when performing consent to an application](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/application-sign-in-unexpected-user-consent-error).
