@@ -1,17 +1,19 @@
 ﻿---
-title: Call the Emotion API for Video | Microsoft Docs
+title: "Example: Call the Emotion API for Video"
+titlesuffix: Azure Cognitive Services
 description: Learn how to call the Emotion API for Video in Cognitive Services.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: sample
 ms.date: 02/06/2017
 ms.author: anroth
 ---
 
-# How to Call Emotion API for Video
+# Example: Call Emotion API for Video
 
 > [!IMPORTANT]
 > Video API Preview will end on October 30th, 2017. Try the new [Video Indexer API Preview](https://azure.microsoft.com/services/cognitive-services/video-indexer/) to easily extract insights from 
