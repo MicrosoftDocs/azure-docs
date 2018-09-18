@@ -12,158 +12,67 @@ ms.author: marsma
 
 # Tutorial: Automate container image build, test, and push with multi-step tasks
 
-ACR Tasks, a feature of Azure Container Registry, provides step-based task definition and execution for building, testing, and patching container images in the cloud. Task steps define individual container image build and push operations. They can also define the execution of one or more containers, with each step using the container as its execution environment.
+Multi-step tasks extend the single image build-and-push capability of ACR Tasks to enable multi-step, multi-container-based workflows. With multi-step tasks, you can build and push several images, in series or in parallel, and run those images as functions within a single task run. Each step of a task is run in the cloud using Azure's compute resources,
 
-For example, you can run a task with steps that automate the following:
+In this tutorial, the last in the series:
 
-1. Build a web application image
-1. Run the web application container
-1. Build a web application test image
-1. Run the web application test container which performs tests against the running application container
-1. If the tests pass, build a Helm package
-1. Perform a `helm upgrade` using the new Helm package
+> [!div class="checklist"]
+> * Define a multi-step task in `acr-task.yaml`
+> * Perform a quick run of the multi-step task
+> * Create a commit trigger-based multi-step task
+> * Trigger the multi-step task with a Git commit
+> * View the results of both task runs
 
-All steps are performed within Azure, offloading the work to Azure's compute resources and freeing you from infrastructure management. Besides your Azure container registry, there is no separate service to sign up for, and you pay only for the resources you use. For information on pricing, see the **Container Build** section in [Azure Container Registry pricing][pricing].
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+If you'd like to use the Azure CLI locally, you must have the Azure CLI version **2.0.46** or later installed. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI][azure-cli].
 
 > [!IMPORTANT]
-> This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
+> The multi-step tasks feature of ACR Tasks is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
 
-## ACR Build or ACR Tasks?
+## Prerequisites
 
-[ACR Build](container-registry-build-overview.md) is the precursor to ACR Tasks. Its focus is on a single step that builds a container image and then optionally pushes it to your registry. ACR Build is generally available (GA), and is appropriate for use in your production workflows.
+To complete this tutorial, need a private Docker registry in Azure Container Registry. If you need one, see [Quickstart - Create a private Docker registry in Azure with the Azure CLI](container-registry-get-started-azure-cli.md).
 
-ACR Tasks extends ACR Build's functionality. It includes the ability to split the building, running, and testing of an image into more composable steps, and adds dependency support. With ACR Tasks, you have more granular control over image building, testing, and OS and framework patching workflows.
+## Create a task file
 
-You can keep using ACR Build as you are now. Its functionality will remain intact and available for use when ACR Tasks enters general availability.
+Multi-step tasks in ACR Tasks are defined in plain text files using standard YAML syntax. This tutorial uses `acr-task.yaml` as the file name for task definition, but you can use any filename for your task files as long as they have a *.yaml or *.yml suffix.
 
-## Common task scenarios
-
-ACR Tasks enables scenarios like the following:
-
-* Build, tag, and push one or more container images, in series or in parallel.
-* Run and capture unit test and code coverage results.
-* Run and capture functional tests. ACR Tasks supports running multiple containers, executing a series of requests between them.
-* Perform task-based execution, including pre/post steps of a container image build.
-* Deploy one or more containers with your favorite deployment engine to your target environment.
-
-## Tasks
-
-ACR Tasks are defined as a series of steps within a YAML file. Each step can specify dependencies on the successful completion of one or more previous steps. The following task step types are available:
-
-* [`build`](container-registry-tasks-reference-yaml.md#build): Build one or more container images using familiar `docker build` syntax, in series or in parallel.
-* [`push`](container-registry-tasks-reference-yaml.md#push): Push built images to a container registry. Private registries like Azure Container Registry are supported, as is the public Docker Hub.
-* [`cmd`](container-registry-tasks-reference-yaml.md#cmd): Run a container, such that it can operate as a function within the context of the running task. You can pass parameters to the container's `[ENTRYPOINT]`, and specify properties like env, detach, and other familiar `docker run` parameters. The `cmd` step type enables unit and functional testing, with concurrent container execution.
-
-ACR Tasks can be as simple as building and pushing a single image:
+Create a new file named `acr-task.yaml` and copy the following YAML into it.
 
 ```yaml
 version: 1.0-preview-1
 steps:
-  - build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} .
-  - push: ["{{.Run.Registry}}/hello-world:{{.Run.ID}}"]
+  - build: -t {{.Run.Registry}}/taskmultistep:{{.Run.ID}} -f Dockerfile .
+  - push: ["{{.Run.Registry}}/taskmultistep:{{.Run.ID}}"]
 ```
 
-Or more complex, such as this task which includes steps for build, test, helm package, and helm deploy:
+This `acr-task.yaml` includes one global property, `version`, that applies the full run of the task, and two steps, `build` and `push`. There is one other step type, `cmd`, that runs a container as a function in your task. The `cmd` step type is discussed later in this tutorial.
 
-```yaml
-version: 1.0-preview-1
-steps:
-  - id: build-web
-    build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} .
-    when: ["-"]
-  - id: build-tests
-    build -t {{.Run.Registry}}/hello-world-tests ./funcTests
-    when: ["-"]
-  - id: push
-    push: ["{{.Run.Registry}}/helloworld:{{.Run.ID}}"]
-    when: ["build-web", "build-tests"]
-  - id: hello-world-web
-    cmd: {{.Run.Registry}}/helloworld:{{.Run.ID}}
-  - id: funcTests
-    cmd: {{.Run.Registry}}/helloworld:{{.Run.ID}}
-    env: ["host=helloworld:80"]
-  - cmd: {{.Run.Registry}}/functions/helm package --app-version {{.Run.ID}} -d ./helm ./helm/helloworld/
-  - cmd: {{.Run.Registry}}/functions/helm upgrade helloworld ./helm/helloworld/ --reuse-values --set helloworld.image={{.Run.Registry}}/helloworld:{{.Run.ID}}
+## Run the multi-step task
+
+Now that you've defined your task, perform a quick run by executing the following `az acr run` command:
+
+```azurecli-interactive
+az acr run -r $ACR_NAME -f acr-task.yaml .
 ```
 
-## Run a sample task
+## Clean up resources
 
-Tasks support both manual execution, called a "quick run," and automated execution on Git commit or base image update.
+To remove all resources you've created in this tutorial series, including the container registry, container instance, key vault, and service principal, issue the following commands:
 
-To run a task, you first define the task's steps in a YAML file, then execute the Azure CLI command [az acr run][az-acr-run].
-
-Here's an example Azure CLI command that runs a task using a sample task YAML file. Its steps build and then push an image. Update `myregistry` with the name of your own Azure container registry before running the command.
-
-```azurecli
-az acr run --registry myregistry -f build-push-hello-world.yaml https://github.com/Azure-Samples/acr-tasks.git
+```azurecli-interactive
+az group delete --resource-group $RES_GROUP
+az ad sp delete --id http://$ACR_NAME-pull
 ```
 
-When you run the task, the output should show the progress of each step defined in the YAML file. In the following output, the steps appear as `acb_step_0` and `acb_step_1`.
-
-```console
-$ az acr run --registry myregistry -f build-push-hello-world.yaml https://github.com/Azure-Samples/acr-tasks.git
-Sending context to registry: myregistry...
-Queued a run with ID: yd14
-Waiting for an agent...
-2018/09/12 20:08:44 Using acb_vol_0467fe58-f6ab-4dbd-a022-1bb487366941 as the home volume
-2018/09/12 20:08:44 Creating Docker network: acb_default_network
-2018/09/12 20:08:44 Successfully set up Docker network: acb_default_network
-2018/09/12 20:08:44 Setting up Docker configuration...
-2018/09/12 20:08:45 Successfully set up Docker configuration
-2018/09/12 20:08:45 Logging in to registry: myregistry.azurecr-test.io
-2018/09/12 20:08:46 Successfully logged in
-2018/09/12 20:08:46 Executing step: acb_step_0
-2018/09/12 20:08:46 Obtaining source code and scanning for dependencies...
-2018/09/12 20:08:47 Successfully obtained source code and scanned for dependencies
-Sending build context to Docker daemon  109.6kB
-Step 1/1 : FROM hello-world
- ---> 4ab4c602aa5e
-Successfully built 4ab4c602aa5e
-Successfully tagged myregistry.azurecr-test.io/hello-world:yd14
-2018/09/12 20:08:48 Executing step: acb_step_1
-2018/09/12 20:08:48 Pushing image: myregistry.azurecr-test.io/hello-world:yd14, attempt 1
-The push refers to repository [myregistry.azurecr-test.io/hello-world]
-428c97da766c: Preparing
-428c97da766c: Layer already exists
-yd14: digest: sha256:1a6fd470b9ce10849be79e99529a88371dff60c60aab424c077007f6979b4812 size: 524
-2018/09/12 20:08:55 Successfully pushed image: myregistry.azurecr-test.io/hello-world:yd14
-2018/09/12 20:08:55 Step id: acb_step_0 marked as successful (elapsed time in seconds: 2.035049)
-2018/09/12 20:08:55 Populating digests for step id: acb_step_0...
-2018/09/12 20:08:57 Successfully populated digests for step id: acb_step_0
-2018/09/12 20:08:57 Step id: acb_step_1 marked as successful (elapsed time in seconds: 6.832391)
-The following dependencies were found:
-- image:
-    registry: myregistry.azurecr-test.io
-    repository: hello-world
-    tag: yd14
-    digest: sha256:1a6fd470b9ce10849be79e99529a88371dff60c60aab424c077007f6979b4812
-  runtime-dependency:
-    registry: registry.hub.docker.com
-    repository: library/hello-world
-    tag: latest
-    digest: sha256:0add3ace90ecb4adbf7777e9aacf18357296e799f81cabc9fde470971e499788
-  git: {}
-
-
-Run ID: yd14 was successful after 19s
-```
-
-For more information about automated builds on Git commit or base image update, see the [Automate image builds](container-registry-tutorial-build-task.md) and [Base image update builds](container-registry-tutorial-base-image-update.md) tutorial articles.
-
-## Preview feedback
+## Next steps
 
 We invite you to provide feedback while you use the ACR Tasks preview. Several feedback channels are available:
 
 * [Issues](https://aka.ms/acr/issues) - View existing bugs and issues, and log new ones
 * [UserVoice](https://aka.ms/acr/uservoice) - Vote on existing feature requests or create new requests
 * [Discuss](https://aka.ms/acr/feedback) - Engage in Azure Container Registry discussion with the Stack Overflow community
-
-## Next steps
-
-You can find task reference and examples here:
-
-* [Task reference](container-registry-tasks-reference-yaml.md) - Task step types, their properties, and usage.
-* [Task examples][task-examples] - Example `task.yaml` files for several scenarios, simple to complex.
 
 <!-- IMAGES -->
 
