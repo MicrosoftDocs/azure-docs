@@ -23,6 +23,14 @@ sections:
   - type: list
     style: icon48
     items: 
+    - image:
+        src: https://docs.microsoft.com/media/common/Chart.svg
+      text: Monitor metrics
+      href: /azure/monitoring-and-diagnostics/monitor-quick-resource-metric-alert-portal
+    - image:
+        src: /azure/azure-monitor/media/index/log-analytics.svg
+      text: Analyze logs
+      href: /azure/log-analytics/query-language/get-started-analytics-portal
     - image: 
         src: https://docs.microsoft.com/azure/media/index/virtualmachine.svg
       text: Azure VMs
@@ -35,10 +43,7 @@ sections:
         src: https://docs.microsoft.com/media/logos/logo_Windows.svg
       text: Windows computer
       href: /azure/log-analytics/log-analytics-quick-collect-windows-computer
-    - image:
-        src: https://docs.microsoft.com/media/common/Chart.svg
-      text: Monitor metrics
-      href: monitor-quick-resource-metric-alert-portal
+
     - image: 
         src: https://docs.microsoft.com/media/common/i_alert.svg
       text: Subscription Audit and Alerts
