@@ -39,7 +39,7 @@ Azure Data Explorer has the following roles:
 
 1. In the **Overview** section, select **Access control (IAM)**.
 
-1. Under **Manage**, select **Role assignment**, then **Add**.
+1. Select **Add**.
 
 1. Under **Add permissions**, select the role that you want to assign the principal to.
 
