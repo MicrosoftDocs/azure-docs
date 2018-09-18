@@ -41,7 +41,7 @@ The following steps configure the allocation policy for a device's enrollment:
     
     * **Evenly weighted distribution**: This policy distributes devices across the linked IoT Hubs based on the allocation weight assigned to each linked IoT hub. This policy allows you to load balance devices across a group of linked hubs based on the allocation weights set on those hubs. If you are provisioning devices to only one IoT Hub, we recommend this setting. This setting is the default. 
     
-    * **Static configuration (via enrollment list only)**: This policy requires a desired IoT Hub be listed in the enrollment entry for a device to be provisioned. This policy allows you to designate a single specific IoT hub that you want to assign devices to.
+    * **Static configuration**: This policy requires a desired IoT Hub be listed in the enrollment entry for a device to be provisioned. This policy allows you to designate a single specific IoT hub that you want to assign devices to.
 
 4. Under **Select the IoT hubs this group can be assigned to**, select the linked IoT hubs that you want included with your allocation policy. Optionally, add a new linked Iot hub using the **Link a new IoT Hub** button.
 
@@ -49,7 +49,7 @@ The following steps configure the allocation policy for a device's enrollment:
 
     With the **Evenly weighted distribution** allocation policy, devices will be load balanced across the hubs you select based on their configured allocation weights and their current device load.
 
-    With the **Static configuration (via enrollment list only)** allocation policy, select the IoT hub you want devices assigned to.
+    With the **Static configuration** allocation policy, select the IoT hub you want devices assigned to.
 
 4. Click **Save**, or proceed to the next section to set the reprovisioning policy.
 
