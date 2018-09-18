@@ -37,6 +37,7 @@
   - name: Disk encryption
     items:
     - name: Best practices
+      displayName: transit
       href: azure-security-data-encryption-best-practices.md
     - name: Data encryption-at-rest
       href: azure-security-encryption-atrest.md
@@ -112,12 +113,16 @@
     href: security-identity-management-overview.md
     items:
     - name: Choose Azure AD authentication
+      displayName: identity
       href: azure-ad-choose-authn.md
     - name: Security checklist
+      displayName: identity
       href: azure-ad-secure-steps.md
     - name: Best practices
+      displayName: password, identity
       href: azure-security-identity-management-best-practices.md
     - name: Enforce MFA on subscription administrators
+      displayName: identity
       href: azure-security-global-admin.md
   - name: Network security
     href: security-network-overview.md
@@ -175,6 +180,7 @@
       - name: Integrate Security Center alerts
         href: security-azure-log-integration-security-center.md
       - name: Integrate logs from Key Vault
+        displayName: keyvault
         href: security-azure-log-integration-keyvault-eventhub.md
       - name: FAQ
         href: security-azure-log-integration-faq.md
@@ -245,7 +251,7 @@
       - name: PaaS web application
         href: ./blueprints/nist171-paaswa-overview.md
   - name: PCI DSS
-    displayName: blueprint, pci
+    displayName: blueprint
     items:
     - name: Data analytics
       href: ./blueprints/pcidss-analytics-overview.md
