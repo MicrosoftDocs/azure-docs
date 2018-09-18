@@ -62,12 +62,16 @@ ExpressRoute Direct supports both QinQ and Dot1Q VLAN tagging.
 
 * **QinQ VLAN Tagging** allows for isolated routing domains on a per ExpressRoute circuit basis. Azure dynamically allocates an S-Tag at circuit creation and cannot be changed. Each peering on the circuit (Private and Microsoft) will utilize a unique C-Tag as the VLAN. The C-Tag is not required to be unique across circuits on the ExpressRoute Direct ports. 
 
-* **Dot1Q VLAN Tagging** allows for a single tagged VLAN on a per ExpressRoute Direct port pair basis. A C-Tag used on a peering must be unique across all circuits and peerings on the ExpressRoute Direct port pair. 
+* **Dot1Q VLAN Tagging** allows for a single tagged VLAN on a per ExpressRoute Direct port pair basis. A C-Tag used on a peering must be unique across all circuits and peerings on the ExpressRoute Direct port pair.
+
+## Workflow
+
+![workflow](./media/expressroute-erdirect-about/workflow1.png)
 
 ## SLA
 
 ExpressRoute Direct provides the same enterprise-grade SLA with Active/Active redundant connections into the Microsoft Global Network. ExpressRoute infrastructure is redundant and connectivity into the Microsoft Global Network is redundant and diverse and scales accordingly with customer requirements. During preview, there will be no SLA and should be considered only for non-production workloads.
 
-## Next Steps
+## Next steps
 
 [Configure ExpressRoute Direct](expressroute-how-to-erdirect.md)
