@@ -147,7 +147,7 @@ Select **Columns** at the top of the page to select which columns to display.
 ## Alert detail page
 The Alert detail page is displayed when you select an alert. It provides details of the alert and enables you to change its state.
 
-![Alert detail](media/monitoring-overview-alerts/alert-detail.png)
+![Alert detail](media/monitoring-overview-alerts/alert-detail2.png)
 
 The Alert detail page includes the following sections.
 
