@@ -33,7 +33,7 @@ An Azure IoT Edge device:
    | Windows 10 IoT Core (October update) | AMD64 |
    | Windows 10 IoT Enterprise (October update) | AMD64 |
    | Windows Server 2019 | AMD64 |
-   | Rasbian Stretch | ARM32 |
+   | Raspbian Stretch | ARM32 |
 
 Cloud resources:
 
@@ -44,8 +44,8 @@ Cloud resources:
 
 Azure Blob Storage on IoT Edge provides three standard container images, two for Linux containers (AMD64 and ARM32 architectures) and one for Windows containers (AMD64). When you use one of these module images to deploy blob storage to your IoT Edge device, you provide three pieces of information to configure the module instance for your device:
 
-* An **account name** and **account key**. To stay consistent with Azure Storage, blob storage modules use account names and account keys to manage access. Account names should be three to twenty-four characters long, with lowecase letters and numbers. Account keys should be base64 encoded and 64 bytes in length. You can generate a key with tools like [GeneratePlus](https://generate.plus/en/base64).
-* A **local folder path**. The blob storage module stores blobs locally on the IoT Edge device, so that the blobs persist if the module stops or restarts. You need to declare an existing folder path where the blobs should be stored on your device. 
+* An **account name** and **account key**. To stay consistent with Azure Storage, blob storage modules use account names and account keys to manage access. Account names should be three to twenty-four characters long, with lowercase letters and numbers. Account keys should be base64 encoded and 64 bytes in length. You can generate a key with tools like [GeneratePlus](https://generate.plus/en/base64).
+* A **local folder path**. The blob storage module stores blobs locally on the IoT Edge device, so that the blobs persist if the module stops or restarts. Declare an existing folder path where the blobs should be stored on your device. 
 
 There are several ways to deploy modules to an IoT Edge device, and all of them work for Azure Blob Storage on IoT Edge modules. The two simplest methods are to use the Azure portal or Visual Studio Code templates. 
 
@@ -159,7 +159,7 @@ Visual Studio Code takes the information that you provided in deployment.templat
 
 You can use the account name and account key that you configured for your module to access the blob storage on your IoT Edge device. 
 
-You need to specify your IoT Edge device as the blob endpoint for any storage requests that you make to it. You can [Create a connection string for an explicit storage endpoint](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-explicit-storage-endpoint) using the IoT Edge device information and the account name that you configured. 
+Specify your IoT Edge device as the blob endpoint for any storage requests that you make to it. You can [Create a connection string for an explicit storage endpoint](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-explicit-storage-endpoint) using the IoT Edge device information and the account name that you configured. 
 
 If you're accessing the blob service remotely, or from an application running on your IoT Edge device, the blob endpoint is `https://<IoT Edge device IP address>:11002/<account name>`. If you're accessing the blob service from another IoT Edge module deployed on the same device, the blob endpoint is `https://<module name>/<account name>`. The module name is case-sensitive. 
 
