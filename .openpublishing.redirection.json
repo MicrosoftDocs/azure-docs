@@ -242,6 +242,41 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/machine-learning/service/how-to-improve-accuracy-for-computer-vision-models.md",
+            "redirect_url": "/azure/machine-learning/desktop-workbench/how-to-improve-accuracy-for-computer-vision-models",
+            "redirect_document_id": true
+        },        
+        {
+            "source_path": "articles/machine-learning/service/reference-python-package-overview.md",
+            "redirect_url": "/azure/machine-learning/desktop-workbench/reference-python-package-overview",
+            "redirect_document_id": true
+        },        
+        {
+            "source_path": "articles/machine-learning/service/how-to-build-deploy-forecast-models.md",
+            "redirect_url": "/azure/machine-learning/desktop-workbench/how-to-build-deploy-forecast-models",
+            "redirect_document_id": true
+        },        
+        {
+            "source_path": "articles/machine-learning/service/how-to-build-deploy-image-classification-models.md",
+            "redirect_url": "/azure/machine-learning/desktop-workbench/how-to-build-deploy-image-classification-models",
+            "redirect_document_id": true
+        },        
+        {
+            "source_path": "articles/machine-learning/service/how-to-build-deploy-image-similarity-models.md",
+            "redirect_url": "/azure/machine-learning/desktop-workbench/how-to-build-deploy-image-similarity-models",
+            "redirect_document_id": true
+        },        
+        {
+            "source_path": "articles/machine-learning/service/how-to-build-deploy-object-detection-models.md",
+            "redirect_url": "/azure/machine-learning/desktop-workbench/how-to-build-deploy-object-detection-models",
+            "redirect_document_id": true
+        },        
+        {
+            "source_path": "articles/machine-learning/service/how-to-build-deploy-text-classification-models.md",
+            "redirect_url": "/azure/machine-learning/desktop-workbench/how-to-build-deploy-text-classification-models",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/machine-learning/desktop-workbench/data-prep-operationalization.md",
             "redirect_url": "/azure/machine-learning/preview/data-prep-python-extensibility-overview",
             "redirect_document_id": true
@@ -263,7 +298,7 @@
         },
         {
             "source_path": "articles/machine-learning/preview/known-issues-and-troubleshooting-guide.md",
-            "redirect_url": "/azure/machine-learning/service/known-issues-and-troubleshooting-guide",
+            "redirect_url": "/azure/machine-learning/desktop-workbench/known-issues-and-troubleshooting-guide",
             "redirect_document_id": true
         },
         {
@@ -284,7 +319,7 @@
         {
             "source_path": "articles/machine-learning/preview/quickstart-installation.md",
             "redirect_url": "/azure/machine-learning/service/quickstart-installation",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/machine-learning/preview/scenario-aerial-image-classification.md",
@@ -452,6 +487,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/machine-learning/desktop-workbench/overview-general-concepts.md",
+            "redirect_url": "/azure/machine-learning/service/concept-azure-machine-learning-architecture",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/machine-learning/preview/quickstart-visual-studio-code-tools.md",
             "redirect_url": "/azure/machine-learning/desktop-workbench/quickstart-visual-studio-code-tools",
             "redirect_document_id": true
@@ -504,6 +544,11 @@
         {
             "source_path": "articles/machine-learning/preview/azure-machine-learning-release-notes.md",
             "redirect_url": "/azure/machine-learning/desktop-workbench/azure-machine-learning-release-notes",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/machine-learning/desktop-workbench/azure-machine-learning-release-notes.md",
+            "redirect_url": "/azure/machine-learning/service/azure-machine-learning-release-notes",
             "redirect_document_id": true
         },
         {
@@ -9460,7 +9505,7 @@
         },
         {
             "source_path": "articles/machine-learning/preview/quick-start-installation.md",
-            "redirect_url": "/azure/machine-learning/preview/quickstart-installation",
+            "redirect_url": "/azure/machine-learning/service/quickstart-installation",
             "redirect_document_id": false
         },
         {
@@ -23888,11 +23933,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/machine-learning/desktop-workbench/known-issues-and-troubleshooting-guide.md",
-            "redirect_url": "/azure/machine-learning/service/known-issues-and-troubleshooting-guide",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/machine-learning/desktop-workbench/overview-more-machine-learning.md",
             "redirect_url": "/azure/machine-learning/service/overview-more-machine-learning",
             "redirect_document_id": false
@@ -23900,11 +23940,6 @@
         {
             "source_path": "articles/machine-learning/desktop-workbench/overview-what-is-azure-ml.md",
             "redirect_url": "/azure/machine-learning/service/overview-what-is-azure-ml",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/quickstart-installation.md",
-            "redirect_url": "/azure/machine-learning/service/quickstart-installation",
             "redirect_document_id": false
         },
         {

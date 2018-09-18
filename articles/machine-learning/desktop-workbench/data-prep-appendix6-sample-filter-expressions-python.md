@@ -13,9 +13,15 @@ ms.custom:
 ms.devlang: 
 ms.topic: article 
 ms.date: 02/01/2018
+
+ROBOTS: NOINDEX
 ---
 
 # Sample of filter expressions (Python) 
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 Before you read this appendix, read [Python extensibility overview](data-prep-python-extensibility-overview.md).
 
 ## Filter with equivalence test

@@ -13,9 +13,15 @@ ms.custom:
 ms.devlang: 
 ms.topic: article 
 ms.date: 02/01/2018
+
+ROBOTS: NOINDEX
 ---
 
 # Sample of custom data flow transforms (Python) 
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 The name of the transform in the menu is **Transform Dataflow (Script)**. Before you read this appendix, read [Python extensibility overview](data-prep-python-extensibility-overview.md).
 
 ## Transform frame

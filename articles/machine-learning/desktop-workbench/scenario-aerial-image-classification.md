@@ -11,9 +11,16 @@ ms.component: core
 services: machine-learning
 ms.workload: data-services
 ms.date: 12/13/2017
+
+ROBOTS: NOINDEX
 ---
 
+
 # Aerial Image Classification
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 This example demonstrates how to use Azure Machine Learning Workbench to coordinate distributed training and operationalization of image classification models. We use two approaches for training: (i) refining a deep neural network using an [Azure Batch AI](https://docs.microsoft.com/azure/batch-ai/) GPU cluster, and (ii) using the [Microsoft Machine Learning for Apache Spark (MMLSpark)](https://github.com/Azure/mmlspark) package to featurize images using pretrained CNTK models and to train classifiers using the derived features. We then apply the trained models in parallel fashion to large image sets in the cloud using an [Azure HDInsight Spark](https://azure.microsoft.com/services/hdinsight/apache-spark/) cluster, allowing us to scale the speed of training and operationalization by adding or removing worker nodes.
 
@@ -56,7 +63,7 @@ The following instructions guide you through the process of setting up execution
        - If you have fewer cores available, you may modify the HDInsight cluster template to decrease the number of workers provisioned. Instructions for this appear under the "Create the HDInsight Spark cluster" section.
     - This sample creates a Batch AI Training cluster with two NC6 (1 GPU, 6 vCPU) VMs. Ensure that your account has enough available cores in the East US region by reviewing the "Usage + quotas" tab for your subscription in Azure portal.
 - [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md)
-    - Follow the [Install and create Quickstart](../service/quickstart-installation.md) to install the Azure Machine Learning Workbench and create Experimentation and Model Management Accounts.
+    - Follow the [Install and create Quickstart](../desktop-workbench/quickstart-installation.md) to install the Azure Machine Learning Workbench and create Experimentation and Model Management Accounts.
 - [Batch AI](https://github.com/Azure/BatchAI) Python SDK and Azure CLI
     - Complete the following sections in the [Batch AI Recipes README](https://github.com/Azure/BatchAI/tree/master/recipes):
         - "Prerequisites"

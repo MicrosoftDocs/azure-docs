@@ -41,7 +41,7 @@ An Azure IoT Edge device:
 Cloud resources:
 
 * A standard-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure. 
-* An Azure Machine Learning account. Follow the instructions in [Create Azure Machine Learning accounts and install Azure Machine Learning Workbench](../machine-learning/service/quickstart-installation.md#create-azure-machine-learning-services-accounts). You do not need to install the workbench application for this tutorial. 
+* An Azure Machine Learning account. Follow the instructions in [Create Azure Machine Learning accounts and install Azure Machine Learning Workbench](../machine-learning/desktop-workbench/quickstart-installation.md). You do not need to install the workbench application for this tutorial. 
 
 Development resources:
 

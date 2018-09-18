@@ -11,8 +11,12 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017 
+
+ROBOTS: NOINDEX
 ---
 # Azure Machine Learning frequently asked questions
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
 
 Azure Machine Learning is a fully managed Azure service that allows you to create, test, manage, and deploy machine learning and AI models. Our services and downloadable application offer a code-first approach that leverages the cloud, on-premises, and edge to provide the train, deploy, manage, and monitor models with power, speed, and flexibility. Alternatively, Azure Machine Learning Studio offers a browser-based, visual drag-and-drop authoring environment where no coding is required. 
 
@@ -25,10 +29,6 @@ Azure Blob Storage and Azure Container Registry are used by Azure Machine Learni
 **How does Azure Machine Learning relate to Microsoft Machine Learning Services in SQL Server 2017?**	
 
 Machine Learning Services in SQL Server 2017 is an extensible, scalable platform for integrating machine learning tasks into database workflows. It is a perfect fit for scenarios where an on-premises solution is required, for example where data movement is expensive or untenable. In contrast, cloud or hybrid workloads are a great fit for our new Azure services. 
-
-**Do you support both Python and R? What about other programming languages like C++**
-
-We currently support Python only. We are working on R integration and expect to have it available soon. 
 
 **How does Azure Machine Learning relate to Microsoft Machine Learning for Spark?**
 
@@ -167,4 +167,4 @@ Our preview products and services include the best of the open source community.
 
 **How does Azure Machine Learning relate to the Microsoft Cognitive Toolkit?**
 
-The [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/) is one of many frameworks supported by our new tools and services. The Cognitive Toolkit is a unified deep-learning toolkit that allows you to consume and combine popular machine learning models including Feed-Forward Deep Neural Networks, Convolutional Nets, Sequence-to-Sequence, and Recurrent Networks. For more information on Microsoft Cognitive Toolkit, visit our [product documentation](https://docs.microsoft.com/cognitive-toolkit/). 
+The [Microsoft Cognitive Toolkit](https://www.microsoft.com/cognitive-toolkit/) is one of many frameworks supported by our new tools and services. The Cognitive Toolkit is a unified deep-learning toolkit that allows you to consume and combine popular machine learning models including Feed-Forward Deep Neural Networks, Convolutional Nets, Sequence-to-Sequence, and Recurrent Networks. For more information on Microsoft Cognitive Toolkit, visit our [product documentation](https://docs.microsoft.com/cognitive-toolkit/). 

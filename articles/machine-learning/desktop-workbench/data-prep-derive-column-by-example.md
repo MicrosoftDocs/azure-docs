@@ -12,10 +12,16 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
+
+ROBOTS: NOINDEX
 ---
 
 
 # Derive column by example transformation
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 The **Derive Column by Example** transform enables users to create a derivative of one or more existing columns using user provided examples of the derived result. The derivative can be any combination of the supported String, Date, and Number transformations. 
 

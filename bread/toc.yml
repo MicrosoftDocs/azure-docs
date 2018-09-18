@@ -407,7 +407,7 @@
     tocHref: /azure/machine-learning/
     topicHref: /azure/machine-learning/
     items:
-      - name: Services (preview)
+      - name: Service
         tocHref: /azure/machine-learning/service
         topicHref: /azure/machine-learning/service/
       - name: Studio
