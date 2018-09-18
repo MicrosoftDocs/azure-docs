@@ -17,7 +17,7 @@ ms.date: 11/15/2017
 
 This article describes how to plan your Azure Time Series Insights environment based on your expected ingress rate and your data retention requirements.
 
-## Video: 
+## Video:
 
 ### In this video, we cover Time Series Insights data retention and how to plan for it.</br>
 
