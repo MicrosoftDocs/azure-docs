@@ -298,6 +298,28 @@
           href: cassandra-api-query-data.md
         - name: 4 - Migrate data
           href: cassandra-import-data.md
+      - name: Cassandra & Spark
+        items:
+        - name: Introduction
+          href: cassandra-spark-generic.md
+        - name: Connect using Databricks
+          href: cassandra-spark-databricks.md
+        - name: Connect using HDInsight
+          href: cassandra-spark-hdinsight.md
+        - name: Create keyspace & table
+          href: cassandra-spark-ddl-ops.md
+        - name: Insert data
+          href: cassandra-spark-create-ops.md
+        - name: Read data
+          href: cassandra-spark-read-ops.md
+        - name: Upsert data
+          href: cassandra-spark-upsert-ops.md
+        - name: Delete data
+          href: cassandra-spark-delete-ops.md
+        - name: Aggregation operations
+          href: cassandra-spark-aggregation-ops.md
+        - name: Copy table data
+          href: cassandra-spark-table-copy-ops.md
     - name: Table API Docs
       items:
       - name: Introduction
