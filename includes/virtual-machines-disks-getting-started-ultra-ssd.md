@@ -53,56 +53,29 @@ Specify Disk Sku UltraSSD_LRS, disk capacity, IOPS, and throughput in MBps to cr
 }
 ```
 
-Add an additional capability on the properties of the VM to indicate its Ultra SSD Enabled:
+Add an additional capability on the properties of the VM to indicate its Ultra SSD Enabled (refer to the [sample](https://aka.ms/UltraSSDTemplate) for the full arm template):
 
 ```json
-    {
+{
     "apiVersion": "2018-06-01",
     "type": "Microsoft.Compute/virtualMachines",
-    "name": "[parameters('virtualMachineName')]",
-    "zones": ["[parameters('zone')]"],
-    "location": "[parameters('location')]",
-    "dependsOn": [
-    "[concat('Microsoft.Network/networkInterfaces/', variables('networkInterfaceName'))]"],
     "properties": {
-        "hardwareProfile": {
-            "vmSize": "[parameters('virtualMachineSize')]"
-            },
-        "additionalCapabilities" :
-        {
-            "ultraSSDEnabled" : "true"
-        },
-        "osProfile": {
-...
-},
-"storageProfile": {
-"osDisk": {
-"name": "[variables('OSDiskName')]",
-"caching": "ReadWrite",
-"createOption": "FromImage",
-"managedDisk": {
-"storageAccountType": "Premium_LRS"
-}
-},
-"imageReference": {
-...
-},
-"dataDisks": [ {
-  "lun": 0,
-  "createOption": "Empty",
-  "caching": "None",
-  "managedDisk": {
-"storageAccountType": "UltraSSD_LRS"
-  }, 
-  "diskSizeGB": 1024,  
-  "diskIOPSReadWrite": 80000,  
-  "diskMBpsReadWrite": 1200,  }]
-},
-    "networkProfile": {
-            ...
-        }
+                    "hardwareProfile": {},
+                    "additionalCapabilities" : {
+                                    "ultraSSDEnabled" : "true"
+                    },
+                    "osProfile": {},
+                    "storageProfile": {},
+                    "networkProfile": {}
     }
 }
 ```
 
 Once the VM is provisioned, you can partition and format the data disks and configure them for your workloads.
+
+## Additional Ultra SSD scenarios
+
+- During VM Creation, Ultra SSDs can be implicitly created as well. However, these disks will receive a default value for IOPS (500) and throughput (8 MiB/s).
+- Additional Ultra SSDs can be attached to Ultra SSD compatible VMs.
+- Ultra SSD supports adjusting the disk performance attributes (IOPS and throughput) at runtime without detaching the disk from the virtual machine. ONce a disk performance resize operation has been issued on a disk, it can take up to an hour for the change to actually take effect.
+- Growing the disk capacity does require a virtual machine to be de-allocated.
