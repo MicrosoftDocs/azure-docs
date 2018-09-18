@@ -18,6 +18,7 @@ ms.date: 07/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 
+# Customer intent: As an IT administrator, I want to learn how to integrate Azure AD logs with my Splunk instance so I can visualize Azure AD logs in the context of all other data collected in my environment.
 ---
 
 # Integrate Azure AD logs with Splunk by using Azure Monitor (preview)
