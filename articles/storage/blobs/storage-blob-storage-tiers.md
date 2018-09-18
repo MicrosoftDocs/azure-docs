@@ -60,7 +60,7 @@ To use this tier, provision a new Block Blob storage account and start creating 
 During preview, the Premium access tier:
 
 - Is available as locally redundant storage (LRS)
-- Is only available in the following regions: North Europe, US East 2, US Central, and US West
+- Is only available in the following regions: US East 2, US Central, and US West
 - Does not support automatic tiering and data lifecycle management
 
 ## Hot access tier
