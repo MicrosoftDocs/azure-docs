@@ -6,7 +6,7 @@ author: mmacy
 
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 08/28/2018
+ms.date: 09/24/2018
 ms.author: marsma
 ms.custom: mvc
 # Customer intent: As a developer or devops engineer, I want to quickly build
@@ -16,7 +16,7 @@ ms.custom: mvc
 
 # Tutorial: Build container images in the cloud with Azure Container Registry Tasks
 
-**ACR Tasks** are a suite of features within Azure Container Registry that provides streamlined and efficient Docker container image builds in Azure. In this article, you learn how to use the *Quick Task* feature of ACR Tasks. Quick Build extends your development "inner loop" to the cloud, providing you with build success validation and automatic pushing of successfully built images to your container registry. Your images are built natively in the cloud, close to your registry, enabling faster deployment.
+**ACR Tasks** are a suite of features within Azure Container Registry that provides streamlined and efficient Docker container image builds in Azure. In this article, you learn how to use the *Quick Task* feature of ACR Tasks. Quick Task extends your development "inner loop" to the cloud, providing you with build success validation and automatic pushing of successfully built images to your container registry. Your images are built natively in the cloud, close to your registry, enabling faster deployment.
 
 All your Dockerfile expertise is directly transferrable to ACR Tasks. You don't have to change your Dockerfiles to build in the cloud with ACR Tasks, just the command you run.
 
@@ -41,7 +41,7 @@ Create an account on https://github.com if you don't already have one. This tuto
 
 ### Fork sample repository
 
-Next, use the GitHub UI to fork the sample repository into your GitHub account. In this tutorial, you build a container image from the source in the repo, and in the next tutorial, you push a commit to your fork of the repo to kick off an automated build.
+Next, use the GitHub UI to fork the sample repository into your GitHub account. In this tutorial, you build a container image from the source in the repo, and in the next tutorial, you push a commit to your fork of the repo to kick off an automated task.
 
 Fork this repository: https://github.com/Azure-Samples/acr-build-helloworld-node
 
@@ -86,19 +86,19 @@ az group create --resource-group $RES_GROUP --location eastus
 az acr create --resource-group $RES_GROUP --name $ACR_NAME --sku Standard --location eastus
 ```
 
-Now that you have a registry, use ACR Tasks to build a container image from the sample code. Execute the [az acr build][az-acr-build] command to perform a *Quick Task*:
+Now that you have a registry, use ACR tasks to build a container image from the sample code. Execute the [az acr build][az-acr-build] command to perform a *quick task*:
 
 ```azurecli-interactive
-az acr build --registry $ACR_NAME --image helloacrbuild:v1 .
+az acr build --registry $ACR_NAME --image helloacrtasks:v1 .
 ```
 
-Output from the [az acr build][az-acr-build] command is similar to the following. You can see the upload of the source code (the "context") to Azure, and the details of the `docker build` operation that ACR Tasks runs in the cloud. Because ACR Tasks uses `docker build` to build your images, no changes to your Dockerfiles are required to start using ACR Tasks immediately.
+Output from the [az acr build][az-acr-build] command is similar to the following. You can see the upload of the source code (the "context") to Azure, and the details of the `docker build` operation that the ACR task runs in the cloud. Because ACR tasks use `docker build` to build your images, no changes to your Dockerfiles are required to start using ACR Tasks immediately.
 
 ```console
-$ az acr build --registry $ACR_NAME --image helloacrbuild:v1 .
+$ az acr build --registry $ACR_NAME --image helloacrtasks:v1 .
 Packing source code into tar file to upload...
 Sending build context (4.813 KiB) to ACR...
-Queued a build with build ID: aa1
+Queued a build with build ID: da1
 Waiting for build agent...
 2018/08/22 18:31:42 Using acb_vol_01185991-be5f-42f0-9403-a36bb997ff35 as the home volume
 2018/08/22 18:31:42 Setting up Docker configuration...
@@ -130,9 +130,9 @@ Step 5/5 : CMD ["node", "/src/server.js"]
 Removing intermediate container fe7027a11787
  ---> 20a27b90eb29
 Successfully built 20a27b90eb29
-Successfully tagged myregistry.azurecr.io/helloacrbuild:v1
-2018/08/22 18:32:11 Pushing image: myregistry.azurecr.io/helloacrbuild:v1, attempt 1
-The push refers to repository [myregistry.azurecr.io/helloacrbuild]
+Successfully tagged myregistry.azurecr.io/helloacrtasks:v1
+2018/08/22 18:32:11 Pushing image: myregistry.azurecr.io/helloacrtasks:v1, attempt 1
+The push refers to repository [myregistry.azurecr.io/helloacrtasks]
 6428a18b7034: Preparing
 c44b9827df52: Preparing
 172ed8ca5e43: Preparing
@@ -144,12 +144,12 @@ c44b9827df52: Pushed
 6428a18b7034: Pushed
 8c9992f4e5dd: Pushed
 v1: digest: sha256:b038dcaa72b2889f56deaff7fa675f58c7c666041584f706c783a3958c4ac8d1 size: 1366
-2018/08/22 18:32:43 Successfully pushed image: myregistry.azurecr.io/helloacrbuild:v1
+2018/08/22 18:32:43 Successfully pushed image: myregistry.azurecr.io/helloacrtasks:v1
 2018/08/22 18:32:43 Step ID acb_step_0 marked as successful (elapsed time in seconds: 15.648945)
 The following dependencies were found:
 - image:
     registry: myregistry.azurecr.io
-    repository: helloacrbuild
+    repository: helloacrtasks
     tag: v1
     digest: sha256:b038dcaa72b2889f56deaff7fa675f58c7c666041584f706c783a3958c4ac8d1
   runtime-dependency:
@@ -159,14 +159,14 @@ The following dependencies were found:
     digest: sha256:8dafc0968fb4d62834d9b826d85a8feecc69bd72cd51723c62c7db67c6dec6fa
   git: {}
 
-Run ID: aa1 was successful after 1m9.970148252s
+Run ID: da1 was successful after 1m9.970148252s
 ```
 
 Near the end of the output, ACR Tasks displays the dependencies it's discovered for your image. This enables ACR Tasks to automate image builds on base image updates, such as when a base image is updated with OS or framework patches. You learn about ACR Tasks support for base image updates later in this tutorial series.
 
 ## Deploy to Azure Container Instances
 
-ACR Tasks automatically pushes successfully built images to your registry by default, allowing you to deploy them from your registry immediately.
+ACR tasks automatically push successfully built images to your registry by default, allowing you to deploy them from your registry immediately.
 
 In this section, you create an Azure Key Vault and service principal, then deploy the container to Azure Container Instances (ACI) using the service principal's credentials.
 
@@ -231,12 +231,12 @@ Execute the following [az container create][az-container-create] command to depl
 ```azurecli-interactive
 az container create \
     --resource-group $RES_GROUP \
-    --name acr-build \
-    --image $ACR_NAME.azurecr.io/helloacrbuild:v1 \
+    --name acr-tasks \
+    --image $ACR_NAME.azurecr.io/helloacrtasks:v1 \
     --registry-login-server $ACR_NAME.azurecr.io \
     --registry-username $(az keyvault secret show --vault-name $AKV_NAME --name $ACR_NAME-pull-usr --query value -o tsv) \
     --registry-password $(az keyvault secret show --vault-name $AKV_NAME --name $ACR_NAME-pull-pwd --query value -o tsv) \
-    --dns-name-label acr-build-$ACR_NAME \
+    --dns-name-label acr-tasks-$ACR_NAME \
     --query "{FQDN:ipAddress.fqdn}" \
     --output table
 ```
@@ -246,17 +246,17 @@ The `--dns-name-label` value must be unique within Azure, so the preceding comma
 ```console
 $ az container create \
 >     --resource-group $RES_GROUP \
->     --name acr-build \
->     --image $ACR_NAME.azurecr.io/helloacrbuild:v1 \
+>     --name acr-tasks \
+>     --image $ACR_NAME.azurecr.io/helloacrtasks:v1 \
 >     --registry-login-server $ACR_NAME.azurecr.io \
 >     --registry-username $(az keyvault secret show --vault-name $AKV_NAME --name $ACR_NAME-pull-usr --query value -o tsv) \
 >     --registry-password $(az keyvault secret show --vault-name $AKV_NAME --name $ACR_NAME-pull-pwd --query value -o tsv) \
->     --dns-name-label acr-build-$ACR_NAME \
+>     --dns-name-label acr-tasks-$ACR_NAME \
 >     --query "{FQDN:ipAddress.fqdn}" \
 >     --output table
 FQDN
 ----------------------------------------------
-acr-build-myregistry.eastus.azurecontainer.io
+acr-tasks-myregistry.eastus.azurecontainer.io
 ```
 
 Take note of the container's FQDN, you'll use it in the next section.
@@ -266,16 +266,16 @@ Take note of the container's FQDN, you'll use it in the next section.
 To watch the startup process of the container, use the [az container attach][az-container-attach] command:
 
 ```azurecli-interactive
-az container attach --resource-group $RES_GROUP --name acr-build
+az container attach --resource-group $RES_GROUP --name acr-tasks
 ```
 
 The `az container attach` output first displays the container's status as it pulls the image and starts, then binds your local console's STDOUT and STDERR to that of the container's.
 
 ```console
-$ az container attach --resource-group $RES_GROUP --name acr-build
-Container 'acr-build' is in state 'Running'...
-(count: 1) (last timestamp: 2018-08-22 18:39:10+00:00) pulling image "myregistry.azurecr.io/helloacrbuild:v1"
-(count: 1) (last timestamp: 2018-08-22 18:39:15+00:00) Successfully pulled image "myregistry.azurecr.io/helloacrbuild:v1"
+$ az container attach --resource-group $RES_GROUP --name acr-tasks
+Container 'acr-tasks' is in state 'Running'...
+(count: 1) (last timestamp: 2018-08-22 18:39:10+00:00) pulling image "myregistry.azurecr.io/helloacrtasks:v1"
+(count: 1) (last timestamp: 2018-08-22 18:39:15+00:00) Successfully pulled image "myregistry.azurecr.io/helloacrtasks:v1"
 (count: 1) (last timestamp: 2018-08-22 18:39:17+00:00) Created container
 (count: 1) (last timestamp: 2018-08-22 18:39:17+00:00) Started container
 
@@ -283,7 +283,7 @@ Start streaming logs:
 Server running at http://localhost:80
 ```
 
-When `Server running at http://localhost:80` appears, navigate to the container's FQDN in your brower to see the running application:
+When `Server running at http://localhost:80` appears, navigate to the container's FQDN in your browser to see the running application:
 
 ![Screenshot of sample application rendered in browser][quick-build-02-browser]
 
@@ -294,7 +294,7 @@ To detach your console from the container, hit `Control+C`.
 Stop the container instance with the [az container delete][az-container-delete] command:
 
 ```azurecli-interactive
-az container delete --resource-group $RES_GROUP --name acr-build
+az container delete --resource-group $RES_GROUP --name acr-tasks
 ```
 
 To remove *all* resources you've created in this tutorial, including the container registry, key vault, and service principal, issue the following commands. These resources are used in the [next tutorial](container-registry-tutorial-build-task.md) in the series, however, so you might want to keep them if you move on directly to the next tutorial.
@@ -309,7 +309,7 @@ az ad sp delete --id http://$ACR_NAME-pull
 Now that you've tested your inner loop with a quick task, configure a **build task** to trigger container images builds when you commit source code to a Git repository:
 
 > [!div class="nextstepaction"]
-> [Trigger automatic builds with build tasks](container-registry-tutorial-build-task.md)
+> [Trigger automatic builds with tasks](container-registry-tutorial-build-task.md)
 
 <!-- LINKS - External -->
 [sample-archive]: https://github.com/Azure-Samples/acr-build-helloworld-node/archive/master.zip
