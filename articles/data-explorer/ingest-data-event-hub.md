@@ -14,7 +14,7 @@ ms.date: 09/24/2018
 
 # Quickstart: Ingest data from Event Hub into Azure Data Explorer
 
-Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Azure Data Explorer offers ingestion (data loading) from Event Hubs, a big data streaming platform and event ingestion service. Event Hubs can process millions of events per second in near real-time. In this quickstart, create an event hub, connect to it from Azure Data Explorer and see data flow through the system.
+Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Azure Data Explorer offers ingestion (data loading) from Event Hubs, a big data streaming platform and event ingestion service. Event Hubs can process millions of events per second in near real-time. In this quickstart, you create an event hub, connect to it from Azure Data Explorer and see data flow through the system.
 
 If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
@@ -72,7 +72,7 @@ In this quickstart, you generate sample data and send it to an event hub. The fi
 
 Now you create a table in Azure Data Explorer, to which Event Hubs will send data. You create the table in the cluster and database provisioned in **Prerequisites**.
 
-1. In the Azure portal, under the cluster you created, select **Query**.
+1. In the Azure portal, under your cluster, select **Query**.
 
     ![Query application link](media/ingest-data-event-hub/query-explorer-link.png)
 
