@@ -13,7 +13,7 @@
   - name: Locations and partners
     href: virtual-wan-locations-partners.md
   - name: Office 365 control plane in Virtual WAN
-  - href: virtual-wan-office365-overview.md
+    href: virtual-wan-office365-overview.md
 - name: How-to guides
   items:
   - name: Configure automation - WAN Partners
