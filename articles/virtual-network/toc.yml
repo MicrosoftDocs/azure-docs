@@ -43,7 +43,7 @@
     href: virtual-network-service-endpoints-overview.md
   - name: Peering
     href: virtual-network-peering-overview.md
-  - name: Virtual Network TAP
+  - name: Virtual network TAP
     href: virtual-network-tap-overview.md
   - name: Virtual network for Azure services
     href: virtual-network-for-azure-services.md
