@@ -32,9 +32,24 @@ Applications using the latest ADAL and the latest MSAL will SSO with each other.
 
 ## Microsoft identity platform experience
 
-This diagram describes the Microsoft identity experience at a high-level, including the app registration experience, SDKs, endpoints, and supported identities.
+The following diagram shows the Microsoft identity experience at a high level, including the app registration experience, SDKs, endpoints, and supported identities.
 
 ![Microsoft identity platform today](./media/about-microsoft-identity-platform/microsoft-identity-platform-today.png)
+
+The Microsoft identity platform has two endpoints (v1.0 and v2.0) and two sets of client libraries to handle these endpoints. When developing a new application, consider the advantages and the current state of the endpoints and the authentication libraries. Also consider these:
+
+* Supported platforms
+
+    * ADAL supports .NET, JavaScript, iOS, Android, Java, and Python
+    * MSAL Preview supports .NET, JavaScript, iOS, and Android
+
+* The bulk of innovation, such as dynamic consent and incremental consent, is happening on the v2.0 endpoint and MSAL while we continue to support v1.0 and ADAL.
+
+    In the Azure portal, you previously had to statically identify all the scopes that you need. With the v2.0 endpoint and the portals associated with this endpoint, you can either statically define the scopes (as you may have done in the past) or you can define them dynamically (which means that in your code you list the scopes that you want). Dynamic provides one more optional capability: incremental consent. Incremental consent allows you to ask for a subset of the scopes that you require when you first authenticate and then you can ask for additional scopes when they're required. For example, when using the camera on a mobile device, the user may be asked to consent to allow an app to access the camera, and only after the user has consented will the app be allowed to access the camera and take a photo.
+
+* Possible breaking changes
+
+    MSAL is suitable for use in a production environment. We provide the same production level support for MSAL as we do our current production libraries. During the preview, we may make changes to the API, internal cache format, and other mechanisms of this library, which you will be required to take along with bug fixes or feature improvements. This may impact your application. For instance, a change to the cache format may impact your users, such as requiring them to sign in again. An API change may require you to update your code. When we provide the general availability (GA) release, we will require you to update to the GA version within six months, as applications written using a preview version of the library may no longer work.
 
 ## Next steps
 
