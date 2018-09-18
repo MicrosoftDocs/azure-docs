@@ -38,9 +38,8 @@ The path to the output data in the blob follows this syntax:
 
 ```
 /modeldata/<subscriptionid>/<resourcegroup>/<workspace>/<webservice>/<model>/<version>/<identifier>/<year>/<month>/<day>/data.csv
+# example: /modeldata/00000000000000000123456789/myResGrp/myWS/CheckImages/chkimg/3.0/921463985624089562/2018/12/31/data.csv
 ```
-
-Such as: /modeldata/00000000000000000123456789/myResGrp/myWS/CheckImages/chkimg/3.0/921463985624089562/2018/12/31/data.csv
 
 ## Prerequisites
 
@@ -113,7 +112,7 @@ To enable it, you need to:
 
 If you already have a service with the dependencies installed in your **environment file** and **scoring file**, enable data collection by:
 
-1. Go to  [Azure Portal](https://portal.azure.com) 
+1. Go to  [Azure Portal](https://portal.azure.com).
 
 1. Open your workspace.
 
