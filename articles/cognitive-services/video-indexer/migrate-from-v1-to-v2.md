@@ -1,13 +1,14 @@
 ---
-title: Migrate from Azure Video Indexer API v1 to v2 | Microsoft Docs
+title: Migrate from Azure Video Indexer API v1 to v2
+titlesuffix: Azure Cognitive Services
 description: This topic explains how to migrate from the Azure Video Indexer API v1 to v2.
 services: cognitive services
-documentationcenter: ''
 author: juliako
-manager: femila
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.topic: article
+ms.component: video-indexer
+ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: juliako
 ---
