@@ -54,8 +54,6 @@ Before you begin this tutorial:
 
 * Make sure that you've [set up your development environment](service-fabric-mesh-howto-setup-developer-environment-sdk.md) which includes installing the Service Fabric runtime, SDK, Docker, and Visual Studio 2017.
 
-* The app for this tutorial must, for now, be built using the English locale.
-
 ## Create a Service Fabric Mesh project in Visual Studio
 
 Run Visual Studio and select **File** > **New** > **Project...**
@@ -365,6 +363,7 @@ In the service.yaml file, add the following variables under `environmentVariable
 
 > [!IMPORTANT]
 > Spaces, not tabs, must be used to indent the variables in the service.yaml file or it won't compile. Visual Studio may insert tabs as you create the environment variables. Replace all tabs with spaces. Although you'll see errors in the **build** debug output, the app will still launch. It won't work, however, until you convert the tabs to spaces. To ensure that no tabs are in the service.yaml file, you can make whitespace visible in the Visual Studio editor with  **Edit**  > **Advanced**  > **View White Space**.
+> Note that service.yaml files are processed using the English locale.  For example, if you need to use a decimal separator, use a period rather than a comma.
 
 Your **WebFrontEnd** project's **service.yaml** file should look something like this although your `ApiHostPort` value will probably be different:
 
