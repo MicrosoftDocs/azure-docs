@@ -2,8 +2,8 @@
 title: What is Azure Data Explorer?
 description: Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data.
 services: data-explorer
-author: mgblythe
-ms.author: mblythe
+author: v-orspod
+ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: overview
@@ -14,7 +14,7 @@ ms.date: 09/24/2018
 
 # What is Azure Data Explorer?
 
-Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. It helps you to handle the many data streams emitted by modern software, so you can collect, store, and analyze data. Azure Data Explorer is ideal for analyzing large volumes of diverse data from any data source, such as websites, applications, and IoT devices. This data is used for diagnostics, monitoring, reporting, machine learning, and additional analytics capabilities. Azure Data Explorer makes it simple to ingest this data and enables you to perform complex ad-hoc queries on the data in seconds.
+Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. It helps you handle the many data streams emitted by modern software, so you can collect, store and analyze data. Azure Data Explorer is ideal for analyzing large volumes of diverse data from any data source, such as websites, applications, and IoT devices. This data is used for diagnostics, monitoring, reporting, machine learning, and additional analytics capabilities. Azure Data Explorer makes it simple to ingest this data and enables you to perform complex ad-hoc queries on the data in seconds.
 
 ## What makes Azure Data Explorer unique?
 
