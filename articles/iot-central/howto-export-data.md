@@ -531,7 +531,7 @@ const avro = require('avsc');
 async function parse(filePath) {
     const records = await load(filePath);
     for (const record of records) {
-        // Fetch the device ID from the id property.
+        // Fetch the device ID from the deviceId property.
         const deviceId = record.deviceId;
 
         // Fetch the template ID and version from the deviceTemplate property.
