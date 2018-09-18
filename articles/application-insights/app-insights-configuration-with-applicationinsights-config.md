@@ -237,21 +237,6 @@ Determines the maximum size in MB that is allotted to the persistent storage on 
    </ApplicationInsights>
 ```
 
-#### Local forwarder
-
-[Local forwarder](https://docs.microsoft.com/azure/application-insights/local-forwarder) is an agent that collects Application Insights or [OpenCensus](https://opencensus.io/) telemetry from a variety of SDKs and frameworks and routes it to Application Insights. It's capable of running under Windows and Linux. 
-
-```Java
-<Channel type="com.microsoft.applicationinsights.channel.concrete.localforwarder.LocalForwarderTelemetryChannel">
-   <DeveloperMode>false</DeveloperMode>
-   <EndpointAddress><!-- put the hostname:port of your LocalForwarder instance here --></EndpointAddress>
-
-   <!-- The properties below are optional. The values shown are the defaults for each property -->
-   <FlushIntervalInSeconds>5</FlushIntervalInSeconds><!-- must be between [1, 500]. values outside the bound will be rounded to nearest bound -->
-   <MaxTelemetryBufferCapacity>500</MaxTelemetryBufferCapacity><!-- units=number of telemetry items; must be between [1, 1000] -->
-</Channel>
-```
-
 ## InstrumentationKey
 This determines the Application Insights resource in which your data appears. Typically you create a separate resource, with a separate key, for each of your applications.
 
