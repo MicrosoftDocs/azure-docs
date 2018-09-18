@@ -54,7 +54,7 @@
     items:
     - name: Monitoring Containers overview
       href: monitoring-container-overview.md
-    - name: AKS Container Insights 
+    - name: Azure Monitor for containers 
       items:
        - name: Overview
          href: monitoring-container-insights-overview.md
