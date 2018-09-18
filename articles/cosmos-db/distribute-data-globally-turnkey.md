@@ -21,7 +21,7 @@ Azure Cosmos DB provides the following capabilities to enable you to easily writ
 Azure is constantly growing its geographical presence by bringing [new regions](https://azure.microsoft.com/regions/) online. Azure Cosmos DB is classified as a *foundational service* in Azure and is available in all new Azure regions by default. This allows you to associate a geographical region with your Azure Cosmos DB database account as soon as Azure opens the new region for business.
 
 ### <a id="MultiMasterSupport"></a>Multi-master support
-Azure Cosmos DB provides native, server-side support for multiple master regions that equally participate in a write-anywhere model. This support provides <10 ms write latency and 99.999% write availability by [financially backed SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/). Multi-master is available for all API’s, including [SQL](sql-api-introduction.md), [MongoDB](mongodb-introduction.md), [Cassandra](cassandra-introduction.md), [Graph](gremlin-introduction.md), and [Table](table-introduction.md) and from all SDK languages for Cosmos DB. Azure Cosmos DB supports 4 different consistency levels (bounded staleness, session, consistent prefix and eventual) for accounts with multi-mastering capability.
+Azure Cosmos DB provides native, server-side support for multiple master regions that equally participate in a write-anywhere model. This support provides <10 ms write latency and 99.999% write availability by [financially backed SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/). Multi-master is available for all API’s, including [SQL](sql-api-introduction.md), [MongoDB](mongodb-introduction.md), [Cassandra](cassandra-introduction.md), [Graph](graph-introduction.md), and [Table](table-introduction.md) and from all SDK languages for Cosmos DB. Azure Cosmos DB supports 4 different consistency levels (bounded staleness, session, consistent prefix and eventual) for accounts with multi-mastering capability.
 
 ### <a id="UnlimitedRegionsPerAccount"></a>Associating an unlimited number of regions with your Azure Cosmos DB database account
 Azure Cosmos DB allows you to associate any number of Azure regions with your Azure Cosmos DB database account. Outside of geo-fencing restrictions (for example, China, Germany), there are no limitations on the number of regions that can be associated with your Azure Cosmos DB database account. The following figure shows a database account configured to span across 25 Azure regions.  
@@ -211,7 +211,7 @@ Azure Cosmos DB transparently exposes the throughput, latency, consistency, and 
 
 ## <a id="Next Steps"></a>Next steps
 
-* [Azure Cosmos DB global distribution key benefits](distribute-data-globally-key-benefits.md)
+* [Azure Cosmos DB global distribution key benefits](distribute-data-globally-benefits.md)
 
 * [How to configure Azure Cosmos DB global database replication](tutorial-global-distribution-sql-api.md)
 
