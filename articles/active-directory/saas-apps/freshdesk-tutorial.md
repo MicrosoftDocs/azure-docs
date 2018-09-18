@@ -81,7 +81,7 @@ In this section, you configure and test Azure AD single sign-on with FreshDesk b
 
 For single sign-on to work, Azure AD needs to know what the counterpart user in FreshDesk is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in FreshDesk needs to be established.
 
-This link relationship is established by assigning the value of the **email address** in Azure AD as the value of the **Username** in FreshDesk.
+This link relationship is established by assigning the value of the **User Name** in Azure AD as the value of the **email address** in FreshDesk.
 
 To configure and test Azure AD single sign-on with FreshDesk, you need to complete the following building blocks:
 
