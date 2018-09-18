@@ -1,5 +1,5 @@
 ---
-title: Enable Data Collection for models in production
+title: Enable data collection for models in production
 description: Learn how to collect Azure Machine Learning input model data in an Azure Blob storage.
 services: machine-learning
 ms.service: machine-learning
@@ -10,7 +10,7 @@ ms.author: marthalc
 author: marthalc
 ms.date: 09/17/2018
 ---
-# Data Collection for Models in Production
+# Data collection for models in production
 
 With this article, you can learn how to collect input model data from your Azure Machine Learning service in an Azure Blob storage. Once enabled, this data collected gives you the opportunity to:
 * Monitor data drifts as production data enters your model
@@ -24,9 +24,9 @@ With this article, you can learn how to collect input model data from your Azure
 **Note:** pre-aggregation or pre-calculations on this data are done by user and not included in this version of the product.   
 
 ## Prerequisites
-1.	Set up a workspace
-2.	Have a model ready to be deployed in an Azure Kubernetes Service (AKS) and an AKS cluster ready.
-3.	Install dependencies and collector module in your environment:
+1.	Set up a [workspace](https://review.docs.microsoft.com/en-us/azure/machine-learning/service/quickstart-get-started?branch=release-ignite-aml)
+2.	Have a model [ready to be deployed](https://review.docs.microsoft.com/en-us/azure/machine-learning/service/how-to-deploy-to-aks) in an Azure Kubernetes Service (AKS) and an AKS cluster ready.
+3.	Install dependencies and collector module [in your environment](https://review.docs.microsoft.com/en-us/azure/machine-learning/service/how-to-configure-environment?branch=release-ignite-aml):
     * LINUX:
 
           sudo apt-get install libxml++2.6-2v5
@@ -36,54 +36,66 @@ With this article, you can learn how to collect input model data from your Azure
           
           pip install azureml-monitoring 
 
-## Enable Data Collection
-Data Collection can be enabled regardless of the model being deployed through Azure Machine Learning Service or other tools. To enable it, within the **score file**, you need to:
+## Enable data collection
+Data collection can be enabled regardless of the model being deployed through Azure Machine Learning Service or other tools. To enable it, within the **score file**, you need to:
 1.	Add the following code at the top of the file:
 
+      ```python 
         from azureml.monitoring import ModelDataCollector
-2.	Declare your Data Collection variables in your `init()` function
+    ```
+2.	Declare your data collection variables in your `init()` function
 
+     ```python
         global inputs_dc, prediction_dc
         inputs_dc = ModelDataCollector("best_model", identifier="inputs", feature_names=["feat1", "feat2", "feat3". "feat4", "feat5", "feat6"])
         prediction_dc = ModelDataCollector("best_model", identifier="predictions", feature_names=["prediction1", "prediction2"])
-       *CorrelationId* is an optional parameter, you do not need to set it up if your model doesn’t require it. Having a correlationId in place does help you for easier mapping with other data. (Examples include: LoanNumber, CustomerId, etc.)
-    
-    *Identifier* is later used for building the folder structure in your Blob, it can be used to divide “raw” data versus “processed”.
+    ```
+
+   *CorrelationId* is an optional parameter, you do not need to set it up if your model doesn’t require it. Having a correlationId in place does help you for easier mapping with other data. (Examples include: LoanNumber, CustomerId, etc.)
+
+   *Identifier* is later used for building the folder structure in your Blob, it can be used to divide “raw” data versus “processed”.
 
 3.	Add the following lines of code to the `run(input_df)` function
 
+    ```python
         data = np.array(data)
         result = model.predict(data)
         inputs_dc.collect(data) #this call is saving our input data into Azure Blob
         prediction_dc.collect(result) #this call is saving our input data into Azure Blob
+    ```
 
 4. Data collection is **not** automatically set to **true** when you deploy a service in AKS, so you will need to update set your configuration file like the following: 
 
-        aks_config = AksWebservice.deploy_configuration(collect_model_data=True)
+    ```python
+    aks_config = AksWebservice.deploy_configuration(collect_model_data=True)
+    ```
+5. [Create new image and deploy your service.](https://review.docs.microsoft.com/en-us/azure/machine-learning/service/how-to-deploy-to-aks) 
 
-5. Rebuild your image and redeploy your service. 
-
-6. Alternatively, if you already have a service with the dependencies installed in your **environment file** and **scoring file**, you can simply enable Data Collection by:
+6. Alternatively, if you already have a service with the dependencies installed in your **environment file** and **scoring file**, you can simply enable data collection by:
 
     1. Go to your the [Azure Portal](https://portal.azure.com) 
     2. Go to your Workspace-> Deployments -> Edit
     ![Edit Service](media/how-to-enable-data-collection/EditService.png)
-    3. In Advanced Settings check "Enable Model data collection" 
-    ![Un-check Data Collection](media/how-to-enable-data-collection/CheckDataCollection.png) 
+    3. In Advanced Settings check "Enable Model data collection". 
+    ![Un-check Data Collection](media/how-to-enable-data-collection/CheckDataCollection.png)
+    In this window you can also choose to "Enable Appinsights diagnostics" to track the health of your service.  
     4. Update
 
-For a step by step tutorial follow the notebook [here](link to notebook). 
+The `00.Getting Started/12.enable-data-collection-for-models-in-aks.ipynb` notebook demonstrates concepts in this article.  Get this notebook:
+ 
+[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 
-## Evaluate Data
+
+## Evaluate data
 The output gets saved in an Azure Blob using the following path format:
 	
     /modeldata/<subscriptionid>/<resourcegroupname>/<workspacename>/<webservicename>/<modelname>/<modelversion>/<identifier>/<year>/<month>/<day>/data.csv
 
 Since the data gets added into an Azure Blob you can then choose your favorite tool to run the analysis. 
 
-## Disable Data Collection
-To disable Data Collection, follow the next steps:
+## Disable data collection
+To disable data collection, follow the next steps:
 * From [Azure Portal](https://portal.azure.com): 
     1. Go to Workspace
     2. Deployments-> Select service-> Edit
@@ -98,5 +110,7 @@ To disable Data Collection, follow the next steps:
 
 * From Azure SDK run:
          
-        <service_name>.update(collect_model_data=False)
+     ```python 
+         <service_name>.update(collect_model_data=False)
+     ```
 
