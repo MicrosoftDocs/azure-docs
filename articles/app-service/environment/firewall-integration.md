@@ -61,98 +61,108 @@ The Azure App Service has a number of external dependencies. They can be catagor
 
 #### Service Endpoint capable dependencies ####
 
-Azure SQL
-Azure Storage
-Azure KeyVault 
+| Endpoint |
+|----------|
+| Azure SQL |
+| Azure Storage |
+| Azure KeyVault |
 
 
 #### IP address dependencies ####
 
-40.77.24.27:443
-13.82.184.151:443
-13.68.109.212:443
-13.90.249.229:443
-13.91.102.27:443
-104.45.230.69:443
-168.62.226.198:12000
+| Endpoint |
+|----------|
+| 40.77.24.27:443 |
+| 13.82.184.151:443 |
+| 13.68.109.212:443 |
+| 13.90.249.229:443 |
+| 13.91.102.27:443 |
+| 104.45.230.69:443 |
+| 168.62.226.198:12000 |
 
 
 #### FQDN HTTP/HTTPS dependencies ####
 
-graph.windows.net:443
-login.live.com:443
-login.windows.com:443
-login.windows.net:443
-login.microsoftonline.com:443
-client.wns.windows.com:443
-definitionupdates.microsoft.com:443
-go.microsoft.com:80   
-go.microsoft.com:443
-www.microsoft.com:80
-www.microsoft.com:443
-wdcpalt.microsoft.com:443
-wdcp.microsoft.com:443
-ocsp.msocsp.com:443
-mscrl.microsoft.com:443
-mscrl.microsoft.com:80
-crl.microsoft.com:443
-crl.microsoft.com:80
-www.thawte.com:443
-crl3.digicert.com:80
-ocsp.digicert.com:80
-csc3-2009-2.crl.verisign.com:80
-crl.verisign.com:80
-ocsp.verisign.com:80
-azperfcounters1.blob.core.windows.net:443
-azurewatsonanalysis-prod.core.windows.net:443
-global.metrics.nsatc.net:80  
-az-prod.metrics.nsatc.net:443
-antares.metrics.nsatc.net:443
-azglobal-black.azglobal.metrics.nsatc.net:443
-azglobal-red.azglobal.metrics.nsatc.net:443
-antares-black.antares.metrics.nsatc.net:443
-antares-red.antares.metrics.nsatc.net:443
-maupdateaccount.blob.core.windows.net:443
-clientconfig.passport.net:443
-packages.microsoft.com:443
-schemas.microsoft.com:80
-schemas.microsoft.com:443
-management.core.windows.net:443
-management.core.windows.net:80
-www.msftconnecttest.com:80
-shavamanifestcdnprod1.azureedge.net:443
-validation-v2.sls.microsoft.com:443
-flighting.cp.wd.microsoft.com:443
-dmd.metaservices.microsoft.com:80
-admin.core.windows.net:443
-azureprofileruploads.blob.core.windows.net:443
-azureprofileruploads2.blob.core.windows.net:443
-azureprofileruploads3.blob.core.windows.net:443
-azureprofileruploads4.blob.core.windows.net:443
-azureprofileruploads5.blob.core.windows.net:443
+| Endpoint |
+|----------|
+|graph.windows.net:443 |
+|login.live.com:443 |
+|login.windows.com:443 |
+|login.windows.net:443 |
+|login.microsoftonline.com:443 |
+|client.wns.windows.com:443 |
+|definitionupdates.microsoft.com:443 |
+|go.microsoft.com:80 |
+|go.microsoft.com:443 |
+|www.microsoft.com:80 |
+|www.microsoft.com:443 |
+|wdcpalt.microsoft.com:443 |
+|wdcp.microsoft.com:443 |
+|ocsp.msocsp.com:443 |
+|mscrl.microsoft.com:443 |
+|mscrl.microsoft.com:80 |
+|crl.microsoft.com:443 |
+|crl.microsoft.com:80 |
+|www.thawte.com:443 |
+|crl3.digicert.com:80 |
+|ocsp.digicert.com:80 |
+|csc3-2009-2.crl.verisign.com:80 |
+|crl.verisign.com:80 |
+|ocsp.verisign.com:80 |
+|azperfcounters1.blob.core.windows.net:443 |
+|azurewatsonanalysis-prod.core.windows.net:443 |
+|global.metrics.nsatc.net:80   |
+|az-prod.metrics.nsatc.net:443 |
+|antares.metrics.nsatc.net:443 |
+|azglobal-black.azglobal.metrics.nsatc.net:443 |
+|azglobal-red.azglobal.metrics.nsatc.net:443 |
+|antares-black.antares.metrics.nsatc.net:443 |
+|antares-red.antares.metrics.nsatc.net:443 |
+|maupdateaccount.blob.core.windows.net:443 |
+|clientconfig.passport.net:443 |
+|packages.microsoft.com:443 |
+|schemas.microsoft.com:80 |
+|schemas.microsoft.com:443 |
+|management.core.windows.net:443 |
+|management.core.windows.net:80 |
+|www.msftconnecttest.com:80 |
+|shavamanifestcdnprod1.azureedge.net:443 |
+|validation-v2.sls.microsoft.com:443 |
+|flighting.cp.wd.microsoft.com:443 |
+|dmd.metaservices.microsoft.com:80 |
+|admin.core.windows.net:443 |
+|azureprofileruploads.blob.core.windows.net:443 |
+|azureprofileruploads2.blob.core.windows.net:443 |
+|azureprofileruploads3.blob.core.windows.net:443 |
+|azureprofileruploads4.blob.core.windows.net:443 |
+|azureprofileruploads5.blob.core.windows.net:443 |
 
 #### Wildcard HTTP/HTTPS dependencies ####
 
-gr-Prod-*.cloudapp.net:443
-*.management.azure.com:443
-*.update.microsoft.com:443
-*.windowsupdate.microsoft.com:443
-grmdsprod*mini*.servicebus.windows.net:443
-grmdsprod*lini*.servicebus.windows.net:443
-grsecprod*mini*.servicebus.windows.net:443
-grsecprod*lini*.servicebus.windows.net:443
-graudprod*mini*.servicebus.windows.net:443
-graudprod*lini*.servicebus.windows.net:443
+| Endpoint |
+|----------|
+|gr-Prod-\*.cloudapp.net:443 |
+| \*.management.azure.com:443 |
+| \*.update.microsoft.com:443 |
+| \*.windowsupdate.microsoft.com:443 |
+|grmdsprod\*mini\*.servicebus.windows.net:443 |
+|grmdsprod\*lini\*.servicebus.windows.net:443 |
+|grsecprod\*mini\*.servicebus.windows.net:443 |
+|grsecprod\*lini\*.servicebus.windows.net:443 |
+|graudprod\*mini\*.servicebus.windows.net:443 |
+|graudprod\*lini\*.servicebus.windows.net:443 |
 
 #### Linux dependencies ####
 
-wawsinfraprodbay063.blob.core.windows.net:443
-registry-1.docker.io:443
-auth.docker.io:443
-production.cloudflare.docker.com:443
-download.docker.com:443
-us.archive.ubuntu.com:80
-download.mono-project.com:80
-packages.treasuredata.com:80
-security.ubuntu.com:80
+| Endpoint |
+|----------|
+|wawsinfraprodbay063.blob.core.windows.net:443 |
+|registry-1.docker.io:443 |
+|auth.docker.io:443 |
+|production.cloudflare.docker.com:443 |
+|download.docker.com:443 |
+|us.archive.ubuntu.com:80 |
+|download.mono-project.com:80 |
+|packages.treasuredata.com:80|
+|security.ubuntu.com:80 |
 
