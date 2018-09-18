@@ -138,6 +138,10 @@
       href: deploy-modbus-gateway.md
   - name: Configure proxy support
     href: how-to-configure-proxy-support.md
+  - name: Store data at the edge
+    items:
+    - name: Azure Blob Storage on IoT Edge
+      href: how-to-store-data-blob.md
   - name: CI/CD in Azure DevOps
     href: how-to-ci-cd.md
   - name: Troubleshoot
