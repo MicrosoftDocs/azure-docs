@@ -36,6 +36,7 @@ In this quickstart, you'll learn how an ASP.NET web app can sign in personal acc
 > 1. Go to the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app).
 > 1. Enter a name for your application, make sure the option for **Guided Setup** is unchecked, and click **Create**.
 > 1. Click `Add Platform`, then select `Web`.
+> 1. Make sure **Allow Implicit Flow** is *checked*.
 > 1. In **Redirect URLs**, enter `https://localhost:44368/`.
 > 1. Scroll down to the bottom of the page and click **Save**.
 
