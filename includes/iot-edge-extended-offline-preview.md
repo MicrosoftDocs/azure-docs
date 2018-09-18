@@ -15,7 +15,7 @@ ms.author: kgremban
 ## Enabling extended offline operation (Preview)
 Starting with the [v1.0.2 release](https://aka.ms/edge102) of the Edge Runtime, the Edge device and downstream devices connecting to it can be configured for extended offline operation. 
 
-With this capability, local modules or downstream devices can re-authenticate with the Edge device as needed and communicate with each other using messages and methods even when disconnected from the IoT Hub. See this [blog post](https://aka.ms/iot-edge-offline) and [concept article](../offline-capabilities.md) for more details and scope of this capability.
+With this capability, local modules or downstream devices can re-authenticate with the Edge device as needed and communicate with each other using messages and methods even when disconnected from the IoT Hub. See this [blog post](https://aka.ms/iot-edge-offline) and [concept article](../articles/iot-edge/offline-capabilities.md) for more details and scope of this capability.
 
 For enabling extended offline in a gateway scenario establish a parent-child relationship between edge device and downstream devices that will connect to it.
 
