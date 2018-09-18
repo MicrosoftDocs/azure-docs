@@ -20,7 +20,7 @@ ms.custom:
 
 # Virtual network service endpoint policies (Preview)
 
-Virtual Network (VNet) service endpoint policies allow you to filter virtual network traffic to Azure services, allowing only specific Azure service resources, over service endpoints. Endpoint policies provide granualar access control for virtual network traffic to Azure services.
+Virtual Network (VNet) service endpoint policies allow you to filter virtual network traffic to Azure services, allowing only specific Azure service resources, over service endpoints. Endpoint policies provide granular access control for virtual network traffic to Azure services.
 
 This feature is available in __preview__ for following Azure services and regions:
 
@@ -29,7 +29,8 @@ __Azure Storage__: WestCentralUS, WestUS2.
 For most up-to-date notifications for preview, refer to [Azure Virtual Network updates](https://azure.microsoft.com/updates/?product=virtual-network) page.
 
 >[!NOTE]
-During preview, virtual network service endpoint policies may not have the same level of availability and reliability as features that are in general availability release. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+> During preview, virtual network service endpoint policies may not have the same level of availability and reliability as features that are in general availability release. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Key benefits
 
@@ -53,13 +54,19 @@ Virtual network service endpoint policies provide following benefits:
 - By default, if no policies are attached to a subnet with endpoints, you can access all resources in the service. Once a policy is configured on that subnet, only the resources specified in the policy can be accessed from compute instances in that subnet. Access to all other resources, for the specific service, will be denied. 
 - You can filter traffic to Azure service resources in the regions where service endpoint is configured. Access to service resources in other regions will be allowed, by default. 
 
-  > [!NOTE] To fully lock down virtual network outbound access to Azure resources in service endpoint regions, you also need network security group rules configured to allow traffic only to the service endpoint regions, using [service tags](security-overview.md#service-tags).
+  > [!NOTE]
+  
+  >To fully lock down virtual network outbound access to Azure resources in service endpoint regions, you also need network security group rules configured to allow traffic only to the service endpoint regions, using [service tags](security-overview.md#service-tags).
 
 - You can apply multiple policies to a subnet. When multiple policies are associated to the subnet, for the same service, virtual network traffic to resources specified across any of these policies will be allowed. Access to all other service resources, not specified in any of the policies, will be denied. 
 
-  > [!NOTE] Policy only allows access to listed service resources from a virtual network. All other traffic to the service is denied automatically, when you add specific resources to the policy. Ensure that all service resource dependencies for your applications can be identified and listed in the policy.
+  >[!NOTE]
+  
+  >Policy only allows access to listed service resources from a virtual network. All other traffic to the service is denied automatically, when you add specific resources to the policy. Ensure that all service resource dependencies for your applications can be identified and listed in the policy.
 
-  > [!WARNING] Azure services deployed into your virtual network, such as Azure HDInsight, access other Azure services, such as Azure Storage, for infrastructure requirements. Restricting endpoint policy to specific resources could break access to these infrastructure resources for services deployed in your virtual network. For specific services, refer to [Limitations](#limitations) During preview, service endpoint policies are not supported for any managed Azure services that are deployed into your virtual network.
+  >[!WARNING]
+  
+  >Azure services deployed into your virtual network, such as Azure HDInsight, access other Azure services, such as Azure Storage, for infrastructure requirements. Restricting endpoint policy to specific resources could break access to these infrastructure resources for services deployed in your virtual network. For specific services, refer to [Limitations](#limitations) During preview, service endpoint policies are not supported for any managed Azure services that are deployed into your virtual network.
 
 - For Azure Storage: 
   -  You can restrict access by listing the Azure Resource Manager *resourceId* of the storage account. This covers traffic to blobs, tables, queues, files and Azure Data Lake Storage Gen2.
@@ -76,11 +83,15 @@ Virtual network service endpoint policies provide following benefits:
     
 - Only storage accounts using the Azure Resource Model can be specified in the endpoint policy.  
 
-  > [!NOTE] Access to classic storage accounts is blocked with endpoint policies.
+  > [!NOTE]
+  
+  > Access to classic storage accounts is blocked with endpoint policies.
 
 - The primary location for the account listed should be in the geo-pair regions of the service endpoint, for the subnet. 
 
-  > [!NOTE] Policies allow service resources from other regions to be specified. Virtual network access to the Azure services is only filtered for the geo-pair regions. If network security groups are not restricted to the geo-pair regions for Azure Storage, the virtual network can access all storage accounts outside the geo-pair regions.
+  > [!NOTE]
+  
+  > Policies allow service resources from other regions to be specified. Virtual network access to the Azure services is only filtered for the geo-pair regions. If network security groups are not restricted to the geo-pair regions for Azure Storage, the virtual network can access all storage accounts outside the geo-pair regions.
 
 - RA-GRS secondary access will be automatically allowed if the primary account is listed. 
 - Storage accounts can be in the same or a different subscription or Azure Active Directory tenant as the virtual network. 
@@ -93,7 +104,9 @@ Virtual network service endpoint policies provide following benefits:
 - You can't use service endpoint policies for traffic from your on-premises network to Azure services.
 - Endpoint policies should not be applied to subnets with managed Azure services, with dependency on Azure services for infrastructure requirements. 
 
-  > [!WARNING] Azure services deployed into your virtual network, such as Azure HDInsight, access other Azure services, such as Azure Storage, for infrastructure requirements. Restricting endpoint policy to specific resources could break access to these infrastructure resources for the Azure services deployed in your virtual network.
+  > [!WARNING]
+  
+  > Azure services deployed into your virtual network, such as Azure HDInsight, access other Azure services, such as Azure Storage, for infrastructure requirements. Restricting endpoint policy to specific resources could break access to these infrastructure resources for the Azure services deployed in your virtual network.
   
   - Some Azure services can be deployed into subnets with other compute instances. Please ensure endpoint policies are not applied to the subnet, if managed services listed below are deployed into the subnet.
    
@@ -132,7 +145,9 @@ Virtual network service endpoint policies provide following benefits:
 
   Step 2: Apply the service endpoint policy with access to only specific Azure service resources.
 
-  > [!WARNING] If the network security group is not configured to limit a virtual network's Azure service access to endpoint regions, you can access service resources in other regions, even if the service endpoint policy is applied.
+  > [!WARNING]
+  
+  > If network security group is not configured to limit a virtual network's Azure service access to endpoint regions, you can access service resources in other regions, even if the service endpoint policy is applied.
 
 ## Scenarios
 
@@ -153,8 +168,10 @@ No centralized logging is available for service endpoint policies. For service d
 - Access is denied for accounts listed in the endpoint policies
   - Network security groups or firewall filtering could be blocking access
   - If removing/re-applying the policy results in connectivity loss:
-    - Validate whether the Azure service is configured to allow access from the virtual network, over endpoints, or that the default policy for the resource is set to *Allow All*.
-      > [!NOTE] Service resources need not be secured to virtual networks to get access over endpoint policies. However, as a security best practice, we recommend that the service resources are secured to your trusted networks, such as your Azure virtual networks, via service endpoints, and on-premises, via an IP firewall.
+   - Validate whether the Azure service is configured to allow access from the virtual network, over endpoints, or that the default policy for the resource is set to *Allow All*.
+      > [!NOTE]
+      
+      > Service resources need not be secured to virtual networks to get access over endpoint policies. However, as a security best practice, we recommend that the service resources are secured to your trusted networks, such as your Azure virtual networks, via service endpoints, and on-premises, via an IP firewall.
   
    - Validate that the service diagnostics show the traffic over endpoints.
     - Check whether network security group flow logs show the access and that storage logs show the access, as expected, over service endpoints.
