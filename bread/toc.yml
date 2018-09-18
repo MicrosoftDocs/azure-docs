@@ -329,6 +329,9 @@
   - name: Firewall
     tocHref: /azure/firewall/
     topicHref: /azure/firewall/
+  - name: Front Door Service
+    tocHref: /azure/frontdoor/
+    topicHref: /azure/frontdoor/
   - name: Guidance
     tocHref: /azure/guidance/
     topicHref: /azure/guidance/

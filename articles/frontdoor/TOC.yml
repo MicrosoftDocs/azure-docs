@@ -1,3 +1,5 @@
+- name: Front Door Service Documentation
+  href: index.yml
 - name: Overview
   items:
   - name: What is Azure Front Door Service?
