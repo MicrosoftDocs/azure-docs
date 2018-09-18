@@ -62,8 +62,8 @@ ms.author: ramkris
 
 ### <a name="1.0.1"/>1.0.1
 
-* Minor bug fix to the BulkInsert operation.
+* Minor bug fix to the BulkImport operation for SQL API.
 
 ### <a name="1.0.0"/>1.0.0
 
-* Added support for BulkInsert and BulkUpdate operations for SQL API.
+* Added support for BulkImport and BulkUpdate operations for SQL API.
