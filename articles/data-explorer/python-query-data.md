@@ -71,7 +71,7 @@ KCSB.authority_id = AAD_TENANT_ID
 
 ## Connect to Azure Data Explorer and execute a query
 
-The following command executes a query against the cluster and stores the output in a data frame. When this code runs, it returns a message like the following: *To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code F3W4VWZDM to authenticate*. Follow the steps to sign-in, then return to run the next code block.
+Execute a query against the cluster and store the output in a data frame. When this code runs, it returns a message like the following: *To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code F3W4VWZDM to authenticate*. Follow the steps to sign-in, then return to run the next code block.
 
 ```python
 KUSTO_CLIENT  = KustoClient(KCSB)
@@ -82,7 +82,7 @@ df = KUSTO_CLIENT.execute_query(KUSTO_DATABASE, KUSTO_QUERY).primary_results[0].
 
 ## Explore data in DataFrame
 
-After you enter a code, the query returns results, and they are stored in a data frame. You can work with the results like you do any other data frame.
+After you enter a sign in, the query returns results, and they are stored in a data frame. You can work with the results like you do any other data frame.
 
 ```python
 df
