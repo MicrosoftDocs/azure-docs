@@ -14,7 +14,7 @@ ms.author: sharadag
 ---
 
 # HTTP/2 support in Azure Front Door Service
-HTTP/2 is a major revision to HTTP/1.1\. It provides faster web performance, reduced response time, and improved user experience, while maintaining the familiar HTTP methods, status codes, and semantics. Though HTTP/2 is designed to work with HTTP and HTTPS, many client web browsers only support HTTP/2 over Transport Layer Security (TLS).
+HTTP/2 is a major revision to HTTP/1.1. It provides faster web performance, reduced response time, and improved user experience, while maintaining the familiar HTTP methods, status codes, and semantics. Though HTTP/2 is designed to work with HTTP and HTTPS, many client web browsers only support HTTP/2 over Transport Layer Security (TLS).
 
 ### HTTP/2 benefits
 
