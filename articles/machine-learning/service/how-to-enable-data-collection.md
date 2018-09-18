@@ -64,27 +64,27 @@ Data collection can be enabled regardless of the model being deployed through Az
     prediction_dc.collect(result) #this call is saving our input data into Azure Blob
     ```
 
-4. Data collection is **not** automatically set to **true** when you deploy a service in AKS, so you will need to update set your configuration file like the following: 
+4. Data collection is **not** automatically set to **true** when you deploy a service in AKS, so you will need to update your configuration file like the following: 
 
     ```python
     aks_config = AksWebservice.deploy_configuration(collect_model_data=True)
     ```
-    AppInsights for service monitoring can also been turned on bu changing this configuration:
+    AppInsights for service monitoring can also be turned on by changing this configuration:
     ```python
     aks_config = AksWebservice.deploy_configuration(collect_model_data=True, enable_app_insights=True)
     ``` 
 
 5. [Create new image and deploy your service.](https://review.docs.microsoft.com/en-us/azure/machine-learning/service/how-to-deploy-to-aks) 
 
-6. Alternatively, if you already have a service with the dependencies installed in your **environment file** and **scoring file**, you can simply enable data collection by:
+If you already have a service with the dependencies installed in your **environment file** and **scoring file**, enable data collection by:
 
-    1. Go to your the [Azure Portal](https://portal.azure.com) 
-    2. Go to your Workspace-> Deployments -> Edit
-    ![Edit Service](media/how-to-enable-data-collection/EditService.png)
-    3. In Advanced Settings check "Enable Model data collection". 
-    ![Un-check Data Collection](media/how-to-enable-data-collection/CheckDataCollection.png)
-    In this window you can also choose to "Enable Appinsights diagnostics" to track the health of your service.  
-    4. Update
+1. Go to  [Azure Portal](https://portal.azure.com) 
+2. Go to Workspace-> Deployments -> Edit
+![Edit Service](media/how-to-enable-data-collection/EditService.png)
+3. In Advanced Settings check "Enable Model data collection". 
+![Uncheck Data Collection](media/how-to-enable-data-collection/CheckDataCollection.png)
+In this window, you can also choose to "Enable Appinsights diagnostics" to track the health of your service.  
+4. Update
 
 The `00.Getting Started/12.enable-data-collection-for-models-in-aks.ipynb` notebook demonstrates concepts in this article.  Get this notebook:
  
@@ -97,7 +97,7 @@ The output gets saved in an Azure Blob using the following path format:
 	
     /modeldata/<subscriptionid>/<resourcegroupname>/<workspacename>/<webservicename>/<modelname>/<modelversion>/<identifier>/<year>/<month>/<day>/data.csv
 
-Since the data gets added into an Azure Blob you can then choose your favorite tool to run the analysis. 
+Since the data gets added into an Azure Blob, you can then choose your favorite tool to run the analysis. 
 
 ## Disable data collection
 To disable data collection, follow the next steps:
@@ -107,9 +107,9 @@ To disable data collection, follow the next steps:
 
     ![Edit Service](media/how-to-enable-data-collection/EditService.png)
 
-    3. In Advanced Settings un-check "Enable Model data collection" 
+    3. In Advanced Settings uncheck "Enable Model data collection" 
 
-    ![Un-check Data Collection](media/how-to-enable-data-collection/UncheckDataCollection.png) 
+    ![Uncheck Data Collection](media/how-to-enable-data-collection/UncheckDataCollection.png) 
 
     4. Update       
 
