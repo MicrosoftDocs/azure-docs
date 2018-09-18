@@ -1,5 +1,5 @@
 ---
-title: Advanced Resource Graph queries
+title: Advanced Azure Resource Graph queries
 description: Use Azure Resource Graph to run some advanced queries.
 services: resource-graph
 author: DCtheGeek
