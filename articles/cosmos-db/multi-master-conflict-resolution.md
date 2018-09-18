@@ -228,4 +228,4 @@ Below are sample applications that demonstrate conflict resolution for the APIs 
 
 In this article, you learned about conflict categories and conflict resolution modes for Azure Cosmos DB. Next, take a look at the following resources:
 
-* [Use MongoDB clients with Multi-master](mongodb-multi-master-support.md)
+* [Use MongoDB clients with Multi-master](multi-master-oss-nosql.md)
