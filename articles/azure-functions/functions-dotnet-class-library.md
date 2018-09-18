@@ -49,7 +49,7 @@ When you build the project, a folder structure that looks like the following is 
 This directory is what gets deployed to your function app in Azure. The binding extensions required in [version 2.x](functions-versions.md) of the Functions runtime are [added to the project as NuGet packages](functions-triggers-bindings.md#c-class-library-with-visual-studio-2017).
 
 > [!IMPORTANT]
-> The build process creates a *function.json* file for each function. This *function.json* file is not meant to be edited directly. You can't change binding configuration or disable the function by editing this file. To learn how to disable a function, see [Functions 2.x - C# class libraries](disable-function.md#functions-2x---c-class-libraries).
+> The build process creates a *function.json* file for each function. This *function.json* file is not meant to be edited directly. You can't change binding configuration or disable the function by editing this file. To learn how to disable a function, see [How to disable functions](disable-function.md#functions-2x---c-class-libraries).
 
 ## Methods recognized as functions
 
