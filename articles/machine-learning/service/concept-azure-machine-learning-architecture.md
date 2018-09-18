@@ -169,6 +169,9 @@ For information on selecting a compute target for training, see the [Select and 
 
 For information on selecting a compute target for deployment, see the [Deploy models with the Azure Machine Learning service](how-to-deploy-and-where.md) document.
 
+> [!NOTE]
+> As with other Azure services, there are limits on certain resources (for eg. BatchAI cluster size) associated with the Azure Machine Learning service. Please read [this](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-manage-quotas) article on the default limits and how to request more quota.
+
 ## Run configuration
 
 A run configuration is a set of instructions that defines how a script should be run in a given compute target. It includes a wide set of behavior definitions, such as whether to use an existing Python environment or use a Conda environment built from specification.
