@@ -1,5 +1,5 @@
 ---
-title: Distribute data globally with Azure Cosmos DB Key Benefits
+title: Key benefits of Azure Cosmos DB global distribution
 description: Learn about Azure Cosmos DB multi-master, key benefits offered by geo-replication, multi-master and use cases where it is helpful.
 services: cosmos-db
 author: markjbrown
@@ -16,6 +16,8 @@ ms.reviewer: sngun
 
 # Distribute data globally with Azure Cosmos DB
 
+This article describes the key benefits of distributing data globally and some real-time scenarios where global data distribution is needed.
+
 ## Key benefits
 
 These are the key benefits for accounts that leverage Azure Cosmos DB global data distribution capabilities.
@@ -30,7 +32,7 @@ These are the key benefits for accounts that leverage Azure Cosmos DB global dat
 
 * **Implicit fault tolerance** - With data replicated across multiple regions, applications can enjoy high fault tolerance against regional outages.
 
-## Use-cases
+## Use cases
 
 Here is just a small sample of the scenarios which can take advantage of the globally distribution capabilities Azure Cosmos DB.
 
