@@ -78,6 +78,8 @@
     href: load-balancer-standard-public-zone-redundant-cli.md
   - name: Load balance VMs within a zone (CLI)
     href: load-balancer-standard-public-zonal-cli.md
+  - name: Configure outbound rules
+    href: configure-load-balancer-outbound-cli.md
   - name: Create an Azure Load Balancer using REST API
     href: create-load-balancer-rest-api.md 
   - name: Create Basic Load Balancer (Template)
