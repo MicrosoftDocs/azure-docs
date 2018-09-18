@@ -35,10 +35,12 @@ FPGAs contain an array of programmable logic blocks and a hierarchy of reconfigu
 
 FPGAs make it possible to achieve low latency for real-time inferencing requests. Batching means collecting a large amount of data and feeding it to a processor to improve hardware utilization. Batching can cause latency because more data needs to be processed, but it can improve throughput. Project Brainwave implementations of neural processing units don't require batching; therefore the latency can be many times lower compared to CPU and GPU.
 
+### Reconfigurable power
 FPGAs can be reconfigured for different types of machine learning models. This flexibility makes it easier to accelerate the applications based on the most optimal numerical precision and memory model being used.
 
 New machine learning techniques are being developed on a regular basis, and Project Brainwave's hardware design is also evolving rapidly. Since FPGAs are reconfigurable, it is possible to stay current with the requirements of the rapidly changing AI algorithms.
 
+### What's supported on Azure
 Microsoft Azure is the world's largest cloud investment in FPGAs. You can run Project Brainwave on Azure's scale infrastructure.
 
 Using this FPGA-enabled hardware architecture, trained neural networks run quickly and with lower latency. Project Brainwave can parallelize pre-trained deep neural networks (DNN) across FPGAs to scale out your service. The DNNs can be pre-trained, as a deep featurizer for transfer learning, or fine-tuned with updated weights.
