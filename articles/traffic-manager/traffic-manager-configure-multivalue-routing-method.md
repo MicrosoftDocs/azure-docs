@@ -1,5 +1,5 @@
 ---
-title: Configure multivalue traffic routing method using Azure Traffic Manager | Microsoft Docs
+title: Configure multivalue traffic routing method in Azure Traffic Manager | Microsoft Docs
 description: This article explains how to configure Traffic Manager to route traffic to A/AAAA endpoints. 
 services: traffic-manager
 documentationcenter: ''
@@ -15,11 +15,13 @@ ms.date: 09/10/2018
 ms.author: kumud
 ---
 
-# Direct traffic to IPv4/IPv6 endpoints using Traffic Manager
+# Configure MultiValue routing method in Traffic Manager
 
-This article describes how to configure the multivalue traffic-routing method. The **Multivalue** traffic routing method allows you to direct traffic to traffic to A/AAAA endpoint and helps increase the reliability of your application since clients have multiple healthy endpoint options to retry without having to do another DNS lookup. 
-When a query is received for this profile, all healthy endpoints are returned based on the maximum return count specified. 
+This article describes how to configure the MultiValue traffic-routing method. The **Multivalue** traffic routing method allows you to return multiple healthy endpoints and helps increase the reliability of your application since clients have more options to retry without having to do another DNS lookup. MultiValue routing is enabled only for profiles which have all their endpoints specified using IPv4 or IPv6 addresses. 
+When a query is received for this profile, all healthy endpoints are returned based on the configurable maximum return count specified. 
 
+>[!NOTE]
+> At this time adding endpoints using IPv4 or IPv6 addresses is supported only for endpoints of type **External** and hence MultiValue routing is also supported only for such endpoints.
 
 ## Sign in to Azure 
 
@@ -48,7 +50,7 @@ Create a Traffic Manager profile that directs user traffic by sending them to th
 
 ## Add Traffic Manager endpoints
 
-Add two IP addresses as external endpoints to the multivalue traffic manager profile that you created in the preceding step.
+Add two IP addresses as external endpoints to the MultiValue Traffic Manager profile that you created in the preceding step.
 
 1. In the portal’s search bar, search for the Traffic Manager profile name that you created in the preceding section and select the profile in the results that the displayed.
 2. In **Traffic Manager profile**, in the **Settings** section, click **Endpoints**, and then click **Add**.
@@ -70,6 +72,7 @@ Add two IP addresses as external endpoints to the multivalue traffic manager pro
 
 - Learn about [weighted traffic routing method](traffic-manager-configure-weighted-routing-method.md).
 - Learn about [priority routing method](traffic-manager-configure-priority-routing-method.md).
+- Learn more about [performance routing method](traffic-manager-configure-performance-routing-method.md)
 - Learn about [geographic routing method](traffic-manager-configure-geographic-routing-method.md).
 
 

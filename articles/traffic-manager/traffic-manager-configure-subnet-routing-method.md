@@ -3,21 +3,21 @@ title: Configure subnet traffic routing method using Azure Traffic Manager | Mic
 description: This article explains how to configure Traffic Manager to route traffic from specific subnets. 
 services: traffic-manager
 documentationcenter: ''
-author: kumudd
-manager: jeconnoc
+author: KumudD
+manager: jpconnock
 
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/10/2018
+ms.date: 09/17/2018
 ms.author: kumud
 ---
 
 # Direct traffic to specific endpoints based on user subnet using Traffic Manager
 
-This article describes how to configure the subnet traffic-routing method. The **Subnet** traffic-routing method allows you to vary the responses Traffic Manager returns based on the subnet from which the query originates. 
+This article describes how to configure the subnet traffic-routing method. The **Subnet** traffic-routing method allows you to map a set of IP address ranges to specific endpoints and when a request is received by Traffic Manager, it inspects the source IP of the request and returns the endpoint associated with it. 
 
 In the scenario discussed in this article, using subnet routing, depending on the IP address of the user's query, traffic is either routed to an internal website or a production website.
 
@@ -41,7 +41,7 @@ In this section, you create two website instances that provide the two service e
 2. Install IIS server on each VM and update the default website page that describes the VM name that a user is connected to when visiting the website.
 
 #### Create VMs for running websites
-In this section, you create two VMs *myIISVMEastUS* and *myIISVMWEurope* in the **East US** and **West Europe** Azure regions.
+In this section, you create two VMs *myEndpointVMEastUS* and *myEndpointVMWEurope* in the **East US** and **West Europe** Azure regions.
 
 1. On the upper, left corner of the Azure portal, select **Create a resource** > **Compute** > **Windows Server 2016 VM**.
 2. Enter, or select, the following information for **Basics**, accept the defaults for the remaining settings, and then select **Create**:
@@ -160,7 +160,7 @@ In this section, you create a VM (*mVMEastUS* and *myVMWestEurope*) in each Azur
 8. The VMs take a few minutes to create. Do not continue with the remaining steps until both VMs are created.
 
 ## Create a Traffic Manager profile
-Create a Traffic Manager profile that directs user traffic by sending them to the endpoint with lowest latency.
+Create a Traffic Manager profile that allows you to return specific endpoints based on the source IP of the request.
 
 1. On the top left-hand side of the screen, select **Create a resource** > **Networking** > **Traffic Manager profile** > **Create**.
 2. In the **Create Traffic Manager profile**, enter or select, the following information, accept the defaults for the remaining settings, and then select **Create**:
