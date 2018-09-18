@@ -30,6 +30,7 @@ In Azure, to achieve high availability of a multi-VM production system, VMs are 
 
 ![Fault and update domains](media\azure-stack-capacity-planning\domains.png)
 
+
 While the infrastructure of Azure Stack is resilient to failures, the underlying technology (failover clustering) still incurs some downtime for VMs on an impacted physical server in the event of a hardware failure. Currently, Azure Stack supports having an availability set with a maximum of three fault domains to be consistent with Azure. VMs placed in an availability set will be physically isolated from each other by spreading them as evenly as possible over multiple fault domains (Azure Stack nodes). If there is a hardware failure, VMs from the failed fault domain will be restarted in other nodes, but, if possible, kept in separate fault domains from the other VMs in the same availability set. When the hardware comes back online, VMs will be rebalanced to maintain high availability.
 
 Another concept that is used by Azure to provide high availability is in the form of update domains in availability sets. An update domain is a logical group of underlying hardware that can undergo maintenance or be rebooted at the same time. In Azure Stack, VMs are live migrated across the other online hosts in the cluster before their underlying host is updated. Since there is no tenant downtime during a host update, the update domain feature on Azure Stack only exists for template compatibility with Azure.
