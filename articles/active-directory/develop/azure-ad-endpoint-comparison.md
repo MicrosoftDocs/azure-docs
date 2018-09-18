@@ -27,9 +27,9 @@ When developing a new application, it is important to know the differences betwe
 > [!NOTE]
 > Not all Azure AD scenarios and features are supported by the v2.0 endpoint. To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](#limitations).
 
-## Who can sign in
+## Who can sign
 
-![Who can sign in with v1.0 and v2.0 endpoints](media/azure-ad-endpoint-comparison/who-can-sign-in.png)
+![Who can sign-in with v1.0 and v2.0 endpoints](media/azure-ad-endpoint-comparison/who-can-sign-in.png)
 
 * The v1.0 endpoint allows only work and school accounts to sign in to your application (Azure AD)
 
