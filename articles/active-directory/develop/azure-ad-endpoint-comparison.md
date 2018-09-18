@@ -21,6 +21,7 @@ ms.custom: aaddev
 ---
 
 # Comparing the Azure AD v2.0 endpoint with v1.0 endpoint
+
 * [Who can sign-in](#who-can-sign-in)
 * [Scopes, not resources](#scopes-not-resources)
 * [Incremental and dynamic consent](#incremental-and-dynamic-consent)
@@ -35,9 +36,11 @@ ms.custom: aaddev
 
 ![Who can sign-in with v1.0 and v2.0 endpoints](media/azure-ad-endpoint-comparison/who-can-sign-in.png)
 
-- The v1.0 endpoint allows only work and school accounts to sign in to your application (Azure AD)
-- The v2.0 endpoint allows work and school accounts from Azure Active Directory and personal accounts (MSA) (hotmail.com, outlook.com, msn.com) to sign in.
-- Both v1.0 and v2.0 endpoints also accept sign-ins of *[guest users](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* of an Azure AD directory for Azure AD applications configured as *[single-tenant](single-and-multi-tenant-apps.md)*.
+* The v1.0 endpoint allows only work and school accounts to sign in to your application (Azure AD)
+
+* The v2.0 endpoint allows work and school accounts from Azure Active Directory and personal accounts (MSA) (hotmail.com, outlook.com, msn.com) to sign in.
+
+* Both v1.0 and v2.0 endpoints also accept sign-ins of *[guest users](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* of an Azure AD directory for Azure AD applications configured as *[single-tenant](single-and-multi-tenant-apps.md)*.
 
 The v2.0 endpoint allows you to write apps that accept sign-in from both personal and work and school accounts, giving you the ability to write your app completely account-agnostic. For instance, if your app calls the [Microsoft Graph](https://graph.microsoft.io), some additional functionality and data will be available to work accounts, such as their SharePoint sites or Directory data. But for many actions, such as [Reading a user's mail](https://graph.microsoft.io/docs/api-reference/v1.0/resources/message), the same code can access the email for both personal and work and school accounts.
 
@@ -54,7 +57,9 @@ Apps using the Azure AD v1.0 endpoint are required to specify their required OAu
 The permissions set directly on the application registration are **static**. While static permissions of the app defined in the Azure portal and kept the code nice and simple, it might present a few issues for developers:
 
 * The app need know all of the permissions it would ever need at app creation time. Adding permissions over time was a difficult process.
+
 * The app need to know all of the resources it would ever access ahead of time. It was difficult to create apps that could access an arbitrary number of resources.
+
 * The app need to request all the permissions it would ever need upon the user's first sign-in. In some cases this led to a long list of permissions, which discouraged end users from approving the app's access on initial sign-in.
 
 With the v2.0 endpoint, you can ignore the statically defined permissions defined in the app registration information in the Azure portal and specify the permissions your app needs **dynamically** at runtime, during regular use of your app, regardless of statically defined permissions in the application registration information.
@@ -72,6 +77,7 @@ Note that admin consent done on behalf of an organization still uses the static 
 For apps using the v1.0 endpoint, an app can behave as a **resource**, or a recipient of tokens. A resource can define a number of **scopes** or **oAuth2Permissions** that it understands, allowing client apps to request tokens to that resource for a certain set of scopes. Consider the Azure AD Graph API as an example of a resource:
 
 * Resource Identifier, or `AppID URI`: `https://graph.windows.net/`
+
 * Scopes, or `OAuth2Permissions`: `Directory.Read`, `Directory.Write`, and so on.
 
 All of this holds true for the v2.0 endpoint. An app can still behave as resource, define scopes, and be identified by a URI. Client apps can still request access to those scopes. However, the way that a client requests those permissions has changed. For the v1.0 endpoint, an OAuth 2.0 authorize request to Azure AD might have looked like:
@@ -149,7 +155,9 @@ Currently, for each app that you want to integrate with the v2.0 endpoint, you m
 In addition, app registrations that you create in the [Application Registration Portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) have the following caveats:
 
 * Only two app secrets are allowed per Application ID.
+
 * An app registration registered by a user with a personal Microsoft account can be viewed and managed only by a single developer account. It cannot be shared between multiple developers. If you would like to share your app registration amongst multiple developers, you can create the application by signing into the registration portal with an Azure AD account.
+
 * There are several restrictions on the format of the redirect URL that is allowed. For more information about redirect URL, see the next section.
 
 ### Restrictions on redirect URLs
@@ -162,6 +170,7 @@ Apps that are registered in the Application Registration Portal are restricted t
 The registration system compares the whole DNS name of the existing redirect URL to the DNS name of the redirect URL that you are adding. The request to add the DNS name will fail if either of the following conditions is true:  
 
 * The whole DNS name of the new redirect URL does not match the DNS name of the existing redirect URL.
+
 * The whole DNS name of the new redirect URL is not a subdomain of the existing redirect URL.
 
 For example, if the app has this redirect URL:
@@ -209,13 +218,15 @@ The v2.0 endpoint does not support SAML or WS-Federation; it only supports Open 
 The following protocol features and capabilities currently are *not available* in the v2.0 endpoint:
 
 * Currently, the `email` claim is returned only if an optional claim is configured and scope is scope=email was specified in the request. However, this behavior will change as the v2.0 endpoint is updated to further comply with the Open ID Connect and OAuth2.0 standards.
+
 * The v2.0 endpoint does not support issuing role or group claims in ID tokens.
+
 * The [OAuth 2.0 Resource Owner Password Credentials Grant](https://tools.ietf.org/html/rfc6749#section-4.3) is not supported by the v2.0 endpoint.
 
 In addition, the v2.0 endpoint does not support any form of the SAML or WS-Federation protocols.
 
 To better understand the scope of protocol functionality supported in the v2.0 endpoint, read through our [OpenID Connect and OAuth 2.0 protocol reference](active-directory-v2-protocols.md).
 
-### SAML Restrictions
+#### SAML Restrictions
 
 If you've used Active Directory Authentication Library (ADAL) in Windows applications, you might have taken advantage of Windows integrated authentication, which uses the Security Assertion Markup Language (SAML) assertion grant. With this grant, users of federated Azure AD tenants can silently authenticate with their on-premises Active Directory instance without entering credentials. Currently, the SAML assertion grant is not supported on the v2.0 endpoint.
