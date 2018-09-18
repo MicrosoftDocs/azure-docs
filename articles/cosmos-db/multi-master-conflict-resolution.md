@@ -203,13 +203,13 @@ FeedResponse<Conflict> response = await myClient.ReadConflictFeedAsync(myCollect
 
 Below are sample applications that demonstrate conflict resolution for the APIs listed. Each sample generates conflicts within a container and then demonstrates how conflicts are resolved for each supported conflict resolution mode.
 
-|API model  |Language | Sample |
-|---------|---------| ---------|
-|SQL  | .Net | [azure-cosmos-db-sql-dotnet-multi-master](https://github.com/Azure-Samples/azure-cosmos-db-sql-dotnet-multi-master)  |
-|MongoDB | .Net | [azure-cosmos-db-mongodb-dotnet-multi-master](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-dotnet-multi-master)   |
-|Table  | .Net |  [azure-cosmos-db-table-dotnet-multi-master](https://github.com/Azure-Samples/azure-cosmos-db-table-dotnet-multi-master)       |
-|Graph  | .Net |  [azure-cosmos-db-graph-dotnet-multi-master](https://github.com/Azure-Samples/azure-cosmos-db-graph-dotnet-multi-master)      |
-|Cassandra  | .Net | [azure-cosmos-db-cassandra-dotnet-multi-master](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-dotnet-multi-master)  |
+|API model  | SDK |Sample |
+|---------|---------|---------|
+|SQL      | .NET    |[azure-cosmos-db-sql-dotnet-multi-master](https://github.com/Azure-Samples/azure-cosmos-db-sql-dotnet-multi-master)  |
+|MongoDB  | .NET    |[azure-cosmos-db-mongodb-dotnet-multi-master](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-dotnet-multi-master)   |
+|Table    | .NET    |[azure-cosmos-db-table-dotnet-multi-master](https://github.com/Azure-Samples/azure-cosmos-db-table-dotnet-multi-master)       |
+|SQL      | Node    |[azure-cosmos-js/samples/MultiRegionWrite/](https://github.com/Azure/azure-cosmos-js/tree/master/samples/MultiRegionWrite)  |
+|SQL      | Java    |[azure-cosmos-db-sql-java-multi-master](https://github.com/Azure-Samples/azure-cosmos-db-sql-java-multi-master)  |
 
 ## Next steps
 
