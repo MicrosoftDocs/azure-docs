@@ -44,7 +44,7 @@ Sign in to the Azure portal at http://portal.azure.com.
 
    - Subscription   : Select your subscription for policy.    
    - Resource group : Select **Create new** and enter *myResourceGroup*.     
-   - Name           :  myEndpointPolicy
+   - Name           : myEndpointPolicy
    - Location       : West Central US     
  
    ![Create service endpoint policy basics](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-create-startpane.PNG)
