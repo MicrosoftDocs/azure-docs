@@ -18,7 +18,7 @@ ms.reviewer:
 
 It can seem daunting to deploy Azure Active Directory (Azure AD) for your organization and keep it secure. This article identifies some common tasks that customers find helpful to complete over the course of 30 days, 90 days, or beyond to enhance their security posture. Even organizations who have already deployed Azure AD can use this checklist to ensure they are getting the most out of their investment.
 
-A well-planned and executed identity infrastructure paves the way for stronger security and access to your productivity workloads and their data only by authenticated users and devices.
+A well-planned and executed identity infrastructure paves the way for more secure access to your productivity workloads and data only by authenticated users and devices.
 
 ## Prerequisites
 
@@ -32,55 +32,61 @@ This guide assumes you have Azure AD Premium P2 licenses, Enterprise Mobility + 
 
 ## Plan and deploy: Day 1-30
 
-- Designate more than one global administrator (break glass account)
-   - Refer to this doc: [DOC](../users-groups-roles/directory-emergency-access.md)
-- Turn on Azure AD Privileged Identity Management (PIM) to view reports [DOC](../privileged-identity-management/pim-getting-started.md)
+- Designate more than one global administrator (break-glass account)
+   - [Manage emergency-access administrative accounts in Azure AD](../users-groups-roles/directory-emergency-access.md)
+- Turn on Azure AD Privileged Identity Management (PIM) to view reports
+   - [Start using PIM](../privileged-identity-management/pim-getting-started.md)
 - Use non-global administrative roles where possible.
-   - [DOC](../users-groups-roles/directory-assign-admin-roles.md)
-   - Which specific features are needed, then you are likely needed to configure the following. Base it off golden config as an example?
-- Turn on Identity Protection to view reports [DOC](../identity-protection/enable.md)
-   - Remediate the users at risk (admin activity in the portal)
-   - Take action on risky sign-ins (admin activity in the portal)
+   - [Assigning administrator roles in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)
 - Authentication
-   - Enable self-service password reset [DOC](../authentication/quickstart-sspr.md)
-   - Password policy - Use same guidance from PDF + below NEED A DOC
-      - Do not expire passwords, do not require long passwords, password complexity replaced by password protection https://www.microsoft.com/research/publication/password-guidance/
-      - Password writeback (Included in Azure AD Connect)
-   - Deploy Password Protection (preview) [DOC](../authentication/concept-password-ban-bad.md)
-   - For ADFS, use Smart Lockout (2016) or Extranet Lockout (2012)
-      - Why we do not recommend account lockout policies (not a modern way of managing accounts)
-      - Azure AD Smart Lockout for non-ADFS [DOC](../authentication/howto-password-smart-lockout.md)
-   - CA based MFA [DOC](../authentication/howto-mfa-getstarted.md)
-   - SSPR/MFA Converged registration [DOC](../authentication/concept-registration-mfa-sspr-converged.md)
-- Azure AD Connect (PHS) [DOC](../connect/active-directory-aadconnect#install-azure-ad-connect.md)
-   - Implement Password Hash Sync [DOC](../connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md)
-   - Implement Passwrod Writeback [DOC](../authentication/howto-sspr-writeback.md)
-   - Implement Azure AD Connect Health [DOC](../connect-health/active-directory-aadconnect-health.md)
-- Enable group-based licensing to assign services to your users automatically as soon as they arrive in the cloud. [DOC](../users-groups-roles/licensing-groups-assign.md)
+   - [Roll out self-service password reset](../authentication/howto-sspr-deployment.md)
+   - Deploy Azure AD Password Protection (preview)
+      - [Eliminate bad passwords in your organization](../authentication/concept-password-ban-bad.md)
+      - [Enforce Azure AD password protection for Windows Server Active Directory](../authentication/concept-password-ban-bad-on-premises.md)
+   - Configure account lockout policies
+      - [Azure Active Directory smart lockout](../authentication/howto-password-smart-lockout.md)
+      - [AD FS Extranet Lockout and Extranet Smart Lockout](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection)
+   - [Deploy Azure AD Multi-Factor Authentication using conditional access policies](../authentication/howto-mfa-getstarted.md)
+   - [Enable converged registration for self-service password reset and Azure AD Multi-Factor Authentication (preview)](../authentication/concept-registration-mfa-sspr-converged.md)
+   - [Enable Azure Active Directory Identity Protection](../identity-protection/enable.md)
+      - [Use risk events to trigger Multi-Factor Authentication and password changes](../authentication/tutorial-risk-based-sspr-mfa.md)
+   - [Password guidance](https://www.microsoft.com/research/publication/password-guidance/)
+      - Maintain an eight-character minimum length requirement, longer is not necessarily better.
+      - Eliminate character-composition requirements.
+      - [Eliminate mandatory periodic password resets for user accounts.](../authentication/concept-sspr-policy.md#set-a-password-to-never-expire)
+- Synchronize users from on-premises Active Directory
+   - [Install Azure AD Connect](../connect/active-directory-aadconnect-select-installation.md)
+   - [Implement Password Hash Sync](../connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md)
+   - [Implement Password Writeback](../authentication/howto-sspr-writeback.md)
+   - [Implement Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md)
+- [Assign licenses to users by group membership in Azure Active Directory](../users-groups-roles/licensing-groups-assign.md)
 
 ## Plan and deploy: Day 31-90
 
-- Enable sign in risk and user risk policy automation (based on golden config recs) NEED A DOC
-- Decide on external user strategy [DOC](../b2b/what-is-b2b.md)
-- Decide on user lifecycle management strategy NEED A DOC
-- Decide on device join strategy [DOC](../devices/overview.md)
-   - Use Azure AD Join with Windows 10 devices [DOC](../devices/azuread-joined-devices-frx.md)
-- Use B2B for new external users [DOC](../b2b/add-user-without-invite.md)
-   - Allow or deny specific domains [DOC](../b2b/allow-deny-list.md)
-- Enable Windows Hello for Business on all Windows 10 PCs + Authenticator App for passwordless [DOC](/windows/security/identity-protection/hello-for-business/hello-identity-verification.md)
+- [Plan for guest user access](../b2b/what-is-b2b.md)
+   - [Add Azure Active Directory B2B collaboration users in the Azure portal](../b2b/add-users-administrator.md)
+   - [Allow or block invitations to B2B users from specific organizations](../b2b/allow-deny-list.md)
+   - [Grant B2B users in Azure AD access to your on-premises applications](../b2b/hybrid-cloud-to-on-premises.md)
+- Make decisions about user lifecycle management strategy
+- [Decide on device managment strategy](../devices/overview.md)
+   - [Usage scenarios and deployment considerations for Azure AD Join](../devices/azureadjoin-plan.md)
+- [Manage Windows Hello for Business in your organization](/windows/security/identity-protection/hello-for-business/hello-manage-in-organization)
 
 ## Plan and deploy: Day 90 and beyond
 
-- Remove just in time access eligible admins that no longer need access
-   - Refer to [DOC](../privileged-identity-management/pim-how-to-add-role-to-user.md)
-- Require just in time access for global administrators
-   - Refer to [DOC](../privileged-identity-management/pim-how-to-add-role-to-user.md)
-- Configure reoccurring access reviews for all administrator roles
-   - Refer to [DOC](../privileged-identity-management/pim-how-to-start-security-review.md)
+- [Azure AD Privileged Identity Management](../privileged-identity-management/pim-configure.md)
+   - [Configure Azure AD directory role settings in PIM](../privileged-identity-management/pim-how-to-change-default-settings.md)
+   - [Assign Azure AD directory roles in PIM](../privileged-identity-management/pim-how-to-add-role-to-user.md)
+- [Complete an access review for Azure AD directory roles in PIM](../privileged-identity-management/pim-how-to-start-security-review.md)
 - Manage the user lifecycle holistically
-   - Azure AD has an approach to managing Identity lifecycle NEED A DOC
-   - Remove manual steps from your employee account lifecycle everywhere you can to prevent unauthorized access:
-      - Synchronize identities from your source of truth (HR System) to Azure AD. link to supported HR systems) NEED A DOC
-      - Use Dynamic Groups to automatically assign users to groups based on their attributes from HR (or your source of truth), such as department, title, region, and other attributes. [DOC](../users-groups-roles/groups-dynamic-membership.md)
-      - Use group-based access management/ provisioning to automatically provision users for SaaS applications. [DOC](../manage-apps/what-is-access-management.md)
-   - Migrate your external accounts to Azure AD B2B collaboration [DOC](../b2b/hybrid-cloud-to-on-premises.md)
+   - Azure AD has an approach to managing Identity lifecycle
+   - Remove manual steps from your employee account lifecycle, to prevent unauthorized access:
+      - Synchronize identities from your source of truth (HR System) to Azure AD. link to supported HR systems)
+      - [Use Dynamic Groups to automatically assign users to groups based on their attributes from HR (or your source of truth), such as department, title, region, and other attributes.](../users-groups-roles/groups-dynamic-membership.md)
+      - [Use group-based access management provisioning to automatically provision users for SaaS applications.](../manage-apps/what-is-access-management.md)
+
+## Next steps
+
+[Identity and device access configurations](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
+
+[Common recommended identity and device access policies](https://docs.microsoft.com/microsoft-365/enterprise/identity-access-policies)
