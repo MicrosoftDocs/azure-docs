@@ -50,7 +50,7 @@ If the user enabling disaster recovery (DR) does not have the required permissio
 >To enable replication of ADE VM from portal, you at least need "List" permissions on the key vaults, secrets and keys
 >
 
-## Copy Azure disk encryption keys to DR region using PowerShell Script
+## Copy ADE keys to DR region using PowerShell Script
 
 1. Open the 'CopyKeys' raw script code in a browser window by clicking on [this link](https://aka.ms/ade-asr-copy-keys-code).
 2. Copy the script to a file and name it 'Copy-keys.ps1'.

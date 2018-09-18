@@ -213,7 +213,7 @@ If the source virtual machine has Azure disk encryption (ADE) enabled, the below
 Click 'Customize' next to encryption settings to override the defaults and select custom key vaults.
 
 >[!NOTE]
->Only Azure VMs running Windows OS enabled for [encryption with Azure AD app](https://aka.ms/ade-aad-app)are currently supported by Azure Site Recovery.
+>Only Azure VMs running Windows OS enabled for [encryption with Azure AD app](https://aka.ms/ade-aad-app) are currently supported by Azure Site Recovery.
 >
 
 ### Track replication status
