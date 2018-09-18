@@ -66,58 +66,61 @@ The SDK you have cloned contains multiple samples that show you how to receive e
     ```nodejs
     node dist/examples/singleEph.js
     ```
-6. Review the code: 
 
-    ```nodejs
-    const { EventProcessorHost, delay } = require("@azure/event-processor-host");
+## Review the sample code 
+Here is the sample code to receive events from an event hub using node.js. You can manually create a sampleEph.js file, and run it to receive events to an event hub. 
 
-    const path = process.env.EVENTHUB_NAME;
-    const storageCS = process.env.STORAGE_CONNECTION_STRING;
-    const ehCS = process.env.EVENTHUB_CONNECTION_STRING;
-    const storageContainerName = "test-container";
-    
-    async function main() {
-      // Create the Event Processo Host
-      const eph = EventProcessorHost.createFromConnectionString(
-        EventProcessorHost.createHostName("my-host"),
-        storageCS,
-        storageContainerName,
-        ehCS,
-        {
-          eventHubPath: path
-        },
-        onEphError: (error) => {
-          console.log("This handler will notify you of any internal errors that happen " +
-          "during partition and lease management: %O", error);
-        }
-      );
-      let count = 0;
-      // Message event handler
-      const onMessage = async (context/*PartitionContext*/, data /*EventData*/) => {
-        console.log(">>>>> Rx message from '%s': '%s'", context.partitionId, data.body);
-        count++;
-        // let us checkpoint every 100th message that is received across all the partitions.
-        if (count % 100 === 0) {
-          return await context.checkpoint();
-        }
-      };
-      // Error event handler
-      const onError = (error) => {
-        console.log(">>>>> Received Error: %O", error);
-      };
-      // start the EPH
-      await eph.start(onMessage, onError);
-      // After some time let' say 2 minutes
-      await delay(120000);
-      // This will stop the EPH.
-      await eph.stop();
-    }
-    
-    main().catch((err) => {
-      console.log(err);
-    });
-        
-    ```
+
+  ```nodejs
+  const { EventProcessorHost, delay } = require("@azure/event-processor-host");
+
+  const path = process.env.EVENTHUB_NAME;
+  const storageCS = process.env.STORAGE_CONNECTION_STRING;
+  const ehCS = process.env.EVENTHUB_CONNECTION_STRING;
+  const storageContainerName = "test-container";
+  
+  async function main() {
+    // Create the Event Processo Host
+    const eph = EventProcessorHost.createFromConnectionString(
+      EventProcessorHost.createHostName("my-host"),
+      storageCS,
+      storageContainerName,
+      ehCS,
+      {
+        eventHubPath: path
+      },
+      onEphError: (error) => {
+        console.log("This handler will notify you of any internal errors that happen " +
+        "during partition and lease management: %O", error);
+      }
+    );
+    let count = 0;
+    // Message event handler
+    const onMessage = async (context/*PartitionContext*/, data /*EventData*/) => {
+      console.log(">>>>> Rx message from '%s': '%s'", context.partitionId, data.body);
+      count++;
+      // let us checkpoint every 100th message that is received across all the partitions.
+      if (count % 100 === 0) {
+        return await context.checkpoint();
+      }
+    };
+    // Error event handler
+    const onError = (error) => {
+      console.log(">>>>> Received Error: %O", error);
+    };
+    // start the EPH
+    await eph.start(onMessage, onError);
+    // After some time let' say 2 minutes
+    await delay(120000);
+    // This will stop the EPH.
+    await eph.stop();
+  }
+  
+  main().catch((err) => {
+    console.log(err);
+  });
+      
+  ```
 You can find more samples [here](https://github.com/Azure/azure-event-hubs-node/tree/master/processor/examples).
 
 

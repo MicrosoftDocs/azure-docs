@@ -64,26 +64,29 @@ The SDK you have cloned contains multiple samples that show you how to send even
     ```nodejs
     node dist/examples/simpleSender.js
     ```
-6. Review the sample code: 
 
-    ```nodejs
-    const { EventHubClient, EventPosition } = require('@azure/event-hubs');
-    
-    const client = EventHubClient.createFromConnectionString(process.env["EVENTHUB_CONNECTION_STRING"], process.env["EVENTHUB_NAME"]);
-    
-    async function main() {
-      // NOTE: For receiving events from Azure Stream Analytics, please send Events to an EventHub where the body is a JSON object/array.
-      // const eventData = { body: { "message": "Hello World" } };
-      const data = { body: "Hello World 1" };
-      const delivery = await client.send(data);
-      console.log("message sent successfully.");
-    }
-    
-    main().catch((err) => {
-      console.log(err);
-    });
-    
-    ```
+
+## Review the sample code 
+Here is the sample code to send events to an event hub using node.js. You can manually create a sampleSender.js file, and run it to send events to an event hub. 
+
+```nodejs
+const { EventHubClient, EventPosition } = require('@azure/event-hubs');
+
+const client = EventHubClient.createFromConnectionString(process.env["EVENTHUB_CONNECTION_STRING"], process.env["EVENTHUB_NAME"]);
+
+async function main() {
+    // NOTE: For receiving events from Azure Stream Analytics, please send Events to an EventHub where the body is a JSON object/array.
+    // const eventData = { body: { "message": "Hello World" } };
+    const data = { body: "Hello World 1" };
+    const delivery = await client.send(data);
+    console.log("message sent successfully.");
+}
+
+main().catch((err) => {
+    console.log(err);
+});
+
+```
 
 ## Next steps
 
