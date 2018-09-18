@@ -16,13 +16,45 @@ ms.author: glenga
 
 ---
 # Azure Functions JavaScript developer guide
+This guide contains information about the intricacies of writing Azure Functions with JavaScript.
 
-The JavaScript experience for Azure Functions makes it easy to export a function, which is passed as a `context` object for communicating with the runtime and for receiving and sending data via bindings.
+A JavaScript function is an exported `function` that will execute when triggered ([triggers are configured in function.json](functions-triggers-bindings.md)). Each function is passed a `context` object which is used for receiving and sending binding data, logging, and communicating with the runtime.
 
-This article assumes that you've already read the [Azure Functions developer reference](functions-reference.md).
+This article assumes that you have already read the [Azure Functions developer reference](functions-reference.md). It is also recommended that you have followed a tutorial under "Quickstarts" to [create your first function](functions-create-first-function-vs-code.md).
+
+## Folder structure
+
+The required folder structure for a JavaScript project looks like the following. Note that this default can be changed: see the [scriptFile](functions-reference-node.md#using-scriptfile) section below for more details.
+
+```
+FunctionsProject
+ | - MyFirstFunction
+ | | - index.js
+ | | - function.json
+ | - MySecondFunction
+ | | - index.js
+ | | - function.json
+ | - SharedCode
+ | | - myFirstHelperFunction.js
+ | | - mySecondHelperFunction.js
+ | - node_modules
+ | - host.json
+ | - package.json
+ | - extensions.csproj
+ | - bin
+```
+
+At the root of the project, there's a shared [host.json](functions-host-json.md) file that can be used to configure the function app. Each function has a folder with its own code file (.js) and binding configuration file (function.json).
+
+The binding extensions required in [version 2.x](functions-versions.md) of the Functions runtime are defined in the `extensions.csproj` file, with the actual library files in the `bin` folder. When developing locally, you must [register binding extensions](functions-triggers-bindings.md#local-development-azure-functions-core-tools). When developing functions in the Azure portal, this registration is done for you.
 
 ## Exporting a function
-Each JavaScript function must export a single `function` via `module.exports` for the runtime to find the function and run it. This function must always take a `context` object as the first parameter.
+
+JavaScript functions must be exported via [`module.exports`](https://nodejs.org/api/modules.html#modules_module_exports) (or [`exports`](https://nodejs.org/api/modules.html#modules_exports)). In the default case, your exported function should be the only export from its file, the export named `run`, or the export named `index`. The default location of your function is `index.js`, where `index.js` shares the same parent directory as the corresponding `function.json`. Note that the name of `function.json`'s parent directory is always the name of your function. 
+
+To configure the file location and export name of your function, read about [configuring your function's entry point](functions-reference-node.md#configure-function-entry-point) below.
+
+Your exported function entry point must always take a `context` object as the first parameter.
 
 ```javascript
 // You must include a context, other arguments are optional
@@ -41,7 +73,7 @@ module.exports = function(context) {
 };
 ```
 
-Input and trigger bindings (bindings of `direction === "in"`) can be passed to the function as parameters. They are passed to the function in the same order that they are defined in *function.json*. You can dynamically handle inputs using the JavaScript [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) object. For example, if you have `function(context, a, b)` and change it to `function(context, a)`, you can still get the value of `b` in function code by referring to `arguments[2]`.
+Triggers and input bindings (bindings of `direction === "in"`) can be passed to the function as parameters. They are passed to the function in the same order that they are defined in *function.json*. You can also dynamically handle inputs using the JavaScript [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) object. For example, if you have `function(context, a, b)` and change it to `function(context, a)`, you can still get the value of `b` in function code by referring to `arguments[2]`.
 
 All bindings, regardless of direction, are also passed along on the `context` object using the `context.bindings` property.
 
@@ -52,9 +84,9 @@ The `context` object is always the first parameter to a function and must be inc
 
 ```javascript
 // You must include a context, but other arguments are optional
-module.exports = function(context) {
+module.exports = function(ctx) {
     // function logic goes here :)
-    context.done();
+    ctx.done();
 };
 ```
 
@@ -105,7 +137,7 @@ context.done([err],[propertyBag])
 
 Informs the runtime that your code has finished. If your function uses the JavaScript [`async function`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) declaration (available using Node 8+ in Functions version 2.x), you do not need to use `context.done()`. The `context.done` callback is implicitly called.
 
-If your function is not an async function, **you must call `context.done`** to inform the runtime that your function is complete. The execution will time out if it is missing.
+If your function is not an async function, **you must call** `context.done` to inform the runtime that your function is complete. The execution will time out if it is missing.
 
 The `context.done` method allows you to pass back both a user-defined error to the runtime and a JSON object containing output binding data. Properties passed to `context.done` will overwrite anything set on the `context.bindings` object.
 
@@ -160,7 +192,7 @@ Options for `dataType` are: `binary`, `stream`, and `string`.
 
 ## Writing trace output to the console 
 
-In Functions, you use the `context.log` methods to write trace output to the console. In Functions v1.x, you cannot use `console.log` to write to the console. In Functions v2.x, trace ouputs via `console.log` are captured at the Function App level. This means that outputs from `console.log` are not tied to a specific function invocation.
+In Functions, you use the `context.log` methods to write trace output to the console. In Functions v2.x, trace ouputs via `console.log` are captured at the Function App level. This means that outputs from `console.log` are not tied to a specific function invocation, and hence aren't displayed in a specific function's logs. They will, however, propagate to Application Insights. In Functions v1.x, you cannot use `console.log` to write to the console. 
 
 When you call `context.log()`, your message is written to the console at the default trace level, which is the _info_ trace level. The following code writes to the console at the info trace level:
 
@@ -291,22 +323,10 @@ The following table shows the Node.js version used by each major version of the 
 | 1.x | 6.11.2 (locked by the runtime) |
 | 2.x  | _Active LTS_ and _Current_ Node.js versions (8.11.1 and 10.6.0 recommended). Set the version by using the WEBSITE_NODE_DEFAULT_VERSION [app setting](functions-how-to-use-azure-function-app-settings.md#settings).|
 
-You can see the current version that the runtime is using by printing `process.version` from any function.
+You can see the current version that the runtime is using by checking the above app setting or by printing `process.version` from any function.
 
-## Package management
-The following steps let you include packages in your function app: 
-
-1. Go to `https://<function_app_name>.scm.azurewebsites.net`.
-
-2. Click **Debug Console** > **CMD**.
-
-3. Go to `D:\home\site\wwwroot`, and then drag your package.json file to the **wwwroot** folder at the top half of the page.  
-    You can upload files to your function app in other ways also. For more information, see [How to update function app files](functions-reference.md#fileupdate). 
-
-4. After the package.json file is uploaded, run the `npm install` command in the **Kudu remote execution console**.  
-    This action downloads the packages indicated in the package.json file and restarts the function app.
-
-After the packages you need are installed, you import them to your function by calling `require('packagename')`, as in the following example:
+## Dependency management
+In order to use community libraries in your JavaScript code, as is shown in the below example, you need to ensure that all dependencies are installed on your Function App in Azure.
 
 ```javascript
 // Import the underscore.js library
@@ -319,7 +339,26 @@ module.exports = function(context) {
         .where(context.bindings.myInput.names, {first: 'Carla'});
 ```
 
-You should define a `package.json` file at the root of your function app. Defining the file lets all functions in the app share the same cached packages, which gives the best performance. If a version conflict arises, you can resolve it by adding a `package.json` file in the folder of a specific function.  
+Note that you should define a `package.json` file at the root of your function app. Defining the file lets all functions in the app share the same cached packages, which gives the best performance. If a version conflict arises, you can resolve it by adding a `package.json` file in the folder of a specific function.  
+
+There are two ways to install packages on your Function App: 
+
+### Deploying with Dependencies
+1. Install all requisite packages locally by running `npm install`.
+
+2. Deploy your code, and ensure that the `node_modules` folder is included in the deployment. 
+
+
+### Using Kudu
+1. Go to `https://<function_app_name>.scm.azurewebsites.net`.
+
+2. Click **Debug Console** > **CMD**.
+
+3. Go to `D:\home\site\wwwroot`, and then drag your package.json file to the **wwwroot** folder at the top half of the page.  
+    You can upload files to your function app in other ways also. For more information, see [How to update function app files](functions-reference.md#fileupdate). 
+
+4. After the package.json file is uploaded, run the `npm install` command in the **Kudu remote execution console**.  
+    This action downloads the packages indicated in the package.json file and restarts the function app.
 
 ## Environment variables
 To get an environment variable or an app setting value, use `process.env`, as shown here in the `GetEnvironmentVariable` function:
@@ -340,9 +379,74 @@ function GetEnvironmentVariable(name)
     return name + ": " + process.env[name];
 }
 ```
+
+## Configure function entry point
+
+The `function.json` properties `scriptFile` and `entryPoint` can be used to configure the location and name of your exported function. These can be important if your JavaScript is transpiled.
+
+### Using `scriptFile`
+
+By default, a JavaScript function is executed from `index.js`, a file that shares the same parent directory as its corresponding `function.json`.
+
+`scriptFile` can be used to get a folder structure that looks like this:
+```
+FunctionApp
+ | - host.json
+ | - myNodeFunction
+ | | - function.json
+ | - lib
+ | | - nodeFunction.js
+ | - node_modules
+ | | - ... packages ...
+ | - package.json
+```
+
+The `function.json` for `myNodeFunction` should include a `scriptFile` property pointing to the file with the exported function to run.
+```json
+{
+  "scriptFile": "../lib/nodeFunction.js",
+  "bindings": [
+    ...
+  ]
+}
+```
+
+### Using `entryPoint`
+
+In `scriptFile` (or `index.js`), a function must be exported using `module.exports` in order to be found and run. By default, the function that executes when triggered is the only export from that file, the export named `run`, or the export named `index`.
+
+This can be configured using `entryPoint` in `function.json`:
+```json
+{
+  "entryPoint": "logFoo",
+  "bindings": [
+    ...
+  ]
+}
+```
+
+In Functions v2.x, which supports the `this` parameter in user functions, the function code could then be as follows:
+```javascript
+class MyObj {
+    constructor() {
+        this.foo = 1;
+    };
+    
+    function logFoo(context) { 
+        context.log("Foo is " + this.foo); 
+        context.done(); 
+    }
+}
+
+const myObj = new MyObj();
+module.exports = myObj;
+```
+
+In this example, it is important to note that although an object is being exported, there are no guarantess around preserving state between executions.
+
 ## Considerations for JavaScript functions
 
-When you work with JavaScript functions, be aware of the considerations in the following two sections.
+When you work with JavaScript functions, be aware of the considerations in the following sections.
 
 ### Choose single-vCPU App Service plans
 
@@ -350,6 +454,9 @@ When you create a function app that uses the App Service plan, we recommend that
 
 ### TypeScript and CoffeeScript support
 Because direct support does not yet exist for auto-compiling TypeScript or CoffeeScript via the runtime, such support needs to be handled outside the runtime, at deployment time. 
+
+### Cold Start
+When developing Azure Functions in the serverless hosting model, cold starts are a reality. "Cold start" refers to the fact that when your Function App starts for the first time after a period of inactivity, it will take longer to start up. For JavaScript functions with large dependency trees in particular, this can cause major slowdown. In order to hasten the process, if possible, [run your functions as a package file](run-functions-from-deployment-package.md). Many deployment methods opt into this model by default, but if you're experiencing large cold starts and are not running from a package file, this can be a massive improvement.
 
 ## Next steps
 For more information, see the following resources:
