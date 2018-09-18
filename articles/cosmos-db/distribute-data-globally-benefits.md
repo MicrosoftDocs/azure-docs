@@ -20,7 +20,7 @@ This article describes the key benefits of distributing data globally and some r
 
 ## Key benefits
 
-These are the key benefits for accounts that leverage Azure Cosmos DB global data distribution capabilities.
+The following are the key benefits available for accounts that leverage Azure Cosmos DB global data distribution capabilities:
 
 * **Single-digit write latency** – Azure Cosmos DB delivers <10 ms read and write latency at the 99th percentile, guaranteed by [financially backed SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/).
 
@@ -34,11 +34,11 @@ These are the key benefits for accounts that leverage Azure Cosmos DB global dat
 
 ## Use cases
 
-Here is just a small sample of the scenarios which can take advantage of the globally distribution capabilities Azure Cosmos DB.
+Here is just a small sample of the scenarios, which can take advantage of the globally distribution capabilities Azure Cosmos DB.
 
 * **Social media apps** – Social media applications require low-latency, high-availability, and scalability to provide a great experience for users located around the globe.
 
-* **IoT** - Geo-distributed edge deployments often need to track time series data from multiple locations. Each device can be homed to its closest region. When devices move to different locations, those devices can be re-homed to write to the closest available region.
+* **IoT** - Geo-distributed edge deployments often need to track time series data from multiple locations. Each device can be homed to its closest region. When devices move to different locations, those devices can be rehomed to write to the closest available region.
 
 * **E-Commerce** - E-Commerce requires very low-latency as well as high-availability. Geo-distribution of data with reads and writes puts data closest to users, increasing the responsiveness of applications. Availability for both reads and writes in multiple regions provides greater availability.
 
