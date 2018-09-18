@@ -1,6 +1,6 @@
 ---
 title: Deploy Azure virtual network container networking | Microsoft Docs
-description: Learn how to deploy the Azure Virtual Network container network interface (CNI) plug-in for Kubernetes clusters that you deploy yourself and for Docker containers.
+description: Learn how to deploy the Azure Virtual Network container network interface (CNI) plug-in for Kubernetes clusters that you deploy yourself, that you deploy using the ACS-Engine, and for Docker containers.
 services: virtual-network
 documentationcenter: na
 author: aanandr
@@ -22,7 +22,7 @@ ms.custom:
 
 # Deploy the Azure Virtual Network container network interface plug-in
 
-The Azure Virtual Network container network interface (CNI) plug-in installs in an Azure virtual machine and brings virtual network capabilities to Kubernetes Pods and Docker containers. To learn more about the plug-in, see [Enable containers to use Azure Virtual Network capabilities](container-networking-overview.md). Alternatively, you can enable containers deployed with the Azure Kubernetes Service (AKS) or the ACS-Engine to utilize the plug-in. For details, see [Using the plug-in](container-networking-overview.md#using-the-plug-in).
+The Azure Virtual Network container network interface (CNI) plug-in installs in an Azure virtual machine and brings virtual network capabilities to Kubernetes Pods and Docker containers. To learn more about the plug-in, see [Enable containers to use Azure Virtual Network capabilities](container-networking-overview.md). Alternatively, you can enable containers deployed with the Azure Kubernetes Service (AKS), using the [Advanced networking capability in AKS](../aks/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## Download and install the plug-in
 
@@ -70,6 +70,18 @@ Complete the following steps to install the plug-in on every Azure virtual machi
   Windows virtual machines automatically source NAT traffic that has a destination outside the subnet to which the virtual machine belongs. It is not possible to specify custom IP ranges.
 
 After completing the previous steps, Pods brought up on the Kubernetes Agent virtual machines are automatically assigned private IP addresses from the virtual network.
+
+## Deploy plug-in for ACS-Engine Kubernetes cluster
+
+The ACS-Engine deploys a Kubernetes cluster with an Azure Resource Manager template. The cluster configuration is specified in a JSON file that is passed to the tool when generating the template. To learn more about the entire list of supported cluster settings and their descriptions, see [Microsoft Azure Container Service Engine - Cluster Definition](https://github.com/Azure/acs-engine/blob/master/docs/clusterdefinition.md). The plug-in is the default networking plug-in for clusters created using the ACS-Engine. The following network configuration settings are important when configuring the plug-in:
+
+  | Setting                              | Description                                                                                                           |
+  |--------------------------------------|------------------------------------------------------------------------------------------------------                 |
+  | firstConsecutiveStaticIP             | The IP address that is allocated to the Master node. This is a mandatory setting.                                     |
+  | clusterSubnet under kubernetesConfig | CIDR of the virtual network subnet where the cluster is deployed, and from which IP addresses are allocated to Pods   |
+  | vnetSubnetId under masterProfile     | Specifies the Azure Resource Manager resource ID of the subnet where the cluster is to be deployed                    |
+  | vnetCidr                             | CIDR of the virtual network where the cluster is deployed                                                             |
+  | max-Pods under kubeletConfig         | Maximum number of Pods on every agent virtual machine. For the plug-in, the default is 30. You can specify up to 250  |
 
 ### Example configuration
 
@@ -119,6 +131,7 @@ The json example that follows is for a cluster with the following properties:
   }
 }
 ```
+
 ## Deploy plug-in for Docker containers
 
 1. [Download and install the plug-in](#download-the-cni-plug-in).

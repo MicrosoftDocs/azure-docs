@@ -54,19 +54,10 @@ The plug-in supports up to 250 Pods per virtual machine and up to 16,000 Pods in
 
 ## Using the plug-in
 
-The plug-in can be used in the following ways, to provide basic virtual network attach for Pods:
+The plug-in can be used in the following ways, to provide basic virtual network attach for Pods or Docker containers:
 
 - **Azure Kubernetes Service**: The plug-in is integrated into the Azure Kubernetes Service (AKS), and can be used by choosing the *Advanced Networking* option. Advanced Networking lets you deploy a Kubernetes cluster in an existing, or a new, virtual network. To learn more about Advanced Networking and the steps to set it up, see [Network configuration in AKS](../aks/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- **ACS-Engine**: ACS-Engine is a tool that generates an Azure Resource Manager template for the deployment of a Kubernetes cluster in Azure. The cluster configuration is specified in a JSON file that is passed to the tool when generating the template. To learn more about the entire list of supported cluster settings and their descriptions, see [Microsoft Azure Container Service Engine - Cluster Definition](https://github.com/Azure/acs-engine/blob/master/docs/clusterdefinition.md). The plug-in is the default networking plug-in for clusters created using the ACS-Engine. The following network configuration settings are important when configuring the plug-in
-
-  | Setting                              | Description                                                                                                           |
-  |--------------------------------------|------------------------------------------------------------------------------------------------------                 |
-  | firstConsecutiveStaticIP             | The IP address that is allocated to the Master node. This is a mandatory setting.                                     |
-  | clusterSubnet under kubernetesConfig | CIDR of the virtual network subnet where the cluster is deployed, and from which IP addresses are allocated to Pods   |
-  | vnetSubnetId under masterProfile     | Specifies the Azure Resource Manager resource ID of the subnet where the cluster is to be deployed                    |
-  | vnetCidr                             | CIDR of the virtual network where the cluster is deployed                                                             |
-  | max-Pods under kubeletConfig         | Maximum number of Pods on every agent virtual machine. For the plug-in, the default is 30. You can specify up to 250  |
-
+- **ACS-Engine**: ACS-Engine is a tool that generates an Azure Resource Manager template for the deployment of a Kubernetes cluster in Azure. For detailed instructions, see [Deploy plug-in for ACS-Engine Kubernetes clusters](#deploy-plug-in-for-acs-engine-kubernetes-cluster).
 - **Creating your own Kubernetes cluster in Azure**: The plug-in can be used to provide basic networking for Pods in Kubernetes clusters that you deploy yourself, without relying on AKS, or tools like the ACS-Engine. In this case, the plug-in is installed and enabled on every virtual machine in a cluster. For detailed instructions, see [Deploy the Azure Virtual Network CNI plug-in](#deploy-plug-in-for-a-kubernetes-cluster).
 - **Virtual network attach for Docker containers in Azure**: The plug-in can be used in cases where you don’t want to create a Kubernetes cluster, and would like to create Docker containers with virtual network attach, in virtual machines. For detailed instructions, see [Deploy the Azure Virtual Network CNI plug-in](deploy-container-networking.md#deploy-plug-in-for-docker-containers).
 
