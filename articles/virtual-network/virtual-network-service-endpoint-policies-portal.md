@@ -42,37 +42,27 @@ Sign in to the Azure portal at http://portal.azure.com.
 2. In search pane, type "service endpoint policy" and select **Service endpoint policy (Preview)** and then select **Create**.
 3. Enter, or select, the following information in **Basics** 
 
-   - Subscription   : Select your subscription for policy.
-    
-    - Resource group : Select **Create new** and enter *myResourceGroup*. 
-    
-    - Name           :  myEndpointPolicy
-    
-    - Location       : West Central US
-     
+   - Subscription   : Select your subscription for policy.    
+   - Resource group : Select **Create new** and enter *myResourceGroup*.     
+   - Name           :  myEndpointPolicy
+   - Location       : West Central US     
  
    ![Create service endpoint policy basics](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-create-startpane.PNG)
    
 4. Enter, or select, the following information in **Policy Definitions**
 
    - Click **+ Add a resource**,  enter, or select, the following information, accept the default for the remaining settings and click **Add**.  
-    
-   - Scope          : Select **Single Account** or **All accounts in  subscription** or **All accounts in resource group**. 
-   
-   - Subscription   : Select your subscription for storage account. Policy and storage accounts can be in different subscriptions.
-   
-   - Resource group : Select your resource group. Required, if  scope is set as, "All accounts in resource group" or "Single account".
-    
-   - Resource       : mystorageaccountportal
-    
+   - Scope          : Select **Single Account** or **All accounts in  subscription** or **All accounts in resource group**.    
+   - Subscription   : Select your subscription for storage account. Policy and storage accounts can be in different subscriptions.   
+   - Resource group : Select your resource group. Required, if  scope is set as, "All accounts in resource group" or "Single account".  
+   - Resource       : mystorageaccountportal    
    - Click **+ Add a resource** to continue adding more resources.
    
    ![Create service endpoint policy definitions](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-create-policydefinitionspane.PNG)
    
 5. Optional: Enter or select, the following information in **Tabs**
    
-   - Key     : Select your key for the policy. Ex: Dept 
-     
+   - Key     : Select your key for the policy. Ex: Dept     
    - Value   : Enter value pair for the key. Ex: Finance
 
 6. Select **Review + Create**. Validate the information and Click **Create**. To make further edits, click **Previous**. 
@@ -85,20 +75,16 @@ Sign in to the Azure portal at http://portal.azure.com.
 1. In the *All services* box in the portal, begin typing *service endpoint policies*. Select **Service Endpoint Policies(Preview)**.
 2. Under **Subscriptions**, select your subscription and resource group, as shown in the following picture
 
-
    ![Show policy](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-viewpolicies.PNG)
- 
-      
+       
 3. Select the policy and click on **Policy Definitions** to view or add more policy definitions.
 
    ![Show policy definitions](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-viewpolicy-adddefinitions.PNG)
-
 
 4. Select **Associated subnets** to view the subnets the policy is associated. To associate policy to a subnet, click on "Navigate to virtual network in the same region".
 
    ![Show associated subnets](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-view-associatedsubnets.PNG)
  
-
 ## Associate a policy to a subnet
 
 >[!WARNING] 
@@ -109,18 +95,12 @@ Before you can associate a policy to a subnet, you have to create a virtual netw
 1. Select **+ Create a resource** on the upper, left corner of the Azure portal.
 2. Select **Networking**, and then select **Virtual network**.
 3. Under **Create virtual network**, Enter, or select, the following information, accept the default for the remaining settings, and then select **Create**:
-   - Name           : myVirtualNetwork 
-     
-   - Address space  : 10.0.0.0/16 
-     
-   - Subscription   : Select your subscription. Policy should be in the same subscription as the VNet.
-     
-   - Resource group : Select **Use existing** and then select *myResourceGroup*.
-     
-   - Location       : West Central US
-     
-   - Subnet name    : private
-     
+   - Name           : myVirtualNetwork      
+   - Address space  : 10.0.0.0/16      
+   - Subscription   : Select your subscription. Policy should be in the same subscription as the VNet     
+   - Resource group : Select **Use existing** and then select *myResourceGroup*     
+   - Location       : West Central US     
+   - Subnet name    : private     
    - Address range  : 10.0.0.0/24
      
 4. In the **Search resources, services, and docs** box at the top of the portal, begin typing *myVirtualNetwork*. When **myVirtualNetwork** appears in the search results, select it.
