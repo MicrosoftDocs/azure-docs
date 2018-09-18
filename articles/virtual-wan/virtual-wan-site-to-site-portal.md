@@ -47,45 +47,45 @@ From a browser, navigate to the [Azure portal](https://portal.azure.com) and sig
 
 [!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-vwan-include.md)]
 
-### Getting started page
-
-[!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-gettingstarted-include.md)]
-
 ## <a name="site"></a>3. Create a site
 
 Create as many sites as you need that correspond to your physical locations. For example, if you have a branch office in NY, a branch office in London, and a branch office and LA, you'd create three separate sites. These sites contain your on-premises VPN device endpoints. At this time, you can specify only one private address space for your site.
 
-1. On the WAN page, under **WAN Architecture**, click **Sites** to open the Sites page.
-2. On the **Sites** page, click **+New site**.
+1. Click the WAN you created. On the WAN page, under **WAN Architecture**, click **VPN sites** to open the VPN sites page.
+2. On the **VPN sites** page, click **+Create site**.
 3. On the **Create site** page, fill in the following fields:
 
-  *  **Name** - This is the name by which you want to refer to your on-premises site.
-  *  **Public IP address** - This is the public IP address of the VPN device that resides on your on-premises site.
-  *  **Private address space** - This is the IP address space that is located on your on-premises site. Traffic destined for this address space is routed to your local site.
-  *  **Subscription** - Verify the subscription.
-  *  **Resource Group** - The resource group you want to use.
-4. Click **Show advanced** to view additional settings. You can **enable BGP** (optional field, which will enable this functionality on all connections created for this site in Azure. You can also enter **Device information** (optional field). This can help the Azure Team better understand your environment to add additional optimization possibilities in the future, or to help you troubleshoot.
-5. Click **Create**.
-6. After you click **Create**, view the Status on the Sites page. The site will go from **Provisioning** to **Provisioned**.
+  * **Name** - This is the name by which you want to refer to your on-premises site.
+  * **Public IP address** - This is the public IP address of the VPN device that resides on your on-premises site.
+  * **Private address space** - This is the IP address space that is located on your on-premises site. Traffic destined for this address space is routed to your local site.
+  * **Subscription** - Verify the subscription.
+  * **Resource Group** - The resource group you want to use.
+  * **Location**.
+4. Click **Show advanced** to view additional settings. You can select **BGP** to enable BGP, which will enable this functionality on all connections created for this site in Azure. You can also enter **Device information** (optional fields). This can help the Azure Team better understand your environment to add additional optimization possibilities in the future, or to help you troubleshoot.
+5. Click **Confirm**.
+6. After you click **Confirm**, view the status on the VPN sites page. The site will go from **Provisioning** to **Provisioned**.
 
 ## <a name="hub"></a>4. Create a hub
 
 [!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-hub-include.md)]
 
+Click **Confirm** to create the hub. Click **Refresh** to view the hub on the Hubs page.
+
 ## <a name="associate"></a>5. Associate the sites with the hub
 
 Hubs should generally be associated to sites that are in the same region that the VNet resides in.
 
-1. On the **Sites** page, select the site or sites that you want to associate with the hub, then click **+New hub association**.
+1. On the **VPN sites** page, select the site or sites that you want to associate with the hub, then click **+New hub association**.
 2. On the **Associate sites with one or more hubs** page, select a hub from the dropdown. You can associate a site with additional hubs by clicking **+Add an association**.
-3. Click **Save**.
-4. You can view the connection status on the **Sites** page.
+3. You can also add a specific **PSK** here, or use the default.
+4. Click **Confirm**.
+5. You can view the connection status on the **VPN sites** page.
 
 ## <a name="vnet"></a>6. Connect your VNet to a hub
 
 In this step, you create the peering connection between your hub and a VNet. Repeat these steps for each VNet that you want to connect.
 
-1. On the page for your virtual WAN, click **Virtual network connection**.
+1. On the page for your virtual WAN, click **Virtual network connections**.
 2. On the virtual network connection page, click **+Add connection**.
 3. On the **Add connection** page, fill in the following fields:
 
@@ -93,6 +93,7 @@ In this step, you create the peering connection between your hub and a VNet. Rep
     * **Hubs** - Select the hub you want to associate with this connection.
     * **Subscription** - Verify the subscription.
     * **Virtual network** - Select the virtual network you want to connect to this hub. The virtual network cannot have an already existing virtual network gateway.
+4. Click **OK** to create the peering connection.
 
 ## <a name="device"></a>7. Download VPN configuration
 
