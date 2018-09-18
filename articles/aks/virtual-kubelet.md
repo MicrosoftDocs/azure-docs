@@ -71,6 +71,26 @@ helm init --service-account tiller
 
 You can now continue to installing the Virtual Kubelet into your AKS cluster.
 
+## Register Microsoft Container Instance with your Subscription
+
+This is a requirement for your Azure subscription to be able to deploy your ACI-enabled containers. If you do not enable it, Kubernetes will give you **ProviderFailed** message when you try to deploy your ACI-enabled containers.
+
+```azurecli-interactive
+az provider register -n Microsoft.ContainerInstance
+```
+
+Make sure that Microsoft Container Instance is registered to your subscription
+
+```azurecli-interactive
+az provider show -n Microsoft.ContainerInstance -o table
+```
+
+```console
+Namespace                    RegistrationState
+---------------------------  -------------------
+Microsoft.ContainerInstance  Registered
+```
+
 ## Installation
 
 Use the [az aks install-connector][aks-install-connector] command to install Virtual Kubelet. The following example deploys both the Linux and Windows connector.
@@ -101,12 +121,12 @@ To validate that Virtual Kubelet has been installed, return a list of Kubernetes
 ```
 $ kubectl get nodes
 
-NAME                                    STATUS    ROLES     AGE       VERSION
-aks-nodepool1-23443254-0                Ready     agent     16d       v1.9.6
-aks-nodepool1-23443254-1                Ready     agent     16d       v1.9.6
-aks-nodepool1-23443254-2                Ready     agent     16d       v1.9.6
-virtual-kubelet-virtual-kubelet-linux   Ready     agent     4m        v1.8.3
-virtual-kubelet-virtual-kubelet-win     Ready     agent     4m        v1.8.3
+NAME                                                  STATUS    ROLES     AGE       VERSION
+aks-nodepool1-23443254-0                              Ready     agent     16d       v1.9.6
+aks-nodepool1-23443254-1                              Ready     agent     16d       v1.9.6
+aks-nodepool1-23443254-2                              Ready     agent     16d       v1.9.6
+virtual-kubelet-virtual-kubelet-linux-YOUR-LOCATION   Ready     agent     4m        v1.8.3
+virtual-kubelet-virtual-kubelet-win-YOUR-LOCATION     Ready     agent     4m        v1.8.3
 ```
 
 ## Run Linux container
@@ -131,7 +151,7 @@ spec:
         ports:
         - containerPort: 80
       nodeSelector:
-        kubernetes.io/hostname: virtual-kubelet-virtual-kubelet-linux
+        kubernetes.io/hostname: virtual-kubelet-virtual-kubelet-linux-YOUR-LOCATION
       tolerations:
       - key: virtual-kubelet.io/provider
         operator: Equal
@@ -151,7 +171,7 @@ Use the [kubectl get pods][kubectl-get] command with the `-o wide` argument to o
 $ kubectl get pods -o wide
 
 NAME                                READY     STATUS    RESTARTS   AGE       IP             NODE
-aci-helloworld-2559879000-8vmjw     1/1       Running   0          39s       52.179.3.180   virtual-kubelet-virtual-kubelet-linux
+aci-helloworld-2559879000-8vmjw     1/1       Running   0          39s       52.179.3.180   virtual-kubelet-virtual-kubelet-linux-YOUR-LOCATION
 ```
 
 ## Run Windows container
@@ -176,7 +196,7 @@ spec:
         ports:
         - containerPort: 80
       nodeSelector:
-        kubernetes.io/hostname: virtual-kubelet-virtual-kubelet-win
+        kubernetes.io/hostname: virtual-kubelet-virtual-kubelet-win-YOUR-LOCATION
       tolerations:
       - key: azure.com/aci
         effect: NoSchedule
@@ -194,7 +214,7 @@ Use the [kubectl get pods][kubectl-get] command with the `-o wide` argument to o
 $ kubectl get pods -o wide
 
 NAME                                READY     STATUS    RESTARTS   AGE       IP             NODE
-nanoserver-iis-868bc8d489-tq4st     1/1       Running   8         21m       138.91.121.91   virtual-kubelet-virtual-kubelet-win
+nanoserver-iis-868bc8d489-tq4st     1/1       Running   8         21m       138.91.121.91   virtual-kubelet-virtual-kubelet-win-YOUR-LOCATION
 ```
 
 ## Remove Virtual Kubelet
