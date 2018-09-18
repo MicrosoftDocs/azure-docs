@@ -1,11 +1,11 @@
 ---
-title: Tutorial - Assign access in Cloudyn | Microsoft Docs
+title: Tutorial - Assign access with Cloudyn in Azure | Microsoft Docs
 description: In this tutorial you learn how to assign access to Cloudyn data with user accounts that define access levels to entities.
 services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 08/07/2018
+ms.date: 09/18/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom:

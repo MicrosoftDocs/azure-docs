@@ -24,7 +24,7 @@ In this tutorial, you learn how to:
 > * Verify the action to ensure that the virtual machine was successfully resized
 
 ## Prerequisites
-You must have an [Azure Enterprise Agreement (EA)](https://azure.microsoft.com/en-us/pricing/enterprise-agreement/) with at least read access to one or more of the following items:
+You must have an [Azure Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) with at least read access to one or more of the following items:
 
 - Azure EA subscription
 - Azure EA subscription resource group

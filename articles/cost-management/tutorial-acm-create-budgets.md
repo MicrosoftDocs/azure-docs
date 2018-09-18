@@ -64,7 +64,7 @@ Current spending against budgets is updated whenever Cost Management receives up
 
 ![Current spending against budgets](./media/tutorial-acm-create-budgets/budgets-current-spending.png)
 
-After you create a budget, it is shown in cost analysis. Viewing your budget in relation to your spending trend is one of the first steps when you start to [analyze your costs and spending](https://docs.microsoft.com/en-us/azure/billing/billing-cost-analysis).
+After you create a budget, it is shown in cost analysis. Viewing your budget in relation to your spending trend is one of the first steps when you start to [analyze your costs and spending](quick-acm-cost-analysis.md).
 
 ![Budget show in cost analysis](./media/tutorial-acm-create-budgets/cost-analysis.png)
 

@@ -1,11 +1,11 @@
 ﻿---
-title: Overview of Cloudyn | Microsoft Docs
+title: Overview of Cloudyn in Azure | Microsoft Docs
 description: Cloudyn is a multi-cloud cost management solution that helps you use Azure and other cloud resources.
 services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 09/14/2018
+ms.date: 09/18/2018
 ms.topic: overview
 ms.service: cost-management
 manager: dougeby

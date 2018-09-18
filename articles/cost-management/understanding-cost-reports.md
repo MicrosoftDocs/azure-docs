@@ -1,11 +1,11 @@
 ---
-title: Understanding cost management reports in Cloudyn | Microsoft Docs
+title: Understanding Cloudyn cost management reports in Azure | Microsoft Docs
 description: This article helps you understand Cloudyn cost management reports basic structure and functions.
 services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 08/07/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby

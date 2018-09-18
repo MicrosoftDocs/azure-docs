@@ -1,11 +1,11 @@
 ---
-title: Tutorial - Manage costs with Cloudyn | Microsoft Docs
+title: Tutorial - Manage costs with Cloudyn in Azure | Microsoft Docs
 description: In this tutorial you learn to manage costs by using cost allocation and showback and chargeback reports.
 services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 08/07/2018
+ms.date: 09/18/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom:

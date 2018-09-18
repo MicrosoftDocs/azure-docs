@@ -1,4 +1,5 @@
 - name: Azure Cost Management Documentation
+  href: index.md
   items:
   - name: Overview
     items:
@@ -37,7 +38,7 @@
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/cost-management
     - name: Regional Availability
-      href: https://azure.microsoft.com/en-us/regions/services/
+      href: https://azure.microsoft.com/regions/services/
   - name: Cloudyn
     items:
     - name: Overview
@@ -88,12 +89,14 @@
         href: manage-budgets.md
     - name: Resources
       items:
+      - name: Clouydn videos
+        href: ref-videos.md
       - name: Azure Roadmap
         href: https://azure.microsoft.com/roadmap/
       - name: Cloudyn Pricing
         href: https://azure.microsoft.com/pricing/details/cost-management
       - name: Clouydn Regional Availability
-        href: https://azure.microsoft.com/en-us/regions/services/
+        href: https://azure.microsoft.com/regions/services/
       - name: Cloudyn FAQ
         href: cost-mgt-faq.md
       - name: Contact Cloudyn support

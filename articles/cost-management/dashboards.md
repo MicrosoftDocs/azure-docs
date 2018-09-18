@@ -1,11 +1,11 @@
 ---
-title: View key metrics in Cloudyn dashboards | Microsoft Docs
+title: View key metrics with Cloudyn dashboards in Azure | Microsoft Docs
 description: This article describes how view key metrics with dashboards in Cloudyn.
 services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 08/07/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby

@@ -1,11 +1,11 @@
 ---
-title: Manage budgets in Cloudyn | Microsoft Docs
+title: Manage Cloudyn budgets in Azure | Microsoft Docs
 description: This article helps you create and manage budgets in Cloudyn.
 services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 9/14/2018
+ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
@@ -80,10 +80,5 @@ In the Cost vs. Budget Over Time report, click **Actions** and then select **Sch
 
 ## Next steps
 
-<<<<<<< HEAD
-- If you haven't already completed the first tutorial for Cloudyn, read it at  [Review usage and costs](https://docs.microsoft.com/en-us/azure/cost-management/tutorial-review-usage).
+- If you haven't already completed the first tutorial for Cloudyn, read it at  [Review usage and costs](tutorial-review-usage.md).
 - Learn more about the [reports available in Cloudyn](use-reports.md).
-=======
-- If you haven't already completed the first tutorial for Cost Management, read it at  [Review usage and costs](https://docs.microsoft.com/azure/cost-management/tutorial-review-usage).
-- Learn more about the [reports available in Cost Management](use-reports.md).
->>>>>>> d3e3acaa056e123071871a11def51c0a1cb326ef

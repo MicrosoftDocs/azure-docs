@@ -52,7 +52,7 @@ In the export list, click the storage account name. On the storage account page,
 
 ![Storage account page](./media/tutorial-export-acm-data/storage-account-page.png)
 
-In Storage Explorer, navigate to the container that you want to open. A list of CSV files is shown. Select one and then click **Open**.
+In Storage Explorer, navigate to the container that you want to open and select the folder corresponding to the current month. A list of CSV files is shown. Select one and then click **Open**.
 
 ![Storage Explorer](./media/tutorial-export-acm-data/storage-explorer.png)
 
