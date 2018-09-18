@@ -28270,16 +28270,6 @@
             "source_path": "articles/application-insights/index.md",
             "redirect_url": "/azure/azure-monitor/overview",
             "redirect_document_id" : false
-        },
-		{
-            "source_path": "articles/application-insights/local-forwarder.md",
-            "redirect_url": "/azure/application-insights/local-forwarder",
-            "redirect_document_id" : true
-        },
-			{
-            "source_path": "articles/application-insights/open-census-python.md",
-            "redirect_url": "/azure/application-insights/open-census-python",
-            "redirect_document_id" : true
         }
     ]
 }
