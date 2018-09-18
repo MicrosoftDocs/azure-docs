@@ -1,5 +1,5 @@
 ---
-title: Azure Front Door - backend health monitoring | Microsoft Docs
+title: Azure Front Door Service - backend health monitoring | Microsoft Docs
 description: This article helps you understand how Azure Front Door Service monitors the health of your backends
 services: frontdoor
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.date: 09/10/2018
 ms.author: sharadag
 ---
 
-# ​​Health Probes
+# ​​Health probes
 
 In order to determine the health of each backend, each Front Door environment periodically sends a synthetic HTTP/HTTPS request to each of your configured backends. Front Door then uses responses from these probes to determine the "best" backends to which it should route real client requests.
 
 
-## Supported Protocols
+## Supported protocols
 
 Front Door supports sending probes over either HTTP or HTTPS protocols.​ These probes are sent over the same TCP ports configured for routing client requests, and cannot be overridden.
 

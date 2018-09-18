@@ -16,18 +16,24 @@
     href: front-door-arm-template-samples.md
 - name: Concepts
   items:
+  - name: Backends and backend pools
+    href: front-door-backend-pool.md
   - name: Routing architecture
     href: front-door-routing-architecture.md
   - name: Traffic routing methods
     href: front-door-routing-methods.md
   - name: How Front Door matches routing for a request
     href: front-door-route-matching.md
-  - name: Health Probes
+  - name: Health probes
     href: front-door-health-probes.md
-  - name: URL Rewrite
+  - name: URL rewrite
     href: front-door-url-rewrite.md
   - name: Caching with Front Door
     href: front-door-caching.md
+  - name: HTTP/2 support
+    href: front-door-http2.md
+  - name: HTTP headers protocol support
+    href: front-door-http-headers-protocol.md
 - name: Resources
   items:
   - name: Azure Roadmap

@@ -28,7 +28,7 @@ The following features are included with Front Door:
 ## Accelerate application performance
 Using split TCP-based anycast protocol, Front Door ensures that your end users promptly connect to the nearest Front Door POP (Point of Presence). Using Microsoft's global network for connecting to your application backends from Front Door POPs, ensure higher availability and reliability while maintaining performance. This connectivity to your backend is also based on least network latency. Learn more about Front Door routing techniques like [Split TCP](front-door-routing-architecture.md#splittcp) and [Anycast protocol](front-door-routing-architecture.md#anycast).
 
-## Increase application availability with Smart Health Probes
+## Increase application availability with smart health probes
 
 Front Door delivers high availability for your critical applications using its smart health probes, monitoring your backends for both latency and availability and providing instant automatic failover when a backend goes down. So, you can run planned maintenance operations on your applications without downtime. Front Door directs traffic to alternative backends while the maintenance is in progress.
 
@@ -46,24 +46,24 @@ Similarly, you can have two different domains `www.contoso.com` and `www.fabrika
 The cookie-based session affinity feature is useful when you want to keep a user session on the same application backend. By using Front Door managed cookies, subsequent traffic from a user session gets directed to the same application backend for processing. This feature is important in cases where session state is saved locally on the backend for a user session.
 
 ## Secure Sockets Layer (SSL) termination
-Front Door supports SSL termination at the edge that is, individual users can set up SSL connection with Front Door environments instead of establishing it over long haul connections with the application backend. Additionally, Front Door supports both HTTP as well as HTTPS connectivity between Front Door environments and your backends. So, you can also set up end-to-end SSL encryption. So, if Front Door for your application workload receives over 5000 requests in a minute, due to warm connection reuse, for active services, it will only establish about 500 connections with your application backend, thereby reducing significant load from your backends.
+Front Door supports SSL termination at the edge that is, individual users can set up SSL connection with Front Door environments instead of establishing it over long haul connections with the application backend. Additionally, Front Door supports both HTTP as well as HTTPS connectivity between Front Door environments and your backends. So, you can also set up end-to-end SSL encryption. For example, if Front Door for your application workload receives over 5000 requests in a minute, due to warm connection reuse, for active services, it will only establish say about 500 connections with your application backend, thereby reducing significant load from your backends.
 
 ## Custom domains and certificate management
 When you use Front Door to deliver content, a custom domain is necessary if you would like your own domain name to be visible in your Front Door URL. Having a visible domain name can be convenient for your customers and useful for branding purposes.
 Front Door also supports HTTPS for custom domain names. Use this feature by either choosing Front Door managed certificates for your traffic or uploading your own custom SSL certificate.
 
-## Application protection
-Azure Front Door also allows you to author custom web application firewall (WAF) rules for access control to protect your HTTP/HTTPS workload from exploitation based on client IP addresses, country code, and http parameters. Additionally, Front Door also enables you to create rate limiting rules to battle malicious bot traffic. 
+## Application layer security and DDoS protection
+Azure Front Door allows you to author custom web application firewall (WAF) rules for access control to protect your HTTP/HTTPS workload from exploitation based on client IP addresses, country code, and http parameters. Additionally, Front Door also enables you to create rate limiting rules to battle malicious bot traffic. 
 
 Front Door platform itself is protected by [Azure DDoS Protection](../virtual-network/ddos-protection-overview.md) Basic. For further protection, Azure DDoS Protection Standard may be enabled at your VNETs and safeguard resources from network layer (TCP/UDP) attacks via auto tuning and mitigation. Front Door is a layer 7 reverse proxy, it only allows web traffic to pass through to backends and block other types of traffic by default.
 
-## URL Rewrite
-Front Door supports [URL rewrite](front-door-url-rewrite.md) by allowing you to configure an optional Custom Forwarding Path to use when constructing the request to forward to the backend. Front Door further allows you to configure Host Header to be sent when forwarding the request to your origin.
+## URL rewrite
+Front Door supports [URL rewrite](front-door-url-rewrite.md) by allowing you to configure an optional Custom Forwarding Path to use when constructing the request to forward to the backend. Front Door further allows you to configure Host header to be sent when forwarding the request to your backend.
 
 ## Protocol support - IPv6 and HTTP/2 traffic
 Azure Front Door natively supports end-to-end IPv6 connectivity and also HTTP/2 protocol. 
 
-The HTTP/2 protocol enables full-duplex communication between application backends and a client over a long-running TCP connection. HTTP/2 allows for a more interactive communication between the backend and the client, which can be bidirectional without the need for polling as required in HTTP-based implementations. HTTP/2 protocol has low overhead, unlike HTTP, and can reuse the same TCP connection for multiple request or responses resulting in a more efficient utilization of resources.
+The HTTP/2 protocol enables full-duplex communication between application backends and a client over a long-running TCP connection. HTTP/2 allows for a more interactive communication between the backend and the client, which can be bidirectional without the need for polling as required in HTTP-based implementations. HTTP/2 protocol has low overhead, unlike HTTP, and can reuse the same TCP connection for multiple request or responses resulting in a more efficient utilization of resources. Learn more about [HTTP/2 support in Azure Front Door Service](front-door-http2.md).
 
 ## Pricing
 

@@ -30,3 +30,8 @@ The following table includes links to Azure Resource Manager deployment model te
 | [Configure Front Door to take action with specific http parameters ](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-waf-http-params)| Configures a Front Door to allow or block certain traffic based on the http parameters in the incoming request by using custom rules for access control using http parameters. |
 | [Configure Front Door rate limiting ](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-rate-limiting)| Configures a Front Door to rate limit incoming traffic for a given frontend host. |
 | | |
+
+## Next steps
+
+- Learn how to [create a Front Door](quickstart-create-front-door.md).
+- Learn [how Front Door works](front-door-routing-architecture.md).

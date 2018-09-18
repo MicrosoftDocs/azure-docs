@@ -66,6 +66,7 @@ In the limits below, a new table has been added to reflect any differences in li
 * [DNS](#dns-limits)
 * [Event Hubs](#event-hubs-limits)
 * [Azure Firewall](#azure-firewall-limits)
+* [Front Door](#azure-front-door-service-limits)
 * [IoT Hub](#iot-hub-limits)
 * [IoT Hub Device Provisioning Service](#iot-hub-device-provisioning-service-limits)
 * [Key Vault](#key-vault-limits)
@@ -151,6 +152,9 @@ The following table details the features and limits of the Basic, Standard, and 
 
 #### Azure Firewall limits
 [!INCLUDE [azure-firewall-limits](../includes/firewall-limits.md)]
+
+#### Azure Front Door Service limits
+[!INCLUDE [azure-front-door-service-limits](../includes/front-door-limits.md)]
 
 ### Storage limits
 For additional details on storage account limits, see [Azure Storage Scalability and Performance Targets](storage/common/storage-scalability-targets.md).

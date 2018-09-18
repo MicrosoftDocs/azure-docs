@@ -1,5 +1,5 @@
 ---
-title: Azure Front Door - traffic routing methods | Microsoft Docs
+title: Azure Front Door Service - traffic routing methods | Microsoft Docs
 description: This article helps you understand the different traffic routing methods used by Front Door
 services: front-door
 documentationcenter: ''
@@ -33,7 +33,7 @@ Deploying backends in two or more locations across the globe can improve the res
 The 'closest' backend is not necessarily closest as measured by geographic distance. Instead, Front Door determines the closest backends by measuring network latency. Read more about [Front Door's routing architecture](front-door-routing-architecture.md). 
 
 Below is the overall decision flow:
-</br>
+
 | Available backends | Priority | Latency signal (based on health probe) | Weights |
 |-------------| ----------- | ----------- | ----------- |
 | Firstly, select all backends that are enabled and returned healthy (200 OK) for the health probe. Say, there are six backends A, B, C, D, E, and F, and among them C is unhealthy and E is disabled. So, list of available backends is A, B, D, and F.  | Next, the top priority backends amongst the available ones are selected. Say, backend A, B, and D have priority 1 and backend F has a priority of 2. So, selected backends will be A, B, and D.| Select the backends with latency range (least latency & latency sensitivity in ms specified). Say, if A is 15 ms, B is 30 ms and D is 60 ms away from the Front Door environment where the request landed, and latency sensitivity is 30 ms, then lowest latency pool comprises of backend A and B, because D is beyond 30 ms away from the closest backend that is A. | Lastly, Front Door will round robin the traffic among the final selected pool of backends in the ratio of weights specified. Say, if backend A has a weight of 5 and backend B has a weight of 8, then the traffic will be distributed in the ratio of 5:8 among backends A and B. |
