@@ -25,7 +25,7 @@ The Virtual Machine Serial Console on Azure provides access to a text-based cons
 For serial console documentation for Windows VMs, [click here](../windows/serial-console.md).
 
 > [!Note] 
-> Serial Console for virtual machines is generally available in global Azure regions. At this point serial console is not yet available Azure Government or Azure China cloud.
+> Serial Console for virtual machines is generally available in global Azure regions. At this point serial console is not yet available in Azure Government or Azure China clouds.
 
 
 ## Prerequisites 
@@ -177,10 +177,6 @@ Pasting very long strings does not work | Serial console limits the length of st
 **Q. How can I send feedback?**
 
 A. Provide feedback as an issue by going to https://aka.ms/serialconsolefeedback. Alternatively (less preferred), send feedback via azserialhelp@microsoft.com or in the virtual machine category of http://feedback.azure.com
-
-**Q. I am not able to access the serial console, where can I file a support case?**
-
-A. This preview feature is covered via Azure Preview Terms. Support for this is best handled via channels mentioned above. 
 
 **Q. Does serial console support copy/paste?**
 

@@ -25,7 +25,7 @@ The Virtual Machine Serial Console on Azure provides access to a text-based cons
 For serial console documentation for Linux VMs, [click here](serial-console-linux.md).
 
 > [!Note] 
-> Serial Console for virtual machines is generally available in global Azure regions. At this point serial console is not yet available Azure Government or Azure China cloud.
+> Serial Console for virtual machines is generally available in global Azure regions. At this point serial console is not yet available in Azure Government or Azure China clouds.
 
  
 
@@ -49,7 +49,6 @@ Serial console for virtual machines is only accessible via [Azure portal](https:
   3. Click on the VM in the list. The overview page for the VM will open.
   4. Scroll down to the Support + Troubleshooting section and click on the "Serial console" option. A new pane with the serial console will open and start the connection.
 
-![](/media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
 
 ## Enable Serial Console in custom or older images
 Newer Windows Server images on Azure will have [Special Administrative Console](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC) enabled by default. SAC is supported on server versions of Windows but is not available on client versions (for example, Windows 10, Windows 8, or Windows 7). 
@@ -63,7 +62,7 @@ To enable Serial console for Windows virtual machines created before February 20
 
 ![](/media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
 
-If needed SAC can be enabled offline as well, 
+If needed, the SAC can be enabled offline as well:
 
 1. Attach the windows disk you want SAC configured for as a data disk to existing VM. 
 2. From an Administrative command prompt, run the following commands 
@@ -72,7 +71,7 @@ If needed SAC can be enabled offline as well,
 
 ### How do I know if SAC is enabled?
 
-If [SAC] (https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) is not enabled the serial console will not show the SAC prompt. In some cases, VM Health information will be shown, and in other cases it will be blank.  
+If [SAC] (https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) is not enabled the serial console will not show the SAC prompt. In some cases, VM Health information will be shown, and in other cases it will be blank. If you are using a Windows Server image created before February 2018, SAC will likely not be enabled.
 
 ## Enable the Windows Boot Menu in Serial Console 
 
@@ -96,6 +95,9 @@ For information on configuring Windows to create a crash dump when it receives a
 
 ## Disable Serial Console
 By default, all subscriptions have serial console access enabled for all VMs. You may disable serial console at either the subscription level or VM level.
+
+> [!Note] 		
+> In order to enable or disable serial console for a subscription, you must have write permissions to the subscription. This includes, but is not limited to, administrator or owner roles. Custom roles may also have write permissions.
 
 ### Subscription-level disable
 Serial Console can be disabled for an entire subscription by through the [Disable Console REST API call](https://aka.ms/disableserialconsoleapi). You may use the "Try It" functionality available on the API Documentation page to disable and enable Serial Console for a subscription. Enter your `subscriptionId`, "default" in the `default` field, and click Run. Azure CLI commands are not yet available and will arrive at a later date. [Try the REST API call here](https://aka.ms/disableserialconsoleapi).
@@ -188,21 +190,38 @@ We are aware of some issues with the serial console. Here is a list of these iss
 
 Issue                             |   Mitigation 
 :---------------------------------|:--------------------------------------------|
-There is no option with virtual machine scale set instance serial console | At the time of preview, access to the serial console for virtual machine scale set instances is not supported.
 Hitting enter after the connection banner does not show a log in prompt | Please see this page: [Hitting enter does nothing](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). This may happen if you are running a custom VM, hardened appliance, or GRUB config that causers Windows to fail to properly connect to the serial port.
 Unable to type at SAC prompt if kernel debugging is enabled | RDP to VM and run `bcdedit /debug {current} off` from an elevated command prompt. If you can't RDP you can instead attach the OS disk to another Azure VM and modify it while attached as a data disk using `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off`, then swap the disk back.
-Pasting into PowerShell in SAC results in a third character if original content had a repeating character | A workaround is to remove the PSReadLine module. `Remove-Module PSReadLine` will remove the PSReadLine module from the current session.
+Pasting into PowerShell in SAC results in a third character if original content had a repeating character | A workaround is to Past unload the PSReadLine module from the current session. Run `Remove-Module PSReadLine` to unload the PSReadLine module from the current session - this will not delete or uninstall the module.
 Some keyboard inputs produce strange SAC output (e.g. `[A`, `[3~`) | [VT100](https://aka.ms/vtsequences) escape sequences are not supported by the SAC prompt.
 Pasting very long strings does not work | Serial console limits the length of strings pasted into the terminal to 2048 characters. This is to prevent overwhelming the serial port bandwidth.
 
 ## Frequently asked questions 
+
 **Q. How can I send feedback?**
 
 A. Provide feedback as an issue by going to https://aka.ms/serialconsolefeedback. Alternatively (less preferred) send feedback via azserialhelp@microsoft.com or in the virtual machine category of http://feedback.azure.com
 
-**Q. I am not able to access the serial console, where can I file a support case?**
+**Q. Does serial console support copy/paste?**
 
-A. This preview feature is covered via Azure Preview Terms. Support for this is best handled via channels mentioned above. 
+A. Yes it does. Use Ctrl + Shift + C and Ctrl + Shift + V to copy and paste into the terminal.
+
+**Q. Who can enable or disable serial console for my subscription?**
+
+A. In order to enable or disable serial console at a subscription-wide level, you must have write permissions to the subscription. Roles that have write permission include, but are not limited to, administrator or owner roles. Custom roles may also have write permissions.
+
+**Q. Who can access serial console for my VM?**
+
+A. You must have contributor level access or higher to a VM in order to access the VM's serial console. 
+
+**Q. My serial console is not showing anything, what do I do?**
+
+A. Your image is likely misconfigured for serial console access. See 
+[Enable Serial Console in custom or older images](#Enable-Serial-Console-in-custom-or-older-images) for details on configuring your image to enable serial console.
+
+**Q. Is serial console available for Virtual Machine Scale Sets?**
+
+A. At this time, access to the serial console for virtual machine scale set instances is not supported.
 
 ## Next steps
 * For an in-depth guide to CMD and PowerShell commands you can use in the Windows SAC, click [here](serial-console-cmd-ps-commands.md).
