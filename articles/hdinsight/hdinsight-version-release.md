@@ -11,27 +11,29 @@ ms.date: 09/24/2018
 
 # HDInsight 4.0 overview (Preview)
 
-Azure HDInsight (HDI) 4.0 is a cloud distribution of the Hadoop components from the [Hortonworks Data Platform (HDP) 3.0](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/release-notes/content/relnotes.html).
+Azure HDInsight is one of the most popular services among enterprise customers for open-source Hadoop and Spark analytics on Azure. HDInsight (HDI) 4.0 is a cloud distribution of the Hadoop components from the [Hortonworks Data Platform (HDP) 3.0](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/release-notes/content/relnotes.html). This article provides information about the most recent Azure HDInsight release and how to upgrade.
 
-## Hive 3.0 and LLAP
+## What's new in HDI 4.0?
 
-Hive low-latency analytical processing (LLAP) uses persistent query servers and in-memory caching to deliver quick SQL query results on data in remote cloud storage. Hive LLAP leverages a set of persistent daemons that execute fragments of Hive queries. Query execution on LLAP is similar to Hive without LLAP. The difference is that worker tasks run inside LLAP daemons instead of containers.
+### Hive 3.0 and LLAP
+
+Hive low-latency analytical processing (LLAP) uses persistent query servers and in-memory caching to deliver quick SQL query results on data in remote cloud storage. Hive LLAP leverages a set of persistent daemons that execute fragments of Hive queries. Query execution on LLAP is similar to Hive without LLAP, with worker tasks running inside LLAP daemons instead of containers.
 
 Benefits of Hive LLAP include:
 
-* Ability to perform deep SQL analytics such as complex joins, subqueries, windowing functions, sorting, user-defined functions, and complex aggregations without sacrificing performance and scalability.
+* Ability to perform deep SQL analytics, such as complex joins, subqueries, windowing functions, sorting, user-defined functions, and complex aggregations, without sacrificing performance and scalability.
 
-* Interactive queries against data in the same storage where data is prepared, eliminating the need to move data from storage to another engine for analytical needs.
+* Interactive queries against data in the same storage where data is prepared, eliminating the need to move data from storage to another engine for analytical processing.
 
 * Caching query results allows previously computed query results to be reused, which saves time and resources spent running the cluster tasks required for the query.
 
-## Hive dynamic materialized views
+### Hive dynamic materialized views
 
 Hive now supports dynamic materialized views, or pre-computation of relevant summaries, used to accelerate query processing in data warehouses. Materialized views can be stored natively in Hive, and can seamlessly use LLAP acceleration.
 
-## Hive transactional tables
+### Hive transactional tables
 
-HDI 4.0 includes Apache Hive 3, which requires atomicity, consistency, isolation, and durability (ACID) compliance for transactional tables that reside in the Hive warehouse. ACID-compliant tables, and the table data, are accessed and managed by Hive. Data in create, retrieve, update, and delete (CRUD) tables must be in Optimized Row Column (ORC) file format, but insert-only tables support all file formats.
+HDI 4.0 includes Apache Hive 3, which requires atomicity, consistency, isolation, and durability (ACID) compliance for transactional tables that reside in the Hive warehouse. ACID-compliant tables and table data are accessed and managed by Hive. Data in create, retrieve, update, and delete (CRUD) tables must be in Optimized Row Column (ORC) file format, but insert-only tables support all file formats.
 
 * ACID v2 has performance improvements in both storage format and the execution engine. 
 
@@ -47,7 +49,7 @@ HDI 4.0 includes Apache Hive 3, which requires atomicity, consistency, isolation
 
 Learn more about [Apache Hive 3](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/hive-overview/content/hive_whats_new_in_this_release_hive.html).
 
-## Apache Spark
+### Apache Spark
 
 Apache Spark gets updatable tables and ACID transactions with Hive Warehouse Connector. Hive Warehouse Connector allows you to register Hive transactional tables as external tables in Spark to access full transactional functionality. Previous versions only supported table partition manipulation. Hive Warehouse Connector also supports Streaming DataFrames for streaming reads and writes into transactional and streaming Hive tables from Spark.
 
@@ -65,7 +67,7 @@ You no longer have to worry about accidentally trying to access Hive transaction
 Learn more about [Apache Spark](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/spark-overview/content/analyzing_data_with_apache_spark.html).
 
 
-## Oozie
+### Oozie
 
 Apache Oozie 4.3.1 is included in HDI 4.0 with the following changes:
 
