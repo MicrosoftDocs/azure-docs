@@ -1,28 +1,28 @@
 ---
-title: Tune hyperparameters for your model using Azure Machine Learning service
-description: Learn how to tune the hyperparameters for your Deep Learning / Machine Learning model using Azure Machine Learning service.
+title: Tune hyperparameters for your model using Azure Machine Learning 
+description: Learn how to tune the hyperparameters for your deep learning / machine learning model using Azure Machine Learning service. You will see how to define the parameter search space, specify a primary metric to optimize and early terminate poorly performing configurations. 
+ms.author: swatig
+author: swatig007
+ms.reviewer: sgilley 
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
-ms.reviewer: sgilley
-ms.author: swatig
-author: swatig007
 ms.date: 09/24/2018
 ---
 
 # Tune hyperparameters for your model
 
-In this article, we demonstrate how to efficiently tune hyperparameters for your model. We will show you how to define the parameter search space, specify a primary metric to optimize and early terminate poorly performing configurations. You can also visualize the various training runs and select the best performing configuration for your model.
+In this article, you learn to efficiently tune hyperparameters for your model. You will see how to define the parameter search space, specify a primary metric to optimize and early terminate poorly performing configurations. You can also visualize the various training runs and select the best performing configuration for your model.
 
 ## What are hyperparameters?
 Hyperparameters are adjustable parameters chosen prior to training a model that govern the training process itself. For example, prior to training a deep neural network, you will need to decide the number of hidden layers in the network and the number of nodes in each layer. These values usually stay constant during the training process.
 
-In Deep Learning / Machine Learning scenarios, model performance depends heavily on the hyperparameter values selected. The goal of hyperparameter exploration is to search across various hyperparameter configurations to find a configuration that results in the desired performance. Typically, the hyperparameter exploration process is painstakingly manual, given that the search space is vast and evaluation of each configuration can be expensive.
+In deep learning / machine learning scenarios, model performance depends heavily on the hyperparameter values selected. The goal of hyperparameter exploration is to search across various hyperparameter configurations to find a configuration that results in the desired performance. Typically, the hyperparameter exploration process is painstakingly manual, given that the search space is vast and evaluation of each configuration can be expensive.
 
-Azure Machine Learning service allows users to automate this hyperparameter exploration in an efficient manner, saving users significant time and resources. Users can specify the range of hyperparameter values to explore and a maximum number of training runs for this exploration. The system then automatically launches multiple simultaneous training runs with different parameter configurations and finds the configuration that results in the best performance, as measured by a metric chosen by the user. Poorly performing training runs are automatically early terminated, reducing wastage of compute resources. These resources are instead used to explore other hyperparameter configurations.
+Azure Machine Learning allows you to automate this hyperparameter exploration in an efficient manner, saving you significant time and resources. You can specify the range of hyperparameter values to explore and a maximum number of training runs for this exploration. The system then automatically launches multiple simultaneous training runs with different parameter configurations and finds the configuration that results in the best performance, as measured by a metric chosen by the user. Poorly performing training runs are automatically early terminated, reducing wastage of compute resources. These resources are instead used to explore other hyperparameter configurations.
 
-In order to tune hyperparameters for your model using Azure Machine Learning service, you will need to do the following -
+In order to tune hyperparameters for your model using Azure Machine Learning service, you need to do the following -
 * Define the hyperparameter search space
 * Specify a primary metric to optimize
 * Specify an early termination policy
@@ -149,7 +149,7 @@ In this example, the training script calculates the `val_accuracy` and logs this
 When using Azure Machine Learning service to tune hyperparameters, poorly performing runs are automatically early terminated. This reduces wastage of resources and instead uses these resources for exploring other parameter configurations.
 
 When using an early termination policy, a user can configure the following parameters that control when a policy is applied -
-* `evaluation_interval`: the frequency for applying the policy. Each time the training script logs the primary metric counts as one interval. Thus an `evaluation_interval` of 1 will apply the policy every time the training script reports the primary metric. An `evaluation_interval` of 2 will apply the policy every other time the training script reports the primary metric. If not specified, `evaluation_interval` is set to 1 by default.
+* `evaluation_interval`: the frequency for applying the policy. Each time the training script logs the primary metric counts as one interval. Thus an `evaluation_interval` of 1 will apply the policy every time the training script reports the primary metric. An `evaluation_interval` of 2 will apply the policy every other time the training script reports the primary metric. This is an optional parameter and if not specified, `evaluation_interval` is set to 1 by default.
 * `delay_evaluation`: delays the first policy evaluation for a specified number of intervals. This is an optional parameter that allows all configurations to run for an initial minimum number of intervals, avoiding premature termination of training runs. If specified, the policy applies every multiple of evaluation_interval that is greater than or equal to delay_evaluation.
 
 Azure Machine Learning service supports the following Early Termination Policies -
@@ -159,7 +159,7 @@ Bandit Policy is a termination policy based on slack factor/slack amount and eva
 * `slack_factor` or `slack_amount`: the slack allowed with respect to the best performing training run. `slack_factor` specifies the allowable slack as a ratio. `slack_amount` specifies the allowable slack as an absolute amount, instead of a ratio.
 
     For example,  consider a Bandit policy being applied at interval 10. Assume that the best performing run at interval 10 reported a primary metric 0.8 with a goal to maximize the primary metric. If the policy was specified with a `slack_factor` of 0.2, any training runs, whose best metric at interval 10 is less than 0.66 (0.8/(1+`slack_factor`)) will be terminated. If instead, the policy was specified with a `slack_amount` of 0.2, any training runs, whose best metric at interval 10 is less than 0.6 (0.8 - `slack_amount`) will be terminated.
-* `evaluation_interval`: the frequency for applying the policy.
+* `evaluation_interval`: the frequency for applying the policy (optional parameter).
 * `delay_evaluation`: delays the first policy evaluation for a specified number of intervals (optional parameter).
 
 Consider this example -
@@ -173,7 +173,7 @@ In this example, the early termination policy is applied at every interval when 
 
 ### Median Stopping Policy
 Median Stopping Policy is an early termination policy based on running averages of primary metrics reported by the runs. This policy computes running averages across all training runs and terminates runs whose performance is worse than the median of the running averages. This policy takes the following configuration parameters -
-* `evaluation_interval`: the frequency for applying the policy.
+* `evaluation_interval`: the frequency for applying the policy (optional parameter).
 * `delay_evaluation`: delays the first policy evaluation for a specified number of intervals (optional parameter).
 
 Consider this example -
@@ -188,7 +188,7 @@ In this example, the early termination policy is applied at every interval start
 ### Truncation Selection Policy
 Truncation Selection Policy cancels a given percentage of lowest performing runs at each evaluation interval. Runs are compared based on their performance on the primary metric and the lowest X% are terminated. It takes the following configuration parameters -
 * `truncation_percentage`: the percentage of lowest performing runs to terminate at each evaluation interval. This should be an integer value between 1 and 99.
-* `evaluation_interval`: the frequency for applying the policy.
+* `evaluation_interval`: the frequency for applying the policy (optional parameter).
 * `delay_evaluation`: delays the first policy evaluation for a specified number of intervals (optional parameter).
 
 Consider this example -
@@ -213,14 +213,14 @@ If no policy is specified, the hyperparameter tuning service will use a Median S
 
 ## Allocate resources for hyperparameter tuning
 You can control your resource budget for your hyperparameter tuning experiment by specifying the maximum total number of training runs and optionally, the maximum duration for your hyperparameter tuning experiment (in minutes). 
-* `max_total_runs`: Maximum total number of training runs that will be created. This is an upper bound - we may have fewer runs, for instance, if the hyperparameter space is finite and has fewer samples
+* `max_total_runs`: Maximum total number of training runs that will be created. This is an upper bound - we may have fewer runs, for instance, if the hyperparameter space is finite and has fewer samples. Must be a number between 1 and 1000.
 * `max_duration_minutes`: Maximum duration of the hyperparameter tuning experiment in minutes. This is an optional parameter, and if present, any runs that might be running after this duration are automatically canceled.
 
 >[!NOTE] 
 >If both `max_total_runs` and `max_duration_minutes` are specified, the hyperparameter tuning experiment is terminated when the first of these two thresholds is reached.
 
 Additionally, you can specify the maximum number of training runs to run concurrently during your hyperparameter tuning search.
-* `max_concurrent_runs`: This is the maximum number of runs to run concurrently at any given moment. If none specified, all `max_total_runs` will be launched in parallel. 
+* `max_concurrent_runs`: This is the maximum number of runs to run concurrently at any given moment. If none specified, all `max_total_runs` will be launched in parallel. If specified, must be a number between 1 and 100.
 
 >[!NOTE] 
 >The number of concurrent runs is gated on the resources available in the specified compute target. Hence, you will need to ensure that the compute target has the available resources for the desired concurrency.
@@ -289,15 +289,13 @@ Once all of the hyperparameter tuning runs have completed, you can identify the 
 ```Python
 best_run = hyperdrive_run.get_best_run_by_primary_metric()
 best_run_metrics = best_run.get_metrics()
+parameter_values = best_run.get_details()['runDefinition']['Arguments']
 
-print('Best Run :\n  Id: {0}\n  Accuracy: {1:.6f} \n  Learning rate: {2:.6f} \n  Keep Probability: {3}\n  Mini-batch size: {5}'.format(
-        best_run.id,
-        best_run_metrics['accuracy'],
-        best_run_metrics['learning_rate'],
-        best_run_metrics['keep_probability'],
-        best_run_metrics['batch_size']
-    ))
-print(helpers.get_run_history_url(best_run))
+print('Best Run Id: ', best_run.id)
+print('\n Accuracy:', best_run_metrics['accuracy'])
+print('\n learning rate:',parameter_values[3])
+print('\n keep probability:',parameter_values[5])
+print('\n batch size:',parameter_values[7])
 ```
 
 ## Sample notebooks
