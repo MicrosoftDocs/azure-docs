@@ -1,5 +1,5 @@
 ---
-title: Enable data collection for models in production
+title: Enable data collection for models in production - Azure Machine Learning
 description: Learn how to collect Azure Machine Learning input model data in an Azure Blob storage.
 services: machine-learning
 ms.service: machine-learning
@@ -8,23 +8,32 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
-ms.date: 09/17/2018
+ms.date: 09/24/2018
 ---
 # Collect data for models in production
 
-With this article, you can learn how to collect input model data from your Azure Machine Learning service in an Azure Blob storage. Once enabled, this data collected gives you the opportunity to:
+In this article, you can learn how to collect input model data from your Azure Machine Learning service in an Azure Blob storage. 
+
+Once enabled, this data you collect helps you:
 * Monitor data drifts as production data enters your model
+
 * Make better decisions on when to retrain or optimize your model
+
 * Retrain your model with the data collected
 
 ## What data is collected?
-* Model **input** data (voice, images, and video are **not** supported) from services deployed in Azure Kubernetes Cluster (AKS)
+
+The following data can be collected:
+* Model **input** data from web services deployed in Azure Kubernetes Cluster (AKS)
+  (Voice, images, and video are **not** collected) 
+  
 * Model predictions using production input data.
 
-**Note:** pre-aggregation or pre-calculations on this data are done by user and not included in this version of the product.   
+> [!Note]
+> Pre-aggregation or pre-calculations on this data are not part of the service at this time.   
 
 ## Prerequisites
-1.	Set up a [workspace](https://review.docs.microsoft.com/en-us/azure/machine-learning/service/quickstart-get-started?branch=release-ignite-aml)
+1.	Set up a [workspace](https://review.docs.microsoft.com/en-us/azure/machine-learning/service/quickstart-get-started?branch=release-ignite-aml).
 2.	Have a model [ready to be deployed](https://review.docs.microsoft.com/en-us/azure/machine-learning/service/how-to-deploy-to-aks) in an Azure Kubernetes Service (AKS) and an AKS cluster ready.
 3.	Install dependencies and collector module [in your environment](https://review.docs.microsoft.com/en-us/azure/machine-learning/service/how-to-configure-environment?branch=release-ignite-aml):
     * LINUX:
