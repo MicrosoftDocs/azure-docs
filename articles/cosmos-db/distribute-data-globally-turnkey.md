@@ -97,51 +97,14 @@ While the [strong consistency model](http://cs.brown.edu/~mph/HerlihyW90/p463-he
 
 Azure Cosmos DB offers a well-defined programming model for you to reason about replicated data's consistency. In order to enable you to easily build globally distributed applications with multi-homing capability, the consistency models exposed by Azure Cosmos DB are designed to be region-agnostic and independent from the region from where the reads and writes are being served. 
 
-Azure Cosmos DB's consistency SLA guarantees that 100% of read requests will meet the consistency guarantee for the consistency model specified by you (either at the database account or the request level). A read request is considered to have met the consistency SLA, if all the consistency guarantees associated with the consistency level are satisfied. The following table captures the consistency guarantees that correspond to specific consistency models offered by Azure Cosmos DB.
+Azure Cosmos DB's consistency SLA guarantees that 100% of read requests will meet the consistency guarantee for the consistency model specified by you (either at the database account or the request level). A read request is considered to have met the consistency SLA, if all the consistency guarantees associated with the consistency level are satisfied. The following table captures the consistency model, and the consistency gurantees. Each of this consistency model guarantees a 100% SLA. 
 
-<table>
-	<tr>
-		<td><strong>Consistency Model</strong></td>
-		<td><strong>Consistency Characteristics</strong></td>
-		<td><strong>SLA</strong></td>
-	</tr>
-		<tr>
-		<td>Strong</td>
-		<td>Linearizable</td>
-		<td>100%</td>
-	</tr>
-	<tr>
-		<td rowspan="3">Bounded staleness</td>
-		<td>Monotonic read (within a region)</td>
-		<td>100%</td>
-	</tr>
-	<tr>
-		<td>Consistent prefix</td>
-		<td>100%</td>
-	</tr>
-	<tr>
-		<td>Staleness bound &lt; K,T</td>
-		<td>100%</td>
-	</tr>
-<tr>
-		<td rowspan="3">Session</td>
-		<td>Read your own write</td>
-		<td>100%</td>
-	</tr>
-	<tr>
-		<td>Monotonic read</td>
-		<td>100%</td>
-	</tr>
-	<tr>
-		<td>Consistent prefix</td>
-		<td>100%</td>
-	</tr>
-	<tr>
-		<td>Consistent prefix</td>
-		<td>Consistent prefix</td>
-		<td>100%</td>
-	</tr>
-</table>
+|Consistency model  | Characteristics  |
+|---------|---------|
+|Strong |  Linearizable  |
+|Bounded staleness  |  Monotonic read (within a region), Consistent prefix, Staleness bound &lt; K,T   |
+|Session  |  Read your own write, Monotonic read, Consistent prefix    |
+|Consistent prefix  | Consistent prefix  |
 
 ### <a id="ConsistencyAndAvailability"></a>Consistency's relationship with availability
 The [impossibility result](http://www.glassbeam.com/sites/all/themes/glassbeam/images/blog/10.1.1.67.6951.pdf) of the [CAP theorem](https://people.eecs.berkeley.edu/~brewer/cs262b-2004/PODC-keynote.pdf) proves that it is indeed impossible for a system to remain available and offer linearizable consistency in the face of failures. The database service must choose to be either CP or AP, where CP systems forgo availability in favor of linearizable consistency while the AP systems forgo [linearizable consistency](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) in favor of availability. Azure Cosmos DB never violates the requested consistency model, which formally makes it a CP system. However, in practice consistency is not an all or nothing proposition; there are multiple well-defined consistency models along the consistency spectrum between linearizable and eventual consistency. In Azure Cosmos DB identifies several relaxed consistency models that are applicable to real world scenarios and are intuitive to use. Azure Cosmos DB navigates the consistency-availability tradeoffs by offering a [multiple relaxed yet well-defined consistency models](consistency-levels.md) and a 99.99% availability for all single region database accounts and 99.999% read and write availability for all multi-region database accounts. 
