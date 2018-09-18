@@ -47,7 +47,7 @@ The source code for this sample is available on [GitHub](https://github.com/Azur
     //the search term for the request 
     let searchTerm = "canadian rockies";
 
-    //instantiate the the image search client 
+    //instantiate the image search client 
     let credentials = new CognitiveServicesCredentials(serviceKey);
     let imageSearchApiClient = new Search.ImageSearchAPIClient(credentials);
 

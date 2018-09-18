@@ -448,7 +448,7 @@ Puppet | https://github.com/keirans/azuremetadata
    * Yes Metadata service is available for Scale Set Instances. 
 8. How do I get support for the service?
    * To get support for the service, create a support issue in Azure portal for the VM where you are not able to get metadata response after long retries 
-9. I get request timed out for my call the the service?
+9. I get request timed out for my call to the service?
    * Metadata calls must be made from the primary IP address assigned to the network card of the VM , in addition in case you have changed your routes there must be a route for 169.254.0.0/16 address out of your network card.
 10. I updated my tags in Virutal Machine Scale set but they dont appear in the instances unlike VMs?
    * Currently for ScaleSets tags only show to the VM on a reboot/reimage/or a disk change to the instance. 
