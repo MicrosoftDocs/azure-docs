@@ -18,7 +18,7 @@ Before you create an export job to transfer data out of Azure Blob Storage, care
 You must:
 
 - Have an active Azure subscription that can be used for the Import/Export service.
-- Have at least one Azure Storage account. See the list of [Supported storage accounts and storage types for Import/Export service](storage-import-export-requirements.md). For information on creating a new storage account, see [How to Create a Storage Account](storage-create-storage-account.md#create-a-storage-account).
+- Have at least one Azure Storage account. See the list of [Supported storage accounts and storage types for Import/Export service](storage-import-export-requirements.md). For information on creating a new storage account, see [How to Create a Storage Account](storage-quickstart-create-account.md).
 - Have adequate number of disks of [Supported types](storage-import-export-requirements.md#supported-disks).
 - Have a FedEx/DHL account.  
     - The account must be valid, should have balance, and must have return shipping capabilities.

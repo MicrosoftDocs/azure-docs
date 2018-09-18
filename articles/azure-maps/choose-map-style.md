@@ -4,14 +4,14 @@ description: Learn about Azure Maps style related functionalities.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 08/31/2018
-ms.topic: how-to-guides
+ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: mvc
 ---
 
 # Choose a map style in Azure Maps
+
 Azure Maps has four different maps styles to choose from. For more about map styles, see [supported map styles in Azure Maps](./supported-map-styles.md). This article shows how to use the style-related functionalities to set a style on map load, set a new style and use the style picker control.
 
 ## Setting style on map load
@@ -43,14 +43,17 @@ A style picker enables style selection for the map. The third code block adds th
 
 ## Next steps
 
-Learn more about the classes and methods used in this article: 
-* [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
-    * [setStyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setstyle)
-    * [addControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol)
+To learn more about the classes and methods used in this article:
 
-* [Atlas](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas?view=azure-iot-typescript-latest)
-    * [StyleControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.stylecontrol?view=azure-iot-typescript-latest#stylecontrol)
-    
-For more code examples to add to your maps, see the following articles:
-* [Add map controls](./map-add-controls.md)
-* [Add a pin](./map-add-pin.md)
+> [!div class="nextstepaction"]
+> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+
+Add control to your maps:
+
+> [!div class="nextstepaction"]
+> [Add map controls](./map-add-controls.md)
+
+Add a map pin:
+
+> [!div class="nextstepaction"]
+> [Add a pin](./map-add-pin.md)

@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/05/2018
+ms.date: 09/10/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
@@ -31,11 +31,8 @@ In this tutorial, you learn how to:
 
 Before you begin, make sure that:
 - You have completed the [Tutorial: Install and configure your Azure Data Box Disk](data-box-disk-deploy-set-up.md).
-- Your disks are unpacked and turned on.
-- You have a host computer to copy data to the disks. Your host computer must
-    - Run a [Supported operating system](data-box-disk-system-requirements.md).
-    - Have [Windows PowerShell 4 installed](https://www.microsoft.com/download/details.aspx?id=40855).
-    - Have [.NET Framework 4.5 installed](https://www.microsoft.com/download/details.aspx?id=30653).
+- Your disks are unlocked and connected to a client computer.
+- Your client computer that is used to copy data to the disks must run a [Supported operating system](data-box-disk-system-requirements.md).
 
 
 ## Copy data to disks
@@ -164,13 +161,17 @@ Perform the following steps to connect and copy data from your computer to the D
 
 To verify the data integrity, perform the following steps.
 
-1. Run the `AzureExpressDiskService.ps1` for checksum validation. In File Explorer, go to the *AzureImportExport* folder of the drive. Right-click and select **Run with PowerShell**. 
+1. Run the `DataBoxDiskValidation.cmd` for checksum validation in the *AzureImportExport* folder of your drive. 
+    
+    ![Data Box Disk validation tool output](media/data-box-disk-deploy-copy-data/data-box-disk-validation-tool-output.png)
 
-    ![Run checksum](media/data-box-disk-deploy-copy-data/data-box-disk-checksum.png)
-
-2. Depending upon your data size, this step may take a while. A summary of the data integrity check process along with time to complete the process is displayed when the script has completed. You can press **Enter** to exit out of the command window.
+2. Choose the appropriate option. **We recommend that you always validate the files and generate checksums by selecting option 2**. Depending upon your data size, this step may take a while. Once the script has completed, exit out of the command window. If there are any errors during validation and checksum generation, you are notified and a link to the error logs is also provided.
 
     ![Checksum output](media/data-box-disk-deploy-copy-data/data-box-disk-checksum-output.png)
+
+    > [!TIP]
+    > - Reset the tool beween two runs.
+    > - Use option 1 to validate the files only dealing with large data set containing small files (~KBs). In these instances, checksum generation may take a very long time and the performance could be very slow.
 
 3. If using multiple disks, run the command for each disk.
 

@@ -24,7 +24,7 @@ ms.author: daveba
 ## Frequently Asked Questions (FAQs)
 
 > [!NOTE]
-> Managed identities for azure resources is the new name for the service formerly known as Managed Service Identity (MSI).
+> Managed identities for Azure resources is the new name for the service formerly known as Managed Service Identity (MSI).
 
 ### Does managed identities for Azure resources work with Azure Cloud Services?
 

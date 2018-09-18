@@ -1,16 +1,19 @@
 ---
-title: Ruby Quickstart for Azure Cognitive Services, Text Analytics API | Microsoft Docs
+title: 'Quickstart: Using Ruby to call the Text Analytics API'
+titleSuffix: Azure Cognitive Services
 description: Get information and code samples to help you quickly get started using the Text Analytics API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
-documentationcenter: ''
 author: ashmaka
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: text-analytics
-ms.topic: article
-ms.date: 08/30/2018
+ms.topic: quickstart
+ms.date: 09/12/2018
 ms.author: ashmaka
 ---
-# Quickstart for Text Analytics API with Ruby 
+
+# Quickstart: Using Ruby to call the Text Analytics Cognitive Service
 <a name="HOLTop"></a>
 
 This article shows you how to [detect language](#Detect), [analyze sentiment](#SentimentAnalysis), [extract key phrases](#KeyPhraseExtraction), and [identify linked entities](#Entities) using the [Text Analytics APIs](//go.microsoft.com/fwlink/?LinkID=759711) with Ruby.

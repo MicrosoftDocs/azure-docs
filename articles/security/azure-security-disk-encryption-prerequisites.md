@@ -1,19 +1,15 @@
 ---
 title: Azure Disk Encryption Prerequisites | Microsoft Docs
 description: This article provides prerequisites for using Microsoft Azure Disk Encryption for IaaS VMs.
-services: security
-documentationcenter: na
 author: mestew
-manager: MBaldwin
-ms.assetid: 1b2daefc-1326-44dd-9c8b-10e413769af7
 ms.service: security
-ms.devlang: na
+ms.subservice: Azure Disk Encryption
 ms.topic: article
-ms.tgt_pltfrm: na 
-ms.workload: na
-ms.date: 08/29/2018
 ms.author: mstewart
+ms.date: 09/14/2018
+
 ---
+
 # Azure Disk Encryption prerequisites 
  This article, Azure Disk Encryption Prerequisites, explains items that need to be in place before you can use Azure Disk Encryption. Azure Disk Encryption is integrated with [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) to help manage encryption keys. You can use [Azure PowerShell](/powershell/azure/overview), [Azure CLI](/cli/azure/), or the [Azure portal](https://portal.azure.com) to configure Azure Disk Encryption.
 
@@ -127,6 +123,9 @@ If you're already familiar with the Key Vault and Azure AD prerequisites for Azu
 1. If needed, create a resource group.
 2. Create a key vault. 
 3. Set key vault advanced access policies.
+
+>[!WARNING]
+>Before deleting a key vault, ensure that you did not encrypt any existing VMs with it. To protect a vault from accidental deletion, [enable soft delete](../key-vault/key-vault-soft-delete-powershell.md#enabling-soft-delete) and a [resource lock](../azure-resource-manager/resource-group-lock-resources.md) on the vault. 
  
 ## <a name="bkmk_KeyVault"></a> Create a key vault 
 Azure Disk Encryption is integrated with [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) to help you control and manage the disk-encryption keys and secrets in your key vault subscription. You can create a key vault or use an existing one for Azure Disk Encryption. For more information about key vaults, see [Get started with Azure Key Vault](../key-vault/key-vault-get-started.md) and [Secure your key vault](../key-vault/key-vault-secure-your-key-vault.md). You can use a Resource Manager template, Azure PowerShell, or the Azure CLI to create a key vault. 

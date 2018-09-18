@@ -11,7 +11,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 09/07/2018
+ms.date: 09/10/2018
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -116,7 +116,7 @@ To list all three storage accounts, omit the --name parameter:
 
 # [CLI](#tab/CLI)
 ```cli
-az storage account show --resource-group <ResourceGroupName>
+az storage account list --resource-group <ResourceGroupName>
 ```
 
 # [PowerShell](#tab/PowerShell)

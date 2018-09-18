@@ -6,7 +6,7 @@ manager: camerons
 ms.author: timlav
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 04/30/2018
+ms.date: 09/12/2018
 ms.topic: conceptual
 ---
 
@@ -35,7 +35,10 @@ The Azure IoT Hub is used as the Remote Monitoring solution cloud gateway.  The 
 For stream processing the Remote Monitoring solution uses Azure Stream Analytics for complex rule processing.  For customers wanting simpler rules, we also have a custom microservice with support for processing of simple rules, although this set-up not part of the out of the box deployment. The reference architecture recommends use of Azure Functions for simple rule processing and Azure Stream Analytics (ASA) for complex rule processing.  
 
 ### Storage
-For storage, Azure Cosmos DB is used for all storage needs: cold storage, warm storage, rules storage, and alarms. We are currently in the process of moving to Azure blob storage, as recommended by the reference architecture.  Azure Cosmos DB is the recommended general-purpose warm storage solution for IoT applications though solutions such as Azure Time Series Insights and Azure Data Lake are appropriate for many use cases.
+For storage, the Remote Monitoring solution accelerator uses both Azure Time Series Insights and Azure Cosmos DB. Azure Time Series Insights stores the messages coming through IoT Hub from your connected devices. The solution accelerator uses Azure Cosmos DB for all other storage such as cold storage, rules definitions, alarms, and configuration settings. Azure Cosmos DB is the recommended general-purpose warm storage solution for IoT applications though solutions such as Azure Time Series Insights and Azure Data Lake are appropriate for many use cases. With Azure Time Series Insights you can gain deeper insights into your time-series sensor data by spotting trends and anomalies, which allows you to conduct root-cause analyses and avoid costly downtime. 
+
+> [!NOTE]
+> Time Series Insights is not currently available in the Azure China cloud. New Remote Monitoring solution accelerator deployments in the Azure China cloud use Cosmos DB for all storage.
 
 ### Business integration
 Business integration in the Remote Monitoring solution is limited to generation of alarms, which are placed in warm storage. Further business integrations can be performed by integrating the solution with Azure Logic Apps.

@@ -1,20 +1,20 @@
 ---
-title: Authenticate access to Azure Storage using Azure Active Directory (Preview) | Microsoft Docs
-description: Authenticate access to Azure Storage using Azure Active Directory (Preview).
+title: Authenticate access to Azure blobs and queues using Azure Active Directory (Preview) | Microsoft Docs
+description: Authenticate access to Azure blobs and queues using Azure Active Directory (Preview).
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 06/01/2018
+ms.date: 09/07/2018
 ms.author: tamram
 ms.component: common
 ---
 
-# Authenticate access to Azure Storage using Azure Active Directory (Preview)
+# Authenticate access to Azure blobs and queues using Azure Active Directory (Preview)
 
 Azure Storage supports authentication and authorization with Azure Active Directory (AD) for the Blob and Queue services. With Azure AD, you can use role-based access control (RBAC) to grant access to users, groups, or application service principals. 
 
-Authorizing applications that access Azure Storage using Azure AD provides superior security and ease of use over other authorization options. While you can continue to use Shared Key authorization with your applications, using Azure AD circumvents the need to store your account access key with your code. Similarly, you can continue to use shared access signatures (SAS) to grant fine-grained access to resources in your storage account, but Azure AD offers similar capabilities without the need to manage SAS tokens or worry about revoking a compromised SAS.
+Authenticating users or applications using Azure AD credentials provides superior security and ease of use over other means of authorization. While you can continue to use Shared Key authorization with your applications, using Azure AD circumvents the need to store your account access key with your code. You can also continue to use shared access signatures (SAS) to grant fine-grained access to resources in your storage account, but Azure AD offers similar capabilities without the need to manage SAS tokens or worry about revoking a compromised SAS. Microsoft recommends using Azure AD authentication for your Azure Storage applications when possible.
 
 ## About the preview
 
@@ -28,12 +28,12 @@ Keep in mind the following points about the preview:
 - Azure Storage supports both built-in and custom RBAC roles. You can assign roles scoped to the subscription, the resource group, the storage account, or an individual container or queue.
 - The Azure Storage client libraries that currently support Azure AD integration include:
     - [.NET](https://www.nuget.org/packages/WindowsAzure.Storage)
-    - [Java](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) (use 7.1.x-Preview)
+    - [Java](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)
     - Python
-        - [Blob](https://github.com/Azure/azure-storage-python/releases/tag/v1.2.0rc1-blob)
-        - [Queue](https://github.com/Azure/azure-storage-python/releases/tag/v1.2.0rc1-queue)
+        - [Blob](https://github.com/Azure/azure-storage-python/releases/tag/)
+        - [Queue](https://github.com/Azure/azure-storage-python/releases/tag/)
     - [Node.js](https://www.npmjs.com/package/azure-storage)
-    - [JavaScript](https://aka.ms/downloadazurestoragejs))
+    - [JavaScript](https://aka.ms/downloadazurestoragejs)
 
 [!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
 

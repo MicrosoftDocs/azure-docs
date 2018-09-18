@@ -121,7 +121,7 @@ The unit of scale is the function app. When the function app is scaled out, addi
 
 Scaling can vary on a number of factors, and scale differently based on the trigger and language selected. However there are a few aspects of scaling that exist in the system today:
 
-* A single function app only scales up to a maximum of 200 instances. A single instance may process more than one message or request at a time though, so there isn't a set limit on number of concurrent executions.
+* A single function app only scales up to a maximum of 100 instances. A single instance may process more than one message or request at a time though, so there isn't a set limit on number of concurrent executions.
 * New instances will only be allocated at most once every 10 seconds.
 
 Different triggers may also have different scaling limits as well as documented below:

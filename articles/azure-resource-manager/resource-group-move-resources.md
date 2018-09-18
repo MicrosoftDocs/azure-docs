@@ -11,7 +11,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 09/07/2018
 ms.author: tomfitz
 
 ---
@@ -159,7 +159,7 @@ While the operation is still running, you continue to receive the 202 status cod
 
 ## Services that can be moved
 
-The services that enable moving to both a new resource group and subscription are:
+The following list provides a general summary of Azure services that can be moved to a new resource group and subscription. For greater detail, see [Move operation support for resources](move-support-resources.md).
 
 * Analysis Services
 * API Management
@@ -169,6 +169,9 @@ The services that enable moving to both a new resource group and subscription ar
 * Automation
 * Azure Active Directory B2C
 * Azure Cosmos DB
+* Azure Database for MySQL
+* Azure Database for PostgreSQL
+* Azure DevOps - Azure DevOps organizations with non-Microsoft extension purchases must [cancel their purchases](https://go.microsoft.com/fwlink/?linkid=871160) before they can move the account across subscriptions.
 * Azure Maps
 * Azure Relay
 * Azure Stack - registrations
@@ -213,7 +216,7 @@ The services that enable moving to both a new resource group and subscription ar
 * Service Fabric
 * Service Fabric Mesh
 * SignalR Service
-* Storage
+* Storage - storage accounts in different regions can't be moved in the same operation. Instead, use separate operations for each region.
 * Storage (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
 * Stream Analytics - Stream Analytics jobs can't be moved when in running state.
 * SQL Database server - database and server must reside in the same resource group. When you move a SQL server, all its databases are also moved. This behavior applies to Azure SQL Database and Azure SQL Data Warehouse databases.
@@ -223,18 +226,15 @@ The services that enable moving to both a new resource group and subscription ar
 * Virtual Machines (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
 * Virtual Machine Scale Sets - see [Virtual Machines limitations](#virtual-machines-limitations)
 * Virtual Networks - see [Virtual Networks limitations](#virtual-networks-limitations)
-* Visual Studio Team Services - VSTS accounts with non-Microsoft extension purchases must [cancel their purchases](https://go.microsoft.com/fwlink/?linkid=871160) before they can move the account across subscriptions.
 * VPN Gateway
 
 ## Services that cannot be moved
 
-The services that currently don't enable moving a resource are:
+The following list provides a general summary of Azure services that can't be moved to a new resource group and subscription. For greater detail, see [Move operation support for resources](move-support-resources.md).
 
 * AD Domain Services
 * AD Hybrid Health Service
 * Application Gateway
-* Azure Database for MySQL
-* Azure Database for PostgreSQL
 * Azure Database Migration
 * Azure Databricks
 * Azure Migrate
