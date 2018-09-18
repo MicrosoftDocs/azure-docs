@@ -28263,12 +28263,12 @@
         },
         {
             "source_path": "articles/log-analytics/index.md",
-            "redirect_url": "/azure/azure-monitor",
+            "redirect_url": "/azure/azure-monitor/overview",
             "redirect_document_id" : false
         },
         {
             "source_path": "articles/application-insights/index.md",
-            "redirect_url": "/azure/azure-monitor",
+            "redirect_url": "/azure/azure-monitor/overview",
             "redirect_document_id" : false
         }
     ]
