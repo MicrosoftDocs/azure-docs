@@ -1,6 +1,6 @@
 ---
-title: Compare the machine learning product options from Microsoft? - Azure | Microsoft Docs
-description: Compare the variety of products from Microsoft to build, deploy, and manage your machine learning models. 
+title: Compare the machine learning product options from Microsoft - Azure | Microsoft Docs
+description: Compare the variety of products from Microsoft to build, deploy, and manage your machine learning models. Decide which products to choose for your solution.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
