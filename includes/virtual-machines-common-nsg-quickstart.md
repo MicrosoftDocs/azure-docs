@@ -11,9 +11,9 @@
 
 ---
 
-To open a port to a virtual machine (VM) in Azure, you create a network filter on a subnet or a VM network interface. You place these filters, which control both inbound and outbound traffic, on a network security group attached to the resource that receives the traffic.
+You open a port, or create an endpoint, to a virtual machine (VM) in Azure by creating a network filter on a subnet or a VM network interface. You place these filters, which control both inbound and outbound traffic, on a network security group attached to the resource that receives the traffic.
 
-The example in this article demonstrates how to create a network fiter that uses the the standard TCP port 80 (it's assumed you've started the appropriate services and opened any OS firewall rules on the VM).
+The example in this article demonstrates how to create a network filter that uses the standard TCP port 80 (it's assumed you've already started the appropriate services and opened any OS firewall rules on the VM).
 
 After you've created a VM that's configured to serve web requests on the standard TCP port 80, you can:
 
