@@ -22,7 +22,7 @@
 
 | Standard SSD Disk Type  | E10               | E15               | E20             | E30 | E40              | E50              | E60              | E70              | E80              |
 |---------------------|---------------------|---------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|
-| Disk size in GiB           | 128             | 256             | 512            | 1,024  | 2,048            | 4,095     | 8,192     | 16,384 GB    | 32,767    |
+| Disk size in GiB           | 128             | 256             | 512            | 1,024  | 2,048            | 4,095     | 8,192     | 16,384     | 32,767    |
 | IOPS per disk       | Up to 500              | Up to 500              | Up to 500              | Up to 500 | Up to 500              | Up to 500              | Up to 500             | Up to 500              | Up to 1,300              | Up to 2,000              | Up to 2,000              |
 | Throughput per disk | Up to 60 MB/sec | Up to 60 MB/sec | Up to 60 MB/sec | Up to 60 MB/sec | Up to 60 MB/sec | Up to 60 MB/sec | Up to 60 MB/sec | Up to 60 MB/sec| Up to 300 MiB/sec |  Up to 500 MiB/sec | Up to 500 MiB/sec |
 
