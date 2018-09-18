@@ -1,6 +1,6 @@
 ---
-title: Overview of Azure Firewall logs and metrics
-description: This article is an overview of the Azure Firewall diagnotic logs and metrics.
+title: Overview of Azure Firewall logs
+description: This article is an overview of the Azure Firewall diagnostic logs.
 services: firewall
 author: vhorne
 ms.service: firewall
@@ -9,7 +9,7 @@ ms.date: 9/24/2018
 ms.author: victorh
 ---
 
-# Azure Firewall logs and metrics
+# Azure Firewall logs
 
 You can monitor Azure Firewall using firewall logs. You can also use activity logs to audit operations on Azure Firewall resources.
 
@@ -78,21 +78,6 @@ You have three options for storing your logs:
 
    You can use [Azure activity logs](../azure-resource-manager/resource-group-audit.md) (formerly known as operational logs and audit logs) to view all operations that are submitted to your Azure subscription.
 
-## Metrics
-
-Metrics are a feature for certain Azure resources where you can view performance counters in the portal. For Azure Firewall, the following metrics are available:
-
-- **ApplicationRuleHit**
-- **NetworkRuleHit**
-
-These metrics have the following properties:
-
-- Resource ID
-- Status (allowed, blocked)
-- Reason (customer rule, infrastructure rule)
-- Protocol (http, https, tcp, udp, icmp)
-
-<!--- screen shot of metrics page -->
 
 ## Next steps
 
