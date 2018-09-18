@@ -52,7 +52,7 @@ Also, Query Store could rapidly exceed its size quota because of a potentially l
 
 Consider the following options:
 - Parameterize queries where applicable, for example, wrap queries inside a stored procedure.
-- Compare the number of distinct query_hash values with the total number of entries in query_store.query_texts. If the ratio is close to 1 your workload is mostly generating unique queries.
+- Compare the number of query_id values with the number of execution counts in query_store.qs_view for a single time window. If a large proportion of your queries have an execution count = 1, then your workload mostly has unique queries.
 - Set pg_qs.query_capture_mode to TOP to automatically filter out nested queries.
 
 ## Next Steps
