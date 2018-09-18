@@ -278,4 +278,4 @@ Virtual network TAP is in developer preview. During preview, there is no service
 
 ### Is accelerated networking for [Linux](create-vm-accelerated-networking-cli.md) or [Windows](create-vm-accelerated-networking-powershell.md) supported with virtual network TAP?
 
-You will be able to add a TAP configuration on a network interface attached to a virtual machine that is enabled with accelerated networking. Please note that the performance and latency on the virtual machine will be affected by adding TAP configuration since the offload for mirroring function is currently not supported in FPGA-based SmartNICS.
+You will be able to add a TAP configuration on a network interface attached to a virtual machine that is enabled with accelerated networking. But the performance and latency on the virtual machine will be affected by adding TAP configuration since the offload for mirroring traffic is currently not supported by Azure accelerated networking.
