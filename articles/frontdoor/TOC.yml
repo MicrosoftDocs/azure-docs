@@ -13,7 +13,7 @@
 - name: Samples
   items:
   - name: Resource Manager Templates
-    href: front-door-arm-template-samples.md
+    href: front-door-quickstart-template-samples.md
 - name: Concepts
   items:
   - name: Backends and backend pools
