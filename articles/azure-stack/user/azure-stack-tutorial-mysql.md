@@ -24,6 +24,9 @@ As an Azure Stack tenant user, you can configure server VMs to host MySQL Server
 
 This tutorial shows how to use Azure Stack marketplace items to create a [MySQL with replication cluster](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.mysql-cluster). This solution uses multiple VMs to replicate the databases from the master node to a configurable number of replicas. Once created, the cluster can then be added as an Azure Stack MySQL Hosting Server, and then users can create a highly available MySQL databases.
 
+> [!IMPORTANT]
+> The **MySQL with replication** Azure Stack marketplace item might not be available for all Azure cloud subscription environments. Verify that the marketplace item is available in your subscription before attempting to follow the remainder of this tutoral.
+
 What you will learn:
 
 > [!div class="checklist"]
