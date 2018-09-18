@@ -9,7 +9,7 @@ ms.service: databox
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hub-page
-ms.date: 09/18/2018
+ms.date: 09/24/2018
 ms.author: alkohli
 ---
 <h1>Azure Data Box</h1>

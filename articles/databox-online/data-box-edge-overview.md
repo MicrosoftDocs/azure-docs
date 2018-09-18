@@ -83,7 +83,7 @@ The Data Box Edge physical device has the following features:
 | Rack space|1U when placed in the rack|
 | Cables| 2 X Power cable<br>2 X 1 Gbps RJ45 cables<br>2 X 10 Gbps SFP+ copper cables|
 | Components|2 built-in Power Supply Units (PSUs)|
-| CPU|2 Xeon processors with 10 cores each  |
+| CPU|2 Intel Xeon processors with 10 cores each  |
 | Memory| 64 GB RAM|
 | Disks| 8 NVMe SSDs, each disk is 1.6 TB <br> The system fails if one NVMe SSD fails. |
 | Local storage capacity| 12.8 TB total capacity|

@@ -14,7 +14,7 @@ metadata:
   ms.date: 09/24/2018
   ms.author: alkohli
 abstract:
-  description: Azure Data Box family lets you transfer hundreds of terabytes of data into Azure in a quick, inexpensive, and reliable manner. Use the Data Box devices for offline data transfer when you are limited by time, network, or cost.<p>Depending on your data size, choose from Data Box Disk, Data Box<SUP>Preview</SUP>, or Data Box Heavy<SUP>Preview</SUP>. For each device, transfer to Azure occurs in 4 easy steps – order, receive, copy data to device, and return device to Azure. In Azure datacenter, data is uploaded and then erased.</p><p>Learn how to leverage Data Box for your offline data transfer with our quickstarts and tutorials.</p>
+  description: The Azure Data Box family lets you transfer hundreds of terabytes of data to Azure in a quick, inexpensive, and reliable manner. Use the Data Box devices for offline data transfer when you are limited by time, network, or cost.<p>Depending on your data size, choose from Data Box Disk, Data Box<SUP>Preview</SUP>, or Data Box Heavy<SUP>Preview</SUP>. For each device, transfer to Azure occurs in 4 easy steps – order, receive, copy data to device, and return device to Azure. In the Azure datacenter, data is uploaded and then erased.</p><p>Learn how to leverage Data Box for your offline data transfer with our quickstarts and tutorials.</p>
 sections:
 - title: Quickstart
   items:
