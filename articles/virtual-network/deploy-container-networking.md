@@ -115,7 +115,7 @@ After completing the previous steps, Pods brought up on the Kubernetes Agent vir
 
 ## Deploy plug-in for Docker containers
 
-1. [Download and install the plug-in](#download-the-plug-in).
+1. [Download and install the plug-in](#download-and-install-the-plug-in).
 2. Create Docker containers with the following command:
 
    ```
@@ -157,7 +157,7 @@ The CNI network configuration file is described in JSON format. It is, by defaul
 - **cniVersion**: The Azure Virtual Network CNI plug-ins support versions 0.3.0 and 0.3.1 of the [CNI spec](https://github.com/containernetworking/cni/blob/master/SPEC.md).
 - **name**: Name of the network. This property can be set to any unique value.
 - **type**: Name of the network plug-in. Set to *azure-vnet*.
-- **mode**: Operational mode. This field is optional. The only mode supported is "bridge".For more information, see [operational modes](https://github.com/Azure/azure-container-networking/blob/master/docs/network.md)
+- **mode**: Operational mode. This field is optional. The only mode supported is "bridge". For more information, see [operational modes](https://github.com/Azure/azure-container-networking/blob/master/docs/network.md).
 - **bridge**: Name of the bridge that will be used to connect containers to a virtual network. This field is optional. If omitted, the plugin automatically picks a unique name, based on the master interface index.
 - **ipam type**: Name of the IPAM plug-in. Always set to *azure-vnet-ipam*.
 
