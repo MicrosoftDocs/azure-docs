@@ -18,7 +18,7 @@ ms.component: hybrid
 ms.author: billmath
 ---
 
-# What is hybrid identity?
+# Hybrid identity and Microsoft's identity solutions
 Today, businesses and corporations are a becoming more and more a mixture of on-premises and cloud applications.  Having applications and users who require access to those applications, on-premises and in the cloud, has become a challenging scenario.
 
 Microsoft’s identity solutions span on-premises and cloud-based capabilities, creating a single user identity for authentication and authorization to all resources, regardless of location. We call this hybrid identity.
@@ -92,16 +92,20 @@ Azure AD Connect Health for Active Directory Domain Services (AD DS) provides mo
 
 Read more here about [Using Azure AD Connect Health with AD DS](how-to-connect-health-adds.md)
 
-## More information and references
-|Topic |Link|  
-| --- | --- |
-|Version history | [Version history](reference-connect-version-history.md)|
-|Compare DirSync, Azure ADSync, and Azure AD Connect | [Directory integration tools comparison](plan-hybrid-identity-design-considerations-tools-comparison.md)|
-|Non-ADFS compatibility list for Azure AD | [Azure AD federation compatibility list](how-to-connect-fed-compatibility.md)|
-|Configuring a SAML 2.0 Idp|[Using a SAML 2.0 Identity Provider (IdP) for Single Sign On](how-to-connect-fed-saml-idp.md)|
-|Attributes synchronized | [Attributes synchronized](reference-connect-sync-attributes-synchronized.md)|
-|Monitoring using Azure AD Connect Health | [Azure AD Connect Health](whatis-hybrid-identity-health.md)|
-|Frequently Asked Questions | [Azure AD Connect FAQ](reference-connect-faq.md)|
+## Next Steps
+
+
+- [Hardware and prerequisites](how-to-connect-install-prerequisites.md) 
+- [Express settings](how-to-connect-install-express.md)
+- [Customized settings](how-to-connect-install-custom.md)
+- [Password hash synchronization](how-to-connect-password-hash-synchronization.md)|
+- [Pass-through authentication](how-to-connect-pta.md)
+- [Azure AD Connect and federation](how-to-connect-fed-whatis.md)
+- [Install Azure AD Connect Health agents](how-to-connect-health-agent-install.md) 
+- [Azure AD Connect sync](how-to-connect-sync-whatis.md)
+- [Version history](reference-connect-version-history.md)|
+- [Directory integration tools comparison](plan-hybrid-identity-design-considerations-tools-comparison.md)|
+- [Azure AD Connect FAQ](reference-connect-faq.md)|
 
 
 

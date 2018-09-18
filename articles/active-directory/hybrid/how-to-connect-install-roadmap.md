@@ -14,6 +14,8 @@ ms.component: hybrid
 ms.author: billmath
 ---
 
+#Azure AD Connect and Azure AD Connect Health installation roadmap
+
 ## Install Azure AD Connect
 
 > [!IMPORTANT]
@@ -70,7 +72,8 @@ The [prevent accidental deletes](how-to-connect-sync-feature-prevent-accidental-
 |Topic |Link|  
 | --- | --- |
 |Configure filtering | [Azure AD Connect sync: Configure filtering](how-to-connect-sync-configure-filtering.md)|
-|Password hash synchronization | [Azure AD Connect sync: Implement password hash synchronization](how-to-connect-password-hash-synchronization.md)|
+|Password hash synchronization | [Password hash synchronization](how-to-connect-password-hash-synchronization.md)|
+|Pass-through Authentication | [Pass-through authentication](how-to-connect-pta.md)
 |Password writeback | [Getting started with password management](../authentication/quickstart-sspr.md)|
 |Device writeback | [Enabling device writeback in Azure AD Connect](how-to-connect-device-writeback.md)|
 |Prevent accidental deletes | [Azure AD Connect sync: Prevent accidental deletes](how-to-connect-sync-feature-prevent-accidental-deletes.md)|
@@ -158,4 +161,18 @@ The Azure AD Connect Health portal shows views of alerts, performance monitoring
 
   - **Settings** entry includes basic configurations of your agents. Auto upgrade setting enables automatically update the Azure AD Connect Health agent to the latest version: You will be automatically updated to the latest versions of the Azure AD Connect Health Agent when they become available. This is enabled by default. Allow Microsoft access to your Azure AD directory’s health data for troubleshooting purposes only: If this is enabled, Microsoft can see the same data that you see. This information can help with troubleshooting and assistance with issues. This is disabled by default.
 * **Role based access control (IAM)** is the section to manage the access to Connect Health data in role base. 
+
+## Next Steps
+
+
+- [Hardware and prerequisites](how-to-connect-install-prerequisites.md) 
+- [Express settings](how-to-connect-install-express.md)
+- [Customized settings](how-to-connect-install-custom.md)
+- [Password hash synchronization](how-to-connect-password-hash-synchronization.md)|
+- [Pass-through authentication](how-to-connect-pta.md)
+- [Azure AD Connect and federation](how-to-connect-fed-whatis.md)
+- [Install Azure AD Connect Health agents](how-to-connect-health-agent-install.md) 
+- [Azure AD Connect sync](how-to-connect-sync-whatis.md)
+
+
 

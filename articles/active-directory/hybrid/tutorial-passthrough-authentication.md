@@ -1,4 +1,19 @@
-# Tutorial:  Integrate a single AD forest using pass-through authentication
+---
+title: 'Tutorial:  Integrate a single AD forest to Azure using pass-through authentication (PTA)| Microsoft Docs'
+description: Demonstrates how to setup a hybrid identity environment using pass-through authentication.
+services: active-directory
+author: billmath
+manager: mtillman
+ms.service: active-directory
+ms.workload: identity
+ms.topic: article
+ms.date: 09/18/2018
+ms.component: hybrid
+ms.author: billmath
+
+---
+
+# Tutorial:  Integrate a single AD forest using pass-through authentication (PTA)
 
 ![Create](media/tutorial-passthrough-authentication/diagram.png)
 
@@ -7,7 +22,7 @@ The following tutorial will walk you through creating a hybrid identity environm
 ## Prerequisites
 The following are prerequisites required for completing this tutorial
 - A computer with [Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-technology-overview) installed.  It is suggested to do this on either a [Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/about/supported-guest-os) or a [Windows Server 2016](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) computer.
-- An [Azure subscription](https://azure.microsoft.com/en-us/free)
+- An [Azure subscription](https://azure.microsoft.com/free)
 - - An [external network adapter](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/connect-to-network) to allow the virtual machine to communicate with the internet.
 - A copy of Windows Server 2016
 - A [custom domain](../../active-directory/fundamentals/add-custom-domain.md) that can be verified
@@ -19,7 +34,7 @@ The following are prerequisites required for completing this tutorial
 >
 > Copies of the PowerShell scripts that are used in this tutorial are available on Github [here](https://github.com/billmath/tutorial-phs).
 
-## Create a Virtual Machine
+## Create a virtual machine
 The first thing that we need to do, in order to get our hybrid identity environment up and running is to create a virtual machine that will be used as our on-premises Active Directory server.  
 
 >[!NOTE]
@@ -55,7 +70,7 @@ $DVDDrive = Get-VMDvdDrive -VMName $VMName
 Set-VMFirmware -VMName $VMName -FirstBootDevice $DVDDrive 
 ```
 
-## Complete the Operating System Deployment
+## Complete the operating system deployment
 In order to finish building the virtual machine, you need to finish the operating system installation.
 
 1. Hyper-V Manager, double-click on the virtual machine
@@ -69,7 +84,7 @@ In order to finish building the virtual machine, you need to finish the operatin
 9. Click **Next**
 10. Once the installation has completed, restart the virtual machine, sign-in and run Windows updates to ensure the VM is the most up-to-date.  Install the latest updates.
 
-## Install Active Directory Pre-requisites
+## Install Active Directory prerequisites
 Now that we have a virtual machine up, we need to do a few things prior to installing Active Directory.  That is, we need to rename the virtual machine, set a static IP address and DNS information, and install the Remote Server Administration tools.   Do the following:
 
 1. Open up the PowerShell ISE as Administrator.
@@ -106,7 +121,7 @@ Get-WindowsFeature | Where installed >>$featureLogPath
 Restart-Computer
 ```
 
-## Create a Windows Server AD Environment
+## Create a Windows Server AD environment
 Now that we have the VM created and it has been renamed and has a static IP address, we can go ahead and install and configure Active Directory Domain Services.  Do the following:
 
 1. Open up the PowerShell ISE as Administrator.
@@ -136,7 +151,7 @@ Get-WindowsFeature | Where installed >>$featureLogPath
 Install-ADDSForest -CreateDnsDelegation:$false -DatabasePath $DatabasePath -DomainMode $DomainMode -DomainName $DomainName -SafeModeAdministratorPassword $Password -DomainNetbiosName $DomainNetBIOSName -ForestMode $ForestMode -InstallDns:$true -LogPath $LogPath -NoRebootOnCompletion:$false -SysvolPath $SysVolPath -Force:$true
 ```
 
-## Create a Windows Server AD User
+## Create a Windows Server AD user
 Now that we have our Active Directory environment, we need to a test account.  This account will be created in our on-premises AD environment and then synchronized to Azure AD.  Do the following:
 
 1. Open up the PowerShell ISE as Administrator.
@@ -198,7 +213,7 @@ Now that we have a tenant and a global administrator, we need to add our custom 
 ## Download and install Azure AD Connect
 Now it is time to download and install Azure AD Connect.  Once it has been installed we will run through the express installation.  Do the following:
 
-1. Download [Azure AD Connect](https://www.microsoft.com/en-us/download/details.aspx?id=47594)
+1. Download [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)
 2. Navigate to and double-click **AzureADConnect.msi**.
 3. On the Welcome screen, select the box agreeing to the licensing terms and click **Continue**.  
 4. On the Express settings screen, click **Customize**.  
@@ -236,3 +251,10 @@ We will now verify that the users that we had in our on-premises directory have 
 ![Verify](media/tutorial-password-hash-sync/verify1.png)
 
 You have now successfully setup a hybrid identity environment that you can use to test and familiarize yourself with what Azure has to offer.
+
+## Next Steps
+
+
+- [Hardware and prerequisites](how-to-connect-install-prerequisites.md) 
+- [Customized settings](how-to-connect-install-custom.md)
+- [Pass-through authentication](how-to-connect-pta.md)
