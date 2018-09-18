@@ -23,7 +23,7 @@ ms.author: daveba
 
 Managed identities for Azure resources provides Azure services with a managed identity in Azure Active Directory. You can use this identity to authenticate to services that support Azure AD authentication, without needing credentials in your code. 
 
-In this article, you learn how to create, list, delete or assign a role to a a user-assigned managed identity using the Azure Portal.
+In this article, you learn how to create, list, delete or assign a role to a user-assigned managed identity using the Azure Portal.
 
 ## Prerequisites
 
