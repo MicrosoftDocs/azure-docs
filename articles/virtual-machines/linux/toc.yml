@@ -414,7 +414,7 @@
       href: mount-azure-file-storage-on-linux-using-smb.md
     - name: Deploy disks with template
       href: using-managed-disks-template-deployments.md
-    - name: Enable write accelerator
+    - name: Using write accelerator
       href: how-to-enable-write-accelerator.md
     - name: Enable Ultra SSD
       href: disks-enable-ultra-ssd.md
