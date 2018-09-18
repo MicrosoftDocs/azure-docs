@@ -22,11 +22,11 @@ ms.custom: aaddev
 
 # About Microsoft identity platform
 
-Microsoft identity platform is an evolution of the Azure Active Directory (Azure AD) identity service and developer platform. It allows developers to build applications that sign in all Microsoft identities, get tokens to call Microsoft Graph, other Microsoft APIs, or APIs that developers have built. It’s a full-featured platform that consists of an authentication service, libraries, application registration and configuration (through a developer portal and application API), full developer documentation, code samples, and other developer content. The Microsoft identity platform supports industry standard protocols such as OAuth 2.0 and OpenID Connect.
+Microsoft identity platform is an evolution of the Azure Active Directory (Azure AD) identity service and developer platform. It allows developers to build applications that sign in all Microsoft identities, get tokens to call Microsoft Graph, other Microsoft APIs, or APIs that developers have built. It’s a full-featured platform that consists of a authentication service, open-source libraries, application registration and configuration (through a developer portal and application API), full developer documentation, code samples, and other developer content. The Microsoft identity platform supports industry standard protocols such as OAuth 2.0 and OpenID Connect.
 
 Up until now, most developers have worked with Azure AD v1.0 platform to authenticate Azure AD identities (work and school accounts) by requesting tokens from the Azure AD v1.0 endpoint, using Azure AD Authentication Library (ADAL), Azure portal for application registration and configuration, and Azure AD Graph API for programmatic application configuration. The Azure AD v1.0 platform is a mature platform offering that will continue to work for enterprise applications.
 
-To expand and evolve the capabilities of the Microsoft identity platform, you can now authenticate a broader set of Microsoft identities (Azure AD identities, Microsoft accounts (MSA), and external identities such as Azure AD B2C accounts) through what has been known as the Azure AD v2.0 endpoint. Here, you’ll be using the Microsoft Authentication Library (MSAL), the Azure portal for application registration and configuration, and the Microsoft Graph API for programmatic application configuration. The updated Microsoft identity platform (in particular, the MSAL libraries and latest Azure portal app registration experience) has evolved significantly over the last year. To finalize this release, we encourage developers to develop and test their applications using the latest Microsoft identity platform.
+To expand and evolve the capabilities of the Microsoft identity platform, you can now authenticate a broader set of Microsoft identities (Azure AD identities, Microsoft accounts (Outlook.com, live.com, etc.), and social & local accounts through Azure AD B2C) through what has been known as the Azure AD v2.0 endpoint. Here, you’ll be using the Microsoft Authentication Library (MSAL) or any open-source OAuth2.0 or OpenID Connect library, the Azure portal for application registration and configuration, and the Microsoft Graph API for programmatic application configuration. The updated Microsoft identity platform (in particular, the MSAL libraries and latest Azure portal app registration experience) has evolved significantly over the last year. To finalize this release, we encourage developers to develop and test their applications using the latest Microsoft identity platform.
 
 Applications using the latest ADAL and the latest MSAL will SSO with each other. Applications updated from ADAL to MSAL will maintain user sign-in state. Developers can choose to update their applications to MSAL as they see fit, as applications built with ADAL will continue to work and be supported.
 
@@ -40,12 +40,15 @@ The Microsoft identity platform has two endpoints (v1.0 and v2.0) and two sets o
 
 * Supported platforms
 
-    * ADAL supports .NET, JavaScript, iOS, Android, Java, and Python
-    * MSAL Preview supports .NET, JavaScript, iOS, and Android
+    * [ADAL](active-directory-authentication-libraries.md) supports .NET, JavaScript, Apple (iOS and macOS), Android, Java, Python, Ruby, Node, and Cordova
+    * [MSAL Preview](reference-v2-libraries.md) supports .NET, JavaScript, iOS, and Android
+    * Both endpoints support .NET and Node.js server-middleware for protecting APIs and Sign in. 
 
 * The bulk of innovation, such as dynamic consent and incremental consent, is happening on the v2.0 endpoint and MSAL while we continue to support v1.0 and ADAL.
 
-    In the Azure portal, you previously had to statically identify all the scopes that you need. With the v2.0 endpoint and the portals associated with this endpoint, you can either statically define the scopes (as you may have done in the past) or you can define them dynamically (which means that in your code you list the scopes that you want). Dynamic provides one more optional capability: incremental consent. Incremental consent allows you to ask for a subset of the scopes that you require when you first authenticate and then you can ask for additional scopes when they're required. For example, when using the camera on a mobile device, the user may be asked to consent to allow an app to access the camera, and only after the user has consented will the app be allowed to access the camera and take a photo.
+    In the Azure portal, you previously had to statically identify all the scopes your app needed. With the v2.0 endpoint and the portals associated with this endpoint, you can statically define the scopes just like before or can request them dynamically as your app needs the permission. Dynamic provides one more optional capability, incremental consent. Incremental consent allows you to ask for a subset of scopes that you require when a user first authenticates and ask for additional scopes as they are required. 
+    
+    For example, when using a camera app on a mobile device, the user is asked to allow the app to access the camera, and only after the user has consented will the app be allowed to access the camera and take a photo.  When the app is ready to save the new photo, it may ask for photo read/write permission. 
 
 * Possible breaking changes
 
