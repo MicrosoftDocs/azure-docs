@@ -16,7 +16,7 @@ The alerts feature in Azure Log Analytics is being replaced by Azure Alerts. As 
 - Programmatically by using the AlertsVersion API.  
 
 > [!NOTE]
-> Microsoft will automatically extend alerts created in Log Analytics to Azure Alerts, starting on May 14, 2018, in a recurring series until completed. Microsoft schedules migrating the alerts to Azure, and during this transition, alerts can be managed from both the Operations Management Suite portal and the Azure portal. This process is not destructive or interruptive.  
+> Microsoft will automatically extend alerts created in public cloud instances of Log Analytics to Azure Alerts, starting on May 14, 2018, in a recurring series until completed. If you have any problems creating [action groups](monitoring-action-groups.md), use [these remediation steps](monitoring-alerts-extend-tool.md#troubleshooting) to get action groups created automatically. You can use these steps until July 5, 2018. *Not applicable for Azure Goverment and Soveriegn cloud users of Log Analytics*. 
 
 ## Option 1: Initiate from the Operations Management Suite portal
 The following steps describe how to extend alerts for the workspace from the Operations Management Suite portal.  
@@ -451,7 +451,7 @@ The script is verbose, and outputs the steps as it runs:
 During the process of extending alerts, problems can prevent the system from creating the necessary [action groups](monitoring-action-groups.md). In such cases, you see an error message in a banner in the **Alert** section of the Operations Management Suite portal, or in the GET call done to the API.
 
 > [!IMPORTANT]
-> If you don't take the following remediation steps before July 5, 2018, alerts will run in Azure but will not fire any action or notification. To get notifications for alerts, you must manually edit and add [action groups](monitoring-action-groups.md), or use the preceding [custom PowerShell script](#option-3---using-custom-powershell-script).
+> If Azure public cloud based Log Analytics users don't take the following remediation steps before July 5, 2018, alerts will run in Azure but will not fire any action or notification. To get notifications for alerts, you must manually edit and add [action groups](monitoring-action-groups.md), or use the preceding [custom PowerShell script](#option-3---using-custom-powershell-script).
 
 Here are the remediation steps for each error:
 - **Error: Scope Lock is present at subscription/resource group level for write operations**:

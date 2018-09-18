@@ -11,22 +11,22 @@ ms.component: alerts
 ---
 
 # Webhook actions for log alert rules
-When an [alert is created in Azure ](monitor-alerts-unified-usage.md), you have the option of [configuring using action groups](monitoring-action-groups.md) to perform one or more actions.  This article describes the different webhook actions that are available and details on configuring the custom JSON-based webhook.
+When a [log alert is created in Azure](alert-log.md), you have the option of [configuring using action groups](monitoring-action-groups.md) to perform one or more actions.  This article describes the different webhook actions that are available and details on configuring the custom JSON-based webhook.
 
 
 ## Webhook actions
 
-Webhook actions allow you to invoke an external process through a single HTTP POST request.  The service being called should support webhooks and determine how it uses any payload it receives.   Examples of using a webhook in response to an alert are sending a message in [Slack](http://slack.com) or creating an incident in [PagerDuty](http://pagerduty.com/).  
+Webhook actions allow you to invoke an external process through a single HTTP POST request.  The service being called should support webhooks and determine how it uses any payload it receives.    
 
 Webhook actions require the properties in the following table:
 
 | Property | Description |
 |:--- |:--- |
 | Webhook URL |The URL of the webhook. |
-| Custom JSON payload |Custom payload to send with the webhook, when this option is chosen during alert creation. Details available at [Manage alerts using Azure Alerts ](monitor-alerts-unified-usage.md) |
+| Custom JSON payload |Custom payload to send with the webhook, when this option is chosen during alert creation. Details available at [Manage log alerts](alert-log.md) |
 
 > [!NOTE]
-> Test Webhook button alongside *Include custom JSON payload for webhook* option for Log Alert, will trigger dummy call to test the webhook URL. It does not contain actual data and representative of JSON schema used for Log Alerts. 
+> View Webhook button alongside *Include custom JSON payload for webhook* option for Log Alert, will display sample webhook payload for the customization provided. It does not contain actual data and representative of JSON schema used for Log Alerts. 
 
 Webhooks include a URL and a payload formatted in JSON that is the data sent to the external service.  By default, the payload includes the values in the following table:  You can choose to replace this payload with a custom one of your own.  In that case you can use the variables in the table for each of the parameters to include their value in your custom payload.
 
@@ -49,7 +49,7 @@ Webhooks include a URL and a payload formatted in JSON that is the data sent to 
 | Subscription ID |#subscriptionid |ID of your Azure Subscription used with Application Insights. 
 
 > [!NOTE]
-> LinkToSearchResults passes parameters like SearchQuery, Search Interval StartTime & Search Interval End time in the URL to Azure portal for viewing in Analytics section. Azure portal has URI size limit of approx 2000 characters and will open if parameters values exceed the said limit. Users can manually input details to view results in Analytics portal or use the [Application Insights Analytics REST API](https://dev.applicationinsights.io/documentation/Using-the-API) or [Log Analytics REST API](https://dev.loganalytics.io/reference) to retrieve results programmatically 
+> LinkToSearchResults passes parameters like SearchQuery, Search Interval StartTime & Search Interval End time in the URL to Azure portal for viewing in Analytics section. Azure portal has URI size limit of approx 2000 characters and will *not* open link provided in alerts, if parameters values exceed the said limit. Users can manually input details to view results in Analytics portal or use the [Application Insights Analytics REST API](https://dev.applicationinsights.io/documentation/Using-the-API) or [Log Analytics REST API](https://dev.loganalytics.io/reference) to retrieve results programmatically 
 
 For example, you might specify the following custom payload that includes a single parameter called *text*.  The service that this webhook calls would be expecting this parameter.
 
@@ -193,6 +193,7 @@ Following is a sample payload for a custom webhook action for any log alert.
 
 ## Next steps
 - Learn about [Log Alerts in Azure Alerts ](monitor-alerts-unified-log.md)
+- Understand [managaing log alerts in Azure](alert-log.md)
 - Create and manage [action groups in Azure](monitoring-action-groups.md)
 - Learn more about [Application Insights](../application-insights/app-insights-analytics.md)
 - Learn more about [Log Analytics](../log-analytics/log-analytics-overview.md). 
