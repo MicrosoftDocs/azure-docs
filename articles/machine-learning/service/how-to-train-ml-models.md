@@ -1,17 +1,18 @@
 ---
-title: Train Machine Learning Models with Azure Machine Learning
-description: Learn how to perform single-node and distributed training of traditional ML and deep learning models with Azure Machine Learning services
+title: Train machine learning models with Azure Machine Learning
+description: Learn how to perform single-node and distributed training of traditional machine learning and deep learning models with Azure Machine Learning services
+ms.author: minxia
+author: mx-iao
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
-ms.author: minxia
-author: mx-iao
+manager: cgronlun
 ms.reviewer: sgilley
 ms.date: 09/24/2018
 ---
 
-# How to Train ML Models
+# How to train Azure Machine Learning models 
 
 Training machine learning models, particularly deep neural networks, is often a time- and compute-intensive task. Once you've finished writing your training script and running on a small subset of data on your local machine, you will likely want to scale up your workload.
 

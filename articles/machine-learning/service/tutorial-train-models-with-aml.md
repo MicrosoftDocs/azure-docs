@@ -38,21 +38,6 @@ For your convenience, this tutorial is available as a Jupyter notebook. Use eith
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
-* **Your own Jupyter notebook server**
-
-    1. Use [these instructions](https://aka.ms/aml-how-to-configure-environment) to:
-        * Create a workspace and its configuration file (**config.json**) 
-        * Configure your notebook server
-        * In step 4 the new packages you need are matplotlib and scikit-learn:
-            ```shell
-            conda install -y matplotlib scikit-learn
-            ```
-    1. Clone [the GitHub repository](https://aka.ms/aml-notebooks) or start a new notebook and copy code from this article.
-    1. Add your **config.json** file to the same folder as the notebook.
-    1. Start your notebook server.
-    1. Open the notebook.
-
-
 ## Set up your development environment
 
 All the setup for your development work can be accomplished in a Python notebook.  Setup includes:

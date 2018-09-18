@@ -1,13 +1,14 @@
 ---
-title: What happened to Workbench in Azure Machine Learning? | Microsoft Docs
+title: What happened to Azure Machine Learning Workbench? | Microsoft Docs
 description: Learn about what happened the Workbench application, what changed in Azure Machine Learning, and what the support timeline is.
 services: machine-learning
-author: j-martens
-ms.author: jmartens
 ms.service: machine-learning
 ms.component: core
-ms.workload: data-services
-ms.topic: get-started-article
+ms.topic: overview
+manager: cgronlun
+ms.reviewer: jmartens
+author: j-martens
+ms.author: jmartens
 ms.date: 09/24/2018
 ---
 # What happened to Workbench in Azure Machine Learning (preview)?
