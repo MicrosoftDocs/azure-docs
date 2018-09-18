@@ -35,7 +35,7 @@ There are three key requirements for this scenario to work correctly:
 - A User Defined Route on the spoke subnet that points to the Azure Firewall IP address as the default gateway. BGP route propagation must be **Disabled** on this route table.
 - A User Defined Route on the hub gateway subnet must point to the firewall IP address as the next hop to the spoke networks.
 - No User Defined Route is required on the Azure Firewall subnet, as it learns routes from BGP.
-- Make sure to set **AllowGatewayTransit** when peering VNet-Hub to VNet-Spoke and UseRemoteGateways when peering VNet-Spoke to VNet-Hub.
+- Make sure to set **AllowGatewayTransit** when peering VNet-Hub to VNet-Spoke and **UseRemoteGateways** when peering VNet-Spoke to VNet-Hub.
 
 See the [Create Routes](#create-routes) section in this tutorial to see how these routes are created.
 

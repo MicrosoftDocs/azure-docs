@@ -20,7 +20,7 @@ You can configure Azure Firewall Destination Network Address Translation (DNAT) 
 
 For example, if a network rule is matched, the packet will not be evaluated by application rules. If there is no network rule match, and if the packet protocol is HTTP/HTTPS, the packet is then evaluated by the application rules. If still no match is found, then the packet is evaluated agains the [infrastructure rule collection](infrastructure-fqdns.md). If there is still no match, then the packet is denied by default.
 
-When you configure DNAT, the DNAT rule collection action is set to **Translate**. The firewall public IP and port translates to a private IP address and port. Then rules are applied as usual, network rules first and then application rules. For example, you might configure a network rule to allow Remote Desktop traffic on TCP port 3389. Address translation happens first and then the network and application rules are applied using the translated addresses.
+When you configure DNAT, the NAT rule collection action is set to **Destination Network Address Translation (DNAT)**. The firewall public IP and port translates to a private IP address and port. Then rules are applied as usual, network rules first and then application rules. For example, you might configure a network rule to allow Remote Desktop traffic on TCP port 3389. Address translation happens first and then the network and application rules are applied using the translated addresses.
 
 In this tutorial, you learn how to:
 
