@@ -54,6 +54,8 @@
       href: module-edgeagent-edgehub.md
   - name: Deployments
     href: module-deployment-monitoring.md
+  - name: Offline capabilities
+    href: offline-capabilities.md
   - name: IoT Edge device as a gateway
     href: iot-edge-as-gateway.md
   - name: Security
