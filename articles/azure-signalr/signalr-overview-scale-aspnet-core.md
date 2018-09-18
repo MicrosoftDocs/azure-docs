@@ -15,7 +15,7 @@ ms.date: 09/13/2018
 ms.author: zhshang
 ---
 
-# Scale ASP.NET Core SignalR applications with Azure SignalR
+# Scale ASP.NET Core SignalR applications with Azure SignalR Service
 
 ## Developing SignalR apps
 
