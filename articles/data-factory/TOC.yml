@@ -220,6 +220,11 @@
       href: connector-odata.md
     - name: ODBC
       href: connector-odbc.md
+    - name: Office 365
+      href: connector-office-365.md
+      items:
+      - name: Load Office 365 data - walkthrough
+      - gref: load-office-365-data.md
     - name: Oracle
       href: connector-oracle.md
     - name: Oracle Eloqua
