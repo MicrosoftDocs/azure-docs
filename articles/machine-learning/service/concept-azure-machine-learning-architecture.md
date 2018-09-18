@@ -1,12 +1,14 @@
 ---
-title: How does Azure Machine Learning service work?
-description: Learn about the architecture and concepts that make up Azure Machine Learning service. 
+title: How does Azure Machine Learning service work? | Microsoft Docs
+description: Learn about the architecture, terminology, and concepts that make up Azure Machine Learning service. You also learn about the general workflow of using the service, and the Azure services that are used by the Azure Machine Learning service.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.author: haining
 author: hning86
+ms.reviewer: larryfr
+manager: cgronlun
 ms.date: 09/24/2018
 # As a data scientist, I want to understand the big picture about how the Azure Machine Learning service works.
 ---
@@ -168,9 +170,6 @@ Most compute targets can be created directly through the workspace by using the 
 For information on selecting a compute target for training, see the [Select and use a compute target to train your model](how-to-set-up-training-targets.md) document.
 
 For information on selecting a compute target for deployment, see the [Deploy models with the Azure Machine Learning service](how-to-deploy-and-where.md) document.
-
-> [!NOTE]
-> As with other Azure services, there are limits on certain resources (for eg. BatchAI cluster size) associated with the Azure Machine Learning service. Please read [this](how-to-manage-quotas.md) article on the default limits and how to request more quota.
 
 ## Run configuration
 
