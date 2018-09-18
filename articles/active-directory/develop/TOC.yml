@@ -102,9 +102,7 @@
       - name: Access tokens
         href: 
       - name: Certificate credentials
-        href: active-directory-certificate-credentials.md
-      - name: National Clouds 
-        href: authentication-national-cloud.md        
+        href: active-directory-certificate-credentials.md           
     - name: Application configuration
       href: app-objects-and-service-principals.md
       items:
@@ -122,6 +120,8 @@
         href: ../application-consent-experience.md
     - name: Conditional access
       href: conditional-access-dev-guide.md
+    - name: National Clouds 
+      href: authentication-national-cloud.md      
   - name: How-to guides
     items:
     - name: Authentication
@@ -293,9 +293,7 @@
       - name: Access tokens
         href: 
       - name: Certificate credentials
-        href: active-directory-certificate-credentials.md
-      - name: National Clouds 
-        href: authentication-national-cloud.md       
+        href: active-directory-certificate-credentials.md     
     - name: Application configuration
       href: app-objects-and-service-principals.md
       items:
@@ -309,6 +307,8 @@
         href: consent-framework.md
       - name: Application consent experiences
         href: ../application-consent-experience.md
+    - name: National Clouds 
+      href: authentication-national-cloud.md      
   - name: How-to guides
     items:
     - name: Authentication
