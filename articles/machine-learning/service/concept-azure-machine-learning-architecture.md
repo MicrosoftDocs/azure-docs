@@ -34,7 +34,7 @@ The workflow generally follows these steps:
 > [!NOTE]
 > While this document defines terms and concepts used by Azure Machine Learning, it does not define terms and concepts for the Azure platform. For more information on Azure platform terminology, see the [Microsoft Azure glossary](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology).
 
-## Machine learning workspace
+## Workspace
 
 The workspace is the top-level resource for the Azure Machine Learning service. It provides a centralized place to work with all the artifacts you create when using Azure Machine Learning.
 
