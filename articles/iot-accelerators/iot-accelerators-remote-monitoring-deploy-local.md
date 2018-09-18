@@ -1,18 +1,18 @@
 ---
 title: Deploy the remote monitoring solution locally - Azure | Microsoft Docs 
-description: This tutorial shows you how to deploy the remote monitoring solution accelerator to your local machine for testing and development.
+description: This how-to guide shows you how to deploy the remote monitoring solution accelerator to your local machine for testing and development.
 author: dominicbetts
 manager: timlt
-ms.author: dobett
+ms.author: asdonald
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 03/07/2018
+ms.date: 09/17/2018
 ms.topic: conceptual
 ---
 
 # Deploy the Remote Monitoring solution accelerator locally
 
-This article shows you how to deploy the Remote Monitoring solution accelerator to your local machine for testing and development. This approach deploys the microservices to a local Docker container and uses IoT Hub, Cosmos DB, and Azure storage services in the cloud. You use the solution accelerators (PCS) CLI to deploy the Azure cloud services.
+This article shows you how to deploy the Remote Monitoring solution accelerator to your local machine for testing and development. This approach deploys the microservices to a local Docker container and uses IoT Hub, Cosmos DB, and Azure Time Series Insights services in the cloud. You use the solution accelerators (PCS) CLI to deploy the Azure cloud services.
 
 ## Prerequisites
 
@@ -26,83 +26,69 @@ To complete the local deployment, you need the following tools installed on your
 * [Docker](https://www.docker.com)
 * [Docker compose](https://docs.docker.com/compose/install/)
 * [Node.js](https://nodejs.org/) - this software is a prerequisite for the PCS CLI.
-* PCS CLI
-* Local repository of the source code
 
 > [!NOTE]
 > These tools are available on many platforms, including Windows, Linux, and iOS.
 
-### Install the PCS CLI
-
-To install the PCS CLI via npm, run the following command in your command-line environment:
-
-```cmd/sh
-npm install iot-solutions -g
-```
-
-For more information about the CLI, see [How to use the CLI](https://github.com/Azure/pcs-cli/blob/master/README.md).
-
 ### Download the source code
 
- The Remote Monitoring source code repository includes the Docker configuration files you need to download, configure, and run the Docker images that contain the microservices. To clone and create a local version of the repository, navigate to a suitable folder on your local machine through your favorite command line or terminal and run one of the following commands:
+ The Remote Monitoring source code GitHub repository includes the Docker configuration files you need to download, configure, and run the Docker images that contain the microservices. To clone and create a local version of the repository, use your command-line environment to navigate to a suitable folder on your local machine and run one of the following commands:
 
 To install the Java implementations of the microservices, run:
 
 ```cmd/sh
-git clone --recursive https://github.com/Azure/azure-iot-pcs-remote-monitoring-java
+git clone --recurse-submodules  https://github.com/Azure/azure-iot-pcs-remote-monitoring-java.git
 ```
 
 To install the .Net implementations of the microservices, run:
 
 ```cmd\sh
-git clone --recursive https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet
+git clone --recurse-submodules  https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet.git
 ```
-
-Remote Monioring Preconfigured Solution repo & submodules
-[ [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java) | [.Net](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet) ]
 
 > [!NOTE]
 > These commands download the source code for all the microservices. Although you don't need the source code to run the microservices in Docker, the source code is useful if you later plan to modify the preconfigured solution and test your changes locally.
 
 ## Deploy the Azure services
 
-Although this article shows you how to run the microservices locally, they depend on three Azure services running in the cloud. You can deploy these Azure services [manually through the Azure portal](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Manual-steps-to-create-azure-resources-for-local-setup), or use the PCS CLI. This article shows you how to use the `pcs` tool.
+Although this article shows you how to run the microservices locally, they depend on Azure services running in the cloud. You can deploy these Azure services [manually through the Azure portal](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Manual-steps-to-create-azure-resources-for-local-setup), or use the provided script. The following script examples assume you're using the .NET repository on a Windows machine. If you're working in another environment, adjust the paths, file extensions, and path separators appropriately. To use the provided script:
 
-### Sign in to the CLI
+### New users
+For users who have **not yet** created the required Azure resources, proceed to follow the steps below:
 
-Before you can deploy the solution accelerator, you must sign in to your Azure subscription using the CLI as follows:
+ 1. In your command-line environment, navigate to the **azure-iot-pcs-remote-monitoring-dotnet\services\scripts\local\launch** folder in your cloned copy of the repository.
 
-```cmd/sh
-pcs login
-```
+ 2. Run the **start.cmd or start.sh** script and follow the prompts. The script prompts you for the following information:
+    * A solution name.
+    * The Azure subscription to use.
+    * The location of the Azure datacenter to use.
 
-Follow the on-screen instructions to complete the sign-in process. Make sure that you don't click anywhere in the inside the CLI or the login can fail. You will see a successful login message in the CLI if you have completed login. 
+    The script creates resource group in Azure with your solution name.
 
-### Run a local deployment
+ 3. In your command-line environment, navigate to the **azure-iot-pcs-remote-monitoring-dotnet\services\scripts\local\launch\os\win** folder in your cloned copy of the repository.
 
-Use the following command to start the local deployment. This will create the required azure resources and print out environment variables to the console. 
-
-```cmd/pcs
-pcs -s local
-```
-
-The script prompts you for the following information:
-
-* A solution name.
-* The Azure subscription to use.
-* The location of the Azure datacenter to use.
+ 4. Run the **set-env-uri.cmd or set-env-uri.sh** script.
+ 
+ 5. Update your git submodules to make sure you have the latest ones: ```cd <repo-name>``` and then run the following command ```git submodule foreach git pull origin master```
 
 > [!NOTE]
-> The script creates an IoT Hub instance, a Cosmos DB instance, and an Azure storage account in a resource group in your Azure subscription. The name of the resource group is the name of the solution you chose when you ran the `pcs` tool above. 
+> If you have cloned azure-iot-pcs-remote-monitoring-dotnet repository, the scripts folder is present under services submodule (folder).
+The start script requires **Node.js** to execute, please install latest stable Node 8 (donot use Node 10) before using this script. Also, this script might require administartive privileges or sudo permission as it tries to install [pcs-cli](https://github.com/Azure/pcs-cli) a cli interface for remote-monitoring deployments.  
 
-> [!IMPORTANT]
-> The script takes several minutes to run. When it completes, you see a message `Copy the following environment variables to /scripts/local/.env file:`. Copy down the environment variable definitions following the message, you will use them in a later step.
+### Existing users
+For users who have already created the required azure resources and just need to update them, complete only **one** of the following steps:
+
+ * Set the environment variables globally on your machine.
+ * **VS Code:** Set the environment variables in the launch configurations of the IDE i.e. launch.json
+ * **Visual Studio:** Set the environment variables for WebService project of the microservices by adding it to Properties → Debug → Environment variables
+ 
+Finally, update your git submodules to make sure you have the latest ones: ```cd <repo-name>``` and then run the following command ```git submodule foreach git pull origin master```
+ 
+Although not recommended, environment variables can also be set in appsettings.ini file present under WebService folder for each of the microservices.
 
 ## Run the microservices in Docker
 
-To run the microservices in Docker, first edit the **scripts\\local\\.env** file in your local copy of the repository you cloned in an earlier step above. Replace the entire contents of the file with the environment variable definitions you made a note of when you ran the `pcs` command in the last step. These environment variables enable the microservices in the Docker container to connect to the Azure services created by the `pcs` tool.
-
-To run the solution accelerator, navigate to the **scripts\local** folder in your command-line environment and run the following command:
+To run the solution accelerator, navigate to the **azure-iot-pcs-remote-monitoring-dotnet\services\scripts\local** folder in your command-line environment and run the following command:
 
 ```cmd\sh
 docker-compose up
@@ -116,7 +102,7 @@ To access the Remote Monitoring solution dashboard, navigate to [http://localhos
 
 ## Clean up
 
-To avoid unnecessary charges, when you have finished your testing, remove the cloud services from your Azure subscription. The easiest way to remove the services is to navigate to the [Azure portal](https://ms.portal.azure.com) and delete the resource group you created via the `pcs` tool.
+To avoid unnecessary charges, when you have finished your testing, remove the cloud services from your Azure subscription. The easiest way to remove the services is to navigate to the [Azure portal](https://ms.portal.azure.com) and delete the resource group that was created when you ran the **start.cmd** script.
 
 Use the `docker-compose down --rmi all` command to remove the Docker images and free up space on your local machine. You can also delete the local copy of the Remote Monitoring repository created when you cloned the source code from GitHub.
 

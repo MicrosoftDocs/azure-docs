@@ -59,8 +59,8 @@
         href: azure-stack-vm-sizes.md
       - name: Manage VM disks
         href: azure-stack-manage-vm-disks.md
-      - name: Managed disks considerations 
-        href: azure-stack-managed-disk-considerations.md 
+      - name: Managed disks considerations
+        href: azure-stack-managed-disk-considerations.md
       - name: Protect VMs
         href: azure-stack-manage-vm-protect.md
       - name: SQL Server VM considerations
@@ -101,7 +101,7 @@
         href: azure-stack-kv-push-secret-into-vm.md
       - name: KeyVault sample app
         href: azure-stack-kv-sample-app.md
-    - name: Azure Stack Monitor
+    - name: Azure Monitor
       href: azure-stack-metrics-azure-data.md
       items: 
       - name: Supported metrics

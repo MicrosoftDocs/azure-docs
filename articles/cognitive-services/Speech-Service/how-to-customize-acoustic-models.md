@@ -24,7 +24,7 @@ If you don’t have an Azure Cognitive Services account, create a [free account]
 
 ## Prerequisites
 
-Ensure that your Cognitive Services account is connected to a subscription by opening the [Cognitive Services Subscriptions](https://customspeech.ai/Subscriptions) page.
+Ensure that your Cognitive Services account is connected to a subscription by opening the [Cognitive Services Subscriptions](https://cris.ai/Subscriptions) page.
 
 You can connect to a Speech Service subscription that was created in the Azure portal by selecting **Connect existing subscription**.
 
@@ -67,6 +67,9 @@ An acoustic dataset for customizing the acoustic model consists of two parts: (1
 | Archive Format | .zip |
 | Maximum Archive Size | 2 GB |
 
+> [!NOTE]
+> File names should use only latin characters and follow the format 'filename.extention'
+
 ## Language support
 
 For a full list of languages that are supported for custom **Speech to Text** language models, see [Supported languages for the Speech Service](supported-languages.md).
@@ -86,13 +89,13 @@ The transcriptions for all WAV files should be contained in a single plain-text 
 
 The transcriptions are text-normalized so they can be processed by the system. However, there are some important normalizations that must be done by the user _prior_ to uploading the data to the Custom Speech Service. For the appropriate language to use when you prepare your transcriptions, see [Transcription guidelines for using the Speech Service](prepare-transcription.md).
 
-Perform the steps in the next sections by using the [Speech Service portal](https://customspeech.ai).
+Perform the steps in the next sections by using the [Speech Service portal](https://cris.ai).
 
 ## Import the acoustic dataset
 
 After you've prepared the audio files and transcriptions, they're ready to be imported to the service web portal.
 
-To import them, first ensure that you're signed in to the [Speech Service portal](https://customspeech.ai). Then, in the **Custom Speech** drop-down list in the ribbon, select **Adaptation Data**. If this is your first time uploading data to the Custom Speech Service, an empty table labeled **Datasets** is displayed. 
+To import them, first ensure that you're signed in to the [Speech Service portal](https://cris.ai). Then, in the **Custom Speech** drop-down list in the ribbon, select **Adaptation Data**. If this is your first time uploading data to the Custom Speech Service, an empty table labeled **Datasets** is displayed. 
 
 In the **Acoustic Datasets** row, select the **Import** button, and the site displays a page for uploading a new dataset.
 

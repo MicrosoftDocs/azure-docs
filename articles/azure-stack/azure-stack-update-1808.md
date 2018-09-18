@@ -3,7 +3,7 @@ title: Azure Stack 1808 Update | Microsoft Docs
 description: Learn about what's new in the 1808 update for Azure Stack integrated systems, including the known issues and where to download the update.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2018
-ms.author: brenduns
+ms.date: 09/18/2018
+ms.author: sethm
 ms.reviewer: justini
 
 ---
@@ -54,7 +54,7 @@ This update includes the following improvements for Azure Stack.
 
 - <!-- | IS ASDK--> **Blockchain templates**. You can now execute [Ethereum consortium deployments](azure-stack-ethereum.md) on Azure Stack. You can find three new templates in the [Azure Stack Quick Start Templates](https://github.com/Azure/AzureStack-QuickStart-Templates). They allow the user to deploy and configure a multi-member consortium Ethereum network with minimal Azure and Ethereum knowledge. The purpose of the templates is to make it simple to users to setup dev/test Blockchain deployments in a few steps.
 
-
+- <!-- | IS ASDK--> **The API version profile 2017-03-09-profile has been updated to 2018-03-01-hybrid**. API profiles specify the Azure resource provider and the API version for Azure REST endpoints. For more information about profiles, see [Manage API version profiles in Azure Stack](/azure/azure-stack/user/azure-stack-version-profiles).
 
  ### Fixed issues
 - <!-- IS ASDK--> We fixed the issue for creating an availability set in the portal which resulted in the set having a fault domain and update domain of 1. 
@@ -72,6 +72,8 @@ This update includes the following improvements for Azure Stack.
 - <!-- 1697698  | IS, ASDK --> *Quickstart tutorials* in the User portal dashboard now link to relevant articles in the on-line Azure Stack documentation.
 
 - <!-- 2515955   | IS ,ASDK--> *All services* replaces *More services* in the Azure Stack admin and user portals. You can now use *All services* as an alternative to navigate in the Azure Stack portals the same way you do in the Azure portals.
+
+- <!-- TBD | IS, ASDK --> *+ Create a resource* replaces *+ New* in the Azure Stack admin and user portals.  You can now use *+ Create a resource* as an alternative to navigate in the Azure Stack portals the same way you do in the Azure portals.  
 
 - <!--  TBD – IS, ASDK --> *Basic A* virtual machine sizes are retired for [creating virtual machine scale sets](azure-stack-compute-add-scalesets.md) (VMSS) through the portal. To create a VMSS with this size, use PowerShell or a template.  
 
@@ -107,7 +109,7 @@ This update also contains the mitigation for the speculative execution side chan
 
 - Install the Azure Stack [1807 Update](azure-stack-update-1807.md) before you apply the Azure Stack 1808 update. 
 
-- Install the latest available [update or hotfix for version 1805](azure-stack-update-1805.md#post-update-steps).  
+- Install the latest available [update or hotfix for version 1807](azure-stack-update-1807.md#post-update-steps).  
   > [!TIP]  
   > Subscribe to the following *RRS* or *Atom* feeds to keep up with Azure Stack Hotfixes:
   > - RRS: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss … 
@@ -125,18 +127,28 @@ This update also contains the mitigation for the speculative execution side chan
 - <!-- 2830461 - IS --> In certain circumstances when an update requires attention, the corresponding alert may not be generated. The accurate status will still be reflected in the portal and is not impacted.
 
 ### Post-update steps
+After the installation of this update, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md). 
+- [KB 4464226 – Azure Stack Hotfix Azure Stack Hotfix 1.1808.1.99]( https://support.microsoft.com/help/4464226)
 
-*There are no post-update steps for update 1808.*
-
-<!-- After the installation of this update, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
- - [Link to KB]()  
- -->
 
 ## Known issues (post-installation)
 
 The following are post-installation known issues for this build version.
 
 ### Portal
+
+- <!-- TBD - IS ASDK --> You might see a blank dashboard in the portal. To recover the dashboard, click **Edit Dashboard**, then right click and select **Reset to default state**.
+
+- <!-- 2930718 - IS ASDK --> In the administrator portal, when accessing the details of any user subscription, after closing the blade and clicking on **Recent**, the user subscription name does not appear.
+
+- <!-- 3060156 - IS ASDK --> In both the administrator and user portals, clicking on the portal settings and selecting **Delete all settings and private dashboards** does not work as expected. An error notification is displayed. 
+
+- <!-- 2930799 - IS ASDK --> In both the administrator and user portals, under **All services**, the asset **DDoS protection plans** is incorrectly listed. It is not actually available in Azure Stack. If you try to create it, an error is displayed stating that the portal could not create the marketplace item. 
+
+- <!-- 2930820 - IS ASDK --> In both the administrator and user portals, if you search for "Docker," the item is incorrectly returned. It is not actually available in Azure Stack. If you try to create it, a blade with an error indication is displayed. 
+
+- <!-- 2967387 – IS, ASDK --> The account you use to sign in to the Azure Stack admin or user portal displays as **Unidentified user**. This occurs when the account does not have either a *First* or *Last* name specified. To work around this issue, edit the user account to provide either the First or Last name. You must then sign out and then sign back in to the portal. 
+
 -  <!--  2873083 - IS ASDK --> When you use the portal to create a virtual machine scale set (VMSS), the *instance size* dropdown doesn’t load correctly when you use Internet Explorer. To work around this problem, use another browser while using the portal to create a VMSS.  
 
 - <!-- 2931230 – IS  ASDK --> Plans that are added to a user subscription as an add-on plan cannot be deleted, even when you remove the plan from the user subscription. The plan will remain until the subscriptions that reference the add-on plan are also deleted. 
@@ -144,10 +156,6 @@ The following are post-installation known issues for this build version.
 - <!--2760466 – IS  ASDK --> When you install a new Azure Stack environment that runs this version, the alert that indicates *Activation Required* might not display. [Activation](azure-stack-registration.md) is required before you can use marketplace syndication.  
 
 - <!-- TBD - IS ASDK --> The two administrative subscription types that were [introduced with version 1804](azure-stack-update-1804.md#new-features) should not be used. The subscription types are **Metering subscription**, and **Consumption subscription**. These subscription types are visible in new Azure Stack environments beginning with version 1804 but are not yet ready for use. You should continue to use the **Default Provider** subscription type.
-
-- <!-- TBD - IS --> It might not be possible to view compute or storage resources in the administrator portal. The cause of this issue is an error during the installation of the update that causes the update to be incorrectly reported as successful. If this issue occurs, contact Microsoft Customer Support Services for assistance.
-
-- <!-- TBD - IS --> You might see a blank dashboard in the portal. To recover the dashboard, select the gear icon in the upper right corner of the portal, and then select **Restore default settings**.
 
 - <!-- TBD - IS ASDK --> Deleting user subscriptions results in orphaned resources. As a workaround, first delete user resources or the entire resource group, and then delete user subscriptions.
 
