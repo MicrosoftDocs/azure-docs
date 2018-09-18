@@ -17,7 +17,7 @@ When you're using Azure Container Registry (ACR) with Azure Kubernetes Service (
 
 ## Grant AKS access to ACR
 
-When you create an AKS cluster, Azure also creates a service principal to support cluster operability with other Azure resources. You can use this auto-generated service principal for authentication with an ACR registry. To do so, you need to create an Azure AD [role assignment](../role-based-access-control/overview.md#role-assignment) that grants the cluster's service principal access to the container registry.
+When you create an AKS cluster, Azure also creates a service principal to support cluster operability with other Azure resources. You can use this auto-generated service principal for authentication with an ACR registry. To do so, you need to create an Azure AD [role assignment](../role-based-access-control/overview.md#role-assignments) that grants the cluster's service principal access to the container registry.
 
 Use the following script to grant the AKS-generated service principal access to an Azure container registry. Modify the `AKS_*` and `ACR_*` variables for your environment before running the script.
 
