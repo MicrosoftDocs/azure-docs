@@ -25,7 +25,7 @@ The deployment workflow consists in:
 1. **Deploy** the image as a web service in the cloud or to edge devices
 1. **Monitoring and data collection**
 
-Each step can be performed independently or as part of a single deployment command. 
+You can do each step independently or as part of a single deployment command. 
 
 The following diagram illustrates the complete deployment pipeline:
 
@@ -36,7 +36,7 @@ The following diagram illustrates the complete deployment pipeline:
 The model registry keeps track of all the models in your Azure Machine Learning workspace.
 Models are identified by name and version. Each time you register a model with the same name as an existing one, the registry increments the version. You can also provide additional metadata tags during registration that can be used when searching for models.
 
-You cannot delete models that are being used by an image.
+You can't delete models that are being used by an image.
 
 ## Step 2: Image registration
 
@@ -47,7 +47,7 @@ Images allow for reliable model deployment, along with all components needed to 
 * The scoring file or application
 * Any dependencies needed to score the model
 
-The image can also include SDK components for logging and monitoring. The SDK logs data can be used to fine tune or retrain your model, including the input and output of the model.
+The image can also include SDK components for logging and monitoring. The SDK logs data can be used to fine-tune or retrain your model, including the input and output of the model.
 
 When your workspace was created, so were other several other Azure resources used by that workspace.
 All the objects used to create the image are stored in the Azure storage account in your workspace. The image is created and stored in the Azure Container Registry. You can provide additional metadata tags when creating the image, which are also stored by the image registry and can be queried to find your image.
