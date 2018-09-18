@@ -148,7 +148,7 @@ grant_type=authorization_code
 To find the App ID URI, in the Azure Portal, click **Azure Active Directory**, click **Application registrations**, open the application's **Settings** page, then click **Properties**.
 
 ### Successful response
-Azure AD returns an access token upon a successful response. To minimize network calls from the client application and their associated latency, the client application should cache access tokens for the token lifetime that is specified in the OAuth 2.0 response. To determine the token lifetime, use either the `expires_in` or `expires_on` parameter values.
+Azure AD returns an [access token](access-tokens.md) upon a successful response. To minimize network calls from the client application and their associated latency, the client application should cache access tokens for the token lifetime that is specified in the OAuth 2.0 response. To determine the token lifetime, use either the `expires_in` or `expires_on` parameter values.
 
 If a web API resource returns an `invalid_token` error code, this might indicate that the resource has determined that the token is expired. If the client and resource clock times are different (known as a "time skew"), the resource might consider the token to be expired before the token is cleared from the client cache. If this occurs, clear the token from the cache, even if it is still within its calculated lifetime.
 
@@ -170,59 +170,16 @@ A successful response could look like this:
 
 | Parameter | Description |
 | --- | --- |
-| access_token |The requested access token as a signed JSON Web Token (JWT). The app can use this token to authenticate to the secured resource, such as a web API. |
+| access_token |The requested [access token](access-tokens.md) as a signed JSON Web Token (JWT). The app can use this token to authenticate to the secured resource, such as a web API. |
 | token_type |Indicates the token type value. The only type that Azure AD supports is Bearer. For more information about Bearer tokens, see [OAuth2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt) |
 | expires_in |How long the access token is valid (in seconds). |
 | expires_on |The time when the access token expires. The date is represented as the number of seconds from 1970-01-01T0:0:0Z UTC until the expiration time. This value is used to determine the lifetime of cached tokens. |
 | resource |The App ID URI of the web API (secured resource). |
 | scope |Impersonation permissions granted to the client application. The default permission is `user_impersonation`. The owner of the secured resource can register additional values in Azure AD. |
 | refresh_token |An OAuth 2.0 refresh token. The app can use this token to acquire additional access tokens after the current access token expires. Refresh tokens are long-lived, and can be used to retain access to resources for extended periods of time. |
-| id_token |An unsigned JSON Web Token (JWT). The app can base64Url decode the segments of this token to request information about the user who signed in. The app can cache the values and display them, but it should not rely on them for any authorization or security boundaries. |
+| id_token |An unsigned JSON Web Token (JWT) representing an [ID token](id-tokens.md). The app can base64Url decode the segments of this token to request information about the user who signed in. The app can cache the values and display them, but it should not rely on them for any authorization or security boundaries. |
 
-### JWT Token Claims
-The JWT token in the value of the `id_token` parameter can be decoded into the following claims:
-
-```
-{
- "typ": "JWT",
- "alg": "none"
-}.
-{
- "aud": "2d4d11a2-f814-46a7-890a-274a72a7309e",
- "iss": "https://sts.windows.net/7fe81447-da57-4385-becb-6de57f21477e/",
- "iat": 1388440863,
- "nbf": 1388440863,
- "exp": 1388444763,
- "ver": "1.0",
- "tid": "7fe81447-da57-4385-becb-6de57f21477e",
- "oid": "68389ae2-62fa-4b18-91fe-53dd109d74f5",
- "upn": "frank@contoso.com",
- "unique_name": "frank@contoso.com",
- "sub": "JWvYdCWPhhlpS1Zsf7yYUxShUwtUm5yzPmw_-jX3fHY",
- "family_name": "Miller",
- "given_name": "Frank"
-}.
-```
-
-For more information about JSON web tokens, see the [JWT IETF draft specification](http://go.microsoft.com/fwlink/?LinkId=392344). For more information about the token types and claims, read [Supported Token and Claim Types](v1-id-and-access-tokens.md)
-
-The `id_token` parameter includes the following claim types:
-
-| Claim type | Description |
-| --- | --- |
-| aud |Audience of the token. When the token is issued to a client application, the audience is the `client_id` of the client. |
-| exp |Expiration time. The time when the token expires. For the token to be valid, the current date/time must be less than or equal to the `exp` value. The time is represented as the number of seconds from January 1, 1970 (1970-01-01T0:0:0Z) UTC until the time the token validity expires.|
-| family_name |User’s last name or surname. The application can display this value. |
-| given_name |User’s first name. The application can display this value. |
-| iat |Issued at time. The time when the JWT was issued. The time is represented as the number of seconds from January 1, 1970 (1970-01-01T0:0:0Z) UTC until the time the token was issued. |
-| iss |Identifies the token issuer |
-| nbf |Not before time. The time when the token becomes effective. For the token to be valid, the current date/time must be greater than or equal to the Nbf value. The time is represented as the number of seconds from January 1, 1970 (1970-01-01T0:0:0Z) UTC until the time the token was issued. |
-| oid |Object identifier (ID) of the user object in Azure AD. |
-| sub |Token subject identifier. This is a persistent and immutable identifier for the user that the token describes. Use this value in caching logic. |
-| tid |Tenant identifier (ID) of the Azure AD tenant that issued the token. |
-| unique_name |A unique identifier for that can be displayed to the user. This is usually a user principal name (UPN). |
-| upn |User principal name of the user. |
-| ver |Version. The version of the JWT token, typically 1.0. |
+For more information about JSON web tokens, see the [JWT IETF draft specification](http://go.microsoft.com/fwlink/?LinkId=392344).   To learn more about `id_tokens`, see the [v1.0 OpenID Connect flow](v1-protocols-openid-connect-code.md).
 
 ### Error response
 The token issuance endpoint errors are HTTP error codes, because the client calls the token issuance endpoint directly. In addition to the HTTP status code, the Azure AD token issuance endpoint also returns a JSON document with objects that describe the error.
@@ -312,6 +269,7 @@ The RFC 6750 specification defines the following errors for resources that use t
 | 403 |insufficient_access |The subject of the token does not have the permissions that are required to access the resource. |Prompt the user to use a different account or to request permissions to the specified resource. |
 
 ## Refreshing the access tokens
+
 Access Tokens are short-lived and must be refreshed after they expire to continue accessing resources. You can refresh the `access_token` by submitting another `POST` request to the `/token` endpoint, but this time providing the `refresh_token` instead of the `code`.
 
 Refresh tokens do not have specified lifetimes. Typically, the lifetimes of refresh tokens are relatively long. However, in some cases, refresh tokens expire, are revoked, or lack sufficient privileges for the desired action. Your application needs to expect and handle errors returned by the token issuance endpoint correctly.

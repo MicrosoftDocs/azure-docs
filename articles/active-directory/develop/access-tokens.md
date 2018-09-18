@@ -24,27 +24,37 @@ ms.custom: aaddev
 
 Access tokens enable clients to securely call APIs protected by Azure.  Azure AD access tokens are [JWTs](https://tools.ietf.org/html/rfc7519), base-64 encoded JSON objects signed by Azure.  For clients, these access tokens should be treated as opaque strings, as the contents of the token are intended for the resource only.  For validation and debugging purposes though, JWTs can be decoded using a site like [jwt.ms](https://jwt.ms).  Your client can get an access token from either endpoint (v1.0 or v2.0) using a variety of protocols.
 
-When you request an access token, Azure AD also returns some metadata about the access token for your app's consumption. This information includes the expiry time of the access token and the scopes for which it is valid. This allows your app to perform intelligent caching of access tokens without having to parse open the access token itself.
+When you request an access token, Azure AD also returns some metadata about the access token for your app's consumption. This information includes the expiry time of the access token and the scopes for which it is valid. This allows your app to perform intelligent caching of access tokens without having to parse the access token itself.
 
-> [!TIP]
-> This is a v1.0 access token - view it in [JWT.ms](https://jwt.ms/#access_token=eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFEWHpaM2lmci1HUmJEVDQ1ek5TRUZFY0dpMmkxeGdrbW4zVmFxdkZzYkE5Y2JjYmlOSThtZFktY2Y2dkMtOEFkbTVQcVo1dHlLUWcyTGhBU1F0N25KMTdSSFB6QzFRUVI3Vjk2QWV6MFB6SmlBQSIsImFsZyI6IlJTMjU2IiwieDV0IjoiN19adWYxdHZrd0x4WWFIUzNxNmxValVZSUd3Iiwia2lkIjoiN19adWYxdHZrd0x4WWFIUzNxNmxValVZSUd3In0.eyJhdWQiOiJodHRwczovL2dyYXBoLm1pY3Jvc29mdC5jb20iLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMWRiNDcvIiwiaWF0IjoxNTMzOTIxNTQ5LCJuYmYiOjE1MzM5MjE1NDksImV4cCI6MTUzMzkyNTQ0OSwiYWNjdCI6MCwiYWNyIjoiMSIsImFpbyI6IkFVUUF1LzhJQUFBQVVjZU9oVEEvd2VqR2ZvWStrOVp1bmRBczNldXJSWnp1elREd1NFUVMrNloyRThwU1AvZE0yV00yeU5YTmZzc2NaZWZBMHA0Y1pxOEptWXEraHMvcDVBPT0iLCJhbXIiOlsicnNhIiwibWZhIl0sImFwcF9kaXNwbGF5bmFtZSI6IlRlc3RPZmZsaW5lQWNjZXNzIiwiYXBwaWQiOiJmZWZlZDlmMy1lZmU2LTQ3Y2YtODY5YS04YzcwZjMyMjQ5NjQiLCJhcHBpZGFjciI6IjEiLCJkZXZpY2VpZCI6ImVkNTU1NTVlLTU1ZDUtNTU1NS1hNWY1LTU1MGRlNTU1NTU1ZSIsImZhbWlseV9uYW1lIjoiTGluY29sbiIsImdpdmVuX25hbWUiOiJBYnJhaGFtIiwiaXBhZGRyIjoiMTExLjEyMi4xMzMuMTQ0IiwibmFtZSI6IkFicmFoYW0gTGluY29sbiIsIm9pZCI6IjY1NWRhZmJlLWZmNWEtNGQ1Ni1hYmQxLTdlNGY3ZDM4ZTQ3NCIsInJoIjoiSSIsInNjcCI6IlVzZXIuUmVhZCBwcm9maWxlIG9wZW5pZCBlbWFpbCIsInNpZ25pbl9zdGF0ZSI6WyJkdmNfbW5nZCIsImR2Y19jbXAiLCJkdmNfZG1qZCIsImttc2kiXSwic3ViIjoiaENfQUh3R3JuMFJkQ0Vnei1WXzVhX3R2Ul9RcnpHSm1vR1ZrM3dBcEZvMCIsInRpZCI6IjcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI0NyIsInVuaXF1ZV9uYW1lIjoiYWJlTGluQG1pY3Jvc29mdC5jb20iLCJ1cG4iOiJhYmVMaW5AbWljcm9zb2Z0LmNvbSIsInV0aSI6IkppSVg0UWpkWGtleTVNenJBQUFBQUEiLCJ2ZXIiOiIxLjAifQ.MztYL_oFyjZ7n36LcIWdM4Sah99OwYZlZ6vhTxArMaM3P-o1jEXe1KnzUrF8jhGk5IiGMzxkMDiB3PyI4l9093V_wc7XU2JRnFqlvPvUEBChtagI3DtxZQcsUm7w7J08FuTSpRTMPL-tLXmwQRrTxJVXoIvapCTeCW84HAGMQwVUnLQVgXzeZtXjQ8UgVpcAO7zoliYUYLM45kC2uqw9MDuOT-M4aTyFmUFIDsq7qs7lRUZ7jDfLWX9OvrstigylfQTC1A6WaI9c-qSL3dBFqSJhIxJmsNiJ5EMCJ26iHZ-SiZ_gPmp4lVNZh7ul9lKJsl11OQ).  Note that it includes several [optional claims](active-directory-optional-claims.md), which won't appear unless your resource requests them.  
-
-    eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFEWHpaM2lmci1HUmJEVDQ1ek5TRUZFY0dpMmkxeGdrbW4zVmFxdkZzYkE5Y2JjYmlOSThtZFktY2Y2dkMtOEFkbTVQcVo1dHlLUWcyTGhBU1F0N25KMTdSSFB6QzFRUVI3Vjk2QWV6MFB6SmlBQSIsImFsZyI6IlJTMjU2IiwieDV0IjoiN19adWYxdHZrd0x4WWFIUzNxNmxValVZSUd3Iiwia2lkIjoiN19adWYxdHZrd0x4WWFIUzNxNmxValVZSUd3In0.eyJhdWQiOiJodHRwczovL2dyYXBoLm1pY3Jvc29mdC5jb20iLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMWRiNDcvIiwiaWF0IjoxNTMzOTIxNTQ5LCJuYmYiOjE1MzM5MjE1NDksImV4cCI6MTUzMzkyNTQ0OSwiYWNjdCI6MCwiYWNyIjoiMSIsImFpbyI6IkFVUUF1LzhJQUFBQVVjZU9oVEEvd2VqR2ZvWStrOVp1bmRBczNldXJSWnp1elREd1NFUVMrNloyRThwU1AvZE0yV00yeU5YTmZzc2NaZWZBMHA0Y1pxOEptWXEraHMvcDVBPT0iLCJhbXIiOlsicnNhIiwibWZhIl0sImFwcF9kaXNwbGF5bmFtZSI6IlRlc3RPZmZsaW5lQWNjZXNzIiwiYXBwaWQiOiJmZWZlZDlmMy1lZmU2LTQ3Y2YtODY5YS04YzcwZjMyMjQ5NjQiLCJhcHBpZGFjciI6IjEiLCJkZXZpY2VpZCI6ImVkNTU1NTVlLTU1ZDUtNTU1NS1hNWY1LTU1MGRlNTU1NTU1ZSIsImZhbWlseV9uYW1lIjoiTGluY29sbiIsImdpdmVuX25hbWUiOiJBYnJhaGFtIiwiaXBhZGRyIjoiMTExLjEyMi4xMzMuMTQ0IiwibmFtZSI6IkFicmFoYW0gTGluY29sbiIsIm9pZCI6IjY1NWRhZmJlLWZmNWEtNGQ1Ni1hYmQxLTdlNGY3ZDM4ZTQ3NCIsInJoIjoiSSIsInNjcCI6IlVzZXIuUmVhZCBwcm9maWxlIG9wZW5pZCBlbWFpbCIsInNpZ25pbl9zdGF0ZSI6WyJkdmNfbW5nZCIsImR2Y19jbXAiLCJkdmNfZG1qZCIsImttc2kiXSwic3ViIjoiaENfQUh3R3JuMFJkQ0Vnei1WXzVhX3R2Ul9RcnpHSm1vR1ZrM3dBcEZvMCIsInRpZCI6IjcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI0NyIsInVuaXF1ZV9uYW1lIjoiYWJlTGluQG1pY3Jvc29mdC5jb20iLCJ1cG4iOiJhYmVMaW5AbWljcm9zb2Z0LmNvbSIsInV0aSI6IkppSVg0UWpkWGtleTVNenJBQUFBQUEiLCJ2ZXIiOiIxLjAifQ.MztYL_oFyjZ7n36LcIWdM4Sah99OwYZlZ6vhTxArMaM3P-o1jEXe1KnzUrF8jhGk5IiGMzxkMDiB3PyI4l9093V_wc7XU2JRnFqlvPvUEBChtagI3DtxZQcsUm7w7J08FuTSpRTMPL-tLXmwQRrTxJVXoIvapCTeCW84HAGMQwVUnLQVgXzeZtXjQ8UgVpcAO7zoliYUYLM45kC2uqw9MDuOT-M4aTyFmUFIDsq7qs7lRUZ7jDfLWX9OvrstigylfQTC1A6WaI9c-qSL3dBFqSJhIxJmsNiJ5EMCJ26iHZ-SiZ_gPmp4lVNZh7ul9lKJsl11OQ
-
-If your application is a resource (web API) that clients can request access to, access tokens provide helpful information for use in authentication and authorization - the user, client, issuer, permissions, and more.  This document provides details on how a resource can validate and use the claims inside an access token.
+If your application is a resource (web API) that clients can request access to, access tokens provide helpful information for use in authentication and authorization - the user, client, issuer, permissions, and more data is all included in the token.  This document provides details on how a resource can validate and use the claims inside an access token.
 
 >[!NOTE]
->While testing your client application with a consumer Microsoft account (an MSA), you may find that the access token received by your client is an opaque string.  This is because the resource being accessed has requested legacy MSA tickets - these are encrypted and cannot be understood by the client.
+>While testing your client application with a personal account (hotmail.com, outlook.com), you may find that the access token received by your client is an opaque string.  This is because the resource being accessed has requested legacy MSA (Microsoft account) tickets - these are encrypted and cannot be understood by the client.
+
+## Sample tokens
+
+v1.0 and v2.0 tokens look very similar, and contain many of the same claims.  An example of each is provided here.  
+
+### v1.0
+
+    eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Imk2bEdrM0ZaenhSY1ViMkMzbkVRN3N5SEpsWSIsImtpZCI6Imk2bEdrM0ZaenhSY1ViMkMzbkVRN3N5SEpsWSJ9.eyJhdWQiOiJlZjFkYTlkNC1mZjc3LTRjM2UtYTAwNS04NDBjM2Y4MzA3NDUiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9mYTE1ZDY5Mi1lOWM3LTQ0NjAtYTc0My0yOWYyOTUyMjIyOS8iLCJpYXQiOjE1MzcyMzMxMDYsIm5iZiI6MTUzNzIzMzEwNiwiZXhwIjoxNTM3MjM3MDA2LCJhY3IiOiIxIiwiYWlvIjoiQVhRQWkvOElBQUFBRm0rRS9RVEcrZ0ZuVnhMaldkdzhLKzYxQUdyU091TU1GNmViYU1qN1hPM0libUQzZkdtck95RCtOdlp5R24yVmFUL2tES1h3NE1JaHJnR1ZxNkJuOHdMWG9UMUxrSVorRnpRVmtKUFBMUU9WNEtjWHFTbENWUERTL0RpQ0RnRTIyMlRJbU12V05hRU1hVU9Uc0lHdlRRPT0iLCJhbXIiOlsid2lhIl0sImFwcGlkIjoiNzVkYmU3N2YtMTBhMy00ZTU5LTg1ZmQtOGMxMjc1NDRmMTdjIiwiYXBwaWRhY3IiOiIwIiwiZW1haWwiOiJBYmVMaUBtaWNyb3NvZnQuY29tIiwiZmFtaWx5X25hbWUiOiJMaW5jb2xuIiwiZ2l2ZW5fbmFtZSI6IkFiZSAoTVNGVCkiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMjIyNDcvIiwiaXBhZGRyIjoiMjIyLjIyMi4yMjIuMjIiLCJuYW1lIjoiYWJlbGkiLCJvaWQiOiIwMjIyM2I2Yi1hYTFkLTQyZDQtOWVjMC0xYjJiYjkxOTQ0MzgiLCJyaCI6IkkiLCJzY3AiOiJ1c2VyX2ltcGVyc29uYXRpb24iLCJzdWIiOiJsM19yb0lTUVUyMjJiVUxTOXlpMmswWHBxcE9pTXo1SDNaQUNvMUdlWEEiLCJ0aWQiOiJmYTE1ZDY5Mi1lOWM3LTQ0NjAtYTc0My0yOWYyOTU2ZmQ0MjkiLCJ1bmlxdWVfbmFtZSI6ImFiZWxpQG1pY3Jvc29mdC5jb20iLCJ1dGkiOiJGVnNHeFlYSTMwLVR1aWt1dVVvRkFBIiwidmVyIjoiMS4wIn0=.D3H6pMUtQnoJAGq6AHd
+
+View this v1.0 token in [JWT.ms](https://jwt.ms/#access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Imk2bEdrM0ZaenhSY1ViMkMzbkVRN3N5SEpsWSIsImtpZCI6Imk2bEdrM0ZaenhSY1ViMkMzbkVRN3N5SEpsWSJ9.eyJhdWQiOiJlZjFkYTlkNC1mZjc3LTRjM2UtYTAwNS04NDBjM2Y4MzA3NDUiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9mYTE1ZDY5Mi1lOWM3LTQ0NjAtYTc0My0yOWYyOTUyMjIyOS8iLCJpYXQiOjE1MzcyMzMxMDYsIm5iZiI6MTUzNzIzMzEwNiwiZXhwIjoxNTM3MjM3MDA2LCJhY3IiOiIxIiwiYWlvIjoiQVhRQWkvOElBQUFBRm0rRS9RVEcrZ0ZuVnhMaldkdzhLKzYxQUdyU091TU1GNmViYU1qN1hPM0libUQzZkdtck95RCtOdlp5R24yVmFUL2tES1h3NE1JaHJnR1ZxNkJuOHdMWG9UMUxrSVorRnpRVmtKUFBMUU9WNEtjWHFTbENWUERTL0RpQ0RnRTIyMlRJbU12V05hRU1hVU9Uc0lHdlRRPT0iLCJhbXIiOlsid2lhIl0sImFwcGlkIjoiNzVkYmU3N2YtMTBhMy00ZTU5LTg1ZmQtOGMxMjc1NDRmMTdjIiwiYXBwaWRhY3IiOiIwIiwiZW1haWwiOiJBYmVMaUBtaWNyb3NvZnQuY29tIiwiZmFtaWx5X25hbWUiOiJMaW5jb2xuIiwiZ2l2ZW5fbmFtZSI6IkFiZSAoTVNGVCkiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMjIyNDcvIiwiaXBhZGRyIjoiMjIyLjIyMi4yMjIuMjIiLCJuYW1lIjoiYWJlbGkiLCJvaWQiOiIwMjIyM2I2Yi1hYTFkLTQyZDQtOWVjMC0xYjJiYjkxOTQ0MzgiLCJyaCI6IkkiLCJzY3AiOiJ1c2VyX2ltcGVyc29uYXRpb24iLCJzdWIiOiJsM19yb0lTUVUyMjJiVUxTOXlpMmswWHBxcE9pTXo1SDNaQUNvMUdlWEEiLCJ0aWQiOiJmYTE1ZDY5Mi1lOWM3LTQ0NjAtYTc0My0yOWYyOTU2ZmQ0MjkiLCJ1bmlxdWVfbmFtZSI6ImFiZWxpQG1pY3Jvc29mdC5jb20iLCJ1dGkiOiJGVnNHeFlYSTMwLVR1aWt1dVVvRkFBIiwidmVyIjoiMS4wIn0=.D3H6pMUtQnoJAGq6AHd).
+
+### v2.0
+
+    eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Imk2bEdrM0ZaenhSY1ViMkMzbkVRN3N5SEpsWSJ9.eyJhdWQiOiI2ZTc0MTcyYi1iZTU2LTQ4NDMtOWZmNC1lNjZhMzliYjEyZTMiLCJpc3MiOiJodHRwczovL2xvZ2luLm1pY3Jvc29mdG9ubGluZS5jb20vNzJmOTg4YmYtODZmMS00MWFmLTkxYWItMmQ3Y2QwMTFkYjQ3L3YyLjAiLCJpYXQiOjE1MzcyMzEwNDgsIm5iZiI6MTUzNzIzMTA0OCwiZXhwIjoxNTM3MjM0OTQ4LCJhaW8iOiJBWFFBaS84SUFBQUF0QWFaTG8zQ2hNaWY2S09udHRSQjdlQnE0L0RjY1F6amNKR3hQWXkvQzNqRGFOR3hYZDZ3TklJVkdSZ2hOUm53SjFsT2NBbk5aY2p2a295ckZ4Q3R0djMzMTQwUmlvT0ZKNGJDQ0dWdW9DYWcxdU9UVDIyMjIyZ0h3TFBZUS91Zjc5UVgrMEtJaWpkcm1wNjlSY3R6bVE9PSIsImF6cCI6IjZlNzQxNzJiLWJlNTYtNDg0My05ZmY0LWU2NmEzOWJiMTJlMyIsImF6cGFjciI6IjAiLCJuYW1lIjoiQWJlIExpbmNvbG4iLCJvaWQiOiI2OTAyMjJiZS1mZjFhLTRkNTYtYWJkMS03ZTRmN2QzOGU0NzQiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhYmVsaUBtaWNyb3NvZnQuY29tIiwicmgiOiJJIiwic2NwIjoiYWNjZXNzX2FzX3VzZXIiLCJzdWIiOiJIS1pwZmFIeVdhZGVPb3VZbGl0anJJLUtmZlRtMjIyWDVyclYzeERxZktRIiwidGlkIjoiNzJmOTg4YmYtODZmMS00MWFmLTkxYWItMmQ3Y2QwMTFkYjQ3IiwidXRpIjoiZnFpQnFYTFBqMGVRYTgyUy1JWUZBQSIsInZlciI6IjIuMCJ9.pj4N-w_3Us9DrBLfpCt
+
+View this v2.0 token in [JWT.ms](https://jwt.ms/#access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Imk2bEdrM0ZaenhSY1ViMkMzbkVRN3N5SEpsWSJ9.eyJhdWQiOiI2ZTc0MTcyYi1iZTU2LTQ4NDMtOWZmNC1lNjZhMzliYjEyZTMiLCJpc3MiOiJodHRwczovL2xvZ2luLm1pY3Jvc29mdG9ubGluZS5jb20vNzJmOTg4YmYtODZmMS00MWFmLTkxYWItMmQ3Y2QwMTFkYjQ3L3YyLjAiLCJpYXQiOjE1MzcyMzEwNDgsIm5iZiI6MTUzNzIzMTA0OCwiZXhwIjoxNTM3MjM0OTQ4LCJhaW8iOiJBWFFBaS84SUFBQUF0QWFaTG8zQ2hNaWY2S09udHRSQjdlQnE0L0RjY1F6amNKR3hQWXkvQzNqRGFOR3hYZDZ3TklJVkdSZ2hOUm53SjFsT2NBbk5aY2p2a295ckZ4Q3R0djMzMTQwUmlvT0ZKNGJDQ0dWdW9DYWcxdU9UVDIyMjIyZ0h3TFBZUS91Zjc5UVgrMEtJaWpkcm1wNjlSY3R6bVE9PSIsImF6cCI6IjZlNzQxNzJiLWJlNTYtNDg0My05ZmY0LWU2NmEzOWJiMTJlMyIsImF6cGFjciI6IjAiLCJuYW1lIjoiQWJlIExpbmNvbG4iLCJvaWQiOiI2OTAyMjJiZS1mZjFhLTRkNTYtYWJkMS03ZTRmN2QzOGU0NzQiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhYmVsaUBtaWNyb3NvZnQuY29tIiwicmgiOiJJIiwic2NwIjoiYWNjZXNzX2FzX3VzZXIiLCJzdWIiOiJIS1pwZmFIeVdhZGVPb3VZbGl0anJJLUtmZlRtMjIyWDVyclYzeERxZktRIiwidGlkIjoiNzJmOTg4YmYtODZmMS00MWFmLTkxYWItMmQ3Y2QwMTFkYjQ3IiwidXRpIjoiZnFpQnFYTFBqMGVRYTgyUy1JWUZBQSIsInZlciI6IjIuMCJ9.pj4N-w_3Us9DrBLfpCt).
 
 ## Claims in access tokens
 
 JWTs are split into three pieces - header, payload, and signature, each seperated by a period (`.`) and seperately Base64 encoded.  The header provides information about how to [validate  the token](#validating-tokens) - information about the type of token and how it was signed.  The payload contains all of the important data about the user or app that is attempting to call your service.  Finally, the signature is the raw material used to validate the token.  
 
-> [! Important]
->Claims are present only if a value exists to fill it.  Thus, your app should not take a dependency on a claim being present.  Examples include `pwd_exp` (not every tenant requires passwords to expire) or `family_name` ([client credential](v1-oauth2-client-creds-grant-flow.md) flows are on behalf of applications, which don't have names).  Claims used for access token validation will always be present.
+Claims are present only if a value exists to fill it.  Thus, your app should not take a dependency on a claim being present.  Examples include `pwd_exp` (not every tenant requires passwords to expire) or `family_name` ([client credential](v1-oauth2-client-creds-grant-flow.md) flows are on behalf of applications, which don't have names).  Claims used for access token validation will always be present.
 
 > [!NOTE]
->Some claims are used to help Azure AD secure tokens from re-use and during special OBO flows.  These are marked as not being for public consumption in the description as "Opaque".  These claims may or may not appear in a token, and new ones may be added without notice.
+>Some claims are used to help Azure AD secure tokens in case of re-use.  These are marked as not being for public consumption in the description as "Opaque".  These claims may or may not appear in a token, and new ones may be added without notice.
 
 ### Header claims
 
@@ -67,10 +77,12 @@ JWTs are split into three pieces - header, payload, and signature, each seperate
 |`exp` |  int, a UNIX timestamp | The "exp" (expiration time) claim identifies the expiration time on or after which the JWT MUST NOT be accepted for processing.  It's important to note that a resource may reject the token before this time as well - if for example a change in authentication is required or a token revocation has been detected.  The best way to   |
 |`acr` |  String, a "0" or "1" | The "Authentication context class" claim. A value of "0" indicates the end-user authentication did not meet the requirements of ISO/IEC 29115. |
 |`aio` |  Opaque String | An internal claim used by Azure AD to record data for token re-use. Should not be used by resources.|
-|`amr` |  JSON array of strings | Identifies how the subject of the token was authenticated. See [the amr claim section](#the-amr-claim) for more details.  |
-|`appid` |  String, a GUID | The application ID of the client using the token.   The application can act as itself or on behalf of a user. The application ID typically represents an application object, but it can also represent a service principal object in Azure AD.|
-|`appidacr` |  "0", "1", or "2" | Indicates how the client was authenticated. For a public client, the value is 0. If client ID and client secret are used, the value is 1. If a client certificate was used for authentication, the value is 2.  |
-|`preferred_name`  | String | The primary username that represents the user. It could be an email address, phone number, or a generic username without a specified format. Its value is mutable and might change over time. Since it is mutable, this value must not be used to make authorization decisions. The `profile` scope is required in order to receive this claim.|
+|`amr` |  JSON array of strings | Identifies how the subject of the token was authenticated. See [the amr claim section](#the-amr-claim) for more details. Only present in v1.0 tokens. |
+|`appid` |  String, a GUID | The application ID of the client using the token.   The application can act as itself or on behalf of a user. The application ID typically represents an application object, but it can also represent a service principal object in Azure AD. Only present in v1.0 tokens.|
+|`appidacr` |  "0", "1", or "2" | Indicates how the client was authenticated. For a public client, the value is 0. If client ID and client secret are used, the value is 1. If a client certificate was used for authentication, the value is 2.  Only present in v1.0 tokens. |
+|`azp` |  String, a GUID | The application ID of the client using the token.   The application can act as itself or on behalf of a user. The application ID typically represents an application object, but it can also represent a service principal object in Azure AD. Only present in v2.0 tokens. |
+|`azpacr` |  "0", "1", or "2" | Indicates how the client was authenticated. For a public client, the value is 0. If client ID and client secret are used, the value is 1. If a client certificate was used for authentication, the value is 2.  Only present in v2.0 tokens. |
+|`preferred_name`  | String | The primary username that represents the user. It could be an email address, phone number, or a generic username without a specified format. Its value is mutable and might change over time. Since it is mutable, this value must not be used to make authorization decisions. The `profile` scope is required in order to receive this claim. Only present in v2.0 tokens. |
 |`name` |  String | The `name` claim provides a human-readable value that identifies the subject of the token. The value is not guaranteed to be unique, it is mutable, and it's designed to be used only for display purposes. The `profile` scope is required in order to receive this claim. |
 |`oid` |  String, a GUID | The immutable identifier for an object in the Microsoft identity system, in this case, a user account. It can also be used to perform authorization checks safely and as a key in database tables. This ID uniquely identifies the user across applications - two different applications signing in the same user will receive the same value in the `oid` claim. This means that it can be used when making queries to Microsoft online services, such as the Microsoft Graph. The Microsoft Graph will return this ID as the `id` property for a given user account. Because the `oid` allows multiple apps to correlate users, the `profile` scope is required in order to receive this claim. Note that if a single user exists in multiple tenants, the user will contain a different object ID in each tenant - they are considered different accounts, even though the user logs into each account with the same credentials |
 |`rh` |  Opaque String |An internal claim used by Azure to revalidate tokens. Should not be used by resources. |
@@ -78,14 +90,14 @@ JWTs are split into three pieces - header, payload, and signature, each seperate
 |`roles`| String, a space seperated list of permissions | The set of permissions exposed by your application that the requesting application has been given permission to call.  This is used during the [client-credentials](v1-oauth2-client-creds-grant-flow.md) flow in place of user scopes, and is only present in [applications tokens](#user-and-application-tokens). |
 |`sub` |  String, a GUID | The principal about which the token asserts information, such as the user of an app. This value is immutable and cannot be reassigned or reused. It can be used to perform authorization checks safely, such as when the token is used to access a resource, and can be used as a key in database tables. Because the subject is always present in the tokens that Azure AD issues, we recommend using this value in a general-purpose authorization system. The subject is, however, a pairwise identifier - it is unique to a particular application ID. Therefore, if a single user signs into two different apps using two different client IDs, those apps will receive two different values for the subject claim. This may or may not be desired depending on your architecture and privacy requirements. |
 |`tid` |  String, a GUID | A GUID that represents the Azure AD tenant that the user is from. For work and school accounts, the GUID is the immutable tenant ID of the organization that the user belongs to. For personal accounts, the value is `9188040d-6c67-4c5b-b112-36a304b66dad`. The `profile` scope is required in order to receive this claim.  |
-|`unique_name` |  String | Provides a human readable value that identifies the subject of the token. This value is not guaranteed to be unique within a tenant and is designed to be used only for display purposes. |
+|`unique_name` |  String | Provides a human readable value that identifies the subject of the token. This value is not guaranteed to be unique within a tenant and is designed to be used only for display purposes. Only present in v1.0 tokens. |
 |`upn` |  String | The username of the user.  May be a phone number, email address, or unformatted string.  Should only be used for display purposes and providing username hints in re-authentication scenarios. |
 |`uti` |  Opaque String | An internal claim used by Azure to revalidate tokens. Should not be used by resources. |
 |`ver` |  String, either 1.0 or 2.0 | Indicates the version of the access token. |
 
 #### v1.0 basic claims
 
-These claims will be included in v1.0 tokens if applicable, but must be requested by v2.0 clients or resources using [optional claims](active-directory-optional-claims.md).
+The following claims will be included in v1.0 tokens if applicable, but are not included in v2.0 tokens by default. If you are using v2.0 and need one of these claims, request them using using [optional claims](active-directory-optional-claims.md).
 
 |Claim   | Format | Description |
 |-----|--------|-------------|
@@ -116,22 +128,46 @@ Microsoft identities can authenticate in a variety of ways, which may be relevan
 
 ## Validating tokens
 
-Access tokens should be validated in two steps: first, verifying that the token is valid and issued by a trusted authority for your application, and second that the user has permission to perform the actions requested.  
+In order to validate an id_token or an access_token, your app should validate both the token's signature and the claims. In order to validate access tokens, your app should also validate the issuer, the audience and the signing tokens. These need to be validated against the values in the OpenID discovery document. For example, the tenant independent version of the document is located at [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/common/.well-known/openid-configuration). Azure AD middleware has built-in capabilities for validating access tokens, and you can browse through our [samples](https://docs.microsoft.com/azure/active-directory/active-directory-code-samples) to find one in the language of your choice. For more information on how to explicitly validate a JWT token, please see the [manual JWT validation sample](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation). 
 
-### Validating the issuer and token
+We provide libraries and code samples that show how to easily handle token validation - the below information is simply provided for those who wish to understand the underlying process. There are also several third party open source libraries available for JWT validation - there is at least one option for almost every platform and language out there. For more information about Azure AD authentication libraries and code samples, please see [Azure AD authentication libraries](active-directory-authentication-libraries.md).
 
-Tokens issued by Azure AD are signed using a public key, publicly documented and rotated on a periodic basis. Your app should be written to handle those key changes automatically. A reasonable frequency to check for updates to the public keys used by Azure AD is every 24 hours.  You can acquire the signing key data necessary to validate the signature by using the OpenID Connect metadata document located at `https://login.microsoftonline.com/<TENANT>/.well-known/openid-configuration`.  `<TENANT>` may be sourced from the `tid` claim for tenant-specific signing keys, or you can use `common` for personal accounts, which use the Microsoft signing keys.
+### Validating the signature
 
-This metadata document is a JSON object containing several useful pieces of information, such as the location of the various endpoints required for performing OpenID Connect authentication.
+A JWT contains three segments, which are separated by the `.` character. The first segment is known as the **header**, the second as the **body**, and the third as the **signature**. The signature segment can be used to validate the authenticity of the token so that it can be trusted by your app.
 
-It also includes a `jwks_uri`, which gives the location of the set of public keys used to sign tokens. The JSON document located at the `jwks_uri` contains all of the public key information in use at that particular moment in time. Your app can use the `kid` claim in the JWT header to select which public key in this document has been used to sign a particular token. It can then perform signature validation using the correct public key and the indicated algorithm.  
+Tokens issued by Azure AD are signed using industry standard asymmetric encryption algorithms, such as RSA 256. The header of the JWT contains information about the key and encryption method used to sign the token:
 
-With this information in hand, your app should do the following:
+```json
+{
+  "typ": "JWT",
+  "alg": "RS256",
+  "x5t": "iBjL1Rcqzhiy4fpxIxdZqohM2Yk",
+  "kid": "iBjL1Rcqzhiy4fpxIxdZqohM2Yk"
+}
+```
 
-1. Ensure the token is a correctly formed JWT with a header, payload, and signature section.
-1. Varify that this is an access token - the `appid` and `appidacr` claims will be present.
-1. Validate the signature using the appropriate public key.  This is outside the scope of this document, but many libraries exist that cover this.
-1. Check the timestamps and audience of the token.  The `iat`, `nbf`, and `exp` timestamps should all fall before or after the current time, as appropriate.  In addition, the `aud` claim should match the app ID for your application.  This may be performed for you by your token validation library.  
+The `alg` claim indicates the algorithm that was used to sign the token, while the `kid` claim indicates the particular public key that was used to sign the token.
+
+At any given point in time, Azure AD may sign an id_token using any one of a certain set of public-private key pairs. Azure AD rotates the possible set of keys on a periodic basis, so your app should be written to handle those key changes automatically. A reasonable frequency to check for updates to the public keys used by Azure AD is every 24 hours.
+
+You can acquire the signing key data necessary to validate the signature by using the OpenID Connect metadata document located at:
+
+```
+https://login.microsoftonline.com/common/.well-known/openid-configuration
+```
+
+> [!TIP]
+> Try this URL in a browser!
+
+This metadata document is a JSON object containing several useful pieces of information, such as the location of the various endpoints required for performing OpenID Connect authentication. 
+
+It also includes a `jwks_uri`, which gives the location of the set of public keys used to sign tokens. The JSON document located at the `jwks_uri` contains all of the public key information in use at that particular moment in time. Your app can use the `kid` claim in the JWT header to select which public key in this document has been used to sign a particular token. It can then perform signature validation using the correct public key and the indicated algorithm.
+
+> [!NOTE]
+> The v1.0 endpoint returns both the `x5t` and `kid` claims. The `x5t` claim is missing from v2.0 tokens. The v2.0 endpoint responds with the `kid` claim. Going forward, we recommend using the `kid` claim to validate your token.
+
+Performing signature validation is outside the scope of this document - there are many open source libraries available for helping you do so if necessary.
 
 ### Claims based authorization
 
@@ -153,11 +189,35 @@ Your application may recieve tokens on behalf of a user (the usual flow) or dire
 * App-only tokens will not have a `scp` claim, and will instead have a `roles` claim.  This is where application permission (as opposed to delegated permissions) will be recorded.  For more information on delegated and application permissions, see the [Permission and Consent](v1-permissions-and-consent.md) documentation.
 * Many human-specific claims will be missing - e.g. `name`.
 
+## Token Revocation
+
+Refresh tokens can be invalidated or revoked at any time, for a variety of reasons. These fall into two main categories: timeouts and revocations.
+
+### Token Timeouts
+
+* MaxInactiveTime: If the refresh token has not been used within the time dictated by the MaxInactiveTime, the Refresh Token will no longer be valid. 
+* MaxSessionAge: If MaxAgeSessionMultiFactor or MaxAgeSessionSingleFactor have been set to something other than their default (Until-revoked), then re-authentication will be required after the time set in the MaxAgeSession* elapses. 
+* Examples:
+  * The tenant has a MaxInactiveTime of 5 days, and the user went on vacation for a week, and so AAD has not seen a new token request from the user in 7 days. The next time the user requests a new token, they will find their Refresh Token has been revoked, and they must enter their credentials again. 
+  * A sensitive application has a MaxAgeSessionSingleFactor of 1 day. If a user logs in on Monday, and on Tuesday (after 25 hours have elapsed), they will be required to re-authenticate. 
+
+### Revocation
+
+|   | Password based cookie | Password based token | Non-password based cookie | Non-password based token | Confidential client token| 
+|---|-----------------------|----------------------|---------------------------|--------------------------|--------------------------|
+|Password Expires| Stays alive|Stays alive|Stays alive|Stays alive|Stays alive|
+|Password changed by user| Revoked | Revoked | Stays alive|Stays alive|Stays alive|
+|User does SSPR|Revoked | Revoked | Stays alive|Stays alive|Stays alive|
+|Admin resets password|Revoked | Revoked | Stays alive|Stays alive|Stays alive|
+|User revokes their refresh tokens [via PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureadsignedinuserallrefreshtoken) | Revoked | Revoked |Revoked | Revoked |Revoked | Revoked |
+|Admin revokes all refresh tokens for the tenant [via PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken) | Revoked | Revoked |Revoked | Revoked |Revoked | Revoked |
+|[Single-Sign Out](active-directory-protocols-openid-connect-code#single-sign-out) on web | Revoked | Stays alive |Revoked | Stays alive |Stays alive |Stays alive |
+
+> [!NOTE]
+> A "Non-password based" login is one where the user didn't type in a password to get it.  For example using your face with Windows Hello, a FIDO key, or a PIN. 
+>
+> A known issue exists with the Windows Primary Refresh Token.  If the PRT is obtained via a password, and then the user logs in via Hello, this does not change the origination of the PRT, and it will be revoked if the user changes their password.
+
 ## Next steps
 
-* For a complete list of developer resources, including reference information for the protocols and OAuth2 authorization grant flows support by Azure AD, refer to the [Azure AD Developer's Guide][AAD-Developers-Guide]
-* See [How to integrate an application with Azure AD][ACOM-How-To-Integrate] for additional depth on the application integration process.
-
-<!--Reference style links in use-->
-[AAD-Developers-Guide]:azure-ad-developers-guide.md
-[ACOM-How-To-Integrate]: active-directory-how-to-integrate.md
+* Learn about [`id_tokens` in Azure AD](id-tokens.md).

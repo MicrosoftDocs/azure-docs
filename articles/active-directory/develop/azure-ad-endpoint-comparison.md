@@ -139,7 +139,7 @@ This allows you to code your app in a minimal-disclosure fashion – you can onl
 
 ## Token Claims
 
-The claims in tokens issued by the v2.0 endpoint will not be identical to tokens issued by the generally available Azure AD endpoints. Apps migrating to the new service should not assume a particular claim will exist in id_tokens or access_tokens. To learn about the specific claims emitted in v2.0 tokens, see the [v2.0 token reference](v2-id-and-access-tokens.md).
+The claims in tokens issued by the v2.0 endpoint will not be identical to tokens issued by the generally available Azure AD endpoints. Apps migrating to the new service should not assume a particular claim will exist in id_tokens or access_tokens. Further details of different types of tokens used in the v2.0 endpoint are available in the [access token](access-tokens) reference and [`id_token` reference](id-tokens.md)
 
 ## Limitations
 

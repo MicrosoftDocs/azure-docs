@@ -153,7 +153,7 @@ You may also wish to validate additional claims depending on your scenario. Some
 * Ensuring the user has proper authorization/privileges
 * Ensuring a certain strength of authentication has occurred, such as multi-factor authentication.
 
-Once you have validated the `id_token`, you can begin a session with the user and use the claims in the `id_token` to obtain information about the user in your app. This information can be used for display, records, authorizations, etc. For more information about the token types and claims, read [Supported Token and Claim Types](v1-id-and-access-tokens.md).
+Once you have validated the `id_token`, you can begin a session with the user and use the claims in the `id_token` to obtain information about the user in your app. This information can be used for display, records, personalization, etc. For more information about `id_tokens` and claims, read [AAD id_tokens](id-tokens.md).
 
 ## Send a sign-out request
 When you wish to sign the user out of the app, it is not sufficient to clear your app's cookies or otherwise end the session with the user. You must also redirect the user to the `end_session_endpoint` for sign-out. If you fail to do so, the user will be able to reauthenticate to your app without entering their credentials again, because they will have a valid single sign-on session with the Azure AD endpoint.

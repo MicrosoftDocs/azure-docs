@@ -48,7 +48,7 @@ Starting on October 10, 2018, Azure AD will stop accepting previously-used authe
 
 If your app reuses authorization codes to get tokens for multiple resources, we recommend that you use the code to get a refresh token, and then use that refresh token to acquire additional tokens for other resources. Authorization codes can only be used once, but refresh tokens can be used multiple times across multiple resources. Any new app that attempts to reuse an authentication code during the OAuth code flow will get an invalid_grant error.
 
-For more information about refresh tokens, see [Refreshing the access tokens](https://docs.microsoft.com/azure/active-directory/develop/v1-protocols-oauth-code#refreshing-the-access-tokens).
+For more information about refresh tokens, see [Refreshing the access tokens](v1-protocols-oauth-code#refreshing-the-access-tokens).
 
 ## May 2018
 
