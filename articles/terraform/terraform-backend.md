@@ -29,7 +29,7 @@ Before using Azure Storage as a backend, a storage account must be created. The 
 
 RESOURCE_GROUP_NAME=tfstatestorage
 STORAGE_ACCOUNT_NAME=tfstatestorage$RANDOM
-CONTAINER_NAME=tfstatestorage
+CONTAINER_NAME=terraform.tfstate
 
 # Create resource group
 az group create --name $RESOURCE_GROUP_NAME --location eastus
