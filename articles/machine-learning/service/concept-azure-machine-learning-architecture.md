@@ -1,5 +1,5 @@
 ---
-title: How does Azure Machine Learning service work? | Microsoft Docs
+title: How does Azure Machine Learning service work? 
 description: Learn about the architecture, terminology, and concepts that make up Azure Machine Learning service. You also learn about the general workflow of using the service, and the Azure services that are used by the Azure Machine Learning service.
 services: machine-learning
 ms.service: machine-learning
@@ -8,12 +8,11 @@ ms.topic: conceptual
 ms.author: haining
 author: hning86
 ms.reviewer: larryfr
-manager: cgronlun
 ms.date: 09/24/2018
 # As a data scientist, I want to understand the big picture about how the Azure Machine Learning service works.
 ---
 
-# Azure Machine Learning service architecture and concepts
+# Architecture and concepts: How does Azure Machine Learning service work? 
 
 This document describes the architecture and concepts for the Azure Machine Learning service. The following diagram shows the major components of the service, and illustrates the general workflow when using the service: 
 
@@ -72,14 +71,15 @@ A model is produced by a run in Azure Machine Learning. You can also use a model
 
 Azure Machine Learning is framework agnostic. You can use any popular machine learning framework when creating a model, such as scikit-learn, xgboost, PyTorch, TensorFlow, Chainer, and CNTK.
 
-For an example of training a model, see the [Quickstart: Get started with Azure Machine Learning service](quickstart-get-started.md) document.
+For an example of training a model, see the [Quickstart: Create a machine learning workspace](quickstart-get-started.md) document.
 
 ### Model registry
 
-The model registry keeps track of all the models in your Azure Machine Learning workspace.
+The model registry keeps track of all the models in your Azure Machine Learning workspace. 
+
 Models are identified by name and version. Each time you register a model with the same name as an existing one, the registry assumes that it is a new version. The version is incremented and the new model is registered under the name.
 
-You can provide additional metadata tags when you register the model and then use these tags when searching for models.
+You can provide additional metadata tags when you register the model, and then use these tags when searching for models.
 
 You cannot delete models that are being used by an image.
 
@@ -165,7 +165,7 @@ A compute target is the compute resource used to run your training script or hos
 
 Compute targets are attached to a workspace. Computer targets other than the local machine are shared by users of the workspace.
 
-Most compute targets can be created directly through the workspace by using the Azure Portal, Azure Machine Learning SDK, or Azure CLI. If you have compute targets that were created by another process (for example, the Azure portal or Azure CLI), you can add (attach) them to your workspace. Some compute targets must be created outside the workspace, and then attached.
+Most compute targets can be created directly through the workspace by using the Azure portal, Azure Machine Learning SDK, or Azure CLI. If you have compute targets that were created by another process (for example, the Azure portal or Azure CLI), you can add (attach) them to your workspace. Some compute targets must be created outside the workspace, and then attached.
 
 For information on selecting a compute target for training, see the [Select and use a compute target to train your model](how-to-set-up-training-targets.md) document.
 
