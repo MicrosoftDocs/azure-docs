@@ -1,39 +1,64 @@
 ---
-title: Assign a user to administrator roles in Azure Active Directory  | Microsoft Docs
-description: How to change user administrative information in Azure Active Directory
+title: How to assign directory roles to users with Azure Active Directory | Microsoft Docs
+description: Learn how to assign directory roles to users with Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
+
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
-ms.topic: quickstart
-ms.date: 06/25/2018
+ms.topic: conceptual
+ms.date: 09/06/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ---
 
-# Assign a user to administrator roles in Azure Active Directory
-This article explains how to assign an administrative role to a user in Azure Active Directory (Azure AD). For information about adding new users in your organization, see [Add new users to Azure Active Directory](../add-users-azure-active-directory.md). Added users don't have administrator permissions by default, but you can assign roles to them at any time.
+# How to: Assign roles and administrators to users with Azure Active Directory
+If a user in your organization needs permission to manage Azure Active Directory (Azure AD) resources, you must assign the user an appropriate role in Azure AD, based on the actions the user needs permission to perform.
 
-## Assign a role to a user
-1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin or privileged role admin for the directory.
+For more information about the available roles, see [Assigning administrator roles in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md). For more information about adding users, see [Add new users to Azure Active Directory](add-users-azure-active-directory.md).
 
-2. Select **Azure Active Directory**, select **Users**, and then select a specific user from the list.
+## Assign roles
+A common way to assign Azure AD roles to a user is on the **Directory role** page for a user.
 
-    ![Opening user management](./media/active-directory-users-assign-role-azure-portal/create-users-user-management.png)
+You can also assign roles using Privileged Identity Management (PIM). For more detailed information about how to use PIM, see [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management).
 
-3. For the selected user, select **Directory role**, select **Add role**, and then pick the appropriate admin roles from the **Directory roles** list, such as **Conditional access administrator**. For more information about administrative roles, see [Assigning administrator roles in Azure AD](../users-groups-roles/directory-assign-admin-roles.md). 
+### To assign a role to a user
+1. Sign in to the [Azure portal](https://portal.azure.com/) using a Global administrator account for the directory.
 
-    ![Assigning a user to a role](./media/active-directory-users-assign-role-azure-portal/create-users-assign-role.png)
+2. Select **Azure Active Directory**, select **Users**, and then search for and select the user getting the role assignment. For example, _Alain Charon_.
 
-1. Press **Select** to save.
+3. On the **Alain Charon - Profile** page, select **Directory role**.
+
+    The **Alain Charon - Directory role** page appears.
+
+4. Select **Add role**, select the role to assign to Alain (for example, _Application administrator_), and then choose **Select**.
+
+    ![Directory roles page, showing the selected role](media/active-directory-users-assign-role-azure-portal/directory-role-select-role.png)
+
+    The Application administrator role is assigned to Alain Charon and it appears on the **Alain Charon - Directory role** page.
+
+## Remove a role assignment
+If you need to remove the role assignment from a user, you can also do that from the **Alain Charon - Directory role** page.
+
+### To remove a role assignment from a user
+
+1. Select **Azure Active Directory**, select **Users**, and then search for and select the user getting the role assignment removed. For example, _Alain Charon_.
+
+2. Select **Directory role**, select **Application administrator**, and then select **Remove role**.
+
+    ![Directory roles page, showing the selected role and the remove option](media/active-directory-users-assign-role-azure-portal/directory-role-remove-role.png)
+
+    The Application administrator role is removed from Alain Charon and it no longer appears on the **Alain Charon - Directory role** page.
 
 ## Next steps
-* [Quickstart: Add or delete users in Azure Active Directory](add-users-azure-active-directory.md)
-* [Manage user profiles](active-directory-users-profile-azure-portal.md)
-* [Add guest users from another directory](../b2b/what-is-b2b.md) 
-* [Assign a user to a role in your Azure AD](active-directory-users-assign-role-azure-portal.md)
-* [Restore a deleted user](active-directory-users-restore.md)
+- [Add or delete users](add-users-azure-active-directory.md)
+
+- [Add or change profile information](active-directory-users-profile-azure-portal.md)
+
+- [Add guest users from another directory](../b2b/what-is-b2b.md)
+
+Or you can perform other user management tasks, such as assigning delegates, using policies, and sharing user accounts. For more information about other available actions, see [Azure Active Directory user management documentation](../users-groups-roles/index.yml).
+
+

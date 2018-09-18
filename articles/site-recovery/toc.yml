@@ -65,6 +65,10 @@
       href: azure-to-azure-architecture.md
     - name: Azure to Azure support matrix
       href: azure-to-azure-support-matrix.md
+    - name: Accelerated networking for Azure VM disaster recovery
+      href: azure-vm-disaster-recovery-with-accelerated-networking.md
+    - name: ExpressRoute with Azure VM disaster recovery
+      href: azure-vm-disaster-recovery-with-expressroute.md
   - name: VMware VMs and physical servers
     items:
     - name: Replication to Azure
@@ -135,10 +139,6 @@
         href: azure-to-azure-network-mapping.md
       - name: Set up IP addressing for failover
         href: site-recovery-retain-ip-azure-vm-failover.md
-      - name: Accelerated Networking with Azure VM disaster recovery
-        href: azure-vm-disaster-recovery-with-accelerated-networking.md
-      - name: ExpressRoute with Azure VM disaster recovery
-        href: azure-vm-disaster-recovery-with-expressroute.md
     - name: Disaster recovery
       items:
       - name: Disaster recovery of Azure VMs after migration to Azure
@@ -149,6 +149,8 @@
       items:
       - name: Enable Azure to Azure replication
         href: azure-to-azure-how-to-enable-replication.md
+      - name: Enable Azure to Azure replication for encrypted VMs
+        href: azure-to-azure-how-to-enable-replication-ade-vms.md
       - name: Reprotect from an Azure secondary region to primary
         href: azure-to-azure-how-to-reprotect.md
     - name: Troubleshooting

@@ -178,7 +178,7 @@ Save the json below as simplemetricalert.json for the purpose of this walk throu
 }
 ```
 
-An explanation of the schema and properties for an alert rule [is available here](https://docs.microsoft.com/en-us/rest/api/monitor/metricalerts/createorupdate).
+An explanation of the schema and properties for an alert rule [is available here](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate).
 
 You can set the values for the parameters either on the command line or through a parameter file. A sample parameter file is provided below. 
 
