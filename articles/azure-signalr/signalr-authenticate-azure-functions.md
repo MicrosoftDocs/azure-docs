@@ -64,8 +64,6 @@ You will build and test the Azure Functions app locally. The app will access a S
     | Resource group | Create a new resource group |
     | Location | Select a location close to you |
     | Pricing Tier | Free |
-
-    ![Create SignalR Service](media/signalr-authenticate-azure-functions/signalr-quickstart-create.png)
     
 1. Click **Create**.
 
