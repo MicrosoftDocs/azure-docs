@@ -131,7 +131,7 @@ Two variations of a multi-tenant database model are discussed in what follows, w
 
 ## F. Multi-tenant app with a single multi-tenant database
 
-The simplest multi-tenant database pattern uses a single single database to host data for all tenants.  As more tenants are added, the database is scaled up with more storage and compute resources.  This scale up might be all that is needed, although there is always an ultimate scale limit.  However, long before that limit is reached the database becomes unwieldy to manage.
+The simplest multi-tenant database pattern uses a single database to host data for all tenants.  As more tenants are added, the database is scaled up with more storage and compute resources.  This scale up might be all that is needed, although there is always an ultimate scale limit.  However, long before that limit is reached the database becomes unwieldy to manage.
 
 Management operations that are focused on individual tenants are more complex to implement in a multi-tenant database.  And at scale these operations might become unacceptably slow.  One example is a point-in-time restore of the data for just one tenant.
 
