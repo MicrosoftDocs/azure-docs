@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 9/14/2018
+ms.date: 9/18/2018
 ms.author: aanandr
 ms.custom: 
 
@@ -22,26 +22,7 @@ ms.custom:
 
 # Deploy the Azure Virtual Network container network interface plug-in
 
-The Azure Virtual Network container network interface (CNI) plug-in installs in an Azure virtual machine and brings virtual network capabilities to Kubernetes Pods and Docker containers. To learn more about the plug-in, see [Enable containers to use Azure Virtual Network capabilities](container-networking-overview.md). Alternatively, you can enable containers deployed with the Azure Kubernetes Service (AKS), using the [Advanced networking capability in AKS](../aks/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-
-## Download and install the plug-in
-
-Download the plug-in from [GitHub](https://github.com/Azure/azure-container-networking/releases). Download the latest version for the platform that you're using:
-
-- **Linux**: [azure-vnet-cni-linux-amd64-\<version no.\>.tgz](https://github.com/Azure/azure-container-networking/releases/download/v1.0.12-rc3/azure-vnet-cni-linux-amd64-v1.0.12-rc3.tgz)
-- **Windows**: [azure-vnet-cni-windows-amd64-\<version no.\>.zip](https://github.com/Azure/azure-container-networking/releases/download/v1.0.12-rc3/azure-vnet-cni-windows-amd64-v1.0.12-rc3.zip)
-
-Copy the install script for [Linux](https://github.com/Azure/azure-container-networking/blob/master/scripts/install-cni-plugin.sh) or [Windows](https://github.com/Azure/azure-container-networking/blob/master/scripts/Install-CniPlugin.ps1) to your computer. Save the script to a `scripts` directory on your computer and name the file `install-cni-plugin.sh` for Linux, or `install-cni-plugin.ps1` for Windows. To install the plug-in, run the appropriate script for your platform, specifying the version of the plug-in you are using. For example, you might specify *v1.0.12-rc3*:
-
-   ```bash
-   \$scripts/install-cni-plugin.sh [version]
-   ```
-
-   ```powershell
-   scripts\\ install-cni-plugin.ps1 [version]
-   ```
-
-The script installs the plug-in under `/opt/cni/bin` for Linux and `c:\cni\bin` for Windows. The installed plug-in comes with a simple network configuration file that works after installation. It doesn't need to be updated. To learn more about the settings in the file, see [CNI network configuration file](#cni-network-configuration-file).
+The Azure Virtual Network container network interface (CNI) plug-in installs in an Azure virtual machine and brings virtual network capabilities to Kubernetes Pods and Docker containers. To learn more about the plug-in, see [Enable containers to use Azure Virtual Network capabilities](container-networking-overview.md). Additionally, the plug-in can be used with the Azure Kubernetes Service (AKS) by choosing the [Advanced Networking](../aks/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) option, which automatically places AKS containers in a virtual network.
 
 ## Deploy plug-in for a Kubernetes cluster
 
@@ -73,7 +54,7 @@ After completing the previous steps, Pods brought up on the Kubernetes Agent vir
 
 ## Deploy plug-in for ACS-Engine Kubernetes cluster
 
-The ACS-Engine deploys a Kubernetes cluster with an Azure Resource Manager template. The cluster configuration is specified in a JSON file that is passed to the tool when generating the template. To learn more about the entire list of supported cluster settings and their descriptions, see [Microsoft Azure Container Service Engine - Cluster Definition](https://github.com/Azure/acs-engine/blob/master/docs/clusterdefinition.md). The plug-in is the default networking plug-in for clusters created using the ACS-Engine. The following network configuration settings are important when configuring the plug-in:
+The ACS-Engine deploys a Kubernetes cluster with an Azure Resource Manager template. The cluster configuration is specified in a JSON file that is passed to the tool when generating the template. To learn more about the entire list of supported cluster settings and their descriptions, see [Microsoft Azure Container Service Engine - Cluster Definition](https://github.com/Azure/acs-engine/blob/master/docs/clusterdefinition.md). The plug-in is the default networking plug-in for clusters created using the ACS-Engine, so you do not need to download the plug-in. The following network configuration settings are important when configuring the plug-in:
 
   | Setting                              | Description                                                                                                           |
   |--------------------------------------|------------------------------------------------------------------------------------------------------                 |
@@ -179,3 +160,22 @@ The CNI network configuration file is described in JSON format. It is, by defaul
 - **mode**: Operational mode. This field is optional. The only mode supported is "bridge".For more information, see [operational modes](https://github.com/Azure/azure-container-networking/blob/master/docs/network.md)
 - **bridge**: Name of the bridge that will be used to connect containers to a virtual network. This field is optional. If omitted, the plugin automatically picks a unique name, based on the master interface index.
 - **ipam type**: Name of the IPAM plug-in. Always set to *azure-vnet-ipam*.
+
+## Download and install the plug-in
+
+Download the plug-in from [GitHub](https://github.com/Azure/azure-container-networking/releases). Download the latest version for the platform that you're using:
+
+- **Linux**: [azure-vnet-cni-linux-amd64-\<version no.\>.tgz](https://github.com/Azure/azure-container-networking/releases/download/v1.0.12-rc3/azure-vnet-cni-linux-amd64-v1.0.12-rc3.tgz)
+- **Windows**: [azure-vnet-cni-windows-amd64-\<version no.\>.zip](https://github.com/Azure/azure-container-networking/releases/download/v1.0.12-rc3/azure-vnet-cni-windows-amd64-v1.0.12-rc3.zip)
+
+Copy the install script for [Linux](https://github.com/Azure/azure-container-networking/blob/master/scripts/install-cni-plugin.sh) or [Windows](https://github.com/Azure/azure-container-networking/blob/master/scripts/Install-CniPlugin.ps1) to your computer. Save the script to a `scripts` directory on your computer and name the file `install-cni-plugin.sh` for Linux, or `install-cni-plugin.ps1` for Windows. To install the plug-in, run the appropriate script for your platform, specifying the version of the plug-in you are using. For example, you might specify *v1.0.12-rc3*:
+
+   ```bash
+   \$scripts/install-cni-plugin.sh [version]
+   ```
+
+   ```powershell
+   scripts\\ install-cni-plugin.ps1 [version]
+   ```
+
+The script installs the plug-in under `/opt/cni/bin` for Linux and `c:\cni\bin` for Windows. The installed plug-in comes with a simple network configuration file that works after installation. It doesn't need to be updated. To learn more about the settings in the file, see [CNI network configuration file](#cni-network-configuration-file).
