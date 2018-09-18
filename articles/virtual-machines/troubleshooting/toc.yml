@@ -54,8 +54,16 @@
   items:
   - name: Linux VM
     href: serial-console-linux.md
+    items:
+    - name: Serial Console GRUB/Single user mode
+      href: serial-console-grub-single-user-mode.md
+    - name: Serial Console NMI/SysRq
+      href: serial-console-nmi-sysrq.md
   - name: Windows VM   
     href: serial-console-windows.md
+    items:
+    - name: CMD and PowerShell commands
+      href: serial-console-cmd-ps-commands.md
 - name: Errors when deleting storage resources
   href: storage-resource-deletion-errors.md      
 - name: Windows activation problems
@@ -90,3 +98,9 @@
       href: troubleshoot-recovery-disks-linux.md
     - name: Azure portal
       href: troubleshoot-recovery-disks-portal-linux.md
+- name: BitLocker errors 
+  href: troubleshoot-bitlocker-boot-error.md  
+- name: Checking file system errors
+  href: troubleshoot-check-disk-boot-error.md
+- name: Throttling errors
+  href: troubleshooting-throttling-errors.md

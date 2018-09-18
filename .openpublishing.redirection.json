@@ -1147,6 +1147,26 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/virtual-machines/windows/troubleshoot-bitlocker-boot-error.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/troubleshoot-bitlocker-boot-error",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/troubleshoot-check-disk-boot-error.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/troubleshoot-check-disk-boot-error.md",
+            "redirect_document_id": false
+        },	
+        {
+            "source_path": "articles/virtual-machines/linux/troubleshooting-throttling-errors.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/troubleshooting-throttling-errors",
+            "redirect_document_id": false
+        },
+	    {
+            "source_path": "articles/virtual-machines/windows/troubleshooting-throttling-errors.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/troubleshooting-throttling-errors",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/virtual-machines/linux/storage-resource-deletion-errors.md",
             "redirect_url": "/azure/virtual-machines/troubleshooting/storage-resource-deletion-errors",
             "redirect_document_id": false
