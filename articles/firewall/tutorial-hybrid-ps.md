@@ -35,6 +35,7 @@ There are three key requirements for this scenario to work correctly:
 - A User Defined Route on the spoke subnet that points to the Azure Firewall IP address as the default gateway. BGP route propagation must be **Disabled** on this route table.
 - A User Defined Route on the hub gateway subnet must point to the firewall IP address as the next hop to the spoke networks.
 - No User Defined Route is required on the Azure Firewall subnet, as it learns routes from BGP.
+- Make sure to set **AllowGatewayTransit** when peering VNet-Hub to VNet-Spoke and UseRemoteGateways when peering VNet-Spoke to VNet-Hub.
 
 See the [Create Routes](#create-routes) section in this tutorial to see how these routes are created.
 
@@ -128,18 +129,6 @@ $VNetSpoke = New-AzureRmVirtualNetwork -Name $VnetNameSpoke -ResourceGroupName $
 -Location $Location1 -AddressPrefix $VNetSpokePrefix -Subnet $Spokesub,$GWsubSpoke
 ```
 
-## Peer the hub and spoke VNets
-
-Now peer the spoke and hub VNets.
-
-```azurepowershell
-# Peer hub to spoke
-Add-AzureRmVirtualNetworkPeering -Name HubtoSpoke -VirtualNetwork $VNetHub -RemoteVirtualNetworkId $VNetSpoke.Id -AllowGatewayTransit
-
-# Peer spoke to hub
-Add-AzureRmVirtualNetworkPeering -Name SpoketoHub -VirtualNetwork $VNetSpoke -RemoteVirtualNetworkId $VNetHub.Id -AllowForwardedTraffic -UseRemoteGateways
-```
-
 ## Configure and deploy the firewall
 
 Now deploy the firewall into the hub VNet.
@@ -186,27 +175,6 @@ Set-AzureRmFirewall -AzureFirewall $Azfw
 
 ```
 
-## Create and configure the OnPrem VNet
-
-Define the subnets to be included in the VNet:
-
-```azurepowershell
-$Onpremsub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNNameOnprem -AddressPrefix $SNOnpremPrefix
-$GWOnpremsub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNnameGW -AddressPrefix $SNGWOnpremPrefix
-```
-
-Now, create the OnPrem VNet:
-
-```azurepowershell
-$VNetOnprem = New-AzureRmVirtualNetwork -Name $VNetnameOnprem -ResourceGroupName $RG1 `
--Location $Location1 -AddressPrefix $VNetOnpremPrefix -Subnet $Onpremsub,$GWOnpremsub
-```
-Request a public IP address to be allocated to the gateway you will create for the VNet. Notice that the *AllocationMethod* is **Dynamic**. You cannot specify the IP address that you want to use. It's dynamically allocated to your gateway. 
-
-  ```azurepowershell
-  $gwOnprempip = New-AzureRmPublicIpAddress -Name $GWOnprempipName -ResourceGroupName $RG1 `
-  -Location $Location1 -AllocationMethod Dynamic
-```
 ## Create and connect the VPN gateways
 
 The hub and OnPrem VNets are connected via a VPN gateways.
@@ -290,6 +258,39 @@ After the cmdlet finishes, view the values. In the following example, the connec
 "egressBytesTransferred": 4142431
 ```
 
+## Create and configure the OnPrem VNet
+
+Define the subnets to be included in the VNet:
+
+```azurepowershell
+$Onpremsub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNNameOnprem -AddressPrefix $SNOnpremPrefix
+$GWOnpremsub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNnameGW -AddressPrefix $SNGWOnpremPrefix
+```
+
+Now, create the OnPrem VNet:
+
+```azurepowershell
+$VNetOnprem = New-AzureRmVirtualNetwork -Name $VNetnameOnprem -ResourceGroupName $RG1 `
+-Location $Location1 -AddressPrefix $VNetOnpremPrefix -Subnet $Onpremsub,$GWOnpremsub
+```
+Request a public IP address to be allocated to the gateway you will create for the VNet. Notice that the *AllocationMethod* is **Dynamic**. You cannot specify the IP address that you want to use. It's dynamically allocated to your gateway. 
+
+  ```azurepowershell
+  $gwOnprempip = New-AzureRmPublicIpAddress -Name $GWOnprempipName -ResourceGroupName $RG1 `
+  -Location $Location1 -AllocationMethod Dynamic
+```
+
+## Peer the hub and spoke VNets
+
+Now peer the spoke and hub VNets.
+
+```azurepowershell
+# Peer hub to spoke
+Add-AzureRmVirtualNetworkPeering -Name HubtoSpoke -VirtualNetwork $VNetHub -RemoteVirtualNetworkId $VNetSpoke.Id -AllowGatewayTransit
+
+# Peer spoke to hub
+Add-AzureRmVirtualNetworkPeering -Name SpoketoHub -VirtualNetwork $VNetSpoke -RemoteVirtualNetworkId $VNetHub.Id -AllowForwardedTraffic -UseRemoteGateways
+```
 ## Create routes
 
 Next, create a couple routes: 
