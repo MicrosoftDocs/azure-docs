@@ -19,7 +19,7 @@ A PowerShell script is available to assist with developer debugging or support. 
 * Blockchain network, such as Ethereum
 * Blockchain Workbench microservices
 * Application Insights
-* Azure Monitoring (OMS)
+* Azure Monitoring (Log Analytics)
 
 You can use the information to determine next steps and determine root cause of issues. 
 
@@ -47,9 +47,9 @@ The script accepts the following parameters:
 | ResourceGroupName | Name of the Azure Resource Group where Blockchain Workbench has been deployed. | Yes |
 | OutputDirectory | Path to create the output .ZIP file. If not specified, defaults to the current directory. | No |
 | LookbackHours | Number of hours to use when pulling telemetry. Default value is 24 hours. Maximum value is 90 hours | No |
-| OmsSubscriptionId | The subscription ID where OMS is deployed. Only pass this parameter if the OMS for the blockchain network is deployed outside of Blockchain Workbench's resource group.| No |
-| OmsResourceGroup |The resource group where OMS is deployed. Only pass this parameter if the OMS for the blockchain network is deployed outside of Blockchain Workbench's resource group.| No |
-| OmsWorkspaceName | The OMS workspace name. Only pass this parameter if the OMS for the blockchain network is deployed outside of Blockchain Workbench's resource group | No |
+| OmsSubscriptionId | The subscription ID where Log Analytics is deployed. Only pass this parameter if the Log Analytics for the blockchain network is deployed outside of Blockchain Workbench's resource group.| No |
+| OmsResourceGroup |The resource group where Log Analytics is deployed. Only pass this parameter if the Log Analytics for the blockchain network is deployed outside of Blockchain Workbench's resource group.| No |
+| OmsWorkspaceName | The Log Analytics workspace name. Only pass this parameter if the Log Analytics for the blockchain network is deployed outside of Blockchain Workbench's resource group | No |
 
 ## What is collected?
 

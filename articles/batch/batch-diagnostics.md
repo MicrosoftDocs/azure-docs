@@ -79,7 +79,7 @@ Other optional destinations for diagnostic logs:
 
 * Stream Batch diagnostic log events to an [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md). Event Hubs can ingest millions of events per second, which you can then transform and store using any real-time analytics provider. 
 
-* Send diagnostic logs to [Azure Log Analytics](../log-analytics/log-analytics-overview.md), where you can analyze them in the Operations Management Suite (OMS) portal, or export them for analysis in Power BI or Excel.
+* Send diagnostic logs to [Azure Log Analytics](../log-analytics/log-analytics-overview.md), where you can analyze them or export them for analysis in Power BI or Excel.
 
 > [!NOTE]
 > You may incur additional costs to store or process diagnostic log data with Azure services. 
