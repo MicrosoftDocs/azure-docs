@@ -36,14 +36,16 @@ The last block of code uses [addEventListener](https://docs.microsoft.com/javasc
 
 Learn more about the classes and methods used in this article:
 
-* [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
-    * [addPins](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addpins)
-    * [addEventListener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addeventlistener)
-* [Popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)
-    * [setPopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#setpopupoptions)
-    * [open](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#open)
-    * [close](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#close)
+> [!div class="nextstepaction"]
+> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
 
-For more code examples to add to your maps, see the following articles:
-* [Add a shape](./map-add-shape.md)
-* [Add custom HTML](./map-add-custom-html.md)
+> [!div class="nextstepaction"]
+> [Popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)
+
+See the following great articles for full code samples:
+
+> [!div class="nextstepaction"]
+> [Add a shape](./map-add-shape.md)
+
+> [!div class="nextstepaction"]
+> [Add custom HTML](./map-add-custom-html.md)
