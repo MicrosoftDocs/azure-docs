@@ -19,9 +19,7 @@ You can get started with a small amount of data for a proof of concept. But the 
 
 ## Prerequisites
 
-The Text to Speech voice customization feature is currently in private preview. [Fill out the application form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0N8Vcdi8MZBllkZb70o6KdURjRaUzhBVkhUNklCUEMxU0tQMEFPMjVHVi4u) to be considered for access.
-
-You also need an Azure account and a subscription to the Speech service. [Create one](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started) if you haven't already. Connect your subscription to the Custom Voice portal as follows.
+You will need an Azure account and a subscription to the Speech service. [Create one](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started) if you haven't already. Connect your subscription to the Custom Voice portal as follows.
 
 1. Log on to the [Custom Voice portal](https://customvoice.ai) using the same Microsoft account you used to apply for access.
 
@@ -29,16 +27,13 @@ You also need an Azure account and a subscription to the Speech service. [Create
 
     ![Subscriptions](media/custom-voice/subscriptions.png)
 
-3. On the ‘Subscriptions’ page, choose ‘Connect existing subscription’.
+3. On the ‘Subscriptions’ page, choose ‘Connect existing subscription’. Note that Speech Services support different regions. Check the region where your subscription key has been created and make sure you connect your key to the correct sub-portal.  
 
 4. Paste your subscription key into the table, as shown below. Each subscription has two keys and you may use either of them.
 
      ![Add Subscription](media/custom-voice/add-subscription.png)
 
 You're ready to go!
-
-> [!IMPORTANT]
-> During the private preview stage, subscriptions must be whitelisted to use the Custom Voice feature. Follow the steps on the page to get your subscription whitelisted.
 
 ## Prepare recordings and transcripts
 
@@ -226,4 +221,4 @@ Voice customization is available for US English (en-US), mainland Chinese (zh-CN
 ## Next steps
 
 - [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
-- [Recognize speech in C#](quickstart-csharp-dotnet-windows.md)
+- [Record your voice samples](record-custom-voice-samples.md)
