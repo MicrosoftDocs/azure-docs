@@ -71,55 +71,7 @@ Complete the following steps to install the plug-in on every Azure virtual machi
 
 After completing the previous steps, Pods brought up on the Kubernetes Agent virtual machines are automatically assigned private IP addresses from the virtual network.
 
-## Deploy plug-in for Docker containers
-
-1. [Download and install the plug-in](#download-the-cni-plug-in).
-2. Create Docker containers with the following command:
-
-   ```
-   ./docker-run.sh \<container-name\> \<container-namespace\> \<image\>
-   ```
-
-The containers automatically start receiving IP addresses from the allocated pool. If you want to load balance traffic to the Docker containers, they must be placed behind a software load balancer, and you must configure a load balancer probe, the same way you create a policy and probes for a virtual machine.
-
-### CNI network configuration file
-
-The CNI network configuration file is described in JSON format. It is, by default, present in `/etc/cni/net.d` for Linux and `c:\cni\netconf` for Windows. The file specifies the configuration of the plug-in and is different for Windows and Linux. The json that follows is a sample Linux configuration file, followed by an explanation of the settings. You don't need to make any changes to the file:
-
-```json
-{
-	   "cniVersion":"0.3.0",
-	   "name":"azure",
-	   "plugins":[
-	      {
-	         "type":"azure-vnet",
-	         "mode":"bridge",
-	         "bridge":"azure0",
-	         "ipam":{
-	            "type":"azure-vnet-ipam"
-	         }
-	      },
-	      {
-	         "type":"portmap",
-	         "capabilities":{
-	            "portMappings":true
-	         },
-	         "snat":true
-	      }
-	   ]
-}
-```
-
-#### Settings explanation
-
-- **cniVersion**: The Azure Virtual Network CNI plug-ins support versions 0.3.0 and 0.3.1 of the [CNI spec](https://github.com/containernetworking/cni/blob/master/SPEC.md).
-- **name**: Name of the network. This property can be set to any unique value.
-- **type**: Name of the network plug-in. Set to *azure-vnet*.
-- **mode**: Operational mode. This field is optional. The only mode supported is "bridge".For more information, see [operational modes](https://github.com/Azure/azure-container-networking/blob/master/docs/network.md)
-- **bridge**: Name of the bridge that will be used to connect containers to a virtual network. This field is optional. If omitted, the plugin automatically picks a unique name, based on the master interface index.
-- **ipam type**: Name of the IPAM plug-in. Always set to *azure-vnet-ipam*.
-
-## Example configuration
+### Example configuration
 
 The json example that follows is for a cluster with the following properties:
 -	1 Master node and 2 Agent nodes 
@@ -167,3 +119,50 @@ The json example that follows is for a cluster with the following properties:
   }
 }
 ```
+## Deploy plug-in for Docker containers
+
+1. [Download and install the plug-in](#download-the-cni-plug-in).
+2. Create Docker containers with the following command:
+
+   ```
+   ./docker-run.sh \<container-name\> \<container-namespace\> \<image\>
+   ```
+
+The containers automatically start receiving IP addresses from the allocated pool. If you want to load balance traffic to the Docker containers, they must be placed behind a software load balancer, and you must configure a load balancer probe, the same way you create a policy and probes for a virtual machine.
+
+### CNI network configuration file
+
+The CNI network configuration file is described in JSON format. It is, by default, present in `/etc/cni/net.d` for Linux and `c:\cni\netconf` for Windows. The file specifies the configuration of the plug-in and is different for Windows and Linux. The json that follows is a sample Linux configuration file, followed by an explanation for some of the key settings. You don't need to make any changes to the file:
+
+```json
+{
+	   "cniVersion":"0.3.0",
+	   "name":"azure",
+	   "plugins":[
+	      {
+	         "type":"azure-vnet",
+	         "mode":"bridge",
+	         "bridge":"azure0",
+	         "ipam":{
+	            "type":"azure-vnet-ipam"
+	         }
+	      },
+	      {
+	         "type":"portmap",
+	         "capabilities":{
+	            "portMappings":true
+	         },
+	         "snat":true
+	      }
+	   ]
+}
+```
+
+#### Settings explanation
+
+- **cniVersion**: The Azure Virtual Network CNI plug-ins support versions 0.3.0 and 0.3.1 of the [CNI spec](https://github.com/containernetworking/cni/blob/master/SPEC.md).
+- **name**: Name of the network. This property can be set to any unique value.
+- **type**: Name of the network plug-in. Set to *azure-vnet*.
+- **mode**: Operational mode. This field is optional. The only mode supported is "bridge".For more information, see [operational modes](https://github.com/Azure/azure-container-networking/blob/master/docs/network.md)
+- **bridge**: Name of the bridge that will be used to connect containers to a virtual network. This field is optional. If omitted, the plugin automatically picks a unique name, based on the master interface index.
+- **ipam type**: Name of the IPAM plug-in. Always set to *azure-vnet-ipam*.
