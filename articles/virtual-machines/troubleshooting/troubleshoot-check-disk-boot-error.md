@@ -44,4 +44,4 @@ Windows will boot normally after the Check Disk process is completed. If the VM 
 3.	On the recovery VM, run Check Disk on the attached OS disk. In the following sample, the driver letter of the attached OS disk is E: 
         
         chkdsk E: /f
-4.	After the Check Disk completes, detach the disk from the recovery VM, and then re-attach the disk to the affected VM as an OS disk. For more information, see [Troubleshoot a Windows VM by attaching the OS disk to a recovery VM](.\troubleshoot-recovery-disks-portal.md).
+4.	After the Check Disk completes, detach the disk from the recovery VM, and then re-attach the disk to the affected VM as an OS disk. For more information, see [Troubleshoot a Windows VM by attaching the OS disk to a recovery VM](troubleshoot-recovery-disks-portal-windows.md).
