@@ -18,7 +18,7 @@ ms.date: 09/16/2018
 ms.author: anithaa
 ---
 
-# Create, change or delete service endpoint policy using the Azure portal
+# Create, change, or delete service endpoint policy using the Azure portal
 
 Service endpoint policies enable you to filter virtual network traffic to specific Azure resources, over service endpoints. If you're not familiar with service endpoint policies, see [service endpoint policies overview](virtual-network-service-endpoint-policies-overview.md) to learn more.
 
@@ -58,11 +58,11 @@ Sign in to the Azure portal at http://portal.azure.com.
 
    Click **+ Add a resource**,  enter, or select, the following information, accept the default for the remaining settings and click **Add**.
   
-   Click **+ Add a resource** to conitnue adding more resources.
+   Click **+ Add a resource** to continue adding more resources.
    
    
    
-   Scope          : Select **Single Account** or **All accounts in  subscription** or **All accounts in resourcegroup**. 
+   Scope          : Select **Single Account** or **All accounts in  subscription** or **All accounts in resource group**. 
    
    Subscription   : Select your subscription for storage account. Policy and storage accounts can be in different subscriptions.
    
@@ -75,7 +75,7 @@ Sign in to the Azure portal at http://portal.azure.com.
    ![Create service endpoint policy definitions](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-create-policydefinitionspane.PNG)
    
 
-5. Optional: Enter or select, the following infomration in **Tabs**
+5. Optional: Enter or select, the following information in **Tabs**
    
      Key    : Select your key for the policy. Ex: Dept 
      
@@ -111,7 +111,7 @@ Sign in to the Azure portal at http://portal.azure.com.
 
 >[!WARNING] Ensure that all the resources accessed from the subnet, for the selected service, are added to the policy before associating the policy. Once the policy is associated, only access to the resources listed in the policy will be allowed, for endpoint regions for the service. 
 
-Before you can associate a policy to a subnet, you have to create a virtual network and subnet, then you can associate the route table to a subnet:
+Before you can associate a policy to a subnet, you have to create a virtual network and subnet, then you can associate the policy to the subnet:
 
 1. Select **+ Create a resource** on the upper, left corner of the Azure portal.
 2. Select **Networking**, and then select **Virtual network**.
@@ -121,7 +121,7 @@ Before you can associate a policy to a subnet, you have to create a virtual netw
      
      Address space  : 10.0.0.0/16 
      
-     Subscription   : Select your subscription. Policy should be in the same subscripton as the VNet.
+     Subscription   : Select your subscription. Policy should be in the same subscription as the VNet.
      
      Resource group : Select **Use existing** and then select *myResourceGroup*.
      
@@ -133,15 +133,15 @@ Before you can associate a policy to a subnet, you have to create a virtual netw
      
 4. In the **Search resources, services, and docs** box at the top of the portal, begin typing *myVirtualNetwork*. When **myVirtualNetwork** appears in the search results, select it.
 5. Under **SETTINGS**, select **Subnets** and then select **private**.
-9. As shown in the following picture, select **Service endpoints**, select **Microsoft.Storage**, select **Service endpoint policies** , select **myEndpointPolicy** and then select **Save**:
+9. As shown in the following picture, select **Service endpoints**, select **Microsoft.Storage**, select **Service endpoint policies**, select **myEndpointPolicy**, and then select **Save**:
 
-  ![Associate Poilcy](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-associatepolicies.PNG)
+  ![Associate Policy](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-associatepolicies.PNG)
 
->[!WARNING] Access to service resources in other regions will be allowed from this subnet, based on Network Security Groups (NSGs). To restrict access to only endpoint regions, limit NSGs to only service traffic in endpoint regions. For more information on how to create NSGs with service tags per region, refer to [NSG Azure service tags](manage-network-security-group.md?toc=%2fcreate-a-security-rule%2f.json)
+>[!WARNING] Access to service resources in other regions will be allowed from this subnet, based on Network Security Groups (NSGs). To restrict access to only endpoint regions, limit NSGs to only service traffic in endpoint regions. For more information on how to create NSGs with service tags per region, see [NSG Azure service tags.](manage-network-security-group.md?toc=%2fcreate-a-security-rule%2f.json)
 
 In the example below, NSG is restricted to access only Azure Storage resources in WestCentralUS and WestUS2, with a "Deny all" rule as a lower-priority rule.
 
-  ![Denyall NSG](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-nsg-rules.PNG)
+  ![Deny all NSG](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-nsg-rules.PNG)
 
 
 ## Next steps
