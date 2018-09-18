@@ -93,6 +93,9 @@ General-purpose storage accounts may be configured for either of the following p
 * A standard storage performance tier for storing blobs, files, tables, queues, and Azure virtual machine disks.
 * A premium storage performance tier for storing Azure virtual machine disks only. See [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../../virtual-machines/windows/premium-storage.md) for an in-depth overview of Premium storage.
 
+> [!NOTE]
+> The [Premium access tier](../blobs/storage-blob-storage-tiers.md#premium-access-tier) is available in preview as a locally redundant storage (LRS) account in the North Europe, US East 2, US Central and US West regions.
+
 ## Access tiers for block blob data
 
 Azure Storage provides different options for accessing block blob data based on usage patterns. Each access tier in Azure Storage is optimized for a particular pattern of data usage. By selecting the right access tier for your needs, you can store your block blob data in the most cost-effective manner.
