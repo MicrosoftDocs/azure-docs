@@ -48,8 +48,11 @@ From a browser, navigate to the [Azure portal](https://portal.azure.com) and sig
 
 ## <a name="hub"></a>3. Create a hub
 
-[!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-hub-include.md)]
+> [!NOTE]
+> Don't select the setting "Include point-to-site gateway"" in this step.
+>
 
+[!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-hub-include.md)]
 
 ## <a name="site"></a>4. Create a P2S configuration
 
@@ -57,12 +60,13 @@ A P2S configuration defines the parameters for connecting remote clients.
 
 1. Navigate to **All resources**.
 2. Click the virtual WAN that you created.
-3. Click **+New point-to-site configuration** at the top of the page to open the **Create new point-to-site configuration** page.
-4. On the **Create new point-to-site configuration** page, fill in the following fields:
+3. Under **Virtual WAN architecture**, click **Point-to-site configurations**.
+4. Click **+Add point-to-site config** at the top of the page to open the **Create new point-to-site configuration** page.
+5. On the **Create new point-to-site configuration** page, fill in the following fields:
 
   *  **Configuration name** - This is the name by which you want to refer to your configuration.
-  *  **Address pool** - This is the IP address pool that the clients will be assigned Is from.
   *  **Tunnel type** - The protocol to use for the tunnel.
+  *  **Address pool** - This is the IP address pool that the clients will be assigned Is from.
   *  **Root Certificate Name** - A descriptive name for the certificate.
   *  **Root Certificate Data** - Base-64 encoded X.509 certificate data.
 
