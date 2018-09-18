@@ -12,11 +12,11 @@ ms.author: cherylmc
 ---
 # ExpressRoute monitoring, metrics, and alerts
 
-Azure Monitor is one stop shop for all metrics, alerting, diagnostic logs across all of Azure. Use the following screenshots to better understand monitoring.
-
-Click on the ExpressRoute page for the circuit that you want to monitor. Under **Monitoring** you can can view the **Metrics**.
+ This article helps you understand ExpressRoute monitoring, metrics, and alerts. Azure Monitor is one stop shop for all metrics, alerting, diagnostic logs across all of Azure.
 
 ## Circuit metrics
+
+To navigate to **Metrics**, click the ExpressRoute page for the circuit that you want to monitor. Under **Monitoring** you can can view the **Metrics**.
 
 ![circuit metrics](./media/expressroute-monitoring-metrics-alerts/ermetricspeering.jpg)
 
