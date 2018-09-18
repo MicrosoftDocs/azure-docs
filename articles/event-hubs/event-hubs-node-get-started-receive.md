@@ -46,7 +46,7 @@ Download or clone the [sample](https://github.com/Azure/azure-event-hubs-node/tr
 Install the EventProcessorHost for Event Hubs module. 
 
 ```nodejs
-npm install azure-event-processor-host
+npm install @azure/event-processor-host
 ```
 
 ## Receive events using EventProcessorHost
