@@ -10,7 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 09/22/2018
 ---
 
 # Migrate SQL Server to Azure SQL Database offline using DMS

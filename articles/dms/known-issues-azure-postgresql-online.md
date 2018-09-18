@@ -10,7 +10,7 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 09/22/2018
 ---
 
 # Known issues/migration limitations with online migrations to Azure DB for PostgreSQL
@@ -18,7 +18,7 @@ ms.date: 09/24/2018
 Known issues and limitations associated with online migrations from PostgreSQL to Azure Database for PostgreSQL are described in the following sections. 
 
 ## Online migration configuration
-- The source PostgreSQL Server must be running version 9.5.11, 9.6.7, or 10.3 or later. For more information, see the article [Supported PostgreSQL Database Versions](1.2.%09https:/docs.microsoft.com/en-us/azure/postgresql/concepts-supported-versions).
+- The source PostgreSQL Server must be running version 9.5.11, 9.6.7, or 10.3 or later. For more information, see the article [Supported PostgreSQL Database Versions](1.2.%09https:/docs.microsoft.com/azure/postgresql/concepts-supported-versions).
 - Only same version migrations are supported. For example, migrating PostgreSQL 9.5.11 to Azure Database for PostgreSQL 9.6.7 is not supported.
 - To enable logical replication in the **source PostgreSQL postgresql.conf** file, set the following parameters:
     - **wal_level** = logical
@@ -99,7 +99,7 @@ Large Object (LOB) columns are columns that can grow large. For PostgreSQL, exam
 
     **Workaround**: Temporarily set a primary key for the table for migration to proceed. You can remove the primary key after data migration is complete.
 
-## PostgreSQL10 Workaround
+## PostgreSQL10 workaround
 PostgreSQL 10.x makes various changes to pg_xlog folder names and hence causing migration not running as expected. If you're migrating from PostgreSQL 10.x to Azure Database for PostgreSQL 10.3, execute the following script on the source PostgreSQL database to create wrapper function around pg_xlog functions.
 
 ```

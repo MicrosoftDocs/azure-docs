@@ -10,7 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 09/22/2018
 ---
 
 # Migrate PostgreSQL to Azure Database for PostgreSQL online using DMS
@@ -50,7 +50,7 @@ To complete this tutorial, you need to:
      
        To download the CLI, follow the instructions in the article [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). The article also lists the platforms that support CLI 2.0.
          
-       To set up Windows Subsystem for Linux (WSL), follow the instructions in the [Windows 10 Installation Guide](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
+       To set up Windows Subsystem for Linux (WSL), follow the instructions in the [Windows 10 Installation Guide](https://docs.microsoft.com/windows/wsl/install-win10)
  
 - Enable logical replication in the postgresql.config file, and set the following parameters:
     - wal_level = **logical**
@@ -129,7 +129,7 @@ To complete all the database objects like table schemas, indexes and stored proc
 
 6.	If there are ENUM data type in any tables, it is recommended that you temporarily update it to a ‘character varying’ datatype in the target table. After data replication is done, revert the datatype to ENUM.
 
-## Provisioning an instance of the Database Migration Service using the CLI
+## Provisioning an instance of DMS using the CLI
 
 1.	Install the dms sync extension:
     - Sign in to Azure by running the following command:        
