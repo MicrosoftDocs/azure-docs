@@ -42,7 +42,7 @@
       href: documentation-government-manage-marketplace.md
 - name: How-to guides
   items: 
-  - name: Deploy with Azure pipelines
+  - name: Deploy with Azure Pipelines
     href: connect-with-azure-pipelines.md
   - name: Use Visual Studio
     href: documentation-government-get-started-connect-with-vs.md

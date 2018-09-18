@@ -1,6 +1,6 @@
 ﻿---
-title: Connect to Azure Government from Azure DevOps Services | Microsoft Docs
-description: Information on configuring continuous deployment to your applications hosted with a subscription in Azure Government by connecting from global Azure DevOps Services.
+title: Connect to Azure Government from Azure DevOps Service | Microsoft Docs
+description: Information on configuring continuous deployment to your applications hosted with a subscription in Azure Government by connecting from global Azure DevOps Service.
 services: azure-government
 cloud: gov
 documentationcenter: ''
@@ -17,21 +17,21 @@ ms.date: 9/18/18
 ms.author: yujhong
 
 ---
-# Deploy an app in Azure Government using global Azure Pipelines
+# Deploy an app in Azure Government with global Azure Pipelines
 
-The tutorial below will help you set up continuous deployment to your web app running in Azure Government using Azure DevOps Services.
+The tutorial below will help you set up continuous deployment to your web app running in Azure Government using Azure DevOps Service.
 Continuous deployment (CD) means starting an automated deployment process whenever a code change is made to your application or whenever a new successful build is available. 
-Azure DevOps Services is used by teams to configure continuous deployment for their applications hosted in their Azure subscriptions.
-Refer to [this tutorial](https://docs.microsoft.com/azure/devops/pipelines/get-started-yaml?view=vsts) for an overview of CI/CD with Azure DevOps Services.
+Azure DevOps Service is used by teams to configure continuous deployment for their applications hosted in their Azure subscriptions.
+Refer to [this tutorial](https://docs.microsoft.com/azure/devops/pipelines/get-started-yaml?view=vsts) for an overview of CI/CD with Azure DevOps Service.
 
 [Azure Pipelines](https://docs.microsoft.com/vsts/build-release/overview) is a service that enables continuous deployment for various applications. We can use this service for applications running in Azure Government by defining [service endpoints](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints?view=vsts) for Azure Government. 
 
 > [!NOTE]
-> Azure DevOps Services is not available in Azure Government Clouds. This tutorial highlights how to configure a CI/CD pipeline in a global Azure account to deploy apps to Azure Government clouds, artifact storage, build, and (or) deployment orchestration for the app that would execute outside the government cloud.   
+> Azure DevOps Service is not available in Azure Government Clouds. This tutorial highlights how to configure a CI/CD pipeline in a global Azure account to deploy apps to Azure Government clouds, artifact storage, build, and (or) deployment orchestration for the app that would execute outside the government cloud.   
 > 
 > 
 
-To learn more about Azure DevOps Services, click [here](https://docs.microsoft.com/azure/devops/user-guide/what-is-vsts?view=vsts). 
+To learn more about Azure DevOps Service, click [here](https://docs.microsoft.com/azure/devops/user-guide/what-is-vsts?view=vsts). 
 
 ## Prerequisites
 
@@ -62,7 +62,7 @@ AzureUSGovernment." This sets the service principal to be created in Azure Gover
 
     ```Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass```
 
-    When you are asked whether you want to change the execution policy, enter **A** (Yes to All).
+    When you are asked whether you want to change the execution policy, enter "A" (for "Yes to All").
 
 4. Navigate to the directory that has the edited script above. 
 5. Edit the following command with the name of your script and run:
@@ -127,8 +127,8 @@ Now that your pipeline has been constructed, you can [deploy changes](https://do
 ## Q&A
 * Do I need a build agent?
 You need at least one [agent](https://www.visualstudio.com/en-us/docs/build/concepts/agents/agents) to run your deployments. By default, the build and deployment processes are configured to use the [hosted agents](https://www.visualstudio.com/en-us/docs/build/concepts/agents/hosted). Configuring a private agent would limit data sharing outside of Azure Government.
-* I use Azure DevOps Services on-premises. Can I configure CD on my Server to target Azure Government?
-Currently, Azure DevOps Services cannot be used to deploy to an Azure Government Cloud. This capability will be added in the next update of Azure DevOps Services.
+* I use Azure DevOps Service on-premises. Can I configure CD on my Server to target Azure Government?
+Currently, Azure DevOps Service cannot be used to deploy to an Azure Government Cloud. This capability will be added in the next update of Azure DevOps Service.
 
 ## Next steps
 * Subscribe to the [Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/)
