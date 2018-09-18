@@ -7,7 +7,7 @@ manager: jpconnock
 
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 7/11/2018
+ms.date: 09/24/2018
 ms.author: victorh
 ms.custom: mvc
 #Customer intent: As an administrator, I want to deploy and configure Azure Firewall so that I can control outbound access from resources located in a subnet.
@@ -210,8 +210,10 @@ For the **Workload-SN** subnet, you configure the outbound default route to go t
 10. For **Target FQDNS**, type **github.com**
 11. Click **Add**.
 
-
 Azure Firewall includes a built-in rule collection for infrastructure FQDNs that are allowed by default. These FQDNs are specific for the platform and can't be used for other purposes. For more information, see [Infrastructure FQDNs](infrastructure-fqdns.md).
+
+>[!Note:]
+> FQDN Tags can currently be configured with Azure PowerShell and REST only. Click [here](https://aka.ms/firewallapplicationrule) to learn more. 
 
 ## Configure network rules
 
