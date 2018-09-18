@@ -1,17 +1,18 @@
 ---
-title: Computer Vision C# tutorial | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
-description: Connect to Cognitive Services Computer Vision from an ASP.NET Core web application.
+title: "Tutorial: Computer Vision C#"
+titleSuffix: "Azure Cognitive Services"
+description: Connect to the Computer Vision API from an ASP.NET Core web application.
 services: cognitive-services
 author: ghogen
-manager: douge
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: conceptual
+ms.topic: Tutorial
 ms.date: 03/01/2018
 ms.author: ghogen
 ---
-# Connecting to Cognitive Services Computer Vision API by using Connected Services in Visual Studio
+# Use Connected Services in Visual Studio to connect to the Computer Vision API
 
 By using the Cognitive Services Computer Vision API, you can extract rich information to categorize and process visual data, and perform machine-assisted moderation of images to help curate your services.
 
