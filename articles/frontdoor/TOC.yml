@@ -20,6 +20,8 @@
     href: front-door-backend-pool.md
   - name: DDoS protection and application layer security
     href: front-door-ddos-security.md
+  - name: Load-balancing with Azure’s application delivery suite
+    href: front-door-lb-with-azure-app-delivery-suite.md
   - name: Routing architecture
     href: front-door-routing-architecture.md
   - name: Traffic routing methods
@@ -36,6 +38,8 @@
     href: front-door-http2.md
   - name: HTTP headers protocol support
     href: front-door-http-headers-protocol.md
+  - name: Monitoring
+    href: front-door-diagnostics.md
 - name: Resources
   items:
   - name: Azure Roadmap

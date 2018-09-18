@@ -78,6 +78,9 @@ Next, you need to configure your application backend(s) in a backend pool for Fr
 Lastly, click the '+' icon on Routing rules to configure a routing rule. This is needed to map your frontend host to the backend pool, which basically is configuring that if a request comes to `myappfrontend.azurefd.net`, then forward it to the backend pool `myBackendPool`. 
 Click **Add** to add the routing rule for your Front Door. You should now be good to creating the Front Door and so click on **Review and Create**.
 
+>[!WARNING]
+> You **must** ensure that each of the frontend hosts in your Front Door has a routing rule with a default path ('/\*') associated with it. That is, across all of your routing rules there must be at least one routing rule for each of your frontend hosts defined at the default path ('/\*'). Failing to do so, may result in your end-user traffic not getting routed correctly.
+
 ## View Front Door in action
 Once you create a Front Door, it will take a few minutes for the configuration to be deployed globally everywhere. Once complete, access the frontend host you created, that is, go to a web browser and hit the URL `myappfrontend.azurefd.net`. Your request will automatically get routed to the nearest backend to you from the specified backends in the backend pool. 
 

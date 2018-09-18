@@ -14,9 +14,10 @@ ms.author: sharadag
 ---
 
 # DDoS protection and application layer security with Front Door
-Azure Front Door Service provides web application protection capability to safeguard your web applications from DDoS network attacks and common web vulnerabilities exploits like SQL Injection or Cross Site scripting (XSS). Enabled for http(s) front-ends, Front Door's application layer security is globally distributed and always on, stopping malicious attacks at Azure's network edge, far away from your backends. With added security and performance optimization, Front Door delivers fast and secure web experiences to your end users.
+Azure Front Door Service provides web application protection capability to safeguard your web applications from DDoS network attacks and common web vulnerabilities exploits like SQL Injection or Cross Site Scripting (XSS). Enabled for http(s) front-ends, Front Door's application layer security is globally distributed and always on, stopping malicious attacks at Azure's network edge, far away from your backends. With added security and performance optimization, Front Door delivers fast and secure web experiences to your end users.
 
-Front Door's application layer security is configured on each edge environment around the globe, in line with applications, and automatically blocks non-http(s) traffic from reaching your web applications. Our multi-tenant distributed architecture enables global protection at scale without sacrificing performance. For http(s) workloads, Azure Front Door web application protection service provides a rich rules engine for custom rules, pre-configured ruleset against common attacks, and detailed logging for all requests that matches a rule. Flexible actions including allow, block, or log only are supported.
+##DDoS protection
+Front Door's application protection is configured on each edge environment around the globe, in line with applications, and automatically blocks non-http(s) traffic from reaching your web applications. Our multi-tenant distributed architecture enables global protection at scale without sacrificing performance. For http(s) workloads, Front Door's web application protection service provides a rich rules engine for custom rules, pre-configured ruleset against common attacks, and detailed logging for all requests that matches a rule. Flexible actions including allow, block, or log only are supported.
 
 ## Custom access control rules
 - **IP Blacklists and whitelists:** You may configure custom rules to control access to your web applications based on list of client IP addresses. Both IP v4 and IP v6 are supported
@@ -37,9 +38,7 @@ Front Door's application layer security is configured on each edge environment a
 
 
 ## Monitoring
-- Front Door provides the ability to monitor web applications against attacks using real-time metrics that are integrated with Azure Monitor to track alerts and easily monitor trends. 
-- The JSON formatted log goes directly to the customer’s storage account. Customers have full control over these logs and can apply their own retention policies. Customers can also ingest these logs into their own analytics system.
-- Application security logs are also integrated with Operations Management Suite (OMS) so customers can use OMS log analytics to execute sophisticated fine grained queries.
+Front Door provides the ability to monitor web applications against attacks using real-time metrics that are integrated with Azure Monitor to track alerts and easily monitor trends.
 
 ## Pricing
 Front Door's application layer security is free during the preview.
