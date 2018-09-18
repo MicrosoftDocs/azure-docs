@@ -37,8 +37,6 @@ Verify that you have met the following criteria:
 5. Verify that you have 2 VNets already created. These will be used as spoke VNets. For this article, the VNet spoke address spaces are 10.0.2.0/24 and 10.0.3.0/24. If you need information on how to create a VNet, see [Create a virtual network using PowerShell](../virtual-network/quick-create-powershell.md).
 6. Ensure there are no virtual network gateways in any VNets.
 
-![Virtual WAN diagram](./media/virtual-wan-route-table/vwanroute.png)
-
 ## <a name="signin"></a>1. Sign in
 
 Make sure you install the latest version of the Resource Manager PowerShell cmdlets. For more information about installing PowerShell cmdlets, see [How to install and configure Azure PowerShell](/powershell/azure/overview). This is important because earlier versions of the cmdlets do not contain the current values that you need for this exercise.

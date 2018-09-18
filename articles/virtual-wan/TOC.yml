@@ -16,7 +16,7 @@
   items:
   - name: Configure automation - WAN Partners
     href: virtual-wan-configure-automation-providers.md
-  - name: Steer traffic from a virtual hub to an NVA
+  - name: Route traffic from a virtual hub to an NVA
     href: virtual-wan-route-table.md
 - name: Reference
   items:
