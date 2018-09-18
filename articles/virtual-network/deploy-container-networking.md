@@ -89,7 +89,7 @@ The json example that follows is for a cluster with the following properties:
 
 Complete the following steps to install the plug-in on every Azure virtual machine in a Kubernetes cluster:
 
-1. [Download and install the plug-in](#download-and-install-the-cni-plug-in).
+1. [Download and install the plug-in](#download-and-install-the-plug-in).
 2. Pre-allocate a virtual network IP address pool on every virtual machine from which IP addresses will be assigned to Pods. Every Azure virtual machine comes with a primary virtual network private IP address on each network interface. The pool of IP addresses for Pods is added as secondary addresses (*ipconfigs*) on the virtual machine network interface, using one of the following options:
 
    - **CLI**: [Assign multiple IP addresses using the Azure CLI](virtual-network-multiple-ip-addresses-cli.md)
@@ -115,7 +115,7 @@ After completing the previous steps, Pods brought up on the Kubernetes Agent vir
 
 ## Deploy plug-in for Docker containers
 
-1. [Download and install the plug-in](#download-the-cni-plug-in).
+1. [Download and install the plug-in](#download-the-plug-in).
 2. Create Docker containers with the following command:
 
    ```
