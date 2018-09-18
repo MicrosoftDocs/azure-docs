@@ -31,7 +31,7 @@ Once a package has been imported, it is listed on the **Python 2 packages** page
 ## Use a package in a runbook
 
 Once you have imported a package, you can now use it in a runbook. The following example uses the [
-Azure Automation utility package](https://github.com/azureautomation/azure_automation_utility). This package makes it easier to use Python with Azure Automation. To use the package, follow the instructions in the Github repository and add it to the runbook by using `from azure_automation_utility import get_automation_runas_credential` for example to import the function for retrieving the RunAs Account.
+Azure Automation utility package](https://github.com/azureautomation/azure_automation_utility). This package makes it easier to use Python with Azure Automation. To use the package, follow the instructions in the GitHub repository and add it to the runbook by using `from azure_automation_utility import get_automation_runas_credential` for example to import the function for retrieving the RunAs Account.
 
 ```python
 import azure.mgmt.resource
@@ -55,7 +55,7 @@ for group in groups:
 
 ## Develop and test runbooks offline
 
-To develop and test your Python 2 runbooks offline, you can use the [Azure Automation python emulated assets](https://github.com/azureautomation/python_emulated_assets) module on Github. This module allows you to reference your shared resources such as credentials, variables, connections, and certificates.
+To develop and test your Python 2 runbooks offline, you can use the [Azure Automation python emulated assets](https://github.com/azureautomation/python_emulated_assets) module on GitHub. This module allows you to reference your shared resources such as credentials, variables, connections, and certificates.
 
 ## Next steps
 
