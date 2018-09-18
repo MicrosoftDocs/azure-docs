@@ -1,5 +1,5 @@
 ---
-title: Connect an Amazon Web Services account to Cloudyn | Microsoft Docs
+title: Connect an Amazon Web Services account to Cloudyn in Azure | Microsoft Docs
 description: Connect an Amazon Web Services account to view cost and usage data in Cloudyn reports.
 services: cost-management
 keywords:
