@@ -88,9 +88,7 @@
       - name: As a CSP create and manage an application
         href: howto-create-and-manage-applications-as-CSP.md
       - name: Configure homepage
-        href: howto-configure-homepage.md
-      - name: Prepare and upload images
-        href: howto-prepare-images.md         
+        href: howto-configure-homepage.md         
 - name: Related
   items:
   - name: Solutions
