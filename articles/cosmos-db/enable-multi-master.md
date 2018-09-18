@@ -153,6 +153,6 @@ The following JSON code is an example Resource Manager template that you can use
 
 In this article, you learned how to enable multi-master support for Azure Cosmos DB accounts. Next, look at the following resources:
 
-* [using multi-master with open source NoSQL databases](multi-master-oss-nosql.md)
+* [Using multi-master with open source NoSQL databases](multi-master-oss-nosql.md)
 
 * [Understanding conflict resolution in Azure Cosmos DB](multi-master-conflict-resolution.md)
