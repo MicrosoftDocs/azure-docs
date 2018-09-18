@@ -41,21 +41,21 @@ Azure Data Explorer supports several ingestion methods, each with its own target
 
 Azure Data Explorer currently supports the Event Hub connector, which can be managed using the management wizard in the Azure portal. For more information, see [Quickstart: Ingest data from Event Hub into Azure Data Explorer](ingest-data-event-hub.md).
 
-### Programmatic ingestion​
+### Programmatic ingestion
 
 Azure Data Explorer provides SDKs that can be used for query and data ingestion. Programmatic ingestion is optimized for reducing ingestion costs (COGs), by minimizing storage transactions during and following the ingestion process.
 
 **Available SDKs and open source projects**:
 
-## SDKs and OSS components
-
 Kusto offers client SDK that can be used to ingest and query data with :
 
 * [Python SDK](https://docs.microsoft.com/azure/kusto/api/python/kusto-python-client-library)
 
+* [.NET SDK](https://docs.microsoft.com/azure/kusto/api/netfx/about-the-sdk)
+
 * [Java SDK](https://docs.microsoft.com/azure/kusto/api/java/kusto-java-client-library)
 
-* [REST API](https://docs.microsoft.com/azure/kusto/api/rest)
+* [REST API](https://docs.microsoft.com/azure/kusto/api/netfx/kusto-ingest-client-rest)
 
 **Programmatic ingestion techniques**:
 
@@ -69,7 +69,7 @@ Kusto offers client SDK that can be used to ingest and query data with :
 
 * Ingesting data through the Azure Data Explorer data management service (high-throughput and reliable ingestion)
 
-  * [**Queued ingestion**](https://docs.microsoft.com/azure/kusto/api/netfx/about-kusto-ingest?branch=master#queued-ingestion) (provided by SDK): the client uploads the data to Azure Blob storage (designated by the Azure Data Explorer data management service) and posts a notification to an Azure Queue. This is the recommended technique for high-volume, reliable, and cheap  data ingestion.
+  * [**Batch ingestion**](https://docs.microsoft.com/azure/kusto/api/netfx/kusto-ingest-queued-ingest-sample) (provided by SDK): the client uploads the data to Azure Blob storage (designated by the Azure Data Explorer data management service) and posts a notification to an Azure Queue. This is the recommended technique for high-volume, reliable, and cheap  data ingestion.
 
 **Latency of different methods**:
 

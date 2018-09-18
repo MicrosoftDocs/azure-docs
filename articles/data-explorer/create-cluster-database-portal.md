@@ -28,9 +28,15 @@ You create an Azure Data Explorer cluster in an Azure resource group, with a def
 
 1. Select the **Create a resource** button (+) in the upper-left corner of the  portal.
 
-1. Select **Databases** > **Data Explorer**.
+1. Search for *Azure Data Explorer*, then select **Azure Data Explorer**.
 
-   ![Create cluster option](media/create-cluster-database-portal/create-cluster.png)
+   ![Search resources](media/create-cluster-database-portal/search-resources.png)
+
+1. In the lower-right corner, select **Create**.
+
+1. Enter a unique name for your cluster, select your subscription, and create a resource group named *test-resource-group*.
+
+    ![Create resource group](media/create-cluster-database-portal/create-resource-group.png)
 
 1. Fill out the form with the following information.
 
@@ -42,22 +48,22 @@ You create an Azure Data Explorer cluster in an Azure resource group, with a def
     | Subscription | Your subscription | Select the Azure subscription that you want to use for your cluster.|
     | Resource group | *test-resource-group* | Create a new resource group. |
     | Location | *West US* | Select *West US* for this quickstart. For a production system, select the region that best meets your needs.
-    | Compute specification | *D13 v2* | Select the lowest price specification for this quickstart. For a production system, select the specification that best meets your needs.
+    | Compute specification | *D13_v2* | Select the lowest price specification for this quickstart. For a production system, select the specification that best meets your needs.
     | | |
 
-1. Select **Create** to provision the cluster. Provisioning typically takes about ten minutes.
+1. Select **Create** to provision the cluster. Provisioning typically takes about ten minutes. Select **Notifications** on the toolbar (the bell icon) to monitor the provisioning process.
 
-1. Select **Notifications** on the toolbar (the bell icon) to monitor the provisioning process.
+1. When the process is complete, select **Notifications**, then **Go to resource**.
 
-1. When the process is complete, select the **Overview** tab. You're now ready for the second step in the process: database creation.  
-
-    ![Step two: create a database](media/create-cluster-database-portal/database-creation.png)
+    ![Go to resource](media/create-cluster-database-portal/notification-resource.png)
 
 ## Create a database
 
-Create a database within the cluster to hold sample data.
+You're now ready for the second step in the process: database creation.
 
 1. On the **Overview** tab, select **Create database**.
+
+    ![Step two: create a database](media/create-cluster-database-portal/database-creation.png)
 
 1. Fill out the form with the following information.
 
@@ -70,11 +76,25 @@ Create a database within the cluster to hold sample data.
     | Cache period | *31* | The time span for which to keep frequently-queried data available in SSD storage or RAM, rather than in longer-term storage.
     | | | |
 
-1. Select **Save** to create the database. Creation typically takes less than a minute.
+1. Select **Save** to create the database. Creation typically takes less than a minute. When the process is complete, you're back on the cluster **Overview** tab.
 
-1. When the process is complete, select the **Overview** tab. You're now ready for the third step in the process: data ingestion.  
+## Run basic commands in the database
 
-    ![Step three: ingest data](media/create-cluster-database-portal/data-ingestion.png)
+Now that you have a cluster and database, you can run queries and commands. You don't have any data in the database yet, but you can still see how the tools work.
+
+1. Under your cluster, select **Query**.
+
+    ![Database query](media/create-cluster-database-portal/query-database.png)
+
+1. Paste the following command into the query window: `.show databases`, then select **Run**.
+
+    ![Show databases command](media/create-cluster-database-portal/show-databases.png)
+
+    The result set shows **TestDatabase**, the only database in the cluster.
+
+1. Paste the following command into the query window: `.show tables`, then select that command in the window. Select **Run**.
+
+    This command returns an empty result set because you don't have any tables yet. You add a table in the next article in this series.
 
 ## Stop and restart the cluster
 
@@ -94,13 +114,11 @@ If you plan to follow our other quickstarts and tutorials, keep the resources yo
 
 1. In the Azure portal, select **Resource groups** on the far left, and then select the resource group you created.  
 
-    If the left menu is collapsed, select ![Expand button](../../includes/media/cosmos-db-delete-resource-group/expand.png) to expand it.
+    If the left menu is collapsed, select ![Expand button](media/create-cluster-database-portal/expand.png) to expand it.
 
-   ![Select resource group to delete](../../includes/media/cosmos-db-delete-resource-group/delete-resources-select.png)
+   ![Select resource group to delete](media/create-cluster-database-portal/delete-resources-select.png)
 
-1. In the new window, select the resource group, and then select **Delete resource group**.
-
-   ![Delete resource group](../../includes/media/cosmos-db-delete-resource-group/delete-resources.png)
+1. Under **test-resource-group**, select **Delete resource group**.
 
 1. In the new window, type the name of the resource group to delete (*test-resource-group*), and then select **Delete**.
 

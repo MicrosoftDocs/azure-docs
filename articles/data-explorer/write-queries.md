@@ -359,7 +359,7 @@ MyData
 
 The following query returns data for the last 12 hours.
 
-**\[**[**Click to run query**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAFWOQQ6CQAxF9yTc4S8hQcmQuNSNR4ALTKQyJDAlnSIuPLwzJGrctM3v%2b7%2bt684R7qMEhW6MafQUMJAnsUoIdl4mQm%2fVVrC%2bh0Z6shFOINZAIc%2bSZgcuSvCSbCxQjhkKoRtLH3CP0u4yDRyvEo55tsjoFd04U6vxyhli%2fUCF5604nPqyQppiMy6Wlme68uqVBB%2fSVKYxZZ69MD%2fouaTvvml%2fjoRsjoR%2be1z2j03jyjci78jRAgEAAA%3d%3d)**\]**
+**\[**[**Click to run query**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA1WOQQ6CQAxF9yTc4S8hQcmQuNSNR4ALTKQyJDAlnSIuPLwzJGrctM3v+7+t684R7qMEhW6MafQUMJAnsUoIdl4mQm/VVrC+h0Z6shFOINZAIc/qOql24KIEL8nIAuWYohC6sfQB9yjtPtPA8SrhmGeLjF7RjTO1Gu+cIdYPVHjeisOpLyukKTbjYml5piuvXknwIU1lGlPm2Qvzg55L+u+b9udIyOZI6LfHZf/YNK58Ay2HrbAEAQAA)**\]**
 
 ```Kusto
 //The first two lines generate sample data, and the last line uses

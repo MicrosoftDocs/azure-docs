@@ -1,5 +1,5 @@
 ---
-title: Manage Azure Data Explorer database and table permissions
+title: Manage Azure Data Explorer database permissions
 description: This article describes role-based access controls for databases and tables in Azure Data Explorer.
 author: orspod
 ms.author: v-orspod
@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ---
 
-# Manage Azure Data Explorer database and table permissions
+# Manage Azure Data Explorer database permissions
 
 Azure Data Explorer enables you to control access to databases and tables, using a *role-based access control* model. Under this model, *principals* (users, groups, and apps) are mapped to *roles*. Principals can access resources according to the roles they're assigned.
 
@@ -26,7 +26,7 @@ Azure Data Explorer has the following roles:
 |Database user              |Can read all data and metadata in the database. Additionally, they can create tables (becoming the table admin for that table) and functions in the database.|
 |Database viewer            |Can read all data and metadata in the database.|
 |Database ingestor          |Can ingest data to all existing tables in the database, but not query the data.|
-|Database unrestrictedviewer|Can query all tables in the database, including those that have the **RestrictedViewAccess** policy enabled.|
+|Database unrestrictedviewer|Can query tables that have the **RestrictedViewAccess** policy enabled. Cannot query other tables.|
 |Database monitor           |Can execute '.show ...' commands in the context of the database and its child entities.|
 |Table admin                |Can do anything in the scope of a particular table. |
 |Table ingestor             |Can ingest data in the scope of a particular table, but not query the data.|
@@ -39,7 +39,7 @@ Azure Data Explorer has the following roles:
 
 1. In the **Overview** section, select **Access control (IAM)**.
 
-1. Under **Manage**, select **Role assignment**, then **Add**.
+1. Select **Add**.
 
 1. Under **Add permissions**, select the role that you want to assign the principal to.
 

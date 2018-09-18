@@ -49,14 +49,14 @@ Before jumping into Power BI, let's look at how to render visuals in Azure Data 
 
     ```Kusto
     StormEvents
-    | summarize event_count=count(), mid = avg(BeginLat) by State
-    | sort by mid
+    | summarize event_count=count() by State
     | where event_count > 1800
     | project State, event_count
+    | sort by event_count
     | render columnchart
     ```
 
-    This query counts weather events by state, based on the average of the `BeginLat` column. It then renders a column chart for all states that have more than 1800 weather events.
+    This query counts weather events by state. It then renders a column chart for all states that have more than 1800 weather events.
 
     ![Events column chart](media/visualize-power-bi/events-column-chart.png)
 
@@ -73,7 +73,7 @@ Before jumping into Power BI, let's look at how to render visuals in Azure Data 
 
     ![Events pie chart](media/visualize-power-bi/events-pie-chart.png)
 
-It's now time to look at Power BI, but there's a lot more you can do with visuals in Azure Data Explorer. The web application supports the following rendering options: barchart, columnchart, piechart, timechart, and linechart.
+It's now time to look at Power BI, but there's a lot more you can do with visuals in Azure Data Explorer.
 
 ## Connect to Azure Data Explorer
 
