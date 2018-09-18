@@ -13,7 +13,7 @@ ms.date: 09/18/2018
 ms.author: alkohli
 ---
 <h1>Azure Data Box</h1>
-<p>The Azure Data Box family offers products of differing storage capacities to help send terabytes (TB) of data into Azure in a quick, inexpensive, and reliable way. Microsoft accelerates secure data transfer by shipping you proprietary storage devices that enable offline or over the network data transfer.</p>
+<p>The Azure Data Box family offers products of differing storage capacities to help send terabytes (TB) of data to Azure in a quick, inexpensive, and reliable way. Microsoft accelerates secure data transfer by shipping you proprietary storage devices that enable offline or over the network data transfer.</p>
 
 <h2>Offline data transfer</h2>
 <p>For limited to no network bandwidth</p>
@@ -88,7 +88,7 @@ ms.author: alkohli
                             </div>
                         </div>
                         <div class="cardText">
-                            <p><b>Data Box Gateway <SUP>Preview</SUP></b> virtual device with storage. Use this device to send your data over network to Azure.</p>
+                            <p><b>Data Box Gateway <SUP>Preview</SUP></b> virtual device with storage. Use this device to send your data over the network to Azure.</p>
                         </div>
                     </div>
                 </div>
@@ -106,7 +106,7 @@ ms.author: alkohli
                             </div>
                         </div>
                         <div class="cardText">
-                            <p><b>Data Box Edge <SUP>Preview</SUP></b>  physical device with storage and compute. Use this device when you intend to analyze, transform, or filter your data as it moves to Azure.</p>
+                            <p><b>Data Box Edge <SUP>Preview</SUP></b> physical device with storage and compute. Use this device when you intend to analyze, transform, or filter your data as it moves to Azure.</p>
                         </div>
                     </div>
                 </div>
