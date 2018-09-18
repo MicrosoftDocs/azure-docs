@@ -36,7 +36,7 @@ In this tutorial series you learn how to:
 > * Build a .NET Service Fabric application
 > * [Deploy the application to a remote cluster](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * [Add an HTTPS endpoint to an ASP.NET Core front-end service](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)
-> * [Configure CI/CD using Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+> * [Configure CI/CD using Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * [Set up monitoring and diagnostics for the application](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## Prerequisites
@@ -53,65 +53,28 @@ To get a complete understanding of how ASP.NET Core integrates with Service Fabr
 
 1. Launch Visual Studio as an **administrator**.
 
-2. Create a project with **File**->**New**->**Project**
+2. Create a project with **File**->**New**->**Project**.
 
 3. In the **New Project** dialog, choose **Cloud > Service Fabric Application**.
 
-4. Name the application **Voting** and press **OK**.
+4. Name the application **Voting** and click **OK**.
 
    ![New project dialog in Visual Studio](./media/service-fabric-tutorial-create-dotnet-app/new-project-dialog.png)
 
-5. On the **New Service Fabric Service** page, choose **Stateless ASP.NET Core**, and name your service **VotingWeb**.
-
+5. On the **New Service Fabric Service** page, choose **Stateless ASP.NET Core**, name your service **VotingWeb**, then click **OK**.
+   
    ![Choosing ASP.NET web service in the new service dialog](./media/service-fabric-tutorial-create-dotnet-app/new-project-dialog-2.png) 
 
-6. The next page provides a set of ASP.NET Core project templates. For this tutorial, choose **Web Application (Model-View-Controller)**. 
-
+6. The next page provides a set of ASP.NET Core project templates. For this tutorial, choose **Web Application (Model-View-Controller)**, then click **OK**.
+   
    ![Choose ASP.NET project type](./media/service-fabric-tutorial-create-dotnet-app/vs-new-aspnet-project-dialog.png)
 
    Visual Studio creates an application and a service project and displays them in Solution Explorer.
 
    ![Solution Explorer following creation of application with ASP.NET core Web API service]( ./media/service-fabric-tutorial-create-dotnet-app/solution-explorer-aspnetcore-service.png)
 
-### Add AngularJS to the VotingWeb service
-
-Add [AngularJS](http://angularjs.org/) to your service using [Bower support](/aspnet/core/client-side/bower). First, add a *.bowerrc* settings file to the project.  In Solution Explorer, right-click on **VotingWeb** and select **Add->New Item**. Select **C#** and then **JSON File**.  Enter **.bowerrc** in the *Name* field and click **Add**.
-
-Open *.bowerrc* and replace the contents with the following, which indicates that Bower will install the package assets to the *wwwroot/lib* directory.
-
-```json
-{
- "directory": "wwwroot/lib",
-  "registry": "https://registry.bower.io"
-}
-```
-
-Save your changes to *.bowerrc*.  This creates a *.bowerrc* file in your project.  
-
-Next, add a Bower configuration file to the project.  In Solution Explorer, right-click on **VotingWeb** and select **Add->New Item**. Select **C#** and then **JSON File**.  Enter **bower.json** in the *Name* field and click **Add**.
-
-Open *bower.json* and replace the contents with the following entries for angular and angular-bootstrap, then save your changes.
-
-```json
-{
-  "name": "asp.net",
-  "private": true,
-  "dependencies": {
-    "bootstrap": "3.3.7",
-    "jquery": "3.2.1",
-    "jquery-validation": "1.16.0",
-    "jquery-validation-unobtrusive": "3.2.6",
-    "angular": "v1.6.8",
-    "angular-bootstrap": "v1.1.0"
-  }
-}
-```
-
-Upon saving the *bower.json* file, Visual Studio's bower support will install Angular in your project's *wwwroot/lib* folder. Additionally, it is listed within the *Dependencies/Bower* folder.
-
 ### Update the site.js file
-
-Open the *wwwroot/js/site.js* file.  Replace its contents with the JavaScript used by the Home views:
+Open **wwwroot/js/site.js**.  Replace its contents with the following JavaScript used by the Home views, then save your changes.
 
 ```javascript
 var app = angular.module('VotingApp', ['ui.bootstrap']);
@@ -152,7 +115,7 @@ app.controller('VotingAppController', ['$rootScope', '$scope', '$http', '$timeou
 
 ### Update the Index.cshtml file
 
-Open the *Views/Home/Index.cshtml* file, the view specific to the Home controller.  Replace its contents with the following, then save your changes.
+Open **Views/Home/Index.cshtml**, the view specific to the Home controller.  Replace its contents with the following, then save your changes.
 
 ```html
 @{
@@ -216,7 +179,8 @@ Open the *Views/Home/Index.cshtml* file, the view specific to the Home controlle
 
 ### Update the _Layout.cshtml file
 
-Open the *Views/Shared/_Layout.cshtml* file, the default layout for the ASP.NET app.  Replace its contents with the following, then save your changes.
+Open **Views/Shared/_Layout.cshtml**, the default layout for the ASP.NET app.  Replace its contents with the following, then save your changes.
+
 
 ```html
 <!DOCTYPE html>
@@ -226,7 +190,7 @@ Open the *Views/Shared/_Layout.cshtml* file, the default layout for the ASP.NET 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>@ViewData["Title"]</title>
 
-    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet"/>
     <link href="~/css/site.css" rel="stylesheet"/>
 
 </head>
@@ -237,8 +201,8 @@ Open the *Views/Shared/_Layout.cshtml* file, the default layout for the ASP.NET 
 
 <script src="~/lib/jquery/dist/jquery.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-<script src="~/lib/angular/angular.js"></script>
-<script src="~/lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.js"></script>
 <script src="~/js/site.js"></script>
 
 @RenderSection("Scripts", required: false)
@@ -252,7 +216,7 @@ Open the *VotingWeb.cs* file, which creates the ASP.NET Core WebHost inside the 
 
 Add the `using System.Net.Http;` directive to the top of the file.
 
-Replace the `CreateServiceInstanceListeners()` function with the following, then save your changes.
+Replace the `CreateServiceInstanceListeners()` function with the following code, then save your changes.
 
 ```csharp
 protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -285,7 +249,7 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 }
 ```
 
-Also add the `GetVotingDataServiceName` method, which returns the service name when polled:
+Also add the following `GetVotingDataServiceName` method below `CreateServiceInstanceListeners()`, then save your changes. `GetVotingDataServiceName` returns the service name when polled.
 
 ```csharp
 internal static Uri GetVotingDataServiceName(ServiceContext context)
@@ -296,9 +260,9 @@ internal static Uri GetVotingDataServiceName(ServiceContext context)
 
 ### Add the VotesController.cs file
 
-Add a controller, which defines voting actions. Right-click on the **Controllers** folder, then select **Add->New item->Class**.  Name the file "VotesController.cs" and click **Add**.
+Add a controller, which defines voting actions. Right-click on the **Controllers** folder, then select **Add->New item->Visual C#->ASP.NET Core->Class**. Name the file **VotesController.cs**, then click **Add**.  
 
-Replace the file contents with the following, then save your changes.  Later, in [Update the VotesController.cs file](#updatevotecontroller_anchor), this file is modified to read and write voting data from the back-end service.  For now, the controller returns static string data to the view.
+Replace the *VotesController.cs* file contents with the following, then save your changes.  Later, in [Update the VotesController.cs file](#updatevotecontroller_anchor), this file is modified to read and write voting data from the back-end service.  For now, the controller returns static string data to the view.
 
 ```csharp
 namespace VotingWeb.Controllers
@@ -342,7 +306,9 @@ namespace VotingWeb.Controllers
 
 ### Configure the listening port
 
-When the VotingWeb front-end service is created, Visual Studio randomly selects a port for the service to listen on.  The VotingWeb service acts as the front-end for this application and accepts external traffic, so let's bind that service to a fixed and well-know port.  The [service manifest](service-fabric-application-and-service-manifests.md) declares the service endpoints. In Solution Explorer, open  *VotingWeb/PackageRoot/ServiceManifest.xml*.  Find the **Endpoint** resource in the **Resources** section and change the **Port** value to 80, or to another port. To deploy and run the application locally, the application listening port must be open and available on your computer.
+When the VotingWeb front-end service is created, Visual Studio randomly selects a port for the service to listen on.  The VotingWeb service acts as the front-end for this application and accepts external traffic, so let's bind that service to a fixed and well-know port.  The [service manifest](service-fabric-application-and-service-manifests.md) declares the service endpoints.
+
+In Solution Explorer, open  *VotingWeb/PackageRoot/ServiceManifest.xml*.  Find the **Endpoint** element in the **Resources** section and change the **Port** value to **8080**. To deploy and run the application locally, the application listening port must be open and available on your computer.
 
 ```xml
 <Resources>
@@ -350,23 +316,22 @@ When the VotingWeb front-end service is created, Visual Studio randomly selects 
       <!-- This endpoint is used by the communication listener to obtain the port on which to 
            listen. Please note that if your service is partitioned, this port is shared with 
            replicas of different partitions that are placed in your code. -->
-      <Endpoint Protocol="http" Name="ServiceEndpoint" Type="Input" Port="80" />
+      <Endpoint Protocol="http" Name="ServiceEndpoint" Type="Input" Port="8080" />
     </Endpoints>
   </Resources>
 ```
 
-Also update the Application URL property value in the Voting project so a web browser opens to the correct port when you debug using 'F5'.  In Solution Explorer, select the **Voting** project and update the **Application URL** property.
+Also update the Application URL property value in the Voting project so a web browser opens to the correct port when you debug your application.  In Solution Explorer, select the **Voting** project and update the **Application URL** property to **8080**.
 
 ![Application URL](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-url.png)
 
-### Deploy and run the application locally
-
-You can now go ahead and run the application. In Visual Studio, press `F5` to deploy the application for debugging. `F5` fails if you didn't previously open Visual Studio as **administrator**.
+### Deploy and run the Voting application locally
+You can now go ahead and run the Voting application for debugging. In Visual Studio, press **F5** to deploy the application to your local Service Fabric cluster in debug mode. The application will fail if you didn't previously open Visual Studio as **administrator**.
 
 > [!NOTE]
-> The first time you run and deploy the application locally, Visual Studio creates a local cluster for debugging.  Cluster creation may take some time. The cluster creation status is displayed in the Visual Studio output window.
+> The first time you run and deploy the application locally, Visual Studio creates a local Service Fabric cluster for debugging.  Cluster creation may take some time. The cluster creation status is displayed in the Visual Studio output window.
 
-At this point, your web app should look like this:
+After the Voting application has been deployed to your local Service Fabric cluster, your web app will open in a browser tab automatically and should look like this:
 
 ![ASP.NET Core front-end](./media/service-fabric-tutorial-create-dotnet-app/debug-front-end.png)
 
@@ -380,25 +345,21 @@ Service Fabric allows you to consistently and reliably store your data right ins
 
 In this tutorial, you create a service which stores a counter value in a reliable collection.
 
-1. In Solution Explorer, right-click **Services** within the application project and choose **Add > New Service Fabric Service**.
-
-2. In the **New Service Fabric Service** dialog, choose **Stateful ASP.NET Core**, and name the service **VotingData** and press **OK**.
-
-    ![New service dialog in Visual Studio](./media/service-fabric-tutorial-create-dotnet-app/add-stateful-service.png)
+1. In Solution Explorer, right-click **Services** within the Voting application project and choose **Add -> New Service Fabric Service...**.
+    
+2. In the **New Service Fabric Service** dialog, choose **Stateful ASP.NET Core**, name the service **VotingData**, then press **OK**.
 
     Once your service project is created, you have two services in your application. As you continue to build your application, you can add more services in the same way. Each can be independently versioned and upgraded.
 
-3. The next page provides a set of ASP.NET Core project templates. For this tutorial, choose **Web API**.
+3. The next page provides a set of ASP.NET Core project templates. For this tutorial, choose **API**.
 
-    ![Choose ASP.NET project type](./media/service-fabric-tutorial-create-dotnet-app/vs-new-aspnet-project-dialog2.png)
-
-    Visual Studio creates a service project and displays them in Solution Explorer.
+    Visual Studio creates the VotingData service project and displays it in Solution Explorer.
 
     ![Solution Explorer](./media/service-fabric-tutorial-create-dotnet-app/solution-explorer-aspnetcore-webapi-service.png)
 
 ### Add the VoteDataController.cs file
 
-In the **VotingData** project right-click on the **Controllers** folder, then select **Add->New item->Class**. Name the file "VoteDataController.cs" and click **Add**. Replace the file contents with the following, then save your changes.
+In the **VotingData** project, right-click on the **Controllers** folder, then select **Add->New item->Class**. Name the file **VoteDataController.cs** and click **Add**. Replace the file contents with the following, then save your changes.
 
 ```csharp
 namespace VotingData.Controllers
@@ -490,7 +451,9 @@ In this next step, connect the two services and make the front-end Web applicati
 
 Service Fabric provides complete flexibility in how you communicate with reliable services. Within a single application, you might have services that are accessible via TCP. Other services that might be accessible via an HTTP REST API and still other services could be accessible via web sockets. For background on the options available and the tradeoffs involved, see [Communicating with services](service-fabric-connect-and-communicate-with-services.md).
 
-In this tutorial, use [ASP.NET Core Web API](service-fabric-reliable-services-communication-aspnetcore.md) and the [Service Fabric reverse proxy](service-fabric-reverseproxy.md) so the front-end web service can communicate with the back-end data service. The reverse proxy is typically configured to use port 19081. The port is set in the ARM template used to set up the cluster. To find which port is used, look in the cluster template in the **Microsoft.ServiceFabric/clusters** resource:
+This tutorial uses [ASP.NET Core Web API](service-fabric-reliable-services-communication-aspnetcore.md) and the [Service Fabric reverse proxy](service-fabric-reverseproxy.md) so the VotingWeb front-end web service can communicate with the back-end VotingData service. The reverse proxy is configured by default to use port 19081 and should work for this tutorial. The port is set in the ARM template used to set up the cluster. To find which port is used, look in the cluster template in the **Microsoft.ServiceFabric/clusters** resource or look at the HttpApplicationGatewayEndpoint element in the cluster Manifest.
+
+<u>Microsoft.ServiceFabric/clusters reverseProxyEndpointPort resource</u>
 
 ```json
 "nodeTypes": [
@@ -503,12 +466,19 @@ In this tutorial, use [ASP.NET Core Web API](service-fabric-reliable-services-co
           }
         ],
 ```
+To view the HttpApplicationGatewayEndpoint element in the local Service Fabric cluster Manifest:
+1. Open a browser window and navigate to http://localhost:19080.
+2. Click **Manifest**.
+3. Make a note of the HttpApplicationGatewayEndpoint element port. By default this should be 19081. If it is not 19081, you will need to change the port in the GetProxyAddress method of the following VotesController.cs code.
+
+
+
 
 <a id="updatevotecontroller" name="updatevotecontroller_anchor"></a>
 
 ### Update the VotesController.cs file
 
-In the **VotingWeb** project, open the *Controllers/VotesController.cs* file.  Replace the `VotesController` class definition contents with the following, then save your changes.
+In the **VotingWeb** project, open the *Controllers/VotesController.cs* file.  Replace the `VotesController` class definition contents with the following, then save your changes. If the reverse proxy port you discovered in the pervious step is not 19081, change the port used in the GetProxyAddress method from 19081 to the port that you discovered.
 
 ```csharp
 public class VotesController : Controller
@@ -646,11 +616,14 @@ When debugging application in Visual Studio, you are using a local Service Fabri
 
 To look at what happens in the code, complete the following steps:
 
-1. Open the **VotesController.cs** file and set a breakpoint in the web API's **Put** method (line 63) - You can search for the file in the Solution Explorer in Visual Studio.
+1. Open the **VotingWeb\VotesController.cs** file and set a breakpoint in the web API's **Put** method (line 63).
 
-2. Open the **VoteDataController.cs** file and set a breakpoint in this web API's **Put** method (line 53).
+2. Open the **VotingData\VoteDataController.cs** file and set a breakpoint in this web API's **Put** method (line 53).
 
-3. Go back to the browser and click a voting option or add a new voting option. You hit the first breakpoint in the web front-end's api controller.
+3. Press **F5** to start the application in debug mode.
+
+4. Go back to the browser and click a voting option or add a new voting option. You hit the first breakpoint in the web front-end's api controller.
+    
 
     1. This is where the JavaScript in the browser sends a request to the web API controller in the front-end service.
 
@@ -660,7 +633,7 @@ To look at what happens in the code, complete the following steps:
     3. Then send the HTTP PUT Request to the ReverseProxy **(2)**.
     4. Finally the return the response from the back-end service to the client **(3)**.
 
-4. Press **F5** to continue
+5. Press **F5** to continue.
     1. You are now at the break point in the back-end service.
 
     ![Add Vote Back-End Service](./media/service-fabric-tutorial-create-dotnet-app/addvote-backend.png)
@@ -668,7 +641,7 @@ To look at what happens in the code, complete the following steps:
     2. In the first line in the method **(1)** use the `StateManager` to get or add a reliable dictionary called `counts`.
     3. All interactions with values in a reliable dictionary require a transaction, this using statement **(2)** creates that transaction.
     4. In the transaction, update the value of the relevant key for the voting option and commits the operation **(3)**. Once the commit method returns, the data is updated in the dictionary and replicated to other nodes in the cluster. The data is now safely stored in the cluster, and the back-end service can fail over to other nodes, still having the data available.
-5. Press **F5** to continue
+6. Press **F5** to continue.
 
 To stop the debugging session, press **Shift+F5**.
 

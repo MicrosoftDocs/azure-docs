@@ -3,7 +3,7 @@ title: Azure DNS FAQ | Microsoft Docs
 description: Frequently Asked Questions about Azure DNS
 services: dns
 documentationcenter: na
-author: KumudD
+author: vhorne
 manager: jeconnoc
 editor: ''
 
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/06/2017
-ms.author: kumud
+ms.author: victorh
 ---
 
 # Azure DNS FAQ

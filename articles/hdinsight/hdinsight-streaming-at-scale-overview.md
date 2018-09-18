@@ -1,20 +1,13 @@
 ---
-title: Streaming at scale in Azure HDInsight | Microsoft Docs
+title: Streaming at scale in Azure HDInsight
 description: How to use data streaming with scalable HDInsight clusters.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: raghavmohan
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 
+author: jasonwhowell
+ms.author: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/19/2018
-ms.author: ramoha
 ---
 # Streaming at scale in HDInsight
 

@@ -8,7 +8,7 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 08/01/2018
 ---
 
 # How to use sys_schema for performance tuning and database maintenance in Azure Database for MySQL
@@ -37,7 +37,7 @@ IO is the most expensive operation in the database. We can find out the average 
 
 ![io latency: 125 GB](./media/howto-troubleshoot-sys-schema/io-latency-125GB.png)
 
-Because Azure Database for MySQL scales IO with respect to storage, after increasing my provisioned storage to 1 TB, my IO latency reduces to 571 ms, representing a 26X performance increase!
+Because Azure Database for MySQL scales IO with respect to storage, after increasing my provisioned storage to 1 TB, my IO latency reduces to 571 ms.
 
 ![io latency: 1TB](./media/howto-troubleshoot-sys-schema/io-latency-1TB.png)
 

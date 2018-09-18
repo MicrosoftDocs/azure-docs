@@ -1,14 +1,15 @@
 ---
-title: Understand versioning in LUIS - Azure | Microsoft Docs
+title: Understand versioning in LUIS
+titleSuffix: Azure Cognitive Services
 description: Learn how to use versions to manage changes in Language Understanding (LUIS)
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/13/2018
-ms.author: v-geberr
+ms.date: 09/10/2018
+ms.author: diberry
 ---
 
 # Versions
@@ -21,7 +22,7 @@ The version ID consists of characters, digits or '.' and cannot be longer than 1
 The initial version (0.1) is the default active version. 
 
 ## Active version
-To [set a version](luis-how-to-manage-versions.md#set-active-version) as the active means it is currently edited and tested in the [LUIS][LUIS] website. Set a version as active to access its data, make updates, as well as to test and publish it.
+To [set a version](luis-how-to-manage-versions.md#set-active-version) as the active means it is currently edited and tested in the [LUIS](luis-reference-regions.md) website. Set a version as active to access its data, make updates, as well as to test and publish it.
 
 The name of the currently active version is displayed in the top, left panel after the app name. 
 
@@ -47,7 +48,7 @@ In order to back up your LUIS app, export each version on the **[Settings](luis-
 You can delete all versions except the active version from the Versions list on Settings page. 
 
 ## Version availability at the endpoint
-Trained versions are not automatically available at your app [endpoint](luis-glossary.md#endpoint). You must [publish](PublishApp.md) or republish a version in order for it to be available at your app endpoint. You can publish to **Staging** and **Production**, giving you up to two versions of the app available at the endpoint. If you need more versions of the app available at an endpoint, you should export the version and reimport to a new app. The new app has a different app ID.
+Trained versions are not automatically available at your app [endpoint](luis-glossary.md#endpoint). You must [publish](luis-how-to-publish-app.md) or republish a version in order for it to be available at your app endpoint. You can publish to **Staging** and **Production**, giving you up to two versions of the app available at the endpoint. If you need more versions of the app available at an endpoint, you should export the version and reimport to a new app. The new app has a different app ID.
 
 ## Collaborators
 The owner and all [collaborators](luis-how-to-collaborate.md) have full access to all versions of the app.
@@ -57,5 +58,3 @@ The owner and all [collaborators](luis-how-to-collaborate.md) have full access t
 See how to add [versioning](luis-how-to-manage-versions.md) on the app settings page. 
 
 Learn how to design [intents](luis-concept-intent.md) into the model.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

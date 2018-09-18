@@ -1,26 +1,21 @@
-﻿---
-title: Manage Hadoop clusters in HDInsight with PowerShell - Azure | Microsoft Docs
+---
+title: Manage Hadoop clusters in HDInsight with PowerShell - Azure 
 description: Learn how to perform administrative tasks for the Hadoop clusters in HDInsight using Azure PowerShell.
 services: hdinsight
-editor: cgronlun
-manager: jhubbard
-tags: azure-portal
-author: mumian
-documentationcenter: ''
+ms.reviewer: jasonh
+author: jasonwhowell
 
-ms.assetid: bfdfa754-18e5-4ef9-b0d6-2dbdcebc0283
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
+ms.author: jasonh
 
 ---
 # Manage Hadoop clusters in HDInsight by using Azure PowerShell
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Azure PowerShell can be used to control and automate the deployment and management of your workloads in Azure. In this article, you learn how to manage Hadoop clusters in Azure HDInsight by using Azure PowerShell. For the list of the HDInsight PowerShell cmdlets, see [HDInsight cmdlet reference][hdinsight-powershell-reference].
+Azure PowerShell can be used to control and automate the deployment and management of your workloads in Azure. In this article, you learn how to manage Hadoop clusters in Azure HDInsight by using Azure PowerShell. For the list of the HDInsight PowerShell cmdlets, see [HDInsight cmdlet reference](https://msdn.microsoft.com/library/azure/dn479228.aspx).
 
 **Prerequisites**
 
@@ -232,7 +227,7 @@ See [Use Oozie with Hadoop to define and run a workflow in HDInsight](hdinsight-
 See [Upload data to HDInsight][hdinsight-upload-data].
 
 ## See Also
-* [HDInsight cmdlet reference documentation][hdinsight-powershell-reference]
+* [HDInsight cmdlet reference documentation](https://msdn.microsoft.com/library/azure/dn479228.aspx)
 * [Administer HDInsight by using the Azure portal][hdinsight-admin-portal]
 * [Administer HDInsight using a command-line interface][hdinsight-admin-cli]
 * [Create HDInsight clusters][hdinsight-provision]

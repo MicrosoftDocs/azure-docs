@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/08/2018
+ms.date: 07/12/2018
 ms.author: mabrigg
 ms.reviewer: alfredo
 
@@ -32,6 +32,13 @@ You can also use this operation if you want to change the subscription associate
 
 Note that only one Azure subscription can be associated with a tenant. If you try to add a second subscription to an existing tenant, the first subscription is over-written. 
 
+### Use API profiles
+
+The cmdlets in this article require that you specify an API profile when running PowerShell. API profiles represent a set of Azure resource providers and their API versions. They help you use the right version of the API when interacting with multiple Azure clouds, for instance when working with global Azure and Azure Stack. Profiles are specified by a name that matches their release date. With this article, you will need to use the **2017-09-03** profile.
+
+For more information about Azure Stack and API Profiles, see [Manage API version profiles in Azure Stack](user/azure-stack-version-profiles.md). For instructions on getting up and running with API Profile with PowerShell, see [Use API version profiles for PowerShell in Azure Stack](user/azure-stack-version-profiles-powershell.md).
+
+### Parameters
 
 | Parameter                  | Description |
 |---                         | --- |
@@ -76,10 +83,10 @@ Get a list of all tenants that have been added to a registration.
 
 ### PowerShell
 
-Use the Get-AzureRmResovurce cmdlet to list all registered tenants. Sign in to Azure (`Add-AzureRmAccount`) using the account you used for the initial registration. Here is an example of how to add a tenant:
+Use the Get-AzureRmResource cmdlet to list all registered tenants. Sign in to Azure (`Add-AzureRmAccount`) using the account you used for the initial registration. Here is an example of how to add a tenant:
 
 ```powershell
-  Get-AzureRmResovurce -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions" -ApiVersion 2017-06-01
+  Get-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions" -ApiVersion 2017-06-01
 ```
 
 ### API Call
@@ -144,4 +151,4 @@ You can remove tenant mappings using the DELETE operation.
 
 ## Next steps
 
- - To learn more about how to retrieve resource usage information from Azure Stack, see [Usage and billing in Azure Stack](/azure-stack-billing-and-chargeback.md).
+ - To learn more about how to retrieve resource usage information from Azure Stack, see [Usage and billing in Azure Stack](azure-stack-billing-and-chargeback.md).

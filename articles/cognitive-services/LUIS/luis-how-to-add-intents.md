@@ -1,20 +1,21 @@
 ---
-title: Add intents in LUIS applications | Microsoft Docs
-description: Use Language Understanding (LUIS) to add intents to help apps understand user requests and react to them properly.
+title: Add intents in LUIS applications
+titleSuffix: Azure Cognitive Services
+description: Add intents to your LUIS app to identify groups of questions or commands that have the same intentions. 
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: v-geberr
+ms.date: 09/10/2018
+ms.author: diberry
 ms.service: cognitive-services
 ---
 
 # Manage intents 
 Add [intents](luis-concept-intent.md) to your LUIS app to identify groups of questions or commands that have the same intentions. 
 
-You add and manage your intents from the **Intents** page, available from **Intents** in LUIS's left panel. 
+Intents are managed from the **Build** Section in the top toolbar. You add and manage your intents from the **Intents** page, available in the left panel. 
 
 The following procedure demonstrates how to add the "Bookflight" intent in the TravelAgent app.
 
@@ -23,7 +24,6 @@ The following procedure demonstrates how to add the "Bookflight" intent in the T
 1. Open your app (for example, TravelAgent) by clicking its name on **My Apps** page, and then click **Intents** in the left panel. 
 2. On the **Intents** page, click **Create new intent**.
 
-    ![Intents List](./media/luis-how-to-add-intents/IntentsList.png)
 3. In the **Create new intent** dialog box, type the intent name "BookFlight" and click **Done**.
 
     ![Add Intent](./media/luis-how-to-add-intents/Addintent-dialogbox.png)
@@ -70,9 +70,9 @@ See [Add pattern from existing utterance on intent or entity page](luis-how-to-m
 
 ## Edit an utterance on intent page
 
-To edit an utterance, select the three dots (...) icon at the right end of the line for that utterance, and then select **Edit**. Modify the text then press Enter on the keyboard.
+To edit an utterance, select the ellipsis (***...***) button at the right end of the line for that utterance, and then select **Edit**. Modify the text then press Enter on the keyboard.
 
-![Screenshot of Intents details page, with three dots icon highlighted](./media/luis-how-to-add-intents/edit-utterance.png) 
+![Screenshot of Intents details page, with ellipsis button highlighted](./media/luis-how-to-add-intents/edit-utterance.png) 
 
 ## Reassign utterances on intent page
 You can change the intent of one or more utterances by reassigning them to another intent. 
@@ -87,7 +87,7 @@ To change the intent of several utterances, select the checkboxes to the left of
 
 ## Delete utterances on intent page
 
-To delete an utterance, select the three dots (...) icon at the right end of the line for that utterance, and then select **Delete**. The utterance is removed from the list and the LUIS app.
+To delete an utterance, select the ellipsis (***...***) button at the right end of the line for that utterance, and then select **Delete**. The utterance is removed from the list and the LUIS app.
 
 ![Screenshot of Intents details page, with Delete option highlighted](./media/luis-how-to-add-intents/delete-utterance-ddl.png)
 
@@ -100,7 +100,7 @@ To delete several utterances:
 2. Select **Done** in the **Delete utterances?** pop-up dialog.
 
 ## Search in utterances on intent page
-In an intent, you can search for utterances that contain text (words or phrases). For example, you might notice an error that involves a particular word, and you want to find all examples that include that particular word. 
+You can search for utterances that contain text (words or phrases) within the intent's utterance list. For example, you might notice an error that involves a particular word, and you want to find all examples that include that particular word. 
 
 1. Select the magnifying glass icon in the toolbar.
 
@@ -134,7 +134,7 @@ Toggle **Tokens View** to view the tokens instead of the entity type names. On t
 ![Screenshot of BookFlight intent, with Token View highlighted](./media/luis-how-to-add-intents/toggle-tokens-view.png)
 
 ## Train your app after changing model with intents
-After you add, edit, or remove intents, [train](luis-how-to-train.md) and [publish](PublishApp.md) your app for your changes to affect endpoint queries. 
+After you add, edit, or remove intents, [train](luis-how-to-train.md) and [publish](luis-how-to-publish-app.md) your app for your changes to affect endpoint queries. 
 
 ## Next steps
 

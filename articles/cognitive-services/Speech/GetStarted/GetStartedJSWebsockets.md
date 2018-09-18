@@ -42,7 +42,7 @@ To try the sample locally, clone this repository:
 git clone https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript
 ```
 
-compile the TypeScript sources and bundle/browserfy them into a single JavaScript file ([npm](https://www.npmjs.com/) needs to be installed on your machine). Change into the root of the cloned repository and run the commands:
+compile the TypeScript sources and bundle them into a single JavaScript file ([npm](https://www.npmjs.com/) needs to be installed on your machine). Change into the root of the cloned repository and run the commands:
 
 ```
 cd SpeechToText-WebSockets-Javascript && npm run bundle

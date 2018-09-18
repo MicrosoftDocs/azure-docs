@@ -1,383 +1,235 @@
 ---
-title: Use batch testing to improve LUIS predictions  | Microsoft Docs
-titleSuffix: Azure
-description: Load batch test, review results, and improve LUIS predictions with changes.
+title: "Tutorial 2: Batch test with set of 1000 utterances "
+titleSuffix: Azure Cognitive Services
+description: This tutorial demonstrates how to use batch testing to find utterance prediction issues in your app and fix them.
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/19/2018
-ms.author: v-geberr
+ms.date: 09/09/2018
+ms.author: diberry
 ---
 
-# Use batch testing to find prediction accuracy issues
+# Tutorial: # 2. Batch test data sets
 
-This tutorial demonstrates how to use batch testing to find utterance prediction issues.  
+This tutorial demonstrates how to use batch testing to find utterance prediction issues in your app and fix them.  
 
-In this tutorial, you learn how to:
+Batch testing allows you to validate the active, trained model's state with a known set of labeled utterances and entities. In the JSON-formatted batch file, add the utterances and set the entity labels you need predicted inside the utterance. 
 
+Requirements for batch testing:
+
+* Maximum of 1000 utterances per test. 
+* No duplicates. 
+* Entity types allowed: only machined-learned entities of simple, hierarchical (parent-only), and composite. Batch testing is only useful for machined-learned intents and entities.
+
+When using an app other than this tutorial, do *not* use the example utterances already added to an intent. 
+
+**In this tutorial, you learn how to:**
+
+<!-- green checkmark -->
 > [!div class="checklist"]
-* Create a batch test file 
-* Run a batch test
-* Review test results
-* Fix errors for intents
-* Retest the batch
+> * Use existing tutorial app
+> * Create a batch test file 
+> * Run a batch test
+> * Review test results
+> * Fix errors 
+> * Retest the batch
 
-## Prerequisites
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-> [!div class="checklist"]
-> * For this article, you also need a [LUIS][LUIS] account in order to author your LUIS application.
+## Use existing app
 
-> [!Tip]
-> If you do not already have a subscription, you can register for a [free account](https://azure.microsoft.com/free/).
+Continue with the app created in the last tutorial, named **HumanResources**. 
 
-## Create new app
-This article uses the prebuilt domain HomeAutomation. The prebuilt domain has intents, entities, and utterances for controlling HomeAutomation devices such as lights. Create the app, add the domain, train, and publish.
+If you do not have the HumanResources app from the previous tutorial, use the following steps:
 
-1. In the [LUIS] website, create a new app by selecting **Create new app** on the **MyApps** page. 
+1.  Download and save [app JSON file](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-review-HumanResources.json).
 
-    ![Create new app](./media/luis-tutorial-batch-testing/create-app-1.png)
+2. Import the JSON into a new app.
 
-2. Enter the name `Batchtest-HomeAutomation` in the dialog.
+3. From the **Manage** section, on the **Versions** tab, clone the version, and name it `batchtest`. Cloning is a great way to play with various LUIS features without affecting the original version. Because the version name is used as part of the URL route, the name can't contain any characters that are not valid in a URL. 
 
-    ![Enter app name](./media/luis-tutorial-batch-testing/create-app-2.png)
+4. Train the app.
 
-3. Select **Prebuilt Domains** in bottom left corner. 
+## Batch file
 
-    ![Select Prebuilt Domain](./media/luis-tutorial-batch-testing/prebuilt-domain-1.png)
+1. Create `HumanResources-jobs-batch.json` in a text editor or [download](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources-jobs-batch.json) it. 
 
-4. Select **Add Domain** for HomeAutomation.
+2. In the JSON-formatted batch file, add utterances with the **Intent** you want predicted in the test. 
 
-    ![Add HomeAutomation domain](./media/luis-tutorial-batch-testing/prebuilt-domain-2.png)
-
-5. Select **Train** in the top right navigation bar.
-
-    ![Select Train button](./media/luis-tutorial-batch-testing/train-button.png)
-
-## Batch test criteria
-Batch testing can test up to 1000 utterances at a time. The batch should not have duplicates. [Export](create-new-app.md#export-app) the app in order to see the list of current utterances.  
-
-The test strategy for LUIS uses three separate sets of data: model utterances, batch test utterances, and endpoint utterances. For this tutorial, make sure you are not using the utterances from either model utterances (added to an intent), or endpoint utterances. 
-
-Do not use any of the utterances already in the app for the batch test:
-
-```
-'breezeway on please',
-'change temperature to seventy two degrees',
-'coffee bar on please',
-'decrease temperature for me please',
-'dim kitchen lights to 25 .',
-'fish pond off please',
-'fish pond on please',
-'illuminate please',
-'living room lamp on please',
-'living room lamps off please',
-'lock the doors for me please',
-'lower your volume',
-'make camera 1 off please',
-'make some coffee',
-'play dvd',
-'set lights bright',
-'set lights concentrate',
-'set lights out bedroom',
-'shut down my work computer',
-'silence the phone',
-'snap switch fan fifty percent',
-'start master bedroom light .',
-'theater on please',
-'turn dimmer off',
-'turn off ac please',
-'turn off foyer lights',
-'turn off living room light',
-'turn off staircase',
-'turn off venice lamp',
-'turn on bathroom heater',
-'turn on external speaker',
-'turn on my bedroom lights .',
-'turn on the furnace room lights',
-'turn on the internet in my bedroom please',
-'turn on thermostat please',
-'turn the fan to high',
-'turn thermostat on 70 .' 
-```
-
-## Create a batch to test intent prediction accuracy
-1. Create `homeauto-batch-1.json` in a text editor such as [VSCode](https://code.visualstudio.com/). 
-
-2. Add utterances with the **Intent** you want predicted in the test. For this tutorial, to make it simple, take utterances in the `HomeAutomation.TurnOn` and `HomeAutomation.TurnOff` and switch the `on` and `off` text in the utterances. For the `None` intent, add a couple of utterances that are not part of the [domain](luis-glossary.md#domain) (subject) area. 
-
-    In order to understand how the batch test results correlate to the batch JSON, add only six intents.
-
-    ```JSON
-    [
-        {
-          "text": "lobby on please",
-          "intent": "HomeAutomation.TurnOn",
-          "entities": []
-        },
-        {
-          "text": "change temperature to seventy one degrees",
-          "intent": "HomeAutomation.TurnOn",
-          "entities": []
-        },
-        {
-          "text": "where is my pizza",
-          "intent": "None",
-          "entities": []
-        },
-        {
-          "text": "help",
-          "intent": "None",
-          "entities": []
-        },
-        {
-          "text": "breezeway off please",
-          "intent": "HomeAutomation.TurnOff",
-          "entities": []
-        },
-        {
-          "text": "coffee bar off please",
-          "intent": "HomeAutomation.TurnOff",
-          "entities": []
-        }
-    ]
-    ```
+   [!code-json[Add the intents to the batch test file](~/samples-luis/documentation-samples/tutorials/HumanResources-jobs-batch.json "Add the intents to the batch test file")]
 
 ## Run the batch
-1. Select **Test** in the top navigation bar. 
 
-    ![Select Test in navigation bar](./media/luis-tutorial-batch-testing/test-1.png)
+1. Select **Test** in the top navigation bar. 
 
 2. Select **Batch testing panel** in the right-side panel. 
 
-    ![Select Batch test panel](./media/luis-tutorial-batch-testing/test-2.png)
+    [![Screenshot of LUIS app with Batch test panel highlighted](./media/luis-tutorial-batch-testing/hr-batch-testing-panel-link.png)](./media/luis-tutorial-batch-testing/hr-batch-testing-panel-link.png#lightbox)
 
 3. Select **Import dataset**.
 
-    ![Select Import dataset](./media/luis-tutorial-batch-testing/test-3.png)
+    [![Screenshot of LUIS app with Import dataset highlighted](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png)](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png#lightbox)
 
-4. Choose the file system location of the `homeauto-batch-1.json` file.
+4. Choose the file location of the `HumanResources-jobs-batch.json` file.
 
-5. Name the dataset `set 1`.
+5. Name the dataset `intents only` and select **Done**.
 
-    ![Select file](./media/luis-tutorial-batch-testing/test-4.png)
+    ![Select file](./media/luis-tutorial-batch-testing/hr-import-new-dataset-ddl.png)
 
-6. Select the **Run** button. Wait until the test is done.
-
-    ![Select Run](./media/luis-tutorial-batch-testing/test-5.png)
+6. Select the **Run** button. 
 
 7. Select **See results**.
 
-    ![See results](./media/luis-tutorial-batch-testing/test-6.png)
-
 8. Review results in the graph and legend.
 
-    ![Batch results](./media/luis-tutorial-batch-testing/batch-result-1.png)
+    [![Screenshot of LUIS app with batch test results](./media/luis-tutorial-batch-testing/hr-intents-only-results-1.png)](./media/luis-tutorial-batch-testing/hr-intents-only-results-1.png#lightbox)
 
 ## Review batch results
-The batch results are in two sections. The top section contains the graph and the legend. The bottom section displays utterances when you select an area name of the graph.
 
-Any errors are indicated by the color red. The graph is in four sections, with two of the sections displayed in red. **These are the sections to focus on**. 
+The batch chart displays four quadrants of results. To the right of the chart is a filter. By default, the filter is set to the first intent in the list. The filter contains all the intents and only simple, hierarchical (parent-only), and composite entities. When you select a [section of the chart](luis-concept-batch-test.md#batch-test-results) or a point within the chart, the associated utterance(s) display below the chart. 
 
-The top right section indicates the test incorrectly predicted the existence of an intent or entity. The bottom left section indicates the test incorrectly predicted the absence of an intent or entity.
+While hovering over the chart, a mouse wheel can enlarge or reduce the display in the chart. This is useful when there are many points on the chart clustered tightly together. 
 
-### HomeAutomation.TurnOff test results
-In the legend, select the `HomeAutomation.TurnOff` intent. It has a green success icon to the left of the name in the legend. There are no errors for this intent. 
+The chart is in four quadrants, with two of the sections displayed in red. **These are the sections to focus on**. 
 
-![Batch results](./media/luis-tutorial-batch-testing/batch-result-1.png)
+### GetJobInformation test results
 
-### HomeAutomation.TurnOn and None intents have errors
-The other two intents have errors, meaning the test predictions didn't match the batch file expectations. Select the `None` intent in the legend to review the first error. 
+The **GetJobInformation** test results displayed in the filter show that 2 of the four predictions were successful. Select the name **False positive** above the top right quadrant to see the utterances below the chart. 
 
-![None intent](./media/luis-tutorial-batch-testing/none-intent-failures.png)
+![LUIS batch test utterances](./media/luis-tutorial-batch-testing/hr-applyforjobs-false-positive-results.png)
 
-Failures appear on the chart in the red sections: **False Positive** and **False Negative**. Select the **False Negative** section name in the chart to see the failed utterances below the chart. 
+Why are two of the utterances predicted as **ApplyForJob**, instead of the correct intent **GetJobInformation**? The two intents are very closely related in terms of word choice and word arrangement. Additionally, there are almost three times as many examples for **ApplyForJob** than **GetJobInformation**. This unevenness of example utterances weighs in **ApplyForJob** intent's favor. 
 
-![False negative failures](./media/luis-tutorial-batch-testing/none-intent-false-negative.png)
+Notice that both intents have the same count of errors. An incorrect prediction in one intent affects the other intent as well. They both have errors because the utterances were incorrectly predicted for one intent, and also incorrectly not predicted for another intent. 
 
-The failing utterance, `help` was expected as a `None` intent but the test predicted `HomeAutomation.TurnOn` intent.  
+![LUIS batch test filter errors](./media/luis-tutorial-batch-testing/hr-intent-error-count.png)
 
-There are two failures, one in HomeAutomation.TurnOn, and one in None. Both were caused by the utterance `help` because it failed to meet the expectation in None and it was an unexpected match for the HomeAutomation.TurnOn intent. 
+The utterances corresponding the top point in the **False positive** section are `Can I apply for any database jobs with this resume?` and `Can I apply for any database jobs with this resume?`. For the first utterance, the word `resume` has only been used in **ApplyForJob**. For the second utterance, the word `apply` has only been used in the **ApplyForJob** intent.
 
-To determine why the `None` utterances are failing, review the utterances currently in `None`. 
+## Fix the app
 
-## Review None intent's utterances
+The goal of this section is to have all the utterances correctly predicted for **GetJobInformation** by fixing the app. 
 
-1. Close the **Test** panel by selecting the **Test** button on the top navigation bar. 
+A seemingly quick fix would be to add these batch file utterances to the correct intent. That is not what you want to do though. You want LUIS to correctly predict these utterances without adding them as examples. 
 
-2. Select **Build** from the top navigation panel. 
+You might also wonder about removing utterances from **ApplyForJob** until the utterance quantity is the same as **GetJobInformation**. That may fix the test results but would hinder LUIS from predicting that intent accurately next time. 
 
-3. Select **None** intent from list of intents.
+The first fix is to add more utterances to **GetJobInformation**. The second fix is to reduce the weight of words like `resume` and `apply` toward the **ApplyForJob** intent. 
 
-4. Select Control+E to see the token view of the utterances 
-    
-    |None intent's utterances|Prediction score|
-    |--|--|
-    |"decrease temperature for me please"|0.44|
-    |"dim kitchen lights to 25."|0.43|
-    |"lower your volume"|0.46|
-    |"turn on the internet in my bedroom please"|0.28|
+### Add more utterances
 
-## Fix None intent's utterances
-    
-Any utterances in `None` are supposed to be outside of the app domain. These utterances are relative to HomeAutomation, so they are in the wrong intent. 
+1. Close the batch test panel by selecting the **Test** button in the top navigation panel. 
 
-LUIS also gives the utterances less than 50% (<.50) prediction score. If you look at the utterances in the other two intents, you see much higher prediction scores. When LUIS has low scores for example utterances, that is a good indication the utterances are confusing to LUIS between the current intent and other intents. 
+2. Select **GetJobInformation** from the intents list. 
 
-To fix the app, the utterances currently in the `None` intent need to be moved into the correct intent and the `None` intent needs new, appropriate intents. 
+3. Add more utterances that are varied for length, word choice, and word arrangement, making sure to include the terms `resume`, `c.v.`, and `apply`:
 
-Three of the utterances in the `None` intent are meant to lower the automation device settings. They use words such as `dim`, `lower`, or `decrease`. The fourth utterance asks to turn on the internet. Since all four utterances are about turning on or changing the degree of power to a device, they should be moved to the `HomeAutomation.TurnOn` intent. 
+    |Example utterances for **GetJobInformation** intent|
+    |--|
+    |Does the new job in the warehouse for a stocker require that I apply with a resume?|
+    |Where are the roofing jobs today?|
+    |I heard there was a medical coding job that requires a resume.|
+    |I would like a job helping college kids write their c.v.s. |
+    |Here is my resume, looking for a new post at the community college using computers.|
+    |What positions are available in child and home care?|
+    |Is there an intern desk at the newspaper?|
+    |My C.v. shows I'm good at analyzing procurement, budgets, and lost money. Is there anything for this type of work?|
+    |Where are the earth drilling jobs right now?|
+    |I've worked 8 years as an EMS driver. Any new jobs?|
+    |New food handling jobs require application?|
+    |How many new yard work jobs are available?|
+    |Is there a new HR post for labor relations and negotiations?|
+    |I have a masters in library and archive management. Any new positions?|
+    |Are there any babysitting jobs for 13 year olds in the city today?|
 
-This is just one solution. You could also create a new intent of `ChangeSetting` and move the utterances using dim, lower, and decrease into that new intent. 
+    Do not label the **Job** entity in the utterances. This section of the tutorial is focused on intent prediction only.
 
-## Fix the app based on batch results
-Move the four utterances to the `HomeAutomation.TurnOn` intent. 
+4. Train the app by selecting **Train** in the top right navigation.
 
-1. Select the checkbox above the utterance list so all utterances are selected. 
+## Verify the new model
 
-2. In the **Reassign intent** drop-down, select `HomeAutomation.TurnOn`. 
+In order to verify that the utterances in the batch test are correctly predicted, run the batch test again.
 
-    ![Move utterances](./media/luis-tutorial-batch-testing/move-utterances.png)
+1. Select **Test** in the top navigation bar. If the batch results are still open, select **Back to list**.  
 
-    After the four utterances are reassigned, the utterance list for the `None` intent is empty.
+2. Select the ellipsis (***...***) button to the right of the batch name and select **Run Dataset**. Wait until the batch test is done. Notice that the **See results** button is now green. This means the entire batch ran successfully.
 
-3. Add four new intents for the None intent:
+3. Select **See results**. The intents should all have green icons to the left of the intent names. 
 
-    ```
-    "fish"
-    "dogs"
-    "beer"
-    "pizza"
-    ```
+    ![Screenshot of LUIS with batch results button highlighted](./media/luis-tutorial-batch-testing/hr-batch-test-intents-no-errors.png)
 
-    These utterances are definitely outside the domain of HomeAutomation. As you enter each utterance, watch the score for it. The score may be low, or even very low (with a red box around it). After you train the app, in step 8, the score will be much higher. 
+## Create batch file with entities 
 
-7. Remove any labels by selecting the blue label in the utterance and select **Remove label**.
+In order to verify entities in a batch test, the entities need to be labeled in the batch JSON file. Only the machine-learned entities are used: simple, hierarchical (parent-only), and composite entities. Do not add non-machine-learned entities because they are always found either through regular expressions, or explicit text matches.
 
-8. Select **Train** in the top right navigation bar. The score of each utterance is much higher. All scores for the `None` intent should be above .80 now. 
+The variation of entities for total word ([token](luis-glossary.md#token)) count can impact the prediction quality. Make sure the training data supplied to the intent with labeled utterances includes a variety of lengths of entity. 
 
-## Verify the fix worked
-In order to verify that the utterances in the batch test are correctly predicted for the **None** intent, run the batch test again.
+When first writing and testing batch files, it is best to start with a few utterances and entities that you know work, as well as a few that you think may be incorrectly predicted. This helps you focus in on the problem areas quickly. After testing the **GetJobInformation** and **ApplyForJob** intents using several different Job names, which were not predicted, this batch test file was developed to see if there is a prediction problem with certain values for **Job** entity. 
+
+The value of a **Job** entity, provided in the test utterances, is usually one or two words, with a few examples being more words. If _your own_ human resources app typically has job names of many words, the example utterances labeled with **Job** entity in this app would not work well.
+
+1. Create `HumanResources-entities-batch.json` in a text editor such as [VSCode](https://code.visualstudio.com/) or [download](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources-entities-batch.json) it.
+
+
+2. In the JSON-formatted batch file, add an array of objects that include utterances with the **Intent** you want predicted in the test as well as locations of any entities in the utterance. Since an entity is token-based, make sure to start and stop each entity on a character. Do not begin or end the utterance on a space. This causes an error during the batch file import.  
+
+   [!code-json[Add the intents and entities to the batch test file](~/samples-luis/documentation-samples/tutorials/HumanResources-entities-batch.json "Add the intents and entities to the batch test file")]
+
+
+## Run the batch with entities
 
 1. Select **Test** in the top navigation bar. 
 
 2. Select **Batch testing panel** in the right-side panel. 
 
-3. Select the three dots (...) to the right of the batch name and select **Run Dataset**. Wait until the batch test is done.
+3. Select **Import dataset**.
 
-    ![Run dataset](./media/luis-tutorial-batch-testing/run-dataset.png)
+4. Choose the file system location of the `HumanResources-entities-batch.json` file.
 
-4. Select **See results**. The intents should all have green icons to the left of the intent names. With the right filter set to the `HomeAutomation.Turnoff` intent, select the green dot in the top right panel closest to the middle of the chart. The name of the utterance appears in the table below the chart. The score of `breezeway off please` is very low. An optional activity is to add more utterances to the intent to increase this score. 
+5. Name the dataset `entities` and select **Done**.
 
-    ![Run dataset](./media/luis-tutorial-batch-testing/turnoff-low-score.png)
+6. Select the **Run** button. Wait until the test is done.
 
-<!--
-    The Entities section of the legend may have errors. That is the next thing to fix.
+7. Select **See results**.
 
-## Create a batch to test entity detection
-1. Create `homeauto-batch-2.json` in a text editor such as [VSCode](https://code.visualstudio.com/). 
+## Review entity batch results
 
-2. Utterances have entities identified with `startPos` and `endPost`. These two elements identify the entity before [tokenization](luis-glossary.md#token), which happens in some [cultures](luis-supported-languages.md#tokenization) in LUIS. If you plan to batch test in a tokenized culture, learn how to [extract](luis-concept-data-extraction.md#tokenized-entity-returned) the non-tokenized entities.
+The chart opens with all the intents correctly predicted. Scroll down in the right-side filter to find the erroring entity predictions. 
 
-    Copy the following JSON into the file:
+1. Select the **Job** entity in the filter.
 
-    ```JSON
-    [
-        {
-          "text": "lobby on please",
-          "intent": "HomeAutomation.TurnOn",
-          "entities": [
-            {
-              "entity": "HomeAutomation.Room",
-              "startPos": 0,
-              "endPos": 4
-            }
-          ]
-        },
-        {
-          "text": "change temperature to seventy one degrees",
-          "intent": "HomeAutomation.TurnOn",
-          "entities": [
-            {
-              "entity": "HomeAutomation.Operation",
-              "startPos": 7,
-              "endPos": 17
-            }
-          ]
-        },
-        {
-          "text": "where is my pizza",
-          "intent": "None",
-          "entities": []
-        },
-        {
-          "text": "help",
-          "intent": "None",
-          "entities": []
-        },
-        {
-          "text": "breezeway off please",
-          "intent": "HomeAutomation.TurnOff",
-          "entities": [
-            {
-              "entity": "HomeAutomation.Room",
-              "startPos": 0,
-              "endPos": 9
-            }
-          ]
-        },
-        {
-          "text": "coffee bar off please",
-          "intent": "HomeAutomation.TurnOff",
-          "entities": [
-            {
-              "entity": "HomeAutomation.Device",
-              "startPos": 0,
-              "endPos": 10
-            }
-          ]
-        }
-      ]
-    ```
+    ![Erroring entity predictions in filter](./media/luis-tutorial-batch-testing/hr-entities-filter-errors.png)
 
-3. Import the batch file, following the [same instructions](#run-the-batch) as the first import, and name the dataset `set 2`. Run the test.
+    The chart changes to display the entity predictions. 
 
-## Possible entity errors
-Since the intents in the right-side filter of the test panel still pass the test, this section focuses on correct entity identification. 
+2. Select **False Negative** in the lower, left quadrant of the chart. Then use the keyboard combination control + E to switch into the token view. 
 
-Entity testing is diferrent than intents. An utterance will have only one top scoring intent, but it may have several entities. An utterance's entity may be correctly identified, may be incorrectly identified as an entity other than the one in the batch test, may overlap with other entities, or not identified at all. 
+    [![Token view of entity predictions](./media/luis-tutorial-batch-testing/token-view-entities.png)](./media/luis-tutorial-batch-testing/token-view-entities.png#lightbox)
+    
+    Reviewing the utterances below the chart reveals a consistent error when the Job name includes `SQL`. Reviewing the example utterances and the Job phrase list, SQL is only used once, and only as part of a larger job name, `sql/oracle database administrator`.
 
-## Review entity errors
-1. Select `HomeAutomation.Device` in the filter panel. The chart changes to show a single false positive and several true negatives. 
+## Fix the app based on entity batch results
 
-2. Select the False positive section name. The utterance for this chart point is displayed below the chart. The labeled intent and the predicted intent are the same, which is consistent with the test -- the intent prediction is correct. 
+Fixing the app requires LUIS to correctly determine the variations of SQL jobs. There are several options for that fix. 
 
-    The issue is that the HomeAutomation.Device was detected but the batch expected HomeAutomation.Room for the utterance "coffee bar off please". `Coffee bar` could be a room or a device, depending on the environment and context. As the model designer, you can either enforce the selection as `HomeAutomation.Room` or change the batch file to use `HomeAutomation.Device`. 
+* Explicitly add more example utterances, which use SQL and label those words as a Job entity. 
+* Explicitly add more SQL jobs to the phrase list
 
-    If you want to reinforce that coffee bar is a room, you nee to add an utterances to LUIS that help LUIS decide a coffee bar is a room. 
+These tasks are left for you to do.
 
-    The most direct route is to add the utterance to the intent but that to add the utterance for every entity detection error is not the machine-learned solution. Another fix would be to add an utterance with `coffee bar`.
+Adding a [pattern](luis-concept-patterns.md) before the entity is correctly predicted, is not going to fix the problem. This is because the pattern won't match until all the entities in the pattern are detected. 
 
-## Add utterance to help extract entity
-1. Select the **Test** button on the top navigation to close the batch test panel.
+## Clean up resources
 
-2. On the `HomeAutomation.TurnOn` intent, add the utterance, `turn coffee bar on please`. The uttterance should have all three entities detected after you select enter. 
+[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
-3. Select **Train** on the top navigation panel. Wait until training completes successfully.
-
-3. Select **Test** on the top navigation panel to open the Batch testing pane again. 
-
-4. If the list of datasets is not visible, select **Back to list**. Select the three dots (...) at the end of `Set 2` and select `Run Dataset`. Wait for the test to complete.
-
-5. Select **See results** to review the test results.
-
-6. 
--->
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Learn more about example utterances](luis-how-to-add-example-utterances.md)
+The tutorial used a batch test to find problems with the current model. The model was fixed and retested with the batch file to verify the change was correct.
 
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
+> [!div class="nextstepaction"]
+> [Learn about patterns](luis-tutorial-pattern.md)
+

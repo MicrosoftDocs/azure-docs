@@ -47,7 +47,7 @@ If you are not using Cloud Shell, you must first sign in using `az login`.
 
 ## Create an Azure Storage account
 
-Azure Functions requires a general storage account. Create a separate general storage account in the resource group by using the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command.
+Azure Functions requires a general storage account. Create a separate general storage account in the resource group by using the [az storage account create](/cli/azure/storage/account#az-storage-account-create) command.
 
 Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. 
 
@@ -61,7 +61,7 @@ az storage account create --name <general_storage_account> \
 
 ## Create a function app  
 
-You must have a function app to host the execution of your function. The function app provides an environment for serverless execution of your function code. Create a function app by using the [az functionapp create](/cli/azure/functionapp#az_functionapp_create) command. 
+You must have a function app to host the execution of your function. The function app provides an environment for serverless execution of your function code. Create a function app by using the [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command. 
 
 In the following command, substitute your own unique function app name where you see the `<function_app>` placeholder. The function app name is used as the default DNS domain for the function app, and so the name needs to be unique across all apps in Azure. For `<general_storage_account>`, substitute the name of the general storage account you created.
 

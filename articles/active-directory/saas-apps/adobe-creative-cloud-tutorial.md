@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 07/10/2018
 ms.author: jeedes
 
 ---
@@ -36,6 +36,7 @@ To configure Azure AD integration with Adobe Creative Cloud, you need the follow
 
 - An Azure AD subscription
 - An Adobe Creative Cloud single sign-on enabled subscription
+- An Adobe Creative Cloud Enterprise version required
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -46,6 +47,7 @@ To test the steps in this tutorial, you should follow these recommendations:
 - If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario description
+
 In this tutorial, you test Azure AD single sign-on in a test environment. 
 The scenario outlined in this tutorial consists of two main building blocks:
 
@@ -53,6 +55,7 @@ The scenario outlined in this tutorial consists of two main building blocks:
 2. Configuring and testing Azure AD single sign-on
 
 ## Adding Adobe Creative Cloud from the gallery
+
 To configure the integration of Adobe Creative Cloud into Azure AD, you need to add Adobe Creative Cloud from the gallery to your list of managed SaaS apps.
 
 **To add Adobe Creative Cloud from the gallery, perform the following steps:**
@@ -110,7 +113,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<company name>.okta.com/auth/saml20/accauthlinktest`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Adobe Creative Cloud Client support team](https://helpx.adobe.com/in/contact/support.html) to get these values.
+	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Adobe Creative Cloud Enterprise](https://www.adobe.com/au/creativecloud/business/teams/plans.html) to get these values.
 
 4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
@@ -265,7 +268,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the Adobe Creative Cloud tile in the Access Panel, you should get automatically signed-on to your Adobe Creative Cloud application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 

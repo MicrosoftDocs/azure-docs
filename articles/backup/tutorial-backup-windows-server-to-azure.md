@@ -7,7 +7,7 @@ manager: shivamg
 keywords: windows server back up; back up windows server; back up and disaster recovery
 ms.service: backup
 ms.topic: tutorial
-ms.date: 2/14/2018
+ms.date: 8/22/2018
 ms.author: saurse
 ms.custom: mvc
 ---
@@ -23,9 +23,9 @@ You can use Azure Backup to protect your Windows Server from corruptions, attack
 > * Perform an ad-hoc back up
 
 
-## Log in to Azure
+## Sign in to Azure
 
-Log in to the Azure portal at http://portal.azure.com.
+Sign in to the Azure portal at http://portal.azure.com.
 
 ## Create a Recovery Services vault
 
@@ -35,11 +35,11 @@ Before you can back up Windows Server, you must create a place for the backups, 
 
    ![open Recovery Services vault](./media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault_2.png)
 
-2.	On the **Recovery Services vaults** menu, click **Add**.
+2. On the **Recovery Services vaults** menu, click **Add**.
 
    ![provide information for vault](./media/tutorial-backup-windows-server-to-azure/provide-vault-detail-2.png)
 
-3.	In the **Recovery Services vault** menu,
+3. In the **Recovery Services vault** menu,
 
     - Type *myRecoveryServicesVault* in **Name**.
     - The current subscription ID appears in **Subscription**.
@@ -53,27 +53,28 @@ Once your vault is created, it appears in the list of Recovery Services vaults.
 
 The Microsoft Azure Recovery Services (MARS) agent creates an association between Windows Server and your Recovery Services vault. The following procedure explains how to download the agent to your server.
 
-1.	From the list of Recovery Services vaults, select **myRecoveryServicesVault** to open its dashboard.
+1. From the list of Recovery Services vaults, select **myRecoveryServicesVault** to open its dashboard.
 
    ![provide information for vault](./media/tutorial-backup-windows-server-to-azure/open-vault-from-list.png)
 
-2.	On the vault dashboard menu, click **Backup**.
+2. On the vault dashboard menu, click **Backup**.
 
-3.	On the **Backup Goal** menu:
+3. On the **Backup Goal** menu:
 
-    - for **Where is your workload running?**, select**On-premises**, 
-    - for **What do you want to backup?**, select **Files and folders** and **System State** 
+   * for **Where is your workload running?**, select **On-premises**, 
+   * for **What do you want to backup?**, select **Files and folders** and **System State**
 
-    ![provide information for vault](./media/tutorial-backup-windows-server-to-azure/backup-goal.png)
-    
-4.	Click **Prepare Infrastructure** to open the **Prepare infrastructure** menu.
-5.	On the **Prepare infrastructure** menu, click **Download Agent for Windows Server or Windows Client** to download the *MARSAgentInstaller.exe*. 
+   ![provide information for vault](./media/tutorial-backup-windows-server-to-azure/backup-goal.png)
+
+4. Click **Prepare Infrastructure** to open the **Prepare infrastructure** menu.
+
+5. On the **Prepare infrastructure** menu, click **Download Agent for Windows Server or Windows Client** to download the *MARSAgentInstaller.exe*. 
 
     ![prepare infrastructure](./media/tutorial-backup-windows-server-to-azure/prepare-infrastructure.png)
 
     The installer opens a separate browser and downloads **MARSAgentInstaller.exe**.
  
-6.	Before you run the downloaded file, click the **Download** button on the Prepare infrastructure blade to download and save the **Vault Credentials** file. This file is required for connecting the MARS Agent with the Recovery Services Vault.
+6. Before you run the downloaded file, on the Prepare infrastructure menu click **Download** and save the **Vault Credentials** file. Vault credentials are required to connect the MARS Agent with the Recovery Services vault.
 
     ![prepare infrastructure](./media/tutorial-backup-windows-server-to-azure/download-vault-credentials.png)
  
@@ -109,13 +110,17 @@ You use the Microsoft Azure Recovery Services agent to schedule when backups to 
 
 5. Click **Next**.
 
-6. On the **Specify Backup Schedule (System State)** page, specify the time of the day, or week when backups need to be triggered for System State and click **Next** 
+6. On the **Specify Backup Schedule (System State)** page, specify the time of the day, or week when backups need to be triggered for System State and click **Next**.
 
-7.	On the **Select Retention Policy (System State)** page, select the Retention Policy for the backup copy for System State and click **Next**
+7. On the **Select Retention Policy (System State)** page, select the Retention Policy for the backup copy for System State and click **Next**.
+
 8. Similarly, select the backup schedule and retention policy for selected files and folders. 
-8.	On the **Choose Initial Back up Type** page, leave the option **Automatically over the network** selected, and then click **Next**.
-9.	On the **Confirmation** page, review the information, and then click **Finish**.
-10.	After the wizard finishes creating the backup schedule, click **Close**.
+
+9. On the **Choose Initial Back up Type** page, select **Automatically over the network**, and click **Next**.
+
+10. On the **Confirmation** page, review the information, and click **Finish**.
+
+11.	After the wizard finishes creating the backup schedule, click **Close**.
 
 ## Perform an ad-hoc back up
 
@@ -133,7 +138,7 @@ You have established the schedule when backup jobs run. However, you have not ba
 
 ## Next steps
 
-In this tutorial you used the Azure portal to: 
+In this tutorial, you used the Azure portal to: 
  
 > [!div class="checklist"] 
 > * Create a Recovery Services vault 

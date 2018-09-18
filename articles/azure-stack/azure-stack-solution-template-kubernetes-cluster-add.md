@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/29/2018
+ms.date: 09/12/2018
 ms.author: mabrigg
 ms.reviewer: waltero
 
@@ -23,7 +23,7 @@ ms.reviewer: waltero
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 > [!note]  
-> The Azure Container Services (ACS) Kubernetes on Azure Stack is in private preview. To request access to the Kubernetes Marketplace item needed to perform the instructions in this article, [submit a request to get access](https://aka.ms/azsk8).
+> The AKS (Azure Kubernetes Service) Engine on Azure Stack is in private preview. To request access to the Kubernetes Marketplace item needed to perform the instructions in this article, [submit a request to get access](https://aka.ms/azsk8).
 
 You can offer a Kubernetes Cluster as a Marketplace item to your users. Your users can deploy Kubernetes in a single, coordinated operation.
 
@@ -35,17 +35,17 @@ Create a plan, an offer, and a subscription for the Kubernetes Cluster Marketpla
 
 1. Sign in to the [Administration portal.](https://adminportal.local.azurestack.external)
 
-2. Create a plan as the base plan. For instructions, see [Create a plan in Azure Stack](azure-stack-create-plan.md).
+1. Create a plan as the base plan. For instructions, see [Create a plan in Azure Stack](azure-stack-create-plan.md).
 
-3. Create an offer. For instructions, see [Create an offer in Azure Stack](azure-stack-create-offer.md).
+1. Create an offer. For instructions, see [Create an offer in Azure Stack](azure-stack-create-offer.md).
 
-4. Select **Offers**, and find the offer you created.
+1. Select **Offers**, and find the offer you created.
 
-5. Select **Overview** in the Offer blade.
+1. Select **Overview** in the Offer blade.
 
-6. Select **Change state**. Select **Public**.
+1. Select **Change state**. Select **Public**.
 
-7. Select **+ New** > **Offers and Plans** > **Subscription** to create a new subscription.
+1. Select **+ Create a resource** > **Offers and Plans** > **Subscription** to create a new subscription.
 
     a. Enter a **Display Name**.
 
@@ -63,13 +63,13 @@ Add the following Ubuntu Server image to the Marketplace:
 
 1. Sign in to the [Administration portal](https://adminportal.local.azurestack.external).
 
-2. Select **More services** > **Marketplace Management**.
+1. Select **All services**, and then under the **ADMINISTRATION** category, select **Marketplace management**.
 
-3. Select **+ Add from Azure**.
+1. Select **+ Add from Azure**.
 
-4. Enter `UbuntuServer`.
+1. Enter `UbuntuServer`.
 
-5. Select the server with the following profile:
+1. Select the server with the following profile:
     - **Publisher**: Canonical
     - **Offer**: UbuntuServer
     - **SKU**: 16.04-LTS
@@ -78,7 +78,7 @@ Add the following Ubuntu Server image to the Marketplace:
     > [!Note]  
     > More than one version of Ubuntu Server 16.04 LTS may be listed. You will need to add the version that matches. The Kubernetes Cluster requires the exact version of the item.
 
-6. Select **Download.**
+1. Select **Download.**
 
 ## Add a custom script for Linux
 
@@ -86,13 +86,13 @@ Add the Kubernetes Cluster from the Marketplace:
 
 1. Open the [Administration portal](https://adminportal.local.azurestack.external).
 
-2. Select **More services** > **Marketplace Management**.
+1. Select **ALL services** and then under the **ADMINISTRATION** category, select **Marketplace Management**.
 
-3. Select **+ Add from Azure**.
+1. Select **+ Add from Azure**.
 
-4. Enter `Custom Script for Linux`.
+1. Enter `Custom Script for Linux`.
 
-5. Select the script with the following profile:
+1. Select the script with the following profile:
     - **Offer**: Custom Script for Linux 2.0
     - **Version**: 2.0.3
     - **Publisher**: Microsoft Corp
@@ -100,22 +100,22 @@ Add the Kubernetes Cluster from the Marketplace:
     > [!Note]  
     > More than one version of Custom Script for Linux may be listed. You will need to add the version that matches. The Kubernetes Cluster requires the exact version of the item.
 
-6. Select **Download.**
+1. Select **Download.**
 
 
 ## Add the Kubernetes Cluster to the marketplace
 
 1. Open the [Administration portal](https://adminportal.local.azurestack.external).
 
-2. Select **More services** > **Marketplace Management**.
+1. Select **Add services** and then under the **ADMINISTRATION** category, select **Marketplace Management**.
 
-3. Select **+ Add from Azure**.
+1. Select **+ Add from Azure**.
 
-4. Enter `Kubernetes Cluster`.
+1. Enter `Kubernetes Cluster`.
 
-5. Select `Kubernetes Cluster`.
+1. Select `Kubernetes Cluster`.
 
-6. Select **Download.**
+1. Select **Download.**
 
     > [!note]  
     > It may take five minutes for the marketplace item to appear in the Marketplace.
@@ -130,9 +130,9 @@ To remove the Kubernetes Cluster item:
 
 1. Note name of the current item, such as `Microsoft.AzureStackKubernetesCluster.0.1.0`
 
-2. Connect to Azure Stack with PowerShell.
+1. Connect to Azure Stack with PowerShell.
 
-3. Use the following PowerShell cmdlet to remove the item:
+1. Use the following PowerShell cmdlet to remove the item:
 
     ```PowerShell  
     $Itemname="Microsoft.AzureStackKubernetesCluster.0.1.0"

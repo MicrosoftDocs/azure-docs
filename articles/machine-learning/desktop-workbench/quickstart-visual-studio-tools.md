@@ -2,14 +2,13 @@
 title: Quickstart article for Visual Studio Tools for Machine Learning on Azure | Microsoft Docs
 description: This article describe how to get started using Visual Studio Tools for Machine Learning, from creating an experiment, training a model, and operationalizing a web-service.
 services: machine-learning
-author: ahgyger
-ms.author: ahgyger
-manager: haining
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.workload: azure-vs
+author: chris-lauren
+ms.author: chris.lauren
 ms.service: machine-learning
 ms.component: core
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: mvc, vs-azure
 ms.topic: quickstart
 ms.date: 11/15/2017
 ---
@@ -19,7 +18,7 @@ Visual Studio Tools for AI is a development extension to build, test, and deploy
  
 ## Getting started 
 To get started, you first need to download and install [Visual Studio](https://www.visualstudio.com/downloads/). Once you have Visual Studio open, do the following steps:
-1. Click on the menu bar in Visual Studio and select "Extensions and Updates..."
+1. Click "Tools" on the menu bar in Visual Studio and select "Extensions and Updates..."
 2. Click on "Online" tab and select "Search Visual Studio Marketplace."
 3. Search for "Visual Studio for AI." 
 3. Click on the **Download** button. 

@@ -59,37 +59,37 @@ The objective of this section is to outline how to enable user provisioning of A
 
 1. In the [Azure portal](https://portal.azure.com), browse to the **Azure Active Directory > Enterprise Apps > All applications** section.
 
-2. If you have already configured DocuSign for single sign-on, search for your instance of DocuSign using the search field. Otherwise, select **Add** and search for **DocuSign** in the application gallery. Select DocuSign from the search results, and add it to your list of applications.
+1. If you have already configured DocuSign for single sign-on, search for your instance of DocuSign using the search field. Otherwise, select **Add** and search for **DocuSign** in the application gallery. Select DocuSign from the search results, and add it to your list of applications.
 
-3. Select your instance of DocuSign, then select the **Provisioning** tab.
+1. Select your instance of DocuSign, then select the **Provisioning** tab.
 
-4. Set the **Provisioning Mode** to **Automatic**. 
+1. Set the **Provisioning Mode** to **Automatic**. 
 
     ![provisioning](./media/docusign-provisioning-tutorial/provisioning.png)
 
-5. Under the **Admin Credentials** section, provide the following configuration settings:
+1. Under the **Admin Credentials** section, provide the following configuration settings:
    
     a. In the **Admin User Name** textbox, type a DocuSign account name that has the **System Administrator** profile in DocuSign.com assigned.
    
     b. In the **Admin Password** textbox, type the password for this account.
 
-6. In the Azure portal, click **Test Connection** to ensure Azure AD can connect to your DocuSign app.
+1. In the Azure portal, click **Test Connection** to ensure Azure AD can connect to your DocuSign app.
 
-7. In the **Notification Email** field, enter the email address of a person or group who should receive provisioning error notifications, and check the checkbox.
+1. In the **Notification Email** field, enter the email address of a person or group who should receive provisioning error notifications, and check the checkbox.
 
-8. Click **Save.**
+1. Click **Save.**
 
-9. Under the Mappings section, select **Synchronize Azure Active Directory Users to DocuSign.**
+1. Under the Mappings section, select **Synchronize Azure Active Directory Users to DocuSign.**
 
-10. In the **Attribute Mappings** section, review the user attributes that are synchronized from Azure AD to DocuSign. The attributes selected as **Matching** properties are used to match the user accounts in DocuSign for update operations. Select the Save button to commit any changes.
+1. In the **Attribute Mappings** section, review the user attributes that are synchronized from Azure AD to DocuSign. The attributes selected as **Matching** properties are used to match the user accounts in DocuSign for update operations. Select the Save button to commit any changes.
 
-11. To enable the Azure AD provisioning service for DocuSign, change the **Provisioning Status** to **On** in the Settings section
+1. To enable the Azure AD provisioning service for DocuSign, change the **Provisioning Status** to **On** in the Settings section
 
-12. Click **Save.**
+1. Click **Save.**
 
 It starts the initial synchronization of any users assigned to DocuSign in the Users and Groups section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity logs, which describe all actions performed by the provisioning service on your DocuSign app.
 
-For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../active-directory-saas-provisioning-reporting.md).
+For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
 
 ## Additional resources
 

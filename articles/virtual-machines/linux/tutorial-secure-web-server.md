@@ -3,7 +3,7 @@ title: Tutorial - Secure a Linux web server with SSL certificates in Azure | Mic
 description: In this tutorial, you learn how to use the Azure CLI 2.0 to secure a Linux virtual machine that runs the NGINX web server with SSL certificates stored in Azure Key Vault.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/30/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
 
 #Customer intent: As an IT administrator or developer, I want to learn how to secure a web server with SSL certificates so that I can protect my customer data on web applications that I build and run.
@@ -36,7 +36,7 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 
 ## Overview
-Azure Key Vault safeguards cryptographic keys and secrets, such certificates or passwords. Key Vault helps streamline the certificate management process and enables you to maintain control of keys that access those certificates. You can create a self-signed certificate inside Key Vault, or upload an existing, trusted certificate that you already own.
+Azure Key Vault safeguards cryptographic keys and secrets, such as certificates or passwords. Key Vault helps streamline the certificate management process and enables you to maintain control of keys that access those certificates. You can create a self-signed certificate inside Key Vault, or upload an existing, trusted certificate that you already own.
 
 Rather than using a custom VM image that includes certificates baked-in, you inject certificates into a running VM. This process ensures that the most up-to-date certificates are installed on a web server during deployment. If you renew or replace a certificate, you don't also have to create a new custom VM image. The latest certificates are automatically injected as you create additional VMs. During the whole process, the certificates never leave the Azure platform or are exposed in a script, command-line history, or template.
 
@@ -48,7 +48,7 @@ Before you can create a Key Vault and certificates, create a resource group with
 az group create --name myResourceGroupSecureWeb --location eastus
 ```
 
-Next, create a Key Vault with [az keyvault create](/cli/azure/keyvault#az_keyvault_create) and enable it for use when you deploy a VM. Each Key Vault requires a unique name, and should be all lower case. Replace *<mykeyvault>* in the following example with your own unique Key Vault name:
+Next, create a Key Vault with [az keyvault create](/cli/azure/keyvault#az_keyvault_create) and enable it for use when you deploy a VM. Each Key Vault requires a unique name, and should be all lowercase. Replace *<mykeyvault>* in the following example with your own unique Key Vault name:
 
 ```azurecli-interactive 
 keyvault_name=<mykeyvault>

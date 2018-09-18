@@ -6,7 +6,7 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 06/14/2018
+ms.date: 07/06/2018
 ms.author: rajanaki
 
 ---
@@ -76,8 +76,8 @@ In case the repair button isn't available, refer to the error message displayed 
 
  - **Error**: The Run As account does not have the permission to access the recovery services resource.
 
-    **Recommended Action**: Delete and then [re-create the Run As account](https://docs.microsoft.com/en-us/azure/automation/automation-create-runas-account) or make sure that the Automation Run As account's Azure Active Directory Application has access to the recovery services resource.
+    **Recommended Action**: Delete and then [re-create the Run As account](https://docs.microsoft.com/azure/automation/automation-create-runas-account) or make sure that the Automation Run As account's Azure Active Directory Application has access to the recovery services resource.
 
 - **Error**: Run As account is not found. Either one of these was deleted or not created - Azure Active Directory Application, Service Principal, Role, Automation Certificate asset, Automation Connection asset - or the Thumbprint is not identical between Certificate and Connection. 
 
-    **Recommended Action**: Delete and [then re-create the Run As account](https://docs.microsoft.com/en-us/azure/automation/automation-create-runas-account).
+    **Recommended Action**: Delete and [then re-create the Run As account](https://docs.microsoft.com/azure/automation/automation-create-runas-account).

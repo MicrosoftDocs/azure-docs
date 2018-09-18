@@ -49,7 +49,7 @@ The simplest way to do this is to use SQL Server Management Studio installed on 
 3. Install Azure AD Connect against the existing [remote SQL database](active-directory-aadconnect-existing-database.md).
    The article demonstrates how to migrate to using a local SQL database. If you are migrating to using a remote SQL database, in step 5 of the process you must also enter an existing service account that the Windows Sync service will run as. This sync engine service account is described here:
    
-      **Use an existing service account**: By default, Azure AD Connect uses a virtual service account for the synchronization services to use. If you use a remote SQL Server instance or use a proxy that requires authentication, use a managed service account or a service account in the domain, and know the password. In those cases, enter the account to use. Make sure that users who are running the installation are system administrators in SQL so that login credentials for the service account can be created. For more information, see [Azure AD Connect accounts and permissions](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account). 
+      **Use an existing service account**: By default, Azure AD Connect uses a virtual service account for the synchronization services to use. If you use a remote SQL Server instance or use a proxy that requires authentication, use a managed service account or a service account in the domain, and know the password. In those cases, enter the account to use. Make sure that users who are running the installation are system administrators in SQL so that login credentials for the service account can be created. For more information, see [Azure AD Connect accounts and permissions](active-directory-aadconnect-accounts-permissions.md#adsync-service-account). 
    
       With the latest build, provisioning the database can now be performed out of band by the SQL administrator and then installed by the Azure AD Connect administrator with database owner rights. For more information, see [Install Azure AD Connect by using SQL delegated administrator permissions](active-directory-aadconnect-sql-delegation.md).
 
@@ -60,7 +60,7 @@ To keep things simple, we recommend that users who install Azure AD Connect be s
 All networking software, physical devices, or anything else that limits the maximum time that connections can remain open should use a threshold of at least five minutes (300 seconds) for connectivity between the server where the Azure AD Connect client is installed and Azure Active Directory. This recommendation also applies to all previously released Microsoft Identity synchronization tools.
 
 **Q: Are single label domains (SLDs) supported?**  
-No, Azure AD Connect does not support on-premises forests or domains that use SLDs.
+While we strongly recommend against this network configuration ([see article](https://support.microsoft.com/help/2269810/microsoft-support-for-single-label-domains)), using Azure AD Connect sync with a single label domain is supported, as long as the network configuration for the single level domain is functioning correctly.
 
 **Q: Are Forests with disjoint AD domains supported?**  
 No, Azure AD Connect does not support on-premises forests that contain disjoint namespaces.
@@ -86,8 +86,8 @@ No. Changing the server name renders the sync engine unable to connect to the SQ
 **Q: Why doesn't the userPrincipalName (UPN) attribute in Azure AD match the on-premises UPN?**  
 For information, see these articles:
 
-* [Usernames in Office 365, Azure, or Intune don't match the on-premises UPN or alternate login ID](https://support.microsoft.com/en-us/kb/2523192)
-* [Changes aren't synced by the Azure Active Directory sync tool after you change the UPN of a user account to use a different federated domain](https://support.microsoft.com/en-us/kb/2669550)
+* [Usernames in Office 365, Azure, or Intune don't match the on-premises UPN or alternate login ID](https://support.microsoft.com/kb/2523192)
+* [Changes aren't synced by the Azure Active Directory sync tool after you change the UPN of a user account to use a different federated domain](https://support.microsoft.com/kb/2669550)
 
 You can also configure Azure AD to allow the sync engine to update the UPN, as described in [Azure AD Connect sync service features](active-directory-aadconnectsyncservice-features.md).
 
@@ -129,11 +129,11 @@ To run the PowerShell script, [download the script](https://aka.ms/repairaadconn
 
 To manually upgrade, you must download and run the latest version of the AADConnect.msi file.
  
--  If your current version is older than 1.1.750.0, [download and upgrade to the latest version](https://www.microsoft.com/en-us/download/details.aspx?id=47594).
+-  If your current version is older than 1.1.750.0, [download and upgrade to the latest version](https://www.microsoft.com/download/details.aspx?id=47594).
 - If your Azure AD Connect version is 1.1.750.0 or later, no further action is required. You’re already using the version that contains the auto-upgrade fix. 
 
 **Q: I received an email telling me to upgrade to the latest version to re-enable auto upgrade. I am using version 1.1.654.0. Do I need to upgrade?**  
-Yes, you need to upgrade to version 1.1.750.0 or later to re-enable auto upgrade. [Download and upgrade to the latest version](https://www.microsoft.com/en-us/download/details.aspx?id=47594).
+Yes, you need to upgrade to version 1.1.750.0 or later to re-enable auto upgrade. [Download and upgrade to the latest version](https://www.microsoft.com/download/details.aspx?id=47594).
 
 **Q: I received an email telling me to upgrade to the latest version to re-enable auto upgrade. If I have used PowerShell to enable auto upgrade, do I still need to install the latest version?**  
 Yes, you still need to upgrade to version 1.1.750.0 or later. Enabling the auto-upgrade service with PowerShell does not mitigate the auto-upgrade issue found in versions before 1.1.750.0.
@@ -185,7 +185,7 @@ If you need help upgrading to a newer version of Azure AD Connect, open a suppor
 ## Troubleshooting
 **Q: How can I get help with Azure AD Connect?**
 
-[Search the Microsoft Knowledge Base (KB)](https://www.microsoft.com/en-us/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport)
+[Search the Microsoft Knowledge Base (KB)](https://www.microsoft.com/en-us/search/result.aspx?q=azure+active+directory+connect)
 
 * Search the KB for technical solutions to common break-fix issues about support for Azure AD Connect.
 

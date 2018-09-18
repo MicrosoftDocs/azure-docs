@@ -3,7 +3,7 @@ title: Azure Log Analytics virtual machine extension for Windows | Microsoft Doc
 description: Deploy the Log Analytics agent on Windows virtual machine using a virtual machine extension.
 services: virtual-machines-windows
 documentationcenter: ''
-author: danielsollondon
+author: zroiy
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
-ms.author: danis
+ms.author: roiyz
 
 ---
 # Log Analytics virtual machine extension for Windows
@@ -70,8 +70,10 @@ The following JSON shows the schema for the Log Analytics Agent extension. The e
 | publisher | Microsoft.EnterpriseCloud.Monitoring |
 | type | MicrosoftMonitoringAgent |
 | typeHandlerVersion | 1.0 |
-| workspaceId (e.g) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
+| workspaceId (e.g)* | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey (e.g) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
+
+\* The workspaceId is called the consumerId in the Log Analytics API.
 
 ## Template deployment
 

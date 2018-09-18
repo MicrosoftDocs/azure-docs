@@ -1,13 +1,14 @@
 ---
-title: Computer Vision API for Microsoft Cognitive Services | Microsoft Docs
-description: Use advanced algorithms in the Computer Vision API to help you process images and return information in Microsoft Cognitive Services.
+title: What is the Computer Vision API?
+titlesuffix: Azure Cognitive Services
+description: The Computer Vision API provides developers with access to advanced algorithms for processing images and returning information.
 services: cognitive-services
 author: KellyDF
-manager: corncar
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: article
+ms.topic: overview
 ms.date: 08/10/2017
 ms.author: kefre
 ---
@@ -44,7 +45,7 @@ Computer Vision API returns tags based on more than 2000 recognizable objects, l
 After uploading an image or specifying an image URL, Computer Vision API's algorithms output tags based on the objects, living beings, and actions identified in the image. Tagging is not limited to the main subject, such as a person in the foreground, but also includes the setting (indoor or outdoor), furniture, tools, plants, animals, accessories, gadgets etc.
 
 ### Example
-![House_Yard](./Images/house_yard.jpg) '
+![House_Yard](./Images/house_yard.png) '
 
 ```json
 Returned Json
@@ -91,15 +92,15 @@ In addition to tagging and descriptions, Computer Vision API returns the taxonom
 ### The 86-category concept
 Based on a list of 86 concepts seen in the following diagram, visual features found in an image can be categorized ranging from broad to specific. For the full taxonomy in text format, see [Category Taxonomy](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy).
 
-![Analyze Categories](./Images/analyze_categories.jpg)
+![Analyze Categories](./Images/analyze_categories.png)
 
 Image		                                           | Response
 ------------------------------------------------------ | ----------------
-![Woman Roof](./Images/woman_roof.jpg)                 | people
-![Family Photo](./Images/family_photo.jpg)             | people_crowd
-![Cute Dog](./Images/cute_dog.jpg)                     | animal_dog
-![Outdoor Mountain](./Images/mountain_vista.jpg)       | outdoor_mountain
-![Vision Analyze Food Bread](./Images/bread.jpg)       | food_bread
+![Woman Roof](./Images/woman_roof.png)                 | people
+![Family Photo](./Images/family_photo.png)             | people_crowd
+![Cute Dog](./Images/cute_dog.png)                     | animal_dog
+![Outdoor Mountain](./Images/mountain_vista.png)       | outdoor_mountain
+![Vision Analyze Food Bread](./Images/bread.png)       | food_bread
 
 ## Identifying Image Types
 There are several ways to categorize images. Computer Vision API can set a boolean flag to indicate whether an image is black and white or color. It can also set a flag to indicate whether an image is a line drawing or not. It can also indicate whether an image is clip art or not and indicate its quality as such on a scale of 0-3.
@@ -116,16 +117,16 @@ Value | Meaning
 
 Image|Response
 ----|----
-![Vision Analyze Cheese Clip Art](./Images/cheese_clipart.jpg)|3 good-clip-art
-![Vision Analyze House Yard](./Images/house_yard.jpg)|0 Non-clip-art
+![Vision Analyze Cheese Clip Art](./Images/cheese_clipart.png)|3 good-clip-art
+![Vision Analyze House Yard](./Images/house_yard.png)|0 Non-clip-art
 
 ### Line drawing type
 Detects whether an image is a line drawing or not.
 
 Image|Response
 ----|----
-![Vision Analyze Lion Drawing](./Images/lion_drawing.jpg)|True
-![Vision Analyze Flower](./Images/flower.jpg)|False
+![Vision Analyze Lion Drawing](./Images/lion_drawing.png)|True
+![Vision Analyze Flower](./Images/flower.png)|False
 
 ### Faces
 Detects human faces within a picture and generates the face coordinates, the rectangle for the face, gender, and age. These visual features are a subset of metadata generated for face. For more extensive metadata generated for faces (facial identification, pose detection, and more), use the Face API.  
@@ -155,7 +156,7 @@ Analyze to provide additional details related to categories from the 86-category
 Computer Vision API's algorithms analyze the content in an image. This analysis forms the foundation for a 'description' displayed as human-readable language in complete sentences. The description summarizes what is found in the image. Computer Vision API's algorithms generate various descriptions based on the objects identified in the image. The descriptions are each evaluated and a confidence score generated. A list is then returned ordered from highest confidence score to lowest. An example of a bot that uses this technology to generate image captions can be found [here](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/intelligence-ImageCaption).  
 
 ### Example Description Generation
-![B&W Buildings](./Images/bw_buildings.jpg) '
+![B&W Buildings](./Images/bw_buildings.png) '
 ```json
  Returned Json
 
@@ -198,18 +199,18 @@ The Computer Vision algorithm extracts colors from an image. The colors are anal
 
 Image                                                       | Foreground |Background| Colors
 ----------------------------------------------------------- | --------- | ------- | ------
-![Outdoor Mountain](./Images/mountain_vista.jpg)            | Black     | Black   | White
-![Vision Analyze Flower](./Images/flower.jpg)               | Black     | White   | White, Black, Green
-![Vision Analyze Train Station](./Images/train_station.jpg) | Black     | Black   | Black
+![Outdoor Mountain](./Images/mountain_vista.png)            | Black     | Black   | White
+![Vision Analyze Flower](./Images/flower.png)               | Black     | White   | White, Black, Green
+![Vision Analyze Train Station](./Images/train_station.png) | Black     | Black   | Black
 
 ### Accent color
 Color extracted from an image designed to represent the most eye-popping color to users via a mix of dominant colors and saturation.
 
 Image                                                       | Response
 ----------------------------------------------------------- | ----
-![Outdoor Mountain](./Images/mountain_vista.jpg)            | #BC6F0F
-![Vision Analyze Flower](./Images/flower.jpg)               | #CAA501
-![Vision Analyze Train Station](./Images/train_station.jpg) | #484B83
+![Outdoor Mountain](./Images/mountain_vista.png)            | #BC6F0F
+![Vision Analyze Flower](./Images/flower.png)               | #CAA501
+![Vision Analyze Train Station](./Images/train_station.png) | #484B83
 
 
 ### Black & White
@@ -217,8 +218,8 @@ Boolean flag that indicates whether an image is black&white or not.
 
 Image                                                      | Response
 ---------------------------------------------------------- | ----
-![Vision Analyze Building](./Images/bw_buildings.jpg)      | True
-![Vision Analyze House Yard](./Images/house_yard.jpg)      | False
+![Vision Analyze Building](./Images/bw_buildings.png)      | True
+![Vision Analyze House Yard](./Images/house_yard.png)      | False
 
 ## Flagging Adult Content
 Among the various visual categories is the adult and racy group, which enables detection of adult materials and restricts the display of images containing sexual content. The filter for adult and racy content detection can be set on a sliding scale to accommodate the user's preference.

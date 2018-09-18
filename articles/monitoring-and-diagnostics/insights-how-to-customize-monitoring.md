@@ -39,7 +39,7 @@ With the powerful customization in the portal you can add as many charts as you 
 
 1. In the **...** menu at the top of the blade click **Add tiles**:  
     ![Add Menu](./media/insights-how-to-customize-monitoring/Insights_AddMenu.png)
-2. Then, you can select select a chart from the **Gallery** on the right side of your screen:
+2. Then, you can select a chart from the **Gallery** on the right side of your screen:
     ![Gallery](./media/insights-how-to-customize-monitoring/Insights_Gallery.png)
 3. If you don't see the metric you want, you can always add one of the preset metrics, and **Edit** the chart to show the metric that you need.
 

@@ -1,8 +1,8 @@
 ---
 title: IoT Hub Device Provisioning Service - Auto-provisioning concepts
 description: This article provides a conceptual overview of the phases of device auto-provisioning, using IoT Device Provisioning Service, IoT Hub, and client SDKs.
-author: BryanLa
-ms.author: bryanla
+author: wesmc7777
+ms.author: wesmc
 ms.date: 06/01/2018
 ms.topic: conceptual
 ms.service: iot-dps
@@ -57,7 +57,7 @@ The following diagram summarizes the roles and sequencing of operations during d
 [![Auto-provisioning sequence for a device](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png)](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png#lightbox) 
 
 > [!NOTE]
-> Optionally, the manufacturer can also perform the "Enroll device identity" operation using Device Provisioning Service APIs (instead of via the Operator). For a detailed discussion of this sequencing and more, see the [Zero touch device registration with Azure IoT video](https://myignite.microsoft.com/sessions/55087) (starting at marker 41:00)
+> Optionally, the manufacturer can also perform the "Enroll device identity" operation using Device Provisioning Service APIs (instead of via the Operator). For a detailed discussion of this sequencing and more, see the [Zero touch device registration with Azure IoT video](https://youtu.be/cSbDRNg72cU?t=2460) (starting at marker 41:00)
 
 ## Next steps
 

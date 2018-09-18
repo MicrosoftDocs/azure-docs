@@ -1,19 +1,16 @@
-﻿---
+---
 title: Compare Flow, Logic Apps, Functions, and WebJobs - Azure
 description: "Compare Microsoft cloud services that are optimized for integration tasks:  Flow, Logic Apps, Functions, and WebJobs."
 services: functions,app-service\logic
 documentationcenter: na
-author: tdykstra
-manager: cfowler
-tags: ''
+author: ggailey777
+manager: jeconnoc
 keywords: microsoft flow, flow, logic apps, azure functions, functions, azure webjobs, webjobs, event processing, dynamic compute, serverless architecture
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: overview
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 04/09/2018
-ms.author: tdykstra
+ms.author: glenga
 ms.custom: mvc
 ---
 
@@ -51,7 +48,7 @@ The following table helps you determine whether Flow or Logic Apps is best for a
 
 Functions and Logic Apps are Azure services that enable serverless workloads. Azure Functions is a serverless compute service, while Azure Logic Apps provides serverless workflows. Complex *orchestrations* can be created by both. An orchestration is a collection of functions or steps, called *actions* in Logic Apps, that are executed to accomplish a complex task. For example, to process a batch of orders you might execute many instances of a function in parallel, wait for all instances to finish, and then execute a function that computes a result on the aggregate.
 
-For Azure Functions, you develop orchestrations by writing code and using the [Durable Functions extension](durable-functions-overview.md) (in preview). For Logic Apps, you create orchestrations by using a GUI or editing configuration files.
+For Azure Functions, you develop orchestrations by writing code and using the [Durable Functions extension](durable-functions-overview.md). For Logic Apps, you create orchestrations by using a GUI or editing configuration files.
 
 You can mix and match services when you build an orchestration, calling functions from logic apps and calling logic apps from functions. Choose how to build each orchestration based on the services' capabilities or your personal preference. The following table lists some of the key differences between these services:
  

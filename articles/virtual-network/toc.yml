@@ -35,7 +35,7 @@
     href: policy-samples.md
 - name: Concepts
   items:
-  - name: Security
+  - name: Security groups
     href: security-overview.md
   - name: Routing
     href: virtual-networks-udr-overview.md
@@ -69,10 +69,10 @@
     items:
     - name: Network security groups
       items:
+      - name: Azure PowerShell
+        href: tutorial-filter-network-traffic-powershell.md
       - name: Azure CLI
         href: tutorial-filter-network-traffic-cli.md
-      - name: Azure portal
-        href: virtual-networks-create-nsg-arm-pportal.md
     - name: Route tables
       items:
       - name: Azure PowerShell
@@ -137,6 +137,9 @@
           href: create-vm-accelerated-networking-powershell.md
         - name: Azure CLI
           href: create-vm-accelerated-networking-cli.md
+          items:
+          - name: Setup DPDK
+            href: setup-dpdk.md
       - name: Virtual machine network throughput
         href: virtual-machine-network-throughput.md
     - name: Connectivity scenarios
@@ -211,6 +214,8 @@
       href: virtual-network-troubleshoot-connectivity-problem-between-vms.md
     - name: Configure PTR for SMTP Banner Check
       href: create-ptr-for-smtp-service.md
+    - name: Troubleshooting checklist for virtual appliances
+      href: virtual-network-troubleshoot-nva.md
   - name: Classic
     items:
     - name: Create and manage a virtual network

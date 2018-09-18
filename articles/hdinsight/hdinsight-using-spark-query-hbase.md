@@ -1,20 +1,14 @@
 ---
-title: Use Spark to read and write HBase data - Azure HDInsight | Microsoft Docs
+title: Use Spark to read and write HBase data - Azure HDInsight
 description: Use the Spark HBase Connector to read and write data from a Spark cluster to an HBase cluster.
 services: hdinsight
-documentationcenter: ''
 author: maxluk
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-
+ms.author: maxluk
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.date: 01/11/2018
-ms.author: maxluk
-
+ms.topic: conceptual
+ms.date: 07/18/2018
 ---
 # Use Spark to read and write HBase data
 
@@ -126,7 +120,7 @@ In this step, you create and populate a simple table in HBase that you can then 
 1. Connect to the head node of your Spark cluster using SSH.
 2. Start the spark shell, specifying the Spark HBase Connector package:
 
-        spark-shell --packages com.hortonworks:shc-core:1.1.0-2.1-s_2.11 --repositories http://repo.hortonworks.com/coroups/public/
+        spark-shell --packages com.hortonworks:shc-core:1.1.0-2.1-s_2.11 --repositories http://repo.hortonworks.com/content/groups/public/
 
 3. Keep this Spark Shell instance open and continue to the next step.
 

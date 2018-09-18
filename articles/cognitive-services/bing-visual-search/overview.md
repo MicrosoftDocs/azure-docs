@@ -15,7 +15,7 @@ ms.author: scottwhi
 
 # What is Bing Visual Search API?
 
-Bing Visual Search API provides an experience similar to the image details shown on Bing.com/images. With Visual Search you can upload a picture and get back insights about the image such as visually similar images, shopping sources, webpages that include the image, and more. Instead of uploading an image, you can also provide an insights token that you get from an image in the images search results (see [Bing Images API](../bing-image-search/overview.md)).
+Bing Visual Search API provides an experience similar to the image details shown on Bing.com/images. With Visual Search, you can upload a picture and get back insights about the image such as visually similar images, shopping sources, webpages that include the image, and more. Instead of uploading an image, you can also provide an insights token that you get from an image in the images search results (see [Bing Images API](../bing-image-search/overview.md)).
 
 Visual Search can identify celebrities, monuments and landmarks, artwork, home furnishings, fashion, products, character recognition (OCR), and more.
 
@@ -67,7 +67,7 @@ If you send Visual Search an image token or URL, the following shows the JSON ob
 }
 ```
 
-The `imageInfo` object must include either the `url` and `imageInsightsToken` field but not both. Set the `url` field to the URL of an Internet accessible image. The maximum supported image size is 1 MB.
+The `imageInfo` object must include either the `url` or `imageInsightsToken` field but not both. Set the `url` field to the URL of an Internet accessible image. The maximum supported image size is 1 MB.
 
 The `imageInsightsToken` must be set to an insights token. To get an insights token, call the Bing Image API. The response contains a list of `Image` objects. Each `Image` object contains an `imageInsightsToken` field, which contains the token.
 
@@ -89,12 +89,12 @@ Requests must be sent as HTTP POST requests only.
 
 ### Query parameters
 
-The following are the query parameters your request should specify. At a minimum you should include the `mkt` query parameter.
+The following are the query parameters your request should specify. At a minimum, you should include the `mkt` query parameter.
 
 |Name|Value|Type|Required|  
 |----------|-----------|----------|--------------|  
 |<a name="cc" />cc|A 2-character country code of the country where the results come from.<br /><br /> If you set this parameter, you must also specify the [Accept-Language](#acceptlanguage) header. Bing uses the first supported language it finds from the list of languages, and combines the language with the country code that you specify to determine the market to return results from. If the languages list does not include a supported language, Bing finds the closest language and market that supports the request. Or it may use an aggregated or default market for the results instead of the specified one.<br /><br /> You should use this query parameter and the `Accept-Language` query parameter only if you specify multiple languages; otherwise, you should use the `mkt` and `setLang` query parameters.<br /><br /> This parameter and the [mkt](#mkt) query parameter are mutually exclusive&mdash;do not specify both.|String|No|  
-|<a name="mkt" />mkt|The market where the results come from. <br /><br /> **NOTE:** You are strongly encouraged to always specify the market, if known. Specifying the market helps Bing route the request and return an appropriate and optimal response.<br /><br /> This parameter and the [cc](#cc) query parameter are mutually exclusive&mdash;do not specify both.|String|Yes|  
+|<a name="mkt" />mkt|The market where the results come from. <br /><br /> **NOTE:** You are encouraged to always specify the market, if known. Specifying the market helps Bing route the request and return an appropriate and optimal response.<br /><br /> This parameter and the [cc](#cc) query parameter are mutually exclusive&mdash;do not specify both.|String|Yes|  
 |<a name="safesearch" />safeSearch|A filter used to filter adult content. The following are the possible case-insensitive filter values.<br /><ul><li>Off&mdash;Return webpages with adult text or images.<br /><br/></li><li>Moderate&mdash;Return webpages with adult text, but not adult images.<br /><br/></li><li>Strict&mdash;Do not return webpages with adult text or images.</li></ul><br /> The default is Moderate.<br /><br /> **NOTE:** If the request comes from a market that Bing's adult policy requires that `safeSearch` be set to Strict, Bing ignores the `safeSearch` value and uses Strict.<br/><br/>**NOTE:** If you use the `site:` query operator, there is the chance that the response may contain adult content regardless of what the `safeSearch` query parameter is set to. Use `site:` only if you are aware of the content on the site and your scenario supports the possibility of adult content. |String|No|  
 |<a name="setlang" />setLang|The language to use for user interface strings. Specify the language using the ISO 639-1 2-letter language code. For example, the language code for English is EN. The default is EN (English).<br /><br /> Although optional, you should always specify the language. Typically, you set `setLang` to the same language specified by `mkt` unless the user wants the user interface strings displayed in a different language.<br /><br /> This parameter and the [Accept-Language](#acceptlanguage) header are mutually exclusive&mdash;do not specify both.<br /><br /> A user interface string is a string that's used as a label in a user interface. There are few user interface strings in the JSON response objects. Also, any links to Bing.com properties in the response objects apply the specified language.|String|No| 
 
@@ -106,7 +106,7 @@ The following are the headers that your request should specify. The Content-Type
 |Header|Description|  
 |------------|-----------------|  
 |<a name="acceptlanguage" />Accept-Language|Optional request header.<br /><br /> A comma-delimited list of languages to use for user interface strings. The list is in decreasing order of preference. For more information, including expected format, see [RFC2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> This header and the [setLang](#setlang) query parameter are mutually exclusive&mdash;do not specify both.<br /><br /> If you set this header, you must also specify the [cc](#cc) query parameter. To determine the market to return results for, Bing uses the first supported language it finds from the list and combines it with the `cc` parameter value. If the list does not include a supported language, Bing finds the closest language and market that supports the request or it uses an aggregated or default market for the results. To determine the market that Bing used, see the BingAPIs-Market header.<br /><br /> Use this header and the `cc` query parameter only if you specify multiple languages. Otherwise, use the [mkt](#mkt) and [setLang](#setlang) query parameters.<br /><br /> A user interface string is a string that's used as a label in a user interface. There are few user interface strings in the JSON response objects. Any links to Bing.com properties in the response objects apply the specified language.|  
-|<a name="contenttype" />Content-Type|Required request header.<br /><br />Must be set to multipart/form-data and include a boundary parameter (for example, multipart/form-data; boundary=\<boundary string\>). For more details, see [Content form types](#content-form-types).
+|<a name="contenttype" />Content-Type|Required request header.<br /><br />Must be set to multipart/form-data and include a boundary parameter (for example, multipart/form-data; boundary=\<boundary string\>). For more information, see [Content form types](#content-form-types).
 |<a name="market" />BingAPIs-Market|Response header.<br /><br /> The market used by the request. The form is \<languageCode\>-\<countryCode\>. For example, en-US.|  
 |<a name="traceid" />BingAPIs-TraceId|Response header.<br /><br /> The ID of the log entry that contains the details of the request. When an error occurs, capture this ID. If you are not able to determine and resolve the issue, include this ID along with the other information that you provide the Support team.|  
 |<a name="subscriptionkey" />Ocp-Apim-Subscription-Key|Required request header.<br /><br /> The subscription key that you received when you signed up for this service in [Cognitive Services](https://www.microsoft.com/cognitive-services/).|  
@@ -127,7 +127,7 @@ The following are the headers that your request should specify. The Content-Type
 Each request must include the Content-Type header. The header must be set to: multipart/form-data; boundary=\<boundary string\>, where \<boundary string\> is a unique, opaque string that identifies the boundary of the form data. For example, boundary=boundary_1234-abcd.
 
 
-If you send Visual Search an image token or URL, the following shows the form data you must include in the body of the POST. The form data must include the Content-Disposition header and its `name` parameter must be set to "knowledgeRequest". For details about the `imageInfo` object, see [The request](#the-request).
+If you send Visual Search an image token or URL, the following shows the form data you must include in the body of the POST. The form data must include the Content-Disposition header and its `name` parameter must be set to "knowledgeRequest." For details about the `imageInfo` object, see [The request](#the-request).
 
 
 ```
@@ -143,7 +143,7 @@ Content-Disposition: form-data; name="knowledgeRequest"
 --boundary_1234-abcd--
 ```
 
-If you upload a local image, the following shows the form data you must include in the body of the POST. The form data must include the Content-Disposition header. Its `name` parameter must be set to "image" and the `filename` parameter may be set to any string. The Content-Type header may be set to any commonly used image mime type. The contents of the form is the binary of the image. The maximum image size you may upload is 1 MB. 
+If you upload a local image, the following shows the form data you must include in the body of the POST. The form data must include the Content-Disposition header. Its `name` parameter must be set to "image" and the `filename` parameter may be set to any string. The Content-Type header may be set to any commonly used image mime type. The contents of the form is the binary of the image. The maximum image size you may upload is 1 MB. The largest of the width or height should be 1,500 pixels or less.
 
 
 ```
@@ -307,7 +307,7 @@ If the image contains text that the service recognizes, one of the tags will con
     }
 ```
 
-Because the tag's `displayName` field contains ##TextRecognition do not use it as a category title in the UX. That goes for any display name that starts with ##. Instead use the action's display name.
+Because the tag's `displayName` field contains ##TextRecognition, do not use it as a category title in the UX. That goes for any display name that starts with ##. Instead use the action's display name.
 
 
 Text recognition can also recognize the contact information on business cards, such as phone numbers and email addresses. The bounding box identifies the location of the contact information on the card. 
@@ -396,7 +396,7 @@ Text recognition can also recognize the contact information on business cards, s
     }
 ```
 
-If the image contains a recognized entity such as a person, place, or thing, one of the tags may include an Entity insight. Entities can also include trivia as shown in the following example:
+If the image contains a recognized entity such as a person, place, or thing, one of the tags may include an Entity insight. 
 
 ```json
     {
@@ -424,29 +424,6 @@ If the image contains a recognized entity such as a person, place, or thing, one
           "webSearchUrl" : "https:\/\/www.bing.com\/search?q=Statue+of+Liberty",
           "displayName" : "Statue of Liberty",
           "actionType" : "Entity",
-        },
-        {
-          "_type" : "ImageModuleAction",
-          "actionType" : "Trivia",
-          "data" : {
-            "value" : [
-              {
-                "name" : "Where was the cornerstone of the statue of liberty laid",
-                "text" : "<the answer>",
-                "hostPageUrl" : "http:\/\/contoso.com\/history\/...",
-              },
-              {
-                "name" : "Why Is the Statue of Liberty Green",
-                "text" : "<the answer>",
-                "hostPageUrl" : "https:\/\/www.contoso.com\/why-statue-of-liberty-is-green",
-              },
-              {
-                "name" : "What is the Statue of Liberty made of",
-                "text" : "<the answer>",
-                "hostPageUrl" : "https:\/\/www.contoso.com\/art-literature\/statue-liberty-made",
-              }
-            ]
-          }
         }
       ]
     }

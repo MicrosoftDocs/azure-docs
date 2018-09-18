@@ -55,7 +55,7 @@ Then create a second directory called c:\chef\cookbooks.
 
 We now need to download the Azure settings file so Chef can communicate with the Azure subscription.
 
-Download your publish settings using the PowerShell Azure [Get-​Azure​Publish​Settings​File](https://docs.microsoft.com/powershell/module/azure/get-azurepublishsettingsfile?view=azuresmps-4.0.0) command. 
+Download your publish settings using the PowerShell Azure [Get-​Azure​Publish​Settings​File](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azurepublishsettingsfile?view=azuresmps-4.0.0) command. 
 
 Save the publish settings file in C:\chef.
 
@@ -199,7 +199,7 @@ Am example of the command appears next.
 The parameters are self-explanatory. Substitute your particular variables and run.
 
 > [!NOTE]
-> Through the the command line, I’m also automating my endpoint network filter rules by using the –tcp-endpoints parameter. I’ve opened up ports 80 and 3389 to provide access to my web page and RDP session.
+> Through the command line, I’m also automating my endpoint network filter rules by using the –tcp-endpoints parameter. I’ve opened up ports 80 and 3389 to provide access to my web page and RDP session.
 > 
 > 
 

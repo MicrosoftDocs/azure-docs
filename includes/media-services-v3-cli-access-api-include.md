@@ -26,16 +26,16 @@ This command produces a response similar to this:
 
 ```json
 {
-  "AadClientId": "00000000-4cdd-418a-8a72-0755ace03de5",
+  "AadClientId": "00000000-0000-0000-0000-000000000000",
   "AadEndpoint": "https://login.microsoftonline.com",
-  "AadSecret": "00000000-02f5-4bf2-9057-1c4f7baff155",
-  "AadTenantId": "00000000-86f1-41af-91ab-2d7cd011db47",
-  "AccountName": "amsaccount22",
+  "AadSecret": "00000000-0000-0000-0000-000000000000",
+  "AadTenantId": "00000000-0000-0000-0000-000000000000",
+  "AccountName": "amsaccount",
   "ArmAadAudience": "https://management.core.windows.net/",
   "ArmEndpoint": "https://management.azure.com/",
   "Region": "West US 2",
-  "ResourceGroup": "amsResourceGroup2",
-  "SubscriptionId": "00000000-6753-4ca2-b1ae-193798e2c9d8"
+  "ResourceGroup": "amsResourceGroup",
+  "SubscriptionId": "00000000-0000-0000-0000-000000000000"
 }
 ```
 

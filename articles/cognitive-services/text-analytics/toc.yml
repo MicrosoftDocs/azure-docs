@@ -10,6 +10,8 @@
   items:
   - name: C#
     href: quickstarts/csharp.md
+  - name: Go
+    href: quickstarts/go.md
   - name: Java
     href: quickstarts/java.md
   - name: Node.js
@@ -48,24 +50,29 @@
         href: vs-text-connected-service.md
 - name: Reference
   items: 
+  - name: CLI reference
+    href: https://docs.microsoft.com/en-us/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
+  - name: PowerShell reference
+    href: https://aka.ms/azure-powershell-cognitiveservices
   - name: Text Analytics API
     href: https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7
 - name: Resources
   items:
+  - name: External and community content
+    href: text-analytics-resource-external-community.md
   - name: FAQ
     href: text-analytics-resource-faq.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/
-  - name: UserVoice 
-    href: https://cognitive.uservoice.com/forums/555922-text-analytics
+  - name: Regional availability
+    href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/text-analytics-api
-  - name: Supported languages
-    href: text-analytics-supported-languages.md
   - name: Subscription key
     href: https://azure.microsoft.com/try/cognitive-services/?api=text-analytics
-  - name: External and community content
-    href: text-analytics-resource-external-community.md
+  - name: Supported languages
+    href: text-analytics-supported-languages.md
   - name: Try it!
     href: https://azure.microsoft.com/services/cognitive-services/text-analytics/
-  
+  - name: UserVoice 
+    href: https://cognitive.uservoice.com/forums/555922-text-analytics  

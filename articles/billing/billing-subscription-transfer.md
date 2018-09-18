@@ -27,6 +27,9 @@ Transfer your subscription to another user in the Account Center to change the A
 > 
 > If you transfer a subscription to a new Azure AD tenant, all role assignments in [role-based access control (RBAC)](../role-based-access-control/overview.md) are permanently deleted from the source tenant and are not migrated to the target tenant.
 
+> [!div class="nextstepaction"]
+> [Help improve Azure billing docs](https://go.microsoft.com/fwlink/p/?linkid=2010091)
+
 ## Transfer ownership of an Azure subscription
 
 > [!VIDEO https://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/Transfer-an-Azure-subscription/player]
@@ -69,7 +72,7 @@ The Enterprise Administrator can transfer ownership of subscriptions within an e
 
 ## Next steps after accepting ownership of a subscription
 
-1. You are now the Account Admin. Review and update the Service Admin, Co-Admins, and other RBAC roles. To learn more, see [Add or change Azure administrator roles that manage the subscription or services](billing-add-change-azure-subscription-administrator.md).
+1. You are now the Account Admin. Review and update the Service Admin, Co-Admins, and other RBAC roles. To learn more, see [Add or change Azure subscription administrators](billing-add-change-azure-subscription-administrator.md) and [Manage access using RBAC and the Azure portal](../role-based-access-control/role-assignments-portal.md).
 1. Update credentials associated with this subscription's services including:
    1. Management certificates that grant the user admin rights to subscription resources. For more information, see [Create and upload a management certificate for Azure](../cloud-services/cloud-services-certs-create.md)
    1. Access keys for services like Storage. For more information, see [About Azure storage accounts](../storage/common/storage-create-storage-account.md)
@@ -111,7 +114,7 @@ The Account Administrator is the person who signed up for or bought the Azure su
 
 ### Does everything transfer? Including resource groups, VMs, disks, and other running services?
 
-All your resources like VMs, disks, and websites transfer to the new owner. However, any [administrator roles](billing-add-change-azure-subscription-administrator.md) and [Role-based Access Control (RBAC)](../role-based-access-control/role-assignments-portal.md) policies you've set up do not transfer across different directories. Also, [app registrations](../active-directory//develop/active-directory-integrating-applications.md) and other tenant-specific services don't transfer along.
+All your resources like VMs, disks, and websites transfer to the new owner. However, any [administrator roles](billing-add-change-azure-subscription-administrator.md) and [Role-based Access Control (RBAC)](../role-based-access-control/role-assignments-portal.md) policies you've set up do not transfer across different directories. Also, [app registrations](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) and other tenant-specific services don't transfer along.
 
 ### <a id="no-button"></a> Why don't I see the "Transfer subscription" button?
 

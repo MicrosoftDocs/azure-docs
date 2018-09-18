@@ -1,20 +1,14 @@
 ---
-title: Use Zeppelin notebooks with Apache Spark cluster on Azure HDInsight | Microsoft Docs
+title: Use Zeppelin notebooks with Apache Spark cluster on Azure HDInsight 
 description: Step-by-step instructions on how to use Zeppelin notebooks with Apache Spark clusters on Azure HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: df489d70-7788-4efa-a089-e5e5006421e2
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.author: nitinme
-
 ---
 # Use Zeppelin notebooks with Apache Spark cluster on Azure HDInsight
 
@@ -38,15 +32,15 @@ HDInsight Spark clusters include Zeppelin notebooks that you can use to run Spar
    > `https://CLUSTERNAME.azurehdinsight.net/zeppelin`
    > 
    > 
-2. Create a new notebook. From the header pane, click **Notebook**, and then click **Create New Note**.
+1. Create a new notebook. From the header pane, click **Notebook**, and then click **Create New Note**.
    
     ![Create a new Zeppelin notebook](./media/apache-spark-zeppelin-notebook/hdinsight-create-zeppelin-notebook.png "Create a new Zeppelin notebook")
    
     Enter a name for the notebook, and then click **Create Note**.
-3. Also, make sure the notebook header shows a connected status. It is denoted by a green dot in the top-right corner.
+1. Also, make sure the notebook header shows a connected status. It is denoted by a green dot in the top-right corner.
    
     ![Zeppelin notebook status](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-connected.png "Zeppelin notebook status")
-4. Load sample data into a temporary table. When you create a Spark cluster in HDInsight, the sample data file, **hvac.csv**, is copied to the associated storage account under **\HdiSamples\SensorSampleData\hvac**.
+1. Load sample data into a temporary table. When you create a Spark cluster in HDInsight, the sample data file, **hvac.csv**, is copied to the associated storage account under **\HdiSamples\SensorSampleData\hvac**.
    
     In the empty paragraph that is created by default in the new notebook, paste the following snippet.
    
@@ -77,7 +71,7 @@ HDInsight Spark clusters include Zeppelin notebooks that you can use to run Spar
     ![Create a temporary table from raw data](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-load-data.png "Create a temporary table from raw data")
    
     You can also provide a title to each paragraph. From the right-hand corner, click the **Settings** icon, and then click **Show title**.
-5. You can now run Spark SQL statements on the **hvac** table. Paste the following query in a new paragraph. The query retrieves the building ID and the difference between the target and actual temperatures for each building on a given date. Press **SHIFT + ENTER**.
+1. You can now run Spark SQL statements on the **hvac** table. Paste the following query in a new paragraph. The query retrieves the building ID and the difference between the target and actual temperatures for each building on a given date. Press **SHIFT + ENTER**.
    
         %sql
         select buildingID, (targettemp - actualtemp) as temp_diff, date from hvac where date = "6/1/13" 
@@ -89,7 +83,7 @@ HDInsight Spark clusters include Zeppelin notebooks that you can use to run Spar
     ![Run a Spark SQL statement using the notebook](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-1.png "Run a Spark SQL statement using the notebook")
    
      Click the display options (highlighted in rectangle) to switch between different representations for the same output. Click **Settings** to choose what consitutes the key and values in the output. The screen capture above uses **buildingID** as the key and the average of **temp_diff** as the value.
-6. You can also run Spark SQL statements using variables in the query. The next snippet shows how to define a variable, **Temp**, in the query with the possible values you want to query with. When you first run the query, a drop-down is automatically populated with the values you specified for the variable.
+1. You can also run Spark SQL statements using variables in the query. The next snippet shows how to define a variable, **Temp**, in the query with the possible values you want to query with. When you first run the query, a drop-down is automatically populated with the values you specified for the variable.
    
         %sql
         select buildingID, date, targettemp, (targettemp - actualtemp) as temp_diff from hvac where targettemp > "${Temp = 65,65|75|85}" 
@@ -99,10 +93,10 @@ HDInsight Spark clusters include Zeppelin notebooks that you can use to run Spar
     ![Run a Spark SQL statement using the notebook](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-2.png "Run a Spark SQL statement using the notebook")
    
     For subsequent queries, you can select a new value from the drop-down and run the query again. Click **Settings** to choose what consitutes the key and values in the output. The screen capture above uses **buildingID** as the key, the average of **temp_diff** as the value, and **targettemp** as the group.
-7. Restart the Livy interpreter to exit the application. To do so, open interpreter settings by clicking the logged in user name from the top-right corner, and then click **Interpreter**.
+1. Restart the Livy interpreter to exit the application. To do so, open interpreter settings by clicking the logged in user name from the top-right corner, and then click **Interpreter**.
    
     ![Launch interpreter](./media/apache-spark-zeppelin-notebook/zeppelin-launch-interpreter.png "Hive output")
-8. Scroll to Livy interpreter settings and then click **Restart**.
+1. Scroll to Livy interpreter settings and then click **Restart**.
    
     ![Restart the Livy intepreter](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "Restart the Zeppelin intepreter")
 
@@ -114,15 +108,15 @@ In this article, you will see how to use the [spark-csv](http://search.maven.org
 1. Open interpreter settings. From the top-right corner, click the logged in user name, and then click **Interpreter**.
    
     ![Launch interpreter](./media/apache-spark-zeppelin-notebook/zeppelin-launch-interpreter.png "Hive output")
-2. Scroll to Livy interpreter settings and then click **Edit**.
+1. Scroll to Livy interpreter settings and then click **Edit**.
    
     ![Change interpreter settings](./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-1.png "Change interpreter settings")
-3. Add a new key, called **livy.spark.jars.packages** and set its value in the format `group:id:version`. So, if you want to use the [spark-csv](http://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) package, you must set the value of the key to `com.databricks:spark-csv_2.10:1.4.0`.
+1. Add a new key, called **livy.spark.jars.packages** and set its value in the format `group:id:version`. So, if you want to use the [spark-csv](http://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) package, you must set the value of the key to `com.databricks:spark-csv_2.10:1.4.0`.
    
     ![Change interpreter settings](./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-2.png "Change interpreter settings")
    
     Click **Save** and then restart the Livy interpreter.
-4. **Tip**: If you want to understand how to arrive at the value of the key entered above, here's how.
+1. **Tip**: If you want to understand how to arrive at the value of the key entered above, here's how.
    
     a. Locate the package in the Maven Repository. For this tutorial, we used [spark-csv](http://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar).
    
@@ -149,10 +143,10 @@ In such a case, you must perform the following steps before you can start runnin
 1. Restart the Livy interpreter from the Zeppelin notebook. To do so, open interpreter settings by clicking the logged in user name from the top-right corner, and then click **Interpreter**.
    
     ![Launch interpreter](./media/apache-spark-zeppelin-notebook/zeppelin-launch-interpreter.png "Hive output")
-2. Scroll to Livy interpreter settings and then click **Restart**.
+1. Scroll to Livy interpreter settings and then click **Restart**.
    
     ![Restart the Livy intepreter](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "Restart the Zeppelin intepreter")
-3. Run a code cell from an existing Zeppelin notebook. This creates a new Livy session in the HDInsight cluster.
+1. Run a code cell from an existing Zeppelin notebook. This creates a new Livy session in the HDInsight cluster.
 
 ## <a name="seealso"></a>See also
 * [Overview: Apache Spark on Azure HDInsight](apache-spark-overview.md)

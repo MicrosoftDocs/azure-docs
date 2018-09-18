@@ -1,24 +1,17 @@
 ---
-title: Planning for an Azure File Sync (preview) deployment | Microsoft Docs
+title: Planning for an Azure File Sync deployment | Microsoft Docs
 description: Learn what to consider when planning for an Azure Files deployment.
 services: storage
-documentationcenter: ''
 author: wmgries
-manager: aungoo
-editor: tamram
-
-ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2017
+ms.date: 07/19/2018
 ms.author: wgries
+ms.component: files
 ---
 
-# Planning for an Azure File Sync (preview) deployment
-Use Azure File Sync (preview) to centralize your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of an on-premises file server. Azure File Sync transforms Windows Server into a quick cache of your Azure file share. You can use any protocol that's available on Windows Server to access your data locally, including SMB, NFS, and FTPS. You can have as many caches as you need across the world.
+# Planning for an Azure File Sync deployment
+Use Azure File Sync to centralize your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of an on-premises file server. Azure File Sync transforms Windows Server into a quick cache of your Azure file share. You can use any protocol that's available on Windows Server to access your data locally, including SMB, NFS, and FTPS. You can have as many caches as you need across the world.
 
 This article describes important considerations for an Azure File Sync deployment. We recommend that you also read [Planning for an Azure Files deployment](storage-files-planning.md). 
 
@@ -69,21 +62,69 @@ Cloud tiering is an optional feature of Azure File Sync in which infrequently us
 > [!Important]  
 > Cloud tiering is not supported for server endpoints on the Windows system volumes.
 
-## Azure File Sync interoperability 
-This section covers Azure File Sync interoperability with Windows Server features and roles and third-party solutions.
+## Azure File Sync system requirements and interoperability 
+This section covers Azure File Sync agent system requirements and interoperability with Windows Server features and roles and third-party solutions.
 
-### Supported versions of Windows Server
-Currently, the supported versions of Windows Server by Azure File Sync are:
+### Evaluation Tool
+Before deploying Azure File Sync, you should evaluate whether it is compatible with your system using the Azure File Sync evaluation tool. This tool is an AzureRM PowerShell cmdlet that checks for potential issues with your file system and dataset, such as unsupported characters or an unsupported OS version. Note that its checks cover most but not all of the features mentioned below; we recommend you read through the rest of this section carefully to ensure your deployment goes smoothly. 
 
-| Version | Supported SKUs | Supported deployment options |
-|---------|----------------|------------------------------|
-| Windows Server 2016 | Datacenter and Standard | Full (server with a UI) |
-| Windows Server 2012 R2 | Datacenter and Standard | Full (server with a UI) |
+#### Download Instructions
+1. Make sure that you have the latest version of PackageManagement and PowerShellGet installed (this allows you to install preview modules)
+    
+    ```PowerShell
+        Install-Module -Name PackageManagement -Repository PSGallery -Force
+        Install-Module -Name PowerShellGet -Repository PSGallery -Force
+    ```
+ 
+2. Restart PowerShell
+3. Install the modules
+    
+    ```PowerShell
+        Install-Module -Name AzureRM.StorageSync -AllowPrerelease
+    ```
 
-Future versions of Windows Server will be added as they are released. Earlier versions of Windows might be added based on user feedback.
+#### Usage  
+You can invoke the evaluation tool in a few different ways: you can perform the system checks, the dataset checks, or both. To perform both the system and dataset checks: 
 
-> [!Important]  
-> We recommend keeping all servers that you use with Azure File Sync up to date with the latest updates from Windows Update. 
+```PowerShell
+    Invoke-AzureRmStorageSyncCompatibilityCheck -Path <path>
+```
+
+To test only your dataset:
+```PowerShell
+    Invoke-AzureRmStorageSyncCompatibilityCheck -Path <path> -SkipSystemChecks
+```
+ 
+To test system requirements only:
+```PowerShell
+    Invoke-AzureRmStorageSyncCompatibilityCheck -ComputerName <computer name>
+```
+ 
+To display the results in CSV:
+```PowerShell
+    $errors = Invoke-AzureRmStorageSyncCompatibilityCheck […]
+    $errors | Select-Object -Property Type, Path, Level, Description | Export-Csv -Path <csv path>
+```
+
+### System Requirements
+- A server running Windows Server 2012 R2 or Windows Server 2016:
+
+    | Version | Supported SKUs | Supported deployment options |
+    |---------|----------------|------------------------------|
+    | Windows Server 2016 | Datacenter and Standard | Full (server with a UI) |
+    | Windows Server 2012 R2 | Datacenter and Standard | Full (server with a UI) |
+
+    Future versions of Windows Server will be added as they are released. Earlier versions of Windows might be added based on user feedback.
+
+    > [!Important]  
+    > We recommend keeping all servers that you use with Azure File Sync up to date with the latest updates from Windows Update. 
+
+- A server with a minimum of 2 GiB of memory.
+
+    > [!Important]  
+    > If the server is running in a virtual machine with dynamic memory enabled, the VM should be configured with a minimum 2048 MiB of memory.
+    
+- A locally attached volume formatted with the NTFS file system.
 
 ### File system features
 | Feature | Support status | Notes |
@@ -101,8 +142,8 @@ Future versions of Windows Server will be added as they are released. Earlier ve
 > [!Note]  
 > Only NTFS volumes are supported. ReFS, FAT, FAT32, and other file systems are not supported.
 
-### Files Skipped
-| File/Folder | Note |
+### Files skipped
+| File/folder | Note |
 |-|-|
 | Desktop.ini | File specific to system |
 | ethumbs.db$ | Temporary file for thumbnails |
@@ -145,13 +186,17 @@ For more information, see [DFS Replication overview](https://technet.microsoft.c
 Using sysprep on a server which has the Azure File Sync agent installed is not supported and can lead to unexpected results. Agent installation and server registration should occur after deploying the server image and completing sysprep mini-setup.
 
 ### Windows Search
-If cloud tiering is enabled on a server endpoint, files that are tired are skipped and not indexed by Windows Search. Non-tiered files are indexed properly.
+If cloud tiering is enabled on a server endpoint, files that are tiered are skipped and not indexed by Windows Search. Non-tiered files are indexed properly.
 
 ### Antivirus solutions
 Because antivirus works by scanning files for known malicious code, an antivirus product might cause the recall of tiered files. Because tiered files have the "offline" attribute set, we recommend consulting with your software vendor to learn how to configure their solution to skip reading offline files. 
 
 The following solutions are known to support skipping offline files:
 
+- [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus)
+    - Windows Defender automatically skips reading files that have the offline attribute set. We have tested Defender and identified one minor issue: when you add a server to an existing sync group, files smaller than 800 bytes are recalled (downloaded) on the new server. These files will remain on the new server and will not be tiered since they do not meet the tiering size requirement (>64kb).
+- [System Center Endpoint Protection (SCEP)](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus)
+    - SCEP works the same as Defender; see above
 - [Symantec Endpoint Protection](https://support.symantec.com/en_US/article.tech173752.html)
 - [McAfee EndPoint Security](https://kc.mcafee.com/resources/sites/MCAFEE/content/live/PRODUCT_DOCUMENTATION/26000/PD26799/en_US/ens_1050_help_0-00_en-us.pdf) (see "Scan only what you need to" on page 90 of the PDF)
 - [Kaspersky Anti-Virus](https://support.kaspersky.com/4684)
@@ -176,13 +221,13 @@ Azure File Sync is known not to work with:
 
 - NTFS Encrypted File System (EFS)
 
-In general, Azure File Sync should support interoperability with encryption solutions that sit below the file system, such as BitLocker, and with solutions that are implemented in the file format, such as BitLocker. No special interoperability has been made for solutions that sit above the file system (like NTFS EFS).
+In general, Azure File Sync should support interoperability with encryption solutions that sit below the file system, such as BitLocker, and with solutions that are implemented in the file format, such as Azure Information Protection. No special interoperability has been made for solutions that sit above the file system (like NTFS EFS).
 
 ### Other Hierarchical Storage Management (HSM) solutions
 No other HSM solutions should be used with Azure File Sync.
 
 ## Region availability
-Azure File Sync is available only in the following regions in preview:
+Azure File Sync is available only in the following regions:
 
 | Region | Datacenter location |
 |--------|---------------------|
@@ -190,18 +235,44 @@ Azure File Sync is available only in the following regions in preview:
 | Australia Southeast | Victoria |
 | Canada Central | Toronto |
 | Canada East | Quebec City |
+| Central India | Pune |
 | Central US | Iowa |
 | East Asia | Hong Kong |
 | East US | Virginia |
 | East US2 | Virginia |
 | North Europe | Ireland |
+| South India | Chennai |
 | Southeast Asia | Singapore |
 | UK South | London |
 | UK West | Cardiff |
 | West Europe | Netherlands |
 | West US | California |
 
-In preview, we support syncing only with an Azure file share that's in the same region as the Storage Sync Service.
+Azure File Sync supports syncing only with an Azure file share that's in the same region as the Storage Sync Service.
+
+### Azure disaster recovery
+To protect against the loss of an Azure region, Azure File Sync integrates with the [geo-redundant storage redundancy](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS) option. GRS storage works by using asynchronous block replication between storage in the primary region, with which you normally interact, and storage in the paired secondary region. In the event of a disaster which causes an Azure region to go temporarily or permanently offline, Microsoft will fail over storage to the paired region. 
+
+To support the failover integration between geo-redundant storage and Azure File Sync, all Azure File Sync regions are paired with a secondary region that matches the secondary region used by storage. These pairs are as follows:
+
+| Primary region      | Paired region      |
+|---------------------|--------------------|
+| Australia East      | Australia Southeast |
+| Australia Southeast | Australia East     |
+| Canada Central      | Canada East        |
+| Canada East         | Canada Central     |
+| Central India       | South India        |
+| Central US          | East US 2          |
+| East Asia           | Southeast Asia     |
+| East US             | West US            |
+| East US 2           | Central US         |
+| North Europe        | West Europe        |
+| South India         | Central India      |
+| Southeast Asia      | East Asia          |
+| UK South            | UK West            |
+| UK West             | UK South           |
+| West Europe         | North Europe       |
+| West US             | East US            |
 
 ## Azure File Sync agent update policy
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]

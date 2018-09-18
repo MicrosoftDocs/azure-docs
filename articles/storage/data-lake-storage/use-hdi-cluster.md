@@ -1,23 +1,12 @@
 ---
 title: Use Azure Data Lake Storage Gen2 Preview with Azure HDInsight clusters
 description: Learn how to query data from Azure Data Lake Storage Gen2 Preview and store results of your analysis.
-keywords: hdfs,structured data,unstructured data,data lake store,Hadoop input,Hadoop output, hadoop storage, hdfs input,hdfs output,hdfs storage,wasb azure
-services: hdinsight,storage
-documentationcenter: ''
-tags: azure-portal
 author: jamesbak
-manager: jahogg
-
 ms.component: data-lake-storage-gen2
-ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: storage
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: jamesbak
-
 ---
 # Use Azure Data Lake Storage Gen2 Preview with Azure HDInsight clusters
 
@@ -41,11 +30,11 @@ The following diagram provides an abstract view of the HDInsight storage archite
 
 HDInsight provides access to the distributed file system that is locally attached to the compute nodes. This file system can be accessed by using the fully qualified URI, for example:
 
-    hdfs://<namenodehost>/<path>
+    hdfs://<NAME_NODE_HOST>/<PATH>
 
 In addition, HDInsight allows you to access data that is stored in Azure Data Lake Storage. The syntax is:
 
-    abfs[s]://<file_system>@<accountname>.dfs.core.windows.net/<path>
+    abfs[s]://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/<path>
 
 Here are some considerations when using an Azure Storage account with HDInsight clusters.
 
@@ -58,7 +47,7 @@ Here are some considerations when using an Azure Storage account with HDInsight 
  
 * **Private file systems in storage accounts that are NOT connected to a cluster** do not allow access files in the file system unless you define the storage account when you submit the WebHCat jobs. Reasons for this restriction are explained later in this article.
 
-The storage accounts that are defined in the creation process and their keys are stored in *%HADOOP_HOME%/conf/core-site.xml* on the cluster nodes. The default behavior of HDInsight is to use the storage accounts defined in the *core-site.xml* file. You can modify this setting using [Ambari](/hdinsight/hdinsight-hadoop-manage-ambari.md)
+The storage accounts that are defined in the creation process and their keys are stored in *%HADOOP_HOME%/conf/core-site.xml* on the cluster nodes. The default behavior of HDInsight is to use the storage accounts defined in the *core-site.xml* file. You can modify this setting using [Ambari](../../hdinsight/hdinsight-hadoop-manage-ambari.md)
 
 Multiple WebHCat jobs, including Hive, MapReduce, Hadoop streaming, and Pig, can carry a description of storage accounts and metadata with them. (This approach currently works for Pig with storage accounts, but not for metadata.) For more information, see [Using an HDInsight Cluster with Alternate Storage Accounts and Metastores](http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx).
 
@@ -175,7 +164,7 @@ To create a container, use the following command:
 
 The URI scheme for accessing files in Azure storage from HDInsight is:
 
-    abfs[s]://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.widows.net/<PATH>
+    abfs[s]://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/<PATH>
 
 The URI scheme provides unencrypted access (with the *abfs:* prefix) and SSL encrypted access (with *abfss*). We recommend using *abfss* wherever possible, even when accessing data that lives inside the same region in Azure.
 
@@ -184,7 +173,7 @@ The URI scheme provides unencrypted access (with the *abfs:* prefix) and SSL enc
 
     If values for &lt;FILE_SYSTEM_NAME&gt; nor &lt;ACCOUNT_NAME&gt; have been specified, the default file system is used. For the files on the default file system, you can use a relative path or an absolute path. For example, the *hadoop-mapreduce-examples.jar* file that comes with HDInsight clusters can be referred to by using one of the following paths:
     
-        abfs://myfilesystempath@myaccount.dfs.core.widows.net/example/jars/hadoop-mapreduce-examples.jar
+        abfs://myfilesystempath@myaccount.dfs.core.windows.net/example/jars/hadoop-mapreduce-examples.jar
         abfs:///example/jars/hadoop-mapreduce-examples.jar
         /example/jars/hadoop-mapreduce-examples.jar
 
@@ -198,7 +187,7 @@ The URI scheme provides unencrypted access (with the *abfs:* prefix) and SSL enc
  
 ## Use additional storage accounts
 
-While creating an HDInsight cluster, you specify the Azure Storage account you want to associate with it. In addition to this storage account, you can add additional storage accounts from the same Azure subscription or different Azure subscriptions during the creation process or after a cluster has been created. For instructions about adding additional storage accounts, see [Create HDInsight clusters](/hdinsight/hdinsight-hadoop-provision-linux-clusters.md).
+While creating an HDInsight cluster, you specify the Azure Storage account you want to associate with it. In addition to this storage account, you can add additional storage accounts from the same Azure subscription or different Azure subscriptions during the creation process or after a cluster has been created. For instructions about adding additional storage accounts, see [Create HDInsight clusters](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md).
 
 > [!WARNING]
 > Using an additional storage account in a different location than the HDInsight cluster is not supported.
@@ -215,9 +204,9 @@ For more information, see:
 * [Ingest data into Azure Data Lake Storage using distcp](use-distcp.md)
 
 [powershell-install]: /powershell/azureps-cmdlets-docs
-[hdinsight-creation]: /hdinsight/hdinsight-hadoop-provision-linux-clusters.md
+[hdinsight-creation]: ../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md
 
 [blob-storage-restAPI]: http://msdn.microsoft.com/library/windowsazure/dd135733.aspx
-[azure-storage-create]: /storage/common/storage-create-storage-account.md
+[azure-storage-create]: ../common/storage-create-storage-account.md
 
 [img-hdi-powershell-blobcommands]: ./media/use-hdi-cluster/HDI.PowerShell.BlobCommands.png

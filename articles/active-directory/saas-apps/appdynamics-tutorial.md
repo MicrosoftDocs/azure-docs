@@ -8,12 +8,11 @@ manager: mtillman
 
 ms.assetid: 25fd1df0-411c-4f55-8be3-4273b543100f
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/16/2017
+ms.date: 09/13/2018
 ms.author: jeedes
 
 ---
@@ -45,7 +44,7 @@ To test the steps in this tutorial, you should follow these recommendations:
 - If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
+In this tutorial, you test Azure AD single sign-on in a test environment.
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding AppDynamics from the gallery
@@ -63,7 +62,7 @@ To configure the integration of AppDynamics into Azure AD, you need to add AppDy
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
 	![Applications][2]
-	
+
 3. To add new application, click **New application** button on the top of dialog.
 
 	![Applications][3]
@@ -101,24 +100,24 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
+
 	![Configure Single Sign-On](./media/appdynamics-tutorial/tutorial_appdynamics_samlbase.png)
 
 3. On the **AppDynamics Domain and URLs** section, perform the following steps:
 
 	![Configure Single Sign-On](./media/appdynamics-tutorial/tutorial_appdynamics_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<companyname>.saas.appdynamics.com`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<companyname>.saas.appdynamics.com?accountName=<companyname>`
 
     b. In the **Identifier** textbox, type a URL using the following pattern: `https://<companyname>.saas.appdynamics.com/controller`
 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [AppDynamics Client support team](https://www.appdynamics.com/support/) to get these values. 
- 
+	> [!NOTE]
+	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [AppDynamics Client support team](https://www.appdynamics.com/support/) to get these values.
+
 4. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
-	![Configure Single Sign-On](./media/appdynamics-tutorial/tutorial_appdynamics_certificate.png) 
+	![Configure Single Sign-On](./media/appdynamics-tutorial/tutorial_appdynamics_certificate.png)
 
 5. Click **Save** button.
 
@@ -126,36 +125,31 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 6. On the **AppDynamics Configuration** section, click **Configure AppDynamics** to open **Configure sign-on** window. Copy the **Sign-Out URL, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
-	![Configure Single Sign-On](./media/appdynamics-tutorial/tutorial_appdynamics_configure.png) 
+	![Configure Single Sign-On](./media/appdynamics-tutorial/tutorial_appdynamics_configure.png)
 
 7. In a different web browser window, log in to your AppDynamics company site as an administrator.
 
 8. In the toolbar on the top, click **Settings**, and then click **Administration**.
-   
+
     ![Administration](./media/appdynamics-tutorial/ic790216.png "Administration")
 
 9. Click the **Authentication Provider** tab.
-   
+
     ![Authentication Provider](./media/appdynamics-tutorial/ic790224.png "Authentication Provider")
 
 10. In the **Authentication Provider** section, perform the following steps:
-   
-    ![SAML Configuration](./media/appdynamics-tutorial/ic790225.png "SAML Configuration")   
+
+    ![SAML Configuration](./media/appdynamics-tutorial/ic790225.png "SAML Configuration")
 
     a. As **Authentication Provider**, select **SAML**.
 
     b. In the **Login URL** textbox, paste the value of **SAML Single Sign-On Service URL** which you have copied from Azure portal.
 
     c. In the **Logout URL** textbox, paste the value of **Sign-Out URL** which you have copied from Azure portal.
-       
+
     d. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **Certificate** textbox
 
     e. Click **Save**.
-
-     ![Save](./media/appdynamics-tutorial/ic777673.png "Save")
-
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### Creating an Azure AD test user
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
@@ -166,19 +160,19 @@ The objective of this section is to create a test user in the Azure portal calle
 
 1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
 
-	![Creating an Azure AD test user](./media/appdynamics-tutorial/create_aaduser_01.png) 
+	![Creating an Azure AD test user](./media/appdynamics-tutorial/create_aaduser_01.png)
 
 2. To display the list of users, go to **Users and groups** and click **All users**.
-	
-	![Creating an Azure AD test user](./media/appdynamics-tutorial/create_aaduser_02.png) 
+
+	![Creating an Azure AD test user](./media/appdynamics-tutorial/create_aaduser_02.png)
 
 3. To open the **User** dialog, click **Add** on the top of the dialog.
- 
+
 	![Creating an Azure AD test user](./media/appdynamics-tutorial/create_aaduser_03.png) 
 
 4. On the **User** dialog page, perform the following steps:
- 
-	![Creating an Azure AD test user](./media/appdynamics-tutorial/create_aaduser_04.png) 
+
+	![Creating an Azure AD test user](./media/appdynamics-tutorial/create_aaduser_04.png)
 
     a. In the **Name** textbox, type **BrittaSimon**.
 
@@ -187,49 +181,33 @@ The objective of this section is to create a test user in the Azure portal calle
 	c. Select **Show Password** and write down the value of the **Password**.
 
     d. Click **Create**.
- 
+
 ### Creating an AppDynamics test user
 
-To enable Azure AD users to log in to AppDynamics, they must be provisioned into AppDynamics. In the case of AppDynamics, provisioning is a manual task.
+The objective of this section is to create a user called Britta Simon in AppDynamics. AppDynamics supports just-in-time provisioning, which is by default enabled. There is no action item for you in this section. A new user is created during an attempt to access AppDynamics if it doesn't exist yet.
 
-**To configure user provisioning, perform the following steps:**
-
-1. Log in to your AppDynamics company site as an administrator.
-
-2. Go to **Users**, and then click **+** to open the **Create User** dialog.
-   
-    ![Users](./media/appdynamics-tutorial/ic790229.png "Users")
-
-3. In the **Create User** section, perform the following steps:
-   
-    ![Create User](./media/appdynamics-tutorial/ic790230.png "Create User")
-   
-    a. Type the **Username**, **Name**, **Email**, **New Password**, **Repeat New Password** of a valid AAD account you want to provision into the related textboxes.
-
-    b. Click **Save**.
-
-    >[!NOTE]
-    >You can use any other AppDynamics user account creation tools or APIs provided by AppDynamics to provision Azure AD user accounts.
+>[!Note]
+>If you need to create a user manually, contact [AppDynamics Client support team](https://www.appdynamics.com/support/).
 
 ### Assigning the Azure AD test user
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting access to AppDynamics.
 
-![Assign User][200] 
+![Assign User][200]
 
 **To assign Britta Simon to AppDynamics, perform the following steps:**
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+	![Assign User][201]
 
 2. In the applications list, select **AppDynamics**.
 
-	![Configure Single Sign-On](./media/appdynamics-tutorial/tutorial_appdynamics_app.png) 
+	![Configure Single Sign-On](./media/appdynamics-tutorial/tutorial_appdynamics_app.png)
 
 3. In the menu on the left, click **Users and groups**.
 
-	![Assign User][202] 
+	![Assign User][202]
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
@@ -240,7 +218,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+
 ### Testing single sign-on
 
 The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.
@@ -251,8 +229,6 @@ When you click the AppDynamics tile in the Access Panel, you should get automati
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-
 
 <!--Image references-->
 
@@ -267,4 +243,3 @@ When you click the AppDynamics tile in the Access Panel, you should get automati
 [201]: ./media/appdynamics-tutorial/tutorial_general_201.png
 [202]: ./media/appdynamics-tutorial/tutorial_general_202.png
 [203]: ./media/appdynamics-tutorial/tutorial_general_203.png
-

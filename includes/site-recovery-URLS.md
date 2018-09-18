@@ -1,11 +1,22 @@
-``*.accesscontrol.windows.net``. Used for access control and identity management. (ACS based authentication will be deprecated by December 2017) <br/>
-``https://login.microsoftonline.com`` Used for access control and identity management using AAD
+---
+title: include file
+description: include file
+services: site-recovery
+author: rayne-wiselman
+manager: carmonm
+ms.service: site-recovery
+ms.topic: include
+ms.date: 09/12/2018
+ms.author: raynew
 
-``*.backup.windowsazure.com``. Used for replication data transfer and coordination. <br/> ``*.blob.core.windows.net``. Used for access to the storage account that stores replicated data.<br/> ``*.hypervrecoverymanager.windowsazure.com``. Used for replication management operations and coordination.<br/>
-``dc.services.visualstudio.com`` - Used for telemetry. <br>
-``time.nist.gov`` and ``time.windows.com``. Used to check time synchronization between system and global time.
-<br/><br/>
-URLs for Azure Government cloud:<br/>- .ugv.hypervrecoverymanager.windowsazure.us<br/>- .ugv.backup.windowsazure.us<br/>- .ugi.hypervrecoverymanager.windowsazure.us<br/>- .ugi.backup.windowsazure.us<br/>-
-https://login.microsoftonline.us<br/>-
-https://login.microsoftonline.com<br/>
+---
+**Name** | **Commercial URL**  | **Government URL** | **Description** |
+--- | --- | --- | ---
+Azure AD | ``login.microsoftonline.com`` | ``login.microsoftonline.us`` | Used for access control and identity management using AAD 
+Backup | ``*.backup.windowsazure.com`` | ``*.backup.windowsazure.us`` | Used for replication data transfer and coordination 
+Replication | ``*.hypervrecoverymanager.windowsazure.com`` | ``*.hypervrecoverymanager.windowsazure.us``  | Used for replication management operations and coordination 
+Storage | ``*.blob.core.windows.net`` | ``*.blob.core.usgovcloudapi.net``  | Used for access to the storage account that stores replicated data 
+Telemetry (optional) | ``dc.services.visualstudio.com`` | ``dc.services.visualstudio.com`` | Used for telemetry 
+Time synchronization | ``time.windows.com`` | ``time.nist.gov`` | Ssed to check time synchronization between system and global time in all deployments.
+
 

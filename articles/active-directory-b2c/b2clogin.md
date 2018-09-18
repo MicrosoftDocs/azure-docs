@@ -7,7 +7,7 @@ manager: mtillman
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/29/2018
 ms.author: davidmu
 ms.component: B2C
@@ -21,7 +21,7 @@ ms.component: B2C
 
 You now have the option to use the Azure AD B2C service with `<YourTenantName>.b2clogin.com` instead of using `login.microsoftonline.com`.  This has many benefits:
 * You no longer share the same cookie header size limit with the other Microsoft products.
-* You can remove all references to Microsoft in your URL (you can replace `<YourTenantName>.onmicrosoft.com` with your tenant ID). For example: `https://<tenantname>.b2clogin.com/tfp/<tenantname>/<policyname>/v2.0/.well-known/openid-configuration`.
+* You can remove all references to Microsoft in your URL (you can replace `<YourTenantName>.onmicrosoft.com` with your tenant ID). For example: `https://<tenantname>.b2clogin.com/tfp/<tenantID>/<policyname>/v2.0/.well-known/openid-configuration`.
 
  In order to take advantage of b2clogin.com, you need to set some of the following:
 

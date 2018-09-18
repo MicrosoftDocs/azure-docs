@@ -1,54 +1,43 @@
 ﻿---
-title: Microsoft account configuration in Azure Active Directory B2C | Microsoft Docs
-description: Provide sign-up and sign-in to consumers with Microsoft accounts in your applications that are secured by Azure Active Directory B2C.
+title: Set up sign-up and sign-in with a Microsoft account using Azure Active Directory B2C | Microsoft Docs
+description: Provide sign-up and sign-in to customers with Microsoft accounts in your applications using Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
-ms.date: 12/06/2016
+ms.topic: conceptual
+ms.date: 09/11/2018
 ms.author: davidmu
 ms.component: B2C
 ---
-# Azure Active Directory B2C: Provide sign-up and sign-in to consumers with Microsoft accounts
+
+# Set up sign-up and sign-in with a Microsoft account using Azure Active Directory B2C
+
 ## Create a Microsoft account application
-To use Microsoft account as an identity provider in Azure Active Directory (Azure AD) B2C, you need to create a Microsoft account application and supply it with the right parameters. You need a Microsoft account to do this. If you don’t have one, you can get it at [https://www.live.com/](https://www.live.com/).
 
-1. Go to the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) and sign in with your Microsoft account credentials.
-2. Click **Add an app**.
-   
-    ![Microsoft account - Add a new app](./media/active-directory-b2c-setup-msa-app/msa-add-new-app.png)
-3. Provide a **Name** for your application and click **Create application**.
-   
-    ![Microsoft account - App name](./media/active-directory-b2c-setup-msa-app/msa-app-name.png)
-4. Copy the value of **Application Id**. You will need it to configure Microsoft account as an identity provider in your tenant.
-   
-    ![Microsoft account - Application Id](./media/active-directory-b2c-setup-msa-app/msa-app-id.png)
-5. Click on **Add platform** and choose **Web**.
-   
-    ![Microsoft account - Add platform](./media/active-directory-b2c-setup-msa-app/msa-add-platform.png)
-   
-    ![Microsoft account - Web](./media/active-directory-b2c-setup-msa-app/msa-web.png)
-6. Enter `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` in the **Redirect URIs** field. Replace **{tenant}** with your tenant's name (for example, contosob2c.onmicrosoft.com).
-   
-    ![Microsoft account - Redirect URL](./media/active-directory-b2c-setup-msa-app/msa-redirect-url.png)
-7. Click on **Generate New Password** under the **Application Secrets** section. Copy the new password displayed on screen. You will need it to configure Microsoft account as an identity provider in your tenant. This password is an important security credential.
-   
-    ![Microsoft account - Generate new password](./media/active-directory-b2c-setup-msa-app/msa-generate-new-password.png)
-   
-    ![Microsoft account - New password](./media/active-directory-b2c-setup-msa-app/msa-new-password.png)
-8. Check the box that says **Live SDK support** under the **Advanced Options** section. Click **Save**.
-   
-    ![Microsoft account - Live SDK support](./media/active-directory-b2c-setup-msa-app/msa-live-sdk-support.png)
+To use a Microsoft account as an identity provider in Azure Active Directory (Azure AD) B2C, you need to create an application in your tenant that represents it. If you don’t already have a Microsoft account, you can get it at [https://www.live.com/](https://www.live.com/).
 
-## Configure Microsoft account as an identity provider in your tenant
-1. Follow these steps to [navigate to the B2C features blade](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) on the Azure portal.
-2. On the B2C features blade, click **Identity providers**.
-3. Click **+Add** at the top of the blade.
-4. Provide a friendly **Name** for the identity provider configuration. For example, enter "MSA".
-5. Click **Identity provider type**, select **Microsoft account**, and click **OK**.
-6. Click **Set up this identity provider** and enter the Application Id and password of the Microsoft account application that you created earlier.
-7. Click **OK** and then click **Create** to save your Microsoft account configuration.
+1. Sign in to the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) with your Microsoft account credentials.
+2. In the upper-right corner, select **Add an app**.
+3. Enter a **Name** for your application. For example, *MSAapp1*.
+4. Select **Generate New Password** and make sure that you copy the password to use when you configure the identity provider. Also copy the **Application Id**. 
+5. Select **Add platform**, and then and choose **Web**.
+4. Enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` in **Redirect URLs**. Replace `your-tenant-name` with the name of your tenant.
+5. Select **Save**.
+
+## Configure a Microsoft account as an identity provider
+
+1. Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
+2. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.  
+
+    ![Switch to your Azure AD B2C tenant](./media/active-directory-b2c-setup-msa-app/switch-directories.png)
+
+3. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
+4. Select **Identity providers**, and then select **Add**.
+5. Provide a **Name**. For example, enter *MSA*.
+6. Select **Identity provider type**, select **Microsoft Account**, and click **OK**.
+7. Select **Set up this identity provider** and enter the Application Id that you recorded earlier as the **Client ID** and enter the password that you recorded as the **Client secret** of the Microsoft account application that you created earlier.
+8. Click **OK** and then click **Create** to save your Microsoft account configuration.
 

@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 06/08/2018
+ms.date: 07/17/2018
 ms.author: marsma
 ---
 
@@ -31,7 +31,7 @@ To deploy a multi-container container group with the [az container create][az-co
 
 Start by copying the following YAML into a new file named **deploy-aci.yaml**.
 
-This YAML file defines a container group with two containers, a public IP address, and two exposed ports. The first container in the group runs an internet-facing web application. The second container, the sidecar, periodically makes HTTP requests to the web application running in the first container via the container group's local network.
+This YAML file defines a container group named "myContainerGroup" with two containers, a public IP address, and two exposed ports. The first container in the group runs an internet-facing web application. The second container, the sidecar, periodically makes HTTP requests to the web application running in the first container via the container group's local network.
 
 ```YAML
 apiVersion: 2018-06-01
@@ -79,7 +79,7 @@ az group create --name myResourceGroup --location eastus
 Deploy the container group with the [az container create][az-container-create] command, passing the YAML file as an argument:
 
 ```azurecli-interactive
-az container create --resource-group myResourceGroup --name myContainerGroup -f deploy-aci.yaml
+az container create --resource-group myResourceGroup --file deploy-aci.yaml
 ```
 
 Within a few seconds, you should receive an initial response from Azure.
@@ -196,14 +196,15 @@ Useful for preserving a container group's configuration, export allows you to st
 Export the configuration for the container group you created earlier by issuing the following [az container export][az-container-export] command:
 
 ```azurecli-interactive
-az container export --resource-group rg604 --name myContainerGroup --file deployed-aci.yaml
+az container export --resource-group myResourceGroup --name myContainerGroup --file deployed-aci.yaml
 ```
 
 No output is displayed if the command is successful, but you can view the contents of the file to see the result. For example, the first few lines with `head`:
 
 ```console
 $ head deployed-aci.yaml
-apiVersion: 2018-02-01-preview
+additional_properties: {}
+apiVersion: '2018-06-01'
 location: eastus
 name: myContainerGroup
 properties:
@@ -212,11 +213,7 @@ properties:
     properties:
       environmentVariables: []
       image: microsoft/aci-helloworld:latest
-      ports:
 ```
-
-> [!NOTE]
-> As of Azure CLI version 2.0.34, there is a [known issue][cli-issue-6525] in which exported container groups specify an older API version of **2018-02-01-preview** (seen in the previous JSON output example). If you'd like to redeploy using the exported YAML file, you can safely update the `apiVersion` value in the exported YAML file to **2018-06-01**.
 
 ## Next steps
 

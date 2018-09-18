@@ -5,7 +5,7 @@ description: Azure Active Directory B2B collaboration user properties are config
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/25/2017
 
 ms.author: mimart
@@ -83,6 +83,9 @@ There may be cases where you want to give your guest users higher privileges. Yo
 It is possible to turn off the default guest user limitations so that a guest user in the company directory is given the same permissions as a member user.
 
 ![Remove guest user limitations](media/user-properties/remove-guest-limitations.png)
+
+## Can I make guest users visible in the Exchange Global Address List?
+Yes. By default, guest objects are not visible in your organization's global address list, but you can use Azure Active Directory PowerShell to make them visible. For details, see **Can I make guest objects visible in the global address list?** in [Guest access in Office 365 Groups](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6#PickTab=FAQ). 
 
 ## Next steps
 

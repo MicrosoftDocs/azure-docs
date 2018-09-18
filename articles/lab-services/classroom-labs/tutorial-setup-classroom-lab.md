@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 05/17/2018
+ms.date: 07/23/2018
 ms.author: spelluru
 
 ---
@@ -28,13 +28,13 @@ In this tutorial, you do the following actions:
 > * Send registration link to students
 
 ## Prerequisites
-To set up a classroom lab in a lab account, you must be a member of the **Lab Creator** role in the lab account. A lab owner can add a user to the Lab Creator role by using steps in the following article: [Add a user to the Lab Creator role](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
+To set up a classroom lab in a lab account, you must be a member of the **Lab Creator** role in the lab account. The account you used to create a lab account is automatically added to this role. A lab owner can add other users to the Lab Creator role by using steps in the following article: [Add a user to the Lab Creator role](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
 
 
 ## Create a classroom lab
 
-1. Navigate to [Azure Lab Services website](https://labs.azure.com).
-2. Select **Sign in** and enter your credentials. 
+1. Navigate to [Azure Lab Services website](https://labs.azure.com). 
+2. Select **Sign in** and enter your credentials. Azure Lab Services supports organizational accounts and Microsoft accounts. 
 3. In the **New Lab** window, do the following actions: 
     1. Specify a **name** for the classroom lab. 
     2. Select the **size** of the virtual machine that you plan to use in the classroom.
@@ -43,6 +43,9 @@ To set up a classroom lab in a lab account, you must be a member of the **Lab Cr
     7. Select **Save**.
 
         ![Create a classroom lab](../media/tutorial-setup-classroom-lab/new-lab-window.png)
+1. Once the lab is created, select **Go to my lab**. 
+
+    ![Go to my lab](../media/tutorial-setup-classroom-lab/go-to-my-lab.png)
 1. You see the **dashboard** for the lab. 
     
     ![Classroom lab dashboard](../media/tutorial-setup-classroom-lab/classroom-lab-home-page.png)

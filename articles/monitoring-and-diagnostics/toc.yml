@@ -47,6 +47,8 @@
     href: monitoring-action-groups.md
   - name: Azure Diagnostics Extension
     href: azure-diagnostics.md
+  - name: Monitor resource groups
+    href: resource-group-insights.md
   - name: Roles permissions and security
     href: monitoring-roles-permissions-security.md
   - name: Partner integrations
@@ -103,6 +105,8 @@
       href: monitoring-stream-diagnostic-logs-to-event-hubs.md
     - name: Enable diagnostic settings with Resource Manager templates
       href: monitoring-enable-diagnostic-logs-using-template.md
+    - name: Prepare for JSON Lines diagnostic logs format
+      href: monitor-diagnostic-logs-append-blobs.md
   - name: Use activity log
     items:
     - name: View events in activity log

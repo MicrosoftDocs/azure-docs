@@ -1,26 +1,19 @@
-﻿---
-title: Manage registered servers with Azure File Sync (preview) | Microsoft Docs
+---
+title: Manage registered servers with Azure File Sync | Microsoft Docs
 description: Learn how to register and unregister a Windows Server with an Azure File Sync Storage Sync Service.
 services: storage
-documentationcenter: ''
 author: wmgries
-manager: aungoo
-editor: tamram
-
-ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 07/19/2018
 ms.author: wgries
+ms.component: files
 ---
 
-# Manage registered servers with Azure File Sync (preview)
-Azure File Sync (preview) allows you to centralize your organization's file shares in Azure Files without giving up the flexibility, performance, and compatibility of an on-premises file server. It does this by transforming your Windows Servers into a quick cache of your Azure file share. You can use any protocol available on Windows Server to access your data locally (including SMB, NFS, and FTPS) and you can have as many caches as you need across the world.
+# Manage registered servers with Azure File Sync
+Azure File Sync allows you to centralize your organization's file shares in Azure Files without giving up the flexibility, performance, and compatibility of an on-premises file server. It does this by transforming your Windows Servers into a quick cache of your Azure file share. You can use any protocol available on Windows Server to access your data locally (including SMB, NFS, and FTPS) and you can have as many caches as you need across the world.
 
-The following article illustrates how to register and manage a server with a Storage Sync Service. See [How to deploy Azure File Sync (preview)](storage-sync-files-deployment-guide.md) for information on how to deploy Azure File Sync end-to-end.
+The following article illustrates how to register and manage a server with a Storage Sync Service. See [How to deploy Azure File Sync](storage-sync-files-deployment-guide.md) for information on how to deploy Azure File Sync end-to-end.
 
 ## Register/unregister a server with Storage Sync Service
 Registering a server with Azure File Sync establishes a trust relationship between Windows Server and Azure. This relationship can then be used to create *server endpoints* on the server, which represent specific folders that should be synced with an Azure file share (also known as a *cloud endpoint*). 
@@ -28,8 +21,8 @@ Registering a server with Azure File Sync establishes a trust relationship betwe
 ### Prerequisites
 To register a server with a Storage Sync Service, you must first prepare your server with the necessary prerequisites:
 
-* Your server must be running a supported version of Windows Server. For more information, see [Supported versions of Windows Server](storage-sync-files-planning.md#supported-versions-of-windows-server).
-* Ensure that a Storage Sync Service has been deployed. For more information on how to deploy a Storage Sync Service, see [How to deploy Azure File Sync (preview)](storage-sync-files-deployment-guide.md).
+* Your server must be running a supported version of Windows Server. For more information, see [Azure File Sync system requirements and interoperability](storage-sync-files-planning.md#azure-file-sync-system-requirements-and-interoperability).
+* Ensure that a Storage Sync Service has been deployed. For more information on how to deploy a Storage Sync Service, see [How to deploy Azure File Sync](storage-sync-files-deployment-guide.md).
 * Ensure that the server is connected to the internet and that Azure is accessible.
 * Disable the IE Enhanced Security Configuration for administrators with the Server Manager UI.
     
@@ -191,6 +184,6 @@ Get-StorageSyncNetworkLimit | ForEach-Object { Remove-StorageSyncNetworkLimit -I
 When Azure File Sync is hosted in a virtual machine running on a Windows Server virtualization host, you can use Storage QoS (storage quality of service) to regulate storage IO consumption. The Storage QoS policy can be set either as a maximum (or limit, like how StorageSyncNetwork limit is enforced above) or as a minimum (or reservation). Setting a minimum instead of a maximum allows Azure File Sync to burst to use available storage bandwidth if other workloads are not using it. For more information, see [Storage Quality of Service](https://docs.microsoft.com/windows-server/storage/storage-qos/storage-qos-overview).
 
 ## See also
-- [Planning for an Azure File Sync (preview) deployment](storage-sync-files-planning.md)
-- [Deploy Azure File Sync (preview)](storage-sync-files-deployment-guide.md) 
-- [Troubleshoot Azure File Sync (preview)](storage-sync-files-troubleshoot.md)
+- [Planning for an Azure File Sync deployment](storage-sync-files-planning.md)
+- [Deploy Azure File Sync](storage-sync-files-deployment-guide.md) 
+- [Troubleshoot Azure File Sync](storage-sync-files-troubleshoot.md)

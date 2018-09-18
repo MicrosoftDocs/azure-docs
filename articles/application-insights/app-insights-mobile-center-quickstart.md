@@ -4,9 +4,10 @@ description: Provides instructions to quickly setup a mobile app for monitoring 
 services: application-insights
 keywords:
 author: mrbullwinkle
-ms.author: daviste; mbullwin
-ms.date: 10/05/2017
+ms.author: mbullwin
+ms.date: 07/11/2018
 ms.service: application-insights
+ms.reviewer: daviste
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
@@ -62,9 +63,9 @@ To make sure your custom events are being received, go to the **Events** tab und
 Once your app is sending custom events and these events are being received by App Center, you need to create an App Center-type Application Insights resource in the Azure portal:
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
-2. Select **Create a resource** > **Monitoring + Management** > **Application Insights**.
+2. Select **Create a resource** > **Management Tools** > **Application Insights**.
 
-    ![Adding Application Insights resource](./media/app-insights-mobile-center-quickstart/add.png)
+    ![Adding Application Insights resource](./media/app-insights-mobile-center-quickstart/add-b.png)
 
     A configuration box will appear. Use the table below to fill out the input fields.
 
@@ -139,7 +140,7 @@ Application Insights can query, segment, filter, and analyze the custom event te
 
    The User Flows tool visualizes which events users send after some starting event. It's useful for getting an overall picture of how users navigate through your app. It can also reveal places where many users are churning from your app, or repeating the same actions over and over.
 
-   In addition to User Flows, Application Insights has several other usage analytics tools to answer specific questions:
+   In addition to User Flows, Application Insights has several other user behavior analytics tools to answer specific questions:
 
    * **Funnels** for analyzing and monitoring conversion rates.
    * **Retention** for analyzing how well your app retains users over time.

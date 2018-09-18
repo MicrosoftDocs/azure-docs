@@ -3,7 +3,7 @@ title: Create FQDN for a Linux VM in the Azure portal | Microsoft Docs
 description: Learn how to create a Fully Qualified Domain Name, or FQDN, for a Resource Manager based virtual machine in the Azure portal.
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/13/2017
-ms.author: iainfou
+ms.date: 08/15/2018
+ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 
 ---

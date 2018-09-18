@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/14/2018
+ms.date: 07/03/2018
 ms.author: bwren
 ms.component: na
 ---
@@ -275,7 +275,6 @@ Function Post-LogAnalyticsData($customerId, $sharedKey, $body, $logType)
         -sharedKey $sharedKey `
         -date $rfc1123date `
         -contentLength $contentLength `
-        -fileName $fileName `
         -method $method `
         -contentType $contentType `
         -resource $resource
@@ -468,3 +467,5 @@ post_data(customer_id, shared_key, body, log_type)
 
 ## Next steps
 - Use the [Log Search API](log-analytics-log-search-api.md) to retrieve data from the Log Analytics repository.
+
+- Learn more about how [create a data pipeline with the Data Collector API](log-analytics-create-pipeline-datacollector-api.md) using Logic Apps workflow to Log Analytics.

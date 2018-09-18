@@ -37,7 +37,7 @@ Defining account hierarchy is a major step to use and structure Azure services w
 
 ![Account provisioning](./media/governance-in-azure/security-governance-in-azure-fig1.png)
 
-If you don't have an Enterprise Agreement, consider using [Azure tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) at the subscription level to define the hierarchy. An Azure subscription is the basic unit that contains all the resources. It also defines several limits within Azure, such as the number of cores and resources. Subscriptions can contain [resource groups](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), which can contain resources. [Role-based access control (RBAC)](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview) principles apply on those three levels.
+If you don't have an Enterprise Agreement, consider using [Azure tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) at the subscription level to define the hierarchy. An Azure subscription is the basic unit that contains all the resources. It also defines several limits within Azure, such as the number of cores and resources. Subscriptions can contain [resource groups](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), which can contain resources. [Role-based access control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) principles apply on those three levels.
 
 Every enterprise is different. For non-enterprise companies, the hierarchy of using Azure tags allows for flexibility in how Azure is organized. Before you deploy resources in Azure, you should model a hierarchy and understand the impact on billing, resource access, and complexity.
 
@@ -66,7 +66,7 @@ The three high-level hierarchy patterns are functional, business unit, and geogr
 
 For organizations with an Enterprise Agreement, Azure subscriptions follow a four-level hierarchy:
 
-1. Enterprise enrolment administrator
+1. Enterprise enrollment administrator
 
 2. Department administrator
 
@@ -112,7 +112,7 @@ A role is a collection of permissions, and RBAC has several built-in roles. The 
 
 The rest of the built-in roles in Azure allow management of specific Azure resources. For example, the Virtual Machine Contributor role allows the user to create and manage virtual machines. For a list of all the built-in roles and their operations, see [RBAC built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
 
-RBAC supports management operations of the Azure resources in the Azure portal and Azure Resource Manager APIs. In most cases, RBAC can't authorize data-level operations for Azure resources. For information about how RBAC is being extended to data operations, see [Understand role definitions](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-definitions).
+RBAC supports management operations of the Azure resources in the Azure portal and Azure Resource Manager APIs. In most cases, RBAC can't authorize data-level operations for Azure resources. For information about how RBAC is being extended to data operations, see [Understand role definitions](https://docs.microsoft.com/azure/role-based-access-control/role-definitions).
 
 If the built-in roles don’t meet your specific access needs, you can [create a custom role](https://docs.microsoft.com/azure/role-based-access-control/custom-roles). Just like built-in roles, custom roles can be assigned to users, groups, and applications at the subscription, resource group, and resource scope. You can create custom roles by using [Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell), [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli), and the [REST API](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest).
 

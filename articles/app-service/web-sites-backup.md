@@ -34,8 +34,8 @@ App Service can back up the following information to an Azure storage account an
 
 The following database solutions are supported with backup feature: 
    - [SQL Database](https://azure.microsoft.com/services/sql-database/)
-   - [Azure Database for MySQL (Preview)](https://azure.microsoft.com/services/mysql)
-   - [Azure Database for PostgreSQL (Preview)](https://azure.microsoft.com/services/postgresql)
+   - [Azure Database for MySQL](https://azure.microsoft.com/services/mysql)
+   - [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql)
    - [MySQL in-app](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
  
 
@@ -53,6 +53,11 @@ The following database solutions are supported with backup feature:
   you want to back up. For more information on Azure storage accounts, see the 
   [links](#moreaboutstorage) at the end of this article.
 * Backups can be up to 10 GB of app and database content. If the backup size exceeds this limit, you get an error.
+* Backups of SSL enabled Azure Database for MySQL is not supported. If a backup is configured, you will get failed backups.
+* Backups of SSL enabled Azure Database for PostgreSQL is not supported. If a backup is configured, you will get failed backups.
+* In-app MySQL databases are automatically backed up without any configuration. If you make manually settings for in-app MySQL databases, such as adding connection strings, the backups may not work correctly.
+* Using a firewall enabled storage account as the destination for your backups is not supported. If a backup is configured, you will get failed backups.
+
 
 <a name="manualbackup"></a>
 
@@ -81,7 +86,9 @@ The following database solutions are supported with backup feature:
     ![Choose storage account](./media/web-sites-backup/03ConfigureDatabase1.png)
    
    > [!NOTE]
-   > For a database to appear in this list, its connection string must exist in the **Connection strings** section of the **Application settings** page for your app.
+   > For a database to appear in this list, its connection string must exist in the **Connection strings** section of the **Application settings** page for your app. 
+   >
+   > In-app MySQL databases are automatically backed up without any configuration. If you make manually settings for in-app MySQL databases, such as adding connection strings, the backups may not work correctly.
    > 
    > 
 6. In the **Backup Configuration** page, click **Save**.    

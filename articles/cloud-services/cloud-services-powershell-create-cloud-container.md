@@ -22,7 +22,7 @@ This article explains how to quickly create a Cloud Services container using Azu
 
 1. Install the Microsoft Azure PowerShell cmdlet from the [Azure PowerShell downloads](http://aka.ms/webpi-azps) page.
 2. Open the PowerShell command prompt.
-3. Use the [Add-AzureAccount](/powershell/module/Azure/Add-AzureAccount?view=azuresmps-4.0.0) to sign in.
+3. Use the [Add-AzureAccount](/powershell/module/servicemanagement/azure/add-azureaccount?view=azuresmps-4.0.0) to sign in.
 
    > [!NOTE]
    > For further instruction on installing the Azure PowerShell cmdlet and connecting to your Azure subscription, refer to [How to install and configure Azure PowerShell](/powershell/azure/overview).
@@ -47,5 +47,5 @@ Get-help New-AzureService
 ```
 
 ### Next steps
-* To manage the cloud service deployment, refer to the [Get-AzureService](/powershell/module/Azure/Get-AzureService?view=azuresmps-4.0.0), [Remove-AzureService](/powershell/module/Azure/Remove-AzureService?view=azuresmps-4.0.0), and [Set-AzureService](/powershell/module/azure/set-azureservice?view=azuresmps-4.0.0) commands. You may also refer to [How to configure cloud services](cloud-services-how-to-configure-portal.md) for further information.
+* To manage the cloud service deployment, refer to the [Get-AzureService](/powershell/module/servicemanagement/azure/Get-AzureService?view=azuresmps-4.0.0), [Remove-AzureService](/powershell/module/servicemanagement/azure/Remove-AzureService?view=azuresmps-4.0.0), and [Set-AzureService](/powershell/module/servicemanagement/azure/set-azureservice?view=azuresmps-4.0.0) commands. You may also refer to [How to configure cloud services](cloud-services-how-to-configure-portal.md) for further information.
 * To publish your cloud service project to Azure, refer to the  **PublishCloudService.ps1** code sample from [archived cloud services repository](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Scripts/cloud-services-continuous-delivery).

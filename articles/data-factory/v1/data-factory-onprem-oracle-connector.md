@@ -1,5 +1,5 @@
 ---
-title: Copy data to/from Oracle using Data Factory | Microsoft Docs
+title: Copy data to or from Oracle using Data Factory | Microsoft Docs
 description: Learn how to copy data to/from Oracle database that is on-premises using Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.author: jingwang
 
 robots: noindex
 ---
-# Copy data to/from on-premises Oracle using Azure Data Factory
+# Copy data to or from on-premises Oracle using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](data-factory-onprem-oracle-connector.md)
 > * [Version 2 (current version)](../connector-oracle.md)
@@ -100,6 +100,10 @@ The following table provides description for JSON elements specific to Oracle li
 | gatewayName | Name of the gateway that is used to connect to the on-premises Oracle server |Yes |
 
 **Example: using Microsoft driver:**
+
+>[!TIP]
+>If you hit error saying "ORA-01025: UPI parameter out of range" and your Oracle is of version 8i, add `WireProtocolMode=1` to your connection string and try again.
+
 ```json
 {
     "name": "OnPremisesOracleLinkedService",

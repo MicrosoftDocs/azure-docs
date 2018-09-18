@@ -26,7 +26,7 @@ If needed, update to the latest Azure PowerShell using the instruction found in 
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/app-service/deploy-local-git/deploy-local-git.ps1?highlight=1 "Create a web app and deploy code from a local Git repository")]
+[!code-azurepowershell-interactive[main](../../../powershell_scripts/app-service/deploy-local-git/deploy-local-git.ps1?highlight=1 "Create a web app and deploy code from a local Git repository")]
 
 ## Clean up deployment 
 

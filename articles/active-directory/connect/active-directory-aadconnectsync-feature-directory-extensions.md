@@ -19,7 +19,7 @@ ms.author: billmath
 
 ---
 # Azure AD Connect sync: Directory extensions
-You can use directory extensions to extend the schema in Azure Active Directory (Azure AD) with your own attributes from on-premises Active Directory. This feature enables you to build LOB apps by consuming attributes that you continue to manage on-premises. These attributes can be consumed through [Azure AD Graph API directory extensions](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) or [Microsoft Graph](https://graph.microsoft.io/). You can see the available attributes by using [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net/) and [Microsoft Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer), respectively.
+You can use directory extensions to extend the schema in Azure Active Directory (Azure AD) with your own attributes from on-premises Active Directory. This feature enables you to build LOB apps by consuming attributes that you continue to manage on-premises. These attributes can be consumed through [Azure AD Graph API directory extensions](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) or [Microsoft Graph](https://graph.microsoft.io/). You can see the available attributes by using [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net/) and [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer), respectively.
 
 At present, no Office 365 workload consumes these attributes.
 
@@ -51,12 +51,12 @@ These attributes are now available through the Azure AD Graph API. You can query
 
 ![Azure AD Graph Explorer](./media/active-directory-aadconnectsync-feature-directory-extensions/extension4.png)
 
-Or you can query the attributes through the Microsoft Graph API, by using [Microsoft Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer#).
+Or you can query the attributes through the Microsoft Graph API, by using [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer#).
 
 >[!NOTE]
 > You need to ask for the attributes to be returned. Explicitly select the attributes like this: https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division. 
 >
-> For more information, see [Microsoft Graph: Use query parameters](https://developer.microsoft.com/en-us/graph/docs/concepts/query_parameters#select-parameter).
+> For more information, see [Microsoft Graph: Use query parameters](https://developer.microsoft.com/graph/docs/concepts/query_parameters#select-parameter).
 
 ## Next steps
 Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.

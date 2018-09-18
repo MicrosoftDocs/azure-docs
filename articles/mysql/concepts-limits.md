@@ -8,7 +8,7 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 06/21/2018
+ms.date: 06/30/2018
 ---
 # Limitations in Azure Database for MySQL
 The following sections describe capacity, storage engine support, privilege support, data manipulation statement support, and functional limits in the database service. Also see [general limitations](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) applicable to the MySQL database engine.
@@ -68,14 +68,14 @@ Similarly [SUPER privilege](https://dev.mysql.com/doc/refman/5.7/en/privileges-p
 - Decreasing server storage size is not supported.
 
 ### Server version upgrades
-- Automated migration between major database engine versions is currently not supported.
+- Automated migration between major database engine versions is currently not supported. If you would like to upgrade to the next major version, take a [dump and restore](./concepts-migrate-dump-restore.md) it to a server that was created with the new engine version.
 
 ### Point-in-time-restore
 - When using the PITR feature, the new server is created with the same configurations as the server it is based on.
 - Restoring a deleted server is not supported.
 
-### Subscription management
-- Dynamically moving pre-created servers across subscription and resource group is currently not supported.
+### VNet service endpoints
+- Support for VNet service endpoints is only for General Purpose and Memory Optimized servers.
 
 ## Current known issues
 - MySQL server instance displays the wrong server version after connection is established. To get the correct server instance engine version, use the `select version();` command.

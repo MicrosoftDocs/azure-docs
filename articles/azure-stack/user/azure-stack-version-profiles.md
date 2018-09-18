@@ -3,7 +3,7 @@ title: Manage API version profiles in Azure Stack | Microsoft Docs
 description: Learn about API version profiles in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 
 ms.service: azure-stack
@@ -11,8 +11,8 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/21/2018
-ms.author: mabrigg
+ms.date: 09/17/2018
+ms.author: sethm
 ms.reviewer: sijuman
 
 ---
@@ -44,7 +44,7 @@ This topic helps you:
     - **yyyy-mm-dd-profile**
     Sits between optimal stability and the latest features.
 
-### Azure API profiles and Azure Stack compatibility
+## Azure API profiles and Azure Stack compatibility
 
 The newest Azure API profiles are not compatible with Azure Stack. You can use the following naming conventions to identify which profiles to use for your Azure Stack solutions.
 
@@ -65,7 +65,7 @@ Rather than research every resource provider and the specific version supported 
 
 API profiles work with tools that use Azure Resource Manager, such as PowerShell, Azure CLI, code provided in the SDK, and Microsoft Visual Studio. Tools and SDKs can use profiles to read which version of the modules and libraries to include when building an application.
 
-For example, if use PowerShell to create a storage account using the **Microsoft.Storage** resource provider, which supports api-version 2016-03-30 and a VM using the Microsoft.Compute resource provider with api-version 2015-12-01, you would need to look up  which PowerShell Module supports 2016-03-30 for Storage and which Module supports 2015-02-01 for Compute and install them. Instead, you can use a profile. Use the cmdlet **Install-Profile *profilename***, and PowerShell loads the right version of the modules.
+For example, if you use PowerShell to create a storage account using the **Microsoft.Storage** resource provider, which supports api-version 2016-03-30 and a VM using the Microsoft.Compute resource provider with api-version 2015-12-01, you would need to look up  which PowerShell Module supports 2016-03-30 for Storage and which Module supports 2015-02-01 for Compute and install them. Instead, you can use a profile. Use the cmdlet **Install-Profile *profilename***, and PowerShell loads the right version of the modules.
 
 Similarly, when using the Python SDK to build a Python-based application, you can specify the profile. The SDK loads the right modules for the resource providers that you have specified in your script.
 

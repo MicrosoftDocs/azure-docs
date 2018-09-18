@@ -2,7 +2,7 @@
 title: Import Cassandra data into Azure Cosmos DB | Microsoft Docs
 description: Learn how to use the CQL Copy command to copy Cassandra data into Azure Cosmos DB.
 services: cosmos-db
-author: govindk
+author: kanshiG
 manager: kfile
 
 ms.service: cosmos-db
@@ -13,9 +13,9 @@ ms.date: 11/15/2017
 ms.author: govindk
 ms.custom: mvc
 ---
-# Azure Cosmos DB: Import Cassandra data
+# Migrate your data to Azure Cosmos DB Cassandra API account
 
-This tutorial provides instructions on importing Cassandra data into Azure Cosmos DB using the Cassandra Query Language (CQL) COPY command. 
+This tutorial provides instructions on importing Cassandra data into Azure Cosmos DB by using the Cassandra Query Language (CQL) COPY command. 
 
 This tutorial covers the following tasks:
 
@@ -26,11 +26,13 @@ This tutorial covers the following tasks:
 
 # Prerequisites
 
-* Install [Apache Cassandra](http://cassandra.apache.org/download/) and specifically ensure *cqlsh* is present.
-* Increase throughput: The duration of your data migration depends on the amount of throughput you provisioned for your Tables. Be sure to increase the throughput for larger data migrations. After you've completed the migration, decrease the throughput to save costs. For more information about increasing throughput in the [Azure portal](https://portal.azure.com), see [Set throughput for Azure Cosmos DB containers](set-throughput.md).
+* Install [Apache Cassandra](http://cassandra.apache.org/download/) and specifically ensure *cqlsh* is present.  
+
+* Increase throughput: The duration of your data migration depends on the amount of throughput you provisioned for your Tables. Be sure to increase the throughput for larger data migrations. After you've completed the migration, decrease the throughput to save costs. For more information about increasing throughput in the [Azure portal](https://portal.azure.com), see [Set throughput for Azure Cosmos DB containers](set-throughput.md).  
+
 * Enable SSL: Azure Cosmos DB has strict security requirements and standards. Be sure to enable SSL when you interact with your account. When you use CQL with SSH, you have an option to provide SSL information. 
 
-## Find your connection string
+## Get your connection string
 
 1. In the [Azure portal](https://portal.azure.com), on the far left, click **Azure Cosmos DB**.
 
@@ -40,14 +42,14 @@ This tutorial covers the following tasks:
 
     ![Connection string page](./media/cassandra-import-data/keys.png)
 
-## Use cqlsh COPY
+## Migrate data by using cqlsh COPY
 
 To import Cassandra data into Azure Cosmos DB for use with the Cassandra API, use the following guidance:
 
 1. Log in to cqhsh using the connection information from the portal.
 2. Use the [CQL COPY command](http://cassandra.apache.org/doc/latest/tools/cqlsh.html#cqlsh) to copy local data to the Apache Cassandra API endpoint. Ensure the source and target are in same datacenter to minimize latency issues.
 
-### Guide for moving data with cqlsh
+### Steps to move data with cqlsh
 
 1. Pre-create and scale your table:
     * By default, Azure Cosmos DB provisions a new Cassandra API table with 1,000 request units per second (RU/s) (CQL-based creation is provisioned with 400 RU/s). Before you start the migration by using cqlsh, pre-create all your tables from the [Azure portal](https://portal.azure.com) or from cqlsh. 
@@ -64,7 +66,7 @@ To import Cassandra data into Azure Cosmos DB for use with the Cassandra API, us
             {
                 byte[] valueInBytes = customPayload[key];
                 string value = Encoding.UTF8.GetString(valueInBytes);
-                Console.WriteLine($“CustomPayload:  {key}: {value}”);
+                Console.WriteLine($"CustomPayload:  {key}: {value}");
             }
  
     ``` 
@@ -75,11 +77,11 @@ To import Cassandra data into Azure Cosmos DB for use with the Cassandra API, us
 
 5. Run the final migration command. Running this command assumes you have started cqlsh using the connection string information.
 
-   ```
+   ```bash
    COPY exampleks.tablename FROM filefolderx/*.csv 
    ```
 
-## Use Spark to import data
+## Migrate data by using Spark
 
 For data residing in an existing cluster in Azure virtual machines, importing data using Spark is also feasible option. This requires Spark to be set up as intermediary for one time or regular ingestion. 
 
