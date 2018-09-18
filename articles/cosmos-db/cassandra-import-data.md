@@ -19,9 +19,42 @@ This tutorial provides instructions on how to migrate Apache Cassandra data into
 This tutorial covers the following tasks:
 
 > [!div class="checklist"]
-> * Retrieving your connection string
-> * Importing data by using the cqlsh COPY command
-> * Importing using the Spark connector 
+> * Plan for migration
+> * Prerequisites for migration
+> * Migrate data using cqlsh COPY command
+> * Migrate data using Spark 
+
+## Plan for migration
+
+Before migrating data to Azure Cosmos DB Cassandra API, you should estimate the throughput needs of your workload. In general, it's recommended to start with the average throughput required by the CRUD operations and then include the additional throughput required for the Extract Transform Load (ETL) or spiky operations. You need the following details to plan for migration: 
+
+* **Existing data size or estimated data size:** Defines the minimum database size and throughput requirement. If you are estimating data size for a new application, you can assume that the data is uniformly distributed across the rows and estimate the value by multiplying with the data size. 
+
+* **Required throughput:** Approximate read (query/get) and write(update/delete/insert) throughput rate. This value is required to compute the required request units along with steady state data size.  
+
+* **Get the schema:** Connect to your existing Cassandra cluster through cqlsh and export schema from Cassandra: 
+
+  ```bash
+  cqlsh [IP] "-e DESC SCHEMA" > orig_schema.cql
+  ```
+
+After you identify the requirements of your existing workload, you should create an Azure Cosmos DB account, database, and containers according to the gathered throughput requirements.  
+
+* **Determine the RU charge for an operation:** You can determine the RUs by using the Azure Cosmos DB Cassandra API SDK of your choice. This example shows the .NET version of getting RU charges.
+
+  ```csharp
+  var tableInsertStatement = table.Insert(sampleEntity);
+  var insertResult = await tableInsertStatement.ExecuteAsync();
+
+  foreach (string key in insertResult.Info.IncomingPayload)
+    {
+       byte[] valueInBytes = customPayload[key];
+       string value = Encoding.UTF8.GetString(valueInBytes);
+       Console.WriteLine($"CustomPayload:  {key}: {value}");
+    }
+  ```
+
+* **Allocate the required throughput:** Azure Cosmos DB can automatically scale storage and throughput as your requirements grow. You can estimate your throughput needs by using the [Azure Cosmos DB request unit calculator](https://www.documentdb.com/capacityplanner). 
 
 ## Prerequisites for migration
 
@@ -31,68 +64,46 @@ This tutorial covers the following tasks:
 
 * **Enable SSL:** Azure Cosmos DB has strict security requirements and standards. Be sure to enable SSL when you interact with your account. When you use CQL with SSH, you have an option to provide SSL information.
 
-## Get your connection string
+## Options to migrate data
 
-1. In the [Azure portal](https://portal.azure.com), select your Azure Cosmos DB account from the list of all resources.
+You can move data from existing Cassandra workloads to Azure Cosmos DB by using the following options:
 
-2. Select **Connection String**. The right pane contains all the information that you need to successfully connect to your account.
+* [Using cqlsh COPY command](#using-cqlsh-copy-command)  
+* [Using Spark](#using-spark) 
 
-    ![Connection string page](./media/cassandra-import-data/keys.png)
+## Migrate data using cqlsh COPY command
 
-## Migrate data by using cqlsh COPY
+[CQL COPY command](http://cassandra.apache.org/doc/latest/tools/cqlsh.html#cqlsh) is used to copy local data to Azure Cosmos DB Cassandra API account. Use the following steps to copy data:
 
-To import Cassandra data into Azure Cosmos DB for use with the Cassandra API, complete the following steps:
+1. Get your Cassandra API account’s connection string information:
 
-1. Log in to cqhsh using the connection information from the portal.
+   * Sign in to the [Azure portal](https://portal.azure.com), and navigate to your Azure Cosmos DB account.
 
-2. Use the [CQL COPY command](http://cassandra.apache.org/doc/latest/tools/cqlsh.html#cqlsh) to copy local data to the Apache Cassandra API endpoint. Refer to the Apache documentation for detailed commands. Ensure the source and target are in same datacenter to minimize latency issues.
+   * Open the **Connection String** pane that contains all the information that you need to connect to your Cassandra API account from cqlsh.
 
-### Steps to move data with cqlsh
+2. Sign in to cqlsh using the connection information from the portal.
 
-1. Create and scale your tables:
-    * By default, Azure Cosmos DB provisions a new Cassandra API table with 1,000 request units per second (RU/s) (CQL-based creation is provisioned with 400 RU/s). Before you start the migration by using cqlsh, pre-create all your tables from the [Azure portal](https://portal.azure.com) or from the cqlsh shell. 
-
-    * From the [Azure portal](https://portal.azure.com), increase the throughput of your tables from the default throughput (400 or 1000 RU/s) to 10,000 RU/s for the duration of migration. With the higher throughput, you can avoid rate limiting and migrate in less time. With hourly billing in Azure Cosmos DB, you can reduce the throughput immediately after the migration to save costs.
-
-2. Determine the RU charge for an operation. You can do this using the Azure Cosmos DB Cassandra API SDK of your choice. This example shows the .NET version of getting RU charges. 
-
-    ```csharp
-    var tableInsertStatement = table.Insert(sampleEntity);
-    var insertResult = await tableInsertStatement.ExecuteAsync();
-
-    foreach (string key in insertResult.Info.IncomingPayload)
-            {
-                byte[] valueInBytes = customPayload[key];
-                string value = Encoding.UTF8.GetString(valueInBytes);
-                Console.WriteLine($"CustomPayload:  {key}: {value}");
-            }
- 
-    ``` 
-
-3. Determine the latency from your machine to the Azure Cosmos DB service. If you are within an Azure Data center, the latency should be a low single digit millisecond number. If you are outside the Azure Datacenter, then you can use psping or azurespeed.com to get the approximate latency from your location.
-
-4. Fine-tune the values for parameters `NUMPROCESS`, `INGESTRATE`, `MAXBATCHSIZE`, and `MINBATCHSIZE` to optimize the best performance for your environment.
-
-5. Run the final migration command. Running this command assumes you have started cqlsh using the connection string information.
+3. Use the CQL COPY command to copy local data to the Cassandra API account.
 
    ```bash
    COPY exampleks.tablename FROM filefolderx/*.csv 
    ```
 
-## Migrate data by using Spark
+## Migrate data using Spark 
 
-For data residing in an existing cluster in Azure virtual machines, importing data using Spark is a viable option. To do so, set up Spark as an intermediary for one time or regular ingestion. 
+Use the following steps to migrate data to Azure Cosmos DB Cassandra API with Spark:
+
+- Provision an [Azure Databricks](cassandra-spark-databricks.md) or a [HDInsight cluster](cassandra-spark-hdinsight.md) 
+
+- Move data to destination Cassandra API endpoint by using [table copy operation](cassandra-spark-table-copy-ops.md) 
+
+Migrating data by using spark jobs is a recommended option if you have data residing in an existing cluster in Azure virtual machines or any other cloud. This requires spark to be set up as intermediary for one time or regular ingestion. You can accelerate this migration by using express route connectivity between on-premise and Azure. 
 
 ## Next steps
 
-In this tutorial, you've learned how to complete the following tasks:
-
-> [!div class="checklist"]
-> * Retrieve your connection string
-> * Import data by using cql copy command
-> * Import using the Spark connector 
-
-You can now proceed to the Concepts section for more information about Azure Cosmos DB. 
+In this tutorial, you've learned how to migrate your data to Azure Cosmos DB Cassandra API account. You can now proceed to the concepts section for more information about Azure Cosmos DB. 
 
 > [!div class="nextstepaction"]
->[Tunable data consistency levels in Azure Cosmos DB](../cosmos-db/consistency-levels.md)
+> [Tunable data consistency levels in Azure Cosmos DB](../cosmos-db/consistency-levels.md)
+
+
