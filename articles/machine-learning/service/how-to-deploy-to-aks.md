@@ -1,5 +1,5 @@
 ---
-title: Deploy from Azure Machine Learning service to Azure Kubernetes Service | Microsoft Docs
+title: Deploy models to Kubernetes from Azure Machine Learning service | Microsoft Docs
 description: Learn how to deploy a model from the Azure Machine Learning service to Azure Kubernetes Service. The model is deployed as a web service. Azure Kubernetes Service is good for high-scale production workloads.
 services: machine-learning
 ms.service: machine-learning
@@ -7,11 +7,12 @@ ms.component: core
 ms.topic: conceptual
 ms.author: raymondl
 author: raymondlaghaeian
+manager: cgronlun
 ms.reviewer: larryfr
 ms.date: 09/24/2018
 ---
 
-# How to deploy web services from Azure Machine Learning service to Azure Kubernetes Service
+# How to deploy models from Azure Machine Learning service to Azure Kubernetes Service
 
 For high-scale production scenarios, you can deploy your model to the Azure Kubernetes Service (AKS). Azure Machine Learning can use an existing AKS cluster or a new cluster created during deployment. The model is deployed to ASK as a web service.
 
