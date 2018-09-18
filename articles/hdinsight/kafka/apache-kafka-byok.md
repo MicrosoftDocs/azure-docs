@@ -1,5 +1,5 @@
 ---
-title: Bring your own keys for Apache Kafka on Azure HDInsight
+title: Bring your own key for Apache Kafka on Azure HDInsight (Preview)
 description: This article describes how to use your own key from Azure Key Vault to encrypt data stored in Apache Kafka on Azure HDInsight.
 services: hdinsight
 ms.service: hdinsight
@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ---
 
-# Bring your own keys for Apache Kafka on Azure HDInsight
+# Bring your own key for Apache Kafka on Azure HDInsight (Preview)
 
 Azure HDInsight includes Bring Your Own Key (BYOK) support for Apache Kafka. This capability lets you own and manage the keys used to encrypt data at rest. 
 
@@ -26,7 +26,7 @@ You can use the Azure portal or Azure CLI to safely rotate the keys in the key v
 
 1. Create managed identities for Azure resources.
 
-   To authenticate to Key Vault, create a user-assigned managed identity using the [Azure Portal](../../active-directory/managed-service-identity/how-to-manage-ua-identity-portal.md), [Azure PowerShell](../../active-directory/managed-service-identity/how-to-manage-ua-identity-powershell.md), [Azure Resource Manager](../../active-directory/managed-service-identity/how-to-manage-ua-identity-arm.md), or [Azure CLI](../../active-directory/managed-service-identity/how-to-manage-ua-identity-cli.md). While Azure Active directory is required for managed identities and BYOK to Kafka, Enterprise Security Package (ESP) isn't a requirement. Be sure to save the managed identity resource ID for when you add it to the key vault access control list.
+   To authenticate to Key Vault, create a user-assigned managed identity using the [Azure Portal](../../active-directory/managed-service-identity/how-to-manage-ua-identity-portal.md), [Azure PowerShell](../../active-directory/managed-service-identity/how-to-manage-ua-identity-powershell.md), [Azure Resource Manager](../../active-directory/managed-service-identity/how-to-manage-ua-identity-arm.md), or [Azure CLI](../../active-directory/managed-service-identity/how-to-manage-ua-identity-cli.md). While Azure Active directory is required for managed identities and BYOK to Kafka, Enterprise Security Package (ESP) isn't a requirement. Be sure to save the managed identity resource ID for when you add it to the key vault access policy.
 
    ![Create user-assigned managed identity in Azure portal](./media/apache-kafka-byok/user-managed-identity-portal.png)
 
@@ -36,19 +36,31 @@ You can use the Azure portal or Azure CLI to safely rotate the keys in the key v
 
    To create a new key vault, follow the [Azure Key Vault](../../key-vault/key-vault-get-started.md) quickstart. For more information about importing existing keys, visit [About keys, secrets, and certificates](../../key-vault/about-keys-secrets-and-certificates.md).
 
-3. Add managed identity to the key vault ACL.
+3. Add managed identity to the key vault access policy.
 
-   Add the user-assigned managed identity you created to the Key Vault access control list by setting an access control policy.
+   Create a new Azure Key Vault access policy.
 
-   ![Add user-assigned managed identity to Azure Key Vault](./media/apache-kafka-byok/apache-kafka-byok-add-umid-to-access-control.png)
+   ![Create new Azure Key Vault access policy](./media/apache-kafka-byok/add-key-vault-access-policy.png)
+
+   Set **Key Permissions** to **Get**, **Unwrap Key**, and **Wrap Key**.
+
+   ![Set Key Permissions for Azure Key Vault access policy](./media/apache-kafka-byok/add-key-vault-access-policy-keys.png)
+
+   Set **Secret Permissions** to **Get**, **Set**, and **Delete**.
+
+   ![Set Key Permissions for Azure Key Vault access policy](./media/apache-kafka-byok/add-key-vault-access-policy-secrets.png)
+
+   Under **Select Principal**, choose the user-assigned managed identity you created.
+
+   ![Set Select Principal for Azure Key Vault access policy](./media/apache-kafka-byok/add-key-vault-access-policy-select-principal.png)
 
 4. Create HDInsight cluster
 
-   You're now ready to create a new HDInsight cluster. BYOK can only be applied to new clusters during cluster creation. Encryption can't be removed from BYOK clusters, and BYOK can't be added to old clusters.
+   You're now ready to create a new HDInsight cluster. BYOK can only be applied to new clusters during cluster creation. Encryption can't be removed from BYOK clusters, and BYOK can't be added to existing clusters.
 
    ![Kafka disk encryption in Azure portal](./media/apache-kafka-byok/apache-kafka-byok-portal.png)
 
-   During cluster creation, provide the full key URL, including the key version. For example, `myakv.azure.com/KEK1/v1`. You also need to assign the managed identity to the cluster and provide the key UI.
+   During cluster creation, provide the full key URL, including the key version. For example, `myakv.azure.com/KEK1/v1`. You also need to assign the managed identity to the cluster and provide the key URI.
 
 ## FAQ for BYOK to Kafka
 
@@ -58,25 +70,11 @@ You can use the Azure portal or Azure CLI to safely rotate the keys in the key v
 
 **Is this feature available for all Kafka clusters on HDInsight?**
 
-   BYOK encryption is only possible for Kafka 1.1 clusters.
+   BYOK encryption is only possible for Kafka 1.1 and above clusters.
 
 **Can I have different keys for different topics/partitions?**
 
    No, all managed disks in the cluster are encrypted by the same key.
-
-**How are keys rotated? How long is the old key valid?**
-   
-   You can create a new version of the existing key or create a new key. Rotating keys can be done using the RotateKey API and in the Azure portal on the HDInsight cluster resource. The old key is valid as long as it exists in the key vault and the cluster has access.
-
-   If the old key is inaccessible while rotating, the RotateKey API fails and a warning appears in the Azure portal. The cluster continues to function but in an unsupported state, even though it may keep functioning for some time. Once access to the old key is restored, the RotateKey API can be called again successfully.
-
-**What if I lose access to my key vault used to encrypt the data disks of the Kafka cluster?**
-
-   HDInsight Kafka clusters periodically check for access to the encryption key. If the cluster can't access the key vault or the key, the Azure portal produces a warning. The cluster may keep functioning for some time (until VMs reboot periodically) but in an unsupported state.
-
-**What if keys are deleted in the key vault?**
-
-   Only keys with “Soft Delete” and “Do Not Purge” enabled are supported. HDInsight cluster loses access to the key if a key is deleted in the key vault. When a cluster cannot access the key vault or the key, the Azure portal produces a warning. The cluster may keep functioning for some time (until VMs reboot periodically), but in an unsupported state.
 
 **How can I recover the cluster if the keys are deleted?**
 
