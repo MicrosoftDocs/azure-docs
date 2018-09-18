@@ -329,6 +329,22 @@
   - name: Firewall
     tocHref: /azure/firewall/
     topicHref: /azure/firewall/
+  - name: Governance
+    tocHref: /azure/governance/
+    topicHref: /azure/governance/
+    items:
+      - name: Blueprints
+        tocHref: /azure/governance/blueprints/
+        topicHref: /azure/governance/blueprints/
+      - name: Management Groups
+        tocHref: /azure/governance/management-groups/
+        topicHref: /azure/governance/management-groups/
+      - name: Policy
+        tocHref: /azure/governance/policy/
+        topicHref: /azure/governance/policy/
+      - name: Resource Graph
+        tocHref: /azure/governance/resource-graph/
+        topicHref: /azure/governance/resource-graph/
   - name: Guidance
     tocHref: /azure/guidance/
     topicHref: /azure/guidance/
@@ -466,31 +482,6 @@
   - name: Operations Management Suite
     tocHref: /azure/operations-management-suite/
     topicHref: /azure/operations-management-suite/
-  - name: Policy documentation
-    tocHref: /azure/azure-policy/
-    topicHref: /azure/azure-policy/
-    items:
-      - name: Overview of Azure Policy
-        tocHref: /azure/azure-policy/azure-policy-introduction/
-        topicHref: /azureazure-policy/azure-policy-introduction/
-      - name: Assign a policy - Portal
-        tocHref: /azure/azure-policy/assign-policy-definition/
-        topicHref: /azureazure-policy/assign-policy-definition/
-      - name: Assign a policy - PowerShell
-        tocHref: /azure/azure-policy/assign-policy-definition-ps/
-        topicHref: /azureazure-policy/assign-policy-definition-ps/
-      - name: Assign a policy - Azure CLI
-        tocHref: /azure/azure-policy/assign-policy-definition-cli/
-        topicHref: /azureazure-policy/assign-policy-definition-cli/
-      - name: Create and manage Azure Policy
-        tocHref: /azure/azure-policy/create-manage-polic/
-        topicHref: /azureazure-policy/create-manage-polic/
-      - name: Policy templates
-        tocHref: /azure/azure-policy/json-samples/
-        topicHref: /azureazure-policy/json-samples/
-      - name: Azure Policy definition structure
-        tocHref: /azure/azure-policy/policy-definition/
-        topicHref: /azureazure-policy/policy-definition/
   - name: PostgreSQL
     tocHref: /azure/postgresql/
     topicHref: /azure/postgresql/
