@@ -21,7 +21,7 @@ ms.custom: mvc, devcenter
 
 # Tutorial: Learn how to upgrade a Service Fabric application using Visual Studio
 
-This tutorial is part four of a series and shows you how to upgrade an Azure Service Fabric Mesh application directly from Visual Studio. You will see that the steps for upgrading and publishing are the same.
+This tutorial is part four of a series and shows you how to upgrade an Azure Service Fabric Mesh application directly from Visual Studio. The upgrade will include both a code update and a config update. You will see that the steps for upgrading and publishing from within Visual Studio are the same.
 
 In this tutorial you learn how to:
 > [!div class="checklist"]
@@ -47,9 +47,24 @@ Before you begin this tutorial:
 
 This article shows how to independently upgrade a microservice within an application.  In this example, we will modify the `WebFrontEnd` service to display a task category. Then we'll upgrade the deployed service.
 
+## Modify the config
+
+Upgrades can be due to code changes, or config changes, or both.  To introduce a config change, open the `WebFrontEnd` project's `service.yaml` file (which is under the **Service Resources** node).
+
+In the `resources:` section, change `cpu:` from 0.5 to 1.0, in anticipation that the web front end will be heavily used. It should now look like this:
+
+```xml
+              ...
+              resources:
+                requests:
+                  cpu: 1.0
+                  memoryInGB: 1
+              ...
+```
+
 ## Modify the model
 
-First, add a `Category` property to the `ToDoItem` class in the ToDoItem.cs file.
+To introduce a code change, add a `Category` property to the `ToDoItem` class in the `ToDoItem.cs` file.
 
 ```csharp
 public class ToDoItem
@@ -107,7 +122,7 @@ Build and run the app to verify that you see a new category column in the web pa
 
 ## Upgrade the app from Visual Studio
 
-To upgrade your Service Fabric Mesh app on Azure to this new version, right-click on **todolistapp** in Visual Studio and select **Publish...**
+Regardless of whether you are making a code upgrade, or a config upgrade (in this case we are doing both), to upgrade your Service Fabric Mesh app on Azure right-click on **todolistapp** in Visual Studio and select **Publish...**
 
 Next, you'll see a **Publish Service Fabric Application** dialog.
 
