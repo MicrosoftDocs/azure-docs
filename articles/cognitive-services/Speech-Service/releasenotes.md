@@ -18,7 +18,7 @@ ms.author: wolfma
 
 **New features**
 
-* Support for Objective-C on iOS.
+* Support for Objective-C on iOS. Check out our [Objective-C quickstart for iOS](quickstart-objectivec-ios.md).
 * Support for JavaScript in browser. Check out our [JavaScript quickstart](quickstart-js-browser.md).
 
 **Breaking changes**
