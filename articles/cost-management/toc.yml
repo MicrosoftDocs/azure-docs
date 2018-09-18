@@ -1,5 +1,5 @@
 - name: Azure Cost Management Documentation
-  href: index.md
+  href: index.yml
   items:
   - name: Overview
     items:
