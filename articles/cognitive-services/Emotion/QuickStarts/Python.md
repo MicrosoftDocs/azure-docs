@@ -1,17 +1,18 @@
 ---
-title: Emotion API Python quick start | Microsoft Docs
-description: Get information and code samples to help you quickly get started using the Emotion API with Python in Cognitive Services.
+title: "Quickstart: Recognize emotions on faces in an image - Emotion API, Python"
+description: Get information and code samples to help you quickly get started using the Emotion API with Python.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/05/2018
 ms.author: anroth
 ---
 
-# Emotion API Python Quickstart
+# Quickstart: Build an app to recognize emotions on faces in an image.
 
 > [!IMPORTANT]
 > Video API Preview ended on October 30, 2017. Try the new [Video Indexer API Preview](https://azure.microsoft.com/services/cognitive-services/video-indexer/) to easily extract insights from 
