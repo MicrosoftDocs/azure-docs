@@ -78,9 +78,9 @@ The arguments definition and values are as follows:
 * **DataRoot=<DataRoot path>**. DataRoot is needed only for SyntaxCheck mode. When it builds the script with SyntaxCheck mode, MSBuild checks the references to database objects in the script. Before building, set up a matching local environment that contains the referenced objects from the U-SQL database in the build machine's DataRoot folder. You can also manage these database dependencies by [referencing a U-SQL database project](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project). MSBuild only checks database object references, not files.
 * **EnableDeployment=true** or **false**. EnableDeployment indicates if it's allowed to deploy referenced U-SQL databases during the build process. If you reference a U-SQL database project and consume the database objects in your U-SQL script, set this parameter to **true**.
 
-### Continuous integration Azure Pipelines
+### Continuous integration through Azure Pipelines
 
-In addition to the command line, you can also use the Visual Studio Build or an MSBuild task to build U-SQL projects in the Azure DevOps Pipelines service (Pipelines). To set up a build pipeline, make sure to add two tasks in the build pipeline: a NuGet restore task and an MSBuild task.
+In addition to the command line, you can also use the Visual Studio Build or an MSBuild task to build U-SQL projects in Azure Pipelines. To set up a build pipeline, make sure to add two tasks in the build pipeline: a NuGet restore task and an MSBuild task.
 
 ![MSBuild task for a U-SQL project](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-task.png) 
 
@@ -109,7 +109,7 @@ After you run a build, all scripts in the U-SQL project are built and output to 
 
 Azure Data Lake provides test projects for U-SQL scripts and C# UDO/UDAG/UDF:
 * Learn how to [add test cases for U-SQL scripts and extended C# code](data-lake-analytics-cicd-test.md#test-u-sql-scripts).
-* Learn how to [run test cases in Azure DevOps](data-lake-analytics-cicd-test.md#run-test-cases-in-azure-devops).
+* Learn how to [run test cases in Azure Pipelines](data-lake-analytics-cicd-test.md#run-test-cases-in-azure-devops).
 
 ## Deploy a U-SQL job
 
@@ -324,7 +324,7 @@ In addition to the command line, you can use Visual Studio Build or an MSBuild t
 
     ![CI/CD NuGet task for a U-SQL project](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-nuget-task.png)
 
-2.	Set MSBuild arguments in Visual Studio build tools or in an MSBuild task as shown in the following example. Or you can define variables for these arguments in the Azure DevOps build pipeline.
+2.	Set MSBuild arguments in Visual Studio build tools or in an MSBuild task as shown in the following example. Or you can define variables for these arguments in the Azure Pipelines build pipeline.
 
    ![Define CI/CD MSBuild variables for a U-SQL database project](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-variables-database-project.png) 
 
@@ -344,7 +344,7 @@ Adding test cases for table-valued functions and stored procedures directly isn'
 2.	Add a database reference to the U-SQL project. To get the table-valued function and stored procedure definition, you need to reference the database project that contains the DDL statement. Learn more about [database references](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project).
 3.	Add test cases for U-SQL scripts that call table-valued functions and stored procedures. Learn how to [add test cases for U-SQL scripts](data-lake-analytics-cicd-test.md#test-u-sql-scripts).
 
-## Deploy U-SQL database through Azure Pipeline
+## Deploy U-SQL database through Azure Pipelines
 
 `PackageDeploymentTool.exe` provides the programming and command-line interfaces that help deploy U-SQL database deployment packages, **.usqldbpack**. The SDK is included in the [U-SQL SDK NuGet package](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/), located at **build/runtime/PackageDeploymentTool.exe**. By using `PackageDeploymentTool.exe`, you can deploy U-SQL databases to both Azure Data Lake Analytics and local accounts.
 
