@@ -96,7 +96,7 @@ To mount the problem VM, the Rescue VM must meet the following prerequisites:
 
 11. Select **Attach a virtual hard disk later**.
 
-    ![the image about the Attach a Virtual Hard Disk Later option](./media/troubleshoot-vm-by-use-nested-virtualization/attach-disk-later.png)
+    ![the image about the Attach a Virtual Hard Disk Later option](/media/troubleshoot-vm-by-use-nested-virtualization/attach-disk-later.png)
 
 12. Select **Finish** when the VM is created.
 
@@ -104,11 +104,11 @@ To mount the problem VM, the Rescue VM must meet the following prerequisites:
 
 14. Select **IDE Controller 0**, select **Hard Drive**, and then click **Add**.
 
-    ![the image about adds new hard drive](./media/troubleshoot-vm-by-use-nested-virtualization/create-new-drive.png)    
+    ![the image about adds new hard drive](/media/troubleshoot-vm-by-use-nested-virtualization/create-new-drive.png)    
 
 15. In **Physical Hard Disk**, select the disk of the problem VM that you attached to the Azure VM. If you do not see any disks listed, check if the disk is set to offline by using Disk management.
 
-    ![the image about mounts the disk](./media/troubleshoot-vm-by-use-nested-virtualization/mount-disk.png)  
+    ![the image about mounts the disk](/media/troubleshoot-vm-by-use-nested-virtualization/mount-disk.png)  
 
 
 17. Select **Apply**, and then select **OK**.
@@ -125,13 +125,13 @@ To mount the problem VM, the Rescue VM must meet the following prerequisites:
 
 3.  Go to **All resources**, search for the disk name, and then select the disk.
 
-     ![the image about searches the disk](./media/troubleshoot-vm-by-use-nested-virtualization/search-disk.png)     
+     ![the image about searches the disk](/media/troubleshoot-vm-by-use-nested-virtualization/search-disk.png)     
 
 4. Click **Create VM**.
 
      ![the image about creates vm from the disk](./media/troubleshoot-vm-by-use-nested-virtualization/create-vm-from-vhd.png) 
 
-You can also use Azure PowerShell to create the VM from the disk. For more information, see [Create the new VM from an existing disk by using PowerShell](create-vm-specialized.md#create-the-new-vm). 
+You can also use Azure PowerShell to create the VM from the disk. For more information, see [Create the new VM from an existing disk by using PowerShell](../windows/create-vm-specialized.md#create-the-new-vm). 
 
 ## Next steps
 
