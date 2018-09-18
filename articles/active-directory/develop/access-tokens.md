@@ -198,7 +198,7 @@ Your application's business logic will dictate this step, some common authorizat
 
 ## User and application tokens
 
-Your application may receive tokens on behalf of a user (the usual flow) or directly from an application (through the [client credentials flow](v1-oauth2-client-creds-grant-flow.md)). These app-only tokens indicate that this the call is coming from an application and do not have a user backing it. These tokens are handled largely the same, with some differences:
+Your application may receive tokens on behalf of a user (the usual flow) or directly from an application (through the [client credentials flow](v1-oauth2-client-creds-grant-flow.md)). These app-only tokens indicate that this call is coming from an application and does not have a user backing it. These tokens are handled largely the same, with some differences:
 
 * App-only tokens will not have a `scp` claim, and will instead have a `roles` claim. This is where application permission (as opposed to delegated permissions) will be recorded. For more information about delegated and application permissions, see permission and consent in [v1.0](v1-permissions-and-consent.md) and [v2.0](v2-permissions-and-consent.md).
 * Many human-specific claims will be missing, such as `name`.
@@ -235,3 +235,4 @@ Refresh tokens can be invalidated or revoked at any time, for a variety of reaso
 ## Next steps
 
 * Learn about [`id_tokens` in Azure AD](id-tokens.md).
+* Learn about permission and consent in [v1.0](v1-permissions-and-consent.md) and [v2.0](v2-permissions-and-consent.md).
