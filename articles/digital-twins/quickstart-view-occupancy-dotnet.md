@@ -26,16 +26,17 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-- The two console applications you run in this quickstart are written using C#. You need to install [.NET Core SDK](https://www.microsoft.com/net/download) on your development machine.
+1. The two console applications you run in this quickstart are written using C#. You need to install [.NET Core SDK](https://www.microsoft.com/net/download) on your development machine.
 
-- Clone the sample C# projects from https://github.com/Azure-Samples/digital-twins-samples-csharp
-  ```
-  git clone https://github.com/Azure-Samples/digital-twins-samples-csharp.git
-  ```
+1. Clone the sample C# projects and change directory to digital-twins-samples-csharp
+    ```
+    git clone https://github.com/Azure-Samples/digital-twins-samples-csharp.git
+    cd digital-twins-samples-csharp
+    ```
+1. The repo is composed of several standalone projects. Occupancy sample is the suggested starting sample. If using [Visual Studio Code](https://code.visualstudio.com/) we have included a [visual studio code workspace file](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/digital-twins-samples.code-workspace) that will load all samples. Alternatively, each folder can be opened individually.
 
 ## Create a Digital Twins instance in Azure Portal
 
-> TODO: Move Create a Digital Twins in Azure Portal in its own file, it will be shared across documentaton.
 1. Sign in to the [Azure portal](http://portal.azure.com).
 1. Select **Create a resource** > **Internet of Things** > **Digital Twins** (or search by **Digital Twins**)
     ![Select to install Digital Twins][1]
@@ -72,11 +73,6 @@ The tutorials go into detail about how to build an application for facility mana
 
 Advance to the next article to learn how to create...
 > [!div class="nextstepaction"]
-<!-- > [Next steps button](tutorial-facilities-app.md) -->
-
-<!--- Required:
-Quickstarts should always have a Next steps H2 that points to the next logical quickstart in a series, or, if there are no other quickstarts, to some other cool thing the customer can do. A single link in the blue box format should direct the customer to the next article - and you can shorten the title in the boxes if the original one doesn’t fit.
-Do not use a "More info section" or a "Resources section" or a "See also section". --->
 
 <!-- Images -->
 [1]: media/quickstart-view-occupancy-dotnet/create-digital-twins-portal.png
