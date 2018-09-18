@@ -1,0 +1,64 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Policy Documentation
+metadata:
+  title: Azure Policy Documentation - Tutorials, API Reference
+  description: Azure Policy helps you manage and prevent IT issues with policy definitions that enforce rules and effects for your resources. When you use Azure Policy, resources stay compliant with your corporate standards and service level agreements. Learn how to create, assign, and manage policy definitions with our quickstarts, tutorials, and samples.
+  services: azure-policy
+  author: DCtheGeek
+  manager: carmonm
+  ms.service: azure-policy
+  ms.topic: landing-page
+  ms.date: 09/18/2018
+  ms.author: dacoulte
+abstract:
+  description: Azure Policy helps you manage and prevent IT issues with policy definitions that enforce rules and effects for your resources. When you use Azure Policy, resources stay compliant with your corporate standards and service level agreements. Learn how to create, assign, and manage policy definitions with our quickstarts, tutorials, and samples.
+sections:
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: Learn how to create, assign, and manage policy definitions in Azure.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: ./media/portal.svg
+      text: Azure Portal
+      href: ./assign-policy-portal
+    - image:
+        src: ./media/powershell.svg
+      text: Azure PowerShell
+      href: ./assign-policy-powershell
+    - image:
+        src: ./media/cli.svg
+      text: Azure CLI
+      href: ./assign-policy-azurecli
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: Learn how to create, assign, and manage policy definitions in Azure.
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/governance/policy/tutorials/create-and-manage">Create and manage Azure Policy</a>
+- title: Samples
+  items:
+  - type: paragraph
+    text: Use the following JSON samples to help you create policy definitions in Azure.
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/governance/policy/samples/index">Azure PowerShell</a>
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Command-Line
+      html: <p><a href="/cli/azure/policy">Azure CLI</a></p>
+    - title: PowerShell
+      html: <p><a href="/powershell/module/azurerm.resources/#policies">Azure PowerShell</a></p>
+    - title: REST API
+      html: <p><a href="/rest/api/policy-insights/policyevents">Events</a></p><p><a href="/rest/api/policy-insights/policystates">States</a></p><p><a href="/rest/api/resources/policyassignments">Assignments</a></p><p><a href="/rest/api/resources/policydefinitions">Policy Definitions</a></p><p><a href="/rest/api/resources/policysetdefinitions">Initiatives Definitions</a></p>
