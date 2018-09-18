@@ -25,7 +25,7 @@ The Virtual Machine Serial Console on Azure provides access to a text-based cons
 For serial console documentation for Windows VMs, [click here](../windows/serial-console.md).
 
 > [!Note] 
-> Serial Console for virtual machines is generally available in global Azure regions. At this point serial console is not yet available Azure Government or Azure China cloud.
+> Serial Console for virtual machines is generally available in global Azure regions. At this point serial console is not yet available in Azure Government or Azure China clouds.
 
 
 ## Prerequisites 

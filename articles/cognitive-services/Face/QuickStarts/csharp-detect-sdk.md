@@ -1,10 +1,10 @@
 ---
-title: "Quickstart: Detect faces in an image - SDK, C# - Face"
-titleSuffix: "Azure Cognitive Services"
+title: "Quickstart: Detect faces in an image - SDK, C#"
+titleSuffix: Azure Cognitive Services
 description: In this quickstart, you detect faces from an image using the Face Windows C# client library in Cognitive Services.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: face-api
