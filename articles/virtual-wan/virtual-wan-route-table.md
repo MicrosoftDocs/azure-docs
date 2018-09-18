@@ -5,36 +5,38 @@ services: virtual-wan
 author: cherylmc
 
 ms.service: virtual-wan
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to work with routing tables for NVA.
 ---
 
-# Tutorial: Create a Virtual Hub Route table to steer traffic to a Network Virtual Appliance
+# Create a Virtual Hub Route table to steer traffic to a Network Virtual Appliance
 
-This tutorial shows you how to steer traffic from a Virtual Hub to a Network Virtual Appliance. 
+This article shows you how to steer traffic from a Virtual Hub to a Network Virtual Appliance. 
 
-In this tutorial, you learn how to:
+![Virtual WAN diagram](./media/virtual-wan-route-table/vwanroute.png)
 
-> [!div class="checklist"]
-> * Create a WAN
-> * Create a hub
-> * Create hub virtual network connections
-> * Create a hub route
-> * Create a route table
-> * Apply the route table
+In this article you'll learn how to:
+
+* Create a WAN
+* Create a hub
+* Create hub virtual network connections
+* Create a hub route
+* Create a route table
+* Apply the route table
 
 
 ## Before you begin
 
 Verify that you have met the following criteria:
 
-1. A Network Virtual Appliance (NVA) is a third-party software of your choice that is typically provisioned from Azure Marketplace (Link) in a Virtual Network.
-2. A private IP assigned to the NVA network interface. 
-3. NVA cannot be deployed in the virtual hub. It needs to be deployed in a separate VNet. For this tutorial, the VNet is referred to as the ‘DMZ VNet’.
-4. The ‘DMZ VNet’ may have one or many virtual networks connected to it. For this tutorial, this VNet is referred to as ‘Indirect spoke VNet’. These VNets can be connected to the DMZ VNet using VNet peering.
-5. Ensure there are no Virtual Network gateways in any VNets.
+1. You have a Network Virtual Appliance (NVA) is a third-party software of your choice that is typically provisioned from Azure Marketplace (Link) in a virtual network.
+2. You have a private IP assigned to the NVA network interface. 
+3. NVA cannot be deployed in the virtual hub. It must be deployed in a separate VNet. For this article, the VNet is referred to as the 'DMZ VNet'.
+4. The ‘DMZ VNet’ may have one or many virtual networks connected to it. In this article, this VNet is referred to as ‘Indirect spoke VNet’. These VNets can be connected to the DMZ VNet using VNet peering.
+5. Verify that you have 2 VNets already created. These will be used as spoke VNets. For this article, the VNet spoke address spaces are 10.0.2.0/24 and 10.0.3.0/24. If you need information on how to create a VNet, see [Create a virtual network using PowerShell](../virtual-network/quick-create-powershell.md).
+6. Ensure there are no virtual network gateways in any VNets.
 
 ![Virtual WAN diagram](./media/virtual-wan-route-table/vwanroute.png)
 
@@ -42,7 +44,7 @@ Verify that you have met the following criteria:
 
 Make sure you install the latest version of the Resource Manager PowerShell cmdlets. For more information about installing PowerShell cmdlets, see [How to install and configure Azure PowerShell](/powershell/azure/overview). This is important because earlier versions of the cmdlets do not contain the current values that you need for this exercise.
 
-1. Open your PowerShell console with elevated privileges, and sign in to your Azure account. This cmdlet prompts you for the sign in credentials. After signing in, it downloads your account settings so that they are available to Azure PowerShell.
+1. Open your PowerShell console with elevated privileges, and sign in to your Azure account. This cmdlet prompts you for the sign-in credentials. After signing in, it downloads your account settings so that they are available to Azure PowerShell.
 
   ```powershell
   Connect-AzureRmAccount
@@ -92,7 +94,7 @@ Create hub virtual network connections from Indirect Spoke VNet and the DMZ VNet
 
 ## <a name="route"></a>4. Create a virtual hub route
 
-For this tutorial, the Indirect Spoke VNet address spaces are 10.0.2.0/24 and 10.0.3.0/24, and the DMZ NVA network interface private IP address is 10.0.4.5.
+For this article, the Indirect Spoke VNet address spaces are 10.0.2.0/24 and 10.0.3.0/24, and the DMZ NVA network interface private IP address is 10.0.4.5.
 
 ```powershell
 $route1 = New-AzureRmVirtualHubRoute -AddressPrefix @("10.0.2.0/24", "10.0.3.0/24") -NextHopIpAddress "10.0.4.5"
@@ -123,15 +125,5 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 ```
 
 ## Next steps
-
-In this tutorial, you learned how to:
-
-> [!div class="checklist"]
-> * Create a WAN
-> * Create a hub
-> * Create hub virtual network connections
-> * Create a hub route
-> * Create a route table
-> * Apply the route table
 
 To learn more about Virtual WAN, see the [Virtual WAN Overview](virtual-wan-about.md) page.
