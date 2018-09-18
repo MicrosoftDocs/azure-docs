@@ -23,7 +23,7 @@ In this tutorial, you will:
 
 For your convenience, the following Azure resources are added automatically to your workspace when regionally available:  [container registry](https://azure.microsoft.com/services/container-registry/), [storage](https://azure.microsoft.com/services/storage/), [application insights](https://azure.microsoft.com/services/application-insights/), and [key vault](https://azure.microsoft.com/services/key-vault/).
 
-The resources you create can be used as prerequisites to other Azure Machine Learning tutorials and how-to articles. As with other Azure services, there are limits on certain resources (for eg. BatchAI cluster size) associated with the Azure Machine Learning service. Please read [this](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-manage-quotas) article on the default limits and how to request more quota.
+The resources you create can be used as prerequisites to other Azure Machine Learning tutorials and how-to articles. As with other Azure services, there are limits on certain resources (for eg. BatchAI cluster size) associated with the Azure Machine Learning service. Please read [this](how-to-manage-quotas.md) article on the default limits and how to request more quota.
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
