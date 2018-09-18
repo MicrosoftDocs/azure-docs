@@ -5,6 +5,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
+ms.reviewer: jmartens
 ms.author: sanpil
 author: sanpil
 ms.date: 09/24/2018

@@ -1,19 +1,19 @@
 ---
-title: Model management and deployment - Azure Machine Learning service
-description: The Azure Machine Learning service allows you to deploy, manage, and monitor your models to continuously improve them. You can deploy the models you trained with Azure Machine Learning, on your local machine, or from other sources.  
+title: Model management and deployment - Azure Machine Learning
+description: Learn how to use Azure Machine Learning to deploy, manage, and monitor your models to continuously improve them. You can deploy the models you trained with Azure Machine Learning, on your local machine, or from other sources.  
 services: machine-learning
-author: hjerez
-ms.author: hjerez
-ms.reviewer: j-martrens
 ms.service: machine-learning
 ms.component: core
-ms.topic: overview
+ms.topic: conceptual
+ms.reviewer: jmartens
+author: hjerez
+ms.author: hjerez
 ms.date: 09/24/2018
 ---
 
 # Manage, deploy, and monitor models with Azure Machine Learning
 
-The Azure Machine Learning service allows you to deploy, manage, and monitor your models to continuously improve them. You can deploy the models you trained with Azure Machine Learning, on your local machine, or from other sources. 
+In this article, you can learn how to use Azure Machine Learning to deploy, manage, and monitor your models to continuously improve them. You can deploy the models you trained with Azure Machine Learning, on your local machine, or from other sources. 
 
 [ !['Azure Machine Learning continuous integration/continuous deployment (CI/CD) cycle'](media/concept-model-management-and-deployment/model-ci-cd.png) ](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
 
