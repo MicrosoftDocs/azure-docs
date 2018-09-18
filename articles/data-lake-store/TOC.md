@@ -22,7 +22,7 @@
 ### [Using DistCp](data-lake-store-copy-data-wasb-distcp.md)
 ### [Using Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
 ### [Upload data from offline sources](data-lake-store-offline-bulk-data-upload.md)
-### [Migrate data lake store across regions](data-lake-store-migration-cross-region.md)
+### [Migrate Data Lake Storage Gen1 across regions](data-lake-store-migration-cross-region.md)
 
 ## Secure data
 ### [Security overview](data-lake-store-security-overview.md)
@@ -62,11 +62,11 @@
 ### [Using on HDInsight](data-lake-store-performance-tuning-mapreduce.md)
 ### [Using Storm on HDInsight](data-lake-store-performance-tuning-storm.md)
 
-## Integrate with Azure Services
+## Integrate with Azure services
 ### With HDInsight
 #### [Using Azure portal](data-lake-store-hdinsight-hadoop-use-portal.md)
 #### [Using Azure PowerShell (default storage)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
-#### [Using Azure PowerShell (additonal storage)](data-lake-store-hdinsight-hadoop-use-powershell.md)
+#### [Using Azure PowerShell (additional storage)](data-lake-store-hdinsight-hadoop-use-powershell.md)
 #### [Using Azure template](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 ### [Access from VMs in Azure VNET](data-lake-store-connectivity-from-vnets.md)
 ### [Use with Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)

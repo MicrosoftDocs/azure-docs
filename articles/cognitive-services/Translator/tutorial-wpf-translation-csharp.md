@@ -1,10 +1,10 @@
 ---
-title: "Tutorial: Write a WPF application for Translator Text using C# | Microsoft Docs"
-titleSuffix: "Microsoft Cognitive Services"
+title: "Tutorial: Write a WPF application for Translator Text using C#"
+titleSuffix: Azure Cognitive Services
 description: In this tutorial, you'll learn how to use the Translator Text API to translate text, get a localized list of supported languages, and more, by building a WPF application using C#.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: translator-text

@@ -8,7 +8,7 @@ manager: mtillman
 ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: lizross
 ---

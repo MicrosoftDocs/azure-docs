@@ -53,7 +53,7 @@ Before you create an account, you first create a resource group that acts as a l
 > [!NOTE]
 > You must create new storage accounts as type **StorageV2 (general-purpose V2)** to take advantage of Data Lake Storage Gen2 features.  
 
-For more information about storage account types, see [Azure Storage account options](../common/storage-account-options.md).
+For more information about storage accounts, see [Azure Storage account overview](../common/storage-account-overview.md).
 
 When naming your storage account, keep these rules in mind:
 
