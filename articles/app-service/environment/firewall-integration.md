@@ -1,3 +1,4 @@
+---
 title: Locking down egress from an App Service Environment
 description: Describes how to integrate with Azure Firewall to secure outbound traffic
 services: app-service
@@ -12,6 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: ccompy
+
+---
 
 ## Overview ##
 
