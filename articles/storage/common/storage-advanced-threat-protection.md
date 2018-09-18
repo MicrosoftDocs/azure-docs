@@ -19,7 +19,7 @@ Threats are surfaced by defining security alerts that trigger when anomalies in 
 > [!NOTE]
 > Azure Storage Advanced Threat Protection is currently available only for the Blob service. Security alerts are integrated with Azure Security Center and are sent via email to subscription administrators.
 
-Azure Storage Advanced Threat Protection ingests diagnostic logs of read, write and delete requests to Blob service for threat detection.
+Azure Storage Advanced Threat Protection ingests diagnostic logs of read, write and delete requests to Blob service for threat detection. To investigate the alerts from Advanced Threat Protection,  you need to [configure diagnostics logs](storage-monitor-storage-account.md#configure-logging) to enable all levels of logs for the Blob service.
 
 ## Set up Advanced Threat Protection in the portal
 
