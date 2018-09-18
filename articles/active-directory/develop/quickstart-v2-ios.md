@@ -101,10 +101,9 @@ This quickstart contains a code sample that demonstrates how a native iOS applic
     >     </dict>
     > </array>
     > ```
-
+    
 > [!div renderon="docs"]
 > <span>5.</span> Replace `<ENTER_THE_APPLICATION_ID_HERE>` with the *Application ID* for your application. If you need to find the *Application ID*, go to the *Overview* page.
-
 
 ## More Information
 
@@ -112,28 +111,19 @@ Read these sections to learn more about this quickstart.
 
 ### MSAL
 
-MSAL ([MSAL.framework](https://github.com/AzureAD/microsoft-authentication-library-for-objc)) is the library used to sign in users and request tokens used to access an API protected by Microsoft Azure Active Directory. You can use carthage to install it by first running the following command in bash terminal from App’s root folder to build MSAL:
+MSAL ([MSAL.framework](https://github.com/AzureAD/microsoft-authentication-library-for-objc)) is the library used to sign in users and request tokens used to access an API protected by Microsoft Azure Active Directory. You can add MSAL to your application using the following process:
 
-```bash
-echo "github \"AzureAD/microsoft-authentication-library-for-objc\" \"master\"" > Cartfile
-carthage update
 ```
-
-Then, in XCode, open the **General**, go to **Linked Frameworks and Libraries** and add **MSAL.framework** in **Add other...**, then add the following content in **New Run Script Phase** under **Build Phases** tab:
-
-```text
-/usr/local/bin/carthage copy-frameworks
+$ vi Podfile
 ```
+Add the following to this podfile:
 
-And the following to **Input Files**:
-
-```text
-$(SRCROOT)/Carthage/Build/iOS/MSAL.framework
 ```
-
-> [!NOTE]
-> #### Install Carthage to download and build MSAL
-> Carthage package manager is used during the preview period of MSAL – it integrates with XCode while maintaining the ability for Microsoft to make changes to the library. Download and install the latest release of Carthage [here](https://github.com/Carthage/Carthage/releases)
+ target 'QuickStart' do
+   use_frameworks!
+ pod 'MSAL'
+ end
+```
 
 ### MSAL initialization
 
