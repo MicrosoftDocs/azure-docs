@@ -76,7 +76,11 @@ You can run the sample app, to see how it interacts with you and with the Comput
 1. Enter the endpoint URL, omitting the `/vision/v1.0`, of the Computer Vision resource for your subscription key in **Endpoint**.  
    For example, if you're using the subscription key from the Computer Vision free trial, enter the following endpoint URL for the West Central US Azure region:
    `https://westcentralus.api.cognitive.microsoft.com`
-1. If you don't want to enter your subscription key and endpoint URL the next time you run the sample app, choose **Save Setting** to save the subscription key and endpoint URL to your computer. If you want to delete your previously-saved subscription key and endpoint URL, choose **Delete Setting**. The sample app uses isolated storage, and `System.IO.IsolatedStorage`, to store your subscription key and endpoint URL.
+1. If you don't want to enter your subscription key and endpoint URL the next time you run the sample app, choose **Save Setting** to save the subscription key and endpoint URL to your computer. If you want to delete your previously-saved subscription key and endpoint URL, choose **Delete Setting**.
+
+   > [!NOTE]
+   > The sample app uses isolated storage, and `System.IO.IsolatedStorage`, to store your subscription key and endpoint URL.
+
 1. Under **Select a scenario** in the navigation pane, select one of the scenarios currently included with the sample app:  
 
    | Scenario | Description |
