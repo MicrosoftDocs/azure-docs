@@ -1,17 +1,19 @@
 ---
-title: Emotion API Ruby quick start | Microsoft Docs
-description: Get information and code samples to help you quickly get started using the Emotion API with Ruby in Cognitive Services.
+title: "Quickstart: Recognize emotions on faces in an image - Emotion API, Ruby"
+titlesuffix: Azure Cognitive Services
+description: Get information and code samples to help you quickly get started using the Emotion API with Ruby.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: quickstart
 ms.date: 05/23/2017
 ms.author: anroth
 ---
 
-# Emotion API Ruby Quick Start
+# Quickstart: Build an app to recognize emotions on faces in an image.
 
 > [!IMPORTANT]
 > Video API Preview will end on October 30th, 2017. Try the new [Video Indexer API Preview](https://azure.microsoft.com/services/cognitive-services/video-indexer/) to easily extract insights from 

@@ -1,17 +1,19 @@
 ﻿---
-title: Emotion API Python tutorial | Microsoft Docs
-description: Use a Jupyter notebook to learn how to use the Cognitive Services Emotion API with Python. Visualize your results by using popular libraries.
+title: "Tutorial: Recognize emotions on a face in an image - Emotion API, Python"
+titlesuffix: Azure Cognitive Services
+description: Use a Jupyter notebook to learn how to use the Emotion API with Python. Visualize your results by using popular libraries.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/23/2017
 ms.author: anroth
 ---
 
-# Emotion API using Python Tutorial
+# Tutorial: Use the Emotion API with a Jupyter notebook & Python.
 
 > [!IMPORTANT]
 > Video API Preview will end on October 30th, 2017. Try the new [Video Indexer API Preview](https://azure.microsoft.com/services/cognitive-services/video-indexer/) to easily extract insights from 
