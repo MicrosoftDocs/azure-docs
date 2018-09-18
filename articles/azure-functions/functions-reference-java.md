@@ -6,12 +6,10 @@ documentationcenter: na
 author: rloutlaw
 manager: justhe
 keywords: azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture, java
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 08/10/2018
+ms.topic: conceptual
+ms.date: 09/14/2018
 ms.author: routlaw
 ---
 
@@ -23,7 +21,35 @@ ms.author: routlaw
 
 Your Azure function should be a stateless class method that processes input and produces output. Although you can write instance methods, your function must not depend on any instance fields of the class. All function methods must have a `public` access modifier.
 
-You can put more than one function in a project. Avoid putting your functions into separate jars.
+## Folder structure
+
+The folder structure for a Java project looks like the following:
+
+```
+FunctionsProject
+ | - src
+ | | - main
+ | | | - java
+ | | | | - FunctionApp
+ | | | | | - MyFirstFunction.java
+ | | | | | - MySecondFunction.java
+ | - target
+ | | - azure-functions
+ | | | - FunctionApp
+ | | | | - FunctionApp.jar
+ | | | | - host.json
+ | | | | - MyFirstFunction
+ | | | | | - function.json
+ | | | | - MySecondFunction
+ | | | | | - function.json
+ | | | | - bin
+ | | | | - lib
+ | - pom.xml
+```
+
+There's a shared [host.json] (functions-host-json.md) file that can be used to configure the function app. Each function has its own code file (.java) and binding configuration file (function.json).
+
+You can put more than one function in a project. Avoid putting your functions into separate jars. The FunctionApp in the target directory is what gets deployed to your function app in Azure.
 
 ## Triggers and annotations
 
@@ -88,7 +114,7 @@ with the corresponding `function.json`:
 
 Azure Functions supports the use of third-party libraries. By default, all dependencies specified in your project `pom.xml` file will be automatically bundled during the `mvn package` goal. For libraries not specified as dependencies in the `pom.xml` file, place them in a `lib` directory in the function's root directory. Dependencies placed in the `lib` directory will be added to the system class loader at runtime.
 
-## Data Types
+## Data type support
 
 You can use any data types in Java for the input and output data, including native types; customized Java types and specialized Azure types defined in `azure-functions-java-library` package. The Azure Functions runtime attempts convert the input received into the type requested by your code.
 
@@ -238,7 +264,7 @@ public class MyClass {
 
 Interact with Azure Functions execution environment via the `ExecutionContext` object defined in the `azure-functions-java-library` package. Use the `ExecutionContext` object to use invocation information and functions runtime information in your code.
 
-### Logging
+### Custom logging
 
 Access to the Functions runtime logger is available through the `ExecutionContext` object. This logger is tied to the Azure monitor and allows you to flag warnings and errors encountered during function execution.
 
@@ -258,6 +284,29 @@ public class Function {
     }
 }
 ```
+
+## View logs and trace
+
+You can use the Azure CLI to stream Java standard out and error logging as well as other application logging. First, Configure your Function application to write application logging using the Azure CLI:
+
+```azurecli-interactive
+az webapp log config --name functionname --resource-group myResourceGroup --application-logging true
+```
+
+To stream logging output for your Function app using the Azure CLI, open a new command prompt, Bash, or Terminal session and enter the following command:
+
+```azurecli-interactive
+az webapp log tail --name webappname --resource-group myResourceGroup
+```
+The [az webapp log tail](/cli/azure/webapp/log) command has options to filter output using the `--provider` option. 
+
+To download the log files as a single ZIP file using the Azure CLI, open a new command prompt, Bash, or Terminal session and enter the following command:
+
+```azurecli-interactive
+az webapp log download --resource-group resourcegroupname --name functionappname
+```
+
+You must have enabled file system logging in the Azure Portal or Azure CLI before running this command.
 
 ## Environment variables
 
@@ -283,9 +332,12 @@ Each key / value mapping in the `values` map will be made available at runtime a
 With your code now depending on these environment variables, you can sign in to the Azure portal to set the same key / value pairs in your function app settings, so that your code functions equivalently when testing locally and when deployed to Azure.
 
 ## Next steps
-For more information, see the following resources:
+
+For more information about Azure Function Java development, see the following resources:
 
 * [Best practices for Azure Functions](functions-best-practices.md)
 * [Azure Functions developer reference](functions-reference.md)
 * [Azure Functions triggers and bindings](functions-triggers-bindings.md)
+- Local development and debug with [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions), [IntelliJ](functions-create-maven-intellij.md), and [Eclipse](functions-create-maven-eclipse.md). 
 * [Remote Debug Java Azure Functions with Visual Studio Code](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud)
+* [Maven plugin for Azure Functions](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-functions-maven-plugin/README.md) - Streamline function creation through the `azure-functions:add` goal and prepare a staging directory for [ZIP file deployment](deployment-zip-push.md).

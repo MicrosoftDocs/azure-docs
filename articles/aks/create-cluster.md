@@ -44,7 +44,7 @@ The following options are available with the `az aks create` command. See the [A
 | `--enable-rbac` `-r` | Enable Kubernetes Role-Based Access Control. | no |
 | `--generate-ssh-keys` | Generate SSH public and private key files if missing. | no |
 | `--kubernetes-version` `-k` | The version of Kubernetes to use for creating the cluster, such as '1.7.9' or '1.9.6'. | no |
-| `--locaton` `-l` | Location for the auto-created resource group | no |
+| `--location` `-l` | Location for the auto-created resource group | no |
 | `--max-pods` `-m` | The maximum number of pods deployable to a node. | no |
 | `--network-plugin` | The Kubernetes network plugin to use. | no |
 | `--no-ssh-key` `-x` | Do not use or create a local SSH key. | no |

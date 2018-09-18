@@ -90,7 +90,7 @@ Download a sample JSON data file and save it into Azure blob storage.
    - Select **Account Kind**: **Blob Storage**
    - Select a **Resource Group** name. Use the same resource group you created the Databricks workspace.
    
-   For more information, see [Create an Azure Blob storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account). 
+   For more information, see [Create an Azure Blob storage account](../storage/common/storage-quickstart-create-account.md). 
 
 3. Create a storage Container in the Blob Storage account and upload the sample json file into the container. You can use the Azure portal or the  [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to upload the file.
 
@@ -138,7 +138,7 @@ Perform the following tasks to create a notebook in Databricks, configure the no
 
           spark.conf.set("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net", "{YOUR STORAGE ACCOUNT ACCESS KEY}")
 
-    For instructions on how to retrieve the storage account key, see [Manage your storage access keys](../storage/common/storage-create-storage-account.md#manage-your-storage-account).
+    For instructions on how to retrieve the storage account key, see [Manage your storage access keys](../storage/common/storage-account-manage.md#access-keys).
 
     > [!NOTE]
     > You can also use Azure Data Lake Store with a Spark cluster on Azure Databricks. For instructions, see [Use Data Lake Store with Azure Databricks](https://go.microsoft.com/fwlink/?linkid=864084).

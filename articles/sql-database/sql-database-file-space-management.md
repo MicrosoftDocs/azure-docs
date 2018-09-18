@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: how-to
 ms.topic: conceptual
-ms.date: 08/08/2018
+ms.date: 09/14/2018
 ms.author: moslake
 
 ---
@@ -22,7 +22,7 @@ In Azure SQL Database, most storage space metrics displayed in the Azure portal 
 - T-SQL:  [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
 - T-SQL: [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
-There are workload patterns where the allocation of underlying data files for databases can become larger than the amount of used data pages.  This can occur when space used increases and data is subsequently deleted.  This is because file space allocated is not automatically reclaimed when data is deleted.  In such scenarios, the allocated space for a database or pool may exceed supported limits and prevent data growth or prevent performance tier changes, and require shrinking data files to mitigate.
+There are workload patterns where the allocation of underlying data files for databases can become larger than the amount of used data pages.  This can occur when space used increases and data is subsequently deleted.  This is because file space allocated is not automatically reclaimed when data is deleted.  In such scenarios, the allocated space for a database or pool may exceed supported limits and prevent data growth or prevent service tier and compute size changes, and require shrinking data files to mitigate.
 
 The SQL DB service does not automatically shrink data files to reclaim unused allocated space due to the potential impact to database performance.  However, customers may shrink data files via self-service at a time of their choosing by following the steps described in [Reclaim unused allocated space](#reclaim-unused-allocated-space). 
 
@@ -117,6 +117,8 @@ Modify the following PowerShell script to return a table listing the space alloc
 
 The query results for determining the space allocated for each database in the pool can be added together to determine the total space allocated for the elastic pool. The elastic pool space allocated should not exceed the elastic pool max size.  
 
+The PowerShell script requires SQL Server PowerShell module – see [Download PowerShell module](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module?view=sql-server-2017) to install.
+
 ```powershell
 # Resource group name
 $resourceGroupName = "rg1" 
@@ -138,7 +140,7 @@ $databaseStorageMetrics = @()
 
 # For each database in the elastic pool,
 # get its space allocated in MB and space allocated unused in MB.
-# Requires SQL Server PowerShell module – see here to install.  
+  
 foreach ($database in $databasesInPool)
 {
     $sqlCommand = "SELECT DB_NAME() as DatabaseName, `

@@ -143,7 +143,7 @@ Once you have the Power BI account authenticated, you can configure the properti
 | Property name | description |
 | --- | --- |
 | Output alias |A friendly name used in queries to direct the query output to this PowerBI output. |
-| Group workspace |To enable sharing data with other Power BI users you can select groups inside your Power BI account or choose “My Workspace” if you do not want to write to a group.  Updating an existing group requires renewing the Power BI authentication. |
+| Group workspace |To enable sharing data with other Power BI users you can select groups inside your Power BI account or choose "My Workspace" if you do not want to write to a group.  Updating an existing group requires renewing the Power BI authentication. |
 | Dataset name |Provide a dataset name that it is desired for the Power BI output to use |
 | Table name |Provide a table name under the dataset of the Power BI output. Currently, Power BI output from Stream Analytics jobs can only have one table in a dataset |
 
@@ -167,7 +167,7 @@ bigint | Int64
 nvarchar(max) | String
 datetime | Datetime
 float | Double
-Record array | String type, Constant value “IRecord” or “IArray”
+Record array | String type, Constant value "IRecord" or "IArray"
 
 ### Schema Update
 Stream Analytics infers the data model schema based on the first set of events in the output. Later, if necessary, the data model schema is updated to accommodate incoming events that may not fit into the original schema.
@@ -294,7 +294,7 @@ The following table summarizes the partition support and the number of output wr
 | Azure Data Lake Store | Yes | Use {date} and {time} tokens in the Path prefix pattern. Choose the Date format, such as YYYY/MM/DD, DD/MM/YYYY, MM-DD-YYYY. HH is used for the Time format. | Follows the input partitioning for [fully parallelizable queries](stream-analytics-scale-jobs.md). | 
 | Azure SQL Database | No | None | Not applicable. | 
 | Azure Blob storage | Yes | Use {date} and {time} tokens from your event fields in the Path pattern. Choose the Date format, such as YYYY/MM/DD, DD/MM/YYYY, MM-DD-YYYY. HH is used for the Time format. As part of the [preview](https://aka.ms/ASAPreview), blob output can be partitioned by a single custom event attribute {fieldname} or {datetime:\<specifier>}. | Follows the input partitioning for [fully parallelizable queries](stream-analytics-scale-jobs.md). | 
-| Azure Event Hub | Yes | Yes | Varies depending on partition alignment.</br> When the output Event Hub partition key is equally aligned with upstream (previous) query step, the number of writers is the same the number of output Event Hub partitions. Each writer uses EventHub’s [EventHubSender class](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) to send events to the specific partition. </br> When the output Event Hub partition key is not aligned with upstream (previous) query step, the number of writers is the same as the number of partitions in that prior step. Each writer uses EventHubClient [SendBatchAsync class](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) to send events to all the output partitions. |
+| Azure Event Hub | Yes | Yes | Varies depending on partition alignment.</br> When the output Event Hub partition key is equally aligned with upstream (previous) query step, the number of writers is the same the number of output Event Hub partitions. Each writer uses EventHub’s [EventHubSender class](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) to send events to the specific partition. </br> When the output Event Hub partition key is not aligned with upstream (previous) query step, the number of writers is the same as the number of partitions in that prior step. Each writer uses EventHubClient [SendBatchAsync class](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) to send events to all the output partitions. |
 | Power BI | No | None | Not applicable. | 
 | Azure Table storage | Yes | Any output column.  | Follows the input partitioning for [fully parallelized queries](stream-analytics-scale-jobs.md). | 
 | Azure Service Bus Topic | Yes | Automatically chosen. The number of partitions is based on the [Service Bus SKU and size](../service-bus-messaging/service-bus-partitioning.md). Partition key is a unique integer value for each partition.| Same as the number of partitions in the output topic.  |

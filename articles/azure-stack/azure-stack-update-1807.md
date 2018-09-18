@@ -3,7 +3,7 @@ title: Azure Stack 1807 Update | Microsoft Docs
 description: Learn about what's new in the 1807 update for Azure Stack integrated systems, including the known issues and where to download the update.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2018
-ms.author: brenduns
+ms.date: 09/18/2018
+ms.author: sethm
 ms.reviewer: justini
 
 ---
@@ -46,6 +46,8 @@ This update includes the following improvements for Azure Stack.
 
 - <!-- 2753130 |  IS, ASDK   -->  **Azure Resource Manager templates now support the condition element** - You can now deploy a resource in an Azure Resource Manger template using a condition. You can design your template to deploy a resource based on a condition, such as evaluating if a parameter value is present. For information about using a template as a condition, see [Conditionally deploy a resource](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/conditional-deploy) and [Variables section of Azure Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-templates-variables) in the Azure documentation. 
 
+   You can also use templates to [deploy resources to more than one subscription or resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-cross-resource-group-deployment).  
+
 - <!--2753073 | IS, ASDK -->  **The Microsoft.Network API resource version support has been updated** to include support for API version 2017-10-01 from 2015-06-15 for Azure Stack network resources.  Support for resource versions between 2017-10-01 and 2015-06-15 is not included in this release but will be included in a future release.  Please refer to [Considerations for Azure Stack networking](user/azure-stack-network-differences.md) for functionality differences.
 
 - <!-- 2272116 | IS, ASDK   -->  **Azure Stack has added support for reverse DNS lookups for externally facing Azure Stack infrastructure endpoints** (that is for portal, adminportal, management, and adminmanagement). This allows Azure Stack external endpoint names to be resolved from an IP address.
@@ -54,7 +56,7 @@ This update includes the following improvements for Azure Stack.
 
 - <!-- 2222444 | IS, ASDK   -->  **Improvements in accuracy and resiliency have been made to networking usage meters**.  Network usage meters are now more accurate and take into account suspended subscriptions, outage periods and race conditions.
 
-- <!-- 2753080 | IS -->  **Update available notification**- Connected Azure Stack deployments will now periodically check a secured endpoint and determine if an update is available for your cloud. This notification appears in the Update tile, as it would after manually checking for and importing a new update. Read more about [managing updates for Azure Stack](azure-stack-updates.md).
+- <!-- 2753080 | IS -->  **Update available notification.** Connected Azure Stack deployments will now periodically check a secured endpoint and determine if an update is available for your cloud. This notification appears in the Update tile, as it would after manually checking for and importing a new update. Read more about [managing updates for Azure Stack](azure-stack-updates.md).
 
 - <!-- 2297790 | IS, ASDK -->  **Improvements to the Azure Stack syslog client (preview feature)**. This client allows the forwarding of audit and logs related to the Azure Stack infrastructure to a syslog server or security information and event management (SIEM) software external to Azure Stack. The syslog client now supports the TCP protocol with plain text or TLS 1.2 encryption, the latter being the default configuration. You can configure the TLS connection with either server-only or mutual authentication.
 
@@ -81,7 +83,7 @@ This update includes the following improvements for Azure Stack.
 
 - <!-- TBD | ASDK, IS --> Various improvements were made to the update process to make it more reliable. In addition, fixes have been made to underlying infrastructure, which minimize potential downtime for workloads during the update.
 
-- <!--2292271 | ASDK, IS --> We fixed an issue where a modified Quota limit did not apply to existing subscriptions. Now, when you raise a Quota limit for a network resource that is part of an Offer and Plan associated with a tenant subscription, the new limit applies to the pre-existing subscriptions, as well as new subscriptions.
+- <!--2292271 | ASDK, IS --> We fixed an issue where a modified Quota limit did not apply to existing subscriptions. Now, when you raise a Quota limit for a network resource that is part of an Offer and Plan associated with a user subscription, the new limit applies to the pre-existing subscriptions, as well as new subscriptions.
 
 - <!-- 448955 | IS ASDK --> You can now successfully query activity logs for systems that are deployed in a UTC+N time zone.    
 
@@ -138,7 +140,11 @@ For more information about these vulnerabilities, click on the preceding links, 
   > - Atom: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom …
 
 
-- Before you start installation of update 1807, run [Test-AzureStack](azure-stack-diagnostic-test.md) to validate the status of your Azure Stack and resolve any operational issues found. Also review active alerts, and resolve any that require action.
+- Before you start installation of this update, run [Test-AzureStack](azure-stack-diagnostic-test.md) with the following parameters to validate the status of your Azure Stack and resolve any operational issues found, including all warnings and failures. Also review active alerts, and resolve any that require action.  
+
+  ```PowerShell
+  Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary
+  ``` 
 
 ### Known issues with the update process
 
@@ -149,18 +155,21 @@ For more information about these vulnerabilities, click on the preceding links, 
 - <!-- 2830461 - IS --> In certain circumstances when an update requires attention, the corresponding alert may not be generated. The accurate status will still be reflected in the portal and is not impacted.
 
 ### Post-update steps
+After the installation of this update, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md). 
+- [KB 4464231 – Azure Stack Hotfix Azure Stack Hotfix 1.1807.1.78]( https://support.microsoft.com/help/4464231)
 
-*There are no post-update steps for update 1807.*
-
-<!-- After the installation of this update, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
- - Link to KB  
- -->
+ <!-- 2933866 – IS --> After installation of this update, you can see **improved status for failed update installations.** This might include information about previous update installation failures that are revised to reflect the two new STATE categories. The new STATE categories are *PreparationFailed*, and *InstallationFailed*.  
 
 ## Known issues (post-installation)
 
 The following are post-installation known issues for this build version.
 
 ### Portal
+
+- The ability to [open a new support request from the dropdown](azure-stack-manage-portals.md#quick-access-to-help-and-support) within the administrator portal is not available. Instead, for Azure Stack integrated systems, use the following link: [https://aka.ms/newsupportrequest](https://aka.ms/newsupportrequest).
+
+- <!-- 2931230 – IS  ASDK --> Plans that are added to a user subscription as an add-on plan cannot be deleted, even when you remove the plan from the user subscription. The plan will remain until the subscriptions that reference the add-on plan are also deleted. 
+
 - <!--2760466 – IS  ASDK --> When you install a new Azure Stack environment that runs this version, the alert that indicates *Activation Required* might not display. [Activation](azure-stack-registration.md) is required before you can use marketplace syndication.  
 
 - <!-- TBD - IS ASDK --> The two administrative subscription types that were [introduced with version 1804](azure-stack-update-1804.md#new-features) should not be used. The subscription types are **Metering subscription**, and **Consumption subscription**. These subscription types are visible in new Azure Stack environments beginning with version 1804 but are not yet ready for use. You should continue to use the **Default Provider** subscription type.
@@ -238,7 +247,9 @@ The following are post-installation known issues for this build version.
 
 - <!-- 1662991 IS ASDK --> Linux VM diagnostics is not supported in Azure Stack. When you deploy a Linux VM with VM diagnostics enabled, the deployment fails. The deployment also fails if you enable the Linux VM basic metrics through diagnostic settings.  
 
-- <!-- 2724961- IS ASDK --> When you register the **Microsoft.Insight** resource provider in Subscription settings, and create a Windows VM with Guest OS Diagnostic enabled, the CPU Percentage chart in the VM overview page will not be able to show metric data. To find the CPU Percentage chart for the VM, go to the **Metrics** blade and show all the supported Windows VM guest metrics.
+- <!-- 2724961- IS ASDK --> When you register the **Microsoft.Insight** resource provider in Subscription settings, and create a Windows VM with Guest OS Diagnostic enabled, the VM overview page doesn't show metrics data. 
+
+   To find metrics data, like the CPU Percentage chart for the VM, go to the **Metrics** blade and show all the supported Windows VM guest metrics.
 
 ### Networking  
 

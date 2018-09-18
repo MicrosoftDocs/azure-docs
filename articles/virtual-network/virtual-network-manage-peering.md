@@ -14,13 +14,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/09/2018
+ms.date: 08/16/2018
 ms.author: jdial;anavin
 
 ---
 # Create, change, or delete a virtual network peering
 
-Learn how to create, change, or delete a virtual network peering. Virtual network peering enables you to connect virtual networks through the Azure backbone network. Once peered, the virtual networks are still managed as separate resources. If you're new to virtual network peering, you can learn more about it in the [virtual network peering overview](virtual-network-peering-overview.md) or by completing a [tutorial](tutorial-connect-virtual-networks-portal.md).
+Learn how to create, change, or delete a virtual network peering. Virtual network peering enables you to connect virtual networks in the same region and across regions (also known as Global VNet Peering) through the Azure backbone network. Once peered, the virtual networks are still managed as separate resources. If you're new to virtual network peering, you can learn more about it in the [virtual network peering overview](virtual-network-peering-overview.md) or by completing a [tutorial](tutorial-connect-virtual-networks-portal.md).
 
 ## Before you begin
 
@@ -108,10 +108,10 @@ If you want virtual networks to communicate sometimes, but not always, rather th
 
 ## Requirements and constraints 
 
-- <a name="cross-region"></a>You can peer virtual networks in the same region, or different regions. The following constraints do not apply when both virtual networks are in the *same* region, but do apply when the virtual networks are globally peered: 
-    - The virtual networks can exist in any Azure public cloud region, but not in Azure national clouds.
-    - Resources in one virtual network cannot communicate with the IP address of an Azure internal load balancer in the peered virtual network. The load balancer and the resources that communicate with it must be in the same virtual network.
-    - You cannot use remote gateways or allow gateway transit. To use remote gateways or allow gateway transit, both virtual networks in the peering must exist in the same region. 
+- <a name="cross-region"></a>You can peer virtual networks in the same region, or different regions. Peering virtual networks in different regions is also referred to as *global peering*. 
+- When creating a global peering, the peered virtual networks can exist in any Azure public cloud region, but not in Azure national clouds. You can only peer virtual networks in the same region in national clouds.
+- Resources in one virtual network cannot communicate with the front-end IP address of an Azure internal load balancer in a globally peered virtual network. The load balancer and the resources that communicate with it must be in a virtual network in the same region. If the peered virtual networks are in the same region however, resources in either virtual network can communicate with the front-end IP address of an Azure internal load balancer in either virtual network in the peering.
+- You cannot use remote gateways or allow gateway transit in globally peered virtual networks. To use remote gateways or allow gateway transit, the peered virtual networks must be in the same region.
 - The virtual networks can be in the same, or different subscriptions. When you peer virtual networks in different subscriptions, both subscriptions must be associated to the same Azure Active Directory tenant. If you don't already have an AD tenant, you can quickly [create one](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant). You can use a [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) to connect two virtual networks that exist in different subscriptions that are associated to different Active Directory tenants.
 - The virtual networks you peer must have non-overlapping IP address spaces.
 - You can't add address ranges to, or delete address ranges from a virtual network's address space once a virtual network is peered with another virtual network. To add or remove address ranges, delete the peering, add or remove the address ranges, then re-create the peering. To add address ranges to, or remove address ranges from virtual networks, see [Manage virtual networks](manage-virtual-network.md).

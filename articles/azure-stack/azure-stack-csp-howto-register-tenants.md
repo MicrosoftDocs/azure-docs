@@ -3,7 +3,7 @@ title: Add tenants for usage and billing to Azure Stack | Microsoft Docs
 description: The steps required add an end user to Azure Stack managed by a Cloud Service Provider (CSP).
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 
@@ -13,7 +13,7 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: alfredo
 
 ---
@@ -88,5 +88,5 @@ Once you have added the new customer to Azure Stack, or the end customer tenant 
 ## Next steps
 
  - To review the error messages if they are triggered in your registration process, see [Tenant registration error messages](azure-stack-csp-ref-infrastructure.md#usage-and-billing-error-codes).
- - To learn more about how to retrieve resource usage information from Azure Stack, see [Usage and billing in Azure Stack](/azure-stack-billing-and-chargeback.md).
+ - To learn more about how to retrieve resource usage information from Azure Stack, see [Usage and billing in Azure Stack](azure-stack-billing-and-chargeback.md).
  - To review how an end customer may add you, as the CSP, as the manager for their Azure Stack, tenant, see [Enable a Cloud Service Provider to manage your Azure Stack subscription](user\azure-stack-csp-enable-billing-usage-tracking.md).

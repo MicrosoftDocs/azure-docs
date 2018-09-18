@@ -6,17 +6,19 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 03/12/2018
+ms.date: 09/14/2018
 ms.author: dobett
 ---
 
 # Understand and use Azure IoT Hub SDKs
 
-There are two categories of software development kits (SDKs) for working with IoT Hub:
+There are three categories of software development kits (SDKs) for working with IoT Hub:
 
-* **Device SDKs** enable you to build apps that run on your IoT devices. These apps send telemetry to your IoT hub, and optionally receive messages, job, method, or twin updates from your IoT hub.
+* **Device SDKs** enable you to build apps that run on your IoT devices using device client or module client. These apps send telemetry to your IoT hub, and optionally receive messages, job, method, or twin updates from your IoT hub.  You can also use module client to author [modules](https://docs.microsoft.com/azure/iot-edge/iot-edge-modules) for [Azure IoT Edge runtime](https://docs.microsoft.com/en-us/azure/iot-edge/about-iot-edge).
 
-* **Service SDKs** enable you to manage your IoT hub, and optionally send messages, schedule jobs, invoke direct methods, or send desired property updates to your IoT devices.
+* **Service SDKs** enable you to manage your IoT hub, and optionally send messages, schedule jobs, invoke direct methods, or send desired property updates to your IoT devices or modules.
+
+* **Device Provisioning SDKs** enable you to provision devices to your IoT Hub using the [Device Provisioning Service](../iot-dps/about-iot-dps.md).
 
 Learn about the benefits of developing using Azure IoT SDKs [here][lnk-benefits-blog].
 
@@ -30,29 +32,35 @@ Azure IoT Hub device SDK for .NET:
 * Install from [Nuget][lnk-nuget-csharp-device]
 * [Source code][lnk-dotnet-sdk]
 * [API reference][lnk-dotnet-ref]
+* [Module reference](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet)
 
 Azure IoT Hub device SDK for C: written in ANSI C (C99) for portability and broad platform compatibility
 * Install from [apt-get, MBED, Arduino IDE, or Nuget][lnk-c-package]
 * [Source code][lnk-c-sdk]
 * [API reference][lnk-c-ref]
+* [Module reference](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/inc/iothub_module_client.h)
 
 Azure IoT Hub device SDK for Java: 
 * Add to [Maven][lnk-maven-device] project
 * [Source code][lnk-java-sdk]
 * [API reference][lnk-java-ref]
+* [Module reference](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device._module_client?view=azure-java-stable)
 
 Azure IoT Hub device SDK for Node.js: 
 * Install from [npm][lnk-npm-device]
 * [Source code][lnk-node-sdk]
 * [API reference][lnk-node-ref]
+* [Module reference](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest)
 
 Azure IoT Hub device SDK for Python: 
 * Install from [pip][lnk-pip-device]
 * [Source code][lnk-python-sdk]
+* API reference: see [C API reference][lnk-c-ref]
 
 Azure IoT Hub device SDK for iOS: 
 * Install from [CocoaPod][lnk-cocoa-device]
 * [Samples][lnk-ios-sample]
+* API reference: see [C API reference][lnk-c-ref]
 
 > [!NOTE]
 > See the readme files in the GitHub repositories for information about using language and platform-specific package managers to install binaries and dependencies on your development machine.
@@ -98,7 +106,29 @@ Azure IoT Hub service SDK for iOS:
 > [!NOTE]
 > See the readme files in the GitHub repositories for information about using language and platform-specific package managers to install binaries and dependencies on your development machine.
 
+## Device provisioning SDKs
 
+The **Microsoft Azure Provisioning SDKs** enable you to provision devices to your IoT Hub using the [Device Provisioning Service](../iot-dps/about-iot-dps.md).
+
+Azure Provisioning device and service SDKs for C#:
+* [Provisioning device client SDK](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/provisioning/device)
+* [Provisioning service client SDK](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/provisioning/service)
+
+Azure Provisioning device and service SDKs for Java:
+* [Provisioning device client SDK](https://github.com/Azure/azure-iot-sdk-java/blob/master/provisioning-device-client)
+* [Provisioning service client SDK](https://github.com/Azure/azure-iot-sdk-java/blob/master/provisioning/provisioning-service-client)
+
+Azure Provisioning device and service SDKs for Node.js:
+* [Provisioning device client SDK](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/device)
+* [Provisioning service client SDK](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/service)
+
+Azure Provisioning device and service SDKs for Python:
+* [Provisioning device client SDK](https://github.com/Azure/azure-iot-sdk-python/blob/master/provisioning_device_client)
+* [Provisioning service client SDK](https://github.com/Azure/azure-iot-sdk-python/tree/master/provisioning_service_client)
+
+Azure Provisioning device and service SDKs for C:
+* [Provisioning device client SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client)
+* [Provisioning service client SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning/service)
 
 ## Next steps
 
@@ -139,7 +169,7 @@ Other reference topics in this IoT Hub developer guide include:
 [lnk-npm-service]: https://www.npmjs.com/package/azure-iothub
 [lnk-nuget-csharp-device]: https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/
 [lnk-nuget-csharp-service]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
-[lnk-c-package]: https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md
+[lnk-c-package]: https://github.com/Azure/azure-iot-sdk-c/blob/master/readme.md
 [lnk-pip-device]: https://pypi.python.org/pypi/azure-iothub-device-client/
 [lnk-pip-service]: https://pypi.python.org/pypi/azure-iothub-service-client/
 

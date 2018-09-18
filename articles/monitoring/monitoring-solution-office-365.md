@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2018
+ms.date: 08/15/2018
 ms.author: bwren
 
 ---
@@ -118,23 +118,18 @@ To enable the administrative account for the first time, you must provide admini
     )
     
     $option = [System.StringSplitOptions]::RemoveEmptyEntries 
-    	
+    
     IF ($Subscription -eq $null)
-    	{Login-AzureRmAccount -ErrorAction Stop}
+        {Login-AzureRmAccount -ErrorAction Stop}
     $Subscription = (Select-AzureRmSubscription -SubscriptionId $($SubscriptionId) -ErrorAction Stop)
     $Subscription
     $Workspace = (Set-AzureRMOperationalInsightsWorkspace -Name $($WorkspaceName) -ResourceGroupName $($ResourceGroupName) -ErrorAction Stop)
     $WorkspaceLocation= $Workspace.Location
-    $WorkspaceLocationShort= $Workspace.PortalUrl.Split("/",$option)[1].Split(".",$option)[0]
     $WorkspaceLocation
     
     Function AdminConsent{
     
     $domain='login.microsoftonline.com'
-    $mmsDomain = 'login.mms.microsoft.com'
-    $WorkspaceLocationShort= $Workspace.PortalUrl.Split("/",$option)[1].Split(".",$option)[0]
-    $WorkspaceLocationShort
-    $WorkspaceLocation
     switch ($WorkspaceLocation.Replace(" ","").ToLower()) {
            "eastus"   {$OfficeAppClientId="d7eb65b0-8167-4b5d-b371-719a2e5e30cc"; break}
            "westeurope"   {$OfficeAppClientId="c9005da2-023d-40f1-a17a-2b7d91af4ede"; break}
@@ -148,16 +143,13 @@ To enable the administrative account for the first time, you must provide admini
            "eastus2"  {$OfficeAppClientId="7eb65b0-8167-4b5d-b371-719a2e5e30cc"; break}
            "westus2"  {$OfficeAppClientId="98a2a546-84b4-49c0-88b8-11b011dc8c4e"; break} #Need to check
            "usgovvirginia" {$OfficeAppClientId="c8b41a87-f8c5-4d10-98a4-f8c11c3933fe"; 
-                             $domain='login.microsoftonline.us';
-                             $mmsDomain = 'usbn1.login.oms.microsoft.us'; break} # US Gov Virginia
+                             $domain='login.microsoftonline.us'; break}
            default {$OfficeAppClientId="55b65fb5-b825-43b5-8972-c8b6875867c1";
                     $domain='login.windows-ppe.net'; break} #Int
         }
     
-        $OfficeAppRedirectUrl="https://$($WorkspaceLocationShort).$($mmsDomain)/Office365/Authorize"
-        $OfficeAppRedirectUrl
         $domain
-        Start-Process -FilePath  "https://$($domain)/common/adminconsent?client_id=$($OfficeAppClientId)&state=12345&redirect_uri=$($OfficeAppRedirectUrl)"
+        Start-Process -FilePath  "https://$($domain)/common/adminconsent?client_id=$($OfficeAppClientId)&state=12345"
     }
     
     AdminConsent -ErrorAction Stop
@@ -195,7 +187,7 @@ The last step is to subscribe the application to your Log Analytics workspace. Y
     $line='#-------------------------------------------------------------------------------------------------------------------------------------------------------------------------'
     $line
     IF ($Subscription -eq $null)
-    	{Login-AzureRmAccount -ErrorAction Stop}
+        {Login-AzureRmAccount -ErrorAction Stop}
     $Subscription = (Select-AzureRmSubscription -SubscriptionId $($SubscriptionId) -ErrorAction Stop)
     $Subscription
     $option = [System.StringSplitOptions]::RemoveEmptyEntries 
@@ -227,12 +219,6 @@ The last step is to subscribe the application to your Log Analytics workspace. Y
     
     Function RESTAPI-Auth { 
     
-    # Load ADAL Azure AD Authentication Library Assemblies
-    $adal = "${env:ProgramFiles(x86)}\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Services\Microsoft.IdentityModel.Clients.ActiveDirectory.dll"
-    $adalforms = "${env:ProgramFiles(x86)}\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Services\Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll"
-    $null = [System.Reflection.Assembly]::LoadFrom($adal)
-    $null = [System.Reflection.Assembly]::LoadFrom($adalforms)
-     
     $global:SubscriptionID = $Subscription.SubscriptionId
     # Set Resource URI to Azure Service Management API
     $resourceAppIdURIARM=$ARMResource;
@@ -360,7 +346,7 @@ The last step is to subscribe the application to your Log Analytics workspace. Y
     .\office365_subscription.ps1 -WorkspaceName MyWorkspace -ResourceGroupName MyResourceGroup -SubscriptionId '60b79d74-f4e4-4867-b631-yyyyyyyyyyyy' -OfficeUsername 'admin@contoso.com' -OfficeTennantID 'ce4464f8-a172-4dcf-b675-xxxxxxxxxxxx' -OfficeClientId 'f8f14c50-5438-4c51-8956-zzzzzzzzzzzz' -OfficeClientSecret 'y5Lrwthu6n5QgLOWlqhvKqtVUZXX0exrA2KRHmtHgQb='
     ```
 
-### Troublshooting
+### Troubleshooting
 
 You may see the following error if you attempt to create a subscription after the subscription already exists.
 
@@ -401,7 +387,7 @@ You can remove the Office 365 management solution using the process in [Remove a
     
     $line
     IF ($Subscription -eq $null)
-    	{Login-AzureRmAccount -ErrorAction Stop}
+        {Login-AzureRmAccount -ErrorAction Stop}
     $Subscription = (Select-AzureRmSubscription -SubscriptionId $($SubscriptionId) -ErrorAction Stop)
     $Subscription
     $option = [System.StringSplitOptions]::RemoveEmptyEntries 
@@ -432,12 +418,6 @@ You can remove the Office 365 management solution using the process in [Remove a
     
     Function RESTAPI-Auth { 
     
-    # Load ADAL Azure AD Authentication Library Assemblies
-    $adal = "${env:ProgramFiles(x86)}\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Services\Microsoft.IdentityModel.Clients.ActiveDirectory.dll"
-    $adalforms = "${env:ProgramFiles(x86)}\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Services\Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll"
-    $null = [System.Reflection.Assembly]::LoadFrom($adal)
-    $null = [System.Reflection.Assembly]::LoadFrom($adalforms)
-     
     $global:SubscriptionID = $Subscription.SubscriptionId
     # Set Resource URI to Azure Service Management API
     $resourceAppIdURIARM=$ARMResource;
@@ -532,7 +512,7 @@ The following properties are common to all Office 365 records.
 | OfficeWorkload | Office 365 service that the record refers to.<br><br>AzureActiveDirectory<br>Exchange<br>SharePoint|
 | Operation | The name of the user or admin activity.  |
 | OrganizationId | The GUID for your organization's Office 365 tenant. This value will always be the same for your organization, regardless of the Office 365 service in which it occurs. |
-| RecordType | Type of of operation performed. |
+| RecordType | Type of operation performed. |
 | ResultStatus | Indicates whether the action (specified in the Operation property) was successful or not. Possible values are Succeeded, PartiallySucceded, or Failed. For Exchange admin activity, the value is either True or False. |
 | UserId | The UPN (User Principal Name) of the user who performed the action that resulted in the record being logged; for example, my_name@my_domain_name. Note that records for activity performed by system accounts (such as SHAREPOINT\system or NTAUTHORITY\SYSTEM) are also included. | 
 | UserKey | An alternative ID for the user identified in the UserId property.  For example, this property is populated with the passport unique ID (PUID) for events performed by users in SharePoint, OneDrive for Business, and Exchange. This property may also specify the same value as the UserID property for events occurring in other services and events performed by system accounts|

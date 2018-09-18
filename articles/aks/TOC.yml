@@ -72,12 +72,21 @@
       href: static-ip.md
     - name: Internal load balancer
       href: internal-lb.md
-    - name: Ingress and TLS
-      href: ingress.md
+    - name: Ingress
+      items:
+        - name: Create a basic controller
+          href: ingress-basic.md
+        - name: Use HTTP application routing
+          href: http-application-routing.md
+        - name: Use internal network
+          href: ingress-internal-ip.md
+        - name: Use TLS with Let's Encrypt
+          href: ingress-tls.md
+          items:
+          - name: Use a static public IP
+            href: ingress-static-ip.md
     - name: Egress traffic
       href: egress.md
-    - name: HTTP application routing
-      href: http-application-routing.md
   - name: Security and authentication
     items:
     - name: Create service principal
@@ -112,6 +121,9 @@
       href: gpu-cluster.md
   - name: DevOps
     items:
+    - name: Use Ansible to create AKS clusters
+      href: /azure/ansible/ansible-create-configure-aks
+      maintainContext: true
     - name: Jenkins continuous deployment
       href: jenkins-continuous-deployment.md
     - name: Azure DevOps Project
@@ -123,8 +135,10 @@
       href: kubernetes-dashboard.md
   - name: Troubleshoot
     items:
+    - name: Common issues
+      href: troubleshooting.md
     - name: SSH node access
-      href: aks-ssh.md
+      href: ssh.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -152,7 +166,7 @@
   - name: Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Provide product feedback
-    href: https://github.com/Azure/AKS/issues
+    href: https://feedback.azure.com/forums/914020-azure-kubernetes-service-aks
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-container-service
   - name: Videos

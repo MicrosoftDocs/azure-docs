@@ -53,7 +53,7 @@ Use the following instructions to configure a hosted UI to include in your web a
 > [!NOTE]
 > As you make changes to the custom hosted UI configuration, the pane on the right provides a visual reference for the changes made. The displayed search results are not actual results for your instance
 
-[!INCLUDE[publish or revert](./includes/publish-revert.md)]
+[!INCLUDE [publish or revert](./includes/publish-revert.md)]
 
 ## Consume custom UI
 To consume the hosted UI, either: 

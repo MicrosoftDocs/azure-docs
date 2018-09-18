@@ -9,7 +9,7 @@ ms.service: sql-database
 ms.subservice: managed-instance
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/14/2018
+ms.date: 09/14/2018
 ms.author: bonova
 ---
 
@@ -30,7 +30,7 @@ By General Availability, Managed Instance aims to deliver close to 100% surface 
 
 To decide between Azure SQL Database Single Database, Azure SQL Database Managed Instance, and SQL Server IaaS hosted in Virtual Machine see [how to choose the right version of SQL Server in Azure cloud](sql-database-paas-vs-sql-server-iaas.md).
 
-## Key features and capabilities of a Managed Instance 
+## Key features and capabilities 
 
 Azure SQL Database Managed Instance combines the best features that are available both in Azure SQL Database and SQL Server Database Engine.
 
@@ -39,11 +39,11 @@ Azure SQL Database Managed Instance combines the best features that are availabl
 
 | **PaaS benefits** | **Business continuity** |
 | --- | --- |
-|No hardware purchasing and management <br>No management overhead for managing underlying infrastructure <br>Quick provisioning and service scaling <br>Automated patching and version upgrade <br>Integration with other PaaS data services |99.99% uptime SLA  <br>Built in high availability <br>Data protected with automated backups <br>Customer configurable backup retention period (fixed to 7 days in Public Preview) <br>User-initiated backups <br>Point in time database restore capability |
+|No hardware purchasing and management <br>No management overhead for managing underlying infrastructure <br>Quick provisioning and service scaling <br>Automated patching and version upgrade <br>Integration with other PaaS data services |99.99% uptime SLA  <br>Built in [high-availability](sql-database-high-availability.md) <br>Data protected with [automated backups](sql-database-automated-backups.md) <br>Customer configurable backup retention period (fixed to 7 days in Public Preview) <br>User-initiated [backups](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current) <br>[Point in time database restore](sql-database-recovery-using-backups.md#point-in-time-restore) capability |
 |**Security and compliance** | **Management**|
-|Isolated environment (VNet integration, single tenant service, dedicated compute and storage) <br>Transparent data encryption<br>Azure AD authentication, single sign-on support <br>Adheres to compliance standards same as Azure SQL database <br>SQL auditing <br>Threat detection |Azure Resource Manager API for automating service provisioning and scaling <br>Azure portal functionality for manual service provisioning and scaling <br>Data Migration Service 
+|Isolated environment ([VNet integration](sql-database-managed-instance-vnet-configuration.md), single tenant service, dedicated compute and storage) <br>[Transparent data encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD authentication](sql-database-aad-authentication.md), single sign-on support <br>Adheres to compliance standards same as Azure SQL database <br>[SQL auditing](sql-database-managed-instance-auditing.md) <br>[Threat Detection](sql-database-managed-instance-threat-detection.md) |Azure Resource Manager API for automating service provisioning and scaling <br>Azure portal functionality for manual service provisioning and scaling <br>Data Migration Service 
 
-## Managed Instance vCore-based purchasing model
+## vCore-based purchasing model
 
 The [vCore-based purchasing model](sql-database-service-tiers-vcore.md) gives you flexibility, control, transparency, and a straightforward way to translate on-premises workload requirements to the cloud. This model allows you to scale compute, memory, and storage based upon their workload needs. The vCore model is also eligible for up to 30 percent savings with the [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
 
@@ -56,7 +56,7 @@ The following table helps you understand how to select the optimal configuration
 ||Gen 4|Gen 5|
 |----|------|-----|
 |Hardware|Intel E5-2673 v3 (Haswell) 2.4 GHz processors, attached SSD vCore = 1 PP (physical core)|Intel E5-2673 v4 (Broadwell) 2.3 GHz processors, fast eNVM SSD, vCore=1 LP (hyper-thread)|
-|Performance levels|8, 16, 24 vCores|8, 16, 24, 32, 40, 64, 80 vCores|
+|Compute sizes|8, 16, 24 vCores|8, 16, 24, 32, 40, 64, 80 vCores|
 |Memory|7 GB per vCore|5.5 GB per vCore|
 ||||
 
@@ -66,7 +66,7 @@ Managed Instance is available in two service tiers:
 - **General Purpose**: Designed for applications with typical performance and IO latency requirements.
 - **Business Critical**: Designed for applications with low IO latency requirements and minimal impact of underlying maintenance operations on the workload.
 
-Both service tiers guarantee 99.99% availability and enable you to independently select storage size and compute capacity. 
+Both service tiers guarantee 99.99% availability and enable you to independently select storage size and compute capacity. For more information on the high availability architecture of Azure SQL Database, see [High Availability and Azure SQL Database](sql-database-high-availability.md).
 
 > [!IMPORTANT]
 > Changing your service tier from General Purpose to Business Critical or vice versa is not supported in Public Preview. If you want to migrate your databases to an instance in different service tier, you can create new instance, restore databases with point in time restore from the original instance and then drop original instance if it is not needed anymore. 
@@ -92,7 +92,7 @@ The following list outlines the key characteristics of the General Purpose servi
 | Number of data files (ROWS) per the database | Multiple | 
 | Number of log files (LOG) per database | 1 | 
 | Managed automated backups | Yes |
-| HA | Based on remote storage and [Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
+| HA | Data stored in Azure Storage and [Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
 | Built-in instance and database monitoring and metrics | Yes |
 | Automatic software patching | Yes |
 | VNet - Azure Resource Manager deployment | Yes |
@@ -126,7 +126,7 @@ The following list outlines the key characteristics of the Business Critical ser
 | Number of data files (ROWS) per the database | Multiple | 
 | Number of log files (LOG) per database | 1 | 
 | Managed automated backups | Yes |
-| HA | Based on [Always On Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) and [Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
+| HA | Data stored in local SSD and use [Always On Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) and [Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
 | Built-in instance and database monitoring and metrics | Yes |
 | Automatic software patching | Yes |
 | VNet - Azure Resource Manager deployment | Yes |
@@ -194,17 +194,17 @@ Managed Instance targets user scenarios with mass database migration from on-pre
 
 ### Backup and restore  
 
-The migration approach leverages SQL backups to Azure blob storage. Backups stored in Azure storage blob can be directly restored into Managed Instance using the [T-SQL RESTORE command](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql). 
-  - For a tutorial showing how to restore the Wide World Importers - Standard database backup file, see [Restore a backup file to a Managed Instance](sql-database-managed-instance-restore-from-backup-tutorial.md). This tutorial shows you have to upload a backup file to Azure blog storage and secure it using a Shared access signature (SAS) key.
+The migration approach leverages SQL backups to Azure blob storage. Backups stored in Azure storage blob can be directly restored into Managed Instance using the [T-SQL RESTORE command](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current). 
+  - For a quickstart showing how to restore the Wide World Importers - Standard database backup file, see [Restore a backup file to a Managed Instance](sql-database-managed-instance-get-started-restore.md). This quickstart shows you have to upload a backup file to Azure blog storage and secure it using a Shared access signature (SAS) key.
   - For information about restore from URL, see [Native RESTORE from URL](sql-database-managed-instance-migrate.md#native-restore-from-url).
-
+  
 ### Data Migration Service
 
 The Azure Database Migration Service is a fully managed service designed to enable seamless migrations from multiple database sources to Azure Data platforms with minimal downtime. This service streamlines the tasks required to move existing third party and SQL Server databases to Azure. Deployment options include Azure SQL Database, Managed Instance, and SQL Server in Azure VM at Public Preview. See [How to migrate your on-premises database to Managed Instance using DMS](https://aka.ms/migratetoMIusingDMS).
 
 ## SQL features supported 
 
-Managed Instance aims to deliver close to 100% surface area compatibility with on-premises SQL Server coming in stages until service general availability. For a features and comparison list, see [SQL common features](sql-database-features.md).
+Managed Instance aims to deliver close to 100% surface area compatibility with on-premises SQL Server coming in stages until service general availability. For a features and comparison list, see [SQL Database feature comparison](sql-database-features.md), and for a list of T-SQL differences in Managed Instances versus SQL Server, see [Managed Instance T-SQL Differences from SQL Server](sql-database-managed-instance-transact-sql-information.md).
  
 Managed Instance supports backward compatibility to SQL 2008 databases. Direct migration from SQL 2005 database servers is supported, compatibility level for migrated SQL 2005 databases are updated to SQL 2008. 
  
@@ -246,6 +246,6 @@ The following table shows several properties, accessible through Transact SQL, t
 - To learn how to create your first Managed Instance, see [Quick-start guide](sql-database-managed-instance-get-started.md).
 - For a features and comparison list, see [SQL common features](sql-database-features.md).
 - For more information about VNet configuration, see [Managed Instance VNet Configuration](sql-database-managed-instance-vnet-configuration.md).
-- For a tutorial that creates a Managed Instance and restores a database from a backup file, see [Create a Managed Instance](sql-database-managed-instance-create-tutorial-portal.md).
+- For a quickstart that creates a Managed Instance and restores a database from a backup file, see [Create a Managed Instance](sql-database-managed-instance-get-started.md).
 - For a tutorial using the Azure Database Migration Service (DMS) for migration, see [Managed Instance migration using DMS](../dms/tutorial-sql-server-to-managed-instance.md).
 - For pricing information, see [SQL Database Managed Instance pricing](https://azure.microsoft.com/pricing/details/sql-database/managed/).

@@ -437,7 +437,7 @@ To execute your script in a Docker container on a remote Linux machine, you need
    >The IP address can also be a publicly addressable fully-qualified domain name (FQDN) such as `vm-name.southcentralus.cloudapp.azure.com`. It is a good practice to add an FQDN to your DSVM and use it instead of an IP address. This practice is a good idea because you might turn off the VM at some point to save on cost. Additionally, the next time you start the VM, the IP address might have changed.
 
    >[!NOTE]
-   >In addition to username and password authentication, you can specify a private key and the corresponding passphrase (if any) using the `--private-key-file` and (optionally) the `--private-key-passphrase` options.
+   >In addition to username and password authentication, you can specify a private key and the corresponding passphrase (if any) using the `--private-key-file` and (optionally) the `--private-key-passphrase` options. If you want to use the private key that you used when created DSVM, you should specify the `--use-azureml-ssh-key` option.
 
    Next, prepare the **myvm** compute target by running this command.
    

@@ -1,21 +1,15 @@
 ---
-title: How to set up a CI/CD pipeline for Azure Data Lake Analytics | Microsoft Docs
-description: 'Learn how to set up continuous integration and continuous deployment for Azure Data Lake Analytics.'
+title: How to set up a CI/CD pipeline for Azure Data Lake Analytics
+description: Learn how to set up continuous integration and continuous deployment for Azure Data Lake Analytics.
 services: data-lake-analytics
-documentationcenter: ''
 author: yanancai
-manager:  
-editor: 
-
+ms.author: yanacai
+ms.reviewer: jasonwhowell
 ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: big-data
-ms.date: 07/03/2018
-ms.author: yanacai
-
+ms.date: 09/14/2018
 ---
 # How to set up a CI/CD pipeline for Azure Data Lake Analytics  
 
@@ -84,9 +78,9 @@ The arguments definition and values are as follows:
 * **DataRoot=<DataRoot path>**. DataRoot is needed only for SyntaxCheck mode. When it builds the script with SyntaxCheck mode, MSBuild checks the references to database objects in the script. Before building, set up a matching local environment that contains the referenced objects from the U-SQL database in the build machine's DataRoot folder. You can also manage these database dependencies by [referencing a U-SQL database project](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project). MSBuild only checks database object references, not files.
 * **EnableDeployment=true** or **false**. EnableDeployment indicates if it's allowed to deploy referenced U-SQL databases during the build process. If you reference a U-SQL database project and consume the database objects in your U-SQL script, set this parameter to **true**.
 
-### Continuous integration with Visual Studio Team Services
+### Continuous integration with Azure DevOps Pipelines
 
-In addition to the command line, you can also use the Visual Studio Build or an MSBuild task to build U-SQL projects in Visual Studio Team Services (VSTS). To set up a build pipeline, make sure to add two tasks in the build pipeline: a NuGet restore task and an MSBuild task.
+In addition to the command line, you can also use the Visual Studio Build or an MSBuild task to build U-SQL projects in the Azure DevOps Pipelines service (Pipelines). To set up a build pipeline, make sure to add two tasks in the build pipeline: a NuGet restore task and an MSBuild task.
 
 ![MSBuild task for a U-SQL project](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-task.png) 
 
@@ -94,7 +88,7 @@ In addition to the command line, you can also use the Visual Studio Build or an 
 
     ![NuGet restore task for a U-SQL project](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-nuget-task.png)
 
-2.	Set MSBuild arguments in Visual Studio build tools or in an MSBuild task as shown in the following example. Or you can define variables for these arguments in the VSTS build definition.
+2.	Set MSBuild arguments in Visual Studio build tools or in an MSBuild task as shown in the following example. Or you can define variables for these arguments in the Pipelines build pipeline.
 
     ![Define CI/CD MSBuild variables for a U-SQL project](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-variables.png) 
 
@@ -115,15 +109,15 @@ After you run a build, all scripts in the U-SQL project are built and output to 
 
 Azure Data Lake provides test projects for U-SQL scripts and C# UDO/UDAG/UDF:
 * Learn how to [add test cases for U-SQL scripts and extended C# code](data-lake-analytics-cicd-test.md#test-u-sql-scripts).
-* Learn how to [run test cases in Visual Studio Team Services](data-lake-analytics-cicd-test.md#run-test-cases-in-visual-studio-team-service).
+* Learn how to [run test cases in Azure DevOps](data-lake-analytics-cicd-test.md#run-test-cases-in-azure-devops).
 
 ## Deploy a U-SQL job
 
-After you verify code through the build and test process, you can submit U-SQL jobs directly from Visual Studio Team Services through an Azure PowerShell task. You can also deploy the script to Azure Data Lake Store or Azure Blob storage and [run the scheduled jobs through Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-using-data-lake-analytics).
+After you verify code through the build and test process, you can submit U-SQL jobs directly from Azure DevOps through an Azure PowerShell task. You can also deploy the script to Azure Data Lake Store or Azure Blob storage and [run the scheduled jobs through Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-using-data-lake-analytics).
 
-### Submit U-SQL jobs through Visual Studio Team Services
+### Submit U-SQL jobs through Azure DevOps Pipelines
 
-The build output of the U-SQL project is a zip file called **USQLProjectName.usqlpack**. The zip file includes all U-SQL scripts in the project. You can use the [Azure PowerShell task](https://docs.microsoft.com/vsts/pipelines/tasks/deploy/azure-powershell?view=vsts) in Visual Studio Team Services with the following sample PowerShell script to submit U-SQL jobs directly from the Visual Studio Team Services build or release pipeline.
+The build output of the U-SQL project is a zip file called **USQLProjectName.usqlpack**. The zip file includes all U-SQL scripts in the project. You can use the [Azure PowerShell task](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-powershell?view=vsts) in Pipelines with the following sample PowerShell script to submit U-SQL jobs directly from the Azure DevOps Pipelines service.
 
 ```powershell
 <#
@@ -230,9 +224,9 @@ Main
 
 ### Deploy U-SQL jobs through Azure Data Factory
 
-You can submit U-SQL jobs directly from Visual Studio Team Services. Or you can upload the built scripts to Azure Data Lake Store or Azure Blob storage and [run the scheduled jobs through Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-using-data-lake-analytics).
+You can submit U-SQL jobs directly from the Azure DevOps Pipelines service. Or you can upload the built scripts to Azure Data Lake Store or Azure Blob storage and [run the scheduled jobs through Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-using-data-lake-analytics).
 
-Use the [Azure PowerShell task](https://docs.microsoft.com/vsts/pipelines/tasks/deploy/azure-powershell?view=vsts) in Visual Studio Team Services with the following sample PowerShell script to upload the U-SQL scripts to an Azure Data Lake Store account:
+Use the [Azure PowerShell task](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-powershell?view=vsts) in Azure DevOps with the following sample PowerShell script to upload the U-SQL scripts to an Azure Data Lake Store account:
 
 ```powershell
 <#
@@ -319,9 +313,9 @@ msbuild DatabaseProject.usqldbproj /p:USQLSDKPath=packages\Microsoft.Azure.DataL
 
 The argument `USQLSDKPath=<U-SQL Nuget package>\build\runtime` refers to the install path of the NuGet package for the U-SQL language service.
 
-### Continuous integration with Visual Studio Team Services
+### Continuous integration with the Azure DevOps Pipelines service
 
-In addition to the command line, you can use Visual Studio Build or an MSBuild task to build U-SQL database projects in Visual Studio Team Services. To set up a build task, make sure to add two tasks in the build pipeline: a NuGet restore task and an MSBuild task.
+In addition to the command line, you can use Visual Studio Build or an MSBuild task to build U-SQL database projects in Azure DevOps Pipelines. To set up a build task, make sure to add two tasks in the build pipeline: a NuGet restore task and an MSBuild task.
 
    ![CI/CD MSBuild task for a U-SQL project](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-task.png) 
 
@@ -330,7 +324,7 @@ In addition to the command line, you can use Visual Studio Build or an MSBuild t
 
     ![CI/CD NuGet task for a U-SQL project](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-nuget-task.png)
 
-2.	Set MSBuild arguments in Visual Studio build tools or in an MSBuild task as shown in the following example. Or you can define variables for these arguments in the VSTS build definition.
+2.	Set MSBuild arguments in Visual Studio build tools or in an MSBuild task as shown in the following example. Or you can define variables for these arguments in the Azure DevOps build pipeline.
 
    ![Define CI/CD MSBuild variables for a U-SQL database project](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-variables-database-project.png) 
 
@@ -350,16 +344,16 @@ Adding test cases for table-valued functions and stored procedures directly isn'
 2.	Add a database reference to the U-SQL project. To get the table-valued function and stored procedure definition, you need to reference the database project that contains the DDL statement. Learn more about [database references](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project).
 3.	Add test cases for U-SQL scripts that call table-valued functions and stored procedures. Learn how to [add test cases for U-SQL scripts](data-lake-analytics-cicd-test.md#test-u-sql-scripts).
 
-## Deploy U-SQL database through Visual Studio Team Service
+## Deploy U-SQL database through the Azure DevOps Pipelines service
 
 `PackageDeploymentTool.exe` provides the programming and command-line interfaces that help deploy U-SQL database deployment packages, **.usqldbpack**. The SDK is included in the [U-SQL SDK NuGet package](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/), located at **build/runtime/PackageDeploymentTool.exe**. By using `PackageDeploymentTool.exe`, you can deploy U-SQL databases to both Azure Data Lake Analytics and local accounts.
 
 > [!NOTE]
 >
-> PowerShell command-line support and Visual Studio Team Services release task support for U-SQL database deployment is currently pending.
+> PowerShell command-line support and Pipelines release task support for U-SQL database deployment is currently pending.
 >
 
-Take the following steps to set up a database deployment task in Visual Studio Team Services:
+Take the following steps to set up a database deployment task in Pipelines:
 
 1. Add a PowerShell Script task in a build or release pipeline and execute the following PowerShell script. This task helps to get Azure SDK dependencies for `PackageDeploymentTool.exe` and `PackageDeploymentTool.exe`. You can set the **-AzureSDK** and **-DBDeploymentTool** parameters to load the dependencies and deployment tool to specific folders. Pass the **-AzureSDK** path to `PackageDeploymentTool.exe` as the **-AzureSDKPath** parameter in step 2. 
 
@@ -436,16 +430,16 @@ Take the following steps to set up a database deployment task in Visual Studio T
         PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tenant name> -AzureSDKPath <azure sdk path> -Interactive
         ```
 
-    * Use **secret** authentication to deploy a U-SQL database to an Azure Data Lake Analytics account:
+    * Use **secrete** authentication to deploy a U-SQL database to an Azure Data Lake Analytics account:
 
         ```
-        PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tenant name> -ClientId <client id> -Secret <secret>
+        PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tenant name> -ClientId <client id> -Secrete <secrete>
         ```
 
     * Use **certFile** authentication to deploy a U-SQL database to an Azure Data Lake Analytics account:
 
         ```
-        PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tenant name> -ClientId <client id> -Secret <secret> -CertFile <certFile>
+        PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tenant name> -ClientId <client id> -Secrete <secrete> -CertFile <certFile>
         ```
 
 ### PackageDeploymentTool.exe parameter descriptions
@@ -476,9 +470,9 @@ Take the following steps to set up a database deployment task in Visual Studio T
 |AzureSDKPath|The path to search dependent assemblies in the Azure SDK.|null|true|
 |Interactive|Whether or not to use interactive mode for authentication.|false|false|
 |ClientId|The Azure AD application ID required for non-interactive authentication.|null|Required for non-interactive authentication.|
-|Secret|The secret or password for non-interactive authentication. It should be used only in a trusted and secure environment.|null|Required for non-interactive authentication, or else use SecretFile.|
-|SecretFile|The file saves the secret or password for non-interactive authentication. Make sure to keep it readable only by the current user.|null|Required for non-interactive authentication, or else use Secret.|
-|CertFile|The file saves X.509 certification for non-interactive authentication. The default is to use client secret authentication.|null|false|
+|Secrete|The secrete or password for non-interactive authentication. It should be used only in a trusted and secure environment.|null|Required for non-interactive authentication, or else use SecreteFile.|
+|SecreteFile|The file saves the secrete or password for non-interactive authentication. Make sure to keep it readable only by the current user.|null|Required for non-interactive authentication, or else use Secrete.|
+|CertFile|The file saves X.509 certification for non-interactive authentication. The default is to use client secrete authentication.|null|false|
 | JobPrefix | The prefix for database deployment of a U-SQL DDL job. | Deploy_ + DateTime.Now | false |
 
 ## Next steps

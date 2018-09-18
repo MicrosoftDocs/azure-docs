@@ -7,20 +7,20 @@ documentationcenter: ""
 author: "aliceku"
 manager: craigg
 ms.prod: 
-ms.reviewer: "carlrab"
+ms.reviewer: vanto
 ms.suite: sql
 ms.prod_service: sql-database, sql-data-warehouse
 ms.service: "sql-database"
 ms.custom: 
 ms.tgt_pltfrm: ""
 ms.topic: conceptual
-ms.date: "06/28/2018"
+ms.date: "08/30/2018"
 ms.author: "aliceku"
 monikerRange: "= azuresqldb-current || = azure-sqldw-latest || = sqlallproducts-allversions"
 --- 
 # Transparent Data Encryption with Bring Your Own Key support for Azure SQL Database and Data Warehouse
 
-Bring Your Own Key (BYOK) support for [Transparent Data Encryption (TDE)]((https://docs.microsoft.com/sql/relational-databases/security/transparent-data-encryption) allows you to encrypt the Database Encryption Key (DEK) with an asymmetric key called TDE Protector.  The TDE Protector is stored under your control in [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault), Azure’s cloud-based external key management system. Azure Key Vault is the first key management service with which TDE has integrated support for BYOK. The TDE DEK, which is stored on the boot page of a database is encrypted and decrypted by the TDE protector. The TDE Protector is stored in Azure Key Vault and never leaves the key vault. If the server's access to the key vault is revoked, a database cannot be decrypted and read into memory.  The TDE protector is set at the logical server level and is inherited by all databases associated with that server. 
+Bring Your Own Key (BYOK) support for [Transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) allows you to encrypt the Database Encryption Key (DEK) with an asymmetric key called TDE Protector.  The TDE Protector is stored under your control in [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault), Azure’s cloud-based external key management system. Azure Key Vault is the first key management service with which TDE has integrated support for BYOK. The TDE DEK, which is stored on the boot page of a database is encrypted and decrypted by the TDE protector. The TDE Protector is stored in Azure Key Vault and never leaves the key vault. If the server's access to the key vault is revoked, a database cannot be decrypted and read into memory.  The TDE protector is set at the logical server level and is inherited by all databases associated with that server. 
 
 With BYOK support, users can now control key management tasks including key rotations, key vault permissions, deleting keys, and enable auditing/reporting on all TDE protectors using Azure Key Vault functionality. Key Vault provides central key management, leverages tightly monitored hardware security modules (HSMs), and enables separation of duties between management of keys and data to help meet regulatory compliance.  
 

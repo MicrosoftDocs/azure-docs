@@ -10,7 +10,7 @@ ms.prod_service: sql-database, sql-data-warehouse
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: mireks
-ms.reviewer: carlrab
+ms.reviewer: vanto
 ---
 
 

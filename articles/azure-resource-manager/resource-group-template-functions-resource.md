@@ -123,6 +123,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
                 "signedExpiry": "2018-08-20T11:00:00Z",
                 "signedResourceTypes": "s"
             }
+        }
     },
     "resources": [
         {

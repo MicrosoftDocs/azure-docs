@@ -53,8 +53,6 @@
       href: app-insights-asp-net-core.md
     - name: Console
       href: application-insights-console.md
-    - name: Application dashboard
-      href: app-insights-overview-dashboard.md
   - name: Monitor Java apps
     items:
     - name: Web apps
@@ -72,13 +70,17 @@
     - name: JavaScript
       href: app-insights-javascript.md
   - name: Monitor Azure Functions
-    href: ../azure-functions/functions-monitoring.md?toc=%2fazure%2fapplication-insights%2ftoc.json 
+    href: ../azure-functions/functions-monitoring.md?toc=%2fazure%2fapplication-insights%2ftoc.json
   - name: Monitor other platforms
     items:
     - name: SharePoint sites
       href: app-insights-sharepoint.md
     - name: More platforms
       href: app-insights-platforms.md
+  - name: Distributed tracing
+    items: 
+    - name: Local forwarder
+      href: local-forwarder.md
 - name: How-to guides
   items:
   - name: Plan and design
@@ -129,7 +131,7 @@
       items:
       - name: Profiler for Linux App services
         href: app-insights-profiler-aspnetcore-linux.md
-    - name: J2EE
+    - name: Java
       items:
       - name: Log traces
         href: app-insights-java-trace-logs.md
@@ -168,6 +170,10 @@
         href: app-insights-proactive-arm-config.md 
     - name: Create a resource
       href: app-insights-create-new-resource.md
+    - name: Distributed tracing
+      items: 
+        - name: Python
+          href: open-census-python.md
   - name: Analyze
     items:
     - name: Application Insights portal
@@ -246,6 +252,10 @@
       href: app-insights-api-filtering-sampling.md
     - name: Sampling
       href: app-insights-sampling.md
+  - name: Visualize
+    items:
+    - name: Application dashboard
+      href: app-insights-overview-dashboard.md
   - name: Manage
     items:
     - name: Manage pricing and data volume

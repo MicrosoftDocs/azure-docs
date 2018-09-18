@@ -131,7 +131,7 @@ This error can be caused by using outdated Azure modules.
 
 This error can be resolved by updating your Azure modules to the latest version.
 
-In your Automation Account, click **Modules**, and click **Update Azure modules**. The update takes roughly 15 minutes, once complete re-run the runbook that was failing.
+In your Automation Account, click **Modules**, and click **Update Azure modules**. The update takes roughly 15 minutes, once complete re-run the runbook that was failing. To learn more about updating your modules, see [Update Azure modules in Azure Automation](../automation-update-azure-modules.md).
 
 ### <a name="child-runbook-auth-failure"></a>Scenario: Child runbook fails when dealing with multiple subscriptions
 
@@ -210,15 +210,19 @@ This error can be caused by the following reasons:
 
 1. Memory Limit. There are documented limits on how much memory allocated to a Sandbox  [Automation service limits](../../azure-subscription-service-limits.md#automation-limits) so a job may fail it if it is using more than 400 MB of memory.
 
-2. Module Incompatible. This can occur if module dependencies are not correct and if they are not, your runbook typically returns a "Command not found" or "Cannot bind parameter" message.
+1. Network Sockets. Azure sandboxes are limited to 1000 concurrent network sockets as described at [Automation service limits](../../azure-subscription-service-limits.md#automation-limits).
+
+1. Module Incompatible. This can occur if module dependencies are not correct and if they are not, your runbook typically returns a "Command not found" or "Cannot bind parameter" message.
 
 #### Resolution
 
 Any of the following solutions fix the problem:
 
-* Suggested methods to work within the memory limit are to split the workload between multiple runbooks, not process as much data in memory, not to write unnecessary output from your runbooks, or consider how many checkpoints you write into your PowerShell workflow runbooks.  
+* Suggested methods to work within the memory limit are to split the workload between multiple runbooks, not process as much data in memory, not to write unnecessary output from your runbooks, or consider how many checkpoints you write into your PowerShell Workflow runbooks. You can use the clear method, such as `$myVar.clear()` to clear out the variable and use `[GC]::Collect()` to run garbage collection immediately, this will reduce the memory footprint of your runbook during runtime.
 
 * Update your Azure modules by following the steps [How to update Azure PowerShell modules in Azure Automation](../automation-update-azure-modules.md).  
+
+* Another solution is to run the runbook on a [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md). Hybrid Workers are not limited by the memory and network limits that Azure sandboxes are.
 
 ### <a name="fails-deserialized-object"></a>Scenario: Runbook fails because of deserialized object
 

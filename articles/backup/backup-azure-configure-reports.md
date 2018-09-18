@@ -20,7 +20,7 @@ This article talks about steps to configure reports for Azure Backup using Recov
 4. The frequency of scheduled refresh for the reports is 24 hours in Power BI. You can also perform an ad-hoc refresh of the reports in Power BI, in which case latest data in customer storage account is used for rendering reports. 
 
 ## Prerequisites
-1. Create an [Azure storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) to configure it for reports. This storage account is used for storing reports related data.
+1. Create an [Azure storage account](../storage/common/storage-quickstart-create-account.md) to configure it for reports. This storage account is used for storing reports related data.
 2. [Create a Power BI account](https://powerbi.microsoft.com/landing/signin/) to view, customize, and create your own reports using Power BI portal.
 3. Register the resource provider **Microsoft.insights** if not registered already, with the subscription of storage account and also with the subscription of Recovery Services vault to enable reporting data to flow to the storage account. To do the same, you must go to Azure portal > Subscription > Resource providers and check for this provider to register it. 
 
@@ -77,7 +77,7 @@ After configuring storage account for reports using recovery services vault, it 
 4. Enter the storage account name configured in step 5 above and click **Next** button.
 
     ![Enter storage account name](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)    
-5. Enter the storage account key for this storage account. You can [view and copy storage access keys](../storage/common/storage-create-storage-account.md#manage-your-storage-account) by navigating to your storage account in Azure portal. 
+5. Enter the storage account key for this storage account. You can [view and copy storage access keys](../storage/common/storage-account-manage.md#access-keys) by navigating to your storage account in Azure portal. 
 
      ![Enter storage account](./media/backup-azure-configure-reports/content-pack-storage-account-key.png) <br/>
      

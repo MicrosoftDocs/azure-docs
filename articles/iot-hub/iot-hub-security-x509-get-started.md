@@ -136,7 +136,7 @@ Next, we will show you how to create a C# application to simulate the X.509 devi
     ```CSharp
     try
     {
-        var cert = new X509Certificate2(@"<absolute-path-to-your-device-pfx-file>", "123");
+        var cert = new X509Certificate2(@"<absolute-path-to-your-device-pfx-file>", "1234");
         var auth = new DeviceAuthenticationWithX509Certificate("<device-id>", cert);
         var deviceClient = DeviceClient.Create("<your-iot-hub-name>.azure-devices.net", auth, TransportType.Amqp_Tcp_Only);
 

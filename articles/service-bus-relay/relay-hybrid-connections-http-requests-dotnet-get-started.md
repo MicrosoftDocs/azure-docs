@@ -3,7 +3,7 @@ title: Get started with Azure Relay Hybrid Connections HTTP requests in .NET | M
 description: Write a C# console application for Azure Relay Hybrid Connections HTTP requests in .NET.
 services: service-bus-relay
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 12/15/2017
-ms.author: sethm
+ms.date: 08/16/2018
+ms.author: spelluru
 
 ---
 

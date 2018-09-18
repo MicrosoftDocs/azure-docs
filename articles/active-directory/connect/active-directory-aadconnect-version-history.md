@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/10/2018
+ms.date: 09/06/2018
 ms.component: hybrid
 ms.author: billmath
 
@@ -32,11 +32,21 @@ Required permissions | For permissions required to apply an update, see [account
 
 Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
+
+ 
+## 1.1.882.0  
+
+9/7/2018: released for download, will not be release for auto upgrade 
+
+### Fixed issues  
+
+Azure AD Connect Upgrade fails if SQL Always On Availability is configured for the ADSync DB. This hotfix addresses this issue and allows Upgrade to succeed. 
+
 ## 1.1.880.0
 
 ### Release status
 
-7/20/2018: Released for download and auto upgrade. The auto upgrade process is still in progress.
+8/21/2018: Released for download and auto upgrade. 
 
 ### New features and improvements
 

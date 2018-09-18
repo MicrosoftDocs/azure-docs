@@ -64,7 +64,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
     Make a note of the device connection string, which looks like `Hostname=...=`. You use this value later in the quickstart.
 
-1. You also need a _service connection string_ to enable the back-end application to connect to your IoT hub and retrieve the messages. The following command retrieves the service connection string for your IoT hub:
+1. You also need a _service connection string_ to enable the back-end application to connect to your IoT hub in order to retrieve the messages. The following command retrieves the service connection string for your IoT hub:
 
     ```azurecli-interactive
     az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
@@ -97,9 +97,9 @@ The simulated device application connects to a device-specific endpoint on your 
 
 The back-end application connects to the service-side **Events** endpoint on your IoT Hub. The application receives the device-to-cloud messages sent from your simulated device. An IoT Hub back-end application typically runs in the cloud to receive and process device-to-cloud messages.
 
-1. In another terminal window, navigate to the root folder of the sample Node.js project. Then navigate to the **read-d2c-messages** folder.
+1. In another terminal window, navigate to the root folder of the sample Node.js project. Then navigate to the **iot-hub\Quickstarts\read-d2c-messages** folder.
 
-1. Open the **iot-hub\Quickstarts\ReadDeviceToCloudMessages.js** file in a text editor of your choice.
+1. Open the **ReadDeviceToCloudMessages.js** file in a text editor of your choice.
 
     Replace the value of the `connectionString` variable with the service connection string you made a note of previously. Then save your changes to the **ReadDeviceToCloudMessages.js** file.
 

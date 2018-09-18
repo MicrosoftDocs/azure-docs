@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 08/15/2018
 ms.author: jeffgo
 
 ---
@@ -36,7 +36,7 @@ This section assumes that you already have an ISO file from the Red Hat website 
 * When you install the Linux operating system, we recommend that you use standard partitions rather than Logical Volume Manager (LVM), which is often the default for many installations. This practice avoids LVM name conflicts with cloned virtual machines, particularly if you ever need to attach an operating system disk to another identical virtual machine for troubleshooting.
 * Kernel support for mounting Universal Disk Format (UDF) file systems is required. At first boot, the UDF-formatted media that is attached to the guest passes the provisioning configuration to the Linux virtual machine. The Azure Linux Agent must mount the UDF file system to read its configuration and provision the virtual machine.
 * Do not configure a swap partition on the operating system disk. The Linux Agent can be configured to create a swap file on the temporary resource disk. More information about can be found in the following steps.
-* All VHDs on Azure must have a virtual size aligned to 1 MB. When converting from a raw disk to VHD you must ensure that the raw disk size is a multiple of 1 MB before conversion. More details can be found in the steps below.
+* All VHDs on Azure must have a virtual size aligned to 1 MB. When converting from a raw disk to VHD, you must ensure that the raw disk size is a multiple of 1 MB before conversion. More details can be found in the steps below.
 * Azure Stack does not support cloud-init. Your VM must be configured with a supported version of the Windows Azure Linux Agent (WALA).
 
 ### Prepare a RHEL 7 virtual machine from Hyper-V Manager
@@ -83,7 +83,7 @@ This section assumes that you already have an ISO file from the Red Hat website 
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
     ```
 
-   This ensures that all console messages are sent to the first serial port, which can assist Azure support with debugging issues. This configuration also turns off the new RHEL 7 naming conventions for NICs. 
+   This ensures that all console messages are sent to the first serial port, which can assist Azure support with debugging issues. This configuration also turns off the new RHEL 7 naming conventions for NICs.
 
    Graphical and quiet boot are not useful in a cloud environment where we want all the logs to be sent to the serial port. You can leave the `crashkernel` option configured if desired. Note that this parameter reduces the amount of available memory in the virtual machine by 128 MB or more, which might be problematic on smaller virtual machine sizes. We recommend that you remove the following parameters:
 
@@ -125,7 +125,7 @@ This section assumes that you already have an ISO file from the Red Hat website 
     ResourceDisk.Filesystem=ext4
     ResourceDisk.MountPoint=/mnt/resource
     ResourceDisk.EnableSwap=y
-    ResourceDisk.SwapSizeMB=2048    NOTE: set this to whatever you need it to be.
+    ResourceDisk.SwapSizeMB=2048    #NOTE: set this to whatever you need it to be.
     ```
 
 1. If you want to unregister the subscription, run the following command:
@@ -287,7 +287,7 @@ This section assumes that you already have an ISO file from the Red Hat website 
     ResourceDisk.Filesystem=ext4
     ResourceDisk.MountPoint=/mnt/resource
     ResourceDisk.EnableSwap=y
-    ResourceDisk.SwapSizeMB=2048    NOTE: set this to whatever you need it to be.
+    ResourceDisk.SwapSizeMB=2048    #NOTE: set this to whatever you need it to be.
     ```
 
 1. Unregister the subscription (if necessary) by running the following command:
@@ -467,7 +467,7 @@ This section assumes that you have already installed a RHEL virtual machine in V
 1. Shut down the virtual machine, and convert the VMDK file to the VHD format.
 
     > [!NOTE]
-    > There is a known bug in qemu-img versions >=2.2.1 that results in an improperly formatted VHD. The issue has been fixed in QEMU 2.6. It is recommended to use either qemu-img 2.2.0 or lower, or update to 2.6 or higher. Reference: <https://bugs.launchpad.net/qemu/+bug/1490611.>
+    > There is a known bug in qemu-img versions >=2.2.1 that results in an improperly formatted VHD. The issue has been fixed in QEMU 2.6. It is recommended to use either qemu-img 2.2.0 or lower, or update to 2.6 or higher. Reference: <https://bugs.launchpad.net/qemu/+bug/1490611>.
 
     First convert the image to raw format:
 

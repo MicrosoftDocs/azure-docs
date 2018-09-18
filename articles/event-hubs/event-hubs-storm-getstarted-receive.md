@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: java
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/12/2018
+ms.date: 08/16/2018
 ms.author: shvija
 ---
 

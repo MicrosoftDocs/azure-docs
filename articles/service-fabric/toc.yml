@@ -49,7 +49,9 @@
     items:
     - name: 1- Deploy a .NET app using Docker Compose
       href: service-fabric-host-app-in-a-container.md
-    - name: 2- Monitor your container
+    - name: 2- Deploy a container application with CI/CD
+      href: service-fabric-tutorial-deploy-container-app-with-cicd-vsts.md
+    - name: 3- Monitor your container
       href: service-fabric-tutorial-monitoring-wincontainers.md
   - name: Create a Linux container app
     items:
@@ -105,19 +107,22 @@
     href: service-fabric-architecture.md
   - name: Terminology
     href: service-fabric-technical-overview.md
-  - name: Building applications
-    href: service-fabric-choose-framework.md
+  - name: Building applications    
     items:
-    - name: Containers
-      href: service-fabric-containers-overview.md
+    - name: Building applications overview
+      href: service-fabric-choose-framework.md
+    - name: Containers      
       items:
+      - name: Containers overview
+        href: service-fabric-containers-overview.md
       - name: Docker compose (preview)
         href: service-fabric-docker-compose.md
       - name: Resource governance
         href: service-fabric-resource-governance.md
-    - name: Reliable Services
-      href: service-fabric-reliable-services-introduction.md
+    - name: Reliable Services      
       items:
+      - name: Reliable Services overview
+        href: service-fabric-reliable-services-introduction.md
       - name: Service partitioning
         href: service-fabric-concepts-partitioning.md
       - name: Reliable Services lifecycle - C#
@@ -139,8 +144,9 @@
       - name: Reliable Collection serialization
         href: service-fabric-reliable-services-reliable-collections-serialization.md
     - name: Reliable Actors
-      href: service-fabric-reliable-actors-introduction.md
       items:
+      - name: Reliable Actors overview
+        href: service-fabric-reliable-actors-introduction.md
       - name: Architecture
         href: service-fabric-reliable-actors-platform.md
       - name: Implementing service-level features
@@ -181,8 +187,9 @@
     - name: Availability of services
       href: service-fabric-availability-services.md       
     - name: Service communication
-      href: service-fabric-connect-and-communicate-with-services.md
       items:
+      - name: Service communication overview
+        href: service-fabric-connect-and-communicate-with-services.md
       - name: DNS service
         href: service-fabric-dnsservice.md
       - name: Reverse proxy
@@ -196,11 +203,13 @@
       - name: ASP.NET Core
         href: service-fabric-reliable-services-communication-aspnetcore.md
     - name: Application lifecycle
-      href: service-fabric-application-lifecycle.md
       items:
+      - name: Application lifecycle overview
+        href: service-fabric-application-lifecycle.md
       - name: Application upgrade
-        href: service-fabric-application-upgrade.md
         items:
+        - name: Application upgrade overview
+          href: service-fabric-application-upgrade.md
         - name: Configuration
           href: service-fabric-visualstudio-configure-upgrade.md
         - name: Application upgrade parameters
@@ -211,8 +220,12 @@
           href: service-fabric-application-upgrade-advanced.md
       - name: Manage applications for multiple environments
         href: service-fabric-manage-multiple-environment-app-configuration.md
-      - name: Testing apps with fault analysis
-        href: service-fabric-testability-overview.md
+      - name: Testing applications
+        items:
+          - name: Unit testing stateful services
+            href: service-fabric-concepts-unit-testing.md
+          - name: Testing apps with fault analysis
+            href: service-fabric-testability-overview.md
       - name: The ImageStoreConnectionString setting
         href: service-fabric-image-store-connection-string.md
     - name: Service resources
@@ -222,8 +235,9 @@
       - name: Understanding periodic backup configuration
         href: service-fabric-backuprestoreservice-configure-periodic-backup.md 
   - name: Clusters
-    href: service-fabric-deploy-anywhere.md
     items:
+    - name: Clusters overview
+      href: service-fabric-deploy-anywhere.md
     - name: Cluster security
       href: service-fabric-cluster-security.md
     - name: Scaling
@@ -237,8 +251,9 @@
       - name: Cluster networking patterns
         href: service-fabric-patterns-networking.md
     - name: Cluster resource manager
-      href: service-fabric-cluster-resource-manager-introduction.md
       items:
+      - name: Cluster resource manager overview
+        href: service-fabric-cluster-resource-manager-introduction.md
       - name: Architecture
         href: service-fabric-cluster-resource-manager-architecture.md
       - name: Describe a cluster
@@ -333,9 +348,7 @@
     - name: Java Reliable Actors application on Linux
       href: service-fabric-create-your-first-linux-application-with-java.md
     - name: Guest executable application on Windows
-      href: quickstart-guest-app.md
-    - name: Standalone cluster
-      href: service-fabric-get-started-standalone-cluster.md
+      href: quickstart-guest-app.md    
   - name: Build an application
     items:
     - name: Build a guest executable service
@@ -467,8 +480,9 @@
     - name: Monitor and diagnose locally
       href: service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md
   - name: Work in a VS Code environment
-    href: service-fabric-get-started-vs-code.md
     items:
+    - name: Get started with VS Code
+      href: service-fabric-get-started-vs-code.md
     - name: Develop C# Service Fabric applications with VS Code
       href: service-fabric-develop-csharp-applications-with-vs-code.md
     - name: Develop Java Service Fabric applications with VS Code
@@ -515,6 +529,8 @@
         href: service-fabric-application-upgrade-troubleshooting.md
     - name: Test applications and services
       items:
+      - name: Unit test stateful services
+        href: service-fabric-how-to-unit-test-stateful-services.md
       - name: Test service-to-service communication
         href: service-fabric-testability-scenarios-service-communication.md
       - name: Simulate failures
@@ -531,7 +547,7 @@
           href: service-fabric-node-transition-apis.md
     - name: Set up continuous integration
       items:
-      - name: Set up continuous integration with VSTS
+      - name: Set up continuous integration with Azure Pipelines
         href: service-fabric-set-up-continuous-integration.md
       - name: Deploy your Linux applications using Jenkins
         href: service-fabric-cicd-your-linux-applications-with-jenkins.md
@@ -541,11 +557,15 @@
       items:
       - name: Create
         items:
-        - name: Azure portal
+        - name: Create in Azure portal
           href: service-fabric-cluster-creation-via-portal.md
-        - name: Azure Resource Manager
-          href: service-fabric-cluster-creation-via-arm.md
-        - name: Cluster using certificate common name
+        - name: Set up Azure Active Directory authentication
+          href: service-fabric-cluster-creation-setup-aad.md
+        - name: Create a custom cluster template
+          href: service-fabric-cluster-creation-create-template.md
+        - name: Create using Resource Manager
+          href: service-fabric-cluster-creation-via-arm.md        
+        - name: Create using certificate common name
           href: service-fabric-create-cluster-using-cert-cn.md
       - name: Scale
         items:
@@ -731,6 +751,8 @@
     href: http://aka.ms/servicefabricsamples
   - name: Support options
     href: service-fabric-support.md
+  - name: Service Fabric versions
+    href: service-fabric-versions.md
   - name: Service Updates
     href: https://azure.microsoft.com/updates/?product=service-fabric
   - name: Videos

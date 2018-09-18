@@ -18,7 +18,7 @@ ms.author: lizross
 # Two-step verification overview
 
 >[!Important]
->This content is intended for users. If you're an administrator, you can find more information about how to set up and manage your Azure Active Directory (Azure AD) environment in the [Azure Active Directory Documentation](https://docs.microsoft.com/en-us/azure/active-directory).
+>This content is intended for users. If you're an administrator, you can find more information about how to set up and manage your Azure Active Directory (Azure AD) environment in the [Azure Active Directory Documentation](https://docs.microsoft.com/azure/active-directory).
 
 You've gotten an email from someone in IT or your boss saying that the organization has added additional security verification to your account. So what does that mean? It means your organization is taking extra steps to make sure you are who you say you are when you sign in. This extra verification, also known as two-step verification, is done through a combination of your user name, your password, and a mobile device or phone.
 

@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2018
+ms.date: 08/16/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
 
@@ -54,12 +54,12 @@ In the same PowerShell session, edit the following PowerShell script by adding t
    
     $password = Read-Host -Prompt ("Password for: " + $username) -AsSecureString
     
-    # The encryption key is generated using the New-EncryptionKeyBase64 cmdlet provided in Azure Stack PowerShell.
+    # The encryption key is generated using the New-AzsEncryptionKeyBase64 cmdlet provided in Azure Stack PowerShell.
     # Make sure to store your encryption key in a secure location after it is generated.
-    $Encryptionkey = New-AzSEncryptionKeyBase64
+    $Encryptionkey = New-AzsEncryptionKeyBase64
     $key = ConvertTo-SecureString -String ($Encryptionkey) -AsPlainText -Force
 
-    Set-AzSBackupShare -BackupShare $sharepath -Username $username -Password $password -EncryptionKey $key
+    Set-AzsBackupShare -BackupShare $sharepath -Username $username -Password $password -EncryptionKey $key
    ```
    
 ##  Confirm backup settings
@@ -73,7 +73,7 @@ In the same PowerShell session, run the following commands:
 The result should look like the following example output:
 
    ```powershell
-    Path                        : \\serverIP\AzSBackupStore\contoso.com\seattle
+    Path                        : \\serverIP\AzsBackupStore\contoso.com\seattle
     UserName                    : domain\backupadmin
    ```
 
@@ -92,7 +92,7 @@ In the same PowerShell session, you can update the default values for retention 
 The result should look like the following example output:
 
    ```powershell
-    Path                        : \\serverIP\AzSBackupStore\contoso.com\seattle
+    Path                        : \\serverIP\AzsBackupStore\contoso.com\seattle
     UserName                    : domain\backupadmin
     AvailableCapacity           : 60 GB
     BackupFrequencyInHours      : 10

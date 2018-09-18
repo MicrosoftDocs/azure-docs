@@ -44,7 +44,7 @@ For detailed instructions, see the [prerequisites to access the Azure Active Dir
 
 ## APIs with Graph Explorer
 
-You can use the [MSGraph explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) to verify your sign-in and audit API data. Make sure to sign in to your account using both of the sign-in buttons in the Graph Explorer UI, and set **AuditLog.Read.All** and **Directory.Read.All** permissions for your tenant as shown.   
+You can use the [MSGraph explorer](https://developer.microsoft.com/graph/graph-explorer) to verify your sign-in and audit API data. Make sure to sign in to your account using both of the sign-in buttons in the Graph Explorer UI, and set **AuditLog.Read.All** and **Directory.Read.All** permissions for your tenant as shown.   
 
 ![Graph Explorer](./media/concept-reporting-api/graph-explorer.png)
 

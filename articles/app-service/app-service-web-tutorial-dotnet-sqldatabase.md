@@ -10,13 +10,12 @@ editor: ''
 ms.assetid: 03c584f1-a93c-4e3d-ac1b-c82b50c75d3e
 ms.service: app-service-web
 ms.workload: web
-ms.technology: vs-azure
 ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: cephalin
-ms.custom: mvc, devcenter
+ms.custom: mvc, devcenter, vs-azure
 ---
 
 # Tutorial: Build an ASP.NET app in Azure with SQL Database
