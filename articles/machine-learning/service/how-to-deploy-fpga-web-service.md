@@ -33,11 +33,7 @@ You can deploy a model as a web service on [field programmable gate arrays (FPGA
 ## Create and deploy your model
 Create a pipeline to preprocess the input image, featurize it using ResNet 50 on an FPGA, and then run the features through a classifer trained on the ImageNet data set.
 
-For your convenience the entire flow is available in a Jupyter notebook.  Sample code is provided here.
-
-[**Launch samples in Azure Notebooks**](https://aka.ms/aml-notebooks) and navigate to `tutorials/80.realtimai-quickstart.ipynb`.  From Azure Notebooks, you can also download the notebook to use on your own Jupyter server.
- 
-Follow the instructions in the notebook to:
+Follow the instructions to:
 
 * Define the model pipeline
 * Deploy the model
@@ -46,6 +42,12 @@ Follow the instructions in the notebook to:
 
 > [!IMPORTANT]
 > To optimize latency and throughput, your client should be in the same Azure region as the endpoint.  Currently the APIs are created in the East US Azure region.
+
+### Get the notebook
+
+For your convenience, this tutorial is available as a Jupyter notebook. Use either of these methods to run the `project-brainwave/project-brainwave-quickstart.ipynb` notebook:
+
+[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
 ### Preprocess image
 The first stage of the pipeline is to preprocess the images.
