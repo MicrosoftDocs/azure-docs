@@ -41,6 +41,8 @@
     href: virtual-networks-udr-overview.md
   - name: Service endpoints
     href: virtual-network-service-endpoints-overview.md
+  - name: Service endpoint policies
+    href: virtual-network-service-endpoint-policies-overview.md
   - name: Peering
     href: virtual-network-peering-overview.md
   - name: Virtual network for Azure services
