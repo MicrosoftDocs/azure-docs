@@ -526,7 +526,7 @@ A logic app with a trigger and a response action results in unexpected behavior.
 
 * Only a single Send to SAP call or message works with tRFC. 
 The Business Application Programming Interface (BAPI) commit pattern, 
-for example, making multiple tRFC calls in the same session, isn't supported.
+such as making multiple tRFC calls in the same session, isn't supported.
 
 * RFCs with attachments aren't supported for both the Send to SAP 
 and Generate schemas actions.
