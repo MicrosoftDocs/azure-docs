@@ -11,21 +11,34 @@ ms.date: 09/24/2018
 
 ## Query Performance Insight 
 
-The Query performance Insight feature is in public preview. 
+> [!IMPORTANT]
+> The Query Performance Insight feature is in Public Preview. 
+
+
+
 
 ## Permissions
-**Owner** or **Contributor** permissions are required to view the text of the queries in Query Performance Insight. **Reader** can view charts and tables but not query text.
+**Owner** or **Contributor** permissions required to view the text of the queries in Query Performance Insight. **Reader** can view charts and tables but not query text.
+
+## Prerequisites
+For Query Performance Insight to work, Query Store has to be enabled for the Azure Database for PostgreSQL server
 
 ## Performance insights
 The [Query Performance Insight](concepts-query-performance-insight.md) view in the Azure portal will surface visualizations on key information from Query Store. 
 
 1. In the portal page of your Azure Database for PostgreSQL server, select **Query performance Insight** under the **Support + troubleshooting** section of the menu bar.
+
 2. The **Long running queries** tab shows the top 5 queries by average duration per execution, aggregated in 15 minute intervals. You can view more queries by selecting from the **Number of Queries** drop down.
+
 3. You can click and drag in the chart to narrow down to a specific time window.
-4. The zoom in and out icons to view a smaller or larger period of time respectively.
+
+4. Use the zoom in and out icons to view a smaller or larger period of time respectively.
+
 5. View the table below the chart to learn more details about the top queries in that time window.
+
 6. Select the **Wait Statistics** tab to view the corresponding visualizations on waits in the server.
 
-
+## Next Steps
+- Learn more about [monitoring and tuning](concepts-monitoring.md) in Azure Database for PostgreSQL.
 
 

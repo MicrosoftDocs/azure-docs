@@ -9,55 +9,50 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ---
 
-# Query Store best practices
+# Best practices for Query Store
 
-The Query Store feature is in public preview.
+> [!IMPORTANT]
+> The Query Store feature is in Public Preview.
 
 Applies to: Azure Database for PostgreSQL 9.6 and 10
 
-This article outlines the best practices for using Query Store with your workload.
+This article outlines best practices for using Query Store in Azure Database for PostgreSQL.
 
-## Use Query Performance Insight in Azure PostgreSQL
-If you run Query Store in Azure PostgreSQL, you can use Query Performance Insight to analyze query performance over time.
+## Use Query Performance Insight
+You can use [Query Performance Insight](concepts-query-performance-insight.md) in the Azure portal to get quick insights into the data in Query Store. The visualizations surface the longest running queries and longest wait events over time.
 
-While you can use a UI tool such as PgAdmin to get detailed resource consumption for all your queries (memory, IO, etc.), Query Performance Insight gives you a quick and efficient visualization for your database.
+## Set the optimal query capture mode
+Let Query Store capture the data that matters to you. 
 
-## Keep Query Store adjusted to your workload
-Configure Query Store based on your workload and performance troubleshooting requirements. The default parameters are sufficient to start, but you should monitor how Query Store behaves over time and adjust its configuration accordingly.
+|**pg_qs.query_capture_mode** |	**Scenario**|
+|---|---|
+|_All_	|Analyze your workload thoroughly in terms of all queries and their execution frequencies and other statistics. Identify new queries in your workload. Detect if ad-hoc queries are used to identify opportunities for user or auto parameterization. _All_ comes with an increased resource consumption cost. |
+|_Top_	|Focus your attention on top queries - those issued by clients.
+|_None_	|You've already captured a query set and time window that you want to investigate and you want to eliminate the distractions that other queries may introduce. _None_ is suitable for testing and bench-marking environments. _None_ may also appropriate for software vendors who have products based on Azure Database for PostgreSQL. _None_ should be used with caution as you might miss the opportunity to track and optimize important new queries. You can't recover data on those past time windows. |
 
-In particular, note the following parameters:
+Query Store also includes a store for wait statistics. There is an additional capture mode query that governs wait statistics: **pgms_wait_sampling.query_capture_mode** can be set to _none_ or _all_. 
 
-**pg_qs.retention_period_in_days**
-This parameter specifies, in days, the data retention period window for pg_qs. Older query and statistics data is deleted. By default, Query Store is configured to retain the data for 7 days. Avoid keeping historical data you do not plan to use. Increase the value if you need to retain data for longer.
+> [!NOTE] 
+> **pg_qs.query_capture_mode** supersedes **pgms_wait_sampling.query_capture_mode**. If pg_qs.query_capture_mode is _none_, the pgms_wait_sampling.query_capture_mode setting has no effect. 
 
-**pg_qs.query_capture_mode**
-This parameter specifies the query capture policy for Query Store.
-- All – Captures all queries including nested queries, such as statements within functions
-- Top – Captures top queries - i.e. those issued by clients
-- None – Query Store stops capturing new queries. This is the default option.
 
-**pgms_wait_sampling.history_period**
-This parameter specifies the frequency, in milliseconds, at which wait events are sampled. The shorter the period, the more frequently sampling wait events and more information will be retrieved, at the price of more resource consumption. Increase this period if the server is under load.
+## Keep the data you need
+The **pg_qs.retention_period_in_days** parameter specifies in days the data retention period for Query Store. Older query and statistics data is deleted. By default, Query Store is configured to retain the data for 7 days. Avoid keeping historical data you do not plan to use. Increase the value if you need to keep data longer.
 
-**pgms_wait_sampling.query_capture_mode**
-This parameter specifies the query capture policy for wait statistics in the Query Store.
-- All – Captures all wait events
-- None – Query Store stops sampling
 
-It is recommended to configure the value to 'All' only during the window of investigation.
-
-Use the [Azure portal](howto-configure-server-logs-in-portal.md) or [Azure CLI](howto-configure-server-logs-using-cli.md) to get or set a different value for a parameter.
+## Frequency of wait statistics
+The **pgms_wait_sampling.history_period** parameter specifies how often (in milliseconds) wait events are sampled. The shorter the period, the more frequent the sampling. More information is retrieved, but that comes with the cost of greater resource consumption. Increase this period if the server is under load or you don't need the granularity
 
 
 ## Avoid using non-parameterized queries
-Using non-parameterized queries when that is not absolutely necessary (for example in case of ad-hoc analysis) is not a best practice. Cached plans cannot be reused which forces Query Optimizer to compile queries for every unique query text.
+Using non-parameterized queries when they are not necessary (for example ad-hoc analysis) is not ideal. Cached plans cannot be reused which forces Query Optimizer to compile queries for every unique query text.
 
-Also, Query Store can rapidly exceed the size quota because of potentially a large number of different query texts.
-
-As a result, performance of your workload will be sub-optimal and Query Store might might be constantly deleting the data trying to keep up with the incoming queries.
+Also, Query Store can rapidly exceed the size quota because of potentially a large number of different query texts. As a result, performance of your workload will be suboptimal and Query Store might be constantly deleting the data trying to keep up with the incoming queries.
 
 Consider the following options:
-	• Parameterize queries where applicable, for example, wrap queries inside a stored procedure.
-	• Compare the number of distinct query_hash values with the total number of entries in query_store.query_texts. If the ratio is close to 1 your workload is generating different queries.
-Set the Query Capture Mode to TOP to automatically filter out nested queries.
+- Parameterize queries where applicable, for example, wrap queries inside a stored procedure.
+- Compare the number of distinct query_hash values with the total number of entries in query_store.query_texts. If the ratio is close to 1 your workload is mostly generating unique queries.
+- Set the Query Capture Mode to TOP to automatically filter out nested queries.
 
+## Next Steps
+- Learn how to get or set parameters using the [Azure portal](howto-configure-server-parameters-using-portal.md) or the [Azure CLI](howto-configure-server-parameters-using-cli.md).
