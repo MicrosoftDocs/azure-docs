@@ -22,16 +22,16 @@ ms.custom:
 
 # Deploy the Azure Virtual Network container network interface plug-in
 
-Bring the rich set of Azure network capabilities to containers, by utilizing the same software defined networking stack that powers virtual machines. The Azure Virtual Network container network interface (CNI) plug-in installs in an Azure virtual machine. To learn more about the plug-in, see [Enable containers to use Azure Virtual Network capabilities](container-networking-overview.md). You can deploy the plug-in to provide Azure Virtual Network capabilities to containers in Kubernetes clusters that you deploy, or when using Docker on your computer. Alternatively, you can enable containers deployed with the Azure Kubernetes Service (AKS) or the ACS-Engine to utilize the plug-in. For details, see [Using the plug-in](container-networking-overview.md#using-the-plug-in).
+The Azure Virtual Network container network interface (CNI) plug-in installs in an Azure virtual machine and brings virtual network capabilities to Kubernetes Pods and Docker containers. To learn more about the plug-in, see [Enable containers to use Azure Virtual Network capabilities](container-networking-overview.md). Alternatively, you can enable containers deployed with the Azure Kubernetes Service (AKS) or the ACS-Engine to utilize the plug-in. For details, see [Using the plug-in](container-networking-overview.md#using-the-plug-in).
 
 ## Download and install the plug-in
 
-Download the plug-in from [GitHub](https://github.com/Azure/azure-container-networking/releases). Download the latest version for the platform you're using:
+Download the plug-in from [GitHub](https://github.com/Azure/azure-container-networking/releases). Download the latest version for the platform that you're using:
 
 - **Linux**: [azure-vnet-cni-linux-amd64-\<version no.\>.tgz](https://github.com/Azure/azure-container-networking/releases/download/v1.0.12-rc3/azure-vnet-cni-linux-amd64-v1.0.12-rc3.tgz)
 - **Windows**: [azure-vnet-cni-windows-amd64-\<version no.\>.zip](https://github.com/Azure/azure-container-networking/releases/download/v1.0.12-rc3/azure-vnet-cni-windows-amd64-v1.0.12-rc3.zip)
 
-Copy the [install script](https://github.com/Azure/azure-container-networking/blob/master/scripts/install-cni-plugin.sh). Save the script to a `scripts` directory on your computer and name the file `install-cni-plugin.sh` for Linux, or `install-cni-plugin.ps1` for Windows. To install the plug-in, run the appropriate script for your platform, specifying the version of the plug-in you are using. For example, you might specify *v1.0.12-rc3*:
+Copy the install script for [Linux](https://github.com/Azure/azure-container-networking/blob/master/scripts/install-cni-plugin.sh) or [Windows](https://github.com/Azure/azure-container-networking/blob/master/scripts/Install-CniPlugin.ps1) to your computer. Save the script to a `scripts` directory on your computer and name the file `install-cni-plugin.sh` for Linux, or `install-cni-plugin.ps1` for Windows. To install the plug-in, run the appropriate script for your platform, specifying the version of the plug-in you are using. For example, you might specify *v1.0.12-rc3*:
 
    ```bash
    \$scripts/install-cni-plugin.sh [version]
@@ -41,24 +41,24 @@ Copy the [install script](https://github.com/Azure/azure-container-networking/bl
    scripts\\ install-cni-plugin.ps1 [version]
    ```
 
-The script installs the plug-in under `/opt/cni/bin` for Linux and `c:\cni\bin` for Windows. The installed plug-in comes with a simple network configuration file that works after installation. It doesn't need to be updated. To learn more about the settings in the file, see [CNI Network Configuration File](#cni-network-configuration-file).
+The script installs the plug-in under `/opt/cni/bin` for Linux and `c:\cni\bin` for Windows. The installed plug-in comes with a simple network configuration file that works after installation. It doesn't need to be updated. To learn more about the settings in the file, see [CNI network configuration file](#cni-network-configuration-file).
 
 ## Deploy plug-in for a Kubernetes cluster
 
 Complete the following steps to install the plug-in on every Azure virtual machine in a Kubernetes cluster:
 
 1. [Download and install the plug-in](#download-and-install-the-cni-plug-in).
-2. Pre-allocate a virtual network IP address pool on every virtual machine from which IP addresses will be assigned to the pods. Every Azure virtual machine comes with a primary virtual network private IP address on each network interface. The pool of IP addresses for pods is added as secondary addresses (*ipconfigs*) on the virtual machine network interface using one of the following options:
+2. Pre-allocate a virtual network IP address pool on every virtual machine from which IP addresses will be assigned to Pods. Every Azure virtual machine comes with a primary virtual network private IP address on each network interface. The pool of IP addresses for Pods is added as secondary addresses (*ipconfigs*) on the virtual machine network interface, using one of the following options:
 
-   - **CLI**: [Assigning multiple IP addresses using the Azure CLI](virtual-network-multiple-ip-addresses-cli.md)
-   - **PowerShell**: [Assigning multiple IP addresses using PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
-   - **Portal**: [Assigning multiple IP addresses using the Azure portal](virtual-network-multiple-ip-addresses-portal.md)
-   - **Azure Resource Manager template**: [Assigning multiple IP addresses using templates](virtual-network-multiple-ip-addresses-template.md)
+   - **CLI**: [Assign multiple IP addresses using the Azure CLI](virtual-network-multiple-ip-addresses-cli.md)
+   - **PowerShell**: [Assign multiple IP addresses using PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
+   - **Portal**: [Assign multiple IP addresses using the Azure portal](virtual-network-multiple-ip-addresses-portal.md)
+   - **Azure Resource Manager template**: [Assign multiple IP addresses using templates](virtual-network-multiple-ip-addresses-template.md)
 
-   Ensure that you add enough IP addresses for all of the pods that you expect to bring up on the virtual machine.
+   Ensure that you add enough IP addresses for all of the Pods that you expect to bring up on the virtual machine.
 
 3. Select the plug-in for providing networking for your cluster by passing Kubelet the `–network-plugin=cni` command-line option during cluster creation. Kubernetes, by default, looks for the plug-in and the configuration file in the directories where they are already installed.
-4. If you want your pods to access the internet, add the following *iptables* rule on your Linux virtual machines to source-NAT internet traffic. In the following example, the specified IP range is 10.0.0.0/8.
+4. If you want your Pods to access the internet, add the following *iptables* rule on your Linux virtual machines to source-NAT internet traffic. In the following example, the specified IP range is 10.0.0.0/8.
 
    ```bash
    iptables -t nat -A POSTROUTING -m iprange ! --dst-range 168.63.129.16 -m
@@ -69,20 +69,22 @@ Complete the following steps to install the plug-in on every Azure virtual machi
 
   Windows virtual machines automatically source NAT traffic that has a destination outside the subnet to which the virtual machine belongs. It is not possible to specify custom IP ranges.
 
-After completing the previous steps, pods brought up on the Kubernetes Agent virtual machines are automatically assigned private IP addresses from the virtual network.
+After completing the previous steps, Pods brought up on the Kubernetes Agent virtual machines are automatically assigned private IP addresses from the virtual network.
 
 ## Deploy plug-in for Docker containers
-Follow the previous steps to [download and install](#download-the-cni-plug-in) the plug-in on your virtual machine. Once it is installed, you can create docker containers with the following command:
 
-```
-./docker-run.sh \<container-name\> \<container-namespace\> \<image\>
-```
+1. [Download and install the plug-in](#download-the-cni-plug-in).
+2. Create Docker containers with the following command:
+
+   ```
+   ./docker-run.sh \<container-name\> \<container-namespace\> \<image\>
+   ```
 
 The containers automatically start receiving IP addresses from the allocated pool. If you want to load balance traffic to the Docker containers, they must be placed behind a software load balancer, and you must configure a load balancer probe, the same way you create a policy and probes for a virtual machine.
 
 ### CNI network configuration file
 
-The CNI network configuration file is described in JSON format. It is, by default, present in `/etc/cni/net.d` for Linux and `c:\cni\netconf` for Windows. The file specifies the configuration of the plug-in and is different for Windows and Linux. The json that follows is a sample Linux configuration file, and the meaning of the settings. You don't need to make any changes to the file:
+The CNI network configuration file is described in JSON format. It is, by default, present in `/etc/cni/net.d` for Linux and `c:\cni\netconf` for Windows. The file specifies the configuration of the plug-in and is different for Windows and Linux. The json that follows is a sample Linux configuration file, followed by an explanation of the settings. You don't need to make any changes to the file:
 
 ```json
 {
@@ -120,8 +122,8 @@ The CNI network configuration file is described in JSON format. It is, by defaul
 ## Example configuration
 
 The json example that follows is for a cluster with the following properties:
--	Contains 1 Master node and 2 Agent nodes 
--	Cluster is deployed in a subnet named *KubeClusterSubnet* (10.0.0.0/20), with both Master and Agent nodes residing in it.
+-	1 Master node and 2 Agent nodes 
+-	Is deployed in a subnet named *KubeClusterSubnet* (10.0.0.0/20), with both Master and Agent nodes residing in it.
 
 ```json
 {
