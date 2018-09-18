@@ -43,6 +43,7 @@
 ### [Create an OU on a managed domain](active-directory-ds-admin-guide-create-ou.md)
 ### [Create a group managed service account on a managed domain](active-directory-ds-create-gmsa.md)
 ### [Administer group policy on a managed domain](active-directory-ds-admin-guide-administer-group-policy.md)
+### [Configure password polices on a managed domain](active-directory-ds-password-policy.md)
 ## [Select a virtual network](active-directory-ds-networking.md)
 ## Deploy applications
 ### [Configure support for profile synchronization for SharePoint Server](active-directory-ds-enable-sharepoint-profile-sync.md)

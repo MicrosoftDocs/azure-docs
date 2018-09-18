@@ -57,7 +57,7 @@ This quickstart contains a code sample that demonstrates how an Android applicat
 >> To find the *Application ID*, go to *Overview* page.
 
 > [!div renderon="portal" class="sxs-lookup"]
-> ### Step 1: Configure your application
+> #### Step 1: Configure your application
 > For the code sample for this quickstart to work, you need to add a reply URL as **msal{AppId}://auth** (where {AppId} is the application ID of your app).
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make this change for me]()

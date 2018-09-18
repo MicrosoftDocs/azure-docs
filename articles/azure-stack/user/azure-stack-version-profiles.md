@@ -11,7 +11,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/17/2018
 ms.author: sethm
 ms.reviewer: sijuman
 
@@ -44,7 +44,7 @@ This topic helps you:
     - **yyyy-mm-dd-profile**
     Sits between optimal stability and the latest features.
 
-### Azure API profiles and Azure Stack compatibility
+## Azure API profiles and Azure Stack compatibility
 
 The newest Azure API profiles are not compatible with Azure Stack. You can use the following naming conventions to identify which profiles to use for your Azure Stack solutions.
 
