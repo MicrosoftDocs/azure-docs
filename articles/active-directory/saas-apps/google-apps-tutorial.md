@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with G Suite | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and G Suite.
 services: active-directory
@@ -66,7 +66,7 @@ To test the steps in this tutorial, you should follow these recommendations:
 
 1. **Q: If a user is signed in through Windows, are they automatically authenticate to G Suite without getting prompted for a password?**
    
-    A: There are two options for enabling this scenario. First, users could sign into Windows 10 devices via [Azure Active Directory Join](../device-management-introduction.md). Alternatively, users could sign into Windows devices that are domain-joined to an on-premises Active Directory that has been enabled for single sign-on to Azure AD via an [Active Directory Federation Services (AD FS)](../connect/active-directory-aadconnect-user-signin.md) deployment. Both options require you to perform the steps in the following tutorial to enable single sign-on between Azure AD and G Suite.
+    A: There are two options for enabling this scenario. First, users could sign into Windows 10 devices via [Azure Active Directory Join](../device-management-introduction.md). Alternatively, users could sign into Windows devices that are domain-joined to an on-premises Active Directory that has been enabled for single sign-on to Azure AD via an [Active Directory Federation Services (AD FS)](../hybrid/plan-connect-user-signin.md) deployment. Both options require you to perform the steps in the following tutorial to enable single sign-on between Azure AD and G Suite.
 
 ## Scenario description
 In this tutorial, you test Azure AD single sign-on in a test environment. 

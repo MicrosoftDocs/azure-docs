@@ -13984,56 +13984,7 @@
             "redirect_url": "vmware-physical-azure-support-matrix",
             "redirect_document_id": false
         },
-        {
-            "source_path": "articles/active-directory/active-directory-aadconnect-design-concepts.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnect-design-concepts",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/active-directory/active-directory-aadconnect-azure-adfs.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnect-azure-adfs",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/active-directory/active-directory-aadconnect-dirsync-deprecated.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnect-dirsync-deprecated",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/active-directory/active-directory-aadconnect-faq.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnect-faq",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/active-directory/active-directory-aadconnect-feature-automatic-upgrade.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnect-feature-automatic-upgrade",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/active-directory/active-directory-aadconnect-feature-preview.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnect-feature-preview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/active-directory/active-directory-aadconnect-feature-device-writeback.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnect-feature-device-writeback",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/active-directory/active-directory-aadconnect-federation-compatibility.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnect-federation-compatibility",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/active-directory/active-directory-aadconnect-federation-management.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnect-federation-management",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/active-directory/active-directory-aadconnect-germany.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnect-germany",
-            "redirect_document_id": false
-        },
+        
         {
             "source_path": "articles/active-directory/active-directory-aadconnect-health-adds.md",
             "redirect_url": "/azure/active-directory/connect-health/active-directory-aadconnect-health-adds",
@@ -14064,11 +14015,7 @@
             "redirect_url": "/azure/active-directory/connect-health/active-directory-aadconnect-health-sync",
             "redirect_document_id": false
         },
-        {
-            "source_path": "articles/active-directory/active-directory-aadconnect-instances.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnect-instances",
-            "redirect_document_id": false
-        },
+
         {
             "source_path": "articles/active-directory/active-directory-aadconnect-health.md",
             "redirect_url": "/azure/active-directory/connect-health/active-directory-aadconnect-health",
@@ -14079,106 +14026,17 @@
             "redirect_url": "/azure/active-directory/connect-health/active-directory-aadconnect-health-version-history",
             "redirect_document_id": false
         },
-        {
-            "source_path": "articles/active-directory/active-directory-aadconnect-multiple-domains.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnect-multiple-domains",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/active-directory/active-directory-aadconnect-o365-certs.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnect-o365-certs",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/active-directory/active-directory-aadconnect-ports.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnect-ports",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/active-directory/active-directory-aadconnect-pass-through-authentication.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/active-directory/active-directory-aadconnect-prerequisites.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnect-prerequisites",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/active-directory/active-directory-aadconnect-sso.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnect-sso",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/active-directory/active-directory-aadconnect-topologies.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnect-topologies",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/active-directory/active-directory-aadconnect-troubleshoot-connectivity.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-connectivity",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/active-directory/active-directory-aadconnect-troubleshoot-sync-errors.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-sync-errors",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/active-directory/active-directory-aadconnect-upgrade-previous-version.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/active-directory/active-directory-aadconnect-user-signin.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnect-user-signin",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/active-directory/active-directory-aadconnect-version-history.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnect-version-history",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/active-directory/active-directory-aadconnect-whats-next.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnect-whats-next",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/active-directory/active-directory-aadconnect.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnect",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/active-directory/active-directory-aadconnectfed-whatis.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnectfed-whatis",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/active-directory/active-directory-aadconnectsync-attributes-synchronized.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnectsync-attributes-synchronized",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/active-directory/active-directory-aadconnectsync-best-practices-changing-default-configuration.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnectsync-best-practices-changing-default-configuration",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/active-directory/active-directory-aadconnectsync-change-the-configuration.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnectsync-change-the-configuration",
-            "redirect_document_id": false
-        },
+       
+       
+      
+       
+     
         {
             "source_path": "articles/active-directory/active-directory-aadconnectsync-connector-domino.md",
             "redirect_url": "https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-domino",
             "redirect_document_id": false
         },
-        {
-            "source_path": "articles/active-directory/active-directory-aadconnectsync-configure-filtering.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnectsync-configure-filtering",
-            "redirect_document_id": false
-        },
+       
         {
             "source_path": "articles/active-directory/active-directory-aadconnectsync-connector-genericldap.md",
             "redirect_url": "https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap",
@@ -14204,126 +14062,545 @@
             "redirect_url": "https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql",
             "redirect_document_id": false
         },
-        {
-            "source_path": "articles/active-directory/active-directory-aadconnectsync-connector-version-history.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnectsync-connector-version-history",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/active-directory/active-directory-aadconnectsync-feature-directory-extensions.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnectsync-feature-directory-extensions",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/active-directory/active-directory-aadconnectsync-feature-prevent-accidental-deletes.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnectsync-feature-prevent-accidental-deletes",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/active-directory/active-directory-aadconnectsync-feature-scheduler.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnectsync-feature-scheduler",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/active-directory/active-directory-aadconnectsync-functions-reference.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnectsync-functions-reference",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/active-directory/active-directory-aadconnectsync-howto-azureadaccount.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnectsync-howto-azureadaccount",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/active-directory/active-directory-aadconnectsync-installation-wizard.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnectsync-installation-wizard",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/active-directory/active-directory-aadconnectsync-implement-password-synchronization.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-synchronization",
-            "redirect_document_id": false
-        },
+       {
+"source_path": "articles/active-directory/connect/active-directory-aadconnectsync-understanding-architecture.md",
+"redirect_url": "/azure/active-directory/hybrid/concept-azure-ad-connect-sync-architecture",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md",
+"redirect_url": "/azure/active-directory/hybrid/concept-azure-ad-connect-sync-declarative-provisioning-expressions",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnectsync-understanding-declarative-provisioning.md",
+"redirect_url": "/azure/active-directory/hybrid/concept-azure-ad-connect-sync-declarative-provisioning",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnectsync-understanding-default-configuration.md",
+"redirect_url": "/azure/active-directory/hybrid/concept-azure-ad-connect-sync-default-configuration",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnectsync-understanding-users-and-contacts.md",
+"redirect_url": "/azure/active-directory/hybrid/concept-azure-ad-connect-sync-user-and-contacts",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnect-dirsync-upgrade-get-started.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-dirsync-upgrade-get-started",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnect-existing-database.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-install-existing-database",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnect-feature-automatic-upgrade.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnect-get-started-custom.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-install-custom",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnect-get-started-express.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-install-express",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect-health/active-directory-aadconnect-health-agent-install.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-health-agent-install",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnect-move-db.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-install-move-db",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnect-prerequisites.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-install-prerequisites",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnect-select-installation.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-install-select-installation",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnect-sql-delegation.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-install-sql-delegation",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnect-upgrade-previous-version.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-upgrade-previous-version",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnectsync-installation-wizard.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-installation-wizard",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnect-existing-tenant.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-install-existing-tenant",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnect-feature-device-writeback.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-device-writeback",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnect-feature-preview.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-preview",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnect-multiple-domains.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-install-multiple-domains",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnect-whats-next.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-post-installation",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnectsync-howto-azureadaccount.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-azureadaccount",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-azure-ad-connect-azure-ad-trust.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-azure-ad-trust",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-azure-ad-connect-device-options.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-device-options",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect-health/active-directory-aadconnect-health-adds.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-health-adds",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect-health/active-directory-aadconnect-health-adfs.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-health-adfs",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect-health/active-directory-aadconnect-health-alert-catalog.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-health-alert-catalog",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect-health/active-directory-aadconnect-health-data-freshness.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-health-data-freshness",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect-health/active-directory-aadconnect-health-diagnose-sync-errors.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-health-diagnose-sync-errors",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect-health/active-directory-aadconnect-health-operations.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-health-operations",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect-health/active-directory-aadconnect-health-sync.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-health-sync",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnectsync-best-practices-changing-default-configuration.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-sync-best-practices-changing-default-configuration",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnectsync-change-addsacct-pass.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-sync-change-addsacct-pass",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnectsync-change-serviceacct-pass.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-sync-change-serviceacct-pass",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnectsync-change-the-configuration.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-sync-change-the-configuration",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnectsync-configure-filtering.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-sync-configure-filtering",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnectsync-feature-directory-extensions.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnectsync-feature-preferreddatalocation.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-sync-feature-preferreddatalocation",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnectsync-feature-prevent-accidental-deletes.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-sync-feature-prevent-accidental-deletes",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnectsync-feature-scheduler.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-sync-feature-scheduler",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnectsync-operations.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-sync-operations",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnectsync-recycle-bin.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-sync-recycle-bin",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-connectors.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-sync-service-manager-ui-connectors",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-mvdesigner.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-sync-service-manager-ui-mvdesigner",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-mvsearch.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-sync-service-manager-ui-mvsearch",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-operations.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-sync-service-manager-ui-operations",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnectsync-service-manager-ui.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-sync-service-manager-ui",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnectsync-technical-concepts.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-sync-technical-concepts",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnectsync-whatis.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-sync-whatis",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-syncservice-duplicate-attribute-resiliency",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnectsyncservice-features.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-syncservice-features",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnectsyncservice-shadow-attributes.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-syncservice-shadow-attributes",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnect-azure-adfs.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-fed-azure-adfs",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnect-federation-compatibility.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-fed-compatibility",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnect-federation-management.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-fed-management",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnect-federation-saml-idp.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-fed-saml-idp",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnect-o365-certs.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-fed-o365-certs",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnectfed-single-adfs-multitenant-federation.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-fed-single-adfs-multitenant-federation",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnectfed-ssl-update.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-fed-ssl-update",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnectfed-whatis.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-fed-whatis",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-azure-ad-connect-hybrid-azure-ad-join-post-config-tasks.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-fed-hybrid-azure-ad-join-post-config-tasks",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnect-pass-through-authentication-current-limitations.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-pta-current-limitations",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnect-pass-through-authentication-faq.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-pta-faq",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnect-pass-through-authentication-gdpr.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-pta-user-privacy",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnect-pass-through-authentication-how-it-works.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-pta-how-it-works",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnect-pass-through-authentication-quick-start.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-pta-quick-start",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnect-pass-through-authentication-security-deep-dive.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-pta-security-deep-dive",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnect-pass-through-authentication-upgrade-preview-authentication-agents.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-pta-upgrade-preview-authentication-agents",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnect-pass-through-authentication.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-pta",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnect-sso-faq.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-sso-faq",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnect-sso-gdpr.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-sso-user-privacy",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnect-sso-how-it-works.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-sso-how-it-works",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnect-sso-quick-start.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-sso-quick-start",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnect-sso.md",
+"redirect_url": "/azure/active-directory/hybrid/how-to-connect-sso",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnect-design-concepts.md",
+"redirect_url": "/azure/active-directory/hybrid/plan-connect-design-concepts",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnect-topologies.md",
+"redirect_url": "/azure/active-directory/hybrid/plan-connect-topologies",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnect-user-signin.md",
+"redirect_url": "/azure/active-directory/hybrid/plan-connect-user-signin",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnect-userprincipalname.md",
+"redirect_url": "/azure/active-directory/hybrid/plan-connect-userprincipalname",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnect-accounts-permissions.md",
+"redirect_url": "/azure/active-directory/hybrid/reference-connect-accounts-permissions",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnect-dirsync-deprecated.md",
+"redirect_url": "/azure/active-directory/hybrid/reference-connect-dirsync-deprecated",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnect-faq.md",
+"redirect_url": "/azure/active-directory/hybrid/reference-connect-faq",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnect-gdpr.md",
+"redirect_url": "/azure/active-directory/hybrid/reference-connect-user-privacy",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnect-germany.md",
+"redirect_url": "/azure/active-directory/hybrid/reference-connect-germany",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnect-health-faq.md",
+"redirect_url": "/azure/active-directory/hybrid/reference-connect-health-faq",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnect-health-gdpr.md",
+"redirect_url": "/azure/active-directory/hybrid/reference-connect-health-user-privacy",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnect-health-version-history.md",
+"redirect_url": "/azure/active-directory/hybrid/reference-connect-health-version-history",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnect-instances.md",
+"redirect_url": "/azure/active-directory/hybrid/reference-connect-instances",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnect-ports.md",
+"redirect_url": "/azure/active-directory/hybrid/reference-connect-ports",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnect-version-history.md",
+"redirect_url": "/azure/active-directory/hybrid/reference-connect-version-history",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnectsync-attributes-synchronized.md",
+"redirect_url": "/azure/active-directory/hybrid/reference-connect-sync-attributes-synchronized",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnectsync-connector-version-history.md",
+"redirect_url": "/azure/active-directory/hybrid/reference-connect-sync-connector-version-history",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnectsync-functions-reference.md",
+"redirect_url": "/azure/active-directory/hybrid/reference-connect-sync-functions-reference",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnect-recover-from-localdb-10gb-limit.md",
+"redirect_url": "/azure/active-directory/hybrid/tshoot-connect-recover-from-localdb-10gb-limit",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnect-troubleshoot-connectivity.md",
+"redirect_url": "/azure/active-directory/hybrid/tshoot-connect-connectivity",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnect-troubleshoot-objectsync.md",
+"redirect_url": "/azure/active-directory/hybrid/tshoot-connect-objectsync",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnect-troubleshoot-pass-through-authentication.md",
+"redirect_url": "/azure/active-directory/hybrid/tshoot-connect-pass-through-authentication",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnect-troubleshoot-sso.md",
+"redirect_url": "/azure/active-directory/hybrid/tshoot-connect-sso",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnect-troubleshoot-sync-errors.md",
+"redirect_url": "/azure/active-directory/hybrid/tshoot-connect-sync-errors",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnect-tshoot-sql-connectivity.md",
+"redirect_url": "/azure/active-directory/hybrid/tshoot-connect-tshoot-sql-connectivity",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnectsync-largeobjecterror-usercertificate.md",
+"redirect_url": "/azure/active-directory/hybrid/tshoot-connect-largeobjecterror-usercertificate",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnectsync-troubleshoot-object-not-syncing.md",
+"redirect_url": "/azure/active-directory/hybrid/tshoot-connect-object-not-syncing",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/connect/active-directory-aadconnectsync-troubleshoot-password-hash-synchronization.md",
+"redirect_url": "/azure/active-directory/hybrid/tshoot-connect-password-hash-synchronization",
+"redirect_document_id": false
+},
+
+      
+    
+     
+       
+       
+       
+       
         {
             "source_path": "articles/iot-hub/iot-hub-security-ground-up.md",
             "redirect_url": "/azure/iot-fundamentals/iot-security-ground-up",
             "redirect_document_id": true
         },
-        {
-            "source_path": "articles/active-directory/active-directory-aadconnectsync-operations.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnectsync-operations",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/active-directory/active-directory-aadconnectsync-service-manager-ui-connectors.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-connectors",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/active-directory/active-directory-aadconnectsync-service-manager-ui-mvdesigner.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-mvdesigner",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/active-directory/active-directory-aadconnectsync-service-manager-ui-operations.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-operations",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/active-directory/active-directory-aadconnectsync-service-manager-ui.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/active-directory/active-directory-aadconnectsync-technical-concepts.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnectsync-technical-concepts",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/active-directory/active-directory-aadconnectsync-understanding-architecture.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnectsync-understanding-architecture",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/active-directory/active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnectsync-understanding-declarative-provisioning-expressions",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/active-directory/active-directory-aadconnectsync-service-manager-ui-mvsearch.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-mvsearch",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/active-directory/active-directory-aadconnectsync-understanding-declarative-provisioning.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnectsync-understanding-declarative-provisioning",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/active-directory/active-directory-aadconnectsync-understanding-default-configuration.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnectsync-understanding-default-configuration",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/active-directory/active-directory-aadconnectsync-understanding-users-and-contacts.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnectsync-understanding-users-and-contacts",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/active-directory/active-directory-aadconnectsync-whatis.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnectsync-whatis",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/active-directory/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/active-directory/active-directory-aadconnectsyncservice-features.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnectsyncservice-features",
-            "redirect_document_id": false
-        },
+      
+      
+      
+       
+        
+        
         {
             "source_path": "articles/active-directory/active-directory-app-gallery-listing.md",
             "redirect_url": "/azure/active-directory/develop/active-directory-app-gallery-listing",
@@ -14879,9 +15156,16 @@
             "redirect_url": "/azure/active-directory/connect/active-directory-aadconnect",
             "redirect_document_id": false
         },
+
+		
         {
             "source_path": "articles/active-directory/develop/index.md",
             "redirect_url": "/azure/active-directory/develop/active-directory-developers-guide",
+            "redirect_document_id": false
+        },
+		        {
+            "source_path": "articles/active-directory/hybrid/whatis-hybrid-identity-health.md",
+            "redirect_url": "/azure/active-directory/hybrid/whatis-hybrid-identity",
             "redirect_document_id": false
         },
         {
@@ -17054,6 +17338,76 @@
             "redirect_url": "/azure/virtual-machines/windows/hpcpack-cluster-active-directory",
             "redirect_document_id": false
         },
+		{
+"source_path": "articles/active-directory/active-directory-hybrid-identity-design-considerations-accesscontrol-requirements.md",
+"redirect_url": "/azure/active-directory/hybrid/plan-hybrid-identity-design-considerations-accesscontrol-requirements",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/active-directory-hybrid-identity-design-considerations-business-needs.md",
+"redirect_url": "/azure/active-directory/hybrid/plan-hybrid-identity-design-considerations-business-needs",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md",
+"redirect_url": "/azure/active-directory/hybrid/plan-hybrid-identity-design-considerations-contentmgt-requirements",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/active-directory-hybrid-identity-design-considerations-data-protection-strategy.md",
+"redirect_url": "/azure/active-directory/hybrid/plan-hybrid-identity-design-considerations-data-protection-strategy",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md",
+"redirect_url": "/azure/active-directory/hybrid/plan-hybrid-identity-design-considerations-dataprotection-requirements",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md",
+"redirect_url": "/azure/active-directory/hybrid/plan-hybrid-identity-design-considerations-directory-sync-requirements",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md",
+"redirect_url": "/azure/active-directory/hybrid/plan-hybrid-identity-design-considerations-hybrid-id-management-tasks",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/active-directory-hybrid-identity-design-considerations-identity-adoption-strategy.md",
+"redirect_url": "/azure/active-directory/hybrid/plan-hybrid-identity-design-considerations-identity-adoption-strategy",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/active-directory-hybrid-identity-design-considerations-incident-response-requirements.md",
+"redirect_url": "/azure/active-directory/hybrid/plan-hybrid-identity-design-considerations-incident-response-requirements",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/active-directory-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md",
+"redirect_url": "/azure/active-directory/hybrid/plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md",
+"redirect_url": "/azure/active-directory/hybrid/plan-hybrid-identity-design-considerations-multifactor-auth-requirements",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/active-directory-hybrid-identity-design-considerations-nextsteps.md",
+"redirect_url": "/azure/active-directory/hybrid/plan-hybrid-identity-design-considerations-nextsteps",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/active-directory-hybrid-identity-design-considerations-overview.md",
+"redirect_url": "/azure/active-directory/hybrid/plan-hybrid-identity-design-considerations-overview",
+"redirect_document_id": false
+},
+{
+"source_path": "articles/active-directory/active-directory-hybrid-identity-design-considerations-tools-comparison.md",
+"redirect_url": "/azure/active-directory/hybrid/plan-hybrid-identity-design-considerations-tools-comparison",
+"redirect_document_id": false
+},
         {
             "source_path": "articles/virtual-machines/virtual-machines-windows-hpcpack-cluster-headnode.md",
             "redirect_url": "/azure/virtual-machines/windows/hpcpack-cluster-headnode",
@@ -23412,16 +23766,7 @@
             "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements",
             "redirect_document_id": false
         },
-        {
-            "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-implement-password-synchronization.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-troubleshoot-password-synchronization.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnectsync-troubleshoot-password-hash-synchronization",
-            "redirect_document_id": false
-        },
+        
         {
             "source_path": "articles/azure-stack/azure-stack-deploy.md",
             "redirect_url": "/azure/azure-stack/asdk/asdk-deploy",
@@ -25327,6 +25672,16 @@
             "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-identification-authentication-controls",
             "redirect_document_id": true
         },
+		{
+		    "source_path": "articles/active-directory/connect/active-directory-aadconnect.md",
+            "redirect_url": "/azure/active-directory/hybrid/whatis-hybrid-identity",
+            "redirect_document_id": false
+        },
+{
+            "source_path": "articles/active-directory/connect-health/active-directory-aadconnect-health.md",
+            "redirect_url": "/azure/active-directory/hybrid/whatis-hybrid-identity",
+           "redirect_document_id": false
+},
         {
             "source_path": "articles/security/blueprints/fedramp-incident-response-controls.md",
             "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-incident-response-controls",
@@ -26737,11 +27092,7 @@
             "redirect_url": "/azure/key-vault/key-vault-overview",
             "redirect_document_id": true
         },
-        {
-            "source_path": "articles/active-directory/connect/active-directory-aadconnect-guest-sync.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnect",
-            "redirect_document_id": false
-        },
+        
         {
             "source_path": "articles/azure-stack/asdk/asdk-deploy.md",
             "redirect_url": "/azure/azure-stack/asdk/asdk-install",
@@ -27988,7 +28339,7 @@
         },
         {
             "source_path": "articles/azure-government/documentation-government-get-started-connect-with-vsts.md",
-            "redirect_url": "/azure/azure-government/documentation-government-get-started-connect-with-vs",
+            "redirect_url": "/azure/azure-government/connect-with-azure-pipelines",
             "redirect_document_id" : true
         },
         {
