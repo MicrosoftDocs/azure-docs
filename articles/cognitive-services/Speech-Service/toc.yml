@@ -174,7 +174,7 @@
     - name: Third-party notices
       href: devices-sdk-third-party-notices.md
       displayName: roobo, speech devices sdk
-  - name: Troubleshooting
+  - name: Troubleshoot the Speech SDK
     href: troubleshooting.md
   - name: Support
     href: support.md
