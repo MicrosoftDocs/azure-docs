@@ -18,6 +18,9 @@ The **Key Phrase Extraction** skill evaluates unstructured text, and for each re
 
 This capability is useful if you need to quickly identify the main talking points in the record. For example, given input text "The food was delicious and there were wonderful staff", the service returns "food" and "wonderful staff".
 
+> [!NOTE]
+> Cognitive Search is in public preview. Skillset execution, and image extraction and normalization are currently offered for free. At a later time, the pricing for these capabilities will be announced. 
+
 ## @odata.type  
 Microsoft.Skills.Text.KeyPhraseExtractionSkill 
 

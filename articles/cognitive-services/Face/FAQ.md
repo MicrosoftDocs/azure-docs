@@ -1,17 +1,20 @@
 ---
-title: Frequently asked questions for the Face API Service | Microsoft Docs
+title: Frequently asked questions - Face API
+titlesuffix: Azure Cognitive Services
 description: Here are answers to the most popular questions about the Face API Service.
 services: cognitive-services
 author: SteveMSFT
-manager: corncar
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: face-api
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/26/2017
 ms.author: sbowles
 ---
 
 # Face API Frequently Asked Questions
+
 ### If you can't find answers to your questions in this FAQ, try asking the Face API community on [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) or contact Help and Support on [UserVoice](https://cognitive.uservoice.com/).
 
 -----

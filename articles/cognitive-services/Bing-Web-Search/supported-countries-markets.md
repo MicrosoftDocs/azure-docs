@@ -1,9 +1,10 @@
 ---
 title: Countries, regions, and languages supported by the Bing Web Search API
+titleSuffix: Azure Cognitive Services
 description: Find out which countries/regions and languages are supported by the Bing Web Search API.
 services: cognitive-services
 author: v-jerkin
-manager: jhubbard
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: article
