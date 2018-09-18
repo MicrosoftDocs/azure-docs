@@ -1,14 +1,14 @@
 ---
-title: "Quickstart: Send search queries with the Bing Image Search API using Node.js"
+title: "Quickstart: Perform an image search with Node.js - Bing Image Search API"
 titleSuffix: Azure Cognitive Services
-description: Use this quickstart to search and find images on the web using the Bing Web Search API.
+description: Use this quickstart to make your first call to the Bing Image Search API and receive a JSON response. This simple JavaScript application sends a search query to the API and displays the raw results.
 services: cognitive-services
 documentationcenter: ''
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 8/20/2018
 ms.author: aahi
 ---
@@ -69,7 +69,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
 ## Handle and parse the response
 
 1. define a function named `response_handler` that takes an HTTP call, `response`, as a parameter. within this function, perform the following steps:
-    
+
     1. Define a variable to contain the body of the JSON response.  
         ```javascript
         let response_handler = function (response) {
@@ -77,7 +77,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
         };
         ```
 
-    2. Store the body of the response when the **data** flag is called 
+    2. Store the body of the response when the **data** flag is called
         ```javascript
         response.on('data', function (d) {
             body += d;
@@ -85,7 +85,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
         ```
 
     3. When an **end** flag is signalled, the JSON can be processed, and URL for the image can be printed, along with the total number of returned images.
-    
+
         ```javascript
         response.on('end', function () {
             let firstImageResult = imageResults.value[0];
@@ -148,7 +148,7 @@ Responses from the Bing Image Search API are returned as JSON. This sample respo
 > [!div class="nextstepaction"]
 > [Bing Image Search single-page app tutorial](../tutorial-bing-image-search-single-page-app.md)
 
-## See also 
+## See also
 
 * [What is Bing Image Search?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
 * [Try an online interactive demo](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
