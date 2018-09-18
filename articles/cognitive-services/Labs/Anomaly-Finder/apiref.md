@@ -11,9 +11,9 @@ ms.date: 04/19/2018
 ms.author: tonyxing
 --- 
 
-[!INCLUDE [PrivatePreviewNote](./includes/private-preview-note.md)]
-
 # Anomaly Finder API reference
+
+[!INCLUDE [PrivatePreviewNote](./includes/private-preview-note.md)]
 
 [!INCLUDE [overview](./includes/overview.md)]
 [!INCLUDE [overview](./includes/definitions.md)]

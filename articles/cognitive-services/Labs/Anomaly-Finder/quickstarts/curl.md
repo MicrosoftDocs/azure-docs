@@ -11,10 +11,9 @@ ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
 ---
+# Use the Anomaly Finder API with cURL
 
 [!INCLUDE [PrivatePreviewNote](../includes/private-preview-note.md)]
-
-# Use the Anomaly Finder API with cURL
 
 This article provides information and code samples to help you quickly get started using the Anomaly Finder API with cURL to accomplish task of getting anomaly result of time series data.
 

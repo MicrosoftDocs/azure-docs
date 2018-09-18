@@ -12,9 +12,9 @@ ms.date: 05/01/2018
 ms.author: chliang
 ---
 
-[!INCLUDE [PrivatePreviewNote](../includes/private-preview-note.md)]
-
 # Use the Anomaly Finder API with Python
+
+[!INCLUDE [PrivatePreviewNote](../includes/private-preview-note.md)]
 
 This article provides information and code samples to help you quickly get started using the Anomaly Finder API with Python to accomplish task of getting anomaly result for time series data.
 

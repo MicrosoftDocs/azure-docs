@@ -12,9 +12,9 @@ ms.date: 05/01/2018
 ms.author: kefre
 ---
 
-[!INCLUDE [PrivatePreviewNote](../includes/private-preview-note.md)]
-
 # Use the Anomaly Finder API with Java
+
+[!INCLUDE [PrivatePreviewNote](../includes/private-preview-note.md)]
 
 This article provides information and code samples to help you quickly get started using the Anomaly Detection API with Java to accomplish task of getting anomaly detection result for time series data.
 

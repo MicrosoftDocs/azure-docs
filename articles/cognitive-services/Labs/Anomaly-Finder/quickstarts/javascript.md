@@ -12,9 +12,9 @@ ms.date: 05/01/2018
 ms.author: chliang
 ---
 
-[!INCLUDE [PrivatePreviewNote](../includes/private-preview-note.md)]
-
 # Use the Anomaly Finder API with Javascript
+
+[!INCLUDE [PrivatePreviewNote](../includes/private-preview-note.md)]
 
 This article provides information and code samples to help you quickly get started using the Anomaly Detection API with Javascript to accomplish the task of getting anomaly detection result of time series data.
 
