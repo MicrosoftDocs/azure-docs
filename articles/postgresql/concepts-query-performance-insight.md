@@ -9,34 +9,37 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ---
 
-## Query Performance Insight 
+# Query Performance Insight 
 
 > [!IMPORTANT]
 > The Query Performance Insight feature is in Public Preview. 
 
-
-
+Query Performance Insight helps you to quickly identify what your longest running queries are, how they change over time, and what waits are affecting them.
 
 ## Permissions
 **Owner** or **Contributor** permissions required to view the text of the queries in Query Performance Insight. **Reader** can view charts and tables but not query text.
 
 ## Prerequisites
-For Query Performance Insight to work, Query Store has to be enabled for the Azure Database for PostgreSQL server
+For Query Performance Insight to function, data must exist in the [Query Store](concepts-query-store.md).
 
-## Performance insights
+## Viewing performance insights
 The [Query Performance Insight](concepts-query-performance-insight.md) view in the Azure portal will surface visualizations on key information from Query Store. 
 
-1. In the portal page of your Azure Database for PostgreSQL server, select **Query performance Insight** under the **Support + troubleshooting** section of the menu bar.
+In the portal page of your Azure Database for PostgreSQL server, select **Query performance Insight** under the **Support + troubleshooting** section of the menu bar.
 
-2. The **Long running queries** tab shows the top 5 queries by average duration per execution, aggregated in 15 minute intervals. You can view more queries by selecting from the **Number of Queries** drop down.
+![Query Performance Insight long running queries](./media/concepts-query-performance-insight/query-performance-insight-landing-page.png)
 
-3. You can click and drag in the chart to narrow down to a specific time window.
+The **Long running queries** tab shows the top 5 queries by average duration per execution, aggregated in 15 minute intervals. You can view more queries by selecting from the **Number of Queries** drop down.
 
-4. Use the zoom in and out icons to view a smaller or larger period of time respectively.
+It is important to note that the top query selection is based on the average execution duration. By increasing the number of queries, you may see additional queries with lower average execution duration added to the view with higher total execution time if they have higher execution count.
 
-5. View the table below the chart to learn more details about the top queries in that time window.
+You can click and drag in the chart to narrow down to a specific time window. Alternatively, use the zoom in and out icons to view a smaller or larger period of time respectively.
 
-6. Select the **Wait Statistics** tab to view the corresponding visualizations on waits in the server.
+The table below the chart gives more details about the long-running queries in that time window.
+
+Select the **Wait Statistics** tab to view the corresponding visualizations on waits in the server.
+
+![Query Performance Insight wait statistics](./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png)
 
 ## Next Steps
 - Learn more about [monitoring and tuning](concepts-monitoring.md) in Azure Database for PostgreSQL.

@@ -11,10 +11,9 @@ ms.date: 09/24/2018
 # Performance Recommendations
 
 > [!IMPORTANT]
-> The Performance Recommendations feature is in Public Preview.
+> Performance Recommendations is in Public Preview.
 
-
-
+The Performance Recommendations feature identifies the top indexes which can be created in your Azure Database for PostgreSQL server to improve performance.
 
 ## Permissions
 **Owner** or **Contributor** permissions required to run analysis using the Performance Recommendations feature.
@@ -22,17 +21,17 @@ ms.date: 09/24/2018
 ## Performance recommendations
 The [Performance Recommendations](concepts-performance-recommendations.md) feature analyzes workloads across your server to identify indexes with the potential to improve performance.
 
-1. Open **Performance Recommendations** from the **Support + troubleshooting** section of the menu bar on the Azure portal page for your PostgreSQL server.
+Open **Performance Recommendations** from the **Support + troubleshooting** section of the menu bar on the Azure portal page for your PostgreSQL server.
 
-2. Select **Analyze** and choose a database. This will begin the analysis.
+![Performance Recommendations landing page](./media/concepts-performance-recommendations/performance-recommendations-landing-page.png)
 
-3. Depending on your workload this may take many minutes to complete. Once the analysis is done, there will be a notification in the portal.
+Select **Analyze** and choose a database. This will begin the analysis. Depending on your workload this may take several minutes to complete. Once the analysis is done, there will be a notification in the portal.
 
-4. The **Performance Recommendations** window will show a list of recommendations if any were found. If it concludes that your workload needs no additional indexes, there will be no recommendation. 
+The **Performance Recommendations** window will show a list of recommendations if any were found. A recommendation will show information about the relevant **Database**, **Table**, **Column**, and **Index Size**.
 
-5. A recommendation will show information about the relevant **Database**, **Table**, **Column**, and **Index Size**.
+![Performance Recommendations new page](./media/concepts-performance-recommendations/performance-recommendations-result.png)
 
-6. To implement the recommendation, copy the query text and run it from your client of choice.
+To implement the recommendation, copy the query text and run it from your client of choice.
 
 ## Next Steps
 - Learn more about [monitoring and tuning](concepts-monitoring.md) in Azure Database for PostgreSQL.

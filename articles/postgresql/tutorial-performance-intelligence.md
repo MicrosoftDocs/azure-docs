@@ -34,9 +34,10 @@ The [Query Store](concepts-query-store.md) captures a history of queries and wai
 
 3. Select **Server parameters** which is in the **Settings** section of the menu on the left.
 
-4. Set **pg_qs.query_capture_mode** to **TOP** to start collecting query performance data. Set **pgms_wait_sampling** to **ALL** to start collecting wait statistics. 
+4. Set **pg_qs.query_capture_mode** to **TOP** to start collecting query performance data. Set **pgms_wait_sampling** to **ALL** to start collecting wait statistics. Save.
+   ![Query Store server parameters](./media/tutorial-performance-intelligence/query-store-parameters.png)
 
-5. Allow up to 15 minutes for the first batch of data to persist in the azure_sys database.
+5. Allow up to 20 minutes for the first batch of data to persist in the **azure_sys** database.
 
 
 ## Performance insights
@@ -45,14 +46,18 @@ The [Query Performance Insight](concepts-query-performance-insight.md) view in t
 1. In the portal page of your Azure Database for PostgreSQL server, select **Query performance Insight** under the **Support + troubleshooting** section of the menu on the left.
 
 2. The **Long running queries** tab shows the top 5 queries by average duration per execution, aggregated in 15 minute intervals. You can view more queries by selecting from the **Number of Queries** drop down.
+   ![Query Performance Insight landing page](./media/tutorial-performance-intelligence/query-performance-insight-landing-page.png)
+   
+   It is important to note that the top query selection is based on the average execution duration. By increasing the number of queries, you may see additional queries with lower average execution duration added to the view with higher total execution time if they have higher execution count.
 
 3. You can click and drag in the chart to narrow down to a specific time window.
 
 4. Use the zoom in and out icons to view a smaller or larger period of time respectively.
 
-5. View the table below the chart to learn more details about the top queries in that time window.
+5. View the table below the chart to learn more details about the long-running queries in that time window.
 
 6. Select the **Wait Statistics** tab to view the corresponding visualizations on waits in the server.
+   ![Query Performance Insight wait statistics](./media/tutorial-performance-intelligence/query-performance-insight-wait-statistics.png)
 
 ### Permissions
 **Owner** or **Contributor** permissions required to view the text of the queries in Query Performance Insight. **Reader** can view charts and tables but not query text.
@@ -62,14 +67,16 @@ The [Query Performance Insight](concepts-query-performance-insight.md) view in t
 The [Performance Recommendations](concepts-performance-recommendations.md) feature analyzes workloads across your server to identify indexes with the potential to improve performance.
 
 1. Open **Performance Recommendations** from the **Support + troubleshooting** section of the menu bar on the Azure portal page for your PostgreSQL server.
+   ![Performance Recommendations landing page](./media/tutorial-performance-intelligence/performance-recommendations-landing-page.png)
 
 2. Select **Analyze** and choose a database. This will begin the analysis.
 
-3. Depending on your workload, this may take many minutes to complete. Once the analysis is done, there will be a notification in the portal.
+3. Depending on your workload, this may take several minutes to complete. Once the analysis is done, there will be a notification in the portal.
 
-4. The **Performance Recommendations** window will show a list of recommendations if any were found. If it concludes that your workload needs no additional indexes, there will be no recommendation. 
+4. The **Performance Recommendations** window will show a list of recommendations if any were found. 
 
 5. A recommendation will show information about the relevant **Database**, **Table**, **Column**, and **Index Size**.
+   ![Performance Recommendations result](./media/tutorial-performance-intelligence/performance-recommendations-result.png)
 
 6. To implement the recommendation, copy the query text and run it from your client of choice.
 
