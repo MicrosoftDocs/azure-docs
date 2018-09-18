@@ -79,24 +79,24 @@ For simplicity, this article uses [Symmetric key attestation](concepts-symmetric
 
 3. On **Add Enrollment Group**, enter the following information, and click the **Save** button.
 
-    - **Group name**: Enter **contoso-us-devices**.
+    **Group name**: Enter **contoso-us-devices**.
 
-    - **Attestation Type**: Select **Symmetric Key**.
+    **Attestation Type**: Select **Symmetric Key**.
 
-    - **Auto Generate Keys**: This checkbox should already be checked.
+    **Auto Generate Keys**: This checkbox should already be checked.
 
-    - **Select how you want to assign devices to hubs**: Select **Lowest latency**.
+    **Select how you want to assign devices to hubs**: Select **Lowest latency**.
 
     ![Add multitenant enrollment group for symmetric key attestation](./media/how-to-provision-multitenant/create-multitenant-enrollment.png)
 
 
 4. On **Add Enrollment Group**, click **Link a new IoT hub** to link both of your regional hubs.
 
-    - **Subscription**: If you have multiple subscriptions, choose the subscription where you created the regional IoT hubs.
+    **Subscription**: If you have multiple subscriptions, choose the subscription where you created the regional IoT hubs.
 
-    - **IoT hub**: Select one of the regional hubs you created.
+    **IoT hub**: Select one of the regional hubs you created.
 
-    - **Access Policy**: Choose **iothubowner**.
+    **Access Policy**: Choose **iothubowner**.
 
     ![Link the regional IoT hubs with the provisioning service](./media/how-to-provision-multitenant/link-regional-hubs.png)
 
@@ -117,9 +117,11 @@ To make clean-up easier, these VMs will be added to the same resource group that
 
 1. In the Azure Cloud Shell, execute the following command to create an **East US** region VM after making the following parameter changes in the command:
 
-    - **--name**: Enter a unique name for your **East US** regional device VM.    
-    - **--admin-username**: Use your own admin user name.
-    - **--admin-password**: Use your own admin password.
+    **--name**: Enter a unique name for your **East US** regional device VM. 
+
+    **--admin-username**: Use your own admin user name.
+
+    **--admin-password**: Use your own admin password.
 
     ```azurecli-interactive
     az vm create \
@@ -136,9 +138,11 @@ To make clean-up easier, these VMs will be added to the same resource group that
 
 1. In the Azure Cloud Shell, execute the command to create a **West US** region VM after making the following parameter changes in the command:
 
-    - **--name**: Enter a unique name for your **West US** regional device VM.    
-    - **--admin-username**: Use your own admin user name.
-    - **--admin-password**: Use your own admin password.
+    **--name**: Enter a unique name for your **West US** regional device VM. 
+
+    **--admin-username**: Use your own admin user name.
+
+    **--admin-password**: Use your own admin password.
 
     ```azurecli-interactive
     az vm create \
@@ -318,9 +322,7 @@ The sample code simulates a device boot sequence that sends the provisioning req
 
     Save your changes to the file.
 
-
 1. On both VMs, navigate to the sample folder shown below, and build the sample.
-
 
     ```bash
     cd ~/azure-iot-sdk-c/cmake/provisioning_client/samples/prov_dev_client_sample/
@@ -344,7 +346,6 @@ The sample code simulates a device boot sequence that sends the provisioning req
 
     ```
 
-
     ```bash
     contosoadmin@ContosoSimDeviceWest:~/azure-iot-sdk-c/cmake/provisioning_client/samples/prov_dev_client_sample$ ./prov_dev_client_sample
     Provisioning API Version: 1.2.9
@@ -361,6 +362,25 @@ The sample code simulates a device boot sequence that sends the provisioning req
 
 
 
+## Clean up resources
+
+If you plan to continue working with resources created in this article, you can leave them. If you do not plan to continue using the resource, use the following steps to delete all resources created by this article to avoid unnecessary charges.
+
+The steps here assume you created all resources in this article as instructed in the same resource group named **contoso-us-resource-group**.
+
+> [!IMPORTANT]
+> Deleting a resource group is irreversible. The resource group and all the resources contained in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the IoT Hub inside an existing resource group that contains resources you want to keep, only delete the IoT Hub resource itself instead of deleting the resource group.
+>
+
+To delete the resource group by name:
+
+1. Sign in to the [Azure portal](https://portal.azure.com) and click **Resource groups**.
+
+2. In the **Filter by name...** textbox, type the name of the resource group containing your resources, **contoso-us-resource-group**. 
+
+3. To the right of your resource group in the result list, click **...** then **Delete resource group**.
+
+4. You will be asked to confirm the deletion of the resource group. Type the name of your resource group again to confirm, and then click **Delete**. After a few moments, the resource group and all of its contained resources are deleted.
 
 ## Next steps
 
