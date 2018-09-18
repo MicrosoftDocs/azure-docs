@@ -18,12 +18,12 @@ ms.date: 09/24/2018
 > [learn how to sign up for access]. 
 
 For integration scenarios where your logic apps and integration accounts need access to an 
-[Azure virtual network (VNET)](../virtual-network/virtual-networks-overview.md), 
-you can create an *integration service environment* (ISE) that links to your VNET 
-and deploys the Logic Apps service into your VNET. When you create logic apps and 
-integration accounts, you select this ISE as their location. Your logic apps and 
-integration accounts can then directly access resources, such as virtual machines (VMs), 
-servers, systems, and services, in your VNET. 
+[Azure virtual network (VNET)](../virtual-network/virtual-networks-overview.md), you can 
+create an [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-network-environent-overview.md) 
+that links to your VNET and deploys the Logic Apps service into your VNET. When you 
+create logic apps and integration accounts, you select this ISE as their location. 
+Your logic apps and integration accounts can then directly access resources, 
+such as virtual machines (VMs), servers, systems, and services, in your VNET. 
 
 ![Select integration service environment](./media/connect-virtual-network-vnet-isolated-environment/select-logic-app-integration-service-environment.png)
 
@@ -44,7 +44,7 @@ private Logic Apps instance can access your VNET.
 * Create an integration account for your logic apps in your ISE.
 
 For more information about integration service environments, see 
-[Overview: Access to Azure Virtual Network (VNET) resources from isolated Azure Logic Apps](connect-virtual-network-vnet-isolated-environment-overview.md).
+[Access to Azure Virtual Network (VNET) resources from isolated Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
 
 ## Prerequisites
 

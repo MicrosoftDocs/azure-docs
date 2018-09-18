@@ -20,8 +20,8 @@ ms.date: 09/24/2018
 Sometimes, your logic apps and integration accounts need access to secured 
 resources such as virtual machines (VMs) and other systems or services inside an 
 [Azure Virtual Network (VNET)](../virtual-network/virtual-networks-overview.md). 
-To provide this access, you can create an *integration service environment* (ISE) and 
-select that environment as the location for creating your logic apps and integration accounts. 
+To provide this access, you can [create an *integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environments.md) 
+as the location for creating your logic apps and integration accounts. 
 
 ![Select integration service environment](./media/connect-virtual-network-vnet-isolated-environment-overview/select-logic-app-integration-service-environment.png)
 
