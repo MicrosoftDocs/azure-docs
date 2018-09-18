@@ -67,8 +67,12 @@
       href: logic-apps-exception-handling.md
     - name: Handle large messages
       href: logic-apps-handle-large-messages.md
-    - name: Secure your logic apps
-      href: logic-apps-securing-a-logic-app.md
+    - name: Secure
+      items:
+      - name: Secure your logic apps
+        href: logic-apps-securing-a-logic-app.md
+      - name: Authenticate with managed identities
+        href: create-managed-service-identity.md
     - name: Develop custom connectors
       href: custom-connector-overview.md
     - name: Develop custom APIs
