@@ -10,7 +10,7 @@ ms.author: marthalc
 author: marthalc
 ms.date: 09/17/2018
 ---
-# Data collection for models in production
+# Collect data for models in production
 
 With this article, you can learn how to collect input model data from your Azure Machine Learning service in an Azure Blob storage. Once enabled, this data collected gives you the opportunity to:
 * Monitor data drifts as production data enters your model
@@ -41,27 +41,27 @@ Data collection can be enabled regardless of the model being deployed through Az
 1.	Add the following code at the top of the file:
 
       ```python 
-        from azureml.monitoring import ModelDataCollector
+    from azureml.monitoring import ModelDataCollector
     ```
 2.	Declare your data collection variables in your `init()` function
 
-     ```python
-        global inputs_dc, prediction_dc
-        inputs_dc = ModelDataCollector("best_model", identifier="inputs", feature_names=["feat1", "feat2", "feat3". "feat4", "feat5", "feat6"])
-        prediction_dc = ModelDataCollector("best_model", identifier="predictions", feature_names=["prediction1", "prediction2"])
+    ```python
+    global inputs_dc, prediction_dc
+    inputs_dc = ModelDataCollector("best_model", identifier="inputs", feature_names=["feat1", "feat2", "feat3". "feat4", "feat5", "feat6"])
+    prediction_dc = ModelDataCollector("best_model", identifier="predictions", feature_names=["prediction1", "prediction2"])
     ```
 
-   *CorrelationId* is an optional parameter, you do not need to set it up if your model doesn’t require it. Having a correlationId in place does help you for easier mapping with other data. (Examples include: LoanNumber, CustomerId, etc.)
-
-   *Identifier* is later used for building the folder structure in your Blob, it can be used to divide “raw” data versus “processed”.
+    *CorrelationId* is an optional parameter, you do not need to set it up if your model doesn’t require it. Having a correlationId in place does help you for easier mapping with other data. (Examples include: LoanNumber, CustomerId, etc.)
+    
+    *Identifier* is later used for building the folder structure in your Blob, it can be used to divide “raw” data versus “processed”.
 
 3.	Add the following lines of code to the `run(input_df)` function
 
     ```python
-        data = np.array(data)
-        result = model.predict(data)
-        inputs_dc.collect(data) #this call is saving our input data into Azure Blob
-        prediction_dc.collect(result) #this call is saving our input data into Azure Blob
+    data = np.array(data)
+    result = model.predict(data)
+    inputs_dc.collect(data) #this call is saving our input data into Azure Blob
+    prediction_dc.collect(result) #this call is saving our input data into Azure Blob
     ```
 
 4. Data collection is **not** automatically set to **true** when you deploy a service in AKS, so you will need to update set your configuration file like the following: 
@@ -69,6 +69,11 @@ Data collection can be enabled regardless of the model being deployed through Az
     ```python
     aks_config = AksWebservice.deploy_configuration(collect_model_data=True)
     ```
+    AppInsights for service monitoring can also been turned on bu changing this configuration:
+    ```python
+    aks_config = AksWebservice.deploy_configuration(collect_model_data=True, enable_app_insights=True)
+    ``` 
+
 5. [Create new image and deploy your service.](https://review.docs.microsoft.com/en-us/azure/machine-learning/service/how-to-deploy-to-aks) 
 
 6. Alternatively, if you already have a service with the dependencies installed in your **environment file** and **scoring file**, you can simply enable data collection by:
@@ -96,7 +101,7 @@ Since the data gets added into an Azure Blob you can then choose your favorite t
 
 ## Disable data collection
 To disable data collection, follow the next steps:
-* From [Azure Portal](https://portal.azure.com): 
+* Disable in the [Azure Portal](https://portal.azure.com): 
     1. Go to Workspace
     2. Deployments-> Select service-> Edit
 
@@ -108,9 +113,9 @@ To disable data collection, follow the next steps:
 
     4. Update       
 
-* From Azure SDK run:
+* Disable using python:
          
      ```python 
-         <service_name>.update(collect_model_data=False)
+    <service_name>.update(collect_model_data=False)
      ```
 

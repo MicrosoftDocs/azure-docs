@@ -2,5 +2,3 @@
   href: service/index.yml
 - name: Azure Machine Learning Studio
   href: studio/index.yml
-- name: Collect data in production  
-  href: service/how-to-enable-data-collection.md
