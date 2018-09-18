@@ -18,7 +18,7 @@ For deep neural network (DNN) training using PyTorch, Azure Machine Learning pro
 ## Single-node training
 Training with the PyTorch Estimator is similar to using the [base Estimator](how-to-train-ml-models.md), so first read through the how-to article and make sure you understand the concepts introduced there.
   
-To run a PyTorch job, instantiate a `PyTorch` object. You should have already created your [compute target](https://docs.microsoft.com/azure/machine-learning/service/how-to-set-up-training-targets#batch) object `compute_target` and your [datastore](https://docs.microsoft.com/azure/machine-learning/service/how-to-access-data) object `ds`.
+To run a PyTorch job, instantiate a `PyTorch` object. You should have already created your [compute target](how-to-set-up-training-targets.md#batch) object `compute_target` and your [datastore](how-to-access-data.md) object `ds`.
 
 ```Python
 from azureml.train.dnn import PyTorch
@@ -37,7 +37,7 @@ pt_est = PyTorch(source_directory='./my-pytorch-proj',
 Here, we specify the following parameters to the PyTorch constructor:
 * `source_directory`: The local directory that contains all of your code needed for the training job. This folder gets copied from your local machine to the remote compute
 * `script_params`: A dictionary specifying the command-line arguments to your training script `entry_script`, in the form of <command-line argument, value> pairs
-* `compute_target`: The remote compute that your training script will run on, in this case a [Batch AI](https://docs.microsoft.com/azure/machine-learning/service/how-to-set-up-training-targets#batch) cluster
+* `compute_target`: The remote compute that your training script will run on, in this case a [Batch AI](how-to-set-up-training-targets.md#batch) cluster
 * `entry_script`: The filepath (relative to the `source_directory`) of the training script to be run on the remote compute. This file, and any additional files it depends on, should be located in this folder
 * `conda_packages`: The list of Python packages to be installed via conda needed by your training script.
 The constructor has another parameter called `pip_packages` that you can use for any pip packages needed
