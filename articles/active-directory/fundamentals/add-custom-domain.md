@@ -62,7 +62,7 @@ After you add your custom domain name to Azure AD, you must return to your domai
     >You can register as many domain names as you want. However, each domain gets its own text file record from Azure AD. Be careful when entering your text file information at the domain registrar. If you enter the wrong, or duplicate information by mistake, you'll have to wait until the TTL times out (60 minutes) before you can try again.
 
 ## Verify your custom domain name
-After you register your custom domain name, you need to make sure it's valid in Azure AD. The propogation from your domain registrar to Azure AD can be instantaneous or it can take up to a few days, depending on your domain registrar.
+After you register your custom domain name, you need to make sure it's valid in Azure AD. The propagation from your domain registrar to Azure AD can be instantaneous or it can take up to a few days, depending on your domain registrar.
 
 ### To verify your custom domain name
 1. Sign in to the [Azure portal](https://portal.azure.com/) using a Global administrator account for the directory.
