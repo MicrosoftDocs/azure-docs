@@ -239,5 +239,5 @@ Once you've gotten an authorization `code` and an `id_token`, you can sign the u
 
 ## Next steps
 
-* Learn more about the [access tokens](access_tokens).
-* Learn more about the [`id_token` and claims](id_tokens).
+* Learn more about the [access tokens](access-tokens.md).
+* Learn more about the [`id_token` and claims](id-tokens.md).
