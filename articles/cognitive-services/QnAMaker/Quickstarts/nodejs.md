@@ -33,6 +33,8 @@ This article shows you how to use the [Microsoft QnA Maker API](../Overview/over
 - [Get the current set of word alterations.](#GetAlterations)
 - [Replace the current set of word alterations.](#PutAlterations)
 
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
+
 ## Prerequisites
 
 You will need [Node.js 6](https://nodejs.org/en/download/) to run this code.
