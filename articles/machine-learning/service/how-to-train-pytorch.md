@@ -67,10 +67,10 @@ pt_est = PyTorch(source_directory='./my-pytorch-project',
                  script_params={},
                  compute_target=compute_target,
                  entry_script='train.py',
-                 use_gpu=True,
                  node_count=2,
                  process_count_per_node=1,
-                 distributed_backend='mpi')
+                 distributed_backend='mpi',
+                 use_gpu=True)
 ```
 
 The above code exposes the following new parameters to the PyTorch constructor:
