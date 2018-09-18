@@ -258,7 +258,7 @@ No. Transitive peering is not supported. You must peer VNetA and VNetC for this 
 ### Are there any bandwidth limitations for peering connections?
 No. VNet peering, whether local or global, does not impose any bandwidth restrictions. Bandwidth is only limits by the VM or compute resource.
 
-## Virtual Network TAP
+## Virtual network TAP
 
 ### Which Azure regions are available for virtual network TAP?
 During developer preview, the capability is available in the West Central US region. The monitored network interfaces , the virtual network TAP resource, and the collector or analytics solution must be deployed in the same region.
