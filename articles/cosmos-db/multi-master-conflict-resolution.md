@@ -199,30 +199,17 @@ FeedResponse<Conflict> response = await myClient.ReadConflictFeedAsync(myCollect
 > [!NOTE]
 > The conflicts feed does not include a listener to send notifications for downstream processing like the change feed in Cosmos DB. You have to implement the logic to poll the conflicts feed and determine if conflicts are present.
 
-## Code Samples
+## Code samples
 
 Below are sample applications that demonstrate conflict resolution for the APIs listed. Each sample generates conflicts within a container and then demonstrates how conflicts are resolved for each supported conflict resolution mode.
 
-<table>
-   <tr>
-      <td><strong>Model</strong></td><td><strong>Sample</strong></td>
-   </tr>
-   <tr>
-      <td>SQL</td><td>[azure-cosmos-db-sql-dotnet-multi-master](https://github.com/Azure-Samples/azure-cosmos-db-sql-dotnet-multi-master)</td>
-   </tr>
-   <tr>
-      <td>MongoDB</td><td>[azure-cosmos-db-mongodb-dotnet-multi-master](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-dotnet-multi-master)</td>
-   </tr>
-   <tr>
-      <td>Table</td><td>[azure-cosmos-db-table-dotnet-multi-master](https://github.com/Azure-Samples/azure-cosmos-db-table-dotnet-multi-master)</td>
-   </tr>
-   <tr>
-      <td>Graph</td><td>[azure-cosmos-db-graph-dotnet-multi-master](https://github.com/Azure-Samples/azure-cosmos-db-graph-dotnet-multi-master)</td>
-   </tr>
-   <tr>
-      <td>Cassandra</td><td>[azure-cosmos-db-cassandra-dotnet-multi-master](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-dotnet-multi-master)</td>
-   </tr>
-</table>
+|API model  |Sample |
+|---------|---------|
+|SQL  |  [azure-cosmos-db-sql-dotnet-multi-master](https://github.com/Azure-Samples/azure-cosmos-db-sql-dotnet-multi-master)  |
+|MongoDB | >[azure-cosmos-db-mongodb-dotnet-multi-master](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-dotnet-multi-master)   |
+|Table  |  [azure-cosmos-db-table-dotnet-multi-master](https://github.com/Azure-Samples/azure-cosmos-db-table-dotnet-multi-master)       |
+|Graph  |   [azure-cosmos-db-graph-dotnet-multi-master](https://github.com/Azure-Samples/azure-cosmos-db-graph-dotnet-multi-master)      |
+|Cassandra  | [azure-cosmos-db-cassandra-dotnet-multi-master](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-dotnet-multi-master)  |
 
 ## Next steps
 
