@@ -37,12 +37,10 @@ This quickstart contains a code sample that demonstrates how an ASP.NET Core Web
 > 
 > 1. Go to the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app).
 > 1. Enter a name for your application, make sure the option for **Guided Setup** is unchecked, and click **Create**.
-> 1. Click `Add Platform`, then select `Web`
-> 1. In **Reply URL**, enter `https://localhost:3110/`
-> 1. Scroll down to the bottom of the page and click **Save**
-> 1. Scroll down and click the button **Edit Application Manifest**.
-> 1. Find `oauth2AllowImplicitFlow` and make sure the value is `true`.
-> 1. Click **Save**.
+> 1. Click `Add Platform`, then select `Web`.
+> 1. Make sure **Allow Implicit Flow** is *checked*.
+> 1. In **Redirect URLs**, enter `https://localhost:3110/`.
+> 1. Scroll down to the bottom of the page and click **Save**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 1: Configure your application in Azure portal
