@@ -211,8 +211,6 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 		* Copy **Entity ID / Issuer** value, paste it in **Identifier** textbox in **ServiceNow Domain and URLs** section on Azure portal.
 
-		* In the **NameID Policy** textbox, please remove populated value from the textbox and paste `urn:oasis:names:tc:SAML:1.1:nameid-format:transient` value in to the textbox.
-
 	* Scroll down to the **X.509 Certificate** section, select **Edit**.
 
 		![Configure single sign-on](./media/servicenow-tutorial/tutorial_servicenow_09.png "Configure single sign-on")
@@ -269,6 +267,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 			> The ServiceNow instance homepage is a concatenation of your **ServiceNow tenant URL** and **/navpage.do** (for example:`https://fabrikam.service-now.com/navpage.do`).
 
 		* Copy **Entity ID / Issuer** value, paste it in **Identifier** textbox in **ServiceNow Domain and URLs** section on Azure portal.
+		
+		* In the **NameID Policy** textbox, please remove populated value from the textbox and paste `urn:oasis:names:tc:SAML:1.1:nameid-format:transient` value in to the textbox.
 
 		* Click **Advanced**. In the **User Field** textbox, type **email** or **user_name**, depending on which field is used to uniquely identify users in your ServiceNow deployment.
 
