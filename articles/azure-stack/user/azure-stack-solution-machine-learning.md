@@ -1,6 +1,6 @@
 ---
 title: Create an edge machine learning solution with Azure and Azure Stack | Microsoft Docs
-description: Learn how to create an edge machine learning solution with Azure and Azure Stack.
+description: Learn how to create an edge machine learning solution using Python with Azure and Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -33,9 +33,9 @@ In this tutorial, you will build a sample environment to:
 > - Deploy and use Azure Container Registry.
 > - Deploy a Kubernetes cluster to Azure Stack.
 > - Create an Azure Stack storage account and Storage Queue for data.
-> - Create a New Azure Stack Function to move the Clean Data from Azure Stack to Azure.
+> - Create a New Azure Stack function to move the Clean Data from Azure Stack to Azure.
 
-## When to use this solution
+**When to use this solution**
 
  -  Your organization is using a DevOps approach, or has one planned for the near future.
  -  You want to implement CI/CD practices across your Azure Stack implementation and the public cloud.
@@ -47,7 +47,7 @@ In this tutorial, you will build a sample environment to:
 > ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
 > Microsoft Azure Stack is an extension of Azure. Azure Stack brings the agility and innovation of cloud computing to your on-premises environment and enabling the only hybrid cloud that allows you to build and deploy hybrid apps anywhere.  
 > 
-> The whitepaper [Design Considerations for Hybrid Applications](https://aka.ms/hybrid-cloud-applications-pillars) reviews pillars of software quality (placement, scalability, availability, resiliency, manageability and security) for designing, deploying and operating hybrid applications. The design considerations assist in optimizing hybrid application design, minimizing challenges in production environments.
+> The whitepaper [Design Considerations for Hybrid Applications](https://aka.ms/hybrid-cloud-applications-pillars) reviews pillars of software quality (placement, scalability, availability, resiliency, manageability and security) for designing, deploying, and operating hybrid applications. The design considerations assist in optimizing hybrid application design, minimizing challenges in production environments.
 
 ## Prerequisites
 
@@ -57,7 +57,7 @@ A few components are required to build this use case and may take some time to p
 
  -  An Azure Stack Operator must also deploy the App Service, create plans and offers, create a tenant subscription, and add the Windows Server 2016 image
 
- -  A hybrid network and App Service set up is required (Learn more about [App integration with VNets.](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet))
+ -  A hybrid network and App Service setup is required (Learn more about [App integration with VNets.](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet))
 
  -  The Private [Build and Release Agent](https://docs.microsoft.com/vsts/pipelines/agents/agents?view=vsts) for VSTS Integration must be set up prior to deployment (Ensure any existing components used meet the requirements before beginning.)
 
@@ -67,13 +67,13 @@ Prior knowledge of Azure and Azure Stack is required. To learn more before proce
 
  -  [Azure Stack Key Concepts](https://docs.microsoft.com/azure/azure-stack/azure-stack-key-features)
 
- -  Azure Stack Hybrid CI/CD Solution Guide
+ -  [Azure Stack Hybrid CI/CD Solution Guide](/azure-stack-solution-pipeline.md)
 
 **Azure**
 
- -  An Azure subscription (Create a[free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
+ -  An Azure subscription (Create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
 
- -  A new Web App URL created by[Web App](https://docs.microsoft.com/azure/app-service/app-service-web-overview) in Azure
+ -  A new Web App URL created by [Web App](https://docs.microsoft.com/azure/app-service/app-service-web-overview) in Azure
 
  -  Deployment of [Azure Container Services (ACS) Kubernetes on Azure](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)
 
@@ -83,21 +83,18 @@ Prior knowledge of Azure and Azure Stack is required. To learn more before proce
 
 **Azure Stack**
 
- -  An Azure Stack Integrated System or deployment of Azure Stack Development Kit linked below:
+ -  An Azure Stack Integrated System or deployment of Azure Stack Development Kit.
 
-<!-- -->
+    - You find instructions for installing Azure Stack at [Install the Azure Stack Development Kit](/articles/azure-stack/asdk/asdk-install).
+     - [https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1) This installation may require a few hours to complete.
 
- -  [https://github.com/mattmcspirit/azurestack/blob/master/deployment/](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1)ConfigASDK.ps1\ (This installation may require a few hours to complete.)
-
-<!-- -->
-
- -  Deployment of[App Service](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy)PaaS services to Azure Stack
+ -  Deployment of [App Service](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) PaaS services to Azure Stack
 
  -  A [Plan/Offers](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview) within the Azure Stack environment
 
  -  A [Tenant subscription](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm) within the Azure Stack environment
 
- -  An Ubuntu Server VM Image (available in [Azure Stack Marketplace](https://buildazure.com/2016/05/04/azure-marketplace-ubuntu-server-16-04-lts/))\ This VM will be built in the tenant subscription on the Azure Stack as the private build agent as well as the Kubernetes VMs. If this image is not available, the Azure Stack Operator can assist, to ensure this is added to the environment. (Do not use the 18.04 build of ubuntu, as it is currently not supported.)
+ -  An Ubuntu Server VM Image (available in [Azure Stack Marketplace](https://buildazure.com/2016/05/04/azure-marketplace-ubuntu-server-16-04-lts/)) This VM will be built in the tenant subscription on the Azure Stack as the private build agent as well as the Kubernetes VMs. If this image is not available, the Azure Stack Operator can assist, to ensure this is added to the environment. (Do not use the 18.04 build of ubuntu, as it is currently not supported.)
 
  -  A Web App within the tenant subscription (Note the new Web App URL for later use.)
 
@@ -109,7 +106,7 @@ Prior knowledge of Azure and Azure Stack is required. To learn more before proce
 
  -  [VSTS workspace](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services) (The sign-up process creates a project named "MyFirstProject")
 
- -  [Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio)installation and [VSTS](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services) sign on
+ -  [Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) installation and [VSTS](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services) sign-on
 
  -  [Local clone](https://www.visualstudio.com/docs/git/gitquickstart) of project
 
@@ -123,7 +120,7 @@ Prior knowledge of Azure and Azure Stack is required. To learn more before proce
 
 **VSTS**
 
- -  **VSTS Account.** Quickly set up continuous integration for build, test and deployment. For more information about VSTS accounts see [Create the VSTS Account](https://docs.microsoft.com/vsts/accounts/create-account-msa-or-work-student?view=vsts).
+ -  **VSTS Account.** Quickly set up continuous integration for build, test, and deployment. For more information about VSTS accounts, see [Create the VSTS Account](https://docs.microsoft.com/vsts/accounts/create-account-msa-or-work-student?view=vsts).
 
  -  **Code Repository.** Using existing code repositories in GitHub, BitBucket, DropBox, One Drive, and TFS, the VSTS platform can leverage multiple code repositories to streamline the development pipeline. For more information about code repositories see [Get Started with Git and VSTS](https://docs.microsoft.com/vsts/git/gitquickstart?view=vsts&tabs=visual-studio) tutorial.
 
@@ -135,11 +132,13 @@ Prior knowledge of Azure and Azure Stack is required. To learn more before proce
 
  -  **Hosted VSTS Linux Build Agent Pool.** Quickly build, test and deploy applications using a Microsoft managed and maintained hosted agent. For more information about hosted VSTS build agents see [Hosted Agents](https://docs.microsoft.com/vsts/build-release/concepts/agents/hosted?view=vsts) documentation.
 
-## Create a storage account and container for clean data to reside
+## Step 1: Create a storage account
+
+Create a storage account and container for clean data to reside.
 
 1.  Sign in to the [*Azure portal*](https://portal.azure.com/).
 
-2.  In the Azure portal, expand the menu on the left side to open the menu of services and choose **All Services**. Scroll down to **Storage** and choose **Storage accounts**. In the **Storage Accounts**window choose **Add**.
+2.  In the Azure portal, expand the menu on the left side to open the menu of services and choose **All Services**. Scroll down to **Storage** and choose **Storage accounts**. In the **Storage Accounts **window choose **Add**.
 
 3.  Enter a name for the storage account.
 
@@ -160,13 +159,13 @@ Prior knowledge of Azure and Azure Stack is required. To learn more before proce
 
 10. Select **Create** to create the storage account.
 
-    ![Alt text](media\azure-stack-solution-machine-learning\image1.png)
+    ![Alt text](\media\azure-stack-solution-machine-learning\image1.png)
 
 11.  Choose the storage account recently created.
 
 12.  Select on **Blobs**.
 
-    [Alt text](media\azure-stack-solution-machine-learning\image2.png)
+    ![Alt text](media\azure-stack-solution-machine-learning\image2.png)
 
 13.  Select on **+ Container** and select on **Container**.
 
@@ -178,9 +177,11 @@ Prior knowledge of Azure and Azure Stack is required. To learn more before proce
 
     ![Alt text](media\azure-stack-solution-machine-learning\image4.png)
 
-## Create an Ubuntu Data Science Virtual Machine (DSVM) in Azure portal
+## Step 2: Create a Data Science Virtual Machine
 
-1.  Log on to Azure portal from[https://portal.azure.com](https://portal.azure.com/)
+Create an Ubuntu Data Science Virtual Machine (DSVM) in the Azure portal.
+
+1.  Log on to Azure portal from [https://portal.azure.com](https://portal.azure.com/)
 
 2.  Select on the **+NEW** link, and search for "Data Science Virtual Machine for Linux Ubuntu CSP
 
@@ -190,7 +191,9 @@ Prior knowledge of Azure and Azure Stack is required. To learn more before proce
 
     ![Alt text](media\azure-stack-solution-machine-learning\image6.png)
 
-**Important: ** Choose** Password** as the*Authentication type*.
+> ![Important]  
+> **Choose** Password** as the*Authentication type*.
+
 Place the new DSVM in the same resource group as the newly created storage account. All Edge ML objects are deployed in Azure within this Resource Group.
 
 1.  In the Settings  Configure optional features
@@ -229,37 +232,37 @@ apt-get -y dist-upgrade
 apt-get -y autoremove
 ```
 
-## Deploy Azure Machine Learning Services in Azure
+## Step 3: Deploy Azure Machine Learning Services
+
+Deploy Azure Machine Learning Services in Azure.
 
 Azure Machine Learning services (preview) are an integrated, end-to-end data science and advanced analytics solution. It helps professional data scientists prepare data, develop experiments, and deploy models at cloud scale.
 
-This Quickstart explains:
+This section explains:
 
- -  Create service accounts for Azure Machine Learning services
+> [!div class="checklist"]
+> - Create service accounts for Azure Machine Learning services
+> - Install and log in to Azure Machine Learning Workbench.
+> - Create a project in Workbench
+> - Run a script in that project
+> - Access the command-line interface (CLI)
 
- -  Install and log in to Azure Machine Learning Workbench.
-
- -  Create a project in Workbench
-
- -  Run a script in that project
-
- -  Access the command-line interface (CLI)
-
-As part of the Microsoft Azure portfolio, Azure Machine Learning services require an Azure subscription. To obtain an Azure subscription, create a[free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+As part of the Microsoft Azure portfolio, Azure Machine Learning services require an Azure subscription. To obtain an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 Adequate permissions are required to create assets such as Resource Groups, Virtual Machines, and other assets.
 
 The Azure Machine Learning Workbench application may be installed on the following operating systems:
 
  -  Windows 10 or Windows Server 2016
-
  -  macOS Sierra or High Sierra
 
-## Create Azure Machine Learning services accounts
+## Step 4: Create Azure Machine Learning services
+
+Create Azure Machine Learning services accounts.
 
 Use the Azure portal to provision the Azure Machine Learning accounts:
 
-1.  Sign in to the[Azure portal](https://portal.azure.com/)using the credentials for the Azure subscription to be used. To obtain an Azure subscription, create a[free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+1.  Sign in to the [Azure portal](https://portal.azure.com/) using the credentials for the Azure subscription to be used. To obtain an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
     ![Alt text](media\azure-stack-solution-machine-learning\image7.png)
 
@@ -284,7 +287,7 @@ Use the Azure portal to provision the Azure Machine Learning accounts:
     | Resource group | The resource group | Use an existing resource group in the subscription, or enter a name to create a new resource group for this experimentation account. |
     | Location | The region closest to the users | Choose the location closest to the users and the data resources. |
     | Number of seats | 2 | Enter the number of seats. Learn how [seating impacts pricing](https://azure.microsoft.com/pricing/details/machine-learning/).<br><br>For this Quickstart, only two seats are needed. Seats can be added or removed as needed in the Azure portal. |
-    | Storage account | Unique name | Select **Create new** and provide a name to create an [Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=portal). The name should be 3 to 24 characters, and should include only alphanumeric characters. Alternatively, select **Use existing** and select the existing storage account from the drop-down list. The storage account is required and is used to hold project artifacts and run history data. |
+    | Storage account | Unique name | Select **Create new** and provide a name to create an [Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=portal). The name should be 3 to 24 characters, and should include only alphanumeric characters. Alternatively, select **Use existing** and select the existing storage account from the  list. The storage account is required and is used to hold project artifacts and run history data. |
     | Workspace for Experimentation account | IrisGarden<br>(name used in tutorials) | Provide a name for a workspace for this account. The name should be 2 to 32 characters. It should include only alphanumeric characters and the dash (-) character. This workspace contains tools needed to create, manage, and publish experiments. |
     | Assign owner for the workspace | The account | Select the own account as the workspace owner. |
     | Create Model Management account | **check** | Create a Model Management account. This will be used to deploy and manage the models as real-time web services. <br><br>While optional, creating the Model Management account at the same time as the Experimentation account is recommended. |
@@ -302,16 +305,16 @@ Use the Azure portal to provision the Azure Machine Learning accounts:
 
     ![Azure portal notifications](media\azure-stack-solution-machine-learning\image13.png)
 
-## Install and log in to workbench 
+### Install and log in to workbench 
 
-Azure Machine Learning Workbench is available for Windows or macOS. See the list of[supported platforms](https://docs.microsoft.com/azure/machine-learning/service/quickstart-installation).
+Azure Machine Learning Workbench is available for Windows or macOS. See the list of [supported platforms](https://docs.microsoft.com/azure/machine-learning/service/quickstart-installation).
 
 **Warning:** The installation might take around an hour to complete.
 
 1.  Download and launch the latest Workbench installer.
 
     > [!Important]  
-    > Download the installer fully on disk, and then run it from there. Do not run it directly from the browser's download widget.<br>**On Windows:<br>** a. Download[AmlWorkbenchSetup.msi](https://aka.ms/azureml-wb-msi).<br>b. Double-click on the downloaded installer in File Explorer.
+    > Download the installer fully on disk, and then run it from there. Do not run it directly from the browser's download widget.<br>**On Windows:<br>** a. Download [AmlWorkbenchSetup.msi](https://aka.ms/azureml-wb-msi).<br>b. Double-click on the downloaded installer in File Explorer.
 
 1.  Follow the on-screen instructions in the installer to completion.
 
@@ -332,9 +335,9 @@ Azure Machine Learning Workbench is available for Windows or macOS. See the list
     > [!Tip]  
     > Switch to a different Experimentation account using the icon in the lower-left corner of the Workbench application window.
 
-## Create a new project in workbench
+### Create a new project in workbench
 
-1.  Open the Azure Machine Learning Workbench app and log in if needed.
+1.  Open the Azure Machine Learning Workbench app and sign in if needed.
 
     - On Windows, launch using the **Machine Learning Workbench** desktop shortcut.
 
@@ -344,7 +347,7 @@ Azure Machine Learning Workbench is available for Windows or macOS. See the list
 
     ![New workspace](media\azure-stack-solution-machine-learning\image14.png)
 
-1.  Fill out of the form fields and select the **Create**b utton to create a new project in the Workbench.
+1.  Fill out of the form fields and select the **Create** button to create a new project in the Workbench.
 
     | Field | Suggested value for tutorial | Description |
     |-------------------------------------|------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -361,7 +364,7 @@ Azure Machine Learning Workbench is available for Windows or macOS. See the list
 
     ![Open project](media\azure-stack-solution-machine-learning\image16.png)
 
-## Attach a DSVM compute target
+### Attach a DSVM compute target
 
 Once the DSVM is created, attach it to the Azure ML project.
 
@@ -410,7 +413,7 @@ This process will take some time, and will generate a significant amount of text
 
 Experiments can now be run on this DSVM.
 
-## Create a data preparation package
+### Create a data preparation package
 
 Next, start preparing the data in Azure Machine Learning Workbench. Each transformation performed in Workbench is stored in a JSON format in a local data preparation package (\*.dprep file). This data preparation package is the primary container for the data preparation work in Workbench.
 
@@ -461,7 +464,7 @@ This data preparation package can be handed off later to a runtime, such as loca
 
     ![Iris data view](media\azure-stack-solution-machine-learning\image30.png)
 
-1.  Create a new data preparation package by selecting **+ New Data Preparation Package** from the drop-down menu.
+1.  Create a new data preparation package by selecting **+ New Data Preparation Package** from the menu.
 
     ![Iris data view](media\azure-stack-solution-machine-learning\image31.png)
 
@@ -475,7 +478,7 @@ This data preparation package can be handed off later to a runtime, such as loca
 
 1.  Select each column header to make the header text editable. Then, rename each column as follows:
 
-    In order, enter **Sepal Length**, **Sepal Width**, **Petal  Length**,**Petal Width**, and **Species** for the five columns  respectively.
+    In order, enter **Sepal Length**, **Sepal Width**, **Petal  Length**, **Petal Width**, and **Species** for the five columns  respectively.
 
     ![Rename the columns](media\azure-stack-solution-machine-learning\image33.png)
 
@@ -485,9 +488,9 @@ This data preparation package can be handed off later to a runtime, such as loca
 
     2.  Right-click to select it.
 
-    3.  Select **Value Counts** from the drop-down menu.
+    3.  Select **Value Counts** from the menu.
 
-        The **Inspectors** pane opens below the data. A histogram with four  bars appears. The target column has four distinct  values: **Iris-virginica**, **Iris-versicolor** ,**Iris-setosa**, and  a **(null)** value.
+        The **Inspectors** pane opens below the data. A histogram with four  bars appears. The target column has four distinct  values: **Iris-virginica**, **Iris-versicolor**,**Iris-setosa**, and a **(null)** value.
 
     ![Select Value Counts](media\azure-stack-solution-machine-learning\image34.png)
 
@@ -507,7 +510,7 @@ This data preparation package can be handed off later to a runtime, such as loca
 
     ![Close](media\azure-stack-solution-machine-learning\image38.png)
 
-## Generate Python code to invoke a data preparation package
+### Generate Python code to invoke a data preparation package
 
 The output of a data preparation package can be explored directly in Python or in a Jupyter Notebook. The packages can be executed across multiple runtimes including local Python, Spark (including in Docker), and HDInsight.
 
@@ -535,13 +538,13 @@ The output of a data preparation package can be explored directly in Python or i
     df.head(10)
     ```
 
-    Depending on the context in which this code is run,dfrepresents a different kind of DataFrame:
+    Depending on the context in which this code is run, drep represents a different kind of DataFrame:
 
-    -  When executing on a Python runtime, a[pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html)is used.
+    -  When executing on a Python runtime, a [pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html) is used.
 
-    -  When executing in a Spark context, a[Spark DataFrame](https://spark.apache.org/docs/latest/sql-programming-guide.html)is used.
+    -  When executing in a Spark context, a [Spark DataFrame](https://spark.apache.org/docs/latest/sql-programming-guide.html) is used.
 
-## Review iris_sklearn.py and the configuration files
+### Review iris_sklearn.py and the configuration files
 
 1.  In the open project, select the **Files** button (the folder icon) on the far-left pane to open the file list in the project folder.
 
@@ -578,7 +581,7 @@ The output of a data preparation package can be explored directly in Python or i
 
     -  Plots the regularization rate and model accuracy in the run history automatically. The `run_logger` object is used throughout to record the regularization rate and the model accuracy into the logs.
 
-## Run iris_sklearn.py in the local environment
+### Run iris_sklearn.py in the local environment
 
 1.  Start the Azure Machine Learning command-line interface (CLI):
 
@@ -688,7 +691,7 @@ The output of a data preparation package can be explored directly in Python or i
 
 Enter a series of values in the **Arguments** field ranging from `0.001` to `10`. Select **Run** to execute the code a few more times. The argument value changed each time is fed to the logistic regression model in the code, resulting in different findings each time.
 
-## Review the run history in detail
+### Review the run history in detail
 
 In Azure Machine Learning Workbench every script execution is captured as a run history record. View the run history of a particular script by opening the **Runs** view.
 
@@ -716,7 +719,7 @@ In Azure Machine Learning Workbench every script execution is captured as a run 
 
 The two plots, the confusion matrix and the multi-class ROC curve, are rendered in the **Visualizations** section. All the log files can also be found in the **Logs** section.
 
-## Run scripts in the Azure Machine Learning (ML) Workbench CLI window
+### Run scripts in the Azure Machine Learning (ML) Workbench CLI window
 
 1.  Start the Azure Machine Learning command-line interface (CLI):
 
@@ -729,7 +732,7 @@ The two plots, the confusion matrix and the multi-class ROC curve, are rendered 
     > [!Important]  
     > Use this CLI window to accomplish the next steps.
 
-1.  In the CLI window, log in to Azure.[Learn more about az login](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+1.  In the CLI window, log in to Azure. [Learn more about az login](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
     Skip this step if already logged in.
 
@@ -850,7 +853,7 @@ This command submits `iris_sklearn.py` multiple times with different regularizat
 
 When `run.py` finishes, graphs of different metrics are displayed in the run history list view in the workbench.
 
-## Run scripts in an Ubuntu-based Data Science Virtual Machine (DSVM) on Azure
+### Run scripts in an Ubuntu-based Data Science Virtual Machine (DSVM) on Azure
 
 To execute the script in a Docker container on a remote Linux machine, SSH access (username and password) is needed to run that remote machine. In addition, the machine must have a Docker engine installed and running.
 
@@ -867,7 +870,7 @@ To execute the script in a Docker container on a remote Linux machine, SSH acces
 
 The command executes as if in adocker-pythonenvironment, except the execution occurs on the remote Linux VM. The CLI window displays the same output information.
 
-## Download the model pickle file
+### Download the model pickle file
 
 In the previous part of the tutorial, the **iris_sklearn.py** script was run in the Machine Learning Workbench locally. This action serialized the logistic regression model by using the popular Python object-serialization package [pickle](https://docs.python.org/3/library/pickle.html).
 
@@ -901,7 +904,7 @@ This code snippet shows how the pickle output file was generated. The output pic
 
     ![Download the pickle file](media\azure-stack-solution-machine-learning\image55.png)
 
-## Get scoring script and schema files
+### Get scoring script and schema files
 
 To deploy the web service along with the model file, scoring script is needed. Optionally, a schema for the web service input data is needed. The scoring script loads the **model.pkl** file from the current folder and uses it to produce new predictions.
 
@@ -913,7 +916,7 @@ To deploy the web service along with the model file, scoring script is needed. O
 
     ![Scoring file](media\azure-stack-solution-machine-learning\image56.png)
 
-1.  To get the schema file, run the script. Select the **local**environment and the **score_iris.py** script in the command bar, and then select **Run**.
+1.  To get the schema file, run the script. Select the **local** environment and the **score_iris.py** script in the command bar, and then select **Run**.
 
     This script creates a JSON file in the **Outputs** section, which  captures the input data schema required by the model.
 
@@ -946,9 +949,11 @@ To deploy the web service along with the model file, scoring script is needed. O
 
 Now, prepare the environment to operationalize the model.
 
-## Deploy and use Azure Container Registry
+## Step 5: Deploy and use Azure Container Registry
 
-Create an Azure Container registry with theaz acr createcommand. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. The resource group is the same.
+Deploy and use Azure Container Registry.
+
+Create an Azure Container registry with the **az acr create** command. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. The resource group is the same.
 
     ```CLI
         az acr create --resource-group <ResourceGroup> --name  <acrName> --sku Basic
@@ -956,7 +961,7 @@ Create an Azure Container registry with theaz acr createcommand. The registry na
 
 ### Container registry login
 
-Use theaz acr logincommand to log in to the ACR instance. Provide the unique name given to the container registry when it was created.
+Use the **az acr login** command to log in to the ACR instance. Provide the unique name given to the container registry when it was created.
 
     ```CLI
         az acr login --name <acrName>
@@ -964,7 +969,7 @@ Use theaz acr logincommand to log in to the ACR instance. Provide the unique nam
 
 The command returns a 'Login Succeeded message once completed.
 
-## Prepare to operationalize locally for development and testing the service
+### Prepare to operationalize locally for development and testing the service
 
 Use *local mode* deployment to run in Docker containers on the local computer, and for development and testing.
 
@@ -1052,7 +1057,7 @@ The Docker engine must be running locally to complete the following steps to ope
     > [!Note]  
     > Reuse the Model Management account and environment for subsequent web service deployments. There is no need to create them for each web service. An account or an environment can have multiple web services associated with it.
 
-## Create a real-time web service by using separate commands
+### Create a real-time web service by using separate commands
 
 As an alternative to the **az ml service create realtime** command previously shown, these steps may also be performed separately.
 
@@ -1098,15 +1103,17 @@ First, register the model. Then generate the manifest, build the Docker image, a
     
     Next, run the web service.
 
-## Deploy a Kubernetes cluster to Azure Stack
+## Step 6: Deploy a Kubernetes cluster to Azure Stack
 
-Kubernetes may be installed using Azure Resource Manager templates generated by the Azure Container Services (ACS) Engine on Azure Stack.[*Kubernetes*](https://kubernetes.io/)is an open-source system for automating deployment, scaling, and managing of applications in containers. A[*container*](https://www.docker.com/what-container)is contained in an image, similar to a VM. Unlike a VM, the container image includes the resources it needs to run an application, such as the code, runtime to execute the code, specific libraries, and settings.
+Deploy a Kubernetes cluster to Azure Stack.
+
+Kubernetes may be installed using Azure Resource Manager templates generated by the Azure Container Services (ACS) Engine on Azure Stack. [*Kubernetes*](https://kubernetes.io/) is an open-source system for automating deployment, scaling, and managing of applications in containers. A [*container*](https://www.docker.com/what-container) is contained in an image, similar to a VM. Unlike a VM, the container image includes the resources it needs to run an application, such as the code, runtime to execute the code, specific libraries, and settings.
 
 Use Kubernetes to:
 
  -  Develop massively scalable, upgradable, applications that can be deployed in seconds.
 
- -  Simplify the design of the application and improve its reliability by different Helm applications.[*Helm*](https://github.com/kubernetes/helm)is an open-source packaging tool that helps to install and manage the lifecycle of Kubernetes applications.
+ -  Simplify the design of the application and improve its reliability by different Helm applications. [*Helm*](https://github.com/kubernetes/helm) is an open-source packaging tool that helps to install and manage the lifecycle of Kubernetes applications.
 
  -  Easily monitor and diagnose the health of the applications with scale and upgrade functionality.
 
@@ -1129,7 +1136,7 @@ To get started, confirm permissions and Azure Stack readiness:
 
     The cluster cannot be deployed to an Azure  Stack **Administrator** subscription. Use a **User** subscription.
 
-##  Generate an authentication key for SSH
+###  Generate an authentication key for SSH
 
 From within the Windows Subsystem for Linux Session use the following commands to generate an authentication key: 
 
@@ -1162,7 +1169,7 @@ From within the Windows Subsystem for Linux Session use the following commands t
     
 5. Copy the generated key into the SSH Public Key Field.
 
-## Create a service principal in Azure AD
+### Create a service principal in Azure AD
 
 1.  Sign in to the global [*Azure portal*](http://www.poartal.azure.com/).
 
@@ -1184,11 +1191,11 @@ From within the Windows Subsystem for Linux Session use the following commands t
     2. Select **Never expires** for **Expires**. 
     3. Select **Save**. Make note the key string. The key string is needed  when creating the cluster and is referenced as the **Service Principal  Client Secret**.
 
-## Give the service principal access
+### Give the service principal access
 
 Give the service principal access to the subscription so it may create resources.
 
-1.  Sign in to the [*Administration portal*](https://adminportal.local.azurestack.external/).
+1.  Sign in to the [Administration portal](https://adminportal.local.azurestack.external/).
 
 2.  Select **More services** > **User subscriptions ** > **+ Add**.
 
@@ -1202,7 +1209,7 @@ Give the service principal access to the subscription so it may create resources
 
 7.  Select **Save**.
 
-8.  Open the [*Azure Stack portal*](https://portal.local.azurestack.external).
+8.  Open the [Azure Stack portal](https://portal.local.azurestack.external).
 
 9.  Select **+New** > **Compute** > **Kubernetes Cluster**. Select **Create**.
 
@@ -1214,11 +1221,11 @@ Give the service principal access to the subscription so it may create resources
 
 11. Enter the **Linux VM Admin Username**. User name for the Linux Virtual Machines that are part of the Kubernetes cluster and DVM.
 
-12. Enter th e**SSH Public Key** used for authorization to all Linux machines created as part of the Kubernetes cluster and DVM.
+12. Enter the **SSH Public Key** used for authorization to all Linux machines created as part of the Kubernetes cluster and DVM.
 
 13. Enter the **Master Profile DNS Prefix** that is unique to the region. This must be a region-unique name, such `ask8s-12345`. Try to choose it same as the resource group name as best practice.
 
-    > [!Note]
+    > [!Note]  
     > For each cluster, use a new and unique master profile DNS prefix.
 
 14. Enter the **Agent Pool Profile Count**. The count contains the number of agents in the cluster. There can be from 1 to 4.
@@ -1235,7 +1242,7 @@ Give the service principal access to the subscription so it may create resources
 
 20. Select the **Location** of the resource group. This is the region chosen for the Azure Stack installation.
 
-## Specify the Azure Stack settings
+### Specify the Azure Stack settings
 
 1.  Select the **Azure Stack Stamp Settings**.
 
@@ -1245,7 +1252,7 @@ Give the service principal access to the subscription so it may create resources
 
 3.  Enter the **Tenant ID** for the tenant. See [*Get tenant ID*](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) to find the tenant ID value.
 
-## Install kubectl on Windows PowerShell Environment
+### Install kubectl on Windows PowerShell Environment
 
 From within the WSL Environment run the following commands to install kubectl in the WSL Environment.
 
@@ -1254,7 +1261,7 @@ Install-script -name install-kubectl -scope CurrentUser -force
 Install-kubectl.ps1 -downloadlocation “C:\Users\<Current User>\Documents\Kube
 ```
 
-## Install kubectl on the Windows subsystem for Linux Environment
+### Install kubectl on the Windows subsystem for Linux Environment
 
 From within the WSL Environment, run the following commands to install kubectl in the WSL Environment.
 
@@ -1268,7 +1275,7 @@ From within the WSL Environment, run the following commands to install kubectl i
     apt-get install -y kubectl
 ```
 
-## Configure kubectl
+### Configure kubectl
 
 In order for kubectl to find and access a Kubernetes cluster, a*kubeconfig file* is needed. This is created automatically when a cluster is created using kube-up.sh or deploying a Minikube cluster. See the [*getting started guides*](https://kubernetes.io/docs/setup/) for more about creating clusters. For access to a cluster created by another user, see the [*Sharing Cluster Access document*](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/). By default, kubectl configuration is located at **~.kube/config**.
 
@@ -1296,13 +1303,13 @@ If kubectl cluster-info returns the url response but the cluster is still not ac
 > kubectl cluster-info dump
 ```
 
-## Enable shell autocompletion
+### Enable shell autocompletion
 
 kubectl includes autocompletion support, making shell enablement quick and easy.
 
 The completion script itself is generated by kubectl and is accessible from the profile.
 
-## Connect to the Kubernetes Cluster
+### Connect to the Kubernetes Cluster
 
 To connect to the cluster, the Kubernetes command-line client (**kubectl**) is needed. Instructions for connecting to and managing the cluster are found in [Azure Container Services documentation.](https://docs.microsoft.com/azure/container-service/dcos-swarm/)
 
@@ -1332,7 +1339,7 @@ sudo cat  /var/lib/waagent/custom-script/download/0/acs-engine/_output/edgemlsta
 
 The output will be a large block of text, which is the raw JSON content. Copy this output text and then paste this code into a Visual Studio file, saving as a JSON file. This results in a locally stored kubeconfig.json file. (save to /mnt/c/users/<current user>/documents/Kube directory as kubeconfig.json)
 
-## Configure the Kubernetes Cluster
+### Configure the Kubernetes Cluster
 
 Once the local JSON file is obtained, in a new WSL session, use the following commands to configure the Cluster.
 
@@ -1373,7 +1380,7 @@ Set the container port to **5001.**
 
 And then create the **imagePullSecret**:
 
-## Create a Secret in the cluster that holds the authorization token
+### Create a Secret in the cluster that holds the authorization token
 
 A Kubernetes cluster uses the Secret of **docker-registry** type to authenticate with a container registry to pull a private image.
 
@@ -1385,21 +1392,16 @@ kubectl create secret docker-registry azuremlcr --docker-server=<your-registry-s
 
 Find:
 
-**<your-registry-server>** is the Azure Container Registry **Login Server**.
-
-**<your-name>** is the Azure Container Registry **Username**.
-
-**<your-pword>** is the Azure Container Registry **Password**. Please ensure the password is in quotes.
-
-**<your-email>** is the user that has R/W access to the container.
-
-Find this information on the **Azure Container** **Registry** under **Access Keys**.
-
-Docker credentials are now set in the cluster as a Secret called **azuremlcr**.
+- **<your-registry-server>** is the Azure Container Registry **Login Server**.
+- **<your-name>** is the Azure Container Registry **Username**.
+- **<your-pword>** is the Azure Container Registry **Password**. Please ensure the password is in quotes.
+- **<your-email>** is the user that has R/W access to the container.
+- Find this information on the **Azure Container** **Registry** under **Access Keys**.
+- Docker credentials are now set in the cluster as a Secret called **azuremlcr**.
 
 Save the **iris_deployment.yaml** file (located in /*mnt/c/users/<current user>/documents/Kube directory*).
 
-## Create the Kubernetes Container
+### Create the Kubernetes Container
 
 ```Bash  
 kubectl.exe create -f /mnt/c/users/<current  user>/documents/Kube/iris_deployment.yaml
@@ -1417,9 +1419,9 @@ Kubectl get deployments
 
 The Deployment can take some time.
 
-## Configure Visual Studio Team Services to deploy automatically
+### Configure Visual Studio Team Services to deploy automatically
 
-### Create a team project
+#### Create a team project
 
 1.  Ensure [Project Collection Administrators Group membership.](https://docs.microsoft.com/vsts/organizations/security/set-project-collection-level-permissions?view=vsts) To create team projects, **Create new projects** permission must be set to **Allow**.
 
@@ -1435,11 +1437,11 @@ The Deployment can take some time.
 
     ![Alt text](media\azure-stack-solution-machine-learning\image70.png)
 
-## Import some code  Create Repository
+### Import some code  Create Repository
 
 A Git repository for YAML code is needed.
 
-### Add user to the GIT repo
+#### Add user to the GIT repo
 
 1.  From the default project dashboard, select Generate Git credentials.
 
@@ -1453,7 +1455,7 @@ A Git repository for YAML code is needed.
 
     ![Alt text](media\azure-stack-solution-machine-learning\image73.png)
 
-### Clone the Git repository locally and upload the code. 
+#### Clone the Git repository locally and upload the code. 
 
 1.  Make a directory in machine at `c:\\users\\<User>\\source\\repos\\hybridMLIris`, and clone the repository
 
@@ -1486,9 +1488,9 @@ A Git repository for YAML code is needed.
 
     ![Alt text](media\azure-stack-solution-machine-learning\image76.png)
 
-## Prepare the Private Build and Release Agent for VSTS Integration
+### Prepare the Private Build and Release Agent for VSTS Integration
 
-### Prerequisites
+#### Prerequisites
 
 VSTS authenticates against Azure Resource Manager using a Service Principal. For VSTS to be able to provision resources in an Azure Stack subscription it requires Contributor status.\ **The following are the high-level steps that need to be configured to enable such authentication:**
 
@@ -1500,7 +1502,7 @@ VSTS authenticates against Azure Resource Manager using a Service Principal. For
 
 4.  A new Service Definition in VSTS must be created using the Azure Stack endpoints as well as SPN information.
 
-### Service Principal Creation
+#### Service Principal Creation
 
 Refer to the [Service Principal Creation  instructions](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)  to create a service principal, and choose Web App/API for the  Application Type.
 
@@ -1532,7 +1534,7 @@ After saving the key, the value of the key is displayed. Copy this value, as it 
 
 ![Alt text](media\azure-stack-solution-machine-learning\image82.png)
 
-### Get Tenant ID
+#### Get Tenant ID
 
 As part of the service endpoint configuration, VSTS requires the **Tenant ID** that corresponds to the AAD Directory the Azure Stack stamp was deployed to. Follow the steps in this section to gather the Tenant Id.
 
@@ -1580,15 +1582,15 @@ Set the scope at the level of the subscription, resource group, or resource. Per
 
 1.  Select **Save** to finish assigning the role. The application is displayed in the list of users assigned to a role for that scope.
 
-## Role-Based Access Control
+### Role-Based Access Control
 
 Azure Role-Based Access Control (RBAC) enables fine-grained access management for Azure and Azure Stack. Using RBAC, only the amount of access that users need to perform their jobs can be granted. For more information about Role-Based Access Control see [Manage Access to Azure Subscription Resources](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal?toc=%252fazure%252factive-directory%252ftoc.json).
 
 **VSTS Agent Pools**
 
-Instead of managing each agent individually, agents are organized into**agent pools**. An agent pool defines the sharing boundary for all agents in that pool. In VSTS, agent pools are scoped to the VSTS account, so can be shared across team projects. For more information and a tutorial on how to create VSTS agent pools see [Create Agent Pools and Queues.](https://docs.microsoft.com/vsts/build-release/concepts/agents/pools-queues?view=vsts)
+Instead of managing each agent individually, agents are organized into **agent pools**. An agent pool defines the sharing boundary for all agents in that pool. In VSTS, agent pools are scoped to the VSTS account, so can be shared across team projects. For more information and a tutorial on how to create VSTS agent pools see [Create Agent Pools and Queues.](https://docs.microsoft.com/vsts/build-release/concepts/agents/pools-queues?view=vsts)
 
-**Add aPersonal access token(PAT)for Azure Stack**
+**Add aPersonal access token (PAT) for Azure Stack**
 
  -  Log on to VSTS account and select on **account profile** name.
 
@@ -1607,7 +1609,7 @@ Instead of managing each agent individually, agents are organized into**agent po
 
     ![Alt text](media\azure-stack-solution-machine-learning\image95.png)
 
-### Install the VSTS build agent on the Azure Stack hosted Build Server
+#### Install the VSTS build agent on the Azure Stack hosted Build Server
 
 1.  Connect to the **Build Server** deployed on the Azure Stack host.
 
@@ -1654,7 +1656,7 @@ Instead of managing each agent individually, agents are organized into**agent po
     sudo apt-get update && sudo apt-get install azure-cli
     ```
 
-2.  Download and Deploy the build agent as a service using a**personal access token (PAT)** and run as the VM Admin account.
+2.  Download and Deploy the build agent as a service using a **personal access token (PAT)** and run as the VM Admin account.
 
     ![Alt text](media\azure-stack-solution-machine-learning\image96.png)
 
@@ -1685,7 +1687,7 @@ Instead of managing each agent individually, agents are organized into**agent po
 
 The agent is now visible in VSTS folder.
 
-### Endpoint Creation Permissions
+#### Endpoint Creation Permissions
 
 Users can create endpoints so VSTO builds can deploy Azure Service apps to the stack. VSTS connects to the build agent, which then connects with Azure Stack.
 
@@ -1723,11 +1725,11 @@ Users can create endpoints so VSTO builds can deploy Azure Service apps to the s
 
     ![Alt text](media\azure-stack-solution-machine-learning\image103.png)
 
-## Configure Build and Release definitions
+### Configure Build and Release definitions
 
 Now that the connections are established, you will manually map the created Azure endpoint, AKS and Azure Container Registry to the build and release definitions.
 
-### Create the Build Definition for The YAML code
+#### Create the Build Definition for The YAML code
 
 1.  Select the Builds Section under the Build and Release hub and create a new definition.
 
@@ -1773,9 +1775,9 @@ Success will look similar to this:
 
 ![Alt text](media\azure-stack-solution-machine-learning\image114.png)
 
-### Create the Release Definition for the YAML code
+#### Create the Release Definition for the YAML code
 
-1.  Select theReleases section under theBuild and Releasehub andcreate a new definition
+1.  Select the Releases section under the Build and Release hub, a new definition
 
     ![Alt text](media\azure-stack-solution-machine-learning\image115.png)
 
@@ -1817,9 +1819,9 @@ Success will look similar to this:
 
     Now create a new Kubernetes Service Connection.
 
-### Create Kubernetes Service Endpoint
+#### Create Kubernetes Service Endpoint
 
-1.  Under Kubernetes Service Connection, select the**+ New**button, and select**Kubernetes**from the list. you can use this endpoint to connect the**VSTS**and the**Azure Container Service (AKS)**.
+1.  Under Kubernetes Service Connection, select the **+ New** button, and select**Kubernetes**from the list. you can use this endpoint to connect the**VSTS**and the**Azure Container Service (AKS)**.
 
 2.  **Connection Name**: Provide the connection name.
 
@@ -1844,9 +1846,9 @@ Success will look similar to this:
 
     ![Kubernetes Service Endpoint](media\azure-stack-solution-machine-learning\image122.png)
 
-1.  Typethe following command in the command prompt to get the access credentials for the Kubernetes cluster.
+1.  Type the following command in the command prompt to get the access credentials for the Kubernetes cluster.
 
-## Azure ML Workbench CLI
+### Azure ML Workbench CLI
 
 az aks get-credentials resource-group <yourResourceGroup> name <yourazurecontainerservice>
 
@@ -1867,7 +1869,7 @@ az aks get-credentials resource-group <yourResourceGroup> name <yourazurecontain
 
 4.  Save the release definition.
 
-### Check the status of the release definition. 
+#### Check the status of the release definition. 
 
 Once saved, the release definition the VSTS should automatically kick off a release.
 
@@ -1889,9 +1891,9 @@ Once the kubernetes UI is running, browse to the deployment at [**https://localh
 
 ![Alt text](media\azure-stack-solution-machine-learning\image128.png)
 
-## Deploy the YAML Service
+### Deploy the YAML Service
 
-### Upload the iris_service.yaml to the repository and sync changes
+#### Upload the iris_service.yaml to the repository and sync changes
 
 1.  Navigate to newly cloned repository:
 
@@ -1917,7 +1919,7 @@ Once the kubernetes UI is running, browse to the deployment at [**https://localh
 
 ![Alt text](media\azure-stack-solution-machine-learning\image129.png)
 
-### Update the Build Definition for The YAML code
+#### Update the Build Definition for The YAML code
 
 1.  Select the Builds Section under the Build and Release hub and select the definition created earlier.
 
@@ -1935,9 +1937,9 @@ Once the kubernetes UI is running, browse to the deployment at [**https://localh
 
 
 
-### Update the Release Definition for the YAML code
+#### Update the Release Definition for the YAML code
 
-1.  Select theReleases section under theBuild and Releasehub andselect the release definition created earlier. Then select the Edit Link.
+1.  Select theReleases section under the Build and Release hub and select the release definition created earlier. Then select the Edit Link.
 
     ![Alt text](media\azure-stack-solution-machine-learning\image132.png)
 
@@ -1962,7 +1964,7 @@ Once the kubernetes UI is running, browse to the deployment at [**https://localh
 
 1.  Save the release definition.
 
-### Check the status of the release definition
+#### Check the status of the release definition
 
 Once saved, the release definition the VSTS should automatically kick off a release.
 
@@ -1986,7 +1988,7 @@ Once the kubernetes UI is running, browse to the deployment at [**https://localh
 ![Alt text](media\azure-stack-solution-machine-learning\image137.png)
 
 
-## Kubernetes Scoring and Validation
+### Kubernetes Scoring and Validation
 
 Start the Kubernetes UI
 
@@ -2006,11 +2008,11 @@ A validation message similar to the one below should be displayed:
 
 ![Alt text](media\azure-stack-solution-machine-learning\image140.png)
 
-### Create Azure Stack Scoring Function App in the Azure Stack Portal
+#### Create Azure Stack Scoring Function App in the Azure Stack Portal
 
 A function app is required to host the execution of each function. A function app allows function grouping as a logic unit for easier management, deployment, and sharing of resources.
 
-1.  From the Azure Stack user portal, select the**+ New**button found on the upper left-hand corner, then select**Web + Mobile** >**Function App**.
+1.  From the Azure Stack user portal, select the **+ New** button found on the upper left-hand corner, then select**Web + Mobile** >**Function App**.
 
     ![Alt text](media\azure-stack-solution-machine-learning\image141.png)
 
@@ -2020,11 +2022,11 @@ A function app is required to host the execution of each function. A function ap
 
 1.  Select**Create**to provision and deploy the function app.
 
-2.  Select the Notification icon in the upper-right corner of the portal and watch for the**Deployment succeeded**message.
+2.  Select the Notification icon in the upper-right corner of the portal and watch for the**Deployment succeeded** message.
 
     ![Define new function app settings](media\azure-stack-solution-machine-learning\image143.png)
 
-1.  Select**Go to resource**to view the new function app.
+1.  Select**Go to resource** to view the new function app.
 
     ![Alt text](media\azure-stack-solution-machine-learning\image144.png)
 
@@ -2044,7 +2046,7 @@ A function app is required to host the execution of each function. A function ap
 
     ![Alt text](media\azure-stack-solution-machine-learning\image148.png)
 
-### Use Postman to validate Functions
+#### Use Postman to validate Functions
 
 To ensure you have set up your Kbernetes and Functions correctly you can use the free app Postman to test and validate schemas and functions. To start this process, you first need to gather some info from your Kubernetes instance.
 
@@ -2062,7 +2064,7 @@ To ensure you have set up your Kbernetes and Functions correctly you can use the
 
     ![Alt text](media\azure-stack-solution-machine-learning\image150.png)
 
-1.  From within the postman app, Select POST from the drop down.
+1.  From within the postman app, Select POST..
 
     ![Alt text](media\azure-stack-solution-machine-learning\image151.png)
 
@@ -2070,7 +2072,7 @@ To ensure you have set up your Kbernetes and Functions correctly you can use the
 
     ![Alt text](media\azure-stack-solution-machine-learning\image152.png)
 
-1.  Select the **Body** tab, and then the data type as **raw**, then **JSON** from the dropdown selection.
+1.  Select the **Body** tab, and then the data type as **raw**, then **JSON**.
 
     ![Alt text](media\azure-stack-solution-machine-learning\image153.png)
 
@@ -2084,7 +2086,9 @@ To ensure you have set up your Kbernetes and Functions correctly you can use the
 
     ![Alt text](media\azure-stack-solution-machine-learning\image155.png)
 
-## Create an Azure Stack storage account and Storage Queue for data
+## Step 7: Create an Azure Stack storage account and Storage Queue
+
+Create an Azure Stack storage account and Storage Queue for data.
 
 1.  Sign in to the Azure Stack User Portal. (Each Azure Stack has a unique portal URL)
 
@@ -2154,7 +2158,9 @@ This allows the application to understand that this is a storage account endpoin
 
     ![Alt text](media\azure-stack-solution-machine-learning\image166.png)
 
-## Create a New Azure Stack Function to move the Clean Data from Azure Stack to Azure
+## Step 8: Create a function to handle clean data
+
+Create a new Azure Stack function to move the clean data from Azure Stack to Azure.
 
 1.  Create a new Function by selecting **Functions**, then the **+New Function** button.
 
@@ -2226,4 +2232,8 @@ This allows the application to understand that this is a storage account endpoin
 
     ![Alt text](media\azure-stack-solution-machine-learning\image179.png)
 
-The data has been sanitized of sensitive data by the Azure Stack Hosted Kubernetes Machine Learning and uploaded to the Azure Public Cloud from the on-prem Azure Stack, via Azure Stack Hosted Function Apps, and can stage the data for uploads in an edge/disconnect scenario.
+The data has been sanitized of sensitive data by the Azure Stack Hosted Kubernetes Machine Learning and uploaded to the Azure Public Cloud from the on-prem Azure Stack, via Azure Stack Hosted Function Apps, and can stage the data for uploads in an edge/disconnected scenario.
+
+## Next steps
+
+ - To learn more about Azure Cloud Patterns, see [Cloud Design Patterns](https://docs.microsoft.com/azure/architecture/patterns).
