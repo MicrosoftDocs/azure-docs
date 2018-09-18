@@ -10,8 +10,8 @@ ms.author: anantr
 ms.component: alerts
 ---
 
-# Overview 
-This article shows you how to access smart groups, and the possibilities of using smart groups.
+# Managing Smart Groups
+[Smart groups](https://aka.ms/smart-groups) use machine learning algorithms to group together alerts on the basis of co-occurence or similarity, so that the user can now manage smart groups instead of having to manage each alert individually. This article will walk you through how to access and use smart groups in Azure Monitor.
 1.	To see the Smart Groups created for your alert instances you can either
      1.	Click on **Smart Groups** from the **Alerts Summary** page    
     ![Monitoring](./media/monitoring-alerts-managing-smart-groups/sg-alerts-summary.jpg)
@@ -21,4 +21,4 @@ This article shows you how to access smart groups, and the possibilities of usin
 ![Monitoring](./media/monitoring-alerts-managing-smart-groups/sg-list.jpg)
 3.	Clicking on any Smart Group opens up the details page, where you can see the grouping reason, along with the member alerts. This aggregation allows you to deal with a singular smart group, instead of sifting through multiple alerts.   
 ![Monitoring](./media/monitoring-alerts-managing-smart-groups/sg-details.jpg)
-4.	One further possibility is to use smart group instances to initiate your incident instances in your ITSM solution (through the Alerts Management API) instead of creating them on-top of your alert instances.
+
