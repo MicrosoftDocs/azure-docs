@@ -38,7 +38,7 @@ We recommend that you use the administrator account you used for your first serv
 
 For example, if you sign up for a Microsoft Intune subscription and then further synchronize your on-premises Active Directory with your Azure AD directory, you can sign up for another Microsoft service such as Office 365 and easily achieve the same directory integration benefits that you have with Microsoft Intune.
 
-For more information about integrating your on-premises directory with Azure AD, see [Directory integration with Azure AD Connect](../connect/active-directory-aadconnect.md).
+For more information about integrating your on-premises directory with Azure AD, see [Directory integration with Azure AD Connect](../hybrid/whatis-hybrid-identity.md).
 
 ### Associate an existing Azure AD directory with a new Azure subscription
 You can associate a new Azure subscription with the same directory that authenticates sign-in for an existing Office 365 or Microsoft Intune subscription. For more information on that scenario, see [Transfer ownership of an Azure subscription to another account](../../billing/billing-subscription-transfer.md)

@@ -33,6 +33,7 @@ Enable replication. This procedure assumes that the primary Azure region is East
     - **Source**: The point of origin of the VMs, which in this case is **Azure**.
     - **Source location**: The Azure region from where you want to protect your virtual machines. For this illustration, the source location is 'East Asia'
     - **Deployment model**: Azure deployment model of the source machines.
+    - **Source subscription**: The subscription to which your source virtual machines belong. This can be any subscription within the same Azure Active Directory tenant where your recovery services vault exists.
     - **Resource Group**: The resource group to which your source virtual machines belong. All the VMs under the selected resource group are listed for protection in the next step.
 
     ![Enable replication](./media/site-recovery-replicate-azure-to-azure/enabledrwizard1.png)
@@ -43,6 +44,7 @@ Enable replication. This procedure assumes that the primary Azure region is East
 4. In **Settings**, you can optionally configure target site settings:
 
     - **Target Location**: The location where your source virtual machine data will be replicated. Depending upon your selected machines location, Site Recovery will provide you the list of suitable target regions. We recommend that you keep the target location the same as the Recovery Services vault location.
+    - **Target subscription**: The target subscription used for disaster recovery. By default, the target subscription will be same as the source subscription.
     - **Target resource group**: The resource group to which all your replicated virtual machines belong. By default Azure Site Recovery creates a new resource group in the target region with name having "asr" suffix. In case resource group created by Azure Site Recovery already exists, it is reused. You can also choose to customize it as shown in the section below. The location of the target resource group can be any Azure region except the region in which the source virtual machines are hosted.
     - **Target Virtual Network**: By default, Site Recovery creates a new virtual network in the target region with name having "asr" suffix. This is mapped to your source network, and used for any future protection. [Learn more](site-recovery-network-mapping-azure-to-azure.md) about network mapping.
     - **Target Storage accounts (If your source VM does not use managed disks)**: By default, Site Recovery creates a new target storage account mimicking your source VM storage configuration. In case storage account already exists, it is reused.
@@ -57,7 +59,9 @@ Enable replication. This procedure assumes that the primary Azure region is East
 
 You can modify the default target settings used by Site Recovery.
 
-1. Click **Customize:** to modify default settings:
+1. Click **Customize:** next to 'Target subscription' to modify the default target subscription. Select the subscription from the list of all the subscriptions available in the same Azure Active Directory (AAD) tenant.
+
+2. Click **Customize:** to modify default settings:
 	- In **Target resource group**, select the resource group from the list of all the resource groups in the target location of the subscription.
 	- In **Target virtual network**, select the network from a list of all the virtual network in the target location.
 	- In **Availability set**, you can add availability set settings to the VM, if they're part of an availability set in the source region.
