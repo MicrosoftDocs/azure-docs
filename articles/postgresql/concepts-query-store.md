@@ -22,17 +22,17 @@ The Query Store feature in Azure Database for PostgreSQL provides a way to track
 > Do not modify the **azure_sys** database or its schemas. Doing so will prevent Query Store and related performance features from functioning correctly.
 
 ## Enabling Query Store
-Query Store is an opt-in feature, and so it isn't active by default on a server. The store is enabled or disabled globally for all the databases on a given server and cannot be turned on or off per database.
+Query Store is an opt-in feature, so it isn't active by default on a server. The store is enabled or disabled globally for all the databases on a given server and cannot be turned on or off per database.
 
 ### Enable Query Store using the Azure portal
 1. Sign in to the Azure portal and select your Azure Database for PostgreSQL server.
 2. Select **Server Parameters** in the **Settings** section of the menu.
 3. Search for the **pg_qs.query_capture_mode** parameter.
-4. Update the value from "NONE" to "ALL" and save.
+4. Update the value from NONE to TOP and save.
 
 Alternatively you can set this parameter using the Azure CLI.
 ```azurecli-interactive
-az postgres server configuration set --name pg_qs.query_capture_mode --resource-group myresourcegroup --server mydemoserver --value INFO
+az postgres server configuration set --name pg_qs.query_capture_mode --resource-group myresourcegroup --server mydemoserver --value TOP
 ```
 
 Allow up to 20 minutes for the first batch of data to persist in the azure_sys database.

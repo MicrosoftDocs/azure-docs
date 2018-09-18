@@ -48,12 +48,12 @@ The **pgms_wait_sampling.history_period** parameter specifies how often (in mill
 ## Avoid using non-parameterized queries
 Using non-parameterized queries when they are not necessary (for example ad-hoc analysis) is not ideal. Cached plans cannot be reused which forces Query Optimizer to compile queries for every unique query text.
 
-Also, Query Store can rapidly exceed the size quota because of potentially a large number of different query texts. As a result, performance of your workload will be suboptimal and Query Store might be constantly deleting the data trying to keep up with the incoming queries.
+Also, Query Store could rapidly exceed its size quota because of a potentially large number of different query texts. As a result, Query Store might be constantly deleting the data trying to keep up with the incoming queries.
 
 Consider the following options:
 - Parameterize queries where applicable, for example, wrap queries inside a stored procedure.
 - Compare the number of distinct query_hash values with the total number of entries in query_store.query_texts. If the ratio is close to 1 your workload is mostly generating unique queries.
-- Set the Query Capture Mode to TOP to automatically filter out nested queries.
+- Set pg_qs.query_capture_mode to TOP to automatically filter out nested queries.
 
 ## Next Steps
 - Learn how to get or set parameters using the [Azure portal](howto-configure-server-parameters-using-portal.md) or the [Azure CLI](howto-configure-server-parameters-using-cli.md).
