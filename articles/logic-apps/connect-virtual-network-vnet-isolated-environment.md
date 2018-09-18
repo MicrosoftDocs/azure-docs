@@ -25,6 +25,8 @@ integration accounts, you select this ISE as their location. Your logic apps and
 integration accounts can then directly access resources, such as virtual machines (VMs), 
 servers, systems, and services, in your VNET. 
 
+![Select integration service environment](./media/connect-virtual-network-vnet-isolated-environment/select-logic-app-integration-service-environment.png)
+
 Your ISE is a private and isolated environment that uses dedicated storage and other 
 resources that exist separately from the public or *global* Logic Apps service. 
 This separation also helps reduce any impact other Azure tenants might have on your 
