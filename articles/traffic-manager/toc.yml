@@ -18,6 +18,8 @@
     href: traffic-manager-configure-weighted-routing-method.md
   - name: Route traffic to a priority endpoint
     href: traffic-manager-configure-priority-routing-method.md
+  - name: Route traffic based on user's subnet
+    href: tutorial-traffic-manager-subnet-routing.md
 - name: Samples
   items:
   - name: Azure CLl
