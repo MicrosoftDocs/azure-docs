@@ -14,7 +14,7 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 09/05/2018
+ms.date: 09/24/2018
 ms.author: alkohli
 ---
 # Azure Data Box security and data protection

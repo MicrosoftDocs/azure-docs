@@ -16,9 +16,9 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/24/2018
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand what Data Box Gateway is and how it works so I can use it to send data to Azure.
+#Customer intent: As an IT admin, I need to understand what Data Box Gateway is and how it works so I can use it to send data to Azure.
 ---
-# What is Azure Data Box Gateway? (Preview)
+# What is Azure Data Box Gateway (Preview)? 
 
 Azure Data Box Gateway is a storage solution that enables you to seamlessly send data to Azure. This article provides you an overview of the Azure Data Box Gateway solution, benefits, key capabilities, and the scenarios where you can deploy this device. 
 

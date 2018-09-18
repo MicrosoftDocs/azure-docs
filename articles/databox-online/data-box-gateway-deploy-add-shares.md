@@ -16,7 +16,7 @@ ms.workload: NA
 ms.date: 09/24/2018
 ms.author: alkohli
 ms.custom: 
-Customer intent: As an IT admin, I need to understand how to add and connect to shares on Data Box Gateway so I can use it to transfer data to Azure.
+#Customer intent: As an IT admin, I need to understand how to add and connect to shares on Data Box Gateway so I can use it to transfer data to Azure.
 ---
 # Tutorial: Transfer data with Azure Data Box Gateway (Preview)
 

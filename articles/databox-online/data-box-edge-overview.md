@@ -16,9 +16,9 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/24/2018
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand what Data Box Edge is and how it works so I can use it to process and transform data before sending to Azure.
+#Customer intent: As an IT admin, I need to understand what Data Box Edge is and how it works so I can use it to process and transform data before sending to Azure.
 ---
-# What is Azure Data Box Edge? (Preview)
+# What is Azure Data Box Edge (Preview)? 
 
 Azure Data Box Edge is a storage solution that allows you to process data and send it over network to Azure. This article provides you an overview of the Data Box Edge solution, benefits, key capabilities, and the scenarios where you can deploy this device. 
 

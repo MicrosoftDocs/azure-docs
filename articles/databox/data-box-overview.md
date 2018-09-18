@@ -14,9 +14,9 @@ ms.topic: overview
 ms.custom:
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 09/11/2018
+ms.date: 09/24/2018
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand what Data Box is and how it works so I can use it to import on-premises data into Azure.
+#Customer intent: As an IT admin, I need to understand what Data Box is and how it works so I can use it to import on-premises data into Azure.
 ---
 # What is Azure Data Box?
 

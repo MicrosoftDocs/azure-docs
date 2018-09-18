@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/24/2018
 ms.author: alkohli
-Customer intent: As an IT admin, I need to be able to set up Data Box Disk to upload on-premises data from my server onto Azure.
+#Customer intent: As an IT admin, I need to be able to set up Data Box Disk to upload on-premises data from my server onto Azure.
 ---
 # Tutorial: Cable and connect to your Azure Data Box
 
@@ -33,12 +33,13 @@ Before you begin, make sure that:
 
 1. You have completed the [Tutorial: Order Azure Data Box](data-box-deploy-ordered.md).
 2. You have received your Data Box and the order status in the portal is **Delivered**. 
-3. You have received one grounded power cord to use with your 100 TB storage device.
-4. You have a host computer that has the data that you want to copy over to Data Box. Your host computer must
+3. You have reviewed the [Data Box safety guidelines](data-box-safety.md).
+4. You have received one grounded power cord to use with your 100 TB storage device.
+5. You have a host computer that has the data that you want to copy over to Data Box. Your host computer must
     - Run a [Supported operating system](data-box-system-requirements.md).
     - Be connected to high-speed network. We strongly recommend that you have at least one 10 GbE connection. If a 10 GbE connection isn't available, a 1 GbE data link can be used but the copy speeds are impacted. 
-5. You must have access to a flat surface where you can place the Data Box. If you want to place the device on a standard rack shelf, you need a 7U slot in your datacenter rack. You can place the device flat or upright in the rack.
-6. You have procured the following cables to connect your Data Box to the host computer.
+6. You must have access to a flat surface where you can place the Data Box. If you want to place the device on a standard rack shelf, you need a 7U slot in your datacenter rack. You can place the device flat or upright in the rack.
+7. You have procured the following cables to connect your Data Box to the host computer.
     - Two 10 GbE SFP+ Twinax copper cables (use with DATA 1, DATA 2 network interfaces)
     - One RJ-45 CAT 6 network cable (use with MGMT network interface)
     - One RJ-45 CAT 6A OR one RJ-45 CAT 6 network cable (use with DATA 3 network interface configured as 10 Gbps or 1 Gbps respectively)

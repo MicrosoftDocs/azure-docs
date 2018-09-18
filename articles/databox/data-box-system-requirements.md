@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/05/2018
+ms.date: 09/24/2018
 ms.author: alkohli
 ---
 # Azure Data Box system requirements

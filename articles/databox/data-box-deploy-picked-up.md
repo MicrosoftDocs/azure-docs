@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/24/2018
 ms.author: alkohli
-Customer intent: As an IT admin, I need to be able to return Data Box to upload on-premises data from my server onto Azure.
+#Customer intent: As an IT admin, I need to be able to return Data Box to upload on-premises data from my server onto Azure.
 ---
 
 # Tutorial: Return Azure Data Box and verify data upload to Azure
@@ -69,6 +69,6 @@ In this tutorial, you learned about Azure Data Box topics such as:
 Advance to the following article to learn how to manage Data Box via the local web UI.
 
 > [!div class="nextstepaction"]
-> [Use local web UI to administer Azure Data Box](./data-box-portal-admin.md)
+> [Use local web UI to administer Azure Data Box](./data-box-local-web-ui-admin.md)
 
 

@@ -16,7 +16,7 @@ ms.workload: NA
 ms.date: 09/24/2018
 ms.author: alkohli
 ms.custom:
-Customer intent: As an IT admin, I need to understand how to provision a virtual device for Data Box Gateway in Hyper-V so I can use it to transfer data to Azure.  
+#Customer intent: As an IT admin, I need to understand how to provision a virtual device for Data Box Gateway in Hyper-V so I can use it to transfer data to Azure.  
 ---
 # Tutorial: Provision Azure Data Box Gateway in Hyper-V (Preview)
 
