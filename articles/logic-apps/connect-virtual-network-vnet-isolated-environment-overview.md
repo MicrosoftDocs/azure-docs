@@ -14,8 +14,8 @@ ms.date: 09/24/2018
 # Access to Azure Virtual Network (VNET) resources from isolated Azure Logic Apps
 
 > [!NOTE]
-> To try this capability, which is in *private preview*, 
-> [learn how to sign up for access]. 
+> This capability is currently in *private preview*, 
+> but more details will be available about how you can sign up for access. 
 
 Sometimes, your logic apps and integration accounts need access to secured 
 resources such as virtual machines (VMs) and other systems or services inside an 
