@@ -4,16 +4,14 @@ description: Shows you how to connect an app in Azure App Service to a new or ex
 services: app-service
 documentationcenter: ''
 author: ccompy
-manager: erikre
-editor: cephalin
-
+manager: stefsch
 ms.assetid: 90bc6ec6-133d-4d87-a867-fcf77da75f5a
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2017
+ms.date: 09/24/2018
 ms.author: ccompy
 
 ---
@@ -283,6 +281,22 @@ While there is some use case overlap, none of these feature can replace any of t
 Beyond the use cases, there are some simplicity related aspects. If your VNet is already connected to your on-premises network, then using VNet Integration or an App Service Environment is an easy way to consume on-premises resources. On the other hand, if your VNet is not connected to your on-premises network then it's a lot more overhead to set up a site to site VPN with your VNet compared with installing the HCM. 
 
 Beyond the functional differences, there are also pricing differences. The App Service Environment feature is a Premium service offering but offers the most network configuration possibilities in addition to other great features. VNet Integration can be used with Standard or Premium ASPs and is perfect for securely consuming resources in your VNet from the multi-tenant App Service. Hybrid Connections currently depends on a BizTalk account, which has pricing levels that start free and then get progressively more expensive based on the amount you need. When it comes to working across many networks though, there is no other feature like Hybrid Connections, which can enable you to access resources in well over 100 separate networks. 
+
+## New VNet Integration ##
+
+There is a new version of the VNet Integration capability that does not depend on Point to Site VPN technology. This new version is in Preview. The new VNet Integration capabiity has the following characterics.
+
+- The new feature requires an unused subnet in your resource manager VNet
+- One address is used for each App Service plan instance. Since subnet size cannot be changed after assignment, use a subnet  that can more than cover your maximum scale size. A /27 with 32 addresses is the recommended size as that would accommodate an App Service plan that is scaled to 20 instances.
+- You can consume Service Endpoint secured resources by using the new VNet Integration capability. Enable access from the subnet assigned to your app to configure Service Endpoints with your app,
+- You can access resources across ExpressRoute connections without any additional configuration
+- No gateway is required to use the new VNet Integration feature
+- Your App Service plan must be a Standard, Premium or PremiumV2 plan
+- The new capability is only available from newer Azure App Service scale units. The portal will tell you if your app can use the new VNet Integration feature. 
+- The app and the VNet must be in the same region
+
+The new VNet Integration feature is initially only available in North Europe and East US regions.
+
 
 <!--Image references-->
 [1]: ./media/web-sites-integrate-with-vnet/vnetint-upgradeplan.png
