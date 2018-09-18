@@ -78,7 +78,7 @@ An SDK for model logging and data capture is available so you can monitor input,
 
 To use the SDK with your model, you import the SDK into your scoring script or application. You can then use the SDK to log data such as parameters, results, or input details.
 
-If you decide to enable model data collection every time you deploy the image, the details needed to capture the data, such as the credentials to your personal blob store, are provisioned automatically.
+If you decide to [enable model data collection](how-to-enable-data-collection.md) every time you deploy the image, the details needed to capture the data, such as the credentials to your personal blob store, are provisioned automatically.
 
 > [!Important]
 > Microsoft does not see the data you collect from your model. The data is sent directly to the Azure storage account for your workspace.
