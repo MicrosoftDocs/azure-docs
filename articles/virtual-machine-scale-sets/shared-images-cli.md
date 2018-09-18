@@ -35,6 +35,10 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 >[!NOTE]
 > This article walks through the process of using a generalized managed image. It is not supported to create a scale set from a specialized VM image.
 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0.46 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+
 
 [!INCLUDE [virtual-machines-common-shared-images-cli](../../includes/virtual-machines-common-shared-images-cli.md)]
 
