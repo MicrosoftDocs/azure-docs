@@ -16,6 +16,8 @@
   items:
   - name: Virtual WAN partners - automation
     href: virtual-wan-configure-automation-providers.md
+  - name: Route traffic from a virtual hub to an NVA
+    href: virtual-wan-route-table.md
 - name: Reference
   items:
   - name: REST
