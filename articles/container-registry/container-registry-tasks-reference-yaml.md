@@ -424,9 +424,9 @@ The current UTC time the run began.
 
 ## Next steps
 
-For an overview of ACR Tasks, see the [ACR Tasks overview](./container-registry-tasks-overview.md).
+For an overview of multi-step tasks, see the [Run multi-step build, test, and patch tasks in ACR Tasks](container-registry-tasks-multi-step.md).
 
-For single-step builds, see the [ACR Build overview](container-registry-build-overview.md).
+For single-step builds, see the [ACR Tasks overview](container-registry-build-overview.md).
 
 <!-- IMAGES -->
 
