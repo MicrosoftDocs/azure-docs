@@ -28257,17 +28257,17 @@
             "redirect_document_id" : false
         },
         {
-            "source_path": "articles/monitoring-and-diagnostics/index.yml",
+            "source_path": "articles/monitoring-and-diagnostics/index.md",
             "redirect_url": "/azure/azure-monitor",
             "redirect_document_id" : false
         },
         {
-            "source_path": "articles/log-analytics/index.yml",
+            "source_path": "articles/log-analytics/index.md",
             "redirect_url": "/azure/azure-monitor",
             "redirect_document_id" : false
         },
         {
-            "source_path": "articles/application-insights/index.yml",
+            "source_path": "articles/application-insights/index.md",
             "redirect_url": "/azure/azure-monitor",
             "redirect_document_id" : false
         }
