@@ -1,6 +1,6 @@
 ---
 title: How does Azure Machine Learning service work?
-description: Learn about the architecture and concepts that make up Azure Machine Learning service. 
+description: This document describes the architecture and concepts for the Azure Machine Learning service. It includes a diagram showing the major components of the service, and illustrates the general workflow when using the service.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
