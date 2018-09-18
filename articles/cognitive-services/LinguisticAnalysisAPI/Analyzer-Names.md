@@ -1,12 +1,14 @@
 ---
-title: Analyzer naming structure in the Linguistic Analysis API | Microsoft Docs
-description: Learn how the Linguistic Analysis API uses its naming structure for analyzers to allow both flexibility and precision.
+title: Analyzer naming structure - Linguistic Analysis API
+titlesuffix: Azure Cognitive Services
+description: Learn how the Linguistic Analysis API Analyzer naming structure allows for both flexibility and precision.
 services: cognitive-services
 author: RichardSunMS
-manager: wkwok
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: linguistic-analysis
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/23/2016
 ms.author: lesun
 ---
