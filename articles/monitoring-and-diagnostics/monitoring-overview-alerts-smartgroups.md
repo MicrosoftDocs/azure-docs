@@ -11,7 +11,7 @@ ms.component: alerts
 ---
 
 
-# Smart groups
+# Smart Groups
 A common challenge faced when dealing with alerts is sifting through the noise to find out what actually matters - smart groups are intended to be the solution to that problem.  
 
 Smart groups are automatically created by using machine learning algorithms to combine related alerts that represent a single issue.  When an alert is created, the algorithm adds it to a new smart group or an existing smart group based on information such as historical patterns, similar properties, and similar structure. For example, if % CPU on several virtual machines in a subscription simultaneously spikes leading to many individual alerts, and if such alerts have occurred together anytime in the past, these alerts will likely be grouped into a single Smart Group, suggesting a potential common root cause. This means that for someone troubleshooting alerts, smart groups not only allows them to reduce noise by managing related alerts as a single aggregated unit, it also guides them towards possible common root causes for their alerts.
