@@ -67,16 +67,17 @@ Supported data types.
 
 | Type | Description |
 |-------|-------------|
-| address  | Blockchain address type, such as *contracts* or *users* |
-| bool     | Boolean data type |
-| contract | Address of type contract |
+| address  | Blockchain address type, such as *contracts* or *users*. |
+| array    | Single level array of type integer, bool, money, or time. Arrays can be static or dynamic. |
+| bool     | Boolean data type. |
+| contract | Address of type contract. |
 | enum     | Enumerated set of named values. When using the enum type, you also specify a list of EnumValues. Each value is limited to 255 characters. Valid value characters include upper and lower case letters (A-Z, a-z) and numbers (0-9). |
-| int      | Integer data type |
-| money    | Money data type |
-| state    | Workflow state |
+| int      | Integer data type. |
+| money    | Money data type. |
+| state    | Workflow state. |
 | string   | String data type. 4000 character maximum. |
-| user     | Address of type user |
-| time     | Time data type |
+| user     | Address of type user. |
+| time     | Time data type. |
 |`[ Application Role Name ]`| Any name specified in application role. Limits users to be of that role type. |
 
 ### Example configuration of type string
