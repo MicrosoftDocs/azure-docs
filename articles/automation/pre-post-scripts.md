@@ -97,7 +97,7 @@ The following is an example of a JSON string passed in to the **SoftwareUpdateCo
 A full example with all properties can be found at: [Software Update Configurations - Get By Name](/rest/api/automation/softwareupdateconfigurations/getbyname#examples)
 
 > [!NOTE]
-> Computers added to a deployment using [Dynamic groups (preview)](automation-update-management#using-dyanmic-groups) are not currently part of the **SoftwareUpdateConfigurationRunContext** parameter.
+> Computers added to a deployment using [Dynamic groups (preview)](automation-update-management#using-dynamic-groups) are not currently part of the **SoftwareUpdateConfigurationRunContext** parameter.
 
 ## Samples
 
@@ -214,7 +214,7 @@ if ($summary.Type -eq "Error")
 
 * You cannot pass objects or arrays to parameters when using pre and post scripts. The runbook will fail.
 * Runbooks that are not published are displayed as selectable when choosing a pre or post script. Only runbooks that are published should be chosen as un-published runbooks can not be invoked and will fail.
-* Computers added to a deployment using [Dynamic groups (preview)](automation-update-management#using-dyanmic-groups) are not currently part of the **SoftwareUpdateConfigurationRunContext** parameter that is passed into pre and post scripts.
+* Computers added to a deployment using [Dynamic groups (preview)](automation-update-management#using-dynamic-groups) are not currently part of the **SoftwareUpdateConfigurationRunContext** parameter that is passed into pre and post scripts.
 
 ## Next steps
 
