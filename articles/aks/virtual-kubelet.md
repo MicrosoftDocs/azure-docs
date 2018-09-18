@@ -32,7 +32,7 @@ To install the Virtual Kubelet, [Helm](https://docs.helm.sh/using_helm/#installi
 
 ### For RBAC-enabled clusters
 
-If your AKS cluster is RBAC-enabled, you must create a service account and role binding for use with Tiller. For more information, see [Helm Role-based access control][helm-rbac]. To create a service account and role binding, create a file named *rbac-virtualkubelet.yaml* and paste the following definition:
+If your AKS cluster is RBAC-enabled, you must create a service account and role binding for use with Tiller. For more information, see [Helm Role-based access control][helm-rbac]. To create a service account and role binding, create a file named *rbac-virtual-kubelet.yaml* and paste the following definition:
 
 ```yaml
 apiVersion: v1
@@ -55,7 +55,7 @@ subjects:
     namespace: kube-system
 ```
 
-Apply the service account and binding with [kubectl apply][kubectl-apply] and specify your *rbac-virtualkubelet.yaml* file, as shown in the following example:
+Apply the service account and binding with [kubectl apply][kubectl-apply] and specify your *rbac-virtual-kubelet.yaml* file, as shown in the following example:
 
 ```
 $ kubectl apply -f rbac-virtual-kubelet.yaml
