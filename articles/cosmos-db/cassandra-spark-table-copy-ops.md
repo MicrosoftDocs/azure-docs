@@ -61,7 +61,9 @@ booksDF.write
   .save()
 ```
 
-## Copy data from source table to pre-existing destination table
+## Copy data between tables
+
+### Copy data between tables (destination table exists)
 
 ```scala
 //1) Create destination table
@@ -89,7 +91,7 @@ sqlContext
   .show
 ```
 
-## Copy from source table to a non-existent destination table
+### Copy data between tables (destination table doesn't exists)
 
 ```scala
 import com.datastax.spark.connector._
