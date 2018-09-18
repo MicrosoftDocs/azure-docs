@@ -82,7 +82,7 @@
   - name: Configure ExpressRoute and site-to-site coexisting connections
     href: expressroute-howto-coexist-resource-manager.md
   - name: Configure ExpressRoute Direct
-    href: expressroute-how-to-erdirect.md
+    href: expressroute-howto-erdirect.md
   - name: Configure route filters for Microsoft peering
     items:
     - name: Azure portal
