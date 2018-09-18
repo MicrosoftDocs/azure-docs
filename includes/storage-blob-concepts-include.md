@@ -12,6 +12,8 @@ ms.custom: "include file"
 
 Azure Blob storage is Microsoft's object storage solution for the cloud. Blob storage is optimized for storing massive amounts of unstructured data, such as text or binary data.
 
+Massively scalable object storage for unstructured data
+
 Blob storage is ideal for:
 
 * Serving images or documents directly to a browser.
@@ -31,7 +33,7 @@ Blob storage exposes three resources: your storage account, the containers in th
 
 ### Storage Account
 
-All access to data objects in Azure Storage happens through a storage account. For more information, see [About Azure storage accounts](../articles/storage/common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+All access to data objects in Azure Storage happens through a storage account. For more information, see [Azure storage account overview](../articles/storage/common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ### Container
 
