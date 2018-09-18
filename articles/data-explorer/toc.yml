@@ -3,6 +3,7 @@
 - name: Overview
   items:
   - name: What is Data Explorer?
+    href: data-explorer-overview.md
 - name: Quickstarts
   expanded: true
   items:
@@ -52,4 +53,3 @@
   items:
   - name: Language reference
     href: https://aka.ms/kustolangref
-- name: Resources
