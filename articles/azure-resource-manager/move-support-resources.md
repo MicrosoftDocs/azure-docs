@@ -10,7 +10,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/07/2018
+ms.date: 09/18/2018
 ms.author: tomfitz
 
 ---
@@ -265,13 +265,13 @@ After finding the resource provider and resource type, use the tables in this ar
 ## Microsoft.DBforMySQL
 | Resource type | Resource group | Subscription |
 | ------------- | -------------- | ------------ |
-| servers | No | No |
+| servers | Yes | Yes |
 
 ## Microsoft.DBforPostgreSQL
 | Resource type | Resource group | Subscription |
 | ------------- | -------------- | ------------ |
 | servergroups | No | No |
-| servers | No | No |
+| servers | Yes | Yes |
 
 ## Microsoft.Devices
 | Resource type | Resource group | Subscription |
