@@ -1,6 +1,6 @@
 ---
-title: ' | Microsoft Docs'
-description: 
+title: 'Create an Azure Virtual WAN virtual hub route table to steer to NVA | Microsoft Docs'
+description: Virtual WAN virtual hub route table to steer traffic to a network virtual appliance.
 services: virtual-wan
 author: cherylmc
 
@@ -11,7 +11,7 @@ ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to work with routing tables for NVA.
 ---
 
-# Create a Virtual Hub Route table to steer traffic to a Network Virtual Appliance
+# Create a Virtual Hub route table to steer traffic to a Network Virtual Appliance
 
 This article shows you how to steer traffic from a Virtual Hub to a Network Virtual Appliance. 
 
@@ -25,7 +25,6 @@ In this article you'll learn how to:
 * Create a hub route
 * Create a route table
 * Apply the route table
-
 
 ## Before you begin
 
