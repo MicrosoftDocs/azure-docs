@@ -11,7 +11,7 @@ ms.date: 04/19/2018
 ms.author: tonyxing
 --- 
 
-[!INCLUDE [PrivatePreviewNote](../includes/private-preview-note.md)]
+[!INCLUDE [PrivatePreviewNote](./includes/private-preview-note.md)]
  
 # What is Anomaly Finder?
 
