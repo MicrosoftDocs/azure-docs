@@ -140,6 +140,8 @@
         href: logic-apps-enterprise-integration-b2b-list-errors-solutions.md
       - name: Build a disaster recovery plan
         href: logic-apps-enterprise-integration-b2b-business-continuity.md
+  - name: Connect to virtual networks with isolated environments
+    href: connect-virtual-network-vnet-isolated-environment.md
   - name: Access on-premises data
     items: 
       - name: Install data gateway
