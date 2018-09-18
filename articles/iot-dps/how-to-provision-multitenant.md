@@ -13,20 +13,20 @@ manager: timlt
 
 # How to provision for multitenancy 
 
-The allocation policies defined by the provisioning service support a variety of allocation scenarios. Two very common scenarios are:
+The allocation policies defined by the provisioning service support a variety of allocation scenarios. Two common scenarios are:
 
-* **Geolocation / GeoLatency**: As a device moves between locations, network latency is improved by having the device provisioned to the IoT hub closest to each location. In this scenario, a group of IoT hubs, which span across regions, are selected for enrollments. The **Lowest latency** allocation policy is selected for these enrollments. This causes the Device Provisioning Service to evaluate device latency and determine the closet IoT hub out of the group of IoT hubs. 
+* **Geolocation / GeoLatency**: As a device moves between locations, network latency is improved by having the device provisioned to the IoT hub closest to each location. In this scenario, a group of IoT hubs, which span across regions, are selected for enrollments. The **Lowest latency** allocation policy is selected for these enrollments. This policy causes the Device Provisioning Service to evaluate device latency and determine the closet IoT hub out of the group of IoT hubs. 
 
 * **Multi-tenacy**: Devices used within an IoT solution may need to be assigned to a specific IoT hub or group of IoT hubs. The solution may require all devices for a particular tenant to communicate with a specific group of IoT hubs. In some cases, a tenant may own IoT hubs and require devices to be assigned to their IoT hubs.
 
-It is common to combine these two scenarios. For example, a multitenant IoT solution will commonly assign tenant devices using a group of IoT hubs that are scattered across regions. These tenant devices can be assigned to the IoT hub in that group which has the lowest latency based on geographic location.
+It is common to combine these two scenarios. For example, a multitenant IoT solution will commonly assign tenant devices using a group of IoT hubs that are scattered across regions. These tenant devices can be assigned to the IoT hub in that group, which has the lowest latency based on geographic location.
 
 This article uses a simulated device sample from the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) to demonstrate how to provision devices in a multitenant scenario across regions. You will perform the following steps in this article:
 
 * Use the Azure CLI to create two regional IoT hubs (**West US** and **East US**)
 * Create a multitenant enrollment
 * Use the Azure CLI to create two regional Linux VMs to act as devices in the same regions (**West US** and **East US**)
-* Setup the development environment for the Azure IoT C SDK on both Linux VMs
+* Set up the development environment for the Azure IoT C SDK on both Linux VMs
 * Simulate the devices to see that they are provisioned for the same tenant in the closest region.
 
 
@@ -34,7 +34,7 @@ This article uses a simulated device sample from the [Azure IoT C SDK](https://g
 
 ## Create two regional IoT hubs
 
-In this section, you will an IoT hubs in the **West US** and **East US** regions. If you already have regional hubs created, you can use those instead of the regions demonstrated in this article.
+In this section, you will new regional IoT hubs in the **West US** and **East US** regions for a new tenant.
 
 
 1. Use the Azure CLoud Shell to create a resource group with the [az group create](/cli/azure/group#az-group-create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
@@ -83,7 +83,7 @@ For simplicity, this article uses [Symmetric key attestation](concepts-symmetric
 
     - **Attestation Type**: Select **Symmetric Key**.
 
-    - **Auto Generate Keys**: This box box should already be checked.
+    - **Auto Generate Keys**: This checkbox should already be checked.
 
     - **Select how you want to assign devices to hubs**: Select **Lowest latency**.
 
@@ -92,7 +92,7 @@ For simplicity, this article uses [Symmetric key attestation](concepts-symmetric
 
 4. On **Add Enrollment Group**, click **Link a new IoT hub** to link both of your regional hubs.
 
-    - **Subscription**: If you have multiple subscription, choose the correct subscription.
+    - **Subscription**: If you have multiple subscriptions, choose the subscription where you created the regional IoT hubs.
 
     - **IoT hub**: Select one of the regional hubs you created.
 
@@ -113,9 +113,9 @@ For simplicity, this article uses [Symmetric key attestation](concepts-symmetric
 
 In this section, you will create two regional Linux virtual machines (VMs). These VMs will run a device simulation sample from each region to demonstrate device provisioning for tenant devices from both regions.
 
-To make clean up easier, these VMs will be added to the same resource group that contains the IoT hubs that were created, *contoso-us-resource-group*. However, the VMs will run in separate regions (**West US** and **East US**).
+To make clean-up easier, these VMs will be added to the same resource group that contains the IoT hubs that were created, *contoso-us-resource-group*. However, the VMs will run in separate regions (**West US** and **East US**).
 
-1. In the Azure Cloud Shell, execute the following command to create a **East US** region VM after making the following parameter changes in the command:
+1. In the Azure Cloud Shell, execute the following command to create an **East US** region VM after making the following parameter changes in the command:
 
     - **--name**: Enter a unique name for your **East US** regional device VM.    
     - **--admin-username**: Use your own admin user name.
@@ -176,9 +176,10 @@ To make clean up easier, these VMs will be added to the same resource group that
 In this section, you will clone the Azure IoT C SDK on each VM. The SDK contains a sample that will simulate a tenant's device provisioning from each region.
 
 
-1. For each VM, install **Cmake**, **g++**, **gcc**, and [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) using the command command:
+1. For each VM, install **Cmake**, **g++**, **gcc**, and [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) using the following commands:
 
     ```bash
+    sudo apt-get update
     sudo apt-get install cmake build-essential libssl-dev libcurl4-openssl-dev uuid-dev git-all
     ```
 
@@ -208,7 +209,6 @@ In this section, you will clone the Azure IoT C SDK on each VM. The SDK contains
     Once the build succeeds, the last few output lines will look similar to the following output:
 
     ```bash
-    contosoadmin@ContosoSimDeviceWest:~/azure-iot-sdk-c/cmake$ cmake -Duse_prov_client:BOOL=ON ..
     -- IoT Client SDK Version = 1.2.9
     -- Provisioning client ON
     -- Provisioning SDK Version = 1.2.9
@@ -230,7 +230,7 @@ In this section, you will clone the Azure IoT C SDK on each VM. The SDK contains
 
 ## Derive unique device keys
 
-When using symmetric key attestation with group enrollments, you don't use the enrollment gropu keys directly. Instead you create a unique derived key for each device and mentioned in [Group Enrollments with symmetric keys](concepts-symmetric-key-attestation.md#group-enrollments).
+When using symmetric key attestation with group enrollments, you don't use the enrollment group keys directly. Instead you create a unique derived key for each device and mentioned in [Group Enrollments with symmetric keys](concepts-symmetric-key-attestation.md#group-enrollments).
 
 To generate the device key, use the group master key to compute an [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) of the unique registration ID for the device and convert the result into Base64 format.
 
