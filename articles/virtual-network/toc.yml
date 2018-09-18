@@ -43,6 +43,8 @@
     href: virtual-network-service-endpoints-overview.md
   - name: Peering
     href: virtual-network-peering-overview.md
+  - name: Virtual network TAP
+    href: virtual-network-tap-overview.md
   - name: Virtual network for Azure services
     href: virtual-network-for-azure-services.md
   - name: Container networking
@@ -101,6 +103,10 @@
         href: create-peering-different-deployment-models.md
       - name: Different deployment models - different subscriptions
         href: create-peering-different-deployment-models-subscriptions.md
+    - name: Virtual network TAP
+      items:
+      - name: Azure CLI
+        href: tutorial-tap-virtual-network-cli.md
     - name: Virtual machines
       items:
       - name: Create a VM with a static public IP address
