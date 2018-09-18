@@ -324,7 +324,7 @@ As an example, a service generating using the pre-created shared access policy c
 
 ```nodejs
 var endpoint ="myhub.azure-devices.net/devices";
-var policyName = 'device';
+var policyName = 'registryRead';
 var policyKey = '...';
 
 var token = generateSasToken(endpoint, policyKey, policyName, 60);

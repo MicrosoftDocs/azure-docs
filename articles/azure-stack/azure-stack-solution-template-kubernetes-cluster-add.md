@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 09/12/2018
 ms.author: mabrigg
 ms.reviewer: waltero
 
@@ -45,7 +45,7 @@ Create a plan, an offer, and a subscription for the Kubernetes Cluster Marketpla
 
 1. Select **Change state**. Select **Public**.
 
-1. Select **+ New** > **Offers and Plans** > **Subscription** to create a new subscription.
+1. Select **+ Create a resource** > **Offers and Plans** > **Subscription** to create a new subscription.
 
     a. Enter a **Display Name**.
 
@@ -107,7 +107,7 @@ Add the Kubernetes Cluster from the Marketplace:
 
 1. Open the [Administration portal](https://adminportal.local.azurestack.external).
 
-1. Select **A;; services** and then under the **ADMINISTRATION** category, select **Marketplace Management**.
+1. Select **Add services** and then under the **ADMINISTRATION** category, select **Marketplace Management**.
 
 1. Select **+ Add from Azure**.
 
