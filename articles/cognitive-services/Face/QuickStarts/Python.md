@@ -1,10 +1,11 @@
 ---
-title: Face service Python quickstart | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
-description: In this quickstart, you detect faces in an image using the Face service with Python in Cognitive Services.
+title: "Quickstart: Detect faces in an image - Face API, Python"
+titleSuffix: Azure Cognitive Services
+description: In this quickstart, you detect faces in an image using the Face API with Python.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
