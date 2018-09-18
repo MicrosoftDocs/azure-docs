@@ -79,6 +79,8 @@
     items:    
     - name: Track experiments and metrics
       href: how-to-track-experiments.md
+    - name: Collect data in production  
+      href: how-to-enable-data-collection.md
   - name: Deploy models in production	
     items:    
     - name: Where to deploy models
