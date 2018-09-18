@@ -138,5 +138,5 @@ In the example below, NSG is restricted to access only Azure Storage resources i
 
 
 ## Next steps
-In this tutorial, you created a service endpoint policy and associated it to a subnet. To learn more about service endpoint policies, see [service endpoint policies overview](virtual-networks-service-endpoint-policies-overview.md).
+In this tutorial, you created a service endpoint policy and associated it to a subnet. To learn more about service endpoint policies, see [service endpoint policies overview.](virtual-network-service-endpoint-policies-overview.md)
 
