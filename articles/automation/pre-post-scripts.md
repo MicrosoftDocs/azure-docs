@@ -14,6 +14,10 @@ manager: carmonm
 
 Pre and post scripts let you run PowerShell runbooks in your Automation Account before (pre-task) and after (post-task) an update deployment. Pre and post scripts run in the Azure context and not locally.
 
+## Runbook requirements
+
+For a runbook to be used as a pre or post script, the runbook needs to be imported into your automation account and published.
+
 ## Passing parameters
 
 When you configure pre and post scripts you can pass in parameters just like scheduling a runbook. Parameters are defined at the time of update deployment creation. In addition to your standard runbook parameters an additional parameter is provided. This parameter is **SoftwareUpdateConfigurationRunContext**. This parameter is a JSON string, and if you define the parameter in your pre or post script, it is automatically passed in by the update deployment. The parameter contains information about the update deployment which is a subset of information returned by the [SoftwareUpdateconfigurations API](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration) The following table shows you the properties that are provided in the variable:
@@ -26,7 +30,7 @@ When you configure pre and post scripts you can pass in parameters just like sch
 |SoftwareUpdateConfigurationRunId     | The unique id for the run.        |
 |SoftwareUpdateConfigurationSettings     | A collection of properties related to the Software Update Configuration         |
 |SoftwareUpdateConfigurationSettings.operatingSystem     | The operating systems targeted for the update deployment         |
-|SoftwareUpdateConfigurationSettings.duration     | The maxiumum duration of the update deployment run as `PT[n]H[n]M[n]S` as per ISO8601, also called the "maintenance window"          |
+|SoftwareUpdateConfigurationSettings.duration     | The maximum duration of the update deployment run as `PT[n]H[n]M[n]S` as per ISO8601, also called the "maintenance window"          |
 |SoftwareUpdateConfigurationSettings.Windows     | A collection of properties related to Windows computers         |
 |SoftwareUpdateConfigurationSettings.Windows.excludedKbNumbers     | A list of KBs that are excluded from the update deployment        |
 |SoftwareUpdateConfigurationSettings.Windows.includedUpdateClassifications     | Update classifications selected for the update deployment        |
@@ -68,14 +72,15 @@ A full example with all properties can be found at: [Software Update Configurati
 
 ## Samples
 
-Samples for pre and post tasks can be found at [insert GitHub link here](). The samples 
+Samples for pre and post scripts can be found in the [Script Center Gallery](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B0%5D.Text=Windows%20Azure&f%5B1%5D.Type=SubCategory&f%5B1%5D.Value=WindowsAzure_automation&f%5B1%5D.Text=Automation&f%5B2%5D.Type=SearchText&f%5B2%5D.Value=update%20management&f%5B3%5D.Type=Tag&f%5B3%5D.Value=Patching&f%5B3%5D.Text=Patching&f%5B4%5D.Type=ProgrammingLanguage&f%5B4%5D.Value=PowerShell&f%5B4%5D.Text=PowerShell).
+
 
 * UpdateManagement-TurnOnVms
 * UpdateManagement-TurnOffVms
 * StartLocalService
 * StopLocalService
 
-The samples are all based on the basic template that is defined below. This template can be used to create your own runbook to use with pre and post scripts. The necessary logic for authenticating with Azure as well as handling the `SoftwareUpdateConfigurationRunContext` parameter are included.
+The samples are all based on the basic template that is defined in the following example. This template can be used to create your own runbook to use with pre and post scripts. The necessary logic for authenticating with Azure as well as handling the `SoftwareUpdateConfigurationRunContext` parameter are included.
 
 ```powershell
 <#
@@ -129,15 +134,16 @@ $variable = Get-AutomationVariable -Name $runId
 #>
 ```
 
-## Interacting with local machines
+## Interacting with Non-Azure machines
 
-Pre and post tasks run in Azure to they do not have access to the local machine. In order to interact with the local machines you must have the following:
+Pre and post tasks run in the Azure context and do not have access to Non-Azure machines. In order to interact with the Non-Azure machines you must have the following:
 
 * A Run As account
-* Hybrid Runbook worker installed
+* Hybrid Runbook Worker installed on the machine
 * A runbook you want to run locally
 * Parent runbook
 
+To interact with Non-Azure machines a parent runbook is ran in the Azure context. This runbook calls a child runbook with the [Start-AzureRmAutomationRunbook]
 ```powershell
 $ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
 
@@ -168,6 +174,10 @@ if ($summary.Type -eq "Error")
     Write-Error -Message $summary.Summary
 }
 ```
+
+## Known issues
+
+* You cannot pass objects or arrays to parameters when using pre and post scripts. The runbook will fail.
 
 ## Next steps
 

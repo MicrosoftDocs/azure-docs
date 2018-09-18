@@ -143,7 +143,7 @@ In the **New update deployment** pane, specify the following information:
 
    ![Schedule Settings dialog box](./media/manage-update-multi/update-set-schedule.png)
 
-- **Pre-scripts + Post-scripts**: Select the scripts to run before and after your deployment|
+- **Pre-scripts + Post-scripts**: Select the scripts to run before and after your deployment. To learn more, see [Manage Pre and Post scripts](pre-post-scripts.md).|
 - **Maintenance window (minutes)**: Specify the period of time that you want the update deployment to occur. This setting helps ensure that changes are performed within your defined service windows.
 
 - **Reboot control** - This setting determines how reboots are handled for the update deployment.

@@ -170,7 +170,7 @@ Under **New update deployment**, specify the following information:
 
    You can also specify whether the deployment occurs once, or set up a recurring schedule. Under **Recurrence**, select **Once**. Leave the default as 1 day and select **OK**. This sets up a recurring schedule.
 
-* **Pre-scripts + Post-scripts**: Select the scripts to run before and after your deployment.
+* **Pre-scripts + Post-scripts**: Select the scripts to run before and after your deployment. To learn more, see [Manage Pre and Post scripts](pre-post-scripts.md).
 * **Maintenance window (minutes)**: Leave the default value. You can set the window of time that you want the update deployment to occur within. This setting helps ensure that changes are performed within your defined service windows.
 
 * **Reboot options**: This setting
