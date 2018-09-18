@@ -15,8 +15,8 @@ ms.component: ""
 | [**AlertLogic**<br/>![Partner Logo][alertlogic-logo]][alertlogic-anchor] | [**AppDynamics**<br/>![Partner Logo][appdynamics-logo]][appdynamics-anchor]  | [**Atlassian**<br/>![Partner Logo][atlassian-logo]][atlassian-anchor] 
 | [**Botmetric**][botmetric-anchor] | [**Circonus**<br/>![Partner Logo][circonus-logo]][circonus-anchor]  | [**CloudHealth**<br/>![Partner Logo][cloudhealth-logo]][cloudhealth-anchor] 
 | [**CloudMonix** <br/> ![Partner Logo][cloudmonix-logo]][cloudmonix-anchor] | [**Cloudyn**<br/>![Partner Logo][cloudyn-logo]][cloudyn-anchor] | [**Datadog**<br/>![Partner Logo][datadog-logo]][datadog-anchor] 
-| [**Dynatrace** <br/> ![Partner Logo][dynatrace-logo]][dynatrace-anchor] | [**Grafana**<br/>![Partner Logo][grafana-logo]][grafana-anchor] | [**Logic Monitor**<br/>![Partner Logo][logicmonitor-logo]][logicmonitor-anchor] 
-| [**Moogsoft**<br/>![Partner Logo][moogsoft-logo]][moogsoft-anchor] | [**NewRelic**<br/>![Partner Logo][newrelic-logo]][newrelic-anchor] | [**OpsGenie**<br/>![Partner Logo][opsgenie-logo]][opsgenie-anchor] 
+| [**Dynatrace** <br/> ![Partner Logo][dynatrace-logo]][dynatrace-anchor] | [**Grafana**<br/>![Partner Logo][grafana-logo]][grafana-anchor] | [**Influxdata**<br/>![Partner Logo][influxdata-logo]][influxdata-anchor]
+| [**Logic Monitor**<br/>![Partner Logo][logicmonitor-logo]][logicmonitor-anchor] | [**Moogsoft**<br/>![Partner Logo][moogsoft-logo]][moogsoft-anchor] | [**NewRelic**<br/>![Partner Logo][newrelic-logo]][newrelic-anchor] | [**OpsGenie**<br/>![Partner Logo][opsgenie-logo]][opsgenie-anchor] 
 | [**PagerDuty**<br/>![Partner Logo][pagerduty-logo]][pagerduty-anchor] | [**QRadar**<br/>![Partner Logo][qradar-logo]][qradar-anchor] | [**ScienceLogic**<br/>![Partner Logo][sciencelogic-logo]][sciencelogic-anchor] 
 | [**SignalFx**<br/>![Partner Logo][signalfx-logo]<br/>][signalfx-anchor] | [**SIGNL4**<br/>![Partner Logo][signl4-logo]][signl4-anchor] | [**SolarWinds**][solarwinds-anchor] 
 | [**Splunk** <br/> ![Partner Logo][splunk-logo]][splunk-anchor] | [**Sumo Logic**<br/>![Partner Logo][sumologic-logo]][sumologic-anchor] | [**Turbonomic**<br/>![Partner Logo][turbonomic-logo]][turbonomic-anchor] 
@@ -75,6 +75,12 @@ The Dynatrace OneAgent integrates with Azure VMs and App Services via the Azure 
 Grafana is an open-source application that enables you to visualize time series metric data.
 
 [Go to the documentation.][grafana-doc]
+
+## InfluxData
+InfluxData, the creator of InfluxDB, delivers a modern Open Source Platform built from the ground up for analyzing metrics and events (time series data) for DevOps and IoT applications. Whether the data comes from humans, sensors, or machines, InfluxData empowers developers to build next-generation monitoring, analytics, and IoT applications faster, easier, and to scale delivering real business value quickly. Based in San Francisco, InfluxData’s more than 420 customers include Cisco, eBay, IBM and Siemens.
+
+[Go to the documentation.][influxdata-doc]
+
 
 ## Logic Monitor
 LogicMonitor® is the leading SaaS-based, performance monitoring platform for complex IT infrastructure. With coverage for thousands of technologies, LogicMonitor provides granular visibility into infrastructure and application performance. LM Cloud’s comprehensive Azure monitoring enables users to correlate the performance of Azure cloud, on-premises, and hybrid cloud resources -- all from a single platform. Automated resource discovery, built in monitoring templates, preconfigured alert thresholds, and customizable dashboards combine to give IT the speed, flexibility, and visibility required to succeed.
@@ -162,6 +168,7 @@ Turbonomic delivers workload automation for hybrid clouds by simultaneously opti
 [dynatrace-anchor]: #dynatrace "Dynatrace"
 [newrelic-anchor]: #newrelic "NewRelic"
 [grafana-anchor]: #grafana "Grafana"
+[influxdata-anchor]: #Influxdata "Influxdata"
 [logicmonitor-anchor]: #logic-monitor "Logic Monitor"
 [moogsoft-anchor]: #moogsoft "Moogsoft"
 [opsgenie-anchor]: #opsgenie "OpsGenie"
@@ -187,6 +194,7 @@ Turbonomic delivers workload automation for hybrid clouds by simultaneously opti
 [dynatrace-logo]: ./media/partner-logos/dynatrace.png
 [newrelic-logo]: ./media/partner-logos/newrelic.png
 [grafana-logo]: ./media/partner-logos/grafana.png
+[influxdata-logo]: ./media/partner-logos/influxdata.png
 [logicmonitor-logo]: ./media/partner-logos/logicmonitor.png
 [moogsoft-logo]: ./media/partner-logos/moogsoft.png
 [opsgenie-logo]: ./media/partner-logos/opsgenie.png
@@ -211,6 +219,7 @@ Turbonomic delivers workload automation for hybrid clouds by simultaneously opti
 [datadog-doc]: http://docs.datadoghq.com/integrations/azure/ "Datadog documentation."
 [dynatrace-doc]: https://help.dynatrace.com/infrastructure-monitoring/paas/how-do-i-monitor-microsoft-azure-web-apps/ "Dynatrace documentation."
 [grafana-doc]: ./monitor-send-to-grafana.md "Azure Monitor Grafana integration."
+[influxdata-doc]: ./metrics-store-custom-linux-telegraf.md "Azure Monitor Influxdata Telegraf integration."
 [logicmonitor-doc]: https://www.logicmonitor.com/lmcloud-azure/ "Logic Monitor documentation."
 [moogsoft-doc]: https://www.moogsoft.com/partners/microsoft-azure "Moogsoft documentation."
 [newrelic-doc]: https://newrelic.com/azure "NewRelic documentation."
