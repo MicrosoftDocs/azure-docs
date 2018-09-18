@@ -71,9 +71,9 @@ You can now run queries against either cluster that you're connected to (assumin
 
     ![Query result set](media/web-query-data/result-set-01.png)
 
-    The following image shows the state the application should now be in, with clusters added, and a query with results.
+    The following image shows the state that the application should now be in, with clusters added, and a query with results.
 
-    ![Full application](media/ingest-data-event-hub/full-application.png)
+    ![Full application](media/web-query-data/full-application.png)
 
 1. Copy and paste the following query into the query window, below the first query. Notice how it's not formatted on separate lines like the first query.
 
@@ -113,7 +113,7 @@ You can now run queries against either cluster that you're connected to (assumin
 
 Now you've seen how basic queries work, let's look at how you can use the table grid to customize results and do further analysis.
 
-1. Rerun the first query, then mouse-over the **State** column, and select **Group by State**.
+1. Rerun the first query. Mouse-over the **State** column, select the menu, and select **Group by State**.
 
     ![Group by state](media/web-query-data/group-by.png)
 
@@ -186,4 +186,4 @@ You didn't create any resources in this quickstart, but if you'd like to remove 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Quickstart: Query data in Azure Data Explorer](web-query-data.md)
+> [Write queries for Azure Data Explorer](write-queries.md)
