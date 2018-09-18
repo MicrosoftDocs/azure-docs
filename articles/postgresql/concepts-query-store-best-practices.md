@@ -11,10 +11,11 @@ ms.date: 09/24/2018
 
 # Best practices for Query Store
 
+**Applies to:** Azure Database for PostgreSQL 9.6 and 10
+
 > [!IMPORTANT]
 > The Query Store feature is in Public Preview.
 
-Applies to: Azure Database for PostgreSQL 9.6 and 10
 
 This article outlines best practices for using Query Store in Azure Database for PostgreSQL.
 

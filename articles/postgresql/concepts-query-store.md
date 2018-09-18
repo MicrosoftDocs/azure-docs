@@ -10,10 +10,11 @@ ms.date: 09/24/2018
 ---
 # Monitor performance with the Query Store
 
+**Applies to:** Azure Database for PostgreSQL 9.6 and 10
+
 > [!IMPORTANT]
 > The Query Store feature is in Public Preview.
 
-Applies to: Azure Database for PostgreSQL 9.6, 10
 
 The Query Store feature in Azure Database for PostgreSQL provides a way to track query performance over time. Query Store simplifies performance troubleshooting by helping you quickly find the longest running and most resource-intensive queries. Query Store automatically captures a history of queries and runtime statistics, and it retains them for your review. It separates data by time windows so that you can see database usage patterns. Data for all users, databases, and queries is stored in a database named **azure_sys** in the Azure Database for PostgreSQL instance.
 
@@ -44,8 +45,8 @@ Query Store has two stores:
 Common scenarios for using Query Store include:
 - Determining the number of times a query was executed in a given time window
 - Comparing the average execution time of a query across time windows to see large deltas
-- Identifying longest running queries in the past x hours
-- Identifying top n queries that are waiting on resources
+- Identifying longest running queries in the past X hours
+- Identifying top N queries that are waiting on resources
 - Understanding wait nature for a particular query
 
 To minimize space usage, the runtime execution statistics in the runtime stats store are aggregated over a fixed, configurable time window. The information in these stores is visible by querying the query store views.
@@ -156,11 +157,11 @@ This view returns wait events data in Query Store. There is one row for each dis
 ### Functions
 Query_store.qs_reset() returns void
 
-qs_reset discards all statistics gathered so far by pg_qs. This function can only be executed by the server admin role.
+`qs_reset` discards all statistics gathered so far by Query Store. This function can only be executed by the server admin role.
 
 Query_store.staging_data_reset() returns void
 
-staging_data_reset discards all statistics gathered so far by pg_qs in memory (that is, the data in memory that has not been flushed yet to the database). This function can only be executed by the server admin role.
+`staging_data_reset` discards all statistics gathered in memory by Query Store (that is, the data in memory that has not been flushed yet to the database). This function can only be executed by the server admin role.
 
 
 ## Next Steps

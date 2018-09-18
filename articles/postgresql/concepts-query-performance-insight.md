@@ -11,6 +11,8 @@ ms.date: 09/24/2018
 
 # Query Performance Insight 
 
+**Applies to:** Azure Database for PostgreSQL 9.6 and 10
+
 > [!IMPORTANT]
 > The Query Performance Insight feature is in Public Preview. 
 
