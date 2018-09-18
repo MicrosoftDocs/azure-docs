@@ -146,7 +146,8 @@ import MSAL
 Then, initialize MSAL using the following code:
 
 ```swift
-self.applicationContext = try MSALPublicClientApplication(clientId: kClientID, authority: kAuthority)
+let authority = MSALAuthority(url: URL(string: kAuthority)!)
+self.applicationContext = try MSALPublicClientApplication(clientId: kClientID, authority: authority)
 ```
 
 > |Where: ||
@@ -180,13 +181,13 @@ applicationContext.acquireToken(forScopes: self.kScopes) { (result, error) in /*
 You don't want to require the user to validate their credentials every time they need to access a resource. Most of the time you want token acquisitions and renewal without any user interaction. You can use the `acquireTokenSilent`method to obtain tokens to access protected resources after the initial `acquireToken` method:
 
 ```swift
-applicationContext.acquireTokenSilent(forScopes: self.kScopes, user: applicationContext.users().first) { (result, error) in /* Add your handling logic */}
+applicationContext.acquireTokenSilent(forScopes: self.kScopes, account: applicationContext.allAccounts().first) { (result, error) in /* Add your handling logic */}
 ```
 
 > |Where: ||
 > |---------|---------|
 > | `forScopes` | Contains the scopes being requested (that is, `[ "user.read" ]` for Microsoft Graph or `[ "<Application ID URL>/scope" ]` for custom Web APIs (i.e. `api://<Application ID>/access_as_user`)) |
-> | `user` | The user requesting the token (MSAL supports multiple users in a single app). In the case of this Quickstart, the value points to the first user in the cache (`applicationContext.users().first`). |
+> | `account` | The account requesting the token (MSAL supports multiple accounts in a single app). In the case of this Quickstart, the value points to the first account in the cache (`applicationContext.allAccounts().first`). |
 
 ## Next steps
 
