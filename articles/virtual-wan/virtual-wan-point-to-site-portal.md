@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 09/13/2018
+ms.date: 09/21/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect remote users to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
 ---
@@ -46,13 +46,16 @@ From a browser, navigate to the [Azure portal](https://portal.azure.com) and sig
 
 [!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-vwan-include.md)]
 
-### Getting started page
-
-[!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-gettingstarted-include.md)]
-
 ## <a name="hub"></a>3. Create a hub
 
 [!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-hub-include.md)]
+
+### Configure the point-to-site gateway settings
+
+1. Select the **Include point-to-site gateway** checkbox.
+2. Copy the **AS Number**.
+3. Select the **Gateway scale units** from the dropdown.
+4. 
 
 ## <a name="site"></a>4. Create a P2S configuration
 
