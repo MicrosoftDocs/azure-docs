@@ -1,5 +1,5 @@
 ---
-title: Creating dynamic blueprints through parameters
+title: Creating dynamic blueprints through parameters in Azure Blueprints
 description: Learn about static and dynamic parameters and how using them creates dynamic blueprints.
 services: blueprints
 author: DCtheGeek

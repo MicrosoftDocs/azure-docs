@@ -1,5 +1,5 @@
 ---
-title: Understand the life-cycle of a blueprint
+title: Understand the life-cycle of an Azure Blueprint
 description: Learn about the life-cycle that a blueprint goes through and details about each stage.
 services: blueprints
 author: DCtheGeek
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ---
-# Understand the life-cycle of a blueprint
+# Understand the life-cycle of an Azure Blueprint
 
 Like many resources within Azure, a blueprint in Azure Blueprints has a typical and natural
 life-cycle. They're created, deployed, and finally deleted when no longer needed or relevant.
