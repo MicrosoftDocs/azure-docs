@@ -209,7 +209,7 @@ A. Your image is likely misconfigured for serial console access. See
 
 A. At this time, access to the serial console for virtual machine scale set instances is not supported.
 
-**Q. I lost my SSH private key, can I still conect to my VM?**
+**Q. I set up my VM using only SSH key authentication, can I still use serial console to connect to my VM?**
 A. Yes. Serial console does not require SSH keys, so all you have to do is set up a username/password combination. You can do this by using the "Reset Password" blade in the portal and using those credentials to log into serial console.
 
 ## Next steps
