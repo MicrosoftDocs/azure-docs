@@ -12,11 +12,11 @@ ms.date: 09/24/2018
 
 # Ingest sample data into Azure Data Explorer
 
-This article shows you how to ingest (load) sample data into a Data Explorer database. There are [several ways to ingest data](ingest-data-overview.md); this article focuses on a basic approach that is suitable for testing purposes.
+This article shows you how to ingest (load) sample data into an Azure Data Explorer database. There are [several ways to ingest data](ingest-data-overview.md); this article focuses on a basic approach that is suitable for testing purposes.
 
 ## Prerequisites
 
-To complete this how-to, first [create a test cluster and database](create-cluster-database-portal.md) in Data Explorer.
+[A test cluster and database](create-cluster-database-portal.md)
 
 ## Ingest data
 

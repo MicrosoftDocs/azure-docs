@@ -9,22 +9,24 @@ ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
 
-#Customer intent: As a database administrator, I want to ingest data into Data Explorer from an event hub, so I can analyze patterns in streaming data.
+#Customer intent: As a database administrator, I want to ingest data into Azure Data Explorer from an event hub, so I can analyze patterns in streaming data.
 ---
 
 # Quickstart: Ingest data from Event Hub into Azure Data Explorer
 
-Azure Data Explorer is a log analytics platform that is optimized for ad-hoc big data queries. Data Explorer offers ingestion (data loading) from Event Hubs, a big data streaming platform and event ingestion service. Event Hubs can process millions of events per second in near real-time. In this quickstart, create an event hub, connect to it from Data Explorer and see data flow through the system.
+Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Azure Data Explorer offers ingestion (data loading) from Event Hubs, a big data streaming platform and event ingestion service. Event Hubs can process millions of events per second in near real-time. In this quickstart, create an event hub, connect to it from Azure Data Explorer and see data flow through the system.
+
+If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
 
-* An Azure Subscription. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+In addition to an Azure subscription, you need the following to complete this quickstart:
 
-* To complete this quickstart, first [create a test cluster and database](create-cluster-database-portal.md) in Data Explorer.
+* [A test cluster and database](create-cluster-database-portal.md)
 
-* Download the [sample app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) that generates data.
+* [A sample app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) that generates data
 
-* Running the sample app requires [Visual studio 2017 Version 15.3.2 or greater](https://www.visualstudio.com/vs/).
+* [Visual studio 2017 Version 15.3.2 or greater](https://www.visualstudio.com/vs/) to run the sample app
 
 ## Sign in to the Azure portal
 
@@ -68,13 +70,13 @@ In this quickstart, you generate sample data and send it to an event hub. The fi
 
     It might take several minutes for the deployment to succeed, but you can move on to the next step.
 
-## Create a target table in Data Explorer
+## Create a target table in Azure Data Explorer
 
-Create a table in Data Explorer, to which Event Hubs will send data. You create the table in the cluster and database provisioned in Prerequisites.
+Now you create a table in Azure Data Explorer, to which Event Hubs will send data. You create the table in the cluster and database provisioned in Prerequisites.
 
-1. In the Azure portal, under the cluster you created, select **Query Explorer**.
+1. In the Azure portal, under the cluster you created, select **Query**.
 
-    ![Query Explorer link](media/ingest-data-event-hub/query-explorer-link.png)
+    ![Query application link](media/ingest-data-event-hub/query-explorer-link.png)
 
 1. Copy the following command into the window and select **Run**.
 
@@ -93,7 +95,7 @@ Create a table in Data Explorer, to which Event Hubs will send data. You create 
 
 ## Connect to the event hub
 
-Connect to the event hub from Data Explorer, so that data flowing into the event hub is streamed to the test table.
+Now you connect to the event hub from Azure Data Explorer, so that data flowing into the event hub is streamed to the test table.
 
 1. Select **Notifications** on the toolbar to verify that the event hub deployment was successful.
 
@@ -119,7 +121,7 @@ Connect to the event hub from Data Explorer, so that data flowing into the event
 
     **Setting** | **Suggested value** | **Field description**
     |---|---|---|
-    | Data connection name | *test-hub-connection* | The name of the connection you want to create in Data Explorer.|
+    | Data connection name | *test-hub-connection* | The name of the connection you want to create in Azure Data Explorer.|
     | Event hub namespace | A unique namespace name | The name you chose earlier that identifies your namespace. |
     | Event hub | *test-hub* | The event hub you created. |
     | Consumer group | *test-group* | The consumer group defined in the event hub you created. |
@@ -132,7 +134,7 @@ Connect to the event hub from Data Explorer, so that data flowing into the event
 
 ## Generate sample data
 
-Now that Data Explorer and the event hub are connected, use the sample app you downloaded to generate data.
+Now that Azure Data Explorer and the event hub are connected, you use the sample app you downloaded to generate data.
 
 1. Open the sample app solution in Visual Studio.
 

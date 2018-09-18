@@ -12,13 +12,13 @@ ms.date: 09/24/2018
 
 # Write queries for Azure Data Explorer
 
-In this article, you learn how to use the Kusto Query Language to perform basic queries with the most common operators. You also get exposure to some of the more advanced features of the language.
+In this article, you learn how to use the query language in Azure Data Explorer to perform basic queries with the most common operators. You also get exposure to some of the more advanced features of the language.
 
 ## Prerequisites
 
 You can run the queries in this article in one of two ways:
 
-- On the Data Explorer *help cluster* that we have set up to aid learning.
+- On the Azure Data Explorer *help cluster* that we have set up to aid learning.
     [Sign in to the cluster](https://dataexplorer.azure.com/clusters/help/databases/samples) with an organizational email account that is a member of Azure Active directory.
 
 - On your own cluster that includes the StormEvents sample data. For  more information, see [Quickstart: Create an Azure Data Explorer cluster and database](create-cluster-database-portal.md) and [Ingest sample data into Azure Data Explorer](ingest-sample-data.md).
@@ -27,13 +27,13 @@ The StormEvents sample data set contains weather-related data from the [National
 
 ## Overview of the query language
 
-A Kusto query is a read-only request to process data and return results. The request is stated in plain text, using a data-flow model designed to make the syntax easy to read, author, and automate. The query uses schema entities that are organized in a hierarchy similar to SQL: databases, tables, and columns.
+A query language in Azure Data Explorer is a read-only request to process data and return results. The request is stated in plain text, using a data-flow model designed to make the syntax easy to read, author, and automate. The query uses schema entities that are organized in a hierarchy similar to SQL: databases, tables, and columns.
 
 The query consists of a sequence of query statements, delimited by a semicolon (`;`), with at least one statement being a tabular expression statement, which is a statement that produces data arranged in a table-like mesh of columns and rows. The query's tabular expression statements produce the results of the query.
 
 The syntax of the tabular expression statement has tabular data flow from one tabular query operator to another, starting with data source (for example, a table in a database, or an operator that produces data) and then flowing through a set of data transformation operators that are bound together through the use of the pipe (`|`) delimiter.
 
-For example, the following Kusto query has a single statement, which is a tabular expression statement. The statement starts with a reference to a table called `StormEvents` (the database that host this table is implicit here, and part of the connection information). The data (rows) for that table are then filtered by the value of the `StartTime` column, and then filtered by the value of the `State` column. The query then returns the count of "surviving" rows.
+For example, the following query has a single statement, which is a tabular expression statement. The statement starts with a reference to a table called `StormEvents` (the database that host this table is implicit here, and part of the connection information). The data (rows) for that table are then filtered by the value of the `StartTime` column, and then filtered by the value of the `State` column. The query then returns the count of "surviving" rows.
 
 **\[**[**Click to run query**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSjPSC1KVQguSSwqCcnMTVWws1VISSxJLQGyNYwMDMx1DQ11DQw1FRLzUpBU2aArMgIpQjGvJFXB1lZByc3HP8jTxVFJQQEkm5xfmlcCAHoR9euCAAAA)**\]**
 
@@ -51,19 +51,19 @@ In this case, the result is:
 |   23|
 | |
 
-For more information see the [Kusto Query Language reference](https://aka.ms/kustolangref).
+For more information see the [Query language reference](https://aka.ms/kustolangref).
 
 ## Most common operators
 
-The operators covered in this section are the building blocks to understanding Kusto queries. Most queries you write will include several of these operators.
+The operators covered in this section are the building blocks to understanding queries in Azure Data Explorer. Most queries you write will include several of these operators.
 
 To run queries on the help cluster: select **Click to run query** above each query.
 
 To run queries on your own cluster:
 
-1. Copy each query into Kusto Query Explorer, and then either select the query or place your cursor in the query.
+1. Copy each query into the web-based query application, and then either select the query or place your cursor in the query.
 
-1. At the top of Query Explorer, select **Run**.
+1. At the top of the application, select **Run**.
 
 ### count
 
@@ -260,7 +260,7 @@ StormEvents
 ```
 
 > [!NOTE]
-> The **render** operator is a client-side feature rather than part of the engine. It's integrated into the language for ease of use. The web version of Query Explorer support the following options: barchart, columnchart, piechart, timechart, and linechart. 
+> The **render** operator is a client-side feature rather than part of the engine. It's integrated into the language for ease of use. The web application supports the following options: barchart, columnchart, piechart, timechart, and linechart. 
 
 ## Scalar operators
 
