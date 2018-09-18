@@ -1,5 +1,5 @@
 ---
-title: Using multi-master with open source NoSQL databases 
+title: Using Azure Cosmos DB multi-master with open source NoSQL databases 
 description: 
 services: cosmos-db
 author: markjbrown
@@ -11,25 +11,17 @@ ms.author: mjbrown
 ms.reviewer: sngun
 
 ---
-# Using multi-master with open source NoSQL databases
+# Using Azure Cosmos DB multi-master with open source NoSQL databases
 
 Azure Cosmos DB multi-master support is a native, server-side implementation that is available to all the open source NoSQL offerings supported by Cosmos DB. It is also accessible by all Cosmos DB supported SDK’s.
 
 Azure Cosmos DB is the first service in the world to offer multi-master support for these open source NoSQL databases.
-<table>
-   <tr>
-      <td><strong>Model</strong></td><td><strong>Support</strong></td>
-   </tr>
-   <tr>
-     <td>MongoDB</td><td>Active-Active</td>
-   </tr>
-   <tr>
-     <td>Graph</td><td>Active-Active</td>
-   </tr>
-   <tr>
-     <td>Cassandra</td><td>Active-Active</td>
-   </tr>
-</table>
+
+|Model  |Support  |
+|---------|---------|
+|MongoDB  | Active-Active  |
+|Graph  | Active-Active |
+|Cassandra  | Active-Active   |
 
 ## Use MongoDB clients with multi-master
 
