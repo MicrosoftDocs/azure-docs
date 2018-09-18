@@ -29,7 +29,7 @@ Including global cloud​, Azure Active Directory is deployed in the followi
 - Azure Germany
 - Azure China 21Vianet
 
-# App registration endpoints
+## App registration endpoints
 
 The following table lists the base URLs for the Azure Active Directory (Azure AD) endpoints used to register an application for each national cloud.
 
@@ -40,7 +40,7 @@ The following table lists the base URLs for the Azure Active Directory (Azure AD
 |Azure AD China operated by 21Vianet |https://portal.azure.cn
 |Azure AD (global service)|https://portal.azure.com
 
-# Azure AD authentication endpoints
+## Azure AD authentication endpoints
 
 The following table lists the base URLs for the Azure Active Directory (Azure AD) endpoints used to acquire tokens to call Microsoft Graph for each national cloud.
 
