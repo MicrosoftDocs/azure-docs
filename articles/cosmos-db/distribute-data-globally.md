@@ -32,7 +32,7 @@ With Azure Cosmos DB turnkey global distribution, developers do not have to buil
 
 * [How Azure Cosmos DB enables turnkey global distribution](distribute-data-globally-turnkey.md)
 
-* [Azure Cosmos DB global distribution key benefits](distribute-data-globally-key-benefits.md)
+* [Azure Cosmos DB global distribution key benefits](distribute-data-globally-benefits.md)
 
 * [How to configure Azure Cosmos DB global database replication](tutorial-global-distribution-sql-api.md)
 
