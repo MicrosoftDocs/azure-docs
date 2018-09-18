@@ -1,20 +1,21 @@
 ---
-title: Release notes for the Face API Service | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
+title: Release notes - Face API Service
+titleSuffix: Azure Cognitive Services
 description: Release notes for the Face API Service include a history of release changes for various versions.
 services: cognitive-services
 author: SteveMSFT
-manager: corncar
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: face-api
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: sbowles
 ---
 
 # Face API Release Notes
 
-This article pertains to Microsoft Face API Service version 1.0.
+This article pertains to Face API Service version 1.0.
 
 ### Release changes in May 2018
 
