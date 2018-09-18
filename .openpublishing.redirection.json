@@ -10299,6 +10299,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/monitoring/monitoring-container-health.md",
+            "redirect_url": "/azure/monitoring/monitoring-container-insights-overview",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/mobile-engagement/mobile-engagement-send-personalized-notifications.md",
             "redirect_url": "/azure/azure-subscription-service-limits#mobile-engagement-limits",
             "redirect_document_id": false
