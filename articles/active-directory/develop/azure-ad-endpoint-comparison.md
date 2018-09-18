@@ -22,12 +22,11 @@ ms.custom: aaddev
 
 # Comparing the Azure AD v2.0 endpoint with v1.0 endpoint
 * [Who can sign-in](#who-can-sign-in)
-* [New app registration portal](#new-app-registration-portal)
-* [One app ID for all platforms](#one-app-id-for-all-platforms)
 * [Scopes, not resources](#scopes-not-resources)
 * [Incremental and dynamic consent](#incremental-and-dynamic-consent)
 * [Well-known scopes](#well-known-scopes)
 * [Token claims](#token-claims)
+* [Limitations of the v2.0 endpoint](#limitations)
 
 > [!NOTE]
 > Not all Azure AD scenarios and features are supported by the v2.0 endpoint. To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](#limitations).
