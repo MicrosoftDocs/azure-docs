@@ -25,7 +25,7 @@ ms.author: genli
 
  ## Symptom
 
- A Windows VM doesn't start. When you check the screenshots in the [Boot diagnostics](boot-diagnostics.md) window, you see one of the following error messages:
+ A Windows VM doesn't start. When you check the screenshots in the [Boot diagnostics](../windows/boot-diagnostics.md) window, you see one of the following error messages:
 
 - Plug in the USB driver that has the BitLocker key
 
@@ -44,8 +44,8 @@ To resolve this problem, stop and deallocate the VM, and then restart it. This o
 
 If this method does not the resolve the problem, follow these steps to restore the BEK file manually:
 
-1. Take a snapshot of the system disk of the affected VM as a backup. For more information, see [Snapshot a disk](./snapshot-copy-managed-disk.md).
-2. [Attach the system disk to a recovery VM](./troubleshoot-recovery-disks-portal.md) that is encrypted by BitLocker. This is required to run the [manage-bde](https://docs.microsoft.com/windows-server/administration/windows-commands/manage-bde) command that is available only on the BitLocker-encrypted VM.
+1. Take a snapshot of the system disk of the affected VM as a backup. For more information, see [Snapshot a disk](../windows/snapshot-copy-managed-disk.md).
+2. [Attach the system disk to a recovery VM](troubleshoot-recovery-disks-portal-windows.md) that is encrypted by BitLocker. This is required to run the [manage-bde](https://docs.microsoft.com/windows-server/administration/windows-commands/manage-bde) command that is available only on the BitLocker-encrypted VM.
 
     When you attach a managed disk, you might receive a "contains encryption settings and therefore cannot be used as a data disk” error message. In this situation, run the following script to try again to attach the disk:
 
@@ -136,7 +136,7 @@ If this method does not the resolve the problem, follow these steps to restore t
         ```powershell
         manage-bde -off F:
         ```
-8.	Detach the disk from the recovery VM, and then re-attach the disk to the affected VM as a system disk. For more information, see [Troubleshoot a Windows VM by attaching the OS disk to a recovery VM](troubleshoot-recovery-disks.md).
+8.	Detach the disk from the recovery VM, and then re-attach the disk to the affected VM as a system disk. For more information, see [Troubleshoot a Windows VM by attaching the OS disk to a recovery VM](troubleshoot-recovery-disks-windows.md).
 
 ### Key Encryption Key scenario
 
@@ -264,4 +264,4 @@ For a Key Encryption Key scenario, follow these steps:
         manage-bde -off F:
         ```
 
-6. Detach the disk from the recovery VM, and then re-attach the disk to the affected VM as a system disk. For more information, see [Troubleshoot a Windows VM by attaching the OS disk to a recovery VM](troubleshoot-recovery-disks.md).
+6. Detach the disk from the recovery VM, and then re-attach the disk to the affected VM as a system disk. For more information, see [Troubleshoot a Windows VM by attaching the OS disk to a recovery VM](troubleshoot-recovery-disks-windows.md).
