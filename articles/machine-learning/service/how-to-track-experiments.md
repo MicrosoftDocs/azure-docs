@@ -1,10 +1,10 @@
 ---
-title: Track experiments and training metrics in Azure Machine Learning | Microsoft Docs
-description: How to track your experiments and training metrics in Azure Machine Learning service.
+title: Track experiments and training metrics - Azure Machine Learning | Microsoft Docs
+description: With the Azure Machine Learning service, you can track your experiments and monitor metrics to enhance the model creation process. Learn how to add logging to your training script, how to submit the experiment, how to check the progress of a running job, and how to view the results of a run.
 services: machine-learning
 author: heatherbshapiro
 ms.author: hshapiro
-manager: danielsc
+manager: cgronlun
 ms.service: machine-learning
 ms.component: core
 ms.workload: data-services
@@ -14,15 +14,15 @@ ms.date: 09/24/2018
 
 # Track experiments and training metrics in Azure Machine Learning
 
-With the Azure Machine Learning service, you can track your experiments and monitor metrics to enhance the model creation process. In this article you will learn about the different ways to add logging to your training script, how to submit the the experiment with **start_logging** and **ScriptRunConfig**, how to check the progress of a running job, and how to view the results of a run.
+With the Azure Machine Learning service, you can track your experiments and monitor metrics to enhance the model creation process. In this article, you will learn about the different ways to add logging to your training script, how to submit the experiment with **start_logging** and **ScriptRunConfig**, how to check the progress of a running job, and how to view the results of a run.
 
-## What can be tracked
+## List of training metrics 
 
 The following metrics can be added to a run while training an experiment. To view a more detailed list of what can be tracked on a run, see the [SDK reference documentation](https://docs.microsoft.com/python/api/overview/azure/azure-ml-sdk-overview?view=azure-ml-py).
 
 |Type| Python function | Notes|
 |----|:----:|:----:|
-|Scalar Values | `run.log(name, value, description='')`| Log a metric value to the run with the given name. Logging a metric to a run causes that metric to be stored in the run record in the experiment.  You can log the same metric multiple times within a run, the result being considered a vector of that metric.|
+|Scalar values | `run.log(name, value, description='')`| Log a metric value to the run with the given name. Logging a metric to a run causes that metric to be stored in the run record in the experiment.  You can log the same metric multiple times within a run, the result being considered a vector of that metric.|
 |Lists| `run.log_list(name, value, description='')`|Log a list metric value to the run with the given name.|
 |Row| `run.log_row(name, description=None, **kwargs)`|Using *log_row* creates a table metric with columns as described in kwargs. Each named parameter generates a column with the value specified.  *log_row* can be be called once to log an aribitrary tuple, or multiple times in a loop to generate a complete table.|
 |Table| `run.log_table(name, value, description='')`| Log a table metric to the run with the given name. |
@@ -33,15 +33,16 @@ The following metrics can be added to a run while training an experiment. To vie
 > [!NOTE]
 > Metrics for scalars, lists, rows, and tables can have type: float, integer, or string.
 
-## Log metrics
+## Log metrics for experiments
 
 If you want to track or monitor your experiment, you must add code to start logging when you submit the run. The following are ways to trigger the run submission:
 * __Run.start_logging__ - Add logging functions to your training script and start an interactive logging session in the specified experiment. **start_logging** creates an interactive run for use in scenarios such as notebooks. Any metrics that are logged during the session are added to the run record in the experiment.
 * __ScriptRunConfig__ - Add logging functions to your training script and load the entire script folder with the run.  **ScriptRunConfig** is a class for setting up configurations for script runs. With this option, you can add monitoring code to be notified of completion or to get a visual widget to monitor.
 
+## Set up the workspace and experiment
 Before adding logging and submitting an experiment, you must set up the workspace and experiment.
 
-1. Load the workspace. To learn more about setting the workspace configuration, follow the [Getting started](https://docs.microsoft.com/azure/machine-learning/service/quickstart-get-started) quickstart.
+1. Load the workspace. To learn more about setting the workspace configuration, follow the [quickstart](https://docs.microsoft.com/azure/machine-learning/service/quickstart-get-started).
 
   ```python
   from azureml.core import Workspace, Run
@@ -52,7 +53,7 @@ Before adding logging and submitting an experiment, you must set up the workspac
                resource_group = <<resource_group>>)
    ```
 
-2. Create the Experiment.
+2. Create the experiment.
 
   ```python
   from azureml.core import Experiment
@@ -62,13 +63,13 @@ Before adding logging and submitting an experiment, you must set up the workspac
   exp = Experiment(workspace_object = ws, name = experiment_name)
   ```
   
-### Option 1
+## Option 1: Use start_logging
 
 **start_logging** creates an interactive run for use in scenarios such as notebooks. Any metrics that are logged during the session are added to the run record in the experiment.
 
 The following example trains a simple sklearn Ridge model locally in a local Jupyter notebook. To learn more about submitting experiments to different environments, see [Set up compute targets for model training with Azure Machine Learning service](https://docs.microsoft.com/azure/machine-learning/service/how-to-set-up-training-targets).
 
-1. Create a training script in a local Jupyter Notebook. 
+1. Create a training script in a local Jupyter notebook. 
 
   ``` python
   # load diabetes dataset, a well-known small dataset that comes with scikit-learn
@@ -92,7 +93,7 @@ The following example trains a simple sklearn Ridge model locally in a local Jup
   joblib.dump(value = reg, filename = 'model.pkl');
   ```
 
-1. Add experiment tracking using the Azure Machine Learning service SDK, and upload a persisted model into the experiment run record as well. The following code adds tags, logs, and uploads a model file to the experiment run.
+2. Add experiment tracking using the Azure Machine Learning service SDK, and upload a persisted model into the experiment run record. The following code adds tags, logs, and uploads a model file to the experiment run.
 
   ```python
   run = Run.start_logging(experiment = exp)
@@ -111,11 +112,11 @@ The following example trains a simple sklearn Ridge model locally in a local Jup
 
 The script ends with ```run.complete()```, which marks the run as completed.  This is typically used in interactive notebook scenarios.
 
-### Option 2
+## Option 2: Use ScriptRunConfig
 
 **ScriptRunConfig** is a class for setting up configurations for script runs. With this option, you can add monitoring code to be notified of completion or to get a visual widget to monitor.
 
-This example expands on the basic ridge model from above and does a simple parameter sweep to sweep over alpha values of a sklearn ridge model to capture metrics and trained models in runs under the experiment. The example runs locally against a user-managed environment. 
+This example expands on the basic sklearn Ridge model from above. and does a simple parameter sweep to sweep over alpha values of the model to capture metrics and trained models in runs under the experiment. The example runs locally against a user-managed environment. 
 
 1. Create a training script. This uses ```%%writefile%%``` to write the training code out to the script folder as ```train.py```.
 
