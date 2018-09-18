@@ -21,7 +21,7 @@ ms.custom: mvc, devcenter
 
 # Tutorial: Learn how to upgrade a Service Fabric application using Visual Studio
 
-This tutorial is part five of a series and shows you how to upgrade an Azure Service Fabric Mesh application directly from Visual Studio.
+This tutorial is part four of a series and shows you how to upgrade an Azure Service Fabric Mesh application directly from Visual Studio.
 
 In this tutorial you learn how to:
 > [!div class="checklist"]
