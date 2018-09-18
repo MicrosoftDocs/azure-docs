@@ -394,7 +394,7 @@ featureFlags:
                                         </li>
                                         <li>
                                             <a href="/azure/cyclecloud/">
-                                                <img src="media/index/cycle_cloud.svg" alt="" />
+                                                <img src="media/index/cloud_cycle.svg" alt="" />
                                                 <p>CycleCloud</p>
                                             </a>
                                         </li>
@@ -1960,7 +1960,7 @@ featureFlags:
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/cycle_cloud.svg" alt="" />
+                                                        <img src="media/index/cloud_cycle.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
