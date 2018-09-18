@@ -55,5 +55,5 @@ Some workloads do not have dominant queries that you can tune to improve overall
  
 If you are in control of the application code, you may consider rewriting the data access layer to use stored procedures or parameterized queries. However, this situation can be also improved without application changes by forcing query parameterization for the entire database (all queries) or for the individual query templates with the same query hash. 
 
-## Next Steps
+## Next steps
 - Learn more about the [best practices for using Query Store](concepts-query-store-best-practices.md)

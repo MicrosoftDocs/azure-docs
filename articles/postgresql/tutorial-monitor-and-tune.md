@@ -88,5 +88,5 @@ The [Performance Recommendations](concepts-performance-recommendations.md) featu
 ### Permissions
 **Owner** or **Contributor** permissions required to run analysis using the Performance Recommendations feature.
 
-## Next Steps
+## Next steps
 - Learn more about [monitoring and tuning](concepts-monitoring.md) in Azure Database for PostgreSQL.

@@ -8,7 +8,7 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/24/2018
 ---
-# Performance Recommendations
+# Performance Recommendations in Azure Database for PostgreSQL
 
 **Applies to:** Azure Database for PostgreSQL 9.6 and 10
 
@@ -35,6 +35,6 @@ The **Performance Recommendations** window will show a list of recommendations i
 
 To implement the recommendation, copy the query text and run it from your client of choice.
 
-## Next Steps
+## Next steps
 - Learn more about [monitoring and tuning](concepts-monitoring.md) in Azure Database for PostgreSQL.
 

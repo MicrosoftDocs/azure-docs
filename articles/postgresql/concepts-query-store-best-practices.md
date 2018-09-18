@@ -45,5 +45,5 @@ The **pgms_wait_sampling.history_period** parameter specifies how often (in mill
 ## Get quick insights into Query Store
 You can use [Query Performance Insight](concepts-query-performance-insight.md) in the Azure portal to get quick insights into the data in Query Store. The visualizations surface the longest running queries and longest wait events over time.
 
-## Next Steps
+## Next steps
 - Learn how to get or set parameters using the [Azure portal](howto-configure-server-parameters-using-portal.md) or the [Azure CLI](howto-configure-server-parameters-using-cli.md).

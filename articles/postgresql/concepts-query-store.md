@@ -164,6 +164,6 @@ Query_store.staging_data_reset() returns void
 `staging_data_reset` discards all statistics gathered in memory by Query Store (that is, the data in memory that has not been flushed yet to the database). This function can only be executed by the server admin role.
 
 
-## Next Steps
+## Next steps
 - Learn more about [scenarios where Query Store can be especially helpful](concepts-query-store-scenarios.md).
 - Learn more about [best practices for using Query Store](concepts-query-store-best-practices.md).

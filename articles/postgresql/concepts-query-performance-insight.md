@@ -41,7 +41,7 @@ Select the **Wait Statistics** tab to view the corresponding visualizations on w
 
 ![Query Performance Insight wait statistics](./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png)
 
-## Next Steps
+## Next steps
 - Learn more about [monitoring and tuning](concepts-monitoring.md) in Azure Database for PostgreSQL.
 
 
