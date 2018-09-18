@@ -5,11 +5,11 @@ metadata:
   title: Azure Front Door Service Documentation (Preview)
   meta.description: Azure Front Door Service provides a scalable and secure entry point for fast delivery of your global web applications. Learn how to use Front Door with our quickstarts, tutorials, and samples.
   services: frontdoor
-  author: vhorne
+  author: dlepow
   ms.service: frontdoor
   ms.topic: landing-page
   ms.date: 9/14/2018
-  ms.author: victorh
+  ms.author: danlep
 abstract:
   description: Azure Front Door Service provides a scalable and secure entry point for fast delivery of your global web applications. Learn how to use Front Door with our quickstarts, tutorials, and samples.
 sections:
@@ -21,13 +21,9 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: https://docs.microsoft.com/en-us/media/common/i_cligeneric.svg
-      text: Azure PowerShell
-      href: https://go.microsoft.com/fwlink/?linkid=2020925
-    - image: 
         src: https://docs.microsoft.com/en-us/media/common/i_portal.svg
       text: Azure Portal
-      href: https://go.microsoft.com/fwlink/?linkid=2020698
+      href: quickstart-create-front-door.md
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
@@ -35,9 +31,7 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="https://go.microsoft.com/fwlink/?linkid=2020931">Create a Front Door with App Service</a>
-    - html: <a href="https://go.microsoft.com/fwlink/?linkid=2021008">Configure application protection with Front Door</a>
-    - html: <a href="https://go.microsoft.com/fwlink/?linkid=2021014">Use a Front Door with Application Gateway</a>
+    - html: <a href="front-door-custom-domain.md">Add a custom domain to your Front Door</a>
 - title: Reference
   items:
   - type: list
