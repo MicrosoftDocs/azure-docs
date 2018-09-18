@@ -22,6 +22,8 @@ manager: peterpr
 
 # Export your data in Azure IoT Central
 
+*This topic applies to administrators.*
+
 This article describes how to use the continuous data export feature in Azure IoT Central to periodically export data to your Azure Blob storage account. You can export **measurements**, **devices**, and **device templates** to files with the [Apache AVRO](https://avro.apache.org/docs/current/index.html) format. The exported data can be used for cold path analytics like training models in Azure Machine Learning or long-term trend analysis in Microsoft Power BI.
 
 > [!Note]
@@ -61,10 +63,10 @@ The following example shows a record in a decoded AVRO file:
 
 ### Devices
 
-When continuous data export is first turned on, a single snapshot with all devices is exported. The snapshot includes:
-- Id of the device in IoT Central
-- deviceId from [Device Provisioning Service](https://aka.ms/iotcentraldocsdps)
-- name
+When continuous data export is first turned on, a single snapshot with all devices is exported. Each device includes:
+- `id` of the device in IoT Central
+- `name` of the device
+- `deviceId` from [Device Provisioning Service](https://aka.ms/iotcentraldocsdps)
 - Device template information
 - Property values
 - Setting values
@@ -111,8 +113,10 @@ A record in the decoded AVRO file can look like:
 
 ### Device templates
 
-When continuous data export is first turned on, a single snapshot with all device templates is exported. The snapshot includes: 
-- Device template IDs.
+When continuous data export is first turned on, a single snapshot with all device templates is exported. Each device template includes:
+- `id` of the device template
+- `name` of the device template
+- `version` of the device template
 - Measurement data types and min/max values.
 - Property data types and default values.
 - Setting data types and default values.
