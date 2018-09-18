@@ -32,8 +32,7 @@ In this tutorial series you learn how to:
 > [!div class="checklist"]
 > * [Create a Service Fabric Mesh app in Visual Studio](service-fabric-mesh-tutorial-create-dotnetcore.md)
 > * [Debug a Service Fabric Mesh app running in your local development cluster](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
-> * [Deploy a Service Fabric Mesh app](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
-> * [Monitor and diagnose a Service Fabric Mesh app using Application Insights](service-fabric-mesh-tutorial-appinsights.md)
+> Deploy a Service Fabric Mesh app
 > * [Upgrade a Service Fabric Mesh app](service-fabric-mesh-tutorial-upgrade.md)
 > * [Clean up Service Fabric Mesh resources](service-fabric-mesh-tutorial-cleanup-resources.md)
 
@@ -135,6 +134,6 @@ In this part of the tutorial, you learned how to:
 
 Advance to the next tutorial:
 > [!div class="nextstepaction"]
-> [Monitor and diagnose a Service Fabric Mesh app](service-fabric-mesh-tutorial-appinsights.md)
+> [Upgrade a Service Fabric Mesh app](service-fabric-mesh-tutorial-upgrade.md)
 
 [azure-cli-install]: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest

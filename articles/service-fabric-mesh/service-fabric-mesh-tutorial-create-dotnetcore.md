@@ -41,7 +41,6 @@ In this tutorial series you learn how to:
 > * Create a Service Fabric Mesh app in Visual Studio
 > * [Debug a Service Fabric Mesh app running in your local development cluster](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
 > * [Deploy a Service Fabric Mesh app](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
-> * [Monitor and diagnose a Service Fabric Mesh app using Application Insights](service-fabric-mesh-tutorial-appinsights.md)
 > * [Upgrade a Service Fabric Mesh app](service-fabric-mesh-tutorial-upgrade.md)
 > * [Clean up Service Fabric Mesh resources](service-fabric-mesh-tutorial-cleanup-resources.md)
 

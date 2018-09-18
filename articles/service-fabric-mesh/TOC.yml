@@ -21,11 +21,9 @@
       href: service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md
     - name: 3- Deploy a Service Fabric Mesh app
       href: service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md
-    - name: 4- Monitor and diagnose
-      href: service-fabric-mesh-tutorial-appinsights.md
-    - name: 5- Upgrade a Service Fabric Mesh app
+    - name: 4- Upgrade a Service Fabric Mesh app
       href: service-fabric-mesh-tutorial-upgrade.md
-    - name: 6- Clean up Service Fabric Mesh resources
+    - name: 5- Clean up Service Fabric Mesh resources
       href: service-fabric-mesh-tutorial-cleanup-resources.md
 - name: Concepts
   items:
