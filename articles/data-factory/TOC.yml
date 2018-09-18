@@ -223,8 +223,8 @@
     - name: Office 365
       href: connector-office-365.md
       items:
-      - name: Load Office 365 data - walkthrough
-      - gref: load-office-365-data.md
+      - name: Load Office 365 data walkthrough
+        href: load-office-365-data.md
     - name: Oracle
       href: connector-oracle.md
     - name: Oracle Eloqua
@@ -287,7 +287,6 @@
       href: copy-activity-overview.md
     - name: Copy Data tool
       href: copy-data-tool.md  
-      items:
     - name: Load Data Lake Storage Gen2
       href: load-azure-data-lake-storage-gen2.md
       items:  
