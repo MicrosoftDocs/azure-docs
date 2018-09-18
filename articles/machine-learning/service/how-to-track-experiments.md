@@ -1,14 +1,14 @@
 ---
-title: Track experiments and training metrics in Azure Machine Learning | Microsoft Docs
+title: Track experiments and training metrics in Azure Machine Learning
 description: How to track your experiments and training metrics in Azure Machine Learning service.
 services: machine-learning
-author: heatherbshapiro
-ms.author: hshapiro
-manager: danielsc
 ms.service: machine-learning
 ms.component: core
-ms.workload: data-services
-ms.topic: article
+ms.topic: conceptual
+manager: cgronlun
+ms.reviewer: jmartens
+author: heatherbshapiro
+ms.author: hshapiro
 ms.date: 09/24/2018
 ---
 
