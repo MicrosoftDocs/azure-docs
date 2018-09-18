@@ -6,7 +6,7 @@ author: mmacy
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 08/28/2018
+ms.date: 09/24/2018
 ms.author: marsma
 ---
 
@@ -53,13 +53,13 @@ Learn how to trigger builds on source code commit in the second ACR Tasks tutori
 
 ## Automate OS and framework patching
 
-The power of ACR Tasks to truly enhance your container build pipeline comes from its ability to detect an update to a base image. When the updated base image is pushed to your registry, ACR Tasks can automatically build any application images based on it.
+The power of ACR Tasks to truly enhance your container build workflow comes from its ability to detect an update to a base image. When the updated base image is pushed to your registry, ACR Tasks can automatically build any application images based on it.
 
 Container images can be broadly categorized into *base* images and *application* images. Your base images typically include the operating system and application frameworks upon which your application is built, along with other customizations. These base images are themselves typically based on public upstream images, for example: [Alpine Linux][base-alpine], [Windows][base-windows], [.NET][base-dotnet], or [Node.js][base-node]. Several of your application images might share a common base image.
 
 When an OS or app framework image is updated by the upstream maintainer, for example with a critical OS security patch, you must also update your base images to include the critical fix. Each application image must then also be rebuilt to include these upstream fixes now included in your base image.
 
-Because ACR Tasks dynamically discovers base image dependencies when it builds a container image, it can detect when an application image's base image is updated. With one preconfigured [build task](container-registry-tutorial-base-image-update.md#create-build-task), ACR Tasks then **automatically rebuilds every application image** for you. With this automatic detection and rebuilding, ACR Tasks saves you the time and effort normally required to manually track and update each and every application image referencing your updated base image.
+Because ACR Tasks dynamically discovers base image dependencies when it builds a container image, it can detect when an application image's base image is updated. With one preconfigured [build task](container-registry-tutorial-base-image-update.md#create-a-task), ACR Tasks then **automatically rebuilds every application image** for you. With this automatic detection and rebuilding, ACR Tasks saves you the time and effort normally required to manually track and update each and every application image referencing your updated base image.
 
 Learn about OS and framework patching in the third ACR Tasks tutorial, [Automate image builds on base image update with Azure Container Registry Tasks](container-registry-tutorial-base-image-update.md).
 
@@ -81,7 +81,7 @@ For example, you can create a multi-step task that automates the following:
 
 Multi-step tasks enable you to split the building, running, and testing of an image into more composable steps, with inter-step dependency support. With multi-step tasks in ACR Tasks, you have more granular control over image building, testing, and OS and framework patching workflows.
 
-Learn about multi-step tasks in the fourth ACR Tasks tutorial, [Build, test, and push container images with Azure Container Registry multi-step tasks](container-registry-tutorial-multi-step-task.md).
+Learn about multi-step tasks in [Run multi-step build, test, and patch tasks in ACR Tasks](container-registry-tasks-multi-step.md).
 
 > [!IMPORTANT]
 > The multi-steps task feature of ACR Tasks is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA)
