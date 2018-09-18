@@ -26,7 +26,7 @@ This machine learning CLI is an extension of [Azure CLI](https://docs.microsoft.
 > [!NOTE]
 > The CLI is currently in early preview and will be updated.
 
-## Installing & Removing
+## Installing and uninstalling
 
 You can install the CLI using this command from our preview PyPi index:
 ```AzureCLI
@@ -55,7 +55,7 @@ Use the rich set of `az ml` commands to interact the service in any command-line
 
 Here is a sample of common commands:
 
-### Workspace Creation & Compute Provisioning
+### Workspace creation & compute setup
 
 + Create an Azure Machine Learning Workspace, the top level resource for machine learning.
   ```AzureCLI
@@ -72,10 +72,10 @@ az configure --defaults aml_workspace=myworkspace group=myresourcegroup
   az ml computetarget setup dsvm -n mydsvm
   ```
 
-### Experiment Submission
+### Experiment submission
 + Attach to a project (run configuration) for submitting an experiment. This is used to keep track of your experiment runs.
   ```AzureCLI
-  az ml project attach --history myhistory (NOTE: This is changing to --experiment)
+  az ml project attach --experiment-name myhistory
   ```
 
 + Submit an experiment against the Azure Machine Learning service on the compute target of your choice (this example uses a Data Science VM)
