@@ -149,7 +149,7 @@ In this example, the training script calculates the `val_accuracy` and logs this
 When using Azure Machine Learning service to tune hyperparameters, poorly performing runs are automatically early terminated. This reduces wastage of resources and instead uses these resources for exploring other parameter configurations.
 
 When using an early termination policy, a user can configure the following parameters that control when a policy is applied -
-* `evaluation_interval`: the frequency for applying the policy. Each time the training script logs the primary metric counts as one interval. Thus an `evaluation_interval` of 1 will apply the policy every time the training script reports the primary metric. An `evaluation_interval` of 2 will apply the policy every other time the training script reports the primary metric. If not specified, `evaluation_interval` is set to 1 by default.
+* `evaluation_interval`: the frequency for applying the policy. Each time the training script logs the primary metric counts as one interval. Thus an `evaluation_interval` of 1 will apply the policy every time the training script reports the primary metric. An `evaluation_interval` of 2 will apply the policy every other time the training script reports the primary metric. This is an optional parameter and if not specified, `evaluation_interval` is set to 1 by default.
 * `delay_evaluation`: delays the first policy evaluation for a specified number of intervals. This is an optional parameter that allows all configurations to run for an initial minimum number of intervals, avoiding premature termination of training runs. If specified, the policy applies every multiple of evaluation_interval that is greater than or equal to delay_evaluation.
 
 Azure Machine Learning service supports the following Early Termination Policies -
@@ -159,7 +159,7 @@ Bandit Policy is a termination policy based on slack factor/slack amount and eva
 * `slack_factor` or `slack_amount`: the slack allowed with respect to the best performing training run. `slack_factor` specifies the allowable slack as a ratio. `slack_amount` specifies the allowable slack as an absolute amount, instead of a ratio.
 
     For example,  consider a Bandit policy being applied at interval 10. Assume that the best performing run at interval 10 reported a primary metric 0.8 with a goal to maximize the primary metric. If the policy was specified with a `slack_factor` of 0.2, any training runs, whose best metric at interval 10 is less than 0.66 (0.8/(1+`slack_factor`)) will be terminated. If instead, the policy was specified with a `slack_amount` of 0.2, any training runs, whose best metric at interval 10 is less than 0.6 (0.8 - `slack_amount`) will be terminated.
-* `evaluation_interval`: the frequency for applying the policy.
+* `evaluation_interval`: the frequency for applying the policy (optional parameter).
 * `delay_evaluation`: delays the first policy evaluation for a specified number of intervals (optional parameter).
 
 Consider this example -
@@ -173,7 +173,7 @@ In this example, the early termination policy is applied at every interval when 
 
 ### Median Stopping Policy
 Median Stopping Policy is an early termination policy based on running averages of primary metrics reported by the runs. This policy computes running averages across all training runs and terminates runs whose performance is worse than the median of the running averages. This policy takes the following configuration parameters -
-* `evaluation_interval`: the frequency for applying the policy.
+* `evaluation_interval`: the frequency for applying the policy (optional parameter).
 * `delay_evaluation`: delays the first policy evaluation for a specified number of intervals (optional parameter).
 
 Consider this example -
@@ -188,7 +188,7 @@ In this example, the early termination policy is applied at every interval start
 ### Truncation Selection Policy
 Truncation Selection Policy cancels a given percentage of lowest performing runs at each evaluation interval. Runs are compared based on their performance on the primary metric and the lowest X% are terminated. It takes the following configuration parameters -
 * `truncation_percentage`: the percentage of lowest performing runs to terminate at each evaluation interval. This should be an integer value between 1 and 99.
-* `evaluation_interval`: the frequency for applying the policy.
+* `evaluation_interval`: the frequency for applying the policy (optional parameter).
 * `delay_evaluation`: delays the first policy evaluation for a specified number of intervals (optional parameter).
 
 Consider this example -
@@ -213,14 +213,14 @@ If no policy is specified, the hyperparameter tuning service will use a Median S
 
 ## Allocate resources for hyperparameter tuning
 You can control your resource budget for your hyperparameter tuning experiment by specifying the maximum total number of training runs and optionally, the maximum duration for your hyperparameter tuning experiment (in minutes). 
-* `max_total_runs`: Maximum total number of training runs that will be created. This is an upper bound - we may have fewer runs, for instance, if the hyperparameter space is finite and has fewer samples
+* `max_total_runs`: Maximum total number of training runs that will be created. This is an upper bound - we may have fewer runs, for instance, if the hyperparameter space is finite and has fewer samples. Must be a number between 1 and 1000.
 * `max_duration_minutes`: Maximum duration of the hyperparameter tuning experiment in minutes. This is an optional parameter, and if present, any runs that might be running after this duration are automatically canceled.
 
 >[!NOTE] 
 >If both `max_total_runs` and `max_duration_minutes` are specified, the hyperparameter tuning experiment is terminated when the first of these two thresholds is reached.
 
 Additionally, you can specify the maximum number of training runs to run concurrently during your hyperparameter tuning search.
-* `max_concurrent_runs`: This is the maximum number of runs to run concurrently at any given moment. If none specified, all `max_total_runs` will be launched in parallel. 
+* `max_concurrent_runs`: This is the maximum number of runs to run concurrently at any given moment. If none specified, all `max_total_runs` will be launched in parallel. If specified, must be a number between 1 and 100.
 
 >[!NOTE] 
 >The number of concurrent runs is gated on the resources available in the specified compute target. Hence, you will need to ensure that the compute target has the available resources for the desired concurrency.
@@ -289,15 +289,13 @@ Once all of the hyperparameter tuning runs have completed, you can identify the 
 ```Python
 best_run = hyperdrive_run.get_best_run_by_primary_metric()
 best_run_metrics = best_run.get_metrics()
+parameter_values = best_run.get_details()['runDefinition']['Arguments']
 
-print('Best Run :\n  Id: {0}\n  Accuracy: {1:.6f} \n  Learning rate: {2:.6f} \n  Keep Probability: {3}\n  Mini-batch size: {5}'.format(
-        best_run.id,
-        best_run_metrics['accuracy'],
-        best_run_metrics['learning_rate'],
-        best_run_metrics['keep_probability'],
-        best_run_metrics['batch_size']
-    ))
-print(helpers.get_run_history_url(best_run))
+print('Best Run Id: ', best_run.id)
+print('\n Accuracy:', best_run_metrics['accuracy'])
+print('\n learning rate:',parameter_values[3])
+print('\n keep probability:',parameter_values[5])
+print('\n batch size:',parameter_values[7])
 ```
 
 ## Sample notebooks
