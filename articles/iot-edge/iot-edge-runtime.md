@@ -112,7 +112,7 @@ For more information about the Azure IoT Edge security framework, read about the
 
 ## Next steps
 
-[Understand Azure IoT Edge modules][lnk-modules]
+[Understand Azure IoT Edge Certificates][lnk-certs]
 
 <!-- Images -->
 [1]: ./media/iot-edge-runtime/Pipeline.png
@@ -121,4 +121,4 @@ For more information about the Azure IoT Edge security framework, read about the
 [4]: ./media/iot-edge-runtime/ModuleEndpointsWithRoutes.png
 
 <!-- Links -->
-[lnk-modules]: iot-edge-modules.md
+[lnk-certs]: iot-edge-certs.md
