@@ -166,7 +166,7 @@ A similar pattern can be followed with event hubs, but first you need to create 
    New-AzureRmRoleDefinition -Role $role 
    ```
 
-## Monitoring withing a secured Virtual Network
+## Monitoring within a secured Virtual Network
 
 Azure Monitor needs access to your Azure resources to provide the services you enable. If you would like to monitor your Azure resources while still securing them from access to the Public Internet, you can enable the following settings.
 
