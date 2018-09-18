@@ -88,7 +88,7 @@ available for use in the global Logic Apps service.
 
 <a name="vnet-access"></a>
 
-## Permissions to access your VNET
+## Permissions for VNET access
 
 When you create an integration service environment (ISE), 
 you can select an Azure virtual network (VNET) as a *peer* 
