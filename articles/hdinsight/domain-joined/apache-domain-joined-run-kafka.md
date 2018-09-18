@@ -158,9 +158,9 @@ Based on the Ranger policies configured, **sales_user** can produce/consume topi
 
    Example: `export KAFKAZKHOSTS=zk1-khdicl.contoso.com:2181,zk2-khdicl.contoso.com:2181`
 
-   As a result, **sales_user1** can produce to topic **salesevents**.
-
-4. Execute the following command to start the console-producer for topic **salesevents**:
+4. Verifty that **sales_user1** can produce to topic **salesevents**.
+   
+   Execute the following command to start the console-producer for topic **salesevents**:
 
    ```bash
    /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $KAFKABROKERS --topic salesevents --security-protocol SASL_PLAINTEXT
@@ -174,19 +174,21 @@ Based on the Ranger policies configured, **sales_user** can produce/consume topi
    /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $KAFKAZKHOSTS --topic salesevents --security-protocol PLAINTEXTSASL --from-beginning
    ```
  
-   To verify, the messages you entered in the previous step will appear, and **sales_user1** cannot produce to topic **marketingspend**.
+6. Verify that the messages you entered in the previous step will appear, and **sales_user1** cannot produce to topic **marketingspend**.
 
-6. From the same ssh window as above, execute the following command to produce to the topic **marketingspend**:
+   From the same ssh window as above, execute the following command to produce to the topic **marketingspend**:
 
    ```bash
    /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $KAFKABROKERS --topic marketingspend --security-protocol SASL_PLAINTEXT
    ```
 
-   An authorization error occurs and can be ignored. Notice that **marketing_user1** can't consume from topic **salesevents**.
+   An authorization error occurs and can be ignored. 
+
+7. Notice that **marketing_user1** can't consume from topic **salesevents**.
 
    Repeat steps 1-3 above, but this time as **marketing_user1**.
 
-7. Execute the following command to consume from topic **salesevents**:
+   Execute the following command to consume from topic **salesevents**:
 
    ```bash
    /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $KAFKAZKHOSTS --topic marketingspend --security-protocol PLAINTEXTSASL --from-beginning
