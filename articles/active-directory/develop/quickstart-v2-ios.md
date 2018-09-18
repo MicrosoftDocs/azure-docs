@@ -60,11 +60,11 @@ This quickstart contains a code sample that demonstrates how a native iOS applic
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Already configured](media/quickstart-v2-ios/green-check.png) Your application is configured with this attribute
 
-## Step 2: Download your web server or project
+#### Step 2: Download your web server or project
 
 - [Download the XCode Project](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)
 
-## Step 3: Configure your project
+#### Step 3: Configure your project
 
 1. Extract the zip file and open the project in XCode.
 1. Edit **ViewController.swift** and replace the line starting with 'let kClientID' with the following code snippet:
