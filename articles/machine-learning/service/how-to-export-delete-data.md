@@ -2,13 +2,13 @@
 title: Export or delete workspace data - Azure Machine Learning  | Microsoft Docs
 description: In Azure Machine Learning, you can export or delete your workspace with the Azure portal, CLI, SDK, and authenticated REST APIs. This article shows you how.
 services: machine-learning
-author: ph-com
-ms.author: pahusban
-manager: haining
-ms.reviewer: jmartens, mldocs
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
+manager: cgronlun
+ms.reviewer: jmartens
+author: ph-com
+ms.author: pahusban
 ms.date: 09/24/2018
 ---
 # Export or delete your workspace data in Machine Learning
@@ -34,7 +34,9 @@ In the examples following, replace the text in {} with the instance names that d
 
 ### Delete an entire workspace
 
-Use this call to delete an entire workspace.  All workspace information will be deleted and it will no longer be accessible.
+Use this call to delete an entire workspace.  
+> [!WARNING]
+> All information will be deleted and the workspace will no longer be usable.
 
     https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}?api-version=2018-03-01-preview
 
@@ -131,7 +133,7 @@ A single run metric can be obtained by:
 
 Use this call to get a list of artifacts and their paths:
 
-    https://{location}.experiments.azureml.net/artifact/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/artifacts/contentinfo/ExperimentRun/{runId}
+    https://{location}.experiments.azureml.net/artifact/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/artifacts/origins/ExperimentRun/containers/{runId}
     
 ### Export notifications
 

@@ -21,6 +21,32 @@ A JavaScript function is an exported `function` that will execute when triggered
 
 This article assumes that you have already read the [Azure Functions developer reference](functions-reference.md). It is also recommended that you have followed a tutorial under "Quickstarts" to [create your first function](functions-create-first-function-vs-code.md).
 
+## Folder structure
+
+The folder structure for a JavaScript project looks like the following:
+
+```
+FunctionsProject
+ | - MyFirstFunction
+ | | - index.js
+ | | - function.json
+ | - MySecondFunction
+ | | - index.js
+ | | - function.json
+ | - SharedCode
+ | | - myFirstHelperFunction.js
+ | | - mySecondHelperFunction.js
+ | - node_modules
+ | - host.json
+ | - package.json
+ | - extensions.csproj
+ | - bin
+```
+
+There's a shared [host.json] (functions-host-json.md) file that can be used to configure the function app. Each function has its own code file (.js) and binding configuration file (function.json).
+
+The binding extensions required in [version 2.x](functions-versions.md) of the Functions runtime are defined in the `extensions.csproj` file, with the actual library files in the `bin` folder. When developing locally, you must [register binding extensions](functions-triggers-bindings.md#local-development-azure-functions-core-tools). When developing functions in the Azure portal, this registration is done for you.
+
 ## Exporting a function
 
 JavaScript functions must be exported via [`module.exports`](https://nodejs.org/api/modules.html#modules_module_exports) (or [`exports`](https://nodejs.org/api/modules.html#modules_exports)). In the default case, your exported function should be the only export from its file, the export named `run`, or the export named `index`. The default location of your function is `index.js`, where `index.js` shares the same parent directory as the corresponding `function.json`. Note that the name of `function.json`'s parent directory is always the name of your function. 

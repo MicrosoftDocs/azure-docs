@@ -1,14 +1,14 @@
 ---
-title: "Tutorial: Deploy an image classification model in Azure Container Instance (ACI) with Azure Machine Learning service"
-description: This tutorial shows how to use Azure Machine Learning service to deploy an image classification model with scikit-learn in a Python Jupyter notebook.  This tutorial is part two of a two-part series.
+title: "Tutorial: Deploy an image classification model in Azure Container Instance (ACI) - Azure Machine Learning"
+description: Learn how to deploy a scikit-learn image classification model with a Python Jupyter notebook.  This tutorial is part two of a two-part series.
+author: hning86
+ms.author: haining
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
-ms.topic: tutorial
-
-author: hning86
-ms.author: haining
+ms.topic: conceptual
 ms.reviewer: sgilley
+ms.topic: tutorial
 ms.date: 09/24/2018
 # As a professional data scientist, I can deploy the model previously trained in tutorial1.
 ---
@@ -35,20 +35,6 @@ ACI is not ideal for production deployments, but it is great for testing and und
 For your convenience, this tutorial is available as a Jupyter notebook. Use either of these methods to run the `tutorials/02.deploy-models.ipynb` notebook:
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
-
-* **Your own Jupyter notebook server**
-
-    1. Use [these instructions](https://aka.ms/aml-how-to-configure-environment) to:
-        * Create a workspace and its configuration file (**config.json**) 
-        * Configure your notebook server
-        * In step 4 the new packages you need are matplotlib and scikit-learn:
-            ```shell
-            conda install -y matplotlib scikit-learn
-            ```
-    1. Clone [the GitHub repository](https://aka.ms/aml-notebooks) or start a new notebook and copy code from this article.
-    1. Add your **config.json** file to the same folder as the notebook.
-    1. Start your notebook server.
-    1. Open the notebook.
 
 
 ## Prerequisites

@@ -1,19 +1,20 @@
 ---
-title: Model Management and Deployment in Azure Machine Learning  | Microsoft Docs
-description: Microsoft provides a full end-to-end solution to discover, manage, deploy, and monitor your machine learning models. 
+title: Manage and deploy models in Azure Machine Learning
+description: Learn how to use Azure Machine Learning to deploy, manage, and monitor your models to continuously improve them. You can deploy the models you trained with Azure Machine Learning, on your local machine, or from other sources.  
 services: machine-learning
-author: hjerez
-ms.author: hjerez
-ms.reviewer: j-martrens
 ms.service: machine-learning
 ms.component: core
-ms.topic: overview
+ms.topic: conceptual
+manager: cgronlun
+ms.reviewer: jmartens
+author: hjerez
+ms.author: hjerez
 ms.date: 09/24/2018
 ---
 
 # Manage, deploy, and monitor models with Azure Machine Learning
 
-The Azure Machine Learning service allows you to deploy, manage, and monitor your models to continuously improve them. You can deploy the models you trained with Azure Machine Learning, on your local machine, or from other sources. 
+In this article, you can learn how to use Azure Machine Learning to deploy, manage, and monitor your models to continuously improve them. You can deploy the models you trained with Azure Machine Learning, on your local machine, or from other sources. 
 
 [ ![Azure Machine Learning CI/CD cycle](media/concept-model-management-and-deployment/model-ci-cd.png) ](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
 
@@ -77,7 +78,7 @@ An SDK for model logging and data capture is available so you can monitor input,
 
 To use the SDK with your model, you import the SDK into your scoring script or application. You can then use the SDK to log data such as parameters, results, or input details.
 
-If you decide to enable model data collection every time you deploy the image, the details needed to capture the data, such as the credentials to your personal blob store, are provisioned automatically.
+If you decide to [enable model data collection](how-to-enable-data-collection.md) every time you deploy the image, the details needed to capture the data, such as the credentials to your personal blob store, are provisioned automatically.
 
 > [!Important]
 > Microsoft does not see the data you collect from your model. The data is sent directly to the Azure storage account for your workspace.
