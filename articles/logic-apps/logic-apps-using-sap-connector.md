@@ -195,7 +195,7 @@ so you can set up your SAP action.
       > That way, you can use same action for different message types.
 
       For more information about IDoc operations, see 
-     [Message schemas for IDOC operations](https://docs.microsoft.com/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations).
+      [Message schemas for IDOC operations](https://docs.microsoft.com/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations).
 
    2. Click inside the **Input Message** box so that the dynamic content list appears. 
    From that list, under **When a HTTP request is received**, select the **Body** field. 
@@ -524,7 +524,7 @@ in unexpected behavior. For Send scenarios, data gateway clusters are supported.
 * In Receive scenarios, returning a non-null response isn't supported. 
 A logic app with a trigger and a response action results in unexpected behavior. 
 
-* Only a single SAP connector Send message action works with tRFC. 
+* Only a single Send to SAP call or message works with tRFC. 
 The Business Application Programming Interface (BAPI) commit pattern, 
 for example, making multiple tRFC calls in the same session, isn't supported.
 
