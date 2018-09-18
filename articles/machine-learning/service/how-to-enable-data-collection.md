@@ -83,8 +83,9 @@ If you already have a service with the dependencies installed in your **environm
 ![Edit Service](media/how-to-enable-data-collection/EditService.png)
 3. In Advanced Settings check "Enable Model data collection". 
 ![Uncheck Data Collection](media/how-to-enable-data-collection/CheckDataCollection.png)
-In this window, you can also choose to "Enable Appinsights diagnostics" to track the health of your service.  
-4. Update
+
+    In this window, you can also choose to "Enable Appinsights diagnostics" to track the health of your service.  
+4. At the bottom of the page click "Update"
 
 The `00.Getting Started/12.enable-data-collection-for-models-in-aks.ipynb` notebook demonstrates concepts in this article.  Get this notebook:
  
