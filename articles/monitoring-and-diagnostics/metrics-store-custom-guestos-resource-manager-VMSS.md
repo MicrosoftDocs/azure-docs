@@ -15,7 +15,7 @@ The Azure Monitor [Windows Azure Diagnostics extension](azure-diagnostics.md) (W
 
 Starting with WAD version 1.11, you can write metrics directly to the Azure Monitor metrics store where standard platform metrics are already collected. Storing them in this location allows you to access the same actions available for platform metrics.  Actions include near-real time alerting, charting, routing, access from REST API and more.  In the past, the WAD extension wrote to Azure Storage, but not the Azure Monitor data store.  
 
-This article describes the process to send guest OS performance metrics for a Windows virtual machine scale set (VMSS) to the Azure Monitor data store. The Azure Monitor data store is where the Azure platform metrics are stored. From there, you can do the same things as you can with Azure platform metrics. Actions include near-real time alerting, charting, routing, access from REST API and more.   
+This article describes the process to send guest OS performance metrics for a Windows virtual machine scale set to the Azure Monitor data store. The Azure Monitor data store is where the Azure platform metrics are stored. From there, you can do the same things as you can with Azure platform metrics. Actions include near-real time alerting, charting, routing, access from REST API and more.   
 
 If you are new to Resource Manager templates,  learn about [template deployments](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview.md), and their structure and syntax.  
 
@@ -35,7 +35,7 @@ The Azure Diagnostics extension uses a feature called "data sinks" to route metr
 For this example, you can use a publicly available sample template. The starting templates are at
 https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-autoscale  
 
-- **Azuredeploy.json** is a pre-configured ARM template for deployment of a virtual machine scale set
+- **Azuredeploy.json** is a pre-configured Resource Manager template for deployment of a virtual machine scale set
 
 - **Azuredeploy.parameters.json** is a parameters file that stores information like what username and password you would like to set for your VM. During deployment, the Resource Manager template uses the parameters set in this file. 
 
@@ -51,10 +51,10 @@ Save both files locally.
 
 Open the *azuredeploy.parameters.json* file 
 - Provide a **vmSKU** you would like to deploy (we recommend Standard_D2_v3) 
-- Specify a **windowsOSVersion** you would like for your VMSS (we recommend 2016-Datacenter) 
-- Name the VMSS resource to be deployed using a **vmssName** property. For example, *VMSS-WAD-TEST*.    
-- Specify the number of VMs you would like to be running on the VMSS using the **instanceCount** property
-- Enter values for **adminUsername** and **adminPassword** for the VMSS. These parameters are used for remote access to the VMs in the scale set. These parameters are used for remote access to the VM. DO NOT use the ones in this template to avoid having your VM hijacked. Bots scan the internet for usernames and passwords in public Github repositories. They are likely to be testing VMs with these defaults. 
+- Specify a **windowsOSVersion** you would like for your virtual machine scale set (we recommend 2016-Datacenter) 
+- Name the virtual machine scale set resource to be deployed using a **vmssName** property. For example, *VMSS-WAD-TEST*.    
+- Specify the number of VMs you would like to be running on the virtual machine scale set using the **instanceCount** property
+- Enter values for **adminUsername** and **adminPassword** for the virtual machine scale set. These parameters are used for remote access to the VMs in the scale set. These parameters are used for remote access to the VM. DO NOT use the ones in this template to avoid having your VM hijacked. Bots scan the internet for usernames and passwords in public Github repositories. They are likely to be testing VMs with these defaults. 
 
 Open the *azuredeploy.json* file 
 
@@ -215,7 +215,7 @@ Save and close both files
 To deploy the Resource Manager template, we will leverage Azure PowerShell.  
 
 1. Launch PowerShell 
-1. Log in to Azure using `Login-AzureRmAccount`
+1. Sign in to Azure using `Login-AzureRmAccount`
 1. Get your list of subscriptions using `Get-AzureRmSubscription`
 1. Set the subscription you will be creating/updating the virtual machine in 
 
@@ -238,7 +238,7 @@ To deploy the Resource Manager template, we will leverage Azure PowerShell.
    New-AzureRmResourceGroupDeployment -Name "VMSSWADTest" -ResourceGroupName "VMSSWADtestGrp" -TemplateFile "<File path of your azuredeploy.JSON file>" -TemplateParameterFile "<File path of your azuredeploy.parameters.JSON file>"  
    ```
 
-1. Once your deployment succeeds you should be able to find the VMSS in the Azure Portal, and it should be emitting metrics to Azure Monitor. 
+1. Once your deployment succeeds you should be able to find the virtual machine scale set in the Azure portal, and it should be emitting metrics to Azure Monitor. 
 
    > [!NOTE] 
    > You may run into errors around the selected vmSkuSize. If this happens, go back to your azuredeploy.json file and update the default value of the vmSkuSize parameter. In this case, we recommend trying  "Standard_DS1_v2"). 
@@ -246,7 +246,7 @@ To deploy the Resource Manager template, we will leverage Azure PowerShell.
 
 ## Chart your metrics 
 
-1. Log in to the Azure portal 
+1. Sign in to the Azure portal 
 
 1. In the left-hand menu, click **Monitor** 
 
@@ -256,7 +256,7 @@ To deploy the Resource Manager template, we will leverage Azure PowerShell.
 
 1. Change the aggregation period to **Last 30 minutes**.  
 
-1. In the resource drop-down, select the VMSS just created.  
+1. In the resource drop-down, select the virtual machine scale set you just created.  
 
 1. In the namespaces drop-down, select **azure.vm.windows.guest** 
 
