@@ -64,12 +64,16 @@
       - name: Troubleshooting
         href: azure-security-disk-encryption-tsg.md
       - name: Azure Disk Encryption with Azure AD app (previous release)
+        displayName: active directory
         items:
         - name: Disk encryption with Azure AD app prerequisites 
+          displayName: active directory
           href: azure-security-disk-encryption-prerequisites-aad.md
         - name: Disk encryption with Azure AD app for Windows VMs 
+          displayName: active directory
           href: azure-security-disk-encryption-windows-aad.md
         - name: Disk encryption with Azure AD app for Linux VMs 
+          displayName: active directory
           href: azure-security-disk-encryption-linux-aad.md
   - name: Azure Storage security
     href: security-storage-overview.md
@@ -113,10 +117,10 @@
     href: security-identity-management-overview.md
     items:
     - name: Choose Azure AD authentication
-      displayName: identity
+      displayName: identity, active directory
       href: azure-ad-choose-authn.md
     - name: Security checklist
-      displayName: identity
+      displayName: identity, active directory
       href: azure-ad-secure-steps.md
     - name: Best practices
       displayName: password, identity
@@ -176,6 +180,7 @@
       - name: Get started
         href: security-azure-log-integration-get-started.md
       - name: Integrate Azure AD audit logs
+        displayName: active directory
         href: security-azure-log-integration-ad.md
       - name: Integrate Security Center alerts
         href: security-azure-log-integration-security-center.md
