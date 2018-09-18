@@ -13,8 +13,9 @@ ms.date: 09/24/2018
 
 # Access to Azure Virtual Network (VNET) resources from isolated Azure Logic Apps
 
-> Integration service environments (ISEs) are in private preview. 
-> To try this capability, [learn how to sign up for access]. 
+> [!NOTE]
+> To try this capability, which is in *private preview*, 
+> [learn how to sign up for access]. 
 
 Sometimes, your logic apps and integration accounts need access to secured 
 resources such as virtual machines (VMs) and other systems or services inside an 
