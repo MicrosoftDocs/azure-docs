@@ -12,7 +12,7 @@ ms.date: 09/24/2018
 
 # Tutorial: Configure Kafka policies in HDInsight with Enterprise Security Package
 
-Learn how to configure Apache Ranger policies for Enterprise Security Package (ESP) Kafka clusters, which are connected to a domain allowing users to authenticate with domain credentials. In this tutorial, you create two Ranger policies to restrict access to `sales*` and `marketingspend` topics.
+Learn how to configure Apache Ranger policies for Enterprise Security Package (ESP) Kafka clusters. ESP clusters are connected to a domain allowing users to authenticate with domain credentials. In this tutorial, you create two Ranger policies to restrict access to `sales*` and `marketingspend` topics.
 
 In this tutorial, you learn how to:
 
@@ -158,7 +158,7 @@ Based on the Ranger policies configured, **sales_user** can produce/consume topi
 
    Example: `export KAFKAZKHOSTS=zk1-khdicl.contoso.com:2181,zk2-khdicl.contoso.com:2181`
 
-4. Verifty that **sales_user1** can produce to topic **salesevents**.
+4. Verify that **sales_user1** can produce to topic **salesevents**.
    
    Execute the following command to start the console-producer for topic **salesevents**:
 
@@ -174,7 +174,7 @@ Based on the Ranger policies configured, **sales_user** can produce/consume topi
    /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $KAFKAZKHOSTS --topic salesevents --security-protocol PLAINTEXTSASL --from-beginning
    ```
  
-6. Verify that the messages you entered in the previous step will appear, and **sales_user1** cannot produce to topic **marketingspend**.
+6. Verify that the messages you entered in the previous step will appear, and **sales_user1** can't produce to topic **marketingspend**.
 
    From the same ssh window as above, execute the following command to produce to the topic **marketingspend**:
 
