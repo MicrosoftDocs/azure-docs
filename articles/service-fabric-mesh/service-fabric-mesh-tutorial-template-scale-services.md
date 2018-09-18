@@ -1,5 +1,5 @@
 ---
-title: Tutorial- Scale an app running in Service Fabric Mesh | Microsoft Docs
+title: Tutorial- Scale an app running in Azure Service Fabric Mesh | Microsoft Docs
 description: In this tutorial, you learn how to scale the services in an application running in Service Fabric Mesh.
 services: service-fabric-mesh
 documentationcenter: .net
