@@ -73,6 +73,17 @@
       href: sql-api-resources.md
     - name: Global distribution
       href: distribute-data-globally.md
+      items:
+      - name: Key benefits
+        href: distribute-data-globally-benefits.md
+      - name: Enabling turnkey global distribution
+        href: distribute-data-globally-turnkey.md
+      - name: Enable multi-master
+        href: enable-multi-master.md
+      - name: Multi-master with OSS NoSQL databases
+        href: multi-master-oss-nosql.md
+      - name: Flexible conflict resolution
+        href: multi-master-conflict-resolution.md  
     - name: Throughput
       href: request-units.md
       items:
@@ -84,16 +95,6 @@
       href: indexing-policies.md
     - name: Consistency models
       href: consistency-levels.md
-    - name: Multi-master
-      items:
-      - name: About multi-master
-        href: multi-region-writers.md
-      - name: Enable multi-master
-        href: enable-multi-master.md
-      - name: Multi-master conflict resolution
-        href: multi-master-conflict-resolution.md
-      - name: MongoDB clients with multi-master
-        href: mongodb-multi-master-support.md
     - name: Change feed
       href: change-feed.md
     - name: Time to live
