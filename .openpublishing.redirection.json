@@ -28255,6 +28255,21 @@
             "source_path": "articles/monitoring-and-diagnostics/monitoring-overview-metrics.md",
             "redirect_url": "/azure/monitoring/monitoring-data-collection",
             "redirect_document_id" : false
+        },
+        {
+            "source_path": "articles/monitoring-and-diagnostics/index.yml",
+            "redirect_url": "/azure/azure-monitor",
+            "redirect_document_id" : false
+        },
+        {
+            "source_path": "articles/log-analytics/index.yml",
+            "redirect_url": "/azure/azure-monitor",
+            "redirect_document_id" : false
+        },
+        {
+            "source_path": "articles/application-insights/index.yml",
+            "redirect_url": "/azure/azure-monitor",
+            "redirect_document_id" : false
         }
     ]
 }
