@@ -102,10 +102,6 @@ The application was deployed successfully and it can be accessed at http://10.00
 
 Open a web browser and navigate to the URL to see the website running in Azure.
 
-## Set up Service Fabric Mesh CLI
-
-You can use the Azure Cloud Shell or a local installation of the Azure CLI for the remaining steps. Install Azure Service Fabric Mesh CLI extension module by following these [instructions](service-fabric-mesh-howto-setup-cli.md).
-
 ## Check application deployment status
 
 At this point, your application has been deployed. You can check to see its status by using the `app show` command. 
@@ -120,7 +116,7 @@ az mesh app show --resource-group $rg --name ServiceMeshApp
 
 You can use the "app list" command to get a list of applications you have deployed to your subscription.
 
-```cli
+```azurecli-interactive
 az mesh app list --output table
 ```
 

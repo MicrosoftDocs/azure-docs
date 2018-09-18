@@ -21,7 +21,7 @@ ms.custom: mvc, devcenter
 
 # Tutorial: Learn how to upgrade a Service Fabric application using Visual Studio
 
-This tutorial is part four of a series and shows you how to upgrade an Azure Service Fabric Mesh application directly from Visual Studio.
+This tutorial is part four of a series and shows you how to upgrade an Azure Service Fabric Mesh application directly from Visual Studio. You will see that the steps for upgrading and publishing are the same.
 
 In this tutorial you learn how to:
 > [!div class="checklist"]
@@ -45,7 +45,7 @@ Before you begin this tutorial:
 
 # Upgrade a Service Fabric Mesh service by using Visual Studio
 
-This article shows how to independently upgrade a microservice within an application. In this example, we will modify the `WebFrontEnd` service to display a task category. Then we'll upgrade the deployed service.
+This article shows how to independently upgrade a microservice within an application.  In this example, we will modify the `WebFrontEnd` service to display a task category. Then we'll upgrade the deployed service.
 
 ## Modify the model
 

@@ -22,7 +22,7 @@ ms.custom: mvc, devcenter
 
 This tutorial is part one of a series. You'll learn how to use Visual Studio to create an Azure Service Fabric Mesh app that has an ASP.NET web front-end and an ASP.NET Core Web API back-end service. Then you'll debug the app on your local development cluster. You'll publish the app to Azure, check app logs and integrate App Insights into your app, and then you'll upgrade the app. Finally, you'll clean up unused Azure resources so that you are not charged for what you aren't using.
 
-When you're finished, you'll have a simple to-do app that demonstrates a service-to-service call in a Service Fabric Mesh app running in Azure Service Fabric Mesh.
+When you're finished, you'll have walked through the all of the phases of app lifecycle management and have built an app that demonstrates a service-to-service call in a Service Fabric Mesh app running in Azure Service Fabric Mesh.
 
 If you don't want to manually create the to-do application, you can [download the source code](https://github.com/azure-samples/service-fabric-mesh) for the completed application  and skip ahead to [Debug the app locally](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md).
 

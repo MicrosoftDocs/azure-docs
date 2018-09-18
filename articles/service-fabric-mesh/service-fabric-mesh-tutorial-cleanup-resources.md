@@ -44,7 +44,7 @@ Before you begin this tutorial:
 
 ## Clean up resources
 
-When you are done with the resources you have created, delete them so that you are not charged for resources you are no longer using. This can be particularly important if the resources you created are expensive.
+This is the end of the tutorial. When you are done with the resources you have created, delete them so that you are not charged for resources you are no longer using. This is particularly important because Mesh is a serverless service that bills per second. To learn more about Mesh pricing, check out https://aka.ms/sfmeshpricing.
 
 One of the conveniences that Azure provides is that when you create resources that are associated to a particular resource group, deleting the resource group deletes all of the associated resources. That way you don't have to delete them one by one.
 
