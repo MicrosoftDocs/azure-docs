@@ -11,7 +11,7 @@ ms.date: 09/24/2018
 # As a data scientist, I want to understand the big picture about how the Azure Machine Learning service works.
 ---
 
-# Azure Machine Learning service architecture and concepts
+# Architecture and concepts: How does Azure Machine Learning service work? 
 
 This document describes the architecture and concepts for the Azure Machine Learning service. The following diagram shows the major components of the service, and illustrates the general workflow when using the service: 
 
@@ -34,7 +34,7 @@ The workflow generally follows these steps:
 > [!NOTE]
 > While this document defines terms and concepts used by Azure Machine Learning, it does not define terms and concepts for the Azure platform. For more information on Azure platform terminology, see the [Microsoft Azure glossary](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology).
 
-## Workspace
+## Machine learning workspace
 
 The workspace is the top-level resource for the Azure Machine Learning service. It provides a centralized place to work with all the artifacts you create when using Azure Machine Learning.
 
@@ -70,14 +70,15 @@ A model is produced by a run in Azure Machine Learning. You can also use a model
 
 Azure Machine Learning is framework agnostic. You can use any popular machine learning framework when creating a model, such as scikit-learn, xgboost, PyTorch, TensorFlow, Chainer, and CNTK.
 
-For an example of training a model, see the [Quickstart: Get started with Azure Machine Learning service](quickstart-get-started.md) document.
+For an example of training a model, see the [Quickstart: Create a machine learning workspace](quickstart-get-started.md) document.
 
 ### Model registry
 
-The model registry keeps track of all the models in your Azure Machine Learning workspace.
+The model registry keeps track of all the models in your Azure Machine Learning workspace. 
+
 Models are identified by name and version. Each time you register a model with the same name as an existing one, the registry assumes that it is a new version. The version is incremented and the new model is registered under the name.
 
-You can provide additional metadata tags when you register the model and then use these tags when searching for models.
+You can provide additional metadata tags when you register the model, and then use these tags when searching for models.
 
 You cannot delete models that are being used by an image.
 
