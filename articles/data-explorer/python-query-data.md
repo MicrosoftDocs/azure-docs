@@ -14,15 +14,15 @@ ms.date: 09/24/2018
 
 # Quickstart: Query data using the Azure Data Explorer Python library
 
-Azure Data Explorer is a log analytics platform that is optimized for ad-hoc big data queries. Data Explorer provides a [data client library for Python](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). This library enables you to query data from your code. In this quickstart, you connect to a table on the *help cluster* that we have set up to aid learning. You then query a table on that cluster and return the results.
+Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Azure Data Explorer provides a [data client library for Python](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). This library enables you to query data from your code. In this quickstart, you connect to a table on the *help cluster* that we have set up to aid learning. You then query a table on that cluster and return the results.
 
 This quickstart is also available as an [Azure Notebook](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueryKusto.ipynb).
 
 ## Prerequisites
 
-* An organizational email account that is a member of Azure Active Directory (AAD).
+* An organizational email account that is a member of Azure Active Directory (AAD)
 
-* [Python](https://www.python.org/downloads/) installed on your development computer.
+* [Python](https://www.python.org/downloads/) installed on your development computer
 
 ## Install the data library
 
@@ -42,7 +42,7 @@ from azure.kusto.data.exceptions import KustoServiceError
 import pandas as pd
 ```
 
-To authenticate an application, Data Explorer uses your AAD tenant ID. To find your tenant ID, use the following URL, substituting your domain for *YourDomain*.
+To authenticate an application, Azure Data Explorer uses your AAD tenant ID. To find your tenant ID, use the following URL, substituting your domain for *YourDomain*.
 
 ```
 https://login.windows.net/<YourDomain>/.well-known/openid-configuration/
@@ -69,7 +69,7 @@ KCSB = KustoConnectionStringBuilder.with_aad_device_authentication(KUSTO_CLUSTER
 KCSB.authority_id = AAD_TENANT_ID
 ```
 
-## Connect to Data Explorer and execute a query
+## Connect to Azure Data Explorer and execute a query
 
 The following command executes a query against the cluster and stores the output in a data frame. When this code runs, it returns a message like the following: *To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code F3W4VWZDM to authenticate*. Follow the steps to sign-in, then return to run the next code block.
 
@@ -93,4 +93,4 @@ You should see the top ten results from the StormEvents table.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Quickstart: Ingest data using the Data Explorer Python library](python-ingest-data.md)
+> [Quickstart: Ingest data using the Azure Data Explorer Python library](python-ingest-data.md)

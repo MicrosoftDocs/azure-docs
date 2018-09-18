@@ -14,13 +14,13 @@ ms.date: 09/24/2018
 
 # Quickstart: Query data in Azure Data Explorer
 
-Azure Data Explorer is a log analytics platform that is optimized for ad-hoc big data queries. Data explorer provides a web application that enables you to run and share queries. The application is available in the Azure portal and as a stand-alone web application. In this article, you work in the stand-alone version, which enables you to connect to multiple clusters and to share deep links to your queries.
+Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Azure Data explorer provides a web application that enables you to run and share queries. The application is available in the Azure portal and as a stand-alone web application. In this article, you work in the stand-alone version, which enables you to connect to multiple clusters and to share deep links to your queries.
 
 If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
 
-To complete this quickstart, first [create a test cluster and database](create-cluster-database-portal.md) in Data Explorer.
+In addition to an Azure subscription, you need [a test cluster and database](create-cluster-database-portal.md) to complete this quickstart.
 
 ## Sign in to the application
 
@@ -32,7 +32,7 @@ When you first open the application, there are no connections.
 
 ![Add cluster](media/web-query-data/add-cluster.png)
 
-You must add a connection to at least one cluster before you can start running queries. In this section, you add connections to the Data Explorer *help cluster* that we have set up to aid learning, and to the test cluster you created in a previous quickstart.
+You must add a connection to at least one cluster before you can start running queries. In this section, you add connections to the Azure Data Explorer *help cluster* that we have set up to aid learning, and to the test cluster you created in a previous quickstart.
 
 1. In the upper-left of the application, select **Add cluster**.
 
@@ -42,7 +42,7 @@ You must add a connection to at least one cluster before you can start running q
 
     ![Sample databases](media/web-query-data/sample-databases.png)
 
-    We use the **StormEvents** table later in this quickstart, and in other Data Explorer articles.
+    We use the **StormEvents** table later in this quickstart, and in other Azure Data Explorer articles.
 
 Now add the test cluster you created.
 

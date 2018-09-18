@@ -9,22 +9,24 @@ ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
 
-#Customer intent: As a Python developer, I want to ingest data into Data Explorer so that I can query data to include in my apps.
+#Customer intent: As a Python developer, I want to ingest data into Azure Data Explorer so that I can query data to include in my apps.
 ---
 
 # Quickstart: Ingest data using the Azure Data Explorer Python library
 
-Azure Data Explorer is a log analytics platform that is optimized for ad-hoc big data queries. Data Explorer provides two client libraries for Python: an [ingest library](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-ingest) and [a data library](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). These libraries enable you to ingest (load) data into a cluster and query data from your code. In this quickstart, you first create a table and data mapping in a test cluster. You then queue ingestion to the cluster and validate the results.
+Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Azure Data Explorer provides two client libraries for Python: an [ingest library](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-ingest) and [a data library](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). These libraries enable you to ingest (load) data into a cluster and query data from your code. In this quickstart, you first create a table and data mapping in a test cluster. You then queue ingestion to the cluster and validate the results.
 
 This quickstart is also available as an [Azure Notebook](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueuedIngestSingleBlob.ipynb).
 
+If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+
 ## Prerequisites
 
-* An Azure Subscription. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+In addition to an Azure subscription, you need the following to complete this quickstart:
 
-* To complete this quickstart, first [create a test cluster and database](create-cluster-database-portal.md) in Data Explorer. You must have *admin* or *ingestor and user* permissions on the database.
+* [A test cluster and database](create-cluster-database-portal.md)
 
-* [Python](https://www.python.org/downloads/) installed on your development computer.
+* [Python](https://www.python.org/downloads/) installed on your development computer
 
 ## Install the data and ingest libraries
 
@@ -46,7 +48,7 @@ import pandas as pd
 import datetime
 ```
 
-To authenticate an application, Data Explorer uses your AAD tenant ID. To find your tenant ID, use the following URL, substituting your domain for *YourDomain*.
+To authenticate an application, Azure Data Explorer uses your AAD tenant ID. To find your tenant ID, use the following URL, substituting your domain for *YourDomain*.
 
 ```
 https://login.windows.net/<YourDomain>/.well-known/openid-configuration/
@@ -126,7 +128,7 @@ df_mapping_create_output
 
 ## Queue a message for ingestion
 
-The following code queues a message to pull data from blob storage and ingest that data into Data Explorer.
+The following code queues a message to pull data from blob storage and ingest that data into Azure Data Explorer.
 
 ```python
 INGESTION_CLIENT = KustoIngestClient(KCSB_INGEST)
@@ -139,7 +141,7 @@ print('Done queueing up ingestion with Kusto')
 
 ## Validate that data was ingested into the table
 
-Wait for five to ten minutes for the queued ingestion to schedule the ingest and load the data into Data Explorer. Run the following code to get the count of records in the StormEvents table.
+Wait for five to ten minutes for the queued ingestion to schedule the ingest and load the data into Azure Data Explorer. Run the following code to get the count of records in the StormEvents table.
 
 ```python
 QUERY = "StormEvents | count"
