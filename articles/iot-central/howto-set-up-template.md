@@ -69,8 +69,6 @@ For example, you can add a new temperature telemetry measurement:
 
 After you select **Done**, the **Temperature** measurement appears in the list of measurements. An operator can see the visualization of the temperature data that the device is collecting.
 
-![Measurement graph](./media/howto-set-up-template/measurementsgraph.png)
-
 ### Create an event measurement
 To add a new event measurement, select **Edit Template**, and then click the **+ New Measurement** button. Select **Event** as the measurement type, and enter the details on the **Create Event** form.
 
@@ -84,7 +82,7 @@ After you select **Done**, the **Fan Motor Error** measurement appears in the li
 
 ![Event measurement chart](./media/howto-set-up-template/eventmeasurementschart.png)
 
-To view more details about the event, select the event icon on the chart:
+To view more details about the event, select the event icon on the chart.
 
 ![Details for the "Fan Motor Error" event](./media/howto-set-up-template/eventmeasurementsdetail.png)
 
@@ -103,9 +101,6 @@ After you select **Done**, the **Fan Mode** state measurement appears in the lis
 ![State measurement chart](./media/howto-set-up-template/statemeasurementschart.png)
 
 If the device sends too many data points in a small duration, the state measurement appears with a different visual, as shown in the following screenshot. If you click on the chart, all the data points within that time period are displayed in a chronological order. You can also narrow down the time range to see the measurement plotted on the chart.
-
-![Details for the "Static Fan Mode" state measurement](./media/howto-set-up-template/statemeasurementsdetail.png)
-
 
 ## Settings
 
@@ -178,11 +173,7 @@ For example, you can add the device installation address.
    - **Location as an address**
    - **Location as coordinates** 
 
-4. Select **Save** and **Done**. 
-
-   ![Location property with installation address added](./media/howto-set-up-template/locationcloudproperty3.png)
-
-Now an operator can update the location value in the location field form. 
+4. Select **Save** and **Done**. Now an operator can update the location value in the location field form. 
 
 #### Add location as a device property 
 
@@ -257,11 +248,7 @@ If you configured a location property earlier in [Create a location property thr
 
    ![Map tile with selected location](./media/howto-set-up-template/locationcloudproperty6map.png) 
 
-You can resize the map to your desired size.
-
-Now when an operator views the dashboard, they can see all the dashboard tiles that you've configured, including a location map.
-
-![Tiles on the dashboard](./media/howto-set-up-template/locationcloudproperty7map.png) 
+You can resize the map to your desired size. Now when an operator views the dashboard, they can see all the dashboard tiles that you've configured, including a location map.
 
 ## Next steps
 
