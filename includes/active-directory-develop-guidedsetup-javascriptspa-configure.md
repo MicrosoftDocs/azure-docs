@@ -1,3 +1,23 @@
+---
+title: include file
+description: include file
+services: active-directory
+documentationcenter: dev-center-name
+author: navyasric
+manager: mtillman
+editor: ''
+
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/17/2018
+ms.author: nacanuma
+ms.custom: include file
+
+---
 
 ## Register your application
 
@@ -28,9 +48,9 @@ Now you need to register your application in the *Microsoft Application Registra
 
 <p/>
 
-> #### Setting Redirect URL for Python
-> For Python, you can set the web server port via command line. This guided setup uses the port 8080 for reference but feel free to use any other port available. In any case, follow the instructions below to set up a redirect URL in the application registration information:<br/>
-> - Switch back to the *Application Registration Portal* and set `http://localhost:8080/` as a `Redirect URL`, or use `http://localhost:[port]/` if you are using a custom TCP port (where *[port]* is the custom TCP port number) and click 'Save'
+> #### Setting Redirect URL for Node
+> For Node.js, you can set the web server port in the *server.js* file. This tutorial uses the port 30662 for reference but feel free to use any other port available. In any case, follow the instructions below to set up a redirect URL in the application registration information:<br/>
+> - Switch back to the *Application Registration Portal* and set `http://localhost:30662/` as a `Redirect URL`, or use `http://localhost:[port]/` if you are using a custom TCP port (where *[port]* is the custom TCP port number) and click 'Save'
 
 
 #### Configure your JavaScript SPA

@@ -70,7 +70,7 @@ For example, you need to send the department that the user belongs to in their o
 > If for a given user there is no value stored for a selected attribute, then that claim is not being issued in the token.
 
 > [!TIP]
-> The **user.onpremisesecurityidentifier** and **user.onpremisesamaccountname** are only supported when synchronizing user data from on-premises Active Directory using the [Azure AD Connect tool](../active-directory-aadconnect.md).
+> The **user.onpremisesecurityidentifier** and **user.onpremisesamaccountname** are only supported when synchronizing user data from on-premises Active Directory using the [Azure AD Connect tool](../hybrid/whatis-hybrid-identity.md).
 
 ## Restricted claims
 

@@ -1,9 +1,11 @@
 ---
-title: Computer Vision for Azure Cognitive Services | Microsoft Docs 
-description: Use advanced algorithms in Computer Vision to help you process images and return information in Azure Cognitive Services. 
+title: What is the Computer Vision API?
+titlesuffix: Azure Cognitive Services
+description: The Computer Vision service provides developers with access to advanced algorithms for processing images and returning information. 
 services: cognitive-services 
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
+
 ms.service: cognitive-services 
 ms.component: computer-vision 
 ms.topic: overview
