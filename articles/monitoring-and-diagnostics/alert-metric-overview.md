@@ -88,6 +88,6 @@ You can find the full list of supported resource types in this [article](monitor
 
 ## Next steps
 
-- [Learn how to create, view and manage metric alerts in Azure](alerts-metric.md)
-- [Learn how to deploy metric alerts using Azure Resource Manager templates](alerts-metric-resource-manager.md)
+- [Learn how to create, view and manage metric alerts in Azure](alert-metric.md)
+- [Learn how to deploy metric alerts using Azure Resource Manager templates](monitoring-create-metric-alerts-with-templates.md)
 - [Learn more about action groups](monitoring-action-groups.md)
