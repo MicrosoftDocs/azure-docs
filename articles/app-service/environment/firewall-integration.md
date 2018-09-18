@@ -22,7 +22,7 @@ The App Service Environment (ASE) has a number of external dependencies that it 
 
 There are a number of inbound dependencies that an ASE has. The inbound management traffic cannot be sent through a firewall device. The source addresses for this traffic are known and are published in the [App Service Environment management addresses](https://docs.microsoft.com/azure/app-service/environment/management-addresses) document. You can create Network Security Group rules with that information to secure inbound traffic.
 
-The ASE outbound dependencies are almost entirely defined with FQDN's which do not have static addresses behind them. The lack of static addresses means that Network Security Groups (NSGs) cannot be used to lock down the outbound traffic from an ASE. The addresses change often enough that one cannot set up rules based on the current resolution and use that to create NSGs. 
+The ASE outbound dependencies are almost entirely defined with FQDNs, which do not have static addresses behind them. The lack of static addresses means that Network Security Groups (NSGs) cannot be used to lock down the outbound traffic from an ASE. The addresses change often enough that one cannot set up rules based on the current resolution and use that to create NSGs. 
 
 The solution to securing outbound addesses lies in use of a firewall device that can control outbound traffic based on domain names. The Azure Networking team has put a new network appliance into Preview called Azure Firewall. The Azure Firewall is capable of restricting egress HTTP and HTTPS traffic based on the DNS name of the destination.  
 
@@ -32,7 +32,7 @@ The steps to lock down egress from your ASE with Azure Firewall are:
 
 1. Create an Azure Firewall in the VNet where your ASE is, or will be. [Azure Firewall documenation](https://docs.microsoft.com/azure/firewall/)
 2. From the Azure Firewall UI, select the App Service Environment FQDN Tag
-3. Create a route table with the management addresses from [App Service Environment management addresses]( https://docs.microsoft.com/azure/app-service/environment/management-addresses) with a next hop of Internet. This is required to avoid asymmetric routing problems. 
+3. Create a route table with the management addresses from [App Service Environment management addresses]( https://docs.microsoft.com/azure/app-service/environment/management-addresses) with a next hop of Internet. The route table entries are required to avoid asymmetric routing problems. 
 4. Add routes for the IP address dependencies noted below in the IP address dependencies with a next hop of Internet. 
 5. Add a route to your route table for 0.0.0.0/0 with the next hop being your Azure Firewall network appliance
 6. Create Service Endpoints for your ASE subnet to Azure SQL and Azure Storage
@@ -40,25 +40,25 @@ The steps to lock down egress from your ASE with Azure Firewall are:
 
 ## Application traffic ##
 
-The above steps will allow your ASE to operate without problems. You still need to configure things to accomodate your application needs. There are two problems for applications in an ASE that is configured with Azure Firewall.  
+The above steps will allow your ASE to operate without problems. You still need to configure things to accommodate your application needs. There are two problems for applications in an ASE that is configured with Azure Firewall.  
 
-- Application dependency FQDNs need to be added to the Azure Firewall 
-- Routes need to be defined for the addresses that traffic will come from to avoid asymmetric routing issues
+- Application dependency FQDNs must be added to the Azure Firewall or the route table
+- Routes must be created for the addresses that traffic will come from to avoid asymmetric routing issues
 
 If your applications have dependencies, they need to be added to your Azure Firewall. Create Application rules to allow HTTP/HTTPS traffic and Network rules for everything else. 
 
-If you know the address range that your application request traffic will come from, you can simply add that to the route table that is assigned to your ASE subnet. If the address range is very large or unspecified then you can use a network applicance like the Application Gateway to give you one address to add to your route table. For details on configuring an Application Gateway with your ILB ASE, please read [Integrating your ILB ASE with an Application Gateway](https://docs.microsoft.com/azure/app-service/environment/integrate-with-application-gateway)
+If you know the address range that your application request traffic will come from, you can add that to the route table that is assigned to your ASE subnet. If the address range is very large or unspecified, then you can use a network applicance like the Application Gateway to give you one address to add to your route table. For details on configuring an Application Gateway with your ILB ASE, read [Integrating your ILB ASE with an Application Gateway](https://docs.microsoft.com/azure/app-service/environment/integrate-with-application-gateway)
 
 
 ## Dependencies
 
-The Azure App Service has a number of external dependencies. They can be catagorically broken down into several main areas:
+The Azure App Service has a number of external dependencies. They can be categorically broken down into several main areas:
 
-- Service Endpoint capable services. These are services that you should simply set up Service Endpoints with if you wish to lock down outbound network traffic.
-- IP address endpoints are not addressed with a domain name. This can be a problem for firewall devices that expect all HTTPS traffic to use domain names. These addresses should be added to the route table that is set on the ASE subnet.
+- Service Endpoint capable services should be set up Service Endpoints with if you wish to lock down outbound network traffic.
+- IP address endpoints are not addressed with a domain name. This can be a problem for firewall devices that expect all HTTPS traffic to use domain names. The IP address endpoints should be added to the route table that is set on the ASE subnet.
 - FQDN HTTP/HTTPS endpoints can be placed in your firewall device.
 - Wildcard HTTP/HTTPS endpoints are dependencies that can vary with your ASE based on a number of qualifiers. 
-- Linux dependencies are only a concern if you are deploying Linux apps into your ASE. If you are not, then these addresses do not need to be added to your firewall. 
+- Linux dependencies are only a concern if you are deploying Linux apps into your ASE. If you are not deploying Linux apps into your ASE, then these addresses do not need to be added to your firewall. 
 
 
 #### Service Endpoint capable dependencies ####
