@@ -81,7 +81,7 @@ Key features that ExpressRoute Direct provide include, but are not limited to:
 * Physical isolation for industries that are regulated and required dedicated and isolated connectivity like: Banking, Government, and retail 
 * Granular control of circuit distribution based on business unit
 
-For more information, see [About ExpressRoute Direct](expressroute-erdirect-about.md).
+For more information, see [About ExpressRoute Direct](https://go.microsoft.com/fwlink/p/?linkid=2022973).
 
 ### Bandwidth options
 You can purchase ExpressRoute circuits for a wide range of bandwidths. Supported bandwidths are listed below. Be sure to check with your connectivity provider to determine the list of supported bandwidths they provide.
