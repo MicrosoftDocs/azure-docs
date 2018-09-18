@@ -27,18 +27,18 @@ the Microsoft identity platform allows developers to build apps targeting a wide
 
 A tenant is representation of an organization. It's a dedicated instance of Azure AD that an organization or app developer receives when the organization or app developer creates a relationship with Microsoft-- like signing up for Azure, Microsoft Intune, or Microsoft 365. 
 
-Each Azure AD tenant is distinct and separate from other Azure AD tenants and has it's own representation of work and school identites, consumer identities (if it's an Azure AD B2C tenant), an app registrations. An app registration inside of your tenant can allow authentications from accounts only within your tenant or all tenants. 
+Each Azure AD tenant is distinct and separate from other Azure AD tenants and has its own representation of work and school identities, consumer identities (if it's an Azure AD B2C tenant), and app registrations. An app registration inside of your tenant can allow authentications from accounts only within your tenant or all tenants. 
 
 ## Determining environment type
 
 There are two types of environments you can create.  Deciding which you need is based solely on the types of users your app will authenticate.
 
-1. Work and School (Azure AD accounts) or Microsoft accounts (Outlook.com, live.com, etc)
+1. Work and School (Azure AD accounts) or Microsoft accounts (such as outlook.com, live.com, etc.)
 1. Social and Local accounts (Azure AD B2C)
 
 The quickstart is broken into two scenarios depending on the type of app you want to build.  If you need more help targeting an identity type, take a look at [about Microsoft identity platform](about-microsoft-identity-platform.md)
 
-## Work and School (Azure AD accounts) or Microsoft account (such as outlook.com, hotmail.com, etc)
+## Work and School (Azure AD accounts) or Microsoft account (such as outlook.com, hotmail.com, etc.)
 
 ### Use an existing tenant
 
@@ -61,7 +61,7 @@ If you don't have an existing tenant associated with your account, you'll see a 
 If you don't already have an Azure AD tenant or want to create a new one for development, follow the [directory creation experience](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory). You will have to provide the following info to create your new tenant:
 
 - **Organization name**
-- **Initial domain** - This will be part of *.onmicrosoft.com. You can customize the domain more later. 
+- **Initial domain** - this will be part of *.onmicrosoft.com. You can customize the domain more later. 
 - **Country or region**
 
 ## Social and Local accounts (Azure AD B2C)
@@ -71,5 +71,5 @@ To begin building apps that sign in Social and Local accounts, you will need to 
 ## Next steps
 
 * Try a coding quickstart and begin authenticating users. 
-* For more in-depth code samples, checkout the **Tutorials** section of the documentation.
-* Want to deploy your app to the cloud? Checkout [deploying containers to Azure](https://docs.microsoft.com/en-us/azure/index#pivot=products&panel=containers). 
+* For more in-depth code samples, check out the **Tutorials** section of the documentation.
+* Want to deploy your app to the cloud? Check out [deploying containers to Azure](https://docs.microsoft.com/en-us/azure/index#pivot=products&panel=containers). 
