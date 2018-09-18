@@ -51,7 +51,7 @@ Learn how to understand your Azure billing, monitor usage and costs, and manage 
                         <a href="/azure/azure-resource-manager/resource-group-using-tags?toc=/azure/billing/TOC.json">Use resource tags</a><br/>
                         <a href="/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json">Start analyzing costs - EA only</a><br/>
                         <a href="/azure/cost-management/tutorial-acm-create-budgets?toc=/azure/billing/TOC.json">Create and manage budgets - EA only</a><br/>
-                        <a href="/azure/cost-management/tutorial-acm-opt-recommendations?toc=/azure/billing/TOC.json">Optimize costs from recommendations - EA only</a>
+                        <a href="/azure/cost-management/tutorial-acm-opt-recommendations?toc=/azure/billing/TOC.json">Optimize recommendations - EA only</a>
                         </p>
                     </div>
                 </div>

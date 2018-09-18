@@ -23,7 +23,7 @@
     href: ../cost-management/quick-acm-cost-analysis.md?toc=/azure/billing/TOC.json
   - name: Create and manage budgets - EA only
     href: ../cost-management/tutorial-acm-create-budgets.md?toc=/azure/billing/TOC.json
-  - name: Optimize costs from recommendations - EA only
+  - name: Optimize recommendations - EA only
     href: ../cost-management/tutorial-acm-opt-recommendations.md?toc=/azure/billing/TOC.json
   - name: Calculate pricing
     href: https://azure.microsoft.com/pricing/calculator/
