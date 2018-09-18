@@ -67,12 +67,12 @@
         href: iot-accelerators-connecting-devices.md
       - name: C on Linux
         href: iot-accelerators-connecting-devices-linux.md
-      - name: Node.js (generic
+      - name: C on Raspberry Pi
+        href: iot-accelerators-connecting-pi-c.md
+      - name: Node.js (generic)
         href: iot-accelerators-connecting-devices-node.md
       - name: Node.js on Raspberry Pi
         href: iot-accelerators-connecting-pi-node.md
-      - name: C on Raspberry Pi
-        href: iot-accelerators-connecting-pi-c.md
       - name: MXChip IoT DevKit
         href: iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2.md
     - name: Integrate SIM data
