@@ -1,14 +1,15 @@
 ---
-title: How to deploy models from Azure Machine Learning to IoT Edge | Microsoft Docs
-description: Learn how to deploy a model trained with the Azure Machine Learning service to Azure IoT Edge.
+title: Deploy models to IoT Edge devices from Azure Machine Learning service | Microsoft Docs
+description: Learn how to deploy a model from the Azure Machine Learning service to Azure IoT Edge devices. Deploying a model to an edge device allows you to score data on the device instead of sending it to the cloud and waiting on a response.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.author: shipatel
 author: shivanipatel
+manager: cgronlun
 ms.reviewer: larryfr
-ms.date: 09/06/2018
+ms.date: 09/24/2018
 ---
 
 # Prepare to deploy models on IoT Edge
@@ -27,19 +28,13 @@ Before deploying a model to an edge device, use the steps in this document to pr
 
 * A development environment. For more information, see the [How to configure a development environment](how-to-configure-environment.md) document.
 
-* An [IoT Hub](../../iot-hub/iot-hub-create-through-portal.md) in your Azure subscription. 
+* An [Azure IoT Hub](../../iot-hub/iot-hub-create-through-portal.md) in your Azure subscription. 
 
-* A trained model. For information on training a model, see the [Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md).
+* A trained model. For an example of how to train a model, see the [Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md) document.
 
 ## Prepare the IoT device
 
-1. To register a device, use the steps in the [Register a new Azure IoT Edge device from the portal](../../iot-edge/how-to-register-device-portal.md) document. Once the device is registered, save the connection string.
-
-1. Install the IoT Edge runtime on the device. During installation, provide the connection string from the previous step. Use one of the following links to configure the device:
-
-    * [Install Azure IoT Edge on Windows with Windows containers](../../iot-edge/how-to-install-iot-edge-windows-with-windows.md).
-
-    * [Install Azure IoT Edge on Linux (x64)](../../iot-edge/how-to-install-iot-edge-linux.md).
+To learn how to register your device and install the IoT runtime, follow the steps in the [Quickstart: Deploy your first IoT Edge module to a Linux x64 device](../../iot-edge/quickstart-linux.md) document.
 
 ## Register the model
 
@@ -63,8 +58,8 @@ Azure IoT Edge modules are based on container images. To deploy your model to an
     from azureml.core.model import Model
     model = Model.register(model_path = "model.pkl", # this path points to the local file
                         model_name = "best_model", # the model gets registered as this name
-                        tags = ['attribute': "face", 'classification': "person"],
-                        description = "Facial recognition model",
+                        tags = {'attribute': "myattribute", 'classification': "myclassification"],
+                        description = "My awesome model",
                         workspace = ws)
     ```    
 
@@ -99,7 +94,7 @@ Azure IoT Edge modules are based on container images. To deploy your model to an
                            execution_script = "score.py",
                            conda_file = "myenv.yml", 
                            tags = ["attributes", "calssification"],
-                           description = "Face recognition model",
+                           description = "Image that contains my model",
                            
                         )
     ```    
