@@ -21,7 +21,7 @@ Once enabled, this data you collect helps you:
 
 * Retrain your model with the data collected
 
-## What data is collected?
+## What is collected and where does it go?
 
 The following data can be collected:
 * Model **input** data from web services deployed in Azure Kubernetes Cluster (AKS)
@@ -31,6 +31,16 @@ The following data can be collected:
 
 > [!Note]
 > Pre-aggregation or pre-calculations on this data are not part of the service at this time.   
+
+The output gets saved in an Azure Blob. Since the data gets added into an Azure Blob, you can then choose your favorite tool to run the analysis. 
+
+The path to the output data in the blob follows this syntax:
+
+```
+/modeldata/<subscriptionid>/<resourcegroup>/<workspace>/<webservice>/<model>/<version>/<identifier>/<year>/<month>/<day>/data.csv
+```
+
+Such as: /modeldata/00000000000000000123456789/myResGrp/myWS/CheckImages/chkimg/3.0/921463985624089562/2018/12/31/data.csv
 
 ## Prerequisites
 
@@ -55,13 +65,19 @@ The following data can be collected:
     ```
 
 ## Enable data collection
-Data collection can be enabled regardless of the model being deployed through Azure Machine Learning Service or other tools. To enable it, within the **score file**, you need to:
-1.	Add the following code at the top of the file:
+Data collection can be enabled regardless of the model being deployed through Azure Machine Learning Service or other tools. 
 
-      ```python 
-    from azureml.monitoring import ModelDataCollector
-    ```
-2.	Declare your data collection variables in your `init()` function
+To enable it, you need to:
+
+1. Open the scoring file. 
+
+1. Add the following code at the top of the file:
+
+   ```python 
+   from azureml.monitoring import ModelDataCollector
+   ```
+
+2. Declare your data collection variables in your `init()` function:
 
     ```python
     global inputs_dc, prediction_dc
@@ -73,7 +89,7 @@ Data collection can be enabled regardless of the model being deployed through Az
     
     *Identifier* is later used for building the folder structure in your Blob, it can be used to divide “raw” data versus “processed”.
 
-3.	Add the following lines of code to the `run(input_df)` function
+3.	Add the following lines of code to the `run(input_df)` function:
 
     ```python
     data = np.array(data)
@@ -82,7 +98,7 @@ Data collection can be enabled regardless of the model being deployed through Az
     prediction_dc.collect(result) #this call is saving our input data into Azure Blob
     ```
 
-4. Data collection is **not** automatically set to **true** when you deploy a service in AKS, so you will need to update your configuration file like the following: 
+4. Data collection is **not** automatically set to **true** when you deploy a service in AKS, so you must update your configuration file such as: 
 
     ```python
     aks_config = AksWebservice.deploy_configuration(collect_model_data=True)
@@ -92,29 +108,27 @@ Data collection can be enabled regardless of the model being deployed through Az
     aks_config = AksWebservice.deploy_configuration(collect_model_data=True, enable_app_insights=True)
     ``` 
 
-5. [Create new image and deploy your service.](https://review.docs.microsoft.com/en-us/azure/machine-learning/service/how-to-deploy-to-aks) 
+5. [Create new image and deploy your service.](how-to-deploy-to-aks.md) 
+
 
 If you already have a service with the dependencies installed in your **environment file** and **scoring file**, enable data collection by:
 
 1. Go to  [Azure Portal](https://portal.azure.com) 
-2. Go to Workspace-> Deployments -> Edit
-![Edit Service](media/how-to-enable-data-collection/EditService.png)
-3. In Advanced Settings check "Enable Model data collection". 
-![Uncheck Data Collection](media/how-to-enable-data-collection/CheckDataCollection.png)
 
-    In this window, you can also choose to "Enable Appinsights diagnostics" to track the health of your service.  
+1. Open your workspace.
+
+1. Go to **Deployments** -> **Select service** -> **Edit**.
+
+   ![Edit Service](media/how-to-enable-data-collection/EditService.png)
+
+1. In **Advanced Settings**, deselect **Enable Model data collection**. 
+
+   ![Uncheck Data Collection](media/how-to-enable-data-collection/CheckDataCollection.png)
+
+   In this window, you can also choose to "Enable Appinsights diagnostics" to track the health of your service.  
 
 1. Select **Update** to apply the change.
 
-
-## Evaluate data
-The output gets saved in an Azure Blob using the following path format:
-
-```
-/modeldata/<subscriptionid>/<resourcegroupname>/<workspacename>/<webservicename>/<modelname>/<modelversion>/<identifier>/<year>/<month>/<day>/data.csv
-```
-
-Since the data gets added into an Azure Blob, you can then choose your favorite tool to run the analysis. 
 
 ## Disable data collection
 You can stop collecting data any time. Use Python code or the Azure portal to disable data collection.
@@ -124,10 +138,12 @@ You can stop collecting data any time. Use Python code or the Azure portal to di
 
   1. Open your workspace.
 
-  1. Go to **Deployments** -> **Select service** -> **Edit**
+  1. Go to **Deployments** -> **Select service** -> **Edit**.
+
      ![Edit Service](media/how-to-enable-data-collection/EditService.png)
 
   1. In **Advanced Settings**, deselect **Enable Model data collection**. 
+
      ![Uncheck Data Collection](media/how-to-enable-data-collection/UncheckDataCollection.png) 
 
   1. Select **Update** to apply the change.
