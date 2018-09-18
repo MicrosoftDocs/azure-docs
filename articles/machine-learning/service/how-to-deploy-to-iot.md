@@ -58,7 +58,7 @@ Azure IoT Edge modules are based on container images. To deploy your model to an
     from azureml.core.model import Model
     model = Model.register(model_path = "model.pkl", # this path points to the local file
                         model_name = "best_model", # the model gets registered as this name
-                        tags = {'attribute': "myattribute", 'classification': "myclassification"],
+                        tags = {'attribute': "myattribute", 'classification': "myclassification"},
                         description = "My awesome model",
                         workspace = ws)
     ```    
@@ -93,7 +93,7 @@ Azure IoT Edge modules are based on container images. To deploy your model to an
     image_config = ContainerImage.image_configuration( runtime = "python", 
                            execution_script = "score.py",
                            conda_file = "myenv.yml", 
-                           tags = ["attributes", "calssification"],
+                           tags = {"attributes", "calssification"},
                            description = "Image that contains my model",
                            
                         )
