@@ -200,5 +200,5 @@ Based on the Ranger policies configured, **sales_user** can produce/consume topi
 
 ## Next steps
 
-* [Bring your own key to Kafaka](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-byok)
+* [Bring your own key to Kafka](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-byok)
 * [An introduction to Hadoop security with Enterprise Security Package](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-introduction)

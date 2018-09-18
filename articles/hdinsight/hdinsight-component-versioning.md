@@ -9,7 +9,7 @@ author: kkampf
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 01/09/2018
+ms.date: 09/24/2018
 ms.author: kakampf
 
 ---
