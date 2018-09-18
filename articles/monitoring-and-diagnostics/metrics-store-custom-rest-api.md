@@ -13,7 +13,7 @@ ms.component: metrics
 
 This article shows you how to send custom metrics for Azure resources to Azure Monitor via a REST API.  Once the metrics are in Azure Monitor, you can do all the things with them you do with standard metrics, such as charting, alerting, routing them to other external tools, etc.  
 
-NOTE: The REST API only permits sending custom metrics for Azure resources. To send metrics for resources in different environments or on-premises you can use Application Insights. For more information see [LINK]().  
+NOTE: The REST API only permits sending custom metrics for Azure resources. To send metrics for resources in different environments or on-premises, you can use Application Insights. For more information see [LINK]().  
 
 
 ## Create and authorize a service principal to emit metrics 
@@ -21,7 +21,7 @@ NOTE: The REST API only permits sending custom metrics for Azure resources. To s
 1. Create a service principle in your Azure Active Directory tenant using the instructions found at  https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal. Note the following while going through this process: 
     - You can put in any URL for the sign-on URL.  
     - Create new client secret for this app  
-    - Save the Key and the client id for use in later steps.  
+    - Save the Key and the client ID for use in later steps.  
 
 1. Give the app created as part of step 1 “Monitoring Metrics Publisher” permissions to the resource you wish to emit metrics against. If you plan to use the app to emit custom metrics against many resources, you can grant these permissions at the resource group or subscription level. 
 
@@ -30,7 +30,7 @@ NOTE: The REST API only permits sending custom metrics for Azure resources. To s
 
 1. Run the following command
     ```shell
-    curl -X POST https://login.microsoftonline.com/<yourtenantid>/oauth2/token -F "grant_type=client_credentials" -F "client_id=<insert clientId from step1> " -F "client_secret=<insert client secret from step 1>" -F "resource=https://monitoring.azure.com/"
+    curl -X POST https://login.microsoftonline.com/<yourtenantid>/oauth2/token -F "grant_type=client_credentials" -F "client_id=<insert clientId from earlier step> " -F "client_secret=<insert client secret from earlier step>" -F "resource=https://monitoring.azure.com/"
     ```
 1. Save the access token from the response
 
@@ -39,36 +39,37 @@ NOTE: The REST API only permits sending custom metrics for Azure resources. To s
 ## Emit the metric via the REST API 
 
 1. Paste the following JSON into a file, and save it as custommetric.json on your local computer. Update the time parameter in the JSON file. 
+    
     ```json
     { 
         "time": "2018-09-13T16:34:20”, 
         "data": { 
-        "baseData": { 
-            "metric": "QueueDepth", 
-            "namespace": "QueueProcessing", 
-            "dimNames": [ 
-            "QueueName", 
-            "MessageType" 
-            ], 
-            "series": [ 
-            { 
-                "dimValues": [ 
-                "ImagesToProcess", 
-                "JPEG" 
+            "baseData": { 
+                "metric": "QueueDepth", 
+                "namespace": "QueueProcessing", 
+                "dimNames": [ 
+                  "QueueName", 
+                  "MessageType" 
                 ], 
-                "min": 3, 
-                "max": 20, 
-                "sum": 28, 
-                "count": 3 
+                "series": [ 
+                  { 
+                    "dimValues": [ 
+                      "ImagesToProcess", 
+                      "JPEG" 
+                    ], 
+                    "min": 3, 
+                    "max": 20, 
+                    "sum": 28, 
+                    "count": 3 
+                  } 
+                ] 
             } 
-            ] 
-        } 
         } 
     } 
     ``` 
 
-1. In your command prompt window post the metric data 
-    - Azure Region – Must be the same as the region the resource you are emitting metrics for is deployed in. 
+1. In your command prompt window, post the metric data 
+    - Azure Region – Must match the deployment region of the resource you are emitting metrics for. 
     - ResourceID –  Resource ID of the Azure resource you are tracking the metric against.  
     - Access Token – Paste the token acquired in step 5 
     ```Shell 
@@ -80,16 +81,16 @@ NOTE: The REST API only permits sending custom metrics for Azure resources. To s
 ## Troubleshooting 
 If you receive an error with some part of the process, considering the following
 
-1. You cannot issue metrics against a subscription or resource group as your Azure resource.  It must be a lower level resource. 
+1. You cannot issue metrics against a subscription or resource group as your Azure resource.  It must be a lower-level resource. 
 1. You can't put a metric into the store that is over 20 minutes old. The metric store is optimized for alerting and real-time charting. 
-2. The number of dimensaion names should match the values and vice-versa. Check the values. 
-2. You are could be emitting metrics against region that doesn’t support custom metrics. See [LINK HERE]() 
+2. The number of dimension names should match the values and vice-versa. Check the values. 
+2. You my be emitting metrics against region that doesn’t support custom metrics. See [supported custom metric (preview) regions#supported-regions](metrics-custom-overview.md) 
 
 
 
 ## View your metrics 
 
-1. Log-in to the Azure Portal 
+1. Log in to the Azure portal 
 
 1. In the left-hand menu, click **Monitor** 
 
@@ -99,9 +100,9 @@ If you receive an error with some part of the process, considering the following
 
 1. Change the aggregation period to **Last 30 minutes**.  
 
-1. In the *resource* drop-down select the resource you emitted the metric against.  
+1. In the *resource* drop-down, select the resource you emitted the metric against.  
 
-1. In the *namespaces* drop-down select **QueueProcessing** 
+1. In the *namespaces* drop-down, select **QueueProcessing** 
 
 1. In the *metrics* drop down, select **QueueDepth**.  
 

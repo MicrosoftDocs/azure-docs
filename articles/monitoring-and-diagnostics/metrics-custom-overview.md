@@ -14,7 +14,7 @@ ms.component: metrics
 As you deploy resources and applications in Azure, you will also want to start collecting telemetry to gain insights into their performance and health. Azure makes some metric available to you out-of-the-box as you deploy resources, these are called standard or platform metrics. However, these metrics are limited in nature, and you may wish to collect some custom performance indicators or business specific metrics to provide deeper insights.
 These ‘custom’ metrics can be collected via your application telemetry, an agent running on your Azure resources, or even outside-in monitoring system and submitted directly to Azure Monitor. Once published to Azure Monitor you can browse, query, and alert on custom metrics for your Azure resources and applications side-by-side the standard metrics emitted by Azure.
 
-## Sending custom metrics
+## Send custom metrics
 Custom Metrics can be sent to Azure Monitor via a variety of methods.
 - Instrument your application using the Application Insights SDK and send custom telemetry to Azure Monitor (click here to learn how)
 - Install the Windows Diagnostics Extension on your Azure VM, VMSS, or Classic Cloud Service and send performance counters to Azure Monitor (click here to learn how)
@@ -57,6 +57,8 @@ Namespaces are a way to categorize or group similar metrics together. This allow
 ### Name
 The name of the metric that is being reported. Usually the name is descriptive enough to help identify what is being measured. For example a metric that is measuring the number of bytes of memory being utilized on a given VM could have a metric name like “Memory Bytes In Use”.
 Dimension Keys
+
+### Dimension Keys
 A dimension is a key/value pair that helps describe additional characteristics about the metric being collected. The additional characteristics enable collecting more information about the metric that allow for deeper insights. For example, the “Memory Bytes In Use” metric could have a dimension key called “Process”, that captures how many bytes of memory each process on a VM is consuming. This enables you to filter the metric to see how much memory specific processes are using, or to identify the Top 5 processes by memory usage.
 Each custom metric can have up to 10 dimensions.
 

@@ -79,7 +79,7 @@ sudo dpkg -i telegraf_1.8.0~rc1-1_amd64.deb
 ```
 Telegraf’s configuration file defines Telegraf’s operations. By default, an example configuration file is installed at the path “/etc/telegraf/telegraf.conf”. The example configuration file lists all possible input and output plugins. However, we are going to create a custom configuration file and have the agent use it by running the following commands 
 
-```
+```cmd
 # generate the new Telegraf config file in the current directory 
 telegraf --input-filter cpu:mem --output-filter azure_monitor config > azm-telegraf.conf 
 
@@ -90,7 +90,7 @@ sudo cp azm-telegraf.conf /etc/telegraf/telegraf.conf
 
 Finally, to have the agent start using the new configuration we force the agent to stop and start, by running the following commands 
 
-```
+```cmd
 # stop the telegraf agent on the VM 
 sudo systemctl stop telegraf 
 # start the telegraf agent on the VM to ensure it picks up the latest configuration 
