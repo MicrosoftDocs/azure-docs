@@ -160,7 +160,7 @@ select a row for a logic app run.
      
      Here on the Azure Log Analytics page, 
      you can update queries and view the results from the table. 
-     This query uses [Kusto query language](https://docs.loganalytics.io/docs/Language-Reference), 
+     This query uses [Kusto query language](https://aka.ms/LogAnalyticsLanguageReference), 
      which you can edit if you want to view different results. 
 
      ![Azure Log Analytics - query view](media/logic-apps-monitor-your-logic-apps-oms/query.png)
