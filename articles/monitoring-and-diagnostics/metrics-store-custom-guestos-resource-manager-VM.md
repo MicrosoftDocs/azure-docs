@@ -11,31 +11,35 @@ ms.component: metrics
 ---
 # Send guest OS metrics to the Azure Monitor metric store using a Resource Manager template for a Windows Virtual Machine
 
-The Azure Monitor [Windows Azure Diagnostics extension](azure-diagnostics.md) (WAD) allows you to collect metrics and logs from the Guest Operation System (OS) running as part of a Virtual Machine, Cloud Service or Service Fabric cluster.  The extension can send telemetry to many different locations listed in the previously linked article.  
+The Azure Monitor [Windows Azure Diagnostics extension](azure-diagnostics.md) (WAD) allows you to collect metrics and logs from the Guest Operation System (guest OS) running as part of a Virtual Machine, Cloud Service, or Service Fabric cluster.  The extension can send telemetry to many different locations listed in the previously linked article.  
 
 Starting with WAD version 1.11, you can write metrics directly to the Azure Monitor metrics store where standard platform metrics are already collected. Storing them in this location allows you to access the same actions available for platform metrics.  Actions include near-real time alerting, charting, routing, access from REST API and more.  In the past, the WAD extension wrote to Azure Storage, but not the Azure Monitor data store.  
 
-If you are new to Resource Manager templates,  learn about [template deployments](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview.md), and their structure and syntax.  
+This article describes the process to send guest OS performance metrics for a Windows Virtual Machine to the Azure Monitor data store. The Azure Montor data store is where the Azure platform metrics are stored. From there, you can do the same things as you can with Azure platform metrics. Actions include near-real time alerting, charting, routing, access from REST API and more.   
 
-## Pre-requisites: 
+If you're new to Resource Manager templates,  learn about [template deployments](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview.md), and their structure and syntax.  
 
-- You will need to be a [Service Administrator or co-administrator](https://docs.microsoft.com/en-us/azure/billing/billing-add-change-azure-subscription-administrator.md) on your Azure subscription 
+
+
+## Pre-requisites
+
+- You must be a [Service Administrator or co-administrator](https://docs.microsoft.com/en-us/azure/billing/billing-add-change-azure-subscription-administrator.md) on your Azure subscription 
 
 - Your subscription must be registered with [Microsoft.Insights](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-6.8.1) 
 
-- You will need to have [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-6.8.1)  installed, or you can use [Azure CloudShell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview.md) 
+- You need to have either [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-6.8.1) installed, or you can use [Azure CloudShell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview.md) 
 
-
-## Setup Azure Monitor as a data sink 
+ 
+## Set up Azure Monitor as a data sink 
 The Azure Diagnostics extension uses a feature called "data sinks" to route metrics and logs to different locations.  The following steps show how to use a Resource Manager template and PowerShell to deploy a VM using the new "Azure Monitor" data sink. 
 
 ## Author Resource Manager template 
 For this example, you can use a publicly available sample template. The starting templates are at
 https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows 
 
-- **Azuredeploy.json** is a pre-configured ARM template for deployment of a Virtual Machine. 
+- **Azuredeploy.json** is a pre-configured Resource Manager template for deployment of a Virtual Machine. 
 
-- **Azuredeploy.parameters.json** is a parameters file that stores information like what username and password you would like to set for your VM. During deployment the Resource Manager template uses the parameters set in this file. 
+- **Azuredeploy.parameters.json** is a parameters file that stores information like what username and password you would like to set for your VM. During deployment, the Resource Manager template uses the parameters set in this file. 
 
 Alertnatively, the sample files with the modification listed in this are available at the following links. You will still have to skim the steps to fill in some variables.  
 
@@ -49,7 +53,7 @@ Save both files locally.
 
 Open the *azuredeploy.parameters.json* file 
 
-1. Enter values for *adminUsername* and *adminPassword* for the VM. These parameters are used for remote access to the VM. DO NOT use the ones in this template to avoid having your VM highjacked. Bots scan the internet for usernames and passwords in public Github repositories. They are likely to be testing VMs with these defaults.  
+1. Enter values for *adminUsername* and *adminPassword* for the VM. These parameters are used for remote access to the VM. DO NOT use the ones in this template to avoid having your VM hijacked. Bots scan the internet for usernames and passwords in public Github repositories. They are likely to be testing VMs with these defaults.  
 
 1. Create a unique dnsname for the VM.  
 
@@ -234,7 +238,7 @@ Open the *azuredeploy.json* file
 1. Save and close both files 
  
 
-## Deploy the ARM template 
+## Deploy the Resource Manager template 
 
 > [!NOTE]
 > You must be running the Azure Diagnostics extension version 1.5 or higher AND have the "autoUpgradeMinorVersion": property set to ‘true’ in your Resource Manager template.  Azure then loads the proper extension when it starts the VM. If you do not have these settings in your template, change them and redeploy the template. 
