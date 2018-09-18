@@ -19,7 +19,7 @@ To facilitate training, the Azure Machine Learning Python SDK provides a high-le
 
 ## Train with an Estimator
 
-Once you've created your [Workspace](https://docs.microsoft.com/azure/machine-learning/service/concept-azure-machine-learning-architecture#workspace) and set up your [development environment](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-environment), training a model in Azure Machine Learning involves the following steps:  
+Once you've created your [Workspace](https://docs.microsoft.com/azure/machine-learning/service/concept-azure-machine-learning-architecture#workspace) and set up your [development environment](how-to-configure-environment.md), training a model in Azure Machine Learning involves the following steps:  
 1. [Create a remote compute target](how-to-set-up-training-targets.md)
 2. [Upload your training data](how-to-access-data.md) (Optional)
 3. Create your training script
@@ -30,7 +30,7 @@ This article focuses on steps 4-5. For steps 1-3, refer to this [tutorial](tutor
 
 ### Single-node training
 
-The following code walks through a single-node training run on remote compute in Azure for a scikit-learn model. You should have already created your [compute target](https://docs.microsoft.com/azure/machine-learning/service/how-to-set-up-training-targets#batch) object `compute_target` and your [datastore](how-to-access-data.md) object `ds`.
+The following code walks through a single-node training run on remote compute in Azure for a scikit-learn model. You should have already created your [compute target](how-to-set-up-training-targets.md#batch) object `compute_target` and your [datastore](how-to-access-data.md) object `ds`.
 
 ```Python
 from azureml.train.estimator import Estimator
@@ -50,12 +50,12 @@ sk_est = Estimator(source_directory='./my-sklearn-proj',
 The above code snippet specifies the following parameters to the Estimator constructor:
 * `source_directory`: The local directory that contains all of your code needed for the training job. This folder gets copied from your local machine to the remote compute 
 * `script_params`: A dictionary specifying the command-line arguments to your training script `entry_script`, in the form of <command-line argument, value> pairs
-* `compute_target`: The remote compute that your training script will run on, in this case a [Batch AI](https://docs.microsoft.com/azure/machine-learning/service/how-to-set-up-training-targets#batch) cluster
+* `compute_target`: The remote compute that your training script will run on, in this case a [Batch AI](how-to-set-up-training-targets.md#batch) cluster
 * `entry_script`: The filepath (relative to the `source_directory`) of the training script to be run on the remote compute. This file, and any additional files it depends on, should be located in this folder
 * `conda_packages`: The list of Python packages to be installed via conda needed by your training script.  
 The constructor has another parameter called `pip_packages` that you can use for any pip packages needed
 
-Now that you've created your Estimator object, you can submit the training job to be run on the remote compute via a call to the `submit` function on your [Experiment](https://docs.microsoft.com/azure/machine-learning/service/concept-azure-machine-learning-architecture#experiment) object `experiment`. 
+Now that you've created your Estimator object, you can submit the training job to be run on the remote compute via a call to the `submit` function on your [Experiment](concept-azure-machine-learning-architecture.md#experiment) object `experiment`. 
 
 ```Python
 run = experiment.submit(sk_est)
@@ -81,7 +81,7 @@ There are two additional training scenarios you can carry out with the Estimator
 
 The following code shows how to carry out distributed training for a CNTK model. In addition, instead of using the default Azure Machine Learning images, it assumes you have your own custom docker image you want to use for training.
 
-You should have already created your [compute target](https://docs.microsoft.com/azure/machine-learning/service/how-to-set-up-training-targets#batch) object `compute_target`. You can create the estimator as follows:
+You should have already created your [compute target](how-to-set-up-training-targets.md#batch) object `compute_target`. You can create the estimator as follows:
 
 ```Python
 from azureml.train.estimator import Estimator
