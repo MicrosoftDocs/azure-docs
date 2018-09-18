@@ -80,7 +80,7 @@ In order to ameliorate issues caused by high cardinality in the previous query, 
 
    ```sql
    SELECT count(*) 
-   FROM PARTITION BY PartitionId
+   FROM input PARTITION BY PartitionId
    GROUP BY PartitionId, clusterid, tumblingwindow (minutes, 5)
    ```
 

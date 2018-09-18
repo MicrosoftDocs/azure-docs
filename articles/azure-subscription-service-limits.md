@@ -47,6 +47,7 @@ In the limits below, a new table has been added to reflect any differences in li
 * [Azure Database for PostgreSQL](#azure-database-for-postgresql)
 * [Azure Event Grid](#azure-event-grid-limits)
 * [Azure Maps](#azure-maps-limits)
+* [Azure Monitor](#monitor-limits)
 * [Azure Policy](#azure-policy-limits)
 * [Azure Redis Cache](#azure-redis-cache-limits)
 * [Backup](#backup-limits)
@@ -73,7 +74,6 @@ In the limits below, a new table has been added to reflect any differences in li
 * [Media Services](#media-services-limits)
 * [Mobile Engagement](#mobile-engagement-limits)
 * [Mobile Services](#mobile-services-limits)
-* [Monitor](#monitor-limits)
 * [Multi-Factor Authentication](#multi-factor-authentication)
 * [Networking](#networking-limits)
 * [Network Watcher](#network-watcher-limits)
@@ -153,10 +153,14 @@ The following table details the features and limits of the Basic, Standard, and 
 [!INCLUDE [azure-firewall-limits](../includes/firewall-limits.md)]
 
 ### Storage limits
-For additional details on storage account limits, see [Azure Storage Scalability and Performance Targets](storage/common/storage-scalability-targets.md).
-
 <!--like # storage accts -->
 [!INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
+
+[!INCLUDE [storage-limits-increase-include](../includes/storage-limits-increase-include.md)]
+
+For additional details on storage account limits, see [Azure Storage Scalability and Performance Targets](storage/common/storage-scalability-targets.md).
+
+#### Storage resource provider limits 
 
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../includes/azure-storage-limits-azure-resource-manager.md)]
 
