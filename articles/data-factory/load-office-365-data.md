@@ -114,7 +114,7 @@ You can also see the JSON code associated with the pipeline by clicking Code on 
 
 In the top toolbar, select **Publish All**. This action publishes entities (datasets, and pipelines) you created to Data Factory.
 
-![Publich changes](./media/load-office-365-data/publich-changes.png) 
+![Publish changes](./media/load-office-365-data/publish-changes.png) 
 
 ## Trigger the pipeline manually
 
