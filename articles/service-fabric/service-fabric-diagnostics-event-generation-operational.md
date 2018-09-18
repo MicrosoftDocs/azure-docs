@@ -45,10 +45,10 @@ Here is a list of all the events available in the platform, sorted by the entity
 
 | EventId | Name | Description |Source (Task) | Level | Version |
 | --- | --- | ---| --- | --- | --- |
-| 18602 | DeactivateNodeCompletedOperational | Deactivation of a node has completed | FM | Informational | 1 |
+| 18602 | NodeDeactivateCompleted | Deactivation of a node has completed | FM | Informational | 1 |
 | 18603 | NodeUp | The cluster has detected a node has started up | FM | Informational | 1 |
 | 18604 | NodeDown | The cluster has detected a node has shut down |  FM | Informational | 1 |
-| 18605 | NodeAddedToCluster | A node has been added to the cluster | FM | Informational | 1 |
+| 18605 | NodeAddedToCluster | A new node has been added to the cluster | FM | Informational | 1 |
 | 18606 | NodeRemovedFromCluster | A node has been removed from the cluster | FM | Informational | 1 |
 | 18607 | NodeDeactivateStarted | Deactivation of a node has started | FM | Informational | 1 |
 | 25620 | NodeOpening | A node is starting. First stage of the node lifecycle | FabricNode | Informational | 1 |
@@ -67,7 +67,7 @@ Here is a list of all the events available in the platform, sorted by the entity
 | --- | --- | ---| --- | --- | --- |
 | 29620 | ApplicationCreated | A new application was created | CM | Informational | 1 |
 | 29625 | ApplicationDeleted | An existing application was deleted | CM | Informational | 1 |
-| 23083 | ApplicationProcessExited | Hosting | Informational | 1 |
+| 23083 | ApplicationProcessExited | A process within an application has exited | Hosting | Informational | 1 |
 
 **Application upgrade events**
 
@@ -104,7 +104,7 @@ Here is a list of all the events available in the platform, sorted by the entity
 | --- | --- | ---| --- | --- | --- |
 | 23074 | ContainerActivated | A container has started | Hosting | Informational | 1 |
 | 23075 | ContainerDeactivated | A container has stopped | Hosting | Informational | 1 |
-| 23082 | ContainerExited | A container has crashed | Hosting | Informational | 1 |
+| 23082 | ContainerExited | A container has exited - Check the UnexpectedTermination flag | Hosting | Informational | 1 |
 
 ## Health reports
 
@@ -138,7 +138,7 @@ Here is a list of all the events available in the platform, sorted by the entity
 | EventId | Name | Description |Source (Task) | Level | Version |
 | --- | --- | ---| --- | --- | --- |
 | 54424 | ServiceNewHealthReport | A new service health report was created | HM | Informational | 1 |
-| 54433 | ServiceHealthReportExpired | HM | An existing service health report has expired | Informational | 1 |
+| 54433 | ServiceHealthReportExpired | An existing service health report has expired | HM | Informational | 1 |
 
 **Partition health report events**
 
