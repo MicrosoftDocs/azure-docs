@@ -514,6 +514,24 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |WriteRequests|Write Requests|Count|Total|Count of data write requests to the account.|No Dimensions|
 |ReadRequests|Read Requests|Count|Total|Count of data read requests to the account.|No Dimensions|
 
+## Microsoft.DBforMariaDB/servers
+
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|
+|cpu_percent|CPU percent|Percent|Average|CPU percent|No Dimensions|
+|memory_percent|Memory percent|Percent|Average|Memory percent|No Dimensions|
+|io_consumption_percent|IO percent|Percent|Average|IO percent|No Dimensions|
+|storage_percent|Storage percent|Percent|Average|Storage percent|No Dimensions|
+|storage_used|Storage used|Bytes|Average|Storage used|No Dimensions|
+|storage_limit|Storage limit|Bytes|Average|Storage limit|No Dimensions|
+|serverlog_storage_percent|Server Log storage percent|Percent|Average|Server Log storage percent|No Dimensions|
+|serverlog_storage_usage|Server Log storage used|Bytes|Average|Server Log storage used|No Dimensions|
+|serverlog_storage_limit|Server Log storage limit|Bytes|Average|Server Log storage limit|No Dimensions|
+|active_connections|Active Connections|Count|Average|Active Connections|No Dimensions|
+|connections_failed|Failed Connections|Count|Total|Failed Connections|No Dimensions|
+|network_bytes_egress|Network Out|Bytes|Total|Network Out across active connections|No Dimensions|
+|network_bytes_ingress|Network In|Bytes|Total|Network In across active connections|No Dimensions|
+
 ## Microsoft.DBforMySQL/servers
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
@@ -742,6 +760,41 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |ObservedCapacity|Observed Capacity|Count|Average|The capacity reported to autoscale when it executed.|No Dimensions|
 |ScaleActionsInitiated|Scale Actions Initiated|Count|Total|The direction of the scale operation.|ScaleDirection|
 
+## Microsoft.Insights/Components
+(Public Preview)
+
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|
+|availabilityResults/duration|Test duration|MilliSeconds|Average|Test duration|availabilityResult/name, availabilityResult/location, availabilityResult/success|
+|billingMeters/telemetryCount|Data point count|Count|Total|The number of data points sent to this Application Insights resource. This metric is processed with a latency of up to two hours.|billing/telemetryItemType, billing/telemetryItemSource|
+|billingMeters/telemetrySize|Data point volume|Bytes|Total|The volume of data sent to this Application Insights resource. This metric is processed with a latency of up to two hours.|billing/telemetryItemType, billing/telemetryItemSource|
+|browserTimings/networkDuration|Page load network connect time|MilliSeconds|Average|Time between user request and network connection. Includes DNS lookup and transport connection.|No Dimensions|
+|browserTimings/processingDuration|Client processing time|MilliSeconds|Average|Time between receiving the last byte of a document until the DOM is loaded. Async requests may still be processing.|No Dimensions|
+|browserTimings/receiveDuration|Receiving response time|MilliSeconds|Average|Time between the first and last bytes, or until disconnection.|No Dimensions|
+|browserTimings/sendDuration|Send request time|MilliSeconds|Average|Time between network connection and receiving the first byte.|No Dimensions|
+|browserTimings/totalDuration|Browser page load time|MilliSeconds|Average|Time from user request until DOM, stylesheets, scripts and images are loaded.|No Dimensions|
+|dependencies/count|Dependency calls|Count|Count|Count of calls made by the application to external resources.|dependency/type, dependency/performanceBucket, dependency/success, operation/synthetic, cloud/roleInstance, cloud/roleName|
+|dependencies/duration|Dependency duration|MilliSeconds|Average|Duration of calls made by the application to external resources.|dependency/type, dependency/performanceBucket, dependency/success, operation/synthetic, cloud/roleInstance, cloud/roleName|
+|dependencies/failed|Dependency failures|Count|Count|Count of failed dependency calls made by the application to external resources.|dependency/type, dependency/performanceBucket, operation/synthetic, cloud/roleInstance, cloud/roleName|
+|pageViews/count|Page views|Count|Count|Count of page views.|operation/synthetic|
+|pageViews/duration|Page view load time|MilliSeconds|Average|Page view load time|operation/synthetic|
+|performanceCounters/requestExecutionTime|HTTP request execution time|MilliSeconds|Average|Execution time of the most recent request.|cloud/roleInstance|
+|performanceCounters/requestsInQueue|HTTP requests in application queue|Count|Average|Length of the application request queue.|cloud/roleInstance|
+|performanceCounters/requestsPerSecond|HTTP request rate|CountPerSecond|Average|Rate of all requests to the application per second from ASP.NET.|cloud/roleInstance|
+|performanceCounters/exceptionsPerSecond|Exception rate|CountPerSecond|Average|Count of handled and unhandled exceptions reported to windows, including .NET exceptions and unmanaged exceptions that are converted into .NET exceptions.|cloud/roleInstance|
+|performanceCounters/processIOBytesPerSecond|Process IO rate|BytesPerSecond|Average|Total bytes per second read and written to files, network and devices.|cloud/roleInstance|
+|performanceCounters/processCpuPercentage|Process CPU|Percent|Average|The percentage of elapsed time that all process threads used the processor to execute instructions. This can vary between 0 to 100. This metric indicates the performance of w3wp process alone.|cloud/roleInstance|
+|performanceCounters/processorCpuPercentage|Processor time|Percent|Average|The percentage of time that the processor spends in non-idle threads.|cloud/roleInstance|
+|performanceCounters/memoryAvailableBytes|Available memory|Bytes|Average|Physical memory immediately available for allocation to a process or for system use.|cloud/roleInstance|
+|performanceCounters/processPrivateBytes|Process private bytes|Bytes|Average|Memory exclusively assigned to the monitored application's processes.|cloud/roleInstance|
+|requests/duration|Server response time|MilliSeconds|Average|Time between receiving an HTTP request and finishing sending the response.|request/performanceBucket, request/resultCode, operation/synthetic, cloud/roleInstance, request/success, cloud/roleName|
+|requests/count|Server requests|Count|Count|Count of HTTP requests completed.|request/performanceBucket, request/resultCode, operation/synthetic, cloud/roleInstance, request/success, cloud/roleName|
+|requests/failed|Failed requests|Count|Count|Count of HTTP requests marked as failed. In most cases these are requests with a response code >= 400 and not equal to 401.|request/performanceBucket, request/resultCode, operation/synthetic, cloud/roleInstance, cloud/roleName|
+|exceptions/count|Exceptions|Count|Total|Combined count of all uncaught exceptions.|cloud/roleName, cloud/roleInstance, client/type|
+|exceptions/browser|Browser exceptions|Count|Total|Count of uncaught exceptions thrown in the browser.|No Dimensions|
+|exceptions/server|Server exceptions|Count|Total|Count of uncaught exceptions thrown in the server application.|cloud/roleName, cloud/roleInstance|
+|traces/count|Trace count|Count|Total|Trace document count|trace/severityLevel, operation/synthetic, cloud/roleName, cloud/roleInstance|
+
 ## Microsoft.KeyVault/vaults
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
@@ -749,6 +802,20 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |ServiceApiHit|Total Service Api Hits|Count|Count|Number of total service api hits|ActivityType, ActivityName|
 |ServiceApiLatency|Overall Service Api Latency|Milliseconds|Average|Overall latency of service api requests|ActivityType, ActivityName, StatusCode|
 |ServiceApiResult|Total Service Api Results|Count|Count|Number of total service api results|ActivityType, ActivityName, StatusCode|
+
+## Microsoft.Kusto/Clusters
+
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|
+|ClusterDataCapacityFactor|Cache Utilization|Percent|Average|Utilization level in the cluster scope|No Dimensions|
+|QueryDuration|Query Duration|Milliseconds|Average|Queries’ duration in seconds|QueryStatus|
+|IngestionsLoadFactor|Ingestion Utilization|Percent|Average|Ratio of used ingestion slots in the cluster|No Dimensions|
+|IsEngineAnsweringQuery|Keep Alive|Count|Average|Sanity check indicates the cluster respondes to queries|No Dimensions|
+|IngestCommandOriginalSizeInMb|Ingestion Volume (In MB)|Count|Total|Overall volume of ingested data to the cluster (in MB)|No Dimensions|
+|EventAgeSeconds|Ingestion Latency (In seconds)|Seconds|Average|Ingestion time from the source (e.g. message is in EventHub) to the cluster in seconds|No Dimensions|
+|EventRecievedFromEventHub|Events Processed (for Event Hubs)|Count|Total|Number of events processed by the cluster when ingesting from Event Hub|No Dimensions|
+|IngestionResult|Ingestion Result|Count|Count|Number of ingestion operations|IngestionResultDetails|
+|EngineCPU|CPU|Percent|Average|CPU utilization level|No Dimensions|
 
 ## Microsoft.LocationBasedServices/accounts
 
@@ -957,6 +1024,19 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |ProbesFailedPercent|% Probes Failed|Percent|Average|% of connectivity monitoring probes failed|No Dimensions|
 |AverageRoundtripMs|Avg. Round-trip Time (ms)|MilliSeconds|Average|Average network round-trip time (ms) for connectivity monitoring probes sent between source and destination|No Dimensions|
 
+## Microsoft.Network/frontdoors
+
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|
+|RequestCount|Request Count|Count|Total|The number of client requests served by the HTTP/S proxy|HttpStatus, HttpStatusGroup, ClientRegion, ClientCountry|
+|RequestSize|Request Size|Bytes|Total|The number of bytes sent as requests from clients to the HTTP/S proxy|HttpStatus, HttpStatusGroup, ClientRegion, ClientCountry|
+|ResponseSize|Response Size|Bytes|Total|The number of bytes sent as responses from HTTP/S proxy to clients|HttpStatus, HttpStatusGroup, ClientRegion, ClientCountry|
+|BackendRequestCount|Backend Request Count|Count|Total|The number of requests sent from the HTTP/S proxy to backends|HttpStatus, HttpStatusGroup, Backend|
+|BackendRequestLatency|Backend Request Latency|MilliSeconds|Average|The time calculated from when the request was sent by the HTTP/S proxy to the backend until the HTTP/S proxy received the last response byte from the backend|Backend|
+|TotalLatency|Total Latency|MilliSeconds|Average|The time calculated from when the client request was received by the HTTP/S proxy until the client acknowledged the last response byte from the HTTP/S proxy|HttpStatus, HttpStatusGroup, ClientRegion, ClientCountry|
+|BackendHealthPercentage|Backend Health Percentage|Percent|Average|The percentage of successful health probes from the HTTP/S proxy to backends|Backend, BackendPool|
+|WebApplicationFirewallRequestCount|Web Application Firewall Request Count|Count|Total|The number of client requests processed by the Web Application Firewall|PolicyName, RuleName, Action|
+
 ## Microsoft.NotificationHubs/Namespaces/NotificationHubs
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
@@ -1025,72 +1105,80 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |incoming.all.failedrequests|All Incoming Failed Requests|Count|Total|Total incoming failed requests for a notification hub|No Dimensions|
 
 ## Microsoft.OperationalInsights/workspaces
-(Public Preview)
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
-Average_% Free Inodes|% Free Inodes|Count|Average|Average_% Free Inodes|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_% Free Space|% Free Space|Count|Average|Average_% Free Space|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_% Used Inodes|% Used Inodes|Count|Average|Average_% Used Inodes|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_% Used Space|% Used Space|Count|Average|Average_% Used Space|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Disk Read Bytes/sec|Disk Read Bytes/sec|Count|Average|Average_Disk Read Bytes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Disk Reads/sec|Disk Reads/sec|Count|Average|Average_Disk Reads/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Disk Transfers/sec|Disk Transfers/sec|Count|Average|Average_Disk Transfers/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Disk Write Bytes/sec|Disk Write Bytes/sec|Count|Average|Average_Disk Write Bytes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Disk Writes/sec|Disk Writes/sec|Count|Average|Average_Disk Writes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Free Megabytes|Free Megabytes|Count|Average|Average_Free Megabytes|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Logical Disk Bytes/sec|Logical Disk Bytes/sec|Count|Average|Average_Logical Disk Bytes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_% Available Memory|% Available Memory|Count|Average|Average_% Available Memory|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_% Available Swap Space|% Available Swap Space|Count|Average|Average_% Available Swap Space|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_% Used Memory|% Used Memory|Count|Average|Average_% Used Memory|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_% Used Swap Space|% Used Swap Space|Count|Average|Average_% Used Swap Space|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Available MBytes Memory|Available MBytes Memory|Count|Average|Average_Available MBytes Memory|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Available MBytes Swap|Available MBytes Swap|Count|Average|Average_Available MBytes Swap|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Page Reads/sec|Page Reads/sec|Count|Average|Average_Page Reads/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Page Writes/sec|Page Writes/sec|Count|Average|Average_Page Writes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Pages/sec|Pages/sec|Count|Average|Average_Pages/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Used MBytes Swap Space|Available MBytes Memory|Count|Average|Average_Used MBytes Swap Space|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Used Memory MBytes|Available MBytes Swap|Count|Average|Average_Used Memory MBytes|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Total Bytes Transmitted|Total Bytes Transmitted|Count|Average|Average_Total Bytes Transmitted|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Total Bytes Received|Total Bytes Received|Count|Average|Average_Total Bytes Received|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Total Bytes|Total Bytes|Count|Average|Average_Total Bytes|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Total Packets Transmitted|Total Packets Transmitted|Count|Average|Average_Total Packets Transmitted|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Total Packets Received|Total Packets Received|Count|Average|Average_Total Packets Received|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Total Rx Errors|Total Rx Errors|Count|Average|Average_Total Rx Errors|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Total Tx Errors|Total Tx Errors|Count|Average|Average_Total Tx Errors|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Total Collisions|Total Collisions|Count|Average|Average_Total Collisions|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Avg. Disk sec/Read|Avg. Disk sec/Read|Count|Average|Average_Avg. Disk sec/Read|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Avg. Disk sec/Transfer|Avg. Disk sec/Transfer|Count|Average|Average_Avg. Disk sec/Transfer|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Avg. Disk sec/Write|Avg. Disk sec/Write|Count|Average|Average_Avg. Disk sec/Write|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Physical Disk Bytes/sec|Physical Disk Bytes/sec|Count|Average|Average_Physical Disk Bytes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Pct Privileged Time|Pct Privileged Time|Count|Average|Average_Pct Privileged Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Pct User Time|Pct User Time|Count|Average|Average_Pct User Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Used Memory kBytes|Used Memory kBytes|Count|Average|Average_Used Memory kBytes|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Virtual Shared Memory|Virtual Shared Memory|Count|Average|Average_Virtual Shared Memory|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_% DPC Time|% DPC Time|Count|Average|Average_% DPC Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_% Idle Time|% Idle Time|Count|Average|Average_% Idle Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_% Interrupt Time|% Interrupt Time|Count|Average|Average_% Interrupt Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_% IO Wait Time|% IO Wait Time|Count|Average|Average_% IO Wait Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_% Nice Time|% Nice Time|Count|Average|Average_% Nice Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_% Privileged Time|% Privileged Time|Count|Average|Average_% Privileged Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_% Processor Time|% Processor Time|Count|Average|Average_% Processor Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_% User Time|% User Time|Count|Average|Average_% User Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Free Physical Memory|Free Physical Memory|Count|Average|Average_Free Physical Memory|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Free Space in Paging Files|Free Space in Paging Files|Count|Average|Average_Free Space in Paging Files|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Free Virtual Memory|Free Virtual Memory|Count|Average|Average_Free Virtual Memory|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Processes|Processes|Count|Average|Average_Processes|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Size Stored In Paging Files|Size Stored In Paging Files|Count|Average|Average_Size Stored In Paging Files|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Uptime|Uptime|Count|Average|Average_Uptime|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Users|Users|Count|Average|Average_Users|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Current Disk Queue Length|Current Disk Queue Length|Count|Average|Average_Current Disk Queue Length|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Available MBytes|Available MBytes|Count|Average|Average_Available MBytes|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_% Committed Bytes In Use|% Committed Bytes In Use|Count|Average|Average_% Committed Bytes In Use|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Bytes Received/sec|Bytes Received/sec|Count|Average|Average_Bytes Received/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Bytes Sent/sec|Bytes Sent/sec|Count|Average|Average_Bytes Sent/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Bytes Total/sec|Bytes Total/sec|Count|Average|Average_Bytes Total/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Heartbeat|Heartbeat|Count|Average|Heartbeat|Computer, OSType, Version, SourceComputerId|
-Update|Update|Count|Average|Update|Computer, Product, Classification, UpdateState, Optional, Approved|
-Event|Event|Count|Average|Event|Source , EventLog, Computer, EventCategory , EventLevel , EventLevelName, EventID|
+|Average_% Free Inodes|% Free Inodes|Count|Average|Average_% Free Inodes|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Free Space|% Free Space|Count|Average|Average_% Free Space|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Used Inodes|% Used Inodes|Count|Average|Average_% Used Inodes|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Used Space|% Used Space|Count|Average|Average_% Used Space|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Disk Read Bytes/sec|Disk Read Bytes/sec|Count|Average|Average_Disk Read Bytes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Disk Reads/sec|Disk Reads/sec|Count|Average|Average_Disk Reads/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Disk Transfers/sec|Disk Transfers/sec|Count|Average|Average_Disk Transfers/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Disk Write Bytes/sec|Disk Write Bytes/sec|Count|Average|Average_Disk Write Bytes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Disk Writes/sec|Disk Writes/sec|Count|Average|Average_Disk Writes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Free Megabytes|Free Megabytes|Count|Average|Average_Free Megabytes|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Logical Disk Bytes/sec|Logical Disk Bytes/sec|Count|Average|Average_Logical Disk Bytes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Available Memory|% Available Memory|Count|Average|Average_% Available Memory|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Available Swap Space|% Available Swap Space|Count|Average|Average_% Available Swap Space|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Used Memory|% Used Memory|Count|Average|Average_% Used Memory|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Used Swap Space|% Used Swap Space|Count|Average|Average_% Used Swap Space|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Available MBytes Memory|Available MBytes Memory|Count|Average|Average_Available MBytes Memory|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Available MBytes Swap|Available MBytes Swap|Count|Average|Average_Available MBytes Swap|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Page Reads/sec|Page Reads/sec|Count|Average|Average_Page Reads/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Page Writes/sec|Page Writes/sec|Count|Average|Average_Page Writes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Pages/sec|Pages/sec|Count|Average|Average_Pages/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Used MBytes Swap Space|Used MBytes Swap Space|Count|Average|Average_Used MBytes Swap Space|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Used Memory MBytes|Used Memory MBytes|Count|Average|Average_Used Memory MBytes|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Total Bytes Transmitted|Total Bytes Transmitted|Count|Average|Average_Total Bytes Transmitted|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Total Bytes Received|Total Bytes Received|Count|Average|Average_Total Bytes Received|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Total Bytes|Total Bytes|Count|Average|Average_Total Bytes|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Total Packets Transmitted|Total Packets Transmitted|Count|Average|Average_Total Packets Transmitted|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Total Packets Received|Total Packets Received|Count|Average|Average_Total Packets Received|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Total Rx Errors|Total Rx Errors|Count|Average|Average_Total Rx Errors|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Total Tx Errors|Total Tx Errors|Count|Average|Average_Total Tx Errors|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Total Collisions|Total Collisions|Count|Average|Average_Total Collisions|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Avg. Disk sec/Read|Avg. Disk sec/Read|Count|Average|Average_Avg. Disk sec/Read|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Avg. Disk sec/Transfer|Avg. Disk sec/Transfer|Count|Average|Average_Avg. Disk sec/Transfer|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Avg. Disk sec/Write|Avg. Disk sec/Write|Count|Average|Average_Avg. Disk sec/Write|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Physical Disk Bytes/sec|Physical Disk Bytes/sec|Count|Average|Average_Physical Disk Bytes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Pct Privileged Time|Pct Privileged Time|Count|Average|Average_Pct Privileged Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Pct User Time|Pct User Time|Count|Average|Average_Pct User Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Used Memory kBytes|Used Memory kBytes|Count|Average|Average_Used Memory kBytes|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Virtual Shared Memory|Virtual Shared Memory|Count|Average|Average_Virtual Shared Memory|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% DPC Time|% DPC Time|Count|Average|Average_% DPC Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Idle Time|% Idle Time|Count|Average|Average_% Idle Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Interrupt Time|% Interrupt Time|Count|Average|Average_% Interrupt Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% IO Wait Time|% IO Wait Time|Count|Average|Average_% IO Wait Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Nice Time|% Nice Time|Count|Average|Average_% Nice Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Privileged Time|% Privileged Time|Count|Average|Average_% Privileged Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Processor Time|% Processor Time|Count|Average|Average_% Processor Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% User Time|% User Time|Count|Average|Average_% User Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Free Physical Memory|Free Physical Memory|Count|Average|Average_Free Physical Memory|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Free Space in Paging Files|Free Space in Paging Files|Count|Average|Average_Free Space in Paging Files|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Free Virtual Memory|Free Virtual Memory|Count|Average|Average_Free Virtual Memory|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Processes|Processes|Count|Average|Average_Processes|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Size Stored In Paging Files|Size Stored In Paging Files|Count|Average|Average_Size Stored In Paging Files|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Uptime|Uptime|Count|Average|Average_Uptime|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Users|Users|Count|Average|Average_Users|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Avg. Disk sec/Read|Avg. Disk sec/Read|Count|Average|Average_Avg. Disk sec/Read|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Avg. Disk sec/Write|Avg. Disk sec/Write|Count|Average|Average_Avg. Disk sec/Write|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Current Disk Queue Length|Current Disk Queue Length|Count|Average|Average_Current Disk Queue Length|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Disk Reads/sec|Disk Reads/sec|Count|Average|Average_Disk Reads/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Disk Transfers/sec|Disk Transfers/sec|Count|Average|Average_Disk Transfers/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Disk Writes/sec|Disk Writes/sec|Count|Average|Average_Disk Writes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Free Megabytes|Free Megabytes|Count|Average|Average_Free Megabytes|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Free Space|% Free Space|Count|Average|Average_% Free Space|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Available MBytes|Available MBytes|Count|Average|Average_Available MBytes|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Committed Bytes In Use|% Committed Bytes In Use|Count|Average|Average_% Committed Bytes In Use|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Bytes Received/sec|Bytes Received/sec|Count|Average|Average_Bytes Received/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Bytes Sent/sec|Bytes Sent/sec|Count|Average|Average_Bytes Sent/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Bytes Total/sec|Bytes Total/sec|Count|Average|Average_Bytes Total/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Processor Time|% Processor Time|Count|Average|Average_% Processor Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Processor Queue Length|Processor Queue Length|Count|Average|Average_Processor Queue Length|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Heartbeat|Heartbeat|Count|Total|Heartbeat|Computer, OSType, Version, SourceComputerId|
+|Update|Update|Count|Average|Update|Computer, Product, Classification, UpdateState, Optional, Approved|
+|Event|Event|Count|Average|Event|Source, EventLog, Computer, EventCategory, EventLevel, EventLevelName, EventID|
 
 
 ## Microsoft.PowerBIDedicated/capacities
@@ -1199,6 +1287,18 @@ Event|Event|Count|Average|Event|Source , EventLog, Computer, EventCategory , Eve
 |eDTU_used|eDTU used|Count|Average|eDTU used|No Dimensions|
 |storage_used|Storage used|Bytes|Average|Storage used|No Dimensions|
 |xtp_storage_percent|In-Memory OLTP storage percent|Percent|Average|In-Memory OLTP storage percent|No Dimensions|
+
+## Microsoft.Sql/managedInstances
+
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|
+|virtual_core_count|Virtual core count|Count|Average|Virtual core count|No Dimensions|
+|avg_cpu_percent|Average CPU percentage|Percent|Average|Average CPU percentage|No Dimensions|
+|reserved_storage_mb|Storage space reserved|Count|Average|Storage space reserved|No Dimensions|
+|storage_space_used_mb|Storage space used|Count|Average|Storage space used|No Dimensions|
+|io_requests|IO requests count|Count|Average|IO requests count|No Dimensions|
+|io_bytes_read|IO bytes read|Bytes|Average|IO bytes read|No Dimensions|
+|io_bytes_written|IO bytes written|Bytes|Average|IO bytes written|No Dimensions|
 
 ## Microsoft.Storage/storageAccounts
 
