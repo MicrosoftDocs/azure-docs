@@ -1,24 +1,25 @@
 ---
-title: Add faces with the Face API | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
-description: Use the Face API in Cognitive Services to add faces in images.
+title: "Example: Add faces - Face API"
+titleSuffix: Azure Cognitive Services
+description: Use the Face API to add faces in images.
 services: cognitive-services
 author: SteveMSFT
-manager: corncar
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: face-api
-ms.topic: article
+ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
 ---
 
-# How to add faces
+# Example: How to add faces
 
 This guide demonstrates the best practice to add massive number of persons and faces to a PersonGroup.
 The same strategy also applies to FaceList and LargePersonGroup.
 The samples are written in C# using the Face API client library.
 
-## <a name="step1"></a> Step 1: Initialization
+## Step 1: Initialization
 
 Several variables are declared and a helper function is implemented to schedule the requests.
 
@@ -55,7 +56,7 @@ static async Task WaitCallLimitPerSecondAsync()
 }
 ```
 
-## <a name="step2"></a> Step 2: Authorize the API call
+## Step 2: Authorize the API call
 
 When using a client library, the subscription key is passed in through the constructor of the FaceServiceClient class. For example:
 
@@ -65,7 +66,7 @@ FaceServiceClient faceServiceClient = new FaceServiceClient("<Subscription Key>"
 
 The subscription key can be obtained from the Marketplace page of your Azure portal. See [Subscriptions](https://www.microsoft.com/cognitive-services/en-us/sign-up).
 
-## <a name="step3"></a> Step 3: Create the PersonGroup
+## Step 3: Create the PersonGroup
 
 A PersonGroup named "MyPersonGroup" is created to save the persons.
 The request time is enqueued to `_timeStampQueue` to ensure the overall validation.
@@ -77,7 +78,7 @@ _timeStampQueue.Enqueue(DateTime.UtcNow);
 await faceServiceClient.CreatePersonGroupAsync(personGroupId, personGroupName);
 ```
 
-## <a name="step4"></a> Step 4: Create the persons to the PersonGroup
+## Step 4: Create the persons to the PersonGroup
 
 Persons are created concurrently and `await WaitCallLimitPerSecondAsync()` is also applied to avoid exceeding the call limit.
 
@@ -92,7 +93,7 @@ Parallel.For(0, PersonCount, async i =>
 });
 ```
 
-## <a name="step5"></a> Step 5: Add faces to the persons
+## Step 5: Add faces to the persons
 
 Adding faces to different persons are processed concurrently, while for one specific person is sequential.
 Again, `await WaitCallLimitPerSecondAsync()` is invoked to ensure the request frequency is within the scope of limitation.
@@ -115,7 +116,7 @@ Parallel.For(0, PersonCount, async i =>
 });
 ```
 
-## <a name="summary"></a> Summary
+## Summary
 
 In this guide, you have learned the process of creating a PersonGroup with massive number of persons and faces. Several reminders:
 
@@ -130,7 +131,8 @@ The following are a quick reminder of the features previously explained and demo
 - Creating persons using the [PersonGroup Person - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c) API
 - Adding faces to persons using the [PersonGroup Person - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) API
 
-## <a name="related"></a> Related Topics
+## Related Topics
+
 - [How to Identify Faces in Image](HowtoIdentifyFacesinImage.md)
 - [How to Detect Faces in Image](HowtoDetectFacesinImage.md)
 - [How to use the large-scale feature](how-to-use-large-scale.md)
