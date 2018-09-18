@@ -73,7 +73,7 @@ Log Analytics can collect events from the Windows event logs or Linux Syslog and
 7. Select **Windows Performance Data** to enable collection of performance counters on a Windows computer. 
 8. When you first configure Windows Performance counters for a new Log Analytics workspace, you are given the option to quickly create several common counters. They are listed with a checkbox next to each.
 
-    ![Default Windows performance counters selected](media/log-analytics-quick-collect-azurevm/windows-perfcounters-default.png).
+    ![Default Windows performance counters selected](media/log-analytics-quick-collect-azurevm/windows-perfcounters-default.png)
 
     Click **Add the selected performance counters**.  They are added and preset with a ten second collection sample interval.
   
@@ -88,7 +88,7 @@ Log Analytics can collect events from the Windows event logs or Linux Syslog and
 5. Select **Linux Performance Data** to enable collection of performance counters on a Linux computer. 
 6. When you first configure Linux Performance counters for a new Log Analytics workspace, you are given the option to quickly create several common counters. They are listed with a checkbox next to each.
 
-    ![Default Windows performance counters selected](media/log-analytics-quick-collect-azurevm/linux-perfcounters-default.png).
+    ![Default Windows performance counters selected](media/log-analytics-quick-collect-azurevm/linux-perfcounters-default.png)
 
     Click **Add the selected performance counters**.  They are added and preset with a ten second collection sample interval.  
 

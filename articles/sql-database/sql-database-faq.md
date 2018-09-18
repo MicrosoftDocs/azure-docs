@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 09/14/2018
 ms.author: carlrab
 
 ---
@@ -36,7 +36,7 @@ In many cases, applications can benefit from the simplicity of a preconfigured b
 The DTU and vCore-based models will continue to exist side by side. We are launching the vCore-based model in response to customer requests for more transparency around their database resources and the ability to scale their compute and storage resources separately. The vCore-based model also enables additional savings for customers with active Software Assurance through the Azure Hybrid Benefit for SQL Server.
 
 ## How should I choose between the DTU-based purchasing model vs the vCore-based purchasing model? 
-The Database Transaction Unit (DTU) is based on a blended measure of CPU, memory, reads, and writes. The DTU-based performance levels represent preconfigured bundles of resources to drive different levels of application performance. Customers who do not want to worry about the underlying resources and prefer the simplicity of a preconfigured bundle while paying a fixed amount each month may find the DTU-based model more suitable for their needs. However, for customers who need more insight into the underlying resources or need to scale them independently to achieve optimal performance, the vCore-based model will be the best choice.  Additionally, if a customer has an active Software Assurance (SA) for SQL Server, they can leverage their existing investment and save up to 30% with [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  Options within each of the purchasing models provide the benefits of a fully-managed service such as automated backups, software updates and patches. 
+The Database Transaction Unit (DTU) is based on a blended measure of CPU, memory, reads, and writes. The DTU-based compute sizes represent preconfigured bundles of resources to drive different levels of application performance. Customers who do not want to worry about the underlying resources and prefer the simplicity of a preconfigured bundle while paying a fixed amount each month may find the DTU-based model more suitable for their needs. However, for customers who need more insight into the underlying resources or need to scale them independently to achieve optimal performance, the vCore-based model will be the best choice.  Additionally, if a customer has an active Software Assurance (SA) for SQL Server, they can leverage their existing investment and save up to 30% with [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  Options within each of the purchasing models provide the benefits of a fully-managed service such as automated backups, software updates and patches. 
 
 ## What is the Azure Hybrid Benefit for SQL Server? 
 The [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) helps you maximize the value from your current licensing investments and accelerate their migration to the cloud. Azure Hybrid Benefit for SQL Server is an Azure-based benefit that enables you to use your SQL Server licenses with Software Assurance to pay a reduced rate (“base rate”) on SQL Database. Azure Hybrid Benefit for SQL Server is available at public preview of the vCore-based purchasing model for SQL Database single databases and elastic pools. You may apply this benefit even if the SKU is active but note the base rate is applied from the time you select it in the Azure portal. No credit will be issued retroactively.
@@ -66,15 +66,15 @@ SQL Database customers will have the following rights associated with Azure Hybr
 The compute cost reflects the total compute capacity that is provisioned for the application. In the Business Critical service tier, we automatically allocate at least 3 Always ON replicas. To reflect this additional allocation of compute resources, the vCore price is approximately 2.7x higher in Business Critical. For the same reason, the higher storage price per GB in the Business Critical tier reflects the high IO and low latency of the SSD storage. At the same time, the cost of backup storage is not different because in both cases we use a class of standard storage.
 
 ## How am I charged for storage - based on what I configure upfront or on what the database uses?
-Different types of storage are billed differently. For data storage, you are charged for the provisioned storage based upon the maximum database or pool size you select. The cost does not change unless you reduce or increase that maximum. Backup storage is associated with automated backups of your instance. Increasing your backup retention period increases the backup storage that’s consumed by your instance. There’s no additional charge for backup storage for up to 100 percent of your total provisioned server storage. Additional consumption of backup storage is charged in GB per month. For example, if you have the database storage size of 100 GBs, you’ll get 100 GBs of backup at no additional cost. But if the backup is 110 GBs, you pay for the additional 10 GBs.
+Different types of storage are billed differently. For data storage, you are charged for the provisioned storage based upon the maximum database or pool size you select. The cost does not change unless you reduce or increase that maximum. Backup storage is associated with automated backups of your instance and is allocated dynamically. Increasing your backup retention period increases the backup storage that’s consumed by your instance. There’s no additional charge for backup storage for up to 100 percent of your total provisioned server storage. Additional consumption of backup storage is charged in GB per month. For example, if you have the database storage size of 100 GBs, you’ll get 100 GBs of backup at no additional cost. But if the backup is 110 GBs, you pay for the additional 10 GBs. 
 
 For backup storage of a single database, you are charged on a prorated basis for the storage that was allocated to the database backups minus the size of the database. For backup storage of an elastic pool, you are charged on a prorated basis for the storage that was allocated to the database backups of all the databases in the pool minus the maximum data size of the elastic pool. Any increase in the database size or elastic pool, or increase in the transaction rate, requires more storage and thus increases your backup storage bill.  When you increase the maximum data size, this new amount is deducted from the billed backup storage size.
 
 ## How do I select the right SKU when converting an existing database to the new service tiers? 
 For existing SQL Database applications using the DTU-based model, the General Purpose service tier is comparable with the Standard tier. The Business Critical service tier is comparable with the Premium tier. In both cases, you should allocate at least 1 vCore for each 100 DTU that your application uses in the DTU-based model.
 
-## Do the new vCore-based service tiers offer the performance levels compatible with all existing service level objectives (SLOs)?
-The new vCore-based service tiers offer comparable performance choices for all elastic pools and databases using 100 DTUs or more.  We will continue to add more SLOs over time to accommodate sub 100 DTU workloads.
+## Do the new vCore-based service tiers offer the compute sizes compatible with all existing compute sizes?
+The new vCore-based service tiers offer comparable performance choices for all elastic pools and databases using 100 DTUs or more.  We will continue to add more compute sizes over time to accommodate sub 100 DTU workloads.
 
 ## Are there any database feature differences between the existing DTU-based and new vCore-based service tiers? 
 The new service tiers support a superset of the features available with the current DTU-based offerings. The additional features include a set of additional dynamic management views (DMVs) and additional resource configuration options. 
@@ -105,7 +105,7 @@ Because the vCore model allows independent control over the amount of provisione
 ## How often can I adjust the resources per pool?
 As often as you want. See [Manage elastic pools](sql-database-elastic-pool.md).
 
-## How long does it take to change the service tier or performance level of a single database or move a database in and out of an elastic pool?
+## How long does it take to change the service tier or compute size of a single database or move a database in and out of an elastic pool?
 Changing the service tier of a database and moving in and out of a pool requires the database to be copied on the platform as a background operation. Changing the service tier can take from a few minutes to several hours depending on the size of the databases. In both cases, the databases remain online and available during the move. For details on changing single databases, see [Change the service tier of a database](sql-database-service-tiers-dtu.md). 
 
 ## When should I use a single database vs. elastic databases?
@@ -115,7 +115,7 @@ In general, elastic pools are designed for a typical [software-as-a-service (Saa
 SQL Database bills on a predictable hourly rate based on the [purchasing model](sql-database-service-tiers-dtu.md). Actual usage is computed and pro-rated hourly, so your bill might show fractions of an hour. For example, if a database exists for 12 hours in a month, your bill shows usage of 0.5 days. 
 
 ## What if a single database is active for less than an hour or uses a higher service tier for less than an hour?
-You are billed for each hour a database exists using the highest service tier + performance level that applied during that hour, regardless of usage or whether the database was active for less than an hour. For example, if you create a single database and delete it five minutes later your bill reflects a charge for one database hour. 
+You are billed for each hour a database exists using the highest service tier + compute size that applied during that hour, regardless of usage or whether the database was active for less than an hour. For example, if you create a single database and delete it five minutes later your bill reflects a charge for one database hour. 
 
 Examples:
 
@@ -136,8 +136,8 @@ DTU-based purchasing model examples:
 Elastic pools are billed per the following characteristics:
 
 * An elastic pool is billed upon its creation, even when there are no databases in the pool.
-* An elastic pool is billed hourly. This is the same metering frequency as for performance levels of single databases.
-* If an elastic pool is resized, then the pool is not billed according to the new amount of resources until the resizing operation completes. This follows the same pattern as changing the performance level of single databases.
+* An elastic pool is billed hourly. This is the same metering frequency as for compute sizes of single databases.
+* If an elastic pool is resized, then the pool is not billed according to the new amount of resources until the resizing operation completes. This follows the same pattern as changing the compute size of single databases.
 * The price of an elastic pool is based on the resources of the pool. The price of an elastic pool is independent of the number and utilization of the elastic databases within it.
 
 For details, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/), [DTU-based purchasing model](sql-database-service-tiers-dtu.md), and [vCore-based purchasing model](sql-database-service-tiers-vcore.md).

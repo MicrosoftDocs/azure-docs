@@ -20,7 +20,8 @@ ms.custom:
 ---
 # Batch metrics, alerts, and logs for diagnostic evaluation and monitoring
 
-This article explains how to monitor a Batch account using features of [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md). Azure Monitor collects [metrics](../monitoring-and-diagnostics/monitoring-overview-metrics.md) and [diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) for resources in your Batch account. Collect and consume this data in a variety of ways to monitor your Batch account and diagnose issues. You can also configure [metric alerts](../monitoring-and-diagnostics/monitoring-alerts-unified-usage.md) so you receive notifications when a metric reaches a specified value. 
+ 
+This article explains how to monitor a Batch account using features of [Azure Monitor](../azure-monitor/overview.md). Azure Monitor collects [metrics](../monitoring/monitoring-data-collection.md#metrics) and [diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) for resources in your Batch account. Collect and consume this data in a variety of ways to monitor your Batch account and diagnose issues. You can also configure [metric alerts](../monitoring-and-diagnostics/monitoring-overview-alerts.md) so you receive notifications when a metric reaches a specified value. 
 
 ## Batch metrics
 

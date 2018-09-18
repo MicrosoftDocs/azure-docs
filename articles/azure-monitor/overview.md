@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2018
+ms.date: 09/14/2018
 ms.author: bwren
 
 ---
@@ -39,7 +39,7 @@ For many Azure resources, you'll see data collected by Azure Monitor right in th
 
 Log data collected by Azure Monitor is stored in Log Analytics which includes a [rich query language](../log-analytics/log-analytics-queries.md) to quickly retrieve, consolidate, and analyze collected data.  You can create and test queries using the [Log Analytics page](../log-analytics/log-analytics-log-search-portals.md) in the Azure portal and then either directly analyze the data using these tools or save queries for use with [visualizations](visualizations.md) or [alert rules](../monitoring-and-diagnostics/monitoring-overview-alerts.md).
 
-The Log Analytics query language is suitable for simple log queries but also includes advanced functionality such as aggregations, joins, and smart analytics. You can quickly learn the query language using [multiple lessons](../log-analytics/query-language/get-started-queries.md) that are available.  Particular guidance is provided to users who are already familiar with [SQL](https://docs.loganalytics.io/docs/Learn/References/SQL-to-Azure-Log-Analytics) and [Splunk](https://docs.loganalytics.io/docs/Learn/References/Splunk-to-Azure-Log-Analytics).
+The Log Analytics query language is suitable for simple log queries but also includes advanced functionality such as aggregations, joins, and smart analytics. You can quickly learn the query language using [multiple lessons](../log-analytics/query-language/get-started-queries.md) that are available.  Particular guidance is provided to users who are already familiar with [SQL](../log-analytics/query-language/sql-cheatsheet.md) and [Splunk](../log-analytics/query-language/splunk-cheatsheet.md).
 
 ![Logs](media/overview/logs.png)
 
@@ -58,7 +58,8 @@ Extend the data you're collecting into the actual operation of the resources by 
 
 [Add an instrumentation package to your application](../application-insights/app-insights-azure-web-apps.md),  to enable Application Insights to collect detailed information about your application including page views, application requests, and exceptions. Further verify the availability of your application by configuring an [availability test](../application-insights/app-insights-monitor-web-app-availability.md) to simulate user traffic.
 
-
+### Custom sources
+Azure Monitor can collect log data from any REST client using the [Data Collector API](../log-analytics/log-analytics-data-collector-api.md). This allows you to create custom monitoring scenarios and extend monitoring to resources that don't expose telemetry through other sources.
 
 
 
@@ -68,17 +69,18 @@ Monitoring data is only useful if it can increase your visibility into the opera
 ### Application Insights
 [Application Insights](http://azure.microsoft.com/documentation/services/application-insights) monitors the availability, performance, and usage of your web applications whether they're hosted in the cloud or on-premises. It leverages the powerful data analysis platform in Log Analytics to provide you with deep insights into your application's operations and diagnose errors without waiting for a user to report them. Application Insights includes connection points to a variety of development tools and integrates with Visual Studio to support your DevOps processes.
 
-![App Insights](media/overview/001-app-insights.png)
+![App Insights](media/overview/app-insights.png)
 
-### Container Insights
-[Container Insights](../monitoring/monitoring-container-health.md) gives you performance monitoring ability by collecting memory and processor metrics from controllers, nodes, and containers that are available in Kubernetes through the Metrics API. After you enable container health, these metrics are automatically collected for you through a containerized version of the Operations Management Suite (OMS) Agent for Linux and stored in Log Analytics.
+### Azure Monitor for containers
+Azure Monitor for containers is a feature designed to monitor the performance of container workloads deployed to managed Kubernetes clusters hosted on Azure Kubernetes Service (AKS). It gives you performance visibility by collecting memory and processor metrics from controllers, nodes, and containers that are available in Kubernetes through the Metrics API. Container logs are also collected.  After you enable monitoring from Kubernetes clusters, these metrics and logs are automatically collected for you through a containerized version of the Log Analytics agent for Linux and stored in Log Analytics.
 
-![Container Health](../monitoring/media/monitoring-container-health/container-health-containers-view.png)
+![Container Health](media/overview/container-insights.png)
 
-### VM Insights
-Azure Monitor VM Insights monitors your Windows and Linux virtual machines (VM) at scale by analyzing their performance and health, including their different processes and interconnected dependencies on other resources and external processes. The solution includes support for monitoring performance and application dependencies for VMs hosted on-premises or another cloud provider.
+### Azure Monitor for VMs
+Azure Monitor VM insights monitors your Azure virtual machines (VM) at scale by analyzing the performance and health of your Windows and Linux VMs, including their different processes and interconnected dependencies on other resources and external processes. The solution includes support for monitoring performance and application dependencies for VMs hosted on-premises or another cloud provider.  
 
-![VM Insights](media/overview/vminsights.png)
+
+![VM Insights](media/overview/vm-insights.png)
 
 ### Monitoring solutions
 [Monitoring solutions](../monitoring/monitoring-solutions.md) in Azure Monitor are packaged sets of logic that provide insights for a particular application or service. They collect data into Log Analytics along with other monitoring data, using [queries](../log-analytics/log-analytics-queries.md) for analysis and [views](../log-analytics/log-analytics-view-designer.md) for visualization. Monitoring solutions are [available from Microsoft](../monitoring/monitoring-solutions-inventory.md) and partners to provide monitoring for various Azure services and other applications.
@@ -107,7 +109,7 @@ Autoscale allows you to have the right amount of resources running to handle the
 ### Dashboards
 [Azure dashboards](../azure-portal/azure-portal-dashboards.md) allow you to combine different kinds of data, including both metrics and logs, into a single pane in the [Azure portal](https://portal.azure.com). You can optionally share the dashboard with other Azure users. Elements throughout Azure Monitor can be added to an Azure dashboard in addition to the output of any log query or metrics chart. For example, you could create a dashboard that combines tiles that show a graph of metrics, a table of activity logs, a usage chart from Application Insights, and the output of a query from Log Analytics.
 
-![Dashboard](media/overview/002-dashboard.png)
+![Dashboard](media/overview/dashboard.png)
 
 ### Views
 [Views in Azure Monitor](../log-analytics/log-analytics-view-designer.md) visually present log data in Log Analytics.  Each view includes a single tile that drills down to a combination of visualizations such as bar and line charts in addition to lists summarizing critical data.  Monitoring solutions include views that summarize data for a particular application, and you can create your own views to present data from any Log Analytics log search. Like other elements in Azure Monitor, views can be added to Azure dashboards.
