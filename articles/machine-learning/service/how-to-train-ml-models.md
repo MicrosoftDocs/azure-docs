@@ -30,7 +30,7 @@ This article focuses on steps 4-5. For steps 1-3, refer to this [tutorial](tutor
 
 ### Single-node training
 
-The following code walks through a single-node training run on remote compute in Azure for a scikit-learn model. You should have already created your [compute target](https://docs.microsoft.com/azure/machine-learning/service/how-to-set-up-training-targets#batch) object `compute_target` and your [datastore](how-to-access-data.md object `ds`.
+The following code walks through a single-node training run on remote compute in Azure for a scikit-learn model. You should have already created your [compute target](https://docs.microsoft.com/azure/machine-learning/service/how-to-set-up-training-targets#batch) object `compute_target` and your [datastore](how-to-access-data.md) object `ds`.
 
 ```Python
 from azureml.train.estimator import Estimator
@@ -114,7 +114,7 @@ For a tutorial on training a sklearn model, see:
 For a tutorial on distributed CNTK using custom docker, see:
 * `training/06.distributed-cntk-with-custom-docker/06.distributed-cntk-with-custom-docker.ipynb`
 
-Get this notebook:
+Get these notebook:
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
