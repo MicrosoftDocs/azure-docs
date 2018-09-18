@@ -18,18 +18,32 @@ ms.author: alsin
 ---
 
 # Use Serial Console to access GRUB and Single User Mode
-Single user mode is a minimal environment with minimal functionality. It can be useful for investigating boot issues or network issues as fewer services may run in the background, and, depending on the runlevel, a filesystem may not even be automatically mounted. This is useful to investigate situations such as a corrupt filesystem, a broken fstab, or network connectivity (incorrect iptables configuration).
+GRUB is the GRand Unified Bootloader. From GRUB you are able to modify your boot configuration to boot into single user mode, among other things. 
+
+Single user mode is a minimal environment with minimal functionality. It can be useful for investigating boot issues, filesystem issues, or network issues. Fewer services may run in the background, and, depending on the runlevel, a filesystem may not even be automatically mounted.
+
+Single user mode is also useful in situations where your VM may only be configured to accept SSH keys to log in. In this case, you may be able to use single user mode to create an account with password authentication. 
+
+To enter single user mode, you will need to enter GRUB when your VM is booting up, and modify the boot configuration in GRUB. This may be done with the VM serial console.
 
 ## General GRUB access
 To access GRUB, you will need to reboot your VM while keeping the serial console blade open. Some distros will require keyboard input to show GRUB, while others will automatically show GRUB for a few seconds and allow user keyboard input to cancel the timeout. 
 
-Some distros will automatically drop you into single user mode or emergency mode if the VM is unable to boot. Others, however, require additional setup before they can drop you into single-user or emergency mode automatically.
-
-You will want to ensure that GRUB is enabled on your VM in order to be able to access single user mode. Depending on your distro, there may be some setup work to ensure that GRUB is enabled.
+You will want to ensure that GRUB is enabled on your VM in order to be able to access single user mode. Depending on your distro, there may be some setup work to ensure that GRUB is enabled. Distro-specific information is available below.
 
 ### Reboot your VM to access GRUB in Serial Console
-Rebooting your VM with the serial console blade open can be done with a SysRq `'b'` command if [SysRq](./serial-console-nmi-sysrq.md) is enabled, or by clicking the Restart button in the Overview blade. Follow the distro-specific instructions below to learn what to expect from GRUB when you reboot.
+Rebooting your VM with the serial console blade open can be done with a SysRq `'b'` command if [SysRq](./serial-console-nmi-sysrq.md) is enabled, or by clicking the Restart button in the Overview blade (open the VM in a new browser tab to reboot without closing the serial console blade). Follow the distro-specific instructions below to learn what to expect from GRUB when you reboot.
 
+## General Single User Mode access
+Manual access to single user mode may be needed in situations where you have not configured an account with password authentication. You will need to modify the GRUB configuration to manually enter single user mode. Once you have done this, see [Use Single User Mode to reset or add a password](#-Use-Single-User-Mode-to-reset-or-add-a-password) for further instructions.
+
+In cases where the VM is unable to boot, distros will often automatically drop you into single user mode or emergency mode. Others, however, require additional setup before they can drop you into single-user or emergency mode automatically (such as setting up a root password).
+
+### Use Single User Mode to reset or add a password
+Once you are in single user mode, do the following to add a new user with sudo privileges:
+1. Run `useradd <username>` to add a user
+1. Run `sudo usermod -a -G sudo <username>` to grant the new user root privileges
+1. Use `passwd <username>` to set the password for the new user. You will then be able to log in as the new user
 
 ## Access for Red Hat Enterprise Linux (RHEL)
 RHEL will drop you into single user mode automatically if it cannot boot normally. However, if you have not set up root access for single user mode, you will not have a root password and will be unable to log in. There is a workaround (See 'Manually entering single user mode' below), but the suggestion is to set up root access initially.
@@ -101,7 +115,14 @@ Follow the instructions for RHEL above to enable single user mode in CentOS.
 Ubuntu images do not require a root password. If the system boots into single user mode, you can use it without additional credentials. 
 
 ### GRUB access in Ubuntu
-To access GRUB, press and hold 'Esc' while the VM is booting up.
+To access GRUB, press and hold 'Esc' while the VM is booting up. 
+
+By default, Ubuntu images will not automatically show the GRUB screen. This can be changed with the following instructions:
+1. Open `/etc/default/grub.d/50-cloudimg-settings.cfg` in a text editor of your choice
+1. Change the `GRUB_TIMEOUT` value to a non-zero value
+1. Open `/etc/default/grub` in a text editor of your choice
+1. Comment out the `GRUB_HIDDEN_TIMEOUT=1` line
+1. Run `sudo update-grub`
 
 ### Single user mode in Ubuntu
 Ubuntu will drop you into single user mode automatically if it cannot boot normally. To manually enter single user mode, use the following instructions:
