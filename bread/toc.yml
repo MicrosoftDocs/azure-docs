@@ -299,6 +299,12 @@
   - name: Cosmos DB
     tocHref: /azure/cosmos-db/
     topicHref: /azure/cosmos-db/
+  - name: Data Box
+    tocHref: /azure/databox/
+    topicHref: /azure/databox/ 
+  - name: Data Box Edge/Data Box Gateway
+    tocHref: /azure/databox-online/
+    topicHref: /azure/databox-online/ 
   - name: Data Catalog
     tocHref: /azure/data-catalog/
     topicHref: /azure/data-catalog/
