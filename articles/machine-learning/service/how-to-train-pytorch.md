@@ -70,13 +70,13 @@ pt_est = PyTorch(source_directory='./my-pytorch-project',
                  use_gpu=True,
                  node_count=2,
                  process_count_per_node=1,
-                 backend='mpi')
+                 distributed_backend='mpi')
 ```
 
 The above code exposes the following new parameters to the PyTorch constructor:
 * `node_count`: The number of nodes to use for your training job. This argument defaults to `1`
 * `process_count_per_node`: The number of processes (or "workers") to run on each node. This argument defaults to `1`
-* `backend`: The backend for launching distributed training, which the Estimator offers via MPI. This argument defaults to `None`. If you want to carry out parallel or distributed training (e.g. `node_count`>1 or `process_count_per_node`>1 or both) with MPI (and Horovod), set `backend='mpi'`. The MPI implementation used by Azure Machine Learning is [Open MPI](https://www.open-mpi.org/).
+* `distributed_backend`: The backend for launching distributed training, which the Estimator offers via MPI. This argument defaults to `None`. If you want to carry out parallel or distributed training (e.g. `node_count`>1 or `process_count_per_node`>1 or both) with MPI (and Horovod), set `distributed_backend='mpi'`. The MPI implementation used by Azure Machine Learning is [Open MPI](https://www.open-mpi.org/).
 
 The above example will run distributed training with two workers, one worker per node.
 
