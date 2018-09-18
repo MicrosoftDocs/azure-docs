@@ -7234,6 +7234,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cosmos-db/mongodb-multi-master-support.md",
+            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/multi-master-oss-nosql",
+            "redirect_document_id": false
+        }, 
+        {
             "source_path": "articles/cosmos-db/20-days-of-tips.md",
             "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/",
             "redirect_document_id": false
