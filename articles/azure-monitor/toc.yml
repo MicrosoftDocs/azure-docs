@@ -123,7 +123,7 @@
     - name: Log alerts
       href: ../monitoring-and-diagnostics/monitor-alerts-unified-log.md?toc=/azure/azure-monitor/toc.json
     - name: Activity log alerts
-      href: ../monitoring-and-diagnostics/monitoring-activity-log-alerts-new-experience.md?toc=/azure/azure-monitor/toc.json     
+      href: ../monitoring-and-diagnostics/monitoring-activity-log-alerts.md?toc=/azure/azure-monitor/toc.json  
     - name: Extend alerts from Log Analytics to Azure
       href: ../monitoring-and-diagnostics/monitoring-alerts-extend.md?toc=/azure/azure-monitor/toc.json
     - name: Action groups
