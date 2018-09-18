@@ -9,7 +9,7 @@
     href: azure-ad-developers-guide.md
   - name: Quickstarts
     items:
-    - name: Create a new tenant
+    - name: Setup a dev environment
       href: quickstart-create-new-tenant.md
     - name: Configure an application
       items:
@@ -201,7 +201,7 @@
     href: v2-overview.md
   - name: Quickstarts
     items:
-    - name: Create a new tenant
+    - name: Setup a dev environment
       href: quickstart-create-new-tenant.md
     - name: Configure an application
       items:
