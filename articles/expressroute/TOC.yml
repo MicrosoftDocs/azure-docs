@@ -41,6 +41,8 @@
     href: expressroute-qos.md
   - name: About moving circuits from classic to Resource Manager
     href: expressroute-move.md
+  - name: About ExpressRoute Direct
+    href: expressroute-erdirect-about.md
 - name: How-to guides
   items:
   - name: Create and modify a circuit
@@ -79,6 +81,8 @@
       href: expressroute-howto-add-gateway-resource-manager.md
   - name: Configure ExpressRoute and site-to-site coexisting connections
     href: expressroute-howto-coexist-resource-manager.md
+  - name: Configure ExpressRoute Direct
+    href: expressroute-how-to-erdirect.md
   - name: Configure route filters for Microsoft peering
     items:
     - name: Azure portal
