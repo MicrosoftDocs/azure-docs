@@ -96,7 +96,7 @@ A custom role has the following properties.
 | `NotActions` | No | String[] | An array of strings that specifies the management operations that are excluded from the allowed `Actions`. For more information, see [NotActions](role-definitions.md#notactions). |
 | `DataActions` | No | String[] | An array of strings that specifies the data operations that the role allows to be performed to your data within that object. For more information, see [DataActions (Preview)](role-definitions.md#dataactions-preview). |
 | `NotDataActions` | No | String[] | An array of strings that specifies the data operations that are excluded from the allowed `DataActions`. For more information, see [NotDataActions (Preview)](role-definitions.md#notdataactions-preview). |
-| `AssignableScopes` | Yes | String[] | An array of strings that specifies the scopes that the custom role is available for assignment. Currently cannot be set to the root scope (`"/"`) or a management group scope. For more information, see [AssignableScopes](role-definitions.md#assignablescopes) and [Organize your resources with Azure management groups](../azure-resource-manager/management-groups-overview.md#custom-rbac-role-definition-and-assignment). |
+| `AssignableScopes` | Yes | String[] | An array of strings that specifies the scopes that the custom role is available for assignment. Currently cannot be set to the root scope (`"/"`) or a management group scope. For more information, see [AssignableScopes](role-definitions.md#assignablescopes) and [Organize your resources with Azure management groups](../governance/management-groups/overview.md#custom-rbac-role-definition-and-assignment). |
 
 ## Who can create, delete, update, or view a custom role
 
