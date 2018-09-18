@@ -26,7 +26,6 @@ In this tutorial, you learn how to:
 ## Prerequisites
 You must have an [Azure Enterprise Agreement (EA)](https://azure.microsoft.com/en-us/pricing/enterprise-agreement/) with at least read access to one or more of the following items:
 
-- Azure EA billing account (enrollment)
 - Azure EA subscription
 - Azure EA subscription resource group
 
