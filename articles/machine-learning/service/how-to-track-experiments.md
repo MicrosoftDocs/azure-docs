@@ -116,7 +116,7 @@ The script ends with ```run.complete()```, which marks the run as completed.  Th
 
 **ScriptRunConfig** is a class for setting up configurations for script runs. With this option, you can add monitoring code to be notified of completion or to get a visual widget to monitor.
 
-This example expands on the basic sklearn Ridge model from above. and does a simple parameter sweep to sweep over alpha values of the model to capture metrics and trained models in runs under the experiment. The example runs locally against a user-managed environment. 
+This example expands on the basic sklearn Ridge model from above. It does a simple parameter sweep to sweep over alpha values of the model to capture metrics and trained models in runs under the experiment. The example runs locally against a user-managed environment. 
 
 1. Create a training script. This uses ```%%writefile%%``` to write the training code out to the script folder as ```train.py```.
 
@@ -209,7 +209,7 @@ This example expands on the basic sklearn Ridge model from above. and does a sim
 ## View run details
 
 ### Monitor run with Jupyter notebook widgets
-When you use the **ScriptRunConfig** method to submit runs, you can watch the progress of the run with a Jupyter Notebook widget. Like the run submission, the widget is asynchronous and provides live updates every 10-15 seconds until the job completes.
+When you use the **ScriptRunConfig** method to submit runs, you can watch the progress of the run with a Jupyter notebook widget. Like the run submission, the widget is asynchronous and provides live updates every 10-15 seconds until the job completes.
 
 1. View the Jupyter widget while waiting for the run to complete.
 
@@ -222,7 +222,7 @@ When you use the **ScriptRunConfig** method to submit runs, you can watch the pr
 
 ### Get log results upon completion
 
-Model training and monitoring happen in the background so that you can run other tasks while you wait. You can also wait until the model has completed training before running more code. When you use **ScriptRunConfig**, you can use ```run.wait_for_completion(show_output = True)``` to show when the model training is complete. The ```show_output``` flag gives you verbose output.
+Model training and monitoring occur in the background so that you can run other tasks while you wait. You can also wait until the model has completed training before running more code. When you use **ScriptRunConfig**, you can use ```run.wait_for_completion(show_output = True)``` to show when the model training is complete. The ```show_output``` flag gives you verbose output.
   
 ### Query run metrics
 
@@ -233,14 +233,15 @@ You can view the metrics of a trained model using ```run.get_metrics()```. You c
 When an experiment has finished running, you can browse to the recorded experiment run record. You can do this in two ways:
 
 * Get the URL to the run directly ```print(run.get_portal_url())```
-* View the run details by submitting the name of the run (in this case, ```run```). This will point you to the Experiment name, Id, Type, Status, Details Page, a link to the Azure Portal, and a link to documentation.
+* View the run details by submitting the name of the run (in this case, ```run```). This points you to the experiment name, ID, type, status, details page, a link to the Azure portal, and a link to documentation.
 
 The link for the run brings you directly to the run details page in the Azure portal. Here you can see any properties, tracked metrics, images and charts that are logged in the experiment. In this case, we logged MSE and the alpha values.
-  ![Screenshot of run details in web portal](./media/how-to-track-experiments/run-details-page-web.PNG)
+
+  ![Screenshot of run details in the Azure portal](./media/how-to-track-experiments/run-details-page-web.PNG)
 
 You can also view any outputs or logs for the run, or download the snapshot of the experiment you submitted to be able to share the experiment folder with others.
 
-## Examples
+## Example notebooks
 The following notebooks demonstrate concepts in this article:
 * `01.getting-started/01.train-within-notebook/01.train-within-notebook.ipynb`
 * `01.getting-started/02.train-on-local/02.train-on-local.ipynb`
@@ -250,7 +251,7 @@ Get these notebooks:
 
 ## Next steps
 
-Try these next steps to learn how to use this Azure Machine Learning SDK for Python:
+Try these next steps to learn how to use the Azure Machine Learning SDK for Python:
 
 * See an example of how to register the best model and deploy it in the tutorial, [Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md).
 
