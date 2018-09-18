@@ -1,14 +1,14 @@
 ---
-title: Tutorial - Optimize reserve instance costs with Azure Cost Management | Microsoft Docs
+title: Tutorial - Optimize reserve instance costs with Cloudyn in Azure | Microsoft Docs
 description: In this tutorial, you learn how to optimize your reserved instance costs for Azure and Amazon Web Services (AWS).
 services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 09/18/2018
 ms.topic: tutorial
 ms.service: cost-management
-ms.custom: 
+ms.custom:
 manager: dougeby
 ---
 
@@ -17,9 +17,9 @@ manager: dougeby
 
 # Tutorial: Optimize reserved instances
 
-In this tutorial, you learn how Cost Management can help you optimize your reserved instance costs and utilization for Azure and Amazon Web Services (AWS). A reserved instance with either cloud service provider is a commitment to a long-term contract where you commit up-front for future use of the VM. And, it can potentially offer considerable savings versus standard Pay-per-Use VM pricing model. Potential savings are only realized when you fully use the capacity of your reserved instances.
+In this tutorial, you learn how Cloudyn can help you optimize your reserved instance costs and utilization for Azure and Amazon Web Services (AWS). A reserved instance with either cloud service provider is a commitment to a long-term contract where you commit up-front for future use of the VM. And, it can potentially offer considerable savings versus standard Pay-per-Use VM pricing model. Potential savings are only realized when you fully use the capacity of your reserved instances.
 
-This tutorial explains how Azure and AWS Reserved Instances (RIs) are supported by Cost Management. It also describes how you can optimize reserved instance costs. Primarily, by ensuring that your reservations are fully utilized. In this tutorial, you will:
+This tutorial explains how Azure and AWS Reserved Instances (RIs) are supported by Cloudyn. It also describes how you can optimize reserved instance costs. Primarily, by ensuring that your reservations are fully utilized. In this tutorial, you will:
 
 > [!div class="checklist"]
 > * Understand Azure RI costs
@@ -36,7 +36,7 @@ If you don't have an Azure subscription, create a  [free account](https://azure.
 ## Prerequisites
 
 - You must have an Azure account.
-- You must have either a trial registration or paid subscription for Azure Cost Management.
+- You must have either a trial registration or paid subscription for Cloudyn.
 - You must have purchased RIs in Azure or AWS.
 
 ## Understand Azure RI costs
@@ -80,7 +80,7 @@ The shared purchase scope is the most flexible and it is recommended whenever po
 
 ## Optimize Azure RI costs
 
-Azure Cost Management supports reserved instances and Hybrid Benefits by:
+Cloudyn supports reserved instances and Hybrid Benefits by:
 
 - Showing you the costs associated with pricing models
 - Tracking RI usage
@@ -111,7 +111,7 @@ However, if it runs only 50% of the time, the break-even point will be at 10 mon
 
 ## View RI costs
 
-When you purchase a reservation, you make a one-time payment. There are two ways to view the payment in Cost Management:
+When you purchase a reservation, you make a one-time payment. There are two ways to view the payment in Cloudyn:
 
 - Actual Cost
 - Amortized Cost

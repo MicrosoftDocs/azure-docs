@@ -25,8 +25,6 @@
     href: ../azure-resource-manager/resource-group-using-tags.md?toc=/azure/billing/TOC.json
   - name: Understand spending limit
     href: billing-spending-limit.md
-  - name: Analyze costs
-    href: billing-cost-analysis.md
   - name: Save with Azure Reservations
     items:
     - name: What are Azure Reservations?
@@ -37,7 +35,7 @@
         href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
       - name: SQL Database
         href: ../sql-database/sql-database-reserved-capacity.md?toc=/azure/billing/TOC.json
-      - name: SUSE Linux software 
+      - name: SUSE Linux software
         href: ../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/billing/TOC.json
     - name: How discount is applied
       items:
