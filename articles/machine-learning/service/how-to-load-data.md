@@ -1,20 +1,22 @@
 ---
-title: Load data with the Azure Machine Learning Data Prep SDK
-description: Learn about loading data with Azure Machine Learning Data Prep SDK
+title: Load data with the Azure Machine Learning Data Prep SDK - Python
+description: Learn about loading data with Azure Machine Learning Data Prep SDK. You can load different types of input data, specify data file types and parameters, or use the SDK smart reading functionality to automatically detect file type.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
-ms.topic: how-to
+ms.topic: conceptual
 ms.author: cforbe
 author: cforbe
-ms.date: 08/30/2018
+manager: cgronlun
+ms.reviewer: jmartens
+ms.date: 09/24/2018
 ---
 
 #Load data with the Azure Machine Learning Data Prep SDK
 
 The Azure Machine Learning Data Prep SDK allows you to load different types of input data. You can specify the data file type and its parameters or use the SDK smart reading functionality to automatically detect the type of a file.
 
-## Read Lines
+## Read lines
 One of the simplest ways to load data is to read it as text lines.
 
 ```
@@ -164,7 +166,7 @@ df
 |3|4|Harry Potter and the Deathly Hallows Part 2|WB|1341.5|381|0.284|960.5|0.716|2011|
 |4|5|Frozen|BV|1274.2|400.7|0.314|873.5|0.686|2013|
 
-## Read Fixed Width Files
+## Read fixed-width files
 For fixed-width files, you can specify a list of offsets. The first column is always assumed to start at offset 0.
 
 ```
@@ -303,7 +305,7 @@ with open('./data/adls-dpreptestfiles.crt', 'rt', encoding='utf-8') as crtFile:
 
 servicePrincipalAppId = "8dd38f34-1fcb-4ff9-accd-7cd60b757174"
 ```
-#### Acquire an OAuth Access Token
+#### Acquire an OAuth access token
 Use the `adal` package (via: `pip install adal`) to create an authentication context on the MSFT tenant and acquire an OAuth access token. For ADLS, the resource in the token request must be for 'https://datalake.azure.net', which is different from most other Azure resources.
 
 ```

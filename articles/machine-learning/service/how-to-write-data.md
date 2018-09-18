@@ -1,13 +1,15 @@
 ---
-title: Write data with the Azure Machine Learning Data Prep SDK
-description: Learn about writing data with Azure Machine Learning Data Prep SDK
+title: Write data with the Azure Machine Learning Data Prep SDK - Python
+description: Learn about writing data with Azure Machine Learning Data Prep SDK. You can write out data at any point in a data flow, and to files in any of our supported locations (local file system, Azure Blob Storage, and Azure Data Lake Storage).
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
-ms.topic: how-to
+ms.topic: conceptual
 ms.author: cforbe
 author: cforbe
-ms.date: 08/30/2018
+manager: cgronlun
+ms.reviewer: jmartens
+ms.date: 09/24/2018
 ---
 # Write data with the Azure Machine Learning Data Prep SDK
 You can write out data at any point in a data flow. These writes are added as steps to the resulting data flow and are run every time the data flow is. Since there are no limitations to how many write steps there are in a pipeline, it is easy to write out intermediate results for troubleshooting or to be picked up by other pipelines. It is important to note that the run of each write step results in a full pull of the data in the data flow. For example, a data flow with three write steps will read and process every record in the dataset three times.

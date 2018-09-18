@@ -1,16 +1,18 @@
 ---
-title: What is the Azure Data Prep SDK?
-description: Learn about the Azure Data Prep SDK
+title: Prepare data with the Machine Learning Data Prep SDK for Python - Azure
+description: Learn how to use the Azure Machine Learning Data Prep SDK for Python to load data of various formats, transform it to be more usable, and write that data to a location for your models to access.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.author: cforbe
 author: cforbe
-ms.date: 08/30/2018
+manager: cgronlun
+ms.reviewer: jmartens
+ms.date: 09/24/2018
 ---
 
-# Prepare your data for modeling
+# Prepare data with the Azure Machine Learning Data Prep SDK for Python
  
 Data preparation is an important part of a machine learning workflow. Your models will be more accurate and efficient if they have access to clean data in a format that is easier to consume. You can use the <a href="https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py">Azure Machine Learning Data Prep SDK</a> to load data of various formats, transform it to be more usable, and write that data to a location for your models to access. 
 
