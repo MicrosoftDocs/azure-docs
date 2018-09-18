@@ -12,9 +12,7 @@ services: iot-edge
 
 # Understand extended offline capabilities for IoT Edge devices, modules, and child devices (preview)
 
-Azure IoT Edge supports offline operations on your IoT Edge devices, and enables offline operations on non-Edge child devices too. As long as an IoT Edge device has had one opportunity to connect to IoT Hub, it and any child devices can continue to function with intermittent or no internet connection. 
-
-Offline support is available in all regions where IoT Hub is available, except East US and West Europe. 
+Azure IoT Edge supports extended offline operations on your IoT Edge devices, and enables offline operations on non-Edge child devices too. As long as an IoT Edge device has had one opportunity to connect to IoT Hub, it and any child devices can continue to function with intermittent or no internet connection. 
 
 >[!NOTE]
 >Offline support for IoT Edge is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -35,7 +33,7 @@ The following example shows how an IoT Edge scenario operates in offline mode:
 
 3. Go offline. 
 
-   While disconnected from IoT Hub, the IoT Edge device, its deployed modules, and any children IoT devices can operate indefinitely. Telemetry bound upstream to IoT Hub is stored locally. Communication between modules or between child IoT devices is maintained through direct methods or messages. 
+   While disconnected from IoT Hub, the IoT Edge device, its deployed modules, and any children IoT devices can operate indefinitely. Modules and child devices can start and restart by authenticating with the Edge hub while offline. Telemetry bound upstream to IoT Hub is stored locally. Communication between modules or between child IoT devices is maintained through direct methods or messages. 
 
 4. Reconnect and re-sync with IoT Hub.
 
@@ -43,9 +41,11 @@ The following example shows how an IoT Edge scenario operates in offline mode:
 
 ## Restrictions and limits
 
-The offline capabilities described in this article are available in [IoT Edge version 1.0.2 or higher](https://github.com/Azure/azure-iotedge/releases). Earlier versions have a subset of offline features, not including authentication abilities or support for child devices.  
+The extended offline capabilities described in this article are available in [IoT Edge version 1.0.2 or higher](https://github.com/Azure/azure-iotedge/releases). Earlier versions have a subset of offline features. Existing IoT Edge devices that don't have extended offline capabilities can't be upgraded by changing the runtime version, but must be reconfigured with a new IoT Edge device identity to gain these features. 
 
-Currently, the Edge hub module must use MQTT for extended offline capabilities. Set this in the Edge hub configuration as an environment variable in the Azure portal or deployment manifest. 
+Extended offline support is available in all regions where IoT Hub is available, except East US and West Europe. 
+
+Currently, the Edge hub module must use MQTT to connect to IoT Hub. Set this in the Edge hub configuration as an environment variable in the Azure portal or deployment manifest. 
 
    ```json
     "env": {
@@ -53,7 +53,7 @@ Currently, the Edge hub module must use MQTT for extended offline capabilities. 
             "value": "MQTT"
         }
     }
-    ```
+   ```
 
 Only non-Edge IoT devices can be added as child devices. 
 
@@ -109,6 +109,8 @@ You can configure environment variables and the create options for the Edge hub 
 ### Child devices
 
 Child devices can be any non-Edge device registered to the same IoT Hub. You can manage the parent-child relationship on creating a new device, or from the device details page of either the parent IoT Edge device or the child IoT device. 
+
+   ![Manage child devices from the IoT Edge device details page](./media/offline-capabilities/manage-child-devices.png)
 
 Parent devices can have multiple child devices, but a child device can only have one parent. 
 
