@@ -76,10 +76,7 @@ This procedure assumes that the primary Azure region is East Asia, and the secon
     - **Source subscription**: The subscription to which your source virtual machines belong. This can be any subscription within the same Azure Active Directory tenant where your recovery services vault exists.
     - **Resource Group**: The resource group to which your source virtual machines belong. All the VMs under the selected resource group are listed for protection in the next step.
 
-    ![Enable replication](./media/site-recovery-replicate-azure-to-azure/enabledrwizard1.png)
-
 3. In **Virtual Machines > Select virtual machines**, click and select each VM that you want to replicate. You can only select machines for which replication can be enabled. Then, click **OK**.
-   	![Enable replication](./media/site-recovery-replicate-azure-to-azure/virtualmachine_selection.png)
 
 4. In **Settings**, you can optionally configure target site settings:
 
@@ -95,7 +92,6 @@ This procedure assumes that the primary Azure region is East Asia, and the secon
     - **Key encryption key vaults**: By default, Azure Site Recovery creates a new key vault in the target region with name having "asr" suffix based on the source VM key encryption keys. In case key vault created by Azure Site Recovery already exists, it is reused.
     - **Replication Policy**: It defines the settings for recovery point retention history and app consistent snapshot frequency. By default, Azure Site Recovery creates a new replication policy with default settings of ‘24 hours’ for recovery point retention and ’60 minutes’ for app consistent snapshot frequency.
 
-	![Enable replication](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)
 
 
 ## Customize target resources
@@ -111,7 +107,6 @@ You can modify the default target settings used by Site Recovery.
 	- In **Availability set**, you can add availability set settings to the VM, if they're part of an availability set in the source region.
 	- In **Target Storage accounts**, select the account you want to use.
 
-		![Enable replication](./media/site-recovery-replicate-azure-to-azure/customize.PNG)
 
 2. Click **Customize:** next to 'Encryption settings' to modify the below default settings:
 	- In **Target disk encryption key vault**, select the target disk encryption key vault from the list of all the key vaults in the target location of the subscription.
