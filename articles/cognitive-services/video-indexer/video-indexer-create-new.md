@@ -1,18 +1,19 @@
 ---
-title: Use Azure Video Indexer to create video insights from existing videos | Microsoft Docs
-description: This topic shows you how to create and publish video insights based on some other video.
+title: "Tutorial: Create video insights from existing videos"
+titlesuffix: Azure Cognitive Services
+description: This topic shows you how to create and publish video insights based on existing video files.
 services: cognitive services
-documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.topic: article
-ms.date: 09/09/2018
+ms.component: video-indexer
+ms.topic: tutorial
+ms.date: 09/15/2018
 ms.author: juliako
-
 ---
-# Create highlights from existing videos
+
+# Tutorial: Create highlights from existing videos
 
 This topic shows you how to create and publish video insights based on some other video.
 

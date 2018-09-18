@@ -195,6 +195,8 @@
       href: os-disk-swap.md
     - name: Tag a VM
       href: tag.md
+    - name: Time sync
+      href: time-sync.md
     - name: Run scripts on a VM
       href: run-scripts-in-vm.md
       items:
