@@ -1,18 +1,18 @@
 ---
-title: Azure Video Indexer overview | Microsoft Docs
+title: What is Video Indexer?
+titlesuffix: Azure Cognitive Services
 description: This topic gives an overview of the Video Indexer service.
 services: cognitive services
-documentationcenter: ''
 author: juliako
-manager: femila
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: video-indexer
 ms.topic: overview
 ms.date: 09/15/2018
 ms.author: nolachar
-
 ---
+
 # What is Video Indexer?
 
 Azure Video Indexer is a cloud application built on Azure Media Analytics, Azure Search, Cognitive Services (such as the Face API, Microsoft Translator, the Computer Vision API, and Custom Speech Service). It enables you to extract the insights from your videos using Video Indexer models described below:
