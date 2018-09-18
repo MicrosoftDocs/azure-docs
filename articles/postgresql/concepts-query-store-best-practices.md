@@ -41,7 +41,7 @@ Query Store also includes a store for wait statistics. There is an additional ca
 The **pg_qs.retention_period_in_days** parameter specifies in days the data retention period for Query Store. Older query and statistics data is deleted. By default, Query Store is configured to retain the data for 7 days. Avoid keeping historical data you do not plan to use. Increase the value if you need to keep data longer.
 
 
-## Frequency of wait statistics
+## Set the frequency of sampling wait stats
 The **pgms_wait_sampling.history_period** parameter specifies how often (in milliseconds) wait events are sampled. The shorter the period, the more frequent the sampling. More information is retrieved, but that comes with the cost of greater resource consumption. Increase this period if the server is under load or you don't need the granularity
 
 
