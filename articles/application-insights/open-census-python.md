@@ -5,7 +5,7 @@ services: application-insights
 keywords:
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 09/15/2018
+ms.date: 09/18/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm

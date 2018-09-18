@@ -19,7 +19,7 @@ Application Insights now supports distributed tracing of Go applications through
 
 - You need an Azure Subscription.
 - Go should be installed, this article uses the version 1.11 [Go Download](https://golang.org/dl/).
-- Follow the instructions to install the [local forwarder as a Windows service](https://docs.microsoft.com/azure/application-insights/local-forwarder#windows-service)
+- Follow the instructions to install the [local forwarder as a Windows service](https://docs.microsoft.com/azure/application-insights/local-forwarder#windows-service).
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
@@ -29,7 +29,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create Application Insights resource
 
-First you have to create an Application Insights resource which will generate an instrumentation key(ikey). The ikey is then used to configure the local forwarder to send distributed traces from your OpenCensus instrumented application, to Application Insights.   
+First you have to create an Application Insights resource which will generate an instrumentation key (ikey). The ikey is then used to configure the local forwarder to send distributed traces from your OpenCensus instrumented application, to Application Insights.   
 
 1. Select **Create a resource** > **Developer Tools** > **Application Insights**.
 
@@ -80,61 +80,36 @@ First you have to create an Application Insights resource which will generate an
     go get -u contrib.go.opencensus.io/exporter/ocagent
     ```
 
-2. Add the following code to a .go file and build and run.
+2. Add the following code to a .go file and then build and run. (This example is derived from the official OpenCensus guidance with added code that facilitates the integration with the local forwarder)
 
     ```go
     // Copyright 2018, OpenCensus Authors
-
     //
-    
     // Licensed under the Apache License, Version 2.0 (the "License");
-    
     // you may not use this file except in compliance with the License.
-    
     // You may obtain a copy of the License at
-    
     //
-    
     //     http://www.apache.org/licenses/LICENSE-2.0
-    
     //
-    
     // Unless required by applicable law or agreed to in writing, software
-    
     // distributed under the License is distributed on an "AS IS" BASIS,
-    
     // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    
     // See the License for the specific language governing permissions and
-    
     // limitations under the License.
-    
-    
-    
+
     package main
-    
-    
     
     import (
     
     	"bytes"
-    
     	"fmt"
-    
     	"log"
-    
     	"net/http"
-    
     	os "os"
-    
-    
-    
+        
     	ocagent "contrib.go.opencensus.io/exporter/ocagent"
-    
     	"go.opencensus.io/plugin/ochttp"
-    
     	"go.opencensus.io/plugin/ochttp/propagation/tracecontext"
-    
     	"go.opencensus.io/trace"
     
     )
@@ -154,46 +129,28 @@ First you have to create an Application Insights resource which will generate an
     	}
     
     	fmt.Printf(serviceName)
-    
     	agentEndpoint := os.Getenv("OCAGENT_TRACE_EXPORTER_ENDPOINT")
     
     	if len(agentEndpoint) == 0 {
-    
     		agentEndpoint = fmt.Sprintf("%s:%d", ocagent.DefaultAgentHost, ocagent.DefaultAgentPort)
-    
     	}
     
-    
-    
     	fmt.Printf(agentEndpoint)
-    
     	exporter, err := ocagent.NewExporter(ocagent.WithInsecure(), ocagent.WithServiceName(serviceName), ocagent.WithAddress(agentEndpoint))
     
     	if err != nil {
-    
     		log.Printf("Failed to create the agent exporter: %v", err)
-    
     	}
-    
-    
     
     	trace.RegisterExporter(exporter)
     
-    
-    
     	// Always trace for this demo. In a production application, you should
-    
     	// configure this to a trace.ProbabilitySampler set at the desired
-    
     	// probability.
     
     	trace.ApplyConfig(trace.Config{DefaultSampler: trace.AlwaysSample()})
     
-    
-    
     	client := &http.Client{Transport: &ochttp.Transport{Propagation: &tracecontext.HTTPFormat{}}}
-    
-    
     
     	http.HandleFunc("/", func(w http.ResponseWriter, req *http.Request) {
     
@@ -202,21 +159,15 @@ First you have to create an Application Insights resource which will generate an
     
     
     		var jsonStr = []byte(`[ { "url": "http://blank.org", "arguments": [] } ]`)
-    
     		r, _ := http.NewRequest("POST", "http://blank.org", bytes.NewBuffer(jsonStr))
-    
     		r.Header.Set("Content-Type", "application/json")
     
     		// Propagate the trace header info in the outgoing requests.
     
     		r = r.WithContext(req.Context())
-    
     		resp, err := client.Do(r)
-    
     		if err != nil {
-    
     			log.Println(err)
-    
     		} else {
     
     			// TODO: handle response
@@ -234,8 +185,6 @@ First you have to create an Application Insights resource which will generate an
     
     
     		r, _ := http.NewRequest("GET", "http://blank.org", nil)
-    
-    
     
     		// Propagate the trace header info in the outgoing requests.
     
