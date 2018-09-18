@@ -24,7 +24,7 @@ The following metrics can be added to a run while training an experiment. To vie
 |----|:----:|:----:|
 |Scalar values | `run.log(name, value, description='')`| Log a metric value to the run with the given name. Logging a metric to a run causes that metric to be stored in the run record in the experiment.  You can log the same metric multiple times within a run, the result being considered a vector of that metric.|
 |Lists| `run.log_list(name, value, description='')`|Log a list metric value to the run with the given name.|
-|Row| `run.log_row(name, description=None, **kwargs)`|Using *log_row* creates a table metric with columns as described in kwargs. Each named parameter generates a column with the value specified.  *log_row* can be be called once to log an aribitrary tuple, or multiple times in a loop to generate a complete table.|
+|Row| `run.log_row(name, description=None, **kwargs)`|Using *log_row* creates a table metric with columns as described in kwargs. Each named parameter generates a column with the value specified.  *log_row* can be called once to log an arbitrary tuple, or multiple times in a loop to generate a complete table.|
 |Table| `run.log_table(name, value, description='')`| Log a table metric to the run with the given name. |
 |Images| `run.log_image(name, path=None, plot=None)`|Log an image metric to the run record. Use log_image to log an image file or a matplotlib plot to the run.  These images will be visible and comparable in the run record.|
 |Tag a run| `run.tag(key, value=None)`|Tag the run with a string key and optional string value.|
@@ -235,11 +235,11 @@ When an experiment has finished running, you can browse to the recorded experime
 * Get the URL to the run directly ```print(run.get_portal_url())```
 * View the run details by submitting the name of the run (in this case, ```run```). This points you to the experiment name, ID, type, status, details page, a link to the Azure portal, and a link to documentation.
 
-The link for the run brings you directly to the run details page in the Azure portal. Here you can see any properties, tracked metrics, images and charts that are logged in the experiment. In this case, we logged MSE and the alpha values.
+The link for the run brings you directly to the run details page in the Azure portal. Here you can see any properties, tracked metrics, images, and charts that are logged in the experiment. In this case, we logged MSE and the alpha values.
 
   ![Screenshot of run details in the Azure portal](./media/how-to-track-experiments/run-details-page-web.PNG)
 
-You can also view any outputs or logs for the run, or download the snapshot of the experiment you submitted to be able to share the experiment folder with others.
+You can also view any outputs or logs for the run, or download the snapshot of the experiment you submitted so you can share the experiment folder with others.
 
 ## Example notebooks
 The following notebooks demonstrate concepts in this article:
