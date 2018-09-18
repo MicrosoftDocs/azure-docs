@@ -125,5 +125,6 @@ you can select your ISE as the location for your integration account.
 
 ## Next steps
 
+* Learn how to [connect to virtual networks (VNETs) from isolated logic apps](../connect-virtual-network-vnet-isolated-environment.md)
 * Learn more about [Azure Virtual Network](../virtual-network/virtual-networks-overview.md)
 * Learn about [virtual network integration for Azure services](../virtual-network/virtual-network-for-azure-services.md)
