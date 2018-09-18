@@ -13,14 +13,18 @@
     href: service-fabric-mesh-quickstart-dotnet-core.md
 - name: Tutorials
   items:
-  - name: Create, debug and deploy a multi-service Service Fabric Mesh web app
+  - name: Build and deploy a Mesh app with Visual Studio
     items:
-    - name: 1- Build a Service Fabric Mesh web app
+    - name: 1- Create a Mesh app
       href: service-fabric-mesh-tutorial-create-dotnetcore.md
-    - name: 2- Debug a Service Fabric Mesh web app
+    - name: 2- Debug a Mesh app
       href: service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md
-    - name: 3- Deploy a Service Fabric Mesh web app
+    - name: 3- Deploy a Mesh app
       href: service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md
+   - name: 4- Upgrade a Mesh app
+      href: service-fabric-mesh-tutorial-upgrade.md
+   - name: 5- Clean up Mesh resources
+      href: service-fabric-mesh-tutorial-cleanup-resources.md
   - name: Deploy, scale, and upgrade an Service Fabric Mesh app using a template
     items:
     - name: 1- Deploy a Service Fabric Mesh app
