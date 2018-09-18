@@ -20,7 +20,7 @@ ms.author: rkarlin
 # Automate onboarding of Azure Security Center using PowerShell
 
 You can secure your Azure workloads programmatically, using the Azure Security Center PowerShell module.
-This enables you to automate tasks and avoid the human error inherent in manual tasks This is especially useful in large-scale deployments that involve dozens of subscriptions with hundreds and thousands of resources – all of which must be secured from the beginning.
+Using PowerShell enables you to automate tasks and avoid the human error inherent in manual tasks This is especially useful in large-scale deployments that involve dozens of subscriptions with hundreds and thousands of resources – all of which must be secured from the beginning.
 
 Onboarding Azure Security Center using PowerShell enables you to programmatically automate onboarding and management of your Azure resources and add the necessary security controls.
 
@@ -43,7 +43,7 @@ In this example, we will enable Security Center on a subscription with ID: d07c0
 These steps should be performed before you run the Security Center cmdlets:
 
 1.	Run PowerShell as admin.
-2.	Run the following in PowerShell:
+2.	Run the following commands in PowerShell:
       
         Install-Module -Name PowerShellGet -Force
         Set-ExecutionPolicy -ExecutionPolicy AllSigned
@@ -67,7 +67,7 @@ These steps should be performed before you run the Security Center cmdlets:
         Set-AzureRmContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c”
         Set-AzureRmSecurityPricing -Name "default" -PricingTier "Standard"
 
-3.	Configure a Log Analytics workspace to which the agents will report. For this to work, you must create a Log Analytics workspace that the subscription’s VMs will report to. You can define multiple subscriptions to report to the same workspace. If not defined, the default workspace will be used.
+3.	Configure a Log Analytics workspace to which the agents will report. You must have a Log Analytics workspace that you already created, that the subscription’s VMs will report to. You can define multiple subscriptions to report to the same workspace. If not defined, the default workspace will be used.
 
         Set-AzureRmSecurityWorkspaceSetting -Name "default" -Scope
         "/subscriptions/d07c0080-170c-4c24-861d-9c817742786c" -WorkspaceId"/subscriptions/d07c0080-170c-4c24-861d-9c817742786c/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace"
@@ -94,7 +94,7 @@ These steps should be performed before you run the Security Center cmdlets:
 
 You now successfully onboarded Azure Security Center with PowerShell!
 
-You can now use these PowerShell cmdlets with automation scripts to programmatically iterate on multiple subscriptions and resources and reduce the overheard caused by manually performing these actions, as well as reduce the potential risk of human error resulting from manual actions. You can use this [sample script](https://github.com/Microsoft/Azure-Security-Center/blob/master/quickstarts/ASC-Samples.ps1) as reference.
+You can now use these PowerShell cmdlets with automation scripts to programmatically iterate across subscriptions and resources. This saves time and reduces the the likelihood of human error. You can use this [sample script](https://github.com/Microsoft/Azure-Security-Center/blob/master/quickstarts/ASC-Samples.ps1) as reference.
 
 
 
@@ -102,11 +102,11 @@ You can now use these PowerShell cmdlets with automation scripts to programmatic
 
 
 ## See also
-To learn more about how you can use PowerShell to automate onboarding to Security Center, see the following:
+To learn more about how you can use PowerShell to automate onboarding to Security Center, see the following article:
 
 * [AzureRM.Security](https://www.powershellgallery.com/packages/AzureRM.Security/0.1.0-preview).
 
-To learn more about Security Center, see the following:
+To learn more about Security Center, see the following article:
 
 * [Setting security policies in Azure Security Center](security-center-policies.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts.
