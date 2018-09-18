@@ -302,8 +302,8 @@ print(helpers.get_run_history_url(best_run))
 
 ## Sample notebooks
 Refer to 
-* `00.Getting Started/08.hyperdrive-with-TensorFlow/08.hyperdrive-with-TensorFlow.ipynb` for a tutorial on tuning hyperparameters for a Tensorflow model. 
-* `00.Getting Started/07.hyperdrive-with-sklearn/07.hyperdrive-with-sklearn.ipynb` for a tutorial on tuning hyperparameters with sklearn. 
+* `01.getting-started/08.hyperdrive-with-TensorFlow/08.hyperdrive-with-TensorFlow.ipynb` for a tutorial on tuning hyperparameters for a Tensorflow model. 
+* `01.getting-started/07.hyperdrive-with-sklearn/07.hyperdrive-with-sklearn.ipynb` for a tutorial on tuning hyperparameters with sklearn. 
 
 Get these notebooks:
 
