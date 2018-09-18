@@ -19,7 +19,7 @@ If you are new to Resource Manager templates,  learn about [template deployments
 
 ## Pre-requisites: 
 
-- You will need to be a [Service Administrator or co-administrator](https://docs.microsoft.com/en-us/azure/billing/billing-add-change-azure-subscription-administrator.d) on your Azure subscription 
+- You will need to be a [Service Administrator or co-administrator](https://docs.microsoft.com/en-us/azure/billing/billing-add-change-azure-subscription-administrator.md) on your Azure subscription 
 
 - Your subscription must be registered with [Microsoft.Insights](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-6.8.1) 
 
@@ -45,15 +45,15 @@ Alertnatively, the sample files with the modification listed in this are availab
 
 
 ### Steps to modify original template
-1. Save both files locally. 
+Save both files locally. 
 
-1. Open the *azuredeploy.parameters.json* file 
+Open the *azuredeploy.parameters.json* file 
 
 1. Enter values for *adminUsername* and *adminPassword* for the VM. These parameters are used for remote access to the VM. DO NOT use the ones in this template to avoid having your VM highjacked. Bots scan the internet for usernames and passwords in public Github repositories. They are likely to be testing VMs with these defaults.  
 
 1. Create a unique dnsname for the VM.  
 
-1. Open the *azuredeploy.json* file 
+Open the *azuredeploy.json* file 
 
 1. Add a storage account ID to the **variables** section of the template after the entry for **storageAccountName**.  
 
@@ -232,8 +232,6 @@ Alertnatively, the sample files with the modification listed in this are availab
     ```
 
 1. Save and close both files 
-
-
  
 
 ## Deploy the ARM template 
@@ -242,7 +240,7 @@ Alertnatively, the sample files with the modification listed in this are availab
 > You must be running the Azure Diagnostics extension version 1.5 or higher AND have the "autoUpgradeMinorVersion": property set to ‘true’ in your Resource Manager template.  Azure then loads the proper extension when it starts the VM. If you do not have these settings in your template, change them and redeploy the template. 
 
 
-To deploy the ARM template we will leverage Azure PowerShell.  
+To deploy the Resource Manager template we will leverage Azure PowerShell.  
 
 1. Launch PowerShell 
 1. Login to Azure using `Login-AzureRmAccount`
@@ -265,7 +263,7 @@ To deploy the ARM template we will leverage Azure PowerShell.
    > If you wish to update an existing VM, simply add *-Mode Incremental* to the end of the following command. 
  
    ```PowerShell
-   New-AzureRmResourceGroupDeployment -Name "<NameThisDeployment>" -ResourceGroupName "<Name of the Resource Group>" -TemplateFile "<File path of your ARM template>" -TemplateParameterFile "File path of your parameters file>" 
+   New-AzureRmResourceGroupDeployment -Name "<NameThisDeployment>" -ResourceGroupName "<Name of the Resource Group>" -TemplateFile "<File path of your ARM template>" -TemplateParameterFile "<File path of your parameters file>" 
    ```
   
 1. Once your deployment succeeds you should be able to find the VM in the Azure Portal, and it should be emitting metrics to Azure Monitor. 
@@ -279,7 +277,9 @@ To deploy the ARM template we will leverage Azure PowerShell.
 
 1. In the left-hand menu click **Monitor** 
 
-1. On the Monitor page click **Metrics (preview)**. 
+1. On the Monitor page click **Metrics**. 
+
+   ![Metrics page](./media/metrics-store-custom-rest-api/metrics.png) 
 
 1. Change the aggregation period to **Last 30 minutes**.  
 
@@ -288,9 +288,7 @@ To deploy the ARM template we will leverage Azure PowerShell.
 1. In the namespaces drop-down select **azure.vm.windows.guest** 
 
 1. In the metrics drop down, select **Memory\%Committed Bytes in Use**.  
-
-You should see something like the screen shot below.  
- TODO
+ 
 
 ## Next steps
 - Learn more about [custom metrics](metrics-custom-overview.md).

@@ -109,3 +109,4 @@ If you receive an error with some part of the process, considering the following
 
 
 ## Next steps
+- Learn more about [custom metrics](monitoring-overview-alerts.md).

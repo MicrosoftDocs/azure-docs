@@ -1,4 +1,3 @@
-TO DO
 ---
 title: Send guest OS metrics to the Azure Monitor metric store using a Resource Manager template for a Windows Virtual Machine
 description: Send guest OS metrics to the Azure Monitor metric store using a Resource Manager template for a Windows Virtual Machine
@@ -19,6 +18,9 @@ Starting with WAD version 1.11, you can write metrics directly to the Azure Moni
 If you are new to Resource Manager templates,  learn about [template deployments](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview.md), and their structure and syntax.  
 
 
+## Setup Azure Monitor as a data sink 
+The Azure Diagnostics extension uses a feature called "data sinks" to route metrics and logs to different locations.  The following steps show how to use a Resource Manager template and PowerShell to deploy a VM using the new "Azure Monitor" data sink. 
+
 ## Author Resource Manager template 
 For this example, you can use a publicly available sample template. The starting templates are at
 https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-autoscale  
@@ -34,35 +36,30 @@ Alertnatively, the sample files with the modification listed in this article are
 - [Modified **Azuredeploy.parameters.json**](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/monitoring-and-diagnostics/code/metrics-custom-guestos-resource-manager-VMSS/azuredeploy.parameters.json) 
 
 
+
 ### Steps to modify original template
 
-1. Save both files locally. 
+Save both files locally. 
 
-2. Open the azuredeploy.parameters.json file 
+Open the *azuredeploy.parameters.json* file 
+- Provide a **vmSKU** you would like to deploy (we recommend Standard_D2_v3) 
+- Specify a **windowsOSVersion** you would like for your VMSS (we recommend 2016-Datacenter) 
+- Name the VMSS resource to be deployed using the a **vmssName** property. For example, *VMSS-WAD-TEST*.    
+- Specify the number of VMs you would like to be running on the VMSS using the **instanceCount** property
+- Enter values for **adminUsername** and adminPassword for the VMSS. These parameters are used for remote access to the VMs in the scale set. 
 
-STOPPED HERE
-Provide a vmSKU you would like to deploy (we recommend Standard_D2_v3) 
-
-Specify a windowsOSVersion you would like for your VMSS (we recommend 2016-Datacenter) 
-
-Name the VMSS resource to be deployed using the a vmssName property. For example, VMSS-WAD-TEST.    
-
-Specify the number of VMs you would like to be running on the VMSS using the instanceCount property 
-
-Enter values for adminUsername and adminPassword for the VMSS. These parameters are used for remote access to the VMs in the scale set. 
-
-Open the azuredeploy.json file 
+Open the *azuredeploy.json* file 
 
 Add a variable to hold the storage account information in the Resource Manager template. You still must provide a Storage Account as part of the installation of the diagnostics extension. Any logs and/or performance counters specified in the diagnostics config file are written to the specified storage account in addition to being sent to the Azure Monitor metric store. 
 
-
+```json
 "variables": {  
- 
 "storageAccountName": "[concat('storage', uniqueString(resourceGroup().id))]", 
- 
+ ```
  
 Find the Virtual Machine Scale Set definition in the resources section and add the "identity" section to the configuration. This ensures Azure assigns it a system identity. This step ensures the VMs in the scale set can emit guest metrics about themselves to Azure Monitor.  
 
+```json
   { 
       "type": "Microsoft.Compute/virtualMachineScaleSets", 
       "name": "[variables('namingInfix')]", 
@@ -71,13 +68,14 @@ Find the Virtual Machine Scale Set definition in the resources section and add t
       "identity": { 
            "type": "systemAssigned" 
        }, 
+ ```
 
- 
+In the virtual machine scale set resource, find the the **virtualMachineProfile** section. Add a new profile called **extensionsProfile** to manage extensions.  
 
-In the virtual machine scale set resource, find the the “virtualMachineProfile” section. Here we will add a new profile called “extensionsProfile” to manage extensions. We will use this section in steps below. 
 
-In the extensionProfile add a new extension to the template after the “networkProfile” section. . This is the MSI extension that ensures the metrics being emitted are accepted by Azure Monitor. The “name” field can contain  any name.  
+In the **extensionProfile** add a new extension to the template after the **networkProfile** section. This is the Managed Service Identity (MSI) extension that ensures the metrics being emitted are accepted by Azure Monitor. The “name” field can contain  any name.  
 
+```json
 "extensionProfile": { 
 "extensions": [ 
     { 
@@ -93,6 +91,9 @@ In the extensionProfile add a new extension to the template after the “network
            "protectedSettings": {} 
          }, 
 }, 
+```
+
+```json
 Next, we will add the diagnostics extension as an extension resource to the VMSS resource (below the MSI extension). The highlighted sections enable the extension to emit metrics directly to Azure Monitor. Feel free to add/remove performance counters as needed. 
 { 
    "name": "[concat('VMDiagnosticsVmExt','_vmNodeType0Name')]", 
@@ -172,14 +173,18 @@ Next, we will add the diagnostics extension as an extension resource to the VMSS
              "typeHandlerVersion": "1.11" 
        } 
 } 
-Add a depends on gor the storage account. 
+```
+
+Add a dependsOn for the storage account to ensure it's created in the correct order. 
+```json
 "dependsOn": [ 
 "[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'))]", 
 "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]" 
 "[concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]" 
- 
-Create a storage account.  
+ ```
 
+Create a storage account  
+```json
 { 
     "type": "Microsoft.Storage/storageAccounts", 
     "name": "[variables('storageAccountName')]", 
@@ -189,42 +194,69 @@ Create a storage account.
       "accountType": "Standard_LRS" 
     } 
   }, 
- 
-Save and close both files 
+```
 
-Note: You must be running the Azure Diagnostics extension version 1.5 or higher AND have the "autoUpgradeMinorVersion": property set to ‘true’ in your Resource Manager template.  Azure then loads the proper extension when it starts the VMs. If you do not have these settings in your template, change them and redeploy the template. 
- 
+Save and close both files 
 
 ## Deploy the ARM template 
 
-To deploy the ARM template we will leverage Azure PowerShell.  
-Launch PowerShell 
-Login to Azure 
-Login-AzureRmAccount 
-Get your list of subscriptions 
-Get-AzureRmSubscription 
-Set the subscription you will be creating/updating the virtual machine in 
-Select-AzureRmSubscription -SubscriptionName "<Name of the subscription>" 
-Create a new resource group for the VM being deployed, run the below command 
-New-AzureRmResourceGroup -Name "VMSSWADtestGrp" -Location "<Azure Region>" 
-Note: Remember to use an Azure region that is enabled for custom metrics. 
+> [!NOTE]
+> You must be running the Azure Diagnostics extension version 1.5 or higher AND have the "autoUpgradeMinorVersion": property set to ‘true’ in your Resource Manager template.  Azure then loads the proper extension when it starts the VM. If you do not have these settings in your template, change them and redeploy the template. 
+
+
+To deploy the Resource Manager template we will leverage Azure PowerShell.  
+
+1. Launch PowerShell 
+1. Login to Azure using `Login-AzureRmAccount`
+1. Get your list of subscriptions using `Get-AzureRmSubscription`
+1. Set the subscription you will be creating/updating the virtual machine in 
+
+   ```PowerShell
+   Select-AzureRmSubscription -SubscriptionName "<Name of the subscription>" 
+   ```
+1. Create a new resource group for the VM being deployed, run the below command 
+
+   ```PowerShell
+    New-AzureRmResourceGroup -Name "VMSSWADtestGrp" -Location "<Azure Region>" 
+   ```
+
+   Note: Remember to use an Azure region that is enabled for custom metrics. 
  
-Execute the following commands to deploy the VM with the  
-New-AzureRmResourceGroupDeployment -Name "VMSSWADTest" -ResourceGroupName "VMSSWADtestGrp" -TemplateFile "<File path of your azuredeploy.JSON file>" -TemplateParameterFile "<File path of your azuredeploy.parameters.JSON file>"  
-Note: If you wish to update an existing VMSS, simply add ‘-Mode Incremental’ to the end of the above command 
+1. Execute the following commands to deploy the VM with the  
+   > [!NOTE] 
+   > If you wish to update an existing VMSS, simply add *-Mode Incremental* to the end of the following command. 
  
-Once your deployment succeeds you should be able to find the VMSS in the Azure Portal, and it should be emitting metrics to Azure Monitor. 
-Note: You may run into errors around the selected vmSkuSize. If this happens, go back to your azuredeploy.json file and update the default value of the vmSkuSize parameter  
- 
-Chart your metrics 
-Log-in to the Azure Portal 
-In the left-hand menu click on “Monitor” 
-On the Monitor page click on the “Metrics (preview)” tab 
- 
-In the resource drop-down select the VMSS just created 
-In the namespaces drop-down select “azure.vm.windows.guest” 
-In the metrics drop down, select ‘Memory\Committed Bytes in Use’ 
+   ```PowerShell
+   New-AzureRmResourceGroupDeployment -Name "VMSSWADTest" -ResourceGroupName "VMSSWADtestGrp" -TemplateFile "<File path of your azuredeploy.JSON file>" -TemplateParameterFile "<File path of your azuredeploy.parameters.JSON file>"  
+   ```
+
+1. Once your deployment succeeds you should be able to find the VMSS in the Azure Portal, and it should be emitting metrics to Azure Monitor. 
+
+   > [!NOTE] 
+   > You may run into errors around the selected vmSkuSize. If this happens, go back to your azuredeploy.json file and update the default value of the vmSkuSize parameter. In this case, we recommend trying  "Standard_DS1_v2"). 
+
+
+## Chart your metrics 
+
+1. Log-in to the Azure Portal 
+
+1. In the left-hand menu click **Monitor** 
+
+1. On the Monitor page click **Metrics**. 
+
+   ![Metrics page](./media/metrics-store-custom-rest-api/metrics.png) 
+
+1. Change the aggregation period to **Last 30 minutes**.  
+
+1. In the resource drop-down select the VMSS just created.  
+
+1. In the namespaces drop-down select **azure.vm.windows.guest** 
+
+1. In the metrics drop down, select **Memory\%Committed Bytes in Use**.  
+
 You can then also choose to use the dimensions on this metric to chart this metric for a particular VM in the scale set, or to plot each VM in the scale set. 
+
+
 
 ## Next steps
 - Learn more about [alerts](monitoring-overview-alerts.md).
