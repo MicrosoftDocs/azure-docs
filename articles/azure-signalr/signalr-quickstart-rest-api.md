@@ -61,8 +61,9 @@ This sample is a console app showing the use of Azure SignalR Service. It provid
 
 Also you can find how to generate an access token to authenticate with Azure SignalR Service.
 
-### Fist to build the executable file.
-We use macOS osx.10.13-x64 as example. You can find [reference](https://docs.microsoft.com/en-us/dotnet/core/rid-catalog) on how to build on other platforms.
+### Build the executable file
+
+We use macOS osx.10.13-x64 as example. You can find [reference](https://docs.microsoft.com/dotnet/core/rid-catalog) on how to build on other platforms.
 ```bash
 cd AzureSignalR-samples/samples/Serverless/
 
@@ -71,7 +72,7 @@ dotnet publish -c Release -r osx.10.13-x64
 
 ### Start a client
 
-```
+```bash
 cd bin/Release/netcoreapp2.1/osx.10.13-x64/
 
 Serverless client <ClientName> -c "<ConnectionString>" -h <HubName>
@@ -79,7 +80,7 @@ Serverless client <ClientName> -c "<ConnectionString>" -h <HubName>
 
 ### Start a server
 
-```
+```bash
 cd bin/Release/netcoreapp2.1/osx.10.13-x64/
 
 Serverless server -c "<ConnectionString>" -h <HubName>
@@ -89,7 +90,7 @@ Serverless server -c "<ConnectionString>" -h <HubName>
 
 You can also run the command below to start a server or client
 
-```
+```bash
 # Start a server
 dotnet run -- server -c "<ConnectionString>" -h <HubName>
 
