@@ -95,6 +95,10 @@
         href: ../application-insights/app-insights-overview.md?toc=/azure/azure-monitor/toc.json
       - name: DevOps
         href: ../application-insights/app-insights-detect-triage-diagnose.md?toc=/azure/azure-monitor/toc.json
+      - name: Distributed tracing
+        href: ../application-insights/opencensus.md?toc=/azure/azure-monitor/toc.json
+      - name: Log-based & pre-aggregated metrics
+        href: ../application-insights/pre-aggregated-metrics-log-metrics.md?toc=/azure/azure-monitor/toc.json
     - name: Containers
       href: https://aka.ms/AzureMonitorContainers
     - name: Virtual Machines
@@ -298,6 +302,14 @@
           href: ../application-insights/app-insights-javascript.md?toc=/azure/azure-monitor/toc.json
       - name: Monitor Azure Functions
         href: ../azure-functions/functions-monitoring.md?toc=/azure/application-insights/toc.json 
+      - name: Distributed tracing
+        items:
+        - name: Local forwarder
+          href: ../application-insights/local-forwarder.md?toc=/azure/azure-monitor/toc.json
+        - name: Python
+          href: ../application-insights/open-census-python.md?toc=/azure/azure-monitor/toc.json
+        - name: Go
+          href: ../application-insights/open-census-go.md?toc=/azure/azure-monitor/toc.json
       - name: Other platforms
         items:
         - name: SharePoint sites
@@ -584,6 +596,8 @@
       href: ../monitoring-and-diagnostics/monitoring-service-notifications.md?toc=/azure/azure-monitor/toc.json
     - name: Query log data
       items:
+      - name: Language reference
+        href: https://docs.loganalytics.io
       - name: Get started
         items:
         - name: Get started with Analytics portal
@@ -618,18 +632,8 @@
           href: ../log-analytics/query-language/sql-cheatsheet.md?toc=/azure/azure-monitor/toc.json
         - name: Splunk
           href: ../log-analytics/query-language/splunk-cheatsheet.md?toc=/azure/azure-monitor/toc.json
-      - name: Language reference
-        items:
-        - name: Language reference
-          href: https://aka.ms/LogAnalyticsLanguageReference
-        - name: app expression
-          href: ../log-analytics/query-language/app-expression.md?toc=/azure/azure-monitor/toc.json
-        - name: workspace expression
-          href: ../log-analytics/query-language/workspace-expression.md?toc=/azure/azure-monitor/toc.json
       - name: Application data
         href: ../application-insights/app-insights-analytics.md?toc=/azure/azure-monitor/toc.json
-      - name: Standard properties
-        href: ../log-analytics/log-analytics-standard-properties.md?toc=/azure/azure-monitor/toc.json
       - name: Cross-resource searches
         href: ../log-analytics/log-analytics-cross-workspace-search.md?toc=/azure/azure-monitor/toc.json
       - name: Take action from search results
