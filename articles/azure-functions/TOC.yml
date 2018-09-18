@@ -23,24 +23,20 @@
     href: functions-create-first-azure-function-azure-cli-linux.md
   - name: Triggers
     items:
-    - name: Blob storage
-      href: functions-create-storage-blob-triggered-function.md
     - name: Azure Cosmos DB
       href: functions-create-cosmos-db-triggered-function.md
-    - name: Timer
-      href: functions-create-scheduled-function.md
-    - name: Generic webhook
-      href: functions-create-generic-webhook-triggered-function.md
-    - name: GitHub webhook
-      href: functions-create-github-webhook-triggered-function.md
+    - name: Blob storage
+      href: functions-create-storage-blob-triggered-function.md
     - name: Queue storage
       href: functions-create-storage-queue-triggered-function.md
+    - name: Timer
+      href: functions-create-scheduled-function.md
   - name: Integrate
     items:
-    - name: Storage
-      href: functions-integrate-storage-queue-output-binding.md
     - name: Azure Cosmos DB
       href: functions-integrate-store-unstructured-data-cosmosdb.md
+    - name: Storage
+      href: functions-integrate-storage-queue-output-binding.md
 - name: Tutorials
   items:
   - name: Functions with Logic Apps

@@ -40,11 +40,10 @@ Functions provides templates to get you started with key scenarios, including th
 
 * **HTTPTrigger** - Trigger the execution of your code by using an HTTP request. For an example, see [Create your first function](functions-create-first-azure-function.md).
 * **TimerTrigger** - Execute cleanup or other batch tasks on a predefined schedule. For an example, see [Create a function triggered by a timer](functions-create-scheduled-function.md).
-* **GitHub webhook** - Respond to events that occur in your GitHub repositories. For an example, see [Create a function triggered by a GitHub webhook](functions-create-github-webhook-triggered-function.md).
-* **Generic webhook** - Process webhook HTTP requests from any service that supports webhooks. For an example, see [Create a function triggered by a generic webhook](functions-create-generic-webhook-triggered-function.md).
 * **CosmosDBTrigger** - Process Azure Cosmos DB documents when they are added or updated in collections in a NoSQL database. For an example, see [Create a function triggered by Azure Cosmos DB](functions-create-cosmos-db-triggered-function.md).
 * **BlobTrigger** - Process Azure Storage blobs when they are added to containers. You might use this function for image resizing. For more information, see [Blob storage bindings](functions-bindings-storage-blob.md).
 * **QueueTrigger** - Respond to messages as they arrive in an Azure Storage queue. For an example, see [Create a function triggered by Azure Queue storage](functions-create-storage-queue-triggered-function.md).
+* **EventGridTrigger** -  Respond to events delivered to a subscription in Azure Event Grid. Supports a subscription-based model for receiving events, which includes filtering. A good solution for building event-based architectures. For an example, see [Automate resizing uploaded images using Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md).
 * **EventHubTrigger** -  Respond to events delivered to an Azure Event Hub. Particularly useful in application instrumentation, user experience or workflow processing, and Internet of Things (IoT) scenarios. For more information, see [Event Hubs bindings](functions-bindings-event-hubs.md).
 * **ServiceBusQueueTrigger** - Connect your code to other Azure services or on-premises services by listening to message queues. For more information, see [Service Bus bindings](functions-bindings-service-bus.md).
 * **ServiceBusTopicTrigger** - Connect your code to other Azure services or on-premises services by subscribing to topics. For more information, see [Service Bus bindings](functions-bindings-service-bus.md).
@@ -55,13 +54,11 @@ Azure Functions supports *triggers*, which are ways to start execution of your c
 Azure Functions integrates with various Azure and 3rd-party services. These services can trigger your function and start execution, or they can serve as input and output for your code. The following service integrations are supported by Azure Functions:
 
 * Azure Cosmos DB
-* Azure Event Hubs 
+* Azure Event Hubs
 * Azure Event Grid
-* Azure Mobile Apps (tables)
 * Azure Notification Hubs
 * Azure Service Bus (queues and topics)
-* Azure Storage (blob, queues, and tables) 
-* GitHub (webhooks)
+* Azure Storage (blob, queues, and tables)
 * On-premises (using Service Bus)
 * Twilio (SMS messages)
 
@@ -69,7 +66,7 @@ Azure Functions integrates with various Azure and 3rd-party services. These serv
 Azure Functions has two kinds of pricing plans. Choose the one that best fits your needs: 
 
 * **Consumption plan** - When your function runs, Azure provides all of the necessary computational resources. You don't have to worry about resource management, and you only pay for the time that your code runs. 
-* **App Service plan** - Run your functions just like your web, mobile, and API apps. When you are already using App Service for your other applications, you can run your functions on the same plan at no additional cost. 
+* **App Service plan** - Run your functions just like your web apps. When you are already using App Service for your other applications, you can run your functions on the same plan at no additional cost. 
 
 For more information about hosting plans, see [Azure Functions hosting plan comparison](functions-scale.md). Full pricing details are available on the [Functions Pricing page](https://azure.microsoft.com/pricing/details/functions/).
 

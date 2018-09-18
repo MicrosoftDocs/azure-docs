@@ -1,6 +1,6 @@
 ---
-title: Azure Functions HTTP and webhook bindings
-description: Understand how to use HTTP and webhook triggers and bindings in Azure Functions.
+title: Azure Functions HTTP triggers and bindings
+description: Understand how to use HTTP triggers and bindings in Azure Functions.
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -14,9 +14,9 @@ ms.date: 11/21/2017
 ms.author: glenga
 ---
 
-# Azure Functions HTTP and webhook bindings
+# Azure Functions HTTP triggers and bindings
 
-This article explains how to work with HTTP triggers and output bindings in Azure Functions. Azure Functions supports HTTP triggers and output bindings.
+This article explains how to work with HTTP triggers and output bindings in Azure Functions.
 
 An HTTP trigger can be customized to respond to [webhooks](https://en.wikipedia.org/wiki/Webhook).
 
@@ -338,7 +338,7 @@ The following table explains the binding configuration properties that you set i
 | <a name="http-auth"></a>**authLevel** |  **AuthLevel** |Determines what keys, if any, need to be present on the request in order to invoke the function. The authorization level can be one of the following values: <ul><li><code>anonymous</code>&mdash;No API key is required.</li><li><code>function</code>&mdash;A function-specific API key is required. This is the default value if none is provided.</li><li><code>admin</code>&mdash;The master key is required.</li></ul> For more information, see the section about [authorization keys](#authorization-keys). |
 | **methods** |**Methods** | An array of the HTTP methods to which the function  responds. If not specified, the function responds to all HTTP methods. See [customize the http endpoint](#customize-the-http-endpoint). |
 | **route** | **Route** | Defines the route template, controlling to which request URLs your function responds. The default value if none is provided is `<functionname>`. For more information, see [customize the http endpoint](#customize-the-http-endpoint). |
-| **webHookType** | **WebHookType** |**V1 runtime only - does not work for Functions 2.0**<br/><br/>Configures the HTTP trigger to act as a [webhook](https://en.wikipedia.org/wiki/Webhook) receiver for the specified provider. Don't set the `methods` property if you set this property. The webhook type can be one of the following values:<ul><li><code>genericJson</code>&mdash;A general-purpose webhook endpoint without logic for a specific provider. This setting restricts requests to only those using HTTP POST and with the `application/json` content type.</li><li><code>github</code>&mdash;The function responds to [GitHub webhooks](https://developer.github.com/webhooks/). Do not use the  _authLevel_ property with GitHub webhooks. For more information, see the GitHub webhooks section later in this article.</li><li><code>slack</code>&mdash;The function responds to [Slack webhooks](https://api.slack.com/outgoing-webhooks). Do not use the _authLevel_ property with Slack webhooks. For more information, see the Slack webhooks section later in this article.</li></ul>|
+| **webHookType** | **WebHookType** | _Supported only for the version 1.x runtime._<br/><br/>Configures the HTTP trigger to act as a [webhook](https://en.wikipedia.org/wiki/Webhook) receiver for the specified provider. Don't set the `methods` property if you set this property. The webhook type can be one of the following values:<ul><li><code>genericJson</code>&mdash;A general-purpose webhook endpoint without logic for a specific provider. This setting restricts requests to only those using HTTP POST and with the `application/json` content type.</li><li><code>github</code>&mdash;The function responds to [GitHub webhooks](https://developer.github.com/webhooks/). Do not use the  _authLevel_ property with GitHub webhooks. For more information, see the GitHub webhooks section later in this article.</li><li><code>slack</code>&mdash;The function responds to [Slack webhooks](https://api.slack.com/outgoing-webhooks). Do not use the _authLevel_ property with Slack webhooks. For more information, see the Slack webhooks section later in this article.</li></ul>|
 
 ## Trigger - usage
 
@@ -436,7 +436,7 @@ Functions lets you use keys to make it harder to access your HTTP function endpo
 > While keys may help obfuscate your HTTP endpoints during development, they are not intended as a way to secure an HTTP trigger in production. To learn more, see [Secure an HTTP endpoint in production](#secure-an-http-endpoint-in-production).
 
 > [!NOTE]
-> In the Functions 1.x runtime, webhook providers may use keys to authorize requests in a variety of ways, depending on what the provider supports. This is covered in [Webhooks and keys](#webhooks-and-keys). Functions 2.x does not include support for webhook providers.
+> In the Functions 1.x runtime, webhook providers may use keys to authorize requests in a variety of ways, depending on what the provider supports. This is covered in [Webhooks and keys](#webhooks-and-keys). The version 2.x runtime does not include built-in support for webhook providers.
 
 There are two types of keys:
 
@@ -485,10 +485,12 @@ To fully secure your function endpoints in production, you should consider imple
 
 When using one of these function app-level security methods, you should set the HTTP-triggered function authentication level to `anonymous`.
 
-
 ### Webhooks
 
-The webhook mode is only available in Functions V1. This provides additional validation to webhook payloads. In V2, the base HTTP trigger will still work and is the recommended approach.
+> [!NOTE]
+> Webhook mode is only available for version 1.x of the Functions runtime.
+
+Webhook mode provides additional validation for webhook payloads. In version 2.x, the base HTTP trigger still works and is the recommended approach for webhooks.
 
 #### GitHub webhooks
 
