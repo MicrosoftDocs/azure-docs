@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.date: 9/24/2018
 ---
 
-# How to manage and request quotas
+# Manage and request quotas for Azure resources
 
 As with other Azure services, there are limits on certain resources associated with the Azure Machine Learning service. These limits range from a cap on the number of workspaces you can create to limits on the actual underlying compute that gets used for training or inferencing your models. This article gives more details on the pre-configured limits on various Azure resources for your subscription and also contains handy links to request quota enhancements for each type of resource.
 

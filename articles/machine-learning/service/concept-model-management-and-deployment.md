@@ -4,90 +4,84 @@ description: Microsoft provides a full end-to-end solution to discover, manage, 
 services: machine-learning
 author: hjerez
 ms.author: hjerez
-manager: cgronlun
-ms.reviewer: garyericson, mldocs
+ms.reviewer: j-martrens
 ms.service: machine-learning
 ms.component: core
-ms.workload: data-services
 ms.topic: overview
 ms.date: 09/24/2018
 ---
 
-# Model management, deployment, and monitoring in Azure Machine Learning
+# Manage, deploy, and monitor models with Azure Machine Learning
 
-The Azure Machine Learning service allows you to deploy, manage, and monitor your models to continuously improve them. You can use models you create with Azure Machine Learning, or from other sources. For example, you might deploy a model that you trained on your local computer.
+The Azure Machine Learning service allows you to deploy, manage, and monitor your models to continuously improve them. You can deploy the models you trained with Azure Machine Learning, on your local machine, or from other sources. 
 
 [ ![Azure Machine Learning CI/CD cycle](media/concept-model-management-and-deployment/model-ci-cd.png) ](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
 
-## Deployment pipeline
+## Deployment workflow
 
-The deployment pipeline consists of ***model registration*** in a model registry hosted in your Azure Machine Learning workspace, ***image registration*** that pairs a model with a scoring script and dependencies, and ***deployment*** in which an image is deployed as a web service in the cloud or to edge devices.
-Each step can be performed independently, or as part of a single deployment command. 
+The deployment workflow consists in: 
+1. **Register the model** in a registry hosted in your Azure Machine Learning workspace
+1. **Register an image** that pairs a model with a scoring script and dependencies in a portable container 
+1. **Deploy** the image as a web service in the cloud or to edge devices
+1. **Monitoring and data collection**
+
+Each step can be performed independently or as part of a single deployment command. 
 
 The following diagram illustrates the complete deployment pipeline:
 
 [ ![Deployment pipeline](media/concept-model-management-and-deployment/deployment-pipeline.png) ](media/concept-model-management-and-deployment/deployment-pipeline.png#lightbox)
 
-## Model registration
+## Step 1: Model registration
 
 The model registry keeps track of all the models in your Azure Machine Learning workspace.
-Models are identified by name and version. Each time you register a model with the same name as an existing one, the registry assumes that it is a new version. The version is incremented and the new model is registered under the name.
-
-You can provide additional metadata tags when you register the model and then use these tags when searching for models.
+Models are identified by name and version. Each time you register a model with the same name as an existing one, the registry increments the version. You can also provide additional metadata tags during registration that can be used when searching for models.
 
 You cannot delete models that are being used by an image.
 
-## Image registration
+## Step 2: Image registration
 
-Images provide the ability to reliably deploy a model, along with all components needed to use the model. An image contains the following items:
+Images allow for reliable model deployment, along with all components needed to use the model. An image contains the following items:
 
 * The model
-* The inferencing engine
-* A scoring file or application
+* The scoring engine
+* The scoring file or application
 * Any dependencies needed to score the model
 
 The image can also include SDK components for logging and monitoring. The SDK logs data can be used to fine tune or retrain your model, including the input and output of the model.
 
-All the objects used to create the image are stored in an Azure storage account in your workspace. The image is created and stored in the Azure Container Registry. You can provide additional metadata tags when creating the image, which are also stored by the image registry and can be queried to find your image.
+When your workspace was created, so were other several other Azure resources used by that workspace.
+All the objects used to create the image are stored in the Azure storage account in your workspace. The image is created and stored in the Azure Container Registry. You can provide additional metadata tags when creating the image, which are also stored by the image registry and can be queried to find your image.
 
-## Deployment
+## Step 3: Deployment
 
 You can deploy registered images into the cloud or to edge devices. The deployment process creates all the resources needed to monitor, load-balance, and auto-scale your model. You can also upgrade an existing deployment to use a newer image.
 
-Deployments are also searchable. For example, you can search for all deployments of a specific model or image.
+Web service deployments are also searchable. For example, you can search for all deployments of a specific model or image.
 
 [ ![Inferencing targets](media/concept-model-management-and-deployment/inferencing-targets.png) ](media/concept-model-management-and-deployment/inferencing-targets.png#lightbox)
-
-### Managed cloud deployments
 
 You can deploy your images to the following targets in the cloud:
 
 * Azure Container Instance
 * Azure Kubernetes Service
-* Project Brainwave
+* Azure FPGA machines
+* Azure IoT Edge devices
 
-As your service is deployed, the inferencing request is automatically load-balanced and the cluster is scaled to satisfy any spikes on demand. Telemetry about your service is captured into the AppInsights service associated with your Workspace.
+[Learn more about where you can deploy](how-to-deploy-and-where.md).
 
-### Hardware-accelerated cloud deployments
+As your service is deployed, the inferencing request is automatically load-balanced and the cluster is scaled to satisfy any spikes on demand. Telemetry about your service is captured into the Azure Application Insights service associated with your Workspace.
 
-You can choose to deploy your models to clusters that leverage GPU accelerators for your models. For certain types of models you can leverage FPGA enabled systems.
+## Step 4: Monitoring models and data collection
 
-### Edge deployments
-
-You can deploy your images to the edge using Azure IoT Edge which uses IoT Hub to deploy directly to IoT edge devices.
-You can deploy your models to traditional "heavy edge" devices (systems that range from multi-tenant server grade solutions to PC and gateway devices) or "light edge" devices (low power semi-connected single tenant devices that are directly collocated with sensors).
-
-### Hardware-accelerated edge deployments
-
-You can automatically optimize certain models to take advantage of new hardware accelerators in edge devices. This service leverages Azure IoT Edge and allows you to run your models in real-time with cloud-like performance on the edge in semi-connected environments.
-
-## Model logging and data capture SDK
-
-The model logging and data capture SDK can be used to monitor input, output, and other relevant data from your model. The data is stored as a blob in the Azure Storage account for your workspace.
+An SDK for model logging and data capture is available so you can monitor input, output, and other relevant data from your model. The data is stored as a blob in the Azure Storage account for your workspace.
 
 To use the SDK with your model, you import the SDK into your scoring script or application. You can then use the SDK to log data such as parameters, results, or input details.
 
-> [!NOTE]
+If you decide to enable model data collection every time you deploy the image, the details needed to capture the data, such as the credentials to your personal blob store, are provisioned automatically.
+
+> [!Important]
 > Microsoft does not see the data you collect from your model. The data is sent directly to the Azure storage account for your workspace.
 
-If you decide to enable model data collection every time you deploy the image, the details needed to capture the data, such as the credentials to your personal blob store, will be provisioned automatically.
+## Next steps
+
+Learn more about [how and where you can deploy models](how-to-deploy-and-where.md) with the Azure Machine Learning service.
