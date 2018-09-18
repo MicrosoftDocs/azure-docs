@@ -41,10 +41,14 @@
     href: application-gateway-ssl-policy-overview.md
   - name: Web application firewall
     href: waf-overview.md
+  - name: WAF configuration
+    href: application-gateway-waf-configuration.md 
   - name: URL routing
     href: url-route-overview.md
   - name: Multiple site hosting
     href: multiple-site-overview.md
+  - name: Autoscaling and zone-redundancy
+    href: application-gateway-autoscaling-zone-redundant.md
   - name: Redirection support
     href: redirect-overview.md
   - name: Multi-tenant support
