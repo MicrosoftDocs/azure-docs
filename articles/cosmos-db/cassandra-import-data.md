@@ -25,21 +25,18 @@ This tutorial covers the following tasks:
 > * Migrate data using Spark 
 
 ## Plan for migration
-before migrating data to Azure Cosmos DB, you should estimate the throughput needs for your existing Cassandra workload. Gather the following details from your source database: 
+Migrating to or Adopting Cassandra API like anyother API in Cosmos DB  requires estimatation of the throughput needs.  In general it is better to start with stready state throughput for CRUD operations and then add difference for ETL or spiky operations.
 
-* **Existing uncompressed data size:** Defines the minimum database size and throughput requirement. 
+What do you need 
+* **Existing data size or estimated data size:** Defines the minimum database size and throughput requirement. If this is new application, you can assume the uniform distribution attributes across the rows and multiply by their datasize. 
 
-* **Required throughput:** Approximate read (query/get) and write(update/delete/insert) throughput rate.
-
-* **Gather source cluster’s information:**  From your Cassandra source cluster, use nodetool utility run [nodetool flush](https://docs.datastax.com/en/cassandra/3.0/cassandra/tools/toolsFlush.html) to flush tables from memtable. After a reasonable workload is run, gather [nodetool tablestats](https://docs.datastax.com/en/cassandra/3.0/cassandra/tools/toolsTablestats.html) to get the average data size and average number of reads/writes for a table with the given latency. The average values can be retrieved by Local read count, Local write count, Local read latency, Local write latency values. 
+* **Required throughput:** Approximate read (query/get) and write(update/delete/insert) throughput rate. This is the key for working out the required RU along with steady state data size.  
 
 * **Get the schema:** Connect to your existing Cassandra cluster through cqlsh and export schema from Cassandra: 
 
   ```bash
   cqlsh [IP] "-e DESC SCHEMA" > orig_schema.cql
   ```
-
-* **Determine the latency from your machine to the Azure Cosmos DB service:** If you are within an Azure Data center, the latency should be a low single digit millisecond number. If you are outside the Azure Datacenter, then you can use psping or azurespeed.com to get the approximate latency from your location.
 
 After you identify the requirements of your existing workload, you should create an Azure Cosmos DB account, database, and containers according to the gathered throughput requirements.  
 
@@ -100,7 +97,7 @@ Use the following steps to migrate data to Azure Cosmos DB Cassandra API with Sp
 
 - Move data to destination Cassandra API endpoint by using [table copy operation](cassandra-spark-table-copy-ops.md) 
 
-Migrating data by using spark jobs is also a recommended option if you have data residing in an existing cluster in Azure virtual machines. This requires spark to be set up as intermediary for one time or regular ingestion.
+Migrating data by using spark jobs is a recommended option if you have data residing in an existing cluster in Azure virtual machines or any other cloud. This requires spark to be set up as intermediary for one time or regular ingestion. You can accelerate this migration by using Express route connectivity between on-premise and Azure. 
 
 ## Next steps
 
