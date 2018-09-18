@@ -29,14 +29,16 @@ The diagram below represents the general terms and flow of alerts.
 
 Alert rules are separated from alerts and the action that are taken when an alert fires. 
 
-- **Alert rule** - The condition that triggers the alert. The alert rule captures the target and criteria for alerting. The alert rule can be in an enabled or a disabled state. Alerts only fire when enabled.
-    - **Target Resource** - A target can be any Azure resource. Target Resource defines the scope and signals available for alerting. Example targets: a virtual machine, a storage account, a virtual machine scale set, a Log Analytics workspace, or an Application Insights resource.
+- **Alert rule** - The alert rule captures the target and criteria for alerting. The alert rule can be in an enabled or a disabled state. Alerts only fire when enabled. The key attributes of an alert rules are:
+    - **Target Resource** - A target can be any Azure resource. Target Resource defines the scope and signals available for alerting. Example targets: a virtual machine, a storage account, a virtual machine scale set, a Log Analytics workspace, or an Application Insights resource. For certain resources (e.g. Virtual Machines), you can specify multiple resources as the target of an alert rule.
     - **Signal** - Signals are emitted by the target resource and can be of several types. Metric, Activity log, Application Insights, and Log.
     - **Criteria** - Criteria is combination of Signal and Logic applied on a Target resource. Examples: 
          - Percentage CPU > 70%
          - Server Response Time > 4 ms 
          - Result count of a log query > 100
-- **Logic** - User-defined logic to check if the signal is within expected range/values.
+- **Alert Name** – A specific name for the alert rule configured by the user
+- **Alert Description** – A description for the alert rule configured by the user
+- **Severity** – The severity of the alert once the criteria specified in the alert rule is met. Severity can range from 0 to 4.
 - **Action** - A specific action taken when the alert is fired. For more information, see Action Groups.
 
 ## What you can alert on
@@ -44,16 +46,14 @@ Alert rules are separated from alerts and the action that are taken when an aler
 You can alert on metrics and logs as described in [monitoring data sources](./monitoring-and-diagnotics/monitoring-data-sources.md). These include but are not limited to:
 - Metric values
 - Log search queries
-- Health of your resources 
+- Activity Log events
 - Health of the underlying Azure platform
-- Proactive diagnostics
 - Tests for web site availability
-- Custom metrics 
 
-As new types become available, they are added to the alerts section of the Azure portal. See [Metrics support for Azure Monitor alerts](./monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md) for the list of supported metric signals.  This list is smaller than the current list of all available metrics, but is growing over time. In cases when a metric is not avilable for use with the newer alerts, you can still use a [classic alert](#classic-alerts). 
 
-## Alert states and monitor conditions
-You can set the state of an alert to specify where it is in the resolution process. When an alert is created, it has a status of *New*. You can change the status when you acknowledge an alert and when you close it. All state changes are stored in the history of the alert.
+
+## Manage Alerts
+You can set the state of an alert to specify where it is in the resolution process. When the criteria specified in the alert rule is met, an alert is created or fired, it has a status of *New*. You can change the status when you acknowledge an alert and when you close it. All state changes are stored in the history of the alert.
 
 The following alert states are supported.
 
@@ -63,18 +63,15 @@ The following alert states are supported.
 | Acknowledged | An administrator has reviewed the alert and started working on it. |
 | Closed | The issue has been resolved. After an alert has been closed, you can reopen it by changing it to another state. |
 
-The state of an alert is different than the monitor condition. Metric alert rules can set an alert to a condition of *resolved* when the error condition is no longer met. Alert state is set by the user and is independent of the monitor condition. Although the system can set the monitor condition to *resolved*, the alert state isn't changed until the user changes it.
+The state of an alert is different than the monitor condition. Alert state is set by the user and is independent of the monitor condition. When the underlying condition for the fired alert clears, the monitor condition for the alert is set to resolved. Although the system can set the monitor condition to resolved, the alert state isn't changed until the user changes it. Learn [how to change the state of your alerts and smart groups](https://aka.ms/managing-alert-smart-group-states).
 
-## Smart groups
-Smart groups are method of clustering related alerts together to reduce visual noise and complexity. You can then manage the related alerts as a single unit rather than as individual ones. You can view the details of smart groups and set the state similarly to how you can with alerts. Each alert is a member of one and only one smart group.
+## Smart groups 
+Smart Groups are in preview. 
 
-Smart groups are automatically created by using machine learning to combine related alerts that represent a single issue. When an alert is created, the algorithm adds it to a new smart group or an existing smart group based on information such as historical patterns, similar properties, and similar structure. 
+Smart groups are aggregations of alerts based on machine learning algorithms which can help reduce alert noise and aid in trouble-shooting. [Learn more about Smart Groups](https://aka.ms/smart-groups) and [how to manage your smart groups](https://aka.ms/managing-smart-groups).
 
-Currently, the algorithm only considers alerts from the same monitor service within a subscription. Smart groups can reduce up to 99% of alert noise through this consolidation. You can view the reason that alerts were included in a group in the smart group detail page.
 
-The name of a smart group is the name of its first alert. You can't create or rename a smart group.
-
-## Alerts Landing page
+## Alerts experience 
 The default Alerts page provides a summary of alerts that are created within a particular time window. It displays the total alerts for each severity with columns that identify the total number of alerts in each state for each severity. Select any of the severities to open the [All Alerts](#all-alerts-page) page filtered by that severity.
 
 It does not show or track older [classic alerts](#classic-alerts). You can change the subscriptions or filter parameters to update the page. 
@@ -98,7 +95,7 @@ Select the following values at the top of the Alerts page to open another page.
 | Total alert rules | The total number of alert rules in the selected subscription and resource group. Select this value to open the Rules view filtered on the selected subscription and resource group.
 
 
-## Rules management
+## Manage alert rules
 Click on **Manage alert rules** to show the **Rules** page. **Rules** is a single place for managing all alert rules across your Azure subscriptions. It lists all alert rules and can be sorted based on target resources, resource groups, rule name, or status. Alert rules can also be edited, enabled, or disabled from this page.  
 
  ![alerts-rules](./media/monitoring-overview-alerts/alerts-preview-rules.png)
@@ -125,15 +122,6 @@ Previously, Azure Monitor, Application Insights, Log Analytics and Service Healt
 | Service health | Activity log  | Not supported. See [Create activity log alerts on service notifications](monitoring-activity-log-alerts-on-service-notifications.md).  |
 | Application Insights | Web availability tests | Not supported. See [Web test alerts](../application-insights/app-insights-monitor-web-app-availability.md). Available to any website that's instrumented to send data to Application Insights. Receive a notification when availability or responsiveness of a website is below expectations. |
 
-
-## Change the state of an alert or smart group
-You can change the state of an individual alert or manage multiple alerts together by setting the state of a smart group.
-
-Change the state of an alert by selecting **Change alert state** in the detail view for the alert. Or change the state for a smart group by selecting **Change smart group state** in its detail view. Change the state of multiple items at one time by first selecting them in a list view and then selecting **Change State** at the top of the page. 
-
-In both cases, select a new state from the dropdown menu, then provide an optional comment. If you're changing a single item, you also have an option to apply the same changes to all the alerts in the smart group.
-
-![Change state](media/monitoring-overview-alerts/change-tate.png)
 
 ## All alerts page 
 Click on Total Alerts to see the all alerts page. Here you can view a list of alerts that were created within the selected time window. You can view either a list of the individual alerts or a list of the smart groups that contain the alerts. Select the banner at the top of the page to toggle between views.
@@ -170,18 +158,6 @@ The Alert detail page includes the following sections.
 | Smart group | Information about the smart group the alert is included in. The *alert count* refers to the number of alerts that are included in the smart group. This includes the other alerts in the same smart group that were created in the past 30 days.  This is regardless of the time filter in the alerts list page. Select an alert to view its detail. |
 | More details | Displays further contextual information for the alert, which is typically specific to the type of source that created the alert. |
 
-## Smart group detail page
-The Smart group detail page is displayed when you select a smart group. It provides details about the smart group, including the reasoning that was used to create the group, and enables you to change its state.
- 
-![Smart group detail](media/monitoring-overview-alerts/smart-group-detail.png)
-
-
-The smart group detail page includes the following sections.
-
-| Section | Description |
-|:---|:---|
-| Alerts | Lists the individual alerts that are included in the smart group. Select an alert to open its alert detail page. |
-| History | Lists each action taken by the smart group and any changes that are made to it. This is currently limited to state changes and alert membership changes. |
 
 ## Classic alerts 
 
@@ -190,9 +166,11 @@ The Azure Monitor metrics and activity log alerting capability before June 2018 
 For more information see [Alerts classic](./monitoring-overview-alerts-classic.md)
 
 
-
 ## Next steps
 
+- [Learn more about Smart Groups](https://aka.ms/smart-groups)
+- [Managing your alert instances in Azure](https://aka.ms/managing-alert-instances)
+- [Managing Smart Groups](https://aka.ms/managing-smart-groups)
 
 
 
