@@ -41,7 +41,7 @@ Azure Data Explorer supports several ingestion methods, each with its own target
 
 Azure Data Explorer currently supports the Event Hub connector, which can be managed using the management wizard in the Azure portal. For more information, see [Quickstart: Ingest data from Event Hub into Azure Data Explorer](ingest-data-event-hub.md).
 
-### Programmatic ingestion​
+### Programmatic ingestion
 
 Azure Data Explorer provides SDKs that can be used for query and data ingestion. Programmatic ingestion is optimized for reducing ingestion costs (COGs), by minimizing storage transactions during and following the ingestion process.
 
@@ -55,7 +55,7 @@ Kusto offers client SDK that can be used to ingest and query data with :
 
 * [Java SDK](https://docs.microsoft.com/azure/kusto/api/java/kusto-java-client-library)
 
-* [REST API](https://docs.microsoft.com/en-us/azure/kusto/api/netfx/kusto-ingest-client-rest)
+* [REST API](https://docs.microsoft.com/azure/kusto/api/netfx/kusto-ingest-client-rest)
 
 **Programmatic ingestion techniques**:
 
