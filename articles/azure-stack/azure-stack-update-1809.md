@@ -36,33 +36,8 @@ The Azure Stack 1809 update build number is **1.1809.x.xx**.
 
 This update includes the following improvements for Azure Stack.
 
-- <!--  2682594   | IS  -->  **All Azure Stack environments now use the Coordinated Universal Time (UTC) time zone format.**  All log data and related information now displays in UTC format. If you update from a previous version that was not installed using UTC, your environment is updated to use UTC. 
-
-- <!-- 2437250  | IS  ASDK --> **Managed Disks are supported.** You can now use Managed Disks in Azure Stack virtual machines and virtual machine scale sets. For more information, see [Azure Stack Managed Disks: Differences and considerations](/azure/azure-stack/user/azure-stack-managed-disk-considerations).
-
-- <!-- 2563799  | IS  ASDK -->  **Azure Monitor**. Like Azure Monitor on Azure, Azure Monitor on Azure Stack provides base-level infrastructure metrics and logs for most services. For more information, see [Azure Monitor on Azure Stack](/azure/azure-stack/user/azure-stack-metrics-azure-data).
-
-- <!-- 2487932| IS -->  **Prepare for the extension host**. You can use the extension host to help secure Azure Stack by reducing the number of required TCP/IP ports. With the 1808 update, you can prepare, get your Azure Stack ready for extension host. For more information, see [Prepare for extension host for Azure Stack](/azure/azure-stack/azure-stack-extension-host-prepare).
-
-- <!-- IS --> **Gallery items for Virtual Machine Scale Sets are now built-in**.  The Virtual Machine Scale Set gallery item is now made available in the user and administrator portals without having to download it.  If you upgrade to 1808 it is available upon completion of upgrade.  
-
-- <!-- IS, ASDK --> **Virtual Machine Scale Set scaling**.  You can use the portal to [scale a Virtual Machine Scale Set](azure-stack-compute-add-scalesets.md#scale-a-virtual-machine-scale-set) (VMSS).    
-
-- <!-- TFS# | IS, ASDK --> **The API version profile 2017-03-09-profile has been updated to 2018-03-01-hybrid**. API profiles specify the Azure resource provider and the API version for Azure REST endpoints. For more information about profiles, see [Manage API version profiles in Azure Stack](/user/azure-stack-version-profiles.md).
-
-- <!-- 2489570 | IS ASDK--> **Support for custom IPSec/IKE policy configurations** for [VPN gateways in Azure Stack](/azure/azure-stack/azure-stack-vpn-gateway-about-vpn-gateways).
-
 
  ### Fixed issues
-- <!-- IS ASDK--> We fixed the issue for creating an availability set in the portal which resulted in the set having a fault domain and update domain of 1. 
-
-- <!-- IS ASDK --> Settings to scale virtual machine scale sets are now available in the portal.  
-
-- <!-- 2494144- IS, ASDK --> The issue that prevented some F-series virtual machine sizes from appearing when selecting a VM size for deployment is now resolved. 
-
-- <!-- IS, ASDK --> Improvements for performance when creating virtual machines, and more optimized use of underlying storage.
-
-- **Various fixes** for performance, stability, security, and the operating system that is used by Azure Stack.
 
 
 ### Changes
@@ -137,6 +112,17 @@ This update also contains the mitigation for the speculative execution side chan
 The following are post-installation known issues for this build version.
 
 ### Portal
+
+- <!-- TBD - IS ASDK --> You might see a blank dashboard in the portal. To recover the dashboard, click **Edit Dashboard**, then right click and select **Reset to default state**.
+
+- <!-- 2930718 - IS ASDK --> In the administrator portal, when accessing the details of any user subscription, after closing the blade and clicking on **Recent**, the user subscription name does not appear.
+
+- <!-- 3060156 - IS ASDK --> In both the administrator and user portals, clicking on the portal settings and selecting **Delete all settings and private dashboards** does not work as expected. An error notification is displayed. 
+
+- <!-- 2930799 - IS ASDK --> In both the administrator and user portals, under **All services**, the asset **DDoS protection plans** is incorrectly listed. It is not actually available in Azure Stack. If you try to create it, an error is displayed stating that the portal could not create the marketplace item. 
+
+- <!-- 2930820 - IS ASDK --> In both the administrator and user portals, if you search for "Docker," the item is incorrectly returned. It is not actually available in Azure Stack. If you try to create it, a blade with an error indication is displayed. 
+
 - <!-- 2967387 – IS, ASDK --> The account you use to sign in to the Azure Stack admin or user portal displays as **Unidentified user**. This occurs when the account does not have either a *First* or *Last* name specified. To work around this issue, edit the user account to provide either the First or Last name. You must then sign out and then sign back in to the portal.  
 
 -  <!--  2873083 - IS ASDK --> When you use the portal to create a virtual machine scale set (VMSS), the *instance size* dropdown doesn’t load correctly when you use Internet Explorer. To work around this problem, use another browser while using the portal to create a VMSS.  
