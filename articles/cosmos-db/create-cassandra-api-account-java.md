@@ -44,7 +44,7 @@ This tutorial covers the following tasks:
    |Setting   |Suggested value  |Description  |
    |---------|---------|---------|
    |ID   |   Enter a unique name    | Enter a unique name to identify this Azure Cosmos DB account. <br/><br/>Because cassandra.cosmosdb.azure.com is appended to the ID that you provide to create your contact point, use a unique but identifiable ID.         |
-   |API    |  Cassandra   |  The API determines the type of account to create. <br/>Select **Cassandra**, because in this article you are creating a wide-column database that can be queries by using CQL syntax.  |
+   |API    |  Cassandra   |  The API determines the type of account to create. <br/> Select **Cassandra**, because in this article you will create a wide-column database that can be queried by using CQL syntax.  |
    |Subscription    |  Your subscription        |  Select Azure subscription that you want to use for this Azure Cosmos DB account.        |
    |Resource Group   | Enter a name    |  Select **Create New**, then enter a new resource-group name for your account. For simplicity, you can use the same name as your ID.    |
    |Location    |  Select the region closest to your users    |  Select geographic location in which to host your Azure Cosmos DB account. Use the location that's closest to your users to give them the fastest access to the data.    |
