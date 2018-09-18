@@ -184,7 +184,7 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
      },
     {
         "type": "Microsoft.Resources/deployments",
-        "name": "[Concat('ContainerInsights', '(', split(parameters('workspaceResourceId'),'/')[8], ')')]",
+        "name": "[Concat('ContainerInsights', '-',  uniqueString(parameters('workspaceResourceId')))]",	
         "apiVersion": "2017-05-10",
         "subscriptionId": "[split(parameters('workspaceResourceId'),'/')[2]]",
         "resourceGroup": "[split(parameters('workspaceResourceId'),'/')[4]]",
@@ -232,13 +232,13 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
            "value": "/subscriptions/<SubscriptiopnId>/resourcegroups/<ResourceGroup>/providers/Microsoft.ContainerService/managedClusters/<ResourceName>"
        },
        "aksResourceLocation": {
-         "value": "East US"
+         "value": "<aksClusterLocation>"
        },
        "workspaceResourceId": {
          "value": "/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroup>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>"
        },
        "workspaceRegion": {
-         "value": "eastus"
+         "value": "<workspaceLocation>"
        }
      }
     }
@@ -251,7 +251,7 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
     * Use the following PowerShell commands in the folder that contains the template:
 
         ```powershell
-        New-AzureRmResourceGroupDeployment -Name OnboardCluster -ResourceGroupName ClusterResourceGroupName -TemplateFile .\existingClusterOnboarding.json -TemplateParameterFile .\existingClusterParam.json
+        New-AzureRmResourceGroupDeployment -Name OnboardCluster -ClusterResourceGroupName ClusterResourceGroupName -TemplateFile .\existingClusterOnboarding.json -TemplateParameterFile .\existingClusterParam.json
         ```
         The configuration change can take a few minutes to complete. When it's completed, a message is displayed that's similar to the following and includes the result:
 
@@ -259,7 +259,7 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
         provisioningState       : Succeeded
         ```
 
-    * To run the following command by using the Azure CLI on Linux:
+    * To run the following command by using the Azure CLI:
     
         ```azurecli
         az login
