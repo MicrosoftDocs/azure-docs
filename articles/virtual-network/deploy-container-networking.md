@@ -24,37 +24,9 @@ ms.custom:
 
 The Azure Virtual Network container network interface (CNI) plug-in installs in an Azure virtual machine and brings virtual network capabilities to Kubernetes Pods and Docker containers. To learn more about the plug-in, see [Enable containers to use Azure Virtual Network capabilities](container-networking-overview.md). Additionally, the plug-in can be used with the Azure Kubernetes Service (AKS) by choosing the [Advanced Networking](../aks/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) option, which automatically places AKS containers in a virtual network.
 
-## Deploy plug-in for a Kubernetes cluster
-
-Complete the following steps to install the plug-in on every Azure virtual machine in a Kubernetes cluster:
-
-1. [Download and install the plug-in](#download-and-install-the-cni-plug-in).
-2. Pre-allocate a virtual network IP address pool on every virtual machine from which IP addresses will be assigned to Pods. Every Azure virtual machine comes with a primary virtual network private IP address on each network interface. The pool of IP addresses for Pods is added as secondary addresses (*ipconfigs*) on the virtual machine network interface, using one of the following options:
-
-   - **CLI**: [Assign multiple IP addresses using the Azure CLI](virtual-network-multiple-ip-addresses-cli.md)
-   - **PowerShell**: [Assign multiple IP addresses using PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
-   - **Portal**: [Assign multiple IP addresses using the Azure portal](virtual-network-multiple-ip-addresses-portal.md)
-   - **Azure Resource Manager template**: [Assign multiple IP addresses using templates](virtual-network-multiple-ip-addresses-template.md)
-
-   Ensure that you add enough IP addresses for all of the Pods that you expect to bring up on the virtual machine.
-
-3. Select the plug-in for providing networking for your cluster by passing Kubelet the `–network-plugin=cni` command-line option during cluster creation. Kubernetes, by default, looks for the plug-in and the configuration file in the directories where they are already installed.
-4. If you want your Pods to access the internet, add the following *iptables* rule on your Linux virtual machines to source-NAT internet traffic. In the following example, the specified IP range is 10.0.0.0/8.
-
-   ```bash
-   iptables -t nat -A POSTROUTING -m iprange ! --dst-range 168.63.129.16 -m
-   addrtype ! --dst-type local ! -d 10.0.0.0/8 -j MASQUERADE
-   ```
-
-   The rules NAT traffic that is not destined to the specified IP ranges. The assumption is that all traffic outside the previous ranges is internet traffic. You can choose to specify the IP ranges of the virtual machine's virtual network, that of peered virtual networks, and on-premises networks.
-
-  Windows virtual machines automatically source NAT traffic that has a destination outside the subnet to which the virtual machine belongs. It is not possible to specify custom IP ranges.
-
-After completing the previous steps, Pods brought up on the Kubernetes Agent virtual machines are automatically assigned private IP addresses from the virtual network.
-
 ## Deploy plug-in for ACS-Engine Kubernetes cluster
 
-The ACS-Engine deploys a Kubernetes cluster with an Azure Resource Manager template. The cluster configuration is specified in a JSON file that is passed to the tool when generating the template. To learn more about the entire list of supported cluster settings and their descriptions, see [Microsoft Azure Container Service Engine - Cluster Definition](https://github.com/Azure/acs-engine/blob/master/docs/clusterdefinition.md). The plug-in is the default networking plug-in for clusters created using the ACS-Engine, so you do not need to download the plug-in. The following network configuration settings are important when configuring the plug-in:
+The ACS-Engine deploys a Kubernetes cluster with an Azure Resource Manager template. The cluster configuration is specified in a JSON file that is passed to the tool when generating the template. To learn more about the entire list of supported cluster settings and their descriptions, see [Microsoft Azure Container Service Engine - Cluster Definition](https://github.com/Azure/acs-engine/blob/master/docs/clusterdefinition.md). The plug-in is the default networking plug-in for clusters created using the ACS-Engine. The following network configuration settings are important when configuring the plug-in:
 
   | Setting                              | Description                                                                                                           |
   |--------------------------------------|------------------------------------------------------------------------------------------------------                 |
@@ -112,6 +84,34 @@ The json example that follows is for a cluster with the following properties:
   }
 }
 ```
+
+## Deploy plug-in for a Kubernetes cluster
+
+Complete the following steps to install the plug-in on every Azure virtual machine in a Kubernetes cluster:
+
+1. [Download and install the plug-in](#download-and-install-the-cni-plug-in).
+2. Pre-allocate a virtual network IP address pool on every virtual machine from which IP addresses will be assigned to Pods. Every Azure virtual machine comes with a primary virtual network private IP address on each network interface. The pool of IP addresses for Pods is added as secondary addresses (*ipconfigs*) on the virtual machine network interface, using one of the following options:
+
+   - **CLI**: [Assign multiple IP addresses using the Azure CLI](virtual-network-multiple-ip-addresses-cli.md)
+   - **PowerShell**: [Assign multiple IP addresses using PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
+   - **Portal**: [Assign multiple IP addresses using the Azure portal](virtual-network-multiple-ip-addresses-portal.md)
+   - **Azure Resource Manager template**: [Assign multiple IP addresses using templates](virtual-network-multiple-ip-addresses-template.md)
+
+   Ensure that you add enough IP addresses for all of the Pods that you expect to bring up on the virtual machine.
+
+3. Select the plug-in for providing networking for your cluster by passing Kubelet the `–network-plugin=cni` command-line option during cluster creation. Kubernetes, by default, looks for the plug-in and the configuration file in the directories where they are already installed.
+4. If you want your Pods to access the internet, add the following *iptables* rule on your Linux virtual machines to source-NAT internet traffic. In the following example, the specified IP range is 10.0.0.0/8.
+
+   ```bash
+   iptables -t nat -A POSTROUTING -m iprange ! --dst-range 168.63.129.16 -m
+   addrtype ! --dst-type local ! -d 10.0.0.0/8 -j MASQUERADE
+   ```
+
+   The rules NAT traffic that is not destined to the specified IP ranges. The assumption is that all traffic outside the previous ranges is internet traffic. You can choose to specify the IP ranges of the virtual machine's virtual network, that of peered virtual networks, and on-premises networks.
+
+  Windows virtual machines automatically source NAT traffic that has a destination outside the subnet to which the virtual machine belongs. It is not possible to specify custom IP ranges.
+
+After completing the previous steps, Pods brought up on the Kubernetes Agent virtual machines are automatically assigned private IP addresses from the virtual network.
 
 ## Deploy plug-in for Docker containers
 
