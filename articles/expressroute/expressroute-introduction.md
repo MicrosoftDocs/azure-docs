@@ -63,11 +63,25 @@ You can enable the ExpressRoute premium add-on feature to extend connectivity ac
 
 You can enable ExpressRoute Global Reach to exchange data across your remote sites by connecting your multiple ExpressRoute circuits. For example, if you have a private datacenter in California connected to ExpressRoute in Silicon Valley, and another private datacenter in Texas connected to ExpressRoute in Dallas, with ExpressRoute Global Reach, you can connect your private datacenters together through two ExpressRoute circuits. Your cross-datacenter traffic will traverse through Microsoft's network.
 
+For more information, see [ExpressRoute Global Reach](expressroute-global-reach.md).
+
 ### Rich connectivity partner ecosystem
 ExpressRoute has a constantly growing ecosystem of connectivity providers and SI partners. For the latest information, refer to the [ExpressRoute providers and locations](expressroute-locations.md) article.
 
 ### Connectivity to national clouds
 Microsoft operates isolated cloud environments for special geopolitical regions and customer segments. Refer to the [ExpressRoute providers and locations](expressroute-locations.md) page for a list of national clouds and providers.
+
+### ExpressRoute Direct
+
+ExpressRoute Direct provides customers with the ability to connect directly into Microsoft’s global network at peering locations strategically distributed across the world. ExpressRoute Direct provides dual 100Gbps connectivity, which supports Active/Active connectivity at scale. 
+
+Key features that ExpressRoute Direct provide include, but are not limited to:
+
+* Massive Data Ingestion into services like Storage and Cosmos DB 
+* Physical isolation for industries that are regulated and required dedicated and isolated connectivity like: Banking, Government, and retail 
+* Granular control of circuit distribution based on business unit
+
+For more information, see [About ExpressRoute Direct](expressroute-erdirect-about.md).
 
 ### Bandwidth options
 You can purchase ExpressRoute circuits for a wide range of bandwidths. Supported bandwidths are listed below. Be sure to check with your connectivity provider to determine the list of supported bandwidths they provide.
