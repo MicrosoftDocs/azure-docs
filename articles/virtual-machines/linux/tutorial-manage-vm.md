@@ -30,7 +30,7 @@ Azure virtual machines provide a fully configurable and flexible computing envir
 > * Select and use VM images
 > * View and use specific VM sizes
 > * Resize a VM
-> * View and understand VM state
+> * 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
