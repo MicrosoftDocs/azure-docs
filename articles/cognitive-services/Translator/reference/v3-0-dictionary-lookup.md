@@ -1,18 +1,19 @@
 ---
-title: Microsoft Translator Text API Dictionary Lookup Method | Microsoft Docs
-description: Use the Microsoft Translator Text API Dictionary Lookup method.
+title: Translator Text API Dictionary Lookup Method
+titlesuffix: Azure Cognitive Services
+description: Use the Translator Text API Dictionary Lookup method.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
 ---
 
-# Text API 3.0: Dictionary Lookup
+# Translator Text API 3.0: Dictionary Lookup
 
 Provides alternative translations for a word and a small number of idiomatic phrases. Each translation has a part-of-speech and a list of back-translations. The back-translations enable a user to understand the translation in context. The [Dictionary Example](.\v3-0-dictionary-examples.md) operation allows further drill down to see example uses of each translation pair.
 

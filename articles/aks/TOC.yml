@@ -149,6 +149,8 @@
     items:
     - name: Common issues
       href: troubleshooting.md
+    - name: Checking for best practices
+      href: kube-advisor-tool.md
     - name: SSH node access
       href: ssh.md
 - name: Reference
