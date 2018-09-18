@@ -74,4 +74,4 @@ ExpressRoute Direct provides the same enterprise-grade SLA with Active/Active re
 
 ## Next steps
 
-[Configure ExpressRoute Direct](expressroute-how-to-erdirect.md)
+[Configure ExpressRoute Direct](expressroute-howto-erdirect.md)
