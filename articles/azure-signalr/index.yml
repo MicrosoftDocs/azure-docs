@@ -48,7 +48,7 @@ sections:
     style: unordered
     items:
     - html: <a href="/azure/azure-signalr/signalr-authenticate-oauth">Integrate Azure SignalR Service with ASP.NET Core Identity</a>
-    - html: <a href="/azure/azure-signalr/signalr-authenticate-azure-functions">Build a Serverless Real-time App with Authentication (JavaScript or C#)</a>
+    - html: <a href="/azure/azure-signalr/signalr-authenticate-azure-functions">Build a Serverless Real-time App with Authentication</a>
 # - title: Free Pluralsight Video Training
 #   items:
 #   - type: list
