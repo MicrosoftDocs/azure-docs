@@ -31,6 +31,10 @@ sections:
         src: /azure/azure-monitor/media/index/log-analytics.svg
       text: Analyze logs
       href: /azure/log-analytics/query-language/get-started-analytics-portal
+    - image:
+        src: /azure/azure-monitor/media/index/log-analytics1.svg
+      text: Analyze logs 1
+      href: /azure/log-analytics/query-language/get-started-analytics-portal
     - image: 
         src: https://docs.microsoft.com/azure/media/index/virtualmachine.svg
       text: Azure VMs
