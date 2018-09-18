@@ -98,11 +98,13 @@
         - name: Signing key rollover
           href: active-directory-signing-key-rollover.md
       - name: ID tokens
-        href: 
+        href: id-tokens.md
       - name: Access tokens
-        href: 
+        href: access-tokens.md
       - name: Certificate credentials
         href: active-directory-certificate-credentials.md
+      - name: SAML tokens
+        href: reference-saml-tokens.md
     - name: Application configuration
       href: app-objects-and-service-principals.md
       items:
@@ -193,7 +195,7 @@
     - name: Authentication and authorization error codes
       href: reference-aadsts-error-codes.md
     - name: Breaking changes
-      href: 
+      href: reference-breaking-changes.md
 - name: v2.0
   expanded: true
   items:
@@ -287,9 +289,9 @@
           - name: OAuth 2.0 client credentails grant
             href: v2-oauth2-client-creds-grant-flow.md
       - name: ID tokens
-        href: 
+        href: id-tokens.md
       - name: Access tokens
-        href: 
+        href: access-tokens.md
       - name: Certificate credentials
         href: active-directory-certificate-credentials.md
     - name: Application configuration
@@ -351,7 +353,7 @@
     - name: Authentication and authorization error codes
       href: reference-aadsts-error-codes.md
     - name: Breaking changes
-      href:
+      href: reference-breaking-changes.md
 - name: Resources
   items:
   - name: Glossary

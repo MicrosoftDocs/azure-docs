@@ -105,7 +105,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | token_type |Included if `response_type` includes `token`. Will always be `Bearer`. |
 | expires_in |Included if `response_type` includes `token`. Indicates the number of seconds the token is valid, for caching purposes. |
 | scope |Included if `response_type` includes `token`. Indicates the scope(s) for which the access_token will be valid. |
-| id_token |The id_token that the app requested. You can use the id_token to verify the user's identity and begin a session with the user. More details on id_tokens and their contents is included in the [v2.0 endpoint token reference](v2-id-and-access-tokens.md). |
+| id_token      | An unsigned JSON Web Token (JWT). The  app can decode the segments of this token to request information about the user who signed in. The  app can cache the values and display them, but it should not rely on them for any authorization or security boundaries. For more information about id_tokens, see the [`id_token reference`](id-tokens.md). <br> **Note:** Only provided if `openid` scope was requested. |
 | state |If a state parameter is included in the request, the same value should appear in the response. The app should verify that the state values in the request and response are identical. |
 
 #### Error response
@@ -127,7 +127,7 @@ error=access_denied
 
 Just receiving an id_token is not sufficient to authenticate the user; you must validate the id_token's signature and verify the claims in the token per your app's requirements. The v2.0 endpoint uses [JSON Web Tokens (JWTs)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) and public key cryptography to sign tokens and verify that they are valid.
 
-You can choose to validate the `id_token` in client code, but a common practice is to send the `id_token` to a backend server and perform the validation there. Once you've validated the signature of the id_token, there are a few claims you will be required to verify. See the [v2.0 token reference](v2-id-and-access-tokens.md) for more information, including [Validating Tokens](v2-id-and-access-tokens.md#validating-tokens) and [Important Information About Signing Key Rollover](v2-id-and-access-tokens.md#validating-tokens). We recommend making use of a library for parsing and validating tokens - there is at least one available for most languages and platforms.
+You can choose to validate the `id_token` in client code, but a common practice is to send the `id_token` to a backend server and perform the validation there. Once you've validated the signature of the id_token, there are a few claims you will be required to verify. See the [`id_token` reference](id-tokens.md) for more information, including [Validating Tokens](id-tokens.md#validating-idtokens) and [Important Information About Signing Key Rollover](active-directory-signing-key-rollover.md). We recommend making use of a library for parsing and validating tokens - there is at least one available for most languages and platforms.
 <!--TODO: Improve the information on this-->
 
 You may also wish to validate additional claims depending on your scenario. Some common validations include:
@@ -136,9 +136,7 @@ You may also wish to validate additional claims depending on your scenario. Some
 * Ensuring the user has proper authorization/privileges
 * Ensuring a certain strength of authentication has occurred, such as multi-factor authentication.
 
-For more information on the claims in an id_token, see the [v2.0 endpoint token reference](v2-id-and-access-tokens.md).
-
-Once you have completely validated the id_token, you can begin a session with the user and use the claims in the id_token to obtain information about the user in your app. This information can be used for display, records, authorizations, etc.
+Once you have completely validated the id_token, you can begin a session with the user and use the claims in the id_token to obtain information about the user in your app. This information can be used for display, records, personalization, etc.
 
 ## Get access tokens
 
@@ -229,7 +227,7 @@ Once you receive an access_token, make sure to validate the signature of the tok
 * **issuer** claim, to verify that the token was issued to your app by the v2.0 endpoint
 * **not before** and **expiration time** claims, to verify that the token has not expired
 
-For more information about the claims present in the access token, see the [v2.0 endpoint token reference](v2-id-and-access-tokens.md)
+For more information about the claims present in the access token, see the [access token reference](access-tokens.md)
 
 ## Refreshing tokens
 

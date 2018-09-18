@@ -52,7 +52,8 @@ Learn about what you can do with the Azure AD v2.0 endpoint:
 Explore in-depth information about v2.0:
 
 * [v2.0 protocols reference](active-directory-v2-protocols.md)
-* [v2.0 tokens reference](v2-id-and-access-tokens.md)
+* [Access tokens reference](access-tokens.md)
+* [`id_tokens` reference](id-tokens.md)
 * [v2.0 authentication libraries reference](reference-v2-libraries.md)
 * [Scopes and consent in v2.0](v2-permissions-and-consent.md)
 * [The Microsoft Graph API](https://graph.microsoft.io)

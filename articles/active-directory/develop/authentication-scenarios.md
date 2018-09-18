@@ -103,7 +103,7 @@ Security tokens (access and ID tokens) issued by Azure AD contain claims, or ass
 
 The claims present in any given security token are dependent upon the type of token, the type of credential used to authenticate the user, and the application configuration.
 
-A brief description of each type of claim emitted by Azure AD is provided in the table below. For more detailed information, see the supported token and claim types for [Azure AD v1.0 endpoint](v1-id-and-access-tokens.md) and [Azure AD v2.0 endpoint](v2-id-and-access-tokens.md).
+A brief description of each type of claim emitted by Azure AD is provided in the table below. For more detailed information, see the [access tokens](access-tokens.md) and [ID tokens](id-tokens.md) issued by Azure AD.
 
 | Claim | Description |
 | --- | --- |

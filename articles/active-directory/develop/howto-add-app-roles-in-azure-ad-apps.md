@@ -121,4 +121,5 @@ Once you've added app roles in your application, you can assign users and groups
 - [Using Security Groups and Application Roles in your apps (Video)](https://www.youtube.com/watch?v=V8VUPixLSiM)
 - [Azure Active Directory, now with Group Claims and Application Roles](https://cloudblogs.microsoft.com/enterprisemobility/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles)
 - [Azure Active Directory app manifest](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)
-- [Azure AD token reference](https://docs.microsoft.com/azure/active-directory/develop/v1-id-and-access-tokens)
+- [AAD Access tokens](access-tokens.md)
+- [AAD `id_tokens`](id-tokens.md)
