@@ -39,8 +39,6 @@ You can enable policies via the **Virtual WAN** -> **Settings** -> **Configurati
 2.	Route policies are consumed by SDWAN. It then bypasses security proxies for the trusted categories and performs local direct breakout for these categories.
 3.	Back hauling and traffic hair pining are avoided saving WAN costs.
 
-    ![Office 365 control plane in Virtual WAN](media/virtual-wan-office365-overview/virtual-wan-office365.png)
-
 ### Which partner devices support this via Virtual WAN?
 Currently, Citrix supports these policies via Virtual WAN.
 
