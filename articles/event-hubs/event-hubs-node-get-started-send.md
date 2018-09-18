@@ -8,7 +8,7 @@ manager: kamalb
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 08/22/2018
+ms.date: 09/18/2018
 ms.author: shvija
 
 ---
@@ -52,8 +52,8 @@ The SDK you have cloned contains multiple samples that show you how to send even
 
 1. Open the project on Visual Studio Code. 
 2. Create a file named **.env** under the **client** folder. Copy and paste sample environmental variables from the **sample.env** in the root folder.
-3. Configure your event hub connection string, event hub name and storage endpoint. You can copy connection string for your event hub from **Connection string-primary** key under **RootManageSharedAccessKey** on the Event Hub page in the Azure portal. For detailed steps, see [Get connection string](event-hubs-quickstart-portal.md#create-an-event-hubs-namespace).
-4. On your Azure CLI, navigate to the **client** folder path. Install node packages and build the project by running the following commands.
+3. Configure your event hub connection string, event hub name, and storage endpoint. You can copy connection string for your event hub from **Connection string-primary** key under **RootManageSharedAccessKey** on the Event Hub page in the Azure portal. For detailed steps, see [Get connection string](event-hubs-quickstart-portal.md#create-an-event-hubs-namespace).
+4. On your Azure CLI, navigate to the **client** folder path. Install node packages and build the project by running the following commands:
 
     ```nodejs
     npm i
