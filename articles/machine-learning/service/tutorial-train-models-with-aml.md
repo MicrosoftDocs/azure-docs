@@ -1,13 +1,13 @@
 ﻿---
 title: "Tutorial: Train an image classification model with Azure Machine Learning"
-description: This tutorial shows how to use Azure Machine Learning service to train an image classification model with scikit-learn in a Python Jupyter notebook. This tutorial is part one of a two-part series. 
+description: Learn how to train a scikit-learn  image classification model with a Python Jupyter notebook. This tutorial is part one of a two-part series. 
+author: hning86
+ms.author: haining
+ms.topic: tutorial
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
-ms.topic: tutorial
-
-author: hning86
-ms.author: haining
+ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 09/24/2018
 #Customer intent: As a professional data scientist, I can build an image classification model with Azure Machine Learning using Python in a Jupyter notebook.
@@ -15,7 +15,7 @@ ms.date: 09/24/2018
 
 # Tutorial #1: Train an image classification model with Azure Machine Learning
 
-In this tutorial, you train a machine learning model both locally and on remote compute resources. You'll use the training and deployment workflow for Azure Machine Learning service (preview) in a Python Jupyter notebook.  You can then use the notebook as a template to train your own machine learning model with your own data. This tutorial is **part one of a two-part tutorial series**.  
+In this tutorial, you train a machine learning model both locally and on remote compute resources. You'll use the training and deployment workflow for Azure Machine Learning service in a Python Jupyter notebook.  You can then use the notebook as a template to train your own machine learning model with your own data. This tutorial is **part one of a two-part tutorial series**.  
 
 This tutorial trains a simple logistic regression using the [MNIST](http://yann.lecun.com/exdb/mnist/) dataset and [scikit-learn](http://scikit-learn.org) with Azure Machine Learning.  MNIST is a popular dataset consisting of 70,000 grayscale images. Each image is a handwritten digit of 28x28 pixels, representing a number from 0 to 9. The goal is to create a multi-class classifier to identify the digit a given image represents. 
 
