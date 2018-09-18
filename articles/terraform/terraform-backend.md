@@ -102,12 +102,19 @@ The lock can be seen when examining the blob though the Azure portal or other Az
 
 ![Azure blob with lock](media/terraform-backend/lock.png)
 
+## Encryption at rest
+
+By default, date stored in an Azure Blob is encrypted before being persisted to the storage infrastructure. When Terraform needs state data, it is retrieved from the backend and stored in memory. The combination of these two configurations keeps resource secrets secure.
+
+For more information on Azure Storage encryption, see [Azure Storage Service Encryption for data at rest][azure-storage-encryption].
+
 ## Next steps
 
 Learn more about Terraform backed configuration at the [Terraform backend documentation][terraform-backend].
 
 <!-- LINKS - external -->
 [azure-key-vault]: ../key-vault/quick-create-cli.md
+[azure-storage-encryption][../storage/common/storage-service-encryption.md]
 [terraform-azurerm]: https://www.terraform.io/docs/backends/types/azurerm.html
 [terraform-backend]: https://www.terraform.io/docs/backends/
 [terraform-state-lock]: https://www.terraform.io/docs/state/locking.html
