@@ -1,6 +1,6 @@
 ---
-title: Set up compute targets for model training with Azure Machine Learning service | Microsoft Docs
-description: This article explains how to automatically train your machine learning models on a DSVM remote compute target with Azure Machine Learning service
+title: Train models with automated machine learning in the cloud - Azure Machine Learning
+description: This article explains how to create a remote compute resource to automatically train your machine learning models.
 services: machine-learning
 author: nacharya1
 ms.author: nilesha
@@ -8,24 +8,23 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.component: core
 ms.workload: data-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/24/2018
 #Customer intent: As a professional data scientist, I can use Automated Machine Learning functionality to build a model on a DSVM remote compute target.
 ---
-# Train models with Automated Machine Learning in the cloud
+# Train models with automated machine learning in the cloud with Azure Machine Learning
 
-In Azure Machine Learning you can train your model on different types of compute resources that you manage. The compute target could be a local computer or a computer in the cloud. 
-
+In Azure Machine Learning you can train your model on different types of compute resources that you manage. The compute target could be a local computer or a computer in the cloud.
 
 You can easily scale up or scale out your machine learning experiment by adding additional compute targets such as Ubuntu-based Data Science Virtual Machine (DSVM) or Azure Batch AI. The DSVM is a customized VM image on Microsoft’s Azure cloud built specifically for doing data science. It has many popular data science and other tools pre-installed and pre-configured.  
 
-In this article, you learn how to build a model using Automated ML on the DSVM.  
+In this article, you learn how to build a model using automated machine learning on the DSVM.  
 
 ## How does remote differ from local?
 
-The tutorial "[Train a classification model with Automated ML](tutorial-auto-train-models.md)" teaches you how to use a local computer to train model with Automated ML.  The workflow when training locally also applies to  remote targets as well. With remote compute, Automated ML experiment iterations are executed Asynchronously. This allows you cancel a particular iteration, watch the status of the execution, continue to work on other cells in the Jupyter notebook. To train remotely, you first create a remote compute target such as an Azure DSVM,  configure it, and submit your code there.
+The tutorial "[Train a classification model with automated machine learning](tutorial-auto-train-models.md)" teaches you how to use a local computer to train model with automated machine learning.  The workflow when training locally also applies to  remote targets as well. With remote compute, automated machine learning experiment iterations are executed Asynchronously. This allows you cancel a particular iteration, watch the status of the execution, continue to work on other cells in the Jupyter notebook. To train remotely, you first create a remote compute target such as an Azure DSVM,  configure it, and submit your code there.
 
-This article shows the extra steps needed to run Automated ML experiment on a remote DSVM.  The workspace object, `ws`, from the tutorial is used throughout the code here.
+This article shows the extra steps needed to run automated machine learning experiment on a remote DSVM.  The workspace object, `ws`, from the tutorial is used throughout the code here.
 
 ```python
 ws = Workspace.from_config()
@@ -79,11 +78,11 @@ run_config = RunConfiguration()
 run_config.target = dsvm_compute 
 ```
 
-You can now use the `run_config` object as the target for Automated ML. 
+You can now use the `run_config` object as the target for automated machine learning. 
 
 ## Access data using Get Data file
 
-Provide the remote resource access to your training data. For Automated ML experiments running on remote compute, the data needs to be fetched using a `get_data()` function.  
+Provide the remote resource access to your training data. For automated machine learning experiments running on remote compute, the data needs to be fetched using a `get_data()` function.  
 
 To provide access, you must:
 + Create a get_data.py file containing a `get_data()` function 
@@ -111,7 +110,7 @@ def get_data():
     return { "X" : X_digits, "y" : y_digits }
 ```
 
-## Configure Automated ML Experiment
+## Configure automated machine learning Experiment
 
 Specify the settings for `AutoMLConfig`.  (See a [full list of parameters]() and their possible values.)
 
@@ -142,7 +141,7 @@ automl_config = AutoMLConfig(task='classification',
                             )
 ```
 
-## Submit Automated ML training experiment
+## Submit automated machine learning training experiment
 
 Now submit the configuration to automatically select the algorithm, hyper parameters, and train the model. (Learn [more information about settings]() for the `submit` method.)
 
