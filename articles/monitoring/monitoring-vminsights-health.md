@@ -206,10 +206,24 @@ A health criterion measures the health of the monitored instance with some crite
 
 The overall health of a target is determined from the health of each of its health criteria defined in the health model. This will be a combination of health criteria targeted directly at the target, health criteria targeted at components rolling up to the target through a dependency health criterion. This hierarchy is illustrated in the **Health Criteria** section of the Health Diagnostics page. The policy for how health is rolled up is part of the configuration of the aggregate and dependency health criteria. You can find a list of default set of health criteria running as part of this feature under the section [Monitoring configuration details](#monitoring-configuration-details).  
 
-In the example below, the aggregate health criterion **Core Windows Services Rollup** assesses the health of the most critical Windows Services based on individual service health criteria. The status of each service such as DNS, DHCP etc., are evaluated and the health is rolled up to corresponding rollup health criterion (as shown below).  
+In the following example, the aggregate health criterion **Core Windows Services Rollup**  for a Windows-based VM, assesses the health of the most critical Windows Services based on individual service health criteria. The status of each service such as DNS, DHCP etc., are evaluated and the health is rolled up to corresponding rollup health criterion (as shown below).  
+
+![Health rollup example](./media/monitoring-vminsights-health/health-diagnostics-windows-svc-rollup.png)
 
 The health of the **Core Windows Services Rollup** rolls into the health of **Operating System availability**, which eventually rolls up to the **Availability** of the VM. 
 
+Health criteria **Unit** type can have their configuration modified by clicking on the ellipse link to the far right and selecting **Show Details** to open the configuration pane. 
+
+![Configuring a health criteria example](./media/monitoring-vminsights-health/health-diagnostics-linuxvm-example-03.png)
+
+In the configuration pane for the selected health criteria, in this example the **Logical Disk % Free Space** can be configured with a different numeric value for its threshold, as it is a two-state monitor, meaning it only changes from healthy to critical.  Other health criterion may be three state, where you can configure a value for the warning and critical health state threshold.  
+
+>[!NOTE]
+>Applying health criteria configuration change to one instance is applied to all monitored instances.  For example, if you select **/mnt/resource** and modify the **Logical Disk % Free Space** threshold it doesn't apply to only that instance, but all other logical disk instances discovered and monitored on the VM.
+>
+
+![Configuring a health criteria of a unit monitor example](./media/monitoring-vminsights-health/health-diagnostics-linuxvm-example-04.png)
+ 
 ### State changes
 The right-most column in the Health diagnostics page is **State Changes**. It lists all the state changes associated with the health criteria that is selected in the **Health Criteria** section or the state change of the VM if a VM was selected from the **Component Model** or **Health Criteria** column of the table. 
 
@@ -219,6 +233,8 @@ This section consists of the health criteria state and the associated time sorte
 
 ### Association of Component Model, Health Criteria and State change columns 
 The three columns are interlinked with each other. When a user selects a discovered instance in the Component Model, the **Health Criteria** section is filtered to that component view and correspondingly the **State Change** is updated based on the selected health criteria. 
+
+![Example of selecting monitored instance and results](./media/monitoring-vminsights-health/health-diagnostics-linuxvm-example-02.png)
 
 In the above example, when one selects **/mnt (Logical Disk)**, the Health Criteria tree is filtered to **/mnt (Logical Disk)**. The **Availability** and **Performance** tabs are filtered accordingly too. The **State Change** column shows the state change based on the availability of **/mnt (Logical Disk)**. 
 
@@ -245,7 +261,7 @@ You can filter this view by selecting values in the dropdown menus at the top of
 |Monitor service |Select a service, or select *All* to include all services. Only alerts from Infrastructure Insights is supported for this feature. | 
 |Time range| Only alerts fired within the selected time window are included in the view. Supported values are the past hour, the past 24 hours, the past 7 days, and the past 30 days. | 
 
-The **Alert detail** page is displayed when you select an alert, providing details of the alert and allowing you to change its state. To learn more about working with alert rules and managing alerts, see [
+The **Alert detail** page is displayed when you select an alert, providing details of the alert and allowing you to change its state. To learn more about working with alert rules and managing alerts, see [Create, view, and manage alerts using Azure Monitor](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
 
 ![Alert details pane for a selected alert](./media/monitoring-vminsights-health/alert-details-pane-01.png)
 
