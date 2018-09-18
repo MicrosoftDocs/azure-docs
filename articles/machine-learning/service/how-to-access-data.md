@@ -146,4 +146,4 @@ The above code will:
 * upload the file `'./bar.pkl'` from the remote compute up to the datastore `d3` after your script has run
 
 ## Next steps
-* [Train a model](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-ml-models)
+* [Train a model](how-to-train-ml-models.md)
