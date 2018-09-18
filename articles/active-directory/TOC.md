@@ -12,7 +12,6 @@
 
 
 # Get started
-## [Get started with Azure AD](fundamentals/get-started-azure-ad.md)
 ## [Sign up for Azure AD Premium](fundamentals/active-directory-get-started-premium.md)
 ## [Add a custom domain name](fundamentals/add-custom-domain.md)
 ## [Configure company branding](fundamentals/customize-branding.md)
@@ -20,6 +19,7 @@
 ## [Assign licenses to users](fundamentals/license-users-groups.md)
 ## [Configure Self-service password reset](authentication/quickstart-sspr.md)
 ## [Add your organization's privacy info in Azure AD](active-directory-properties-area.md)
+## [Access Azure Active Directory to create a new tenant](fundamentals/active-directory-access-create-new-tenant.md)
 
 
 # How to
@@ -83,6 +83,7 @@
 
 ## [Manage groups and members](fundamentals/active-directory-manage-groups.md)
 ### [Manage groups](fundamentals/active-directory-groups-create-azure-portal.md)
+### [Delete a group and its members](fundamentals/active-directory-groups-delete-group.md)
 ### [Manage group settings](fundamentals/active-directory-groups-settings-azure-portal.md)
 ## [Manage reports](reports-monitoring/overview-reports.md)
 ### [Sign-ins activity](reports-monitoring/concept-sign-ins.md)
@@ -90,11 +91,13 @@
 ### [Users at risk](reports-monitoring/concept-user-at-risk.md)
 ### [Risky sign-ins](reports-monitoring/concept-risky-sign-ins.md)
 ### [Risk events](reports-monitoring/concept-risk-events.md)
-### [Monitoring logs using Azure Monitor](reports-monitoring/overview-activity-logs-in-azure-monitor.md)
+### [Monitoring logs using Azure Monitor](reports-monitoring/concept-activity-logs-in-azure-monitor.md)
 ### [FAQ](reports-monitoring/reports-faq.md)
 
 ### Tasks
-#### [Configure named locations](active-directory-named-locations.md)
+#### [Download a sign-in report](reports-monitoring/quickstart-download-sign-in-report.md)
+#### [Download an audit report](reports-monitoring/quickstart-download-audit-report.md)
+#### [Configure named locations](reports-monitoring/quickstart-configure-named-locations.md)
 #### [Find activity reports](reports-monitoring/howto-find-activity-reports.md)
 #### [Use the Azure AD Power BI Content Pack](reports-monitoring/howto-power-bi-content-pack.md)
 #### [Remediate users flagged for risk](reports-monitoring/howto-remediate-users-flagged-for-risk.md)
@@ -322,33 +325,8 @@
 
 ### [Configure token lifetimes](active-directory-configurable-token-lifetimes.md)
 
-## Access reviews
-### [Access reviews overview](active-directory-azure-ad-controls-access-reviews-overview.md)
-### [Complete an access review](active-directory-azure-ad-controls-complete-access-review.md)
-### [Create an access review](active-directory-azure-ad-controls-create-access-review.md)
-### [How to perform an access review](active-directory-azure-ad-controls-perform-access-review.md)
-### [How to review your access](active-directory-azure-ad-controls-how-to-review-your-access.md)
-### [Guest access with access reviews](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
-### [Managing user access with reviews](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
-### [Managing programs and controls](active-directory-azure-ad-controls-manage-programs-controls.md)
-### [Retrieve access review results](active-directory-azure-ad-controls-retrieve-access-review.md)
-
-## [Terms of use](active-directory-tou.md)
-
 ## Secure your identities
 
-### Azure AD Identity Protection
-#### [Overview](identity-protection/overview.md)
-#### [Enable](identity-protection/enable.md)
-#### [Detect vulnerabilities](identity-protection/vulnerabilities.md)
-#### [Risk events](active-directory-identity-protection-risk-events.md)
-#### [Notifications](identity-protection/notifications.md)
-#### [Sign-in experience](identity-protection/flows.md)
-#### [Simulate risk events](identity-protection/playbook.md)
-#### [Unblock users](identity-protection/howto-unblock-user.md)
-#### [FAQs](identity-protection/faqs.md)
-#### [Glossary](identity-protection/glossary.md)
-#### [Microsoft Graph](identity-protection/graph-get-started.md)
 ### [Privileged Identity Management](privileged-identity-management/pim-configure.md?toc=%2fazure%2factive-directory%2ftoc.json)
 
 ## [Deploy AD FS in Azure](active-directory-aadconnect-azure-adfs.md)
