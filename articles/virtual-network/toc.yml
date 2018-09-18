@@ -89,6 +89,8 @@
         href: tutorial-restrict-network-access-to-resources-powershell.md
       - name: Azure CLI
         href: tutorial-restrict-network-access-to-resources-cli.md
+    - name: Service endpoint policies - Portal
+      href: virtual-network-service-endpoint-policies-portal.md
     - name: Virtual network peering
       items:
       - name: Same deployment model - same subscription
