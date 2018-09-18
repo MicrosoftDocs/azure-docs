@@ -16,8 +16,6 @@
     href: abstract-container-security-microsoft-azure.md
   - name: Enabling operational security
     href: abstract-azure-operational-security.md
-  - name: Governance in Azure
-    href: governance-in-azure.md
   - name: Isolation in the Azure cloud
     href: azure-isolation.md
   - name: Secure hybrid network architecture
