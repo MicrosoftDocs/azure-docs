@@ -5,7 +5,7 @@ services: storage
 author: ramankumarlive
 ms.service: storage
 ms.topic: "include"
-ms.date: 06/05/2018
+ms.date: 09/24/2018
 ms.author: ramankum
 ms.custom: "include file"
 ---
@@ -46,7 +46,7 @@ Here are some of the features of Premium Storage:
 
 * **Premium storage disks**
 
-    Premium Storage supports a wide variety of Azure VMs. You have a choice of seven disk sizes:  P4 (32 GB), P6 (64 GB), P10 (128 GB), P15 (256 GB), P20 (512 GB), P30 (1024 GB), P40 (2048 GB), P50 (4095 GB). P4 and P6 disk sizes are yet only supported for Managed Disks. Each disk size has its own performance specifications. Depending on your application requirements, you can attach one or more disks to your VM. We describe the specifications in more detail in [Premium Storage scalability and performance targets](#scalability-and-performance-targets).
+    Premium Storage supports VM disks that can be attached to specific size-series VMs. Premium Storage supports a wide variety of Azure VMs. You have a choice of eight GA disk sizes:  P4 (32 GiB), P6 (64 GiB), P10 (128 GiB), P15 (256 GiB), P20 (512 GiB), P30 (1,024 GiB), P40 (2,048 GiB), P50 (4,095 GiB). As well as three preview disk sizes: P60 8,192 GiB (8 TiB), P70 16,348 GiB (16 TiB), P80 32,767 GiB (32 TiB). P4, P6, P60, P70, and P80 disk sizes are currently only supported for Managed Disks. Each disk size has its own performance specifications. Depending on your application requirements, you can attach one or more disks to your VM. We describe the specifications in more detail in [Premium Storage scalability and performance targets](#scalability-and-performance-targets).
 
 * **Premium page blobs**
 
