@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/07/2018
+ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -87,7 +87,7 @@ When you grant access at a parent scope, those permissions are inherited to the 
 - If you assign the [Reader](built-in-roles.md#reader) role to a group at the subscription scope, the members of that group can view every resource group and resource in the subscription.
 - If you assign the [Contributor](built-in-roles.md#contributor) role to an application at the resource group scope, it can manage resources of all types in that resource group, but not other resource groups in the subscription.
 
-### Role assignment
+### Role assignments
 
 A *role assignment* is the process of binding a role definition to a user, group, or service principal at a particular scope for the purpose of granting access. Access is granted by creating a role assignment, and access is revoked by removing a role assignment.
 
@@ -96,6 +96,32 @@ The following diagram shows an example of a role assignment. In this example, th
 ![Role assignment to control access](./media/overview/rbac-overview.png)
 
 You can create role assignments using the Azure portal, Azure CLI, Azure PowerShell, Azure SDKs, or REST APIs. You can have up to 2000 role assignments in each subscription. To create and remove role assignments, you must have `Microsoft.Authorization/roleAssignments/*` permission. This permission is granted through the [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator) roles.
+
+## Deny assignments
+
+Previously, RBAC was an allow-only model with no deny, but now RBAC supports deny assignments in a limited way. Similar to a role assignment, a *deny assignment* binds a set of deny actions to a user, group, or service principal at a particular scope for the purpose of denying access. A role assignment defines a set of actions that are *allowed*, while a deny assignment defines a set of actions that *not allowed*. In other words, deny assignments block users from performing specified actions even if a role assignment grants them access. Deny assignments take precedence over role assignments.
+
+Currently, deny assignments are **read-only** and can only be set by Azure. Even though you can't create your own deny assignments, you can list deny assignments because they could impact your effective permissions. To get information about a deny assignment, you must have the `Microsoft.Authorization/denyAssignments/read` permission, which is included in most [built-in roles](built-in-roles.md#owner). For more information, see [Understand deny assignments](deny-assignments.md).
+
+## How RBAC determines if a user has access to a resource
+
+The following are the high-level steps that RBAC uses to determine if you have access to a resource on the management plane. This is helpful to understand if you are trying to troubleshoot an access issue.
+
+1. A user (or service principal) acquires a token for Azure Resource Manager.
+
+    The token includes the user's group memberships (including transitive group memberships).
+
+1. The user makes a REST API call to Azure Resource Manager with the token attached.
+
+1. Azure Resource Manager retrieves all the role assignments and deny assignments that apply to the resource upon which the action is being taken.
+
+1. Azure Resource Manager narrows the role assignments that apply to this user or their group and determines what roles the user has for this resource.
+
+1. Azure Resource Manager determines if the action in the API call is included in the roles the user has for this resource.
+
+1. If the user doesn’t have a role with the action at the requested scope, access is not granted. Otherwise, Azure Resource Manager checks if a deny assignment applies.
+
+1. If a deny assignment applies, access is blocked. Otherwise access is granted.
 
 ## Next steps
 
