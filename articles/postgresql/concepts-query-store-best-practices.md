@@ -19,9 +19,6 @@ ms.date: 09/24/2018
 
 This article outlines best practices for using Query Store in Azure Database for PostgreSQL.
 
-## Use Query Performance Insight
-You can use [Query Performance Insight](concepts-query-performance-insight.md) in the Azure portal to get quick insights into the data in Query Store. The visualizations surface the longest running queries and longest wait events over time.
-
 ## Set the optimal query capture mode
 Let Query Store capture the data that matters to you. 
 
@@ -29,7 +26,7 @@ Let Query Store capture the data that matters to you.
 |---|---|
 |_All_	|Analyze your workload thoroughly in terms of all queries and their execution frequencies and other statistics. Identify new queries in your workload. Detect if ad-hoc queries are used to identify opportunities for user or auto parameterization. _All_ comes with an increased resource consumption cost. |
 |_Top_	|Focus your attention on top queries - those issued by clients.
-|_None_	|You've already captured a query set and time window that you want to investigate and you want to eliminate the distractions that other queries may introduce. _None_ is suitable for testing and bench-marking environments. _None_ may also appropriate for software vendors who have products based on Azure Database for PostgreSQL. _None_ should be used with caution as you might miss the opportunity to track and optimize important new queries. You can't recover data on those past time windows. |
+|_None_	|You've already captured a query set and time window that you want to investigate and you want to eliminate the distractions that other queries may introduce. _None_ is suitable for testing and bench-marking environments. _None_ should be used with caution as you might miss the opportunity to track and optimize important new queries. You can't recover data on those past time windows. |
 
 Query Store also includes a store for wait statistics. There is an additional capture mode query that governs wait statistics: **pgms_wait_sampling.query_capture_mode** can be set to _none_ or _all_. 
 
@@ -41,19 +38,12 @@ Query Store also includes a store for wait statistics. There is an additional ca
 The **pg_qs.retention_period_in_days** parameter specifies in days the data retention period for Query Store. Older query and statistics data is deleted. By default, Query Store is configured to retain the data for 7 days. Avoid keeping historical data you do not plan to use. Increase the value if you need to keep data longer.
 
 
-## Set the frequency of sampling wait stats
+## Set the frequency of wait stats sampling 
 The **pgms_wait_sampling.history_period** parameter specifies how often (in milliseconds) wait events are sampled. The shorter the period, the more frequent the sampling. More information is retrieved, but that comes with the cost of greater resource consumption. Increase this period if the server is under load or you don't need the granularity
 
 
-## Avoid using non-parameterized queries
-Using non-parameterized queries when they are not necessary (for example ad-hoc analysis) is not ideal. Cached plans cannot be reused which forces Query Optimizer to compile queries for every unique query text.
-
-Also, Query Store could rapidly exceed its size quota because of a potentially large number of different query texts. As a result, Query Store might be constantly deleting the data trying to keep up with the incoming queries.
-
-Consider the following options:
-- Parameterize queries where applicable, for example, wrap queries inside a stored procedure.
-- Compare the number of query_id values with the number of execution counts in query_store.qs_view for a single time window. If a large proportion of your queries have an execution count = 1, then your workload mostly has unique queries.
-- Set pg_qs.query_capture_mode to TOP to automatically filter out nested queries.
+## Get quick insights into Query Store
+You can use [Query Performance Insight](concepts-query-performance-insight.md) in the Azure portal to get quick insights into the data in Query Store. The visualizations surface the longest running queries and longest wait events over time.
 
 ## Next Steps
 - Learn how to get or set parameters using the [Azure portal](howto-configure-server-parameters-using-portal.md) or the [Azure CLI](howto-configure-server-parameters-using-cli.md).

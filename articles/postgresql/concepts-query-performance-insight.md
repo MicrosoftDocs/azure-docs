@@ -31,14 +31,11 @@ In the portal page of your Azure Database for PostgreSQL server, select **Query 
 
 ![Query Performance Insight long running queries](./media/concepts-query-performance-insight/query-performance-insight-landing-page.png)
 
-The **Long running queries** tab shows the top 5 queries by average duration per execution, aggregated in 15 minute intervals. You can view more queries by selecting from the **Number of Queries** drop down.
+The **Long running queries** tab shows the top 5 queries by average duration per execution, aggregated in 15 minute intervals. You can view more queries by selecting from the **Number of Queries** drop down. The chart colors may change for a specific Query ID when you do this.
 
 You can click and drag in the chart to narrow down to a specific time window. Alternatively, use the zoom in and out icons to view a smaller or larger period of time respectively.
 
 The table below the chart gives more details about the long-running queries in that time window.
-
-> [!Note]
-> By default this table is ordered by total execution time
 
 Select the **Wait Statistics** tab to view the corresponding visualizations on waits in the server.
 
