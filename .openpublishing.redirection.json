@@ -28255,6 +28255,11 @@
             "source_path": "articles/monitoring-and-diagnostics/monitoring-overview-metrics.md",
             "redirect_url": "/azure/monitoring/monitoring-data-collection",
             "redirect_document_id" : false
+        },
+        {
+            "source_path": "articles/monitoring-and-diagnostics/monitoring-activity-log-alerts-new-experience.md",
+            "redirect_url": "/azure/monitoring-and-diagnostics/alert-activity-log",
+            "redirect_document_id" : false
         }
     ]
 }
