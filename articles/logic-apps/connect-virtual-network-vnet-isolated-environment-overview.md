@@ -1,13 +1,13 @@
 ---
 title: Access to Azure virtual Network (VNET) from Azure Logic Apps
-description: Learn how isolated logic apps can connect to Azure Virtual Networks (VNETs) from integration service environments (ISEs) that use private and dedicated resources
+description: This overview shows how isolated logic apps can connect to Azure Virtual Networks (VNETs) from integration service environments (ISEs) that use private and dedicated resources
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
-ms.topic: overview
+ms.topic: article
 ms.date: 09/24/2018
 ---
 
