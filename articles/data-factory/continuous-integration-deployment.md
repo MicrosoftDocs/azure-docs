@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/16/2018
+ms.date: 09/18/2018
 ms.author: douglasl
 ---
 # Continuous integration and deployment in Azure Data Factory
@@ -795,9 +795,9 @@ else {
 
 ## Use custom parameters with the Resource Manager template
 
-You can define custom parameters for the Resource Manager template. You simply need to have a file named `arm-template-parameters-definition.json` in the root folder of the repository. (The file name must match the name shown here exactly.) Data Factory tries to read the file from whichever branch you are currently working in, not just from the collaboration branch. If no file is found, Data Factory uses the default definitions.
+You can define custom parameters for the Resource Manager template. You simply need to have a file named `arm-template-parameters-definition.json` in the root folder of the repository. (The file name must match the name shown here exactly.) Data Factory tries to read the file from whichever branch you are currently working in, not just from the collaboration branch. If no file is found, Data Factory uses the default parameters and values.
 
-The following example shows a sample parameters file. Use this sample as a reference to create your own custom parameters file. If the file you provide is not in the proper JSON format, Data Factory outputs an error message in the browser console and reverts to the default definitions shown in the Data Factory UI.
+The following example shows a sample parameters file. Use this sample as a reference to create your own custom parameters file. If the file you provide is not in the proper JSON format, Data Factory outputs an error message in the browser console and reverts to the default parameters and values shown in the Data Factory UI.
 
 ```json
 {
