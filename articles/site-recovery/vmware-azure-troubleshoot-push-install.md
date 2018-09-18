@@ -21,7 +21,7 @@ Installation of Mobility service is a key step during Enable Replication. The su
 
 When you enable replication, Azure Site Recovery tries to push install mobility service agent on your virtual machine. As part of this, Configuration server tries to connect with the virtual machine and copy the Agent. To enable successful installation, follow the step by step troubleshooting guidance given below
 
-## **Credentials check (ErrorID: 95107 & 95108)**
+## Credentials check (ErrorID: 95107 & 95108)
 
 * Verify if the user account chosen during enable replication is **valid, accurate**.
 * Azure Site Recovery requires **administrator privilege** to perform push installation.
@@ -56,7 +56,7 @@ If you wish to modify the credentials of chosen user account, follow the instruc
 * A connection attempt could have failed if there is no proper response after a period of time, or established connection failed because connected host has failed to respond.
 * It may be a Connectivity/network/domain related issue. It could also be due to DNS name resolving issue or TCP port exhaustion issue. Please check if there are any such known issues in your domain.
 
-## **File and Printer sharing services check (ErrorID: 95105 & 95106)**
+## File and Printer sharing services check (ErrorID: 95105 & 95106)
 
 After connectivity check, verify if File and printer sharing service is enabled on your virtual machine.
 
@@ -72,7 +72,7 @@ For **windows 2008 R2 and prior versions**,
 
 For **later versions**, follow the instructions provided [here](vmware-azure-install-mobility-service.md#install-mobility-service-by-push-installation-from-azure-site-recovery) to enable file and printer sharing
 
-## ** Windows Management Instrumentation (WMI) configuration check**
+## Windows Management Instrumentation (WMI) configuration check
 
 After file and printer services check, enable WMI service through firewall.
 
