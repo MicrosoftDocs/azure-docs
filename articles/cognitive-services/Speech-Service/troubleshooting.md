@@ -1,7 +1,7 @@
 ---
-title: Cognitive Services Speech SDK troubleshooting
-description: Troubleshoot Cognitive Services Speech SDK
-titleSuffix: "Microsoft Cognitive Services"
+title: Troubleshoot the Cognitive Services Speech SDK
+description: Troubleshoot the Cognitive Services Speech SDK.
+titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: wolfma61
 
