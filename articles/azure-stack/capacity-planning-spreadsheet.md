@@ -26,18 +26,18 @@ The following is a short summary of the worksheets contained in the Azure Stack 
 
 |Tab Name|Description|
 |-----|-----|
-|Version-Disclaimer|Brief overview of the purpose of the calculator, version number and released date.|
+|Version-Disclaimer|Brief overview of the purpose of the calculator, version number, and released date.|
 |Instructions|Provides detailed instructions for the use of the Azure Stack Capacity Planner.|
-|DefinedSolutionSKUs|Multi-column table that contains upto five hardware definitions. The entries in this sheet are examples. The intent is that the user will change details to match system configurations being considered for use or purchase.|
+|DefinedSolutionSKUs|Multi-column table that contains up to five hardware definitions. The entries in this sheet are examples. The intent is that the user will change details to match system configurations being considered for use or purchase.|
 |DefineByVMFootprint|Find the appropriate hardware SKU by creating a collection of various sizes and quantities of VMs.|
 |DefineByWorkloadFootprint|Find the appropriate hardware SKU by creating a collection of Azure Stack workloads.|
 |  |  |
 
 ## DefinedSolutionSKUs instructions
-This worksheet contains up to five hardware definition examples. You should change details to match the system configurations being considered for use or purchase.
+This worksheet contains up to five hardware definition examples. Change details to match the system configurations being considered for use or purchase.
 
 ### Hardware selections provided by Authorized Hardware Partners
-Azure Stack is delivered as an integrated system with software installed by solution partners. These solution partners will have their own, authoritative versions of Azure Stack capacity planning tools and those should be used to finalize discussions of solution capacity.
+Azure Stack is delivered as an integrated system with software installed by solution partners. These solution partners will have their own, authoritative versions of Azure Stack capacity planning tools and those tools should be used to finalize discussions of solution capacity.
 
 ### Multiple Ways to Model Computing Resources
 The basic building blocks used for resource modeling within the Azure Stack planner are the various sizes of Azure Stack virtual machines (VMs). These VMs range in size from the smallest, "Basic 0", up to the current largest VM, "Standard_14_v2." Based on your needs, various quantities of differing VMs can be used to create computing resource allocations using this tool in two different ways.
@@ -46,14 +46,14 @@ The basic building blocks used for resource modeling within the Azure Stack plan
 
 2. The planner user creates a specific combination of VM allocations and then lets the Azure Resource Calculator shows which available hardware SKUs are capable of supporting this VM configuration.
 
-This tool provides two methods for allocating VM resources; either as one single collection of VM resource allocations or as a collection of up to six differing Workload configurations. Each Workload configuration can contain a different allocation of available VM resources. Detailed information for creating and using each of these allocation models is provided below. Only values contained in non-background shaded cells, or within SKU pull down lists on this worksheet should be modified. Changes made within shaded cells may break resource calculations.
+This tool provides two methods for allocating VM resources; either as one single collection of VM resource allocations or as a collection of up to six differing Workload configurations. Each Workload configuration can contain a different allocation of available VM resources. Detailed information for creating and using each of these allocation models is provided below. Only values contained in non-background shaded cells, or within SKU pull-down lists on this worksheet should be modified. Changes made within shaded cells may break resource calculations.
 
 
 ## DefineByVMFootprint instructions
 To create a model using a single collection of various sizes and quantities of VMs, select the "DefineByVMFootprint" Tab and follow this sequence of steps.
 
-1. In the upper right corner of this worksheet, use the provided pull down list box controls to select an initial number of servers (between 4 and 12) you want installed in each hardware system (SKU). This number of servers may be modified at any time during the modeling process to see how this affects overall available resources for your resouce allocation model.
-2. If you want to model various VM resource allocations against one specific hardware configuration, find the blue pull down list box directly below the "Current SKU" label in the upper right hand corner of the page. Pull down this list box and select your desired hardware SKU.
+1. In the upper right corner of this worksheet, use the provided pull-down list box controls to select an initial number of servers (between 4 and 12) you want installed in each hardware system (SKU). This number of servers may be modified at any time during the modeling process to see how this affects overall available resources for your resource allocation model.
+2. If you want to model various VM resource allocations against one specific hardware configuration, find the blue pull-down list box directly below the "Current SKU" label in the upper right-hand corner of the page. Pull down this list box and select your desired hardware SKU.
 3. You are now ready to begin adding various sized VMs to your model. To include a particular VM type, enter a quantity value into the blue outlined box to the left of that VM entry.
     > [!NOTE]
     > Each VM starts with an initially assigned storage size. Storage size is displayed using a list box and can be modified to fit your desired level of storage resource for each Azure Stack VM. If the storage size you want to use is not provided, you can add it by modifying any of the 10 initial sizes containeded in the "Available Storage Configurations" list found on the right hand side of the page.<br><br>Each VM starts with an initially assigned local temp storage. To reflect the thin provisioning of temp storage the local-temp number can be changed to anything in the drop down menu including the maximum allowable temp storage amount.
@@ -67,10 +67,10 @@ To create a model using a collection of Azure Stack Workloads, select the "Defin
 > [!TIP]
 > To change the provided storage size for an Azure Stack VM, see the note from step three in the preceding section.
 
-1. In the upper right corner of this page, use the provided pull down list box controls to select an initial number of servers (between 4 and 12) you want installed in each hardware system (SKU).
-2. If you want to model various VM resource allocations against one specific hardware configuration, find the blue pull down list box directly below the "Current SKU" label in the upper right hand corner of the page. Pull down this list box and select your desired hardware SKU.
-3. Select the appropriate storage size for each of your desired Azure Stack VMs on the DefineByVMFootprint page as described above in step three of DefineByVMFootprint instructions. Note that the storage size per VM is defined in the DefineByVMFootprint sheet.
-4. Starting on the upper left of the DefineByWorkloadFootprint page, create configurations for up to 6 different Workload types by enterng the quantity of each VM type contained within that Workload. This is done by placing numeric values into the column directly below that Workload's name. Workload names may be modified to reflect the type of workloads that will be supported by this particular configuration.
+1. In the upper right corner of this page, use the provided pull-down list box controls to select an initial number of servers (between 4 and 12) you want installed in each hardware system (SKU).
+2. If you want to model various VM resource allocations against one specific hardware configuration, find the blue pull-down list box directly below the "Current SKU" label in the upper right-hand corner of the page. Pull down this list box and select your desired hardware SKU.
+3. Select the appropriate storage size for each of your desired Azure Stack VMs on the DefineByVMFootprint page as described above in step three of DefineByVMFootprint instructions. The storage size per VM is defined in the DefineByVMFootprint sheet.
+4. Starting on the upper left of the DefineByWorkloadFootprint page, create configurations for up to six different Workload types by entering the quantity of each VM type contained within that Workload. This is done by placing numeric values into the column directly below that Workload's name. Workload names may be modified to reflect the type of workloads that will be supported by this particular configuration.
 5. You may include a particular quantity of each Workload type by entering a value at the bottom of that column directly below the "Quantity" label.
 6. Once Workload types and quantities have been created, clicking the "Suggested SKU" button found in the upper right corner of the page, directly below the "Current SKU" label, will cause the smallest SKU with sufficient resources to support this overall configuration of Workloads to be displayed.
 7. Further modeling may be accomplished by modifying the number of servers selected for a hardware SKU, or changing the VM allocations or quantities within your Workload configurations. The associated graphs will display immediate feedback showing how your changes affect the overall resource consumption.

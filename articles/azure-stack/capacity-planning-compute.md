@@ -53,9 +53,9 @@ The following calculation results in the total, available memory that can be use
 
   <sup>1</sup> Azure Stack Infrastructure Overhead = 208 GB
 
-  <sup>2</sup> Operating system reserve for overhead = 15% of node memory. This value is an estimate and will vary based on the physical memory capacity of the server and general operating system overhead.
+  <sup>2</sup> Operating system reserve for overhead = 15% of node memory. The operating system reserve value is an estimate and will vary based on the physical memory capacity of the server and general operating system overhead.
 
-The value V, largest VM in the scale unit, is dynamically based on the largest tenant VM memory size. For example, this could be 7 GB or 112 GB or any other supported VM memory size in the Azure Stack solution.
+The value V, largest VM in the scale unit, is dynamically based on the largest tenant VM memory size. For example, the largest VM value could be 7 GB or 112 GB or any other supported VM memory size in the Azure Stack solution.
 
 The above calculation is an estimate and subject to change based on the current version of Azure Stack. Ability to deploy tenant VMs and services is based on the specifics of the deployed solution. This example calculation is just a guide and not the absolute answer of the ability to deploy VMs.
 

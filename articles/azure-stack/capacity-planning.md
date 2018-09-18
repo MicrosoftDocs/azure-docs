@@ -53,7 +53,7 @@ The above examples of VM density are for explanation purposes only. There is fur
 The remainder of this section describes Azure Stack deployment requirements for compute and storage. Use this information to gain a base understanding of what components are required and their minimum configuration values. Additional information is also provided to describe how the solution is configured with regards to available capacity and potential limits of the system with regard to tenant capacity and performance capability.
 
 > [!NOTE]
-> The capacity planning requirements for networking are minimal as only the size of the Public VIP is configurable. For information about networking integration, see [Azure Stack network integration](azure-stack-network.md).
+> The capacity planning requirements for networking are minimal as only the size of the Public VIP is configurable. For information about how to add more Public IP Addresses to Azure Stack see [Add Public IP Addresses](azure-stack-add-ips.md).
 
 
 ## Next steps
