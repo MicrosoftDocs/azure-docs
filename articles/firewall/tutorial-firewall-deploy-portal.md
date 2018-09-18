@@ -212,7 +212,7 @@ For the **Workload-SN** subnet, you configure the outbound default route to go t
 
 Azure Firewall includes a built-in rule collection for infrastructure FQDNs that are allowed by default. These FQDNs are specific for the platform and can't be used for other purposes. For more information, see [Infrastructure FQDNs](infrastructure-fqdns.md).
 
->[!Note:]
+> [!Note]
 > FQDN Tags can currently be configured with Azure PowerShell and REST only. Click [here](https://aka.ms/firewallapplicationrule) to learn more. 
 
 ## Configure network rules
