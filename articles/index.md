@@ -5170,7 +5170,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Blueprints</h3>
-                                                    <p>Deploy and track Azure-native packages of resources</p>
+                                                    <p>Deploy and update cloud environments in a repeatable manner using composable artifacts</p>
                                                 </div>
                                             </div>
                                         </div>
