@@ -110,22 +110,23 @@ The output gets saved in an Azure Blob using the following path format:
 Since the data gets added into an Azure Blob, you can then choose your favorite tool to run the analysis. 
 
 ## Disable data collection
-To disable data collection, follow the next steps:
-* Disable in the [Azure Portal](https://portal.azure.com): 
-    1. Go to Workspace
-    2. Deployments-> Select service-> Edit
+You can stop collecting data any time. Use Python code or the Azure portal to disable data collection.
+
++ Option 1. Disable in the Azure portal: 
+  1. Sign in to [Azure portal](https://portal.azure.com).
+  1. Open your workspace.
+  1. Go to **Deployments** -> **Select service** -> **Edit**
 
     ![Edit Service](media/how-to-enable-data-collection/EditService.png)
 
-    3. In Advanced Settings uncheck "Enable Model data collection" 
+  1. In **Advanced Settings**, deselect **Enable Model data collection**. 
 
     ![Uncheck Data Collection](media/how-to-enable-data-collection/UncheckDataCollection.png) 
 
-    4. Update       
+  1. Select **Update** to apply the change.      
 
-* Disable using python:
-         
-     ```python 
-    <service_name>.update(collect_model_data=False)
-     ```
-
+* Option 2. Use Python to disable data collection:          
+  ```python 
+  ## replace <service_name> with the name of the web service
+  <service_name>.update(collect_model_data=False)
+  ```
