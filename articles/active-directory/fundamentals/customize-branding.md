@@ -30,7 +30,7 @@ Your custom branding won't immediately appear when your users go to sites such a
 > All branding elements are optional. For example, if you specify a banner logo with no background image, the sign-in page will show your logo with a default background image from the destination site (for example, Office 365).<br><br>Additionally, sign-in page branding doesn’t carry over to personal Microsoft accounts. If your users or business guests sign in using a personal Microsoft account, the sign-in page won't reflect the branding of your organization.
 
 ### To customize your branding
-1. Sign in to the [Azure AD portal](https://portal.azure.com/) using a Global administrator account for the directory.
+1. Sign in to the [Azure portal](https://portal.azure.com/) using a Global administrator account for the directory.
 
 2. Select **Azure Active Directory**, and then select **Company branding**, and then select **Configure**.
 
@@ -90,7 +90,7 @@ Your custom branding won't immediately appear when your users go to sites such a
 After you've created your custom branding, you can go back and change anything you want.
 
 ### To edit your custom branding
-1. Sign in to the [Azure AD portal](https://portal.azure.com/) using a Global administrator account for the directory.
+1. Sign in to the [Azure portal](https://portal.azure.com/) using a Global administrator account for the directory.
 
 2. Select **Azure Active Directory**, and then select **Company branding**, and then select **Configure**.
 
@@ -107,7 +107,7 @@ You can't change your original configuration's language from your default langua
 
 ### To add a language-specific branding configuration
 
-1. Sign in to the [Azure AD portal](https://portal.azure.com/) using a Global administrator account for the directory.
+1. Sign in to the [Azure portal](https://portal.azure.com/) using a Global administrator account for the directory.
 
 2. Select **Azure Active Directory**, and then select **Company branding**, and then select **New language**.
 

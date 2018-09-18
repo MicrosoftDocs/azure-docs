@@ -30,7 +30,7 @@ After you get your domain name, you must create your first Azure AD directory.
 
 2. Create your new directory by following the steps in [Create a new tenant for your organization](active-directory-access-create-new-tenant.md#create-a-new-tenant-for-your-organization).
 
-    >![Important]
+    >[!Important]
     >The person who creates the tenant is automatically the Global administrator for that tenant. You, as the Global administrator, can add additional administrators to the tenant, but you can't unassign yourself from the role.
 
 ## Add your custom domain name to Azure AD
