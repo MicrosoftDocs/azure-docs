@@ -15,7 +15,7 @@ ms.author: rithorn
 
 Management groups are containers that help you manage access, policy, and compliance across
 multiple subscriptions. You can change, delete, and manage these containers to have hierarchies
-that can be used with [Azure Policy](../policy/overview.md) and [Azure Role Based Access Controls
+that can be used with Azure Policy and [Azure Role Based Access Controls
 (RBAC)](../../role-based-access-control/overview.md). To learn more about management groups, see
 [Organize your resources with Azure management groups](overview.md).
 
