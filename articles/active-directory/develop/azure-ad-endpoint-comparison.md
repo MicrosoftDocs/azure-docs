@@ -22,17 +22,12 @@ ms.custom: aaddev
 
 # Comparing the Azure AD v2.0 endpoint with v1.0 endpoint
 
-* [Who can sign-in](#who-can-sign-in)
-* [Scopes, not resources](#scopes-not-resources)
-* [Incremental and dynamic consent](#incremental-and-dynamic-consent)
-* [Well-known scopes](#well-known-scopes)
-* [Token claims](#token-claims)
-* [Limitations of the v2.0 endpoint](#limitations)
+When developing a new application, it is important to know the differences between the v1.0 and v2.0 endpoints. Below are the main differences, as well as some existing limitations for the v2.0 endpoint.
 
 > [!NOTE]
 > Not all Azure AD scenarios and features are supported by the v2.0 endpoint. To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](#limitations).
 
-## Who can sign-in
+## Who can sign
 
 ![Who can sign-in with v1.0 and v2.0 endpoints](media/azure-ad-endpoint-comparison/who-can-sign-in.png)
 
@@ -40,7 +35,7 @@ ms.custom: aaddev
 
 * The v2.0 endpoint allows work and school accounts from Azure Active Directory and personal accounts (MSA) (hotmail.com, outlook.com, msn.com) to sign in.
 
-* Both v1.0 and v2.0 endpoints also accept sign-ins of *[guest users](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* of an Azure AD directory for Azure AD applications configured as *[single-tenant](single-and-multi-tenant-apps.md)*.
+* Both v1.0 and v2.0 endpoints also accept sign-ins of *[guest users](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* of an Azure AD directory for applications configured as *[single-tenant](single-and-multi-tenant-apps.md)* or for *multi-tenant* applications configured to point to the tenant-specific endpoint (`https://login.microsoftonline.com/{TenantId_or_TenantName}`).
 
 The v2.0 endpoint allows you to write apps that accept sign-in from both personal and work and school accounts, giving you the ability to write your app completely account-agnostic. For instance, if your app calls the [Microsoft Graph](https://graph.microsoft.io), some additional functionality and data will be available to work accounts, such as their SharePoint sites or Directory data. But for many actions, such as [Reading a user's mail](https://graph.microsoft.io/docs/api-reference/v1.0/resources/message), the same code can access the email for both personal and work and school accounts.
 
