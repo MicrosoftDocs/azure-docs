@@ -78,6 +78,7 @@ This update also contains the mitigation for the speculative execution side chan
 ### Prerequisites
 
 - Install the Azure Stack [1808 Update](azure-stack-update-1808.md) before you apply the Azure Stack 1809 update. 
+- Install the latest available [update or hotfix for version 1808](azure-stack-update-1808.md#post-update-steps).
 
   > [!TIP]  
   > Subscribe to the following *RRS* or *Atom* feeds to keep up with Azure Stack Hotfixes:
