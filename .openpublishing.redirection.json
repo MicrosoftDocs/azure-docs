@@ -171,6 +171,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/cognitive-services/Bing-Image-Search/tutorial-image-post-source.md",
+            "redirect_url": "/azure/cognitive-services/bing-image-search/tutorial-image-post",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/iot-edge/how-to-create-transparent-gateway.md",
             "redirect_url": "/azure/iot-edge/how-to-create-transparent-gateway-linux",
             "redirect_document_id": true
@@ -23483,6 +23488,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cognitive-services/Bing-Image-Search/tutorial-bing-image-search-single-page-app-source.md",
+            "redirect_url": "/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cognitive-services/Bing-Web-Search/search-the-web.md",
             "redirect_url": "/azure/cognitive-services/bing-web-search",
             "redirect_document_id": false
@@ -28210,6 +28220,21 @@
             "source_path": "articles/log-analytics/log-analytics-log-search-log-search-portal.md",
             "redirect_url": "/azure/log-analytics/query-language/get-started-analytics-portal",
             "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/azure-stack/azure-stack-tools-paas-services.md",
+            "redirect_url": "/azure/azure-stack/azure-stack-offer-services-overview",
+            "redirect_document_id": false
+        },
+				    {
+            "source_path": "articles/application-insights/local-forwarder.md",
+            "redirect_url": "/azure/application-insights/app-insights-overview",
+            "redirect_document_id" : false
+        },
+			 {
+            "source_path": "articles/application-insights/open-census-python.md",
+            "redirect_url": "/azure/application-insights/app-insights-overview",
+            "redirect_document_id" : false
         }
     ]
 }
