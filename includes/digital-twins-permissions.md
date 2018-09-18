@@ -2,15 +2,13 @@
  title: include file
  description: include file
  services: digital-twins
- author: dominicbetts
+ author: alinamstanciu
  ms.service: digital-twins
  ms.topic: include
-ms.date: 08/30/2018
+ ms.date: 08/30/2018
  ms.author: alinast
  ms.custom: include file
 ---
-
-> TODO: We need to optimize/automate this step to create a console app (maybe PowerShell)
 
 As a solution developer, you might need to create a middle-tier application that is registered in AAD and has been [delegated Read/Write access permissions](https://docs.microsoft.com/azure/active-directory/develop/v1-permissions-and-consent) to the Azure Digital Twins Management APIs. Users then authenticate to the middle-tier application, and then an on-behalf-of token flow is used when calling the downstream API. Here is the [on-behalf-of documentation](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-on-behalf-of) and here is [sample code](https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapi-onbehalfof/) to call a downstream web API from a web API using Azure AD.
 
@@ -55,9 +53,6 @@ As a solution developer, you might need to create a middle-tier application that
 	```
 
 <!-- Images -->
-[1]: /media/quickstart-view-occupancy-dotnet/AADAppRegistration1.png
-[2]: /media/quickstart-view-occupancy-dotnet/AADAppRegistration2.png
-[3]: /media/quickstart-view-occupancy-dotnet/AADAppRegistration3.png
-
-
-
+[1]: ./media/digital-twins-permissions/aad-app-registration1.png
+[2]: ./media/digital-twins-permissions/aad-app-registration2.png
+[3]: ./media/digital-twins-permissions/aad-app-registration3.png

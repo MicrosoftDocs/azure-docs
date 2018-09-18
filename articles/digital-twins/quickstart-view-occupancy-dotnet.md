@@ -2,7 +2,7 @@
 title: Find available rooms with fresh air with Azure Digital Twins quickstart (C#) | Microsoft Docs
 description: In this quickstart, you run two .NET Core sample applications to send simulated motion and CO2 telemetry to a space in Azure Digital Twins. The goal is to find available rooms with fresh air from Management APIs after computed processing in the cloud.
 author: alinamstanciu
-manager: bertv
+manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.devlang: csharp
@@ -26,16 +26,17 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-- The two console applications you run in this quickstart are written using C#. You need to install [.NET Core SDK](https://www.microsoft.com/net/download) on your development machine.
+1. The two console applications you run in this quickstart are written using C#. You need to install [.NET Core SDK](https://www.microsoft.com/net/download) on your development machine.
 
-- Clone the sample C# projects from https://github.com/Azure-Samples/digital-twins-samples-csharp
-  ```
-  git clone https://github.com/Azure-Samples/digital-twins-samples-csharp.git
-  ```
+1. Clone the sample C# projects and change directory to digital-twins-samples-csharp
+    ```
+    git clone https://github.com/Azure-Samples/digital-twins-samples-csharp.git
+    cd digital-twins-samples-csharp
+    ```
+1. The repo is composed of several standalone projects. Occupancy sample is the suggested starting sample. If using [Visual Studio Code](https://code.visualstudio.com/) we have included a [visual studio code workspace file](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/digital-twins-samples.code-workspace) that will load all samples. Alternatively, each folder can be opened individually.
 
 ## Create a Digital Twins instance in Azure Portal
 
-> TODO: Move Create a Digital Twins in Azure Portal in its own file, it will be shared across documentaton.
 1. Sign in to the [Azure portal](http://portal.azure.com).
 1. Select **Create a resource** > **Internet of Things** > **Digital Twins** (or search by **Digital Twins**)
     ![Select to install Digital Twins][1]
@@ -46,22 +47,19 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    * **Name**: Create a unique name for your Digital Twins. If the name you enter is available, a green check mark appears.
    ![Create Digital Twins][2]
 1. Review your Digital Twins information, then click **Create**. Your Digital Twins might take a few minutes to create. You can monitor the progress in the **Notifications** pane.
-1. Digital Twins provides a collection of REST APIs for management and interaction with your topology. These APIs are called Management APIs. The URL is generated in portal in **Overview** section and has the following format `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger`. You will need this URL in the proceeding steps.
+1. Digital Twins provides a collection of REST APIs for management and interaction with your topology. These APIs are called Management APIs. The URL is generated in the **Overview** section and has the following format `https://[yourDigitalTwinsName].[yourLocation].azuresmartspaces.net/management/swagger`. You will need this URL in the proceeding steps.
 
 ## Grant permissions to the console applications to interact with Digital Twins Management APIs
 [!INCLUDE [digital-twins-permissions](../../includes/digital-twins-permissions.md)]
 
 ## Provision topology
 * Follow [these steps](https://github.com/Azure-Samples/digital-twins-samples-csharp/tree/master/occupancy) to provision spaces, IoT Hub resource, devices, sensors and custom functions in Digital Twins topology
->TODO: Show screenshot
 
 ## Send motion and CO2 telemetry
 * Follow [these steps](https://github.com/Azure-Samples/digital-twins-samples-csharp/tree/master/device-connectivity) to simulate device motion and CO2 telemetry in order to be processed by Digital Twins engine which evaluates the custom function.
->TODO: Show screenshot
 
 ## Observe and read unoccupied spaces with good air quality
 * Follow [these steps](https://github.com/Azure-Samples/digital-twins-samples-csharp/tree/master/occupancy#readoccupancy) to find if there are available spaces with fresh air
->TODO: Show screenshot
 
 ## Clean up resources
 
@@ -75,12 +73,7 @@ The tutorials go into detail about how to build an application for facility mana
 
 Advance to the next article to learn how to create...
 > [!div class="nextstepaction"]
-<!-- > [Next steps button](tutorial-facilities-app.md) -->
-
-<!--- Required:
-Quickstarts should always have a Next steps H2 that points to the next logical quickstart in a series, or, if there are no other quickstarts, to some other cool thing the customer can do. A single link in the blue box format should direct the customer to the next article - and you can shorten the title in the boxes if the original one doesn’t fit.
-Do not use a "More info section" or a "Resources section" or a "See also section". --->
 
 <!-- Images -->
-[1]: /media/quickstart-view-occupancy-dotnet/CreateDigitalTwinsFromPortal.png
-[2]: /media/quickstart-view-occupancy-dotnet/CreateDigitalTwinsParam.png
+[1]: media/quickstart-view-occupancy-dotnet/create-digital-twins-portal.png
+[2]: media/quickstart-view-occupancy-dotnet/create-digital-twins-param.png
