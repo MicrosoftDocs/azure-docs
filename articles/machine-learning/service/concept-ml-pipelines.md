@@ -61,7 +61,7 @@ Check out the [Python SDK reference docs for pipelines](http://aka.ms/aml-sdk).
 
 ## Example notebooks
  
-The following notebook demonstrates pipelines with Azure Machine Learning:  `pipeline/06.pipeline-batch-scoring.ipynb`.
+The following notebook demonstrates pipelines with Azure Machine Learning:  `pipeline/pipeline-batch-scoring.ipynb`.
  
 Get these notebooks:
  
