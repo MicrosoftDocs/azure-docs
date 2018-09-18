@@ -13,11 +13,7 @@ ms.author: aahi
 ---
 # Tutorial: Display images and search options in a single-page Web app
 
-The Bing Image Search API enables you search the web for high-quality, relevant images. Use this tutorial to build a single-page web application that can send search queries to the API, and display the results within the webpage. This tutorial is similar to the [corresponding tutorial](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md) for Bing Web Search. 
-
-<!-- Remove until we can sanitize images
-![[Single-page Bing Image Search app]](media/cognitive-services-bing-images-api/image-search-spa-demo.png)
--->
+The Bing Image Search API enables you to search the web for high-quality, relevant images. Use this tutorial to build a single-page web application that can send search queries to the API, and display the results within the webpage. This tutorial is similar to the [corresponding tutorial](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md) for Bing Web Search. 
 
 The tutorial app illustrates how to:
 
@@ -32,7 +28,7 @@ The full source code for this tutorial is available on [GitHub](https://github.c
 ## Prerequisites
 
 * The latest version of [Node.js](https://nodejs.org/).
-* The [Express.js](https://expressjs.com/) framework for Node.js. Installation instructions for the source code are available in the sample. 
+* The [Express.js](https://expressjs.com/) framework for Node.js. Installation instructions for the source code are available in the gitHub sample readme file. 
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
@@ -93,12 +89,12 @@ function getSubscriptionKey() {
 }
 ```
 
-        The HTML `<form>` tag `onsubmit` calls the `bingWebSearch` function to return search results. `bingWebSearch` uses `getSubscriptionKey` to authenticate each query. As shown in the previous definition, `getSubscriptionKey` prompts the user for the key if the key hasn't been entered. The key is then stored for continuing use by the application.
+The HTML `<form>` tag `onsubmit` calls the `bingWebSearch` function to return search results. `bingWebSearch` uses `getSubscriptionKey` to authenticate each query. As shown in the previous definition, `getSubscriptionKey` prompts the user for the key if the key hasn't been entered. The key is then stored for continuing use by the application.
 
-        ```html
-        <form name="bing" onsubmit="this.offset.value = 0; return bingWebSearch(this.query.value, 
-            bingSearchOptions(this), getSubscriptionKey())">
-        ```
+```html
+<form name="bing" onsubmit="this.offset.value = 0; return bingWebSearch(this.query.value, 
+bingSearchOptions(this), getSubscriptionKey())">
+```
 
 ## Send search requests
 
@@ -114,7 +110,7 @@ By default, the `onsubmit` handler returns `false`, keeping the form from being 
 
 ![[Bing Image Search form]](media/cognitive-services-bing-images-api/image-search-spa-form.png)
 
-The Bing Image Search API offers several [filter query parameters](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference#filter-query-parameters) to narrow and filter search results. The HTML form in this application uses and displays the following parameter options:
+The Bing Image Search API offers several [filter query parameters](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#filter-query-parameters) to narrow and filter search results. The HTML form in this application uses and displays the following parameter options:
 
 |              |                                                                                                                                                                                    |
 |--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -373,7 +369,7 @@ The thumbnail image's `height` and `width` are used in both the `<img>` tag and 
 
 Responses from the Bing search APIs may include a `X-MSEdge-ClientID` header that should be sent back to the API with successive requests. If multiple Bing Search APIs are being used, the same client ID should be used with all of them, if possible.
 
-Providing the `X-MSEdge-ClientID` header allows the Bing APIs to associate all of a user's searches, which has two important benefits.
+Providing the `X-MSEdge-ClientID` header allows the Bing APIs to associate all of a user's searches, which is useful in
 
 First, it allows the Bing search engine to apply past context to searches to find results that better satisfy the user. If a user has previously searched for terms related to sailing, for example, a later search for "knots" might preferentially return information about knots used in sailing.
 

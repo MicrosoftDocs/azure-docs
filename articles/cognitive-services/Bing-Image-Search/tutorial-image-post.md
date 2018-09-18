@@ -47,17 +47,18 @@ When constructing the search request URL, the `modules` parameter follows the ab
 * `modules=All`
 * `modules=RecognizedEntities` (people or places visible in the image)
 
-Specify `modules=All` in the `POST` request to get JSON text that includes the following list:
-* `bestRepresentativeQuery` - a Bing query that returns images similar to the uploaded image
-* `detectedObjects` such as a bounding box or hot spots in the image
-* `image` metadata
-* `imageInsightsToken` - token for a subsequent `GET` request that gets `RecognizedEntities` (people or places visible in the image) 
-* `imageTags`
-* `pagesIncluding` - Web pages that include the image
-* `relatedSearches`
-* `visuallySimilarImages`
+Specify `modules=All` in the POST request to get JSON text that includes the following:
 
-Specify `modules=RecognizedEntities` in the `POST` request to get only the `imageInsightsToken`, which can be used in a subsequent `GET` request to identify people or places in the image.
+* `bestRepresentativeQuery` - a Bing query that returns images similar to the uploaded image
+* `detectedObjects` - objects found in the image
+* `image` - metadata for the image
+* `imageInsightsToken` - a token for a later GET requests that get `RecognizedEntities` (people or places visible in the image) from the image.
+* `imageTags` - tags for the image
+* `pagesIncluding` - Web pages that include the image
+* `relatedSearches` - searches based on details in the image.
+* `visuallySimilarImages` - similar images on the web.
+
+Specify `modules=RecognizedEntities` in the POST request to only get `imageInsightsToken`, which can be used in a subsequent GET request to identify people or places in the image.
 
 ## Create a WebClient object, and set headers for the API request
 
