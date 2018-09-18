@@ -239,8 +239,8 @@ This topic provides a reference for the following API Management policies. For i
   
 ```xml  
 <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">  
-    <api name="API name" id="API id" calls="number" renewal-period="seconds" />  
-        <operation name="operation name" id="operation id" calls="number" renewal-period="seconds" />  
+    <api name="API name" id="API id" calls="number" bandwidth="kilobytes" />  
+        <operation name="operation name" id="operation id" calls="number" bandwidth="kilobytes" />  
     </api>  
 </quota>  
 ```  
