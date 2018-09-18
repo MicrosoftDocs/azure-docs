@@ -30,26 +30,16 @@ In this quickstart, you'll learn how to use a code sample that demonstrates how 
 
 > [!div renderon="docs"]
 > ## Register your application and download your quickstart app
-> You have two options to start your quickstart app:
-> * [Express] [Option 1: Register and auto configure your app and then download the code sample](#option-1-register-and-auto-configure-your-app-and-then-download-the-code-sample)
-> * [Manual] [Option 2: Register and manually configure your app and then download the code sample](#option-2-register-and-manually-configure-your-app-and-then-download-the-code-sample)
 >
-> ### Option 1: Register and auto configure your app and then download the code sample
+> ### Step 1: Register your application
 >
-> 1. Go to the [Azure portal - Application Registration](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs).
-> 1. Enter a name for your application.
-> 1. Select **Accounts in any Azure AD directory and personal Microsoft accounts** under *Supported Microsoft accounts* (Optional). Click **Register**.
-> 1. Follow the instructions to download and automatically configure your new application for you in one click.
->
-> [!div renderon="docs"]
-> ### Option 2: Register and manually configure your app and then download the code sample
-> #### Step 1: Register your application
->
-> 1. To register an application, go to the [Azure portal - Application Registration](https://aka.ms/registeredappsprod) and select **New registration**.
-> 1. Enter a name for your application.
-> 1. Select **Accounts in any Azure AD directory and personal Microsoft accounts** under *Supported Microsoft accounts* (Optional).
-> 1. Under **Redirect URI**, select **Web** and add `http://localhost:30662/`. Click **Register**.
-> 1. Select **Authentication** menu, enable **ID tokens** and **Access tokens** under **Implicit Grant**, and then select **Save**.
+> 1. Go to the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app) to register an application.
+> 1. In the **Application Name** box, enter a name for your application.
+> 1. Ensure that the **Guided Setup** check box is cleared, and then select **Create**.
+> 1. Click **Add Platform**, then select **Web**.
+> 1. Make sure **Allow Implicit Flow** is *checked*.
+> 1. Under **Redirect URLs** add `http://localhost:30662/`.
+> 1. Click **Save**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 1: Configure your application in Azure portal
