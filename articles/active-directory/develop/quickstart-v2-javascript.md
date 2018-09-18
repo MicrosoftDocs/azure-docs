@@ -34,14 +34,14 @@ In this quickstart, you'll learn how to use a code sample that demonstrates how 
 > ### Step 1: Register your application (Advanced mode)
 >
 > 1. Go to the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app) to register an application
-> 1. Enter a name for your application and click **Create**
-> 1. Make sure the option for *Guided Setup* is unchecked
-> 1. Click `Add Platform`, then select `Web`
-> 1. Under `Redirect URLs` add `http://localhost:30662/`
-> 1. Click **Save**
-> 1. Scroll down and click the button `Edit Application Manifest`
-> 1. Find `oauth2AllowImplicitFlow` and make sure the value is `true`
-> 1. Click **Save**
+> 1. In the **Application Name** box, enter a name for your application.
+> 1. Ensure that the **Guided Setup** check box is cleared, and then select **Create**.
+> 1. Click **Add Platform**, then select **Web**.
+> 1. Under **Redirect URLs** add `http://localhost:30662/`.
+> 1. Click **Save**.
+> 1. Scroll down and click the button **Edit Application Manifest**.
+> 1. Find `oauth2AllowImplicitFlow` and make sure the value is `true`.
+> 1. Click **Save**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 1: Configure your application in Azure portal
