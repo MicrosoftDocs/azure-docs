@@ -49,7 +49,7 @@ After you create your directory, you can add your custom domain name.
 
     ![Fabrikam - Custom domain names page, with Add domain button highlighted](media/add-custom-domain/add-custom-domain-blade.png)
 
-4. Copy the DNS info from the **Contoso** page. For example, MS=ms64983159
+4. Copy the DNS info from the **Contoso** page. For example, MS=ms64983159.
 
     ![Contoso page with DNS entry information](media/add-custom-domain/contoso-blade-with-dns-info.png)
 
