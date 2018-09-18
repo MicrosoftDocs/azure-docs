@@ -38,7 +38,7 @@ After you create your directory, you can add your custom domain name.
 
 1. Select **Custom domain names**, and then select **Add custom domain**.
 
-    ![Fabrikam - Custom domain names blade, with Add custom domain option highlighted](media/add-custom-domain/add-custom-domain.png)
+    ![Fabrikam - Custom domain names page, with Add custom domain option highlighted](media/add-custom-domain/add-custom-domain.png)
 
 2. Type your new corporate domain name into the **Custom domain name** box (for example, _contoso.com_), and then select **Add domain**.
 
@@ -47,11 +47,11 @@ After you create your directory, you can add your custom domain name.
     >[!Important]
     >You must include .com, .net, or any other top-level extension for this to work properly.
 
-    ![Fabrikam - Custom domain names blade, with Add domain button highlighted](media/add-custom-domain/add-custom-domain-blade.png)
+    ![Fabrikam - Custom domain names page, with Add domain button highlighted](media/add-custom-domain/add-custom-domain-blade.png)
 
 4. Copy the text record from the **Contoso** page.
 
-    ![Contoso blade with DNS entry information](media/add-custom-domain/contoso-blade-with-dns-info.png)
+    ![Contoso page with DNS entry information](media/add-custom-domain/contoso-blade-with-dns-info.png)
 
 ## Add your DNS information to the domain registrar
 After you add your custom domain name to Azure AD, you must return to your domain registrar and add the Azure AD DNS information from your copied text file. Creating this record for your domain "verifies" your domain name for Azure AD.
@@ -69,13 +69,13 @@ After you register your custom domain name, you need to make sure it's valid in 
 
 2. Select **Azure Active Directory**, and then select **Custom domain names**.
 
-3. On the **Fabrikam - Custom domain names** blade, select the custom domain name, **Contoso**.
+3. On the **Fabrikam - Custom domain names** page, select the custom domain name, **Contoso**.
 
-    ![Fabrikam - Custom domain names blade, with contoso highlighted](media/add-custom-domain/custom-blade-with-contoso-highlighted.png)
+    ![Fabrikam - Custom domain names page, with contoso highlighted](media/add-custom-domain/custom-blade-with-contoso-highlighted.png)
 
-4. On the **Contoso** blade, select **Verify** to make sure your custom domain is properly registered and is valid for Azure AD.
+4. On the **Contoso** page, select **Verify** to make sure your custom domain is properly registered and is valid for Azure AD.
 
-    ![Contoso blade with DNS entry information and the Verify button](media/add-custom-domain/contoso-blade-with-dns-info-verify.png)
+    ![Contoso page with DNS entry information and the Verify button](media/add-custom-domain/contoso-blade-with-dns-info-verify.png)
 
 ### Common verification issues
 - If Azure AD can't verify a custom domain name, try the following suggestions:
