@@ -261,7 +261,7 @@ The following sections list the supported policy combinations when Azure is the 
 
 ### Does everything need to match between the virtual hub vpngateway policy and my on-premises SDWAN/VPN device or SD-WAN configuration?
 
-Your on-premises SDWAN/VPN device or SD-WAN configuration must match or contain the following algorithms and parameters, which you specify in the Azure IPsec/IKE policy. The SA lifetimes are local specifications only, and do not need to match.
+Your on-premises SDWAN/VPN device or SD-WAN configuration must match or contain the following algorithms and parameters, which you specify in the Azure IPsec/IKE policy.
 
 * IKE encryption algorithm
 * IKE integrity algorithm
