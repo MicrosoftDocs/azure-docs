@@ -59,6 +59,7 @@ Serial console for virtual machines is only accessible via [Azure portal](https:
 
 > [!NOTE] 
 > Serial console requires a local user with a password configured. At this time, VMs only configured with an SSH public key will not be able to log in to the serial console. To create a local user with password, use the [VM Access Extension](https://docs.microsoft.com/azure/virtual-machines/linux/using-vmaccess-extension),available in the portal by clicking "Reset password" in the portal, and create a local user with a password.
+> You may also reset the administrator password in your account by [using GRUB to drop into single user mode](./serial-console-grub-single-user-mode.md).
 
 ## Serial Console Linux distro availability
 In order for serial console to function properly, the guest operating system must be configured to read and write console messages to the serial port. Most [Endorsed Azure Linux Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) have the serial console configured by default. Simply clicking the Serial Console section in the Azure portal will provide access to the console. 

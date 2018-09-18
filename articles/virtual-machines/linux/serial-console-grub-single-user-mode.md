@@ -20,7 +20,6 @@ ms.author: alsin
 # Use Serial Console to access GRUB and Single User Mode
 Single user mode is a minimal environment with minimal functionality. It can be useful for investigating boot issues or network issues as fewer services may run in the background, and, depending on the runlevel, a filesystem may not even be automatically mounted. This is useful to investigate situations such as a corrupt filesystem, a broken fstab, or network connectivity (incorrect iptables configuration).
 
-
 ## General GRUB access
 To access GRUB, you will need to reboot your VM while keeping the serial console blade open. Some distros will require keyboard input to show GRUB, while others will automatically show GRUB for a few seconds and allow user keyboard input to cancel the timeout. 
 
