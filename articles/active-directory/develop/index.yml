@@ -146,10 +146,10 @@ sections:
           title: iOS
         - image:
             src: ./media/index/logo_Windows.svg
-          title: Windows Desktop .NET
+          title: Universal Windows Platform
         - image:
             src: ./media/index/logo_Windows.svg
-          title: Universal Windows Platform
+          title: Windows Desktop .NET
         - image:
             src: ./media/index/logo_xamarin.svg
           title: Xamarin
@@ -158,15 +158,15 @@ sections:
           values:
           - href: quickstart-v1-android.md
           - href: quickstart-v1-ios.md
-          - href: quickstart-v1-dotnet.md
           - href:
+          - href: quickstart-v1-dotnet.md
           - href: quickstart-v1-xamarin.md
         - title: v2.0
           values:
           - href: quickstart-v2-android.md
           - href: quickstart-v2-ios.md
-          - href: quickstart-v2-windows-desktop.md
           - href: quickstart-v2-uwp.md
+          - href: quickstart-v2-windows-desktop.md
           - href:
     - type: paragraph
       text: <b>Service-to-service</b>
