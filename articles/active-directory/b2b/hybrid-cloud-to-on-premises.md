@@ -5,7 +5,7 @@ description: Shows how to give cloud B2B users access to on-prem apps with Azure
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/20/2018
 
 ms.author: mimart
