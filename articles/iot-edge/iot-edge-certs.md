@@ -18,7 +18,7 @@ To clear up any confusion about IoT Edge's use of certificates, this article exp
 
 ## IoT Edge certificates
 
-The IoT Edge usage of certificates was designed with the idea that an Edge device manufacturer, will be a different entity than the operator of a device. The device manufacturer can be an independent entity; and a relationship between manufacturer and operator is the purchase of a commercially available Edge device. Another relationship may be the manufacturer working under contract to build an Edge device on behalf of the operator. The IoT Edge certificate design attempts to take both scenarios into account.
+In most cases, manufacturers are independent entities from end users of an Edge device. Sometimes the only relationship between manufacturer and operator is the purchase of a commercially available Edge device. Other times, the manufacturer working under contract to build an Edge device on behalf of the operator. The IoT Edge certificate design attempts to take both scenarios into account.
 
 The following figure illustrates IoT Edge's usage of certificates. There may be zero, one, or many intermediate signing certificates between the root CA certificate and the device CA certificate. Depending on the number of entities involved, here we show one case.
 
@@ -42,7 +42,7 @@ In a typical manufacturing process for creating secure devices, root CA certific
 
 * A customer buying a root CA and deriving a signing certificate for the manufacturer to sign the devices they make on that customer's behalf.
 
-In any case, the manufacturer uses an intermediate CA certificate at the end of this chain to sign the device CA certificate placed on the end device. Generally, these intermediate certificates are closely guarded at the manufacturing plant. They undergo strict processes, both physical and electronic, for their usage.
+In any case, the manufacturer uses an intermediate CA certificate at the end of this chain to sign the device CA certificate placed on the end device. Generally, these intermediate certificates are closely guarded at the manufacturing plant. They undergo strict processes, both physical and electronic for their usage.
 
 ### Device CA certificate
 
@@ -58,18 +58,18 @@ The Edge Hub server certificate is the actual certificate presented to leaf devi
 
 ## Production implications
 
-A reasonable question might be "why does IoT Edge need the 'workload CA' extra certificate? Couldn't it use the device CA certificate to directly generate the Edge Hub server certificate?". Technically, it could. However, the purpose of this "workload" intermediate certificate is to separate concerns between the device manufacturer and the device operator. Imagine a scenario where an IoT Edge device is sold or transferred from one customer to another. You would likely want the device CA certificate provided by the manufacturer to be immutable. However, the "workload" certificates specific to operation of the device be wiped and recreated for the new deployment.
+A reasonable question might be "why does IoT Edge need the 'workload CA' extra certificate? Couldn't it use the device CA certificate to directly generate the Edge Hub server certificate?". Technically, it could. However, the purpose of this "workload" intermediate certificate is to separate concerns between the device manufacturer and the device operator. Imagine a scenario where an IoT Edge device is sold or transferred from one customer to another. You would likely want the device CA certificate provided by the manufacturer to be immutable. However, the "workload" certificates specific to operation of the device should be wiped and recreated for the new deployment.
 
-Because manufacturer and operator processes are separated, there are a couple of implications that need to be considered related to rolling out IoT Edge for production devices.
+Because manufacturer and operator processes are separated, there are a few implications that need to be considered related to rolling out IoT Edge for production devices.
 
 * With any certificate-based process, the root CA certificate and all intermediate CA certificates should be secured and monitored during the entire process of rolling out an IoT Edge device. The IoT Edge device manufacturer should have strong processes in place for proper storage and usage of their intermediate certificates. In addition, the device CA certificate should be kept in as secure storage as possible on the device itself, preferably a hardware security module.
 
-* Since the Edge Hub server certificate will be presented by Edge Hub to the connecting client devices and modules, the CN of the device CA certificate **must not be** the same as the "hostname" that will be used in config.yaml. The name used by clients to connect to IoT Edge (e.g. via the GatewayHostName parameter of the connection string or the CONNECT command in MQTT) **can't be** the same as common name used in the device CA certificate. This is because Edge Hub presents its entire certificate chain for verification by clients. If the Edge Hub server certificate and the device CA certificate both have the same CN, you get in a verification loop and the certificate will invalidate.
+* Since the Edge Hub server certificate will be presented by Edge Hub to the connecting client devices and modules, the CN of the device CA certificate **must not be** the same as the "hostname" that will be used in config.yaml on the IoT Edge device. The name used by clients to connect to IoT Edge (e.g. via the GatewayHostName parameter of the connection string or the CONNECT command in MQTT) **can't be** the same as common name used in the device CA certificate. This is because Edge Hub presents its entire certificate chain for verification by clients. If the Edge Hub server certificate and the device CA certificate both have the same CN, you get in a verification loop and the certificate will invalidate.
 
 * Because the device CA certificate is used by the IoT Edge Security daemon to generate the final IoT Edge certificates, it must itself be a signing certificate, meaning it has certificate signing capabilities. To make this a signing CA cert, essentially applying "V3 Basic constraints CA:True" to the device CA certificate will automatically set up the required key usage properties.
 
 >[!Tip]
-> If you've already gone through the setup of IoT Edge as a transparent gateway in a dev/test scenario using our "convenience scripts" (see next section); and used the same host name when creating the device CA certificate as you did for the hostname in config.yaml, you might be wondering why it worked. In an effort to simplify the developer experience, the convenience scripts appends a ".ca" on the end of the name you pass into the script. So, for example, if you used "mygateway" for both your device name in the scripts and hostname in config.yaml, the former will be turned into mygateway.ca before being used as the CN for the device CA cert.
+> If you've already gone through the setup of IoT Edge as a transparent gateway in a dev/test scenario using our "convenience scripts" (see next section) and used the same host name when creating the device CA certificate as you did for the hostname in config.yaml, you might be wondering why it worked. In an effort to simplify the developer experience, the convenience scripts appends a ".ca" on the end of the name you pass into the script. So, for example, if you used "mygateway" for both your device name in the scripts and hostname in config.yaml, the former will be turned into mygateway.ca before being used as the CN for the device CA cert.
 
 ## Dev/Test implications
 
