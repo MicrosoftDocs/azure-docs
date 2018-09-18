@@ -1,5 +1,5 @@
 ---
-title: 'Virtual WAN partners | Microsoft Docs'
+title: 'Azure Virtual WAN partners | Microsoft Docs'
 description: This article helps partners set up Azure Virtual WAN automation.
 services: virtual-wan
 author: cherylmc
