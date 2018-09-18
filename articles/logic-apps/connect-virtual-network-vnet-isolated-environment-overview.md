@@ -18,9 +18,9 @@ ms.date: 09/24/2018
 
 Sometimes, your logic apps and integration accounts need access to secured 
 resources such as virtual machines (VMs) and other systems or services inside an 
-[Azure virtual network (VNET)](../virtual-network/virtual-networks-overview.md). 
-To provide this access, you can create an *integration service environment* (ISE) 
-and use that environment as the location for creating your logic apps and integration accounts. 
+[Azure Virtual Network (VNET)](../virtual-network/virtual-networks-overview.md). 
+To provide this access, you can create an *integration service environment* (ISE) and 
+use that environment as the location for creating your logic apps and integration accounts. 
 
 Creating an ISE deploys a private and isolated Logic Apps instance into your VNET. 
 The private instance uses dedicated resources such as storage, and runs separately 
@@ -28,9 +28,9 @@ from the public "global" Logic Apps service. This separation also helps reduce t
 impact that other Azure tenants might have on your apps' performance, or the 
 ["noisy neighbors" effect](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors). 
 
-This overview describes how creating an ISE helps logic apps and integration accounts directly 
-access resources inside your Azure VNET, and also compares the differences between an ISE 
-and the global Logic Apps service.
+This overview describes how creating an ISE helps logic apps and integration 
+accounts directly access resources inside your Azure VNET, and compares 
+the differences between an ISE and the global Logic Apps service.
 
 <a name="difference"></a>
 
