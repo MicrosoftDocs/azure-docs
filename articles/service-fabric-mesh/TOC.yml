@@ -21,6 +21,16 @@
       href: service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md
     - name: 3- Deploy a Service Fabric Mesh web app
       href: service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md
+  - name: Deploy, scale, and upgrade an app using a template
+    items:
+    - name: 1- Deplay a Service Fabric application
+      href: service-fabric-mesh-tutorial-template-deploy-app.md
+    - name: 2- Scale services in an application
+      href: service-fabric-mesh-tutorial-template-scale-services.md
+    - name: 3- Upgrade an application
+      href: service-fabric-mesh-tutorial-template-upgrade-app.md
+    - name: 4- Remove an application
+      href: service-fabric-mesh-tutorial-template-remove-app.md
 - name: Concepts
   items:
   - name: Terminology
