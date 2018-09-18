@@ -25,6 +25,8 @@
     href: active-directory-architecture.md
   - name: Default user permissions
     href: users-default-permissions.md
+  - name: Deployment 30, 90, and beyond
+    href: active-directory-deployment-checklist-p2.md
   - name: Identity data storage for the EU
     href: active-directory-data-storage-eu.md
 - name: 'How-to guides'
