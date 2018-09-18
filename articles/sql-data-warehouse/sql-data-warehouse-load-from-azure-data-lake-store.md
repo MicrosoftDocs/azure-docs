@@ -82,7 +82,7 @@ Use this [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-dat
 CREATE EXTERNAL DATA SOURCE AzureDataLakeStorageGen1
 WITH (
     TYPE = HADOOP,
-    LOCATION = 'adl://<DataLakeStoreGen1 account_name>.azuredatalakestore.net',
+    LOCATION = 'adl://<datalakestoregen1accountname>.azuredatalakestore.net',
     CREDENTIAL = ADLSG1Credential
 );
 ```

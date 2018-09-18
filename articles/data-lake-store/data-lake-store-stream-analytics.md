@@ -25,7 +25,7 @@ Before you begin this tutorial, you must have the following:
 
 * **Azure Storage account**. You will use a blob container from this account to input data for a Stream Analytics job. For this tutorial, assume you have a storage account called **storageforasa** and a container within the account called **storageforasacontainer**. Once you have created the container, upload a sample data file to it. 
   
-* **A Data Lake Storage Gen1 account**. Follow the instructions at [Get started with Azure Data Lake Storage Gen1 using the Azure Portal](data-lake-store-get-started-portal.md). Let's assume you have a Data Lake Storage Gen1 account called **asadatalakestore**. 
+* **A Data Lake Storage Gen1 account**. Follow the instructions at [Get started with Azure Data Lake Storage Gen1 using the Azure Portal](data-lake-store-get-started-portal.md). Let's assume you have a Data Lake Storage Gen1 account called **myadlsg1**. 
 
 ## Create a Stream Analytics Job
 You start by creating a Stream Analytics job that includes an input source and an output destination. For this tutorial, the source is an Azure blob container and the destination is Data Lake Storage Gen1.
