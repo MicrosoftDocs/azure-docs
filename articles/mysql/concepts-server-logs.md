@@ -8,7 +8,7 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 09/17/2018
 ---
 # Server Logs in Azure Database for MySQL
 In Azure Database for MySQL, the slow query log is available to users. Access to the transaction log is not supported. The slow query log can be used to identify performance bottlenecks for troubleshooting. 
@@ -23,9 +23,9 @@ In the Azure portal, select your Azure Database for MySQL server. Under the **Mo
 For more information on Azure CLI, see [Configure and access server logs using Azure CLI](howto-configure-server-logs-in-cli.md).
 
 ## Log retention
-Logs are available for up to seven days from their creation. If the total size of the available logs exceeds 7.5 GB, then the oldest files are deleted until space is available. 
+Logs are available for up to seven days from their creation. If the total size of the available logs exceeds 7 GB, then the oldest files are deleted until space is available. 
 
-Logs are rotated every 24 hours or 7.5 GB, whichever comes first.
+Logs are rotated every 24 hours or 7 GB, whichever comes first.
 
 
 ## Configure logging 
