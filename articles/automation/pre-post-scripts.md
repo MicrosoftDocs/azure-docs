@@ -1,5 +1,5 @@
 ---
-title: Configure pre and post scripts on your Update Management deployment in Azure
+title: Configure pre and post scripts (Preview) on your Update Management deployment in Azure
 description: This article describes how to configure and manage pre and post scripts for update deployments
 services: automation
 ms.service: automation
@@ -10,13 +10,39 @@ ms.date: 09/14/2018
 ms.topic: conceptual
 manager: carmonm
 ---
-# Manage pre and post scripts
+# Manage pre and post scripts (Preview)
 
 Pre and post scripts let you run PowerShell runbooks in your Automation Account before (pre-task) and after (post-task) an update deployment. Pre and post scripts run in the Azure context and not locally.
 
 ## Runbook requirements
 
 For a runbook to be used as a pre or post script, the runbook needs to be imported into your automation account and published.
+
+## Using a pre/post script
+
+To use a pre and or post script in an Update Deployment, simply start by creating an Update Deployment. Select **Pre-scripts + Post Scripts (Preview)**. This opens the **Select Pre-scripts + Post-scripts** page.  
+
+![Select scripts](./media/pre-post-scripts/select-scripts.png)
+
+Select the script you want to use, in this example, you used the **UpdateManagement-TurnOnVms** runbook. When you select the runbook the **Configure Script** page opens, provide values for the parameters, and choose **Pre-Script**. Click **OK** when done.
+
+![Configure script](./media/pre-post-scripts/configure-script.png)
+
+Repeat this process for the **UpdateManagement-TurnOffVms** script. But when choosing the **Script type**, choose **Post-Script**.
+
+The **Selected items** section now shows both your scripts selected and on is a pre-script and the other is a post-script.
+
+![Selected items](./media/pre-post-scripts/selected-items.png)
+
+Finish configuring your Update Deployment.
+
+When your Update Deployment is complete, you can go to **Update deployments** to view the results. As you can see the status of the pre-script and post-script are provided.
+
+![Update results](./media/pre-post-scripts/update-results.png)
+
+By clicking into the update deployment run you are provided additional details to the pre and post scripts. A link to the script source at the time of the run is provided.
+
+![Deployment run results](./media/pre-post-scripts/deployment-run.png)
 
 ## Passing parameters
 
@@ -72,13 +98,18 @@ A full example with all properties can be found at: [Software Update Configurati
 
 ## Samples
 
-Samples for pre and post scripts can be found in the [Script Center Gallery](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B0%5D.Text=Windows%20Azure&f%5B1%5D.Type=SubCategory&f%5B1%5D.Value=WindowsAzure_automation&f%5B1%5D.Text=Automation&f%5B2%5D.Type=SearchText&f%5B2%5D.Value=update%20management&f%5B3%5D.Type=Tag&f%5B3%5D.Value=Patching&f%5B3%5D.Text=Patching&f%5B4%5D.Type=ProgrammingLanguage&f%5B4%5D.Value=PowerShell&f%5B4%5D.Text=PowerShell).
+Samples for pre and post scripts can be found in the [Script Center Gallery](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B0%5D.Text=Windows%20Azure&f%5B1%5D.Type=SubCategory&f%5B1%5D.Value=WindowsAzure_automation&f%5B1%5D.Text=Automation&f%5B2%5D.Type=SearchText&f%5B2%5D.Value=update%20management&f%5B3%5D.Type=Tag&f%5B3%5D.Value=Patching&f%5B3%5D.Text=Patching&f%5B4%5D.Type=ProgrammingLanguage&f%5B4%5D.Value=PowerShell&f%5B4%5D.Text=PowerShell), or imported through the Azure portal. To import them through the portal, in your Automation Account, under **Process Automation**, select **Runbooks Gallery**. Use **Update Management** for the filter.
 
+![Gallery list](./media/pre-post-scripts/runbook-gallery.png)
+
+Or you can search for them by their script name as seen in the following list:
 
 * UpdateManagement-TurnOnVms
 * UpdateManagement-TurnOffVms
-* StartLocalService
-* StopLocalService
+* UpdateManagement-SingleHybridWorker
+
+> [!IMPORTANT]
+> After you import the runbooks, you must **Publish** them before they can be used. To do that find the runbook in your Automation Account, select **Edit**, and click **Publish**.
 
 The samples are all based on the basic template that is defined in the following example. This template can be used to create your own runbook to use with pre and post scripts. The necessary logic for authenticating with Azure as well as handling the `SoftwareUpdateConfigurationRunContext` parameter are included.
 
@@ -143,7 +174,8 @@ Pre and post tasks run in the Azure context and do not have access to Non-Azure 
 * A runbook you want to run locally
 * Parent runbook
 
-To interact with Non-Azure machines a parent runbook is ran in the Azure context. This runbook calls a child runbook with the [Start-AzureRmAutomationRunbook]
+To interact with Non-Azure machines a parent runbook is ran in the Azure context. This runbook calls a child runbook with the [Start-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) cmdlet. You must specify the `-RunOn` parameter and provide the name of the Hybrid Runbook Worker for the script to run on.
+
 ```powershell
 $ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
 
@@ -178,6 +210,7 @@ if ($summary.Type -eq "Error")
 ## Known issues
 
 * You cannot pass objects or arrays to parameters when using pre and post scripts. The runbook will fail.
+* Runbooks that are not published are displayed as selectable when choosing a pre or post script. Only runbooks that are published should be chosen as un-published runbooks can not be invoked and will fail.
 
 ## Next steps
 
