@@ -15,7 +15,7 @@ ms.date: 09/24/2018
 
 Training machine learning models, particularly deep neural networks, is often a time- and compute-intensive task. Once you've finished writing your training script and running on a small subset of data on your local machine, you will likely want to scale up your workload.
 
-To facilitate training, the Azure Machine Learning Python SDK provides a high-level abstraction, the Estimator class, which allows users to easily train their models in the Azure ecosystem. You can create and use an Estimator object to submit any training code you want to run on remote compute, whether it's a single-node run or distributed training across a GPU cluster. For PyTorch and TensorFlow jobs, Azure ML also provides respective custom PyTorch and TensorFlow Estimators that make it easy to use these frameworks.
+To facilitate training, the Azure Machine Learning Python SDK provides a high-level abstraction, the Estimator class, which allows users to easily train their models in the Azure ecosystem. You can create and use an Estimator object to submit any training code you want to run on remote compute, whether it's a single-node run or distributed training across a GPU cluster. For PyTorch and TensorFlow jobs, Azure Machine Learning also provides respective custom PyTorch and TensorFlow Estimators that make it easy to use these frameworks.
 
 ## Train with an Estimator
 Once you've created your [Workspace](https://docs.microsoft.com/azure/machine-learning/service/concept-azure-machine-learning-architecture#workspace) and set up your [development environment](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-environment), training a model in Azure ML involves the following steps:  
@@ -40,10 +40,10 @@ script_params = {
 }
 
 sk_est = Estimator(source_directory='./my-sklearn-proj',
-                script_params=script_params,
-                compute_target=compute_target,
-                entry_script='train.py',
-                conda_packages=['scikit-learn'])
+                   script_params=script_params,
+                   compute_target=compute_target,
+                   entry_script='train.py',
+                   conda_packages=['scikit-learn'])
 ```
 
 The above code snippet specifies the following parameters to the Estimator constructor:
@@ -80,7 +80,7 @@ There are two additional training scenarios you can carry out with the Estimator
 1. Using a custom Docker image
 2. Distributed training on a multi-node cluster
 
-The following code shows how to carry out distributed training for a CNTK model. In addition, instead of using the default AML images, it assumes you have your own custom docker image you want to use for training.
+The following code shows how to carry out distributed training for a CNTK model. In addition, instead of using the default Azure Machine Learning images, it assumes you have your own custom docker image you want to use for training.
 
 You should have already created your [compute target](https://docs.microsoft.com/azure/machine-learning/service/how-to-set-up-training-targets#batch) object `compute_target`. You can create the estimator as follows:
 
