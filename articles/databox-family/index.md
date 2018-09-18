@@ -19,7 +19,7 @@ ms.author: alkohli
 <p>For limited to no network bandwidth</p>
 <ul class="cardsA panelContent singlePanelContent cols cols3" style="display:flex!important;">
     <li>
-        <a href="/azure/databox/data-box-disk-overview.md">
+        <a href="/azure/databox/data-box-disk-overview">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card">
@@ -37,7 +37,7 @@ ms.author: alkohli
         </a>
     </li>
     <li>
-        <a href="/azure/databox/data-box-overview.md">
+        <a href="/azure/databox/data-box-overview">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card">
@@ -55,7 +55,7 @@ ms.author: alkohli
         </a>
     </li>
     <li>
-        <a href="/azure/databox/data-box-heavy-overview.md">
+        <a href="/azure/databox/data-box-heavy-overview">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card">
@@ -78,7 +78,7 @@ ms.author: alkohli
 <p>Over the network transfer</p>
 <ul class="cardsA panelContent singlePanelContent cols cols3" style="display:flex!important;">
     <li>
-        <a href="/azure/databox-online/data-box-gateway-overview.md">
+        <a href="/azure/databox-online/data-box-gateway-overview">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card">
@@ -96,7 +96,7 @@ ms.author: alkohli
         </a>
     </li>
     <li>
-        <a href="/azure/databox-online/data-box-edge-overview.md">
+        <a href="/azure/databox-online/data-box-edge-overview">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card">
