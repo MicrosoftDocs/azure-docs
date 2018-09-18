@@ -28260,6 +28260,21 @@
             "source_path": "articles/monitoring-and-diagnostics/monitoring-activity-log-alerts-new-experience.md",
             "redirect_url": "/azure/monitoring-and-diagnostics/alert-activity-log",
             "redirect_document_id" : false
+        },
+        {
+            "source_path": "articles/monitoring-and-diagnostics/index.md",
+            "redirect_url": "/azure/azure-monitor",
+            "redirect_document_id" : false
+        },
+        {
+            "source_path": "articles/log-analytics/index.md",
+            "redirect_url": "/azure/azure-monitor/overview",
+            "redirect_document_id" : false
+        },
+        {
+            "source_path": "articles/application-insights/index.md",
+            "redirect_url": "/azure/azure-monitor/overview",
+            "redirect_document_id" : false
         }
     ]
 }
