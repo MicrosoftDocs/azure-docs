@@ -25,12 +25,12 @@ This tutorial covers the following tasks:
 > * Migrate data using Spark 
 
 ## Plan for migration
-Migrating to or Adopting Cassandra API like anyother API in Cosmos DB  requires estimatation of the throughput needs.  In general it is better to start with stready state throughput for CRUD operations and then add difference for ETL or spiky operations.
 
-What do you need 
-* **Existing data size or estimated data size:** Defines the minimum database size and throughput requirement. If this is new application, you can assume the uniform distribution attributes across the rows and multiply by their datasize. 
+Before migrating data to Azure Cosmos DB Cassandra API, you should estimate the throughput needs of your workload. In general, it's recommended to start with the average throughput required by the CRUD operations and then include the additional throughput required for the Extract Transform Load (ETL) or spiky operations. You need the following details to plan for migration: 
 
-* **Required throughput:** Approximate read (query/get) and write(update/delete/insert) throughput rate. This is the key for working out the required RU along with steady state data size.  
+* **Existing data size or estimated data size:** Defines the minimum database size and throughput requirement. If you are estimating data size for a new application, you can assume that the data is uniformly distributed across the rows and estimate the value by multiplying with the data size. 
+
+* **Required throughput:** Approximate read (query/get) and write(update/delete/insert) throughput rate. This value is required to compute the required request units along with steady state data size.  
 
 * **Get the schema:** Connect to your existing Cassandra cluster through cqlsh and export schema from Cassandra: 
 
@@ -40,7 +40,7 @@ What do you need
 
 After you identify the requirements of your existing workload, you should create an Azure Cosmos DB account, database, and containers according to the gathered throughput requirements.  
 
-* **Determine the RU charge for an operation:** You can do this by using the Azure Cosmos DB Cassandra API SDK of your choice. This example shows the .NET version of getting RU charges.
+* **Determine the RU charge for an operation:** You can determine the RUs by using the Azure Cosmos DB Cassandra API SDK of your choice. This example shows the .NET version of getting RU charges.
 
   ```csharp
   var tableInsertStatement = table.Insert(sampleEntity);
@@ -97,7 +97,7 @@ Use the following steps to migrate data to Azure Cosmos DB Cassandra API with Sp
 
 - Move data to destination Cassandra API endpoint by using [table copy operation](cassandra-spark-table-copy-ops.md) 
 
-Migrating data by using spark jobs is a recommended option if you have data residing in an existing cluster in Azure virtual machines or any other cloud. This requires spark to be set up as intermediary for one time or regular ingestion. You can accelerate this migration by using Express route connectivity between on-premise and Azure. 
+Migrating data by using spark jobs is a recommended option if you have data residing in an existing cluster in Azure virtual machines or any other cloud. This requires spark to be set up as intermediary for one time or regular ingestion. You can accelerate this migration by using express route connectivity between on-premise and Azure. 
 
 ## Next steps
 
