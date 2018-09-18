@@ -54,7 +54,7 @@
     items:
     - name: Monitoring Containers overview
       href: monitoring-container-overview.md
-    - name: AKS Container Insights 
+    - name: Azure Monitor for containers 
       items:
        - name: Overview
          href: monitoring-container-insights-overview.md
@@ -62,7 +62,7 @@
          href: monitoring-container-insights-onboard.md
        - name: Analyze 
          href: monitoring-container-insights-analyze.md
-       - name: Cancel monitoring
+       - name: Stop monitoring
          href: monitoring-container-insights-optout.md
        - name: Troubleshooting
          href: monitoring-container-insights-troubleshoot.md
