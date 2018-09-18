@@ -117,7 +117,7 @@ Azure IoT needs the credentials for the container registry that Azure Machine Le
 
 1. Sign in to the [Azure portal](https://portal.azure.com/signin/index).
 
-1. Go to your Azure Machine Learning workspace and select the Overview. To go to the container registry settings, select the __Registry__ link.
+1. Go to your Azure Machine Learning workspace and select __Overview__. To go to the container registry settings, select the __Registry__ link.
 
     ![An image of the container registry entry](./media/how-to-deploy-to-iot/findregisteredcontainer.png)
 
