@@ -18,7 +18,7 @@ After you buy an Azure Cosmos DB reserved capacity, the reservation discount is 
 
 ## Reservation discount applied to Azure Cosmos DB accounts
 
-A reservation discount is applied to [provisioned throughput](request-units.md) in terms of request units per second(RU/s) on an hour-by-hour basis. For Azure Cosmos DB resources that don't run the full hour, the reservation discount is automatically applied to other Cosmos DB resources that match the reservation attributes. The discount can apply to Azure Cosmos DB resources that are running concurrently. If you don't have Cosmos DB resources that run for the full hour and that match the reservation attributes, you don't get the full benefit of the reservation discount for that hour.
+A reservation discount is applied to [provisioned throughput](../cosmos-db/request-units.md) in terms of request units per second(RU/s) on an hour-by-hour basis. For Azure Cosmos DB resources that don't run the full hour, the reservation discount is automatically applied to other Cosmos DB resources that match the reservation attributes. The discount can apply to Azure Cosmos DB resources that are running concurrently. If you don't have Cosmos DB resources that run for the full hour and that match the reservation attributes, you don't get the full benefit of the reservation discount for that hour.
 
 * The discounts are tiered which means reservations with higher request units provide higher discounts.  
 * The reservation purchase will apply discounts to all regions in the ratio equivalent to the regional on-demand pricing. For reservation discount ratios in each region see [reservation discount per region](#reservation-discount-per-region) section of this article.
