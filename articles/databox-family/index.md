@@ -65,7 +65,7 @@ ms.author: alkohli
                             </div>
                         </div>
                         <div class="cardText">
-                            <p><b>Data Box Heavy</b> for data sizes > 500 TB. Microsoft ships you a 1000 TB device via freight to copy data and ship back.</p>
+                            <p><b>Data Box Heavy</b> for data sizes > 500 TB. Microsoft ships you a 1 PB device via freight to copy data and ship back.</p>
                         </div>
                     </div>
                 </div>
