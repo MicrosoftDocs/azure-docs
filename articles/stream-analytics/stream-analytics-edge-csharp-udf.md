@@ -1,6 +1,6 @@
 ---
-title: Write a C# user defined function for an Azure Stream Analytics Edge job (Preview)
-description: Learn how to write c# user defined functions for Stream Analytics Edge jobs.
+title: Write a C# user defined function for an Azure Stream Analytics Edge job in Visual Studio (Preview)
+description: Learn how to write c# user defined functions for Stream Analytics Edge jobs in Visual Studio.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
@@ -11,9 +11,9 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ---
 
-# Tutorial: Write a C# user-defined function for an Azure Stream Analytics Edge job (Preview)
+# Tutorial: Write a C# user-defined function for an Azure Stream Analytics Edge job in Visual Studio (Preview)
 
-C# user-defined functions (UDF) allow you to extend the Azure Stream Analytics query language with your own functions. You can reuse existing code (including DLLs) and use mathematical or complex logic with C#. There are three ways to implement UDFs: CodeBehind files in a Stream Analytics project, UDFs from a local C# project, or UDFs from an existing package from a storage account. This tutorial uses the CodeBehind method to implement a basic C# function. The UDF feature for Stream Analytics Edge jobs is currently in preview and shouldn't be used in production workloads.
+C# user-defined functions (UDFs) created in Visual Studio allow you to extend the Azure Stream Analytics query language with your own functions. You can reuse existing code (including DLLs) and use mathematical or complex logic with C#. There are three ways to implement UDFs: CodeBehind files in a Stream Analytics project, UDFs from a local C# project, or UDFs from an existing package from a storage account. This tutorial uses the CodeBehind method to implement a basic C# function. The UDF feature for Stream Analytics Edge jobs is currently in preview and shouldn't be used in production workloads.
 
 In this tutorial, you learn how to:
 
@@ -27,10 +27,11 @@ In this tutorial, you learn how to:
 Before you start, make sure you've completed the following prerequisites:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Install [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) and the **Azure development** or **Data Storage and Processing** workloads.
+* Install [Stream Analytics tools for Visual Studio](stream-analytics-tools-for-visual-studio-install.md) and the **Azure development** or **Data Storage and Processing** workloads.
 * Take a look at the existing [Stream Analytics Edge development guide](stream-analytics-tools-for-visual-studio-edge-jobs.md).
 
 ## Create a container in your Azure Storage Account
+
 The container you create will be used to store the compiled C# package and deploy the package to your IoT Edge device. Use a dedicated container for each Stream Analytics job. Reusing the same container for multiple Stream Analytics Edge jobs is not supported. If you already have a storage account with existing containers, you may use them. If not, you'll need to [create a new container](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-portal). 
 
 ## Create a Stream Analytics Edge project in Visual Studio

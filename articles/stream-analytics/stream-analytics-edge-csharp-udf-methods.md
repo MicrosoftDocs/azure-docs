@@ -24,11 +24,31 @@ There are three ways to implement UDFs:
 * UDF from a local project
 * An existing package from an Azure storage account
 
+## Package path
+
+The format of any UDF package has the path `/UserCustomCode/CLR/*`. Dynamic Link Libraries (DLLs) and resources are copied under the `/UserCustomCode/CLR/*` folder, which helps isolate user DLLs from system and Azure Stream Analytics DLLs.
+
+## Supported types and mapping
+
+ |**UDF type (C#)**  |**Azure Stream Analytics type**  |
+ |---------|---------|
+ |Bool  |  bigint   |
+ |int32  |  bigint   |
+ |int64  |  bigint   |
+ |float  |  double   |
+ |double  |  double   |
+ |string  |  nvarchar(max)   |
+ |dateTime  |  dateTime   |
+ |struct  |  IRecord   |
+ |object  |  IRecord   |
+ |Array  |  IArray   |
+ |dictionary<string, object>  |  IRecord   |
+
 ## CodeBehind
 You can write user-defined functions in the **Script.asql** CodeBehind. Visual Studio tools will automatically compile the CodeBehind file into an assembly file. The assemblies are packaged as a zip file and uploaded to your storage account when you submit your job to Azure. You can learn how to write a C# UDF using CodeBehind by following the [C# UDF for Stream Analytics Edge jobs](stream-analytics-edge-csharp-udf.md) tutorial. 
 
 ## Local project
-User-defined functions can be written in an assembly that is later referenced in an Azure Stream Analytics query. This is the recommended option for complex functions that require the full power of a .NET Standard language beyond its expression language, such as procedural logic or recursion. UDFs from a local project might also be used when you need to share the function logic across several Azure Stream Analytics queries.
+User-defined functions can be written in an assembly that is later referenced in an Azure Stream Analytics query. This is the recommended option for complex functions that require the full power of a .NET Standard language beyond its expression language, such as procedural logic or recursion. UDFs from a local project might also be used when you need to share the function logic across several Azure Stream Analytics queries. Adding UDFs to your local project gives you the ability to debug and test your functions locally from Visual Studio.
 
 To reference a local project:
 
@@ -37,7 +57,8 @@ To reference a local project:
 3. Build your project.
 4. Reference the new class in your Azure Stream Analytics project.
 5. Add a new function in your Azure Stream Analytics project.
-6. Rebuild both the function project and the Azure Stream Analytics project.  
+6. Configure the assembly path in the job configuration file, `EdgeJobConfig.json`.
+7. Rebuild both the function project and the Azure Stream Analytics project.  
 
 ### Example
 
@@ -79,25 +100,23 @@ In this example, **UDFTest** is a C# class library project and **ASAEdgeUDFDemo*
 
 ## Existing packages
 
-You can author .NET Standard UDFs in any IDE of your choice and invoke them from your Azure Stream Analytics query. First compile your code and package all the Dynamic Link Libraries (DLLs). The format of the package has the path `/UserCustomCode/CLR/*`. DLLs and resources are copied under the `/UserCustomCode/CLR/*` folder, which helps isolate user DLLs from system and Azure Stream Analytics DLLs. Then, upload `UserCustomCode.zip` to the root of the container in your Azure storage account.
+You can author .NET Standard UDFs in any IDE of your choice and invoke them from your Azure Stream Analytics query. First compile your code and package all the DLLs. The format of the package has the path `/UserCustomCode/CLR/*`. Then, upload `UserCustomCode.zip` to the root of the container in your Azure storage account.
 
 Once assembly zip packages have been uploaded to your Azure storage account, you can use the functions in Azure Stream Analytics queries. All you need to do is include the storage information in the Stream Analytics Edge job configuration. You can't test the function locally with this option because Visual Studio tools will not download your package. The package path is parsed directly to the service. 
 
-## Supported types and mapping
+To configure the assembly path in the job configuration file, `EdgeJobConfig.json':
 
- |**UDF type (C#)**  |**Azure Stream Analytics type**  |
- |---------|---------|
- |Bool  |  bigint   |
- |int32  |  bigint   |
- |int64  |  bigint   |
- |float  |  double   |
- |double  |  double   |
- |string  |  nvarchar(max)   |
- |dateTime  |  dateTime   |
- |struct  |  IRecord   |
- |object  |  IRecord   |
- |Array  |  IArray   |
- |dictionary<string, object>  |  IRecord   |
+Expand the **User-Defined Code Configuration** section, and fill out the configuration with the following suggested values:
+
+    |**Setting**  |**Suggested value**  |
+    |---------|---------|
+    |Assembly Source  |  Local Project Reference or CodeBehind   |
+    |Resource  |  Choose data from current account   |
+    |Subscription  |  Choose your subscription.   |
+    |Storage Account  |  Choose your storage account.   |
+    |Container  |  Choose the container you created in your storage account.   |
+
+    ![Azure Stream Analytics Edge job configuration in Visual Studio](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-job-config.png)
 
 ## Limitations
 The UDF preview currently has the following limitations:
