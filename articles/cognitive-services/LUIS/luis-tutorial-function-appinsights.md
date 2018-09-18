@@ -146,7 +146,7 @@ Application Insights gives you the power to query the data with the [Kusto](http
     ![Analytics top intent](./media/luis-tutorial-appinsights/app-insights-top-intent.png)
 
 
-Learn more about the [Kusto query language](https://docs.loganalytics.io/docs/Learn/Getting-Started/Getting-started-with-queries) or [export the data to PowerBi](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi). 
+Learn more about the [Kusto query language](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) or [export the data to PowerBi](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi). 
 
 ## Next steps
 

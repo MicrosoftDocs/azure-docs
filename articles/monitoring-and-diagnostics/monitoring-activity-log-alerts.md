@@ -27,7 +27,7 @@ In either case, an activity log alert monitors only for events in the subscripti
 
 You can configure an activity log alert based on any top-level property in the JSON object for an activity log event. However, the portal shows the most common options:
 
-- **Category**: Administrative, Service Health, Autoscale, and Recommendation. For more information, see [Overview of the Azure activity log](./monitoring-overview-activity-logs.md#categories-in-the-activity-log). To learn more about service health events, see [Receive activity log alerts on service notifications](./monitoring-activity-log-alerts-on-service-notifications.md).
+- **Category**: Administrative, Service Health, Resource Health, Autoscale, and Recommendation. For more information, see [Overview of the Azure activity log](./monitoring-overview-activity-logs.md#categories-in-the-activity-log). To learn more about service health events, see [Receive activity log alerts on service notifications](./monitoring-activity-log-alerts-on-service-notifications.md).
 - **Resource group**
 - **Resource**
 - **Resource type**
