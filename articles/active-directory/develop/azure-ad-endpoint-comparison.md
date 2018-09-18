@@ -21,11 +21,7 @@ ms.custom: aaddev
 ---
 
 # Comparing the Azure AD v2.0 endpoint with v1.0 endpoint
-
-## Who can sign-in
-
-![Who can sign-in with v1.0 and v2.0 endpoints](media/azure-ad-endpoint-comparison/who-can-sign-in.jpg)
-* [Microsoft identities](#microsoft-accounts-and-azure-ad-accounts)
+* [Who can sign-in](#who-can-sign-in)
 * [New app registration portal](#new-app-registration-portal)
 * [One app ID for all platforms](#one-app-id-for-all-platforms)
 * [Scopes, not resources](#scopes-not-resources)
@@ -36,10 +32,17 @@ ms.custom: aaddev
 > [!NOTE]
 > Not all Azure AD scenarios and features are supported by the v2.0 endpoint. To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](#limitations).
 
-## Microsoft identities
-The v2.0 endpoint allows developers to write apps that accept sign-in from both personal (outlook.com, hotmail.com) and work and school accounts, giving you the ability to write your app completely account-agnostic. For instance, if your app calls the [Microsoft Graph](https://graph.microsoft.io), some additional functionality and data will be available to enterprise users, such as their SharePoint sites or Directory data. But for many actions, such as [Reading a user's mail](https://graph.microsoft.io/docs/api-reference/v1.0/resources/message), the same code can access the email for both personal and work and school accounts.
+## Who can sign-in
 
-You can use a single set of endpoints and single library (MSAL) to gain access to both the consumer, educational and enterprise worlds. To learn more about authentication libraries, see this article.
+![Who can sign-in with v1.0 and v2.0 endpoints](media/azure-ad-endpoint-comparison/who-can-sign-in.png)
+
+- The v1.0 endpoint allows only work and school accounts to sign in to your application (Azure AD)
+- The v2.0 endpoint allows work and school accounts from Azure Active Directory and personal accounts (MSA) (hotmail.com, outlook.com, msn.com) to sign in.
+- Both v1.0 and v2.0 endpoints also accept sign-ins of *[guest users](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* of an Azure AD directory for Azure AD applications configured as *[single-tenant](single-and-multi-tenant-apps.md)*.
+
+The v2.0 endpoint allows you to write apps that accept sign-in from both personal and work and school accounts, giving you the ability to write your app completely account-agnostic. For instance, if your app calls the [Microsoft Graph](https://graph.microsoft.io), some additional functionality and data will be available to work accounts, such as their SharePoint sites or Directory data. But for many actions, such as [Reading a user's mail](https://graph.microsoft.io/docs/api-reference/v1.0/resources/message), the same code can access the email for both personal and work and school accounts.
+
+For v2.0 endpoint, you can use a single library (MSAL) to gain access to both the consumer, educational and enterprise worlds.
 
  The Azure AD v1.0 endpoint accepts sign-ins from work and school accounts only.
 
@@ -63,7 +66,7 @@ If the user has yet not consented to new scopes added to the request, they will 
 
 Allowing an app to request permissions dynamically through the `scope` parameter gives developers full control over your user's experience. If you wish, you can also choose to front load your consent experience and ask for all permissions in one initial authorization request. Or if your app requires a large number of permissions, you can choose to gather those permissions from the user incrementally, as they attempt to use certain features of your app over time.
 
-A note is that - when an admin need to consent to the application permissions on behalf of the organization, it is still recommended that you set the static permissions in the app registration for apps using the v2.0 endpoint, so cycles requiring the intervention of an organization's admin are reduced.
+Note that admin consent done on behalf of an organization still uses the static permissions registered for the app, so it is recommended that you set those permissions for apps using the v2.0 endpoint if you need an admin to give consent on behalf of the entire organization. This reduces the cycles required by the organization admin to setup the application
 
 ## Scopes, not resources
 
@@ -96,11 +99,11 @@ Where the **scope** parameter indicates which resource and permissions the app i
 
 ### Offline access
 
-Apps using the v2.0 endpoint may require the use of a new well-known permission for apps - the `offline_access` scope. All apps will need to request this permission if they need to access resources on the behalf of a user for a prolonged period of time, even when the user may not be actively using the app. The `offline_access` scope will appear to the user in consent dialogs as "Access your data anywhere", which the user must agree to. Requesting the `offline_access` permission will enable your web app to receive OAuth 2.0 refresh_tokens from the v2.0 endpoint. Refresh_tokens are long-lived, and can be exchanged for new OAuth 2.0 access_tokens for extended periods of access.
+Apps using the v2.0 endpoint may require the use of a new well-known permission for apps - the `offline_access` scope. All apps will need to request this permission if they need to access resources on the behalf of a user for a prolonged period of time, even when the user may not be actively using the app. The `offline_access` scope will appear to the user in consent dialogs as **Access your data anytime**, which the user must agree to. Requesting the `offline_access` permission will enable your web app to receive OAuth 2.0 refresh_tokens from the v2.0 endpoint. Refresh tokens are long-lived, and can be exchanged for new OAuth 2.0 access tokens for extended periods of access.
 
-If your app does not request the `offline_access` scope, it will not receive refresh_tokens. This means that when you redeem an authorization_code in the OAuth 2.0 authorization code flow, you will only receive back an access_token from the `/token` endpoint. That access_token will remain valid for a short period of time (typically one hour), but will eventually expire. At that point in time, your app will need to redirect the user back to the `/authorize` endpoint to retrieve a new authorization_code. During this redirect, the user may or may not need to enter their credentials again or re-consent to permissions, depending on the type of app.
+If your app does not request the `offline_access` scope, it will not receive refresh tokens. This means that when you redeem an authorization code in the OAuth 2.0 authorization code flow, you will only receive back an access token from the `/token` endpoint. That access token will remain valid for a short period of time (typically one hour), but will eventually expire. At that point in time, your app will need to redirect the user back to the `/authorize` endpoint to retrieve a new authorization code. During this redirect, the user may or may not need to enter their credentials again or re-consent to permissions, depending on the type of app.
 
-To learn more about OAuth 2.0, refresh_tokens, and access_tokens, check out the [v2.0 protocol reference](active-directory-v2-protocols.md).
+To learn more about OAuth 2.0, `refresh_tokens`, and `access_tokens`, check out the [v2.0 protocol reference](active-directory-v2-protocols.md).
 
 ### OpenID, profile, and email
 
@@ -120,11 +123,12 @@ The claims in tokens issued by the v2.0 endpoint will not be identical to tokens
 
 There are a few restrictions to be aware of when using v2.0.
 
-When you build applications that integrate with Azure Active Directory (Azure AD), you need to decide whether the v2.0 endpoint and authentication protocols meet your needs. The v1.0 endpoint and platform is still fully supported and, in some respects, is more feature rich than v2.0. However, v2.0 [introduces significant benefits](azure-ad-endpoint-comparison.md) for developers.
+When you build applications that integrate with the Microsoft identity platform, you need to decide whether the v2.0 endpoint and authentication protocols meet your needs. The v1.0 endpoint and platform is still fully supported and, in some respects, is more feature rich than v2.0. However, v2.0 [introduces significant benefits](azure-ad-endpoint-comparison.md) for developers.
 
 Here's a simplified recommendation for developers at this point in time:
 
 * If you must support personal Microsoft accounts in your application, use v2.0. But before you do, be sure that you understand the limitations discussed in this article.
+
 * If your application only needs to support Microsoft work and school accounts, don't use v2.0. Instead, refer to the [v1.0 guide](azure-ad-developers-guide.md).
 
 The v2.0 endpoint will evolve to eliminate the restrictions listed here, so that you will only ever need to use the v2.0 endpoint. In the meantime, use this article to determine whether the v2.0 endpoint is right for you. We will continue to update this article to reflect the current state of the v2.0 endpoint. Check back to reevaluate your requirements against v2.0 capabilities.
@@ -190,10 +194,14 @@ To learn how to register an app in the Application Registration Portal, see [How
 Currently, library support for the v2.0 endpoint is limited. If you want to use the v2.0 endpoint in a production application, you have these options:
 
 * If you are building a web application, you can safely use Microsoft generally available server-side middleware to perform sign-in and token validation. These include the OWIN Open ID Connect middleware for ASP.NET and the Node.js Passport plug-in. For code samples that use Microsoft middleware, see the [v2.0 getting started](v2-overview.md#getting-started) section.
+
 * If you are building a desktop or mobile application, you can use one of the preview Microsoft Authentication Libraries (MSAL). These libraries are in a production-supported preview, so it is safe to use them in production applications. You can read more about the terms of the preview and the available libraries in [authentication libraries reference](reference-v2-libraries.md).
+
 * For platforms not covered by Microsoft libraries, you can integrate with the v2.0 endpoint by directly sending and receiving protocol messages in your application code. The v2.0 OpenID Connect and OAuth protocols [are explicitly documented](active-directory-v2-protocols.md) to help you perform such an integration.
+
 * Finally, you can use open-source Open ID Connect and OAuth libraries to integrate with the v2.0 endpoint. The v2.0 protocol should be compatible with many open-source protocol libraries without major changes. The availability of these kinds of libraries varies by language and platform. The [Open ID Connect](http://openid.net/connect/) and [OAuth 2.0](http://oauth.net/2/) websites maintain a list of popular implementations. For more information, see [Azure Active Directory v2.0 and authentication libraries](reference-v2-libraries.md), and the list of open-source client libraries and samples that have been tested with the v2.0 endpoint.
-  * For reference, the `.well-known` endpoint for the v2.0 common endpoint is `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration` .  Replace `common` with your tenant ID to get data specific to your tenant.  
+
+* For reference, the `.well-known` endpoint for the v2.0 common endpoint is `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration` .  Replace `common` with your tenant ID to get data specific to your tenant.  
 
 ### Restrictions on protocols
 
@@ -209,6 +217,6 @@ In addition, the v2.0 endpoint does not support any form of the SAML or WS-Feder
 
 To better understand the scope of protocol functionality supported in the v2.0 endpoint, read through our [OpenID Connect and OAuth 2.0 protocol reference](active-directory-v2-protocols.md).
 
-### Restrictions for work and school accounts
+### SAML Restrictions
 
 If you've used Active Directory Authentication Library (ADAL) in Windows applications, you might have taken advantage of Windows integrated authentication, which uses the Security Assertion Markup Language (SAML) assertion grant. With this grant, users of federated Azure AD tenants can silently authenticate with their on-premises Active Directory instance without entering credentials. Currently, the SAML assertion grant is not supported on the v2.0 endpoint.
