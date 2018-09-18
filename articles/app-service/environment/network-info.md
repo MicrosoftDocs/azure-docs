@@ -1,5 +1,5 @@
 ---
-title: Networking considerations with an Azure App Service environment
+title: Networking considerations with an Azure App Service Environment
 description: Explains the ASE network traffic and how to set NSGs and UDRs with your ASE
 services: app-service
 documentationcenter: na
@@ -85,22 +85,9 @@ The TCP traffic that comes in on ports 454 and 455 must go back out from the sam
 
 ### ASE outbound dependencies ###
 
-For outbound access, an ASE depends on multiple external systems. Many of those system dependencies are defined with DNS names and don't map to a fixed set of IP addresses. Thus, the ASE requires outbound access from the ASE subnet to all external IPs across a variety of ports. Here are just some of the ASE outbound dependencies:
+For outbound access, an ASE depends on multiple external systems. Many of those system dependencies are defined with DNS names and don't map to a fixed set of IP addresses. Thus, the ASE requires outbound access from the ASE subnet to all external IPs across a variety of ports. 
 
-| Use | From | To |
-|-----|------|----|
-| Azure Storage | ASE subnet | [ASE account].table.core.windows.net, [ASE account].blob.core.windows.net, [ASE account].queue.core.windows.net, [ASE account].file.core.windows.net: 80, 443, 445 (445 is only needed for ASEv1.) |
-| Azure SQL Database | ASE subnet | [ASE account].database.windows.net: 1433 |
-| Azure management | ASE subnet | management.core.windows.net, management.azure.com, admin.core.windows.net: 443 |
-| SSL certificate verification |  ASE subnet            |  ocsp.msocsp.com, mscrl.microsoft.com, crl.microsoft.com, crl3.digicert.com, www.thawte.com: 443 |
-| Azure Active Directory        | ASE subnet            |  login.windows.net, login.windows.com, login.microsoftonline.net, login.live.com, graph.windows.net: 443 |
-| App Service management        | ASE subnet            |  gr-prod-<regionspecific>.cloudapp.net, az-prod.metrics.nsatc.net: 443 |
-| Azure DNS                     | ASE subnet            |  Internet: 53 |
-| ASE internal communication    | ASE subnet: All ports |  ASE subnet: All ports |
-
-If the ASE loses access to its dependencies, it stops working. When that happens long enough, the ASE is suspended. The above list is a subset of all of the outbound dependencies. 
-
-The current outbound access requirement is to allow the ASE subnet to have complete access to the internet over ports 53, 80, 443, 445 (on ASEv1) and 1433.
+The complete list of outbound dependencies are listed in the document that describes [Locking down App Service Environment outbound traffic](./firewall-integration.md). If the ASE loses access to its dependencies, it stops working. When that happens long enough, the ASE is suspended. 
 
 ### Customer DNS ###
 
