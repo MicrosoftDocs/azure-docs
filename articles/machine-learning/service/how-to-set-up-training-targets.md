@@ -237,7 +237,9 @@ The following example uses the SDK to attach a cluster to your workspace. In the
 
 ```python
 from azureml.core.compute import BatchAiCompute
-BatchAiCompute.attach(workspace=ws, name=<name>, resource_id<resource-id>)
+BatchAiCompute.attach(workspace=ws,
+                    name=<name>, 
+                    resource_id=<resource-id>)
 ```
 
 You can also check the Batch AI cluster and job status using the following Azure CLI commands:
