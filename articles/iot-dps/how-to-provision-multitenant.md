@@ -179,7 +179,7 @@ In this section, you will clone the Azure IoT C SDK on each VM. The SDK contains
 1. For each VM, install **Cmake**, **g++**, **gcc**, and [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) using the command command:
 
     ```bash
-    sudo apt-get install cmake build-essential libssl-dev libcurl4-openssl-dev git-all
+    sudo apt-get install cmake build-essential libssl-dev libcurl4-openssl-dev uuid-dev git-all
     ```
 
 
@@ -364,7 +364,7 @@ The sample code simulates a device boot sequence that sends the provisioning req
 
 ## Next steps
 
-- To learn more Reprovisioning, see [IoT Hub Device reprovisoning concepts](concepts-device-reprovisioning.md) 
+- To learn more Reprovisioning, see [IoT Hub Device reprovisoning concepts](concepts-device-reprovision.md) 
 - To learn more Deprovisioning, see [How to deprovision devices that were previously auto-provisioned ](how-to-unprovision-devices.md) 
 
 
