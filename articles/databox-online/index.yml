@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure Data Box for online transfer 
+title:  Azure Data Box Documentation for online transfer
 metadata:
-  title: Azure Data Box for network transfer Documentation
+  title:  Azure Data Box Documentation for online transfer
   description: Azure Data Box family lets you transfer hundreds of terabytes of data into Azure in a quick, inexpensive, and reliable manner. Use the Data Box devices for over the network high performance data transfers.
   services: databox-edge-gateway
   author: alkohli
