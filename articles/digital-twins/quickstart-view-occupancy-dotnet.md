@@ -53,15 +53,12 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Provision topology
 * Follow [these steps](https://github.com/Azure-Samples/digital-twins-samples-csharp/tree/master/occupancy) to provision spaces, IoT Hub resource, devices, sensors and custom functions in Digital Twins topology
->TODO: Show screenshot
 
 ## Send motion and CO2 telemetry
 * Follow [these steps](https://github.com/Azure-Samples/digital-twins-samples-csharp/tree/master/device-connectivity) to simulate device motion and CO2 telemetry in order to be processed by Digital Twins engine which evaluates the custom function.
->TODO: Show screenshot
 
 ## Observe and read unoccupied spaces with good air quality
 * Follow [these steps](https://github.com/Azure-Samples/digital-twins-samples-csharp/tree/master/occupancy#readoccupancy) to find if there are available spaces with fresh air
->TODO: Show screenshot
 
 ## Clean up resources
 

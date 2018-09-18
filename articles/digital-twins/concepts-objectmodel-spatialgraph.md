@@ -58,11 +58,13 @@ Graph _scalability_ is our promise that we can handle your real-world workloads 
 Graph _extensibility_ allows to extend the model with new types and ontologies, but also to add properties and values to enrich your twins' digital data.
 
 ### Spatial Intelligence Graph Management APIs
-> Note:  For more details on how to use the Spatial Intelligence Graph, please visit your Digital Twins Management APIs URL.
 
 Once you deploy Azure Digital Twins from the Azure Portal, the URL of the Management APIs is generated in portal in the **Overview** section and has the following format `https://[yourDigitalTwinsName].[yourLocation].azuresmartspaces.net/management/swagger`. Browse the URL and learn about each object model API.
 
 All API calls must be authenticated using [OAuth](https://docs.microsoft.com/azure/active-directory/develop/v1-protocols-oauth-code). The APIs follow [Microsoft REST API Guidelines conventions](https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md). Most of the APIs that return collections support [OData](http://www.odata.org/getting-started/basic-tutorial/#queryData) system query options.
+
+>[!NOTE]
+>For more details on how to use the Spatial Intelligence Graph, please visit your Digital Twins Management APIs URL.
 
 <!-- Images -->
 [1]: media/concepts/digital-twins-spatial-graph-building.png
