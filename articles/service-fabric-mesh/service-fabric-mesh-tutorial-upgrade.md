@@ -49,7 +49,7 @@ This article shows how to independently upgrade a microservice within an applica
 
 ## Modify the config
 
-Upgrades can be due to code changes, or config changes, or both.  To introduce a config change, open the `WebFrontEnd` project's `service.yaml` file (which is under the **Service Resources** node).
+Upgrades can be due to code changes, config changes, or both.  To introduce a config change, open the `WebFrontEnd` project's `service.yaml` file (which is under the **Service Resources** node).
 
 In the `resources:` section, change `cpu:` from 0.5 to 1.0, in anticipation that the web front end will be heavily used. It should now look like this:
 
