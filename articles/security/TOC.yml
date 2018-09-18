@@ -120,10 +120,10 @@
       displayName: identity, active directory
       href: azure-ad-choose-authn.md
     - name: Security checklist
-      displayName: identity, active directory
+      displayName: identity, active directory, password
       href: azure-ad-secure-steps.md
     - name: Best practices
-      displayName: password, identity
+      displayName: password, identity, active directory
       href: azure-security-identity-management-best-practices.md
     - name: Enforce MFA on subscription administrators
       displayName: identity
