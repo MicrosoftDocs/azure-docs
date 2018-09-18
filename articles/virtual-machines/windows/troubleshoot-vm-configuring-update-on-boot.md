@@ -32,13 +32,15 @@ Usually this issue occurs when the server is doing the final reboot after the co
 
 ## Back up the OS disk
 
-Before you try to fix the issue, back up the OS disk first:
+Before you try to fix the issue, back up the OS disk:
 
-### Unlock encrypted disk
+### For encrypted disk, you need to unlock it first
 
-First, validate if this VM is an encrypted VM. To do this, in Azure Security Center (ASC), check the Resource Explorer on the VMCard for the **OS Disk Encrypted** value.
+Validate if this VM is an encrypted VM. To do this, follow these steps:
 
-![Check whether the disk is encrypted](..\media\troubleshoot-vm-configuring-update-on-boot\encrypted-disk.png)
+1. On the portal, open your VM, and then browse to the disks.
+
+2. You will see a column call 'Encryption" which will tell you whether the encryption is enabled or not.
 
 If the OS Disk is encrypted, unlock the encrypted disk. To do this, follow these steps:
 
@@ -93,171 +95,26 @@ If the OS Disk is encrypted, unlock the encrypted disk. To do this, follow these
     ```Powershell
     manage-bde -off F:
     ```
+
+    **Note** This is considering that the disk to encrypt is on letter F:
+
 8. You can gather the logs by navigating to the following path: **DRIVE LETTER:\Windows\System32\winevt\Logs**.
 
-9. Detach the drive from the recovery machine
-
-10. Rebuild the VM using PowerShell (Non-Managed Disk)
-
-    ```Powershell
-    # To login to Azure Resource Manager
-    Login-AzureRmAccount
- 
-    # To view all subscriptions for your account
-    Get-AzureRmSubscription
- 
-    # To select a default subscription for your current session
-    Get-AzureRmSubscription –SubscriptionID “SubscriptionID” | Select-AzureRmSubscription
- 
-    $rgname = "RGname"
-    $loc = "Location"
-    $vmsize = "VmSize"
-    $vmname = "VmName"
-    $vm = New-AzureRmVMConfig -VMName $vmname -VMSize $vmsize;
- 
-    $nic = Get-AzureRmNetworkInterface -Name ("NicName") -ResourceGroupName $rgname;
-    $nicId = $nic.Id;
- 
-    $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nicId;
- 
-    $osDiskName = "OSdiskName"
-    $osDiskVhdUri = "OSdiskURI"
- 
-    $vm = Set-AzureRmVMOSDisk -VM $vm -VhdUri $osDiskVhdUri -name $osDiskName -CreateOption attach -Windows
- 
-    New-AzureRmVM -ResourceGroupName $rgname -Location $loc -VM $vm -Verbose
-    ```
-
-11. Rebuild the VM using PowerShell (Managed Disk).
-
-    ```Powershell
-    # To login to Azure Resource Manager
-    Login-AzureRmAccount
-    
-    # To view all subscriptions for your account
-    Get-AzureRmSubscription
-    
-    # To select a default subscription for your current session
-    Get-AzureRmSubscription –SubscriptionID "SubscriptionID" | Select-AzureRmSubscription
-
-    #Fill in all variables
-    $subid = "SubscriptionID"
-    $rgName = "ResourceGroupName";
-    $loc = "Location";
-    $vmSize = "VmSize";
-    $vmName = "VmName";
-    $nic1Name = "FirstNetworkInterfaceName";
-    #$nic2Name = "SecondNetworkInterfaceName";
-    $avName = "AvailabilitySetName";
-    $osDiskName = "OsDiskName";
-    $DataDiskName = "DataDiskName"
-
-    #This can be found by selecting the Managed Disks you wish you use in the Azure Portal if the format below does not match
-    $osDiskResouceId = "/subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/disks/$osDiskName";
-    $dataDiskResourceId = "/subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/disks/$DataDiskName";
-
-    $vm = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize;
-
-    #Uncomment to add Availabilty Set
-    #$avSet = Get-AzureRmAvailabilitySet –Name $avName –ResourceGroupName $rgName;
-    #$vm = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avSet.Id;
-
-    #Get NIC Resource Id and add
-    $nic1 = Get-AzureRmNetworkInterface -Name $nic1Name -ResourceGroupName $rgName;
-    $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic1.Id -Primary;
-
-    #Uncomment to add a secondary NIC
-    #$nic2 = Get-AzureRmNetworkInterface -Name $nic2Name -ResourceGroupName $rgName;
-    #$vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic2.Id;
-
-    #Windows VM
-    $vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDiskResouceId -name $osDiskName -CreateOption Attach -Windows;
-
-    #Linux VM
-    #$vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDiskResouceId -name $osDiskName -CreateOption Attach -Linux;
-
-    #Uncomment to add additnal Data Disk
-    #Add-AzureRmVMDataDisk -VM $vm -ManagedDiskId $dataDiskResourceId -Name $dataDiskName -Caching None -DiskSizeInGB 1024 -Lun 0 -CreateOption Attach;
-
-    New-AzureRmVM -ResourceGroupName $rgName -Location $loc -VM $vm;
-    ```
+9. Detach the drive from the recovery machine.
 
 ### Create a snapshot
 
-Shut down the VM, and then wait till it is stopped and de-allocated.
-
-For unmanaged disks, you can use either [Microsoft Azure Storage Explorer](https://go.microsoft.com/fwlink/?LinkId=708343) or [Azure Powershell](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/WindowsAzurePowershellGet.3f.3f.3fnew.appids).
-
-#### Use Microsoft Azure Storage Explorer
-
-1. After you download the tool, add the Azure account details so you can access the storage accounts
-
-2. Click on **Add Account Settings**, and then **Add an account...**.
-    ![Add account settings](..\media\troubleshoot-vm-configuring-update-on-boot\account-settings.png)
-
-3. Go to the storage account where the OS disk locates, you can see this on ASC under Resource Explorer on Properties in the VM Properties card.    
-    ![Portal setting](..\media\troubleshoot-vm-configuring-update-on-boot\VM-Properties.png)
- 
-4. Create a snapshot of this disk. To do this, right click the disk, and then select **Make Snapshot**.
-    ![Message example](..\media\troubleshoot-vm-configuring-update-on-boot\make-snapshot.png)
-
-#### Use Azure Powershell
-
-You can run the following commands in PowerShell to clone a disk:
-
-```PowerShell
-Select-AzureSubscription "<<SUBSCRIPTION NAME>>" 
- 
-### Source VHD (Sounth Central US) - authenticated container ###
-$srcUri = "<<COMPLITE SOURCE URI FOR THE DISK TO COPY>>" 
- 
-### Source Storage Account (Sounth Central US) ###
-$srcStorageAccount = "<<SOURCE STORAGE ACCOUNT NAME>>"
-$srcStorageKey = "<<SOURCE STORAGE ACCOUNT KEY>>"
- 
-### Target Storage Account (Sounth Central US) ###
-$destStorageAccount = "<<DESTINATION STORAGE ACCOUNT NAME>>"
-$destStorageKey = "<<DESTINATION STORAGE ACCOUNT KEY>>"
- 
-### Create the source storage account context ### 
-$srcContext = New-AzureStorageContext  –StorageAccountName $srcStorageAccount -StorageAccountKey $srcStorageKey  
- 
-### Create the destination storage account context ### 
-$destContext = New-AzureStorageContext  –StorageAccountName $destStorageAccount -StorageAccountKey $destStorageKey  
- 
-### Destination Container Name ### 
-$containerName = "copiedvhds"
- 
-### Create the container on the destination ### 
-New-AzureStorageContainer -Name $containerName -Context $destContext 
- 
-### Start the asynchronous copy - specify the source authentication with -SrcContext ### 
-$blob1 = Start-AzureStorageBlobCopy -srcUri $srcUri -SrcContext $srcContext -DestContainer $containerName -DestBlob "<<DESTINATION VHD NAME>>" -DestContext $destContext
-```
-
-For managed disks, use Azure portal to take a snapshot:
-
-1. Sign in to the Azure portal, and then search for snapshots.
-
-3. In the Snapshots blade, click **Create snapshot**.
-
-4. Enter a name for the snapshot.
-
-5. Select an existing Resource group or type the name to create a new one.
-
-6. Select an Azure datacenter Location.
-
-7. For Source disk, select the Managed Disk to snapshot.
-
-8. Select the Account type to use to store the snapshot. We recommend **Standard_LRS** unless you need it stored on a high performing disk.
-
-9. Click **Create**.
+To create a snapshot, follow the steps in [Snapshot a disk](snapshot-copy-managed-disk.md).
 
 ## Collect the OS dump
 
-1. Attach the snapshot disk on a rescue VM.
+1. Attach the snapshot disk on a rescue VM. To do this, follow the steps in [Attach the OS disk to a recovery VM](.\troubleshoot-recovery-disks-portal.md). 
 
-2. Open an elevated CMD and run the following script:
+2. Check whether the OS memory dump was already created. To do this, look for the **<DRIVE>:\windows\memory.dmp** file. If there’s one with the timestamp current from the last crash, collect that file out and go the Next Step section filing a case with Microsoft and uploading that file.
+
+3. If there’s no current memory dump file created, continue with next step.
+
+4. Open an elevated CMD and run the following script:
 
     ```Bat
     reg load HKLM\BROKENSYSTEM f:\windows\system32\config\SYSTEM.hiv
@@ -267,10 +124,6 @@ For managed disks, use Azure portal to take a snapshot:
     REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f
     REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
     REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
-
-    REM For Kernel memory dump
-    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 2 /f
-    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 2 /f
 
     REM For Full memory dump
     REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f
@@ -290,46 +143,133 @@ For managed disks, use Azure portal to take a snapshot:
 
     For big VMs, you must ensure you don't end up in a capacity issue on the C drive because the memory.dmp size = Total memory of VM. For example E64_v3 VM = 432 GB memory dump. To fix this issue you can change the key name DumpFile above to create the file in any other drive that has enough space to hold the dump file.
 
-3. Detach the disk.
+5. Detach the disk.
 
-After that, run the following commands in Azure PowerShell to exchange the original OS disk with the fixed disk.
+3. After that, run the following commands in Azure PowerShell to exchange the original OS disk with the fixed disk.
 
-#### For unmanaged VMs
+    **For non-managed disks**
+
+    ```PowerShell
+    $subscriptionID = "<Subscription ID>"
+    $rgname = "<Resource Group name>"
+    $vmname = "<VM Name>"
+    $vhduri = '<VHD URI of the fixed OS disk>'
+
+    Add-AzureRmAccount
+    Select-AzureRmSubscription -SubscriptionID $subscriptionID
+    Set-AzureRmContext -SubscriptionID $subscriptionID
+
+    $vm = Get-AzureRMVM -ResourceGroupName $rgname -Name $vmname
+    $vm.StorageProfile.OsDisk.Vhd.Uri = $vhduri
+    Update-AzureRmVM -ResourceGroupName $rgname -VM $vm
+    ```
+
+    **For managed disks**
+
+    ```PowerShell
+    $name = '<VM Name>'
+    $resourceGroupName = '<Resource Group name>'
+    $diskname='<Disk Name>'
+    $diskResourceInstanceID="<Resource instance ID of the fixed disk>"
+ 
+    #Get the VM details
+    $vm = get-azurermvm -ResourceGroupName $resourceGroupName -Name $name
+ 
+    #Set the new disk properties and update the VM
+    Set-AzureRmVMOSDisk -VM $vm -Name $diskname  -ManagedDiskId $diskResourceInstanceID | Update-AzureRmVM
+    ```
+
+    **Note** The resource instance ID has the following format /subscriptions/8fbf2eee-f108-4560-9998-64e97d546777/resourceGroups/winmanagetest/providers/Microsoft.Compute/disks/swapmanagedwindows
+
+7. Then, restart the VM and collect the dump file.
+
+## Rebuild the VM using PowerShell
+
+**For non-managed disks**
 
 ```PowerShell
-$subscriptionID = "<Subscription ID>"
-$rgname = "<Resource Group name>"
-$vmname = "<VM Name>"
-$vhduri = '<VHD URI of the fixed OS disk>'
+# To login to Azure Resource Manager
+Login-AzureRmAccount
 
-Add-AzureRmAccount
-Select-AzureRmSubscription -SubscriptionID $subscriptionID
-Set-AzureRmContext -SubscriptionID $subscriptionID
+# To view all subscriptions for your account
+Get-AzureRmSubscription
 
-$vm = Get-AzureRMVM -ResourceGroupName $rgname -Name $vmname
-$vm.StorageProfile.OsDisk.Vhd.Uri = $vhduri
-Update-AzureRmVM -ResourceGroupName $rgname -VM $vm
+# To select a default subscription for your current session
+Get-AzureRmSubscription –SubscriptionID “SubscriptionID” | Select-AzureRmSubscription
+
+$rgname = "RGname"
+$loc = "Location"
+$vmsize = "VmSize"
+$vmname = "VmName"
+$vm = New-AzureRmVMConfig -VMName $vmname -VMSize $vmsize;
+
+$nic = Get-AzureRmNetworkInterface -Name ("NicName") -ResourceGroupName $rgname;
+$nicId = $nic.Id;
+
+$vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nicId;
+
+$osDiskName = "OSdiskName"
+$osDiskVhdUri = "OSdiskURI"
+
+$vm = Set-AzureRmVMOSDisk -VM $vm -VhdUri $osDiskVhdUri -name $osDiskName -CreateOption attach -Windows
+
+New-AzureRmVM -ResourceGroupName $rgname -Location $loc -VM $vm -Verbose
 ```
 
-#### For Managed VMs
+**For managed disk**
 
 ```PowerShell
-$name = '<VM Name>'
-$resourceGroupName = '<Resource Group name>'
-$diskname='<Disk Name>'
-$diskResourceInstanceID="<Resource instance ID of the fixed disk>"
- 
-#Get the VM details
-$vm = get-azurermvm -ResourceGroupName $resourceGroupName -Name $name
- 
-#Set the new disk properties and update the VM
-Set-AzureRmVMOSDisk -VM $vm -Name $diskname  -ManagedDiskId $diskResourceInstanceID | Update-AzureRmVM
+# To login to Azure Resource Manager
+Login-AzureRmAccount
+
+# To view all subscriptions for your account
+Get-AzureRmSubscription
+
+# To select a default subscription for your current session
+Get-AzureRmSubscription –SubscriptionID "SubscriptionID" | Select-AzureRmSubscription
+
+#Fill in all variables
+$subid = "SubscriptionID"
+$rgName = "ResourceGroupName";
+$loc = "Location";
+$vmSize = "VmSize";
+$vmName = "VmName";
+$nic1Name = "FirstNetworkInterfaceName";
+#$nic2Name = "SecondNetworkInterfaceName";
+$avName = "AvailabilitySetName";
+$osDiskName = "OsDiskName";
+$DataDiskName = "DataDiskName"
+
+#This can be found by selecting the Managed Disks you wish you use in the Azure Portal if the format below does not match
+$osDiskResouceId = "/subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/disks/$osDiskName";
+$dataDiskResourceId = "/subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/disks/$DataDiskName";
+
+$vm = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize;
+
+#Uncomment to add Availabilty Set
+#$avSet = Get-AzureRmAvailabilitySet –Name $avName –ResourceGroupName $rgName;
+#$vm = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avSet.Id;
+
+#Get NIC Resource Id and add
+$nic1 = Get-AzureRmNetworkInterface -Name $nic1Name -ResourceGroupName $rgName;
+$vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic1.Id -Primary;
+
+#Uncomment to add a secondary NIC
+#$nic2 = Get-AzureRmNetworkInterface -Name $nic2Name -ResourceGroupName $rgName;
+#$vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic2.Id;
+
+#Windows VM
+$vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDiskResouceId -name $osDiskName -CreateOption Attach -Windows;
+
+#Linux VM
+#$vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDiskResouceId -name $osDiskName -CreateOption Attach -Linux;
+
+#Uncomment to add additnal Data Disk
+#Add-AzureRmVMDataDisk -VM $vm -ManagedDiskId $dataDiskResourceId -Name $dataDiskName -Caching None -DiskSizeInGB 1024 -Lun 0 -CreateOption Attach;
+
+New-AzureRmVM -ResourceGroupName $rgName -Location $loc -VM $vm;
 ```
 
-**Note** The resource instance ID has the following format /subscriptions/8fbf2eee-f108-4560-9998-64e97d546777/resourceGroups/winmanagetest/providers/Microsoft.Compute/disks/swapmanagedwindows
+## Next steps
 
-Then, restart the VM and collect the dump file.
-
-## Next step
-
-Contact Microsoft support with the dump file to fix the issue.
+After you collect the dump file, contact [Microsoft support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to analysis the root cause.
