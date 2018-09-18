@@ -115,13 +115,17 @@ Azure IoT Edge modules are based on container images. To deploy your model to an
 
 Azure IoT needs the credentials for the container registry that Azure Machine Learning service stores docker images in. Use the following steps to get the credentials:
 
-1. Sign in to [Azure portal](https://portal.azure.com/signin/index).
+1. Sign in to the [Azure portal](https://portal.azure.com/signin/index).
 
-1. Navigate to the resource group where the container to be deployed is registered.
+1. Navigate to the resource group that contains your Azure Machine Learning workspace. The entry that ends in 'acr' is the container registry.
 
-1. Once in the container registry, select **Access Keys**.
+    ![An image of the container registry entry](./media/how-to-deploy-to-iot/findregisteredcontainer.png)
 
-1. Enable the admin user.
+    You can also use the portal to search for all resources of the type __Container registry__, and then look for the entry that begins with the resource group name that contains your workspace.
+
+1. Once in the container registry, select **Access Keys** and then enable the admin user.
+
+    ![](./media/how-to-deploy-to-iot/findaccesskey.png)
 
 1. Save the values for login server, username, and password. 
 
@@ -129,4 +133,4 @@ Azure IoT needs the credentials for the container registry that Azure Machine Le
 
 ## Next steps
 
-You have completed preparations for deployment. Now, use the steps in the [Deploy Azure IoT Edge modules from the Azure portal](../../iot-edge//how-to-deploy-modules-portal.md) document to deploy to your edge device.
+You have completed preparations for deployment. Now, use the steps in the [Deploy Azure IoT Edge modules from the Azure portal](../../iot-edge/how-to-deploy-modules-portal.md) document to deploy to your edge device. When configuring the __Registry Settings__ for the device, use the credentials you configured previously.
