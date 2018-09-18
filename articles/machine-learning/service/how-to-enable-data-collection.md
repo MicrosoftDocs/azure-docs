@@ -104,28 +104,31 @@ The `00.Getting Started/12.enable-data-collection-for-models-in-aks.ipynb` noteb
 
 ## Evaluate data
 The output gets saved in an Azure Blob using the following path format:
-	
-    /modeldata/<subscriptionid>/<resourcegroupname>/<workspacename>/<webservicename>/<modelname>/<modelversion>/<identifier>/<year>/<month>/<day>/data.csv
+
+```
+/modeldata/<subscriptionid>/<resourcegroupname>/<workspacename>/<webservicename>/<modelname>/<modelversion>/<identifier>/<year>/<month>/<day>/data.csv
+```
 
 Since the data gets added into an Azure Blob, you can then choose your favorite tool to run the analysis. 
 
 ## Disable data collection
 You can stop collecting data any time. Use Python code or the Azure portal to disable data collection.
 
-+ Option 1. Disable in the Azure portal: 
++ Option 1 - Disable in the Azure portal: 
   1. Sign in to [Azure portal](https://portal.azure.com).
-  1. Open your workspace.
-  1. Go to **Deployments** -> **Select service** -> **Edit**
 
-    ![Edit Service](media/how-to-enable-data-collection/EditService.png)
+  1. Open your workspace.
+
+  1. Go to **Deployments** -> **Select service** -> **Edit**
+     ![Edit Service](media/how-to-enable-data-collection/EditService.png)
 
   1. In **Advanced Settings**, deselect **Enable Model data collection**. 
+     ![Uncheck Data Collection](media/how-to-enable-data-collection/UncheckDataCollection.png) 
 
-    ![Uncheck Data Collection](media/how-to-enable-data-collection/UncheckDataCollection.png) 
+  1. Select **Update** to apply the change.
 
-  1. Select **Update** to apply the change.      
+* Option 2 - Use Python to disable data collection:
 
-* Option 2. Use Python to disable data collection:          
   ```python 
   ## replace <service_name> with the name of the web service
   <service_name>.update(collect_model_data=False)
