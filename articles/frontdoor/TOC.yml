@@ -18,6 +18,8 @@
   items:
   - name: Backends and backend pools
     href: front-door-backend-pool.md
+  - name: DDoS protection and application layer security
+    href: front-door-ddos-security.md
   - name: Routing architecture
     href: front-door-routing-architecture.md
   - name: Traffic routing methods
