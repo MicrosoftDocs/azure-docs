@@ -74,7 +74,7 @@ You can get started deploying trained DNN models to FPGAs in the Azure cloud wit
 
 ## Next steps
 
-Checkout these videos and blogs:
+Check out these videos and blogs:
 
 + [Hyperscale hardware: ML at scale on top of Azure + FPGA : Build 2018 (video)](https://www.youtube.com/watch?v=BMgQAHIx2eY)
 
