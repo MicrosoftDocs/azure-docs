@@ -34,7 +34,7 @@ The [Query Store](concepts-query-store.md) captures a history of queries and wai
 
 3. Select **Server parameters** which is in the **Settings** section of the menu on the left.
 
-4. Set **pg_qs.query_capture_mode** to **TOP** to start collecting query performance data. Set **pgms_wait_sampling** to **ALL** to start collecting wait statistics. Save.
+4. Set **pg_qs.query_capture_mode** to **TOP** to start collecting query performance data. Set **pgms_wait_sampling.query_capture_mode** to **ALL** to start collecting wait statistics. Save.
    ![Query Store server parameters](./media/tutorial-performance-intelligence/query-store-parameters.png)
 
 5. Allow up to 20 minutes for the first batch of data to persist in the **azure_sys** database.
