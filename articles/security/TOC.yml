@@ -186,8 +186,10 @@
     - name: Security checklist
       href: azure-operational-security-checklist.md
 - name: Governance and compliance
+  displayName: blueprint
   items:
   - name: AU PROTECTED
+    displayName: blueprint
     items:
     - name: IaaS web application
       href: ./blueprints/au-protected-iaaswa-overview.md
