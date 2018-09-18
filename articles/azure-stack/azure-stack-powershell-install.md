@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 09/17/2018
+ms.date: 09/18/2018
 ms.author: sethm
 ms.reviewer: thoroet
 ---
@@ -121,7 +121,8 @@ Run the following PowerShell script to install these modules on your development
 Confirm the installation by running the following command:
 
 ```PowerShell  
-Get-Module -ListAvailable | where-Object {$_.Name -like "Azs*"}
+Get-Module "Azure*" -ListAvailable
+Get-Module "Azs*" -ListAvailable
 ```
 
 If the installation is successful, the AzureRM and AzureStack modules are displayed in the output.
@@ -152,9 +153,9 @@ Sign in to a computer with Internet connectivity and use the following scripts t
     Import-Module -Name PowerShellGet -ErrorAction Stop
     Import-Module -Name PackageManagement -ErrorAction Stop
 
-      $Path = "<Path that is used to save the packages>"
-      Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 1.2.11
-      Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.4.0
+    $Path = "<Path that is used to save the packages>"
+    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 1.2.11
+    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.4.0
     ````
 
   - Azure Stack 1804 or earlier.
@@ -163,9 +164,9 @@ Sign in to a computer with Internet connectivity and use the following scripts t
     Import-Module -Name PowerShellGet -ErrorAction Stop
     Import-Module -Name PackageManagement -ErrorAction Stop
 
-      $Path = "<Path that is used to save the packages>"
-      Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 1.2.11
-      Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.3.0
+    $Path = "<Path that is used to save the packages>"
+    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 1.2.11
+    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.3.0
     ````
 
 2. Copy the downloaded packages to a USB device.
