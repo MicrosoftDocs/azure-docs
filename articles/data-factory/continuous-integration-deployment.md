@@ -43,7 +43,7 @@ Select **Load file** to select the exported Resource Manager template and provid
 
 ![](media/continuous-integration-deployment/continuous-integration-image5.png)
 
-**Connection strings**. You can find the info required to create connection strings in the articles about the individual connectors. For example, for Azure SQL Database, see [Copy data to or from Azure SQL Database by using Azure Data Factory](connector-azure-sql-database.md). To verify the correct connection string - for a linked service, for example - you can also open code view for the resource in the Data Factory UI. In code view, however, the password or account key portion of the connection string is removed. To open code view, select the icon highlighted in the following screen shot.
+**Connection strings**. You can find the info required to create connection strings in the articles about the individual connectors. For example, for Azure SQL Database, see [Copy data to or from Azure SQL Database by using Azure Data Factory](connector-azure-sql-database.md). To verify the correct connection string - for a linked service, for example - you can also open code view for the resource in the Data Factory UI. In code view, however, the password or account key portion of the connection string is removed. To open code view, select the icon highlighted in the following screenshot.
 
 ![Open code view to see connection string](media/continuous-integration-deployment/continuous-integration-codeview.png)
 
@@ -65,7 +65,7 @@ that you can use after you enable Azure DevOps Services GIT integration in the D
 
 ## Automate continuous integration with Azure DevOps Services Releases
 
-Here are the steps to set up a Azure DevOps Services Release so you can automate the deployment of a data factory to multiple environments.
+Here are the steps to set up an Azure DevOps Services Release so you can automate the deployment of a data factory to multiple environments.
 
 ![Diagram of continuous integration with Azure DevOps Services](media/continuous-integration-deployment/continuous-integration-image12.png)
 
@@ -77,7 +77,7 @@ Here are the steps to set up a Azure DevOps Services Release so you can automate
 
 -   An [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) containing the secrets.
 
-### Set up a Azure DevOps Services Release
+### Set up an Azure DevOps Services Release
 
 1.  Go to your Azure DevOps Services page in the same project as the one configured with the Data Factory.
 
