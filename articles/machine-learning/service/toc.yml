@@ -114,6 +114,8 @@
     href: https://azure.microsoft.com/regions/services/
   - name: Export or delete account data
     href: ../desktop-workbench/export-delete-experimentation-model-management-data-dsr.md
+  - name: Known issues
+    href: resource-known-issues.md
   - name: Get support
     href: support-for-aml-services.md
   - name: Deprecated docs
@@ -314,7 +316,7 @@
       href: azure-machine-learning-release-notes.md       
     - name: FAQs
       href: ../desktop-workbench/frequently-asked-questions.md
-    - name: Issues
+    - name: Old Issues
       href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
     - name: Support
       href: support-for-aml-services.md

@@ -171,7 +171,7 @@ For information on selecting a compute target for training, see the [Select and 
 For information on selecting a compute target for deployment, see the [Deploy models with the Azure Machine Learning service](how-to-deploy-and-where.md) document.
 
 > [!NOTE]
-> As with other Azure services, there are limits on certain resources (for eg. BatchAI cluster size) associated with the Azure Machine Learning service. Please read [this](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-manage-quotas) article on the default limits and how to request more quota.
+> As with other Azure services, there are limits on certain resources (for eg. BatchAI cluster size) associated with the Azure Machine Learning service. Please read [this](how-to-manage-quotas.md) article on the default limits and how to request more quota.
 
 ## Run configuration
 
