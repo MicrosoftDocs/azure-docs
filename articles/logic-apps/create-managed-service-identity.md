@@ -135,7 +135,7 @@ workflow definition includes these additional properties:
 | **tenantId** | <*Azure-AD-tenant--ID-GUID*> | A Globally Unique Identifier (GUID) that represents the Azure AD tenant where the logic app is now a member. Inside the Azure AD tenant, the service principal has the same name as the logic app instance. | 
 ||| 
 
-<a name="access-resources"></a>
+<a name="access-other-resources"></a>
 
 ## Access resources with managed identity
 
