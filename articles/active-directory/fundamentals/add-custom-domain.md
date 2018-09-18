@@ -49,17 +49,17 @@ After you create your directory, you can add your custom domain name.
 
     ![Fabrikam - Custom domain names page, with Add domain button highlighted](media/add-custom-domain/add-custom-domain-blade.png)
 
-4. Copy the text record from the **Contoso** page.
+4. Copy the DNS info from the **Contoso** page. For example, MS=ms64983159
 
     ![Contoso page with DNS entry information](media/add-custom-domain/contoso-blade-with-dns-info.png)
 
 ## Add your DNS information to the domain registrar
-After you add your custom domain name to Azure AD, you must return to your domain registrar and add the Azure AD DNS information from your copied text file. Creating this TXT record for your domain "verifies" ownership of your domain name.
+After you add your custom domain name to Azure AD, you must return to your domain registrar and add the Azure AD DNS information from your copied TXT file. Creating this TXT record for your domain "verifies" ownership of your domain name.
 
--  Go back to your domain registrar, create a new text record for your domain based on your copied DNS text file, set the **TTL** (time to live) to 60 minutes, and then save the information.
+-  Go back to your domain registrar, create a new TXT record for your domain based on your copied DNS information, set the **TTL** (time to live) to 60 minutes, and then save the information.
 
     >[!Important]
-    >You can register as many domain names as you want. However, each domain gets its own TXT record from Azure AD. Be careful when entering your text file information at the domain registrar. If you enter the wrong, or duplicate information by mistake, you'll have to wait until the TTL times out (60 minutes) before you can try again.
+    >You can register as many domain names as you want. However, each domain gets its own TXT record from Azure AD. Be careful when entering your TXT file information at the domain registrar. If you enter the wrong, or duplicate information by mistake, you'll have to wait until the TTL times out (60 minutes) before you can try again.
 
 ## Verify your custom domain name
 After you register your custom domain name, you need to make sure it's valid in Azure AD. The propagation from your domain registrar to Azure AD can be instantaneous or it can take up to a few days, depending on your domain registrar.
