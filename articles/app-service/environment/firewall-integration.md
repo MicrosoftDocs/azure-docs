@@ -24,7 +24,7 @@ There are a number of inbound dependencies that an ASE has. The inbound manageme
 
 The ASE outbound dependencies are almost entirely defined with FQDNs, which do not have static addresses behind them. The lack of static addresses means that Network Security Groups (NSGs) cannot be used to lock down the outbound traffic from an ASE. The addresses change often enough that one cannot set up rules based on the current resolution and use that to create NSGs. 
 
-The solution to securing outbound addesses lies in use of a firewall device that can control outbound traffic based on domain names. The Azure Networking team has put a new network appliance into Preview called Azure Firewall. The Azure Firewall is capable of restricting egress HTTP and HTTPS traffic based on the DNS name of the destination.  
+The solution to securing outbound addresses lies in use of a firewall device that can control outbound traffic based on domain names. The Azure Networking team has put a new network appliance into Preview called Azure Firewall. The Azure Firewall is capable of restricting egress HTTP and HTTPS traffic based on the DNS name of the destination.  
 
 ## Configuring Azure Firewall with your ASE ##
 
@@ -47,7 +47,7 @@ The above steps will allow your ASE to operate without problems. You still need 
 
 If your applications have dependencies, they need to be added to your Azure Firewall. Create Application rules to allow HTTP/HTTPS traffic and Network rules for everything else. 
 
-If you know the address range that your application request traffic will come from, you can add that to the route table that is assigned to your ASE subnet. If the address range is very large or unspecified, then you can use a network applicance like the Application Gateway to give you one address to add to your route table. For details on configuring an Application Gateway with your ILB ASE, read [Integrating your ILB ASE with an Application Gateway](https://docs.microsoft.com/azure/app-service/environment/integrate-with-application-gateway)
+If you know the address range that your application request traffic will come from, you can add that to the route table that is assigned to your ASE subnet. If the address range is large or unspecified, then you can use a network appliance like the Application Gateway to give you one address to add to your route table. For details on configuring an Application Gateway with your ILB ASE, read [Integrating your ILB ASE with an Application Gateway](https://docs.microsoft.com/azure/app-service/environment/integrate-with-application-gateway)
 
 
 ## Dependencies
