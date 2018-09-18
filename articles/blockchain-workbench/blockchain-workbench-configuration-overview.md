@@ -68,7 +68,7 @@ Supported data types.
 | Type | Description |
 |-------|-------------|
 | address  | Blockchain address type, such as *contracts* or *users*. |
-| array    | Single level array of type integer, bool, money, or time. Arrays can be static or dynamic. |
+| array    | Single level array of type integer, bool, money, or time. Arrays can be static or dynamic. See [example configuration](#example-configuration-of-type-array) |
 | bool     | Boolean data type. |
 | contract | Address of type contract. |
 | enum     | Enumerated set of named values. When using the enum type, you also specify a list of EnumValues. Each value is limited to 255 characters. Valid value characters include upper and lower case letters (A-Z, a-z) and numbers (0-9). See [example configuration and use in Solidity](#example-configuration-of-type-enum). |
