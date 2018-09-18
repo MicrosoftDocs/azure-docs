@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Convert text script - Translator Text, Java"
-titleSuffix: Azure Cognitive Services"
+titleSuffix: Azure Cognitive Services
 description: In this quickstart, you convert text in one language from one script to another using the Translator Text API with Java.
 services: cognitive-services
 author: noellelacharite
@@ -14,7 +14,7 @@ ms.author: nolachar
 ---
 # Quickstart: Transliterate text with Java
 
-In this quickstart, you convert text in one language from one script to another using the Translator Text API.
+In this quickstart, you will convert text in one language from one script to another using the Translator Text API.
 
 ## Prerequisites
 
