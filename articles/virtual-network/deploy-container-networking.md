@@ -41,7 +41,7 @@ Copy the [install script](https://github.com/Azure/azure-container-networking/bl
    scripts\\ install-cni-plugin.ps1 [version]
    ```
 
-The script installs the plug-in under `/opt/cni/bin` for Linux and `c:\cni\bin` for Windows. The installed plug-in comes with a simple network configuration file that works after installation, but needs to be set up. For details about the file and how to configure it appropriately, see [CNI Network Configuration File](#cni-network-configuration-file).
+The script installs the plug-in under `/opt/cni/bin` for Linux and `c:\cni\bin` for Windows. The installed plug-in comes with a simple network configuration file that works after installation. It doesn't need to be updated. To learn more about the settings in the file, see [CNI Network Configuration File](#cni-network-configuration-file).
 
 ## Deploy plug-in for a Kubernetes cluster
 
@@ -82,31 +82,29 @@ The containers automatically start receiving IP addresses from the allocated poo
 
 ### CNI network configuration file
 
-The CNI network configuration file is described in JSON format. It is, by default, present in `/etc/cni/net.d` for Linux and `c:\cni\netconf` for Windows. The file specifies the configuration of the plug-in. The following json is a sample configuration file, and the meaning of the settings:
+The CNI network configuration file is described in JSON format. It is, by default, present in `/etc/cni/net.d` for Linux and `c:\cni\netconf` for Windows. The file specifies the configuration of the plug-in and is different for Windows and Linux. The json that follows is a sample Linux configuration file, and the meaning of the settings. You don't need to make any changes to the file:
 
 ```json
 {
-
-"cniVersion": "0.2.0",
-
-"name": "azure",
-
-"type": "azure-vnet",
-
-"master": "eth0",
-
-"bridge": "azure0",
-
-"logLevel": "info",
-
-"ipam": {
-
-"type": "azure-vnet-ipam",
-
-"environment": "azure"
-
-}
-
+	   "cniVersion":"0.3.0",
+	   "name":"azure",
+	   "plugins":[
+	      {
+	         "type":"azure-vnet",
+	         "mode":"bridge",
+	         "bridge":"azure0",
+	         "ipam":{
+	            "type":"azure-vnet-ipam"
+	         }
+	      },
+	      {
+	         "type":"portmap",
+	         "capabilities":{
+	            "portMappings":true
+	         },
+	         "snat":true
+	      }
+	   ]
 }
 ```
 
@@ -115,12 +113,55 @@ The CNI network configuration file is described in JSON format. It is, by defaul
 - **cniVersion**: The Azure Virtual Network CNI plug-ins support versions 0.3.0 and 0.3.1 of the [CNI spec](https://github.com/containernetworking/cni/blob/master/SPEC.md).
 - **name**: Name of the network. This property can be set to any unique value.
 - **type**: Name of the network plug-in. Set to *azure-vnet*.
-- **mode**: Operational mode. This field is optional. For more information, see [operational modes](https://github.com/Azure/azure-container-networking/blob/master/docs/network.md).
-- **master**: Name of the virtual machine network interface that will be used to connect containers to a virtual network. This field is optional. If omitted, the plug-in automatically picks a suitable host network interface. Typically, the primary host interface name is *Ethernet* on Windows and *eth0* on Linux.
+- **mode**: Operational mode. This field is optional. The only mode supported is "bridge".For more information, see [operational modes](https://github.com/Azure/azure-container-networking/blob/master/docs/network.md)
 - **bridge**: Name of the bridge that will be used to connect containers to a virtual network. This field is optional. If omitted, the plugin automatically picks a unique name, based on the master interface index.
-- **logLevel**: Log verbosity. Valid values are *info* and *debug*. This field is optional. If omitted, the plug-in logs at infolevel.
+- **ipam type**: Name of the IPAM plug-in. Always set to *azure-vnet-ipam*.
 
-### IPAM plug-in
+## Example configuration
 
-- **type**: Name of the IPAM plug-in. Always set to *azure-vnet-ipam*.
-- **environment**: Name of the environment. Always set to *azure*.
+The json example that follows is for a cluster with the following properties:
+-	Contains 1 Master node and 2 Agent nodes 
+-	Cluster is deployed in a subnet named *KubeClusterSubnet* (10.0.0.0/20), with both Master and Agent nodes residing in it.
+
+```json
+{
+  "apiVersion": "vlabs",
+  "properties": {
+    "orchestratorProfile": {
+      "orchestratorType": "Kubernetes",
+      "kubernetesConfig": {
+        "clusterSubnet": "10.0.0.0/20" --> Subnet allocated for the cluster
+      }
+    },
+    "masterProfile": {
+      "count": 1,
+      "dnsPrefix": "ACSKubeMaster",
+      "vmSize": "Standard_A2",
+      "vnetSubnetId": "/subscriptions/<subscription ID>/resourceGroups/<Resource Group Name>/providers/Microsoft.Network/virtualNetworks/<Vnet Name>/subnets/KubeClusterSubnet",
+      "firstConsecutiveStaticIP": "10.0.1.50", --> IP address allocated to the Master node
+"vnetCidr": "10.0.0.0/16" --> Virtual network address space
+    },
+    "agentPoolProfiles": [
+      {
+        "name": "k8sagentpoo1",
+        "count": 2,
+        "vmSize": "Standard_A2_v2",
+"vnetSubnetId": "/subscriptions/<subscription ID>/resourceGroups/<Resource Group Name>/providers/Microsoft.Network/virtualNetworks/<VNet Name>/subnets/KubeClusterSubnet",
+        "availabilityProfile": "AvailabilitySet"
+      }
+    ],
+    "linuxProfile": {
+      "adminUsername": "KubeServerAdmin",
+      "ssh": {
+        "publicKeys": [
+          {…}
+        ]
+      }
+    },
+    "servicePrincipalProfile": {
+      "clientId": "dd438987-aa12-4754-b47d-375811889714",
+      "secret": "azure123"
+    }
+  }
+}
+```

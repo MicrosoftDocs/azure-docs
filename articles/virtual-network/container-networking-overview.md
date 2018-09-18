@@ -34,13 +34,15 @@ Bring the rich set of Azure network capabilities to containers, by utilizing the
 
 The following picture shows how the plug-in provides Azure Virtual Network capabilities to Pods:
 
-![](./media/container-networking/container-networking.png)
+![Container networking overview](./media/container-networking/container-networking-overview.png)
 
 The plug-in supports both Linux and Windows platforms.
 
 ## Connecting Pods to a virtual network
 
-Pods are brought up in a virtual machine that is part of a virtual network. A pool of IP addresses for the Pods is configured as secondary addresses on a virtual machine's network interface. Azure CNI sets up the basic Network connectivity for Pods and manages the utilization of the IP addresses in the pool. When a Pod comes up in the virtual machine, Azure CNI assigns an available IP address from the pool and connects the Pod to a software bridge in the virtual machine. When the Pod terminates, the IP address is added back to the pool.
+Pods are brought up in a virtual machine that is part of a virtual network. A pool of IP addresses for the Pods is configured as secondary addresses on a virtual machine's network interface. Azure CNI sets up the basic Network connectivity for Pods and manages the utilization of the IP addresses in the pool. When a Pod comes up in the virtual machine, Azure CNI assigns an available IP address from the pool and connects the Pod to a software bridge in the virtual machine. When the Pod terminates, the IP address is added back to the pool. The following picture shows how Pods connect to a virtual network:
+
+![Container networking detail](./media/container-networking/container-networking-detail.png)
 
 ## Internet access
 
@@ -59,6 +61,7 @@ The plug-in can be used in the following ways, to provide basic virtual network 
 
   | Setting                              | Description                                                                                                           |
   |--------------------------------------|------------------------------------------------------------------------------------------------------                 |
+  | firstConsecutiveStaticIP             | The IP address that is allocated to the Master node. This is a mandatory setting.                                     |
   | clusterSubnet under kubernetesConfig | CIDR of the virtual network subnet where the cluster is deployed, and from which IP addresses are allocated to Pods   |
   | vnetSubnetId under masterProfile     | Specifies the Azure Resource Manager resource ID of the subnet where the cluster is to be deployed                    |
   | vnetCidr                             | CIDR of the virtual network where the cluster is deployed                                                             |
