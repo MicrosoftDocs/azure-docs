@@ -39,13 +39,13 @@ To use Terraform in the Cloud Shell, you need to [install Node.js](https://nodej
 
 From a command prompt, enter `npm install -g yo`
 
-![Install Yeoman](media/terraform-vscode-module-generator/npm-install-yo.png)
+![Install Yeoman](media/terraform-vscode-module-generator/ymg-npm-install-yo.png)
 
 ### Install the Yeoman template for Terraform module
 
 From a command prompt, enter `npm install -g generator-az-terra-module`.
 
-![Install generator-az-terra-module](media/terraform-vscode-module-generator/npm-install-generator-module.png)
+![Install generator-az-terra-module](media/terraform-vscode-module-generator/ymg-pm-install-generator-module.png)
 
 >[!NOTE]
 >To verify that Yeoman is installed, from a terminal window, enter `yo --version`.
@@ -65,11 +65,11 @@ From a command prompt:
     >[!NOTE]
     >Replace <new diresctory's name> with the name of your new directory. In this example, we named the new directory `GeneratorDocSample`.
 
-    ![mkdir](media/terraform-vscode-module-generator/mkdir-GeneratorDocSample.png)
+    ![mkdir](media/terraform-vscode-module-generator/ymg-mkdir-GeneratorDocSample.png)
 
 1. Navigate into the new directory by typing `cd <new directory's name>`, and then pressing **enter**.
 
-    ![Navigate to your new directory](media/terraform-vscode-module-generator/cd-GeneratorDocSample.png)
+    ![Navigate to your new directory](media/terraform-vscode-module-generator/ymg-cd-GeneratorDocSample.png)
 
     >[!NOTE]
     >To make sure this directory is empty, enter `ls`. There should be no files listed in the resulting output of this command.
@@ -84,21 +84,21 @@ From a command prompt:
 
     - *Terraform module project Name*
 
-        ![Project name](media/terraform-vscode-module-generator/project-name.png)       
+        ![Project name](media/terraform-vscode-module-generator/ymg-project-name.png)       
 
         >[!NOTE]
         >In this example, we entered `doc-sample-module`.
 
     - *Would you like to include the Docker image file?*
 
-        ![Include Docker image file?](media/terraform-vscode-module-generator/include-docker-image-file.png) 
+        ![Include Docker image file?](media/terraform-vscode-module-generator/ymg-include-docker-image-file.png) 
 
         >[!NOTE]
         >Enter `y`. If you select **n**, the generated modue code will support running only in native mode.
 
 3. Enter `ls` to view the resulting files that are created.
 
-    ![List created files](media/terraform-vscode-module-generator/ls-GeneratorDocSample-files.png)
+    ![List created files](media/terraform-vscode-module-generator/ymg-ls-GeneratorDocSample-files.png)
 
 ## Review the generated module code
 
@@ -106,7 +106,7 @@ From a command prompt:
 
 1. From the menu bar, select **File > Open Folder** and select the folder you created.
 
-    ![Visual Studio Code](media/terraform-vscode-module-generator/open-in-vscode.png)
+    ![Visual Studio Code](media/terraform-vscode-module-generator/ymg-open-in-vscode.png)
 
 Let's take a look at some of the files that were created by the Yeoman module generator.
 
@@ -146,13 +146,13 @@ Defines the build steps. These steps include:
 
 From a command prompt, enter `docker version`.
 
-![DOcker version](media/terraform-vscode-module-generator/docker-version.png)
+![DOcker version](media/terraform-vscode-module-generator/ymg-docker-version.png)
 
 This will confirm that Docker is installed.
 
 To confirm that Docker is actually running, enter `docker info`.
 
-![Docker info](media/terraform-vscode-module-generator/docker-info.png)
+![Docker info](media/terraform-vscode-module-generator/ymg-docker-info.png)
 
 ### Set up a Docker container
 
@@ -162,13 +162,13 @@ To confirm that Docker is actually running, enter `docker info`.
 
     The message **Successfully built** will be displayed.
 
-    ![Successfully built](media/terraform-vscode-module-generator/successfully-built.png)
+    ![Successfully built](media/terraform-vscode-module-generator/ymg-successfully-built.png)
 
 1. From the command prompt, enter `docker image ls`.
 
     You will see your newly created module *terra-mod-example* listed.
 
-    ![Repository results](media/terraform-vscode-module-generator/repository-results.png)
+    ![Repository results](media/terraform-vscode-module-generator/ymg-repository-results.png)
 
     >[!NOTE]
     >The module's name, *terra-mod-example*, was specified in the command you entered in step 1, above.
@@ -177,7 +177,7 @@ To confirm that Docker is actually running, enter `docker info`.
 
     You are now running in Docker and can list the file by entering `ls`.
 
-    ![List Docker file](media/terraform-vscode-module-generator/list-docker-file.png)
+    ![List Docker file](media/terraform-vscode-module-generator/ymg-list-docker-file.png)
 
 1. Enter `bundle install`.
 
@@ -185,7 +185,7 @@ To confirm that Docker is actually running, enter `docker info`.
 
 1. Enter `rake build`.
 
-    ![Rake build](media/terraform-vscode-module-generator/rake-build.png)
+    ![Rake build](media/terraform-vscode-module-generator/ymg-rake-build.png)
 
 ### Perform the end-to-end test
 
@@ -193,7 +193,7 @@ To confirm that Docker is actually running, enter `docker info`.
 
 1. After a few moments, the **PASS** message will appear.
 
-    ![PASS](media/terraform-vscode-module-generator/pass.png)
+    ![PASS](media/terraform-vscode-module-generator/ymg-pass.png)
 
 1. Enter `exit`. This completes the end-to-end test.
 
