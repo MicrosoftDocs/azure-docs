@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, download the latest version of AzCopy on [Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux#download-and-install-azcopy) or [Windows](http://aka.ms/downloadazcopy). 
 
-[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
+[!INCLUDE [storage-quickstart-create-account-portal](../../../includes/storage-quickstart-create-account-portal.md)]
 
 >[!NOTE]
 >If you want to be able to download blobs from a secondary region to your local storage and vice versa, set **Replication** to **Read-access-geo-redundant storage**. Selecting this option creates a [geo-redundant storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy#geo-redundant-storage) account. 
