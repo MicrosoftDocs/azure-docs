@@ -17,3 +17,4 @@ A new hub contains the gateway, which takes 30 minutes to create. Once the hub i
   * Location
   * Name
   * Hub private address space
+4. Click **Confirm** to create the hub. Click **Refresh** to view the hub on the Hubs page.

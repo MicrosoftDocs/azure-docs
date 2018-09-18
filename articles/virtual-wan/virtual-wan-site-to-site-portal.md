@@ -69,8 +69,6 @@ Create as many sites as you need that correspond to your physical locations. For
 
 [!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-hub-include.md)]
 
-Click **Confirm** to create the hub. Click **Refresh** to view the hub on the Hubs page.
-
 ## <a name="associate"></a>5. Associate the sites with the hub
 
 Hubs should generally be associated to sites that are in the same region that the VNet resides in.
