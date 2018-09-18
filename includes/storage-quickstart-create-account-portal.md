@@ -15,6 +15,6 @@ To create a general-purpose v2 storage account in the Azure portal, follow these
     - The **Replication** field is set to **Locally-redundant storage (LRS)** by default.
     - The **Access tier** is set to **Hot** by default.
 
-1. Click Review + Create to review your storage account settings and create the account.
+1. Click **Review + Create** to review your storage account settings and create the account.
 
 For more information about types of storage accounts and other storage account settings, see [Azure storage account overview](https://docs.microsoft.com/azure/storage/common/storage-account-overview). For more information on resource groups, see [Azure Resource Manager overview](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). 
