@@ -33,18 +33,6 @@ Metrics are a feature for certain Azure resources where you can view performance
 | WebApplicationFirewallRequestCount | Web Application Firewall Request Count | Count | PolicyName</br>RuleName</br>Action | The number of client requests processed by the application layer security of Front Door. |
 
 
-</br>Browse to a Front Door, under **Monitoring** click **Metrics**. To view the available values, select the **METRIC** drop-down list.
-
-In the following image, you see an example with three metrics displayed for the last 30 minutes:
-
-[![](media/application-gateway-diagnostics/figure5.png "Metric view")](media/application-gateway-diagnostics/figure5-lb.png#lightbox)
-
-
-
-[10]: ./media/application-gateway-diagnostics/figure10.png
-
-
-
 ## Next steps
 
 - Learn how to [create a Front Door](quickstart-create-front-door.md).
