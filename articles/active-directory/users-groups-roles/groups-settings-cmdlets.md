@@ -218,4 +218,4 @@ You can find more Azure Active Directory PowerShell documentation at [Azure Acti
 ## Additional reading
 
 * [Managing access to resources with Azure Active Directory groups](../fundamentals/active-directory-manage-groups.md)
-* [Integrating your on-premises identities with Azure Active Directory](../connect/active-directory-aadconnect.md)
+* [Integrating your on-premises identities with Azure Active Directory](../hybrid/whatis-hybrid-identity.md)
