@@ -18,7 +18,7 @@ For deep neural network (DNN) training using TensorFlow, Azure Machine Learning 
 ## Single-node training
 Training with the TensorFlow Estimator is similar to using the [base Estimator](how-to-train-ml-models.md), so first read through the how-to article and make sure you understand the concepts introduced there.
   
-To run a TensorFlow job, instantiate a `TensorFlow` object. You should have already created your [compute target](hhow-to-set-up-training-targets.md#batch) object `compute_target`.
+To run a TensorFlow job, instantiate a `TensorFlow` object. You should have already created your [compute target](how-to-set-up-training-targets.md#batch) object `compute_target`.
 
 ```Python
 from azureml.train.dnn import TensorFlow
