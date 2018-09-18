@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: expressroute
 ms.topic: overview
-ms.date: 09/18/2018
+ms.date: 09/19/2018
 ms.author: cherylmc
 
 ---
