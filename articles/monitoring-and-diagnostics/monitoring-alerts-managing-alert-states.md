@@ -11,22 +11,24 @@ ms.component: alerts
 ---
 
 
-# Overview
-This article shows you how to use the Alert States/Smart Group States to manage your workflow.
+# Managing Alert & Smart Group States
+Alerts in Azure Monitor now have an [alert state and a monitor condition](https://aka.ms/azure-alerts-overview), and similary Smart Groups also have a [smart group state](https://aka.ms/smart-groups). Changes to the state are now captured in history associated with the respective alert or smart group. This article walks through the process of changing the state, for both an alert as well as a smart group.
+
 ## Changing the state of an alert
-You can change the state of an alert in the following different ways: 
-1. In the All Alerts page, click the checkbox next to the alerts you wish to change the state of, and click change state.   
+1. You can change the state of an alert in the following different ways: 
+    * In the All Alerts page, click the checkbox next to the alerts you wish to change the state of, and click change state.   
     ![Monitoring](./media/monitoring-alerts-managing-alert-states/state-all-alerts.jpg)
-1. In the Alert Details page for a particular alert instance, you can click change state   
+    * In the Alert Details page for a particular alert instance, you can click change state   
     ![Monitoring](./media/monitoring-alerts-managing-alert-states/state-alert-details.jpg)
-1. In the Alert Details page for a specific alert instance, in the Smart Group pane you can click the checkbox next to the alerts you wish    
+    * In the Alert Details page for a specific alert instance, in the Smart Group pane you can click the checkbox next to the alerts you wish    
     ![Monitoring](./media/monitoring-alerts-managing-alert-states/state-alert-details-sg.jpg)
 
-1. In the Smart Group Details page, in the list of member alerts you can click the checkbox next to the alerts you wish to change the state of and click Change Stateto change the state of and click Change State.   
+    * In the Smart Group Details page, in the list of member alerts you can click the checkbox next to the alerts you wish to change the state of and click Change Stateto change the state of and click Change State.   
     ![Monitoring](./media/monitoring-alerts-managing-alert-states/state-sg-details-alerts.jpg)
-1.	On clicking Change State, a popup opens up allowing you to select the state (New/Acknowledged/Closed) and enter a comment if necessary.   
+1. On clicking Change State, a popup opens up allowing you to select the state (New/Acknowledged/Closed) and enter a comment if necessary.   
 ![Monitoring](./media/monitoring-alerts-managing-alert-states/state-alert-change.jpg)
-1.	Once this is done, the state change is recorded in the history of the respective alert. This can be viewed by opening the respective Details page, and checking the history section.
+1. Once this is done, the state change is recorded in the history of the respective alert. This can be viewed by opening the respective Details page, and checking the history section.    
+![Monitoring](./media/monitoring-alerts-managing-alert-states/state-alert-history.jpg)
 
 ## Changing the state of a smart group
 1. You can change the state of a smart group in the following different ways:
@@ -36,4 +38,5 @@ You can change the state of an alert in the following different ways:
     ![Monitoring](./media/monitoring-alerts-managing-alert-states/state-sg-details.jpg)
 1. On clicking Change State, a popup opens up allowing you to select the state (New/Acknowledged/Closed) and enter a comment if necessary. **Note:** Changing the state of a smart group does not change the state of the member alerts.
 ![Monitoring](./media/monitoring-alerts-managing-alert-states/state-sg-change.jpg)
-1. Once this is done, the state change is recorded in the history of the respective smart group. This can be viewed by opening the respective Details page, and checking the history section.
+1. Once this is done, the state change is recorded in the history of the respective smart group. This can be viewed by opening the respective Details page, and checking the history section.     
+![Monitoring](./media/monitoring-alerts-managing-alert-states/state-sg-history.jpg)
