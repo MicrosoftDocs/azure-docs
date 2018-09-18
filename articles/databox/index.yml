@@ -1,13 +1,13 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure Data Box for offline transfer Documentation
+title: Azure Data Box for offline transfer 
 metadata:
-  title: Azure Data Box for offline transfer Documentation
+  title: Azure Data Box Documentation for offline transfer 
   description: Azure Data Box family lets you transfer hundreds of terabytes of data into Azure in a quick, inexpensive, and reliable manner. Use the Data Box devices for offline data transfer when you are limited by time, network, or cost.
-  services: databox-offline
+  services: databox
   author: alkohli
   manager: twooley
-  ms.service: databox-offline
+  ms.service: databox
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
