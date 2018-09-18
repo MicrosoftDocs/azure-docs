@@ -586,8 +586,6 @@
       href: ../monitoring-and-diagnostics/monitoring-service-notifications.md?toc=/azure/azure-monitor/toc.json
     - name: Query log data
       items:
-      - name: Language reference
-        href: https://docs.loganalytics.io
       - name: Get started
         items:
         - name: Get started with Analytics portal
@@ -622,8 +620,18 @@
           href: ../log-analytics/query-language/sql-cheatsheet.md?toc=/azure/azure-monitor/toc.json
         - name: Splunk
           href: ../log-analytics/query-language/splunk-cheatsheet.md?toc=/azure/azure-monitor/toc.json
+      - name: Language reference
+        items:
+        - name: Language reference
+          href: https://aka.ms/LogAnalyticsLanguageReference
+        - name: app expression
+          href: ../log-analytics/query-language/app-expression.md?toc=/azure/azure-monitor/toc.json
+        - name: workspace expression
+          href: ../log-analytics/query-language/workspace-expression.md?toc=/azure/azure-monitor/toc.json
       - name: Application data
         href: ../application-insights/app-insights-analytics.md?toc=/azure/azure-monitor/toc.json
+      - name: Standard properties
+        href: ../log-analytics/log-analytics-standard-properties.md?toc=/azure/azure-monitor/toc.json
       - name: Cross-resource searches
         href: ../log-analytics/log-analytics-cross-workspace-search.md?toc=/azure/azure-monitor/toc.json
       - name: Take action from search results
