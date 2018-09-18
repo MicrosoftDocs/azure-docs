@@ -2,13 +2,12 @@
 title: What's new in Azure Machine Learning
 description: This document details the updates to Azure Machine Learning.
 services: machine-learning
-author: hning86
-ms.author: haining
-manager: mwinkle
 ms.service: machine-learning
 ms.component: core
-ms.workload: data-services
 ms.topic: reference
+author: hning86
+ms.author: haining
+manager: cgronlun
 ms.date: 03/28/2018
 
 ROBOTS: NOINDEX
