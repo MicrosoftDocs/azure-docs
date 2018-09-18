@@ -4,9 +4,10 @@ description: In this quickstart, you learn to create a storage account using the
 services: storage
 author: tamram
 ms.custom: mvc
+
 ms.service: storage
 ms.topic: quickstart
-ms.date: 08/27/2018
+ms.date: 09/11/2018
 ms.author: tamram
 ms.component: common
 ---
@@ -131,24 +132,17 @@ az account list-locations \
 
 ---
 
-## Create a general-purpose storage account
+## Create a storage account
 
-A general-purpose storage account provides access to all of the Azure Storage services: blobs, files, queues, and tables. A general-purpose storage account can be created in either a standard or a premium tier. The examples in this article show how to create a general-purpose storage account in the standard tier (the default).
+Azure Storage offers the following types of storage accounts:
 
-Azure Storage offers two types of general-purpose storage accounts:
+- **General-purpose accounts:** A general-purpose storage account provides access to all of the Azure Storage services: blobs, files, queues, and tables. A general-purpose storage account can be created in either a standard or a premium tier. The examples in this article show how to create a general-purpose storage account in the standard tier, which is the default storage account type. 
+    
+    General-purpose v2 accounts are the latest version of the general-purpose storage account. It's recommended that you create new storage accounts as **general-purpose v2 accounts**, to take advantage of newer features available to those accounts.  
 
-- General-purpose v2 accounts 
-- General-purpose v1 accounts. 
+- **Blob storage accounts:** A Blob storage account is a specialized storage account for storing unstructured object data. Blob storage accounts provide the same durability, availability, scalability, and performance features that are available with general-purpose v2 storage accounts. Blob storage accounts support storing block blobs and append blobs, but not page blobs.
 
-> [!NOTE]
-> It's recommended that you create new storage accounts as **general-purpose v2 accounts**, to take advantage of newer features available to those accounts.  
-
-For more information about storage account types, see [Azure Storage account options](storage-account-options.md).
-
-When naming your storage account, keep these rules in mind:
-
-- Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.
-- Your storage account name must be unique within Azure. No two storage accounts can have the same name.
+For more information about storage account types, see [Azure storage account overview](storage-account-overview.md).
 
 # [Portal](#tab/portal)
 
@@ -250,16 +244,16 @@ In this quick start, you've created a general-purpose standard storage account. 
 # [Portal](#tab/portal)
 
 > [!div class="nextstepaction"]
-> [Transfer objects to/from Azure Blob storage using the Azure portal](../blobs/storage-quickstart-blobs-portal.md)
+> [Work with blobs using the Azure portal](../blobs/storage-quickstart-blobs-portal.md)
 
 # [PowerShell](#tab/powershell)
 
 > [!div class="nextstepaction"]
-> [Transfer objects to/from Azure Blob storage using PowerShell](../blobs/storage-quickstart-blobs-powershell.md)
+> [Work with blobs using PowerShell](../blobs/storage-quickstart-blobs-powershell.md)
 
 # [Azure CLI](#tab/azure-cli)
 
 > [!div class="nextstepaction"]
-> [Transfer objects to and from Azure Blob storage using the Azure CLI](../blobs/storage-quickstart-blobs-cli.md)
+> [Work with blobs storage using the Azure CLI](../blobs/storage-quickstart-blobs-cli.md)
 
 ---
