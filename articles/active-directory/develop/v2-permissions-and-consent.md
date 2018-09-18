@@ -91,19 +91,6 @@ If your app does not request the `offline_access` scope, it won't receive refres
 
 For more information about how to get and use refresh tokens, see the [v2.0 protocol reference](active-directory-v2-protocols.md).
 
-## Accessing v1.0 resources
-v2.0 applications can request tokens and consent for v1.0 applications (such as the PowerBI API `https://analysis.windows.net/powerbi/api` or Sharepoint API `https://{tenant}.sharepoint.com`).  To do so, you can reference the app URI and scope string in the `scope` parameter.  For example, `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All` would request the PowerBI `View all Datasets` permission for your application. 
-
-To request multiple permissions, append the entire URI with a space or `+`, e.g. `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All+https://analysis.windows.net/powerbi/api/Report.Read.All`.  This requests both the `View all Datasets` and `View all Reports` permissions.  Note that as with all Microsoft identity platform scopes and permissions, applications can only make a request to one resource at a time - so the request `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All+https://api.skypeforbusiness.com/Conversations.Initiate`, which requests both the PowerBI `View all Datasets` permission and the Skype for Business `Initiate conversations` permission, will be rejected due to requesting permissions on two different resources.  
-
-### v1.0 resources and tenancy
-Both the v1.0 and v2.0 Microsoft identity platform protocols use a `{tenant}` parameter embedded in the URI (`https://login.microsoftonline.com/{tenant}/oauth2/`).  When using the v2.0 endpoint to access a v1.0 organizational resource, the `common` and `consumers` tenants cannot be used, as these resources are only accessible with organizational (Azure AD) accounts.  Thus, when accessing these resources, only the tenant GUID or `organizations` can be used as the `{tenant}` parameter.  
-
-If an application attempts to access an organizational v1.0 resource using an incorrect tenant, an error similar to the one below will be returned. 
-
-`AADSTS90124: Resource 'https://analysis.windows.net/powerbi/api' (Microsoft.Azure.AnalysisServices) is not supported over the /common or /consumers endpoints. Please use the /organizations or tenant-specific endpoint.`
-
-
 ## Requesting individual user consent
 
 In an [OpenID Connect or OAuth 2.0](active-directory-v2-protocols.md) authorization request, an app can request the permissions it needs by using the `scope` query parameter. For example, when a user signs in to an app, the app sends a request like the following example (with line breaks added for legibility):
