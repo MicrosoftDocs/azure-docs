@@ -28180,6 +28180,11 @@
             "source_path": "articles/log-analytics/log-analytics-log-search-log-search-portal.md",
             "redirect_url": "/azure/log-analytics/query-language/get-started-analytics-portal",
             "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/azure-stack/azure-stack-tools-paas-services.md",
+            "redirect_url": "/azure/azure-stack/azure-stack-offer-services-overview",
+            "redirect_document_id": false
         }
     ]
 }
