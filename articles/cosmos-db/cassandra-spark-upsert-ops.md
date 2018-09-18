@@ -15,7 +15,7 @@ ms.author: ankhanol
 
 # Upsert data into Azure Cosmos DB Cassandra API from Spark
 
-This article is part of a series which shows how to use Comos DB from Spark using scala. This article describes how to upsert data into Azure Cosmos DB Cassandra API account from Spark.
+This article is part of a series, which shows how to use Comos DB from Spark using scala. This article describes how to upsert data into Azure Cosmos DB Cassandra API account from Spark.
 
 ## Cassandra API configuration
 

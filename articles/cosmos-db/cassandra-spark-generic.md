@@ -75,7 +75,7 @@ The article below covers HDinsight-Spark service, provisioning, cluster configur
 [Work with Azure Cosmos DB Cassandra API from Azure HDInsight-Spark](cassandra-spark-hdinsight.md)
  
 ### 3.  Spark environment in general
-While the sections above were specfic to Azure Spark-based PaaS services, this section covers any general Spark environment.  Connector dependencies, imports and Spark session configuration are detailed below. The "Next steps" section covers code samples for DDL operations, DML operations and more.  
+While the sections above were specific to Azure Spark-based PaaS services, this section covers any general Spark environment.  Connector dependencies, imports, and Spark session configuration are detailed below. The "Next steps" section covers code samples for DDL operations, DML operations and more.  
 
 #### Connector dependencies:
 

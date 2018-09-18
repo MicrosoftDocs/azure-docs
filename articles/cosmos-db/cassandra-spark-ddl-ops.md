@@ -15,9 +15,9 @@ ms.author: ankhanol
 
 # DDL operations in Azure Cosmos DB Cassandra API from Spark
 
-This article is part of a series which shows how to use Comos DB from Spark using scala. This article details keyspace and table DDL operations against Cosmos DB Cassandra API from Spark.
+This article is part of a series, which shows how to use Comos DB from Spark using scala. This article details keyspace and table DDL operations against Cosmos DB Cassandra API from Spark.
 
-## Cassandra API related configuration 
+## Cassandra API-related configuration 
 
 ```scala
 import org.apache.spark.sql.cassandra._
@@ -103,7 +103,7 @@ USE books_ks;
 DESCRIBE books;
 ```
 
-Note that provisioned throughput and default TTL values are not shown in the output of the previous command, you can get these values from the portal.
+Provisioned throughput and default TTL values are not shown in the output of the previous command, you can get these values from the portal.
 
 ### Alter table
 

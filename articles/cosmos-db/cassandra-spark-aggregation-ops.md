@@ -16,7 +16,7 @@ ms.author: ankhanol
 
 # Aggregate operations on Azure Cosmos DB Cassandra API tables from Spark 
 
-This article is part of a series which shows how to use Comos DB from spark using scala. This article describes basic aggregation operations against Azure Cosmos DB Cassandra API tables from Spark. 
+This article is part of a series, which shows how to use Comos DB from spark using scala. This article describes basic aggregation operations against Azure Cosmos DB Cassandra API tables from Spark. 
 
 > [!NOTE]
 > Server-side filtering, and server-side aggregation is currently not supported in Azure Cosmos DB Cassandra API.

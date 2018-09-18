@@ -15,7 +15,7 @@ ms.author: ankhanol
 
 # Read Azure Cosmos DB Cassandra API tables from Spark
 
-This article is part of a series which shows how to use Comos DB from Spark using scala. This article describes how to read data stored in Azure Cosmos DB Cassandra API account from Spark.
+This article is part of a series, which shows how to use Comos DB from Spark using scala. This article describes how to read data stored in Azure Cosmos DB Cassandra API account from Spark.
 
 ## Cassandra API configuration
 ```scala

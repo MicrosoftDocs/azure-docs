@@ -15,7 +15,7 @@ ms.author: ankhanol
 
 # Table copy operations on Azure Cosmos DB Cassandra API from Spark
 
-This article is part of a series which shows how to use Comos DB from Spark using scala. This article describes how to copy data between tables in Azure Cosmos DB Cassandra API. The commands described in this article can also be used to copy data from Apache Cassandra tables to Azure Cosmos DB Cassandra API table.
+This article is part of a series, which shows how to use Comos DB from Spark using scala. This article describes how to copy data between tables in Azure Cosmos DB Cassandra API. The commands described in this article can also be used to copy data from Apache Cassandra tables to Azure Cosmos DB Cassandra API table.
 
 ## Cassandra API configuration
 
