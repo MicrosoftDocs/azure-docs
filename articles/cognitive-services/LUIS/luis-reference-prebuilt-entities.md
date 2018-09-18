@@ -35,7 +35,7 @@ Prebuilt entity   |   English (United States)<br>```En-us```   |   French (Franc
 
 See notes on [Deprecated prebuilt entities](luis-reference-prebuilt-deprecated.md)
 
-KeyPhrase is not available in all sub-cultures of Portuguese (Brazil) - ```pt-BR```.
+KeyPhrase is not available in all subcultures of Portuguese (Brazil) - ```pt-BR```.
 
 <!--
 ## Examples of prebuilt entities in en-us culture
@@ -63,7 +63,7 @@ Prebuilt entity   |   Example utterance   |   JSON
 -->
 
 ## Contribute to prebuilt entity cultures
-The prebuilt entities are developed in the Recognizers-Text open-source project. Please [contribute](https://github.com/Microsoft/Recognizers-Text) to the project. This project includes examples of currency per culture. 
+The prebuilt entities are developed in the Recognizers-Text open-source project. Contribute](https://github.com/Microsoft/Recognizers-Text) to the project. This project includes examples of currency per culture. 
 
 ## Next steps
 
