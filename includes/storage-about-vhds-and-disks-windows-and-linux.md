@@ -39,7 +39,7 @@ For more information about using Standard HDD disks, see [Standard Storage and D
 
 ### Standard SSD disks
 
-Standard SSD disks are designed to address the same kind of workloads as Standard HDD disks, but offer more consistent performance and reliability than HDD. Standard SSD disks combine elements of Premium SSD disks and Standard HDD disks to form a cost-effective solution best suited for applications like web servers that do not need high IOPS on disks. Where available, Standard SSD disks are the recommended deployment option for most workloads. Standard SSD disks are only available as Managed Disks, and while in preview are only available in [select regions](../articles/virtual-machines/windows/faq-for-disks.md) and with the locally redundant storage (LRS) resiliency type.
+Standard SSD disks are designed to address the same kind of workloads as Standard HDD disks, but offer more consistent performance and reliability than HDD. Standard SSD disks combine elements of Premium SSD disks and Standard HDD disks to form a cost-effective solution best suited for applications like web servers that do not need high IOPS on disks. Where available, Standard SSD disks are the recommended deployment option for most workloads. Standard SSD disks are available as Managed Disks in all regions but are currently only available with the locally redundant storage (LRS) resiliency type.
 
 ### Premium SSD disks
 
