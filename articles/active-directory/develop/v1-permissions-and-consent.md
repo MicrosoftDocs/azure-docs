@@ -13,16 +13,20 @@ ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/27/2018
+ms.topic: conceptual
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
 ---
 
-# Permissions in Azure Active Directory
+# Permissions and consent in the Azure Active Directory v1.0 endpoint
 
-Azure Active Directory (Azure AD) makes extensive use of permissions for both OAuth and OpenID Connect (OIDC) flows. When your app receives an access token from Azure AD, the access token will include claims that describe the permissions that your app has in respect to a particular resource. Permissions, also known as scopes, make authorization easy for the resource because the resource only needs to check that the token contains the appropriate permission for whatever API the app is calling. 
+[!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
+
+Azure Active Directory (Azure AD) makes extensive use of permissions for both OAuth and OpenID Connect (OIDC) flows. When your app receives an access token from Azure AD, the access token will include claims that describe the permissions that your app has in respect to a particular resource.
+
+*Permissions*, also known as *scopes*, make authorization easy for the resource because the resource only needs to check that the token contains the appropriate permission for whatever API the app is calling.
 
 ## Types of permissions
 

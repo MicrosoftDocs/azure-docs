@@ -17,7 +17,7 @@ ms.date: 08/07/2018
 ms.author: harijay
 ---
 
-# Virtual Machine Serial Console (preview) 
+# Virtual Machine Serial Console
 
 
 The Virtual Machine Serial Console on Azure provides access to a text-based console for Linux virtual machines. This serial connection is to the COM1 serial port of the virtual machine, providing access to the virtual machine that is independent of a virtual machine's network or operating system state. Access to the serial console for a virtual machine can currently only be done via the Azure portal and is allowed only for those users who have VM Contributor or above access to the virtual machine. 
@@ -25,8 +25,7 @@ The Virtual Machine Serial Console on Azure provides access to a text-based cons
 For serial console documentation for Windows VMs, [click here](../windows/serial-console.md).
 
 > [!Note] 
-> Previews are made available to you on the condition that you agree to the terms of use. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews.] (https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
-> Currently this service is in **public preview** and access to the serial console for virtual machines is available to global Azure regions. At this point serial console is not available Azure Government, Azure Germany, and Azure China cloud.
+> Serial Console for virtual machines is generally available in global Azure regions. At this point serial console is not yet available in Azure Government or Azure China clouds.
 
 
 ## Prerequisites 
@@ -51,7 +50,7 @@ Serial console for virtual machines is only accessible via [Azure portal](https:
   1. Open the Azure portal
   2. In the left menu, select virtual machines.
   3. Click on the VM in the list. The overview page for the VM will open.
-  4. Scroll down to the Support + Troubleshooting section and click on serial console (Preview) option. A new pane with the serial console will open and start the connection.
+  4. Scroll down to the Support + Troubleshooting section and click on the "Serial console" option. A new pane with the serial console will open and start the connection.
 
 ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-connect.gif)
 
@@ -59,7 +58,7 @@ Serial console for virtual machines is only accessible via [Azure portal](https:
 > [!NOTE] 
 > Serial console requires a local user with a password configured. At this time, VMs only configured with an SSH public key will not have access to the serial console. To create a local user with password, use the [VM Access Extension](https://docs.microsoft.com/azure/virtual-machines/linux/using-vmaccess-extension) (also available in the portal by clicking "Reset password") and create a local user with a password.
 
-## Access Serial Console for Linux
+## Serial Console Linux distro availability
 In order for serial console to function properly, the guest operating system must be configured to read and write console messages to the serial port. Most [Endorsed Azure Linux Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) have the serial console configured by default. Simply clicking the Serial Console section in the Azure portal will provide access to the console. 
 
 Distro      | Serial Console access
@@ -70,7 +69,7 @@ Ubuntu      | Ubuntu images available on Azure have console access enabled by de
 CoreOS      | CoreOS images available on Azure have console access enabled by default.
 SUSE        | Newer SLES images available on Azure have console access enabled by default. If you are using older versions (10 or below) of SLES on Azure, follow the [KB article](https://www.novell.com/support/kb/doc.php?id=3456486) to enable serial console. 
 Oracle Linux        | Oracle Linux images available on Azure have console access enabled by default.
-Custom Linux images     | To enable serial console for your custom Linux VM image, enable console access in /etc/inittab to run a terminal on ttyS0. Here is an example to add this in the inittab file: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. For more information on properly creating custom images see [Create and upload a Linux VHD in Azure](https://aka.ms/createuploadvhd).
+Custom Linux images     | To enable serial console for your custom Linux VM image, enable console access in `/etc/inittab` to run a terminal on `ttyS0`. Here is an example to add this in the inittab file: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. For more information on properly creating custom images see [Create and upload a Linux VHD in Azure](https://aka.ms/createuploadvhd). If you are building a custom kernel, some kernel flags to consider enabling are `CONFIG_SERIAL_8250=y` and `CONFIG_MAGIC_SYSRQ_SERIAL=y`. The config file is often located under /boot/ for further exploration.
 
 ## Common scenarios for accessing serial console 
 Scenario          | Actions in serial console                
@@ -84,6 +83,9 @@ Interacting with bootloader | Access GRUB via the serial console. Go to [Using S
 
 ## Disable Serial Console
 By default, all subscriptions have serial console access enabled for all VMs. You may disable serial console at either the subscription level or VM level.
+
+> [!Note] 
+> In order to enable or disable serial console for a subscription, you must have write permissions to the subscription. This includes, but is not limited to, administrator or owner roles. Custom roles may also have write permissions.
 
 ### Subscription-level disable
 Serial console can be disabled for an entire subscription by through the [Disable Console REST API call](https://aka.ms/disableserialconsoleapi). You may use the "Try It" functionality available on the API Documentation page to disable and enable Serial Console for a subscription. Enter your `subscriptionId`, "default" in the `default` field, and click Run. Azure CLI commands are not yet available and will arrive at a later date. [Try the REST API call here](https://aka.ms/disableserialconsoleapi).
@@ -159,34 +161,50 @@ The VM is in a stopped deallocated state. Start the VM and retry the serial cons
 You do not have the required permissions to use this VM the serial console. Ensure you have at least VM Contributor role permissions.| Serial console access requires certain permission to access. See [access requirements](#prerequisites) for details
 Unable to determine the resource group for the boot diagnostics storage account '<STORAGEACCOUNTNAME>'. Verify that boot diagnostics is enabled for this VM and you have access to this storage account. | Serial console access requires certain permission to access. See [access requirements](#prerequisites) for details
 Web socket is closed or could not be opened. | You may need to whitelist `*.console.azure.com`. A more detailed but longer approach is to whitelist the [Microsoft Azure Datacenter IP ranges](https://www.microsoft.com/en-us/download/details.aspx?id=41653), which change fairly regularly.
+A 'Forbidden' response was encountered when accessing this VM's boot diagnostic storage account. | Ensure that boot diagnostics does not have an account firewall. An accessible boot diagnostic storage account is necessary for serial console to function.
+
 ## Known issues 
-As we are still in the preview stages for serial console access, we are working through some known issues. Below is the list of these with possible workarounds:
+We are aware of some issues with the serial console. Here is a list of these issues and steps for mitigation.
 
 Issue                           |   Mitigation 
 :---------------------------------|:--------------------------------------------|
-There is no option with virtual machine scale set instance serial console |  At the time of preview, access to the serial console for virtual machine scale set instances is not supported.
 Hitting enter after the connection banner does not show a log in prompt | Please see this page: [Hitting enter does nothing](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). This may happen if you are running a custom VM, hardened appliance, or GRUB config that causes Linux to fail to properly connect to the serial port.
-A 'Forbidden' response was encountered when accessing this VM's boot diagnostic storage account. | Ensure that boot diagnostics does not have an account firewall. An accessible boot diagnostic storage account is necessary for serial console to function.
-Serial console text only takes up a portion of the screen size (often after using a text editor) | This is a known issue with unknown screen size over serial connections. We recommend instaling xterm or some other similar utility that gives you the 'resize' command. Running 'resize' will fix this.
+Serial console text only takes up a portion of the screen size (often after using a text editor) | Serial consoles do not support negotiating about window size ([RFC 1073](https://www.ietf.org/rfc/rfc1073.txt)), which means that there will be no SIGWINCH signal sent to update screen size and the VM will have no knowledge of your terminal's size. We recommend instaling xterm or some other similar utility that gives you the 'resize' command. Running 'resize' will fix this.
+Pasting very long strings does not work | Serial console limits the length of strings pasted into the terminal to 2048 characters. This is to prevent overwhelming the serial port bandwidth.
 
 
 ## Frequently asked questions 
 **Q. How can I send feedback?**
 
-A. Provide feedback as an issue by going to https://aka.ms/serialconsolefeedback. Alternatively (less preferred) Send feedback via azserialhelp@microsoft.com or in the virtual machine category of http://feedback.azure.com
+A. Provide feedback as an issue by going to https://aka.ms/serialconsolefeedback. Alternatively (less preferred), send feedback via azserialhelp@microsoft.com or in the virtual machine category of http://feedback.azure.com
 
-**Q. I am not able to access the serial console, where can I file a support case?**
+**Q. Does serial console support copy/paste?**
 
-A. This preview feature is covered via Azure Preview Terms. Support for this is best handled via channels mentioned above. 
+A. Yes it does. Use Ctrl + Shift + C and Ctrl + Shift + V to copy and paste into the terminal.
 
 **Q. Can I use serial console instead of an SSH connection?**
 
 A. While this may seem technically possible, serial console is intended to be used primarily as a troubleshooting tool in situations where connectivity via SSH is not possible. We recommend against using serial console as an SSH replacement for two reasons:
 
-1. Serial console does not have as much bandwidth as ssh - it is a text-only connection, so more GUI-heavy interactions will be difficult in serial console.
+1. Serial console does not have as much bandwidth as SSH - it is a text-only connection, so more GUI-heavy interactions will be difficult in serial console.
 1. Serial console access is currently only by username and password. SSH keys are far more secure than username/password combinations, so from a login security perspective we recommend SSH over serial console.
 
+**Q. Who can enable or disable serial console for my subscription?**
 
+A. In order to enable or disable serial console at a subscription-wide level, you must have write permissions to the subscription. Roles that have write permission include, but are not limited to, administrator or owner roles. Custom roles may also have write permissions.
+
+**Q. Who can access serial console for my VM?**
+
+A. You must have contributor level access or higher to a VM in order to access the VM's serial console. 
+
+**Q. My serial console is not showing anything, what do I do?**
+
+A. Your image is likely misconfigured for serial console access. See 
+[Access Serial Console for Linux](#Access-Serial-Console-for-Linux) for details on configuring your image to enable serial console.
+
+**Q. Is serial console available for Virtual Machine Scale Sets?**
+
+A. At this time, access to the serial console for virtual machine scale set instances is not supported.
 
 ## Next steps
 * Use Serial Console to [boot into GRUB and enter single user mode](serial-console-grub-single-user-mode.md)

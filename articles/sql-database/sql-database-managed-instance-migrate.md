@@ -34,7 +34,7 @@ At a high level, the database migration process looks like:
 
 First, determine whether Managed Instance is compatible with the database requirements of your application. Managed Instance is designed to provide easy lift and shift migration for the majority of existing applications that use SQL Server on-premises or on virtual machines. However, you may sometimes require features or capabilities that are not yet supported and the cost of implementing a workaround are too high. 
 
-Use [Data Migration Assistant (DMA)](https://docs.microsoft.com/sql/dma/dma-overview) to detect potential compatibility issues impacting database functionality on Azure SQL Database. DMA does not yet support Managed Instance as migration destination, but it is recommended to run assessment against Azure SQL Database and carefully review list of reported feature parity and compatibility issues against product documentation. See the [differences between Azure SQL Database Singleton and Managed Instance](sql-database-features.md) to check are there some reported blocking issues that not blockers in Managed Instance, because most of the blocking issues preventing a migration to Azure SQL Database have been removed with Managed Instance. For instance, features like cross-database queries, cross-database transactions within the same instance, linked server to other SQL sources, CLR, global temp tables, instance level views, Service Broker and the like are available in Managed Instances. 
+Use [Data Migration Assistant (DMA)](https://docs.microsoft.com/sql/dma/dma-overview) to detect potential compatibility issues impacting database functionality on Azure SQL Database. DMA does not yet support Managed Instance as migration destination, but it is recommended to run assessment against Azure SQL Database and carefully review list of reported feature parity and compatibility issues against product documentation. See [Azure SQL Database features](sql-database-features.md) to check are there some reported blocking issues that not blockers in Managed Instance, because most of the blocking issues preventing a migration to Azure SQL Database have been removed with Managed Instance. For instance, features like cross-database queries, cross-database transactions within the same instance, linked server to other SQL sources, CLR, global temp tables, instance level views, Service Broker and the like are available in Managed Instances. 
 
 If there are some reported blocking issues that are not removed in Azure SQL Managed Instance, you might need to consider an alternative option, such as [SQL Server on Virtual Machines in Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). Here are some examples:
 
@@ -95,13 +95,13 @@ The following table provides more information regarding the methods you can use 
 |Put backup to Azure Storage|Prior SQL 2012 SP1 CU2|Upload .bak file directly to Azure storage|
 ||2012 SP1 CU2 - 2016|Direct backup using deprecated [WITH CREDENTIAL](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql) syntax|
 ||2016 and above|Direct backup using [WITH SAS CREDENTIAL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url)|
-|Restore from Azure Storage	to Managed Instance|[RESTORE FROM URL with SAS CREDENTIAL](sql-database-managed-instance-restore-from-backup-tutorial.md)|
+|Restore from Azure Storage	to Managed Instance|[RESTORE FROM URL with SAS CREDENTIAL](sql-database-managed-instance-get-started-restore.md)|
 
 > [!IMPORTANT]
 > - When migrating a database protected by [Transparent Data Encryption](transparent-data-encryption-azure-sql.md) to Azure SQL Managed Instance using native restore option, the corresponding certificate from the on-premises or IaaS SQL Server needs to be migrated before database restore. For detailed steps, see [Migrate TDE cert to Managed Instance](sql-database-managed-instance-migrate-tde-certificate.md)
 > - Restore of system databases is not supported. To migrate instance level objects (stored in master or msdb databases), we recommend to script them out and run T-SQL scripts on the destination instance.
 
-For a full tutorial that includes restoring a database backup to a Managed Instance using a SAS credential, see [Restore from backup to a Managed Instance](sql-database-managed-instance-restore-from-backup-tutorial.md).
+For a quickstart showing how to restore a database backup to a Managed Instance using a SAS credential, see [Restore from backup to a Managed Instance](sql-database-managed-instance-get-started-restore.md).
 
 ## Monitor applications
 

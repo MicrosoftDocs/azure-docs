@@ -70,7 +70,7 @@
     - name: JavaScript
       href: app-insights-javascript.md
   - name: Monitor Azure Functions
-    href: ../azure-functions/functions-monitoring.md?toc=%2fazure%2fapplication-insights%2ftoc.json 
+    href: ../azure-functions/functions-monitoring.md?toc=%2fazure%2fapplication-insights%2ftoc.json
   - name: Monitor other platforms
     items:
     - name: SharePoint sites
