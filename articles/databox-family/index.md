@@ -1,6 +1,6 @@
 ---
 title: Azure Data Box Documentation
-description: Azure Data Box family offers products of differing storage capacities to help send terabytes of data into Azure in a quick, inexpensive, and reliable way. Microsoft accelerates secure data transfer by shipping you proprietary storage devices that enable offline or over the network data transfer.
+description: Azure Data Box family offers products of differing storage capacities to help send terabytes of data to Azure in a quick, inexpensive, and reliable way. Microsoft accelerates secure data transfer by shipping you proprietary storage devices that enable offline or over the network data transfer.
 services: databox
 author: alkohli
 manager: twooley
@@ -13,7 +13,7 @@ ms.date: 09/18/2018
 ms.author: alkohli
 ---
 <h1>Azure Data Box</h1>
-<p>Azure Data Box family offers products of differing storage capacities to help send terabytes (TB) of data into Azure in a quick, inexpensive, and reliable way. Microsoft accelerates secure data transfer by shipping you proprietary storage devices that enable offline or over the network data transfer.</p>
+<p>The Azure Data Box family offers products of differing storage capacities to help send terabytes (TB) of data into Azure in a quick, inexpensive, and reliable way. Microsoft accelerates secure data transfer by shipping you proprietary storage devices that enable offline or over the network data transfer.</p>
 
 <h2>Offline data transfer</h2>
 <p>For limited to no network bandwidth</p>
@@ -65,7 +65,7 @@ ms.author: alkohli
                             </div>
                         </div>
                         <div class="cardText">
-                            <p><b>Data Box Heavy</b> for data sizes > 500 TB. Microsoft ships you a 1 PB device via freight to copy data and ship back.</p>
+                            <p><b>Data Box Heavy<SUP>Preview</SUP></b> for data sizes > 500 TB. Microsoft ships you a 1 petabyte (PB) device via freight to copy data and ship back.</p>
                         </div>
                     </div>
                 </div>
