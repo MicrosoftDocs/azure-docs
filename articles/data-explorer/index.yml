@@ -18,7 +18,7 @@ sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'Learn how to provision and use Kusto:'
+    text: 'Learn how to provision and use Azure Data Explorer:'
   - type: list
     style: icon48
     items: 
