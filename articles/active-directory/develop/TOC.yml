@@ -122,6 +122,23 @@
       href: conditional-access-dev-guide.md
   - name: How-to guides
     items:
+    - name: Authentication
+      items:
+      - name: Configure single sign-on
+        displayName: SSO
+        items:
+        - name: Enable SSO on Android
+          href: howto-v1-enable-sso-android.md
+        - name: Enable SSO on iOS
+          href: howto-v1-enable-sso-ios.md
+        - name: Debug SAML-based SSO
+          href: howto-v1-debug-saml-sso-issues.md
+      - name: Configure claims
+        items:
+        - name: Configure role claims
+          href: ../active-directory-enterprise-app-role-management.md
+        - name: Customize claims
+          href: active-directory-saml-claims-customization.md
     - name: Application configuration
       items:
       - name: Convert a single-tenant app to a multi-tenant app
@@ -134,25 +151,6 @@
         href: howto-add-branding-in-azure-ad-apps.md
       - name: Terms of Service and Privacy Statement
         href: howto-add-terms-of-service-privacy-statement.md
-    - name: Configure single sign-on
-      displayName: SSO
-      items:
-      - name: Enable SSO on Android
-        href: howto-v1-enable-sso-android.md
-      - name: Enable SSO on iOS
-        href: howto-v1-enable-sso-ios.md
-      - name: Debug SAML-based SSO
-        href: howto-v1-debug-saml-sso-issues.md
-    - name: Configure claims
-      items:
-      - name: Configure role claims
-        href: ../active-directory-enterprise-app-role-management.md
-      - name: Customize claims
-        href: active-directory-saml-claims-customization.md
-    - name: Migrate from the Azure Access Control Service
-      href: active-directory-acs-migration.md
-    - name: Use the Azure AD Graph API
-      href: active-directory-graph-api-quickstart.md
     - name: Work with Visual Studio
       items:
       - name: Use the Active Directory connected service
@@ -175,6 +173,10 @@
         href: howto-app-gallery-listing.md
       - name: Publish to the Office 365 Seller Dashboard
         href: https://docs.microsoft.com/office/dev/store/use-the-seller-dashboard-to-submit-to-the-office-store   
+    - name: Migrate from the Azure Access Control Service
+      href: active-directory-acs-migration.md
+    - name: Use the Azure AD Graph API
+      href: active-directory-graph-api-quickstart.md
     - name: AD FS for developers
       href: https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-scenarios-for-developers
   - name: References
