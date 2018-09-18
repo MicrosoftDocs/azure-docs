@@ -71,14 +71,30 @@ Supported data types.
 | array    | Single level array of type integer, bool, money, or time. Arrays can be static or dynamic. |
 | bool     | Boolean data type. |
 | contract | Address of type contract. |
-| enum     | Enumerated set of named values. When using the enum type, you also specify a list of EnumValues. Each value is limited to 255 characters. Valid value characters include upper and lower case letters (A-Z, a-z) and numbers (0-9). |
+| enum     | Enumerated set of named values. When using the enum type, you also specify a list of EnumValues. Each value is limited to 255 characters. Valid value characters include upper and lower case letters (A-Z, a-z) and numbers (0-9). See [example configuration and use in Solidity](#example-configuration-of-type-enum). |
 | int      | Integer data type. |
 | money    | Money data type. |
 | state    | Workflow state. |
-| string   | String data type. 4000 character maximum. |
+| string  | String data type. 4000 character maximum. See [example configuration](#example-configuration-of-type-string). |
 | user     | Address of type user. |
 | time     | Time data type. |
 |`[ Application Role Name ]`| Any name specified in application role. Limits users to be of that role type. |
+
+### Example configuration of type array
+
+```json
+{
+  "Name": "Quotes",
+  "Description": "Market quotes",
+  "DisplayName": "Quotes",
+  "Type": { 
+    "Name": "array", 
+    "ElementType": { 
+        "Name": "int" 
+    } 
+  } 
+}
+```
 
 ### Example configuration of type string
 
