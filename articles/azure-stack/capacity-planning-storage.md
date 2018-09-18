@@ -44,16 +44,19 @@ A brief summary of the Storage Spaces Direct and Azure Stack storage configurati
 
 The virtual-disks created automatically and their capacities are as follows:
 
+
+
+
 |Name|Capacity calculation|Description|
 |-----|-----|-----|
-|Infrastructure AD|128 GB|AD VM storage only|
-|Infrastructure|1 TB|All infrastructure VM VHD content|
-|Management library|1 TB|Used for infrastructure data and internal processing|
-|Tenant library|1 TB|Used to store the Azure Stack gallery images|
-|VmTemp|See below<sup>1</sup>|Tenant virtual machines have a temporary disk attached and that data is storage in these virtual disks|
-|ACS|See below <sup>2</sup>|Azure Consistent Storage capacity for servicing blobs, tables, and queues|
+|Local/boot device|Minimum of 340 GB<sup>1</sup>|Individual server storage for operating system images and "local" Infrastructure VMs|
+|Infrastructure|3.5 TB|All Azure Stack infrastructure usage|
+|VmTemp|See below<sup>2</sup>|Tenant virtual machines have a temporary disk attached and that data is stored in these virtual disks|
+|ACS|See below <sup>3</sup>|Azure Consistent Storage capacity for servicing blobs, tables, and queues|
 
-<sup>1</sup> The virtual-disk size used for Tenant Virtual Machine temporary disks is calculated as a ratio of the physical memory of the server. As noted in the tables below for the Azure IaaS VM sizes, the temporary disk is a ratio of the physical memory assigned to the virtual machine. The allocation done for “temp disk” storage in Azure Stack will be done in a way as to capture most use cases but may not be able to satisfy all temp disk storage needs. The ratio chosen is a trade-off between making temporary storage available while not consuming a majority of the storage capacity of the solution for temp disk capacity only. One temporary storage disk is created per server in the Scale Unit. The capacity of the temporary storage will not grow beyond 10% of the overall available storage capacity in the storage pool of the Scale Unit. The calculation is something like the following example:
+<sup>1</sup> Minimum storage capacity required of the Azure Stack solution partner.
+
+<sup>2</sup> The virtual-disk size used for Tenant Virtual Machine temporary disks is calculated as a ratio of the physical memory of the server. As noted in the tables below for the Azure IaaS VM sizes, the temporary disk is a ratio of the physical memory assigned to the virtual machine. The allocation done for “temp disk” storage in Azure Stack will be done in a way as to capture most use cases but may not be able to satisfy all temp disk storage needs. The ratio chosen is a trade-off between making temporary storage available while not consuming a majority of the storage capacity of the solution for temp disk capacity only. One temporary storage disk is created per server in the Scale Unit. The capacity of the temporary storage will not grow beyond 10% of the overall available storage capacity in the storage pool of the Scale Unit. The calculation is something like the following example:
 
 ```
   DesiredTempStoragePerServer = PhysicalMemory * 0.65 * 8
@@ -65,7 +68,7 @@ The virtual-disks created automatically and their capacities are as follows:
       TempVirtualDiskSize = (TotalAvailableCapacity * 0.1) / NumberOfServers
 ```
 
-<sup>2</sup> The virtual-disks created for use by ACS are a simple division of the remaining capacity. As noted, all virtual-disks are a three-way mirror and one Capacity drive’s worth of capacity for each server is unallocated. The various virtual-disks enumerated above are allocated first and the remaining capacity is then used for the ACS virtual-disks.
+<sup>3</sup> The virtual-disks created for use by ACS are a simple division of the remaining capacity. As noted, all virtual-disks are a three-way mirror and one Capacity drive’s worth of capacity for each server is unallocated. The various virtual-disks enumerated above are allocated first and the remaining capacity is then used for the ACS virtual-disks.
 
 ## Next steps
 [Learn about the Azure Stack capacity planning spreadsheet](capacity-planning-spreadsheet.md)

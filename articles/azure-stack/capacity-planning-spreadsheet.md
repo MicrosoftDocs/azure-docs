@@ -40,7 +40,7 @@ This worksheet contains up to five hardware definition examples. Change details 
 Azure Stack is delivered as an integrated system with software installed by solution partners. These solution partners will have their own, authoritative versions of Azure Stack capacity planning tools and those tools should be used to finalize discussions of solution capacity.
 
 ### Multiple Ways to Model Computing Resources
-The basic building blocks used for resource modeling within the Azure Stack planner are the various sizes of Azure Stack virtual machines (VMs). These VMs range in size from the smallest, "Basic 0", up to the current largest VM, "Standard_14_v2." Based on your needs, various quantities of differing VMs can be used to create computing resource allocations using this tool in two different ways.
+The basic building blocks used for resource modeling within the Azure Stack planner are the various sizes of Azure Stack virtual machines (VMs). These VMs range in size from the smallest, "Basic 0", up to the current largest VM, "Standard_Fsv2." Based on your needs, various quantities of differing VMs can be used to create computing resource allocations using this tool in two different ways.
 
 1. The planner user selects a specific hardware offering and sees which combinations of various resources fit within this hardware resource. 
 
