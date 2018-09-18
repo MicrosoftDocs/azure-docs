@@ -41,6 +41,8 @@
   items: 
   - name: IoT Edge runtime
     href: iot-edge-runtime.md
+  - name: IoT Edge Certificates
+    href: iot-edge-certs.md
   - name: IoT Edge modules
     href: iot-edge-modules.md
     items: 
@@ -52,11 +54,14 @@
       href: module-edgeagent-edgehub.md
   - name: Deployments
     href: module-deployment-monitoring.md
+  - name: Offline capabilities
+    href: offline-capabilities.md
   - name: IoT Edge device as a gateway
     href: iot-edge-as-gateway.md
   - name: Security
-    href: security.md
     items:
+    - name: Securing Azure IoT Edge
+      href: security.md
     - name: IoT Edge security manager
       href: iot-edge-security-manager.md
   - name: Platform support
@@ -131,6 +136,8 @@
       href: how-to-create-transparent-gateway-windows.md
     - name: Modbus protocol gateway
       href: deploy-modbus-gateway.md
+  - name: Configure proxy support
+    href: how-to-configure-proxy-support.md
   - name: CI/CD in Azure DevOps
     href: how-to-ci-cd.md
   - name: Troubleshoot

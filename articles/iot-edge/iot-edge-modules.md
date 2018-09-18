@@ -62,7 +62,7 @@ Twin twin = await client.GetTwinAsync(); 
 
 ## Offline capabilities
 
-Azure IoT Edge supports offline operations on your IoT Edge devices. These capabilities are limited for now, and additional scenarios are being developed. 
+Azure IoT Edge supports offline operations on your IoT Edge devices. These capabilities are limited for now. 
 
 IoT Edge modules can be offline for extended periods as long as the following requirements are met: 
 
@@ -70,6 +70,8 @@ IoT Edge modules can be offline for extended periods as long as the following re
 * **Modules don't need to reauthenticate with the IoT Edge hub when offline**. Modules can only authenticate with Edge hubs that have an active connection with an IoT hub. Modules need to re-authenticate if they are restarted for any reason. Modules can still send messages to the Edge hub after their SAS token has expired. When connectivity resumes, the Edge hub requests a new token from the module and validates it with the IoT hub. If successful, the Edge hub forwards the module messages it has stored, even the messages that were sent while the module's token was expired. 
 * **The module that sent the messages while offline is still functional when connectivity resumes**. Upon reconnecting to IoT Hub, the Edge hub needs to validate a new module token (if the previous one expired) before it can forward the module messages. If the module is not available to provide a new token, the Edge hub cannot act on the module's stored messages. 
 * **The Edge hub has disk space to store the messages**. By default, messages are stored in the Edge hub container's filesystem. There is a configuration option to specify a mounted volume to store the messages instead. In either case, there needs to be space available to store the messages for deferred delivery to IoT Hub.  
+
+Additional offline capabilities are available in public preview. For more information, see [Understand extended offline capabilities for IoT Edge devices, modules, and child devices](offline-capabilities.md).
 
 ## Next steps
  - [Understand the Azure IoT Edge runtime and its architecture][lnk-runtime]
