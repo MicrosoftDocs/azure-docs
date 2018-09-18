@@ -16,7 +16,7 @@ The Azure Monitor [Windows Azure Diagnostics extension](azure-diagnostics.md) (W
 Starting with WAD version 1.11, you can write metrics directly to the Azure Monitor metrics store where standard platform metrics are already collected. Storing them in this location allows you to access the same actions available for platform metrics.  Actions include near-real time alerting, charting, routing, access from REST API and more.  In the past, the WAD extension wrote to Azure Storage, but not the Azure Monitor data store.  
 
 The process outlined in this article only works for Azure classic Cloud Services. The process does not work for custom metrics. 
-
+   
 
 ## Pre-requisites: 
 
