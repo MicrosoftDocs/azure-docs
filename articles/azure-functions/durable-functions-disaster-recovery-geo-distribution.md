@@ -3,15 +3,11 @@ title: Disaster recovery and geo-distribution in Durable Functions - Azure
 description: Learn about disaster recovery and geo-distribution in Durable Functions.
 services: functions
 author: MS-Santi
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords:
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
 ---
@@ -46,7 +42,7 @@ However,  using this scenario consider:
 - This scenario covers outages at the compute infrastructure, but the storage account continues to be the single point of failure for the function App. If there is a Storage outage, the application suffers a downtime.
 - If the function app is failed over, there will be increased latency since it will access its storage account across regions.
 - Accessing the storage service from a different region where it's located incurs in higher cost due to network egress traffic.
-- This scenario depends on Traffic Manager. Considering [how Traffic Manager works](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), it may be some time until a client application that consumes a Durable Function needs to query again the function app address from Traffic Manager. 
+- This scenario depends on Traffic Manager. Considering [how Traffic Manager works](../traffic-manager/traffic-manager-how-it-works.md), it may be some time until a client application that consumes a Durable Function needs to query again the function app address from Traffic Manager. 
 
 
 ## Scenario 2 - Load balanced compute with regional storage

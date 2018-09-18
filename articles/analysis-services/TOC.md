@@ -34,12 +34,13 @@
 ### [Configure a server name alias](analysis-services-server-alias.md)
 ### [Configure scale-out](analysis-services-scale-out.md)
 ### [Install and configure an on-premises data gateway](analysis-services-gateway-install.md)
+### [Use gateway for data sources on an Azure Virtual Network](analysis-services-vnet-gateway.md)
 ### [Manage a server](analysis-services-manage.md)
 ### [Monitor server metrics](analysis-services-monitor.md)
 ### [Setup diagnostic logging](analysis-services-logging.md)
-### [Create service principle - Azure portal](../azure-resource-manager/resource-group-create-service-principal-portal.md)
-### [Create service principle - PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
-### [Add a service principle to server administrator role](analysis-services-addservprinc-admins.md)
+### [Create service principal - Azure portal](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+### [Create service principal - PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+### [Add a service principal to server administrator role](analysis-services-addservprinc-admins.md)
 
 ## Model
 ### [Import a Power BI Desktop file](analysis-services-import-pbix.md)
@@ -81,6 +82,7 @@
 ## [Power Query M](https://msdn.microsoft.com/library/mt211003.aspx)
 ## [Tabular Model Scripting Language (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)
 ## [Tabular Object Model (TOM)](https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo)
+## [Resource and object limits](analysis-services-capacity-limits.md)
 
 # Resources
 

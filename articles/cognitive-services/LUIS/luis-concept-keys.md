@@ -1,14 +1,15 @@
 ---
-title: Understand your LUIS keys - Azure | Microsoft Docs
-description: Use Language Understanding (LUIS) keys to author your app and query your endpoing.
+title: Understand your LUIS keys
+titleSuffix: Azure Cognitive Services
+description: LUIS uses two keys, authoring and endpoint. The authoring key is created for you automatically when you create your LUIS account. When you are ready to publish your LUIS app, you need to create the endpoint key, assign it to your LUIS app, and use it with the endpoint query.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/23/2018
-ms.author: v-geberr
+ms.date: 09/10/2018
+ms.author: diberry
 ---
 
 # Keys in LUIS
@@ -30,15 +31,15 @@ To find the authoring Key, log in to [LUIS](luis-reference-regions.md#luis-websi
 
 ![authoring Key](./media/luis-concept-keys/programatic-key.png)
 
-When you want to make **production endpoint queries**, create an Azure [LUIS subscription](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). 
+When you want to make **production endpoint queries**, create the Azure [LUIS subscription](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). 
 
 > [!CAUTION]
 > For convenience, many of the samples use the Authoring key since it provides a few endpoint calls in its [quota](luis-boundaries.md#key-limits).  
 
 ## Endpoint key
- When you need **production endpoint queries**, create a [LUIS key](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) in the Azure portal. Remember the name used to create the key, you need it when you add the key to the app..
+ When you need **production endpoint queries**, create a [LUIS key](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) in the Azure portal. Remember the name used to create the key, you need it when you add the key to the app.
 
-When the LUIS subscription process is finished, [add the key](luis-how-to-manage-keys.md#assign-endpoint-key) to the app on the **Publish** page. 
+When the LUIS subscription process is finished, [assign the key](luis-how-to-manage-keys.md#assign-endpoint-key) to the app. 
 
 The endpoint key allows a quota of endpoint hits based on the usage plan you specified when creating the key. See [Cognitive Services Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h) for pricing information.
 
@@ -68,6 +69,10 @@ Publishing regions are different from authoring regions. Make sure you create an
 
 ## Key limit errors
 If you exceed your per second quota, you receive an HTTP 429 error. If you exceed your per month quota, you receive an HTTP 403 error. Fix these errors by getting a LUIS [endpoint](#endpoint-key) key, [assigning](luis-how-to-manage-keys.md#assign-endpoint-key) the key to the app on the **Publish** page of the [LUIS](luis-reference-regions.md#luis-website) website.
+
+## Automating assignment of the endpoint key
+
+In order to assign the endpoint key to a LUIS app, you must use the LUIS website for the correct authoring and publishing [regions](luis-reference-regions.md). There is **no** automated method of doing this, regardless of mechanism such as with an Azure resource manager script, Azure CLI, programmatic SDK, or with the APIs.
 
 ## Next steps
 

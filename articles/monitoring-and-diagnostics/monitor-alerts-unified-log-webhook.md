@@ -48,6 +48,8 @@ Webhooks include a URL and a payload formatted in JSON that is the data sent to 
 | Application ID |#applicationid |ID of your Application Insight app. |
 | Subscription ID |#subscriptionid |ID of your Azure Subscription used with Application Insights. 
 
+> [!NOTE]
+> LinkToSearchResults passes parameters like SearchQuery, Search Interval StartTime & Search Interval End time in the URL to Azure portal for viewing in Analytics section. Azure portal has URI size limit of approx 2000 characters and will open if parameters values exceed the said limit. Users can manually input details to view results in Analytics portal or use the [Application Insights Analytics REST API](https://dev.applicationinsights.io/documentation/Using-the-API) or [Log Analytics REST API](https://dev.loganalytics.io/reference) to retrieve results programmatically 
 
 For example, you might specify the following custom payload that includes a single parameter called *text*.  The service that this webhook calls would be expecting this parameter.
 

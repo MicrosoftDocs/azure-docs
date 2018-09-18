@@ -22,7 +22,7 @@ You can save Cost Management reports in the Cloudyn portal, Azure storage, or AW
 
 You must have either an Azure storage account or an Amazon storage bucket.
 
-If you don't have an Azure storage account, you need to create one. For more information about creating an Azure storage account, see [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+If you don't have an Azure storage account, you need to create one. For more information about creating an Azure storage account, see [Create a storage account](../storage/common/storage-quickstart-create-account.md).
 
 If you don't have an AWS simple storage service (S3) bucket, you need to create one. For more information about creating an S3 bucket, see [Create a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html).
 

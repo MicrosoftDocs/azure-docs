@@ -1,20 +1,16 @@
 ---
-title: Hue with Hadoop on HDInsight Linux-based clusters - Azure | Microsoft Docs
+title: Hue with Hadoop on HDInsight Linux-based clusters - Azure 
 description: Learn how to install Hue on HDInsight clusters and use tunneling to route the requests to Hue. Use Hue to browse storage and run Hive or Pig.
 keywords: hue hadoop
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
+author: jasonwhowell
+ms.reviewer: jasonh
 
-ms.assetid: 9e57fcca-e26c-479d-a745-7b80a9290447
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/11/2017
-ms.author: nitinme
+ms.author: jasonh
 
 ---
 # Install and use Hue on HDInsight Hadoop clusters

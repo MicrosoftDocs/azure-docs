@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: bcae6987-05d0-4208-bca8-6a6ce7c9a1e3
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2017
@@ -21,6 +21,29 @@ ms.author: terrylan
 Azure Security Center analyzes the security state of your Azure resources. When Security Center identifies potential security vulnerabilities, it creates recommendations that guide you through the process of configuring the needed controls.  Recommendations apply to Azure resource types: virtual machines (VMs), networking, SQL and data, and applications.
 
 This article addresses recommendations that apply to Azure SQL service and data. Recommendations center around enabling auditing for Azure SQL servers and databases, enabling encryption for SQL databases, and enabling encryption of your Azure storage account.  Use the table below as a reference to help you understand the available SQL service and data recommendations and what each one does if you apply it.
+### Monitor data security
+
+When you click **Data security** in the **Prevention** section, the **Data Resources** opens with recommendations for SQL and Storage. It also has [recommendations](security-center-sql-service-recommendations.md) for the general health state of the database. For more information about storage encryption, read [Enable encryption for Azure storage account in Azure Security Center](security-center-enable-encryption-for-storage-account.md).
+
+![Data Resources](./media/security-center-monitoring/security-center-monitoring-fig13-newUI-2017.png)
+
+Under **SQL Recommendations**, You can click any recommendation and get more details about further action to resolve an issue. The following example shows the expansion of the **Database Auditing & Threat detection on SQL databases** recommendation.
+
+![Details about a SQL recommendation](./media/security-center-monitoring/security-center-monitoring-fig14-ga-new.png)
+
+The **Enable Auditing & Threat detection on SQL databases** has the following information:
+
+* A list of SQL databases
+* The server on which they are located
+* Information about whether this setting was inherited from the server or if it is unique in this database
+* The current state
+* The severity of the issue
+
+When you click the database to address this recommendation, the **Auditing & Threat detection** opens as shown in the following screen.
+
+![Auditing & Threat detection](./media/security-center-monitoring/security-center-monitoring-fig15-ga.png)
+
+To enable auditing, select **ON** under the **Auditing** option.
 
 ## Available SQL service and data recommendations
 | Recommendation | Description |

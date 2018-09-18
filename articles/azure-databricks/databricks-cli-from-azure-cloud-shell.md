@@ -32,13 +32,13 @@ Learn how to use the Databricks CLI from Azure Cloud Shell to perform operations
  
 2. From the top-right corner, click the **Cloud Shell** icon.
 
-   ![Launch Cloud Shell](./media/databricks-cli-from-azure-cloud-shell/launch-azure-cloud-shell.png "Launch ODBC from Excel")
+   ![Launch Cloud Shell](./media/databricks-cli-from-azure-cloud-shell/launch-azure-cloud-shell.png "Launch Azure Cloud Shell")
 
-3. Make sure you select **Bash** for the Cloud Shell enviornment. You can select from the drop-down option, as shown in the following screenshot.
+3. Make sure you select **Bash** for the Cloud Shell environment. You can select from the drop-down option, as shown in the following screenshot.
 
-   ![Launch Cloud Shell](./media/databricks-cli-from-azure-cloud-shell/select-bash-for-shell.png "Launch ODBC from Excel") 
+   ![Select Bash for the Cloud Shell environment](./media/databricks-cli-from-azure-cloud-shell/select-bash-for-shell.png "Select Bash") 
 
-4. Create a virtual environment in which you can install the Databtricks CLI. In the snippet below, you create a virtual environment called `databrickscli`.
+4. Create a virtual environment in which you can install the Databricks CLI. In the snippet below, you create a virtual environment called `databrickscli`.
 
        virtualenv -p /usr/bin/python2.7 databrickscli
 
@@ -54,13 +54,11 @@ Learn how to use the Databricks CLI from Azure Cloud Shell to perform operations
 
        databricks configure --token
 
-    You receive the following prompts:
+    You will receive the following prompts:
 
-    * You are prompted to enter the Databricks host. Ente the value in the format `https://eastus2.azuredatabricks.net`. Here, **East US 2** is the Azure region where you created your Azure Databricks workspace.
+    * First, you are prompted to enter the Databricks host. Enter the value in the format `https://eastus2.azuredatabricks.net`. Here, **East US 2** is the Azure region where you created your Azure Databricks workspace.
 
-    * You are prompted to enter a username. Enter **token**.
-
-    * Finally, you are prompted to enter the password. Enter the token that you created earlier.
+    * Next, you are prompted to enter a token. Enter the token that you created earlier.
 
 Once you complete these steps, you can start using Databricks CLI from Azure Cloud Shell.
 

@@ -10,10 +10,10 @@ editor: ''
 ms.assetid: 26b5dcb4-ce3f-4f22-8d56-d2bf743cfc90
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/15/2017
+ms.date: 08/20/2018
 ms.author: terrylan
 
 ---
@@ -31,7 +31,7 @@ An email notification is sent on the first daily occurrence of an alert and only
 1. Under **Recommendations**, select **Provide security contact details**.
    ![Provide security contact][1]
 2. Select the Azure subscription to provide contact information on.
-3. This opens **Security policy - Email notifications**.
+3. This opens **Email notifications**.
 
    ![Provide security contact details][2]
 

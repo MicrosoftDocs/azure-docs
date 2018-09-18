@@ -588,6 +588,13 @@
   - name: Vaults
     href: /azure/templates/Microsoft.KeyVault/vaults
     maintainContext: true
+    items:
+    - name: Access Policies
+      href: /azure/templates/Microsoft.KeyVault/vaults/accessPolicies
+      maintainContext: true
+    - name: Secrets
+      href: /azure/templates/Microsoft.KeyVault/vaults/secrets
+      maintainContext: true
 - name: Location Based Services
   items:
   - name: Accounts
@@ -645,6 +652,12 @@
     - name: Firewall Rules
       href: /azure/templates/Microsoft.DBforMySQL/servers/firewallRules
       maintainContext: true
+    - name: Security Alert Policies
+      href: /azure/templates/Microsoft.DBforMySQL/servers/securityAlertPolicies
+      maintainContext: true
+    - name: Virtual Network Rules
+      href: /azure/templates/Microsoft.DBforMySQL/servers/virtualNetworkRules
+      maintainContext: true
 - name: Network
   items:
   - name: Application Gateways
@@ -653,8 +666,14 @@
   - name: Application Security Groups
     href: /azure/templates/Microsoft.Network/applicationSecurityGroups
     maintainContext: true
+  - name: Azure Firewalls
+    href: /azure/templates/Microsoft.Network/azureFirewalls
+    maintainContext: true
   - name: Connections
     href: /azure/templates/Microsoft.Network/connections
+    maintainContext: true
+  - name: Ddos Protection Plans
+    href: /azure/templates/Microsoft.Network/ddosProtectionPlans
     maintainContext: true
   - name: DNS Zones
     href: /azure/templates/Microsoft.Network/dnsZones
@@ -700,6 +719,17 @@
     - name: Peerings
       href: /azure/templates/Microsoft.Network/expressRouteCircuits/peerings
       maintainContext: true
+      items:
+      - name: Connections
+        href: /azure/templates/Microsoft.Network/expressRouteCircuits/peerings/connections
+        maintainContext: true
+  - name: Express Route Cross Connections
+    href: /azure/templates/Microsoft.Network/expressRouteCircuits
+    maintainContext: true
+    items:
+    - name: Peerings
+      href: /azure/templates/Microsoft.Network/expressRouteCircuits/peerings
+      maintainContext: true
   - name: Load Balancers
     href: /azure/templates/Microsoft.Network/loadBalancers
     maintainContext: true
@@ -724,11 +754,17 @@
     href: /azure/templates/Microsoft.Network/networkWatchers
     maintainContext: true
     items:
+    - name: Connection Monitors
+      href: /azure/templates/Microsoft.Network/networkWatchers/connectionMonitors
+      maintainContext: true
     - name: Packet Captures
       href: /azure/templates/Microsoft.Network/networkWatchers/packetCaptures
       maintainContext: true
   - name: Public IP Addresses
     href: /azure/templates/Microsoft.Network/publicIPAddresses
+    maintainContext: true
+  - name: Public IP Prefixes
+    href: /azure/templates/Microsoft.Network/publicIPPrefixes
     maintainContext: true
   - name: Route Filters
     href: /azure/templates/Microsoft.Network/routeFilters
@@ -744,8 +780,18 @@
     - name: Routes
       href: /azure/templates/Microsoft.Network/routeTables/routes
       maintainContext: true
+  - name: Service Endpoint Policies
+    href: /azure/templates/Microsoft.Network/serviceEndpointPolicies
+    maintainContext: true
+    items:
+    - name: Service Endpoint Policy Definitions
+      href: /azure/templates/microsoft.Network/serviceendpointpolicies/serviceendpointpolicydefinitions
+      maintainContext: true
   - name: Traffic Manager Profiles
     href: /azure/templates/Microsoft.Network/trafficmanagerprofiles
+    maintainContext: true
+  - name: Virtual Hubs
+    href: /azure/templates/Microsoft.Network/virtualHubs
     maintainContext: true
   - name: Virtual Network Gateways
     href: /azure/templates/Microsoft.Network/virtualNetworkGateways
@@ -760,6 +806,19 @@
     - name: Virtual Network Peerings
       href: /azure/templates/Microsoft.Network/virtualNetworks/virtualNetworkPeerings
       maintainContext: true
+  - name: Virtual WANs
+    href: /azure/templates/Microsoft.Network/virtualWans
+    maintainContext: true
+  - name: VPN Gateways
+    href: /azure/templates/Microsoft.Network/vpnGateways
+    maintainContext: true
+    items:
+    - name: VPN Connections
+      href: /azure/templates/Microsoft.Network/vpnGateways/vpnconnections
+      maintainContext: true
+  - name: VPN Sites
+    href: /azure/templates/Microsoft.Network/vpnSites
+    maintainContext: true
 - name: Notification Hubs
   items:
   - name: Namespaces
@@ -811,6 +870,12 @@
       maintainContext: true
     - name: Firewall Rules
       href: /azure/templates/Microsoft.DBforPostgreSQL/servers/firewallRules
+      maintainContext: true
+    - name: Security Alert Policies
+      href: /azure/templates/Microsoft.DBforPostgreSQL/servers/securityAlertPolicies
+      maintainContext: true
+    - name: Virtual Network Rules
+      href: /azure/templates/Microsoft.DBforPostgreSQL/servers/virtualNetworkRules
       maintainContext: true
 - name: Power BI
   items:

@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 05/17/2018
+ms.date: 07/17/2018
 ms.author: spelluru
 
 ---
@@ -25,6 +25,7 @@ In this tutorial, you do the following actions:
 > [!div class="checklist"]
 > * Create a lab account
 > * Add a user to the Lab Creator role
+> * Specify Marketplace images available for lab owners
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -52,6 +53,8 @@ The following steps illustrate how to use the Azure portal to create a lab accou
     ![Lab account page](../media/tutorial-setup-lab-account/lab-account-page.png)
 
 ## Add a user to the Lab Creator role
+To set up a classroom lab in a lab account, the user must be a member of the **Lab Creator** role in the lab account. The account you used to create the lab account is automatically added to this role. If you are planning to use the same user account to create a classroom lab, you can skip this step. To use another user account to create a classroom lab, do the following steps: 
+
 To provide educators the permission to create labs for their classes, add them to the **Lab Creator** role:
 
 1. On the **Lab Account** page, select **Access control (IAM)**, and click **+ Add** on the toolbar. 
@@ -61,6 +64,28 @@ To provide educators the permission to create labs for their classes, add them t
 
     ![Add user to the Lab Creator role](../media/tutorial-setup-lab-account/add-user-to-lab-creator-role.png)
 
+## Specify Marketplace images available to lab owners
+As a lab account owner, you can specify the Marketplace images that lab creators can use to create labs in the lab account. 
+
+1. Select **Marketplace images** on the menu to the left. By default, you see the full list of images (both enabled and disabled). You can filter the list to see only enabled/disabled images by selecting the **Enabled only**/**Disabled only** option from the drop-down list at the top. 
+    
+    ![Marketplace images page](../media/tutorial-setup-lab-account/marketplace-images-page.png)
+
+    The Marketplace images that are displayed in the list are only the ones that satisfy the following conditions:
+        
+    - Creates a single VM.
+    - Uses Azure Resource Manager to provision VMs
+    - Doesn't require purchasing an extra licensing plan
+2. To **disable** a Marketplace image that has been enabled, do one of the following actions: 
+    1. Select **... (ellipsis)** in the last column, and select **Disable image**. 
+
+        ![Disable one image](../media/tutorial-setup-lab-account/disable-one-image.png) 
+    2. Select one or more images from the list by selecting the checkboxes before the image names in the list, and select **Disable selected images**. 
+
+        ![Disable multiple images](../media/tutorial-setup-lab-account/disable-multiple-images.png) 
+1. Similarly, to **enable** a Marketplace image, do one of the following actions: 
+    1. Select **... (ellipsis)** in the last column, and select **Enable image**. 
+    2. Select one or more images from the list by selecting the checkboxes before the image names in the list, and select **Enable selected images**. 
 
 ## Next steps
 In this tutorial, you created a lab account. To learn about how to create a classroom lab as a profession, advance to the next tutorial:

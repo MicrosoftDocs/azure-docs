@@ -1,10 +1,9 @@
 ---
-title: About Text to Speech | Microsoft Docs
+title: About Text to Speech
 description: An overview of the capabilities of Text to Speech.
 titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 
 ms.service: cognitive-services
 ms.component: speech-service
@@ -30,11 +29,26 @@ Scenarios in which speech synthesis is being adopted include:
 
 ## Voice support
 
-The Microsoft **Text-to-Speech** service offers more than 75 voices in more than 45 languages and locales. To use these standard "voice fonts", you only need to specify the voice name with a few other parameters when you call the service's REST API. For the details of the voices supported, see [Supported languages](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/supported-languages#text-to-speech). 
+The Microsoft **Text-to-Speech** service offers more than 75 voices in more than 45 languages and locales. To use these standard "voice fonts", you only need to specify the voice name with a few other parameters when you call the service's REST API. For the details of the voices supported, see [Supported languages](https://docs.microsoft.com/azure/cognitive-services/speech-service/supported-languages#text-to-speech). 
 
 If you want a unique voice for your application, you can create [custom voice fonts](how-to-customize-voice-font.md) from your own speech samples.
+
+## API capabilities
+
+A lot of the capabilities of the **Text to Speech** API -especially around customization- are available via REST. The following table summarizes the capabilities of each method of accessing the API. For a full list of capabilities and API details please consult [Swagger](https://swagger/service/11ed9226-335e-4d08-a623-4547014ba2cc#/)
+
+| Use case | REST | SDKs |
+|-----|-----|-----|----|
+| Upload datasets for voice adaptation | Yes | No |
+| Create & manage voice font models | Yes | No |
+| Create & manage voice font deployments | Yes | No |
+| Create & manage voice font tests| Yes | No |
+| Manage Subscriptions | Yes | No |
+
+> [!NOTE]
+> The API implements throttling that limits the API requests to 25 per 5 seconds. Message hearders will inform of the limits.
 
 ## Next steps
 
 * [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
-* [See how to recognize speech in C#](quickstart-csharp-dotnet-windows.md)
+* [See how to synthesize speech via the REST API](how-to-text-to-speech.md)

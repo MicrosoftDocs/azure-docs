@@ -4,7 +4,7 @@ description: Provides an overview of the Collector appliance and how to configur
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/10/2018
+ms.date: 09/14/2018
 ms.author: ruturajd
 services: azure-migrate
 ---
@@ -13,15 +13,29 @@ services: azure-migrate
 
 [Azure Migrate](migrate-overview.md) assesses on-premises workloads for migration to Azure. This article provides information about how to use the Collector appliance.
 
-
-
 ## Overview
 
 An Azure Migrate Collector is a lightweight appliance that can be used to discover your on-premises vCenter environment. This appliance discovers on-premises VMware machines, and sends metadata about them to the Azure Migrate service.
 
-The Collector appliance is an OVF that you can download from the Azure Migrate project. It instantiates a VMware virtual machine with 4 cores, 8 GB RAM and one disk of 80 GB. The Operating system of the appliance is Windows Server 2012 R2 (64 bit).
+The Collector appliance is an OVF that you can download from the Azure Migrate project. It instantiates a VMware virtual machine with 4 cores, 8 GB RAM, and one disk of 80 GB. The Operating system of the appliance is Windows Server 2012 R2 (64 bit).
 
 You can create the Collector by following the steps here - [How to create the Collector VM](tutorial-assessment-vmware.md#create-the-collector-vm).
+
+## Discovery methods
+
+There are two methods in which you discover your on-premises environment:
+
+a. **One-time discovery:** The collector for this model, communicates with vCenter Server to gather metadata about the VMs. For performance data collection of the VMs, it relies on the historical performance data stored in vCenter Server and collects the performance history of last one month. In this model, Azure Migrate collects average counter (vs. peak counter) for each metric. Since it is a one-time discovery, the appliance in this case is not continuously connected to the project. Hence, changes in the on-premises environment are not reflected in Azure Migrate once the discovery is complete. If you want the changes to reflect, you have to do a rediscovery of the same environment to the same project.
+
+> [!NOTE]
+> This method requires you to set the statistics settings in vCenter Server to level 3 and wait for at least a day before you kick off the discovery to collect the required performance metrics.
+
+b. **Continuous discovery:** The collector appliance for this model is continuously connected to the Azure Migrate project. It continuously profiles the on-premises environment to gather real-time utilization data at every 20 seconds. The appliance then rolls-up the 20-second samples and creates a single data point for every 15 minutes by picking the maximum value, which is sent to Azure. This model does not depend on the statistics settings of vCenter Server for performance data collection. You can stop the continuous profiling anytime from the appliance.
+
+> [!NOTE]
+> The continuous discovery functionality is in preview. If you do not have the vCenter Server statistics settings set to level 3, we recommend you to use this method.
+
+[Learn more] (https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected) about the performance counters collected by Azure Migrate.
 
 ## Collector communication diagram
 
@@ -34,13 +48,9 @@ You can create the Collector by following the steps here - [How to create the Co
 | Collector      | vCenter Server        | Default 443                             | Collector should be able to communicate with the vCenter server. It connects to vCenter on 443 by default. If the vCenter listens on a different port, that port should be available as outgoing port on the collector |
 | Collector		 | RDP|   | TCP 3389 | For you to be able to RDP into the Collector machine |
 
-
-
-
-
 ## Collector pre-requisites
 
-The Collector needs to pass a few pre-requisite checks to ensure it can connect to the Azure Migrate service and upload the discovered data. This article looks at each of the prerequisites and understand why it is required.
+The Collector needs to pass a few pre-requisite checks to ensure it can connect to the Azure Migrate service and upload the discovered data. This article looks at each of the prerequisites and understands why it is required.
 
 ### Internet connectivity
 
@@ -53,6 +63,30 @@ The collector appliance needs to be connected to the internet to send the discov
 
 > [!NOTE]
 > HTTPS-based proxy servers are not supported by the collector.
+
+#### Internet connectivity with intercepting proxy
+
+If the proxy server you use to connect to the internet is an intercepting proxy, you are required to import the proxy certificate into your collector VM. Following are steps on how you can import the certificate into the collector VM.
+
+1. In the collector VM, go to **Start Menu** and find and open **Manage computer certificates**.
+2. In the Certificates tool, on the left pane, under **Certificates - Local Computer**, find **Trusted Publishers**. Under **Trusted Publishers**, click **Certificates** to see the list of certificates in the pane on the right.
+
+    ![Certificates tool](./media/concepts-intercepting-proxy/certificates-tool.png)
+
+3. Copy your proxy certificate on to the collector VM. You may have to reach out to the network administrator team in your organization to obtain this certificate.
+4. Double-click on the certificate to open it. Click **Install Certificate**. This will take you to the Certificate Import wizard.
+5. On the Certificate Import Wizard, for Store Location, choose **Local Machine**. **Click Next**.
+
+    ![Certificate store location](./media/concepts-intercepting-proxy/certificate-store-location.png)
+
+6. Choose the option to **Place all certificates in the following store**. Click **Browse** and select **Trusted Publishers** from the list of certificates that come up. Click **Next**.
+
+    ![Certificates store](./media/concepts-intercepting-proxy/certificate-store.png)
+
+7. Click **Finish**. This will import the certificate.
+8. Optionally, you can verify the certificate is imported by opening the Certificates tool as in step 1 and 2 above.
+9. On the Azure Migrate collector app, verify the internet connectivity prerequisite check is successful.
+
 
 #### Whitelisting URLs for internet connection
 
@@ -103,7 +137,7 @@ The Collector should connect to the vCenter Server and be able to query for the 
 
     |Task  |Required role/account  |Permissions  |
     |---------|---------|---------|
-    |Collector appliance based discovery    | You need at least a read-only user        |Data Center object –> Propagate to Child Object, role=Read-only         |
+    |Collector appliance-based discovery    | You need at least a read-only user        |Data Center object –> Propagate to Child Object, role=Read-only         |
 
 2. Only those datacenters that are accessible to the vCenter account specified can be accessed for discovery.
 3. You need to specify the vCenter FQDN/IP address to connect to the vCenter server. By default, it will connect over the port 443. If you have configured the vCenter to listen on a different port number, you can specify it as part of the server address in the form  IPAddress:Port_Number or FQDN:Port_Number.
@@ -137,7 +171,7 @@ Once the discovery starts, the vCenter virtual machines are discovered, and thei
 
 ### What data is collected?
 
-The collection job discovers the following static metadata about the selected virtual machines.
+The collector appliance discovers the following static metadata about the selected virtual machines.
 
 1. VM Display name (on vCenter)
 2. VM’s inventory path (host/folder in vCenter)
@@ -148,7 +182,9 @@ The collection job discovers the following static metadata about the selected vi
 6. Memory size, Disk sizes
 7. And performance counters of the VM, disk and network as listed in the table below.
 
-The following table lists the performance counters that are collected, and also lists the assessment results that are impacted if a particular counter is not collected.
+For on-time discovery model, the following table lists the exact performance counters that are collected, and also lists the assessment results that are impacted if a particular counter is not collected.
+
+For continuous discovery, the same counters are collected at real time (20 seconds interval), so there is no dependency on vCenter statistics level. The appliance then rolls-up the 20-second samples to create a single data point for every 15 minutes by selecting the peak value from the 20-second samples and sends it to Azure.
 
 |Counter                                  |Level    |Per-device level  |Assessment impact                               |
 |-----------------------------------------|---------|------------------|------------------------------------------------|
@@ -162,16 +198,20 @@ The following table lists the performance counters that are collected, and also 
 |net.transmitted.average                  | 2       |3                 |VM size and network cost                        |
 
 > [!WARNING]
-> If you have just set a higher statistics level, it will take up to a day to generate the performance counters. So, we recommend that you run the discovery after one day.
+> For one-time discovery, if you have just set a higher statistics level, it will take up to a day to generate the performance counters. So, we recommend that you run the discovery after one day. For the continuous discovery model, wait for at least a day after starting discovery for the appliance to profile the environment and then create assessments.
 
 ### Time required to complete the collection
 
-The Collector only discovers the machine data and sends it to the project. The project might take additional time before the discovered data is displayed on the portal and you can start creating an assessment.
+**One-time discovery**
 
-Based on the number of virtual machines in the selected scope, it takes upto 15 minutes to send the static metadata to the project. Once the static metadata is available on the portal, you can see the list of machines in the portal and start creating groups. A assessment cannot be created until the collection job completes and the project has processed the data. Once the collection job completed on the Collector, it can take upto one hour for the performance data to be available on the portal, based on the number of virtual machines in the selected scope.
+In this model, the collector collects configuration and performance history of VMs from vCenter Server and sends it to the project. The appliance in this case is not continuously connected to the project. Based on the number of virtual machines in the selected scope, it takes up to 15 minutes to send the configuration metadata to the project. Once the configuration metadata is available on the portal, you can see the list of machines in the portal and start creating groups. Once the configuration data is collected, it can take up to one hour for the performance data to be available on the portal, based on the number of virtual machines in the selected scope.
+
+**Continuous discovery**
+
+In this model, the configuration data of the on-premises VMs is available after 1 hour of triggering discovery and performance data starts becoming available after 2 hours. Since this is a continuous model, the collector continuously keeps sending performance data to the Azure Migrate project.
 
 ## Locking down the collector appliance
-We recommend running continuous Windows updates on the collector appliance. If a collector is not updated for 60 days, the collector will start auto-shutting down the machine. If a discovery is running, the machine will not be turned off, even if it is past its 60 day period. Post the discovery job completes, the machine will be turned off. If you are using the collector for more than 45 days, we recommend keeping the machine updated at all times by running Windows update.
+We recommend running continuous Windows updates on the collector appliance. If a collector is not updated for 60 days, the collector will start auto-shutting down the machine. If a discovery is running, the machine will not be turned off, even if it is past its 60-day period. Post the discovery job completes, the machine will be turned off. If you are using the collector for more than 45 days, we recommend keeping the machine updated at all times by running Windows update.
 
 We also recommend the following steps to secure your appliance
 1. Do not share or misplace administrator passwords with unauthorized parties.
@@ -183,17 +223,37 @@ We also recommend the following steps to secure your appliance
 
 You can upgrade the Collector to the latest version without downloading the OVA once again.
 
-1. Download the latest [upgrade package](https://aka.ms/migrate/col/upgrade_9_11) (version 1.0.9.11).
+1. Download the latest [upgrade package](https://aka.ms/migrate/col/upgrade_9_14) (version 1.0.9.14).
 2. To ensure that the downloaded hotfix is secure, open Administrator command window and run the following command to generate the hash for the ZIP file. The generated hash should match with the hash mentioned against the specific version:
 
 	```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
 
-	(example usage C:\>CertUtil -HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.7.zip SHA256)
+	(example usage C:\>CertUtil -HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.14.zip SHA256)
 3. Copy the zip file to the Azure Migrate collector virtual machine (collector appliance).
 4. Right-click on the zip file and select Extract All.
 5. Right-click on Setup.ps1 and select Run with PowerShell and follow the instructions on screen to install the update.
 
 ### List of updates
+
+#### Upgrade to version 1.0.9.14
+
+Hash values for upgrade [package 1.0.9.14](https://aka.ms/migrate/col/upgrade_9_14)
+
+**Algorithm** | **Hash value**
+--- | ---
+MD5 | c5bf029e9fac682c6b85078a61c5c79c
+SHA1 | af66656951105e42680dfcc3ec3abd3f4da8fdec
+SHA256 | 58b685b2707f273aa76f2e1d45f97b0543a8c4d017cd27f0bdb220e6984cc90e
+
+#### Upgrade to version 1.0.9.13
+
+Hash values for upgrade [package 1.0.9.13](https://aka.ms/migrate/col/upgrade_9_13)
+
+**Algorithm** | **Hash value**
+--- | ---
+MD5 | 739f588fe7fb95ce2a9b6b4d0bf9917e
+SHA1 | 9b3365acad038eb1c62ca2b2de1467cb8eed37f6
+SHA256 | 7a49fb8286595f39a29085534f29a623ec2edb12a3d76f90c9654b2f69eef87e
 
 #### Upgrade to version 1.0.9.11
 

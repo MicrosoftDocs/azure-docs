@@ -3,7 +3,7 @@ title: Use Azure DNS for private domains | Microsoft Docs
 description: An overview of the private DNS hosting service on Microsoft Azure.
 services: dns
 documentationcenter: na
-author: KumudD
+author: vhorne
 manager: jeconnoc
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2018
-ms.author: kumud
+ms.author: victorh
 ---
 
 # Use Azure DNS for private domains

@@ -360,6 +360,9 @@ As we literally want to have one partition per letter, we can use 0 as the low k
 
 The entire source code of the sample is available on [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
 
+## Reliable Services and Actor forking subprocesses
+Service Fabric doesn't support reliable services and subsequently reliable actors forking subprocesses. An example of why its not supported is [CodePackageActivationContext](https://docs.microsoft.com/en-us/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet) can not be used to register an unsupported subprocess, and cancelation tokens are only sent to registred processes; resulting in all sorts of issues, such as upgrade failures, when subprocesses don't close after the parent process has received a cancelation token. 
+
 ## Next steps
 For information on Service Fabric concepts, see the following:
 

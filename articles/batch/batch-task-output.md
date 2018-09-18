@@ -30,7 +30,7 @@ This article describes various options for persisting task output and the scenar
 
 ## About the Batch File Conventions standard
 
-Batch defines an optional set of conventions for naming task output files in Azure Storage. The [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions) describes these conventions. The File Conventions standard determines the names of the destination container and blob path in Azure Storage for a given output file based on the names of the job and task.
+Batch defines an optional set of conventions for naming task output files in Azure Storage. The [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions) describes these conventions. The File Conventions standard determines the names of the destination container and blob path in Azure Storage for a given output file based on the names of the job and task.
 
 It's up to you whether you decide to use the File Conventions standard for naming your output data files. You can also name the destination container and blob however you wish. If you do use the File Conventions standard for naming output files, then your output files are available for viewing in the [Azure portal][portal].
 
@@ -67,13 +67,13 @@ The following sections describe each approach in more detail.
 
 With version 2017-05-01, the Batch service adds support for specifying output files in Azure Storage for task data when you [add a task to a job](https://docs.microsoft.com/rest/api/batchservice/add-a-task-to-a-job) or [add a collection of tasks to a job](https://docs.microsoft.com/rest/api/batchservice/add-a-collection-of-tasks-to-a-job).
 
-The Batch service API supports persisting task data to an Azure Storage account from pools created with the virtual machine configuration. With the Batch service API, you can persist task data without modifying the application that your task runs. You can optionally adhere to the [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions) for naming the files that you persist to Azure Storage. 
+The Batch service API supports persisting task data to an Azure Storage account from pools created with the virtual machine configuration. With the Batch service API, you can persist task data without modifying the application that your task runs. You can optionally adhere to the [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions) for naming the files that you persist to Azure Storage. 
 
 Use the Batch service API to persist task output when:
 
 - You want to persist data from Batch tasks and job manager tasks in pools created with the virtual machine configuration.
 - You want to persist data to an Azure Storage container with an arbitrary name.
-- You want to persist data to an Azure Storage container named according to the [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions). 
+- You want to persist data to an Azure Storage container named according to the [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). 
 
 > [!NOTE]
 > The Batch service API does not support persisting data from tasks running in pools created with the cloud service configuration. For information about persisting task output from pools running the cloud services configuration, see [Persist job and task data to Azure Storage with the Batch File Conventions library for .NET to persist ](batch-task-output-file-conventions.md)
@@ -84,7 +84,7 @@ For more information on persisting task output with the Batch service API, see [
 
 ### Use the Batch File Conventions library for .NET
 
-Developers building Batch solutions with C# and .NET can use the [File Conventions library for .NET][nuget_package] to persist task data to an Azure Storage account, according to the [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions). The File Conventions library handles moving output files to Azure Storage and naming destination containers and blobs in a well-known way.
+Developers building Batch solutions with C# and .NET can use the [File Conventions library for .NET][nuget_package] to persist task data to an Azure Storage account, according to the [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). The File Conventions library handles moving output files to Azure Storage and naming destination containers and blobs in a well-known way.
 
 The File Conventions library supports querying output files by either ID or purpose, making it easy to locate them without needing the complete file URIs. 
 
@@ -102,7 +102,7 @@ The [PersistOutputs][github_persistoutputs] sample project on GitHub demonstrate
 
 ### Implement the Batch File Conventions standard
 
-If you are using a language other than .NET, you can implement the [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions) in your own application. 
+If you are using a language other than .NET, you can implement the [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions) in your own application. 
 
 You may want to implement the File Conventions naming standard yourself when you want a proven naming scheme, or when you want to view task output in the Azure portal.
 

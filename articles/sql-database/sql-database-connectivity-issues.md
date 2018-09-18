@@ -8,7 +8,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 08/01/2018
 ms.author: ninarn
 ---
 # Troubleshoot, diagnose, and prevent SQL connection errors and transient errors for SQL Database
@@ -178,17 +178,21 @@ For background information about configuration of ports and IP addresses, see
 
 <a id="d-connection-ado-net-4-5" name="d-connection-ado-net-4-5"></a>
 
-### Connection: ADO.NET 4.6.1
-If your program uses ADO.NET classes like **System.Data.SqlClient.SqlConnection** to connect to SQL Database, we recommend that you use .NET Framework version 4.6.1 or later.
+### Connection: ADO.NET 4.6.2 or later
+If your program uses ADO.NET classes like **System.Data.SqlClient.SqlConnection** to connect to SQL Database, we recommend that you use .NET Framework version 4.6.2 or later.
 
-ADO.NET 4.6.1:
+Starting with ADO.NET 4.6.2:
+
+- The connection open attempt to be retried immediately for Azure SQL databases, thereby improving the performance of cloud-enabled apps.
+
+Starting with ADO.NET 4.6.1:
 
 * For SQL Database, reliability is improved when you open a connection by using the **SqlConnection.Open** method. The **Open** method now incorporates best-effort retry mechanisms in response to transient faults for certain errors within the connection timeout period.
 * Connection pooling is supported, which includes an efficient verification that the connection object it gives your program is functioning.
 
-When you use a connection object from a connection pool, we recommend that your program temporarily close the connection when it's not immediately in use. It's not expensive to reopen a connection, but it is to create a new connection.
+When you use a connection object from a connection pool, we recommend that your program temporarily closes the connection when it's not immediately in use. It's not expensive to reopen a connection, but it is to create a new connection.
 
-If you use ADO.NET 4.0 or earlier, we recommend that you upgrade to the latest ADO.NET. As of November 2015, you can [download ADO.NET 4.6.1](http://blogs.msdn.com/b/dotnet/archive/2015/11/30/net-framework-4-6-1-is-now-available.aspx).
+If you use ADO.NET 4.0 or earlier, we recommend that you upgrade to the latest ADO.NET. As of August 2018, you can [download ADO.NET 4.6.2](https://blogs.msdn.microsoft.com/dotnet/2018/04/30/announcing-the-net-framework-4-7-2/).
 
 <a id="e-diagnostics-test-utilities-connect" name="e-diagnostics-test-utilities-connect"></a>
 

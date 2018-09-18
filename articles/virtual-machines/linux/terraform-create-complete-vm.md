@@ -71,8 +71,8 @@ resource "azurerm_virtual_network" "myterraformnetwork" {
     }
 }
 ```
-:
-The following section creates a subnet named *mySubnet* in the *myVnet* virtual network
+
+The following section creates a subnet named *mySubnet* in the *myVnet* virtual network:
 
 ```tf
 resource "azurerm_subnet" "myterraformsubnet" {

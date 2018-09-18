@@ -3,13 +3,13 @@ title: Build a LUIS app programmatically using Node.js | Microsoft Docs
 titleSuffix: Azure
 description: Learn how to build a LUIS app programmatically from preexisting data in CSV format using the LUIS Authoring API.
 services: cognitive-services
-author: DeniseMak
-manager: rstand
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 02/21/2018
-ms.author: v-geberr
+ms.author: diberry
 ---
 
 # Build a LUIS app programmatically using Node.js
@@ -166,7 +166,7 @@ Once the script completes, you can log in to [LUIS](luis-reference-regions.md) a
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Test and train your app in LUIS website](interactive-test.md)
+> [Test and train your app in LUIS website](luis-interactive-test.md)
 
 ## Additional resources
 

@@ -5,6 +5,7 @@
   - name: What is Azure Firewall?
     href: overview.md
 - name: Tutorials
+  expanded: true
   items:
   - name: 1. Deploy and configure
     href: tutorial-firewall-deploy-portal.md
@@ -40,6 +41,8 @@
     href: ../azure-resource-manager/resource-group-overview.md
 - name: Resources
   items:
+  - name: FAQ
+    href: firewall-faq.md
   - name: Author templates
     href: ../azure-resource-manager/resource-group-authoring-templates.md
   - name: Azure Roadmap

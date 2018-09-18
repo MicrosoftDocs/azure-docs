@@ -1,6 +1,6 @@
 ---
-title: Configure Azure AD Privileged Identity Management | Microsoft Docs
-description: A topic that explains what Azure AD Privileged Identity Management is and how to use PIM to improve your cloud security.
+title: What is Azure AD Privileged Identity Management? | Microsoft Docs
+description: Provides an overview of Azure Active Directory Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: protection
+ms.component: pim
 ms.topic: overview
 ms.date: 03/07/2018
 ms.author: rolyon
@@ -45,6 +45,37 @@ In Azure AD, Azure AD Privileged Identity Management can manage the users assign
 ## Just in time administrator access
 
 Historically, you could assign a user to an admin role through the Azure portal, other Microsoft Online Services portals, or the Azure AD cmdlets in Windows PowerShell. As a result, that user becomes a **permanent admin**, always active in the assigned role. Azure AD Privileged Identity Management introduces the concept of an **eligible admin**. Eligible admins should be users that need privileged access now and then, but not all-day, every day. The role is inactive until the user needs access, then they complete an activation process and become an active admin for a predetermined amount of time. More and more organizations are choosing to use this approach for reducing or eliminating “standing admin access” to privileged roles.
+
+
+## Terminology
+
+*Eligible role user* – An eligible role user is a user within your organization
+that’s been assigned to an Azure AD role as eligible (role requires activation).
+
+*Delegated approver* – A delegated approver is one or multiple individuals or
+groups within your Azure AD responsible for approving requests to activate roles.
+
+## Scenarios
+
+Privileged Identity Management supports the following scenarios:
+
+**As a Privileged Role Administrator you can:**
+
+- Enable approval for specific roles
+- Specify approver users and/or groups to approve requests
+- View request and approval history for all privileged roles
+
+**As a designated approver, you can:**
+
+- View pending approvals (requests)
+- Approve or reject requests for role elevation (single and/or bulk)
+- Provide justification for my approval/rejection 
+
+**As an eligible role user you can:**
+
+- Request activation of a role that requires approval
+- View the status of your request to activate
+- Complete your task in Azure AD if activation was approved
 
 ## Enable Privileged Identity Management for your directory
 
@@ -138,7 +169,7 @@ Role activation is customizable. In the PIM settings, you can determine the leng
 
 ## Review role activity
 
-There are two ways to track how your employees and admins are using privileged roles. The first option is using [Directory Roles audit history](pim-how-to-use-audit-log.md). The audit history logs track changes in privileged role assignments, role activation history, and and changes to settings for Azure Resource roles (Preview). 
+There are two ways to track how your employees and admins are using privileged roles. The first option is using [Directory Roles audit history](pim-how-to-use-audit-log.md). The audit history logs track changes in privileged role assignments, role activation history, and changes to settings for Azure Resource roles (Preview). 
 
 ![PIM activation history - screenshot](./media/pim-configure/PIM_ActivationHistory.png)
 
@@ -151,4 +182,6 @@ If your organization does not renew Azure AD Premium P2 or your trial expires, t
 
 ## Next steps
 
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+- [Subscription requirements to use PIM](subscription-requirements.md)
+- [Azure AD directory roles you can manage in PIM](pim-roles.md)
+- [Securing privileged access for hybrid and cloud deployments in Azure AD](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)

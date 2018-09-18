@@ -1,19 +1,17 @@
 ---
-title: Backup and recover with Microsoft Authenticator app - Azure AD | Microsoft Docs
+title: Backup and recover with Microsoft Authenticator app - Azure Active Directory | Microsoft Docs
 description: Learn how to backup and recover your account credentials, using the Microsoft Authenticator app.
-services: multi-factor-authentication
-documentationcenter: ''
+services: active-directory
 author: eross-msft
 manager: mtillman
-ms.service: multi-factor-authentication
+
+ms.component: user-help
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: lizross
 ms.reviewer: olhaun
-ms.custom: end-user
 ---
 
 # Backup and recover account credentials with the Microsoft Authenticator app
@@ -46,12 +44,12 @@ Requiring you to sign in to both accounts together provides stronger security fo
 ## Recover your account credentials on your new device
 You can recover your account credentials from your iCloud account, using the same Microsoft recovery account you set up when you backed up your information.
 
-**To recover your information**
+### To recover your information
 1.	On your iOS device, open the Microsoft Authenticator app, and select **Begin recovery** from the bottom of the screen.
 
     ![Microsoft Authenticator app, showing where to click Begin recovery](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-begin-recovery.png)
 
-2.	Sign into your recovery account, using the same personal Microsoft account you used during the backup process.
+2.	Sign in to your recovery account, using the same personal Microsoft account you used during the backup process.
 
     Your account credentials are recovered to the new device.
 
@@ -62,7 +60,7 @@ If you use push notifications with your personal, work, or school accounts, you'
 
 For personal Microsoft accounts, you can prove your identity by entering your password along with an alternate email or phone number. For work or school accounts, you must scan a QR code given to you by your account provider.
 
-**To provide additional verification for personal accounts**
+### To provide additional verification for personal accounts
 1.	In the **Accounts** screen of the Microsoft Authenticator app, select the drop-down arrow next to the account you want to recover.
 
     ![Microsoft Authenticator app, showing the available accounts with their associated drop-down arrows](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-arrow.png)
@@ -71,7 +69,7 @@ For personal Microsoft accounts, you can prove your identity by entering your pa
 
     ![Microsoft Authenticator app, allowing you to enter your sign-in info](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-sign-in.png)
 
-**To provide additional verification for work or school accounts**
+### To provide additional verification for work or school accounts
 1.	In the **Accounts** screen of the Microsoft Authenticator app, select the drop-down arrow next to the account you want to recover.
 
     ![Microsoft Authenticator app, showing the available accounts with their associated drop-down arrows](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-additonal-accts.png)
@@ -81,7 +79,7 @@ For personal Microsoft accounts, you can prove your identity by entering your pa
     ![Microsoft Authenticator app, allowing you to scan your QR code](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-scan-qr-code.png)
 
     >[!NOTE]
-    >For more info about how to get a QR code, see the [Get started with the Microsoft Authenticator app](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/end-user/microsoft-authenticator-app-how-to) article.
+    >For more info about how to get a QR code, see the [How to add accounts section of the Get started with the Microsoft Authenticator app](https://docs.microsoft.com/azure/active-directory/user-help/microsoft-authenticator-app-how-to#add-accounts-to-the-app) article.
 
 ## Troubleshooting backup and recovery problems
 There are a few reasons why your backup might not be available:
@@ -100,8 +98,6 @@ Now that you've backed up and recovered your account credentials to your new dev
 
 ## Related topics
 - [Get started with the Microsoft Authenticator app](microsoft-authenticator-app-how-to.md)  
-
-- [Sign in with your phone](microsoft-authenticator-app-phone-signin-faq.md)
 
 - [Microsoft Authenticator app FAQ](microsoft-authenticator-app-faq.md)
 

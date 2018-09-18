@@ -1,17 +1,14 @@
 ---
 title: About unmanaged (page blobs) and managed disks storage for Microsoft Azure Windows VMs | Microsoft Docs
 description: Learn about the basics of unmanaged (page blobs) and managed disks storage for Windows virtual machines in Azure.
-services: virtual-machines
+services: "virtual-machines-windows,storage"
 author: roygara
-manager: jeconnoc
-
-ms.service: virtual-machines
-ms.workload: storage
+ms.service: virtual-machines-windows
 ms.tgt_pltfrm: windows
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: rogarana
-
+ms.component: disks
 ---
 # About disks storage for Azure Windows VMs
 Just like any other computer, virtual machines in Azure use disks as a place to store an operating system, applications, and data. All Azure virtual machines have at least two disks – a Windows operating system disk and a temporary disk. The operating system disk is created from an image, and both the operating system disk and the image are virtual hard disks (VHDs) stored in an Azure storage account. Virtual machines also can have one or more data disks, that are also stored as VHDs. 

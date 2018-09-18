@@ -1,15 +1,15 @@
 ---
-title: How to trigger complex actions with Azure Monitor alerts and action groups
+title: How to trigger complex actions with Azure Monitor alerts 
 description: Learn how to create a logic app action to process Azure Monitor alerts.
 author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/30/2018
+ms.date: 07/18/2018
 ms.author: dukek
 ms.component: alerts
 ---
-# Create a logic app action
+# How to trigger complex actions with Azure Monitor alerts
 
 This article shows you how to set up and trigger a logic app to create a conversation in Microsoft Teams when an alert fires.
 
@@ -123,7 +123,7 @@ The process is similar if you want the logic app to perform a different action.
 
 14. At the top of the **Logic Apps Designer**, select **Save** to save your logic app.
 
-15. Open your existing action group and add an action to reference the logic app. If you don’t have an existing action group, see [Create and manage action groups in the Azure portal](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-action-groups) to create one. Don’t forget to save your changes.
+15. Open your existing action group and add an action to reference the logic app. If you don’t have an existing action group, see [Create and manage action groups in the Azure portal](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) to create one. Don’t forget to save your changes.
 
     ![Update the action group](media/monitoring-action-groups/update-action-group.png "Update the action group")
 
@@ -284,6 +284,9 @@ The process for creating a metric alert is similar to [creating an activity log 
        !["Metric alert false condition post action"](media/monitoring-action-groups/metric-alert-false-condition-post-action.png "Metric alert false condition post action")
 
 - Step 15 is the same. Follow the instructions to save your logic app and update your action group.
+
+## Calling other applications besides Microsoft Teams
+Logic Apps has a number of different connectors that allow you to trigger actions in a wide range of applications and databases. Slack, SQL Server, Oracle, Salesforce, are just some examples. For more information about connectors, see [Logic App connectors](../connectors/apis-list.md).  
 
 ## Next steps
 * Get an [overview of Azure activity log alerts](monitoring-overview-alerts.md) and learn how to receive alerts.  

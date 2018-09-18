@@ -1,4 +1,4 @@
----
+﻿---
 title: "Troubleshoot Azure SQL Data Sync | Microsoft Docs"
 description: "Learn how to troubleshoot common issues with Azure SQL Data Sync."
 services: sql-database
@@ -55,16 +55,16 @@ Any of the following conditions might result in a sync group being stuck in the 
 - **Resolution**. If the client agent is uninstalled or otherwise missing:
 
     1. Remove the agent XML file from the SQL Data Sync installation folder, if the file exists.
-    2. Install the agent on an on-premises computer (it can be the same or a different computer). Then, submit the agent key that's generated in the portal for the agent that's showing as offline.
+    1. Install the agent on an on-premises computer (it can be the same or a different computer). Then, submit the agent key that's generated in the portal for the agent that's showing as offline.
 
 - **Cause**. The SQL Data Sync service is stopped.
 
 - **Resolution**. Restart the SQL Data Sync service.
 
     1. In the **Start** menu, search for **Services**.
-    2. In the search results, select **Services**.
-    3. Find the **SQL Data Sync** service.
-    4. If the service status is **Stopped**, right-click the service name, and then select **Start**.
+    1. In the search results, select **Services**.
+    1. Find the **SQL Data Sync** service.
+    1. If the service status is **Stopped**, right-click the service name, and then select **Start**.
 
 > [!NOTE]
 > If the preceding information doesn't move your sync group out of the processing state, Microsoft Support can reset the status of your sync group. To have your sync group status reset, in the [Azure SQL Database forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=ssdsgetstarted), create a post. In the post, include your subscription ID and the sync group ID for the group that needs to be reset. A Microsoft Support engineer will respond to your post, and will let you know when the status has been reset.
@@ -173,14 +173,14 @@ You discover that the agent isn't running on a computer that hosts SQL Server. W
     b. In the search box, enter **services.msc**.  
     c. In the search results, select **Services**.  
     d. In the **Services** window, scroll to the entry for **SQL Data Sync Agent**.  
-  2. Right-click **SQL Data Sync Agent**, and then select **Stop**.
-  3. Right-click **SQL Data Sync Agent**, and then select **Properties**.
-  4. On **SQL Data Sync Agent Properties**, select the **Log in** tab.
-  5. In the **Password** box, enter your password.
-  6. In the **Confirm Password** box, reenter your password.
-  7. Select **Apply**, and then select **OK**.
-  8. In the **Services** window, right-click the **SQL Data Sync Agent** service, and then click **Start**.
-  9. Close the **Services** window.
+  1. Right-click **SQL Data Sync Agent**, and then select **Stop**.
+  1. Right-click **SQL Data Sync Agent**, and then select **Properties**.
+  1. On **SQL Data Sync Agent Properties**, select the **Log in** tab.
+  1. In the **Password** box, enter your password.
+  1. In the **Confirm Password** box, reenter your password.
+  1. Select **Apply**, and then select **OK**.
+  1. In the **Services** window, right-click the **SQL Data Sync Agent** service, and then click **Start**.
+  1. Close the **Services** window.
 
 ### <a name="agent-key"></a> I can't submit the agent key
 
@@ -206,17 +206,17 @@ After you create or re-create a key for an agent, you try to submit the key thro
 - **Resolution**. If your agent isn't working, it's because one or both of these conditions are not met. To get your agent to work again:
 
   1. Generate a new key.
-  2. Apply the new key to the agent.
+  1. Apply the new key to the agent.
 
   To apply the new key to the agent:
 
   1. In File Explorer, go to your agent installation directory. The default installation directory is C:\\Program Files (x86)\\Microsoft SQL Data Sync.
-  2. Double-click the bin subdirectory.
-  3. Open the SqlAzureDataSyncAgent application.
-  4. Select **Submit Agent Key**.
-  5. In the space provided, paste the key from your clipboard.
-  6. Select **OK**.
-  7. Close the program.
+  1. Double-click the bin subdirectory.
+  1. Open the SqlAzureDataSyncAgent application.
+  1. Select **Submit Agent Key**.
+  1. In the space provided, paste the key from your clipboard.
+  1. Select **OK**.
+  1. Close the program.
 
 ### <a name="agent-delete"></a> The client agent can't be deleted from the portal if its associated on-premises database is unreachable
 
@@ -234,12 +234,12 @@ If a local endpoint (that is, a database) that is registered with a SQL Data Syn
 - **Resolution**. Try the following steps:
 
   1. Exit the app.  
-  2. Open the Component Services Panel.  
+  1. Open the Component Services Panel.  
     a. In the search box on the taskbar, enter **services.msc**.  
     b. In the search results, double-click **Services**.  
-  3. Stop the **SQL Data Sync** service.
-  4. Restart the **SQL Data Sync** service.  
-  5. Reopen the app.
+  1. Stop the **SQL Data Sync** service.
+  1. Restart the **SQL Data Sync** service.  
+  1. Reopen the app.
 
 ## Setup and maintenance issues
 
@@ -306,9 +306,9 @@ Your attempt to delete a sync group fails. Any of the following scenarios might 
     e. If the service is running, stop it.  
     f. Right-click the service, and then select **Start**.  
     g. Check whether the database is still registered. If it is no longer registered, you're done. Otherwise, proceed with the next step.
-  2. Open the client agent app (SqlAzureDataSyncAgent).
-  3. Select **Edit Credentials**, and then enter the credentials for the database.
-  4. Proceed with unregistration.
+  1. Open the client agent app (SqlAzureDataSyncAgent).
+  1. Select **Edit Credentials**, and then enter the credentials for the database.
+  1. Proceed with unregistration.
 
 ### <a name="setup-perms"></a> I don't have sufficient privileges to start system services
 
@@ -319,10 +319,10 @@ Your attempt to delete a sync group fails. Any of the following scenarios might 
 - **Resolution**. Grant log-on-as-a-service credentials to the user account:
 
   1. Go to **Start** > **Control Panel** > **Administrative Tools** > **Local Security Policy** > **Local Policy** > **User Rights Management**.
-  2. Select **Log on as a service**.
-  3. In the **Properties** dialog box, add the user account.
-  4. Select **Apply**, and then select **OK**.
-  5. Close all windows.
+  1. Select **Log on as a service**.
+  1. In the **Properties** dialog box, add the user account.
+  1. Select **Apply**, and then select **OK**.
+  1. Close all windows.
 
 ### <a name="setup-date"></a> A database has an "Out-of-Date" status
 
@@ -333,7 +333,7 @@ Your attempt to delete a sync group fails. Any of the following scenarios might 
   If a database's status is **Out-of-Date**:
 
   1. Remove the database that has an **Out-of-Date** status from the sync group.
-  2. Add the database back in to the sync group.
+  1. Add the database back in to the sync group.
 
   > [!WARNING]
   > You lose all changes made to this database while it was offline.
@@ -353,8 +353,8 @@ You can't delete a sync group within three minutes of uninstalling or stopping t
 - **Resolution**.
 
   1. Remove a sync group while the associated sync agents are online (recommended).
-  2. If the agent is offline but is installed, bring it online on the on-premises computer. Wait for the status of the agent to appear as **Online** in the SQL Data Sync portal. Then, remove the sync group.
-  3. If the agent is offline because it was uninstalled:  
+  1. If the agent is offline but is installed, bring it online on the on-premises computer. Wait for the status of the agent to appear as **Online** in the SQL Data Sync portal. Then, remove the sync group.
+  1. If the agent is offline because it was uninstalled:  
     a.  Remove the agent XML file from the SQL Data Sync installation folder, if the file exists.  
     b.  Install the agent on an on-premises computer (it can be the same or a different computer). Then, submit the agent key that's generated in the portal for the agent that's showing as offline.  
     c. Try to delete the sync group.
@@ -373,7 +373,6 @@ For more information about SQL Data Sync, see:
 -   Complete PowerShell examples that show how to configure SQL Data Sync:  
     -   [Use PowerShell to sync between multiple Azure SQL databases](scripts/sql-database-sync-data-between-sql-databases.md)  
     -   [Use PowerShell to sync between an Azure SQL Database and a SQL Server on-premises database](scripts/sql-database-sync-data-between-azure-onprem.md)  
--   [Download the SQL Data Sync REST API documentation](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 
 For more information about SQL Database, see:
 

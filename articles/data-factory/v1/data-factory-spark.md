@@ -52,40 +52,40 @@ Here are the typical steps to create a data factory pipeline with a Spark activi
 * Create a pipeline with Spark activity that refers to the HDInsight linked service you created. The activity is configured with the dataset you created in the previous step as an output dataset. The output dataset is what drives the schedule (hourly, daily). Therefore, you must specify the output dataset even though the activity doesn't really produce an output.
 
 ### Prerequisites
-1. Create a general-purpose storage account by following the instructions in [Create a storage account](../../storage/common/storage-create-storage-account.md#create-a-storage-account).
+1. Create a general-purpose storage account by following the instructions in [Create a storage account](../../storage/common/storage-quickstart-create-account.md).
 
-2. Create a Spark cluster in HDInsight by following the instructions in the tutorial [Create a Spark cluster in HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Associate the storage account you created in step 1 with this cluster.
+1. Create a Spark cluster in HDInsight by following the instructions in the tutorial [Create a Spark cluster in HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Associate the storage account you created in step 1 with this cluster.
 
-3. Download and review the Python script file **test.py** located at [https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py](https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py).
+1. Download and review the Python script file **test.py** located at [https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py](https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py).
 
-4. Upload **test.py** to the **pyFiles** folder in the **adfspark** container in your blob storage. Create the container and the folder if they don't exist.
+1. Upload **test.py** to the **pyFiles** folder in the **adfspark** container in your blob storage. Create the container and the folder if they don't exist.
 
 ### Create a data factory
 To create a data factory, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-2. Select **New** > **Data + Analytics** > **Data Factory**.
+1. Select **New** > **Data + Analytics** > **Data Factory**.
 
-3. On the **New data factory** blade, under **Name**, enter **SparkDF**.
+1. On the **New data factory** blade, under **Name**, enter **SparkDF**.
 
    > [!IMPORTANT]
    > The name of the Azure data factory must be globally unique. If you see the error "Data factory name SparkDF is not available," change the name of the data factory. For example, use yournameSparkDFdate, and create the data factory again. For more information on naming rules, see [Data Factory: Naming rules](data-factory-naming-rules.md).
 
-4. Under **Subscription**, select the Azure subscription where you want the data factory to be created.
+1. Under **Subscription**, select the Azure subscription where you want the data factory to be created.
 
-5. Select an existing resource group, or create an Azure resource group.
+1. Select an existing resource group, or create an Azure resource group.
 
-6. Select the **Pin to dashboard** check box.
+1. Select the **Pin to dashboard** check box.
 
-7. Select **Create**.
+1. Select **Create**.
 
    > [!IMPORTANT]
    > To create Data Factory instances, you must be a member of the [Data Factory contributor](../../role-based-access-control/built-in-roles.md#data-factory-contributor) role at the subscription/resource group level.
 
-8. You see the data factory as it is created in the dashboard of the Azure portal.
+1. You see the data factory as it is created in the dashboard of the Azure portal.
 
-9. After the data factory is created, you see the **Data factory** page, which shows you the contents of the data factory. If you don't see the **Data factory** page, select the tile for your data factory on the dashboard.
+1. After the data factory is created, you see the **Data factory** page, which shows you the contents of the data factory. If you don't see the **Data factory** page, select the tile for your data factory on the dashboard.
 
     ![Data Factory blade](./media/data-factory-spark/data-factory-blade.png)
 
@@ -97,17 +97,17 @@ In this step, you link your storage account to your data factory. A dataset you 
 
 1. On the **Data factory** blade, select **Author and deploy**. The Data Factory Editor appears.
 
-2. Select **New data store**, and choose **Azure Storage**.
+1. Select **New data store**, and choose **Azure Storage**.
 
    ![New data store](./media/data-factory-spark/new-data-store-azure-storage-menu.png)
 
-3. The JSON script you use to create a Storage linked service appears in the editor.
+1. The JSON script you use to create a Storage linked service appears in the editor.
 
    ![AzureStorageLinkedService](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
-4. Replace **account name** and **account key** with the name and access key of your storage account. To learn how to get your storage access key, see how to view, copy, and regenerate storage access keys in [Manage your storage account](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
+1. Replace **account name** and **account key** with the name and access key of your storage account. To learn how to get your storage access key, see how to view, copy, and regenerate storage access keys in [Manage your storage account](../../storage/common/storage-account-manage.md#access-keys).
 
-5. To deploy the linked service, select **Deploy** on the command bar. After the linked service is deployed successfully, the Draft-1 window disappears. You see **AzureStorageLinkedService** in the tree view on the left.
+1. To deploy the linked service, select **Deploy** on the command bar. After the linked service is deployed successfully, the Draft-1 window disappears. You see **AzureStorageLinkedService** in the tree view on the left.
 
 #### Create an HDInsight linked service
 In this step, you create an HDInsight linked service to link your HDInsight Spark cluster to the data factory. The HDInsight cluster is used to run the Spark program specified in the Spark activity of the pipeline in this sample. 
@@ -116,7 +116,7 @@ In this step, you create an HDInsight linked service to link your HDInsight Spar
 
 	![Create HDInsight linked service](media/data-factory-spark/new-hdinsight-linked-service.png)
 
-2. Copy and paste the following snippet to the Draft-1 window. In the JSON editor, take the following steps:
+1. Copy and paste the following snippet to the Draft-1 window. In the JSON editor, take the following steps:
 
 	a. Specify the URI for the HDInsight Spark cluster. For example: `https://<sparkclustername>.azurehdinsight.net/`.
 
@@ -147,14 +147,14 @@ In this step, you create an HDInsight linked service to link your HDInsight Spar
 
 	For more information about the HDInsight linked service, see [HDInsight linked service](data-factory-compute-linked-services.md#azure-hdinsight-linked-service).
 
-3. To deploy the linked service, select **Deploy** on the command bar. 
+1. To deploy the linked service, select **Deploy** on the command bar. 
 
 ### Create the output dataset
 The output dataset is what drives the schedule (hourly, daily). Therefore, you must specify an output dataset for the Spark activity in the pipeline even though the activity doesn't produce any output. Specifying an input dataset for the activity is optional.
 
 1. In the Data Factory Editor, select **More** > **New dataset** > **Azure Blob storage**.
 
-2. Copy and paste the following snippet to the Draft-1 window. The JSON snippet defines a dataset called **OutputDataset**. In addition, you specify that the results are stored in the blob container called **adfspark** and the folder called **pyFiles/output**. As mentioned previously, this dataset is a dummy dataset. The Spark program in this example doesn't produce any output. The **availability** section specifies that the output dataset is produced daily. 
+1. Copy and paste the following snippet to the Draft-1 window. The JSON snippet defines a dataset called **OutputDataset**. In addition, you specify that the results are stored in the blob container called **adfspark** and the folder called **pyFiles/output**. As mentioned previously, this dataset is a dummy dataset. The Spark program in this example doesn't produce any output. The **availability** section specifies that the output dataset is produced daily. 
 
 	```json
 	{
@@ -177,7 +177,7 @@ The output dataset is what drives the schedule (hourly, daily). Therefore, you m
 	    }
 	}
 	```
-3. To deploy the dataset, select **Deploy** on the command bar.
+1. To deploy the dataset, select **Deploy** on the command bar.
 
 
 ### Create a pipeline
@@ -185,7 +185,7 @@ In this step, you create a pipeline with an HDInsightSpark activity. Currently, 
 
 1. In the Data Factory Editor, select **More** > **New pipeline**.
 
-2. Replace the script in the Draft-1 window with the following script:
+1. Replace the script in the Draft-1 window with the following script:
 
 	```json
 	{
@@ -230,37 +230,37 @@ In this step, you create a pipeline with an HDInsightSpark activity. Currently, 
 
 	For more information about the properties supported by the Spark activity, see the section [Spark activity properties](#spark-activity-properties).
 
-3. To deploy the pipeline, select **Deploy** on the command bar.
+1. To deploy the pipeline, select **Deploy** on the command bar.
 
 ### Monitor a pipeline
 1. On the **Data factory** blade, select **Monitor & Manage** to start the monitoring application in another tab.
 
 	![Monitor & Manage tile](media/data-factory-spark/monitor-and-manage-tile.png)
 
-2. Change the **Start time** filter at the top to **2/1/2017**, and select **Apply**.
+1. Change the **Start time** filter at the top to **2/1/2017**, and select **Apply**.
 
-3. Only one activity window appears because there is only one day between the start (2017-02-01) and end times (2017-02-02) of the pipeline. Confirm that the data slice is in the **Ready** state.
+1. Only one activity window appears because there is only one day between the start (2017-02-01) and end times (2017-02-02) of the pipeline. Confirm that the data slice is in the **Ready** state.
 
 	![Monitor the pipeline](media/data-factory-spark/monitor-and-manage-app.png)
 
-4. In the **Activity windows** list, select an activity run to see details about it. If there is an error, you see details about it in the right pane.
+1. In the **Activity windows** list, select an activity run to see details about it. If there is an error, you see details about it in the right pane.
 
 ### Verify the results
 
 1. Start the Jupyter Notebook for your HDInsight Spark cluster by going to [this website](https://CLUSTERNAME.azurehdinsight.net/jupyter). You also can open a cluster dashboard for your HDInsight Spark cluster, and then start the Jupyter Notebook.
 
-2. Select **New** > **PySpark** to start a new notebook.
+1. Select **New** > **PySpark** to start a new notebook.
 
 	![Jupyter new notebook](media/data-factory-spark/jupyter-new-book.png)
 
-3. Run the following command by copying and pasting the text and pressing Shift+Enter at the end of the second statement:
+1. Run the following command by copying and pasting the text and pressing Shift+Enter at the end of the second statement:
 
 	```sql
 	%%sql
 
 	SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
 	```
-4. Confirm that you see the data from the hvac table. 
+1. Confirm that you see the data from the hvac table. 
 
 	![Jupyter query results](media/data-factory-spark/jupyter-notebook-results.png)
 
@@ -277,11 +277,11 @@ For further troubleshooting, take the following steps:
 
 	![YARN UI application](media/data-factory-spark/yarnui-application.png)
 
-2. Select **Logs** for one of the run attempts.
+1. Select **Logs** for one of the run attempts.
 
 	![Application page](media/data-factory-spark/yarn-applications.png)
 
-3. You see the following additional error information in the log page:
+1. You see the following additional error information in the log page:
 
 	![Log error](media/data-factory-spark/yarnui-application-error.png)
 

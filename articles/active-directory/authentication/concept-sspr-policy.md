@@ -1,12 +1,12 @@
 ---
-title: Self-service password reset policies - Azure Active Directory
-description: Azure AD self-service password reset policy options
+title: Azure AD Self-service password reset policies
+description: Configure Azure AD self-service password reset policy options
 
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -18,11 +18,11 @@ ms.reviewer: sahenry
 
 This article describes the password policies and complexity requirements associated with user accounts stored in your Azure Active Directory (Azure AD) tenant.
 
-## Administrator password policy differences
+## Administrator reset policy differences
 
-Microsoft enforces a strong default *two-gate* password reset policy for any Azure administrator role. 
+**Microsoft enforces a strong default *two-gate* password reset policy for any Azure administrator role** this policy may be different from the one you have defined for your users and cannot be changed. You should always test password reset functionality as a user without any Azure administrator roles assigned.
 
-With a two-gate policy, administrators don't have the ability to use security questions.
+With a two-gate policy, **administrators don't have the ability to use security questions**.
 
  A two-gate policy requires two pieces of authentication data, such as an email address *and* a phone number. A two-gate policy applies in the following circumstances:
 
@@ -46,7 +46,7 @@ With a two-gate policy, administrators don't have the ability to use security qu
   * Application proxy service administrator
   * CRM service administrator
   * Power BI service administrator
-  
+
 * If 30 days have elapsed in a trial subscription
 
   or
@@ -58,26 +58,26 @@ With a two-gate policy, administrators don't have the ability to use security qu
 * Azure AD Connect is synchronizing identities from your on-premises directory
 
 ### Exceptions
+
 A one-gate policy requires one piece of authentication data, such as an email address *or* phone number. A one-gate policy applies in the following circumstances:
 
 * It's within the first 30 days of a trial subscription
 
   or
 
-* A vanity domain isn't present (*.onmicrosoft.com) 
+* A vanity domain isn't present (*.onmicrosoft.com)
 
-  and 
+  and
 
   Azure AD Connect isn't synchronizing identities
 
-
 ## UserPrincipalName policies that apply to all user accounts
 
-Every user account that needs to sign in to Azure AD must have a unique user principal name (UPN) attribute value associated with their account. The following table outlines the polices that apply to both on-premises Active Directory user accounts that are synchronized to the cloud and to cloud-only user accounts:
+Every user account that needs to sign in to Azure AD must have a unique user principal name (UPN) attribute value associated with their account. The following table outlines the policies that apply to both on-premises Active Directory user accounts that are synchronized to the cloud and to cloud-only user accounts:
 
 | Property | UserPrincipalName requirements |
 | --- | --- |
-| Characters allowed |<ul> <li>A – Z</li> <li>a - z</li><li>0 – 9</li> <li> . - \_ ! \# ^ \~</li></ul> |
+| Characters allowed |<ul> <li>A – Z</li> <li>a - z</li><li>0 – 9</li> <li> \. - \_ ! \# ^ \~</li></ul> |
 | Characters not allowed |<ul> <li>Any "\@\" character that's not separating the username from the domain.</li> <li>Can't contain a period character "." immediately preceding the "\@\" symbol</li></ul> |
 | Length constraints |<ul> <li>The total length must not exceed 113 characters</li><li>There can be up to 64 characters before the "\@\" symbol</li><li>There can be up to 48 characters after the "\@\" symbol</li></ul> |
 
@@ -106,13 +106,13 @@ This guidance applies to other providers, such as Intune and Office 365, which a
 > [!NOTE]
 > Only passwords for user accounts that are not synchronized through directory synchronization can be configured to not expire. For more information about directory synchronization, see [Connect AD with Azure AD](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect).
 >
->
 
 ## Set or check the password policies by using PowerShell
 
 To get started, you need to [download and install the Azure AD PowerShell module](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0). After you have it installed, you can use the following steps to configure each field.
 
-### How to check the expiration policy for a password
+### Check the expiration policy for a password
+
 1. Connect to Windows PowerShell by using your company administrator credentials.
 2. Execute one of the following commands:
 

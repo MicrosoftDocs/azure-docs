@@ -1,14 +1,15 @@
 ---
-title: Label suggested utterances with LUIS | Microsoft Docs
-description: Use Language Understanding (LUIS) to label suggested utterances and help boost active machine learning.
+title: Review endpoint utterances  for Language Understanding (LUIS) 
+titleSuffix: Azure Cognitive Services
+description: The breakthrough feature of LUIS is the concept of active learning. Once your LUIS has endpoint queries, active learning improves the quality of the results by selects utterances that it is unsure of. If you label these utterances, train, and publish, then LUIS identifies utterances more accurately.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/08/2017
-ms.author: v-geberr
+ms.date: 09/06/2018
+ms.author: diberry
 ---
 
 # Review endpoint utterances
@@ -19,8 +20,6 @@ The breakthrough feature of LUIS is the [concept](luis-concept-review-endpoint-u
 1. Open your app (for example, TravelAgent) by selecting its name on **My Apps** page, then select **Build** in the top bar.
 
 2. Under the **Improve app performance**, select **Review endpoint utterances**.
-
-    ![Review utterances](./media/label-suggested-utterances/review.png)
 
 3. On the **Review endpoint utterances** page, select in the **Filter list by intent or entity** text box. This drop-down list includes all intents under **INTENTS** and all entities under **ENTITIES**.
 
@@ -74,4 +73,4 @@ To delete several utterances, select each item and select on the trash bin to th
 
 ## Next steps
 
-To test how performance improves after you label suggested utterances, you can access the test console by selecting **Test** in the top panel. For instructions on how to test your app using the test console, see [Train and test your app](interactive-test.md).
+To test how performance improves after you label suggested utterances, you can access the test console by selecting **Test** in the top panel. For instructions on how to test your app using the test console, see [Train and test your app](luis-interactive-test.md).

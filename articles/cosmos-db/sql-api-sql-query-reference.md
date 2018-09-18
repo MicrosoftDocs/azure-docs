@@ -9,25 +9,23 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: na 
 ms.topic: reference
-ms.date: 10/18/2017
+ms.date: 08/19/2018
 ms.author: laviswa
 
 ---
 
 # Azure Cosmos DB SQL syntax reference
 
-Azure Cosmos DB supports querying documents using a familiar SQL (Structured Query Language) like grammar over hierarchical JSON documents without requiring explicit schema or creation of secondary indexes. This topic provides reference documentation for the SQL query language, which is compatible with SQL API accounts.
-
-For a walkthrough of the SQL query language, see [SQL queries for Azure Cosmos DB](sql-api-sql-query.md).  
+Azure Cosmos DB supports querying documents using a familiar SQL (Structured Query Language) like grammar over hierarchical JSON documents without requiring explicit schema or creation of secondary indexes. This article provides reference/syntax documentation for the SQL query language, which is compatible with SQL API accounts. For a walkthrough of the SQL queries with sample data see [query Azure Cosmos DB data](sql-api-sql-query.md).  
   
-We also invite you to visit the [Query Playground](http://www.documentdb.com/sql/demo) where you can try Azure Cosmos DB and run SQL queries against our dataset.  
+Visit the [Query Playground](http://www.documentdb.com/sql/demo) where you can try Azure Cosmos DB and run SQL queries against our dataset.  
   
 ## SELECT query  
-Retrieves JSON documents from the database. Supports expression evaluation, projections, filtering and joins.  The conventions used for describing the SELECT statements are tabulated in the Syntax conventions section.  
+Every query consists of a SELECT clause and optional FROM and WHERE clauses per ANSI-SQL standards. Typically, for each query, the source in the FROM clause is enumerated. Then the filter in the WHERE clause is applied on the source to retrieve a subset of JSON documents. Finally, the SELECT clause is used to project the requested JSON values in the select list. The conventions used for describing the SELECT statements are tabulated in the Syntax conventions section. For examples, see [SELECT query examples](sql-api-sql-query.md#SelectClause)
   
 **Syntax**  
   
-```
+```sql
 <select_query> ::=  
 SELECT <select_specification>   
     [ FROM <from_specification>]   
@@ -39,17 +37,14 @@ SELECT <select_specification>
   
  See following sections for details on each clause:  
   
--   [SELECT clause](#bk_select_query)  
-  
--   [FROM clause](#bk_from_clause)  
-  
--   [WHERE clause](#bk_where_clause)  
-  
+-   [SELECT clause](#bk_select_query)    
+-   [FROM clause](#bk_from_clause)    
+-   [WHERE clause](#bk_where_clause)    
 -   [ORDER BY clause](#bk_orderby_clause)  
   
 The clauses in the SELECT statement must be ordered as shown above. Any one of the optional clauses can be omitted. But when optional clauses are used, they must appear in the right order.  
   
-**Logical Processing Order of the SELECT statement**  
+### Logical Processing Order of the SELECT statement  
   
 The order in which clauses are processed is:  
 
@@ -60,7 +55,7 @@ The order in which clauses are processed is:
 
 Note that this is different from the order in which they appear in the syntax. The ordering is such that all new symbols introduced by a processed clause are visible and can be used in clauses processed later. For instance, aliases declared in a FROM clause are accessible in WHERE and SELECT clauses.  
 
-**Whitespace characters and comments**  
+### Whitespace characters and comments  
 
 All white space characters which are not part of a quoted string or quoted identifier are not part of the language grammar and are ignored during parsing.  
 
@@ -71,10 +66,11 @@ The query language supports T-SQL style comments like
 While whitespace characters and comments do not have any significance in the grammar, they must be used to separate tokens. For instance: `-1e5` is a single number token, while`: – 1 e5` is a minus token followed by number 1 and identifier e5.  
 
 ##  <a name="bk_select_query"></a> SELECT clause  
-The clauses in the SELECT statement must be ordered as shown above. Any one of the optional clauses can be omitted. But when optional clauses are used, they must appear in the right order.  
+The clauses in the SELECT statement must be ordered as shown above. Any one of the optional clauses can be omitted. But when optional clauses are used, they must appear in the right order. For examples, see [SELECT query examples](sql-api-sql-query.md#SelectClause)
 
 **Syntax**  
-```  
+
+```sql
 SELECT <select_specification>  
 
 <select_specification> ::=   
@@ -89,25 +85,25 @@ SELECT <select_specification>
   
  **Arguments**  
   
- `<select_specification>`  
+- `<select_specification>`  
+
+  Properties or value to be selected for the result set.  
   
- Properties or value to be selected for the result set.  
+- `'*'`  
+
+  Specifies that the value should be retrieved without making any changes. Specifically if the processed value is an object, all properties will be retrieved.  
   
- `'*'`  
+- `<object_property_list>`  
   
-Specifies that the value should be retrieved without making any changes. Specifically if the processed value is an object, all properties will be retrieved.  
+  Specifies the list of properties to be retrieved. Each returned value will be an object with the properties specified.  
   
- `<object_property_list>`  
+- `VALUE`  
+
+  Specifies that the JSON value should be retrieved instead of the complete JSON object. This, unlike `<property_list>` does not wrap the projected value in an object.  
   
-Specifies the list of properties to be retrieved. Each returned value will be an object with the properties specified.  
-  
-`VALUE`  
-  
-Specifies that the JSON value should be retrieved instead of the complete JSON object. This, unlike `<property_list>` does not wrap the projected value in an object.  
-  
-`<scalar_expression>`  
-  
-Expression representing the value to be computed. See [Scalar expressions](#bk_scalar_expressions) section for details.  
+- `<scalar_expression>`  
+
+  Expression representing the value to be computed. See [Scalar expressions](#bk_scalar_expressions) section for details.  
   
 **Remarks**  
   
@@ -115,17 +111,17 @@ The `SELECT *` syntax is only valid if FROM clause has declared exactly one alia
   
 Note that `SELECT <select_list>` and `SELECT *` are "syntactic sugar" and can be alternatively expressed by using simple SELECT statements as shown below.  
   
-1.  `SELECT * FROM ... AS from_alias ...`  
+1. `SELECT * FROM ... AS from_alias ...`  
   
-     is equivalent to:  
+   is equivalent to:  
   
-     `SELECT from_alias FROM ... AS from_alias ...`  
+   `SELECT from_alias FROM ... AS from_alias ...`  
   
-2.  `SELECT <expr1> AS p1, <expr2> AS p2,..., <exprN> AS pN [other clauses...]`  
+2. `SELECT <expr1> AS p1, <expr2> AS p2,..., <exprN> AS pN [other clauses...]`  
   
-     is equivalent to:  
+   is equivalent to:  
   
-     `SELECT VALUE { p1: <expr1>, p2: <expr2>, ..., pN: <exprN> }[other clauses...]`  
+   `SELECT VALUE { p1: <expr1>, p2: <expr2>, ..., pN: <exprN> }[other clauses...]`  
   
 **See Also**  
   
@@ -133,11 +129,11 @@ Note that `SELECT <select_list>` and `SELECT *` are "syntactic sugar" and can be
 [SELECT clause](#bk_select_query)  
   
 ##  <a name="bk_from_clause"></a> FROM clause  
-Specifies the source or joined sources. The FROM clause is optional. If not specified, other clauses will still be executed as if FROM clause provided a single document.  
+Specifies the source or joined sources. The FROM clause is optional unless the source is filtered or projected later in the query. The purpose of this clause is to specify the data source upon which the query must operate. Commonly the whole collection is the source, but one can specify a subset of the collection instead. If this clause is not specified, other clauses will still be executed as if FROM clause provided a single document. For examples, see [FROM clause examples](sql-api-sql-query.md#FromClause)
   
 **Syntax**  
   
-```  
+```sql  
 FROM <from_specification>  
   
 <from_specification> ::=   
@@ -157,55 +153,55 @@ FROM <from_specification>
   
 **Arguments**  
   
-`<from_source>`  
+- `<from_source>`  
   
-Specifies a data source, with or without an alias. If alias is not specified, it will be inferred from the `<collection_expression>` using following rules:  
+  Specifies a data source, with or without an alias. If alias is not specified, it will be inferred from the `<collection_expression>` using following rules:  
   
--   If the expression is a collection_name, then collection_name will be used as an alias.  
+  -  If the expression is a collection_name, then collection_name will be used as an alias.  
   
--   If the expression is `<collection_expression>`, then property_name, then property_name will be used as an alias. If the expression is a collection_name, then collection_name will be used as an alias.  
+  -  If the expression is `<collection_expression>`, then property_name, then property_name will be used as an alias. If the expression is a collection_name, then collection_name will be used as an alias.  
   
-AS `input_alias`  
+- AS `input_alias`  
   
-Specifies that the `input_alias` is a set of values returned by the underlying collection expression.  
+  Specifies that the `input_alias` is a set of values returned by the underlying collection expression.  
  
-`input_alias` IN  
+- `input_alias` IN  
   
-Specifies that the `input_alias` should represent the set of values obtained by iterating over all array elements of each array returned by the underlying collection expression. Any value returned by underlying collection expression that is not an array is ignored.  
+  Specifies that the `input_alias` should represent the set of values obtained by iterating over all array elements of each array returned by the underlying collection expression. Any value returned by underlying collection expression that is not an array is ignored.  
   
-`<collection_expression>`  
+- `<collection_expression>`  
   
-Specifies the collection expression to be used to retrieve the documents.  
+  Specifies the collection expression to be used to retrieve the documents.  
   
-`ROOT`  
+- `ROOT`  
   
-Specifies that document should be retrieved from the default, currently connected collection.  
+  Specifies that document should be retrieved from the default, currently connected collection.  
   
-`collection_name`  
+- `collection_name`  
   
-Specifies that document should be retrieved from the provided collection. The name of the collection must match the name of the collection currently connected to.  
+  Specifies that document should be retrieved from the provided collection. The name of the collection must match the name of the collection currently connected to.  
   
-`input_alias`  
+- `input_alias`  
   
-Specifies that document should be retrieved from the other source defined by the provided alias.  
+  Specifies that document should be retrieved from the other source defined by the provided alias.  
   
-`<collection_expression> '.' property_`  
+- `<collection_expression> '.' property_`  
   
-Specifies that document should be retrieved by accessing the `property_name` property or array_index array element for all documents retrieved by specified collection expression.  
+  Specifies that document should be retrieved by accessing the `property_name` property or array_index array element for all documents retrieved by specified collection expression.  
   
-`<collection_expression> '[' "property_name" | array_index ']'`  
+- `<collection_expression> '[' "property_name" | array_index ']'`  
   
-Specifies that document should be retrieved by accessing the `property_name` property or array_index array element for all documents retrieved by specified collection expression.  
+  Specifies that document should be retrieved by accessing the `property_name` property or array_index array element for all documents retrieved by specified collection expression.  
   
 **Remarks**  
   
 All aliases provided or inferred in the `<from_source>(`s) must be unique. The Syntax `<collection_expression>.`property_name is the same as `<collection_expression>' ['"property_name"']'`. However, the latter syntax can be used if a property name contains a non-identifier characters.  
   
-**Missing properties, missing array elements, undefined values handling**  
+### handling missing properties, missing array elements, and undefined values
   
 If a collection expression accesses properties or array elements and that value does not exist, that value will be ignored and not processed further.  
   
-**Collection expression context scoping**  
+### Collection expression context scoping  
   
 A collection expression may be collection-scoped or document-scoped:  
   
@@ -213,11 +209,11 @@ A collection expression may be collection-scoped or document-scoped:
   
 -   An expression is document-scoped, if the underlying source of the collection expression is `input_alias` introduced earlier in the query. Such an expression represents a set of documents obtained by evaluating the collection expression in the scope of each document belonging to the set associated with the aliased collection.  The resulting set will be a union of sets obtained by evaluating the collection expression for each of the documents in the underlying set.  
   
-**Joins**  
+### Joins 
   
-In the current release, Azure Cosmos DB supports inner joins. Additional join capabilities are forthcoming.
+In the current release, Azure Cosmos DB supports inner joins. Additional join capabilities are forthcoming. 
 
-Inner joins result in a complete cross product of the sets participating in the join. The result of an N-way join is a set of N-element tuples, where each value in the tuple is associated with the aliased set participating in the join and can be accessed by referencing that alias in other clauses.  
+Inner joins result in a complete cross product of the sets participating in the join. The result of an N-way join is a set of N-element tuples, where each value in the tuple is associated with the aliased set participating in the join and can be accessed by referencing that alias in other clauses. For examples, see [JOIN keyword examples](sql-api-sql-query.md#Joins)
   
 The evaluation of the join depends on the context scope of the participating sets:  
   
@@ -227,13 +223,13 @@ The evaluation of the join depends on the context scope of the participating set
   
  In the current release, a maximum of one collection-scoped expression is supported by the query processor.  
   
-**Examples of joins:**  
+### Examples of joins  
   
 Let's look at the following FROM clause: `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`  
   
  Let each source define `input_alias1, input_alias2, …, input_aliasN`. This FROM clause returns a set of N-tuples (tuple with N values). Each tuple has values produced by iterating all collection aliases over their respective sets.  
   
-*JOIN example 1, with 2 sources:*  
+**Example 1** - 2 sources  
   
 - Let `<from_source1>` be collection-scoped and represent set {A, B, C}.  
   
@@ -251,7 +247,7 @@ Let's look at the following FROM clause: `<from_source1> JOIN <from_source2> JOI
   
     `(A, 1), (A, 2), (B, 3), (C, 4), (C, 5)`  
   
-*JOIN example 2, with 3 sources:*  
+**Example 2** - 3 sources  
   
 - Let `<from_source1>` be collection-scoped and represent set {A, B, C}.  
   
@@ -275,10 +271,10 @@ Let's look at the following FROM clause: `<from_source1> JOIN <from_source2> JOI
   
     (A, 1, 100), (A, 1, 200), (B, 3, 300)  
   
-> [!NOTE]
-> Lack of tuples for other values of `input_alias1`, `input_alias2`, for which the `<from_source3>` did not return any values.  
+  > [!NOTE]
+  > Lack of tuples for other values of `input_alias1`, `input_alias2`, for which the `<from_source3>` did not return any values.  
   
-*JOIN example 3, with 3 sources:*  
+**Example 3** - 3 sources  
   
 - Let <from_source1> be collection-scoped and represent set {A, B, C}.  
   
@@ -304,19 +300,19 @@ Let's look at the following FROM clause: `<from_source1> JOIN <from_source2> JOI
   
     (A, 1, 100), (A, 1, 200), (A, 2, 100), (A, 2, 200),  (C, 4, 300) ,  (C, 5, 300)  
   
-> [!NOTE]
-> This resulted in cross product between `<from_source2>` and `<from_source3>` because both are scoped to the same `<from_source1>`.  This resulted in 4 (2x2) tuples having value A, 0 tuples having value B (1x0) and 2 (2x1) tuples having value C.  
+  > [!NOTE]
+  > This resulted in cross product between `<from_source2>` and `<from_source3>` because both are scoped to the same `<from_source1>`.  This resulted in 4 (2x2) tuples having value A, 0 tuples having value B (1x0) and 2 (2x1) tuples having value C.  
   
 **See also**  
   
  [SELECT clause](#bk_select_query)  
   
 ##  <a name="bk_where_clause"></a> WHERE clause  
- Specifies the search condition for the documents returned by the query.  
+ Specifies the search condition for the documents returned by the query. For examples, see [WHERE clause examples](sql-api-sql-query.md#WhereClause)
   
  **Syntax**  
   
-```  
+```sql  
 WHERE <filter_condition>  
 <filter_condition> ::= <scalar_expression>  
   
@@ -337,11 +333,11 @@ WHERE <filter_condition>
  In order for the document to be returned an expression specified as filter condition must evaluate to true. Only Boolean value true will satisfy the condition, any other value: undefined, null, false, Number, Array or Object will not satisfy the condition.  
   
 ##  <a name="bk_orderby_clause"></a> ORDER BY clause  
- Specifies the sorting order for results returned by the query.  
+ Specifies the sorting order for results returned by the query. For examples, see [ORDER BY clause examples](sql-api-sql-query.md#OrderByClause)
   
  **Syntax**  
   
-```  
+```sql  
 ORDER BY <sort_specification>  
 <sort_specification> ::= <sort_expression> [, <sort_expression>]  
 <sort_expression> ::= <scalar_expression> [ASC | DESC]  
@@ -375,13 +371,13 @@ ORDER BY <sort_specification>
  While the query grammar supports multiple order by properties, the Azure Cosmos DB query runtime supports sorting only against a single property, and only against property names, i.e., not against computed properties. Sorting also requires that the indexing policy includes a range index for the property and the specified type, with the maximum precision. Refer to the indexing policy documentation for more details.  
   
 ##  <a name="bk_scalar_expressions"></a> Scalar expressions  
- A scalar expression is a combination of symbols and operators that can be evaluated to obtain a single value. Simple expressions can be constants, property references, array element references, alias references, or function calls. Simple expressions can be combined into complex expressions using operators.  
+ A scalar expression is a combination of symbols and operators that can be evaluated to obtain a single value. Simple expressions can be constants, property references, array element references, alias references, or function calls. Simple expressions can be combined into complex expressions using operators. For examples, see [scalar expressions examples](sql-api-sql-query.md#scalar-expressions)
   
  For details on values which scalar expression may have, see [Constants](#bk_constants) section.  
   
  **Syntax**  
   
-```  
+```sql  
 <scalar_expression> ::=  
        <constant>   
      | input_alias   
@@ -547,7 +543,7 @@ ORDER BY <sort_specification>
   
  **Syntax**  
   
-```  
+```sql  
 <constant> ::=  
    <undefined_constant>  
      | <null_constant>   
@@ -577,45 +573,45 @@ ORDER BY <sort_specification>
   
  **Arguments**  
   
-1.  `<undefined_constant>; undefined`  
+* `<undefined_constant>; undefined`  
   
-     Represents undefined value of type Undefined.  
+  Represents undefined value of type Undefined.  
   
-2.  `<null_constant>; null`  
+* `<null_constant>; null`  
   
-     Represents **null** value of type **Null**.  
+  Represents **null** value of type **Null**.  
   
-3.  `<boolean_constant>`  
+* `<boolean_constant>`  
   
-     Represents constant of type Boolean.  
+  Represents constant of type Boolean.  
   
-4.  `false`  
+* `false`  
   
-     Represents **false** value of type Boolean.  
+  Represents **false** value of type Boolean.  
   
-5.  `true`  
+* `true`  
   
-     Represents **true** value of type Boolean.  
+  Represents **true** value of type Boolean.  
   
-6.  `<number_constant>`  
+* `<number_constant>`  
   
-     Represents a constant.  
+  Represents a constant.  
   
-7.  `decimal_literal`  
+* `decimal_literal`  
   
-     Decimal literals are numbers represented using either decimal notation, or scientific notation.  
+  Decimal literals are numbers represented using either decimal notation, or scientific notation.  
   
-8.  `hexadecimal_literal`  
+* `hexadecimal_literal`  
   
-     Hexadecimal literals are numbers represented using prefix '0x' followed by one or more hexadecimal digits.  
+  Hexadecimal literals are numbers represented using prefix '0x' followed by one or more hexadecimal digits.  
   
-9. `<string_constant>`  
+* `<string_constant>`  
   
-     Represents a constant of type String.  
+  Represents a constant of type String.  
   
-10. `string _literal`  
+* `string _literal`  
   
-     String literals are Unicode strings represented by a sequence of zero or more Unicode characters or escape sequences. String literals are enclosed in single quotes (apostrophe: ' ) or double quotes (quotation mark: ").  
+  String literals are Unicode strings represented by a sequence of zero or more Unicode characters or escape sequences. String literals are enclosed in single quotes (apostrophe: ' ) or double quotes (quotation mark: ").  
   
  Following escape sequences are allowed:  
   
@@ -1851,7 +1847,7 @@ SELECT
 |[LOWER](#bk_lower)|[LTRIM](#bk_ltrim)|[REPLACE](#bk_replace)|  
 |[REPLICATE](#bk_replicate)|[REVERSE](#bk_reverse)|[RIGHT](#bk_right)|  
 |[RTRIM](#bk_rtrim)|[STARTSWITH](#bk_startswith)|[SUBSTRING](#bk_substring)|  
-|[ToString](#bk_tostring)|[UPPER](#bk_upper)|||  
+|[ToString](#bk_tostring)|[TRIM](#bk_trim)|[UPPER](#bk_upper)||| 
   
 ####  <a name="bk_concat"></a> CONCAT  
  Returns a string that is the result of concatenating two or more string values.  
@@ -2437,7 +2433,40 @@ JOIN n IN food.nutrients
 {"nutrientID":"307","nutritionVal":"912"},
 {"nutrientID":"308","nutritionVal":"90"},
 {"nutrientID":"309","nutritionVal":"null"}]
- ```  
+ ``` 
+ 
+####  <a name="bk_trim"></a> TRIM  
+ Returns a string expression after it removes leading and trailing blanks.  
+  
+ **Syntax**  
+  
+```  
+TRIM(<str_expr>)  
+```  
+  
+ **Arguments**  
+  
+-   `str_expr`  
+  
+     Is any valid string expression.  
+  
+ **Return Types**  
+  
+ Returns a string expression.  
+  
+ **Examples**  
+  
+ The following example shows how to use TRIM inside a query.  
+  
+```  
+SELECT TRIM("   abc"), TRIM("   abc   "), TRIM("abc   "), TRIM("abc")   
+```  
+  
+ Here is the result set.  
+  
+```  
+[{"$1": "abc", "$2": "abc", "$3": "abc", "$4": "abc"}]  
+``` 
 ####  <a name="bk_upper"></a> UPPER  
  Returns a string expression after converting lowercase character data to uppercase.  
   

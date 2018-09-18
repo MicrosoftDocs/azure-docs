@@ -1,8 +1,8 @@
 ---
 title: Introduction to the Azure Cosmos DB Cassandra API | Microsoft Docs
-description: Learn how you can use Azure Cosmos DB to “lift-and-shift” existing applications and build new applications using Cassandra API using the Cassandra drivers and CQL you're already familar with. 
+description: Learn how you can use Azure Cosmos DB to "lift-and-shift" existing applications and build new applications using Cassandra API using the Cassandra drivers and CQL you’re already familar with. 
 services: cosmos-db
-author: govindk
+author: kanshiG
 manager: kfile
 
 ms.service: cosmos-db
@@ -30,10 +30,7 @@ Azure Cosmos DB can be used as the data store for apps written for [Apache Cassa
 
 ![Azure Cosmos DB Cassandra API](./media/cassandra-introduction/cosmosdb-cassandra.png)
 
-The Cassandra API enables you to interact with data stored in Azure Cosmos DB using the Cassandra Query Language based tools (like CQLSH) and Cassandra client drivers you’re already familiar with. Learn more about it in this Microsoft Mechanics video with Principal Engineering Manager Kirill Gavrylyuk.
-
-> [!VIDEO https://www.youtube.com/embed/1Sf4McGN1AQ]
->
+The Cassandra API enables you to interact with data stored in Azure Cosmos DB using the Cassandra Query Language based tools (like CQLSH) and Cassandra client drivers you’re already familiar with. 
 
 ## What is the benefit of using Apache Cassandra API for Azure Cosmos DB?
 

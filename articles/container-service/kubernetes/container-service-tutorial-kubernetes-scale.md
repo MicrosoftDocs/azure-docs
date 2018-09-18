@@ -111,7 +111,7 @@ After a few minutes, with minimal load on the Azure Vote app, the number of pod 
 
 ## Scale the agents
 
-If you created your Kubernetes cluster using default commands in the previous tutorial, it has three agent nodes. You can adjust the number of agents manually if you plan more or fewer container workloads on your cluster. Use the [az acs scale](/cli/azure/acs#az_acs_scale) command, and specify the number of agents with the `--new-agent-count` parameter.
+If you created your Kubernetes cluster using default commands in the previous tutorial, it has three agent nodes. You can adjust the number of agents manually if you plan more or fewer container workloads on your cluster. Use the [az acs scale](/cli/azure/acs#az-acs-scale) command, and specify the number of agents with the `--new-agent-count` parameter.
 
 The following example increases the number of agent nodes to 4 in the Kubernetes cluster named *myK8sCluster*. The command takes a couple of minutes to complete.
 
