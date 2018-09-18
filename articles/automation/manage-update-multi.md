@@ -135,7 +135,7 @@ In the **New update deployment** pane, specify the following information:
   - Tools
   - Updates
 
-- **Updates to exclude**: Selecting this option opens the **Exclude** page. Enter the KB articles or package names to exclude.
+- **Updates to include/exclude** - This opens the **Include/Exclude** page. Updates to be included or excluded are on seperate tabs. For additional information on how inclusion is handled, see [inclusion behavior](automation-update-management.md#inclusion-behavior)
 
 - **Schedule settings**: You can accept the default date and time, which is 30 minutes after the current time. You can also specify a different time.
 

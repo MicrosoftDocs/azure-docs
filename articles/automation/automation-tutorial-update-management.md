@@ -166,6 +166,9 @@ Under **New update deployment**, specify the following information:
 
    For a description of the classification types, see [update classifications](automation-update-management.md#update-classifications).
 
+* **Updates to include/exclude** - This opens the **Include/Exclude** page. Updates to be included or excluded are on seperate tabs. For additional information on how inclusion is handled, see [inclusion behavior](automation-update-management.md#inclusion-behavior)
+
+
 * **Schedule settings**: The **Schedule Settings** pane opens. The default start time is 30 minutes after the current time. You can set the start time to any time from 10 minutes in the future.
 
    You can also specify whether the deployment occurs once, or set up a recurring schedule. Under **Recurrence**, select **Once**. Leave the default as 1 day and select **OK**. This sets up a recurring schedule.

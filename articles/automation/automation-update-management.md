@@ -184,7 +184,7 @@ To run a log search that returns information about the machine, update, or deplo
 
 After updates are assessed for all the Linux and Windows computers in your workspace, you can install required updates by creating an *update deployment*. An update deployment is a scheduled installation of required updates for one or more computers. You specify the date and time for the deployment and a computer or group of computers to include in the scope of a deployment. To learn more about computer groups, see [Computer groups in Log Analytics](../log-analytics/log-analytics-computer-groups.md).
 
- When you include computer groups in your update deployment, group membership is evaluated only once, at the time of schedule creation. Subsequent changes to a group aren't reflected. To work around this, delete the scheduled update deployment and re-create it.
+ When you include computer groups in your update deployment, group membership is evaluated only once, at the time of schedule creation. Subsequent changes to a group aren't reflected. To get around this use [Dyanmic groups](#using-dynamic-groups), these groups are resolved at deployment time and are defined by a query.
 
 > [!NOTE]
 > Windows virtual machines that are deployed from the Azure Marketplace by default are set to receive automatic updates from Windows Update Service. This behavior doesn't change when you add this solution or add Windows virtual machines to your workspace. If you don't actively manage updates by using this solution, the default behavior (to automatically apply updates) applies.
@@ -479,11 +479,32 @@ Update
 | project-away ClassificationWeight, InformationId, InformationUrl
 ```
 
+## <a name="using-dynamic-groups"></a>Using dynamic groups (preview)
+
+Update Management provides the ability to target a dyanmic group for update deployments.  These groups are defined by a query, when an update deployment begins, the members of that group are evaluated. When defining your query the following items can be used together to populate the dynamic group
+
+* Subscription
+* Resource groups
+* Locations
+* Tags
+
+![Select groups](./media/automation-update-management/select-groups.png)
+
+To preview the results of a dynamic group, click the **Preview** button. This preview shows the group membership at that time, in this example, we are searching for machines with the tag **Role** is equal to **BackendServer**. If more machines have this tag added, they will be added to any future deployments against that group.
+
+![preview groups](./media/automation-update-management/preview-groups.png)
+
 ## Integrate with System Center Configuration Manager
 
 Customers who have invested in System Center Configuration Manager for managing PCs, servers, and mobile devices also rely on the strength and maturity of Configuration Manager to help them manage software updates. Configuration Manager is part of their software update management (SUM) cycle.
 
 To learn how to integrate the management solution with System Center Configuration Manager, see [Integrate System Center Configuration Manager with Update Management](oms-solution-updatemgmt-sccmintegration.md).
+
+## Inclusion behavior
+
+Update inclusion allows you to specify specific updates to apply. Patches or packages that are set to be included are installed no matter the classifications selected for the deployment.
+
+For Linux machines if a package is included but has a dependant package that was specifcally excluded, the package is not installed.
 
 ## Patch Linux machines
 
