@@ -18,7 +18,7 @@
     href: virtual-wan-locations-partners.md
 - name: How-to guides
   items:
-  - name: Configure automation - WAN Partners
+  - name: Virtual WAN partners - automation
     href: virtual-wan-configure-automation-providers.md
   - name: Route traffic from a virtual hub to an NVA
     href: virtual-wan-route-table.md
