@@ -24,7 +24,7 @@ ms.custom: aaddev
 
 Access tokens enable clients to securely call APIs protected by Azure.  Azure AD access tokens are [JWTs](https://tools.ietf.org/html/rfc7519), base-64 encoded JSON objects signed by Azure.  For clients, these access tokens should be treated as opaque strings, as the contents of the token are intended for the resource only.  For validation and debugging purposes though, JWTs can be decoded using a site like [jwt.ms](https://jwt.ms).  Your client can get an access token from either endpoint (v1.0 or v2.0) using a variety of protocols.
 
-When you request an access token, Azure AD also returns some metadata about the access token for your app's consumption. This information includes the expiry time of the access token and the scopes for which it is valid. This allows your app to perform intelligent caching of access tokens without having to parse the access token itself.
+When you request an access token, Azure AD also returns some metadata about the access token for your app's consumption. This information includes the expiry time of the access token and the scopes for which it is valid. This data allows your app to perform intelligent caching of access tokens without having to parse the access token itself.
 
 If your application is a resource (web API) that clients can request access to, access tokens provide helpful information for use in authentication and authorization - the user, client, issuer, permissions, and more data is all included in the token.  This document provides details on how a resource can validate and use the claims inside an access token.
 
@@ -49,7 +49,7 @@ View this v2.0 token in [JWT.ms](https://jwt.ms/#access_token=eyJ0eXAiOiJKV1QiLC
 
 ## Claims in access tokens
 
-JWTs are split into three pieces - header, payload, and signature, each seperated by a period (`.`) and seperately Base64 encoded.  The header provides information about how to [validate  the token](#validating-tokens) - information about the type of token and how it was signed.  The payload contains all of the important data about the user or app that is attempting to call your service.  Finally, the signature is the raw material used to validate the token.  
+JWTs are split into three pieces - header, payload, and signature, each separated by a period (`.`) and separately Base64 encoded.  The header provides information about how to [validate  the token](#validating-tokens) - information about the type of token and how it was signed.  The payload contains all of the important data about the user or app that is attempting to call your service.  Finally, the signature is the raw material used to validate the token.  
 
 Claims are present only if a value exists to fill it.  Thus, your app should not take a dependency on a claim being present.  Examples include `pwd_exp` (not every tenant requires passwords to expire) or `family_name` ([client credential](v1-oauth2-client-creds-grant-flow.md) flows are on behalf of applications, which don't have names).  Claims used for access token validation will always be present.
 
@@ -70,9 +70,9 @@ Claims are present only if a value exists to fill it.  Thus, your app should not
 
 |Claim   | Format | Description |
 |-----|--------|-------------|
-|`aud` |  String, an App ID URI | Identifies the intended recipient of the token. In access tokens, the audience is your app's Application ID, assigned to your app in the Azure Portal. Your app should validate this value, and reject the token if the value does not match. |
+|`aud` |  String, an App ID URI | Identifies the intended recipient of the token. In access tokens, the audience is your app's Application ID, assigned to your app in the Azure portal. Your app should validate this value, and reject the token if the value does not match. |
 |`iss` |  String, an STS URI | Identifies the security token service (STS) that constructs and returns the token, and the Azure AD tenant in which the user was authenticated. If the token was issued by the v2.0 endpoint, the URI will end in `/v2.0`.  The GUID that indicates that the user is a consumer user from a Microsoft account is `9188040d-6c67-4c5b-b112-36a304b66dad`. Your app should use the GUID portion of the claim to restrict the set of tenants that can sign in to the app, if applicable. |
-|`iat` |  int, a UNIX timestamp | "Issued At" indicates when the authentication for this token occured.  |
+|`iat` |  int, a UNIX timestamp | "Issued At" indicates when the authentication for this token occurred.  |
 |`nbf` |  int, a UNIX timestamp | The "nbf" (not before) claim identifies the time before which the JWT MUST NOT be accepted for processing.|
 |`exp` |  int, a UNIX timestamp | The "exp" (expiration time) claim identifies the expiration time on or after which the JWT MUST NOT be accepted for processing.  It's important to note that a resource may reject the token before this time as well - if for example a change in authentication is required or a token revocation has been detected.  The best way to   |
 |`acr` |  String, a "0" or "1" | The "Authentication context class" claim. A value of "0" indicates the end-user authentication did not meet the requirements of ISO/IEC 29115. |
@@ -84,14 +84,14 @@ Claims are present only if a value exists to fill it.  Thus, your app should not
 |`azpacr` |  "0", "1", or "2" | Indicates how the client was authenticated. For a public client, the value is 0. If client ID and client secret are used, the value is 1. If a client certificate was used for authentication, the value is 2.  Only present in v2.0 tokens. |
 |`preferred_name`  | String | The primary username that represents the user. It could be an email address, phone number, or a generic username without a specified format. Its value is mutable and might change over time. Since it is mutable, this value must not be used to make authorization decisions. The `profile` scope is required in order to receive this claim. Only present in v2.0 tokens. |
 |`name` |  String | The `name` claim provides a human-readable value that identifies the subject of the token. The value is not guaranteed to be unique, it is mutable, and it's designed to be used only for display purposes. The `profile` scope is required in order to receive this claim. |
-|`oid` |  String, a GUID | The immutable identifier for an object in the Microsoft identity system, in this case, a user account. It can also be used to perform authorization checks safely and as a key in database tables. This ID uniquely identifies the user across applications - two different applications signing in the same user will receive the same value in the `oid` claim. This means that it can be used when making queries to Microsoft online services, such as the Microsoft Graph. The Microsoft Graph will return this ID as the `id` property for a given user account. Because the `oid` allows multiple apps to correlate users, the `profile` scope is required in order to receive this claim. Note that if a single user exists in multiple tenants, the user will contain a different object ID in each tenant - they are considered different accounts, even though the user logs into each account with the same credentials |
+|`oid` |  String, a GUID | The immutable identifier for an object in the Microsoft identity system, in this case, a user account. It can also be used to perform authorization checks safely and as a key in database tables. This ID uniquely identifies the user across applications - two different applications signing in the same user will receive the same value in the `oid` claim. Thus, `oid` can be used when making queries to Microsoft online services, such as the Microsoft Graph. The Microsoft Graph will return this ID as the `id` property for a given user account. Because the `oid` allows multiple apps to correlate users, the `profile` scope is required in order to receive this claim. Note that if a single user exists in multiple tenants, the user will contain a different object ID in each tenant - they are considered different accounts, even though the user logs into each account with the same credentials |
 |`rh` |  Opaque String |An internal claim used by Azure to revalidate tokens. Should not be used by resources. |
-|`scp` |  String, a space seperated list of scopes | The set of scopes exposed by your application for which the client application has requested (and received) consent.  Your app should verify that these scopes are valid ones exposed by your app, and make authorization decisions based on the value of these scopes. Only included for [user tokens](#user-and-application-tokens).  |
-|`roles`| String, a space seperated list of permissions | The set of permissions exposed by your application that the requesting application has been given permission to call.  This is used during the [client-credentials](v1-oauth2-client-creds-grant-flow.md) flow in place of user scopes, and is only present in [applications tokens](#user-and-application-tokens). |
+|`scp` |  String, a space separated list of scopes | The set of scopes exposed by your application for which the client application has requested (and received) consent.  Your app should verify that these scopes are valid ones exposed by your app, and make authorization decisions based on the value of these scopes. Only included for [user tokens](#user-and-application-tokens).  |
+|`roles`| String, a space separated list of permissions | The set of permissions exposed by your application that the requesting application has been given permission to call.  This is used during the [client-credentials](v1-oauth2-client-creds-grant-flow.md) flow in place of user scopes, and is only present in [applications tokens](#user-and-application-tokens). |
 |`sub` |  String, a GUID | The principal about which the token asserts information, such as the user of an app. This value is immutable and cannot be reassigned or reused. It can be used to perform authorization checks safely, such as when the token is used to access a resource, and can be used as a key in database tables. Because the subject is always present in the tokens that Azure AD issues, we recommend using this value in a general-purpose authorization system. The subject is, however, a pairwise identifier - it is unique to a particular application ID. Therefore, if a single user signs into two different apps using two different client IDs, those apps will receive two different values for the subject claim. This may or may not be desired depending on your architecture and privacy requirements. |
 |`tid` |  String, a GUID | A GUID that represents the Azure AD tenant that the user is from. For work and school accounts, the GUID is the immutable tenant ID of the organization that the user belongs to. For personal accounts, the value is `9188040d-6c67-4c5b-b112-36a304b66dad`. The `profile` scope is required in order to receive this claim.  |
-|`unique_name` |  String | Provides a human readable value that identifies the subject of the token. This value is not guaranteed to be unique within a tenant and is designed to be used only for display purposes. Only present in v1.0 tokens. |
-|`upn` |  String | The username of the user.  May be a phone number, email address, or unformatted string.  Should only be used for display purposes and providing username hints in re-authentication scenarios. |
+|`unique_name` |  String | Provides a human readable value that identifies the subject of the token. This value is not guaranteed to be unique within a tenant and should be used only for display purposes. Only present in v1.0 tokens. |
+|`upn` |  String | The username of the user.  May be a phone number, email address, or unformatted string.  Should only be used for display purposes and providing username hints in reauthentication scenarios. |
 |`uti` |  Opaque String | An internal claim used by Azure to revalidate tokens. Should not be used by resources. |
 |`ver` |  String, either 1.0 or 2.0 | Indicates the version of the access token. |
 
@@ -112,7 +112,7 @@ The following claims will be included in v1.0 tokens if applicable, but are not 
 
 #### The `amr` claim
 
-Microsoft identities can authenticate in a variety of ways, which may be relevant to your application.  The `amr` claim is an array that can contain multiple items, e.g. `["mfa", "rsa", "pwd"] for an authentication that used both a password anf the Authenticator app.  
+Microsoft identities can authenticate in a variety of ways, which may be relevant to your application.  The `amr` claim is an array that can contain multiple items, e.g. `["mfa", "rsa", "pwd"] for an authentication that used both a password and the Authenticator app.  
 
 |Value |  Description |
 |-----|-------------|
@@ -176,15 +176,15 @@ Your application's business logic will dictate this step, some common authorizat
 * Check the `scp` or `roles` claim to verify that all present scopes match those exposed by your API, and allow the client to perform the requested action.
 * Ensure the calling client is allowed to call your API using the `appid` claim.
 * Validate the authentication status of the calling client using `appidacr` - it should not be 0 if public clients are not allowed to call your API.
-* Check againts a list of past `nonce` claims to verify the token is not being replayed.
+* Check against a list of past `nonce` claims to verify the token is not being replayed.
 * Check that the `tid` matches a tenant that is allowed to call your API.
 * Use the `acr` claim to verify the user has performed MFA - note that this should be enforced using [Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
 * If you've requested the `roles` or `groups` claims in the access token, verify that the user is in the group allowed to perform this action.
-  * For tokens retreived using the implicit flow you'll likely need to query the [Graph](https://developer.microsoft.com/graph/) for this data, as it's often too large to fit in the token.  
+  * For tokens retrieved using the implicit flow you'll likely need to query the [Graph](https://developer.microsoft.com/graph/) for this data, as it's often too large to fit in the token.  
 
 ## User and application tokens
 
-Your application may recieve tokens on behalf of a user (the usual flow) or directly from an application (through the [client credentials flow](v1-oauth2-client-creds-grant-flow.md)).  These app-only tokens indicate that this the call is coming from an application, and does not have a user backing it. These tokens are handled largely the same, with some differences:
+Your application may receive tokens on behalf of a user (the usual flow) or directly from an application (through the [client credentials flow](v1-oauth2-client-creds-grant-flow.md)).  These app-only tokens indicate that this the call is coming from an application, and does not have a user backing it. These tokens are handled largely the same, with some differences:
 
 * App-only tokens will not have a `scp` claim, and will instead have a `roles` claim.  This is where application permission (as opposed to delegated permissions) will be recorded.  For more information on delegated and application permissions, see the [Permission and Consent](v1-permissions-and-consent.md) documentation.
 * Many human-specific claims will be missing - e.g. `name`.
@@ -196,10 +196,10 @@ Refresh tokens can be invalidated or revoked at any time, for a variety of reaso
 ### Token Timeouts
 
 * MaxInactiveTime: If the refresh token has not been used within the time dictated by the MaxInactiveTime, the Refresh Token will no longer be valid. 
-* MaxSessionAge: If MaxAgeSessionMultiFactor or MaxAgeSessionSingleFactor have been set to something other than their default (Until-revoked), then re-authentication will be required after the time set in the MaxAgeSession* elapses. 
+* MaxSessionAge: If MaxAgeSessionMultiFactor or MaxAgeSessionSingleFactor have been set to something other than their default (Until-revoked), then reauthentication will be required after the time set in the MaxAgeSession* elapses. 
 * Examples:
-  * The tenant has a MaxInactiveTime of 5 days, and the user went on vacation for a week, and so AAD has not seen a new token request from the user in 7 days. The next time the user requests a new token, they will find their Refresh Token has been revoked, and they must enter their credentials again. 
-  * A sensitive application has a MaxAgeSessionSingleFactor of 1 day. If a user logs in on Monday, and on Tuesday (after 25 hours have elapsed), they will be required to re-authenticate. 
+  * The tenant has a MaxInactiveTime of 5 days, and the user went on vacation for a week, and so AAD has not seen a new token request from the user in 7 days. The next time the user requests a new token, they will find their Refresh Token has been revoked, and they must enter their credentials again.
+  * A sensitive application has a MaxAgeSessionSingleFactor of 1 day. If a user logs in on Monday, and on Tuesday (after 25 hours have elapsed), they will be required to reauthenticate.
 
 ### Revocation
 

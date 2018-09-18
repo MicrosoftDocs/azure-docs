@@ -32,9 +32,8 @@ The authentication system alters and adds features on an ongoing basis in order 
 - Protocol changes
 - Deprecated functionality
 
-This page is updated regularly, so revisit often. Unless otherwise noted, these changes are only put in place for newly registered applications.  
-
----
+> [!TIP] 
+> This page is updated regularly, so revisit often. Unless otherwise noted, these changes are only put in place for newly registered applications.  
 
 ## Upcoming changes
 

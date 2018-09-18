@@ -235,4 +235,9 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 For a description of the possible error codes and their recommended client action, see [Error codes for authorization endpoint errors](#error-codes-for-authorization-endpoint-errors).
 
-Once you've gotten an authorization `code` and an `id_token`, you can sign the user in and get access tokens on their behalf. To sign the user in, you must validate the `id_token` exactly as described above. To get access tokens, you can follow the steps described in the "Use the authorization code to request an access token" section of our [OAuth code flow documentation](v1-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token).
+Once you've gotten an authorization `code` and an `id_token`, you can sign the user in and get [access tokens](access-tokens) on their behalf. To sign the user in, you must validate the `id_token` exactly as described above. To get access tokens, you can follow the steps described in the "Use the authorization code to request an access token" section of our [OAuth code flow documentation](v1-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token).
+
+## Next steps
+
+* Learn more about the [access tokens](access_tokens).
+* Learn more about the [`id_token` and claims](id_tokens).
