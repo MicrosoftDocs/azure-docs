@@ -27,7 +27,7 @@ Sign up for Azure Active Directory (Azure AD) a new Microsoft Azure subscription
 
 ## Next steps
 
-- [Sign up as an organization](https://azure.microsoft.com/pricing/purchase-options/)
+- [How to buy Azure](https://azure.microsoft.com/pricing/purchase-options/)
 
 - [Sign up for Azure Active Directory Premium editions](active-directory-get-started-premium.md)
 
