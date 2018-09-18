@@ -142,4 +142,4 @@ search in (Event) "win"
 
 ## Next steps
 
-- See further tutorials on the [Log Analytics query language site](https://docs.loganalytics.io)
+- See further tutorials on the [Log Analytics query language site](https://aka.ms/LogAnalyticsLanguage).
