@@ -214,7 +214,7 @@ Refresh tokens can be invalidated or revoked at any time, for a variety of reaso
 |Admin resets password|Revoked | Revoked | Stays alive|Stays alive|Stays alive|
 |User revokes their refresh tokens [via PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureadsignedinuserallrefreshtoken) | Revoked | Revoked |Revoked | Revoked |Revoked | Revoked |
 |Admin revokes all refresh tokens for the tenant [via PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken) | Revoked | Revoked |Revoked | Revoked |Revoked | Revoked |
-|[Single-Sign Out](active-directory-protocols-openid-connect-code#single-sign-out) on web | Revoked | Stays alive |Revoked | Stays alive |Stays alive |Stays alive |
+|[Single-Sign Out](v1-protocols-openid-connect-code#single-sign-out) on web | Revoked | Stays alive |Revoked | Stays alive |Stays alive |Stays alive |
 
 > [!NOTE]
 > A "Non-password based" login is one where the user didn't type in a password to get it.  For example using your face with Windows Hello, a FIDO key, or a PIN. 
