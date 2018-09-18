@@ -660,6 +660,8 @@
         items:
         - name: Alerts with dynamic thresholds
           href: ../monitoring-and-diagnostics/monitoring-alerts-dynamic-thresholds.md?toc=/azure/azure-monitor/toc.json
+        - name: Configure metric alerts on logs
+          href: ../monitoring-and-diagnostics/monitoring-metric-alerts-for-logs.md?toc=/azure/azure-monitor/toc.json
         - name: Create a newer metric alert with a Resource Manager template
           href: ../monitoring-and-diagnostics/monitoring-create-metric-alerts-with-templates.md?toc=/azure/azure-monitor/toc.json
         - name: Create a classic metric alert with a Resource Manager template
@@ -668,6 +670,8 @@
           href: ../monitoring-and-diagnostics/insights-webhooks-alerts.md?toc=/azure/azure-monitor/toc.json
       - name: Use log alerts
         items:  
+        - name: Configure alerts on analytics query
+          href: ../monitoring-and-diagnostics/alert-log.md?toc=/azure/azure-monitor/toc.json
         - name: Webhook actions for log alerts
           href: ../monitoring-and-diagnostics/monitor-alerts-unified-log-webhook.md?toc=/azure/azure-monitor/toc.json
         - name: Create a log alert with a Resource Manager template
@@ -675,7 +679,7 @@
       - name: Use activity log alerts
         items:
         - name: Configure alerts on an activity log event
-          href: ../monitoring-and-diagnostics/monitoring-activity-log-alerts.md?toc=/azure/azure-monitor/toc.json
+          href: ../monitoring-and-diagnostics/alert-activity-log.md?toc=/azure/azure-monitor/toc.json
         - name: Create activity log alerts with Resource Manager
           href: ../monitoring-and-diagnostics/monitoring-create-activity-log-alerts-with-resource-manager-template.md?toc=/azure/azure-monitor/toc.json
         - name: Migrate to activity log alerts
