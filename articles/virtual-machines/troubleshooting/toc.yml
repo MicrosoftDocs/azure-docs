@@ -66,6 +66,8 @@
       href: serial-console-cmd-ps-commands.md
 - name: Errors when deleting storage resources
   href: storage-resource-deletion-errors.md      
+- name: Unexpected reboots of VMs with attached VHDs  
+  href: unexpected-reboots-attached-vhds.md
 - name: Windows activation problems
   href: troubleshoot-activation-problems.md
 - name: Application access issues
@@ -104,3 +106,7 @@
   href: troubleshoot-check-disk-boot-error.md
 - name: Throttling errors
   href: troubleshooting-throttling-errors.md
+- name: Use nested virtualization 
+  href: troubleshoot-vm-by-use-nested-virtualization.md
+- name: Understand a system reboot
+  href: understand-vm-reboot.md
