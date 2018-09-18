@@ -73,7 +73,7 @@ ConfigurationChange
 | where ConfigChangeType == "WindowsServices" and SvcState == "Stopped"
 ```
 
-To learn more about running and searching log files in Log Analytics, see [Azure Log Analytics](https://docs.loganalytics.io/index).
+To learn more about running and searching log files in Log Analytics, see [Azure Log Analytics](../log-analytics/log-analytics-queries.md).
 
 ## Configure Change tracking
 

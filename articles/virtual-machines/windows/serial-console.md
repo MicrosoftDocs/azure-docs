@@ -25,7 +25,7 @@ The Virtual Machine Serial Console on Azure provides access to a text-based cons
 For serial console documentation for Linux VMs, [click here](../linux/serial-console.md).
 
 > [!Note] 
-> Serial Console for virtual machines is generally available in global Azure regions. At this point serial console is not yet available Azure Government or Azure China cloud.
+> Serial Console for virtual machines is generally available in global Azure regions. At this point serial console is not yet available in Azure Government or Azure China clouds.
 
  
 
@@ -61,9 +61,8 @@ To enable Serial console for Windows virtual machines created before February 20
 * `bcdedit /emssettings EMSPORT:1 EMSBAUDRATE:115200`
 3. Reboot the system for the SAC console to be enabled
 
-![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
 
-If needed SAC can be enabled offline as well, 
+If needed, the SAC can be enabled offline as well:
 
 1. Attach the windows disk you want SAC configured for as a data disk to existing VM. 
 2. From an Administrative command prompt, run the following commands 

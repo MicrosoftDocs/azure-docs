@@ -39,7 +39,7 @@ For many Azure resources, you'll see data collected by Azure Monitor right in th
 
 Log data collected by Azure Monitor is stored in Log Analytics which includes a [rich query language](../log-analytics/log-analytics-queries.md) to quickly retrieve, consolidate, and analyze collected data.  You can create and test queries using the [Log Analytics page](../log-analytics/log-analytics-log-search-portals.md) in the Azure portal and then either directly analyze the data using these tools or save queries for use with [visualizations](visualizations.md) or [alert rules](../monitoring-and-diagnostics/monitoring-overview-alerts.md).
 
-The Log Analytics query language is suitable for simple log queries but also includes advanced functionality such as aggregations, joins, and smart analytics. You can quickly learn the query language using [multiple lessons](../log-analytics/query-language/get-started-queries.md) that are available.  Particular guidance is provided to users who are already familiar with [SQL](https://docs.loganalytics.io/docs/Learn/References/SQL-to-Azure-Log-Analytics) and [Splunk](https://docs.loganalytics.io/docs/Learn/References/Splunk-to-Azure-Log-Analytics).
+The Log Analytics query language is suitable for simple log queries but also includes advanced functionality such as aggregations, joins, and smart analytics. You can quickly learn the query language using [multiple lessons](../log-analytics/query-language/get-started-queries.md) that are available.  Particular guidance is provided to users who are already familiar with [SQL](../log-analytics/query-language/sql-cheatsheet.md) and [Splunk](../log-analytics/query-language/splunk-cheatsheet.md).
 
 ![Logs](media/overview/logs.png)
 
