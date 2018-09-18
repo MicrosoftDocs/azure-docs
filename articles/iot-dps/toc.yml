@@ -136,6 +136,8 @@
       maintainContext: true
   - name: Use attestation mechanisms with SDK
     href: use-hsm-with-sdk.md
+  - name: Provision for multitenancy
+    href: how-to-provision-multitenant.md
   - name: Use symmetric keys with legacy devices
     href: how-to-legacy-device-symm-key.md
   - name: Use SDK tools for development
