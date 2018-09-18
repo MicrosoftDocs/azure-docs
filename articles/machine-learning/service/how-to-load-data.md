@@ -14,7 +14,7 @@ ms.date: 09/24/2018
 
 #Load data with the Azure Machine Learning Data Prep SDK
 
-The Azure Machine Learning Data Prep SDK allows you to load different types of input data. You can specify the data file type and its parameters or use the SDK smart reading functionality to automatically detect the type of a file.
+The [Azure Machine Learning Data Prep SDK](https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py) allows you to load different types of input data. You can specify the data file type and its parameters or use the SDK smart reading functionality to automatically detect the type of a file.
 
 ## Read lines
 One of the simplest ways to load data is to read it as text lines.
