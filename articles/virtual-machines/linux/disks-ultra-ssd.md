@@ -1,12 +1,12 @@
 ---
-title: Ultra SSD Managed Disks for Windows VMs | Microsoft Docs
+title: Ultra SSD Managed Disks for Linux VMs | Microsoft Docs
 description: Learn about Ultra SSD Managed Disks for Azure VMs
-services: virtual-machines-windows
+services: virtual-machines-linux
 author: roygara
 
-ms.service: virtual-machines-windows
+ms.service: virtual-machines-linux
 ms.workload: storage
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 09/24/2018
