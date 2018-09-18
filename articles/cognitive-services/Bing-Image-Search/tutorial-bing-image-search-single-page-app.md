@@ -403,5 +403,9 @@ Leave the command window open while you use the tutorial app; closing the window
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Bing Image Search API reference](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+> [Extract Image details using the Bing Image Search API](tutorial-image-post.md)
+
+## See also
+
+* [Bing Image Search API reference](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
 

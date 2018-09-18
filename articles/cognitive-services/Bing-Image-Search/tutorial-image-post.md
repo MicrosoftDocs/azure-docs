@@ -103,5 +103,9 @@ If there are identifiable people or places in the image, this request will retur
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Bing Image Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+> [Display images and search options in a single-page Web app
+](tutorial-bing-image-search-single-page-app.md)
 
+## See also
+
+* [Bing Image Search API reference](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
