@@ -6,6 +6,9 @@
     href: r-server-overview.md
   - name: Hadoop components on HDInsight
     href: ../hdinsight-component-versioning.md
+    maintainContext: true
+  - name: HDInsight 4.0
+    href: ../hdinsight-version-release.md
     maintainContext: true  
 - name: Get started
   items:
