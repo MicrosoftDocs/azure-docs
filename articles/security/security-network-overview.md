@@ -13,13 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/17/2018
+ms.date: 09/17/2018
 ms.author: terrylan
+#Customer intent: As an IT Pro or decision maker I am looking for information on the network security controls available in Azure.
 
 ---
 # Azure network security overview
 
-Azure includes a robust networking infrastructure to support your application and service connectivity requirements. Network connectivity is possible between resources located in Azure, between on-premises and Azure hosted resources, and to and from the internet and Azure.
+Network security could be defined as the process of applying controls to network traffic to protect resources from access or attack by unauthorized entities. The goal is to ensure that only legitimate traffic has access. Azure includes a robust networking infrastructure to support your application and service connectivity requirements. Network connectivity is possible between resources located in Azure, between on-premises and Azure hosted resources, and to and from the internet and Azure.
 
 This article covers some of the options that Azure offers in the area of network security. You can learn about:
 
@@ -73,7 +74,11 @@ Learn more:
 
 #### ASC just in time VM access
 
-[Azure security center](../security-center/security-center-just-in-time.md) can manage the NSGs on VMs and lock access to the VM until a user with the appropriate role-based access control [RBAC](../role-based-access-control/overview.md) permissions requests access. When the user is successfully authorized ASC makes modifications to the NSGs to allow access to selected ports for the time specified. When the time expires the NSGs are restored to their previous secured state.
+[Azure security center](../security-center/security-center-intro.md) can manage the NSGs on VMs and lock access to the VM until a user with the appropriate role-based access control [RBAC](../role-based-access-control/overview.md) permissions requests access. When the user is successfully authorized ASC makes modifications to the NSGs to allow access to selected ports for the time specified. When the time expires the NSGs are restored to their previous secured state.
+
+Learn more:
+
+* [Azure Security Center Just in T](../security-center/security-center-just-in-time.md)
 
 #### Service endpoints
 
