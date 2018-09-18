@@ -15,7 +15,7 @@ ms.author: cherylmc
 
 ExpressRoute Direct provides customers with the ability to connect directly into Microsoft’s global network at peering locations strategically distributed across the world. ExpressRoute Direct provides dual 100Gbps connectivity, which supports Active/Active connectivity at scale. 
 
-Key features that ExpressRoute Direct provide include, but are not limited to:
+Key features that ExpressRoute Direct provides include, but are not limited to:
 
 * Massive Data Ingestion into services like Storage and Cosmos DB 
 * Physical isolation for industries that are regulated and required dedicated and isolated connectivity like: Banking, Government, and retail 
@@ -28,10 +28,10 @@ Key features that ExpressRoute Direct provide include, but are not limited to:
 
 ## Enroll in the Preview
 
-Before you can utilize ExpressRoute direct, you must first enroll your subscription in the preview. To enroll, send an email to ExpressRouteDirect@microsoft.com with your subscription ID. ExpressRoute Direct is an enterprise-grade feature. Please provide additional details:
+Before you can utilize ExpressRoute direct, you must first enroll your subscription in the preview. To enroll, send an email to <ExpressRouteDirect@microsoft.com> with your subscription ID. ExpressRoute Direct is an enterprise-grade feature. Provide additional details:
 
 * Scenarios you are looking to accomplish with **ExpressRoute Direct**
-* Location preferences - see [link](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-locations-providers) for a complete list of all locations
+* Location preferences - see [Partners and peering locations](expressroute-locations-providers.md) for a complete list of all locations
 * Timeline for implementation
 * Any questions you have regarding the services
 
@@ -54,7 +54,7 @@ The functionality in most scenarios is equivalent to circuits that utilize an Ex
 
 ## Circuit SKUs
 
-ExpressRoute Direct supports massive data ingestion scenarios into Azure storage and other big data services. ExpressRoute circuits on ExpressRoute Direct now also supports **40G** and **100G** circuit SKUs. 
+ExpressRoute Direct supports massive data ingestion scenarios into Azure storage and other big data services. ExpressRoute circuits on ExpressRoute Direct now also support **40G** and **100G** circuit SKUs. 
 
 ## VLAN Tagging
 
@@ -63,11 +63,6 @@ ExpressRoute Direct supports both QinQ and Dot1Q VLAN tagging.
 * **QinQ VLAN Tagging** allows for isolated routing domains on a per ExpressRoute circuit basis. Azure dynamically allocates an S-Tag at circuit creation and cannot be changed. Each peering on the circuit (Private and Microsoft) will utilize a unique C-Tag as the VLAN. The C-Tag is not required to be unique across circuits on the ExpressRoute Direct ports. 
 
 * **Dot1Q VLAN Tagging** allows for a single tagged VLAN on a per ExpressRoute Direct port pair basis. A C-Tag used on a peering must be unique across all circuits and peerings on the ExpressRoute Direct port pair. 
-
-## Workflow **Uploaded to VSTS** (Cheryl)
-
-**Uploaded to VSTS** (Cheryl)
-
 
 ## SLA
 

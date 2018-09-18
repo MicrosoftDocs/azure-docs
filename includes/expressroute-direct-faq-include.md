@@ -36,7 +36,7 @@ A select number of ExpressRoute peering locations will support this at public pr
 
 ### What is the SLA for ExpressRoute Direct?
 
-ExpressRoute Direct will utilize the same [enterprise-grade of ExpressRoute](https://azure.microsoft.com/en-us/support/legal/sla/expressroute/v1_3/). 
+ExpressRoute Direct will utilize the same [enterprise-grade of ExpressRoute](https://azure.microsoft.com/support/legal/sla/expressroute/v1_3/). 
 
 ### What scenarios should customers consider with ExpressRoute Direct?  
 
@@ -44,4 +44,4 @@ ExpressRoute Direct provides customers with direct 100Gbps port pairs into the M
 
 ### What is the billing model for ExpressRoute Direct? 
 
-ExpressRoute Direct will be billed for the port pair at a fixed amount. Standard circuits will be included at no additional hours and premium will have a slight add-on charge. Egress will billed on a per circuit basis based on the zone of the peering location.  
+ExpressRoute Direct will be billed for the port pair at a fixed amount. Standard circuits will be included at no additional hours and premium will have a slight add-on charge. Egress will be billed on a per circuit basis based on the zone of the peering location.
