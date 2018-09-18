@@ -73,7 +73,7 @@ Learn more about the classes and methods used in this article:
 See the following articles for full code:
 
 > [!div class="nextstepaction"]
->[Add a pin](./map-add-pin.md)
+> [Add a pin](./map-add-pin.md)
 
 > [!div class="nextstepaction"]
-> d[Add a popup](./map-add-popup.md)
+> [Add a popup](./map-add-popup.md)
