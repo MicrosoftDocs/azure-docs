@@ -17,14 +17,20 @@
   items:
   - name: Prevent unexpected costs
     href: billing-getting-started.md
-  - name: Set up billing alerts
-    href: billing-set-up-alerts.md
-  - name: Calculate pricing
-    href: https://azure.microsoft.com/pricing/calculator/
   - name: Use resource tags
     href: ../azure-resource-manager/resource-group-using-tags.md?toc=/azure/billing/TOC.json
+  - name: Start analyzing costs - EA only
+    href: ../cost-management/quick-acm-cost-analysis.md?toc=/azure/billing/TOC.json
+  - name: Create and manage budgets - EA only
+    href: ../cost-management/tutorial-acm-create-budgets.md?toc=/azure/billing/TOC.json
+  - name: Optimize costs from recommendations - EA only
+    href: ../cost-management/tutorial-acm-opt-recommendations.md?toc=/azure/billing/TOC.json
+  - name: Calculate pricing
+    href: https://azure.microsoft.com/pricing/calculator/
   - name: Understand spending limit
     href: billing-spending-limit.md
+  - name: Set up billing alerts
+    href: billing-set-up-alerts.md
   - name: Analyze costs
     href: billing-cost-analysis.md
   - name: Save with Azure Reservations
