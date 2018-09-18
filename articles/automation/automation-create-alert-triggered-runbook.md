@@ -6,7 +6,7 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/15/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -33,11 +33,11 @@ Because the data that's provided by each type of alert is different, each alert 
 
 ## Create a runbook to handle alerts
 
-To use Automation with alerts, you need a runbook that has logic that manages the alert JSON payload that's passed to the runbook. The following example runbook must be called from an Azure alert. 
+To use Automation with alerts, you need a runbook that has logic that manages the alert JSON payload that's passed to the runbook. The following example runbook must be called from an Azure alert.
 
-As described in the preceding section, each type of alert has a different schema. The script takes in the webhook data in the `WebhookData` runbook input parameter from an alert. Then, the script evaluates the JSON payload to determine which alert type was used. 
+As described in the preceding section, each type of alert has a different schema. The script takes in the webhook data in the `WebhookData` runbook input parameter from an alert. Then, the script evaluates the JSON payload to determine which alert type was used.
 
-This example uses an alert from a VM. It retrieves the VM data from the payload, and then uses that information to stop the VM. The connection must be set up in the Automation account where the runbook is run.
+This example uses an alert from a VM. It retrieves the VM data from the payload, and then uses that information to stop the VM. The connection must be set up in the Automation account where the runbook is run. When using alerts to trigger runbooks, it is important to check the status of the alert in the runbook that is triggered. The runbook will trigger each time the alert changes state. Alerts have multiple states, the two most common states are `Activated` and `Resolved`. Check for this state in your runbook logic to ensure that your runbook does not run more than once. The example in this article shows how to look for `Activated` alerts only.
 
 The runbook uses the **AzureRunAsConnection** [Run As account](automation-create-runas-account.md) to authenticate with Azure to perform the management action against the VM.
 
