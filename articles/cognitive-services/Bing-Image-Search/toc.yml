@@ -33,14 +33,10 @@
       href: image-sdk-java-quickstart.md
 - name: Tutorials
   items:
-  - name: Single-page web app
+  - name: Build an image search web application
     href: tutorial-bing-image-search-single-page-app.md
-  - name: Single-page web app (source code)
-    href: tutorial-bing-image-search-single-page-app-source.md
-  - name: Bing image upload for insights
+  - name: Extract image details
     href: tutorial-image-post.md
-  - name: Bing image upload for insights (source code)
-    href: tutorial-image-post-source.md
 - name: Samples
   items:
     - name: Code samples
