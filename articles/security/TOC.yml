@@ -196,6 +196,7 @@
     - name: PaaS web application
       href: ./blueprints/au-protected-paaswa-overview.md
   - name: FedRAMP
+    displayName: blueprint
     items:
     - name: Data analytics
       href: ./blueprints/fedramp-analytics-overview.md
@@ -206,6 +207,7 @@
     - name: PaaS web application
       href: ./blueprints/fedramp-paaswa-overview.md
   - name: FFIEC
+    displayName: blueprint
     items:
     - name: Data analytics
       href: ./blueprints/ffiec-analytics-overview.md
@@ -216,6 +218,7 @@
     - name: PaaS web application
       href: ./blueprints/ffiec-paaswa-overview.md
   - name: GDPR
+    displayName: blueprint
     items:
     - name: Data analytics
       href: ./blueprints/gdpr-analytics-overview.md
@@ -226,10 +229,12 @@
     - name: PaaS web application
       href: ./blueprints/gdpr-paaswa-overview.md
   - name: HIPAA/HITRUST
+    displayName: blueprint
     items:
     - name: Health Data and AI
       href: ./blueprints/azure-health.md
   - name: NIST SP 800-171
+    displayName: blueprint
     items:
       - name: Data analytics
         href: ./blueprints/nist171-analytics-overview.md
@@ -240,6 +245,7 @@
       - name: PaaS web application
         href: ./blueprints/nist171-paaswa-overview.md
   - name: PCI DSS
+    displayName: blueprint, pci
     items:
     - name: Data analytics
       href: ./blueprints/pcidss-analytics-overview.md
@@ -250,10 +256,12 @@
     - name: PaaS web application
       href: ./blueprints/pcidss-paaswa-overview.md
   - name: TIC
+    displayName: blueprint
     items:
     - name: Trusted Internet Connection with Azure
       href: ./compliance/compliance-tic.md
   - name: UK NHS
+    displayName: blueprint
     items:
       - name: Data analytics
         href: ./blueprints/uknhs-analytics-overview.md
@@ -264,6 +272,7 @@
       - name: PaaS web application
         href: ./blueprints/uknhs-paaswa-overview.md
   - name: UK OFFICIAL
+    displayName: blueprint
     items:
     - name: IaaS web application
       href: ./blueprints/ukofficial-iaaswa-overview.md
