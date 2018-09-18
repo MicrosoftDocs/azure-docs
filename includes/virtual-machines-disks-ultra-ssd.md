@@ -30,7 +30,7 @@ Some key capabilities of Ultra SSD are:
 
 - Disk Capacity: Ultra SSD offers you a range of different disk sizes from 4 GiB up to 64 TiB.
 - Disk IOPS: Ultra SSDs support IOPS limits of 300 IOPS/GiB, up to a maximum of 160 K IOPS per disk. To achieve the IOPS that you provisioned, ensure that the selected Disk IOPS are less than the VM IOPS. The minimum disk IOPS is 100 IOPS.
-- Disk Throughput: With Ultra SSDs, the throughput limit of a single disk is 256 KiB/s for each provisioned IOPS, up to a maximum of 2000 MBps per disk (where MBps = 10^6 Bytes per second) The minimum disk throughput is 1 MiB.
+- Disk Throughput: With Ultra SSDs, the throughput limit of a single disk is 256 KiB/s for each provisioned IOPS, up to a maximum of 2000 MBps per disk (where MBps = 10^6 Bytes per second). The minimum disk throughput is 1 MiB.
 
 The following table summarizes the different configurations supported for different disk sizes:  
 
@@ -92,6 +92,6 @@ At preview, Ultra SSD Disks:
 - Are only available as data disks and only support 4k physical sector size  
 - Can only be created as Empty disks  
 - Currently can only be deployed using Resource Manager templates, CLI, and Python SDK.
-- Will not support disk snapshots, VM Images, Availability Sets, Virtual Machine Scale Sets and Azure Disk Encryption. Support for these service management operations is under development
-- Will not support integration with Azure Backup or Azure Site Recovery. Support for these service management operations is under development
+- Will not (yet) support disk snapshots, VM Images, Availability Sets, Virtual Machine Scale Sets and Azure Disk Encryption.
+- Will not (yet) support integration with Azure Backup or Azure Site Recovery.
 - As with [most previews](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/), this feature should not be used for production workloads until General Availability (GA).
