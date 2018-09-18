@@ -163,7 +163,7 @@ doesn't automatically go to your environment after deployment finishes.
 
 <a name="create-logic-apps-environment"></a>
 
-## Create logic app with ISE
+## Create logic app - ISE
 
 To create logic apps that use your integration service environment (ISE), 
 follow the usual steps in [how to create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
@@ -190,7 +190,7 @@ Connectors without the **ISE** label run in the global Logic Apps service.
 
 <a name="create-integration-account-environment"></a>
 
-## Create integration account with ISE
+## Create integration account - ISE
 
 To use an integration account with logic apps in an 
 integration service environment (ISE), that integration 
