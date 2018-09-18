@@ -73,13 +73,14 @@ tf_est = TensorFlow(source_directory='./my-tf-proj',
                     entry_script='train.py',
                     node_count=2,
                     process_count_per_node=1,
-                    distributed_backend='mpi')
+                    distributed_backend='mpi',
+                    use_gpu=True)
 ```
 
 The above code exposes the following new parameters to the TensorFlow constructor:
 * `node_count`: The number of nodes to use for your training job. This argument defaults to `1`
 * `process_count_per_node`: The number of processes (or "workers") to run on each node. This argument defaults to `1`
-* `distributed_backend`: The backend for launching distributed training, which the Estimator offers via MPI. This argument defaults to `None`. If you want to carry out parallel or distributed training (e.g. `node_count`>1 or `process_count_per_node`>1 or both) with MPI (and Horovod), set `backend='mpi'`. The MPI implementation used by Azure Machine Learning is [Open MPI](https://www.open-mpi.org/).
+* `distributed_backend`: The backend for launching distributed training, which the Estimator offers via MPI. This argument defaults to `None`. If you want to carry out parallel or distributed training (e.g. `node_count`>1 or `process_count_per_node`>1 or both) with MPI (and Horovod), set `distributed_backend='mpi'`. The MPI implementation used by Azure Machine Learning is [Open MPI](https://www.open-mpi.org/).
 
 The above example will run distributed training with two workers, one worker per node.
 
@@ -108,7 +109,8 @@ tf_est = TensorFlow(source_directory='./my-tf-proj',
                     node_count=2,
                     worker_count=2,
                     parameter_server_count=1,
-                    distributed_backend='ps')
+                    distributed_backend='ps',
+                    use_gpu=True)
 ```
 
 Pay attention to the following parameters to the TensorFlow constructor in the above code:
