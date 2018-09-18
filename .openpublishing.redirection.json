@@ -1347,8 +1347,18 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/sql-database/sql-database-sql-database-managed-instance-create-tutorial-portal.md",
+            "source_path": "articles/sql-database/sql-database-managed-instance-create-tutorial-portal.md",
             "redirect_url": "/azure/sql-database/sql-database-managed-instance-get-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-single-database-monitor.md",
+            "redirect_url": "/azure/sql-database/sql-database-monitor-tune-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-troubleshoot-performance.md",
+            "redirect_url": "/azure/sql-database/sql-database-monitor-tune-overview",
             "redirect_document_id": false
         },
         {
