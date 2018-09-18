@@ -33,7 +33,6 @@ To complete this tutorial, you need the following:
 
 You have now created your IoT hub, and you have the host name and IoT Hub connection string that you need to complete the rest of this tutorial.
 
-<a id="DeviceIdentity_csharp"></a>
 ## Create a device identity and a module identity in IoT Hub
 
 In this section, you create a Node.js app that creates a device identity and a module identity in the identity registry in your IoT hub. A device or module cannot connect to IoT hub unless it has an entry in the identity registry. For more information, see the "Identity registry" section of the [IoT Hub developer guide][lnk-devguide-identity]. When you run this console app, it generates a unique ID and key for both device and module. Your device and module use these values to identify itself when it sends device-to-cloud messages to IoT Hub. The IDs are case-sensitive.
@@ -109,8 +108,6 @@ This app creates a device identity with ID **myFirstDevice** and a module identi
     > [!NOTE]
     > The IoT Hub identity registry only stores device and module identities to enable secure access to the IoT hub. The identity registry stores device IDs and keys to use as security credentials. The identity registry also stores an enabled/disabled flag for each device that you can use to disable access for that device. If your application needs to store other device-specific metadata, it should use an application-specific store. There is no enabled/disabled flag for module identities. For more information, see [IoT Hub developer guide][lnk-devguide-identity].
 
-
-<a id="D2C_csharp"></a>
 ## Update the module twin using Node.js device SDK
 
 In this section, you create a Node.js app on your simulated device that updates the module twin reported properties.

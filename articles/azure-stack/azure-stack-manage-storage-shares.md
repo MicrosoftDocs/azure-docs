@@ -162,7 +162,8 @@ Migration consolidates all a containers blob on the new share.
 
     Then examine $destinationshares:
 
-    ````PowerShell $destinationshares
+    ````PowerShell 
+    $destinationshares
     ````
 
     ![Example: $destination shares](media/azure-stack-manage-storage-shares/examine-destinationshares.png)

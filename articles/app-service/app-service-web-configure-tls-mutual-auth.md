@@ -19,7 +19,7 @@ ms.author: naziml
 ---
 # How To Configure TLS Mutual Authentication for Web App
 ## Overview
-You can restrict access to your Azure web app by enabling different types of authentication for it. One way to do so is to authenticate using a client certificate when the request is over TLS/SSL. This mechanism is called TLS mutual authentication or client certificate authentication and this article will detail how to setup your web app to use client certificate authentication.
+You can restrict access to your Azure web app by enabling different types of authentication for it. One way to do so is to authenticate using a client certificate when the request is over TLS/SSL. This mechanism is called TLS mutual authentication or client certificate authentication and this article will detail how to set up your web app to use client certificate authentication.
 
 > **Note:** If you access your site over HTTP and not HTTPS, you will not receive any client certificate. So if your application requires client certificates you should not allow requests to your application over HTTP.
 > 
@@ -28,9 +28,9 @@ You can restrict access to your Azure web app by enabling different types of aut
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Configure Web App for Client Certificate Authentication
-To setup your web app to require client certificates you need to add the clientCertEnabled site setting for your web app and set it to true. This setting is not currently available through the management experience in the Portal, and the REST API will need to be used to accomplish this.
+To set up your web app to require client certificates, you need to add the clientCertEnabled site setting for your web app and set it to true. This setting is also able to be configured in the Azure portal under the SSL certificates blade.
 
-You can use the [ARMClient tool](https://github.com/projectkudu/ARMClient) to make it easy to craft the REST API call. After you log in with the tool you will need to issue the following command:
+You can use the [ARMClient tool](https://github.com/projectkudu/ARMClient) to make it easy to craft the REST API call. After you sign in with the tool, you will need to issue the following command:
 
     ARMClient PUT subscriptions/{Subscription Id}/resourcegroups/{Resource Group Name}/providers/Microsoft.Web/sites/{Website Name}?api-version=2015-04-01 @enableclientcert.json -verbose
 
@@ -43,11 +43,11 @@ replacing everything in {} with information for your web app and creating a file
         }
     }
 
-Make sure to change the value of "location" to wherever your web app is located e.g. North Central US or West US etc.
+Make sure to change the value of "location" to wherever your web app is located for example, North Central US or West US etc.
 
 You can also use https://resources.azure.com to flip the `clientCertEnabled` property to `true`.
 
-> **Note:** If you run ARMClient from Powershell, you will need to escape the @ symbol for the JSON file with a back tick `.
+> **Note:** If you run ARMClient from Powershell, you will need to escape the \@ symbol for the JSON file with a back tick `.
 > 
 > 
 

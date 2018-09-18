@@ -10,10 +10,10 @@ editor: ''
 ms.assetid: 991d41f5-1d17-468d-a66d-83ec1308ab79
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/19/2018
+ms.date: 07/10/2018
 ms.author: terrylan
 
 ---
@@ -23,11 +23,11 @@ Azure Security Center analyzes daily the operating system (OS) of your virtual m
 For more information about the specific configurations that are being monitored, see the [list of recommended configuration rules](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). To learn how to customize security configuration assessments, see [Customize OS security configurations in Azure Security Center (Preview)](security-center-customize-os-security-config.md).
 
 ## Implement the recommendation
-"Remediate security configurations" is presented as a recommendation in Security Center. The recommendation is displayed under **Recommendations** > **Compute**.
+"Remediate security configurations" is presented as a recommendation in Security Center. The recommendation is displayed under **Recommendations** > **Compute & apps**.
 
-This example covers the "Remediate security configurations" recommendation under **Compute**.
-1. In Security Center, in the left pane, select **Compute**.  
-  The **Compute** window opens.
+This example covers the "Remediate security configurations" recommendation under **Compute & apps**.
+1. In Security Center, in the left pane, select **Compute & apps**.  
+  The **Compute & apps** window opens.
 
    ![Remediate security configurations][1]
 

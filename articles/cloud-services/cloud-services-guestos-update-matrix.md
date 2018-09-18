@@ -1,10 +1,9 @@
-﻿---
+---
 title: Learn about the latest Azure Guest OS Releases | Microsoft Docs
 description: The latest release news and SDK compatibility for Azure Cloud Services Guest OS.
 services: cloud-services
 documentationcenter: na
 author: raiye
-manager: timlt
 editor: ''
 
 ms.assetid: 6306cafe-1153-44c7-8554-623b03d59a34
@@ -13,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 6/1/2018
+ms.date: 9/13/2018
 ms.author: raiye
 
 ---
@@ -32,13 +31,23 @@ Provides you with up-to-date information about the latest Azure Guest OS release
 >
 
 > [!IMPORTANT]
-> Starting from the November rollout, only the latest 2 versions of the Guest OS will be supported and available in the Azure portal.
+> Only the latest 2 versions of the Guest OS will be supported and available in the Azure portal.
 >
 >
 
 Unsure about how to update your Guest OS? Check [this][cloud updates] out.
 
 ## News updates
+
+###### **September 12, 2018**
+The August Guest OS has released.
+
+###### **August 3, 2018**
+The July Guest OS has released.
+
+###### **July 3, 2018**
+The June Guest OS has released.
+
 ###### **June 1, 2018**
 The May Guest OS has released.
 
@@ -66,9 +75,6 @@ November Guest OS has released.
 ###### **November 8, 2017**
 October Guest OS has released.
 
-###### **October 6, 2017**
-September Guest OS has released. For the Windows Server 2016 September release, netfx3 is enabled by default. Customers should add ‘dism /online /disable-feature /featurename:netfx3’ in their OnStart if their workflow requires them to run a .NET 2.x app with a 4.x runtime or if they ran a .NET 2.x app, handled an error, and then ran a .NET 4.x app.
-
 
 
 ## Releases
@@ -78,23 +84,22 @@ September Guest OS has released. For the Windows Server 2016 September release, 
 .NET Framework Installed: 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
 
 > [!NOTE]
-> Dates with a * are subject to change.
->
 > The RDP Password for OS Family 5 must be a minimum of 10 characters.
 >
 
-| Configuration String | Release date | Disable date | Expired date |
-| --- | --- | --- | --- |
-| WA-GUEST-OS-5.19_201805-01 |June 1, 2018 |Post 5.21 |TBD |
-| WA-GUEST-OS-5.18_201804-01 |May 4, 2018 |Post 5.20 |TBD |
-|~~WA-GUEST-OS-5.17_201803-01~~ |April 6, 2018 |June 1, 2018|TBD |
-|~~WA-GUEST-OS-5.16_201802-01~~ |March 12, 2018 |May 4, 2018 |TBD |
-|~~WA-GUEST-OS-5.15_201801-01~~ |January 4, 2018 |April 6, 2018 |TBD |
-|~~WA-GUEST-OS-5.14_201712-01~~ |January 4, 2018 |March 12, 2018 |TBD |
-|~~WA-GUEST-OS-5.13_201711-01~~ |December 14, 2017 |January 4, 2018|TBD |
-|~~WA-GUEST-OS-5.12_201710-02~~ |November 8, 2017 |January 4, 2018 |TBD |
-|~~WA-GUEST-OS-5.11_201709-01~~ |October 6, 2017 |December 14, 2017 |TBD |
-|~~WA-GUEST-OS-5.10_201708-01~~ |August 24, 2017 |December 14, 2017 |TBD |
+| Configuration String | Release date | Disable date |
+| --- | --- | --- |
+| WA-GUEST-OS-5.22_201808-01 |September 12, 2018 |Post 5.24 |
+| WA-GUEST-OS-5.21_201807-02 |August 3, 2018 |Post 5.23 |
+|~~WA-GUEST-OS-5.20_201806-01~~ |July 3, 2018 |September 12, 2018 |
+|~~WA-GUEST-OS-5.19_201805-01~~ |June 1, 2018 |August 3, 2018 |
+|~~WA-GUEST-OS-5.18_201804-01~~ |May 4, 2018 |July 3, 2018 |
+|~~WA-GUEST-OS-5.17_201803-01~~ |April 6, 2018 |June 1, 2018|
+|~~WA-GUEST-OS-5.16_201802-01~~ |March 12, 2018 |May 4, 2018 |
+|~~WA-GUEST-OS-5.15_201801-01~~ |January 4, 2018 |April 6, 2018 |
+|~~WA-GUEST-OS-5.14_201712-01~~ |January 4, 2018 |March 12, 2018 |
+|~~WA-GUEST-OS-5.13_201711-01~~ |December 14, 2017 |January 4, 2018|
+|~~WA-GUEST-OS-5.12_201710-02~~ |November 8, 2017 |January 4, 2018 |
 
 
 ## Family 4 releases
@@ -102,24 +107,19 @@ September Guest OS has released. For the Windows Server 2016 September release, 
 
 .NET Framework Installed: 4.0, 4.5, 4.5.1, 4.5.2
 
-> [!NOTE]
-> Dates with a * are subject to change
->
->
-
-| Configuration String | Release date | Disable date | Expired date |
-| --- | --- | --- | --- |
-| WA-GUEST-OS-4.54_201805-01 |June 1, 2018 |Post 4.56 |TBD |
-| WA-GUEST-OS-4.53_201804-01 |May 4, 2018 |Post 4.55 |TBD |
-|~~WA-GUEST-OS-4.52_201803-01~~ |April 6, 2018 |June 1, 2018 |TBD |
-|~~WA-GUEST-OS-4.51_201802-01~~ |March 12, 2018 |May 4, 2018 |TBD |
-|~~WA-GUEST-OS-4.50_201801-01~~ |January 4, 2018 |April 6, 2018 |TBD |
-|~~WA-GUEST-OS-4.49_201712-01~~ |January 4, 2018 |March 12, 2018 |TBD |
-|~~WA-GUEST-OS-4.48_201711-01~~ |December 14, 2017 |January 4, 2018 |TBD |
-|~~WA-GUEST-OS-4.47_201710-02~~ |November 8, 2017 |January 4, 2018 |TBD |
-|~~WA-GUEST-OS-4.46_201709-01~~ |October 6, 2017 |December 14, 2017 |TBD |
-|~~WA-GUEST-OS-4.45_201708-01~~ |August 24, 2017 |December 14, 2017 |TBD |
-
+| Configuration String | Release date | Disable date |
+| --- | --- | --- |
+| WA-GUEST-OS-4.57_201808-01 |September 12, 2018 |Post 4.59 |
+| WA-GUEST-OS-4.56_201807-02 |August 3, 2018 |Post 4.58 |
+|~~WA-GUEST-OS-4.55_201806-01~~ |July 3, 2018 |September 12, 2018 |
+|~~WA-GUEST-OS-4.54_201805-01~~ |June 1, 2018 |August 3, 2018 |
+|~~WA-GUEST-OS-4.53_201804-01~~ |May 4, 2018 |July 3, 2018 |
+|~~WA-GUEST-OS-4.52_201803-01~~ |April 6, 2018 |June 1, 2018 |
+|~~WA-GUEST-OS-4.51_201802-01~~ |March 12, 2018 |May 4, 2018 |
+|~~WA-GUEST-OS-4.50_201801-01~~ |January 4, 2018 |April 6, 2018 |
+|~~WA-GUEST-OS-4.49_201712-01~~ |January 4, 2018 |March 12, 2018 |
+|~~WA-GUEST-OS-4.48_201711-01~~ |December 14, 2017 |January 4, 2018 |
+|~~WA-GUEST-OS-4.47_201710-02~~ |November 8, 2017 |January 4, 2018 |
 
 
 ## Family 3 releases
@@ -127,23 +127,19 @@ September Guest OS has released. For the Windows Server 2016 September release, 
 
 .NET Framework Installed: 4.0, 4.5, 4.5.1, 4.5.2
 
-> [!NOTE]
-> Dates with a * are subject to change
->
->
-
-| Configuration String | Release date | Disable date | Expired date |
-| --- | --- | --- | --- |
-| WA-GUEST-OS-3.61_201805-01 |June 1, 2018 |Post 3.63 |TBD |
-| WA-GUEST-OS-3.60_201804-01 |May 4, 2018 |Post 3.62 |TBD |
-|~~WA-GUEST-OS-3.59_201803-01~~ |April 6, 2018 |June 1, 2018 |TBD |
-|~~WA-GUEST-OS-3.58_201802-01~~ |March 19, 2018 |May 4, 2018 |TBD |
-|~~WA-GUEST-OS-3.57_201801-01~~ |January 29, 2018 |April 6, 2018 |TBD |
-|~~WA-GUEST-OS-3.56_201712-01~~ |January 4, 2018 |March 19, 2018 |TBD |
-|~~WA-GUEST-OS-3.55_201711-01~~ |December 14, 2017 |January 29, 2018 |TBD |
-|~~WA-GUEST-OS-3.54_201710-02~~ |November 8, 2017 |January 4, 2018 |TBD |
-|~~WA-GUEST-OS-3.53_201709-01~~ |October 6, 2017 |December 14, 2017 |TBD |
-|~~WA-GUEST-OS-3.52_201708-01~~ |August 24, 2017 |December 14, 2017 |TBD |
+| Configuration String | Release date | Disable date |
+| --- | --- | --- |
+| WA-GUEST-OS-3.64_201808-01 |September 12, 2018 |Post 3.66 |
+| WA-GUEST-OS-3.63_201807-02 |August 3, 2018 |Post 3.65 |
+|~~WA-GUEST-OS-3.62_201806-01~~ |July 3, 2018 |September 12, 2018 |
+|~~WA-GUEST-OS-3.61_201805-01~~ |June 1, 2018 |August 3, 2018 |
+|~~WA-GUEST-OS-3.60_201804-01~~ |May 4, 2018 |July 3, 2018 |
+|~~WA-GUEST-OS-3.59_201803-01~~ |April 6, 2018 |June 1, 2018 |
+|~~WA-GUEST-OS-3.58_201802-01~~ |March 19, 2018 |May 4, 2018 |
+|~~WA-GUEST-OS-3.57_201801-01~~ |January 29, 2018 |April 6, 2018 |
+|~~WA-GUEST-OS-3.56_201712-01~~ |January 4, 2018 |March 19, 2018 |
+|~~WA-GUEST-OS-3.55_201711-01~~ |December 14, 2017 |January 29, 2018 |
+|~~WA-GUEST-OS-3.54_201710-02~~ |November 8, 2017 |January 4, 2018 |
 
 
 ## Family 2 releases
@@ -151,23 +147,21 @@ September Guest OS has released. For the Windows Server 2016 September release, 
 
 .NET Framework Installed: 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
-> [!NOTE]
-> Dates with a * are subject to change
->
->
-
-| Configuration String | Release date | Disable date | Expired date |
-| --- | --- | --- | --- |
-| WA-GUEST-OS-2.74_201805-01 |June 1, 2018 |Post 2.76 |TBD |
-| WA-GUEST-OS-2.73_201804-01 |May 4, 2018 |Post 2.75 |TBD |
-|~~WA-GUEST-OS-2.72_201803-01~~ |April 6, 2018 |June 1, 2018 |TBD |
-|~~WA-GUEST-OS-2.71_201802-01~~ |March 12, 2018 |May 4, 2018 |TBD |
-|~~WA-GUEST-OS-2.70_201801-01~~ |January 29, 2018 |April 6, 2018 |TBD |
-|~~WA-GUEST-OS-2.69_201712-01~~ |January 4, 2018 |March 12, 2018 |TBD |
-|~~WA-GUEST-OS-2.68_201711-01~~ |December 14, 2017 |January 29, 2018 |TBD |
-|~~WA-GUEST-OS-2.67_201710-02~~ |November 8, 2017 |January 4, 2018 |TBD |
-|~~WA-GUEST-OS-2.66_201709-01~~ |October 6, 2017 |December 14, 2017 |TBD |
-|~~WA-GUEST-OS-2.65_201708-01~~ |August 24, 2017 |December 14, 2017 |TBD |
+| Configuration String | Release date | Disable date |
+| --- | --- | --- |
+| WA-GUEST-OS-2.77_201808-01 |September 12, 2018 |Post 2.79 |
+| WA-GUEST-OS-2.76_201807-02 |August 3, 2018 |Post 2.78 |
+|~~WA-GUEST-OS-2.75_201806-01~~ |July 3, 2018 |September 12, 2018 |
+|~~WA-GUEST-OS-2.74_201805-01~~ |June 1, 2018 |August 3, 2018|
+|~~WA-GUEST-OS-2.73_201804-01~~ |May 4, 2018 |July 3, 2018 |
+|~~WA-GUEST-OS-2.72_201803-01~~ |April 6, 2018 |June 1, 2018 |
+|~~WA-GUEST-OS-2.71_201802-01~~ |March 12, 2018 |May 4, 2018 |
+|~~WA-GUEST-OS-2.70_201801-01~~ |January 29, 2018 |April 6, 2018 |
+|~~WA-GUEST-OS-2.69_201712-01~~ |January 4, 2018 |March 12, 2018 |
+|~~WA-GUEST-OS-2.68_201711-01~~ |December 14, 2017 |January 29, 2018 |
+|~~WA-GUEST-OS-2.67_201710-02~~ |November 8, 2017 |January 4, 2018 |
+|~~WA-GUEST-OS-2.66_201709-01~~ |October 6, 2017 |December 14, 2017 |
+|~~WA-GUEST-OS-2.65_201708-01~~ |August 24, 2017 |December 14, 2017 |
 
 
 ## MSRC patch updates
@@ -212,7 +206,7 @@ In the example below, 2 is the family, 12 is the version and "rel2" is the relea
 The configuration string for a Guest OS has this same information embedded in it, along with a date showing which MSRC patches were considered for that release. In this example, MSRC patches produced for Windows Server 2008 R2 up to and including August 2012 were considered for inclusion. Only patches specifically applying to that version of Windows Server are included. For example, if an MSRC patch applies to Microsoft Office, it will not be included because that product is not part of the Windows Server base image.
 
 ## Guest OS System Update Process
-This page includes information on upcoming Guest OS Releases. Customers have indicated that they want to know when a release occurs because their cloud service roles will reboot if they are set to "Automatic" update. Guest OS releases typically occur at least five (5) days after the MSRC update release that occurs on the second Tuesday of every month. New releases include all the relevant MSRC patches for each Guest OS family.
+This page includes information on upcoming Guest OS Releases. Customers have indicated that they want to know when a release occurs because their cloud service roles will reboot if they are set to "Automatic" update. Guest OS releases typically occur 2-3 weeks after the MSRC update release that occurs on the second Tuesday of every month. New releases include all the relevant MSRC patches for each Guest OS family.
 
 Microsoft Azure is constantly releasing updates. The Guest OS is only one such update in the pipeline. A release can be affected by many factors too numerous to list here. In addition, Azure runs on literally hundreds of thousands of machines. This means that it's impossible to give an exact date and time when your role(s) will reboot. We are working on a plan to limit or time reboots.
 
@@ -225,7 +219,7 @@ If you manually update your Guest OS, see the [Guest OS retirement policy][retir
 ## Guest OS Supportability and Retirement Policy
 The Guest OS supportability and retirement policy is explained [here][retirepolicy].
 
-[cloud updates]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-update-azure-service
+[cloud updates]: https://docs.microsoft.com/azure/cloud-services/cloud-services-update-azure-service
 [Guest OS Update RSS Feed]: https://raw.githubusercontent.com/MicrosoftDocs/azure-cloud-services-files/master/GuestOS/GuestOSFeed.xml
 [Install .NET on a Cloud Service Role]: https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
 [Azure Guest OS Update Settings]: cloud-services-how-to-configure-portal.md
@@ -238,7 +232,7 @@ The Guest OS supportability and retirement policy is explained [here][retirepoli
 [server and gos]: https://msdn.microsoft.com/library/dn775043.aspx
 [azuresupport]: http://azure.microsoft.com/support/options/
 [net install pkg]: http://www.microsoft.com/download/details.aspx?id=42643
-[msrc]: https://technet.microsoft.com/en-us/security/dn440717.aspx
+[msrc]: https://technet.microsoft.com/security/dn440717.aspx
 [update guest os portal]: https://msdn.microsoft.com/library/gg433101.aspx
 [update guest os svc]: https://msdn.microsoft.com/library/gg456324.aspx
 [restarts]: http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx

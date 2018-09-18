@@ -1,20 +1,22 @@
 ---
-title: Computer Vision API C# quickstart sdk create thumbnail | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
-description: In this quickstart, you generate a thumbnail from an image using the Computer Vision Windows C# client library in Cognitive Services.
+title: "Quickstart: Generate a thumbnail - SDK, C# - Computer Vision"
+titleSuffix: "Azure Cognitive Services"
+description: In this quickstart, you generate a thumbnail from an image using the Computer Vision Windows C# client library.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
-ms.date: 06/28/2018
+ms.date: 09/14/2018
 ms.author: nolachar
 ---
-# Quickstart: Generate a thumbnail with C&#35;
+# Quickstart: Generate a thumbnail using the Computer Vision SDK and C#
 
 In this quickstart, you generate a thumbnail from an image using the Computer Vision Windows client library.
+
+Get the latest code as a Visual Studio solution from the [Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision) GitHub repository.
 
 ## Prerequisites
 
@@ -35,14 +37,14 @@ To run the sample, do the following steps:
     1. Select **Microsoft.Azure.CognitiveServices.Vision.ComputerVision** when it displays, then click the checkbox next to your project name, and **Install**.
 1. Replace `Program.cs` with the following code.
 1. Replace `<Subscription Key>` with your valid subscription key.
-1. Change `computerVision.AzureRegion = AzureRegions.Westcentralus` to the location where you obtained your subscription keys, if necessary.
-1. Replace `<LocalImage>` with the path and file name of a local image.
+1. Change `computerVision.Endpoint` to the Azure region associated with your subscription keys, if necessary.
+1. Optionally, replace `<LocalImage>` with the path and file name of a local image (will be ignored if not set).
 1. Optionally, set `remoteImageUrl` to a different image.
+1. Optionally, set `writeThumbnailToDisk` to `true` to save the thumbnail to disk.
 1. Run the program.
 
 ```csharp
 using Microsoft.Azure.CognitiveServices.Vision.ComputerVision;
-using Microsoft.Azure.CognitiveServices.Vision.ComputerVision.Models;
 
 using System;
 using System.IO;
@@ -52,6 +54,8 @@ namespace ImageThumbnail
 {
     class Program
     {
+        private const bool writeThumbnailToDisk = false;
+
         // subscriptionKey = "0123456789abcdef0123456789ABCDEF"
         private const string subscriptionKey = "<SubscriptionKey>";
 
@@ -66,55 +70,62 @@ namespace ImageThumbnail
 
         static void Main(string[] args)
         {
-            ComputerVisionAPI computerVision = new ComputerVisionAPI(
+            ComputerVisionClient computerVision = new ComputerVisionClient(
                 new ApiKeyServiceClientCredentials(subscriptionKey),
                 new System.Net.Http.DelegatingHandler[] { });
 
             // You must use the same region as you used to get your subscription
             // keys. For example, if you got your subscription keys from westus,
-            // replace "Westcentralus" with "Westus".
+            // replace "westcentralus" with "westus".
             //
             // Free trial subscription keys are generated in the westcentralus
             // region. If you use a free trial subscription key, you shouldn't
             // need to change the region.
 
             // Specify the Azure region
-            computerVision.AzureRegion = AzureRegions.Westcentralus;
+            computerVision.Endpoint = "https://westcentralus.api.cognitive.microsoft.com";
 
+            Console.WriteLine("Images being analyzed ...\n");
             var t1 = GetRemoteThumbnailAsync(computerVision, remoteImageUrl);
             var t2 = GetLocalThumbnailAsnc(computerVision, localImagePath);
 
-            Task.WhenAll(t1, t2).Wait();
-
+            Task.WhenAll(t1, t2).Wait(5000);
             Console.WriteLine("Press any key to exit");
             Console.ReadLine();
         }
 
         // Create a thumbnail from a remote image
         private static async Task GetRemoteThumbnailAsync(
-            ComputerVisionAPI computerVision, string imageUrl)
+            ComputerVisionClient computerVision, string imageUrl)
         {
+            if (!Uri.IsWellFormedUriString(imageUrl, UriKind.Absolute))
+            {
+                Console.WriteLine(
+                    "\nInvalid remoteImageUrl:\n{0} \n", imageUrl);
+                return;
+            }
+
             Stream thumbnail = await computerVision.GenerateThumbnailAsync(
                 thumbnailWidth, thumbnailHeight, imageUrl, true);
 
+            string path = Environment.CurrentDirectory;
             string imageName = imageUrl.Substring(imageUrl.LastIndexOf('/') + 1);
-            string path = Environment.ExpandEnvironmentVariables("%TEMP%");
             string thumbnailFilePath =
                 path + "\\" + imageName.Insert(imageName.Length - 4, "_thumb");
 
-            // Save the thumbnail to the users %TEMP% folder,
+            // Save the thumbnail to the current working directory,
             // using the original name with the suffix "_thumb".
             SaveThumbnail(thumbnail, thumbnailFilePath);
         }
 
         // Create a thumbnail from a local image
         private static async Task GetLocalThumbnailAsnc(
-            ComputerVisionAPI computerVision, string imagePath)
+            ComputerVisionClient computerVision, string imagePath)
         {
             if (!File.Exists(imagePath))
             {
                 Console.WriteLine(
-                    "\n{0} doesn't exist or you don't have read permission\n", imagePath);
+                    "\nUnable to open or read localImagePath:\n{0} \n", imagePath);
                 return;
             }
 
@@ -136,11 +147,15 @@ namespace ImageThumbnail
         // NOTE: This will overwrite an existing file of the same name.
         private static void SaveThumbnail(Stream thumbnail, string thumbnailFilePath)
         {
-            using (Stream file = File.Create(thumbnailFilePath))
+            if (writeThumbnailToDisk)
             {
-                thumbnail.CopyTo(file);
+                using (Stream file = File.Create(thumbnailFilePath))
+                {
+                    thumbnail.CopyTo(file);
+                }
             }
-            Console.WriteLine("Thumbnail written to: {0}\n", thumbnailFilePath);
+            Console.WriteLine("Thumbnail {0} written to: {1}\n",
+                writeThumbnailToDisk ? "" : "NOT", thumbnailFilePath);
         }
     }
 }
@@ -153,7 +168,7 @@ A successful response saves the thumbnail for each image locally and displays th
 ```cmd
 Thumbnail written to: C:\Documents\LocalImage_thumb.jpg
 
-Thumbnail written to: C:\Users\user\AppData\Local\Temp\Bloodhound_Puppy_thumb.jpg
+Thumbnail written to: ...\bin\Debug\Bloodhound_Puppy_thumb.jpg
 ```
 
 ## Next steps

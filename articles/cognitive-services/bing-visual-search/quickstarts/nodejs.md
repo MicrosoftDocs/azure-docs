@@ -91,6 +91,7 @@ function requestCallback(err, res, body) {
 ## Next steps
 
 [Get insights about an image using an insights token](../use-insights-token.md)  
+[Bing Visual Search image upload tutorial](../tutorial-visual-search-image-upload.md)
 [Bing Visual Search single-page app tutorial](../tutorial-bing-visual-search-single-page-app.md)  
 [Bing Visual Search overview](../overview.md)  
 [Try it](https://aka.ms/bingvisualsearchtryforfree)  

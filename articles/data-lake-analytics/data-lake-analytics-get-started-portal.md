@@ -5,10 +5,10 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
 ms.author: saveenr
-manager: kfile
-editor: jasonwhowell
+
+ms.reviewer: jasonwhowell
 ms.assetid: b1584d16-e0d2-4019-ad1f-f04be8c5b430
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 03/21/2017
 ---
 
@@ -23,7 +23,7 @@ Before you begin this tutorial, you must have an **Azure subscription**. See [Ge
 
 ## Create a Data Lake Analytics account
 
-Now, you will create a Data Lake Analytics and a Data Lake Store account at the same time.  This step is simple and only takes about 60 seconds to finish.
+Now, you will create a Data Lake Analytics and an Azure Data Lake Storage Gen1 account at the same time.  This step is simple and only takes about 60 seconds to finish.
 
 1. Sign on to the [Azure portal](https://portal.azure.com).
 2. Click **Create a resource** >  **Data + Analytics** > **Data Lake Analytics**.
@@ -32,14 +32,14 @@ Now, you will create a Data Lake Analytics and a Data Lake Store account at the 
    * **Subscription**: Choose the Azure subscription used for the Analytics account.
    * **Resource Group**. Select an existing Azure Resource Group or create a new one.
    * **Location**. Select an Azure data center for the Data Lake Analytics account.
-   * **Data Lake Store**: Follow the instruction to create a new Data Lake Store account, or select an existing one. 
+   * **Data Lake Storage Gen1**: Follow the instruction to create a new Data Lake Storage Gen1 account, or select an existing one. 
 4. Optionally, select a pricing tier for your Data Lake Analytics account.
 5. Click **Create**. 
 
 
 ## Your first U-SQL script
 
-The following text is a very simple U-SQL script. All it does is define a small dataset within the script and then write that dataset out to the default Data Lake Store as a file called `/data.csv`.
+The following text is a very simple U-SQL script. All it does is define a small dataset within the script and then write that dataset out to the default Data Lake Storage Gen1 account as a file called `/data.csv`.
 
 ```
 @a  = 

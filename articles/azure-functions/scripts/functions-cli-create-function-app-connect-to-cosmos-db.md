@@ -4,16 +4,12 @@ description: Azure CLI Script Sample - Create an Azure Function that connects to
 services: functions
 documentationcenter: functions
 author: ggailey777
-manager: cfowler
-editor: 
-tags: functions
+manager: jeconnoc
 ms.assetid: 
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: 
-ms.date: 01/22/2018
+ms.date: 07/03/2018
 ms.author: glenga
 ms.custom: mvc
 ---
@@ -41,12 +37,10 @@ This script uses the following commands: Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-| [az login](https://docs.microsoft.com/cli/azure/reference-index#az_login) | Log in to Azure. |
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Create a resource group with location |
-| [az storage accounts create](https://docs.microsoft.com/cli/azure/storage/account) | Create a storage account |
-| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az_functionapp_create) | Create a new function app |
-| [az cosmosdb create](https://docs.microsoft.com/cli/azure/cosmosdb#az_cosmosdb_create) | Create cosmosdb database |
-| [az group delete](https://docs.microsoft.com/cli/azure/group#az_group_delete) | Clean up |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Create a resource group with location |
+| [az storage accounts create](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-create) | Create a storage account |
+| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az-functionapp-create) | Creates a function app in the serverless [consumption plan](../functions-scale.md#consumption-plan). |
+| [az cosmosdb create](https://docs.microsoft.com/cli/azure/cosmosdb#az-cosmosdb-create) | Create an Azure Cosmos DB database. |
 
 ## Next steps
 

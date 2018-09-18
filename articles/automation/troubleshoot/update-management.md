@@ -4,14 +4,38 @@ description: Learn how to troubleshoot issues with Update Management
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/19/2018
+ms.date: 08/08/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
 ---
 # Troubleshooting issues with Update Management
 
-This article discusses solutions to resolve issues that you may encounter when using Update Management
+This article discusses solutions to resolve issues that you may encounter when using Update Management.
+
+## General
+
+### <a name="components-enabled-not-working"></a>Scenario: The components for the 'Update Management' solution have been enabled, and now this virtual machine is being configured
+
+#### Issue
+
+You continue to see the following message on a virtual machine 15 minutes after onboarding:
+
+```
+The components for the 'Update Management' solution have been enabled, and now this virtual machine is being configured. Please be patient, as this can sometimes take up to 15 minutes.
+```
+
+#### Cause
+
+This error can be caused by the following reasons:
+
+1. Communication back to the Automation Account is being blocked.
+2. The VM being onboarded may have came from a cloned machine that was not sysprepped with the Microsoft Monitoring Agent installed.
+
+#### Resolution
+
+1. Visit, [Network planning](../automation-hybrid-runbook-worker.md#network-planning) to learn about which addresses and ports need to be allowed for Update Management to work.
+2. If using a cloned image, sysprep the image first and install the MMA agent after the fact.
 
 ## Windows
 
@@ -25,7 +49,7 @@ The following section highlights specific error messages and a possible resoluti
 
 You receive the following error message:
 
-```error
+```
 Unable to Register Machine for Patch Management, Registration Failed with Exception System.InvalidOperationException: {"Message":"Machine is already registered to a different account."}
 ```
 

@@ -1,13 +1,11 @@
 ---
-title: 'Quickstart: Run a workflow through the Microsoft Genomics service | Microsoft Docs'
+title: 'Quickstart: Run a workflow through Microsoft Genomics'
 description: The quickstart shows how to load input data into Azure Blob Storage and run a workflow through the Microsoft Genomics service. 
-services: microsoft-genomics
+services: genomics
 author: grhuynh
-manager: jhubbard
-editor: jasonwhowell
+manager: cgronlun
 ms.author: grhuynh
-ms.service: microsoft-genomics
-ms.workload: genomics
+ms.service: genomics
 ms.topic: quickstart
 ms.date: 12/07/2017
 
@@ -16,7 +14,8 @@ ms.date: 12/07/2017
 
 # Quickstart: Run a workflow through the Microsoft Genomics service
 
-Microsoft Genomics is a scalable, secure service for secondary analysis that can rapidly process a genome, starting from raw reads and producing aligned reads and variant calls. 
+This quickstart shows how to load input data into Azure Blob Storage and run a workflow through the Microsoft Genomics service. Microsoft Genomics is a scalable, secure service for secondary analysis that can rapidly process a genome, starting from raw reads and producing aligned reads and variant calls. 
+
 Get started in just a few steps: 
 1.	Set up: Create a Microsoft Genomics account through the Azure portal, and install the Microsoft Genomics Python client in your local environment. 
 2.	Upload input data: Create a Microsoft Azure storage account through the Azure portal, and upload the input files. The input files should be paired end reads (fastq or bam files).
@@ -55,7 +54,9 @@ Users need to install both Python and the Microsoft Genomics Python client in th
 
 ### Install Python
 
-The Microsoft Genomics Python client is compatible with Python 2.7. We recommend using version 2.7.12 or later; 2.7.14 is the suggested version. You can find the download [here](https://www.python.org/downloads/). 
+The Microsoft Genomics Python client is compatible with Python 2.7. 12 or later 2.7.xx version; 2.7.15 is the latest version at the time of this writing; 2.7.14 is the suggested version. You can find the download [here](https://www.python.org/downloads/). 
+
+NOTE: Python 3.x isn't compatible with Python 2.7.xx.  MSGen is a Python 2.7 application. When running MSGen, make sure that your active Python environment is using a 2.7.xx version of Python. You may get errors when trying to use MSGen with a 3.x version of Python.
 
 
 ### Install the Microsoft Genomics client

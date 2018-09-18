@@ -3,7 +3,7 @@ title: Azure DNS metrics and alerts | Microsoft Docs
 description: Learn about Azure DNS metrics and alerts.
 services: dns
 documentationcenter: na
-author: KumudD
+author: vhorne
 manager: jennoc
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
-ms.author: kumud
+ms.author: victorh
 ---
 
 # Azure DNS metrics and alerts

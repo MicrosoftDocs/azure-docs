@@ -3,9 +3,9 @@ title: 'Tutorial: Azure Active Directory integration with Workday | Microsoft Do
 description: Learn how to configure single sign-on between Azure Active Directory and Workday.
 services: active-directory
 documentationCenter: na
-author: jeevansd
-manager: femila
-ms.reviewer: joflore
+author: cmmdesai
+manager: mtillman
+ms.reviewer: jeedes
 
 ms.assetid: e9da692e-4a65-4231-8ab3-bc9a87b10bca
 ms.service: active-directory
@@ -14,8 +14,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2018
-ms.author: jeedes
+ms.date: 09/11/2018
+ms.author: chmutali
 
 ---
 # Tutorial: Azure Active Directory integration with Workday
@@ -46,6 +46,7 @@ To test the steps in this tutorial, you should follow these recommendations:
 - If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario description
+
 In this tutorial, you test Azure AD single sign-on in a test environment. 
 The scenario outlined in this tutorial consists of two main building blocks:
 
@@ -53,6 +54,7 @@ The scenario outlined in this tutorial consists of two main building blocks:
 2. Configuring and testing Azure AD single sign-on
 
 ## Adding Workday from the gallery
+
 To configure the integration of Workday into Azure AD, you need to add Workday from the gallery to your list of managed SaaS apps.
 
 **To add Workday from the gallery, perform the following steps:**
@@ -100,7 +102,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Configure single sign-on link][4]
 
 2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
+
 	![Single sign-on dialog box](./media/workday-tutorial/tutorial_workday_samlbase.png)
 
 3. On the **Workday Domain and URLs** section, perform the following steps:
@@ -116,37 +118,44 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Workday Domain and URLs single sign-on information](./media/workday-tutorial/tutorial_workday_url1.png)
 
     In the **Reply URL** textbox, type a URL using the following pattern: `https://impl.workday.com/<tenant>/login-saml.htmld`
-	 
-	> [!NOTE] 
-	> These values are not the real. Update these values with the actual Sign-on URL and Reply URL. Your reply URL must have a subdomain for example: www, wd2, wd3, wd3-impl, wd5, wd5-impl). 
-    > Using something like "*http://www.myworkday.com*" works but "*http://myworkday.com*" does not. Contact [Workday Client support team](https://www.workday.com/en-us/partners-services/services/support.html) to get these values.  
 
-5. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
+	> [!NOTE]
+	> These values are not the real. Update these values with the actual Sign-on URL and Reply URL. Your reply URL must have a subdomain for example: www, wd2, wd3, wd3-impl, wd5, wd5-impl).
+    > Using something like "*http://www.myworkday.com*" works but "*http://myworkday.com*" does not. Contact [Workday Client support team](https://www.workday.com/en-us/partners-services/services/support.html) to get these values.
 
-	![The Certificate download link](./media/workday-tutorial/tutorial_workday_certificate.png) 
+5. Workday application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. The following screenshot shows an example for this configuration.
 
-6. Click **Save** button.
+    ![Configure Single Sign-On](./media/Workday-tutorial/tutorial_workday_attributes.png)
+
+    > [!NOTE]
+    > Here we have mapped the Name ID with UPN (user.userprincipalname) as default. You need to map the Name ID with actual User ID in your Workday account (your email, UPN etc.) for successful working of SSO.
+
+6. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
+
+	![The Certificate download link](./media/workday-tutorial/tutorial_workday_certificate.png)
+
+7. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/workday-tutorial/tutorial_general_400.png)
-	
-7. On the **Workday Configuration** section, click **Configure Workday** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
-	![Workday Configuration](./media/workday-tutorial/tutorial_workday_configure.png) 
+8. On the **Workday Configuration** section, click **Configure Workday** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
-8. In a different web browser window, log in to your Workday company site as an administrator.
+	![Workday Configuration](./media/workday-tutorial/tutorial_workday_configure.png)
 
-9. In the **Search box** search with the name **Edit Tenant Setup – Security** on the top left side of the home page.
-   
+9. In a different web browser window, log in to your Workday company site as an administrator.
+
+10. In the **Search box** search with the name **Edit Tenant Setup – Security** on the top left side of the home page.
+
     ![Edit Tenant Security](./media/workday-tutorial/IC782925.png "Edit Tenant Security")
 
-10. In the **Redirection URLs** section, perform the following steps:
-   
+11. In the **Redirection URLs** section, perform the following steps:
+
     ![Redirection URLs](./media/workday-tutorial/IC7829581.png "Redirection URLs")
-   
+
     a. Click **Add Row**.
-   
+
     b. In the **Login Redirect URL** textbox and the **Mobile Redirect URL** textbox, type the **Sign-on URL** you have entered on the **Workday Domain and URLs** section of the Azure portal.
-   
+
     c. In the Azure portal, on the **Configure sign-on** window, copy the **Sign-Out URL**, and then paste it into the **Logout Redirect URL** textbox.
 
     d. In **Used for Environments** textbox, select the environment name.  
@@ -156,74 +165,77 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     >-If the domain name of the Workday tenant URL starts with impl for example: *https://impl.workday.com/\<tenant\>/login-saml2.htmld*), the **Environment** attribute must be set to Implementation.  
     >-If the domain name starts with something else, you need to contact [Workday Client support team](https://www.workday.com/en-us/partners-services/services/support.html) to get the matching **Environment** value.
 
-11. In the **SAML Setup** section, perform the following steps:
-   
+12. In the **SAML Setup** section, perform the following steps:
+
     ![SAML Setup](./media/workday-tutorial/IC782926.png "SAML Setup")
-   
+
     a.  Select **Enable SAML Authentication**.
-   
+
     b.  Click **Add Row**.
 
-12. In the **SAML Identity Providers** section, perform the following steps:
-   
+13. In the **SAML Identity Providers** section, perform the following steps:
+
     ![SAML Identity Providers](./media/workday-tutorial/IC7829271.png "SAML Identity Providers")
-   
+
     a. In the **Identity Provider Name** textbox, type a provider name (for example: *SPInitiatedSSO*).
-   
+
     b. In the Azure portal, on the **Configure sign-on** window, copy the **SAML Entity ID** value, and then paste it into the **Issuer** textbox.
 
     ![SAML Identity Providers](./media/workday-tutorial/IC7829272.png "SAML Identity Providers")
-   
+
     c. In the Azure portal, on the **Configure sign-on** window, copy the **Sign-Out URL** value, and then paste it into the **Logout Response URL** textbox.
 
 	d. In the Azure portal, on the **Configure sign-on** window, copy the **SAML Single Sign-On Service URL** value, and then paste it into the **IdP SSO Service URL** textbox.
 
 	e. In **Used for Environments** textbox, select the environment name.
 
-    f. Click **Identity Provider Public Key Certificate**, and then click **Create**. 
+    f. Click **Identity Provider Public Key Certificate**, and then click **Create**.
 
     ![Create](./media/workday-tutorial/IC782928.png "Create")
 
-    g. Click **Create x509 Public Key**. 
+    g. Click **Create x509 Public Key**.
 
     ![Create](./media/workday-tutorial/IC782929.png "Create")
 
-13. In the **View x509 Public Key** section, perform the following steps: 
-   
-    ![View x509 Public Key](./media/workday-tutorial/IC782930.png "View x509 Public Key") 
-   
+14. In the **View x509 Public Key** section, perform the following steps:
+
+    ![View x509 Public Key](./media/workday-tutorial/IC782930.png "View x509 Public Key")
+
     a. In the **Name** textbox, type a name for your certificate (for example: *PPE\_SP*).
-   
+
     b. In the **Valid From** textbox, type the valid from attribute value of your certificate.
-   
+
     c.  In the **Valid To** textbox, type the valid to attribute value of your certificate.
-   
+
     > [!NOTE]
     > You can get the valid from date and the valid to date from the downloaded certificate by double-clicking it.  The dates are listed under the **Details** tab.
-    > 
     >
-   
+    >
+
     d.  Open your base-64 encoded certificate in notepad, and then copy the content of it.
-   
+
     e.  In the **Certificate** textbox, paste the content of your clipboard.
-   
+
     f.  Click **OK**.
 
-14. Perform the following steps: 
-   
+15. Perform the following steps:
+
     ![SSO configuration](./media/workday-tutorial/WorkdaySSOConfiguratio.png "SSO configuration")
-   
+
     a.  In the **Service Provider ID** textbox, type **http://www.workday.com**.
-   
+
     b. Select **Do Not Deflate SP-initiated Authentication Request**.
-   
-    c. As **Authentication Request Signature Method**, select **SHA256**. 
-   
+
+    c. As **Authentication Request Signature Method**, select **SHA256**.
+
     ![Authentication Request Signature Method](./media/workday-tutorial/WorkdaySSOConfiguration.png "Authentication Request Signature Method") 
-   
-    d. Click **OK**. 
-   
+
+    d. Click **OK**.
+
     ![OK](./media/workday-tutorial/IC782933.png "OK")
+
+    > [!NOTE]
+    > Please ensure you set up single sign-on correctly. In case you enable single sign-on with incorrect setup, you may not be able to enter the application with your credentials and get locked out. In this situation, Workday provides a backup log-in url where users can sign-in using their normal username and password in the following format:[Your Workday URL]/login.flex?redirect=n
 
 ### Create an Azure AD test user
 
@@ -296,7 +308,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the Workday tile in the Access Panel, you should get automatically signed-on to your Workday application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 

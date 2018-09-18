@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2018
+ms.date: 07/11/2018
 ms.author: brenduns
 ms.reviewer: justini
 
@@ -103,7 +103,7 @@ This update includes the following improvements and fixes for Azure Stack.
 ### Post-update steps
 - After the installation of 1803, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).
 
-  - [KB 4341390 - Azure Stack Hotfix 1.0.180424.12](https://support.microsoft.com/en-us/help/4341390).
+  - [KB 4344115 - Azure Stack Hotfix 1.0.180427.15](https://support.microsoft.com/help/4344115).
 
 - After installing this update, review your firewall configuration to ensure [necessary ports](azure-stack-integrate-endpoints.md) are open. For example, this update introduces *Azure Monitor* which includes a change of Audit logs to Activity logs. With this change, port 13012 is now used and must also be open.  
 

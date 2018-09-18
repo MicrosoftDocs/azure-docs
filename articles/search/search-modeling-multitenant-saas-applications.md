@@ -7,7 +7,7 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 11/09/2017
+ms.date: 07/30/2018
 ms.author: ashmaka
 
 ---
@@ -38,9 +38,7 @@ There are a few different [pricing tiers](https://azure.microsoft.com/pricing/de
 | Maximum Replicas per Service |3 |12 |12 |12 |12 |
 | Maximum Partitions per Service |1 |12 |12 |12 |3 |
 | Maximum Search Units (Replicas*Partitions) per Service |3 |36 |36 |36 |36 (max 3 partitions) |
-| Maximum Documents per Service |1 million |180 million |720 million |1.4 billion |600 million |
 | Maximum Storage per Service |2 GB |300 GB |1.2 TB |2.4 TB |600 GB |
-| Maximum Documents per Partition |1 million |15 million |60 million |120 million |200 million |
 | Maximum Storage per Partition |2 GB |25 GB |100 GB |200 GB |200 GB |
 | Maximum Indexes per Service |5 |50 |200 |200 |3000 (max 1000 indexes/partition) |
 

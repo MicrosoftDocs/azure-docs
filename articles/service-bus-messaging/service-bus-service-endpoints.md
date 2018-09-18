@@ -9,17 +9,23 @@ manager: timlt
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-ms.date: 06/26/2018
+ms.date: 07/05/2018
 ms.author: clemensv
 ---
 
 # Use Virtual Network service endpoints with Azure Service Bus
 
-The integration of Service Bus with [Virtual Network (VNet) Service Endpoints][vnet-sep] enables secure access to messaging capabilities from workloads like virtual machines that are bound to virtual networks, with the network traffic path being secured on both ends. 
+The integration of Service Bus with [Virtual Network (VNet) service endpoints][vnet-sep] enables secure access to messaging capabilities from workloads like virtual machines that are bound to virtual networks, with the network traffic path being secured on both ends. 
 
 Once configured to be bound to at least one virtual network subnet service endpoint, the respective Service Bus namespace will no longer accept traffic from anywhere but authorized virtual network(s). From the virtual network perspective, binding a Service Bus namespace to a service endpoint configures an isolated networking tunnel from the virtual network subnet to the messaging service.
 
 The result is a private and isolated relationship between the workloads bound to the subnet and the respective Service Bus namespace, in spite of the observable network address of the messaging service endpoint being in a public IP range.
+
+## Enable service endpoints with Service Bus
+
+Virtual Networks are supported only in [Premium tier](service-bus-premium-messaging.md) Service Bus namespaces. 
+
+An important consideration when using VNet service endpoints with Service Bus is that you should not enable these endpoints in applications that mix Standard and Premium tier Service Bus namespaces. Because Standard tier does not support VNets, the endpoint is restricted to Premium tier namespaces only. The VNet will block traffic to the Standard namespace. 
 
 ## Advanced security scenarios enabled by VNet integration 
 

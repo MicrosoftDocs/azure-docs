@@ -2,7 +2,7 @@
 title: "Azure Cosmos DB: Build a MongoDB API console app with Golang and the Azure portal | Microsoft Docs"
 description: Presents a Golang code sample you can use to connect to and query Azure Cosmos DB
 services: cosmos-db
-author: SnehaGunda
+author: slyons
 manager: kfile
 
 ms.service: cosmos-db
@@ -10,11 +10,20 @@ ms.component: cosmosdb-mongo
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/21/2017
-ms.author: sngun
+ms.author: sclyon
 ms.custom: mvc
 ---
 
 # Azure Cosmos DB: Build a MongoDB API console app with Golang and the Azure portal
+
+> [!div class="op_single_selector"]
+> * [.NET](create-mongodb-dotnet.md)
+> * [Java](create-mongodb-java.md)
+> * [Node.js](create-mongodb-nodejs.md)
+> * [Python](create-mongodb-flask.md)
+> * [Xamarin](create-mongodb-xamarin.md)
+> * [Golang](create-mongodb-golang.md)
+>  
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB.
 
@@ -125,7 +134,7 @@ The **mgo.Dial()** method is used when there is no SSL connection. For an SSL co
 An instance of the **DialWIthInfo{}** object is used to create the session object. Once the session is established, you can access the collection by using the following code snippet:
 
 ```go
-collection := session.DB(“database”).C(“package”)
+collection := session.DB("database").C("package")
 ```
 
 <a id="create-document"></a>

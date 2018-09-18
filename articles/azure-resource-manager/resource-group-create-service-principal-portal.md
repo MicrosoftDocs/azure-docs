@@ -18,12 +18,12 @@ ms.author: tomfitz
 ---
 # Use portal to create an Azure Active Directory application and service principal that can access resources
 
-When you have code that needs to access or modify resources, you must set up an Azure Active Directory (AD) application. You assign the required permissions to AD application. This approach is preferable to running the app under your own credentials because you can assign permissions to the app identity that are different than your own permissions. Typically, these permissions are restricted to exactly what the app needs to do.
+When you have code that needs to access or modify resources, you must set up an Azure Active Directory (AD) application. You can then assign the required permissions to the AD application. This approach is preferable to running the app under your own credentials because you can assign permissions to the app identity that are different than your own permissions. Typically, these permissions are restricted to exactly what the app needs to do.
 
-This article shows you how to perform those steps through the portal. It focuses on a single-tenant application where the application is intended to run within only one organization. You typically use single-tenant applications for line-of-business applications that run within your organization.
+This article shows you how to perform these steps through the portal. It focuses on a single-tenant application where the application is intended to run within only one organization. You typically use single-tenant applications for line-of-business applications that run within your organization.
 
 > [!IMPORTANT]
-> Instead of creating a service principal, consider using Azure AD Managed Service Identity for your application identity. Azure AD MSI is a public preview feature of Azure Active Directory that simplifies creating an identity for code. If your code runs on a service that supports Azure AD MSI and accesses resources that support Azure Active Directory authentication, Azure AD MSI is a better option for you. To learn more about Azure AD MSI, including which services currently support it, see [Managed Service Identity for Azure resources](../active-directory/managed-service-identity/overview.md).
+> Instead of creating a service principal, consider using Azure AD Managed Service Identity for your application identity. Azure AD MSI is a public preview feature of Azure Active Directory that simplifies creating an identity for code. If your code runs on a service that supports Azure AD MSI and accesses resources that support Azure Active Directory authentication, Azure AD MSI is a better option for you. To learn more about Azure AD MSI, including which services currently support it, see [Managed Service Identity for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
 
 ## Required permissions
 
@@ -43,7 +43,7 @@ To complete this article, you must have sufficient permissions to register an ap
 
    ![view app registrations](./media/resource-group-create-service-principal-portal/view-app-registrations.png)
 
-1. If the app registrations setting is set to **No**, only [global administrators](../active-directory/active-directory-assign-admin-roles-azure-portal.md) can register apps. Check whether your account is an admin for the Azure AD tenant. Select **Overview** and look at your user information. If your account is assigned to the User role, but the app registration setting (from the preceding step) is limited to admin users, ask your administrator to either assign you to the global administrator role, or to enable users to register apps.
+1. If the app registrations setting is set to **No**, only [global administrators](../active-directory/users-groups-roles/directory-assign-admin-roles.md) can register apps. Check whether your account is an admin for the Azure AD tenant. Select **Overview** and look at your user information. If your account is assigned to the User role, but the app registration setting (from the preceding step) is limited to admin users, ask your administrator to either assign you to the global administrator role, or to enable users to register apps.
 
    ![find user](./media/resource-group-create-service-principal-portal/view-user-info.png)
 
@@ -152,7 +152,7 @@ You can set the scope at the level of the subscription, resource group, or resou
 
    ![select add](./media/resource-group-create-service-principal-portal/select-add.png)
 
-1. Select the role you wish to assign to the application. The following image shows the **Reader** role.
+1. Select the role you wish to assign to the application. In order to allow the application execute actions like **reboot**, **start** and **stop** instances, you must have to select the role **Contributor**. The following image shows the **Reader** role.
 
    ![select role](./media/resource-group-create-service-principal-portal/select-role.png)
 

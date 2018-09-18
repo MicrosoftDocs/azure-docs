@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/18/2018
+ms.date: 08/07/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -21,9 +21,9 @@ ms.reviewer: bagovind
 
 # What is role-based access control (RBAC)?
 
-Access management for cloud resources is a critical function for any organization that is using the cloud. Role-based access control (RBAC) helps you to manage who has access to Azure resources, what they can do with those resources, and what areas they have access to.
+Access management for cloud resources is a critical function for any organization that is using the cloud. Role-based access control (RBAC) helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to.
 
-RBAC is a system that provides fine-grained access management of resources in Azure. Using RBAC, you can segregate duties within your team and grant only the amount of access to users that they need to perform their jobs. Instead of giving everybody unrestricted permissions in your Azure subscription or resources, you can allow only certain actions at a particular scope.
+RBAC is an authorization system built on [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) that provides fine-grained access management of resources in Azure.
 
 ## What can I do with RBAC?
 
@@ -33,6 +33,14 @@ Here are some examples of what you can do with RBAC:
 - Allow a DBA group to manage SQL databases in a subscription
 - Allow a user to manage all resources in a resource group, such as virtual machines, websites, and subnets
 - Allow an application to access all resources in a resource group
+
+## Best practice for using RBAC
+
+Using RBAC, you can segregate duties within your team and grant only the amount of access to users that they need to perform their jobs. Instead of giving everybody unrestricted permissions in your Azure subscription or resources, you can allow only certain actions at a particular scope.
+
+When planning your access control strategy, it's a best practice to grant users the least privilege to get their work done. The following diagram shows a suggested pattern for using RBAC.
+
+![RBAC and least privilege](./media/overview/rbac-least-privilege.png)
 
 ## How RBAC works
 
@@ -69,16 +77,15 @@ Azure has introduced data operations (currently in preview) that enable you to g
 
 *Scope* is the boundary that the access applies to. When you assign a role, you can further limit the actions allowed by defining a scope. This is helpful if you want to make someone a [Website Contributor](built-in-roles.md#website-contributor), but only for one resource group.
 
-In Azure, you can specify a scope at multiple levels: subscription, resource group, or resource. Scopes are structured in a parent-child relationship where every child will have only one parent.
+In Azure, you can specify a scope at multiple levels: [management group](../azure-resource-manager/management-groups-overview.md), subscription, resource group, or resource. Scopes are structured in a parent-child relationship.
 
 ![Scope for a role assignment](./media/overview/rbac-scope.png)
 
-Access that you assign at a parent scope is inherited at the child scope. For example:
+When you grant access at a parent scope, those permissions are inherited to the child scopes. For example:
 
+- If you assign the [Owner](built-in-roles.md#owner) role to a user at the management group scope, that user can manage everything in all subscriptions in the management group.
 - If you assign the [Reader](built-in-roles.md#reader) role to a group at the subscription scope, the members of that group can view every resource group and resource in the subscription.
 - If you assign the [Contributor](built-in-roles.md#contributor) role to an application at the resource group scope, it can manage resources of all types in that resource group, but not other resource groups in the subscription.
-
-Azure also includes a scope above subscriptions called [management groups](../azure-resource-manager/management-groups-overview.md), which is in preview. Management groups are a way to manage multiple subscriptions. When you specify scope for RBAC, you can either specify a management group or specify a subscription, resource group, or resource hierarchy.
 
 ### Role assignment
 
@@ -90,13 +97,8 @@ The following diagram shows an example of a role assignment. In this example, th
 
 You can create role assignments using the Azure portal, Azure CLI, Azure PowerShell, Azure SDKs, or REST APIs. You can have up to 2000 role assignments in each subscription. To create and remove role assignments, you must have `Microsoft.Authorization/roleAssignments/*` permission. This permission is granted through the [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator) roles.
 
-## Azure RBAC vs. classic subscription administrators
-[Classic subscription administrators](../billing/billing-add-change-azure-subscription-administrator.md) have full access to the Azure subscription. They can manage resources using the Azure portal, Azure Resource Manager APIs, and the classic deployment model APIs. In the RBAC model, classic subscription administrators have the equivalent access of a user who is assigned the Owner role at the subscription scope.
-
-Only the Azure portal and the Azure Resource Manager APIs support Azure RBAC. Users and applications that are assigned RBAC roles cannot use the [Azure classic deployment model APIs](../azure-resource-manager/resource-manager-deployment-model.md).
-
 ## Next steps
 
 - [Quickstart: Grant access for a user using RBAC and the Azure portal](quickstart-assign-role-user-portal.md)
-- [Tutorial: Grant access for a user using RBAC and Azure PowerShell](tutorial-role-assignments-user-powershell.md)
 - [Manage access using RBAC and the Azure portal](role-assignments-portal.md)
+- [Understand the different roles in Azure](rbac-and-directory-admin-roles.md)

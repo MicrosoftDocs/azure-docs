@@ -28,11 +28,7 @@ sections:
     - image: 
         src: media/index/logo_Csharp.svg
       text: C&#35;
-      href: QuickStarts/CSharp-analyze
-    - image:
-        src: media/index/logo_go.svg
-      text: Go
-      href: QuickStarts/go-analyze
+      href: quickstarts-sdk/csharp-analyze-sdk
     - image: 
         src: media/index/logo_java.svg
       text: Java
@@ -45,6 +41,10 @@ sections:
         src: media/index/logo_python.svg
       text: Python
       href: QuickStarts/python-analyze
+    - image:
+        src: media/index/logo_go.svg
+      text: Go
+      href: QuickStarts/go-analyze
 #- title: Step-by-Step Tutorials
 #  items:
 #  - type: paragraph
@@ -66,9 +66,9 @@ sections:
       html: <p><a href="https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44">Computer Vision API v2.0</a></p>
             <p><a href="https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739">Computer Vision API v1.0</a></p>
     - title: SDKs
-      html: <p><a href="https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/computervision">Go</a></p>
+      html: <p><a href="https://github.com/Microsoft/Cognitive-vision-windows">Windows</a></p>
             <p><a href="https://docs.microsoft.com/javascript/api/overview/azure/cognitive-services?view=azure-node-latest#vision-modules">Node.js</a></p>
             <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitive-services?view=azure-python#vision-modules">Python</a></p>
-            <p><a href="https://github.com/Microsoft/Cognitive-vision-windows">Windows</a></p>
+            <p><a href="https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/computervision">Go</a></p>
             <p><a href="https://github.com/Microsoft/Cognitive-vision-android">Android</a></p>
             <p><a href="https://github.com/DanilaVladi/Microsoft-Cognitive-Services-Swift-SDK">Swift</a></p>

@@ -7,7 +7,7 @@ ms.reviewer: carlrab, bonova
 ms.service: sql-database 
 ms.custom: managed instance
 ms.topic: conceptual 
-ms.date: 06/22/2018 
+ms.date: 0813/2018 
 ms.author: jovanpop 
 manager: craigg 
 --- 
@@ -261,7 +261,7 @@ External tables referencing the files in HDFS or Azure blob storage are not supp
 
 ### Replication 
  
-Replication is not yet supported. For information about Replication, see [SQL Server Replication](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication).
+Replication is available for public preview on Managed Instance. For information about Replication, see [SQL Server Replication](http://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
  
 ### RESTORE statement 
  
@@ -329,23 +329,24 @@ For information about Restore statements, see [RESTORE Statements](https://docs.
 - `sp_attach_db`, `sp_attach_single_file_db`, and `sp_detach_db` are not supported. See [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql), and [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
 - `sp_renamedb` is not supported. See [sp_renamedb](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-renamedb-transact-sql).
 
-### SQL Server Agent 
- 
+### SQL Server Agent
+
 - SQL Agent settings are read only. Procedure `sp_set_agent_properties` is not supported in Managed Instance.  
-- Jobs - only T-SQL job steps are currently supported (more steps will be added during public preview).
- - SSIS is not yet supported. 
- - Replication is not yet supported  
-  - Transaction-Log reader is not yet supported.  
-  - Snapshot is not yet supported.  
-  - Distributor is not yet supported.  
-  - Merge is not supported.  
+- Jobs - T-SQL job steps are currently supported
+- Other types of job steps are not currently supported (more step types will be added during public preview).
+  - Replication jobs not supported including:
+    - Transaction-log reader.  
+    - Snapshot.
+    - Distributor.  
+    - Merge.  
+  - SSIS is not yet supported. 
   - Queue Reader is not supported.  
- - Command shell is not yet supported. 
+  - Command shell is not yet supported. 
   - Managed Instance cannot access external resources (for example, network shares via robocopy).  
- - PowerShell is not yet supported.
- - Analysis Services are not supported.  
+  - PowerShell is not yet supported.
+  - Analysis Services are not supported.  
 - Notifications are partially supported.
- - Email notification is supported, requires configuring a Database Mail profile. There can be only one database mail profile and it must be called `AzureManagedInstance_dbmail_profile` in public preview (temporary limitation).  
+- Email notification is supported, requires configuring a Database Mail profile. There can be only one database mail profile and it must be called `AzureManagedInstance_dbmail_profile` in public preview (temporary limitation).  
  - Pager is not supported.  
  - NetSend is not supported. 
  - Alerts are not yet not supported.
@@ -365,11 +366,11 @@ For information about SQL Server Agent, see [SQL Server Agent](https://docs.micr
 The following are not supported: 
 - `FILESTREAM` 
 - `FILETABLE` 
-- `EXTERNAL TABLE` 
+- `EXTERNAL TABLE`
 - `MEMORY_OPTIMIZED`  
 
 For information about creating and altering tables, see [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql) and [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql).
- 
+
 ## <a name="Changes"></a> Behavior changes 
  
 The following variables, functions, and views return different results:  
@@ -392,9 +393,12 @@ The following variables, functions, and views return different results:
 
 Each Managed Instance has up to 35 TB storage reserved for Azure Premium Disk space, and each database file is placed on a separate physical disk. Disk sizes can be 128 GB, 256 GB, 512 GB, 1 TB, or 4 TB. Unused space on disk is not charged, but the total sum of Azure Premium Disk sizes cannot exceed 35 TB. In some cases, a Managed Instance that does not need 8 TB in total might exceed the 35 TB Azure limit on storage size, due to internal fragmentation. 
 
-For example, a Managed Instance could have one file with 1.2 TB size that uses a 4 TB disk, and 248 files with 1 GB each that are placed on 248 disks with 128 GB size. In this example, the total disk storage size is 1 x 4 TB + 248 x 128 GB = 35 TB. However, total reserved instance size for databases is 1 x 1.2 TB + 248 x 1 GB = 1.4 TB. This illustrates that under certain circumstance, due to a very specific distribution of files, a Managed Instance might reach Azure Premium Disk storage limit where you might not expect it to. 
+For example, a Managed Instance could have one file 1.2 TB in size that is placed on a 4 TB disk, and 248 files each 1 GB ins size that are placed on separate 128 GB disks. In this example, 
+* the total disk storage size is 1 x 4 TB + 248 x 128 GB = 35 TB. 
+* the total reserved space for databases on the instance is 1 x 1.2 TB + 248 x 1 GB = 1.4 TB.
+This illustrates that under certain circumstance, due to a very specific distribution of files, a Managed Instance might reach the 35TB reserved for attached Azure Premium Disk when you might not expect it to. 
 
-There would be no error on existing databases and they can grow without any problem if new files are not added, but the new databases cannot be created or restored because there is not enough space for new disk drives, even if the total size of all databases does not reach the instance size limit. The error that is returned in that case is not clear.
+In this example existing databases will continue to work and can grow without any problem as long as new files are not added. However new databases could not be created or restored because there is not enough space for new disk drives, even if the total size of all databases does not reach the instance size limit. The error that is returned in that case is not clear.
 
 ### Incorrect configuration of SAS key during database restore
 
@@ -416,4 +420,4 @@ There can be only one database mail profile and it must be called `AzureManagedI
 
 - For details about Managed Instance, see [What is a Managed Instance?](sql-database-managed-instance.md)
 - For a features and comparison list, see [SQL common features](sql-database-features.md).
-- For a tutorial showing you how to create a new Managed Instance, see [Creating a Managed Instance](sql-database-managed-instance-create-tutorial-portal.md).
+- For a tutorial showing you how to create a new Managed Instance, see [Creating a Managed Instance](sql-database-managed-instance-get-started.md).

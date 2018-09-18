@@ -2,20 +2,13 @@
 title: Troubleshoot Azure Files problems in Linux | Microsoft Docs
 description: Troubleshooting Azure Files problems in Linux
 services: storage
-documentationcenter: ''
 author: jeffpatt24
-manager: aungoo
-editor: tamram
 tags: storage
-
 ms.service: storage
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: jeffpatt
-
+ms.component: files
 ---
 # Troubleshoot Azure Files problems in Linux
 
@@ -135,22 +128,26 @@ Common causes for this issue are:
 
 - You are using an incompatible Linux distribution client. We recommend you use the following Linux Distributions to connect to Azure file share:
 
-    - Ubuntu Server 14.04+ 
-    - RHEL 7+ 
-    - CentOS 7+ 
-    - Debian 8 
-    - openSUSE 13.2+ 
-    - SUSE Linux Enterprise Server 12
+* **Minimum recommended versions with corresponding mount capabilities (SMB version 2.1 vs SMB version 3.0)**    
+    
+    |   | SMB 2.1 <br>(Mounts on VMs within same Azure region) | SMB 3.0 <br>(Mounts from on-premises and cross-region) |
+    | --- | :---: | :---: |
+    | Ubuntu Server | 14.04+ | 16.04+ |
+    | RHEL | 7+ | 7.5+ |
+    | CentOS | 7+ |  7.5+ |
+    | Debian | 8+ |   |
+    | openSUSE | 13.2+ | 42.3+ |
+    | SUSE Linux Enterprise Server | 12 | 12 SP3+ |
 
 - CIFS-utils are not installed on the client.
-- The minimum SMB/CIFS version 2.1 is not installed the client.
+- The minimum SMB/CIFS version 2.1 is not installed on the client.
 - SMB 3.0 Encryption is not supported on the client. SMB 3.0 Encryption is available in Ubuntu 16.4 and later version, SUSE 12.3 and later version. Other distributions require kernel 4.11 and later version.
 - You are trying to connect to a storage account over TCP port 445 that is not supported.
-- You are trying  try to connect to Azure file share from an Azure VM, and the VM is not located in the same region as Storage account.
+- You are trying try to connect to Azure file share from an Azure VM, and the VM is not located in the same region as Storage account.
 
 ### Solution
 
-To resolve the issue, use the [Troubleshooting tool for Azure Files mounting errors on Linux](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089). This tool helps you to validate the client running environment, detect the incompatible client configuration which would cause access failure for Azure Files, gives prescriptive guidance on self-fix and, collects the diagnostics traces.
+To resolve the issue, use the [Troubleshooting tool for Azure Files mounting errors on Linux](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089). This tool helps you to validate the client running environment, detect the incompatible client configuration that would cause access failure for Azure Files, gives prescriptive guidance on self-fix, and collects the diagnostics traces.
 
 ## ls: cannot access '&lt;path&gt;': Input/output error
 
@@ -166,6 +163,31 @@ Upgrade the Linux kernel to the following versions that have fix for this issue:
 - 4.9.48+
 - 4.12.11+
 - All versions that is greater or equal to 4.13
+
+## Cannot create symbolic links - ln: failed to create symbolic link 't': Operation not supported
+
+### Cause
+By default mounting Azure File Shares on Linux using CIFS doesn’t enable support for symlinks. You’ll see an error link this:
+```
+ln -s linked -n t
+ln: failed to create symbolic link 't': Operation not supported
+```
+### Solution
+The Linux CIFS client doesn’t support creation of Windows style symbolic links over SMB2/3 protocol. Currently Linux client supports another style of symbolic links called [Mishall+French symlinks] (https://wiki.samba.org/index.php/UNIX_Extensions#Minshall.2BFrench_symlinks) for both create and follow operations. Customers who need symbolic links can use "mfsymlinks" mount option. “mfsymlinks” are usually recommended because that is also the format used by Macs.
+
+To be able to use symlinks, add the following to the end of your CIFS mount command:
+
+```
+,mfsymlinks
+```
+
+So the command will look something like:
+
+```
+sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<share-name> <mount-point> -o vers=<smb-version>,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino,mfsynlinks
+```
+
+Once added, you will be able to create symlinks as suggested on the [Wiki](https://wiki.samba.org/index.php/UNIX_Extensions#Storing_symlinks_on_Windows_servers).
 
 ## Need help? Contact support.
 

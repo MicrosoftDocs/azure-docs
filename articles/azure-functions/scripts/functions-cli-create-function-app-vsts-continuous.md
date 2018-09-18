@@ -1,25 +1,25 @@
 ---
-title: Create a function in Azure that is deployed from Visual Studio Team Services | Microsoft Docs 
-description: Create a Function App and deploy function code from Visual Studio Team Services
+title: Create a function in Azure that is deployed from Azure DevOps | Microsoft Docs 
+description: Create a Function App and deploy function code from Azure DevOps
 services: functions 
 keywords: 
-author: syntaxc4
-ms.author: cfowler
-ms.date: 01/09/2018
+author: ggailey777
+ms.author: glenga
+ms.date: 07/03/2018
 ms.topic: sample
-ms.service: functions
+ms.service: azure-functions
 ms.custom: mvc
 ---
-# Create a function app and deploy function code from Visual Studio Team Services
+# Create a function app and deploy function code from Azure DevOps
 
-This topic shows you how to use Azure Functions to create a [serverless](https://azure.microsoft.com/overview/serverless-computing/) function app using the [consumption plan](../functions-scale.md#consumption-plan). The function app, which is a container for your functions, is continuously deployed from a Visual Studio Team Services (VSTS) repository. 
+This topic shows you how to use Azure Functions to create a [serverless](https://azure.microsoft.com/overview/serverless-computing/) function app using the [consumption plan](../functions-scale.md#consumption-plan). The function app, which is a container for your functions, is continuously deployed from a Azure DevOps repository. 
 
 [!INCLUDE [upgrade runtime](../../../includes/functions-cli-version-note.md)]
 
 To complete this topic, you must have:
 
-* A VSTS repository that contains your function app project and to which you have administrative permissions.
-* A [personal access token (PAT)](https://docs.microsoft.com/vsts/accounts/use-personal-access-tokens-to-authenticate) to access your VSTS repository.
+* An Azure DevOps repository that contains your function app project and to which you have administrative permissions.
+* A [personal access token (PAT)](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate) to access your Azure DevOps repository.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -29,7 +29,7 @@ If you rather use the Azure CLI locally, you must install and use version 2.0 or
 
 ## Sample script
 
-This sample creates an Azure Function app and deploys function code from Visual Studio Team Services.
+This sample creates an Azure Function app and deploys function code from Azure DevOps.
 
 [!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/deploy-function-app-with-function-vsts/deploy-function-app-with-function-vsts.sh?highlight=3-4 "Azure Service")]
 
@@ -41,10 +41,10 @@ This script uses the following commands to create a resource group, storage acco
 
 | Command | Notes |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
-| [az storage account create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | Creates an App Service plan. |
-| [az functionapp create](https://docs.microsoft.com/cli/azure/appservice/web#az_appservice_web_delete) |
-| [az appservice web source-control config](https://docs.microsoft.com/cli/azure/appservice/web/source-control#az_appservice_web_source_control_config) | Associates a function app with a Git or Mercurial repository. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
+| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-create) | Creates the storage account required by the function app. |
+| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az-functionapp-create) | Creates a function app in the serverless [consumption plan](../functions-scale.md#consumption-plan). |
+| [az functionapp deployment source config](https://docs.microsoft.com/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config) | Associates a function app with a Git or Mercurial repository. |
 
 ## Next steps
 

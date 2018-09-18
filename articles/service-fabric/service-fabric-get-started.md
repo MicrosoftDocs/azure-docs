@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/26/2018
+ms.date: 08/23/2018
 ms.author: ryanwi
 
 ---
@@ -60,12 +60,15 @@ If you only need the SDK, you can install this package:
 * [Install the Microsoft Azure Service Fabric SDK][core-sdk]
 
 The current versions are:
-* Service Fabric SDK and Tools 3.1.301
-* Service Fabric runtime 6.2.301
-* Service Fabric Tools for Visual Studio 2015 2.1.20180510.2
-* Visual Studio 2017 15.7 includes Service Fabric Tools for Visual Studio 2.1.20180423.1 
+* Service Fabric SDK and Tools 3.2.176
+* Service Fabric runtime 6.3.176
+* Service Fabric Tools for Visual Studio 2015 2.3.10710.3
+* Visual Studio 2017 15.7 includes Service Fabric Tools for Visual Studio 2.3.10710.1 
 
 For a list of supported versions, see [Service Fabric support](service-fabric-support.md)
+
+> [!NOTE]
+> Single machine clusters (OneBox) are not supported for Application or Cluster upgrades; delete the OneBox cluster and recreate it if you need to perform a Cluster upgrade, or have any issues performing an Application upgrade. 
 
 ## Enable PowerShell script execution
 Service Fabric uses Windows PowerShell scripts for creating a local development cluster and for deploying applications from Visual Studio. By default, Windows blocks these scripts from running. To enable them, you must modify your PowerShell execution policy. Open PowerShell as an administrator and enter the following command:
@@ -73,20 +76,19 @@ Service Fabric uses Windows PowerShell scripts for creating a local development 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 ```
+## Install Docker (optional)
+[Service Fabric is a container orchestrator](service-fabric-containers-overview.md) for deploying microservices across a cluster of machines. To run Windows container applications on your local development cluster, you must first install Docker for Windows. Get [Docker CE for Windows (stable)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). After installing and starting Docker, right-click on the tray icon and select **Switch to Windows containers**. This step is required to run Docker images based on Windows.
 
 ## Next steps
 Now that you've finished setting up your development environment, start building and running apps.
 
 * [Create your first Service Fabric application in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
 * [Learn how to deploy and manage applications on your local cluster](service-fabric-get-started-with-a-local-cluster.md)
-* [Prepare a Linux development environment on Windows](service-fabric-local-linux-cluster-windows.md)
 * [Learn about the programming models: Reliable Services and Reliable Actors](service-fabric-choose-framework.md)
-* [Periodic backup and restore in Azure Service Fabric](service-fabric-backuprestoreservice-quickstart-azurecluster.md)
 * [Check out the Service Fabric code samples on GitHub](https://aka.ms/servicefabricsamples)
 * [Visualize your cluster by using Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
 * [Follow the Service Fabric learning path to get a broad introduction to the platform](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
 * Learn about [Service Fabric support options](service-fabric-support.md)
-* [Automate operating system patching on your Cluster](service-fabric-patch-orchestration-application.md)
 
 [1]: http://azure.microsoft.com/campaigns/service-fabric/ "Service Fabric campaign page"
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"

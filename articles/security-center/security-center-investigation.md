@@ -3,18 +3,18 @@ title: Investigate Incidents and Alerts in Azure Security Center | Microsoft Doc
 description: This document helps you use the investigation feature in Azure Security Center to investigate security incidents and alerts.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: TerryLanfear
 manager: mbaldwin
 editor: ''
 
 ms.assetid: a8e894a9-8781-4749-ae8f-8c8e01658566
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/18/2017
-ms.author: yurid
+ms.date: 06/29/2018
+ms.author: terrylan
 
 ---
 # Investigate Incidents and Alerts in Azure Security Center (Preview)
@@ -22,13 +22,18 @@ This document helps you use the investigation feature in Azure Security Center t
 
 ## What is investigation in Security Center?
 The Investigation feature in Security Center allows you to triage, understand the scope, and track down the root cause of a potential [security incident](https://docs.microsoft.com/azure/security-center/security-center-incident).
- 
+
 The intent is to facilitate the investigation process by linking all entities ([security alerts](https://docs.microsoft.com/azure/security-center/security-center-alerts-type), users, computers and incidents) that are involved with the incident you are investigating.  Security Center can do this by correlating relevant data with any involved entities and exposing this correlation in using a live graph that helps you navigate through the objects and visualize relevant information.
+
+> [!NOTE]
+> [Custom alerts](security-center-custom-alert.md) are not supported in Security Center's investigation feature.
+>
+>
 
 
 ## How Investigation works?
 The Investigation is composed by a graph that occupies the central area of the investigation dashboard. The graph is always focused on a specific entity, and presents the entities that are related to it. An entity could be a security alert, user, computer or incident.
- 
+
 ![Map](./media/security-center-investigation/security-center-investigation-fig1.png)
 
 The user can navigate from one entity to another by clicking on it in the graph. The graph automatically centralizes on the selected entity and its related entities. Entities that are not relevant anymore may be removed from the graph.
@@ -39,7 +44,7 @@ While the user is navigating to different entities the investigation path helps 
 ![Path](./media/security-center-investigation/security-center-investigation-fig2.png)
 
 ### General information
-When an entity is presented in the graph, the tabs show additional information on this entity. The **Info** tab presents general information on the entity from various available information sources. 
+When an entity is presented in the graph, the tabs show additional information on this entity. The **Info** tab presents general information on the entity from various available information sources.
 
 ![General info](./media/security-center-investigation/security-center-investigation-fig3.png)
 
@@ -67,7 +72,7 @@ The **Exploration** tab allows the investigator to examine data related to vario
 
 ### Timeline
 
-Most of the data that is presented in the graph and the various tabs is relevant for a specific time period. This time scope is set using the time scope selector on the top left side of the graph. The investigator has various methods to select the time scope. 
+Most of the data that is presented in the graph and the various tabs is relevant for a specific time period. This time scope is set using the time scope selector on the top left side of the graph. The investigator has various methods to select the time scope.
 
 ![Timeline](./media/security-center-investigation/security-center-investigation-fig7.png)
 
@@ -99,7 +104,7 @@ You can start your investigation from a security incident, or from an alert, the
 
 	![Investigation dashboard](./media/security-center-investigation/security-center-investigation-fig9.png)
 
-From this point you can explore the entities that were involved in this incident, and explore more details about each one of them. 
+From this point you can explore the entities that were involved in this incident, and explore more details about each one of them.
 
 ## See also
 In this document, you learned how to use the investigation feature in Security Center. To learn more about Security Center, see the following:
@@ -107,7 +112,6 @@ In this document, you learned how to use the investigation feature in Security C
 * [Managing and responding to security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Learn how to manage alerts, and respond to security incidents in Security Center.
 * [Security health monitoring in Azure Security Center](security-center-monitoring.md). Learn how to monitor the health of your Azure resources.
 * [Understanding security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Learn about the different types of security alerts.
-* [Azure Security Center Troubleshooting Guide](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Learn how to troubleshoot common issues in Security Center. 
+* [Azure Security Center Troubleshooting Guide](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Learn how to troubleshoot common issues in Security Center.
 * [Azure Security Center FAQ](security-center-faq.md). Find frequently asked questions about using the service.
 * [Azure Security Blog](http://blogs.msdn.com/b/azuresecurity/). Find blog posts about Azure security and compliance.
-

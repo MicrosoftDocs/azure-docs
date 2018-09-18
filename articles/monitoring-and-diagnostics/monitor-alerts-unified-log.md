@@ -10,11 +10,15 @@ ms.author: vinagara
 ms.component: alerts
 ---
 # Log alerts in Azure Monitor - Alerts 
-This article provides details of Log alerts are one of the types of alerts supported within the new [Azure Alerts](monitoring-overview-unified-alerts.md) and allow users to use Azure's analytics platform as basis for alerting.. For details of Metric Alerts using Logs, refer to [Near Real Time Metric Alerts](monitoring-near-real-time-metric-alerts.md)
+This article provides details of Log alerts are one of the types of alerts supported within the new [Azure Alerts](monitoring-overview-unified-alerts.md) and allow users to use Azure's analytics platform as basis for alerting.
 
 
-Log Alert consists of Log Search rules created for [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) or [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events)
+Log Alert consists of Log Search rules created for [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) or [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events). Pricing details for Log Alerts is available at the [Azure Monitor Pricing](https://azure.microsoft.com/en-us/pricing/details/monitor/) page. In Azure bills, Log Alerts are represented as type `microsoft.insights/scheduledqueryrules` with:
+- Log Alerts on Application Insights shown with exact alert name along with resource group and alert properties
+- Log Alerts on Log Analytics shown with alert name as `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` along with resource group and alert properties
 
+    > [!NOTE]
+    > The name for all saved searches, schedules, and actions created with the Log Analytics API must be in lowercase. If invalid characters such as `<, >, %, &, \, ?, /` are used - they will be replaced with `_` in the bill.
 
 ## Log search alert rule - definition and types
 
@@ -54,7 +58,7 @@ Consider a scenario where you want to know when your web-based App gives a respo
 - **Query:** requests | where resultCode == "500"<br>
 - **Time period:** 30 minutes<br>
 - **Alert frequency:** five minutes<br>
-- **Threshold value:** Great than 0<br>
+- **Threshold value:** Greater than 0<br>
 
 Then alert would run the query every 5 minutes, with 30 minutes of data - to look for any record where result code was 500. If even one such record is found, it fires the alert and triggers the action configured.
 
@@ -77,10 +81,10 @@ Then alert would run the query every 5 minutes, with 30 minutes of data - to loo
 #### Example
 Consider a scenario where you wanted an alert if any computer exceeded processor utilization of 90% three times over 30 minutes.  You would create an alert rule with the following details:  
 
-- **Query:** Perf | where ObjectName == "Processor" and CounterName == "% Processor Time" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 5 m), Computer<br>
+- **Query:** Perf | where ObjectName == "Processor" and CounterName == "% Processor Time" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 5m), Computer<br>
 - **Time period:** 30 minutes<br>
 - **Alert frequency:** five minutes<br>
-- **Aggregate value:** Great than 90<br>
+- **Aggregate value:** Greater than 90<br>
 - **Trigger alert based on:** Total breaches Greater than 2<br>
 
 The query would create an average value for each computer at 5-minute intervals.  This query would be run every 5 minutes for data collected over the previous 30 minutes.  Sample data is shown below for three computers.
@@ -98,7 +102,7 @@ Log alert as well as its consisting log search alert rule can be viewed, created
 - Azure Resource Manager Templates
 
 ### Azure portal
-Since the introduction of the [new Azure alerts](monitoring-overview-unified-alerts.md), now users can manage all types of alerts in Azure portal from a single location and similar steps. Learn more about [using new Azure Alerts](monitor-alerts-unified-usage.md).
+Since the introduction of the [new Azure alerts](monitoring-overview-unified-alerts.md), now users can manage all types of alerts in Azure portal from a single location and with similar steps for usage. Learn more about [using new Azure Alerts](monitor-alerts-unified-usage.md).
 
 Also, users can perfect their queries in Analytics platform of choice in Azure and then *import them for use in Alerts  by saving the query*. Steps to follow:
 - *For Application Insights*: Go-to Analytics portal, validate query and its results. Then save with unique name into *Shared Queries*.
@@ -115,7 +119,7 @@ APIs provided for Log alerts are RESTful and can be accessed via the Azure Resou
 
 For details as well as examples on using REST API, kindly refer to:
 - [Log Analytics Alert REST API](../log-analytics/log-analytics-api-alerts.md) -  to create and manage log search alert rules for Azure Log Analytics
-- [Azure Monitor Scheduled Query Rules REST API](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/) - to create and manage log search alert rules for Azure Application Insights
+- [Azure Monitor Scheduled Query Rules REST API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) - to create and manage log search alert rules for Azure Application Insights
 
 ### Azure Resource Manager Template
 Users can also use the flexibility provided by [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) to create and update resources - for creating or updating Log alerts.
@@ -126,7 +130,7 @@ For details as well as examples on using Resource Manager templates, kindly refe
  
 
 ## Next steps
-* Understand [log alerts in Azure](monitor-alerts-unified-log-webhook.md).
+* Understand [webhooks in log alerts in Azure](monitor-alerts-unified-log-webhook.md).
 * Learn about the new [Azure Alerts](monitoring-overview-unified-alerts.md).
 * Learn more about [Application Insights](../application-insights/app-insights-analytics.md).
 * Learn more about [Log Analytics](../log-analytics/log-analytics-overview.md).    

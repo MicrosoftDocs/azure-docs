@@ -1,20 +1,13 @@
-﻿---
+---
 title: Azure Storage metrics in Azure Monitor | Microsoft Docs
 description: Learn about the new metrics offered from Azure Monitor.
 services: storage
-documentationcenter: na
 author: fhryo-msft
-manager: cbrooks
-editor: fhryo-msft
-
-ms.assetid:
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage
 ms.date: 09/05/2017
 ms.author: fryu
+ms.component: common
 ---
 
 # Azure Storage metrics in Azure Monitor

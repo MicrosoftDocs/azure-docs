@@ -3,20 +3,16 @@ title: Guidance for developing Azure Functions | Microsoft Docs
 description: Learn the Azure Functions concepts and techniques that you need to develop functions in Azure, across all programming languages and bindings.
 services: functions
 documentationcenter: na
-author: tdykstra
-manager: cfowler
-editor: ''
-tags: ''
+author: ggailey777
+manager: jeconnoc
 keywords: developer guide, azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture
 
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 10/12/2017
-ms.author: tdykstra
+ms.author: glenga
 
 ---
 # Azure Functions developers guide
@@ -62,15 +58,13 @@ The runtime, or script host, is the underlying WebJobs SDK host that listens for
 
 To facilitate HTTP triggers, there is also a web host that is designed to sit in front of the script host in production scenarios. Having two hosts helps to isolate the script host from the front end traffic managed by the web host.
 
-## Folder Structure
+## Folder structure
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
-When setting-up a project for deploying functions to a function app in Azure App Service, you can treat this folder structure as your site code. You can use existing tools like continuous integration and deployment, or custom deployment scripts for doing deploy time package installation or code transpilation.
+When setting-up a project for deploying functions to a function app in Azure, you can treat this folder structure as your site code. We recommend using [package deployment](deployment-zip-push.md) to deploy your project to your function app in Azure. You can also use existing tools like [continuous integration and deployment](functions-continuous-deployment.md) and Azure DevOps.
 
 > [!NOTE]
-> Make sure to deploy your `host.json` file and function folders directly to the `wwwroot` folder. Do not include the `wwwroot` folder in your deployments. Otherwise, you end up with `wwwroot\wwwroot` folders. 
-> 
-> 
+> Make sure to deploy your `host.json` file and function folders directly to the `wwwroot` folder. Do not include the `wwwroot` folder in your deployments. Otherwise, you end up with `wwwroot\wwwroot` folders.
 
 ## <a id="fileupdate"></a> How to update function app files
 The function editor built into the Azure portal lets you update the *function.json* file and the code file for a function. To upload or update other files such as *package.json* or *project.json* or dependencies, you have to use other deployment methods.

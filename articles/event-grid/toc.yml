@@ -9,22 +9,28 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Blob storage events - Azure CLI
-    href: ../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json
-  - name: Blob storage events - PowerShell
-    href: ../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json
-  - name: Blob storage events - Portal
-    href: blob-event-quickstart-portal.md
-  - name: Custom events - Azure CLI
-    href: custom-event-quickstart.md
-  - name: Custom events - PowerShell
-    href: custom-event-quickstart-powershell.md
-  - name: Custom events - portal
-    href: custom-event-quickstart-portal.md
-  - name: Send events to Queue storage
+  - name: Storage events
+    items:
+    - name: Azure CLI
+      href: ../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json
+    - name: PowerShell
+      href: ../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json
+    - name: Portal
+      href: blob-event-quickstart-portal.md
+  - name: Custom events
+    items:
+    - name: Azure CLI
+      href: custom-event-quickstart.md
+    - name: PowerShell
+      href: custom-event-quickstart-powershell.md
+    - name: Portal
+      href: custom-event-quickstart-portal.md
+  - name: Queue storage as event handler
     href: custom-event-to-queue-storage.md
-  - name: Send events to Event Hubs
+  - name: Event Hubs as event handler
     href: custom-event-to-eventhub.md
+  - name: Container Registry events
+    href: ../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json
 - name: Tutorials
   items:
   - name: Email when VM changes
@@ -47,8 +53,34 @@
   items:
   - name: Azure CLI
     href: cli-samples.md
+    items:
+    - name: Create custom topic
+      href: scripts/event-grid-cli-create-custom-topic.md
+    - name: Subscribe to Azure subscription
+      href: scripts/event-grid-cli-azure-subscription.md
+    - name: Subscribe to Blob storage
+      href: scripts/event-grid-cli-blob.md
+    - name: Subscribe to custom topic
+      href: scripts/event-grid-cli-subscribe-custom-topic.md
+    - name: Subscribe to resource group
+      href: scripts/event-grid-cli-resource-group.md
+    - name: Subscribe and filter events for resource group
+      href: scripts/event-grid-cli-resource-group-filter.md
   - name: Azure PowerShell
     href: powershell-samples.md
+    items:
+    - name: Create custom topic
+      href: scripts/event-grid-powershell-create-custom-topic.md
+    - name: Subscribe to Azure subscription
+      href: scripts/event-grid-powershell-azure-subscription.md
+    - name: Subscribe to Blob storage
+      href: scripts/event-grid-powershell-blob.md
+    - name: Subscribe to custom topic
+      href: scripts/event-grid-powershell-subscribe-custom-topic.md
+    - name: Subscribe to resource group
+      href: scripts/event-grid-powershell-resource-group.md
+    - name: Subscribe and filter events for resource group
+      href: scripts/event-grid-powershell-resource-group-filter.md
   - name: Resource Manager templates
     href: template-samples.md
   - name: Code samples
@@ -71,12 +103,14 @@
     href: post-to-custom-topic.md
   - name: Receive events at HTTP endpoint
     href: receive-events.md
-  - name: Manage event delivery
+  - name: Dead letter and retry
     href: manage-event-delivery.md
   - name: Monitor event delivery
     href: monitor-event-delivery.md
   - name: Query event subscriptions
     href: query-event-subscriptions.md
+  - name: Subscribe through portal
+    href: subscribe-through-portal.md
   - name: Map custom fields to schema
     href: input-mappings.md
   - name: Use CloudEvents schema
@@ -89,8 +123,6 @@
     href: /powershell/module/azurerm.eventgrid
   - name: REST
     href: /rest/api/eventgrid
-  - name: SDKs
-    href: sdk-overview.md
   - name: Subscription schema
     href: subscription-creation-schema.md
   - name: Event schema
@@ -100,6 +132,8 @@
       href: event-schema-subscriptions.md
     - name: Blob storage
       href: event-schema-blob-storage.md
+    - name: Container Registry
+      href: event-schema-container-registry.md
     - name: Event Hubs
       href: event-schema-event-hubs.md
     - name: IoT Hub
@@ -110,6 +144,14 @@
       href: event-schema-resource-groups.md
     - name: Service Bus
       href: event-schema-service-bus.md
+  - name: Template resources
+    items:
+    - name: Event subscriptions
+      href: /azure/templates/microsoft.eventgrid/eventsubscriptions
+    - name: Topics
+      href: /azure/templates/microsoft.eventgrid/topics
+  - name: SDKs
+    href: sdk-overview.md
 - name: Resources
   items:
   - name: Azure Roadmap

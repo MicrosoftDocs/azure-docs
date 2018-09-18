@@ -4,30 +4,27 @@ description: Azure Functions supports multiple versions of the runtime. Learn th
 services: functions
 documentationcenter: 
 author: ggailey777
-manager: cfowler
-editor: ''
+manager: jeconnoc
 
-ms.service: functions
-ms.workload: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/24/2018
+ms.service: azure-functions
+ms.topic: conceptual
+ms.date: 07/29/2018
 ms.author: glenga
 
 ---
 # Azure Functions runtime versions overview
 
- There are two major versions of the Azure Functions runtime.: 1.x and 2.x. This article explains how to choose which major version to use.
-
-> [!IMPORTANT] 
-> Runtime 1.x is the only version approved for production use.
+ There are two major versions of the Azure Functions runtime: 1.x and 2.x. Only 1.x is approved for production use. This article explains what's new in 2.x, which is in preview.
 
 | Runtime | Status |
 |---------|---------|
 |1.x|Generally Available (GA)|
-|2.x|Preview|
+|2.x|Preview<sup>*</sup>|
 
-For information about how to configure a function app or your development environment for a particular version, see [How to target Azure Functions runtime versions](set-runtime-version.md) and [Code and test Azure Functions locally](functions-run-local.md).
+<sup>*</sup>To receive important updates on version 2.x, including breaking changes announcements, watch the [Azure App Service announcements](https://github.com/Azure/app-service-announcements/issues) repository.
+
+> [!NOTE] 
+> This article refers to the cloud service Azure Functions. For information about the product that lets you run Azure Functions on-premises, see the [Azure Functions Runtime Overview](functions-runtime-overview.md).
 
 ## Cross-platform development
 
@@ -61,8 +58,8 @@ For more information about bindings support and other functional gaps in 2.x, se
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Target the 2.0 runtime in your local development environment](functions-run-local.md)
+For more information, see the following resources:
 
-> [!div class="nextstepaction"]
-> [See Release notes for runtime versions](https://github.com/Azure/azure-webjobs-sdk-script/releases)
+* [Code and test Azure Functions locally](functions-run-local.md)
+* [How to target Azure Functions runtime versions](set-runtime-version.md)
+* [Release notes](https://github.com/Azure/azure-functions-host/releases)

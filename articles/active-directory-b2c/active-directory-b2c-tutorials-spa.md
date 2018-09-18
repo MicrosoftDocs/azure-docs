@@ -20,24 +20,24 @@ This tutorial shows you how to use Azure Active Directory (Azure AD) B2C to sign
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Register a sample single page application in your Azure AD B2C tenant.
+> * Register a sample single page application in your Azure AD B2C directory.
 > * Create policies for user sign-up, sign-in, editing a profile, and password reset.
-> * Configure the sample application to use your Azure AD B2C tenant.
+> * Configure the sample application to use your Azure AD B2C directory.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
-* Create your own [Azure AD B2C Tenant](active-directory-b2c-get-started.md)
+* Create your own [Azure AD B2C Directory](active-directory-b2c-get-started.md)
 * Install [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the **ASP.NET and web development** workload.
 * [.NET Core 2.0.0 SDK](https://www.microsoft.com/net/core) or later
 * Install [Node.js](https://nodejs.org/en/download/)
 
 ## Register single page app
 
-Applications need to be [registered](../active-directory/develop/active-directory-dev-glossary.md#application-registration) in your tenant before they can receive [access tokens](../active-directory/develop/active-directory-dev-glossary.md#access-token) from Azure Active Directory. App registration creates an [application id](../active-directory/develop/active-directory-dev-glossary.md#application-id-client-id) for the app in your tenant. 
+Applications need to be [registered](../active-directory/develop/developer-glossary.md#application-registration) in your directory before they can receive [access tokens](../active-directory/develop/developer-glossary.md#access-token) from Azure Active Directory. App registration creates an [application id](../active-directory/develop/developer-glossary.md#application-id-client-id) for the app in your directory. 
 
-Log in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
+Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C directory.
 
 [!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
 
@@ -45,7 +45,7 @@ Log in to the [Azure portal](https://portal.azure.com/) as the global administra
 
 2. In the B2C settings, click **Applications** and then click **Add**. 
 
-    To register the sample web app in your tenant, use the following settings:
+    To register the sample web app in your directory, use the following settings:
     
     ![Add a new app](media/active-directory-b2c-tutorials-spa/spa-registration.png)
     
@@ -59,7 +59,7 @@ Log in to the [Azure portal](https://portal.azure.com/) as the global administra
     
 3. Click **Create** to register your app.
 
-Registered apps are displayed in the applications list for the Azure AD B2C tenant. Select your single page app from the list. The registered single page app's property pane is displayed.
+Registered apps are displayed in the applications list for the Azure AD B2C directory. Select your single page app from the list. The registered single page app's property pane is displayed.
 
 ![Single page app properties](./media/active-directory-b2c-tutorials-spa/b2c-spa-properties.png)
 
@@ -84,7 +84,7 @@ To sign up users to access then sign in to the web app, create a **sign-up or si
     | **Name** | SiUpIn | Enter a **Name** for the policy. The policy name is prefixed with **B2C_1_**. You use the full policy name **B2C_1_SiUpIn** in the sample code. | 
     | **Identity provider** | Email signup | The identity provider used to uniquely identify the user. |
     | **Sign up attributes** | Display Name and Postal Code | Select attributes to be collected from the user during signup. |
-    | **Application claims** | Display Name, Postal Code, User is new, User's Object ID | Select [claims](../active-directory/develop/active-directory-dev-glossary.md#claim) you want to be included in the [access token](../active-directory/develop/active-directory-dev-glossary.md#access-token). |
+    | **Application claims** | Display Name, Postal Code, User is new, User's Object ID | Select [claims](../active-directory/develop/developer-glossary.md#claim) you want to be included in the [access token](../active-directory/develop/developer-glossary.md#access-token). |
 
 2. Click **Create** to create your policy. 
 
@@ -101,7 +101,7 @@ To allow users to reset their user profile information on their own, create a **
     | **Name** | SiPe | Enter a **Name** for the policy. The policy name is prefixed with **B2C_1_**. You use the full policy name **B2C_1_SiPe** in the sample code. | 
     | **Identity provider** | Local Account SignIn | The identity provider used to uniquely identify the user. |
     | **Profile attributes** | Display Name and Postal Code | Select attributes users can modify during profile edit. |
-    | **Application claims** | Display Name, Postal Code, User's Object ID | Select [claims](../active-directory/develop/active-directory-dev-glossary.md#claim) you want to be included in the [access token](../active-directory/develop/active-directory-dev-glossary.md#access-token) after a successful profile edit. |
+    | **Application claims** | Display Name, Postal Code, User's Object ID | Select [claims](../active-directory/develop/developer-glossary.md#claim) you want to be included in the [access token](../active-directory/develop/developer-glossary.md#access-token) after a successful profile edit. |
 
 2. Click **Create** to create your policy. 
 
@@ -117,31 +117,31 @@ To enable password reset on your application, you need to create a **password re
     | ------------ | ------- | -------------------------------------------------- |
     | **Name** | SSPR | Enter a **Name** for the policy. The policy name is prefixed with **B2C_1_**. You use the full policy name **B2C_1_SSPR** in the sample code. | 
     | **Identity provider** | Reset password using email address | This is the identity provider used to uniquely identify the user. |
-    | **Application claims** | User's Object ID | Select [claims](../active-directory/develop/active-directory-dev-glossary.md#claim) you want to be included in the [access token](../active-directory/develop/active-directory-dev-glossary.md#access-token) after a successful password reset. |
+    | **Application claims** | User's Object ID | Select [claims](../active-directory/develop/developer-glossary.md#claim) you want to be included in the [access token](../active-directory/develop/developer-glossary.md#access-token) after a successful password reset. |
 
 2. Click **Create** to create your policy. 
 
 ## Update single page app code
 
-Now that you have an app registered and policies created, you need to configure your app to use your Azure AD B2C tenant. In this tutorial, you configure a sample SPA JavaScript app you can download from GitHub. 
+Now that you have an app registered and policies created, you need to configure your app to use your Azure AD B2C directory. In this tutorial, you configure a sample SPA JavaScript app you can download from GitHub. 
 
 [Download a zip file](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) or clone the sample web app from GitHub.
 
 ```
 git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
 ```
-The sample app demonstrates how a single page app can use Azure AD B2C for user sign-up, sign-in, and call a protected web API. You need to change the app to use the app registration in your tenant and configure the policies you created. 
+The sample app demonstrates how a single page app can use Azure AD B2C for user sign-up, sign-in, and call a protected web API. You need to change the app to use the app registration in your directory and configure the policies you created. 
 
 To change the app settings:
 
 1. Open the `index.html` file in the Node.js single page app sample.
-2. Configure the sample with the Azure AD B2C tenant registration information. Change the following lines of code:
+2. Configure the sample with the Azure AD B2C directory registration information. Change the following lines of code (make sure to replace the values with the names of your directory and APIs):
 
     ```javascript
-    // The current application coordinates were pre-registered in a B2C tenant.
+    // The current application coordinates were pre-registered in a B2C directory.
     var applicationConfig = {
         clientID: '<Application ID for your SPA obtained from portal app registration>',
-        authority: "https://login.microsoftonline.com/tfp/<your-tenant-name>.onmicrosoft.com/B2C_1_SiUpIn",
+        authority: "https://fabrikamb2c.b2clogin.com/tfp/fabrikamb2c.onmicrosoft.com/B2C_1_<Sign-up or sign-in policy name>",
         b2cScopes: ["https://fabrikamb2c.onmicrosoft.com/demoapi/demo.read"],
         webApi: 'https://fabrikamb2chello.azurewebsites.net/hello',
     };
@@ -181,20 +181,20 @@ The sample app supports sign up, sign in, editing a profile, and password reset.
 
     ![Sign-up workflow](media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.png)
 
-4. Click **Create** to create a local account in the Azure AD B2C tenant.
+4. Click **Create** to create a local account in the Azure AD B2C directory.
 
 Now, the user can use their email address to sign in and use the SPA app.
 
 > [!NOTE]
-> After login, the app displays an "insufficient permissions" error. You receive this error because you are attempting to access a resource from the demo tenant. Since your access token is only valid for your Azure AD tenant, the API call is unauthorized. Continue with the next tutorial to create a protected web API for your tenant. 
+> After login, the app displays an "insufficient permissions" error. You receive this error because you are attempting to access a resource from the demo directory. Since your access token is only valid for your Azure AD directory, the API call is unauthorized. Continue with the next tutorial to create a protected web API for your directory. 
 
 ## Clean up resources
 
-You can use your Azure AD B2C tenant if you plan to try other Azure AD B2C tutorials. When no longer needed, you can [delete your Azure AD B2C tenant](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
+You can use your Azure AD B2C directory if you plan to try other Azure AD B2C tutorials. When no longer needed, you can [delete your Azure AD B2C directory](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
 
 ## Next steps
 
-In this tutorial, you learned how to create an Azure AD B2C tenant, create policies, and update the sample single page app to use your Azure AD B2C tenant. Continue to the next tutorial to learn how to register, configure, and call a protected web API from a desktop app.
+In this tutorial, you learned how to create an Azure AD B2C directory, create policies, and update the sample single page app to use your Azure AD B2C directory. Continue to the next tutorial to learn how to register, configure, and call a protected web API from a desktop app.
 
 > [!div class="nextstepaction"]
 > 

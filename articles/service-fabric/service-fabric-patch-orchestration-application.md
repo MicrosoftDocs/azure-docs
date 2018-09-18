@@ -136,7 +136,7 @@ Automatic Windows updates might lead to availability loss because multiple clust
 
 Application along with installation scripts can be downloaded from [Archive link](https://go.microsoft.com/fwlink/?linkid=869566).
 
-Application in sfpkg format can be downloaded from [sfpkg link](https://go.microsoft.com/fwlink/?linkid=869567). This comes handy for [Azure Resource Manager based application deployment](service-fabric-application-arm-resource.md).
+Application in sfpkg format can be downloaded from [sfpkg link](https://aka.ms/POA/POA_v1.2.2.sfpkg). This comes handy for [Azure Resource Manager based application deployment](service-fabric-application-arm-resource.md).
 
 ## Configure the app
 
@@ -145,7 +145,7 @@ The behavior of the patch orchestration app can be configured to meet your needs
 |**Parameter**        |**Type**                          | **Details**|
 |:-|-|-|
 |MaxResultsToCache    |Long                              | Maximum number of Windows Update results, which should be cached. <br>Default value is 3000 assuming the: <br> - Number of nodes is 20. <br> - Number of updates happening on a node per month is five. <br> - Number of results per operation can be 10. <br> - Results for the past three months should be stored. |
-|TaskApprovalPolicy   |Enum <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy indicates the policy that is to be used by the Coordinator Service to install Windows updates across the Service Fabric cluster nodes.<br>                         Allowed values are: <br>                                                           <b>NodeWise</b>. Windows Update is installed one node at a time. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update is installed one upgrade domain at a time. (At the maximum, all the nodes belonging to an upgrade domain can go for Windows Update.)
+|TaskApprovalPolicy   |Enum <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy indicates the policy that is to be used by the Coordinator Service to install Windows updates across the Service Fabric cluster nodes.<br>                         Allowed values are: <br>                                                           <b>NodeWise</b>. Windows Update is installed one node at a time. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update is installed one upgrade domain at a time. (At the maximum, all the nodes belonging to an upgrade domain can go for Windows Update.)<br> Refer to [FAQ](#frequently-asked-questions) section on how to decide which is best suited policy for your cluster.
 |LogsDiskQuotaInMB   |Long  <br> (Default: 1024)               |Maximum size of patch orchestration app logs in MB, which can be persisted locally on nodes.
 | WUQuery               | string<br>(Default: "IsInstalled=0")                | Query to get Windows updates. For more information, see [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
 | InstallWindowsOSOnlyUpdates | Boolean <br> (default: True)                 | This flag allows Windows operating system updates to be installed.            |
@@ -304,23 +304,40 @@ Q. **What can I do if my cluster is unhealthy and I need to do an urgent operati
 
 A. The patch orchestration app does not install updates while the cluster is unhealthy. Try to bring your cluster to a healthy state to unblock the patch orchestration app workflow.
 
-Q. **Why does patching across clusters take so long to run?**
+Q. **Should i set TaskApprovalPolicy as 'NodeWise' or 'UpgradeDomainWise' for my cluster?**
 
-A. The time needed by the patch orchestration app is mostly dependent on the following factors:
+A. 'UpgradeDomainWise' makes the overall cluster patching faster by patching all the nodes belonging to an upgrade domain in parallel. This means that nodes belonging to an entire upgrade domain would be unavailable (in [Disabled](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabled) state) during the patching process.
 
-- The policy of the Coordinator Service. 
-  - The default policy, `NodeWise`, results in patching only one node at a time. Especially if there is a bigger cluster, we recommend that you use the `UpgradeDomainWise` policy to achieve faster patching across clusters.
-- The number of updates available for download and installation. 
-- The average time needed to download and install an update, which should not exceed a couple of hours.
-- The performance of the VM and network bandwidth.
+In contrast 'NodeWise' policy patches only one node at a time, this implies overall cluster patching would take longer time. However, at max, only one node would be unavailable (in [Disabled](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabled) state) during the patching process.
+
+If your cluster can tolerate running on N-1 number of upgrade domains during patching cycle (where N is the total number of upgrade domains on your cluster), then you can set the policy as 'UpgradeDomainWise', otherwise set it to 'NodeWise'.
+
+Q. **How much time does it take to patch a node?**
+
+A. Patching a node may take minutes (for example: [Windows Defender definition updates](https://www.microsoft.com/wdsi/definitions)) to hours (for example: [Windows Cumulative updates](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%20server%20cumulative%20update)). Time required to patch a node depends mostly on 
+ - The size of updates
+ - Number of updates, which have to be applied in a patching window
+ - Time it takes to install the updates, reboot the node (if required), and finish post-reboot installation steps.
+ - Performance of VM/machine and network conditions.
+
+Q. **How long does it take to patch an entire cluster?**
+
+A. The time needed to patch an entire cluster depends on the following factors:
+
+- Time needed to patch a node.
+- The policy of the Coordinator Service. - The default policy, `NodeWise`, results in patching only one node at a time, which would be slower than `UpgradeDomainWise`. For example: If a node takes ~1 hour to be patched, inorder to patch a 20 node (same type of nodes) cluster with 5 upgrade domains, each containing 4 nodes.
+    - It should take ~20 hours to patch the entire cluster, if policy is `NodeWise`
+    - It should take ~5 hours if policy is `UpgradeDomainWise`
+- Cluster load - Each patching operation requires relocating the customer workload to other available nodes in the cluster. Node undergoing patch would be in [Disabling](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabling) state during this time. If the cluster is running near peak load, the disabling process would take longer time. Hence overall patching process may appear to be slow in such stressed conditions.
+- Cluster health failures during patching - Any [degradation](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet#System_Fabric_Health_HealthState_Error) in [health of the cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-health-introduction) would interrupt the patching process. This would add to the overall time required to patch the entire cluster.
 
 Q. **Why do I see some updates in Windows Update results obtained via REST API, but not under the Windows Update history on the machine?**
 
-A. Some product updates would only appear in their respective update/patch history. For example, Windows Defender updates do not show up in Windows Update history on Windows Server 2016.
+A. Some product updates would only appear in their respective update/patch history. For example, Windows Defender updates may or may not show up in Windows Update history on Windows Server 2016.
 
-Q. **Can Patch Orchestration app be used to patch my dev cluster (one-node cluster) ?**
+Q. **Can Patch Orchestration app be used to patch my dev cluster (one-node cluster)?**
 
-A. No, Patch orchestration app cannot be used to patch one-node cluster. This limitation is by design, as [service fabric system services](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-technical-overview#system-services) or any customer apps will face downtime and hence any repair job for patching would never get approved by repair manager.
+A. No, Patch orchestration app cannot be used to patch one-node cluster. This limitation is by design, as [service fabric system services](https://docs.microsoft.com/azure/service-fabric/service-fabric-technical-overview#system-services) or any customer apps will face downtime and hence any repair job for patching would never get approved by repair manager.
 
 ## Disclaimers
 
@@ -374,6 +391,12 @@ An administrator must intervene and determine why the application or cluster bec
 - Bug fix in creation of RM tasks due to which health check during preparing repair tasks wasn't happening as expected.
 - Changed the startup mode for windows service POANodeSvc from auto to delayed-auto.
 
-### Version 1.2.1 (Latest)
+### Version 1.2.1
 
 - Bug fix in cluster scale-down workflow. Introduced garbage collection logic for POA repair tasks belonging to non-existent nodes.
+
+### Version 1.2.2 (Latest)
+
+- Miscellaneous bug fixes.
+- Binaries are now signed.
+- sfpkg download link now points to a specific version.

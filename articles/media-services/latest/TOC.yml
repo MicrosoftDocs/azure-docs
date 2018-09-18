@@ -28,13 +28,19 @@
 - name: Samples
   items:
   - name: Azure code samples
-    href: https://azure.microsoft.com/resources/samples/?service=media-services
+    href: https://azure.microsoft.com/resources/samples/?sort=0&service=media-services&term=v3 
   - name: Azure CLI
     href: cli-samples.md
 - name: Concepts
   items:
   - name: Assets
     href: assets-concept.md
+  - name: Content protection
+    items:
+    - name: Overview
+      href: content-protection-overview.md
+    - name: Multi-DRM system with access control
+      href: design-multi-drm-system-with-access-control.md
   - name: Encoding  
     items:
     - name: Overview
@@ -49,6 +55,8 @@
     href: reacting-to-media-services-events.md
   - name: Storage accounts
     href: storage-account-concept.md
+  - name: Streaming endpoints
+    href: streaming-endpoint-concept.md
   - name: Transforms and jobs
     href: transform-concept.md
 - name: How-to guides
@@ -68,25 +76,41 @@
     - name: From HTTP(s) - .NET
       href: job-input-from-http-how-to.md
     - name: From a local file - .NET
-      href: job-input-from-local-file-how-to.md    
+      href: job-input-from-local-file-how-to.md  
+  - name: Protect content
+    items:
+    - name: With AES-128 - .NET
+      href: protect-with-aes128.md    
+    - name: With DRM - .NET
+      href: protect-with-drm.md
 - name: Reference
   items:
   - name: OpenAPI Specification (Swagger)
     href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2018-03-30-preview  
   - name: Azure CLI
-    href: https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest
+    href: https://aka.ms/ams-v3-cli-ref
   - name: REST
-    href: https://go.microsoft.com/fwlink/p/?linkid=873030
+    href: https://aka.ms/ams-v3-rest-ref
   - name: .NET
-    href: https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet
+    href: https://aka.ms/ams-v3-dotnet-ref
   - name: Java
-    href: https://docs.microsoft.com/java/api/overview/azure/mediaservices
+    href: https://aka.ms/ams-v3-java-ref
   - name: Python
-    href: https://docs.microsoft.com/python/api/overview/azure/media-services?view=azure-python
+    href: https://aka.ms/ams-v3-python-ref
   - name: Node .js
-    href: https://docs.microsoft.com/en-us/javascript/api/azure-arm-mediaservices/index?view=azure-node-latest
+    href: https://aka.ms/ams-v3-nodejs-ref
+  - name: Go
+    href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/mediaservices/mgmt/2018-06-01-preview/media      
   - name: Event schemas
     href: media-services-event-schemas.md
+  - name: DRM licenses
+    items:
+    - name: PlayReady license template
+      href: playready-license-template-overview.md
+    - name: Widevine license template
+      href: widevine-license-template-overview.md
+    - name: FairPlay license requirements
+      href: fairplay-license-overview.md
 - name: Resources
   items:
   - name: Azure Roadmap
@@ -97,6 +121,21 @@
     href: https://azure.microsoft.com/regions/services/
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=media-services
+  - name: SDKs
+    items:
+    - name: Azure CLI
+      href: https://aka.ms/ams-v3-cli
+    - name: REST
+      href: https://aka.ms/ams-v3-rest-sdk
+    - name: .NET
+      href: https://aka.ms/ams-v3-dotnet-sdk
+    - name: Java
+      href: https://aka.ms/ams-v3-java-sdk
+    - name: Python
+      href: https://aka.ms/ams-v3-python-sdk
+    - name: Node .js
+      href: https://aka.ms/ams-v3-nodejs-sdk
+  - name: Release notes    
   - name: Release notes
     href: release-notes.md
   - name: Quotas and limitations

@@ -5,7 +5,7 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/27/2018
+ms.date: 09/12/2018
 ms.author: raynew
 ms.custom: MVC
 ---
@@ -105,7 +105,7 @@ Run a failover for the machines you want to migrate.
 1. In **Settings** > **Replicated items** click the machine > **Failover**.
 2. In **Failover** select a **Recovery Point** to fail over to. Select the latest recovery point.
 3. The encryption key setting isn't relevant for this scenario.
-4. Select **Shut down machine before beginning failover**. Site Recovery will attempt to do a shutdown of source virtual machines before triggering the failover. Failover continues even if shutdown fails. You can follow the failover progress on the **Jobs** page.
+4. Select **Shut down machine before beginning failover**. Site Recovery will attempt to shutdown virtual machines before triggering the failover. Failover continues even if shutdown fails. You can follow the failover progress on the **Jobs** page.
 5. Check that the Azure VM appears in Azure as expected.
 6. In **Replicated items**, right-click the VM > **Complete Migration**. This finishes the migration process, stops replication for the VM, and stops Site Recovery billing for the VM.
 
@@ -117,10 +117,43 @@ Run a failover for the machines you want to migrate.
 
 In some scenarios, failover requires additional processing that takes around eight to ten minutes to complete. You might notice longer test failover times for physical servers, VMware Linux machines, VMware VMs that don't have the DHCP service enables, and VMware VMs that don't have the following boot drivers: storvsc, vmbus, storflt, intelide, atapi.
 
+## After migration
+
+After machines are migrated to Azure, there are a number of steps you should complete.
+
+Some steps can be automated as part of the migration process using the in-built automation scripts capability in [recovery plans]( https://docs.microsoft.com/azure/site-recovery/site-recovery-runbook-automation)   
+
+
+### Post-migration steps in Azure
+
+- Perform any post-migration app tweaks, such as updating database connection strings, and web server configurations. 
+- Perform final application and migration acceptance testing on the migrated application now running in Azure.
+- The [Azure VM agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) manages VM interaction with the Azure Fabric Controller. It's required for some Azure services, such as Azure Backup, Site Recovery, and Azure Security.
+    - If you're migrating VMware machines and physical servers, the Mobility Service installer installs available Azure VM agent on Windows machines. On Linux VMs, we recommend that you install the agent after failover. a
+    - If you’re migrating Azure VMs to a secondary region, the Azure VM agent must be provisioned on the VM before the migration.
+    - If you’re migrating Hyper-V VMs to Azure, install the Azure VM agent on the Azure VM after the migration.
+- Manually remove any Site Recovery provider/agent from the VM. If you migrate VMware VMs or physical servers, [uninstall the Mobility service][vmware-azure-install-mobility-service.md#uninstall-mobility-service-on-a-windows-server-computer] from the Azure VM.
+- For increased resilience:
+    - Keep data secure by backing up Azure VMs using the Azure Backup service. [Learn more]( https://docs.microsoft.com/azure/backup/quick-backup-vm-portal).
+    - Keep workloads running and continuously available by replicating Azure VMs to a secondary region with Site Recovery. [Learn more](azure-to-azure-quickstart.md).
+- For increased security:
+    - Lock down and limit inbound traffic access with Azure Security Center [Just in time administration]( https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
+    - Restrict network traffic to management endpoints with [Network Security Groups](https://docs.microsoft.com/azure/virtual-network/security-overview).
+    - Deploy [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview) to help secure disks, and keep data safe from theft and unauthorized access.
+    - Read more about [securing IaaS resources]( https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/ ), and visit the [Azure Security Center](https://azure.microsoft.com/services/security-center/ ).
+- For monitoring and management:
+    - Consider deploying [Azure Cost Management](https://docs.microsoft.com/azure/cost-management/overview) to monitor resource usage and spending.
+
+### Post-migration steps on-premises
+
+- Move app traffic over to the app running on the migrated Azure VM instance.
+- Remove the on-premises VMs from your local VM inventory.
+- Remove the on-premises VMs from local backups.
+- Update any internal documentation to show the new location and IP address of the Azure VMs.
+
 
 ## Next steps
 
-In this tutorial you migrated on-premises VMs to Azure VMs. Now you can configure disaster recovery for the Azure VMs.
+In this tutorial you migrated on-premises VMs to Azure VMs. Now, you can [set up disaster recovery](azure-to-azure-replicate-after-migration.md) to a secondary Azure region for the Azure VMs.
 
-> [!div class="nextstepaction"]
-> [Set up disaster recovery](azure-to-azure-replicate-after-migration.md) for Azure VMs after migration from an on-premises site.
+  

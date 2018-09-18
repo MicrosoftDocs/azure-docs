@@ -30,11 +30,11 @@ For background about Batch accounts and scenarios, see the [feature overview](ba
 
 1. Sign in to the [Azure portal][azure_portal].
 
-2. Select **Create a resource** > **Compute** > **Batch Service**.
+1. Select **Create a resource** > **Compute** > **Batch Service**.
 
     ![Batch in the Marketplace][marketplace_portal]
 
-3. Enter **New Batch account** settings. See the following details.
+1. Enter **New Batch account** settings. See the following details.
 
     ![Create a Batch account][account_portal]
 
@@ -52,7 +52,7 @@ For background about Batch accounts and scenarios, see the [feature overview](ba
 
     f. **Pool allocation mode**: For most scenarios, accept the default **Batch service**.
 
-4. Select **Create** to create the account.
+1. Select **Create** to create the account.
 
 
 
@@ -81,22 +81,22 @@ When creating your first Batch account in user subscription mode, you need to re
 
 1. Sign in to the [Azure portal][azure_portal].
 
-2. Select **All services** > **Subscriptions**, and select the subscription you want to use for the Batch account.
+1. Select **All services** > **Subscriptions**, and select the subscription you want to use for the Batch account.
 
-3. In the **Subscription** page, select **Resource providers**, and search for **Microsoft.Batch**. Check that the **Microsoft.Batch** resource provider is registered in the subscription. If it isn't registered, select the **Register** link.
+1. In the **Subscription** page, select **Resource providers**, and search for **Microsoft.Batch**. Check that the **Microsoft.Batch** resource provider is registered in the subscription. If it isn't registered, select the **Register** link.
 
     ![Register Microsoft.Batch provider][register_provider]
 
-3. In the **Subscription** page, select **Access control (IAM)** > **Add**.
+1. In the **Subscription** page, select **Access control (IAM)** > **Add**.
 
     ![Subscription access control][subscription_access]
 
-4. On the **Add permissions** page, select the **Contributor** role, search for the Batch API. Search for each of these strings until you find the API:
+1. On the **Add permissions** page, select the **Contributor** role, search for the Batch API. Search for each of these strings until you find the API:
     1. **MicrosoftAzureBatch**.
-    2. **Microsoft Azure Batch**. Newer Azure AD tenants may use this name.
-    3. **ddbf3205-c6bd-46ae-8127-60eb93363864** is the ID for the Batch API. 
+    1. **Microsoft Azure Batch**. Newer Azure AD tenants may use this name.
+    1. **ddbf3205-c6bd-46ae-8127-60eb93363864** is the ID for the Batch API. 
 
-5. Once you find the Batch API, select it and select **Save**.
+1. Once you find the Batch API, select it and select **Save**.
 
     ![Add Batch permissions][add_permission]
 
@@ -105,7 +105,7 @@ In user subscription mode, an Azure key vault is required that belongs to the sa
 
 1. In the [Azure portal][azure_portal], select **New** > **Security** > **Key Vault**.
 
-2. In the **Create Key Vault** page, enter a name for the key vault, and create a resource group in the region you want for your Batch account. Leave the remaining settings at default values, then select **Create**.
+1. In the **Create Key Vault** page, enter a name for the key vault, and create a resource group in the region you want for your Batch account. Leave the remaining settings at default values, then select **Create**.
 
 When creating the Batch account in user subscription mode, use the resource group for the key vault, specify **User subscription** as the pool allocation mode, and select the key vault.
 
@@ -118,7 +118,7 @@ In addition to using the Azure portal, you can create and manage Batch accounts 
 
 ## Next steps
 * See the [Batch feature overview](batch-api-basics.md) to learn more about Batch service concepts and features. The article discusses the primary Batch resources such as pools, compute nodes, jobs, and tasks, and provides an overview of the service's features for large-scale compute workloads.
-* Learn the basics of developing a Batch-enabled application using the [Batch .NET client library](batch-dotnet-get-started.md) or [Python](batch-python-tutorial.md). These introductory articles guide you through a working application that uses the Batch service to execute a workload on multiple compute nodes, and includes using Azure Storage for workload file staging and retrieval.
+* Learn the basics of developing a Batch-enabled application using the [Batch .NET client library](quick-run-dotnet.md) or [Python](quick-run-python.md). These quickstarts guide you through a sample application that uses the Batch service to execute a workload on multiple compute nodes, and includes using Azure Storage for workload file staging and retrieval.
 
 [azure_portal]: https://portal.azure.com
 [batch_pricing]: https://azure.microsoft.com/pricing/details/batch/

@@ -39,7 +39,7 @@ There is a limit to how many route tables you can create per Azure location and 
 
 1. In the top-left corner of the portal, select **+ Create a resource**.
 2. Select **Networking**, then select **Route table**.
-3. Enter a **Name** for the route table, select your **Subscription**, create a new **Resource group**, or select an existing resource group, select a **Location**, then select **Create**. The **Disable BGP route propagation** option prevents on-premises routes from being propagated via BGP to the network interfaces in any subnet that the route table is associated to. If your virtual network is not connected to an Azure network gateway (VPN or ExpressRoute), leave the option *Disabled*.
+3. Enter a **Name** for the route table, select your **Subscription**, create a new **Resource group**, or select an existing resource group, select a **Location**, then select **Create**. If you plan to associate the route table to a subnet in a virtual network that is connected to your on-premises network through a VPN gateway, and you disable **BGP route propagation**, your on-premises routes are not propagated to the network interfaces in the subnet.
 
 **Commands**
 
@@ -124,7 +124,7 @@ If a route table is associated to any subnets, it cannot be deleted. [Dissociate
 **Commands**
 
 - Azure CLI: [az network route-table delete](/cli/azure/network/route-table/route#az_network_route_table_delete)
-- PowerShell: [Delete-AzureRmRouteTable](/powershell/module/azurerm.network/delete-azurermroutetable) 
+- PowerShell: [Remove-AzureRmRouteTable](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermroutetable?view=azurermps-6.8.1) 
 
 ## Create a route
 

@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory integration with BambooHR | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and BambooHR.
 services: active-directory
@@ -51,7 +51,7 @@ In this tutorial, you test Azure AD single sign-on in a test environment.
 The scenario that this tutorial outlines consists of two main building blocks:
 
 1. Adding BambooHR from the gallery
-2. Configuring and testing Azure AD single sign-on
+1. Configuring and testing Azure AD single sign-on
 
 ## Add BambooHR from the gallery
 To configure the integration of BambooHR into Azure AD, add BambooHR from the gallery to your list of managed SaaS apps by doing the following:
@@ -60,15 +60,15 @@ To configure the integration of BambooHR into Azure AD, add BambooHR from the ga
 
 	![The Azure Active Directory button][1]
 
-2. Select **Enterprise applications** > **All applications**.
+1. Select **Enterprise applications** > **All applications**.
 
 	![The Enterprise applications pane][2]
 	
-3. To add an application, select **New application**.
+1. To add an application, select **New application**.
 
 	![The "New application" button][3]
 
-4. In the search box, type **BambooHR**. In the results list, select **BambooHR**, and then select **Add**.
+1. In the search box, type **BambooHR**. In the results list, select **BambooHR**, and then select **Add**.
 
 	![BambooHR in the results list](./media/bamboo-hr-tutorial/tutorial_bamboohr_addfromgallery.png)
 
@@ -90,11 +90,11 @@ In this section, you enable Azure AD SSO in the Azure portal and configure SSO i
 
 	![Configure single sign-on link][4]
 
-2. In the **Single sign-on** window, in the **Mode** drop-down list, select **SAML-based Sign-on**.
+1. In the **Single sign-on** window, in the **Mode** drop-down list, select **SAML-based Sign-on**.
  
 	![Single sign-on window](./media/bamboo-hr-tutorial/tutorial_bamboohr_samlbase.png)
 
-3. Under **BambooHR Domain and URLs**, do the following:
+1. Under **BambooHR Domain and URLs**, do the following:
 
 	![The BambooHR Domain and URLs section](./media/bamboo-hr-tutorial/tutorial_bamboohr_url.png)
 
@@ -105,21 +105,21 @@ In this section, you enable Azure AD SSO in the Azure portal and configure SSO i
 	> [!NOTE] 
 	> The **Sign on URL** value is not real. Update it with your actual sign-on URL. To obtain the value, contact the [BambooHR client support team](https://www.bamboohr.com/contact.php). 
  
-4. Under **SAML Signing Certificate**, select **Certificate (Base64)**, and then save the certificate file on your computer.
+1. Under **SAML Signing Certificate**, select **Certificate (Base64)**, and then save the certificate file on your computer.
 
 	![The Certificate download link](./media/bamboo-hr-tutorial/tutorial_bamboohr_certificate.png) 
 
-5. Select **Save**.
+1. Select **Save**.
 
 	![The Save button](./media/bamboo-hr-tutorial/tutorial_general_400.png)
 
-6. Under **BambooHR Configuration**, select **Configure BambooHR** to open the **Configure sign-on** window. In the **Quick Reference** section, copy the **SAML Single Sign-On Service URL** for later use.
+1. Under **BambooHR Configuration**, select **Configure BambooHR** to open the **Configure sign-on** window. In the **Quick Reference** section, copy the **SAML Single Sign-On Service URL** for later use.
 
 	![BambooHR configuration](./media/bamboo-hr-tutorial/tutorial_bamboohr_configure.png) 
 
-7. In a new window, sign in to your BambooHR company site as an administrator.
+1. In a new window, sign in to your BambooHR company site as an administrator.
 
-8. On the home page, do the following:
+1. On the home page, do the following:
    
     ![The BambooHR Single Sign-On page](./media/bamboo-hr-tutorial/ic796691.png "Single Sign-On")   
 
@@ -129,7 +129,7 @@ In this section, you enable Azure AD SSO in the Azure portal and configure SSO i
    
     c. Select **SAML Single Sign-On**.
 
-9. In the **SAML Single Sign-On** pane, do the following:
+1. In the **SAML Single Sign-On** pane, do the following:
    
     ![The SAML Single Sign-On pane](./media/bamboo-hr-tutorial/IC796692.png "SAML Single Sign-On")
    
@@ -155,15 +155,15 @@ To create a test user in Azure AD, do the following:
 
     ![The Azure Active Directory button](./media/bamboo-hr-tutorial/create_aaduser_01.png)
 
-2. To display the list of users, go to **Users and groups**, and then select **All users**.
+1. To display the list of users, go to **Users and groups**, and then select **All users**.
 
     ![The "Users and groups" and "All users" links](./media/bamboo-hr-tutorial/create_aaduser_02.png)
 
-3. At the top of the **All Users** pane, select **Add**.
+1. At the top of the **All Users** pane, select **Add**.
 
     ![The Add button](./media/bamboo-hr-tutorial/create_aaduser_03.png)
 
-4. In the **User** window, do the following:
+1. In the **User** window, do the following:
 
     ![The User window](./media/bamboo-hr-tutorial/create_aaduser_04.png)
 
@@ -181,17 +181,17 @@ To enable Azure AD users to sign in to BambooHR, set them up manually in BambooH
 
 1. Sign in to your **BambooHR** site as an administrator.
 
-2. In the toolbar at the top, select **Settings**.
+1. In the toolbar at the top, select **Settings**.
    
     ![The Settings button](./media/bamboo-hr-tutorial/IC796694.png "Setting")
 
-3. Select **Overview**.
+1. Select **Overview**.
 
-4. In the left pane, select **Security** > **Users**.
+1. In the left pane, select **Security** > **Users**.
 
-5. Type the username, password, and email address of the valid Azure AD account that you want to set up.
+1. Type the username, password, and email address of the valid Azure AD account that you want to set up.
 
-6. Select **Save**.
+1. Select **Save**.
 		
 >[!NOTE]
 >To set up Azure AD user accounts, you can also use BambooHR user account-creation tools or APIs.
@@ -208,23 +208,23 @@ To assign user Britta Simon to BambooHR, do the following:
 
 	![Assign User][201] 
 
-2. In the **Enterprise Applications** list, select **BambooHR**.
+1. In the **Enterprise Applications** list, select **BambooHR**.
 
 	![The BambooHR link in the Enterprise Applications list](./media/bamboo-hr-tutorial/tutorial_bamboohr_app.png)  
 
-3. In the left pane, select **Users and groups**.
+1. In the left pane, select **Users and groups**.
 
 	![The "Users and groups" link][202]
 
-4. Select the **Add** button and then, in the **Add Assignment** pane, select **Users and groups**.
+1. Select the **Add** button and then, in the **Add Assignment** pane, select **Users and groups**.
 
 	![The Add Assignment pane][203]
 
-5. In the **Users and groups** window, in the **Users** list, select **Britta Simon**.
+1. In the **Users and groups** window, in the **Users** list, select **Britta Simon**.
 
-6. Select the **Select** button.
+1. Select the **Select** button.
 
-7. In the **Add Assignment** window, select the **Assign** button.
+1. In the **Add Assignment** window, select the **Assign** button.
 	
 ### Test single sign-on
 
@@ -232,7 +232,7 @@ Test your Azure AD SSO configuration by using the Access Panel.
 
 When you select the **BambooHR** tile in the Access Panel, you should get automatically signed in to your BambooHR application.
 
-For more information about the Access Panel, see [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 

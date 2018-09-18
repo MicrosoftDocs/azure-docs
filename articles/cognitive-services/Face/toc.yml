@@ -1,14 +1,16 @@
 - name: Face API Documentation
   href: index.yml
 - name: Overview
+  expanded: true
   items:
   - name: What is Face API?
     href: Overview.md
 - name: Quickstarts
-  expanded: true
   items:
-  - name: C#
+  - name: C# API
     href: QuickStarts/CSharp.md
+  - name: C# SDK
+    href: QuickStarts/csharp-detect-sdk.md
   - name: cURL
     href: QuickStarts/curl.md
   - name: Go
@@ -25,14 +27,16 @@
     href: QuickStarts/Python.md
   - name: Ruby
     href: QuickStarts/Ruby.md
+- name: Tutorials
+  items:
+  - name: C#
+    href: Tutorials/FaceAPIinCSharpTutorial.md
+  - name: Android
+    href: Tutorials/FaceAPIinJavaForAndroidTutorial.md
 - name: How to guides
   items:
   - name: First Face API apps
     items:
-    - name: C#
-      href: Tutorials/FaceAPIinCSharpTutorial.md
-    - name: Java for Android
-      href: Tutorials/FaceAPIinJavaForAndroidTutorial.md
     - name: Python
       href: Tutorials/FaceAPIinPythonTutorial.md
   - name: Detect faces in image
@@ -53,16 +57,18 @@
   items:
   - name: Face API
     href: APIReference.md
+  - name: Glossary
+    href: Glossary.md
   - name: SDKs
     items:
-    - name: Go
-      href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/face
+    - name: Windows
+      href: https://github.com/Microsoft/Cognitive-Face-Windows
     - name: Node.js
       href: https://docs.microsoft.com/javascript/api/overview/azure/cognitive-services?view=azure-node-latest#vision-modules
     - name: Python
       href: https://github.com/Microsoft/Cognitive-Face-Python
-    - name: Windows
-      href: https://github.com/Microsoft/Cognitive-Face-Windows
+    - name: Go
+      href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/face
     - name: Android
       href: https://github.com/Microsoft/Cognitive-Face-Android
     - name: iOS
@@ -81,7 +87,7 @@
     href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
-  - name: Glossary
-    href: Glossary.md
+  - name: Regional availability
+    href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Release notes
     href: ReleaseNotes.md

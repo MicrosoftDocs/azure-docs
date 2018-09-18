@@ -23,10 +23,10 @@
     href: app-service-web-get-started-php.md
   - name: Create Java app
     href: app-service-web-get-started-java.md
-  - name: Create Python app
-    href: app-service-web-get-started-python.md
   - name: Create static HTML site
     href: app-service-web-get-started-html.md
+  - name: Run custom Windows container
+    href: app-service-web-get-started-windows-container.md
 - name: Tutorials
   items:
   - name: App with DB
@@ -41,8 +41,6 @@
       href: app-service-web-tutorial-nodejs-mongodb-app.md
     - name: Java with MySQL
       href: app-service-web-tutorial-java-mysql.md
-    - name: Python with PostgreSQL
-      href: app-service-web-tutorial-python-postgresql.md
   - name: Access SQL DB securely
     href: app-service-web-tutorial-connect-msi.md
   - name: Host RESTful API
@@ -55,8 +53,6 @@
     href: ../cdn/cdn-add-to-web-app.md?toc=%2fazure%2fcdn%2ftoc.json
   - name: Authenticate users
     href: app-service-web-tutorial-auth-aad.md
-  - name: Deploy apps to Azure App Service with VSTS and CI/CD 
-    href: https://docs.microsoft.com/learn/deploy-apps-to-azure/index
 - name: Samples
   items:
   - name: Azure CLI
@@ -154,7 +150,7 @@
       href: app-service-authentication-how-to.md
     - name: Restrict IPs
       href: app-service-ip-restrictions.md
-    - name: Use Managed Service Identity
+    - name: Use a managed identity
       href: app-service-managed-service-identity.md
     - name: Use SSL cert in application code
       href: app-service-web-ssl-cert-load.md
@@ -167,7 +163,7 @@
     - name: Configure PremiumV2 tier
       href: app-service-configure-premium-tier.md
     - name: Scale out to multiple instances
-      href: ../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service%2ftoc.json
+      href: ../monitoring-and-diagnostics/monitoring-autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json
     - name: High density hosting
       href: app-service-high-density-hosting.md
   - name: Monitor app
@@ -253,7 +249,7 @@
   - name: Cookbooks
     items:
     - name: Reference Architectures
-      href: /azure/architecture/reference-architectures/app-service-web-app/
+      href: https://docs.microsoft.com/azure/architecture/reference-architectures/#web-applications
     - name: Deployment Scripts
       href: https://azure.microsoft.com/documentation/scripts/
   - name: Troubleshooting
@@ -278,3 +274,11 @@
         href: app-service-web-open-source-technologies-faq.md
       - name: Configuration and management FAQ
         href: app-service-web-configuration-and-management-faq.md
+  - name: IP address change
+    items:
+    - name: Inbound IP address
+      href: ip-address-change-inbound.md
+    - name: Outbound IP address
+      href: ip-address-change-outbound.md
+    - name: SSL address
+      href: ip-address-change-ssl.md

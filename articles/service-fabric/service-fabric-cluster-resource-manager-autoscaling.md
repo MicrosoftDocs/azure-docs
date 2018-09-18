@@ -44,7 +44,7 @@ There are two mechanisms that are currently supported for auto scaling. The firs
 The first type of trigger is based on the load of instances in a stateless service partition. Metric loads are first smoothed to obtain the load for every instance of a partition, and then these values are averaged across all instances of the partition. There are three factors that determine when the service will be scaled:
 
 * _Lower load threshold_ is a value that determines when the service will be **scaled in**. If the average load of all instances of the partitions is lower than this value, then the service will be scaled in.
-* _Upper load threshold_ is a value that determines when the service will be **scaled out**. If the average load of all instances of the partition is lower than this value, then the service will be scaled out.
+* _Upper load threshold_ is a value that determines when the service will be **scaled out**. If the average load of all instances of the partition is higher than this value, then the service will be scaled out.
 * _Scaling interval_ determines how often the trigger will be checked. Once the trigger is checked, if scaling is needed the mechanism will be applied. If scaling is not needed, then no action will be taken. In both cases, trigger will not be checked again before scaling interval expires again.
 
 This trigger can be used only with stateless services (either stateless containers or Service Fabric services). In case when a service has multiple partitions, the trigger is evaluated for each partition separately, and each partition will have the specified mechanism applied to it independently. Hence, in this case, it is possible that some of the partitions of the service will be scaled out, some will be scaled in, and some won't be scaled at all at the same time, based on their load.
@@ -114,7 +114,7 @@ Update-ServiceFabricService -Stateless -ServiceName "fabric:/AppName/ServiceName
 The second trigger is based on the load of all partitions of one service. Metric loads are first smoothed to obtain the load for every replica or instance of a partition. For stateful services, the load of the partition is considered to be the load of the primary replica, while for stateless services the load of the partition is the average load of all instances of the partition. These values are averaged across all partitions of the service, and this value is used to trigger the auto scaling. Same as in previous mechanism, there are three factors that determine when the service will be scaled:
 
 * _Lower load threshold_ is a value that determines when the service will be **scaled in**. If the average load of all partitions of the service is lower than this value, then the service will be scaled in.
-* _Upper load threshold_ is a value that determines when the service will be **scaled out**. If the average load of all partitions of the service is lower than this value, then the service will be scaled out.
+* _Upper load threshold_ is a value that determines when the service will be **scaled out**. If the average load of all partitions of the service is higher than this value, then the service will be scaled out.
 * _Scaling interval_ determines how often the trigger will be checked. Once the trigger is checked, if scaling is needed the mechanism will be applied. If scaling is not needed, then no action will be taken. In both cases, trigger will not be checked again before scaling interval expires again.
 
 This trigger can be used both with stateful and stateless services. The only mechanism that can be used with this trigger is AddRemoveIncrementalNamedParitionScalingMechanism. When service is scaled out then a new partition is added, and when service is scaled in one of existing partitions is removed. There are restrictions that will be checked when service is created or updated and service creation/update will fail if these conditions are not met:
@@ -132,6 +132,9 @@ Same as with mechanism that uses scaling by adding or removing instances, there 
 * _Scale Increment_ determines how many partitions will be added or removed when mechanism is triggered.
 * _Maximum Partition Count_ defines the upper limit for scaling. If number of partitions of the service reaches this limit, then the service will not be scaled out, regardless of the load. It is possible to omit this limit by specifying value of -1, and in that case the service will be scaled out as much as possible (the limit is the actual capacity of the cluster).
 * _Minimum Instance Count_ defines the lower limit for scaling. If number of partitions of the service reaches this limit, then service will not be scaled in regardless of the load.
+
+> [!WARNING] 
+> When AddRemoveIncrementalNamedParitionScalingMechanism is used with stateful services, Service Fabric will add or remove partitions **without notification or warning**. Repartitioning of data will not be performed when scaling mechanism is triggered. In case of scale up operation, new partitions will be empty, and in case of scale down operation, **partition will be deleted together with all the data that it contains**.
 
 ## Setting auto scaling policy
 

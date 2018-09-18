@@ -119,12 +119,12 @@ New-AzureRmVm `
 
 ## Image management 
 
-Here are some examples of common management image tasks and how to complete them using PowerShell.
+Here are some examples of common managed image tasks and how to complete them using PowerShell.
 
 List all images by name.
 
 ```azurepowershell-interactive
-$images = Find-AzureRMResource -ResourceType Microsoft.Compute/images 
+$images = Get-AzureRMResource -ResourceType Microsoft.Compute/images 
 $images.name
 ```
 

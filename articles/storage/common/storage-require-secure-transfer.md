@@ -1,20 +1,13 @@
-﻿---
+---
 title: Require secure transfer in Azure Storage | Microsoft Docs
 description: Learn about the "Secure transfer required" feature for Azure Storage, and how to enable it.
 services: storage
-documentationcenter: na
 author: fhryo-msft
-manager: Jason.Hogg
-editor: fhryo-msft
-
-ms.assetid:
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage
 ms.date: 06/20/2017
 ms.author: fryu
+ms.component: common
 ---
 # Require secure transfer in Azure Storage
 

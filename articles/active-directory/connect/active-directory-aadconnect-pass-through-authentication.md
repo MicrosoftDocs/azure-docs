@@ -4,7 +4,7 @@ description: This article describes Azure Active Directory (Azure AD) Pass-throu
 services: active-directory
 keywords: what is Azure AD Connect Pass-through Authentication, install Active Directory, required components for Azure AD, SSO, Single Sign-on
 documentationcenter: ''
-author: swkrish
+author: billmath
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
 ---
@@ -25,7 +25,7 @@ Azure Active Directory (Azure AD) Pass-through Authentication allows your users 
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
-This feature is an alternative to [Azure AD Password Hash Synchronization](active-directory-aadconnectsync-implement-password-hash-synchronization.md), which provides the same benefit of cloud authentication to organizations. However, security and compliance policies in certain organizations don't permit these organizations to send users' passwords, even in a hashed form, outside their internal boundaries. Pass-through Authentication is the right solution for such organizations.
+This feature is an alternative to [Azure AD Password Hash Synchronization](active-directory-aadconnectsync-implement-password-hash-synchronization.md), which provides the same benefit of cloud authentication to organizations. However, certain organizations wanting to enforce their on-premises Active Directory security and password policies, can choose to use Pass-through Authentication instead. Review [this guide](https://docs.microsoft.com/azure/security/azure-ad-choose-authn) for a comparison of the various Azure AD sign-in methods and how to choose the right sign-in method for your organization.
 
 ![Azure AD Pass-through Authentication](./media/active-directory-aadconnect-pass-through-authentication/pta1.png)
 
@@ -44,7 +44,7 @@ You can combine Pass-through Authentication with the [Seamless Single Sign-On](a
 - *Secure*
   - On-premises passwords are never stored in the cloud in any form.
   - The agent only makes outbound connections from within your network. Therefore, there is no requirement to install the agent in a perimeter network, also known as a DMZ.
-  - Protects your user accounts by working seamlessly with [Azure AD Conditional Access policies](../active-directory-conditional-access-azure-portal.md), including Multi-Factor Authentication (MFA), and by [filtering out brute force password attacks](../authentication/howto-password-smart-lockout.md).
+  - Protects your user accounts by working seamlessly with [Azure AD Conditional Access policies](../active-directory-conditional-access-azure-portal.md), including Multi-Factor Authentication (MFA), [blocking legacy authentication](../conditional-access/conditions.md) and by [filtering out brute force password attacks](../authentication/howto-password-smart-lockout.md).
 - *Highly available*
   - Additional agents can be installed on multiple on-premises servers to provide high availability of sign-in requests.
 
@@ -63,12 +63,13 @@ You can combine Pass-through Authentication with the [Seamless Single Sign-On](a
 
 ## Next steps
 
-- [**Quick Start**](active-directory-aadconnect-pass-through-authentication-quick-start.md) - Get up and running Azure AD Pass-through Authentication.
-- [**Smart Lockout**](../authentication/howto-password-smart-lockout.md) - Configure Smart Lockout capability on your tenant to protect user accounts.
-- [**Current limitations**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) - Learn which scenarios are supported and which ones are not.
-- [**Technical Deep Dive**](active-directory-aadconnect-pass-through-authentication-how-it-works.md) - Understand how this feature works.
-- [**Frequently Asked Questions**](active-directory-aadconnect-pass-through-authentication-faq.md) - Answers to frequently asked questions.
-- [**Troubleshoot**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) - Learn how to resolve common issues with the feature.
-- [**Security Deep Dive**](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md) - Additional deep technical information on the feature.
-- [**Azure AD Seamless SSO**](active-directory-aadconnect-sso.md) - Learn more about this complementary feature.
-- [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - For filing new feature requests.
+- [Quick Start](active-directory-aadconnect-pass-through-authentication-quick-start.md) - Get up and running Azure AD Pass-through Authentication.
+- [Migrate from AD FS to Pass-through Authentication](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx) - A detailed guide to migrate from AD FS (or other federation technologies) to Pass-through Authentication.
+- [Smart Lockout](../authentication/howto-password-smart-lockout.md) - Configure Smart Lockout capability on your tenant to protect user accounts.
+- [Current limitations](active-directory-aadconnect-pass-through-authentication-current-limitations.md) - Learn which scenarios are supported and which ones are not.
+- [Technical Deep Dive](active-directory-aadconnect-pass-through-authentication-how-it-works.md) - Understand how this feature works.
+- [Frequently Asked Questions](active-directory-aadconnect-pass-through-authentication-faq.md) - Answers to frequently asked questions.
+- [Troubleshoot](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) - Learn how to resolve common issues with the feature.
+- [Security Deep Dive](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md) - Additional deep technical information on the feature.
+- [Azure AD Seamless SSO](active-directory-aadconnect-sso.md) - Learn more about this complementary feature.
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - For filing new feature requests.

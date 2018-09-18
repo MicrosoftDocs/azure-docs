@@ -3,8 +3,8 @@ title: Fail back from Azure to VMware with Azure Site Recovery | Microsoft Docs
 description: After failover of virtual machines to Azure, you can start a failback to bring virtual machines back to on-premises. Learn the steps for how to fail back.
 author: nsoneji
 ms.service: site-recovery
+ms.date: 07/06/2018
 ms.topic: conceptual
-ms.date: 05/20/2018
 ms.author: nisoneji
 
 ---

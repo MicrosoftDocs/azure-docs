@@ -5,7 +5,7 @@ description: Azure Active Directory B2B collaboration does not require paid Azur
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/09/2017
 
 ms.author: mimart
@@ -63,7 +63,7 @@ A B2B guest user is one that is invited from a partner organization to work with
 
 ## Next steps
 
-See the following articles articles on Azure AD B2B collaboration:
+See the following articles on Azure AD B2B collaboration:
 
 * [What is Azure AD B2B collaboration?](what-is-b2b.md)
 * [Azure Active Directory B2B collaboration frequently asked questions (FAQ)](faq.md)

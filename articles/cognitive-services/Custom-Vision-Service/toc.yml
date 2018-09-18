@@ -21,6 +21,8 @@
       href: custom-vision-onnx-windows-ml.md
     - name: Run TensorFlow model in Python
       href: export-model-python.md
+    - name: Train a model using the REST API
+      href: rest-api-tutorial.md
   - name: Build apps
     items:
     - name: Image Classification
@@ -29,32 +31,36 @@
         href: csharp-tutorial.md
       - name: Python tutorial
         href: python-tutorial.md
+      - name: Java tutorial
+        href: java-tutorial.md
     - name: Object Detection
       items:
       - name: C# tutorial
         href: csharp-tutorial-od.md
       - name: Python tutorial
         href: python-tutorial-od.md
+      - name: Java tutorial
+        href: java-tutorial-od.md
 - name: Reference
   items:
   - name: Custom Vision Training API  
     href: https://go.microsoft.com/fwlink/?linkid=865446
   - name: Custom Vision Prediction API 
     href: https://go.microsoft.com/fwlink/?linkid=865445
-  - name: Limits and quotas
-    href: limits-and-quotas.md
   - name: Glossary
     href: glossary-of-terms.md
   - name: SDKs
     items:
-    - name: Go
-      href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices
-    - name: Python
-      href: https://docs.microsoft.com/python/api/overview/azure/cognitive-services?view=azure-python#vision-modules
     - name: Windows
       href: http://github.com/Microsoft/Cognitive-CustomVision-Windows
+    - name: Python
+      href: https://docs.microsoft.com/python/api/overview/azure/cognitive-services?view=azure-python#vision-modules
+    - name: Go
+      href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices
 - name: Resources
   items:
+  - name: Release Notes
+    href: release-notes.md
   - name: Samples
     href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision
   - name: Pricing
@@ -67,3 +73,7 @@
     href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
+  - name: Regional availability
+    href: https://azure.microsoft.com/global-infrastructure/services/
+  - name: Limits and quotas
+    href: limits-and-quotas.md

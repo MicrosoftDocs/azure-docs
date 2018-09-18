@@ -1,18 +1,19 @@
 ---
 title: Using Terraform with Azure
 description: Introduction to using Terraform to vesion and deploy Azure infrastructure.
-ms.service: virtual-machines-linux
+services: terraform
+ms.service: terraform
 keywords: terraform, devops, overview, plan, apply, automate
-author: binderjoe
-ms.author: jbinder
-ms.date: 10/19/2017
-ms.topic: article
+author: tomarcher
+manager: jeconnoc
+ms.author: tarcher
+ms.topic: tutorial
+ms.date: 08/31/2018
 ---
-
 
 # Terraform with Azure
 
-[Hashicorp Terraform](https://www.terraform.io/) is an open source tool for provisioning and managing cloud infrastructure. It codifies infrastructure in configuration files that describe the topology of cloud resources, such as virtual machines, storage accounts, and networking interfaces. Terraform's command-line interface (CLI) provides a simple mechanism to deploy and version the configuration files to Azure or any other supported cloud.
+[Hashicorp Terraform](https://www.terraform.io/) is an open-source tool for provisioning and managing cloud infrastructure. It codifies infrastructure in configuration files that describe the topology of cloud resources, such as virtual machines, storage accounts, and networking interfaces. Terraform's command-line interface (CLI) provides a simple mechanism to deploy and version the configuration files to Azure or any other supported cloud.
 
 This article describes the benefits of using Terraform to manage Azure infrastructure.
 

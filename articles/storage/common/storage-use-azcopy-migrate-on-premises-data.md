@@ -1,16 +1,14 @@
---- 
+---
 title: Migrate on-premises data to Azure Storage by using AzCopy| Microsoft Docs
-description: Use AzCopy to migrate data or copy data to or from blob, table, and file content. Easily migrate data from your local storage to Azure Storage.  
-services: storage 
+description: Use AzCopy to migrate data or copy data to or from blob, table, and file content. Easily migrate data from your local storage to Azure Storage.
+services: storage
 author: roygara
-manager: jeconnoc 
-
-ms.service: storage 
-ms.tgt_pltfrm: na
+ms.service: storage
 ms.devlang: azcopy
 ms.topic: tutorial
 ms.date: 12/14/2017
 ms.author: rogarana
+ms.component: common
 --- 
 
 #  Migrate on-premises data to cloud storage by using AzCopy
@@ -66,7 +64,7 @@ You can use AzCopy to upload all files in a folder to Blob storage on [Windows](
         --recursive
 
 # [Windows](#tab/windows)
-    AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey: key /S
+    AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:<key> /S
 ---
 
 Replace `<key>` and `key` with your account key. In the Azure portal, you can retrieve your account key by selecting **Access keys** under **Settings** in your storage account. Select a key, and paste it into the AzCopy command. If the specified destination container does not exist, AzCopy creates it and uploads the file into it. Update the source path to your data directory, and replace **myaccount** in the destination URL with your storage account name.
@@ -87,7 +85,7 @@ If you only want to copy source resources that do not exist in the destination, 
     --exclude-older
 
 # [Windows](#tab/windows)
-    AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey: key /S /XO
+    AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:<key> /S /XO
 ---
 
 ## Create a scheduled task or cron job 
@@ -100,7 +98,7 @@ Copy the AzCopy command to a text editor. Update the parameter values of the AzC
 
 # [Windows](#tab/windows)
     cd C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
-    AzCopy /Source: C:\myfolder  /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey: key /V /XO /XN >C:\Path\to\logfolder\azcopy%date:~-4,4%%date:~-7,2%%date:~-10,2%%time:~-11,2%%time:~-8,2%%time:~-5,2%.log
+    AzCopy /Source: C:\myfolder  /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:<key> /V /XO /XN >C:\Path\to\logfolder\azcopy%date:~-4,4%%date:~-7,2%%date:~-10,2%%time:~-11,2%%time:~-8,2%%time:~-5,2%.log
 ---
 
 AzCopy is run with the verbose `--verbose` (Linux) or `/V` (Windows) option. The output is redirected into a log file. 
