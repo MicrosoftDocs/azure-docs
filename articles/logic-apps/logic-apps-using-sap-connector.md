@@ -525,9 +525,8 @@ in unexpected behavior. For Send scenarios, data gateway clusters are supported.
 A logic app with a trigger and a response action results in unexpected behavior. 
 
 * Only a single SAP connector Send message action works with tRFC. 
-Attempts to start a tRFC transaction with one Send message action, 
-and then adding more RFC calls or committing the tRFC transaction 
-in later Send message actions result in unexpected behavior. 
+The Business Application Programming Interface (BAPI) commit pattern, 
+for example, making multiple tRFC calls in the same session, isn't supported.
 
 * RFCs with attachments aren't supported for both the Send to SAP 
 and Generate schemas actions.
