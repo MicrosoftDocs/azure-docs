@@ -8,6 +8,7 @@
       - name: What is Data Box?
         href: data-box-overview.md
     - name: Quickstarts
+      expanded: true
       items:
       - name: Set up - Azure portal
         href: data-box-quickstart-portal.md
@@ -49,6 +50,7 @@
       - name: What is Data Box Disk?
         href: data-box-disk-overview.md
     - name: Quickstarts
+      expanded: true
       items:
       - name: Set up - Azure portal
         href: data-box-disk-quickstart-portal.md

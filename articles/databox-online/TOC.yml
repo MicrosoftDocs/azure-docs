@@ -1,5 +1,6 @@
 - name: Documentation - Azure Data Box for online transfer
   href: /azure/databox-online/
+  expanded: true
 - name: Data Box Gateway
   items:
   - name: Overview
