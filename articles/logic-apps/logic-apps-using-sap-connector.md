@@ -161,15 +161,15 @@ so you can set up your SAP action.
    For the **Data Gateway** property, select the data gateway you created 
    in the Azure portal for your gateway installation.
 
-   If the **Logon Type** property is set to **Application Server**, 
-   these usually optional properties are required:
+      If the **Logon Type** property is set to **Application Server**, 
+      these properties, which usually appear optional, are required:
 
-   ![Create SAP application server connection](media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png) 
+      ![Create SAP application server connection](media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png) 
 
-   If the **Logon Type** property is set to **Group**, 
-   these usually optional properties are required: 
+      If the **Logon Type** property is set to **Group**, 
+      these properties, which usually appear optional, are required: 
 
-   ![Create SAP message server connection](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png) 
+      ![Create SAP message server connection](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png) 
 
    2. When you're done, choose **Create**. 
    
@@ -262,13 +262,13 @@ To the send the request, you can use a tool such as
 
 4. After you send your HTTP request, wait for the response from your logic app.
 
-> [!NOTE]
-> Your logic app might time out if all the steps 
-> required for the response don't finish within the 
-> [request timeout limit](./logic-apps-limits-and-config.md). 
-> If this condition happens, requests might get blocked. 
-> To help you diagnose problems, learn how you can 
-> [check and monitor your logic apps](../logic-apps/logic-apps-monitor-your-logic-apps.md).
+   > [!NOTE]
+   > Your logic app might time out if all the steps 
+   > required for the response don't finish within the 
+   > [request timeout limit](./logic-apps-limits-and-config.md). 
+   > If this condition happens, requests might get blocked. 
+   > To help you diagnose problems, learn how you can 
+   > [check and monitor your logic apps](../logic-apps/logic-apps-monitor-your-logic-apps.md).
 
 Congratulations, you've now created a logic app that can 
 communicate with your SAP server. Now that you've set up 
@@ -306,12 +306,12 @@ so you can set up your SAP action.
    created in the Azure portal for your gateway installation.
 
       If the **Logon Type** property is set to **Application Server**, 
-      these usually properties are required:
+      these properties, which usually appear optional, are required:
 
       ![Create SAP application server connection](media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png) 
 
       If the **Logon Type** property is set to **Group**, 
-      these usually optional properties are required:
+      these properties, which usually appear optional, are required:
 
       ![Create SAP message server connection](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)  
 
@@ -418,12 +418,12 @@ so you can set up your SAP action.
    created in the Azure portal for your gateway installation.
 
       If the **Logon Type** property is set to **Application Server**, 
-      these usually optional properties are now required:
+      these properties, which usually appear optional, are required:
 
       ![Create SAP application server connection](media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png) 
 
       If the **Logon Type** property is set to **Group**, 
-      these usually optional properties are now required:  
+      these properties, which usually appear optional, are required:
    
       ![Create SAP message server connection](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png) 
 
