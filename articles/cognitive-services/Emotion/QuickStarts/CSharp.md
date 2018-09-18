@@ -1,17 +1,19 @@
 ---
-title: Emotion API C# quick start | Microsoft Docs
-description: Get information and a code sample to help you quickly get started by using the Emotion API with C# in Cognitive Services.
+title: "Quickstart: Recognize emotions on faces in an image - Emotion API, C#"
+titlesuffix: Azure Cognitive Services
+description: Get information and a code sample to help you quickly get started by using the Emotion API with C#.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: quickstart
 ms.date: 11/02/2017
 ms.author: anroth
 ---
 
-# Emotion API C# quick start
+# Quickstart: Build an app to recognize emotions on faces in an image.
 
 > [!IMPORTANT]
 > The Video API Preview ended on October 30, 2017. To easily extract insights from 

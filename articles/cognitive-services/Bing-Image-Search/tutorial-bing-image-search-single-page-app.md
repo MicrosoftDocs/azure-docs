@@ -1,25 +1,26 @@
 ---
-title: Bing Image Search single-page Web app
+title: "Tutorial: Create a single-page web app - Bing Image Search API"
 titleSuffix: Azure cognitive services
-description: Learn how to embed images and Bing Image Search options in a single-page Web application.
+description: The Bing Image Search API enables you to search the web for high-quality, relevant images. Use this tutorial to build a single-page web application that can send search queries to the API, and display the results within the webpage.
 services: cognitive-services
 author: aahi
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 9/12/2018
 ms.author: aahi
 ---
-# Tutorial: Display images and search options in a single-page Web app
 
-The Bing Image Search API enables you to search the web for high-quality, relevant images. Use this tutorial to build a single-page web application that can send search queries to the API, and display the results within the webpage. This tutorial is similar to the [corresponding tutorial](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md) for Bing Web Search. 
+# Tutorial: Create a single-page app using the Bing Image Search API
+
+The Bing Image Search API enables you to search the web for high-quality, relevant images. Use this tutorial to build a single-page web application that can send search queries to the API, and display the results within the webpage. This tutorial is similar to the [corresponding tutorial](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md) for Bing Web Search.
 
 The tutorial app illustrates how to:
 
 > [!div class="checklist"]
 > * Perform a Bing Image Search API call in JavaScript
-> * Improve search results using search options 
+> * Improve search results using search options
 > * Display and page through search results
 > * Request and handle an API subscription key, and Bing client ID.
 
@@ -28,7 +29,7 @@ The full source code for this tutorial is available on [GitHub](https://github.c
 ## Prerequisites
 
 * The latest version of [Node.js](https://nodejs.org/).
-* The [Express.js](https://expressjs.com/) framework for Node.js. Installation instructions for the source code are available in the gitHub sample readme file. 
+* The [Express.js](https://expressjs.com/) framework for Node.js. Installation instructions for the source code are available in the gitHub sample readme file.
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
@@ -43,10 +44,10 @@ Define `storeValue` and `retrieveValue` functions to use either the `localStorag
 // Cookie names for data being stored
 API_KEY_COOKIE   = "bing-search-api-key";
 CLIENT_ID_COOKIE = "bing-search-client-id";
-// The Bing Image Search API endpoint 
+// The Bing Image Search API endpoint
 BING_ENDPOINT = "https://api.cognitive.microsoft.com/bing/v7.0/images/search";
 
-try { //Try to use localStorage first 
+try { //Try to use localStorage first
     localStorage.getItem;   
 
     window.retrieveValue = function (name) {
@@ -92,13 +93,13 @@ function getSubscriptionKey() {
 The HTML `<form>` tag `onsubmit` calls the `bingWebSearch` function to return search results. `bingWebSearch` uses `getSubscriptionKey` to authenticate each query. As shown in the previous definition, `getSubscriptionKey` prompts the user for the key if the key hasn't been entered. The key is then stored for continuing use by the application.
 
 ```html
-<form name="bing" onsubmit="this.offset.value = 0; return bingWebSearch(this.query.value, 
+<form name="bing" onsubmit="this.offset.value = 0; return bingWebSearch(this.query.value,
 bingSearchOptions(this), getSubscriptionKey())">
 ```
 
 ## Send search requests
 
-This application uses an HTML `<form>` to initially send user search requests, using the `onsubmit` attribute to call `newBingImageSearch()`. 
+This application uses an HTML `<form>` to initially send user search requests, using the `onsubmit` attribute to call `newBingImageSearch()`.
 
 ```html
 <form name="bing" onsubmit="return newBingImageSearch(this)">
@@ -172,7 +173,7 @@ function bingImageSearch(query, options, key) {
     // open the request
     try {
         request.open("GET", queryurl);
-    } 
+    }
     catch (e) {
         renderErrorMessage("Bad request (invalid URL)\n" + queryurl);
         return false;
@@ -183,10 +184,10 @@ function bingImageSearch(query, options, key) {
     request.setRequestHeader("Accept", "application/json");
     var clientid = retrieveValue(CLIENT_ID_COOKIE);
     if (clientid) request.setRequestHeader("X-MSEdge-ClientID", clientid);
-    
+
     // event handler for successful response
     request.addEventListener("load", handleBingResponse);
-    
+
     // event handler for erorrs
     request.addEventListener("error", function() {
         renderErrorMessage("Error completing request");
@@ -203,7 +204,7 @@ function bingImageSearch(query, options, key) {
 }
 ```
 
-Upon successful completion of the HTTP request, JavaScript calls the "load" event handler `handleBingResponse()` to handle a successful HTTP GET request. 
+Upon successful completion of the HTTP request, JavaScript calls the "load" event handler `handleBingResponse()` to handle a successful HTTP GET request.
 
 ```javascript
 // handle Bing search request results
@@ -222,7 +223,7 @@ function handleBingResponse() {
 
     // show raw JSON and HTTP request
     showDiv("json", preFormat(JSON.stringify(jsobj, null, 2)));
-    showDiv("http", preFormat("GET " + this.responseURL + "\n\nStatus: " + this.status + " " + 
+    showDiv("http", preFormat("GET " + this.responseURL + "\n\nStatus: " + this.status + " " +
         this.statusText + "\n" + this.getAllResponseHeaders()));
 
     // if HTTP response is 200 OK, try to render search results
@@ -283,7 +284,7 @@ function renderSearchResults(results) {
     var pagingLinks = renderPagingLinks(results);
     showDiv("paging1", pagingLinks);
     showDiv("paging2", pagingLinks);
-    
+
     showDiv("results", renderImageResults(results.value));
     if (results.relatedSearches)
         showDiv("sidebar", renderRelatedItems(results.relatedSearches));
@@ -317,14 +318,14 @@ The Bing Image Search API can return four types of search suggestions to help gu
 | `relatedSearches`  | Queries that have also been entered by other users who entered the original search. For example, if you search for "Mount Rainier," a related search might be "Mt. Saint Helens."                       |
 | `similarTerms`     | Queries that are similar in meaning to the original search. For example, if you search for "kittens," a similar term might be "cute."                                                                   |
 
-This application only renders the `relatedItems` suggestions, and places the resulting links in the page's sidebar. 
+This application only renders the `relatedItems` suggestions, and places the resulting links in the page's sidebar.
 
 ## Rendering search results
 
 In this application, the `searchItemRenderers` object contains renderer functions that generate HTML for each kind of search result.
 
 ```javascript
-searchItemRenderers = { 
+searchItemRenderers = {
     images: function(item, index, count) { ... },
     relatedSearches: function(item) { ... }
 }
@@ -341,7 +342,7 @@ These renderer functions accept the following parameters:
 The `index` and `count` parameters are used to number results, generate HTML for collections, and organize the content. Specifically, it:
 
 * Calculates the image thumbnail size (width varies, with a minimum of 120 pixels, while height is fixed at 90 pixels).
-* Builds the HTML `<img>` tag to display the image thumbnail. 
+* Builds the HTML `<img>` tag to display the image thumbnail.
 * Builds the HTML `<a>` tags that link to the image and the page that contains it.
 * Builds the description that displays information about the image and the site it's on.
 
@@ -353,7 +354,7 @@ The `index` and `count` parameters are used to number results, generate HTML for
         if (index === 0) html.push("<p class='images'>");
         var title = escape(item.name) + "\n" + getHost(item.hostPageDisplayUrl);
         html.push("<p class='images' style='max-width: " + width + "px'>");
-        html.push("<img src='"+ item.thumbnailUrl + "&h=" + height + "&w=" + width + 
+        html.push("<img src='"+ item.thumbnailUrl + "&h=" + height + "&w=" + width +
             "' height=" + height + " width=" + width + "'>");
         html.push("<br>");
         html.push("<nobr><a href='" + item.contentUrl + "'>Image</a> - ");
@@ -404,4 +405,3 @@ Leave the command window open while you use the tutorial app; closing the window
 ## See also
 
 * [Bing Image Search API reference](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
-
