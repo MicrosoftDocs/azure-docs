@@ -46,7 +46,7 @@ To copy data from Office 365 into Azure, you need to complete the following prer
 
 ## Approving new data access requests
 
-If this is the first time you are requesting data for this context (a combination of which data table is being access, which destination account is the data being loaded into, and which user identity is making the data access request), you will see the copy activity status as "In Progress", and only when you click into ["Details" link under Actions](copy-activity-overview.md#monitoring) will you see the status as “RequesetingConsent”.  A member of the data access approver group needs to approve the request in the Privileged Access Management before the data extraction can proceed.
+If this is the first time you are requesting data for this context (a combination of which data table is being access, which destination account is the data being loaded into, and which user identity is making the data access request), you will see the copy activity status as "In Progress", and only when you click into ["Details" link under Actions](copy-activity-overview.md#monitoring) will you see the status as “RequestingConsent”.  A member of the data access approver group needs to approve the request in the Privileged Access Management before the data extraction can proceed.
 
 Refer [here](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/Approving-a-data-access-request) on how the approver can approve the data access request, and refer [here](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/On-boarding) for an explanation on the overall integration with Privileged Access Management, including how to set up the data access approver group.
 
