@@ -103,6 +103,8 @@
         href: 
       - name: Certificate credentials
         href: active-directory-certificate-credentials.md
+      - name: National Clouds 
+        href: authentication-national-cloud.md        
     - name: Application configuration
       href: app-objects-and-service-principals.md
       items:
@@ -292,6 +294,8 @@
         href: 
       - name: Certificate credentials
         href: active-directory-certificate-credentials.md
+      - name: National Clouds 
+        href: authentication-national-cloud.md       
     - name: Application configuration
       href: app-objects-and-service-principals.md
       items:
