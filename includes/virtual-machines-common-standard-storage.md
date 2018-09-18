@@ -148,7 +148,7 @@ You can also use the Azure Backup service with Managed Disks to create a backup 
 
 * [Introduction to Azure Storage](../articles/storage/common/storage-introduction.md)
 
-* [Create a storage account](../articles/storage/common/storage-create-storage-account.md)
+* [Create a storage account](../articles/storage/common/storage-quickstart-create-account.md)
 
 * [Managed Disks Overview](../articles/virtual-machines/linux/managed-disks-overview.md)
 
