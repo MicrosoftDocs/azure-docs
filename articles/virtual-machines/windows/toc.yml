@@ -98,6 +98,8 @@
       href: premium-storage.md
     - name: Standard SSDs
       href: disks-standard-ssd.md
+    - name: Ultra SSDs
+      href: disks-ultra-ssd.md
     - name: Premium storage performance
       href: premium-storage-performance.md
     - name: Standard storage
@@ -316,7 +318,9 @@
     - name: Deploy disks with template
       href: using-managed-disks-template-deployments.md
     - name: Enable write accelerator
-      href: how-to-enable-write-accelerator.md 
+      href: how-to-enable-write-accelerator.md
+    - name: Enable Ultra SSD
+      href: disks-enable-ultra-ssd.md
     - name: Migrate to Managed Disks
       href: migrate-to-managed-disks.md
       items:
