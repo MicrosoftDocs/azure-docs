@@ -34,7 +34,7 @@ Now that you know which zone to deploy to, follow the deployment steps in this a
 
 ## Deploying an Ultra SSD
 
-First, determine the VM Size to deploy. As part of this preview, only DsV3 and EsV3 VM families are supported. Refer to the second table on this [blog](https://azure.microsoft.com/en-us/blog/introducing-the-new-dv3-and-ev3-vm-sizes/) for additional details about these VM sizes.
+First, determine the VM Size to deploy. As part of this preview, only DsV3 and EsV3 VM families are supported. Refer to the second table on this [blog](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/) for additional details about these VM sizes.
 Also refer to the sample [Create a VM with multiple Ultra SSD disks](https://aka.ms/UltraSSDTemplate), which shows how to create a VM with multiple Ultra SSD disks.
 
 The following describe the new/modified Resource Manager template changes:
@@ -79,3 +79,7 @@ Once the VM is provisioned, you can partition and format the data disks and conf
 - Additional Ultra SSDs can be attached to Ultra SSD compatible VMs.
 - Ultra SSD supports adjusting the disk performance attributes (IOPS and throughput) at runtime without detaching the disk from the virtual machine. ONce a disk performance resize operation has been issued on a disk, it can take up to an hour for the change to actually take effect.
 - Growing the disk capacity does require a virtual machine to be de-allocated.
+
+# Next steps
+
+If you would like to try the new disk type and haven't signed up for the preview yet, [request access through this survey](https://aka.ms/UltraSSDPreviewSignUp).
