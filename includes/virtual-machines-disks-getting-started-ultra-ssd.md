@@ -22,7 +22,7 @@ PowerShell: `Get-AzureRmComputeResourceSku | where {$_.ResourceType -eq "disks" 
 
 CLI: `az vm list-skus --resource-type disks --query “[?name==’UltraSSD_LRS’]”`
 
-The response will will be similar to the form below, where X is the Zone to use for deploying in East US 2. X could be either 1, 2, or 3.
+The response will be similar to the form below, where X is the Zone to use for deploying in East US 2. X could be either 1, 2, or 3.
 
 |ResourceType  |Name  |Location  |Zones  |Restriction  |Capability  |Value  |
 |---------|---------|---------|---------|---------|---------|---------|
@@ -40,7 +40,7 @@ Also refer to the sample [Create a VM with multiple Ultra SSD disks](https://aka
 The following describe the new/modified Resource Manager template changes:
 **apiVersion** for `Microsoft.Compute/virtualMachines` and `Microsoft.Compute/Disks` must be set as `2018-06-01` (or later).
 
-Specify Disk Sku UltraSSD_LRS, disk capacity, IOPS, and throughput in MBps to create an Ultra SSD disk. The following is an example that creates a disk with 1,024 GiB (GiB = 2^30 Bytes), 80,000 IOPS and 1,200 MBps  (MBps = 10^6 Bytes per second):
+Specify Disk Sku UltraSSD_LRS, disk capacity, IOPS, and throughput in MBps to create an Ultra SSD disk. The following is an example that creates a disk with 1,024 GiB (GiB = 2^30 Bytes), 80,000 IOPS, and 1,200 MBps  (MBps = 10^6 Bytes per second):
 
 ```json
 "properties": {  
@@ -53,7 +53,7 @@ Specify Disk Sku UltraSSD_LRS, disk capacity, IOPS, and throughput in MBps to cr
 }
 ```
 
-Add an additional capability on the properties of the VM to indicate its Ultra SSD Enabled (refer to the [sample](https://aka.ms/UltraSSDTemplate) for the full arm template):
+Add an additional capability on the properties of the VM to indicate its Ultra SSD Enabled (refer to the [sample](https://aka.ms/UltraSSDTemplate) for the full Resource Manager template):
 
 ```json
 {
