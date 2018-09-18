@@ -54,4 +54,4 @@ Now that you have a bit of an introduction to access management using groups, yo
 
 - [Use groups to assign access to an integrated SaaS app](../users-groups-roles/groups-saasapps.md)
 
-- [Sync an on-premises group to Azure using Azure AD Connect](../connect/active-directory-aadconnect.md)
+- [Sync an on-premises group to Azure using Azure AD Connect](../hybrid/whatis-hybrid-identity.md)
