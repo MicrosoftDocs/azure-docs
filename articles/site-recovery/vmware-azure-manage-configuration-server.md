@@ -16,8 +16,8 @@ You set up an on-premises configuration server when you use [Azure Site Recovery
 
 You can access the configuration server as follows:
 
-    - Sign in to the VM on which it's deployed, and Start *Azure Site Recovery Configuration Manager* from the desktop shortcut.
-    - Alternatively, you can access the configuration server remotely from **https://*ConfigurationServerName*/:44315/**. Sign in with administrator credentials.
+* Sign in to the VM on which it's deployed, and Start **Azure Site Recovery Configuration Manager** from the desktop shortcut.
+* Alternatively, you can access the configuration server remotely from https://*ConfigurationServerName*/:44315/ . Sign in with administrator credentials.
 
 ## Modify VMware server settings
 
