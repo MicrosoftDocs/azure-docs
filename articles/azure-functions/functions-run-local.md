@@ -139,7 +139,6 @@ In version 2.x, when you run the command you must choose a runtime for your proj
 Select a worker runtime:
 dotnet
 node
-python
 ```
 
 Use the up/down arrow keys to choose a language, then press Enter. The output looks like the following example for a JavaScript project:
@@ -162,7 +161,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 | **`--force`** | Initialize the project even when there are existing files in the project. This setting overwrites existing files with the same name. Other files in the project folder aren't affected. |
 | **`--no-source-control -n`** | Prevents the default creation of a Git repository in version 1.x. In version 2.x, the git repository isn't created by default. |
 | **`--source-control`** | Controls whether a git repository is created. By default, a repository isn't created. When `true`, a repository is created. |
-| **`--worker-runtime`** | Sets the language runtime for the project. Supported values are `dotnet`, `node` (JavaScript), `java`, and `python`. When not set, you are prompted to choose your runtime during initialization. |
+| **`--worker-runtime`** | Sets the language runtime for the project. Supported values are `dotnet`, `node` (JavaScript), and `java`. When not set, you are prompted to choose your runtime during initialization. |
 
 > [!IMPORTANT]
 > By default, version 2.x of the Core Tools creates function app projects for the .NET runtime as [C# class projects](functions-dotnet-class-library.md) (.csproj). These C# projects, which can be used with Visual Studio or Visual Studio Code, are compiled during testing and when publishing to Azure. If you instead want to create and work with the same C# script (.csx) files created in version 1.x and in the portal, you must include the `--csx` parameter when you create and deploy functions.
@@ -464,8 +463,6 @@ The following publish options are only supported in version 2.x:
 |**`--list-ignored-files`** | Displays a list of files that are ignored during publishing, which is based on the .funcignore file. |
 | **`--list-included-files`** | Displays a list of files that are published, which is based on the .funcignore file. |
 | **`--zip`** | Publish in Run-From-Zip package. Requires the app to have AzureWebJobsStorage setting defined. |
-| **`--build-native-deps`** | Skips generating .wheels folder when publishing python function apps. |
-| **`--additional-packages`** | List of packages to install when building native dependencies. For example: `python3-dev libevent-dev`. |
 | **`--force`** | Ignore pre-publishing verification in certain scenarios. |
 | **`--csx`** | Publish a C# script (.csx) project. |
 | **`--no-build`** | Skip building dotnet functions. |

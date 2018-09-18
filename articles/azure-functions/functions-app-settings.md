@@ -117,7 +117,7 @@ The version of the Azure Functions runtime to use in this function app. A tilde 
 
 ## FUNCTIONS\_WORKER\_RUNTIME
 
-The language worker runtime to load in the function app.  This will correspond to the language being used in your application (for example, "dotnet"). For functions in multiple languages you will need to publish them to multiple apps, each with a corresponding worker runtime value.  Valid values are `dotnet`, `node`, `java`, and `python` (for Linux hosted apps).
+The language worker runtime to load in the function app.  This will correspond to the language being used in your application (for example, "dotnet"). For functions in multiple languages you will need to publish them to multiple apps, each with a corresponding worker runtime value.  Valid values are `dotnet`, `node`, and `java`.
 
 |Key|Sample value|
 |---|------------|

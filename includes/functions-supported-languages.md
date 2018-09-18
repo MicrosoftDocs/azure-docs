@@ -17,7 +17,7 @@ ms.custom: include file
 |[JavaScript](../articles/azure-functions/functions-reference-node.md)|GA (Node 6)|GA (Node 8 & 10)|
 |[F#](../articles/azure-functions/functions-reference-fsharp.md)|GA (.NET Framework 4.7)|GA (.NET Core 2)|
 |[Java](../articles/azure-functions/functions-reference-java.md)|N/A|Preview (Java 8)|
-|Python              |Experimental|Preview (Python 3.7)|
+|Python              |Experimental|N/A|
 |TypeScript          |Experimental|Supported through transpiling to JavaScript|
 |PHP                 |Experimental|N/A|
 |Batch (.cmd, .bat)  |Experimental|N/A|

@@ -43,7 +43,7 @@ The version 2.x runtime doesn't support experimental languages. Support for new 
 
 ### Language extensibility
 
-The 2.x runtime is designed to offer [language extensibility](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Language-Extensibility). The JavaScript, Java, and Python languages in the 2.x runtime are built with this extensibility.
+The 2.x runtime is designed to offer [language extensibility](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Language-Extensibility). The JavaScript and Java languages in the 2.x runtime are built with this extensibility.
 
 ## Next steps
 

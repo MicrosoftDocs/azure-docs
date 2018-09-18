@@ -34,7 +34,7 @@ Runtime 1.x supports development and hosting only in the portal or on Windows. R
 
 ## Languages
 
-Runtime 2.x uses a new language extensibility model. In addition, to improve tooling and performance each app in 2.x is limited to only have functions in a single language. Currently supported languages in 2.x are C#, F#, JavaScript, Java, and Python. Azure Functions 1.x experimental languages haven't been updated to use the new model, so they are not supported in 2.x. The following table indicates which programming languages are supported in each runtime version.
+Runtime 2.x uses a new language extensibility model. In addition, to improve tooling and performance each app in 2.x is limited to only have functions in a single language. Currently supported languages in 2.x are C#, F#, JavaScript, and Java. Azure Functions 1.x experimental languages haven't been updated to use the new model, so they are not supported in 2.x. The following table indicates which programming languages are supported in each runtime version.
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
