@@ -57,10 +57,9 @@ Pipelines can be saved as templates so you can schedule batch-scoring or retrain
 
 Check out the [Python SDK reference docs for pipelines](http://aka.ms/aml-sdk).
 
-## Examples
+## Example notebooks
  
-The following notebooks demonstrate pipelines with Azure Machine Learning:
-* [Pipeline notebooks](http://aka.ms/aml-notebook-pipeline)  
+The following notebook demonstrates pipelines with Azure Machine Learning:  `pipeline/06.pipeline-batch-scoring.ipynb`.
  
 Get these notebooks:
  
