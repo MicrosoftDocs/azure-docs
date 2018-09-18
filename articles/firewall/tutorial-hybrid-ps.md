@@ -26,7 +26,7 @@ For this tutorial, you create three VNets:
 - **VNet-Spoke** - the spoke VNet represents the workload located on Azure.
 - **VNet-Onprem** - The OnPrem VNet represents an on-premise network. In an actual deployment, it can be connected by either a VPN or Express Route connection. For simplicity, this tutorial uses a VPN gateway connection, and an Azure-located VNet is used to represent an on-premise network.
 
-<!-- Network diagram here -->
+![Firewall in a hybrid network](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
 
 ## Key requirements
 
