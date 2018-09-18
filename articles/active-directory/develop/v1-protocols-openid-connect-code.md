@@ -61,6 +61,7 @@ The metadata is a simple JavaScript Object Notation (JSON) document. See the fol
 ```
 
 ## Send the sign-in request
+
 When your web application needs to authenticate the user, it must direct the user to the `/authorize` endpoint. This request is similar to the first leg of the [OAuth 2.0 Authorization Code Flow](v1-protocols-oauth-code.md), with a few important distinctions:
 
 * The request must include the scope `openid` in the `scope` parameter.
@@ -98,6 +99,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 At this point, the user is asked to enter their credentials and complete the authentication.
 
 ### Sample response
+
 A sample response, after the user has authenticated, could look like this:
 
 ```
@@ -114,6 +116,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 | state |A value included in the request that is also returned in the token response. A randomly generated unique value is typically used for [preventing cross-site request forgery attacks](http://tools.ietf.org/html/rfc6749#section-10.12). The state is also used to encode information about the user's state in the app before the authentication request occurred, such as the page or view they were on. |
 
 ### Error response
+
 Error responses may also be sent to the `redirect_uri` so the app can handle them appropriately:
 
 ```
@@ -130,6 +133,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 | error_description |A specific error message that can help a developer identify the root cause of an authentication error. |
 
 #### Error codes for authorization endpoint errors
+
 The following table describes the various error codes that can be returned in the `error` parameter of the error response.
 
 | Error Code | Description | Client Action |
@@ -143,6 +147,7 @@ The following table describes the various error codes that can be returned in th
 | invalid_resource |The target resource is invalid because it does not exist, Azure AD cannot find it, or it is not correctly configured. |This indicates the resource, if it exists, has not been configured in the tenant. The application can prompt the user with instruction for installing the application and adding it to Azure AD. |
 
 ## Validate the id_token
+
 Just receiving an `id_token` is not sufficient to authenticate the user; you must validate the signature and verify the claims in the `id_token` per your app's requirements. The Azure AD endpoint uses JSON Web Tokens (JWTs) and public key cryptography to sign tokens and verify that they are valid.
 
 You can choose to validate the `id_token` in client code, but a common practice is to send the `id_token` to a backend server and perform the validation there. Once you've validated the signature of the `id_token`, there are a few claims you are required to verify.
@@ -156,6 +161,7 @@ You may also wish to validate additional claims depending on your scenario. Some
 Once you have validated the `id_token`, you can begin a session with the user and use the claims in the `id_token` to obtain information about the user in your app. This information can be used for display, records, personalization, etc. For more information about `id_tokens` and claims, read [AAD id_tokens](id-tokens.md).
 
 ## Send a sign-out request
+
 When you wish to sign the user out of the app, it is not sufficient to clear your app's cookies or otherwise end the session with the user. You must also redirect the user to the `end_session_endpoint` for sign-out. If you fail to do so, the user will be able to reauthenticate to your app without entering their credentials again, because they will have a valid single sign-on session with the Azure AD endpoint.
 
 You can simply redirect the user to the `end_session_endpoint` listed in the OpenID Connect metadata document:
@@ -171,6 +177,7 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 | post_logout_redirect_uri |recommended |The URL that the user should be redirected to after successful logout. If not included, the user is shown a generic message. |
 
 ## Single sign-out
+
 When you redirect the user to the `end_session_endpoint`, Azure AD clears the user's session from the browser. However, the user may still be signed in to other applications that use Azure AD for authentication. To enable those applications to sign the user out simultaneously, Azure AD sends an HTTP GET request to the registered `LogoutUrl` of all the applications that the user is currently signed in to. Applications must respond to this request by clearing any session that identifies the user and returning a `200` response. If you wish to support single sign out in your application, you must implement such a `LogoutUrl` in your application's code. You can set the `LogoutUrl` from the Azure portal:
 
 1. Navigate to the [Azure Portal](https://portal.azure.com).
@@ -200,7 +207,8 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e        // Your registered Applica
 
 By including permission scopes in the request and using `response_type=code+id_token`, the `authorize` endpoint ensures that the user has consented to the permissions indicated in the `scope` query parameter, and return your app an authorization code to exchange for an access token.
 
-### Successful Response
+### Successful response
+
 A successful response using `response_mode=form_post` looks like:
 
 ```
@@ -218,6 +226,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAA
 | state |If a state parameter is included in the request, the same value should appear in the response. The app should verify that the state values in the request and response are identical. |
 
 ### Error response
+
 Error responses may also be sent to the `redirect_uri` so the app can handle them appropriately:
 
 ```
@@ -235,9 +244,9 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 For a description of the possible error codes and their recommended client action, see [Error codes for authorization endpoint errors](#error-codes-for-authorization-endpoint-errors).
 
-Once you've gotten an authorization `code` and an `id_token`, you can sign the user in and get [access tokens](access-tokens) on their behalf. To sign the user in, you must validate the `id_token` exactly as described above. To get access tokens, you can follow the steps described in the "Use the authorization code to request an access token" section of our [OAuth code flow documentation](v1-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token).
+Once you've gotten an authorization `code` and an `id_token`, you can sign the user in and get [access tokens](access-tokens.md) on their behalf. To sign the user in, you must validate the `id_token` exactly as described above. To get access tokens, you can follow the steps described in the "Use the authorization code to request an access token" section of our [OAuth code flow documentation](v1-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token).
 
 ## Next steps
 
-* Learn more about the [access tokens](access_tokens).
-* Learn more about the [`id_token` and claims](id_tokens).
+* Learn more about the [access tokens](access_tokens.md).
+* Learn more about the [`id_token` and claims](id_tokens.md).
