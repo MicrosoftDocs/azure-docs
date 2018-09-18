@@ -1,5 +1,5 @@
 ---
-title: Office 365 control plane in Virtual WAN
+title: Office 365 control plane in Azure Virtual WAN
 description: Learn about Office 365 control plane in Virtual WAN.
 author: cherylmc
 ms.service: virtual-wan
@@ -52,6 +52,3 @@ If you specify policies via both the SDWAN UX and Azure Virtual WAN, the policie
 
 ## Next steps
 - Learn more about [Virtual WAN](virtual-wan-about.md).
-
-
-
