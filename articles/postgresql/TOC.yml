@@ -38,7 +38,7 @@
   - name: 2 - Design Web App - Python
     href: ../app-service-web/app-service-web-tutorial-docker-python-postgresql-app.md?toc=%2fazure%2fpostgresql%2ftoc.json
   - name: 3 - Monitor and tune
-    href: tutorial-performance-intelligence.md
+    href: tutorial-monitor-and-tune.md
 - name: Samples
   items:
   - name: Azure CLI
