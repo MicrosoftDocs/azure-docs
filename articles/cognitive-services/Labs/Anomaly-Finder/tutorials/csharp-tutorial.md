@@ -12,6 +12,8 @@ ms.date: 05/01/2018
 ms.author: chliang
 ---
 
+[!INCLUDE [PrivatePreviewNote](../includes/private-preview-note.md)]
+
 # Anomaly Detection C# application
 
 Explore a basic Windows application that uses Anomaly Detection API to detect anomalies from the input. 

@@ -12,6 +12,8 @@ ms.date: 05/01/2018
 ms.author:  chliang
 ---
 
+[!INCLUDE [PrivatePreviewNote](../includes/private-preview-note.md)]
+
 # Anomaly Detection Python application
 
 The tutorial shows how to use the Anomaly Detection API in Python and how to visualize your results using popular libraries. Using Jupyter to run the tutorial and trying your own data with your subscription key. To learn how to get started

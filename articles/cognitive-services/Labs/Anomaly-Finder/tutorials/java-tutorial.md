@@ -12,6 +12,8 @@ ms.date: 05/01/2018
 ms.author: wenya
 ---
 
+[!INCLUDE [PrivatePreviewNote](../includes/private-preview-note.md)]
+
 # Anomaly Detection Java application
 
 This article demonstrates using a simple Java application to invoke the Anomaly Detection API.  
