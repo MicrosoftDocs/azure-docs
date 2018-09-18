@@ -79,7 +79,7 @@ You have created a function app with a simple HTTP triggered function.
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
-For more information, see [Azure Functions HTTP and webhook bindings](functions-bindings-http-webhook.md).
+For more information, see [Azure Functions HTTP bindings](functions-bindings-http-webhook.md).
 
 
 

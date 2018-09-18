@@ -60,7 +60,6 @@ Azure Functions integrates with various Azure and 3rd-party services. These serv
 * Azure Notification Hubs
 * Azure Service Bus (queues and topics)
 * Azure Storage (blob, queues, and tables) 
-* GitHub (webhooks)
 * On-premises (using Service Bus)
 * Twilio (SMS messages)
 
