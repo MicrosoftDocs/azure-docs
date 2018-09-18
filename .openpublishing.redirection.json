@@ -1,7 +1,7 @@
 {
     "redirections": [
         {
-            "source_path": "articles/actve-directory/fundamentals/active-directory-groups-restore-azure-portal.md",
+            "source_path": "articles/active-directory/fundamentals/active-directory-groups-restore-azure-portal.md",
             "redirect_url": "/azure/active-directory/users-groups-roles/groups-restore-deleted",
             "redirect_document_id": true
         },
@@ -168,6 +168,11 @@
         {
             "source_path": "articles/active-directory/active-directory-domains-manage-azure-portal.md",
             "redirect_url": "/azure/active-directory/users-groups-roles/domains-manage",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cognitive-services/Bing-Image-Search/tutorial-image-post-source.md",
+            "redirect_url": "/azure/cognitive-services/bing-image-search/tutorial-image-post",
             "redirect_document_id": true
         },
         {
@@ -1302,8 +1307,18 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/sql-database/sql-database-sql-database-managed-instance-create-tutorial-portal.md",
+            "source_path": "articles/sql-database/sql-database-managed-instance-create-tutorial-portal.md",
             "redirect_url": "/azure/sql-database/sql-database-managed-instance-get-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-single-database-monitor.md",
+            "redirect_url": "/azure/sql-database/sql-database-monitor-tune-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-troubleshoot-performance.md",
+            "redirect_url": "/azure/sql-database/sql-database-monitor-tune-overview",
             "redirect_document_id": false
         },
         {
@@ -17980,6 +17995,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/active-directory-named-locations.md",
+            "redirect_url": "/azure/active-directory/reports-monitoring/quickstart-configure-named-locations",
+            "redirect_document_id": true
+        },        
+        {
             "source_path": "articles/active-directory/active-directory-reporting-activity-sign-ins.md",
             "redirect_url": "/azure/active-directory/reports-monitoring/concept-sign-ins",
             "redirect_document_id": false
@@ -18118,6 +18138,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md",
+            "redirect_url": "/azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub",
+            "redirect_document_id": true
+        },        
+        {
             "source_path": "articles/active-directory/reporting-azure-monitor-diagnostics-azure-storage-account.md",
             "redirect_url": "/azure/active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account",
             "redirect_document_id": false
@@ -18127,6 +18152,11 @@
             "redirect_url": "/azure/active-directory/reports-monitoring/overview-activity-logs-in-azure-monitor",
             "redirect_document_id": false
         },
+        {
+            "source_path": "articles/active-directory/reports-monitoring/overview-activity-logs-in-azure-monitor.md",
+            "redirect_url": "/azure/active-directory/reports-monitoring/concept-activity-logs-in-azure-monitor",
+            "redirect_document_id": true
+        },        
         {
             "source_path": "articles/active-directory/reporting-azure-monitor-diagnostics-sign-in-log-schema.md",
             "redirect_url": "/azure/active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema",
@@ -18201,6 +18231,16 @@
             "source_path": "articles/virtual-machines/windows/troubleshoot-vhds.md",
             "redirect_url": "/azure/storage/blobs/storage-troubleshoot-vhds",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/common/storage-create-storage-account.md",
+            "redirect_url": "/azure/storage/common/storage-quickstart-create-account",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/storage/common/storage-account-options.md",
+            "redirect_url": "/azure/storage/common/storage-account-overview",
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/storage/blobs/storage-dotnet-how-to-use-blobs.md",
@@ -22328,6 +22368,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/marketplace/enable-trial-using-azure-ad.md",
+            "redirect_url": "/azure/marketplace/enable-appsource-marketplace-using-azure-ad",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/marketplace-publishing/marketplace-publishing-csp-incentive.md",
             "redirect_url": "https://cloudpartner.azure.com",
             "redirect_document_id": false
@@ -23433,6 +23478,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cognitive-services/Bing-Image-Search/tutorial-bing-image-search-single-page-app-source.md",
+            "redirect_url": "/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cognitive-services/Bing-Web-Search/search-the-web.md",
             "redirect_url": "/azure/cognitive-services/bing-web-search",
             "redirect_document_id": false
@@ -23620,6 +23670,61 @@
         {
             "source_path": "articles/active-directory/privileged-identity-management/pim-resource-roles-require-mfa.md",
             "redirect_url": "/azure/active-directory/privileged-identity-management/pim-resource-roles-configure-role-settings",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/governance/index.md",
+            "redirect_url": "/azure/active-directory/governance/access-reviews-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-azure-ad-controls-access-reviews-overview.md",
+            "redirect_url": "/azure/active-directory/governance/access-reviews-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-azure-ad-controls-complete-access-review.md",
+            "redirect_url": "/azure/active-directory/governance/complete-access-review",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-azure-ad-controls-create-access-review.md",
+            "redirect_url": "/azure/active-directory/governance/create-access-review",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-azure-ad-controls-how-to-review-your-access.md",
+            "redirect_url": "/azure/active-directory/governance/review-your-access",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md",
+            "redirect_url": "/azure/active-directory/governance/manage-guest-access-with-access-reviews",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-azure-ad-controls-manage-programs-controls.md",
+            "redirect_url": "/azure/active-directory/governance/manage-programs-controls",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md",
+            "redirect_url": "/azure/active-directory/governance/manage-user-access-with-access-reviews",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-azure-ad-controls-perform-access-review.md",
+            "redirect_url": "/azure/active-directory/governance/perform-access-review",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-azure-ad-controls-retrieve-access-review.md",
+            "redirect_url": "/azure/active-directory/governance/retrieve-access-review",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-tou.md",
+            "redirect_url": "/azure/active-directory/governance/active-directory-tou",
             "redirect_document_id": true
         },
         {
@@ -26164,13 +26269,18 @@
         },
         {
             "source_path": "articles/iot-suite/iot-suite-time-series-insights.md",
-            "redirect_url": "/azure/iot-accelerators/iot-accelerators-remote-monitoring-time-series-insights",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-remote-monitoring-integrate-time-series-insights",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-suite/iot-accelerators-time-series-insights.md",
-            "redirect_url": "/azure/iot-accelerators/iot-accelerators-remote-monitoring-time-series-insights",
+            "redirect_url": "/azure/iot-accelerators/iot-accelerators-remote-monitoring-integrate-time-series-insights",
             "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-suite/iot-accelerators-remote-monitoring-time-series-insights.md",
+          "redirect_url": "/azure/iot-accelerators/iot-accelerators-remote-monitoring-integrate-time-series-insights",
+          "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-accelerators/iot-accelerators-connected-factory-overview.md",
@@ -27088,6 +27198,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/active-directory/fundamentals/get-started-azure-ad.md",
+            "redirect_url": "/azure/active-directory/fundamentals/active-directory-whatis",
+            "redirect_document_id": false
+        },        
+        {
             "source_path": "articles/active-directory/active-directory-troubleshooting-support-howto.md",
             "redirect_url": "/azure/active-directory/fundamentals/active-directory-troubleshooting-support-howto",
             "redirect_document_id": false
@@ -27791,6 +27906,11 @@
             "redirect_url": "/azure/active-directory/identity-protection/overview",
             "redirect_document_id": true
         },
+        {
+            "source_path": "articles/cognitive-services/LUIS/luis-reference-gdpr.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/luis-user-privacy",
+            "redirect_document_id": true
+        },
 		{
             "source_path": "articles/active-directory/active-directory-conditional-access-conditions.md",
             "redirect_url": "/azure/active-directory/conditional-access/conditions",
@@ -27850,11 +27970,6 @@
             "source_path": "articles/security-center/security-center-disk-encryption.md",
             "redirect_url": "/azure/security/azure-security-disk-encryption-overview",
             "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/cognitive-services/LUIS/luis-reference-gdpr.md",
-            "redirect_url": "/azure/cognitive-services/LUIS/luis-user-privacy",
-            "redirect_document_id": true
         },
         {
             "source_path": "articles/azure-government/documentation-government-get-started-connect-with-vsts.md",
@@ -28070,6 +28185,26 @@
             "source_path": "articles/dev-spaces/azure-dev-spaces.md",
             "redirect_url": "/azure/dev-spaces/index",
             "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/log-analytics/log-analytics-log-search-log-search-portal.md",
+            "redirect_url": "/azure/log-analytics/query-language/get-started-analytics-portal",
+            "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/azure-stack/azure-stack-tools-paas-services.md",
+            "redirect_url": "/azure/azure-stack/azure-stack-offer-services-overview",
+            "redirect_document_id": false
+        },
+				    {
+            "source_path": "articles/application-insights/local-forwarder.md",
+            "redirect_url": "/azure/application-insights/app-insights-overview",
+            "redirect_document_id" : false
+        },
+			 {
+            "source_path": "articles/application-insights/open-census-python.md",
+            "redirect_url": "/azure/application-insights/app-insights-overview",
+            "redirect_document_id" : false
         }
     ]
 }
