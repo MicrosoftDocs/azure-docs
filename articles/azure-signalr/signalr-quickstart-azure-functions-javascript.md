@@ -85,3 +85,10 @@ Sign in to the Azure portal at <https://portal.azure.com/> with your Azure accou
 
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
+
+## Next steps
+
+In this quickstart, you built and ran an real-time serverless application in Visual Studio. Next, learn more about how to develop and deploy Azure Functions with Visual Studio.
+
+> [!div class="nextstepaction"]
+> [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md)
