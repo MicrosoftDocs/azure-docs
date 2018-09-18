@@ -35,5 +35,11 @@ Sign up for Azure Active Directory (Azure AD) a new Microsoft Azure subscription
 
 - [Use your on-premises identity infrastructure in the cloud](../connect/active-directory-aadconnect.md)
 
+<<<<<<< HEAD
+* [Microsoft Azure blog](https://azure.microsoft.com/blog/)
+* [What is Azure AD?](active-directory-whatis.md)
+* [Use your on-premises identity infrastructure in the cloud](../hybrid/whatis-hybrid-identity.md)
+=======
 - [Visit the Microsoft Azure blog](https://azure.microsoft.com/blog/)
+>>>>>>> 73f447b1499ba1f189efb6832ad759f1230e55a2
 
