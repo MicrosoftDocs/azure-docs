@@ -96,7 +96,7 @@ For a tutorial on single-node PyTorch training, see:
 * `training/01.train-and-deploy-pytorch/01.train-and-deploy-pytorch.ipynb`
 
 For a tutorial on distributed PyTorch with Horovod, see:
-`training/02.distributed-pytorch-with-horovod/02.distributed-pytorch-with-horovod.ipynb`
+* `training/02.distributed-pytorch-with-horovod/02.distributed-pytorch-with-horovod.ipynb`
 
 Get these notebooks:
 
