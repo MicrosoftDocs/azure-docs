@@ -166,21 +166,23 @@ A similar pattern can be followed with event hubs, but first you need to create 
    New-AzureRmRoleDefinition -Role $role 
    ```
 
-## Monitoring and secured Azure storage and networks
+## Monitoring withing a secured Virtual Network
 
-Azure monitor needs to send logs and metrics to and from your Azure resources to provide the services you enable. With the following features, you can securely monitor your resources.
+Azure Monitor needs access to your Azure resources to provide the services you enable. If you would like to monitor your Azure resources while still securing them from access to the Public Internet, you can enable the following settings.
 
 ### Secured Storage Accounts 
 
-Monitoring data is often written to a storage account. Many people want to make sure that the data copied to a Storage Account cannot be accessed by unauthorized users. For additional security, you can lock down network access to only allow your specified resources and trusted Microsoft services access a storage account by restricting a storage account to use "selected networks". Azure Monitor is considered one of these trusted services and so will still have access provided you allow other Azure services with access. Data written under these protected condition includes Azure Monitor diagnostic logs, activity log, and metrics. Currently, network flow logs are not supported. 
+Monitoring data is often written to a storage account. You may want to make sure that the data copied to a Storage Account cannot be accessed by unauthorized users. For additional security, you can lock down network access to only allow your authorized resources and trusted Microsoft services access to a storage account by restricting a storage account to use "selected networks".
+![Azure Storage Settings Dialog](./media/monitoring-roles-permissions-security/secured-storage-example.png)
+Azure Monitor is considered one of these "trusted Microsoft services" If you allow trusted Microsoft services to access your Secured Storage, Azure monitor will have access to your secured Storage Account; enabling writing Azure Monitor diagnostic logs, activity log, and metrics to your Storage Account under these protected conditions. This will also enable Log Analytics to read logs from secured storage.   
 
 For more information, see [Network security and Azure Storage](../storage/common/storage-network-security.md)
  
 ### Secured Virtual Networks with Service Endpoints 
 
-Virtual Networks (VNets) allow you to restrict traffic to allow only specified traffic to communicate with your Azure resources. You can specify Service Endpoints to extend your VNet to include Azure Monitor and securely send logging and metric information.  
+Virtual Networks (VNets) allow you to restrict traffic to allow only specified traffic to communicate with your Azure resources. You can specify Service Endpoints to extend your VNet to include Azure Monitor; this will enable your resources to conitinue to securely send logging and metric information to Azure Monitor from Virtual Networks.  
 
-For more information, see [../virtual-network/virtual-network-service-endpoints-overview.md](Virtual Network Endpoints). 
+For more information, see [Virtual Network Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md). 
 
 
 ## Next steps
