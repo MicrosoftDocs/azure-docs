@@ -20,7 +20,7 @@ ms.custom: mvc, devcenter
 
 # Tutorial: Remove Azure resources
 
-This tutorial is part five of a series and shows you how to release Service Fabric Mesh resources so that you don't get charged for them.
+This tutorial is part five of a series and shows you how to delete the app and its resources so that you don't get charged for them.
 
 In this tutorial you learn how to:
 > [!div class="checklist"]
