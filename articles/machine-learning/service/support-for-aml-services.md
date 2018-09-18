@@ -2,13 +2,13 @@
 title: Get support and training for Azure Machine Learning service
 description: This article tells you how you can get support and training for Azure Machine Learning service
 services: machine-learning
-author: j-martens
-ms.author: jmartens
-ms.reviewer: mldocs
 ms.service: machine-learning
 ms.component: core
-ms.workload: data-services
-ms.topic: article
+ms.topic: conceptual
+manager: cgronlun
+ms.reviewer: jmartens
+author: j-martens
+ms.author: jmartens
 ms.date: 09/24/2018 
 ---
 # Get support and training for Azure Machine Learning service
