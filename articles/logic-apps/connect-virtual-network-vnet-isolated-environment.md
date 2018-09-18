@@ -176,17 +176,27 @@ for example:
 
   ![Select integration service environment](./media/connect-virtual-network-vnet-isolated-environment/create-logic-app-with-integration-service-environment.png)
 
-* If you previously set up your ISE with an Azure VNET as a peer, 
-the logic apps in your ISE can directly access resources in that VNET. 
-However, to access on-premises systems, you still have to 
-[set up an on-premises data gateway](../logic-apps/logic-apps-gateway-install.md).
-
 * You can use the same built-ins, such as the HTTP trigger or action, 
 which run in the same ISE as the parent logic app. Connectors with 
 the **ISE** label also run in the same ISE as the parent logic app. 
 Connectors without the **ISE** label run in the global Logic Apps service.
 
   ![Select ISE connectors](./media/connect-virtual-network-vnet-isolated-environment/select-ise-connectors.png)
+
+* If you previously set up your ISE with an Azure VNET as a peer, 
+the logic apps in your ISE can directly access resources in that VNET. 
+For on-premises systems, here are the conditions where 
+logic apps have direct access to those systems without the 
+[on-premises data gateway](../logic-apps/logic-apps-gateway-install.md):
+
+  * The on-premises system exists inside a VNET that's linked to your ISE.
+  * The on-premises system provides an ISE connector, for example, SQL Server.
+
+  Otherwise, for on-premises systems that don't have an ISE 
+  connector or don't sit inside in your VNET, you still have to 
+  [set up and use the on-premises data gateway](../logic-apps/logic-apps-gateway-install.md). 
+  However, you can use the HTTP action or a custom connector to 
+  access on-premises system without using the data gateway. 
 
 <a name="create-integration-account-environment"></a>
 
