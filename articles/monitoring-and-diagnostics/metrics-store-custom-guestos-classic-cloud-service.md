@@ -15,18 +15,18 @@ The Azure Monitor [Windows Azure Diagnostics extension](azure-diagnostics.md) (W
 
 Starting with WAD version 1.11, you can write metrics directly to the Azure Monitor metrics store where standard platform metrics are already collected. Storing them in this location allows you to access the same actions available for platform metrics.  Actions include near-real time alerting, charting, routing, access from REST API and more.  In the past, the WAD extension wrote to Azure Storage, but not the Azure Monitor data store.  
 
-This article describes the process to send guest OS performance metrics for Azure classic Cloud Services to the Azure Monitor data store. The Azure Montor data store is where the Azure platform metrics are stored. From there, you can do the same things as you can with Azure platform metrics. Actions include near-real time alerting, charting, routing, access from REST API and more.   
+This article describes the process to send guest OS performance metrics for Azure classic Cloud Services to the Azure Monitor data store. The Azure Monitor data store is where the Azure platform metrics are stored. From there, you can do the same things as you can with Azure platform metrics. Actions include near-real time alerting, charting, routing, access from REST API and more.   
 
-The process outlined in this article only works for Azure classic Cloud Services. It does not work for custom metrics. 
+The process outlined in this article only works for performance counters on Azure Cloud Services. It does not work for other custom metrics. 
    
 
-## Pre-requisites: 
+## Pre-requisites
 
-- You must be a [Service Administrator or co-administrator](https://docs.microsoft.com/en-us/azure/billing/billing-add-change-azure-subscription-administrator.md) on your Azure subscription 
+- You must be a [Service Administrator or co-administrator](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator.md) on your Azure subscription 
 
-- Your subscription must be registered with [Microsoft.Insights](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-6.8.1) 
+- Your subscription must be registered with [Microsoft.Insights](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) 
 
-- You need to have either [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-6.8.1) installed, or you can use [Azure CloudShell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview.md) 
+- You need to have either [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) installed, or you can use [Azure CloudShell](https://docs.microsoft.com/azure/cloud-shell/overview.md) 
 
 
 ## Provision Cloud Service and Storage Account 
@@ -41,7 +41,7 @@ The process outlined in this article only works for Azure classic Cloud Services
 
 ## Create a Service Principal 
 
-Create a service principle in your Azure Active Directory tenant using the instructions found at  https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal. Note the following while going through this process: 
+Create a service principle in your Azure Active Directory tenant using the instructions found at ../azure/azure-resource-manager/resource-group-create-service-principal-portal. Note the following while going through this process: 
   - You can put in any URL for the sign-on URL.  
   - Create new client secret for this app  
   - Save the Key and the client id for use in later steps.  
@@ -100,8 +100,8 @@ In the "SinksConfig" section of your diagnostics file define a new Azure Monitor
   <SinksConfig> 
     <Sink name="AzMonSink"> 
     <AzureMonitor> 
-      <ResourceId>-Provide ClassicCloudService’s ARM ID-</ResourceId> 
-      <Region>-Azure Region your VM is deployed in-</Region> 
+      <ResourceId>-Provide ClassicCloudService’s Resource ID-</ResourceId> 
+      <Region>-Azure Region your Cloud Service is deployed in-</Region> 
     </AzureMonitor> 
     </Sink> 
   </SinksConfig> 
@@ -180,6 +180,8 @@ You can choose to view the total memory used by a specific role, and each role i
 
  ![Metrics Azure portal](./media/metrics-store-custom-guestos-classic-cloud-service/metrics-graph.png)
 
+## Next steps
+- Learn more about [custom metrics](metrics-custom-overview.md).
 
 
 

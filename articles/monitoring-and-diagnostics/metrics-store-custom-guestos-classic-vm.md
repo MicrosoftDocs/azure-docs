@@ -19,29 +19,29 @@ The process outlined in this article only works classic Virtual Machines running
 
 ## Pre-requisites
 
-- You must be a [Service Administrator or co-administrator](https://docs.microsoft.com/en-us/azure/billing/billing-add-change-azure-subscription-administrator.md) on your Azure subscription 
+- You must be a [Service Administrator or co-administrator](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator.md) on your Azure subscription 
 
-- Your subscription must be registered with [Microsoft.Insights](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-6.8.1) 
+- Your subscription must be registered with [Microsoft.Insights](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) 
 
-- You need to have either [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-6.8.1) installed, or you can use [Azure CloudShell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview.md) 
+- You need to have either [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) installed, or you can use [Azure CloudShell](https://docs.microsoft.com/azure/cloud-shell/overview.md) 
 
 ## Create a Classic Virtual Machine and Storage Account
 
 1. Create a Classic VM using the Azure portal
    ![Create Clasic VM](./media/metrics-store-custom-guestos-classic-vm/create-classic-vm.png)
 
-1. As parts of the creation of this VM choose to create a new classic storage account. We use this storage account in later steps.
+1. When creating this VM, choose to create a new classic storage account. We use this storage account in later steps.
 
 1. In the Azure portal, navigate to the Storage Account resource blade and choose the **Keys** and note down the storage account name and storage account key. You need these keys in later steps
    ![Storage access keys](./media/metrics-store-custom-guestos-classic-vm/storage-access-keys.png)
 
 ## Create a Service Principal
 
-1. Create a service principle in your Azure Active Directory tenant using the instructions found in the [Resource Manager docs](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). While following this process, note the following:
+Create a service principle in your Azure Active Directory tenant using the instructions found at [Create a service principal](../azure-resource-manager/resource-group-create-service-principal-portal.md). Note the following while going through this process: 
 - Create new client secret for this app  
 - Save the Key and the client id for use in later steps.
 
-1. Give this app “Monitoring Metrics Publisher” permissions to the resource you wish to emit metrics against. You may use a resource group or an entire subscription.  
+Give this app “Monitoring Metrics Publisher” permissions to the resource you wish to emit metrics against. You may use a resource group or an entire subscription.  
 
 > [!NOTE]
 > The Diagnostics Extension will use the service principal to authenticate against Azure Monitor and emit metrics for your classic VM.
@@ -100,7 +100,7 @@ The process outlined in this article only works classic Virtual Machines running
     <SinksConfig>
         <Sink name="AzMonSink">
             <AzureMonitor>
-                <ResourceId>Provide your Classic VM’s ARM ID </ResourceId>
+                <ResourceId>Provide your Classic VM’s Resource ID </ResourceId>
                 <Region>Region your VM is deployed in</Region>
             </AzureMonitor>
         </Sink>

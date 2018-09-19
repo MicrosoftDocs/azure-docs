@@ -24,7 +24,7 @@ Custom Metrics can be sent to Azure Monitor via a variety of methods.
 When you send custom metrics to Azure Monitor, each data point (or value) reported must include the following information:
 
 ### Authentication
-To submit custom metrics to the Azure Monitor the entity submitting the metric needs to have a valid Azure Active Directory token in the "Bearer" header of the request. There are a few supported ways to acquire a valid bearer token:
+To submit custom metrics to Azure Monitor the entity submitting the metric needs to have a valid Azure Active Directory token in the "Bearer" header of the request. There are a few supported ways to acquire a valid bearer token:
 1. [MSI (Managed Service Identity)](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) - Gives an identity to an Azure Resource itself (such as a VM). MSI was designed to give resources permissions to carry out certain operations – for example,  allowing a resource to emit metrics about itself. A resource (or its MSI) can be granted "Monitoring Metrics Publisher" permissions on another resource, thereby enabling the MSI to emit metrics for other resources as well.
 2. [AAD Service Principal](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) - The scenario here is an AAD application (service) can be assigned permissions to emit metrics about an Azure resource.
 To authenticate the request, Azure Monitor validates the Application token using AAD public keys. The existing "Monitoring Metrics Publisher" role already has this permission, which is available in the Azure portal. The service principal, depending on what resources it will be emitting custom metrics for, can be given "Monitoring Metrics Publisher" role at the scope required (subscription, resource group, or specific resource).
@@ -68,7 +68,7 @@ When reporting a metric datapoint, for each dimension key on the metric being re
 * The dimension key would be "Process"
 * The dimension value would be "ContosoApp.exe"
 
-When publishing a metric value, you can only specify a single dimension value per dimension key. If you collect the same Memory utilization for multiple processes on the VM, you could report multiple metric values for that timestamp. Each metric value would specif a different dimension value for the Process dimension key.
+When publishing a metric value, you can only specify a single dimension value per dimension key. If you collect the same Memory utilization for multiple processes on the VM, you could report multiple metric values for that timestamp. Each metric value would specify a different dimension value for the Process dimension key.
 
 ### Metric Values
 Azure Monitor stores all metrics at one-minute granularity intervals. We understand that a metric may need to be sampled multiple times (ex. CPU Utilization) or measured for many discrete events (ex. SignIn Transaction Latencies) during a given minute. To limit the number of raw values you have to emit and pay for in Azure Monitor, you can locally pre-aggregate and emit the values:
@@ -181,3 +181,13 @@ Azure Monitor imposes the following usage limits on custom metrics.
 |Dimension Keys per metric|10|
 |String length for metric namespaces, metric names, dimension keys, and dimension values|256 characters|
 An active timeseries is defined as any unique combination of metric, dimension key, dimension value that has had metric values published in the past 12 hours.
+
+## Next steps
+Use custom metrics from different services 
+ - [Virtual Machine](metrics-store-custom-guestos)
+ - [Virtual Machine Scale set](metrics-custom-overview.md)
+ - [Virtual Machine (classic)](metrics-custom-overview.md)
+ - [Linux Virtual Machine using Telegraf agent](metrics-custom-overview.md)
+ - [REST API](metrics-custom-overview.md)
+ - [Cloud Service (classic)](metrics-custom-overview.md)
+ 

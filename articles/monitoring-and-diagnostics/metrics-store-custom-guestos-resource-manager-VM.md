@@ -17,17 +17,15 @@ Starting with WAD version 1.11, you can write metrics directly to the Azure Moni
 
 This article describes the process to send guest OS performance metrics for a Windows Virtual Machine to the Azure Monitor data store. The Azure Montor data store is where the Azure platform metrics are stored. From there, you can do the same things as you can with Azure platform metrics. Actions include near-real time alerting, charting, routing, access from REST API and more.   
 
-If you're new to Resource Manager templates,  learn about [template deployments](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview.md), and their structure and syntax.  
-
-
+If you're new to Resource Manager templates,  learn about [template deployments](../azure-resource-manager/resource-group-overview.md), and their structure and syntax.  
 
 ## Pre-requisites
 
-- You must be a [Service Administrator or co-administrator](https://docs.microsoft.com/en-us/azure/billing/billing-add-change-azure-subscription-administrator.md) on your Azure subscription 
+- You must be a [Service Administrator or co-administrator](../billing/billing-add-change-azure-subscription-administrator.md) on your Azure subscription 
 
-- Your subscription must be registered with [Microsoft.Insights](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-6.8.1) 
+- Your subscription must be registered with [Microsoft.Insights](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) 
 
-- You need to have either [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-6.8.1) installed, or you can use [Azure CloudShell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview.md) 
+- You need to have either [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) installed, or you can use [Azure CloudShell](https://docs.microsoft.com/azure/cloud-shell/overview.md) 
 
  
 ## Set up Azure Monitor as a data sink 
@@ -108,7 +106,7 @@ To deploy the Resource Manager template we will leverage Azure PowerShell.
    > If you wish to update an existing VM, simply add *-Mode Incremental* to the end of the following command. 
  
    ```PowerShell
-   New-AzureRmResourceGroupDeployment -Name "<NameThisDeployment>" -ResourceGroupName "<Name of the Resource Group>" -TemplateFile "<File path of your ARM template>" -TemplateParameterFile "<File path of your parameters file>" 
+   New-AzureRmResourceGroupDeployment -Name "<NameThisDeployment>" -ResourceGroupName "<Name of the Resource Group>" -TemplateFile "<File path of your Resource Manager template>" -TemplateParameterFile "<File path of your parameters file>" 
    ```
   
 1. Once your deployment succeeds you should be able to find the VM in the Azure Portal, and it should be emitting metrics to Azure Monitor. 

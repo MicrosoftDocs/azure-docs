@@ -1,6 +1,6 @@
 ---
-title: Send guest OS metrics to the Azure Monitor metric store using a Resource Manager template for a Windows Virtual Machine Scale Set
-description: Send guest OS metrics to the Azure Monitor metric store using a Resource Manager template for a Windows Virtual Machine Scale Set
+title: Send guest OS metrics to the Azure Monitor metric store using a Resource Manager template for a Windows virtual machine scale set
+description: Send guest OS metrics to the Azure Monitor metric store using a Resource Manager template for a Windows virtual machine scale set
 author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
@@ -17,15 +17,15 @@ Starting with WAD version 1.11, you can write metrics directly to the Azure Moni
 
 This article describes the process to send guest OS performance metrics for a Windows virtual machine scale set to the Azure Monitor data store. The Azure Monitor data store is where the Azure platform metrics are stored. From there, you can do the same things as you can with Azure platform metrics. Actions include near-real time alerting, charting, routing, access from REST API and more.   
 
-If you are new to Resource Manager templates,  learn about [template deployments](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview.md), and their structure and syntax.  
+If you are new to Resource Manager templates,  learn about [template deployments](../azure-resource-manager/resource-group-overview.md), and their structure and syntax.  
 
 ## Pre-requisites
 
-- You must be a [Service Administrator or co-administrator](https://docs.microsoft.com/en-us/azure/billing/billing-add-change-azure-subscription-administrator.md) on your Azure subscription 
+- You must be a [Service Administrator or co-administrator](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator.md) on your Azure subscription 
 
-- Your subscription must be registered with [Microsoft.Insights](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-6.8.1) 
+- Your subscription must be registered with [Microsoft.Insights](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) 
 
-- You need to have either [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-6.8.1) installed, or you can use [Azure CloudShell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview.md) 
+- You need to have either [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) installed, or you can use [Azure CloudShell](https://docs.microsoft.com/azure/cloud-shell/overview.md) 
 
 
 ## Set up Azure Monitor as a data sink 
@@ -267,5 +267,5 @@ You can then also choose to use the dimensions on this metric to chart this metr
 
 
 ## Next steps
-- Learn more about [alerts](monitoring-overview-alerts.md).
+- Learn more about [custom metrics](metrics-custom-overview.md).
 
