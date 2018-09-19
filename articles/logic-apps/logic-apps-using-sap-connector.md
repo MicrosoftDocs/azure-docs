@@ -329,7 +329,7 @@ so you can set up your SAP action.
 
    ![Select SAP action](media/logic-apps-using-sap-connector/select-SAP-action-trigger.png)  
 
-   Or you can manyally specify an action:
+   Or you can manually specify an action:
 
    ![Manually enter SAP action](media/logic-apps-using-sap-connector/manual-enter-SAP-action-trigger.png) 
 
