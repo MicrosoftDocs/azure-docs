@@ -1,6 +1,6 @@
 ---
-title: Log-based and pre-aggregated metrics in Application Insights | Microsoft Docs
-description: Why to use log-based versus pre-aggregated metrics in Application Insights
+title: Log-based and pre-aggregated metrics in Azure Application Insights | Microsoft Docs
+description: Why to use log-based versus pre-aggregated metrics in Azure Application Insights
 services: application-insights
 keywords:
 author: vgorbenko
@@ -48,13 +48,13 @@ There are several [ways of sending custom metrics from the Application Insights 
 
 ## Custom metrics dimensions and pre-aggregation
 
-All metrics that you send using [trackMetric](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackmetric) or [GetMetric and TrackValue](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#getmetric) API calls are automatically stored in both logs and metrics stores. However, while the log-based version of your custom metric always retains all dimensions, the pre-aggregated version of the metric is stored by default with no dimensions. You can turn on collection of dimensions of custom metrics on the [usage and estimated cost](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-pricing) tab by checking “Enable alerting on custom metric dimensions”: 
+All metrics that you send using [trackMetric](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackmetric) or [GetMetric and TrackValue](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#getmetric) API calls are automatically stored in both logs and metrics stores. However, while the log-based version of your custom metric always retains all dimensions, the pre-aggregated version of the metric is stored by default with no dimensions. You can turn on collection of dimensions of custom metrics on the [usage and estimated cost](https://docs.microsoft.com/azure/application-insights/app-insights-pricing) tab by checking “Enable alerting on custom metric dimensions”: 
 
 ![Usage and estimated cost](.\media\pre-aggregated-metrics-log-metrics\001-cost.png)
 
 ## Why is collection of custom metrics dimensions turned off by default?
 
-The collection of custom metrics dimensions is turned off by default because in the future storing custom metrics with dimensions will be billed separately from Application Insights, while storing the non-dimensional custom metrics will remain free (up to a quota). You can learn about the upcoming pricing model changes [here](https://azure.microsoft.com/pricing/details/monitor/). 
+The collection of custom metrics dimensions is turned off by default because in the future storing custom metrics with dimensions will be billed separately from Application Insights, while storing the non-dimensional custom metrics will remain free (up to a quota). You can learn about the upcoming pricing model changes [here](https://azure.microsoft.com/pricing/details/monitor/).
 
 ## Creating charts and exploring log-based and standard pre-aggregated metrics
 
