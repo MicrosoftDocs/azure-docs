@@ -53,6 +53,8 @@ Run histories will remain accessible for a while. When you are ready to move to 
 
 Run histories are now called _experiments_ in the current release. You can collect your model's experiments and explore them using the SDK, CLI, or web portal.
 
+The portal's workspace dashboard is supported on Edge, Chrome and Firefox browsers only.
+
 [ ![Online portal](./media/overview-what-happened-to-workbench/image001.png) ]
 (./media/overview-what-happened-to-workbench/image001.png#lightbox)
 
