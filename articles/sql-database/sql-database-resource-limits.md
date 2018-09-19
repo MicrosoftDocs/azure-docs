@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Database resource limits overview | Microsoft Docs
-description: his article provides an overview of the Azure SQL Database resource limits and provides information regarding what happens when those resource limits are hit or exceeded.
+description: This article provides an overview of the Azure SQL Database resource limits and provides information regarding what happens when those resource limits are hit or exceeded.
 services: sql-database
 author: CarlRabeler
 manager: craigg
