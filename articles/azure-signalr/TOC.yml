@@ -12,8 +12,8 @@
     href: signalr-quickstart-azure-functions-javascript.md
   - name: Azure Functions - C#
     href: signalr-quickstart-azure-functions-csharp.md
-  - name: REST API - Python
-    href: signalr-quickstart-rest-api-python.md
+  - name: REST API
+    href: signalr-quickstart-rest-api.md
 - name: Tutorials
   items:
   - name: Integrate with ASP.NET Core Identity
