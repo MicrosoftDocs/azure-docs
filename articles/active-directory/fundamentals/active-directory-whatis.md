@@ -33,8 +33,12 @@ Azure AD helps you to:
 
 -   Take advantage of the [high-availability and reliability](https://docs.microsoft.com/azure/architecture/checklist/availability) of a worldwide, enterprise-grade, cloud-based identity and access management solution.
 
+<<<<<<< HEAD
+    Additionally, with just [four clicks](../hybrid/how-to-connect-install-express.md), you can integrate Azure AD with an existing Windows Server Active Directory, letting your organization use your existing on-premises identity investments to manage cloud-based SaaS app access.
+=======
 ## Who uses Azure AD
 Azure AD is intended for IT admins, app developers, and for users of Office 365, Azure, or Dynamics CRM Online.
+>>>>>>> 73f447b1499ba1f189efb6832ad759f1230e55a2
 
 - **IT admins.** Azure AD provides a more secure solution for your organization through the use of stronger identity management and single sign-on (SSO) access to thousands of [cloud-based SaaS apps](../saas-apps/tutorial-list.md) and on-premises apps. Through these apps, you'll also get cloud-based app security, seamless access, enhanced collaboration, and automation of the identity lifecycle for your users, helping to increase both security and compliance.
 
