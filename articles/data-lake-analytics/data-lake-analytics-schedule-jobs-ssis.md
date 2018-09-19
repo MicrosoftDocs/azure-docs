@@ -1,21 +1,15 @@
 ---
-title: Schedule Azure Data Lake Analytics U-SQL jobs using SSIS | Microsoft Docs
-description: 'Learn how to use SQL Server Integration Services to schedule U-SQL jobs.'
+title: Schedule Azure Data Lake Analytics U-SQL jobs using SSIS
+description: Learn how to use SQL Server Integration Services to schedule U-SQL jobs.
 services: data-lake-analytics
-documentationcenter: ''
 author: yanancai
-manager: 
-editor: 
-
+ms.author: yanacai
+ms.reviewer: jasonwhowell
 ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/17/2018
-ms.author: yanacai
-
 ---
 # Schedule U-SQL jobs using SQL Server Integration Services (SSIS)
 
@@ -63,7 +57,7 @@ In SSIS package design view, add an **Azure Data Lake Store File System Task**, 
 ### Configure Azure Data Lake Store File System Task
 
 1. Set **Operation** to **CopyFromADLS**.
-2. Set up **AzureDataLakeConnection**, learn more about [Azure Data Lake Store Connection Manager](https://docs.microsoft.com/en-us/sql/integration-services/connection-manager/azure-data-lake-store-connection-manager?view=sql-server-2017).
+2. Set up **AzureDataLakeConnection**, learn more about [Azure Data Lake Store Connection Manager](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-store-connection-manager?view=sql-server-2017).
 3. Set **AzureDataLakeDirectory**. Point to the folder storing your U-SQL scripts. Use relative path that is relative to the Azure Data Lake Store account root folder.
 4. Set **Destination** to a folder that caches the downloaded U-SQL scripts. This folder path will be used in Foreach Loop Container for U-SQL job submission. 
 
@@ -106,7 +100,7 @@ In SSIS package design view, add an **Azure Data Lake Store File System Task**, 
 
 3. Set **AzureDataLakeAnalyticsConnection** to the Azure Data Lake Analytics account that you want to submit jobs to. Learn more about [Azure Data Lake Analytics Connection Manager](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-analytics-connection-manager?view=sql-server-2017).
 
-4. Set other job configurations. [Learn More](https://docs.microsoft.com/en-us/sql/integration-services/control-flow/azure-data-lake-analytics-task?view=sql-server-2017).
+4. Set other job configurations. [Learn More](https://docs.microsoft.com/sql/integration-services/control-flow/azure-data-lake-analytics-task?view=sql-server-2017).
 
 5. Use **Expressions** to dynamically set U-SQL job name:
 
@@ -119,7 +113,7 @@ In SSIS package design view, add an **Azure Data Lake Store File System Task**, 
 
 You can use U-SQL files in Azure Blob Storage by using **Azure Blob Download Task** in Azure Feature Pack. This approach enables you using the scripts on cloud.
 
-The steps are similar with [Scnario 2: Use U-SQL files in Azure Data Lake Store](#scenario-2-use-u-sql-files-in-azure-data-lake-store). Change the Azure Data Lake Store File System Task to Azure Blob Download Task. [Learn more about Azure Blob Download Task](https://docs.microsoft.com/en-us/sql/integration-services/control-flow/azure-blob-download-task?view=sql-server-2017).
+The steps are similar with [Scnario 2: Use U-SQL files in Azure Data Lake Store](#scenario-2-use-u-sql-files-in-azure-data-lake-store). Change the Azure Data Lake Store File System Task to Azure Blob Download Task. [Learn more about Azure Blob Download Task](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task?view=sql-server-2017).
 
 The control flow is like below.
 
@@ -164,11 +158,11 @@ In some cases, you may want to dynamically set the U-SQL variable value in the U
 - Set the input and output file path variables dynamically based on current date and time.
 - Set the parameter for stored procedures.
 
-[Learn more about how to set parameters for the U-SQL script](https://docs.microsoft.com/en-us/sql/integration-services/control-flow/azure-data-lake-analytics-task?view=sql-server-2017#parameter-mapping-page-configuration).
+[Learn more about how to set parameters for the U-SQL script](https://docs.microsoft.com/sql/integration-services/control-flow/azure-data-lake-analytics-task?view=sql-server-2017#parameter-mapping-page-configuration).
 
 ## Next steps
 
 - [Run SSIS packages in Azure](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)
 - [Azure Feature Pack for Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-2017#scenario-managing-data-in-the-cloud)
-- [Schedule U-SQL jobs using Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/transform-data-using-data-lake-analytics)
+- [Schedule U-SQL jobs using Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-using-data-lake-analytics)
 

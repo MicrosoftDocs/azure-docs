@@ -6,6 +6,8 @@
   items:
   - name: What is Cognitive Services?
     href: Welcome.md
+  - name: Language support
+    href: language-support.md
 - name: Quickstarts
   items:
   - name: Create an account
@@ -15,15 +17,15 @@
   - name: Build a home automation app
     href: ./luis/luis-get-started-create-app.md
   - name: Create a .NET text analytics app
-    href: ./text-analytics/quickstarts/csharp.md    
+    href: ./text-analytics/quickstarts/csharp.md
 - name: Tutorials
   items:
   - name: Custom search webpage
     href: ./bing-custom-search/tutorials/custom-search-web-page.md
   - name: Language Understanding app
     href: ./luis/luis-nodejs-tutorial-build-bot-framework-sample.md
-  - name: Improve intent accuracy for commands 
-    href: ./luis/luis-tutorial-batch-testing.md    
+  - name: Improve intent accuracy for commands
+    href: ./luis/luis-tutorial-batch-testing.md
 - name: Resources
   items:
   - name: Azure Roadmap

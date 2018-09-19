@@ -116,7 +116,7 @@ The top-level object that the response includes when the request fails.
 |Name|Value|Type|  
 |----------|-----------|----------|  
 |_type|Type hint.|String|  
-|<a name="errors" />errors|A list of errors that describe the reasons why the request failed.|[Error](#error)[]|  
+|<a name="errors" />errors|A list of errors that describe the reasons why the request failed.|[Error](#error)|  
 
   
   

@@ -62,7 +62,7 @@ You can assign a conditional access policy to the following cloud apps from Micr
 
 - Microsoft Power BI 
 
-- Microsoft Visual Studio Team Services
+- Azure DevOps
 
 - Microsoft Teams
 
@@ -190,7 +190,7 @@ This setting has an impact on access attempts made from the following mobile app
 |Outlook mobile app|Office 365 Exchange Online|Android, iOS|
 |PowerBI app|PowerBI service|Windows 10, Windows 8.1, Windows 7, Android and iOS|
 |Skype for Business|Office 365 Exchange Online|Android, IOS |
-|Visual Studio Team Services app|Visual Studio Team Services|Windows 10, Windows 8.1, Windows 7, iOS, and Android|
+|Azure DevOps app|Azure DevOps|Windows 10, Windows 8.1, Windows 7, iOS, and Android|
 
 
 

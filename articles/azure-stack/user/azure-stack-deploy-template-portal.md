@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/12/2018
 ms.author: sethm
 ms.reviewer:
 
@@ -27,7 +27,7 @@ You can use the portal to deploy Azure Resource Manager templates to Azure Stack
 
 ## To deploy a template
 
-1. Sign in to the portal, select **New**, and then select **Custom**.
+1. Sign in to the portal, select **+ Create a resource**, and then select **Custom**.
 2. Select **Template deployment**.
 3. Select **Edit template**, and then paste your JSON template code into the code window. Select **Save**.
 4. Select **Edit parameters**, provide values for the parameters that are shown, and then select **OK**.

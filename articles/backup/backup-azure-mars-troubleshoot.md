@@ -62,6 +62,7 @@ Perform the following steps when scheduled backups do not get triggered automati
 <li>Ensure that the 'Status' of the task is set to 'Enabled'. If not, click on 'Edit' and select the 'Enabled' checkbox
 <li>Navigate to the *Security options* section of the *General* tab
 <li>Ensure that the user account selected for running the task is either *SYSTEM* or Local Administrators' group on the server
+
 > [!TIP]
 > It is recommended to reboot the server after performing the steps above to ensure that changes made are applied consistently
 

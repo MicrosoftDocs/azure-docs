@@ -1,78 +1,66 @@
 ---
-title: Tutorial using pattern roles to improve LUIS predictions - Azure | Microsoft Docs 
-titleSuffix: Cognitive Services
-description: In this tutorial, use pattern roles for contextually related entities to improve LUIS predictions.
+title: "Tutorial 4: Pattern roles for context related data"
+titleSuffix: Azure Cognitive Services
+description: Use a pattern to extract data from a well-formatted template utterance. The template utterance uses a simple entity and roles to extract related data such as origin location and destination location.  
 services: cognitive-services
 author: diberry
 manager: cjgronlund
-
-
 ms.service: cognitive-services
-ms.technology: luis
+ms.technology: language-understanding
 ms.topic: article
-ms.date: 08/03/2018
+ms.date: 09/09/2018
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use pattern roles. 
 ---
 
-# Tutorial: Improve app with pattern roles
+# Tutorial: 4. Extract contextually-related patterns
 
-In this tutorial, use a simple entity with roles combined with patterns to increase intent and entity prediction.  When using patterns, fewer example utterances are needed for the intent.
+In this tutorial, use a pattern to extract data from a well-formatted template utterance. The template utterance uses a simple entity and roles to extract related data such as origin location and destination location.  When using patterns, fewer example utterances are needed for the intent.
 
-> [!div class="checklist"]
-* Understand pattern roles
-* Use simple entity with roles 
-* Create pattern for utterances using simple entity with roles
-* How to verify pattern prediction improvements
-
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## Before you begin
-If you don't have the Human Resources app from the [pattern](luis-tutorial-pattern.md) tutorial, [import](luis-how-to-start-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website. The app to import is found in the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-patterns-HumanResources-v2.json) GitHub repository.
-
-If you want to keep the original Human Resources app, clone the version on the [Settings](luis-how-to-manage-versions.md#clone-a-version) page, and name it `roles`. Cloning is a great way to play with various LUIS features without affecting the original version. 
-
-## The purpose of roles
 The purpose of roles is to extract contextually-related entities in an utterance. In the utterance, `Move new employee Robert Williams from Sacramento and San Francisco`, the origin city, and destination city values are related to each other and use common language to denote each location. 
 
-When using patterns, any entities in the pattern must be detected _before_ the pattern matches the utterance. 
 
-When you create a pattern, the first step is to select the intent for the pattern. By selecting the intent, if the pattern matches, the correct intent is always returned with a high score ( usually 99-100%). 
-
-### Compare hierarchical entity to simple entity with roles
-
-In the [hierarchical tutorial](luis-quickstart-intent-and-hier-entity.md), the **MoveEmployee** intent detected when to move an existing employee from one building and office to another. The example utterances had origin and destination locations but did not use roles. Instead, the origin and destination were children of the  hierarchical entity. 
-
-In this tutorial, the Human Resources app detects utterances about moving new employees from one city to another. These two types of utterances are similar but solved with different LUIS abilities.
-
-|Tutorial|Example utterance|Origin and destination locations|
-|--|--|--|
-|[Hierarchical (no roles)](luis-quickstart-intent-and-hier-entity.md)|mv Jill Jones from **a-2349** to **b-1298**|a-2349, b-1298|
-|This tutorial (with roles)|Move Billy Patterson from **Yuma** to **Denver**.|Yuma, Denver|
-
-You can't use the hierarchical entity in the pattern because only hierarchical parents are used in parents. In order to return the named locations of origin and destination, you muse use a pattern.
-
-### Simple entity for new employee name
 The name of the new employee, Billy Patterson, is not part of the list entity **Employee** yet. The new employee name is extracted first, in order to send the name to an external system to create the company credentials. After the company credentials are created, the employee credentials are added to the list entity **Employee**.
 
-The **Employee** list was created in the [list tutorial](luis-quickstart-intent-and-list-entity.md).
-
-The **NewEmployee** entity is a simple entity with no roles. 
-
-### Simple entity with roles for relocation cities
 The new employee and family need to be moved from the current city to a city where the fictitious company is located. Because a new employee can come from any city, the locations need to be discovered. A set list such as a list entity would not work because only the cities in the list would be extracted.
 
-The role names associated with the origin and destination cities need to be unique across all entities. An easy way to make sure the roles are unique is to tie them to the containing entity through a naming strategy. The **NewEmployeeRelocation** entity is a simple entity with two roles: **NewEmployeeReloOrigin** and **NewEmployeeReloDestination**.
+The role names associated with the origin and destination cities need to be unique across all entities. An easy way to make sure the roles are unique is to tie them to the containing entity through a naming strategy. The **NewEmployeeRelocation** entity is a simple entity with two roles: **NewEmployeeReloOrigin** and **NewEmployeeReloDestination**. Relo is short for relocation.
 
-### Simple entities need enough examples to be detected
 Because the example utterance `Move new employee Robert Williams from Sacramento and San Francisco` has only machine-learned entities, it is important to provide enough example utterances to the intent so the entities are detected.  
 
 **While patterns allow you to provide fewer example utterances, if the entities are not detected, the pattern does not match.**
 
 If you have difficulty with simple entity detection because it is a name such as a city, consider adding a phrase list of similar values. This helps the detection of the city name by giving LUIS an additional signal about that type of word or phrase. Phrase lists only help the pattern by helping with entity detection, which is necessary for the pattern to match. 
 
+**In this tutorial, you learn how to:**
+
+> [!div class="checklist"]
+> * Use existing tutorial app
+> * Create new entities
+> * Create new intent
+> * Train
+> * Publish
+> * Get intents and entities from endpoint
+> * Create pattern with roles
+> * Create phrase list of Cities
+> * Get intents and entities from endpoint
+
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## Use existing app
+Continue with the app created in the last tutorial, named **HumanResources**. 
+
+If you do not have the HumanResources app from the previous tutorial, use the following steps:
+
+1.  Download and save [app JSON file](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-patterns-HumanResources-v2.json).
+
+2. Import the JSON into a new app.
+
+3. From the **Manage** section, on the **Versions** tab, clone the version, and name it `roles`. Cloning is a great way to play with various LUIS features without affecting the original version. Because the version name is used as part of the URL route, the name can't contain any characters that are not valid in a URL.
+
 ## Create new entities
-1. Select **Build** in the top menu.
+
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Select **Entities** from the left navigation. 
 
@@ -122,17 +110,17 @@ Labeling the entities in these steps may be easier if the prebuilt keyPhrase ent
 
     If you removed the keyPhrase entity, add it back to the app now.
 
-## Train the LUIS app
+## Train
 
-[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## Publish the app to get the endpoint URL
+## Publish
 
-[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
+[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## Query the endpoint without pattern
+## Get intent and entities from endpoint
 
-1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
+1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
 
 2. Go to the end of the URL in the address and enter `Move Wayne Berry from Miami to Mount Vernon`. The last querystring parameter is `q`, the utterance **query**. 
 
@@ -222,9 +210,12 @@ Labeling the entities in these steps may be easier if the prebuilt keyPhrase ent
 
 The intent prediction score is only about 50%. If your client application requires a higher number, this needs to be fixed. The entities were not predicted either.
 
+One of the locations was extracted but the other location was not. 
+
 Patterns will help the prediction score, however, the entities must be correctly predicted before the pattern matches the utterance. 
 
-## Add a pattern that uses roles
+## Pattern with roles
+
 1. Select **Build** in the top navigation.
 
 2. Select **Patterns** in the left navigation.
@@ -235,8 +226,8 @@ Patterns will help the prediction score, however, the entities must be correctly
 
     If you train, publish, and query the endpoint, you may be disappointed to see that the entities are not found, so the pattern didn't match, therefore the prediction didn't improve. This is a consequence of not enough example utterances with labeled entities. Instead of adding more examples, add a phrase list to fix this problem.
 
-## Create a phrase list for Cities
-Cities, like people's names are tricky in that they can be any mix of words and punctuation. But the cities of the region and world are known, so LUIS needs a phrase list of cities to begin learning. 
+## Cities phrase list
+Cities, like people's names are tricky in that they can be any mix of words and punctuation. The cities of the region and world are known, so LUIS needs a phrase list of cities to begin learning. 
 
 1. Select **Phrase list** from the **Improve app performance** section of the left menu. 
 
@@ -253,16 +244,13 @@ Cities, like people's names are tricky in that they can be any mix of words and 
     |Miami|
     |Dallas|
 
-    Do not add every city in the world or even every city in the region. LUIS needs to be able to generalize what a city is from the list. 
-
-    Make sure to keep **These values are interchangeable** selected. This setting means the words on the list on treated as synonyms. This is exactly how they should be treated in the pattern.
-
-    Remember [the last time](luis-quickstart-primary-and-secondary-data.md) the tutorial series created a phrase list was also to boost entity detection of a simple entity.  
+    Do not add every city in the world or even every city in the region. LUIS needs to be able to generalize what a city is from the list. Make sure to keep **These values are interchangeable** selected. This setting means the words on the list on treated as synonyms. 
 
 3. Train and publish the app.
 
-## Query endpoint for pattern
-1. On the **Publish** page, select the **endpoint** link at the bottom of the page. This action opens another browser window with the endpoint URL in the address bar. 
+## Get intent and entities from endpoint
+
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Go to the end of the URL in the address and enter `Move wayne berry from miami to mount vernon`. The last querystring parameter is `q`, the utterance **query**. 
 
@@ -378,11 +366,24 @@ Cities, like people's names are tricky in that they can be any mix of words and 
 
 The intent score is now much higher and the role names are part of the entity response.
 
+## Hierarchical entities versus roles
+
+In the [hierarchical tutorial](luis-quickstart-intent-and-hier-entity.md), the **MoveEmployee** intent detected when to move an existing employee from one building and office to another. The example utterances had origin and destination locations but did not use roles. Instead, the origin and destination were children of the hierarchical entity. 
+
+In this tutorial, the Human Resources app detects utterances about moving new employees from one city to another. These two types of utterances are the same but solved with different LUIS abilities.
+
+|Tutorial|Example utterance|Origin and destination locations|
+|--|--|--|
+|[Hierarchical (no roles)](luis-quickstart-intent-and-hier-entity.md)|mv Jill Jones from **a-2349** to **b-1298**|a-2349, b-1298|
+|This tutorial (with roles)|Move Billy Patterson from **Yuma** to **Denver**.|Yuma, Denver|
+
 ## Clean up resources
 
-[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## Next steps
+
+This tutorial added an entity with roles and an intent with example utterances. The first endpoint prediction using the entity correctly predicted the intent but with a low confidence score. Only one of the two entities was detected. Next, the tutorial added a pattern that used the entity roles, and a phrase list to boost the value of the city names in the utterances. The second endpoint prediction returned a high-confidence score and found both entity roles. 
 
 > [!div class="nextstepaction"]
 > [Learn best practices for LUIS apps](luis-concept-best-practices.md)

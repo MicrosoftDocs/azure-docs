@@ -66,8 +66,8 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="/powershell/resourcemanager/azurerm.machinelearning/v0.11.1/azurerm.machinelearning">PowerShell module (New)</a></p><p><a href="powershell-module">PowerShell module (Classic)</a></p>
+      html: <p><a href="https://docs.microsoft.com/powershell/module/azurerm.machinelearning">PowerShell module (New)</a></p><p><a href="powershell-module">PowerShell module (Classic)</a></p>
     - title: Modules
       html: <p><a href="https://msdn.microsoft.com/library/azure/dn905974.aspx">Algorithm & Module reference</a></p>
     - title: REST
-      html: <p><a href="/rest/api/machinelearning">REST management APIs</a></p><p><a href="web-service-error-codes">Web service error codes</a></p>
+      html: <p><a href="https://docs.microsoft.com/rest/api/machinelearning/">REST management APIs</a></p><p><a href="web-service-error-codes">Web service error codes</a></p>

@@ -12,11 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/15/2018 
+ms.date: 08/23/2018 
 ms.author: alkohli
 
 ---
 # Migrate data from StorSimple 5000-7000 series to Azure File Sync
+
+> [!IMPORTANT]
+> On July 31, 2019 the StorSimple 5000/7000 series will reach end of support (EOS) status. We recommend that StorSimple 5000/7000 series customers migrate to one of the alternatives described in the document.
 
 Data migration is the process of moving data from one storage location to another. This entails making an exact copy of an organization’s current data from one device to another device—preferably without disrupting or disabling active applications — and then redirecting all input/output (I/O) activity to the new device. 
 
@@ -50,8 +53,7 @@ Before you begin, ensure you have:
 - StorSimple volumes are mounted on the host and contain file shares.
 - The host has sufficient local storage to hold your locally cached data.
 - Owner level access to the Azure subscription that you will use to deploy Azure File Sync. You may experience issues when creating a cloud endpoint for your sync group if you do not have owner or admin level permissions.
-- Access to a [General Purpose v2 storage account](https://docs.microsoft.com/azure/storage/common/storage-account-options) with an Azure File Share that you want to sync to. For more information, go to 
- - How to [Create a General Purpose v2 storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=portal#create-a-general-purpose-storage-account).
+- Access to a [general-purpose v2 storage account](https://docs.microsoft.com/azure/storage/common/storage-account-overview) with an Azure File Share that you want to sync to. For more information, see [Create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
  - How to [Create an Azure File Share](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share#create-file-share-through-the-azure-portal).
 
 ## Migration process

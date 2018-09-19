@@ -20,50 +20,16 @@ ms.reviewer: dhanyahk
 ---
 # How to use the Azure Active Directory Power BI Content Pack
 
-Understanding how your users adopt and use Azure Active Directory features is critical for you as an IT admin. It allows you to plan your IT infrastructure and communication to increase usage and to get the most out of AAD features. Power BI Content Pack for Azure Active Directory gives you the ability to further analyze your data to understand how you can use this data to gather richer insights into what’s going on with their Azure Active Directory for the various capabilities you heavily rely on.  With the integration of Azure Active Directory APIs into Power BI, you can easily download the pre-built content packs and gain insights to all the activities within your Azure Active Directory using rich visualization experience Power BI offers. You can create your own dashboard and share it easily with anyone in your organization. 
+|  |
+|--|
+|Currently, the Azure AD Power BI content pack uses the Azure AD Graph APIs to retrieve data from your Azure AD tenant. As a result, you may see some disparity between the data available in the content pack and the data retrieved using the [Microsoft Graph APIs for reporting](concept-reporting-api.md). |
+|  |
 
-This topic provides you with step-by-step instructions on how to install and use the content pack in your environment.
+As an IT administrator, you need to understand how your users adopt and use Azure Active Directory features. This allows you to plan your IT infrastructure and communication to increase usage and get the most out of Azure AD features. Power BI Content Pack for Azure Active Directory gives you the ability to further analyze your data to gather richer insights into what’s going on with your directory. With the integration of Azure Active Directory APIs into Power BI, you can easily download the pre-built content pack and gain insight into all the activities within your Azure Active Directory using the rich visualization experience that Power BI offers. You can create your own dashboard and share it easily with anyone in your organization. 
 
-## Installation  
+## Install the content pack
 
-**To install the Power BI Content Pack:**
-
-1. Log into [Power BI](https://app.powerbi.com/groups/me/getdata/services) with your Power BI Account (this is the same account as your O365 or Azure AD Account).
-
-2. At the bottom of the left navigation pane, select **Get Data**.
-
-    ![Azure Active Directory Power BI Content Pack](./media/howto-power-bi-content-pack/01.png)
- 
-3. In the **Services** box, click **Get**.
-   
-    ![Azure Active Directory Power BI Content Pack](./media/howto-power-bi-content-pack/02.png)
-
-4.	Search for **Azure Active Directory**.
-
-    ![Azure Active Directory Power BI Content Pack](./media/howto-power-bi-content-pack/03.png)
- 
-5.	When prompted, type your Azure AD Tenant ID, and then click **Next**.
-
-    > [!TIP] 
-    > A quick way to get the Tenant ID for your Office 365 / Azure AD tenant is to sign in to the Azure AD portal, drill down to the directory, and copy the **Directory ID** from the [**Properties** page](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties).
-
-    ![Azure Active Directory Power BI Content Pack](./media/howto-power-bi-content-pack/04.png) 
-
-6.	Click **Sign-in**. 
- 
-    ![Azure Active Directory Power BI Content Pack](./media/howto-power-bi-content-pack/05.png) 
-
-
-
-7.	Enter your username and password, and then click **Sign in**.
- 
-    ![Azure Active Directory Power BI Content Pack](./media/howto-power-bi-content-pack/06.png) 
-
-8.	On the app consent dialog, click **Accept**.
- 
-9.	When your Azure Active Directory Activity logs dashboard has been created, click it.
- 
-    ![Azure Active Directory Power BI Content Pack](./media/howto-power-bi-content-pack/08.png) 
+Check out the [quickstart](quickstart-install-power-bi-content-pack.md) to install the Azure AD Power BI content pack.
 
 ## What can I do with this content pack?
 
@@ -147,4 +113,6 @@ Check out our [troubleshooting guide](troubleshoot-content-pack.md). For general
 
 ## Next steps
 
-For an overview of reporting, see the [Azure Active Directory reporting](overview-reports.md).
+* [Install Power BI content pack](quickstart-install-power-bi-content-pack.md).
+* [Troubleshoot content pack errors](troubleshoot-content-pack.md).
+* [What are Azure AD reports?](overview-reports.md).

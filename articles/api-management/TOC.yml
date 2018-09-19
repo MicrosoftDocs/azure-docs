@@ -101,6 +101,8 @@
       href: api-management-howto-integrate-internal-vnet-appgateway.md
     - name: Mutual Certificate authentication
       href: api-management-howto-mutual-certificates.md
+    - name: Manage CA certificates
+      href: api-management-howto-ca-certificates.md
     - name: Manage protocols and ciphers
       href: api-management-howto-manage-protocols-ciphers.md
   - name: Customize the developer experience

@@ -166,3 +166,7 @@ This article includes answers to frequently asked questions about Azure Active D
 **Q: The policy name in the all sign-in report does not match the policy name in CA. Why?**
 
 **A:** The policy name in the all sign-in report is based on the CA policy name at the time of the sign-in. This can be inconsistent with the policy name in CA if you updated the policy name later, that is, after the sign-in.
+
+**Q: My sign-in was blocked due to a conditional access policy, but the sign-in activity report shows that the sign-in succeeded. Why?**
+
+**A:** Currently the sign-in report may not show accurate results for Exchange ActiveSync scenarios when conditional access is applied. There can be cases when the sign-in result in the report shows a successful sign-in, but the sign-in actually failed due to a conditional access policy. 

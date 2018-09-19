@@ -24,17 +24,6 @@ Microsoft Azure Cosmos DB supports querying documents using SQL (Structured Quer
 * Azure Cosmos DB uses JavaScript's programming model as the foundation for the query language. The SQL API is rooted in JavaScript's type system, expression evaluation, and function invocation. This in-turn provides a natural programming model for relational projections, hierarchical navigation across JSON documents, self joins, spatial queries, and invocation of user-defined functions (UDFs) written entirely in JavaScript, among other features. 
 
 This article walks you through some examples SQL queries by using simple JSON documents. To learn about Azure Cosmos DB SQL language syntax, see [SQL syntax reference](sql-api-sql-query-reference.md) article. 
-You can also get started by watching the following videos that show Azure Cosmos DB's querying capabilities and demonstrates the online [Query Playground](http://www.documentdb.com/sql/demo).
-
-> [!VIDEO https://www.youtube.com/embed/1LqUQRpHfFI]
->
->
-
-More advanced querying techniques are demonstrated in the following video:
-
-> [!VIDEO https://www.youtube.com/embed/kASU9NOIR90]
->
->
 
 ## <a id="GettingStarted"></a>Get started with SQL commands
 Let's create two simple JSON documents and query against that data. Consider two JSON documents about families, insert these JSON documents into a collection and subsequently query the data. Here we have a simple JSON document for the Andersen and Wakefield families, the parents, children (and their pets), address, and registration information. The document has strings, numbers, Booleans, arrays, and nested properties. 
@@ -1603,7 +1592,7 @@ For example, you can now run queries like the following:
 ```json
     [4]
 ```
-The main difference between Cosmos DB’s functions compared to ANSI SQL is that they are designed to work well with schema-less and mixed schema data. For example, if you have a document where the Size property is missing, or has a non-numeric value like “unknown”, then the document is skipped over, instead of returning an error.
+The main difference between Cosmos DB’s functions compared to ANSI SQL is that they are designed to work well with schema-less and mixed schema data. For example, if you have a document where the Size property is missing, or has a non-numeric value like "unknown", then the document is skipped over, instead of returning an error.
 
 ### Type checking functions
 The type checking functions allow you to check the type of an expression within SQL queries. Type checking functions can be used to determine the type of properties within documents on the fly when it is variable or unknown. Here’s a table of supported built-in type checking functions.

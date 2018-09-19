@@ -4,7 +4,7 @@ description: Learn about Azure SQL Database and SQL Server security, including t
 services: sql-database
 author: giladm
 manager: craigg
-ms.reviewer: carlrab
+ms.reviewer: vanto
 ms.service: sql-database
 ms.custom: security
 ms.topic: conceptual

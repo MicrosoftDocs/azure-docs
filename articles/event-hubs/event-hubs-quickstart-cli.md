@@ -9,7 +9,7 @@ ms.service: event-hubs
 ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 06/26/2018
+ms.date: 08/16/2018
 ms.author: shvija
 #Customer intent: How do I stream data and process telemetry from an event hub?
 

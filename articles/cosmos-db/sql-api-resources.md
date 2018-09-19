@@ -27,12 +27,6 @@ This article answers the following questions:
 * How do I work with collections?
 * How do I work with stored procedures, triggers and User-Defined Functions (UDFs)?
 
-In the following video, Azure Cosmos DB Program Manager Andrew Liu walks you through the Azure Cosmos DB resource model. 
-
-> [!VIDEO https://www.youtube.com/embed/luWFgTP0IL4]
->
->
-
 ## Hierarchical resource model
 As the following diagram illustrates, the Azure Cosmos DB hierarchical **resource model** consists of sets of resources under a database account, each addressable via a logical and stable URI. A set of resources are referred to as a **feed** in this article. 
 
@@ -216,7 +210,7 @@ By virtue of its deep commitment to JavaScript and JSON directly within the data
 * Efficient implementation of concurrency control, recovery, automatic indexing of the JSON object graphs directly in the database engine
 * Naturally expressing control flow, variable scoping, assignment, and integration of exception handling primitives with database transactions directly in terms of the JavaScript programming language
 
-The JavaScript logic registered at a collection level can then issue database operations on the documents of the given collection. Azure Cosmos DB implicitly wraps the JavaScript based stored procedures and triggers within an ambient ACID transaction with snapshot isolation across documents within a collection. During the course of its execution, if the JavaScript throws an exception, then the entire transaction is aborted. The resulting programming model is simple yet powerful. JavaScript developers get a “durable” programming model while still using their familiar language constructs and library primitives.   
+The JavaScript logic registered at a collection level can then issue database operations on the documents of the given collection. Azure Cosmos DB implicitly wraps the JavaScript based stored procedures and triggers within an ambient ACID transaction with snapshot isolation across documents within a collection. During the course of its execution, if the JavaScript throws an exception, then the entire transaction is aborted. The resulting programming model is simple yet powerful. JavaScript developers get a "durable" programming model while still using their familiar language constructs and library primitives.   
 
 The ability to execute JavaScript directly within the database engine in the same address space as the buffer pool enables performant and transactional execution of database operations against the documents of a collection. Furthermore, Cosmos DB database engine makes a deep commitment to the JSON and JavaScript eliminates any impedance mismatch between the type systems of application and the database.   
 
@@ -253,7 +247,7 @@ After creating a collection, you can register stored procedures, triggers, and U
             })
     };
 
-The client can “ship” the above JavaScript logic to the database for transactional execution via HTTP POST. For more information about using HTTP methods, see [RESTful interactions with Azure Cosmos DB resources](https://msdn.microsoft.com/library/azure/mt622086.aspx). 
+The client can "ship" the above JavaScript logic to the database for transactional execution via HTTP POST. For more information about using HTTP methods, see [RESTful interactions with Azure Cosmos DB resources](https://msdn.microsoft.com/library/azure/mt622086.aspx). 
 
     client.createStoredProcedureAsync(collection._self, {id: "CRUDProc", body: businessLogic})
        .then(function(createdStoredProcedure) {
@@ -269,7 +263,7 @@ The client can “ship” the above JavaScript logic to the database for transac
         });
 
 
-Notice that because the database natively understands JSON and JavaScript, there is no type system mismatch, no “OR mapping” or code generation magic required.   
+Notice that because the database natively understands JSON and JavaScript, there is no type system mismatch, no "OR mapping" or code generation magic required.   
 
 Stored procedures and triggers interact with a collection and the documents in a collection through a well-defined object model, which exposes the current collection context.  
 
@@ -411,7 +405,7 @@ You can insert, replace, delete, read, enumerate, and query arbitrary JSON docum
 
 Being a truly open database service, Azure Cosmos DB does not invent any specialized data types (for example, date time) or specific encodings for JSON documents. Azure Cosmos DB does not require any special JSON conventions to codify the relationships among various documents; the SQL syntax of Azure Cosmos DB provides powerful hierarchical and relational query operators to query and project documents without any special annotations or need to codify relationships among documents using distinguished properties.  
 
-As with all other resources, documents can be created, replaced, deleted, read, enumerated, and queried easily using either REST APIs or any of the [client SDKs](sql-api-sdk-dotnet.md). Deleting a document instantly frees up the quota corresponding to all of the nested attachments. The read consistency level of documents follows the consistency policy on the database account. This policy can be overridden on a per-request basis depending on data consistency requirements of your application. When querying documents, the read consistency follows the indexing mode set on the collection. For “consistent”, this follows the account’s consistency policy. 
+As with all other resources, documents can be created, replaced, deleted, read, enumerated, and queried easily using either REST APIs or any of the [client SDKs](sql-api-sdk-dotnet.md). Deleting a document instantly frees up the quota corresponding to all of the nested attachments. The read consistency level of documents follows the consistency policy on the database account. This policy can be overridden on a per-request basis depending on data consistency requirements of your application. When querying documents, the read consistency follows the indexing mode set on the collection. For "consistent", this follows the account’s consistency policy. 
 
 ## Attachments and media
 Azure Cosmos DB allows you to store binary blobs/media either with Azure Cosmos DB (maximum of 2 GB per account) or to your own remote media store. It also allows you to represent the metadata of a media in terms of a special document called attachment. An attachment in Azure Cosmos DB is a special (JSON) document that references the media/blob stored elsewhere. An attachment is simply a special document that captures the metadata (for example, location, author etc.) of a media stored in a remote media storage. 
@@ -426,7 +420,7 @@ The examples listed above use friendly ids to convey the resource hierarchy. Res
 
 For the media that is managed by Azure Cosmos DB, the _media property of the attachment references the media by its URI. Azure Cosmos DB will ensure to garbage collect the media when all of the outstanding references are dropped. Azure Cosmos DB automatically generates the attachment when you upload the new media and populates the _media to point to the newly added media. If you choose to store the media in a remote blob store managed by you (for example, OneDrive, Azure Storage, DropBox, etc.), you can still use attachments to reference the media. In this case, you will create the attachment yourself and populate its _media property.   
 
-As with all other resources, attachments can be created, replaced, deleted, read, or enumerated easily using either REST APIs or any of the client SDKs. As with documents, the read consistency level of attachments follows the consistency policy on the database account. This policy can be overridden on a per-request basis depending on data consistency requirements of your application. When querying for attachments, the read consistency follows the indexing mode set on the collection. For “consistent”, this follows the account’s consistency policy. 
+As with all other resources, attachments can be created, replaced, deleted, read, or enumerated easily using either REST APIs or any of the client SDKs. As with documents, the read consistency level of attachments follows the consistency policy on the database account. This policy can be overridden on a per-request basis depending on data consistency requirements of your application. When querying for attachments, the read consistency follows the indexing mode set on the collection. For "consistent", this follows the account’s consistency policy. 
  
 
 ## Users

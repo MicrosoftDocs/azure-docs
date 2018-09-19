@@ -29,7 +29,7 @@ The Cognitive Services Client Speech SDK is using Parson, obtained from https://
 
 **b. azure-c-shared-utility - Azure C SDKs common code**
 
-The Cognitive Services Client Speech SDK is using Azure C SDK Common Code, obtained from https://github.com/Azure/azure-c-shared-utility. It is licensed under the The MIT License (MIT):
+The Cognitive Services Client Speech SDK is using Azure C SDK Common Code, obtained from https://github.com/Azure/azure-c-shared-utility. It is licensed under the MIT License (MIT):
 
     Microsoft Azure IoT SDKs
     Copyright (c) Microsoft Corporation

@@ -1,24 +1,18 @@
 ---
-title: Working with XML messages in your workflows - Azure Logic Apps | Microsoft Docs
-description: Process, validate, transform, and enrich XML messages in logic apps and business-to scenarios using the Enterprise Integration Pack
+title: XML messages for B2B enterprise integration - Azure Logic Apps | Microsoft Docs
+description: Process, validate, transform, and enrich XML messages for B2B solutions in Azure Logic Apps with Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: divyaswarnkar
-manager: jeconnoc
-editor: 
-
-ms.assetid: 47672dc4-1caa-44e5-b8cb-68ec3a76b7dc
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.custom: H1Hack27Feb2017 
+ms.assetid: 47672dc4-1caa-44e5-b8cb-68ec3a76b7dc
 ms.date: 02/27/2017
-ms.author: LADocs; divswa
 ---
 
-# Validate and transform XML, encode and decode flat files, and enrich messages features in logic apps
+# XML messages and flat files in Azure Logic Apps with Enterprise Integration Pack
 
 Using logic apps, you have the ability to process XML messages that you send and receive. This feature is included with the Enterprise Integration Pack. For those users with a BizTalk Server background, the Enterprise Integration Pack gives you similar abilities to transform and validate messages, work with flat files, and even use XPath to enrich or extract specific properties from a message. 
 

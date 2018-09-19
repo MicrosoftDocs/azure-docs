@@ -3,7 +3,7 @@ title: Install published application - H2O Sparkling Water - Azure HDInsight
 description: Install and use the H2O Sparkling Water third-party Hadoop application.
 services: hdinsight
 author: ashishthaps
-editor: jasonwhowell
+ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive

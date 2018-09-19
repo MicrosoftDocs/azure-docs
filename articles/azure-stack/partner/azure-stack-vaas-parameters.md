@@ -19,7 +19,7 @@ ms.reviewer: johnhas
 
 # Workflow common parameters for Azure Stack validation as a service
 
-[!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
+[!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 Common parameters include values such as environment variables and user credentials required by all tests in validation as a service (VaaS). You define these values at the workflow level. You save the values when you create or modify a workflow. At schedule time, the workflow loads the values for the test. 
 

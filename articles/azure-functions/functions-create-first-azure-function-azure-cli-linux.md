@@ -7,10 +7,10 @@ author: ggailey777
 ms.author: glenga
 ms.date: 11/15/2017
 ms.topic: quickstart
-ms.service: functions
+ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
-manager: cfowler
+manager: jeconnoc
 ---
 
 # Create your first function running on Linux using the Azure CLI (preview)

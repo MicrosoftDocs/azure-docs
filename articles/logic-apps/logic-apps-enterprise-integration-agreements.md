@@ -1,25 +1,21 @@
 ---
 title: Agreements for B2B communication - Azure Logic Apps | Microsoft Docs
-description: Create agreements so partners can communicate in B2B scenarios for Azure Logic Apps and the Enterprise Integration Pack
+description: Create agreements for B2B trading partner communication with Azure Logic Apps and Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: msftman
-manager: jeconnoc
-editor: cgronlun
-
-ms.assetid: 447ffb8e-3e91-4403-872b-2f496495899d
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: 447ffb8e-3e91-4403-872b-2f496495899d
 ms.date: 06/29/2016
-ms.author: LADocs
-
 ---
+
 # Partner agreements for B2B communication with Azure Logic Apps and Enterprise Integration Pack
 
-Agreements let business entities communicate seamlessly using industry standard protocols and are the cornerstone for business-to-business (B2B) communication. 
+Agreements let business entities communicate seamlessly using industry 
+standard protocols and are the cornerstone for business-to-business (B2B) communication. 
 When enabling B2B scenarios for logic apps with the Enterprise Integration Pack, 
 an agreement is a communications arrangement between B2B trading partners. 
 This agreement is based on the communications that the partners want to 

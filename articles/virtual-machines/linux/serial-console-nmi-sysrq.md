@@ -3,7 +3,7 @@ title: Azure Serial Console for SysRq and NMI calls | Microsoft Docs
 description: Using Serial Console for for SysRq and NMI calls in Azure virtual machines.
 services: virtual-machines-linux
 documentationcenter: ''
-author: alsin
+author: asinn826
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -81,13 +81,17 @@ From the SysRq Admin Guide above:
 
 ### Distribution-specific documentation ###
 For distribution-specific documentation on SysRq and steps to configure Linux to create a crash dump when it receives a SysRq "Crash" command, see the links below:
+
 #### Ubuntu ####
  - [Kernel Crash Dump](https://help.ubuntu.com/lts/serverguide/kernel-crash-dump.html)
+
 #### Red Hat ####
 - [What is the SysRq Facility and how do I use it?](https://access.redhat.com/articles/231663)
 - [How to use the SysRq facility to collect information from a RHEL server](https://access.redhat.com/solutions/2023)
+
 #### SUSE ####
 - [Configure kernel core dump capture](https://www.suse.com/support/kb/doc/?id=3374462)
+
 #### CoreOS ####
 - [Collecting crash logs](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
 
@@ -106,16 +110,17 @@ For Linux systems which support sysctl for configuring kernel parameters, you ca
 
 For more information on Linux kernel configurations, including `unknown_nmi_panic`, `panic_on_io_nmi`, and `panic_on_unrecovered_nmi`, see: [Documentation for /proc/sys/kernel/*](https://www.kernel.org/doc/Documentation/sysctl/kernel.txt). For distribution-specific documentation  on NMI and steps to configure Linux to create a crash dump when it receives an NMI, see the links below:
  
- ### Ubuntu 
+### Ubuntu 
  - [Kernel Crash Dump](https://help.ubuntu.com/lts/serverguide/kernel-crash-dump.html)
 
- ### Red Hat 
+### Red Hat 
  - [What is an NMI and what can I use it for?](https://access.redhat.com/solutions/4127)
  - [How can I configure my system to crash when NMI switch is pushed?](https://access.redhat.com/solutions/125103)
  - [Crash Dump Admin Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/pdf/kernel_crash_dump_guide/kernel-crash-dump-guide.pdf)
 
 ### SUSE 
 - [Configure kernel core dump capture](https://www.suse.com/support/kb/doc/?id=3374462)
+
 ### CoreOS 
 - [Collecting crash logs](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
 

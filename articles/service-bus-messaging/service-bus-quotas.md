@@ -3,7 +3,7 @@ title: Microsoft Azure Service Bus quotas and limits | Microsoft Docs
 description: Find limits and quotas for Azure Service Bus.
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/01/2018
-ms.author: sethm
+ms.author: spelluru
 
 ---
 # Service Bus quotas

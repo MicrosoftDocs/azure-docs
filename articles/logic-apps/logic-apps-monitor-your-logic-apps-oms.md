@@ -1,20 +1,14 @@
 ---
-title: Monitor and get insights about your logic app runs using Log Analytics - Azure Logic Apps | Microsoft Docs
-description: Monitor your logic app runs with Log Analytics to get insights and richer debugging details for troubleshooting and diagnostics
-author: divyaswarnkar
-manager: jeconnoc
-editor: ''
+title: Monitor logic app runs with Log Analytics - Azure Logic Apps | Microsoft Docs
+description: Get insights and debugging data about your logic app runs with Log Analytics for troubleshooting and diagnostics
 services: logic-apps
-documentationcenter: ''
-
-ms.assetid: 
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 06/19/2018
-ms.author: LADocs; divswa
 ---
 
 # Monitor and get insights about logic app runs with Log Analytics
