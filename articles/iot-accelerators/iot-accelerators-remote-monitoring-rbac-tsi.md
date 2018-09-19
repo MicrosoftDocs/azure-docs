@@ -1,6 +1,6 @@
 ---
-title: Remote Monitoring TSI access control - Azure | Microsoft Docs 
-description: This article provides information about how you can configure access controls for the Time Series Insights explorer in the Remote Monitoring solution accelerator
+title: Remote Monitoring data access control - Azure | Microsoft Docs 
+description: This article provides information about how you can configure access controls for the Time Series Insights telemetry explorer in the Remote Monitoring solution accelerator
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -12,7 +12,7 @@ ms.topic: conceptual
 # As an administrator, I want to understand how I can configure access rights for the Time Series Insights environment in the Remote Monitoring solution accelerator.
 ---
 
-# Configure access controls for the Time Series Insights explorer
+# Configure access controls for the Time Series Insights telemetry explorer
 
 This article provides information about how to configure access controls for the Time Series Insights explorer in the Remote Monitoring solution accelerator. To allow users of the solution accelerator to access the Time Series Insights explorer, you need to grant each user data access.
 
@@ -22,7 +22,7 @@ Data access policies grant permissions to issue data queries, manipulate referen
 
 ## Next steps
 
-In this article, you learned how access controls are granted for the TimeSeries Insights explorer in the Remote Monitoring solution accelerator.
+In this article, you learned how access controls are granted for the Time Series Insights explorer in the Remote Monitoring solution accelerator.
 
 For more conceptual information about the Remote Monitoring solution accelerator, see [Remote Monitoring architecture](iot-accelerators-remote-monitoring-sample-walkthrough.md)
 
