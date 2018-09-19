@@ -88,6 +88,10 @@
     href: event-hubs-python-get-started-send.md
   - name: Receive events using Python
     href: event-hubs-python-get-started-receive.md
+  - name: Send events using Node.js
+    href: event-hubs-node-get-started-send.md
+  - name: Receive events using Node.js
+    href: event-hubs-node-get-started-receive.md    
   - name: Event Hubs for Apache Kafka 
     items:
       - name: Create Apache Kafka-enabled event hubs

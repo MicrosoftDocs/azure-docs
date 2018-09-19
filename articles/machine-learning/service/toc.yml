@@ -45,7 +45,7 @@
       href: how-to-configure-environment.md
   - name: Set up training environments	
     href: how-to-set-up-training-targets.md
-  - name: Prepare data for modeling
+  - name: Prepare data
     href: how-to-data-prep.md   
     items:
     - name: Load data
@@ -54,7 +54,7 @@
       href: how-to-transform-data.md
     - name: Write data
       href: how-to-write-data.md
-  - name: Train and tune models
+  - name: Train and tune
     items:    
     - name: Use automated ML	
       items:
@@ -75,13 +75,9 @@
       href: how-to-build-deploy-onnx.md   
     - name: Tune hyperparameters
       href: how-to-tune-hyperparameters.md    
-  - name: Track and evaluate models	
-    items:    
     - name: Track experiments and metrics
       href: how-to-track-experiments.md
-    - name: Collect data in production  
-      href: how-to-enable-data-collection.md
-  - name: Deploy models in production	
+  - name: Deploy and monitor	
     items:    
     - name: Where to deploy models
       href: how-to-deploy-and-where.md
@@ -94,6 +90,8 @@
          href: how-to-deploy-fpga-web-service.md  
        - name: Deploy to IoT Edge
          href: how-to-deploy-to-iot.md  
+    - name: Collect data in production  
+      href: how-to-enable-data-collection.md
   - name: Manage resource quotas
     href: how-to-manage-quotas.md
   - name: Export and delete data
