@@ -8,6 +8,7 @@ ms.reviewer: 'CarlRabeler'
 ms.service: sql-database
 ms.custom: develop databases, mvc, devcenter
 ms.topic: tutorial
+ms.author: genemi
 ms.date: 06/07/2018
 ---
 # Design an Azure SQL database and connect with C&#x23; and ADO.NET
