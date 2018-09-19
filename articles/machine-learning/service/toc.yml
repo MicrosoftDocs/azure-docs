@@ -216,7 +216,9 @@
     - name: Model data collection API
       href: ../desktop-workbench/model-data-collection-api-reference.md
 - name: Resources
-  items:  
+  items: 
+  - name: R developer's guide 
+  - href: ../r-developers-guide.md
   - name: Frequently asked questions
     href: ../desktop-workbench/frequently-asked-questions.md
   - name: Issues and troubleshooting
