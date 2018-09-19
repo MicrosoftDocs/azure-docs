@@ -36,7 +36,7 @@ Azure Machine Learning service automatically tunes hyperparameters by exploring 
 Each hyperparameter can either be discrete or continuous.
 
 #### Discrete hyperparameters 
-Discrete hyperparameters can be specified as a `choice` among discrete values. `Choice` can take either a list of values or a `range` object or any arbitrary `list` object. For example  
+Discrete hyperparameters can be specified as a `choice` among discrete values. `choice` can take either a list of values or a `range` object or any arbitrary `list` object. For example  
 
 ```Python
     {    
@@ -102,7 +102,7 @@ Bayesian sampling tries to intelligently pick the next sample of hyperparameters
 
 When using Bayesian sampling, the number of concurrent runs has an impact on the effectiveness of the tuning process. Typically, a smaller number of concurrent runs can lead to better sampling convergence. This is because the smaller degree of parallelism increases the number of runs that benefit from previously completed runs.
 
-Bayesian sampling supports only `choice`, and `uniform` distributions over the search space. For example 
+Bayesian sampling supports only `choice` and `uniform` distributions over the search space. For example 
 
 ```Python
 from azureml.train.hyperdrive import BayesianParameterSampling
@@ -114,7 +114,7 @@ param_sampling = BayesianParameterSampling( {
 ```
 
 > [!NOTE]
-> Bayesian sampling does not currently support any early termination policy (See [Specify an Early Termination Policy](#specify-an-early-termination-policy)). If using Bayesian parameter sampling, you must set policy to None. Not specifying a termination policy with Bayesian Sampling will have the same effect.
+> Bayesian sampling does not currently support any early termination policy (See [Specify an Early Termination Policy](#specify-an-early-termination-policy)). If using Bayesian parameter sampling, you must set policy to `None`. Not specifying a termination policy with Bayesian Sampling will have the same effect.
 >
 > ```Python
 > early_termination_policy = None
@@ -298,7 +298,7 @@ print('\n keep probability:',parameter_values[5])
 print('\n batch size:',parameter_values[7])
 ```
 
-## Sample notebooks
+## Sample notebook
 Refer to 
 * `training/03.hyperparameter-tuning-with-tensorflow/03.hyperparameter-tuning-with-tensorflow.ipynb` for a tutorial on tuning hyperparameters for a Tensorflow model. 
 
