@@ -16,7 +16,7 @@ Pre and post scripts let you run PowerShell runbooks in your Automation Account 
 
 ## Runbook requirements
 
-For a runbook to be used as a pre or post script, the runbook needs to be imported into your automation account and published.
+For a runbook to be used as a pre or post script, the runbook needs to be imported into your automation account and published. To learn more about this process, see [Publishing a runbook](automation-creating-importing-runbook.md#publishing-a-runbook).
 
 ## Using a pre/post script
 
@@ -107,9 +107,11 @@ Samples for pre and post scripts can be found in the [Script Center Gallery](htt
 
 Or you can search for them by their script name as seen in the following list:
 
-* UpdateManagement-TurnOnVms
-* UpdateManagement-TurnOffVms
-* UpdateManagement-SingleHybridWorker
+* Update Management - Turn On VMs
+* Update Management - Turn Off VMs
+* Update Management - Run Script Locally
+* Update Management - Template for Pre/Post Scripts
+* Update Management - Run Script with Run Command
 
 > [!IMPORTANT]
 > After you import the runbooks, you must **Publish** them before they can be used. To do that find the runbook in your Automation Account, select **Edit**, and click **Publish**.
