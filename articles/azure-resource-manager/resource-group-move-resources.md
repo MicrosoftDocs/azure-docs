@@ -169,6 +169,8 @@ The following list provides a general summary of Azure services that can be move
 * Automation
 * Azure Active Directory B2C
 * Azure Cosmos DB
+* Azure Database for MySQL
+* Azure Database for PostgreSQL
 * Azure DevOps - Azure DevOps organizations with non-Microsoft extension purchases must [cancel their purchases](https://go.microsoft.com/fwlink/?linkid=871160) before they can move the account across subscriptions.
 * Azure Maps
 * Azure Relay
@@ -214,7 +216,7 @@ The following list provides a general summary of Azure services that can be move
 * Service Fabric
 * Service Fabric Mesh
 * SignalR Service
-* Storage
+* Storage - storage accounts in different regions can't be moved in the same operation. Instead, use separate operations for each region.
 * Storage (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
 * Stream Analytics - Stream Analytics jobs can't be moved when in running state.
 * SQL Database server - database and server must reside in the same resource group. When you move a SQL server, all its databases are also moved. This behavior applies to Azure SQL Database and Azure SQL Data Warehouse databases.
@@ -233,8 +235,6 @@ The following list provides a general summary of Azure services that can't be mo
 * AD Domain Services
 * AD Hybrid Health Service
 * Application Gateway
-* Azure Database for MySQL
-* Azure Database for PostgreSQL
 * Azure Database Migration
 * Azure Databricks
 * Azure Migrate

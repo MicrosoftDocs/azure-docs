@@ -1,6 +1,6 @@
 ---
 title: How to assign directory roles to users with Azure Active Directory | Microsoft Docs
-description: How to assign directory roles to users with Azure Active Directory.
+description: Learn how to assign directory roles to users with Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman

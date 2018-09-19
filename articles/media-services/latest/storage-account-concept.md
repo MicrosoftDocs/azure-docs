@@ -24,7 +24,7 @@ You must have one **Primary** storage account and you can have any number of **S
 >[!NOTE]
 > Blob only accounts are not allowed as **Primary**. 
 
-We recommend that you use GPv2, so you can take advantage of choosing between hot and cool storage tiers. To learn more about storage accounts, see [Azure Storage account options](../../storage/common/storage-account-options.md). 
+We recommend that you use GPv2, so you can take advantage of choosing between hot and cool storage tiers. To learn more about storage accounts, see [Azure Storage account overview](../../storage/common/storage-account-overview.md). 
 
 ## Assets in a storage account
 
