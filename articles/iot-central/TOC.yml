@@ -65,7 +65,7 @@
         href: howto-create-telemetry-rules.md
       - name: Create an event rule
         href: howto-create-event-rules.md
-      - name: Create custom analytics
+      - name: Analyze your device data
         href: howto-create-analytics.md 
   - name: Actions and extensibility
     items:
