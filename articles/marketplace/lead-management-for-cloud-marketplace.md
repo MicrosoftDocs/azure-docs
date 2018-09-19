@@ -59,30 +59,30 @@ Once the technical set up is in place, you should incorporate these leads into y
 
 **What are leads and why are they important to me as a publisher on Marketplace?** 
 
-Leads are customers who are deploying your products from the Marketplace. Whether your product is listed on [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us) or [AppSource](http://appsource.microsoft.com/), you will be able to receive leads of customers who are interested in your product if you have setup the lead destination on your offer.  
+> Leads are customers who are deploying your products from the Marketplace. Whether your product is listed on [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us) or [AppSource](http://appsource.microsoft.com/), you will be able to receive leads of customers who are interested in your product if you have setup the lead destination on your offer.  
 
 
 **Where can I get help in setting up my lead destination?** 
 
-You can find documentation here: https://cloudpartner.azure.com/#documentation/get-customer-leads or submit a support ticket through aka.ms/marketplacepublishersupport select offer type and lead management. 
+> You can find documentation here: https://cloudpartner.azure.com/#documentation/get-customer-leads or submit a support ticket through aka.ms/marketplacepublishersupport select offer type and lead management. 
 
 
 
 **Am I required to configure a lead destination in order to publish an offer on Marketplace?**
 
-Yes, if you are publishing a Contact Me SaaS app, or Consulting Services.  
+> Yes, if you are publishing a Contact Me SaaS app, or Consulting Services.  
  
 
 
 **How can I confirm that the lead configuration is correct?**
 
-After setting up your offer, and lead destination, publish your offer. On lead validation step, Marketplace will send a test lead to the lead destination configured in your offer. 
+> After setting up your offer, and lead destination, publish your offer. On lead validation step, Marketplace will send a test lead to the lead destination configured in your offer. 
 
 
 **How can I find the test lead?**
 
 
-Search for “MSFT_TEST” in your lead destination, here’s a sample test lead data: 
+> Search for “MSFT_TEST” in your lead destination, here’s a sample test lead data: 
 
 company = MSFT_TEST_636573304831318844 
 
@@ -112,16 +112,16 @@ title = MSFT_TEST_636573304831318844
 
 **I have a live offer, but I’m not seeing any leads?**
 
-Each lead will have data passed in fields in your selected lead destination, the leads will come in this format: **Source-Action|Offer** 
+> Each lead will have data passed in fields in your selected lead destination, the leads will come in this format: **Source-Action|Offer** 
 
-  *Sources:*
+*Sources:*
 
     “AzureMarketplace”, 
     “AzurePortal”, 
     “TestDrive”,  
     “SPZA” (acronym for AppSource) 
 
-  *Actions:*
+*Actions:*
 
     “INS” – Stands for Installation. This is on Azure Marketplace or AppSource whenever a customer hits the button to acquire your product. 
     “PLT” – Stands for Partner Led Trial. This is on AppSource whenever a customer hits the Contact me button. 
@@ -133,7 +133,7 @@ Each lead will have data passed in fields in your selected lead destination, the
     “StartTestDrive” – This is for Test Drives only and is whenever a customer starts their test drive. 
 
 
-  *Offers:*
+*Offers:*
 
     “checkpoint.check-point-r77-10sg-byol”, 
     “bitnami.openedxcypress”, 
@@ -141,7 +141,7 @@ Each lead will have data passed in fields in your selected lead destination, the
 
  
 
-  *Here’s sample data of the customer information*
+*Here’s sample data of the customer information*
 
     { 
 
@@ -166,39 +166,39 @@ Find out more under [Lead Info](https://cloudpartner.azure.com/#documentation/ge
 
 **I have configured Azure BLOB as my lead destination, but I’m not seeing the lead?** 
 
-The lead only gets written when you select Azure BLOB storage as your lead destination. Switch to Azure table to receive the lead real time 
+> The lead only gets written when you select Azure BLOB storage as your lead destination. Switch to Azure table to receive the lead real time 
 
 
 **I received an email from Marketplace, but I could not find the lead in my CRM.**  
 
-It's possible that the end user's email domain is from .edu - for privacy reasons we don't pass PII data from .edu domain. Submit a support ticket through aka.ms/marketplacepublishersupport 
+> It's possible that the end user's email domain is from .edu - for privacy reasons we don't pass PII data from .edu domain. Submit a support ticket through aka.ms/marketplacepublishersupport 
 
 
  **I have configured Azure Table/Azure BLOB as my lead destination, how can I view the leads?** 
 
-You can access the blob or table from Azure Portal, or you can download and install [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/) for free to view your Azure storage account’s tables/blobs. 
+> You can access the blob or table from Azure Portal, or you can download and install [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/) for free to view your Azure storage account’s tables/blobs. 
 
 
 **I have configured Azure Table as my lead destination, can I get notified whenever a new lead is sent by Marketplace?** 
 
-Yes, follow the instructions to set up Azure Table + Function on the documentation [here](https://cloudpartner.azure.com/#documentation/lead-management-instructions-azure-table). 
+> Yes, follow the instructions to set up Azure Table + Function on the documentation [here](https://cloudpartner.azure.com/#documentation/lead-management-instructions-azure-table). 
 
 
 
 **I have configured Salesforce as my lead destination, but I can’t find the leads.** 
 
-Check if the web to lead form is a mandatory field based on a picklist. If yes, switch over the field to a non-mandatory text field.  
+> Check if the web to lead form is a mandatory field based on a picklist. If yes, switch over the field to a non-mandatory text field.  
  
 
 **There was an issue with my lead destination, and I missed some leads, can I have them sent to me in an email?** 
 
-Due to PII (Private Identifiable Information) policies, we cannot share lead information through unsecured email. 
+> Due to PII (Private Identifiable Information) policies, we cannot share lead information through unsecured email. 
 
 
 
 **I have configured Azure Storage (BLOB/Table) as my lead destination, how much will it cost?** 
 
-Lead gen data is low (<1 GB for almost all publishers). The cost will depend on number of leads received, if 1,000 leads are received in a month, it costs around 50 cents. 
+> Lead gen data is low (<1 GB for almost all publishers). The cost will depend on number of leads received, if 1,000 leads are received in a month, it costs around 50 cents. 
 
  
 
