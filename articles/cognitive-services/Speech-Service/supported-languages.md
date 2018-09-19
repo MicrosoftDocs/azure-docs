@@ -1,5 +1,5 @@
 ---
-title: Speech service supported languages - Microsoft Cognitive Services
+title: Speech service supported languages - Azure Cognitive Services
 description: A list of the languages supported by the Speech service.
 titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
@@ -13,13 +13,13 @@ ms.author: v-jerkin
 ---
 # Supported languages for Speech service
 
-Different languages are supported for different Speech services functions. The tables below summarize language support.
+Different languages are supported for different Speech service functions. The following tables summarize language support.
 
 ## Speech to Text
 
 The Microsoft speech recognition API supports the following languages. 
 
-  Code | Language | Acoustic Adaptation | Language Adaptation | Pronunciation Adaptation
+  Code | Language | Acoustic adaptation | Language adaptation | Pronunciation adaptation
  ------|----------|---------------------|---------------------|-------------------------
  ar-EG | Arabic (Egypt), modern standard | No | Yes | No
  It-IT | Italian (Italy) | No | Yes | No 
@@ -100,24 +100,24 @@ ja-JP | Japanese |Female | "Microsoft Server Speech Text to Speech Voice (ja-JP,
 | | |Male | "Microsoft Server Speech Text to Speech Voice (ja-JP, Ichiro, Apollo)"
 | | |Female | "Microsoft Server Speech Text to Speech Voice (ja-JP, HarukaRUS)"
 ko-KR | Korean |Female | "Microsoft Server Speech Text to Speech Voice (ko-KR, HeamiRUS)"
-ms-MY | Malay|Male | "Microsoft Server Speech Text to Speech Voice (ms-MY, Rizwan)"
-nb-NO | Norwegian|Female | "Microsoft Server Speech Text to Speech Voice (nb-NO, HuldaRUS)"
-nl-NL | Dutch|Female | "Microsoft Server Speech Text to Speech Voice (nl-NL, HannaRUS)"
-pl-PL | Polish|Female | "Microsoft Server Speech Text to Speech Voice (pl-PL, PaulinaRUS)"
-pt-BR | Portuguese (Brazil)|Female | "Microsoft Server Speech Text to Speech Voice (pt-BR, HeloisaRUS)"
+ms-MY | Malay | Male | "Microsoft Server Speech Text to Speech Voice (ms-MY, Rizwan)"
+nb-NO | Norwegian | Female | "Microsoft Server Speech Text to Speech Voice (nb-NO, HuldaRUS)"
+nl-NL | Dutch | Female | "Microsoft Server Speech Text to Speech Voice (nl-NL, HannaRUS)"
+pl-PL | Polish | Female | "Microsoft Server Speech Text to Speech Voice (pl-PL, PaulinaRUS)"
+pt-BR | Portuguese (Brazil) | Female | "Microsoft Server Speech Text to Speech Voice (pt-BR, HeloisaRUS)"
 | | |Male | "Microsoft Server Speech Text to Speech Voice (pt-BR, Daniel, Apollo)"
-pt-PT | Portuguese (Portugal)|Female | "Microsoft Server Speech Text to Speech Voice (pt-PT, HeliaRUS)"
-ro-RO | Romanian|Male | "Microsoft Server Speech Text to Speech Voice (ro-RO, Andrei)"
+pt-PT | Portuguese (Portugal) | Female | "Microsoft Server Speech Text to Speech Voice (pt-PT, HeliaRUS)"
+ro-RO | Romanian | Male | "Microsoft Server Speech Text to Speech Voice (ro-RO, Andrei)"
 ru-RU |Russian| Female | "Microsoft Server Speech Text to Speech Voice (ru-RU, Irina, Apollo)"
 | | |Male | "Microsoft Server Speech Text to Speech Voice (ru-RU, Pavel, Apollo)"
 | | |Female | "Microsoft Server Speech Text to Speech Voice (ru-RU, EkaterinaRUS)"
-sk-SK | Slovak|Male | "Microsoft Server Speech Text to Speech Voice (sk-SK, Filip)"
-sl-SI | Slovenian|Male | "Microsoft Server Speech Text to Speech Voice (sl-SI, Lado)"
-sv-SE | Swedish|Female | "Microsoft Server Speech Text to Speech Voice (sv-SE, HedvigRUS)"
-ta-IN | Tamil (India) |Male | "Microsoft Server Speech Text to Speech Voice (ta-IN, Valluvar)"
-th-TH | Thai|Male | "Microsoft Server Speech Text to Speech Voice (th-TH, Pattara)"
-tr-TR |Turkish| Female | "Microsoft Server Speech Text to Speech Voice (tr-TR, SedaRUS)"
-vi-VN | Vietnamese|Male | "Microsoft Server Speech Text to Speech Voice (vi-VN, An)"
+sk-SK | Slovak | Male | "Microsoft Server Speech Text to Speech Voice (sk-SK, Filip)"
+sl-SI | Slovenian | Male | "Microsoft Server Speech Text to Speech Voice (sl-SI, Lado)"
+sv-SE | Swedish | Female | "Microsoft Server Speech Text to Speech Voice (sv-SE, HedvigRUS)"
+ta-IN | Tamil (India) | Male | "Microsoft Server Speech Text to Speech Voice (ta-IN, Valluvar)"
+th-TH | Thai | Male | "Microsoft Server Speech Text to Speech Voice (th-TH, Pattara)"
+tr-TR |Turkish | Female | "Microsoft Server Speech Text to Speech Voice (tr-TR, SedaRUS)"
+vi-VN | Vietnamese | Male | "Microsoft Server Speech Text to Speech Voice (vi-VN, An)"
 zh-CN | Chinese (Mainland)|Female | "Microsoft Server Speech Text to Speech Voice (zh-CN, HuihuiRUS)"
 | | |Female | "Microsoft Server Speech Text to Speech Voice (zh-CN, Yaoyao, Apollo)"
 | | |Male | "Microsoft Server Speech Text to Speech Voice (zh-CN, Kangkang, Apollo)"
@@ -132,16 +132,16 @@ zh-TW | Chinese (Taiwan)|Female | "Microsoft Server Speech Text to Speech Voice 
 
 ### Customization
 
-Voice customization is available for US English (en-US), mainland Chinese (zh-CN) and Italian (it-IT).
+Voice customization is available for US English (en-US), mainland Chinese (zh-CN), and Italian (it-IT).
 
 > [!NOTE]
-> Italian voice training starts with a dataset of 2,000+ utterances. Chinese-English bilingual models are also supported with an initial dataset of 2,000+ utterances.
+> Italian voice training starts with a data set of 2,000+ utterances. Chinese-English bilingual models also are supported with an initial data set of 2,000+ utterances.
 
 ## Speech Translation
 
-The **Speech Translation** API supports different languages for speech-to-speech and speech-to-text translation. The source language must always be from the Speech Language table below. The available target languages depend on whether the translation target is speech or text.
+The **Speech Translation** API supports different languages for speech-to-speech and speech-to-text translation. The source language must always be from the following Speech language table. The available target languages depend on whether the translation target is speech or text.
 
-You can obtain the list of languages programmatically using the REST API's Languages endpoint. The list provides each language code, as well as the language name in English—or in any other supported language. This list is updated by the Microsoft Translator service whenever a new language becomes available.
+You can obtain the list of languages programmatically by using the REST API's Languages endpoint. The list provides each language code, as well as the language name in English, or in any other supported language. This list is updated by the Microsoft Translator service whenever a new language becomes available.
 
 ### Speech languages
 
