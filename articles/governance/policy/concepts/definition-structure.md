@@ -245,7 +245,7 @@ The following fields are supported:
 - `tags[<tagName>]`
   - This bracket syntax supports tag names that contain periods.
   - Where **\<tagName\>** is the name of the tag to validate the condition for.
-  - Example: `tags.[Acct.CostCenter]` where **Acct.CostCenter** is the name of the tag.
+  - Example: `tags[Acct.CostCenter]` where **Acct.CostCenter** is the name of the tag.
 - property aliases - for a list, see [Aliases](#aliases).
 
 ### Effect
@@ -423,8 +423,8 @@ another that has **[\*]** attached to it. For example:
 The first example is used to evaluate the entire array, where the **[\*]** alias evaluates each
 element of the array.
 
-Let's look at a policy rule as an example. This policy is looking for a storage account that has
-ipRules configured and if **none** of the values of the ipRules is are "127.0.0.1" to **Deny**.
+Let's look at a policy rule as an example. This policy will **Deny** a storage account which has
+ipRules configured and if **none** of the ipRules have a value of "127.0.0.1".
 
 ```json
 "policyRule": {
@@ -445,7 +445,7 @@ ipRules configured and if **none** of the values of the ipRules is are "127.0.0.
 }
 ```
 
-The **ipRule** array is as follows for the example:
+The **ipRules** array is as follows for the example:
 
 ```json
 "ipRules": [{
@@ -459,11 +459,31 @@ The **ipRule** array is as follows for the example:
 ]
 ```
 
+Here is how the rule is processed:
+
 - `networkAcls.ipRules` - Check that the array is non-null. It is evaluates true, so evaluation continues.
-- `networkAcls.ipRules[*].value` - Checks each _value_ property in the **ipRules** array:
-  - "127.0.0.1" != "127.0.0.1" evaluates as false.
-  - "127.0.0.1" != "192.168.1.1" evaluates as true.
-  - At least one _value_ property in the **ipRules** array evaluated as false, so the evaluation will stop.
+
+  ```json
+  {
+    "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
+    "exists": "true"
+  }
+  ```
+
+- `networkAcls.ipRules[*].value` - Checks each _value_ property in the **ipRules** array.
+
+  ```json
+  {
+    "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
+    "notEquals": "127.0.0.1"
+  }
+  ```
+
+  - As an array, each element will be processed.
+
+    - "127.0.0.1" != "127.0.0.1" evaluates as false.
+    - "127.0.0.1" != "192.168.1.1" evaluates as true.
+    - At least one _value_ property in the **ipRules** array evaluated as false, so the evaluation will stop.
 
 As a condition evaluated to false, the **Deny** effect is not triggered.
 

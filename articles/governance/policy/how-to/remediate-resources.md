@@ -22,8 +22,9 @@ When Policy runs the template in the **deployIfNotExists** policy definition, it
 [managed identity](../../../active-directory/managed-identities-azure-resources/overview.md).
 Policy creates a managed identity for each assignment for you, but must be provided details about
 what roles to grant the managed identity. If the managed identity is missing roles, this is
-displayed during the assignment of the policy or an initiative containing the policy. Policy will
-automatically grant the managed identity the listed roles once assignment is initiated.
+displayed during the assignment of the policy or an initiative containing the policy. When using
+the portal, Policy will automatically grant the managed identity the listed roles once assignment
+is initiated.
 
 ![Managed identity - missing role](../media/remediate-resources/missing-role.png)
 
@@ -44,7 +45,7 @@ For a full example, see the [deployIfNotExists example](../concepts/effects.md#d
     ...
     "roleDefinitionIds": [
         "/subscription/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
-        "/subscription/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}"
+        "/providers/Microsoft.Authorization/roleDefinitions/{builtinroleGUID}"
     ]
 }
 ```
@@ -84,7 +85,7 @@ To create a **remediation task**, follow these steps:
    > An alternate way to open the **remediation task** page is to find and click on the policy from the
    > **Compliance** page, then click the **Create Remediation Task** button.
 
-1. On the **New remediation task** page, filter the resources to remediate by using the **Scope** ellipses to pick child resources from where the policy was assigned (including down to the resources objects). Additionally, use the **Locations** drop-down to further filter the resources. Only resources listed in the table will be remediated.
+1. On the **New remediation task** page, filter the resources to remediate by using the **Scope** ellipses to pick child resources from where the policy was assigned (including down to the individual resource objects). Additionally, use the **Locations** drop-down to further filter the resources. Only resources listed in the table will be remediated.
 
    ![Remediate - select resources](../media/remediate-resources/select-resources.png)
 
@@ -94,11 +95,11 @@ To create a **remediation task**, follow these steps:
 
 1. Click on the **remediation task** from the policy compliance page to get details about the progress. The filtering used for the task are shown along with a list of the resources being remediated.
 
-1. From the **remedation task** page, right-click on a resource to either view the deployment or the resource. At the end of the row, click on **Related events** to see details such as an error message.
+1. From the **remedation task** page, right-click on a resource to either view the remediation task's deployment or the resource. At the end of the row, click on **Related events** to see details such as an error message.
 
    ![Remediate - resource task context menu](../media/remediate-resources/resource-task-context-menu.png)
 
-Resources deployed through a **remediation task** will also be added to the **Deployed Resources** tab on the policy compliance page.
+Resources deployed through a **remediation task** will be added to the **Deployed Resources** tab on the policy compliance page after a short delay.
 
 ## Next steps
 

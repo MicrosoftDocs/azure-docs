@@ -87,12 +87,16 @@ three non-compliant storage accounts, consequently changing their states to **No
 
 ![Audited non-compliant storage accounts](../media/getting-compliance-data/resource-group03.png)
 
-In addition to **Compliant** and **Non-compliant**, policies and resources have four other states:
+In addition to **Compliant** and **Non-compliant**, policies and resources have three other states:
 
-- **Not-applicable**: Uses the **type** and **name** fields in the policy rule definition to determine if a resource is a match. If so, it is considered applicable and would have a status of either **Compliant** or **Non-Compliant**. If either **type** or **name** is the only property in the policy rule definition, then all resources are considered applicable and will be evaluated. All other resources are deemed **Not-applicable**.
 - **Conflicting**: Two or more policies exist with conflicting rules (e.g. two policies appending the same tag with different values).
 - **Not started**: The evaluation cycle has not started for the policy or resource.
 - **Not registered**: The Azure Policy Resource Provider has not been registered or the account logged in does not have permission to read compliance data.
+
+Policy uses the **type** and **name** fields in the policy rule definition to determine if a
+resource is a match. If so, it is considered applicable and would have a status of either
+**Compliant** or **Non-compliant**. If either **type** or **name** is the only property in the
+policy rule definition, then all resources are considered applicable and will be evaluated.
 
 The compliance percentage is determined by dividing **Compliant** resources by _total resources_.
 _Total resources_ is defined as the sum of the **Compliant**, **Non-compliant**, and

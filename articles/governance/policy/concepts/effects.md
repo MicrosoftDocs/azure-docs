@@ -23,7 +23,7 @@ There are currently five effects that are supported in a policy definition:
 - Audit
 - AuditIfNotExists
 - Deny
-- DeployIfNotExists (only available to **built-in** policies)
+- DeployIfNotExists
 
 ## Order of Evaluation
 
@@ -288,7 +288,7 @@ related resources to match and the template deployment to execute.
   - Can use [field()] to check equivalence with values in the **if** condition.
   - For example, could be used to validate that the parent resource (in the **if** condition) is in the same resource location as the matching related resource.
 - **roleDefinitionIds** [required]
-  - This property must contain an array of strings that match role-based access control role ID in the subscription. For more information, see [remediation - configure policy definition](../how-to/remediate-resources.md#configure-policy-definition).
+  - This property must contain an array of strings that match role-based access control role ID accessible by the subscription. For more information, see [remediation - configure policy definition](../how-to/remediate-resources.md#configure-policy-definition).
 - **Deployment** [required]
   - This property should contain the full template deployment as it would be passed to the `Microsoft.Resources/deployments` PUT API. For more information, see the [Deployments REST API](/rest/api/resources/deployments).
 
@@ -315,7 +315,7 @@ not, then a deployment to enable it is executed.
         "name": "current",
         "roleDefinitionIds": [
             "/subscription/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
-            "/subscription/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}"
+            "/providers/Microsoft.Authorization/roleDefinitions/{builtinroleGUID}"
         ],
         "existenceCondition": {
             "field": "Microsoft.Sql/transparentDataEncryption.status",
