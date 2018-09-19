@@ -1,6 +1,6 @@
 ---
-title: Quickstart to search for and view your groups and assigned members using Azure Active Directory | Microsoft Docs
-description: Quickstart with steps for how to search for and view all of your groups and their assigned members using Azure Active Directory.
+title: Quickstart to view your organization's groups and members in Azure Active Directory | Microsoft Docs
+description: Quickstart with steps about how to search for and view your organization's groups and their assigned members using the Azure portal.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -14,8 +14,8 @@ ms.author: lizross
 ms.custom: it-pro
 ms.reviewer: krbain
 ---
-# Quickstart: Search for a specific group and view its members using Azure Active Directory
-You can search for a specific group and review the assigned members using Azure Active Directory.
+# Quickstart: View your organization's groups and members in Azure Active Directory
+You can view your organization's existing groups and group members using the Azure portal. Groups are used to manage users (members) that all need the same access and permissions for potentially restricted apps and services.
 
 In this quickstart, you’ll view all your existing groups, select the **MDM policy – West** group, and then view the assigned members.
 
