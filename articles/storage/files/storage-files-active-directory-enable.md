@@ -49,6 +49,9 @@ The diagram below illustrates the end-to-end workflow for enabling Azure AD auth
 
     To access a file share using Azure AD credentials from a VM, your VM must be domain-joined to Azure AD Domain Services. For more information about how to domain-join a VM, see [Join a Windows Server virtual machine to a managed domain](../../active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal.md).
 
+    > [!NOTE]
+    > Azure AD authentication over SMB with Azure Files is supported only on Azure VMs running on OS versions above Windows 7 or Windows Server 2008 R2.
+
 4.  **Select or create an Azure file share.**
 
     Select a new or existing file share that's associated with the same subscription as your Azure AD tenant. For information about creating a new file share, see [Create a file share in Azure Files](storage-how-to-create-file-share.md). 
@@ -93,9 +96,17 @@ Set-AzureRmStorageAccount -ResourceGroupName "<resource-group-name>" `
 
 **CLI**
 
-To enable Azure AD authentication over SMB from Azure CLI 2.0, call [az storage account update](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-update) and set the `--file-aad` property to **true**. In the example below, remember to replace the placeholder values with your own values.
+"You need to first add the storage-preview extension, then follow the example blow. Remember to replace the placeholder values with your own values. Refer to this article for more information on adding Azure CLI extensions."
 
-```azurecli
+To enable Azure AD authentication over SMB from Azure CLI 2.0, first install the *storage-preview* extension:
+
+```azurecli-interactive
+az extension add --name storage-preview
+```
+
+Next, call [az storage account update](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-update) and set the `--file-aad` property to **true**. In the example below, remember to replace the placeholder values with your own values.
+
+```azurecli-interactive
 # Create a new storage account
 az storage account create -n <storage-account-name> -g <resource-group-name> --file-aad true
 
@@ -193,7 +204,7 @@ The following CLI 2.0 command creates a custom role and assigns the role to an A
 
 When running the following sample script, remember to replace placeholder values with your own values.
 
-```azurecli
+```azurecli-interactive
 #Create a custom role based on the sample templates above
 az role definition create --role-definition "<Custom-role-def-JSON-path>"
 #List the custom roles
