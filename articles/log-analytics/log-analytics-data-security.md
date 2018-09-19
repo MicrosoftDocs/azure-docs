@@ -38,9 +38,9 @@ To insure the security of data in transit to Log Analytics, we strongly encourag
 
 The [PCI Security Standards Council](https://www.pcisecuritystandards.org/) has set a [deadline of June 30th, 2018](https://www.pcisecuritystandards.org/pdfs/PCI_SSC_Migrating_from_SSL_and_Early_TLS_Resource_Guide.pdf) to disable older versions of TLS/SSL and upgrade to more secure protocols. Once Azure drops legacy support, if your agents cannot communicate over at least TLS 1.2 you would not be able to send data to Log Analytics. 
 
-We do not recommend explicitly setting your agent to only use TLS 1.2 unless absolutely necessary as this can break platform level security features that allow you to automatically detect and take advantage of newer more secure protocols as they become available such as TLS 1.3. 
+We do not recommend explicitly setting your agent to only use TLS 1.2 unless absolutely necessary, as it can break platform level security features that allow you to automatically detect and take advantage of newer more secure protocols as they become available, such as TLS 1.3. 
 
-### Platform specific guidance
+### Platform-specific guidance
 
 |Platform/Language | Support | More Information |
 | --- | --- | --- |
@@ -111,11 +111,11 @@ The Log Analytics software development and service team's information security a
 
 Each development team member receives formal application security training. Internally, we use a version control system for software development. Each software project is protected by the version control system.
 
-Microsoft has a security and compliance team that oversees and assesses all services in Microsoft. Information security officers make up the team and they are not associated with the engineering departments that develops Log Analytics. The security officers have their own management chain and conduct independent assessments of products and services to ensure security and compliance.
+Microsoft has a security and compliance team that oversees and assesses all services in Microsoft. Information security officers make up the team and they are not associated with the engineering teams that develops Log Analytics. The security officers have their own management chain and conduct independent assessments of products and services to ensure security and compliance.
 
 Microsoft's board of directors is notified by an annual report about all information security programs at Microsoft.
 
-The Log Analytics software development and service team is actively working with the Microsoft Legal and Compliance teams and other industry partners to acquire various certifications.
+The Log Analytics software development and service team are actively working with the Microsoft Legal and Compliance teams and other industry partners to acquire various certifications.
 
 ## Certifications and attestations
 Azure Log Analytics meets the following requirements:
