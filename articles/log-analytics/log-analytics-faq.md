@@ -40,7 +40,7 @@ The new Logs experience in the Azure portal is based on the [Advanced Analytics 
 
 ### Q. How do I extract Custom Fields in the new Logs experience? 
 
-A: Custom Fields extraction are currently supported in the classic Logs experience. It will be added it to the new Logs experience soon.
+A: Custom Fields extraction are currently supported in the classic Logs experience. 
 
 ### Q. Where do I find List view in the new Logs? 
 
@@ -48,7 +48,7 @@ A: List view is not available in the new Logs. There is an arrow to the left of 
 
 ### Q. After running a query, a list of suggested filters shows up, but it doesn’t include all filters. How can I see the rest? 
 
-A: What you currently see is a preview of the new Filters implementation. This is now based on your full result set instead of being limited by the 10,000 record limit of the UI. We’re starting with a list of the most popular filters and the 10 most common values for each filter. We will extend filtering with the ability to add more filters soon. 
+A: What you currently see is a preview of the new Filters implementation. This is now based on your full result set instead of being limited by the 10,000 record limit of the UI. This is currently a list of the most popular filters and the 10 most common values for each filter. 
 
 ### Q. Why am I getting the error: "Register resource provider 'Microsoft.Insights' for this subscription to enable this query" in Logs, after drilling-in from VM? 
 
