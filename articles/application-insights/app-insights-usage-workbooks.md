@@ -10,7 +10,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/03/2018
+ms.date: 09/19/2018
 ms.reviewer: daviste
 ms.pm_owner: daviste;NumberByColors
 ms.author: mbullwin
@@ -94,7 +94,7 @@ To learn more about cross-resource queries refer to the [official guidance](http
 
 Each section has its own advanced settings, which are accessible via the settings icon ![Application Insights Workbooks section editing controls](./media/app-insights-usage-workbooks/005-settings.png) located to the right of the **Add parameters** button.
 
-![Application Insights Workbooks section editing controls](./media/app-insights-usage-workbooks/006-settings-expanded.png)
+![Application Insights Workbooks section editing controls](./media/app-insights-usage-workbooks/0006-settings-expanded.png)
 
    |         |          |
    | ---------------- |:-----|
