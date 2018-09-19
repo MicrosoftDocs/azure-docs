@@ -12,9 +12,9 @@ ms.component: ""
 
 # Send guest OS metrics to the Azure Monitor data store for a Windows Virtual Machine (classic)
 
-The Azure Monitor [Windows Azure Diagnostics extension](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) (WAD) allows you to collect metrics and logs from the Guest Operation System (guest OS) running as part of a Virtual Machine, Cloud Service, or Service Fabric cluster. The extension can send telemetry to many different locations listed in the previously linked article.
+The Azure Monitor [Windows Azure Diagnostics extension](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) (WAD) allows you to collect metrics and logs from the Guest Operating System (guest OS) running as part of a Virtual Machine, Cloud Service, or Service Fabric cluster. The extension can send telemetry to many different locations listed in the previously linked article.
 
-This article describes the process to send guest OS performance metrics for a Windows Virtual Machine (classic) to the Azure Monitor data store. Starting with WAD version 1.11, you can write metrics directly to the Azure Monitor metrics store where standard platform metrics are already collected. Storing them in this location allows you to access the same actions available for platform metrics.  Actions include near-real time alerting, charting, routing, access from REST API and more.  In the past, the WAD extension wrote to Azure Storage, but not the Azure Monitor data store. 
+This article describes the process to send guest OS performance metrics for a Windows Virtual Machine (classic) to the Azure Monitor metric store. Starting with WAD version 1.11, you can write metrics directly to the Azure Monitor metrics store where standard platform metrics are already collected. Storing them in this location allows you to access the same actions available for platform metrics.  Actions include near-real time alerting, charting, routing, access from REST API and more.  In the past, the WAD extension wrote to Azure Storage, but not the Azure Monitor data store. 
 
 The process outlined in this article only works classic Virtual Machines running the Windows operating system.
 
