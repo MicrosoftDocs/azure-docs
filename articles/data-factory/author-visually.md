@@ -98,7 +98,7 @@ When you are ready with the feature development in your feature branch, you can 
 
 ## Configure publishing settings
 
-To configure the publishing branch - that is, the branch where Resource Manager templates are saved - add a `publish_config.json` file to the root folder in the collaboration branch. Data Factory reads this file, looks for the field `publishBranch`, and creates a new branch (if it doesn't already exist) with the value provided. Then it saves all Resource Manager templates to the specified location. For example:
+To configure the publish branch - that is, the branch where Resource Manager templates are saved - add a `publish_config.json` file to the root folder in the collaboration branch. Data Factory reads this file, looks for the field `publishBranch`, and creates a new branch (if it doesn't already exist) with the value provided. Then it saves all Resource Manager templates to the specified location. For example:
 
 ```json
 {
@@ -106,7 +106,11 @@ To configure the publishing branch - that is, the branch where Resource Manager 
 }
 ```
 
-When you specify a new publishing branch, Data Factory doesn't delete the previous publishing branch. If you want to remote the previous publishing branch, delete it manually.
+When you publish from Git mode, you can confirm that Data Factory is using the publish branch that you expect, as shown in the following screenshot:
+
+![Confirm the correct publish branch](media/author-visually/configure-publish-branch.png)
+
+When you specify a new publish branch, Data Factory doesn't delete the previous publish branch. If you want to remote the previous publish branch, delete it manually.
 
 Data Factory only reads the `publish_config.json` file when it loads the factory. If you already have the factory loaded in the portal, refresh the browser to make your changes take effect.
 

@@ -111,7 +111,7 @@ ms.author: mtillman
                                                             <a href="b2b/b2b-tutorial-require-mfa.md">Require MFA for guest users</a>
                                                         </p>
 														<br><br>
-                                                        <h3><a href="/azure/azure-active-directory-b2c/index">Business to consumer (B2C)</a></h3>
+                                                        <h3><a href="/azure/active-directory-b2c/index">Business to consumer (B2C)</a></h3>
                                                         <p>
                                                             <a href="/azure/active-directory-b2c/tutorial-create-tenant">Create an Azure AD B2C tenant</a><br>
                                                             <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-web-app">Enable a web app to authenticate</a><br>
