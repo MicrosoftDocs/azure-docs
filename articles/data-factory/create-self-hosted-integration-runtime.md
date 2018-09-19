@@ -76,36 +76,36 @@ Here is a high-level data flow for the summary of steps for copying with a self-
 ## Installation best practices
 You can install the self-hosted integration runtime by downloading an MSI setup package from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=39717). See [Move data between on-premises and cloud article](tutorial-hybrid-copy-powershell.md) for step-by-step instructions.
 
-- Configure power plan on the host machine for the self-hosted integration runtime so that the machine does not hibernate. If the host machine hibernates, the self-hosted integration runtime turns offline.
+- Configure a power plan on the host machine for the self-hosted integration runtime so that the machine does not hibernate. If the host machine hibernates, the self-hosted integration runtime goes offline.
 - Back up the credentials associated with the self-hosted integration runtime regularly.
 
-## Install and Register Self-hosted IR from download center
+## Install and register self-hosted IR from the download center
 
-1. Navigate to the [Microsoft integration runtime download page](https://www.microsoft.com/download/details.aspx?id=39717).
-2. Click **Download**, select the appropriate version (**32-bit** vs. **64-bit**), and click **Next**.
-3. Run the **MSI** directly or save it to your hard disk and run.
-4. On the **Welcome** page, select a **language** click **Next**.
-5. **Accept** the End-User License Agreement and click **Next**.
-6. Select **folder** to install the self-hosted integration runtime and click **Next**.
-7. On the **Ready to install** page, click **Install**.
+1. Go to the [Microsoft integration runtime download page](https://www.microsoft.com/download/details.aspx?id=39717).
+2. Select **Download**, select the appropriate version (**32-bit** or **64-bit**), and select **Next**.
+3. Run the **MSI** file directly, or save it to your hard disk and run it.
+4. On the **Welcome** page, select a language and select **Next**.
+5. Accept the Microsoft Software Licence Terms and select **Next**.
+6. Select **folder** to install the self-hosted integration runtime, and select **Next**.
+7. On the **Ready to install** page, select **Install**.
 8. Click **Finish** to complete installation.
-9. Get the Authentication key using Azure PowerShell. PowerShell example for retrieving authentication key:
+9. Get the authentication key by using Azure PowerShell. Here's a PowerShell example for retrieving the authentication key:
 
 	```powershell
 	Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime
 	```
-11. On the **Register Integration Runtime (Self-hosted)** page of Microsoft Integration Runtime Configuration Manager running on your machine, do the following steps:
-	1. Paste the **authentication key** in the text area.
-	2. Optionally, click **Show authentication key** to see the key text.
-	3. Click **Register**.
+11. On the **Register Integration Runtime (Self-hosted)** page of Microsoft Integration Runtime Configuration Manager running on your machine, take the following steps:
+	1. Paste the authentication key in the text area.
+	2. Optionally, select **Show authentication key** to see the key text.
+	3. Select **Register**.
 
 
-## High Availability and Scalability
-A self-hosted integration runtime can be associated to multiple on-premises machines. These machines are called nodes. You can have up to four nodes associated with a self-hosted integration runtime. The benefits of having multiple nodes (on-premises machines with gateway installed) for a logical gateway are:
-1. Higher availability of self-hosted integration runtime so that it is no longer the single point of failure in your Big Data	solution or cloud data integration with Azure Data Factory, ensuring continuity with up to 4 nodes.
-2. Improved performance and throughput during data movement between on-premises and cloud data stores. Get more information on [performance comparisons](copy-activity-performance.md).
+## High availability and scalability
+A self-hosted integration runtime can be associated with multiple on-premises machines. These machines are called nodes. You can have up to four nodes associated with a self-hosted integration runtime. The benefits of having multiple nodes (on-premises machines with a gateway installed) for a logical gateway are:
+* Higher availability of self-hosted integration runtime so that it is no longer the single point of failure in your big data	solution or cloud data integration with Azure Data Factory, ensuring continuity with up to four nodes.
+* Improved performance and throughput during data movement between on-premises and cloud data stores. Get more information on [performance comparisons](copy-activity-performance.md).
 
-You can associate multiple nodes by simply installing the self-hosted integration runtime software from the [download center](https://www.microsoft.com/download/details.aspx?id=39717) and by registering it by either of the Authentication Keys obtained from New-AzureRmDataFactoryV2IntegrationRuntimeKey cmdlet as described in the [Tutorial](tutorial-hybrid-copy-powershell.md)
+You can associate multiple nodes by simply installing the self-hosted integration runtime software from the [download center](https://www.microsoft.com/download/details.aspx?id=39717) and by registering it by either of the Authentication Keys obtained from New-AzureRmDataFactoryV2IntegrationRuntimeKey cmdlet as described in the [tutorial](tutorial-hybrid-copy-powershell.md)
 
 > [!NOTE]
 > You do not need to create new self-hosted integration runtime for associating each node. You can install the self-hosted integration runtime on another machine and register it using the same Authentication Key. 
