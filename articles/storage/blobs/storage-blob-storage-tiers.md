@@ -49,9 +49,7 @@ Blob storage and GPv2 accounts expose the **Access Tier** attribute at the accou
 
 ## Premium access tier
 
-Available in preview is a Premium access tier which makes frequently accessed data available via high-performance hardware. Data stored in this tier is stored on solid-state drives, which are optimized for lower latency an higher transactional rates compared to traditional hard drives. 
-
-The Premium access tier is available via the Blob storage account type only. For more information about types of storage accounts, see [Azure storage account overview](../common/storage-account-overview.md).
+Available in preview is a Premium access tier which makes frequently accessed data available via high-performance hardware. Data stored in this tier is stored on solid-state drives, which are optimized for lower latency an higher transactional rates compared to traditional hard drives. The Premium access tier is available via the Block Blob storage account type only.
 
 This tier is ideal for workloads that require fast and consistent response times. Data that involves end-users such as interactive video editing, static web content, online transactions and the like are a good candidates for the Premium access tier. This tier is tailored for workloads that perform many small transactions, such as capturing telemetry data, messaging, and data transformation.
 
