@@ -23,8 +23,8 @@ For example, maybe you want to examine the certificate a device is using during 
 
 This article demonstrates a custom allocation policy using an Azure Function written in C#. Two new IoT hubs are created representing a *Contoso Toasters Division* and a *Contoso Heat Pumps Division*. Devices requesting provisioning must have a registration ID with one of the following suffixes to be accepted for provisioning:
 
-- **_contoso_tstrsd_007**: Contoso Toasters Division
-- **_contoso_hpsd_088**: Contoso Heat Pumps Division
+- **-contoso-tstrsd-007**: Contoso Toasters Division
+- **-contoso-hpsd-088**: Contoso Heat Pumps Division
 
 The devices will be provisioned based on one of these required suffixes on the registration ID. These devices will be simulated using a provisioning sample included in the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). 
 
@@ -279,8 +279,8 @@ To generate the device key, use the **Primary Key** you noted earlier to compute
 
 Use the following two device registration IDs and compute a device key for both devices. Both registration IDs have a valid suffix to work with the example code for the custom allocation policy:
 
-- **breakroom499_contoso_tstrsd_007**
-- **mainbuilding167_contoso_hpsd_088**
+- **breakroom499-contoso-tstrsd-007**
+- **mainbuilding167-contoso-hpsd-088**
 
 #### Linux workstations
 
@@ -506,8 +506,8 @@ This sample code simulates a device boot sequence that sends the provisioning re
     Provisioning Status: PROV_DEVICE_REG_STATUS_ASSIGNING
     Provisioning Status: PROV_DEVICE_REG_STATUS_ASSIGNING
 
-    Registration Information received from service: contoso-toasters-hub-1098.azure-devices.net, deviceId: breakroom499-contoso-tstrsd-007
-    
+    Registration Information received from service: contoso-heatpumps-hub-1098.azure-devices.net, deviceId: mainbuilding167-contoso-hpsd-088
+
     Press enter key to exit:
     ```
 
