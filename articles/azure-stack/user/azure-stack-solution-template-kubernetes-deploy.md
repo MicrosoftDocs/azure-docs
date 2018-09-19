@@ -96,7 +96,7 @@ Give the service principal access to your subscription so that the principal can
 
 1. Select **Access control (IAM)** > Select **+ Add**.
 
-1. Select the **Owner** role.
+1. Select the **Contributor** role.
 
 1. Select the application name created for your service principal. You may have to type the name in the search box.
 

@@ -69,7 +69,7 @@ Add the following Ubuntu Server image to the Marketplace:
 
 1. Enter `UbuntuServer`.
 
-1. Select the server with the following profile:
+1. Select the newest version of the server with the following profile:
     - **Publisher**: Canonical
     - **Offer**: UbuntuServer
     - **SKU**: 16.04-LTS
