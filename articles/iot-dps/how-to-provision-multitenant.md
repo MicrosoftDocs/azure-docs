@@ -23,7 +23,6 @@ It is common to combine these two scenarios. For example, a multitenant IoT solu
 
 This article uses a simulated device sample from the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) to demonstrate how to provision devices in a multitenant scenario across regions. You will perform the following steps in this article:
 
-
 * Use the Azure CLI to create two regional IoT hubs (**West US** and **East US**)
 * Create a multitenant enrollment
 * Use the Azure CLI to create two regional Linux VMs to act as devices in the same regions (**West US** and **East US**)
@@ -31,16 +30,25 @@ This article uses a simulated device sample from the [Azure IoT C SDK](https://g
 * Simulate the devices to see that they are provisioned for the same tenant in the closest region.
 
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+
+## Prerequisites
+
+* Completion of the [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) quickstart.
+
+
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
 
 ## Create two regional IoT hubs
 
-In this section, you will new regional IoT hubs in the **West US** and **East US** regions for a new tenant.
+In this section, you will use the Azure Cloud Shell to create two new regional IoT hubs in the **West US** and **East US** regions for a tenant.
 
 
-1. Use the Azure CLoud Shell to create a resource group with the [az group create](/cli/azure/group#az-group-create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
+1. Use the Azure Cloud Shell to create a resource group with the [az group create](/cli/azure/group#az-group-create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
 
-    The following example creates a resource group named *contoso-us-resource-group* in the *eastus* region.
+    The following example creates a resource group named *contoso-us-resource-group* in the *eastus* region. It is recommended that you use this group for all resources created in this article. This will make clean up easier after you are finished.
 
     ```azurecli-interactive 
     az group create --name contoso-us-resource-group --location eastus

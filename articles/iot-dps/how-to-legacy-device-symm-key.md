@@ -32,11 +32,14 @@ An enrollment group that uses [symmetric key attestation](concepts-symmetric-key
 
 The device code demonstrated in this article will follow the same pattern as the [Quickstart: Provision a simulated device with symmetric keys](quick-create-simulated-device-symm-key.md). The code will simulate a device using a sample from the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). The simulated device will attest with an enrollment group instead of an individual enrollment as demonstrated in the quickstart.
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+
 ## Prerequisites
 
+* Completion of the [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) quickstart.
 * Visual Studio 2015 or [Visual Studio 2017](https://www.visualstudio.com/vs/) with the ['Desktop development with C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) workload enabled.
 * Latest version of [Git](https://git-scm.com/download/) installed.
-* [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md)
 
 
 ## Prepare an Azure IoT C SDK development environment
@@ -151,7 +154,12 @@ Do not include your group master key in your device code.
 
 #### Linux workstations
 
-If you are using a Linux workstation, you can use openssl to generate your derived device key as shown in the following example.
+If you are using a Linux workstation, you can use openssl to generate your 
+derived device key as shown in the following example.
+
+Replace the value of **KEY** with the **Primary Key** you noted earlier.
+
+Replace the value of **REG_ID** with your registration ID.
 
 ```bash
 KEY=8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw==
@@ -170,13 +178,17 @@ Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 
 If you are using a Windows-based workstation, you can use PowerShell to generate your derived device key as shown in the following example.
 
+Replace the value of **KEY** with the **Primary Key** you noted earlier.
+
+Replace the value of **REG_ID** with your registration ID.
+
 ```PowerShell
-$key='8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw=='
-$reg_id='sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6'
+$KEY='8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw=='
+$REG_ID='sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6'
 
 $hmacsha256 = New-Object System.Security.Cryptography.HMACSHA256
-$hmacsha256.key = [Convert]::FromBase64String($key)
-$sig = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($reg_id))
+$hmacsha256.key = [Convert]::FromBase64String($KEY)
+$sig = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID))
 $derivedkey = [Convert]::ToBase64String($sig)
 echo "`n$derivedkey`n"
 ```
