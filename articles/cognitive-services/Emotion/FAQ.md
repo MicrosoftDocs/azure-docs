@@ -1,12 +1,14 @@
 ---
-title: Emotion API FAQs | Microsoft Docs
-description: Get answers to frequently asked questions about the Emotion API in Cognitive Services.
+title: Frequently Asked Questions - Emotion API
+titlesuffix: Azure Cognitive Services
+description: Get answers to frequently asked questions about the Emotion API.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/26/2017
 ms.author: anroth
 ---

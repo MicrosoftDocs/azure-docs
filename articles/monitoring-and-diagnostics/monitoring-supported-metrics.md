@@ -611,7 +611,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |jobs.completed|Completed jobs|Count|Total|The count of all completed jobs.|No Dimensions|
 |jobs.failed|Failed jobs|Count|Total|The count of all failed jobs.|No Dimensions|
 |d2c.telemetry.ingress.sendThrottle|Number of throttling errors|Count|Total|Number of throttling errors due to device throughput throttles|No Dimensions|
-|dailyMessageQuotaUsed|Total number of messages used|Count|Average|Number of total messages used today|No Dimensions|
+|dailyMessageQuotaUsed|Total number of messages used|Count|Average|Number of total messages used today. This is a cumulative value that is reset to zero at 00:00 UTC every day.|No Dimensions|
 |deviceDataUsage|Total devicedata usage (deprecated)|Bytes|Total|Bytes transferred to and from any devices connected to IotHub|No Dimensions|
 |deviceDataUsageV2|Total device data usage (preview)|Bytes|Total|Bytes transferred to and from any devices connected to IotHub|No Dimensions|
 |totalDeviceCount|Total devices (preview)|Count|Average|Number of devices registered to your IoT hub|No Dimensions|

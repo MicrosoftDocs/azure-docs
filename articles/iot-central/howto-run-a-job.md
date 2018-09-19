@@ -68,30 +68,30 @@ If you would like to stop a job that is currently running, click on the name of 
 
 Once a job has been created, the **Status** column will update with the latest status message of the job. The status messages mean the following:
 
-    | Status Message       | Status Meaning                                          |
-    | -------------------- | ------------------------------------------------------- |
-    | Completed            | This job has been executed on all devices.              |
-    | Failed               | This job has failed and not fully executed on devices.  |
-    | Pending              | This job has not yet begun executing on devices.        |
-    | Running              | This job is currently executing on devices.             |
-    | Stopped              | This job has been manually stopped by a user.           |
+| Status message       | Status meaning                                          |
+| -------------------- | ------------------------------------------------------- |
+| Completed            | This job has been executed on all devices.              |
+| Failed               | This job has failed and not fully executed on devices.  |
+| Pending              | This job has not yet begun executing on devices.        |
+| Running              | This job is currently executing on devices.             |
+| Stopped              | This job has been manually stopped by a user.           |
 
 The status message is followed by an overview of the devices within the job. These device statuses mean the following:
 
-    | Status Message       | Status Meaning                                                     |
-    | -------------------- | ------------------------------------------------------------------ |
-    | Succeeded            | The number of devices which the job has successfully executed on.  |
-    | Failed               | The number of devices which the job has failed to execute on.      |
+| Status message       | Status meaning                                                     |
+| -------------------- | ------------------------------------------------------------------ |
+| Succeeded            | The number of devices which the job has successfully executed on.  |
+| Failed               | The number of devices which the job has failed to execute on.      |
 
 ### View the device status
 
 In order to view the status of each device in the job, click on the job name. Here you'll see the details of the job and all of the devices that were a part of this specific job. Next to each device name, you'll see one of the following status messages:
 
-    | Status Message       | Status Meaning                                                                |
-    | -------------------- | ----------------------------------------------------------------------------- |
-    | Completed            | The job has been executed on this device.                                     |
-    | Failed               | The job has failed to execute on this device. The accompanying error message will show more information.  |
-    | Pending              | The job has not yet executed on this device.                                  |
+| Status message       | Status meaning                                                                |
+| -------------------- | ----------------------------------------------------------------------------- |
+| Completed            | The job has been executed on this device.                                     |
+| Failed               | The job has failed to execute on this device. The accompanying error message will show more information.  |
+| Pending              | The job has not yet executed on this device.                                  |
 
 > [!NOTE]
 > If a device has been deleted, you won't be able to select the device and it will display as deleted with the device ID.

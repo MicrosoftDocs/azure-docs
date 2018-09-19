@@ -77,9 +77,6 @@ Similarly [SUPER privilege](https://dev.mysql.com/doc/refman/5.7/en/privileges-p
 ### VNet service endpoints
 - Support for VNet service endpoints is only for General Purpose and Memory Optimized servers.
 
-### Subscription management
-- Dynamically moving pre-created servers across subscription and resource group is currently not supported.
-
 ## Current known issues
 - MySQL server instance displays the wrong server version after connection is established. To get the correct server instance engine version, use the `select version();` command.
 

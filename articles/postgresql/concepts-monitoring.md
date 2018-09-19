@@ -25,8 +25,11 @@ These metrics are available for Azure Database for PostgreSQL:
 |memory_percent|Memory percent|Percent|The percentage of memory in use.|
 |io_consumption_percent|IO percent|Percent|The percentage of IO in use.|
 |storage_percent|Storage percentage|Percent|The percentage of storage used out of the server's maximum.|
-|storage_used|Storage used|Bytes|The amount of storage in use. The storage used by the service includes the database files, transaction logs, and the server logs.|
+|storage_used|Storage used|Bytes|The amount of storage in use. The storage used by the service may include the database files, transaction logs, and the server logs.|
 |storage_limit|Storage limit|Bytes|The maximum storage for this server.|
+|serverlog_storage_percent|Server Log storage percent|Percent|The percentage of server log storage used out of the server's maximum server log storage.|
+|serverlog_storage_usage|Server Log storage used|Bytes|The amount of server log storage in use.|
+|serverlog_storage_limit|Server Log storage limit|Bytes|The maximum server log storage for this server.|
 |active_connections|Active Connections|Count|The number of active connections to the server.|
 |connections_failed|Failed Connections|Count|The number of failed connections to the server.|
 |network_bytes_egress|Network Out|Bytes|Network Out across active connections.|
