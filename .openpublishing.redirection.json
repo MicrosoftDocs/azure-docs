@@ -2052,6 +2052,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/managed-applications/microsoft-network-availabilityzonedropdown.md",
+            "redirect_url": "/azure/managed-applications/create-uidefinition-elements",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/solution-dev-test-environments.md",
             "redirect_url": "/azure/lab-services/devtest-lab-overview",
             "redirect_document_id": false
@@ -28324,7 +28329,7 @@
         },
         {
             "source_path": "articles/azure-government/documentation-government-get-started-connect-with-vsts.md",
-            "redirect_url": "/azure/azure-government/documentation-government-get-started-connect-with-vs",
+            "redirect_url": "/azure/azure-government/connect-with-azure-pipelines",
             "redirect_document_id" : true
         },
         {
