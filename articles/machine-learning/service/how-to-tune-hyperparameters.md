@@ -36,15 +36,16 @@ Azure Machine Learning service automatically tunes hyperparameters by exploring 
 Each hyperparameter can either be discrete or continuous.
 
 #### Discrete hyperparameters 
-Discrete hyperparameters can be specified as a `choice` among discrete values. For example  
+Discrete hyperparameters can be specified as a `choice` among discrete values. `Choice` can take either a list of values or a `range` object or any arbitrary `list` object. For example  
 
 ```Python
     {    
         "batch_size": choice(16, 32, 64, 128)
+        "number_of_hidden_layers": choice(range(1,5))
     }
 ```
 
-In this case, batch_size can take on one of the values [16, 32, 64, 128].
+In this case, batch_size can take on one of the values [16, 32, 64, 128] and number_of_hidden_layers can take on one of the values [1, 2, 3, 4].
 
 #### Continuous hyperparameters 
 Continuous hyperparameters can be specified as a distribution over a continuous range of values. Supported distributions include -
@@ -101,7 +102,7 @@ Bayesian sampling tries to intelligently pick the next sample of hyperparameters
 
 When using Bayesian sampling, the number of concurrent runs has an impact on the effectiveness of the tuning process. Typically, a smaller number of concurrent runs can lead to better sampling convergence. This is because the smaller degree of parallelism increases the number of runs that benefit from previously completed runs.
 
-Bayesian sampling supports only `choice`, `uniform`, and `quniform` distributions over the search space. For example 
+Bayesian sampling supports only `choice`, and `uniform` distributions over the search space. For example 
 
 ```Python
 from azureml.train.hyperdrive import BayesianParameterSampling
@@ -113,11 +114,10 @@ param_sampling = BayesianParameterSampling( {
 ```
 
 > [!NOTE]
-> Bayesian sampling does not currently support any early termination policy (See [Specify an Early Termination Policy](#specify-an-early-termination-policy)). If using Bayesian parameter sampling, you can set policy to NoTerminationPolicy(). Not specifying a termination policy with Bayesian Sampling will have the same effect.
+> Bayesian sampling does not currently support any early termination policy (See [Specify an Early Termination Policy](#specify-an-early-termination-policy)). If using Bayesian parameter sampling, you must set policy to None. Not specifying a termination policy with Bayesian Sampling will have the same effect.
 >
 > ```Python
-> from azureml.train.hyperdrive import NoTerminationPolicy
-> early_termination_policy = NoTerminationPolicy()
+> early_termination_policy = None
 > ```
 
 ## Specify a primary metric to optimize
@@ -300,10 +300,9 @@ print('\n batch size:',parameter_values[7])
 
 ## Sample notebooks
 Refer to 
-* `01.getting-started/08.hyperdrive-with-TensorFlow/08.hyperdrive-with-TensorFlow.ipynb` for a tutorial on tuning hyperparameters for a Tensorflow model. 
-* `01.getting-started/07.hyperdrive-with-sklearn/07.hyperdrive-with-sklearn.ipynb` for a tutorial on tuning hyperparameters with sklearn. 
+* `training/03.hyperparameter-tuning-with-tensorflow/03.hyperparameter-tuning-with-tensorflow.ipynb` for a tutorial on tuning hyperparameters for a Tensorflow model. 
 
-Get these notebooks:
+Get this notebook:
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
