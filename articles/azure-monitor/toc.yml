@@ -73,7 +73,7 @@
       href: ../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md?toc=/azure/azure-monitor/toc.json 
     - name: Log data ingestion time
       href: ../log-analytics/log-analytics-data-ingestion-time.md?toc=/azure/azure-monitor/toc.json   
-    - name: Custom metrics
+    - name: Custom metrics to metrics
       href: ../monitoring-and-diagnostics/metrics-custom-overview.md?toc=/azure/azure-monitor/toc.json   
     - name: Data security
       items:
