@@ -21,6 +21,12 @@
       href: ../application-insights/app-insights-java-quick-start.md?toc=/azure/azure-monitor/toc.json
     - name: Mobile application
       href: ../application-insights/app-insights-mobile-center-quickstart.md?toc=/azure/azure-monitor/toc.json
+  - name: Alerts
+    items:
+    - name: Alert (classic) on metric condition
+      href: ../monitoring-and-diagnostics/monitor-quick-resource-metric-alert-portal.md?toc=/azure/azure-monitor/toc.json
+    - name: Alert on subscription activity
+      href: ../monitoring-and-diagnostics/monitor-quick-audit-notify-action-in-subscription.md?toc=/azure/azure-monitor/toc.json
   - name: Virtual machines
     items:
     - name: Collect - Azure VMs
@@ -72,9 +78,9 @@
     - name: Diagnostic logs
       href: ../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md?toc=/azure/azure-monitor/toc.json 
     - name: Log data ingestion time
-      href: ../log-analytics/log-analytics-data-ingestion-time.md?toc=/azure/azure-monitor/toc.json   
+      href: ../log-analytics/log-analytics-data-ingestion-time.md?toc=/azure/azure-monitor/toc.json  
     - name: Custom metrics to metrics
-      href: ../monitoring-and-diagnostics/metrics-custom-overview.md?toc=/azure/azure-monitor/toc.json   
+      href: ../monitoring-and-diagnostics/metrics-custom-overview.md?toc=/azure/azure-monitor/toc.json       
     - name: Data security
       items:
       - name: Log data
@@ -91,6 +97,10 @@
         href: ../application-insights/app-insights-overview.md?toc=/azure/azure-monitor/toc.json
       - name: DevOps
         href: ../application-insights/app-insights-detect-triage-diagnose.md?toc=/azure/azure-monitor/toc.json
+      - name: Distributed tracing
+        href: ../application-insights/distributed-tracing.md?toc=/azure/azure-monitor/toc.json
+      - name: Log-based & pre-aggregated metrics
+        href: ../application-insights/pre-aggregated-metrics-log-metrics.md?toc=/azure/azure-monitor/toc.json
     - name: Containers
       href: https://aka.ms/AzureMonitorContainers
     - name: Virtual Machines
@@ -114,6 +124,8 @@
     items:
     - name: About alerts (classic)  
       href: ../monitoring-and-diagnostics/monitoring-overview-alerts.md?toc=/azure/azure-monitor/toc.json
+    - name: Smart groups
+      href: ../monitoring-and-diagnostics/monitoring-overview-alerts-smartgroups.md?toc=/azure/azure-monitor/toc.json  
     - name: Autoscale
       href: ../monitoring-and-diagnostics/monitoring-overview-autoscale.md?toc=/azure/azure-monitor/toc.json
     - name: Metric alerts
@@ -121,7 +133,7 @@
     - name: Log alerts
       href: ../monitoring-and-diagnostics/monitor-alerts-unified-log.md?toc=/azure/azure-monitor/toc.json
     - name: Activity log alerts
-      href: ../monitoring-and-diagnostics/monitoring-activity-log-alerts-new-experience.md?toc=/azure/azure-monitor/toc.json     
+      href: ../monitoring-and-diagnostics/monitoring-activity-log-alerts.md?toc=/azure/azure-monitor/toc.json  
     - name: Extend alerts from Log Analytics to Azure
       href: ../monitoring-and-diagnostics/monitoring-alerts-extend.md?toc=/azure/azure-monitor/toc.json
     - name: Action groups
@@ -209,11 +221,23 @@
           href: ../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md?toc=/azure/azure-monitor/toc.json
         - name: Prepare for JSON Lines diagnostic logs format
           href: ../monitoring-and-diagnostics/monitor-diagnostic-logs-append-blobs.md?toc=/azure/azure-monitor/toc.json
+        - name: Custom metrics to store REST API
+          href: ../monitoring-and-diagnostics/metrics-store-custom-rest-api.md?toc=/azure/azure-monitor/toc.json
+        - name: Send to metrics store Linux VM (Telegraf)
+          href: ../monitoring-and-diagnostics/metrics-store-custom-linux-telegraf.md?toc=/azure/azure-monitor/toc.json  
+        - name: Send to metrics store VM
+          href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-resource-manager-VM.md?toc=/azure/azure-monitor/toc.json  
+        - name: Send to metrics store VM scale set 
+          href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-resource-manager-VMSS.md?toc=/azure/azure-monitor/toc.json  
+        - name: Send to metrics store for classic VM
+          href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-classic-vm.md?toc=/azure/azure-monitor/toc.json  
+        - name: Send to metrics store for 
+          href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-classic-cloud-service.md?toc=/azure/azure-monitor/toc.json  
       - name: Troubleshoot
         items:
-        - name: Troubleshoot VM Extension
+        - name: Troubleshoot Logs VM Extension
           href: ../log-analytics/log-analytics-azure-vmext-troubleshoot.md?toc=/azure/azure-monitor/toc.json
-        - name: Troubleshoot Linux agent
+        - name: Troubleshoot Logs Linux agent
           href: ../log-analytics/log-analytics-agent-linux-support.md?toc=/azure/azure-monitor/toc.json
   - name: Collect data
     items:
@@ -296,6 +320,14 @@
           href: ../application-insights/app-insights-javascript.md?toc=/azure/azure-monitor/toc.json
       - name: Monitor Azure Functions
         href: ../azure-functions/functions-monitoring.md?toc=/azure/application-insights/toc.json 
+      - name: Distributed tracing
+        items:
+        - name: Local forwarder
+          href: ../application-insights/opencensus-local-forwarder.md?toc=/azure/azure-monitor/toc.json
+        - name: Python
+          href: ../application-insights/opencensus-python.md?toc=/azure/azure-monitor/toc.json
+        - name: Go
+          href: ../application-insights/opencensus-go.md?toc=/azure/azure-monitor/toc.json
       - name: Other platforms
         items:
         - name: SharePoint sites
@@ -339,7 +371,7 @@
           href: ../application-insights/app-insights-java-troubleshoot.md?toc=/azure/azure-monitor/toc.json
         - name: Usage analytics
           href: ../application-insights/app-insights-usage-troubleshoot.md?toc=/azure/azure-monitor/toc.json
-    - name: Agent data sources to logs
+    - name: Agent data sources
       href: ../log-analytics/log-analytics-data-sources.md?toc=/azure/azure-monitor/toc.json
       items:
       - name: Windows events
@@ -378,20 +410,15 @@
         href: ../log-analytics/log-analytics-collect-azurepass-posh.md?toc=/azure/azure-monitor/toc.json
       - name: Correlate custom data sources
         href: ../application-insights/app-insights-custom-data-correlation.md?toc=/azure/azure-monitor/toc.json
-    - name: Collect custom data
+    - name: Collect custom data to Log Analytics
       items:
-      - name: To logs via Data Collector API
+      - name: Data collector API 
         href: ../log-analytics/log-analytics-data-collector-api.md?toc=/azure/azure-monitor/toc.json
-      - name: To logs Data Collector API Pipeline example
+      - name: Data Collector API Pipeline example
         href: ../log-analytics/log-analytics-create-pipeline-datacollector-api.md?toc=/azure/azure-monitor/toc.json
       - name: Application data
         href: ../application-insights/app-insights-analytics-import.md?toc=/azure/azure-monitor/toc.json
-      - name: To metrics store REST API
-        href: ../monitoring-and-diagnostics/metrics-store-custom-rest-api.md?toc=/azure/azure-monitor/toc.json
-      - name: To metrics store Linux VM (Telegraf)
-        href: ../monitoring-and-diagnostics/metrics-store-custom-rest-api.md?toc=/azure/azure-monitor/toc.json
-
-        - name: System Center
+    - name: System Center
       items:
       - name: Configuration Manager
         href: ../log-analytics/log-analytics-sccm.md?toc=/azure/azure-monitor/toc.json
@@ -587,6 +614,8 @@
       href: ../monitoring-and-diagnostics/monitoring-service-notifications.md?toc=/azure/azure-monitor/toc.json
     - name: Query log data
       items:
+      - name: Language reference
+        href: https://docs.loganalytics.io
       - name: Get started
         items:
         - name: Get started with Analytics portal
@@ -621,18 +650,8 @@
           href: ../log-analytics/query-language/sql-cheatsheet.md?toc=/azure/azure-monitor/toc.json
         - name: Splunk
           href: ../log-analytics/query-language/splunk-cheatsheet.md?toc=/azure/azure-monitor/toc.json
-      - name: Language reference
-        items:
-        - name: Language reference
-          href: https://aka.ms/LogAnalyticsLanguageReference
-        - name: app expression
-          href: ../log-analytics/query-language/app-expression.md?toc=/azure/azure-monitor/toc.json
-        - name: workspace expression
-          href: ../log-analytics/query-language/workspace-expression.md?toc=/azure/azure-monitor/toc.json
       - name: Application data
         href: ../application-insights/app-insights-analytics.md?toc=/azure/azure-monitor/toc.json
-      - name: Standard properties
-        href: ../log-analytics/log-analytics-standard-properties.md?toc=/azure/azure-monitor/toc.json
       - name: Cross-resource searches
         href: ../log-analytics/log-analytics-cross-workspace-search.md?toc=/azure/azure-monitor/toc.json
       - name: Take action from search results
@@ -667,6 +686,8 @@
           href: ../monitoring-and-diagnostics/alert-metric-classic.md?toc=/azure/azure-monitor/toc.json
         - name: Alerts with dynamic thresholds
           href: ../monitoring-and-diagnostics/monitoring-alerts-dynamic-thresholds.md?toc=/azure/azure-monitor/toc.json
+        - name: Configure metric alerts on logs
+          href: ../monitoring-and-diagnostics/monitoring-metric-alerts-logs.md?toc=/azure/azure-monitor/toc.json
         - name: Create a newer metric alert with a Resource Manager template
           href: ../monitoring-and-diagnostics/monitoring-create-metric-alerts-with-templates.md?toc=/azure/azure-monitor/toc.json
         - name: Create a classic metric alert with a Resource Manager template
@@ -675,6 +696,8 @@
           href: ../monitoring-and-diagnostics/insights-webhooks-alerts.md?toc=/azure/azure-monitor/toc.json
       - name: Use log alerts
         items:  
+        - name: Configure alerts on analytics query
+          href: ../monitoring-and-diagnostics/alert-log.md?toc=/azure/azure-monitor/toc.json
         - name: Webhook actions for log alerts
           href: ../monitoring-and-diagnostics/monitor-alerts-unified-log-webhook.md?toc=/azure/azure-monitor/toc.json
         - name: Create a log alert with a Resource Manager template
@@ -682,7 +705,7 @@
       - name: Use activity log alerts
         items:
         - name: Configure alerts on an activity log event
-          href: ../monitoring-and-diagnostics/monitoring-activity-log-alerts.md?toc=/azure/azure-monitor/toc.json
+          href: ../monitoring-and-diagnostics/alert-activity-log.md?toc=/azure/azure-monitor/toc.json
         - name: Create activity log alerts with Resource Manager
           href: ../monitoring-and-diagnostics/monitoring-create-activity-log-alerts-with-resource-manager-template.md?toc=/azure/azure-monitor/toc.json
         - name: Migrate to activity log alerts
@@ -709,6 +732,16 @@
           href: ../monitoring-and-diagnostics/monitoring-action-groups-logic-app.md?toc=/azure/azure-monitor/toc.json
       - name: Alerts from Operations Manager
         href: ../log-analytics/log-analytics-solution-alert-management.md?toc=/azure/azure-monitor/toc.json
+      - name: Manage alerts
+        items:
+        - name: Manage alert instances
+          href: ../monitoring-and-diagnostics/monitoring-alerts-managing-alert-instances.md?toc=/azure/azure-monitor/toc.json
+        - name: Manage smart groups
+          href: ../monitoring-and-diagnostics/monitoring-alerts-managing-smart-groups.md?toc=/azure/azure-monitor/toc.json   
+        - name: Manage alert and smart group states
+          href: ../monitoring-and-diagnostics/monitoring-alerts-managing-alert-states.md?toc=/azure/azure-monitor/toc.json  
+        - name: Manage alerts from other monitoring services
+          href: ../monitoring-and-diagnostics/monitoring-alerts-managing-nagios-zabbix-scom.md?toc=/azure/azure-monitor/toc.json   
     - name: Autoscale
       items:
       - name: Walkthrough of autoscale
