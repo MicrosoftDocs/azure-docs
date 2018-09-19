@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/14/2018
+ms.date: 09/18/2018
 ms.author: shlo
 
 ---
@@ -95,6 +95,20 @@ Each Azure DevOps Git repository that's associated with a data factory has a col
 When you are ready with the feature development in your feature branch, you can click **Create pull request**. This action takes you to Azure DevOps Git where you can raise pull requests, do code reviews, and merge changes to your collaboration branch. (`master` is the default). You are only allowed to publish to the Data Factory service from your collaboration branch. 
 
 ![Create a new pull request](media/author-visually/create-pull-request.png)
+
+## Configure publishing settings
+
+To configure the publishing branch - that is, the branch where Resource Manager templates are saved - add a `publish_config.json` file to the root folder in the collaboration branch. Data Factory reads this file, looks for the field `publishBranch`, and creates a new branch (if it doesn't already exist) with the value provided. Then it saves all Resource Manager templates to the specified location. For example:
+
+```json
+{
+    "publishBranch": "factory/adf_publish"
+}
+```
+
+When you specify a new publishing branch, Data Factory doesn't delete the previous publishing branch. If you want to remote the previous publishing branch, delete it manually.
+
+Data Factory only reads the `publish_config.json` file when it loads the factory. If you already have the factory loaded in the portal, refresh the browser to make your changes take effect.
 
 ## Publish code changes
 After you have merged changes to the collaboration branch (`master` is the default), select **Publish** to manually publish your code changes in the master branch to the Data Factory service.
