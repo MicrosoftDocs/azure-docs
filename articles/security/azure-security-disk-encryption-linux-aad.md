@@ -353,10 +353,10 @@ In contrast to Powershell syntax, the CLI does not require the user to provide a
      ```
 
 
-    >[!NOTE]
-    > The syntax for the value of disk-encryption-keyvault parameter is the full identifier string: 
-    /subscriptions/[subscription-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br> </br>
-    > The syntax for the value of the key-encryption-key parameter is the full URI to the KEK as in:
+>[!NOTE]
+> The syntax for the value of disk-encryption-keyvault parameter is the full identifier string: 
+    /subscriptions/[subscription-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name] </br> </br>
+> The syntax for the value of the key-encryption-key parameter is the full URI to the KEK as in:
     https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] 
 
 ## Disable encryption for Linux VMs
