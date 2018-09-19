@@ -18,6 +18,8 @@ You can create and run automated scalable integration
 workflows in the cloud with Azure Logic Apps. 
 Here are the details about how billing and pricing work for Logic Apps. 
 
+<a name="consumption-pricing"></a>
+
 ## Consumption pricing model
 
 For new logic apps that you create by using the public or "global" 
@@ -28,7 +30,7 @@ in a logic app definition is an action, which includes triggers,
 control flow steps, calls to built-in actions, and calls to connectors. 
 For more information, see [Logic Apps Pricing](https://azure.microsoft.com/pricing/details/logic-apps).
 
-<a name="fixed-pricing">
+<a name="fixed-pricing"></a>
 
 ## Fixed pricing model
 
