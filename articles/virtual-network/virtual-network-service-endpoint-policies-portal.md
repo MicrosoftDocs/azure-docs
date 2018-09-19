@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 09/16/2018
+ms.date: 09/18/2018
 ms.author: anithaa
 ---
 
