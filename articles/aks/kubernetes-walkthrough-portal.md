@@ -206,7 +206,7 @@ It may take a few minutes for this data to populate in the Azure portal. To see 
 
 1. Under **Monitoring** on the left-hand side, choose **Health (preview)**
 1. Across the top, choose to **+ Add Filter**
-1. Select *Namespace* as the property, then choose *\<All but kube-system\>*.
+1. Select *Namespace* as the property, then choose *\<All but kube-system\>*
 1. Choose to view the **Containers**.
 
 The *azure-vote-back* and *azure-vote-front* containers are displayed, as shown in the following example:
@@ -261,3 +261,4 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [aks-network]: ./networking-overview.md
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
 [http-routing]: ./http-application-routing.md
+[sp-delete]: kubernetes-service-principal.md#additional-considerations
