@@ -14,19 +14,24 @@ ms.author: marsma
 
 Containers provide new levels of virtualization, isolating application and developer dependencies from infrastructure and operational requirements. What remains, however, is the need to address how this application virtualization is patched.
 
-**ACR Tasks** is a suite of features within Azure Container Registry. It provides cloud-based container image building for Linux, Windows, and ARM, and can automate [OS and framework patching](#automate-os-and-framework-patching) for your Docker containers.
-
 ## What is ACR Tasks?
 
-Azure Container Registry Tasks is an Azure-native container image build service. ACR Tasks extends inner-loop development to the cloud with on-demand container image builds (think `docker build` in the cloud), and automated builds on source code commit or base image update.
+**ACR Tasks** is a suite of features within Azure Container Registry. It provides cloud-based container image building for Linux, Windows, and ARM, and can automate [OS and framework patching](#automate-os-and-framework-patching) for your Docker containers. ACR Tasks not only extends your "inner-loop" development cycle to the cloud with on-demand container image builds, but also enables automated builds on source code commit or when a container's base image is updated. With base image update triggers, you can automate your OS and application framework patching workflow, maintaining secure environments while adhering to the principals of immutable containers.
 
-Trigger container image builds automatically when code is committed to a Git repository, or when a container's base image is updated. With base image update triggers, you can automate your OS and application framework patching workflow, maintaining secure environments while adhering to the principals of immutable containers.
+Build and test container images with ACR Tasks in four ways:
 
-## Quick Build: inner-loop extended to the cloud
+* [Quick Build](#quick-build): Build and push container images on-demand, in Azure, without needing a local Docker Engine installation. Think `docker build`, `docker push` in the cloud. Build from local source code or a Git repository.
+* [Build on source code commit](#automatic-build-on-source-code-commit): Trigger a container image build automatically when code is commited to a Git repository.
+* [Build on base image update](#automate-os-and-framework-patching): Trigger a container image build  when that image's base image has been updated.
+* [Multi-step tasks](#multi-step-tasks-preview) (preview): Define multi-step tasks that build images, run containers as functions, and push images to a registry. This preview feature of ACR Tasks supports on-demand task execution and parallel image build, test, and push operations.
 
-The beginning of lifecycle management starts before developers commit their first lines of code. ACR Tasks's [Quick Build](container-registry-tutorial-quick-build.md) feature enables an integrated local inner-loop development experience, offloading builds to Azure. With Quick Builds, you can verify your automated build definitions prior to committing your code.
+## Quick Build
 
-Using the familiar `docker build` format, the [az acr build][az-acr-build] command in the Azure CLI takes a **context** (the set of files to build), sends it to the ACR Tasks service and, by default, pushes the built image to its registry upon completion.
+The inner-loop development cycle, the iterative process of writing code, building, and testing your application before committing to source control, is really the beginning of container lifecycle management.
+
+Before you commit your first line of code, ACR Tasks's [Quick Build](container-registry-tutorial-quick-build.md) feature can provide an integrated development experience by offloading your container image builds to Azure. With Quick Builds, you can verify your automated build definitions and catch potential problems prior to committing your code.
+
+Using the familiar `docker build` format, the [az acr build][az-acr-build] command in the Azure CLI takes a *context* (the set of files to build), sends it ACR Tasks and, by default, pushes the built image to its registry upon completion.
 
 The following table shows a few examples of supported context locations for ACR Tasks:
 

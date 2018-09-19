@@ -16,7 +16,9 @@ ms.custom: mvc
 
 # Tutorial: Build container images in the cloud with Azure Container Registry Tasks
 
-**ACR Tasks** are a suite of features within Azure Container Registry that provides streamlined and efficient Docker container image builds in Azure. In this article, you learn how to use the *Quick Task* feature of ACR Tasks. Quick Task extends your development "inner loop" to the cloud, providing you with build success validation and automatic pushing of successfully built images to your container registry. Your images are built natively in the cloud, close to your registry, enabling faster deployment.
+**ACR Tasks** is a suite of features within Azure Container Registry that provides streamlined and efficient Docker container image builds in Azure. In this article, you learn how to use the *Quick Task* feature of ACR Tasks.
+
+The "inner-loop" development cycle is the iterative process of writing code, building, and testing your application before committing to source control. Quick Tasks extends your inner-loop to the cloud, providing you with build success validation and automatic pushing of successfully built images to your container registry. Your images are built natively in the cloud, close to your registry, enabling faster deployment.
 
 All your Dockerfile expertise is directly transferrable to ACR Tasks. You don't have to change your Dockerfiles to build in the cloud with ACR Tasks, just the command you run.
 
@@ -31,7 +33,7 @@ In subsequent tutorials, you learn to use ACR Tasks for automated container imag
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you'd like to use the Azure CLI locally, you must have Azure CLI version **2.0.46** or later installed. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI][azure-cli].
+If you'd like to use the Azure CLI locally, you must have Azure CLI version **2.0.46** or later installed and log in with [az login][az-login]. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI][azure-cli].
 
 ## Prerequisites
 
@@ -283,7 +285,7 @@ Start streaming logs:
 Server running at http://localhost:80
 ```
 
-When `Server running at http://localhost:80` appears, navigate to the container's FQDN in your browser to see the running application:
+When `Server running at http://localhost:80` appears, navigate to the container's FQDN in your browser to see the running application. The FQDN should have been displayed in the output of the `az container create` command you executed in the previous.
 
 ![Screenshot of sample application rendered in browser][quick-build-02-browser]
 
@@ -323,6 +325,7 @@ Now that you've tested your inner loop with a quick task, configure a **build ta
 [az-container-delete]: /cli/azure/container#az-container-delete
 [az-keyvault-create]: /cli/azure/keyvault/secret#az-keyvault-create
 [az-keyvault-secret-set]: /cli/azure/keyvault/secret#az-keyvault-secret-set
+[az-login]: /cli/azure/reference-index#az-login
 [service-principal-auth]: container-registry-auth-service-principal.md
 
 <!-- IMAGES -->
