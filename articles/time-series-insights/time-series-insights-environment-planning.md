@@ -58,8 +58,8 @@ The following table summarizes the ingress capacity for each SKU:
 
 |SKU  |Events Count Per Month, Per Unit  |Events size Per Month, Per Unit  |Events Count Per Minute, Per Unit  | Size Per Minute, Per Unit   |
 |---------|---------|---------|---------|---------|
-|S1     |   30 million     |  30 GB     |  700    |  700 KB   |
-|S2     |   300 million    |   300 GB   | 7,000   | 7,000 KB  |
+|S1     |   30 million     |  30 GB     |  720    |  720 KB   |
+|S2     |   300 million    |   300 GB   | 7,200   | 7,200 KB  |
 
 You can increase the capacity of an S1 or S2 SKU to 10 units in a single environment. You cannot migrate from an S1 environment to an S2, or from an S2 environment to an S1. 
 
@@ -67,7 +67,7 @@ For ingress capacity, you should first determine the total ingress you require o
 
 If you have a spike in your data ingress lasting less than 24 hours, Time Series Insights can "catch-up" at an ingress rate of 2x the listed rates above. 
 
-For example, if you have a single S1 SKU and ingress data at a rate of 700 events per minute, and spike for less than 1 hour at a rate of 1400 events or less, there would be no noticeable latency to your environment. However, if you exceed 1400 events per minute for more than one hour, you would likely experience latency to data that is visualized and available for query in your environment. 
+For example, if you have a single S1 SKU and ingress data at a rate of 720 events per minute, and spike for less than 1 hour at a rate of 1440 events or less, there would be no noticeable latency to your environment. However, if you exceed 1440 events per minute for more than one hour, you would likely experience latency to data that is visualized and available for query in your environment. 
 
 You may not know in advance how much data you expect to push. In this case, you can find data telemetry for [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-metrics) and [Azure Event Hubs](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/05/25/using-the-azure-rest-apis-to-retrieve-event-hub-metrics/) in your Azure portal. This telemetry can help you determine how to provision your environment. Use the **Metrics** page in the Azure portal for the respective event source to view its telemetry. If you understand your event source metrics, you can more effectively plan and provision your Time Series Insights environment.
 

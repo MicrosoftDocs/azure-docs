@@ -5,10 +5,10 @@ description: How to export data from your Azure IoT Central application
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 07/3/2018
+ms.date: 09/18/2018
 ms.topic: article
 # Use only one of the following. Use ms.service for services, ms.prod for on-prem. Remove the # before the relevant field.
-ms.prod: azure-iot-central
+ms.service: azure-iot-central
 # product-name-from-white-list
 
 # Optional fields. Don't forget to remove # if you need a field.
@@ -21,6 +21,8 @@ manager: peterpr
 ---
 
 # Export your data in Azure IoT Central
+
+*This topic applies to administrators.*
 
 This article describes how to use the continuous data export feature in Azure IoT Central to periodically export data to your Azure Blob storage account. You can export **measurements**, **devices**, and **device templates** to files with the [Apache AVRO](https://avro.apache.org/docs/current/index.html) format. The exported data can be used for cold path analytics like training models in Azure Machine Learning or long-term trend analysis in Microsoft Power BI.
 
@@ -41,7 +43,7 @@ This article describes how to use the continuous data export feature in Azure Io
 The measurements that devices send are exported to your storage account once per minute. The data has all the new messages received by IoT Central from all devices during that time. The exported AVRO files use the same format as the message files exported by [IoT Hub message routing](https://docs.microsoft.com/azure/iot-hub/iot-hub-csharp-csharp-process-d2c) to Blob storage.
 
 > [!NOTE]
-> The devices that send the measurements are represented by device IDs (see the following sections). To get the names of the devices, export the device snapshots. Correlate each message record by using the **connectionDeviceId** that matches the device ID.
+> The devices that send the measurements are represented by device IDs (see the following sections). To get the names of the devices, export the device snapshots. Correlate each message record by using the **connectionDeviceId** that matches the **deviceId** of the device record.
 
 The following example shows a record in a decoded AVRO file:
 
@@ -50,9 +52,9 @@ The following example shows a record in a decoded AVRO file:
     "EnqueuedTimeUtc": "2018-06-11T00:00:08.2250000Z",
     "Properties": {},
     "SystemProperties": {
-        "connectionDeviceId": "2383d8ba-c98c-403a-b4d5-8963859643bb",
+        "connectionDeviceId": "<connectionDeviceId>",
         "connectionAuthMethod": "{\"scope\":\"hub\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}",
-        "connectionDeviceGenerationId": "636614021491644195",
+        "connectionDeviceGenerationId": "<generationId>",
         "enqueuedTime": "2018-06-11T00:00:08.2250000Z"
     },
     "Body": "{\"humidity\":80.59100954598546,\"magnetometerX\":0.29451796907056726,\"magnetometerY\":0.5550332126050068,\"magnetometerZ\":-0.04116681874733441,\"connectivity\":\"connected\",\"opened\":\"triggered\"}"
@@ -61,12 +63,13 @@ The following example shows a record in a decoded AVRO file:
 
 ### Devices
 
-When continuous data export is first turned on, a single snapshot with all devices is exported. The snapshot includes:
-- Device IDs.
-- Device names.
-- Device template IDs.
-- Property values.
-- Setting values.
+When continuous data export is first turned on, a single snapshot with all devices is exported. Each device includes:
+- `id` of the device in IoT Central
+- `name` of the device
+- `deviceId` from [Device Provisioning Service](https://aka.ms/iotcentraldocsdps)
+- Device template information
+- Property values
+- Setting values
 
 A new snapshot is written once per minute. The snapshot includes:
 
@@ -78,15 +81,16 @@ A new snapshot is written once per minute. The snapshot includes:
 >
 > The device template that each device belongs to is represented by a device template ID. To get the name of the device template, export the device template snapshots.
 
-Each record in the decoded AVRO file looks like:
+A record in the decoded AVRO file can look like:
 
 ```json
 {
-    "id": "2383d8ba-c98c-403a-b4d5-8963859643bb",
+    "id": "<id>",
     "name": "Refrigerator 2",
     "simulated": true,
+    "deviceId": "<deviceId>",
     "deviceTemplate": {
-        "id": "c318d580-39fc-4aca-b995-843719821049",
+        "id": "<template id>",
         "version": "1.0.0"
     },
     "properties": {
@@ -109,8 +113,10 @@ Each record in the decoded AVRO file looks like:
 
 ### Device templates
 
-When continuous data export is first turned on, a single snapshot with all device templates is exported. The snapshot includes: 
-- Device template IDs.
+When continuous data export is first turned on, a single snapshot with all device templates is exported. Each device template includes:
+- `id` of the device template
+- `name` of the device template
+- `version` of the device template
 - Measurement data types and min/max values.
 - Property data types and default values.
 - Setting data types and default values.
@@ -123,11 +129,11 @@ A new snapshot is written once per minute. The snapshot includes:
 > [!NOTE]
 > Device templates deleted since the last snapshot aren't exported. Currently, the snapshots don't have indicators for deleted device templates.
 
-Each record in the decoded AVRO file looks like:
+A record in the decoded AVRO file can look like this:
 
 ```json
 {
-    "id": "c318d580-39fc-4aca-b995-843719821049",
+    "id": "<id>",
     "name": "Refrigerated Vending Machine",
     "version": "1.0.0",
     "measurements": {
@@ -214,16 +220,16 @@ Each record in the decoded AVRO file looks like:
 
 4. Under **Administration**, select **Data Export**.
 
-   ![Configure continuous data export](media/howto-export-data/continuousdataexport.PNG)
-
 5. In the **Storage account** drop-down list box, select your storage account. In the **Container** drop-down list box, select your container. Under **Data to export**, specify each type of data to export by setting the type to **On**.
 
 6. To turn on continuous data export, set **Data export** to **On**. Select **Save**.
 
+  ![Configure continuous data export](media/howto-export-data/continuousdataexport.PNG)
+
 7. After a few minutes, your data appears in your storage account. Browse to your storage account. Select **Browse blobs** > your container. You see three folders for the export data. The default paths for the AVRO files with the export data are:
-    - Messages: {container}/measurements/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/00.avro
-    - Devices: {container}/devices/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/00.avro
-    - Device templates: {container}/deviceTemplates/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/00.avro
+    - Messages: {container}/measurements/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
+    - Devices: {container}/devices/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
+    - Device templates: {container}/deviceTemplates/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
 
 ## Read exported AVRO files
 
@@ -285,7 +291,7 @@ def parse(filePath):
     transformed = pd.DataFrame()
 
     # The device ID is available in the id column.
-    transformed["device_id"] = devices["id"]
+    transformed["device_id"] = devices["deviceId"]
 
     # The template ID and version are present in a dictionary under
     # the deviceTemplate column.
@@ -400,7 +406,7 @@ public static async Task Run(string filePath)
                 {
                     // Get the field value directly. You can also yield return
                     // records and make the function IEnumerable<AvroRecord>.
-                    var deviceId = record.GetField<string>("id");
+                    var deviceId = record.GetField<string>("deviceId");
 
                     // The device template information is stored in a sub-record
                     // under the deviceTemplate field.
@@ -416,7 +422,7 @@ public static async Task Run(string filePath)
                     var fanSpeed = deviceSettingsRecord["fanSpeed"];
                     
                     Console.WriteLine(
-                        "ID: {0}, Template ID: {1}, Template Version: {2}, Fan Speed: {3}",
+                        "Device ID: {0}, Template ID: {1}, Template Version: {2}, Fan Speed: {3}",
                         deviceId,
                         templateId,
                         templateVersion,
@@ -529,8 +535,8 @@ const avro = require('avsc');
 async function parse(filePath) {
     const records = await load(filePath);
     for (const record of records) {
-        // Fetch the device ID from the id property.
-        const deviceId = record.id;
+        // Fetch the device ID from the deviceId property.
+        const deviceId = record.deviceId;
 
         // Fetch the template ID and version from the deviceTemplate property.
         const deviceTemplateId = record.deviceTemplate.id;
@@ -540,7 +546,7 @@ async function parse(filePath) {
         const fanSpeed = record.settings.device.fanSpeed;
 
         // Log the retrieved device ID and humidity.
-        console.log(`ID: ${deviceId}, Template ID: ${deviceTemplateId}, Template Version: ${deviceTemplateVersion}, Fan Speed: ${fanSpeed}`);
+        console.log(`deviceID: ${deviceId}, Template ID: ${deviceTemplateId}, Template Version: ${deviceTemplateVersion}, Fan Speed: ${fanSpeed}`);
     }
 }
 
