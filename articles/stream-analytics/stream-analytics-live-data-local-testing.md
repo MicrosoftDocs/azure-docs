@@ -12,7 +12,7 @@ ms.date: 09/24/2018
 
 # Test live data locally using Azure Stream Analytics tools for Visual Studio (Preview)
 
-Azure Stream Analytics tools for Visual Studio allows you to test jobs locally from the IDE using live event streams from Azure Event Hub, IoT Hub, and Blob Storage. Live data local testing can't replace the [performance and scalability testing](stream-analytics-streaming-unit-consumption.md) you can do in Azure portal, but you can save time during functional testing by not having to return to the Azure portal each time you want to test your Stream Analytics job. This feature is in preview and shouldn't be used for production workloads.
+Azure Stream Analytics tools for Visual Studio allows you to test jobs locally from the IDE using live event streams from Azure Event Hub, IoT Hub, and Blob Storage. Live data local testing can't replace the [performance and scalability testing](stream-analytics-streaming-unit-consumption.md) you can perform in the cloud, but you can save time during functional testing by not having to submit to the cloud each time you want to test your Stream Analytics job. This feature is in preview and shouldn't be used for production workloads.
 
 ## Testing options
 
@@ -43,7 +43,7 @@ The following local testing options are supported:
 
    ![Azure Stream Analytics Visual Studio local testing with live data process window](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-cloud-input-process-window.png)
 
-   The output results are refreshed every three seconds in the local run result window, and the output files are placed in your project path **ASALocalRun** folder. You can also open the output files by clicking **Open Results Folder** button in the local run result window.
+   The output results are refreshed every three seconds with the first 500 output rows in the local run result window, and the output files are placed in your project path **ASALocalRun** folder. You can also open the output files by clicking **Open Results Folder** button in the local run result window.
 
    ![Azure Stream Analytics Visual Studio local testing with live data open results folder](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-cloud-input-open-results-folder.png)
 
