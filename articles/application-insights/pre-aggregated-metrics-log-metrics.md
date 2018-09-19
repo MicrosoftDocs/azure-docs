@@ -54,7 +54,7 @@ All metrics that you send using [trackMetric](https://docs.microsoft.com/azure/a
 
 ## Why is collection of custom metrics dimensions turned off by default?
 
-The collection of custom metrics dimensions is turned off by default because in the future storing custom metrics with dimensions will be billed separately from Application Insights, while storing the non-dimensional custom metrics will remain free (up to a quota). You can learn about the upcoming pricing model changes [here](https://azure.microsoft.com/pricing/details/monitor/).
+The collection of custom metrics dimensions is turned off by default because in the future storing custom metrics with dimensions will be billed separately from Application Insights, while storing the non-dimensional custom metrics will remain free (up to a quota). You can learn about the upcoming pricing model changes on our official [pricing page](https://azure.microsoft.com/pricing/details/monitor/).
 
 ## Creating charts and exploring log-based and standard pre-aggregated metrics
 
