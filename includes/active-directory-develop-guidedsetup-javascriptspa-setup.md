@@ -78,9 +78,9 @@ Instructions in this guide are based on both Node.js and Visual Studio 2017, but
     </div>
     <button id="signOutButton" type="button" class="btn btn-primary hidden" onclick="signOut()">Sign out</button>
 
-    <!-- This app uses cdn to reference msal.js (recommended). 
+    <!-- This app uses cdn to reference msal.js (recommended).
          You can also download it from: https://github.com/AzureAD/microsoft-authentication-library-for-js -->
-    <script src="https://secure.aadcdn.microsoftonline-p.com/lib/0.1.3/js/msal.min.js"></script>
+    <script src="https://secure.aadcdn.microsoftonline-p.com/lib/0.2.3/js/msal.min.js"></script>
 
     <!-- The 'bluebird' and 'fetch' references below are required if you need to run this application on Internet Explorer -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.4/bluebird.min.js"></script>
