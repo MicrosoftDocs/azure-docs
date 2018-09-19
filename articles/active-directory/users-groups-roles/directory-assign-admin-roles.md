@@ -117,12 +117,20 @@ Users in this role can add, remove, and update license assignments on users, gro
 
 * **[SharePoint Service Administrator](#sharepoint-service-administrator)**: Users with this role have global permissions within Microsoft SharePoint Online, when the service is present, as well as the ability to manage support tickets and monitor service health. More information at [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-* **[Skype for Business / Lync Service Administrator](#lync-service-administrator)**: Users with this role have global permissions within Microsoft Skype for Business, when the service is present, as well as manage Skype-specific user attributes in Azure Active Directory. Additionally, this role grants the ability to manage support tickets and monitor service health, and to access the Teams and Skype for Business Admin Center. The account must also be licensed for Teams or it can't run Teams PowerShell cmdlets. More information at [About the Skype for Business admin role](https://support.office.com/en-us/article/about-the-skype-for-business-admin-role-aeb35bda-93fc-49b1-ac2c-c74fbeb737b5) and Teams licensing information at [Skype for Business and Microsoft Teams add-on licensing](https://docs.microsoft.com/en-us/skypeforbusiness/skype-for-business-and-microsoft-teams-add-on-licensing/skype-for-business-and-microsoft-teams-add-on-licensing)
+* **[Skype for Business / Lync Service Administrator](#lync-service-administrator)**: Users with this role have global permissions within Microsoft Skype for Business, when the service is present, as well as manage Skype-specific user attributes in Azure Active Directory. Additionally, this role grants the ability to manage support tickets and monitor service health, and to access the Teams and Skype for Business Admin Center. The account must also be licensed for Teams or it can't run Teams PowerShell cmdlets. More information at [About the Skype for Business admin role](https://support.office.com/article/about-the-skype-for-business-admin-role-aeb35bda-93fc-49b1-ac2c-c74fbeb737b5) and Teams licensing information at [Skype for Business and Microsoft Teams add-on licensing](https://docs.microsoft.com/skypeforbusiness/skype-for-business-and-microsoft-teams-add-on-licensing/skype-for-business-and-microsoft-teams-add-on-licensing)
 
   > [!NOTE]
   > In Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell, this role is identified as "Lync Service Administrator". It is "Skype for Business Service Administrator" in the [Azure portal](https://portal.azure.com/).
   >
   >
+
+* **[Teams Communications Administrator](#teams-communications-administrator)**: Users in this role can manage aspects of the Microsoft Teams workload related to voice & telephony. This includes the management tools for telephone number assignment, voice and meeting policies, and full access to the call analytics toolset.
+
+* **[Teams Communications Support Engineer](#teams-communications-support-engineer)**: Users in this role can troubleshoot communication issues within Microsoft Teams & Skype for Business using the user call troubleshooting tools in the Microsoft Teams & Skype for Business admin center. Users in this role can view full call record information for all participants involved.
+
+* **[Teams Communications Support Specialist](#teams-communications-support-specialist)**: Users in this role can troubleshoot communication issues within Microsoft Teams & Skype for Business using the user call troubleshooting tools in the Microsoft Teams & Skype for Business admin center. Users in this role can only view user details in the call for the specific user they have looked up.
+
+* **[Teams Service Administrator](#teams-service-administrator)**: Users in this role can manage all aspects of the Microsoft Teams workload via the Microsoft Teams & Skype for Business admin center and the respective PowerShell modules. This includes, among other areas, all management tools related to telephony, messaging, meetings, and the teams themselves. This role also grants the ability to manage Office 365 groups.
 
 * **[User Account Administrator](#user-account-administrator)**: Users with this role can create and manage all aspects of users and groups. Additionally, this role includes the ability to manage support tickets and monitor service health. Some restrictions apply. For example, this role does not allow deleting a global administrator. User Account administrators can change passwords and invalidate refresh tokens for users, Helpdesk administrators, and other User Account administrators only. Invalidating a refresh token forces the user to sign in again.
 
@@ -1079,6 +1087,93 @@ Can manage all aspects of the SharePoint service.
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.sharepoint/allEntities/allTasks | Create and delete all resources, and read and update standard properties in microsoft.office365.sharepoint. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
+
+### Teams Communications Administrator
+Can manage calling and meetings features within the Microsoft Teams service.
+
+  > [!NOTE]
+  > This role inherits additional permissions from the Directory Readers role.
+  >
+  >
+
+  > [!NOTE]
+  > This role has addditonal permissions outside of Azure Active Directory. See role description above for more information.
+  >
+  >
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.aad.directory/policies/basic/read | Read basic properties on policies in Azure Active Directory. |
+| microsoft.azure.accessService/allEntities/allTasks | Manage all aspects of Azure Access service. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
+| microsoft.office365.usageReports/allEntities/read | Read Office 365 usage reports. |
+
+### Teams Communications Support Engineer
+Can troubleshoot communications issues within Teams using advanced tools.
+
+  > [!NOTE]
+  > This role inherits additional permissions from the Directory Readers role.
+  >
+  >
+
+  > [!NOTE]
+  > This role has addditonal permissions outside of Azure Active Directory. See role description above for more information.
+  >
+  >
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.aad.directory/policies/basic/read | Read basic properties on policies in Azure Active Directory. |
+| microsoft.azure.accessService/allEntities/allTasks | Manage all aspects of Azure Access service. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
+
+### Teams Communications Support Specialist
+Can troubleshoot communications issues within Teams using basic tools.
+
+  > [!NOTE]
+  > This role inherits additional permissions from the Directory Readers role.
+  >
+  >
+
+  > [!NOTE]
+  > This role has addditonal permissions outside of Azure Active Directory. See role description above for more information.
+  >
+  >
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.aad.directory/policies/basic/read | Read basic properties on policies in Azure Active Directory. |
+| microsoft.azure.accessService/allEntities/allTasks | Manage all aspects of Azure Access service. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
+
+### Teams Service Administrator
+Can manage the Microsoft Teams service.
+
+  > [!NOTE]
+  > This role inherits additional permissions from the Directory Readers role.
+  >
+  >
+
+  > [!NOTE]
+  > This role has addditonal permissions outside of Azure Active Directory. See role description above for more information.
+  >
+  >
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.aad.directory/groups/hiddenMembers/read | Read groups.hiddenMembers property in Azure Active Directory. |
+| microsoft.aad.directory/policies/basic/read | Read basic properties on policies in Azure Active Directory. |
+| microsoft.azure.accessService/allEntities/allTasks | Manage all aspects of Azure Access service. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
+| microsoft.office365.usageReports/allEntities/read | Read Office 365 usage reports. |
 
 ### User Account Administrator
 Can manage all aspects of users and groups
