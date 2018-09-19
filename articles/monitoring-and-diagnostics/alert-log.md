@@ -37,7 +37,7 @@ Detailed next is step-by-step guide to using log alerts using the Azure portal i
 
     ![Create rule](./media/monitor-alerts-unified/AlertsPreviewAdd.png)
 
-1.  Define the alert condition by using the **Select Resource** link and specifying the target, by selecting a resource. Filter by choosing the *Subscription, *Resource Type, and finally selecting required *Resource*. 
+1.  Define the alert condition by using the **Select Resource** link and specifying the target by selecting a resource. Filter by choosing the _Subscription_, _Resource Type_, and required _Resource_. 
 
     >[!NOTE]
 
@@ -129,9 +129,9 @@ Log alerts for Log Analytics are created by alert rules that run a saved search 
 Resource template for Log analytics saved search and Log analytics alerts are available in Log Analytics section of documentation. To learn more, see, [Adding Log Analytics saved searches and alerts](../operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md); which includes illustrative samples as well as schema details.
 
 ### Azure Resource Template for Application Insights
-Log alert for Application Insights resources has a type of `Microsoft.Insights/scheduledQueryRules/`. For more information on this resource type, see [Azure Monitor - Scheduled Query Rules API reference](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/).
+Log alert for Application Insights resources has a type of `Microsoft.Insights/scheduledQueryRules/`. For more information on this resource type, see [Azure Monitor - Scheduled Query Rules API reference](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/).
 
-The following is the structure for [Scheduled Query Rules creation](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/createorupdate) based resource template, with sample data set as variables.
+The following is the structure for [Scheduled Query Rules creation](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate) based resource template, with sample data set as variables.
 
 ```json
 {
@@ -204,13 +204,13 @@ The following is the structure for [Scheduled Query Rules creation](https://docs
 }
 ```
 > [!IMPORTANT]
-> Tag field with hidden-link to target resource is mandatory in use of [Scheduled Query Rules ](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/) API call or resource template. 
+> Tag field with hidden-link to target resource is mandatory in use of [Scheduled Query Rules ](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) API call or resource template. 
 
 The sample json above can be saved as (say) sampleScheduledQueryRule.json for the purpose of this walkthrough and can be deployed using [Azure Resource Manager in Azure portal](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
 
 
-## Managing log alerts using PowerShell, CLI or API
-Currently log alerts can be created using two different ARM-compliant APIs, based on which analytics platform the alert is to be based upon (that is) Log Analytics or Application Insights.
+## Managing log alerts using PowerShell, CLI, or API
+Currently log alerts can be created using two different Resource Manager compliant APIs, based on which analytics platform the alert is to be based upon (that is) Log Analytics or Application Insights.
 
 Hence the section below provide details on using API via Powershell or CLI for Log Alerts for each analytics platform.
 
@@ -220,7 +220,7 @@ The Log Analytics Alert REST API is RESTful and can be accessed via the Azure Re
 Learn more  about [create and manage alert rules in Log Analytics with REST API](../log-analytics/log-analytics-api-alerts.md); including examples of accessing the API from Powershell.
 
 ### PowerShell, CLI, or API for Application Insights
-[Azure Monitor - Scheduled Query Rules API](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/) is a REST API and fully compatible with Azure Resource Manager REST API. Hence it can be used via Powershell using Resource Manager cmdlet as well as Azure CLI.
+[Azure Monitor - Scheduled Query Rules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) is a REST API and fully compatible with Azure Resource Manager REST API. Hence it can be used via Powershell using Resource Manager cmdlet as well as Azure CLI.
 
 Illustrated below usage via Azure Resource Manager PowerShell cmdlet for sample Resource Template shown earlier (sampleScheduledQueryRule.json) in the [Resource Template section](#azure-resource-template-for-application-insights) :
 ```powershell

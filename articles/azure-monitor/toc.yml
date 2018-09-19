@@ -661,7 +661,7 @@
         - name: Alerts with dynamic thresholds
           href: ../monitoring-and-diagnostics/monitoring-alerts-dynamic-thresholds.md?toc=/azure/azure-monitor/toc.json
         - name: Configure metric alerts on logs
-          href: ../monitoring-and-diagnostics/monitoring-metric-alerts-for-logs.md?toc=/azure/azure-monitor/toc.json
+          href: ../monitoring-and-diagnostics/monitoring-metric-alerts-logs.md?toc=/azure/azure-monitor/toc.json
         - name: Create a newer metric alert with a Resource Manager template
           href: ../monitoring-and-diagnostics/monitoring-create-metric-alerts-with-templates.md?toc=/azure/azure-monitor/toc.json
         - name: Create a classic metric alert with a Resource Manager template

@@ -68,11 +68,11 @@ Use the following procedure:
 
     **Alert logic**:
 
-     - **Event Level**- The severity level of the event. Verbose, Informational, Warning, Error**, or **Critical**.
-     - **Status**: The status of the event. Started, Failed**, or **Succeeded**.
+     - **Event Level**- The severity level of the event. _Verbose_, _Informational_, _Warning_, _Error_, or _Critical_.
+     - **Status**: The status of the event. _Started_, _Failed_, or _Succeeded_.
      - **Event initiated by**: Also known as the caller; The email address or Azure Active Directory identifier of the user who performed the operation.
 
-        **Sample signal graph with alert logic applied:
+        Sample signal graph with alert logic applied:
 
         ![ criteria selected](./media/monitoring-activity-log-alerts-new-experience/criteria-selected.png)
 
@@ -109,7 +109,7 @@ Alternatively, a simple analogy for understanding conditions on which alert rule
 
     ![ search activity log alert rules](./media/monitoring-activity-log-alerts-new-experience/searth-activity-log-rule-to-edit.png)
 
-    You can use the available filters - **Subscription**, **Resource group**,  **Resource**, **Signal Type, or **Status** to find the activity rule that you want to edit.
+    You can use the available filters - _Subscription_, _Resource group_,  _Resource_, _Signal Type_, or _Status_ to find the activity rule that you want to edit.
 
     > [!NOTE]
 
