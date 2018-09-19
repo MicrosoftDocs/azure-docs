@@ -41,7 +41,6 @@
     href: security-center-onboarding.md
   - name: Server protection with Windows Defender ATP (Preview)
     href: security-center-wdatp.md
-  - name: Set security policy
   - name: Set security policies
     href: security-center-azure-policy.md
   - name: Customize the information protection policy
