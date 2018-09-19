@@ -16,9 +16,7 @@ ms.date: 08/15/2016
 > [!IMPORTANT]
 > [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
 > is replacing Azure Scheduler, which is being retired. 
-> To schedule jobs, start using Azure Logic Apps instead, 
-> not Azure Scheduler. Learn how to 
-> [migrate from Azure Scheduler to Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md).
+> To schedule jobs, [try Azure Logic Apps instead](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
 
 Azure Scheduler jobs might have to call services that require authentication, 
 such as other Azure services, Salesforce.com, Facebook, and secure custom websites. 

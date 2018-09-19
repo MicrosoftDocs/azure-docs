@@ -8,7 +8,7 @@ author: derek1ee
 ms.author: deli
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 09/17/2018
+ms.date: 09/19/2018
 ---
 
 # Migrate Azure Scheduler jobs to Azure Logic Apps
@@ -16,7 +16,7 @@ ms.date: 09/17/2018
 > [!IMPORTANT]
 > Azure Logic Apps is replacing Azure Scheduler, 
 > which is being retired. To schedule jobs, 
-> start using Azure Logic Apps instead, not Azure Scheduler.
+> follow this article for moving to Azure Logic Apps instead.
 
 This article shows how you can schedule one-time 
 and recurring jobs by creating automated workflows 
