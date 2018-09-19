@@ -1,6 +1,6 @@
 ---
-title: Authentication in National Clouds 
-description: Learn about app registration and authentication endpoints for National Clouds.
+title:  Authentication using Azure AD in national clouds 
+description: Learn about app registration and authentication endpoints for national clouds.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -59,7 +59,7 @@ Requests to the Azure AD authorization or token endpoints can be formed using th
 For single-tenant applications, replace common in the above URLs with your tenant id or name, for example, `https://login.microsoftonline.de/contoso.com`
 
 >[!NOTE]
-> The [Azure AD v2.0 authorization]( https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-appmodel-v2-overview) and token endpoints are only available for the global service. It is not yet supported for national cloud deployments.
+> The [Azure AD v2.0 authorization]( https://docs.microsoft.com/azure/active-directory/develop/active-directory-appmodel-v2-overview) and token endpoints are only available for the global service. It is not yet supported for national cloud deployments.
 
 ## Next steps
 
