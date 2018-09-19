@@ -20,15 +20,12 @@ Azure Automation supports 3 types of source control:
 * Visual Studio Team Services (Git)
 * Visual Studio Team Services (TFVC)
 
-> [!NOTE]
-> Branch targeting is not available for the TFVC source control type.
-
 ## Pre-requisites
 
 * Run-As Account and connection
 
-
-Requires Run As Account and COnnection
+> [!NOTE]
+> Source control sync jobs run under the users Automation Account and are billed at the same rate as other Automation jobs.
 
 ## Configure source control
 
@@ -45,9 +42,9 @@ On the **Source Control Summary** page, fill out the information and click **Sav
 |Property  |Description  |
 |---------|---------|
 |Source control name     | A friendly name for the source control        |
-|Source control type     | The type of source control source. Available options are:</br>Github</br>Visual Studio Team Services (Git)</br>Visual Studio Team Services (TFVC)        |
+|Source control type     | The type of source control source. Available options are:</br> Github</br>Visual Studio Team Services (Git)</br>Visual Studio Team Services (TFVC)        |
 |Repository     | The name of the repository or project. This is pulled from the source control repository. Example: $/ContosoFinanceTFVCExample         |
-|Branch     | The branch to pull the source files from. This is not supported for Visual Studio Team Services (TFVC).          |
+|Branch     | The branch to pull the source files from. Branch targeting is not available for the TFVC source control type.          |
 |Folder path     | The folder that contains the runbooks to sync. Example: /Runbooks         |
 |Auto Sync     | Turns on or off automatic sync when a commit is made in the source control repository         |
 |Publish Runbook     | If set to **On**, after runbooks are synced from source control they will be automatically published.         |
@@ -106,4 +103,4 @@ Select the source control you want to remove. On the **Source Control Summary** 
 
 ## Next steps
 
-
+To learn more about runbook types, their advantages and limitations, see [Azure Automation runbook types](automation-runbook-types.md)

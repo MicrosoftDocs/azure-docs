@@ -2932,6 +2932,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/automation/automation-source-control-integration.md",
+            "redirect_url": "/azure/automation/source-control-integration",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/automation/automation-sec-configure-azure-runas-account.md",
             "redirect_url": "/azure/automation/manage-runas-account",
             "redirect_document_id": false
