@@ -25,6 +25,8 @@
     href: active-directory-architecture.md
   - name: Default user permissions
     href: users-default-permissions.md
+  - name: Deployment 30, 90, and beyond
+    href: active-directory-deployment-checklist-p2.md
   - name: Identity data storage for the EU
     href: active-directory-data-storage-eu.md
 - name: 'How-to guides'
@@ -32,10 +34,10 @@
   items:
   - name: 'Organization'
     items:
-    - name: Sign up for Azure AD Premium
-      href: active-directory-get-started-premium.md    
     - name: Sign up for Azure AD as an organization
       href: sign-up-organization.md
+    - name: Sign up for Azure AD Premium
+      href: active-directory-get-started-premium.md    
     - name: Add a custom domain name
       href: add-custom-domain.md
     - name: Add company branding
