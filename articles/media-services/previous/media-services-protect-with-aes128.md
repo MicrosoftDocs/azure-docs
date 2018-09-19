@@ -256,9 +256,7 @@ Overwrite the code in your Program.cs file with the code shown in this section.
 
 Make sure to update variables to point to folders where your input files are located.
 
-```csharp
 [!code-csharp[Main](../../../samples-mediaservices-encryptionaes/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs)]
-```
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
