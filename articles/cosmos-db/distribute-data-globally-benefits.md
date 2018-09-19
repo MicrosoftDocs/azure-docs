@@ -22,9 +22,9 @@ This article describes the key benefits of distributing data globally and some r
 
 The following are the key benefits available for accounts that leverage Azure Cosmos DB global data distribution capabilities:
 
-* **Single-digit write latency** – Azure Cosmos DB delivers <10 ms read and write latency at the 99th percentile, guaranteed by [financially backed SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/).
+* **Single-digit latency** – Azure Cosmos DB delivers <10 ms read and write latency at the 99th percentile, guaranteed by [financially backed SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/).
 
-* **5-9’s availability** – Azure Cosmos DB offers 99.999% availability, guaranteed by [financially backed SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/).
+* **5-9’s availability** – Azure Cosmos DB offers 99.999% read and write availability, guaranteed by [financially backed SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/).
 
 * **Flexible conflict resolution** – For customers leveraging multi-master capabilities, Azure Cosmos DB provides three modes for handling conflicts to ensure global data integrity and consistency.
 
