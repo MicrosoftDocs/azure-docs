@@ -329,7 +329,7 @@ The sample code simulates a device boot sequence that sends the provisioning req
 
     ```c
     static const char* const REGISTRATION_NAME = "contoso-simdevice-east";
-    static const char* const SYMMETRIC_KEY_VALUE = "9GWVnYuoOLXlHc346XjhLRb9pKgIOrKSwxDRSOgnvXo=";
+    static const char* const SYMMETRIC_KEY_VALUE = "p3w2DQr9WqEGBLUSlFi1jPQ7UWQL4siAGy75HFTFbf8=";
     ```
 
     Save your changes to the file.
