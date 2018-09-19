@@ -10,10 +10,9 @@ ms.date: 08/31/2018
 ms.author: mirequa
 ---
 
-# Configuring CycleCloud to use an HTTP/HTTPs Proxy
+# Configuring CycleCloud to Use an HTTP/HTTPs Proxy
 
-Azure CycleCloud can be configured to use a webproxy for all internet bound traffic. This feature is
-only supported for passwordless web proxies.
+Azure CycleCloud can be configured to use a webproxy for all internet bound traffic. Please note that this feature is only supported for passwordless web proxies.
 
 ## Configuring the CycleCloud JVM
 
@@ -24,6 +23,17 @@ update the configuration as follows:
 ```ini
 webServerJvmOptions= -Dhttp.proxyHost=10.10.0.2 -Dhttp.proxyPort=3127
 ```
+
+HTTP and HTTPS proxy attributes are individually available and can all be used simultaneously.
+See the table below append any relevant proxy configurations
+to the `webServerJvmOptions=` list with the `-D` prefix.
+
+JVM Proxy Options | Definition
+------ | ----------
+http.proxyHost | HTTP proxy host address or name
+http.proxyHost | HTTP proxy port
+https.proxyHost | HTTPS proxy host address or name
+https.proxyPort | HTTPS proxy port
 
 ## Configuring Data Transfers
 
