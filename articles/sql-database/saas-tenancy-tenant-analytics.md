@@ -13,7 +13,7 @@ ms.author: sstein
 ms.reviewer: "anjangsh; billgib; genemi"
 ---
 # Cross-tenant analytics using extracted data
-
+ 
 In this tutorial, you walk through a complete analytics scenario. The scenario demonstrates how analytics can enable businesses to make smart decisions. Using data extracted from each tenant database, you use analytics to gain insights into tenant behavior and application usage. This scenario involves three steps: 
 
 1.	**Extract** data from each tenant database and **Load** into an analytics store.

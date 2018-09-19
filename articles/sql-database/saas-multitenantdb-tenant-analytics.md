@@ -13,7 +13,7 @@ ms.author: anjangsh
 ms.reviewer: billgib, genemi
 ---
 # Cross-tenant analytics using extracted data
-
+ 
 In this tutorial, you walk through a complete analytics scenario. The scenario demonstrates how analytics can enable businesses to make smart decisions. Using data extracted from sharded database, you use analytics to gain insights into tenant behavior, including their use of the sample Wingtip Tickets SaaS application. This scenario involves three steps: 
 
 1.	**Extract data** from each tenant database into an analytics store.
