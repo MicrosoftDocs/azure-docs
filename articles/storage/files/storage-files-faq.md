@@ -4,7 +4,7 @@ description: Find answers to frequently asked questions about Azure Files.
 services: storage
 author: RenaShahMSFT
 ms.service: storage
-ms.date: 07/19/2018
+ms.date: 09/11/2018
 ms.author: renash
 ms.component: files
 ---
@@ -191,44 +191,92 @@ This article answers common questions about Azure Files features and functionali
 **Can I move the storage sync service and/or storage account to a different resource group or subscription?**  
    Yes, the storage sync service and/or storage account can be moved to a different resource group or subscription. If the storage account is moved, you need to give the Hybrid File Sync Service access to the storage account (see [Ensure Azure File Sync has access to the storage account](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac)).
 
+* <a id="afs-ntfs-acls"></a>
+**Does Azure File Sync preserve directory/file level NTFS ACLs along with data stored in Azure Files?**
+
+    NTFS ACLs carried from on-premises file servers are persisted by Azure File Sync as metadata. Azure Files does not support authentication with Azure AD credentials for access to file shares managed by the Azure File Sync service.
+    
 ## Security, authentication, and access control
 * <a id="ad-support"></a>
 **Is Active Directory-based authentication and access control supported by Azure Files?**  
-    Azure Files offers two ways to manage access control:
+    
+    Yes, Azure Files supports identity-based authentication and access control with Azure Active Directory (Azure AD) (Preview). Azure AD authentication over SMB for Azure Files leverages Azure Active Directory Domain Services to enable domain-joined VMs to access shares, directories, and files using Azure AD credentials. For more details, see [Overview of Azure Active Directory authentication over SMB for Azure Files (Preview)](storage-files-active-directory-overview.md). 
+
+    Azure Files offers two additional ways to manage access control:
 
     - You can use shared access signatures (SAS) to generate tokens that have specific permissions, and which are valid for a specified time interval. For example, you can generate a token with read-only access to a specific file that has a 10-minute expiry. Anyone who possesses the token while the token is valid has read-only access to that file for those 10 minutes. Currently, shared access signature keys are supported only via the REST API or in client libraries. You must mount the Azure file share over SMB by using the storage account keys.
 
     - Azure File Sync preserves and replicates all discretionary ACLs, or DACLs, (whether Active Directory-based or local) to all server endpoints that it syncs to. Because Windows Server can already authenticate with Active Directory, Azure File Sync is an effective stop-gap option until full support for Active Directory-based authentication and ACL support arrives.
 
-    Currently, Azure Files does not support Active Directory directly.
+* <a id="ad-support-on-premises"></a>
+**Does Azure AD authentication over SMB for Azure Files (Preview) support authentication using Azure AD from on-premises machines?**
+
+    No, Azure Files does not support authentication with Azure AD from on-premises machines in the preview release.
+
+* <a id="ad-support-devices"></a>
+**Does Azure AD authentication over SMB for Azure Files (Preview) support SMB access using Azure AD credentials from devices joined to or registered with Azure AD?**
+
+    No, this scenario is not supported.
+
+* <a id="ad-support-rest-apis"></a>
+**Are there REST APIs to support Get/Set/Copy directory/file NTFS ACLs?**
+
+    The preview release does not support REST APIs to get, set, or copy NTFS ACLs for directories or files.
+
+* <a id="ad-vm-subscription"></a>
+**Can I access Azure Files with Azure AD credentials from a VM under a different subscription?**
+
+    If the subscription under which the file share is deployed is associated with the same Azure AD tenant as the Azure AD Domain Services deploymnet to which the VM is domain-joined, then you can then access Azure Files using the same Azure AD credentials. The limitation is imposed not on the subscription but on the associated Azure AD tenant.    
+    
+* <a id="ad-support-subscription"></a>
+**Can I enable Azure AD authentication over SMB for Azure Files with an Azure AD tenant that is different from the primary tenant with which the file share is assoicated?**
+
+    No, Azure Files only supports Azure AD integration with an Azure AD tenant that resides in the same subscription as the file share. Only one subscription can be associated with an Azure AD tenant.
+
+* <a id="ad-linux-vms"></a>
+**Does Azure AD authentication over SMB for Azure Files (Preview) support Linux VMs?**
+
+    No, authentication from Linux VMs is not supported in the preview release.
+
+* <a id="ad-aad-smb-afs"></a>
+**Can I leverage Azure AD authentication over SMB capabilities on file shares managed by Azure File Sync?**
+
+    No, Azure Files does not support preserving NTFS ACLs on file shares managed by Azure File Sync. The file ACLs carried from on-premises file servers are persisted by Azure File Sync. Any NTFS ACLs configured natively against Azure Files will be overwritten by the Azure File Sync service. Additionally, Azure Files does not support authentication with Azure AD credentials for access to file shares managed by the Azure File Sync service.
 
 * <a id="encryption-at-rest"></a>
 **How can I ensure that my Azure file share is encrypted at rest?**  
+
     Azure Storage Service Encryption is in the process of being enabled by default in all regions. For these regions, you don't need to take any actions to enable encryption. For other regions, see [Server-side encryption](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 * <a id="access-via-browser"></a>
 **How can I provide access to a specific file by using a web browser?**  
+
     You can use shared access signatures to generate tokens that have specific permissions, and which are valid for a specified time interval. For example, you can generate a token that gives read-only access to a specific file, for a set period of time. Anyone who possesses the URL can access the file directly from any web browser while the token is valid. You can easily generate a shared access signature key from a UI like Storage Explorer.
 
 * <a id="file-level-permissions"></a>
 **Is it possible to specify read-only or write-only permissions on folders within the share?**  
+
     If you mount the file share by using SMB, you don't have folder-level control over permissions. However, if you create a shared access signature by using the REST API or client libraries, you can specify read-only or write-only permissions on folders within the share.
 
 * <a id="ip-restrictions"></a>
 **Can I implement IP restrictions for an Azure file share?**  
+
     Yes. Access to your Azure file share can be restricted at the storage account level. For more information, see [Configure Azure Storage Firewalls and Virtual Networks](../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 * <a id="data-compliance-policies"></a>
 **What data compliance policies does Azure Files support?**  
+
    Azure Files runs on top of the same storage architecture that's used in other storage services in Azure Storage. Azure Files applies the same data compliance policies that are used in other Azure storage services. For more information about Azure Storage data compliance, you can refer to [Azure Storage compliance offerings](https://docs.microsoft.com/en-us/azure/storage/common/storage-compliance-offerings), and go to the [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx).
 
 ## On-premises access
 * <a id="expressroute-not-required"></a>
 **Do I have to use Azure ExpressRoute to connect to Azure Files or to use Azure File Sync on-premises?**  
+
     No. ExpressRoute is not required to access an Azure file share. If you are mounting an Azure file share directly on-premises, all that's required is to have port 445 (TCP outbound) open for internet access (this is the port that SMB uses to communicate). If you're using Azure File Sync, all that's required is port 443 (TCP outbound) for HTTPS access (no SMB required). However, you *can* use ExpressRoute with either of these access options.
 
 * <a id="mount-locally"></a>
 **How can I mount an Azure file share on my local machine?**  
+
     You can mount the file share by using the SMB protocol if port 445 (TCP outbound) is open and your client supports the SMB 3.0 protocol (for example, if you're using Windows 10 or Windows Server 2016). If port 445 is blocked by your organization's policy or by your ISP, you can use Azure File Sync to access your Azure file share.
 
 ## Backup
@@ -237,6 +285,7 @@ This article answers common questions about Azure Files features and functionali
     You can use periodic [share snapshots](storage-snapshots-files.md) for protection against accidental deletions. You also can use AzCopy, Robocopy, or a third-party backup tool that can back up a mounted file share. Azure Backup offers backup of Azure Files. Learn more about [back up Azure file shares by Azure Backup](https://docs.microsoft.com/en-us/azure/backup/backup-azure-files).
 
 ## Share snapshots
+
 ### Share snapshots: General
 * <a id="what-are-snaphots"></a>
 **What are file share snapshots?**  
@@ -257,10 +306,14 @@ This article answers common questions about Azure Files features and functionali
 * <a id="snapshot-limits"></a>
 **Are there limits on the number of share snapshots I can use?**  
     Yes. Azure Files can retain a maximum of 200 share snapshots. Share snapshots do not count toward the share quota, so there is no per-share limit on the total space that's used by all the share snapshots. Storage account limits still apply. After 200 share snapshots, you must delete older snapshots to create new share snapshots.
+
 * <a id="snapshot-cost"></a>
-**How much does share snapshot cost?**  
+**How much do share snapshots cost?**  
     Standard transaction and standard storage cost will apply to snapshot. Snapshots are incremental in nature. The base snapshot is the share itself. All the subsequent snapshots are incremental and will only store the diff from the previous snapshot. This means that the delta changes that will be seen in the bill will be minimal if your workload churn is minimal. See [Pricing page](https://azure.microsoft.com/pricing/details/storage/files/) for Standard Azure Files pricing information. Today the way to look at size consumed by share snapshot is by comparing the billed capacity with used capacity. We are working on tooling to improve the reporting.
 
+* <a id="ntfs-acls-snaphsots"></a>
+**Are NTFS ACLs on directories and files persisted in share snapshots?**
+    NTFS ACLs on directories and files are persisted in share snapshots.
 
 ### Create share snapshots
 * <a id="file-snaphsots"></a>
