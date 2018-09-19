@@ -26,21 +26,16 @@ This article describes how to deploy a Kubernetes cluster to Azure Government us
 * Download [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
 
 ## Define your Kubernetes cluster configuration
-1. Download the sample acs-engine `apimodel.json` [for Kubernetes 1.8](https://raw.githubusercontent.com/Azure/acs-engine/master/examples/kubernetes-releases/kubernetes1.8.json).
+1. Download the sample acs-engine `kubernetes1.8.json` [for Kubernetes 1.8](https://raw.githubusercontent.com/Azure/acs-engine/master/examples/kubernetes-releases/kubernetes1.8.json).
 
     > [!NOTE]
     > Only use Kubernetes version 1.8 or greater to if you intend to use Azure Files with Azure Government.
     >
     >
 
-1. Modify the following values in your `apimodel.json` file:
+1. Modify the following values in your `kubernetes1.8.json` file:
     * `dnsPrefix`: The dns name you want for the cluster. For example, `contoso` will result in `https://contoso.usgovvirginia.cloudapp.usgovcloudapi.net`
     * `keyData`: The public SSH key to SSH into the Kubernetes cluster. See [How to create and use an SSH public and private key pair for Linux VMs in Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
-    * `clientId` and `secret`: The client ID and secret for the Azure AD service principal that Kubernetes uses to communicate with Azure Government (for example, to create load balancers, request public IPs and access Azure storage). 
-    
-        > [!NOTE]
-        > Make sure this service principal is set up with the correct scope. See [ACS-Engine: Service Principals](https://github.com/Azure/acs-engine/blob/master/docs/serviceprincipal.md).
-        >
 
 ## Deploy your Kubernetes cluster using acs-engine
 1. Obtain your Subscription ID. The subscription ID is available in the Azure portal, via Powershell and via the Azure CLI:
@@ -56,7 +51,7 @@ This article describes how to deploy a Kubernetes cluster to Azure Government us
 1. Use acs-engine to deploy your template to Azure Government. This operation takes up to 30 minutes for three nodes.
 
     ```bash
-    acs-engine deploy --azure-env AzureUSGovernmentCloud --location usgovvirginia --subscription-id <YOUR_SUBSCRIPTION_ID> --api-model apimodel.json
+    acs-engine deploy --azure-env AzureUSGovernmentCloud --location usgovvirginia --subscription-id <YOUR_SUBSCRIPTION_ID> --api-model kubernetes1.8.json
     ```
 
 ## Connect to your Kubernetes cluster
