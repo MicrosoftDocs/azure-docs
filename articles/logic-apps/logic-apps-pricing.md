@@ -2,34 +2,42 @@
 title: Pricing & billing - Azure Logic Apps | Microsoft Docs
 description: Learn how pricing and billing works for Azure Logic Apps
 services: logic-apps
-author: kevinlam1
-manager: jeconnoc
-editor: 
-documentationcenter: 
-
-ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: 
-ms.devlang: 
-ms.topic: article
-ms.date: 05/11/2018
+ms.suite: logic-apps
+author: kevinlam1
 ms.author: klam
+ms.reviewer: estfan, LADocs
+ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
+ms.topic: article
+ms.date: 09/24/2018
 ---
 
-# Logic Apps pricing model
+# Pricing model for Azure Logic Apps
 
-You can create and run automated scalable integration workflows in the cloud with Azure Logic Apps. 
+You can create and run automated scalable integration 
+workflows in the cloud with Azure Logic Apps. 
 Here are the details about how billing and pricing work for Logic Apps. 
 
 ## Consumption pricing model
 
-With newly created logic apps, you pay only for what you use. 
-New logic apps use a consumption plan and pricing model, 
-which means that all the action executions performed by a logic app instance are metered. 
-Every step in a logic app definition is an action, which includes triggers, 
+For new logic apps that you create by using the public or "global" 
+Logic Apps service, you pay only for what you use. These logic apps 
+use a consumption-based plan and pricing model, which means that all 
+action executions performed by a logic app are metered. Every step 
+in a logic app definition is an action, which includes triggers, 
 control flow steps, calls to built-in actions, and calls to connectors. 
 For more information, see [Logic Apps Pricing](https://azure.microsoft.com/pricing/details/logic-apps).
+
+<a name="fixed-pricing">
+
+## Fixed pricing model
+
+For new logic apps that you create in an *integration service environment* (ISE), 
+which is a private isolated Logic Apps instance that uses dedicated resources, 
+you pay a fixed monthly price for built-in actions and standard ISE-labeled connectors. 
+Your ISE includes one Enterprise connector at no charge, while additional Enterprise 
+connectors are charged based on the Enterprise consumption price. For more information, see 
+[Logic Apps Pricing](https://azure.microsoft.com/pricing/details/logic-apps).
 
 <a name="triggers"></a>
 
