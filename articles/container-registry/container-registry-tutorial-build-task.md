@@ -29,7 +29,7 @@ This tutorial assumes you've already completed the steps in the [previous tutori
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you'd like to use the Azure CLI locally, you must have Azure CLI version **2.0.46** or later installed. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI][azure-cli].
+If you'd like to use the Azure CLI locally, you must have Azure CLI version **2.0.46** or later installed  and logged in with [az login][az-login]. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI][azure-cli].
 
 ## Prerequisites
 
@@ -45,7 +45,7 @@ You must have an Azure container registry in your Azure subscription to complete
 
 A task defines the properties of an automated build, including the location of the container image source code and the event that triggers the build. When an event defined in the task occurs, such as a commit to a Git repository, ACR Tasks initiates a container image build in the cloud. By default, it then pushes a successfully built image to the Azure container registry specified in the task.
 
-ACR tasks currently supports the following triggers:
+ACR Tasks currently support the following triggers:
 
 * Commit to a Git repository
 * Base image update
@@ -326,6 +326,7 @@ Output from the command should appear similar to the following. The runs that AC
 
 ```console
 $ az acr task list-runs --registry $ACR_NAME --output table
+
 RUN ID    TASK             PLATFORM    STATUS     TRIGGER     STARTED               DURATION
 --------  --------------  ----------  ---------  ----------  --------------------  ----------
 da4       taskhelloworld  Linux       Succeeded  Git Commit  2018-09-17T23:03:45Z  00:00:44

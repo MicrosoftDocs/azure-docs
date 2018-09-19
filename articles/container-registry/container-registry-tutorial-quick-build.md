@@ -16,9 +16,9 @@ ms.custom: mvc
 
 # Tutorial: Build container images in the cloud with Azure Container Registry Tasks
 
-**ACR Tasks** is a suite of features within Azure Container Registry that provides streamlined and efficient Docker container image builds in Azure. In this article, you learn how to use the *Quick Task* feature of ACR Tasks.
+**ACR Tasks** is a suite of features within Azure Container Registry that provides streamlined and efficient Docker container image builds in Azure. In this article, you learn how to use the *quick task* feature of ACR Tasks.
 
-The "inner-loop" development cycle is the iterative process of writing code, building, and testing your application before committing to source control. A Quick Task extends your inner-loop to the cloud, providing you with build success validation and automatic pushing of successfully built images to your container registry. Your images are built natively in the cloud, close to your registry, enabling faster deployment.
+The "inner-loop" development cycle is the iterative process of writing code, building, and testing your application before committing to source control. A quick task extends your inner-loop to the cloud, providing you with build success validation and automatic pushing of successfully built images to your container registry. Your images are built natively in the cloud, close to your registry, enabling faster deployment.
 
 All your Dockerfile expertise is directly transferrable to ACR Tasks. You don't have to change your Dockerfiles to build in the cloud with ACR Tasks, just the command you run.
 
@@ -33,7 +33,7 @@ In subsequent tutorials, you learn to use ACR Tasks for automated container imag
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you'd like to use the Azure CLI locally, you must have Azure CLI version **2.0.46** or later installed and log in with [az login][az-login]. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI][azure-cli].
+If you'd like to use the Azure CLI locally, you must have Azure CLI version **2.0.46** or later installed and logged in with [az login][az-login]. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI][azure-cli].
 
 ## Prerequisites
 
@@ -88,7 +88,7 @@ az group create --resource-group $RES_GROUP --location eastus
 az acr create --resource-group $RES_GROUP --name $ACR_NAME --sku Standard --location eastus
 ```
 
-Now that you have a registry, use ACR tasks to build a container image from the sample code. Execute the [az acr build][az-acr-build] command to perform a *quick task*:
+Now that you have a registry, use ACR Tasks to build a container image from the sample code. Execute the [az acr build][az-acr-build] command to perform a *quick task*:
 
 ```azurecli-interactive
 az acr build --registry $ACR_NAME --image helloacrtasks:v1 .
