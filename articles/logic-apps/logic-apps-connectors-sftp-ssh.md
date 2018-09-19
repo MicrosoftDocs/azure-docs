@@ -28,9 +28,9 @@ along with other actions, for example:
 * Extract archives to folders.
 
 
-There are few key difference between SFTP - SSH and the SFTP connector. SFTP - SSH connector:
+There are few key differences between SFTP - SSH and the [SFTP](connectors-create-api-sftp.md) connector. SFTP - SSH connector:
 * uses <a href="https://github.com/sshnet/SSH.NET" target="_blank">**SSH.NET**</a> which is an open source Secure Shell (SSH) library for .NET.
-* provides large files support of upto **1 GB**. The connector can read or write files that are as large as 1 GB
+* provides large files support of upto **1 Giga byte (GB)**. The connector can read or write files that are as large as 1 GB
 * provides **Create folder** action, to create folder at the specified path on the SFTP server
 * provides **Rename file** action, to rename file on the SFTP server
 * caches the connection to SFTP server to improve performance and reduce number of connection attempts on the server. 
@@ -38,7 +38,7 @@ Users can control the duration for which the connection is cached by configuring
 
 
 ## How trigger polling works
-The triggers work by polling the SFTP file system, and looking for any file which has been modified since the last poll. Certain tools allow the file modification time to be preserved. In such cases, you need to disable the feature for your trigger to work. Here are some common settings:
+The triggers work by polling the SFTP file system, and looking for any file that has been modified since the last poll. Certain tools allow the file modification time to be preserved. In such cases, you need to disable the feature for your trigger to work. Here are some common settings:
 
 | SFTP client                  | Action                                                                           |
 | :--------------------------- | :--------------------------------------------------------------------------------|
@@ -46,9 +46,9 @@ The triggers work by polling the SFTP file system, and looking for any file whic
 | FileZilla                    | Transfer → Preserve timestamps of transferred files → Disable                    |
 
 
-When the triggers encounter a new file, it will try to ensure that the new file is completely written. For instance, it is possible that the file is being written or modified, and updates are being made at the time the trigger polled the file server. To avoid returning a file with partial content, the trigger will take note of the timestamp such files which are modified recently, but will not immediately return those files. Those files will be returned only when the trigger polls again. Sometimes, this may lead a delay up to twice the trigger polling interval.
+When the triggers encounter a new file, it will try to ensure that the new file is completely written. For instance, it is possible that the file is being written or modified, and updates are being made at the time the trigger polled the file server. To avoid returning a file with partial content, the trigger will take note of the timestamp of files which are modified recently, but will not immediately return those files. Those files will be returned only when the trigger polls again. Sometimes, this may lead a delay up to twice the trigger polling interval.
 
-The trigger doesn't pick up files over 50MB if the content is asked for. To pick files larger than 50MB, the recommended pattern is to use trigger that returns file properties like **When a file is added or modified (properties only)**, followed by an action to read full file, like **Get file content using path**.
+The trigger doesn't pick up files over 50MB if the content is asked for. To pick files larger than 50 MB, the recommended pattern is to use trigger that returns file properties like **When a file is added or modified (properties only)**, followed by an action to read full file, like **Get file content using path**.
 
 
 You can use triggers that get responses from your SFTP server and 
@@ -74,15 +74,14 @@ If you're new to logic apps, review
    1. Open the SSH private key file in Notepad.exe
    2. Click Edit → Select All
    3. Click Edit → Copy
-   4. In the "SSH private key" field (while creating a connection) click right mouse button and click Paste. Do not edit the "SSH private key" field manually.
+   4. In the "SSH private key" field (while creating a connection), click right mouse button and click Paste. Do not edit the "SSH private key" field manually.
 
   > [!NOTE]
   > The connector uses SSH.NET library which supports following SSH private key formats
   > * RSA 
   > * DSA
   > Also, the library supports MD5 finger-print only.
-
-
+  
 
 * Basic knowledge about 
 [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
