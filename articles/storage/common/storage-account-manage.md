@@ -25,7 +25,11 @@ The **Access control** settings in the Azure portal offer a simple way to assign
 
 ## Tags
 
-Azure Storage supports Azure Resource Manager tags for organizing your Azure resources with a customized taxonomy. You can apply tags to your storage accounts so that you can group them within your subscription in a logical manner. For more information, see [Use tags to organize your Azure resources](../../azure-resource-manager/resource-group-using-tags.md).
+Azure Storage supports Azure Resource Manager tags for organizing your Azure resources with a customized taxonomy. You can apply tags to your storage accounts so that you can group them within your subscription in a logical manner. 
+
+For storage accounts, a tag name is limited to 128 characters, and a tag value is limited to 256 characters.
+
+For more information, see [Use tags to organize your Azure resources](../../azure-resource-manager/resource-group-using-tags.md).
 
 ## Access keys
 
