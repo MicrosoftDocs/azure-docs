@@ -32,6 +32,164 @@ Azure AD receives improvements on an ongoing basis. To stay up-to-date with the 
 This page is updated monthly, so revisit it regularly.
 
 ---
+## September 2018
+ 
+### Specific administrator roles can now manage dynamic membership rules in Azure AD
+
+**Type:** Fixed  
+**Service category:** Group Management  
+**Product capability:** Collaboration
+
+We've fixed an issue so specific administrator roles can now create and update dynamic membership rules, without needing to be the owner of the group.
+
+The roles are:
+
+- Global administrator or Company Writer
+
+- Intune Service Administrator
+
+- User Account Administrator
+
+For more information, see ...
+
+---
+
+### Simplified Single Sign-On (SSO) configuration settings for some third-party apps
+
+**Type:** New feature  
+**Service category:** Enterprise Apps  
+**Product capability:** SSO
+
+We realize that setting up Single Sign-On (SSO) for Software as a Service (SaaS) apps can be challenging due to the unique nature of each apps configuration. We've built a simplified configuration experience to auto-populate the SSO configuration settings for the following third-party SaaS apps:
+
+- Zendesk
+
+- ArcGis Online
+
+- Jamf Pro
+
+To start using this 1-click experience, go to the **Azure portal** > **SSO configuration** page for the app.
+
+For more information, see ...
+
+---
+
+### New Azure Active Directory - Where is your data located? page
+
+**Type:** New feature  
+**Service category:** Other  
+**Product capability:** GoLocal
+
+Select a region from the **Azure Active Directory - Where is your data located** page (http://aka.ms/AADDataMap) to view which Azure datacenter houses your Azure AD data at rest for all Azure AD services. You can also use this page to view specific Azure AD services for your company's region.
+
+For more information, see ...
+
+---
+
+### Present your organization's Azure AD B2C sign-in page on your own domain 
+
+**Type:** New feature  
+**Service category:** B2C - Consumer Identity Management  
+**Product capability:** B2B/B2C
+
+You can now present your organization's Azure AD B2C experiences on your own domain.
+
+For more information, see ...
+
+---
+
+### New deployment plan available for the MyApps Access panel
+
+**Type:** New feature  
+**Service category:** My Apps  
+**Product capability:** SSO
+
+Check out the new deployment plan that's available for the MyApps Access panel (http://aka.ms/deploymentplans).
+The MyApps Access panel provides users with a single place to find and access their apps. This portal also provides users with self-service opportunities, such as requesting access to apps and groups, or managing access to these resources on behalf of others.
+
+For more information, see ...
+
+---
+
+### New Troubleshooting and Support tab on the Sign-ins Logs page of the Azure Portal
+
+**Type:** New feature  
+**Service category:** Reporting  
+**Product capability:** Monitoring & Reporting
+
+The new **Troubleshooting and Support** tab on the **Sign-ins** page of the Azure portal, is intended to help admins and support engineers troubleshoot issues related to Azure AD sign-ins. This new tab provides the error code, error message, and remediation recommendations (if any) to help solve the problem. If you're unable to resolve the problem, we also give you a new way to create a support ticket using the **Copy to clipboard** experience, which populates the **Request ID** and **Date (UTC)** fields for the log file in your support ticket.  
+
+For more information, see ... 
+
+---
+
+### Enhanced error messaging on Azure AD sign-in pages
+
+**Type:** New feature  
+**Service category:** Authentications (Logins)  
+**Product capability:** User Authentication
+ 
+We’ve enhanced the error messaging for the Azure AD sign-in pages. This enhancement helps users understand whether they've entered the wrong username or password, or if both the username and password are correct, but aren't synced to Azure AD. This is particularly helpful for users in partially synced organizations, who might have a valid work email address, but whose account hasn't yet been synced to Azure AD.
+
+For more information, see [Hybrid identity and Microsoft's identity solutions](../hybrid/whatis-hybrid-identity.md)
+
+---
+
+### Updated B2C policy management experience
+
+**Type:** Changed feature  
+**Service category:** B2C - Consumer Identity Management  
+**Product capability:** B2B/B2C
+
+We've updated the built-in policies name to _user flows_, along with making the creation and management experience easier. To use the new experience, click the banner at the top of your directory **Overview** page. Provide us with feedback by using the smile and frown buttons at the top of the portal.
+
+For more information, see ...
+
+---
+
+### Enhanced support for custom extension properties used to create dynamic membership rules
+
+**Type:** Changed feature  
+**Service category:** Group Management  
+**Product capability:** Collaboration
+
+With this update, you can now click the **Get custom extension properties** link from the dynamic user group rule builder, enter your unique app ID, and receive the full list of custom extension properties to use when creating a dynamic membership rule for users. This list can also be refreshed to get any new custom extension properties for that app.
+
+For more information about using custom extension properties for dynamic membership rules, see [Extension properties and custom extension properties](../users-groups-roles/groups-dynamic-membership.md#extension-properties-and-custom-extension-properties)
+
+---
+
+### New approved client apps for Azure AD app-based conditional access
+
+**Type:** Plan for change  
+**Service category:** Conditional access  
+**Product capability:** Identity security and protection
+
+The following apps are on the list of [approved client apps](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement):
+
+- Microsoft To-Do
+
+- Microsoft Stream
+
+For more information, see:
+- [Approved client app requirement](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
+
+- [Azure AD app-based conditional access](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
+
+---
+
+### New support for Self-Service Password Reset from the Windows 7/8/8.1 Lock screen
+
+**Type:** New feature  
+**Service category:** SSPR  
+**Product capability:** User Authentication
+
+After you set up this new feature, your users will see a link to reset their password from the **Lock** screen of a device running Windows 7, Windows 8, or Windows 8.1. By clicking that link, the user is guided through the same password reset flow as through the web browser.
+
+For more information, see ...
+
+---
+
 ## August 2018
 
 ### Changes to Azure Active Directory IP address ranges
