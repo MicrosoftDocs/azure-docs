@@ -30,6 +30,7 @@ With the [unified alerts experience](https://aka.ms/azure-alerts-overview) in Az
     ![Alerts Summary](./media/monitoring-alerts-managing-alerts-instances/alerts-summary.jpg)
  
 1.	You will land on the **All Alerts** page, where you will see all the alert instances across Azure listed out. If you’re coming to the portal from an alert notification, you can use the filters available to narrow in on that specific alert instance. (**Note**: if you came to the page by clicking on any of the severity bands, the list will be pre-filtered for that severity when you land). Apart from the filters available on the previous page, you can now also filter on the basis of monitor service (for example, Platform for metrics), monitor condition (fired or resolved), severity, alert state (new/acknowledged/closed), or the smart group ID.
+
     ![All Alerts](./media/monitoring-alerts-managing-alerts-instances/all-alerts.jpg)
 
     > [!NOTE]
