@@ -36,7 +36,7 @@ The following smart group states are supported.
 > [!NOTE]
 >  Changing the state of a smart group does not change the state of the individual member alerts.
 
-## Smart group details Page
+## Smart group details page
 
 The Smart group detail page is displayed when you select a smart group. It provides details about the smart group, including the reasoning that was used to create the group, and enables you to change its state.
  
@@ -50,11 +50,11 @@ The smart group detail page includes the following sections.
 | Alerts | Lists the individual alerts that are included in the smart group. Select an alert to open its alert detail page. |
 | History | Lists each action taken by the smart group and any changes that are made to it. This is currently limited to state changes and alert membership changes. |
 
-## Smart Group Taxonomy
+## Smart group taxonomy
 
 The name of a smart group is the name of its first alert. You can't create or rename a smart group.
 
-## Next Steps
+## Next steps
 
 - [Manage smart groups](https://aka.ms/managing-smart-groups)
 - [Change your alert and smart group state](https://aka.ms/managing-alert-smart-group-states)
