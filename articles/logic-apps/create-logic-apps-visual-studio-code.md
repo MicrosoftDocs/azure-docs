@@ -128,7 +128,9 @@ and then press ENTER.
 
    ![Name your resource group](./media/create-logic-apps-visual-studio-code/enter-name-resource-group.png)
 
-1. Select the location for where to save your logic app's metdata.
+1. Select the datacenter location for where to save your logic app's metadata.
+
+
 
 1. In the empty file, start creating your logic app's workflow definition. 
 For reference, see the [Workflow Definition Language schema for logic apps](../logic-apps/logic-apps-workflow-definition-language.md).
