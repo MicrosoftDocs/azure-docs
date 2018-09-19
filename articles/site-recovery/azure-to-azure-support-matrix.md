@@ -33,7 +33,7 @@ This article summarizes supported configurations and components when you replica
 --- | --- | ---
 **Move vault across resource groups** | Not supported<br/><br/> You can't move a Recovery services vault across resource groups.
 **Move compute/storage/network resources across resource groups** | Not supported.<br/><br/> If you move a VM or associated components such as storage/network after it's replicating, you need to disable replication and reenable replication for the VM.
-**Replicate Azure VMs from one subscription to another for disaster recovery** | Supported within the same Azure Active Directory tenant for 'Resource manager deployment model' VMs. Not supported for 'Classic deployment model' VMs.
+**Replicate Azure VMs from one subscription to another for disaster recovery** | Supported within the same Azure Active Directory tenant. Not supported for classic VMs.
 **Migrate VMs across regions within the supported geographical clusters (within and across subscriptions)** | Supported within the same Azure Active Directory tenant for 'Resource manager deployment model' VMs. Not supported for 'Classic deployment model' VMs.
 **Migrate VMs within the same region** | Not supported.
 
@@ -166,7 +166,8 @@ Standard Managed disks | Supported in Azure regions in which Azure Site Recovery
 Premium Managed disks | Supported in Azure regions in which Azure Site Recovery is supported. |
 Storage spaces | Supported |   	 	 
 Encryption at rest (SSE) | Supported | SSE is the default setting on storage accounts.	 
-Azure Disk Encryption (ADE) | Not supported |
+Azure Disk Encryption (ADE) for Windows OS | VMs enabled for [encryption with Azure AD app](https://aka.ms/ade-aad-app) are supported |
+Azure Disk Encryption (ADE) for Linux OS | Not supported |
 Hot add/remove disk	| Not supported | If you add or remove data disk on the VM, you need to disable replication and enable replication again for the VM.
 Exclude disk | Not supported|	Temporary disk is excluded by default.
 Storage Spaces Direct  | Not supported|
@@ -202,7 +203,7 @@ Authenticated Proxy | Not supported | If the VM is using an authenticated proxy 
 Site to Site VPN with on-premises (with or without ExpressRoute)| Supported | Ensure that the UDRs and NSGs are configured in such a way that the Site recovery traffic is not routed to on-premises. Refer to [networking guidance document.](site-recovery-azure-to-azure-networking-guidance.md)	 
 VNET to VNET connection	| Supported | Refer to [networking guidance document.](site-recovery-azure-to-azure-networking-guidance.md)	 
 Virtual Network Service Endpoints | Supported | Azure Storage firewalls for virtual networks are not supported. Allowing access to specific Azure virtual networks on cache storage accounts used to store replicated data is not supported.
-Accelerated Networking | Not supported | A VM with Accelerated Networking enabled can be replicated, but the failover VM will not have Accelerated Networking enabled. Accelerated Networking will also be disabled for source VM on failback.
+Accelerated Networking | Supported | Accelerated Networking must be enabled on source VM. [Learn more](azure-vm-disaster-recovery-with-accelerated-networking.md).
 
 
 ## Next steps

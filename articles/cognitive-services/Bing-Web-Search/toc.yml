@@ -4,10 +4,10 @@
   items:
   - name: What is Bing Web Search?
     href: overview.md
+    expanded: true
 - name: Quickstarts
   items:
   - name: REST APIs
-    expanded: true
     items:
     - name: C#
       href: quickstarts/csharp.md
@@ -37,8 +37,6 @@
   items:
   - name: Build a single-page web app
     href: tutorial-bing-web-search-single-page-app.md
-  - name: Single-page web app (source code)
-    href: tutorial-bing-web-search-single-page-app-source.md
 - name: Samples
   items:
   - name: REST samples
