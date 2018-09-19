@@ -15,7 +15,7 @@ ms.author: ankhanol
 
 # Read Azure Cosmos DB Cassandra API tables from Spark
 
-This article is part of a series, which shows how to use Comos DB from Spark using scala. This article describes how to read data stored in Azure Cosmos DB Cassandra API account from Spark.
+ This article describes how to read data stored in Azure Cosmos DB Cassandra API from Spark.
 
 ## Cassandra API configuration
 ```scala
@@ -79,7 +79,7 @@ readBooksDF.show
 
 ### Apply filters
 
-Currently predicate pushdown is not supported, the samples below reflect client-side filtering. Filtering by partition key is supported on the server-side currently with the dataframe API.  
+Currently predicate pushdown is not supported, the samples below reflect client-side filtering. 
 
 ```scala
 val readBooksDF = spark
@@ -134,7 +134,7 @@ select * from books_vw where book_pub_year > 1891
 
 ## Next steps
 
-The following are additional articles on working with Cosmos DB Cassandra API from Spark:
+The following are additional articles on working with Azure Cosmos DB Cassandra API from Spark:
  
  * [Upsert operations](cassandra-spark-upsert-ops.md)
  * [Delete operations](cassandra-spark-delete-ops.md)
