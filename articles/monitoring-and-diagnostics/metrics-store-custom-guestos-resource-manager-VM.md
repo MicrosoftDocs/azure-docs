@@ -39,40 +39,188 @@ https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-wi
 
 - **Azuredeploy.parameters.json** is a parameters file that stores information like what username and password you would like to set for your VM. During deployment, the Resource Manager template uses the parameters set in this file. 
 
-Alertnatively, the sample files with the modification listed in this are available at the following links. You will still have to skim the steps to fill in some variables.  
+Download and save both files locally. 
 
-- [Modified **Azuredeploy.json**](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/monitoring-and-diagnostics/code/metrics-custom-guestos-resource-manager-VM/azuredeploy.json)
-
-- [Modified **Azuredeploy.parameters.json**](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/monitoring-and-diagnostics/code/metrics-custom-guestos-resource-manager-VM/azuredeploy.parameters.json) 
-
-
-### Steps to modify original template
-Save both files locally. 
-
+###  Modify azuredeploy.parameters.json
 Open the *azuredeploy.parameters.json* file 
 
 1. Enter values for *adminUsername* and *adminPassword* for the VM. These parameters are used for remote access to the VM. DO NOT use the ones in this template to avoid having your VM hijacked. Bots scan the internet for usernames and passwords in public Github repositories. They are likely to be testing VMs with these defaults.  
 
 1. Create a unique dnsname for the VM.  
 
-Open the *azuredeploy.json* file 
+### Modify azuredeploy.json
+
+Open the **azuredeploy.json* file 
 
 Add a storage account ID to the **variables** section of the template after the entry for **storageAccountName**.  
 
-[!code-json[](./code/metrics-custom-guestos-resource-manager-VM/azuredeploy.json?range=46-51&highlight=2)]
+```json
+// Find these lines 
+"variables": { 
+    "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'sawinvm')]", 
 
+// Add this line directly below.  
+    "accountid": "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]", 
+```
 
 Add this Managed Service Identity (MSI) extension to the template at the top of the "resources" section.  The extension ensures that Azure Monitor accepts the metrics being emitted.  
 
-[!code-json[extension](./code/metrics-custom-guestos-resource-manager-VM/azuredeploy.json?range=56-77&highlight=3-20)]
+```json
+//Find this code 
+"resources": [
+// Add this code directly below
+    { 
+        "type": "Microsoft.Compute/virtualMachines/extensions", 
+        "name": "WADExtensionSetup", 
+        "apiVersion": "2015-05-01-preview", 
+        "location": "[resourceGroup().location]", 
+        "dependsOn": [ 
+            "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]" ], 
+        "properties": { 
+            "publisher": "Microsoft.ManagedIdentity", 
+            "type": "ManagedIdentityExtensionForWindows", 
+            "typeHandlerVersion": "1.0", 
+            "autoUpgradeMinorVersion": true, 
+            "settings": { 
+                "port": 50342 
+            } 
+        } 
+    }, 
+    ```
 
 Add the "identity" configuration to the VM resource to ensure Azure assigns the MSI extension a system identity. This step ensures the VM can emit guest metrics about itself to Azure Monitor 
 
-[!code-json[identity](./code/metrics-custom-guestos-resource-manager-VM/azuredeploy.json?range=145-157&highlight=7-9)]
+```json
+// Find this section
+                "subnet": {
+            "id": "[variables('subnetRef')]"
+            }
+        }
+        }
+    ]
+    }
+},
+{ 
+        "apiVersion": "2017-03-30", 
+        "type": "Microsoft.Compute/virtualMachines", 
+        "name": "[variables('vmName')]", 
+        "location": "[resourceGroup().location]", 
+// add these 3 lines below
+        "identity": {  
+        "type": "SystemAssigned" 
+        }, 
+//end of added lines
+        "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
+        "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
+        ],
+        "properties": {
+        "hardwareProfile": {   
+        ...
+```
 
 Add the following configuration to enable the diagnostics extension on a Windows Virtual Machine.  For a simple Resource Manager-based Virtual Machine, we can add the extension configuration to the resources array for the Virtual Machine. The line "sinks": "AzMonSink",  and the corresponding "SinksConfig" later in the section enable the extension to emit metrics directly to Azure Monitor. Feel free to add/remove performance counters as needed.  
 
-[!code-json[identity](./code/metrics-custom-guestos-resource-manager-VM/azuredeploy.json?range=185-284&highlight=8-93)]
+
+```json
+        "networkProfile": {
+            "networkInterfaces": [
+            {
+                "id": "[resourceId('Microsoft.Network/networkInterfaces',variables('nicName'))]"
+            }
+            ]
+        },
+"diagnosticsProfile": { 
+    "bootDiagnostics": { 
+    "enabled": true, 
+    "storageUri": "[reference(resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))).primaryEndpoints.blob]" 
+    } 
+} 
+}, 
+//Start of section to add 
+"resources": [        
+{ 
+            "type": "extensions", 
+            "name": "Microsoft.Insights.VMDiagnosticsSettings", 
+            "apiVersion": "2015-05-01-preview", 
+            "location": "[resourceGroup().location]", 
+            "dependsOn": [ 
+            "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]" 
+            ], 
+            "properties": { 
+            "publisher": "Microsoft.Azure.Diagnostics", 
+            "type": "IaaSDiagnostics", 
+            "typeHandlerVersion": "1.4", 
+            "autoUpgradeMinorVersion": true, 
+            "settings": { 
+                "WadCfg": { 
+                "DiagnosticMonitorConfiguration": { 
+    "overallQuotaInMB": 4096, 
+    "DiagnosticInfrastructureLogs": { 
+                    "scheduledTransferLogLevelFilter": "Error" 
+        }, 
+                    "Directories": { 
+                    "scheduledTransferPeriod": "PT1M", 
+    "IISLogs": { 
+                        "containerName": "wad-iis-logfiles" 
+                    }, 
+                    "FailedRequestLogs": { 
+                        "containerName": "wad-failedrequestlogs" 
+                    } 
+                    }, 
+                    "PerformanceCounters": { 
+                    "scheduledTransferPeriod": "PT1M", 
+                    "sinks": "AzMonSink", 
+                    "PerformanceCounterConfiguration": [ 
+                        { 
+                        "counterSpecifier": "\\Memory\\Available Bytes", 
+                        "sampleRate": "PT15S" 
+                        }, 
+                        { 
+                        "counterSpecifier": "\\Memory\\% Committed Bytes In Use", 
+                        "sampleRate": "PT15S" 
+                        }, 
+                        { 
+                        "counterSpecifier": "\\Memory\\Committed Bytes", 
+                        "sampleRate": "PT15S" 
+                        } 
+                    ] 
+                    }, 
+                    "WindowsEventLog": { 
+                    "scheduledTransferPeriod": "PT1M", 
+                    "DataSource": [ 
+                        { 
+                        "name": "Application!*" 
+                        } 
+                    ] 
+                    }, 
+                    "Logs": { 
+                    "scheduledTransferPeriod": "PT1M", 
+                    "scheduledTransferLogLevelFilter": "Error" 
+                    } 
+                }, 
+                "SinksConfig": { 
+                    "Sink": [ 
+                    { 
+                        "name" : "AzMonSink", 
+                        "AzureMonitor" : {} 
+                    } 
+                    ] 
+                } 
+                }, 
+                "StorageAccount": "[variables('storageAccountName')]" 
+            }, 
+            "protectedSettings": { 
+                "storageAccountName": "[variables('storageAccountName')]", 
+                "storageAccountKey": "[listKeys(variables('accountid'),'2015-06-15').key1]", 
+                "storageAccountEndPoint": "https://core.windows.net/" 
+            } 
+            } 
+        } 
+        ] 
+//End of section to add 
+```
+
 
 Save and close both files 
  

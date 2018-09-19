@@ -184,10 +184,10 @@ An active timeseries is defined as any unique combination of metric, dimension k
 
 ## Next steps
 Use custom metrics from different services 
- - [Virtual Machine](metrics-store-custom-guestos)
- - [Virtual Machine Scale set](metrics-custom-overview.md)
- - [Virtual Machine (classic)](metrics-custom-overview.md)
- - [Linux Virtual Machine using Telegraf agent](metrics-custom-overview.md)
- - [REST API](metrics-custom-overview.md)
- - [Cloud Service (classic)](metrics-custom-overview.md)
+ - [Virtual Machine](metrics-store-custom-guestos-resourcemanager-vm.md)
+ - [Virtual Machine Scale set](metrics-store-custom-guestos-resourcemanager-vmss.md)
+ - [Virtual Machine (classic)](metrics-store-custom-guestos-classic-vm.md)
+ - [Linux Virtual Machine using Telegraf agent](metrics-custom-linux-telegraf.md)
+ - [REST API](metrics-custom-rest-api.md)
+ - [Cloud Service (classic)](metrics-store-custom-guestos-classic-cloud-service.md)
  
