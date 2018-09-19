@@ -11,8 +11,8 @@ ms.component: metrics
 ---
 # Custom Metrics in Azure Monitor
 
-As you deploy resources and applications in Azure, you will want to start collecting telemetry to gain insights into their performance and health. Azure makes some metric available to you out-of-the-box as you deploy resources. These are called standard or platform metrics. However, these metrics are limited in nature. You may wish to collect some custom performance indicators or business specific metrics to provide deeper insights.
-These "custom" metrics can be collected via your application telemetry, an agent running on your Azure resources, or even outside-in monitoring system and submitted directly to Azure Monitor. Once published to Azure Monitor, you can browse, query, and alert on custom metrics for your Azure resources and applications side-by-side the standard metrics emitted by Azure.
+As you deploy resources and applications in Azure, you'll want to start collecting telemetry to gain insights into their performance and health. Azure makes some metric available to you out-of-the-box as you deploy resources. These are called standard or platform metrics. However, these metrics are limited in nature. You may wish to collect some custom performance indicators or business-specific metrics to provide deeper insights.
+These "custom" metrics can be collected via your application telemetry, an agent running on your Azure resources, or even outside-in monitoring system and submitted directly to Azure Monitor. Once published to Azure Monitor, you can browse, query, and alert on custom metrics for your Azure resources and applications side by side the standard metrics emitted by Azure.
 
 ## Send custom metrics
 Custom Metrics can be sent to Azure Monitor via a variety of methods.
@@ -52,7 +52,7 @@ This property captures what Azure region the resource you are emitting metrics f
 Each data point sent to Azure Monitor must be marked with a timestamp. This timestamp captures the datetime at which the metric value was measured/collected. Azure Monitor will accept metric data with timestamps as far as 20 minutes in the past, and as far as 5 minutes in the future.
 
 ### Namespace
-Namespaces are a way to categorize or group similar metrics together. Namespaces allow you to achieve isolation between groups of metrics that may be collecting different insights or performance indicators. For example, you could have a namespace called "ContosoMemoryMetrics" that is used track memory use metrics that profile your app and another namespace called "ContosoAppTransaction" that tracks all metrics about user transactions in your application.
+Namespaces are a way to categorize or group similar metrics together. Namespaces allow you to achieve isolation between groups of metrics that may be collecting different insights or performance indicators. For example, you could have a namespace called *ContosoMemoryMetrics* that is used track memory use metrics that profile your app and another namespace called *ContosoAppTransaction* that tracks all metrics about user transactions in your application.
 
 ### Name
 The name of the metric that is being reported. Usually the name is descriptive enough to help identify what is being measured. For example, a metric that is measuring the number of bytes of memory being utilized on a given VM could have a metric name like "Memory Bytes In Use".
@@ -64,14 +64,14 @@ Each custom metric can have up to 10 dimensions.
 ### Dimension Values
 When reporting a metric datapoint, for each dimension key on the metric being reported, there is a corresponding dimension value. For example,  if you wanted to report the memory used by the ContosoApp on your VM:
 
-* The metric name would be "Memory Bytes in Use"
-* The dimension key would be "Process"
-* The dimension value would be "ContosoApp.exe"
+* The metric name would be *Memory Bytes in Use*
+* The dimension key would be *Process*
+* The dimension value would be *ContosoApp.exe*
 
 When publishing a metric value, you can only specify a single dimension value per dimension key. If you collect the same Memory utilization for multiple processes on the VM, you could report multiple metric values for that timestamp. Each metric value would specify a different dimension value for the Process dimension key.
 
 ### Metric Values
-Azure Monitor stores all metrics at one-minute granularity intervals. We understand that a metric may need to be sampled multiple times (ex. CPU Utilization) or measured for many discrete events (ex. SignIn Transaction Latencies) during a given minute. To limit the number of raw values you have to emit and pay for in Azure Monitor, you can locally pre-aggregate and emit the values:
+Azure Monitor stores all metrics at one-minute granularity intervals. We understand that a metric may need to be sampled multiple times (ex. CPU Utilization) or measured for many discrete events (ex. sign in Transaction Latencies) during a given minute. To limit the number of raw values you have to emit and pay for in Azure Monitor, you can locally pre-aggregate and emit the values:
 
 * Min: The minimum observed value from all the samples/measurements during the minute
 * Max: The maximum observed value from all the samples/measurements during the minute
@@ -92,16 +92,16 @@ The resulting metric publication to Azure Monitor would be:
 * Count: 4
 
 If your application is unable to pre-aggregate locally and needs to emit each discrete sample or event immediately upon collection, you can emit the raw measure values.
-For example, each time a sign-in transaction occurred on your app you would publish a metric to Azure Monitor with only a single measurement. So, for a sign-in transaction that took 12ms then metric publication would be:
+For example, each time a sign-in transaction occurred on your app you would publish a metric to Azure Monitor with only a single measurement. So, for a sign-in transaction that took 12 ms then metric publication would be:
 * Min: 12
 * Max: 12
 * Sum: 12
 * Count: 1
 
-This allows you to emit multiple values for the same metric + dimension combination during a given minute. Azure Monitor will then take all the raw values emitted for a given minute and aggregate them together.
+This process allows you to emit multiple values for the same metric + dimension combination during a given minute. Azure Monitor will then take all the raw values emitted for a given minute and aggregate them together.
 
 ### Sample custom metric publication
-In the following example, you create a custom metric called "Memory Bytes in Use", under the metric namespace "Memory Profile" for a Virtual Machine. The metric has a single dimension called "Process". For the given timestamp, we are emitting metric values for 2 different processes:
+In the following example, you create a custom metric called "Memory Bytes in Use", under the metric namespace "Memory Profile" for a Virtual Machine. The metric has a single dimension called "Process". For the given timestamp, we are emitting metric values for two different processes:
 
 ```json
 {
@@ -180,14 +180,14 @@ Azure Monitor imposes the following usage limits on custom metrics.
 |Active Time Series/subscriptions/region|50,000|
 |Dimension Keys per metric|10|
 |String length for metric namespaces, metric names, dimension keys, and dimension values|256 characters|
-An active timeseries is defined as any unique combination of metric, dimension key, dimension value that has had metric values published in the past 12 hours.
+An active time series is defined as any unique combination of metric, dimension key, dimension value that has had metric values published in the past 12 hours.
 
 ## Next steps
 Use custom metrics from different services 
- - [Virtual Machine](metrics-store-custom-guestos-resourcemanager-vm.md)
- - [Virtual Machine Scale set](metrics-store-custom-guestos-resourcemanager-vmss.md)
+ - [Virtual Machine](metrics-store-custom-guestos-resource-manager-vm.md)
+ - [Virtual Machine Scale set](metrics-store-custom-guestos-resource-manager-vmss.md)
  - [Virtual Machine (classic)](metrics-store-custom-guestos-classic-vm.md)
- - [Linux Virtual Machine using Telegraf agent](metrics-custom-linux-telegraf.md)
- - [REST API](metrics-custom-rest-api.md)
+ - [Linux Virtual Machine using Telegraf agent](metrics-store-custom-linux-telegraf.md)
+ - [REST API](metrics-store-custom-rest-api.md)
  - [Cloud Service (classic)](metrics-store-custom-guestos-classic-cloud-service.md)
  
