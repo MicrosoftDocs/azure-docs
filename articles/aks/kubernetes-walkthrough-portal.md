@@ -204,7 +204,7 @@ When you created the cluster, container insights monitoring was enabled. This mo
 
 It may take a few minutes for this data to populate in the Azure portal. To see current status, uptime, and resource usage for the Azure Vote pods, browse back to the AKS resource in the Azure portal, such as *myAKSCluster*. You can then access the health status as follows:
 
-1. Under **Monitoring** on the left-hand side, choose **Health (preview)**
+1. Under **Monitoring** on the left-hand side, choose **Insights (preview)**
 1. Across the top, choose to **+ Add Filter**
 1. Select *Namespace* as the property, then choose *\<All but kube-system\>*
 1. Choose to view the **Containers**.
@@ -215,7 +215,7 @@ The *azure-vote-back* and *azure-vote-front* containers are displayed, as shown 
 
 To see logs for the `azure-vote-front` pod, select the **View container logs** link on the right-hand side of the containers list. These logs include the *stdout* and *stderr* streams from the container.
 
-![View the containers logs in AKS](media/kubernetes-walkthrough-portal/monitor-containers-logs.png)
+![View the containers logs in AKS](media/kubernetes-walkthrough-portal/monitor-container-logs.png)
 
 ## Delete cluster
 
