@@ -9,7 +9,7 @@ author: wolfma61
 ms.service: cognitive-services
 ms.technology: Speech
 ms.topic: tutorial
-ms.date: 09/05/2018
+ms.date: 09/24/2018
 ms.author: wolfma
 
 # Customer intent: As a C# programmer, I want to learn how to derive speaker intent from their utterances so that I can create a conversational UI for my application.
@@ -28,7 +28,7 @@ In this tutorial, you use the Speech SDK to develop a C# console application tha
 
 > [!div class="checklist"]
 > * Create a Visual Studio project referencing the Speech SDK NuGet package
-> * Create a speech factory and get an intent recognizer
+> * Create a speech config and get an intent recognizer
 > * Get the model for your LUIS app and add the intents you need
 > * Specify the language for speech recognition
 > * Recognize speech from a file
@@ -73,7 +73,6 @@ After a moment, the new subscription appears in the table at the bottom of the p
 
 ![LUIS app subscription keys](media/sdk/luis-keys.png)
 
-
 ## Create a speech project in Visual Studio
 
 [!INCLUDE [Create project ](../../../includes/cognitive-services-speech-service-create-speech-project-vs-csharp.md)]
@@ -89,7 +88,7 @@ Inside the provided `Main()` method, add the following code.
 ```csharp
 RecognizeIntentAsync().Wait();
 Console.WriteLine("Please press Enter to continue.");
-Console.ReadLine();```
+Console.ReadLine();
 ```
 
 Create an empty asynchronous method `RecognizeIntentAsync()`, as shown here.
@@ -99,6 +98,7 @@ static async Task RecognizeIntentAsync()
 {
 }
 ```
+
 In the body of this new method, add this code.
 
 [!code-csharp[Intent recognition by using a microphone](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#intentRecognitionWithMicrophone)]
@@ -118,29 +118,29 @@ The following sections include a discussion of the code.
 
 ## Create an intent recognizer
 
-The first step in recognizing intents in speech is to create a `SpeechFactory` from your LUIS endpoint key and region. The factory is used to create Recognizers for the various capabilities of the Speech SDK. The factory has multiple ways to specify the subscription you want to use; here, we use `FromSubscription`, which takes the subscription key and region.
+The first step in recognizing intents in speech is to create a speech config from your LUIS endpoint key and region. Speech configs can be used to create recognizers for the various capabilities of the Speech SDK. The speech config has multiple ways to specify the subscription you want to use; here, we use `FromSubscription`, which takes the subscription key and region.
 
 > [!NOTE]
 > Use the key and region of your LUIS subscription, not your Speech subscription.
 
-Next, create an intent recognizer using the factory's `CreateIntentRecognizer()` method. Since the factory already knows which subscription to use, there's no need to specify the subscription key and endpoint again when creating the recognizer.
+Next, create an intent recognizer using `new IntentRecognizer(config)`. Since the configuration already knows which subscription to use, there's no need to specify the subscription key and endpoint again when creating the recognizer.
 
 ## Import a LUIS model and add intents
 
 Now import the model from the LUIS app using `LanguageUnderstandingModel.FromAppId()` and add the LUIS intents that you wish to recognize via the recognizer's `AddIntent()` method. These two steps improve the accuracy of speech recognition by indicating words that the user is likely to use in their requests. It is not necessary to add all the app's intents if you do not need to recognize them all in your application.
 
-Adding intents requires three arguments: an intend ID, the LUIS model (which has just been created and is named `model`), and the intent name. The difference between the ID and the name is as follows.
+Adding intents requires three arguments: the LUIS model (which has just been created and is named `model`), the intent name, and an intent ID. The difference between the ID and the name is as follows.
 
 |`AddIntent()` argument|Purpose|
 |--------|-------|
-|intentID    |An ID assigned to a recognized intent by the Speech SDK. Can be whatever you like; does not need to correspond to the intent name as defined in the LUIS app. If multiple intents are handled by the same code, for instance, you could use the same ID for them.|
 |intentName |The name of the intent as defined in the LUIS app. Must match the LUIS intent name exactly.|
+|intentID    |An ID assigned to a recognized intent by the Speech SDK. Can be whatever you like; does not need to correspond to the intent name as defined in the LUIS app. If multiple intents are handled by the same code, for instance, you could use the same ID for them.|
 
 The Home Automation LUIS app has two intents: one for turning a device on, and another for turning a device off. The lines below add these intents to the recognizer; replace the three `AddIntent` lines in the `RecognizeIntentAsync()` method with this code.
 
 ```csharp
-recognizer.AddIntent("off", model, "HomeAutomation.TurnOff");
-recognizer.AddIntent("on", model, "HomeAutomation.TurnOn");
+recognizer.AddIntent(model, "HomeAutomation.TurnOff", "off");
+recognizer.AddIntent(model, "HomeAutomation.TurnOn", "on");
 ```
 
 ## Start recognition
@@ -149,13 +149,13 @@ With the recognizer created and the intents added, recognition can begin. The Sp
 
 |Recognition mode|Methods to call|Result|
 |----------------|-----------------|---------|
-|Single-shot|`RecognizeAsync()`|Returns the recognized intent, if any, after one utterance.|
+|Single-shot|`RecognizeOnceAsync()`|Returns the recognized intent, if any, after one utterance.|
 |Continuous|`StartContinuousRecognitionAsync()`<br>`StopContinuousRecognitionAsync()`|Recognizes multiple utterances. Emits events (e.g. `IntermediateResultReceived`) when results are available.|
 
-The tutorial application uses single-shot mode and so calls `RecognizeAsync()` to begin recognition. The result is an `IntentRecognitionResult` object containing information about the intent recognized. The LUIS JSON response is extracted by the following expression:
+The tutorial application uses single-shot mode and so calls `RecognizeOnceAsync()` to begin recognition. The result is an `IntentRecognitionResult` object containing information about the intent recognized. The LUIS JSON response is extracted by the following expression:
 
 ```csharp
-result.Properties.Get<string>(ResultPropertyKind.LanguageUnderstandingJson) 
+result.Properties.GetProperty(PropertyId.LanguageUnderstandingServiceResponse_JsonResult)
 ```
 
 The tutorial application doesn't parse the JSON result, only displaying it in the console window.
@@ -164,13 +164,13 @@ The tutorial application doesn't parse the JSON result, only displaying it in th
 
 ## Specify recognition language
 
-By default, LUIS recognizes intents in US English (`en-us`). By passing a locale code to `CreateIntentRecognizer()`, you can recognize intents in other languages. For example, change `factory.CreateIntentRecognizer()` in our tutorial application to `factory.CreateIntentRecognizer("de-de")` to recognize intents in German.
+By default, LUIS recognizes intents in US English (`en-us`). By assigning a locale code to the `SpeechRecognitionLanguage` property of the speech configuration, you can recognize intents in other languages. For example, add `config.SpeechRecognitionLanguage = "de-de";` in our tutorial application before creating the recognizer to recognize intents in German.
 
 ## Continuous recognition from a file
 
-The following code illustrates two additional capabilities of intent recognition using the Speech SDK. The first, previously mentioned, is continuous recognition, where the recognizer emits events when results are available. These events can then be processed by event handlers that you provide. With continuous recognition, you call the recognizer's `StartContinuousRecognitionAsync()` to start recognition instead of `RecognizeAsync()`.
+The following code illustrates two additional capabilities of intent recognition using the Speech SDK. The first, previously mentioned, is continuous recognition, where the recognizer emits events when results are available. These events can then be processed by event handlers that you provide. With continuous recognition, you call the recognizer's `StartContinuousRecognitionAsync()` to start recognition instead of `RecognizeOnceAsync()`.
 
-The other capability is reading the audio containing the speech to be processed from a WAV file. This involves calling the factory's `CreateIntentRecognizerWithFileInput()` method instead of `CreateIntentRecognizer()`. The file must be single-channel (mono) with a sampling rate of 16 kHz.
+The other capability is reading the audio containing the speech to be processed from a WAV file. This involves creating an audio configuration that can be used when creating the intent recognizer. The file must be single-channel (mono) with a sampling rate of 16 kHz.
 
 To try out these features, replace the body of the `RecognizeIntentAsync()` method with the following code. 
 

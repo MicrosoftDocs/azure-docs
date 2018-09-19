@@ -1,20 +1,22 @@
 ---
-title: Python Quickstart for Azure Cognitive Services, Microsoft Translator Speech API | Microsoft Docs
-description: Get information and code samples to help you quickly get started using the Microsoft Translator Speech API in Microsoft Cognitive Services on Azure.
+title: "Quickstart: Translator Speech API Python"
+titlesuffix: Azure Cognitive Services
+description: Get information and code samples to help you quickly get started using the Translator Speech API.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: translator-speech
-ms.topic: article
+ms.topic: quickstart
 ms.date: 07/17/2018
 ms.author: v-jaswel
 ROBOTS: NOINDEX
 ---
-# Quickstart for Microsoft Translator Speech API with Python 
+# Quickstart: Translator Speech API with Python
 <a name="HOLTop"></a>
 
-This article shows you how to use the Microsoft Translator Speech API to translate words spoken in a .wav file.
+This article shows you how to use the Translator Speech API to translate words spoken in a .wav file.
 
 ## Prerequisites
 

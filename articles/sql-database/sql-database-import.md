@@ -100,7 +100,7 @@ $importStatus
 For another script example, see [Import a database from a BACPAC file](scripts/sql-database-import-from-bacpac-powershell.md).
 
 ## Limitations
-- Import to a database in elastic pool is not supported. You can import data into a singleton database and then move the database to a pool.
+- Import to a database in elastic pool is not supported. You can import data into a single database and then move the database to a pool.
 
 ## Import using other methods
 

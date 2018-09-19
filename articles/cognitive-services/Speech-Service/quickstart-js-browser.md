@@ -33,7 +33,7 @@ Create a new, empty folder. In case you want to host the sample on a web server,
 
 ## Unpack the Speech SDK for JavaScript into that folder
 
-Download the Speech SDK as a [.zip package](https://aka.ms/csspeech/jsbrowserpackage) and unpack it into the newly created folder. This should result in two files being unpacked, i.e., `speech.sdk.bundle.js` and `speech.sdk.bundle.js.map`.
+Download the Speech SDK as a [.zip package](https://aka.ms/csspeech/jsbrowserpackage) and unpack it into the newly created folder. This should result in two files being unpacked, i.e., `microsoft.cognitiveservices.speech.sdk.bundle.js` and `microsoft.cognitiveservices.speech.sdk.bundle.js.map`.
 The latter file is optional and used to help debugging into SDK code, if necessary.
 
 ## Create an index.html page
