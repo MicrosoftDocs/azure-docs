@@ -24,7 +24,8 @@ Azure Time Series Insights is a fully managed analytics, storage, and visualizat
 In this video, we cover querying data using the Time Series Insights explorer. 
 
 This video builds on Video Time Series Insights:  
-Getting starts with Time Series Insights using an Azure IoT Solution Accelerator. </br>
+<span style="color:blue">Getting starts with Time Series Insights using an Azure IoT Solution Accelerator.</span>
+</br>
 
 > [!VIDEO https://www.youtube.com/embed/SHFPZvrR71s]
 
