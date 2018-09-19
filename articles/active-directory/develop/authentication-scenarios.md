@@ -202,7 +202,7 @@ This section describes a native application that calls a web API on behalf of a 
 
 If you are using the AD Authentication Libraries, most of the protocol details described below are handled for you, such as the browser pop-up, token caching, and handling of refresh tokens.
 
-1. Using a browser pop-up, the native application makes a request to the authorization endpoint in Azure AD. This request includes the Application ID and the redirect URI of the native application as shown in the Azure portal, and the application ID URI for the web API. If the user hasn’t already signed in, they are prompted to sign in again
+1. Using a browser pop-up, the native application makes a request to the authorization endpoint in Azure AD. This request includes the Application ID and the redirect URI of the native application as shown in the Azure portal, and the application ID URI for the web API. If the user hasn’t already signed in, they are prompted to do so.
 1. Azure AD authenticates the user. If it is a multi-tenant application and consent is required to use the application, the user will be required to consent if they haven’t already done so. After granting consent and upon successful authentication, Azure AD issues an authorization code response back to the client application’s redirect URI.
 1. When Azure AD issues an authorization code response back to the redirect URI, the client application stops browser interaction and extracts the authorization code from the response. Using this authorization code, the client application sends a request to Azure AD’s token endpoint that includes the authorization code, details about the client application (Application ID and redirect URI), and the desired resource (application ID URI for the web API).
 1. The authorization code and information about the client application and web API are validated by Azure AD. Upon successful validation, Azure AD returns two tokens: a JWT access token and a JWT refresh token. In addition, Azure AD returns basic information about the user, such as their display name and tenant ID.
@@ -267,7 +267,7 @@ Both the application identity and delegated user identity types are discussed in
 
 #### Code samples
 
-See the code samples for Web Application to Web API scenarios. And, check back frequently -- new samples are added frequently. Web [Application to Web API](sample-v1-code.md#web-applications-signing-in-users-calling-microsoft-graph-or-a-web-api-with-the-users-identity).
+See the code samples for Web Application to Web API scenarios. And, check back frequently -- new samples are added frequently. [Web Application to Web API](sample-v1-code.md#web-applications-signing-in-users-calling-microsoft-graph-or-a-web-api-with-the-users-identity).
 
 #### Registering
 
