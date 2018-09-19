@@ -77,10 +77,6 @@
       href: app-insights-sharepoint.md
     - name: More platforms
       href: app-insights-platforms.md
-  - name: Distributed tracing
-    items: 
-    - name: Local forwarder
-      href: local-forwarder.md
 - name: How-to guides
   items:
   - name: Plan and design
@@ -170,10 +166,6 @@
         href: app-insights-proactive-arm-config.md 
     - name: Create a resource
       href: app-insights-create-new-resource.md
-    - name: Distributed tracing
-      items: 
-        - name: Python
-          href: open-census-python.md
   - name: Analyze
     items:
     - name: Application Insights portal
