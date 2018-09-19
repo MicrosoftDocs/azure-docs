@@ -379,7 +379,7 @@ If you have a VM that no longer needs a user-assigned managed identity:
  
    **Microsoft.Compute/virtualMachines API version 2017-12-01**
 
-   To remove a a single user-assigned managed identity from a VM, remove it from the `identityIds` array.
+   To remove a single user-assigned managed identity from a VM, remove it from the `identityIds` array.
 
    If you have a system-assigned managed identity, keep it in the in the `type` value under the `identity` value.
    

@@ -382,7 +382,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 
 ### Getting Azure Environment where the VM is running 
 
-Azure has various soverign clouds like [Azure Government](https://azure.microsoft.com/overview/clouds/government/)  , sometimes you need to to the Azure Environment to make some runtime decisions. Following sample will show you how you can achieve this
+Azure has various soverign clouds like [Azure Government](https://azure.microsoft.com/overview/clouds/government/)  , sometimes you need the Azure Environment to make some runtime decisions. Following sample will show you how you can achieve this
 
 **Request**
 

@@ -339,7 +339,7 @@ If you have a virtual machine scale set that no longer needs a user-assigned man
    
    **Microsoft.Compute/virtualMachineScaleSets API version 2018-06-01**
     
-   To remove a a single user-assigned managed identity from a virtual machine scale set, remove it from the `userAssignedIdentities` dictionary.
+   To remove a single user-assigned managed identity from a virtual machine scale set, remove it from the `userAssignedIdentities` dictionary.
 
    If you have a system-assigned identity, keep it in the in the `type` value under the `identity` value.
 
