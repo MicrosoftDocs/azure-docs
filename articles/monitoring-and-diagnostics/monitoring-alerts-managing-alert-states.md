@@ -36,7 +36,10 @@ Alerts in Azure Monitor now have an [alert state and a monitor condition](https:
     ![Monitoring](./media/monitoring-alerts-managing-alert-states/state-sg-list.jpg)
     1. In the Smart Group Details page, you can click change state        
     ![Monitoring](./media/monitoring-alerts-managing-alert-states/state-sg-details.jpg)
-1. On clicking Change State, a popup opens up allowing you to select the state (New/Acknowledged/Closed) and enter a comment if necessary. **Note:** Changing the state of a smart group does not change the state of the member alerts.
+1. On clicking Change State, a popup opens up allowing you to select the state (New/Acknowledged/Closed) and enter a comment if necessary. 
 ![Monitoring](./media/monitoring-alerts-managing-alert-states/state-sg-change.jpg)
+   > [!NOTE]
+   >  Changing the state of a smart group does not change the state of the individual member alerts.
+
 1. Once this is done, the state change is recorded in the history of the respective smart group. This can be viewed by opening the respective Details page, and checking the history section.     
 ![Monitoring](./media/monitoring-alerts-managing-alert-states/state-sg-history.jpg)
