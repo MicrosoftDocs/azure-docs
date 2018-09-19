@@ -79,7 +79,7 @@ The NPS role service provides the RADIUS server and client functionality as well
 For information on installing the NPS role service Windows Server 2012 or older, see [Install a NAP Health Policy Server](https://technet.microsoft.com/library/dd296890.aspx). For a description of best practices for NPS, including the recommendation to install NPS on a domain controller, see [Best Practices for NPS](https://technet.microsoft.com/library/cc771746).
 
 ### Azure Active Directory synched with on-premises Active Directory
-To use the NPS extension, on-premises users must be synced with Azure AD and enabled for MFA. This section assumes that on-premises users are synched with Azure AD using AD Connect. For information on Azure AD connect, see [Integrate your on-premises directories with Azure Active Directory](../connect/active-directory-aadconnect.md). 
+To use the NPS extension, on-premises users must be synced with Azure AD and enabled for MFA. This section assumes that on-premises users are synched with Azure AD using AD Connect. For information on Azure AD connect, see [Integrate your on-premises directories with Azure Active Directory](../hybrid/whatis-hybrid-identity.md). 
 
 ### Azure Active Directory GUID ID
 To install NPS extension, you need to know the GUID of the Azure AD. Instructions for finding the GUID of the Azure AD are provided below.
@@ -371,4 +371,4 @@ The image below from Microsoft Message Analyzer shows network traffic filtered o
 
 [Remote Desktop Gateway and Azure Multi-Factor Authentication Server using RADIUS](howto-mfaserver-nps-rdg.md)
 
-[Integrate your on-premises directories with Azure Active Directory](../connect/active-directory-aadconnect.md)
+[Integrate your on-premises directories with Azure Active Directory](../hybrid/whatis-hybrid-identity.md)

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
+<g id="DevOpsIconPipelines40">
+	<defs>
+		<filter id="Adobe_OpacityMaskFilter" filterUnits="userSpaceOnUse" x="0" y="0" width="40" height="40">
+			<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+		</filter>
+	</defs>
+	<mask maskUnits="userSpaceOnUse" x="0" y="0" width="40" height="40" id="mask0_1_">
+		<g id="Union_1_" filter="url(#Adobe_OpacityMaskFilter)">
+			<path fill="#FFFFFF" d="M5.833,26.84l2.013-2.152l2.501,2.501l-2.033,2.033l2.464,2.465l2.034-2.034l2.518,2.519l-1.996,1.996
+				L19.167,40h9.167C29.254,40,30,39.254,30,38.333V25l8.518-5.677C39.444,18.705,40,17.664,40,16.551V1.667
+				C40,0.746,39.254,0,38.333,0H23.449c-1.114,0-2.154,0.557-2.772,1.482L15,10H1.667C0.746,10,0,10.746,0,11.667v9.166L5.833,26.84
+				z"/>
+			<path fill="#FFFFFF" d="M3,30H0v10h10v-3H3V30z"/>
+		</g>
+	</mask>
+	<g mask="url(#mask0_1_)">
+		<path id="Flame" fill="#91B0F2" d="M0,30h3v7h7v3H0V30z"/>
+		<path id="Wings" fill="#0F46BD" d="M0,11.667v9.167l5.833,6.007l2.5-2.673l7.5,7.5l-2.5,2.5L19.167,40h9.167
+			C29.254,40,30,39.254,30,38.333V25L15,10H1.667C0.746,10,0,10.746,0,11.667z"/>
+		<g id="Body_shadow">
+			<path fill="#062AA9" d="M6.25,23.092L21.667,0H40v18.333L16.908,33.75L6.25,23.092z"/>
+		</g>
+		<path id="Body" fill="#2560E0" d="M7.217,24.059c-0.562-0.562-0.649-1.443-0.208-2.104L20.677,1.483
+			C21.295,0.556,22.336,0,23.449,0h14.884C39.254,0,40,0.746,40,1.667v14.884c0,1.114-0.556,2.154-1.483,2.772L18.045,32.991
+			c-0.661,0.441-1.542,0.354-2.104-0.208L7.217,24.059z"/>
+		<g id="Wing_shadow">
+			<path fill="#0A44C2" d="M8.313,29.222l12.725-12.725l2.464,2.464L10.777,31.686L8.313,29.222z"/>
+		</g>
+		<path id="Wing" fill="#729AF2" d="M8.313,29.222l12.725-12.725l2.464,2.464L10.777,31.686L8.313,29.222z"/>
+		<path id="Intersect" fill="#4C80F0" d="M12.811,29.653l-2.464-2.464l10.691-10.691l2.464,2.464L12.811,29.653z"/>
+		<g id="Window_shadow">
+			<path fill="#0A44C2" d="M30,15c2.761,0,5-2.239,5-5c0-2.761-2.239-5-5-5c-2.761,0-5,2.239-5,5C25,12.761,27.239,15,30,15z"/>
+		</g>
+		<path id="Window" fill="#91B0F2" d="M30,15c2.761,0,5-2.239,5-5c0-2.761-2.239-5-5-5c-2.761,0-5,2.239-5,5
+			C25,12.761,27.239,15,30,15z"/>
+		<g id="Union_2" opacity="0.2">
+			
+				<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="-275.625" y1="423.625" x2="-274.625" y2="423.625" gradientTransform="matrix(2.449294e-15 40 40 -2.449294e-15 -16925 11025)">
+				<stop  offset="0" style="stop-color:#FFFFFF"/>
+				<stop  offset="1" style="stop-color:#FFFFFF;stop-opacity:0"/>
+			</linearGradient>
+			<path fill="url(#SVGID_1_)" d="M5.833,26.84l2.013-2.152l2.501,2.501l-2.033,2.033l2.464,2.465l2.034-2.034l2.518,2.519
+				l-1.996,1.996L19.167,40h9.167C29.254,40,30,39.254,30,38.333V25l8.518-5.677C39.444,18.705,40,17.664,40,16.551V1.667
+				C40,0.746,39.254,0,38.333,0H23.449c-1.114,0-2.154,0.557-2.772,1.482L15,10H1.667C0.746,10,0,10.746,0,11.667v9.166L5.833,26.84
+				z"/>
+			
+				<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="-275.625" y1="423.25" x2="-274.625" y2="423.25" gradientTransform="matrix(2.449294e-15 40 40 -2.449294e-15 -16925 11025)">
+				<stop  offset="0" style="stop-color:#FFFFFF"/>
+				<stop  offset="1" style="stop-color:#FFFFFF;stop-opacity:0"/>
+			</linearGradient>
+			<path fill="url(#SVGID_2_)" d="M3,30H0v10h10v-3H3V30z"/>
+		</g>
+	</g>
+</g>
+</svg>
