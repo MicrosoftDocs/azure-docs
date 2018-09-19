@@ -5,6 +5,9 @@
   - name: Component versioning
     href: ../hdinsight-component-versioning.md
     maintainContext: true
+  - name: HDInsight 4.0
+    href: ../hdinsight-version-release.md
+    maintainContext: true
 - name: Get started
   items:
   - name: Start with Interactive Query
