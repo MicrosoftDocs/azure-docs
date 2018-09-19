@@ -36,26 +36,29 @@ Azure Machine Learning service automatically tunes hyperparameters by exploring 
 Each hyperparameter can either be discrete or continuous.
 
 #### Discrete hyperparameters 
-Discrete hyperparameters can be specified as a `choice` among discrete values. For example  
+Discrete hyperparameters can be specified as a `choice` among discrete values. `choice` can take either one or more comma separated values, a `range` object, or any arbitrary `list` object. For example  
 
 ```Python
     {    
         "batch_size": choice(16, 32, 64, 128)
+        "number_of_hidden_layers": choice(range(1,5))
     }
 ```
 
-In this case, batch_size can take on one of the values [16, 32, 64, 128].
+In this case, batch_size can take on one of the values [16, 32, 64, 128] and number_of_hidden_layers can take on one of the values [1, 2, 3, 4].
+
+Advanced discrete hyperparameters can also be specified using a distribution. The following distributions are supported -
+* `quniform(low, high, q)` - Returns a value like round(uniform(low, high) / q) * q
+* `qloguniform(low, high, q)` - Returns a value like round(exp(uniform(low, high)) / q) * q
+* `qnormal(mu, sigma, q)` - Returns a value like round(normal(mu, sigma) / q) * q
+* `qlognormal(mu, sigma, q)` - Returns a value like round(exp(normal(mu, sigma)) / q) * q
 
 #### Continuous hyperparameters 
 Continuous hyperparameters can be specified as a distribution over a continuous range of values. Supported distributions include -
 * `uniform(low, high)` - Returns a value uniformly distributed between low and high
 * `loguniform(low, high)` - Returns a value drawn according to exp(uniform(low, high)) so that the logarithm of the return value is uniformly distributed
-* `quniform(low, high, q)` - Returns a value like round(uniform(low, high) / q) * q
-* `qloguniform(low, high, q)` - Returns a value like round(exp(uniform(low, high)) / q) * q
 * `normal(mu, sigma)` - Returns a real value that's normally distributed with mean mu and standard deviation sigma
 * `lognormal(mu, sigma)` - Returns a value drawn according to exp(normal(mu, sigma)) so that the logarithm of the return value is normally distributed
-* `qnormal(mu, sigma, q)` - Returns a value like round(normal(mu, sigma) / q) * q
-* `qlognormal(mu, sigma, q)` - Returns a value like round(exp(normal(mu, sigma)) / q) * q
 
 Here is an example of a parameter space definition -
 
@@ -85,7 +88,7 @@ param_sampling = RandomParameterSampling( {
 ```
 
 #### Grid Sampling
-Grid sampling performs a simple grid search over all feasible values in the defined search space. It can only be used with discrete hyperparameters. For example, the following space has a total of six samples -
+Grid sampling performs a simple grid search over all feasible values in the defined search space. It can only be used with hyperparameters specified using `choice`. For example, the following space has a total of six samples -
 
 ```Python
 from azureml.train.hyperdrive import GridParameterSampling
@@ -97,11 +100,11 @@ param_sampling = GridParameterSampling( {
 ```
 
 #### Bayesian Sampling
-Bayesian sampling tries to intelligently pick the next sample of hyperparameters, based on how the previous samples performed, such that the new sample improves the reported primary metric.
+Bayesian sampling is based on the Bayesian Optimization algorithm and makes intelligent choices on the hyperparameter values to sample next. It picks this sample based on how the previous samples performed, such that the new sample improves the reported primary metric.
 
 When using Bayesian sampling, the number of concurrent runs has an impact on the effectiveness of the tuning process. Typically, a smaller number of concurrent runs can lead to better sampling convergence. This is because the smaller degree of parallelism increases the number of runs that benefit from previously completed runs.
 
-Bayesian sampling supports only `choice`, `uniform`, and `quniform` distributions over the search space. For example 
+Bayesian sampling supports only `choice` and `uniform` distributions over the search space. For example 
 
 ```Python
 from azureml.train.hyperdrive import BayesianParameterSampling
@@ -113,11 +116,10 @@ param_sampling = BayesianParameterSampling( {
 ```
 
 > [!NOTE]
-> Bayesian sampling does not currently support any early termination policy (See [Specify an Early Termination Policy](#specify-an-early-termination-policy)). If using Bayesian parameter sampling, you can set policy to NoTerminationPolicy(). Not specifying a termination policy with Bayesian Sampling will have the same effect.
+> Bayesian sampling does not currently support any early termination policy (See [Specify an Early Termination Policy](#specify-an-early-termination-policy)). If using Bayesian parameter sampling, you must set policy to `None`. Not specifying a termination policy with Bayesian Sampling will have the same effect.
 >
 > ```Python
-> from azureml.train.hyperdrive import NoTerminationPolicy
-> early_termination_policy = NoTerminationPolicy()
+> early_termination_policy = None
 > ```
 
 ## Specify a primary metric to optimize
@@ -298,12 +300,11 @@ print('\n keep probability:',parameter_values[5])
 print('\n batch size:',parameter_values[7])
 ```
 
-## Sample notebooks
+## Sample notebook
 Refer to 
-* `01.getting-started/08.hyperdrive-with-TensorFlow/08.hyperdrive-with-TensorFlow.ipynb` for a tutorial on tuning hyperparameters for a Tensorflow model. 
-* `01.getting-started/07.hyperdrive-with-sklearn/07.hyperdrive-with-sklearn.ipynb` for a tutorial on tuning hyperparameters with sklearn. 
+* `training/03.hyperparameter-tuning-with-tensorflow/03.hyperparameter-tuning-with-tensorflow.ipynb` for a tutorial on tuning hyperparameters for a Tensorflow model. 
 
-Get these notebooks:
+Get this notebook:
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
