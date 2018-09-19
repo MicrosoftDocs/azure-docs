@@ -21,9 +21,9 @@
       href: service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md
     - name: 3- Deploy a Mesh app
       href: service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md
-   - name: 4- Upgrade a Mesh app
+    - name: 4- Upgrade a Mesh app
       href: service-fabric-mesh-tutorial-upgrade.md
-   - name: 5- Clean up Mesh resources
+    - name: 5- Clean up Mesh resources
       href: service-fabric-mesh-tutorial-cleanup-resources.md
   - name: Deploy, scale, and upgrade an Service Fabric Mesh app using a template
     items:
