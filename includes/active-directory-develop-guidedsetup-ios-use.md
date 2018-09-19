@@ -1,3 +1,9 @@
+-- author: brandwe
+-- ms.service: azure active directory
+-- ms.topic: include
+-- ms.date: 09/23/2018
+-- ms.author: brandwe
+    
 ## Use the Microsoft Authentication Library (MSAL) to get a token for the Microsoft Graph API
 
 Open `ViewController.swift` and replace the code with:
