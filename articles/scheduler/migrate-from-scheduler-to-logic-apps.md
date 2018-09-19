@@ -8,7 +8,7 @@ author: derek1ee
 ms.author: deli
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 09/19/2018
+ms.date: 09/20/2018
 ---
 
 # Migrate Azure Scheduler jobs to Azure Logic Apps
@@ -253,7 +253,7 @@ To learn more about exception handling, see
 <a name="retire-date"></a> 
 
 **Q**: When is Azure Scheduler retiring? <br>
-**A**: Azure Scheduler is scheduled to retire on September 17, 2019.
+**A**: Azure Scheduler is scheduled to retire on September 30, 2019.
 
 **Q**: What happens to my Scheduler job collections and jobs after the service retires? <br>
 **A**: All Scheduler job collections and jobs will be deleted from the system.
