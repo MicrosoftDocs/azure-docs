@@ -6,9 +6,9 @@
     tocHref: /azure/active-directory/
     topicHref: /azure/active-directory/
     items:
-      - name: Fundamentals
-        tocHref: /azure/active-directory/fundamentals/
-        topicHref: /azure/active-directory/fundamentals/    
+      - name: Hybrid identity
+        tocHref: /azure/active-directory/hybrid/
+        topicHref: /azure/active-directory/hybrid/    
       - name: Identity Protection
         tocHref: /azure/active-directory/identity-protection/
         topicHref: /azure/active-directory/identity-protection/
@@ -21,12 +21,6 @@
       - name: Authentication
         tocHref: /azure/active-directory/authentication/
         topicHref: /azure/active-directory/authentication/
-      - name: Connect
-        tocHref: /azure/active-directory/connect/
-        topicHref: /azure/active-directory/connect/
-      - name: Connect Health
-        tocHref: /azure/active-directory/connect-health/
-        topicHref: /azure/active-directory/connect-health/
       - name: Develop
         tocHref: /azure/active-directory/develop/
         topicHref: /azure/active-directory/develop/
