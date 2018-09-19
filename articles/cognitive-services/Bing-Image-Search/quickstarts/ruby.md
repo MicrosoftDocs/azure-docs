@@ -1,13 +1,13 @@
 ---
-title: "Quickstart: Send search queries using the REST API for the Bing Image Search API and Ruby"
-description: In this quickstart, you send search queries to the Bing Search API to get a list of relevant images using Ruby.
+title: "Quickstart: Perform an image search with Ruby - Bing Image Search API"
+description: Use this quickstart to make your first call to the Bing Image Search API and receive a JSON response. This simple Ruby application sends a search query to the API and displays the raw results.
 services: cognitive-services
 documentationcenter: ''
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 8/20/2018
 ms.author: aahi
 ---
@@ -58,7 +58,7 @@ response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https'
 end
 ```
 
-## Process and print the JSON 
+## Process and print the JSON
 
 After the response is received, you can parse the JSON, and get values from it. For example, the thumbnail URL to the first result, and the total number of returned images.
 
@@ -132,7 +132,7 @@ Responses from the Bing Image Search API are returned as JSON. This sample respo
 > [!div class="nextstepaction"]
 > [Bing Image Search single-page app tutorial](../tutorial-bing-image-search-single-page-app.md)
 
-## See also 
+## See also
 
 * [What is Bing Image Search?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
 * [Try an online interactive demo](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  

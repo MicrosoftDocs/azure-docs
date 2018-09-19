@@ -87,7 +87,7 @@ We have documentation covering the guidelines for deploying AD Domain Controller
     -   Is it safe to virtualize Windows Server Active Directory Domain Controllers?
     -   Why deploy AD to Azure Virtual Machines?
     -   Can you deploy ADFS to Azure Virtual Machines?
- - [Deploying Active Directory Federation Services in Azure](..\active-directory\connect\active-directory-aadconnect-azure-adfs.md)
+ - [Deploying Active Directory Federation Services in Azure](../active-directory/hybrid/how-to-connect-fed-azure-adfs.md)
    -   Provides guidance on how to deploy ADFS in Azure.
 
 ## Identity scenarios for subscription administration in Azure Government
