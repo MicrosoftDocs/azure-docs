@@ -28561,6 +28561,11 @@
             "source_path": "articles/application-insights/open-census-python.md",
             "redirect_url": "/azure/application-insights/app-insights-overview",
             "redirect_document_id" : false
+        },
+			  {
+            "source_path": "articles/application-insights/app-insights-troubleshoot-snapshot-debugger.md",
+            "redirect_url": "/azure/application-insights/app-insights-snapshot-debugger",
+            "redirect_document_id" : false
         }
     ]
 }
