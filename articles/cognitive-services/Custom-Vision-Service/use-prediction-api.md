@@ -1,12 +1,14 @@
 ---
-title: Use the Custom Vision Service prediction endpoint - Azure Cognitive Services | Microsoft Docs
+title: "Example: Use prediction endpoint to programmatically test images with classifier - Custom Vision"
+titlesuffix: Azure Cognitive Services
 description: Learn how to use the API to programmatically test images with your Custom Vision Service classifier.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: sample
 ms.date: 05/03/2018
 ms.author: anroth
 ---

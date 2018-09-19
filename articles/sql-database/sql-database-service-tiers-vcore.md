@@ -51,7 +51,7 @@ Consider the following:
 - Each single database compute size supports a maximum database size, with a default max size of 32 GB.
 - When you configure the required single database size (size of MDF), 30% of additional storage is automatically added to support LDF
 - Storage size in Managed Instance must be specified in multiples of 32 GB.
-- You can select any singleton database size between 10 GB and the supported maximum
+- You can select any single database size between 10 GB and the supported maximum
  - For Standard storage, increase or decrease size in 10-GB increments
  - For Premium storage, increase or decrease size in 250-GB increments
 - In the General Purpose service tier, `tempdb` uses an attached SSD and this storage cost is included in the vCore price.

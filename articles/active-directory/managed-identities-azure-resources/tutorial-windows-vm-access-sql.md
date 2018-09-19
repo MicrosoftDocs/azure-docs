@@ -147,7 +147,7 @@ For this next step, you will need [Microsoft SQL Server Management Studio](https
 11.  Clear the query window, enter the following line, and click **Execute** in the toolbar:
      
      ```
-     ALTER ROLE db_datareader ADD MEMBER [VM VM managed identity access to SQL access to SQL]
+     ALTER ROLE db_datareader ADD MEMBER [VM managed identity access to SQL]
      ```
 
      The command should complete successfully, granting the contained user the ability to read the entire database.
