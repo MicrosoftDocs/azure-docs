@@ -9,7 +9,7 @@ ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
-ms.date: 07/03/2018
+ms.date: 09/14/2018
 ---
 # How to set up a CI/CD pipeline for Azure Data Lake Analytics  
 
@@ -78,9 +78,9 @@ The arguments definition and values are as follows:
 * **DataRoot=<DataRoot path>**. DataRoot is needed only for SyntaxCheck mode. When it builds the script with SyntaxCheck mode, MSBuild checks the references to database objects in the script. Before building, set up a matching local environment that contains the referenced objects from the U-SQL database in the build machine's DataRoot folder. You can also manage these database dependencies by [referencing a U-SQL database project](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project). MSBuild only checks database object references, not files.
 * **EnableDeployment=true** or **false**. EnableDeployment indicates if it's allowed to deploy referenced U-SQL databases during the build process. If you reference a U-SQL database project and consume the database objects in your U-SQL script, set this parameter to **true**.
 
-### Continuous integration with Azure DevOps
+### Continuous integration with Azure DevOps Pipelines
 
-In addition to the command line, you can also use the Visual Studio Build or an MSBuild task to build U-SQL projects in Azure DevOps. To set up a build pipeline, make sure to add two tasks in the build pipeline: a NuGet restore task and an MSBuild task.
+In addition to the command line, you can also use the Visual Studio Build or an MSBuild task to build U-SQL projects in the Azure DevOps Pipelines service (Pipelines). To set up a build pipeline, make sure to add two tasks in the build pipeline: a NuGet restore task and an MSBuild task.
 
 ![MSBuild task for a U-SQL project](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-task.png) 
 
@@ -88,7 +88,7 @@ In addition to the command line, you can also use the Visual Studio Build or an 
 
     ![NuGet restore task for a U-SQL project](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-nuget-task.png)
 
-2.	Set MSBuild arguments in Visual Studio build tools or in an MSBuild task as shown in the following example. Or you can define variables for these arguments in the Azure DevOps build pipeline.
+2.	Set MSBuild arguments in Visual Studio build tools or in an MSBuild task as shown in the following example. Or you can define variables for these arguments in the Pipelines build pipeline.
 
     ![Define CI/CD MSBuild variables for a U-SQL project](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-variables.png) 
 
@@ -115,9 +115,9 @@ Azure Data Lake provides test projects for U-SQL scripts and C# UDO/UDAG/UDF:
 
 After you verify code through the build and test process, you can submit U-SQL jobs directly from Azure DevOps through an Azure PowerShell task. You can also deploy the script to Azure Data Lake Store or Azure Blob storage and [run the scheduled jobs through Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-using-data-lake-analytics).
 
-### Submit U-SQL jobs through Azure DevOps
+### Submit U-SQL jobs through Azure DevOps Pipelines
 
-The build output of the U-SQL project is a zip file called **USQLProjectName.usqlpack**. The zip file includes all U-SQL scripts in the project. You can use the [Azure PowerShell task](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-powershell?view=vsts) in Azure DevOps with the following sample PowerShell script to submit U-SQL jobs directly from the Azure Pipelines.
+The build output of the U-SQL project is a zip file called **USQLProjectName.usqlpack**. The zip file includes all U-SQL scripts in the project. You can use the [Azure PowerShell task](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-powershell?view=vsts) in Pipelines with the following sample PowerShell script to submit U-SQL jobs directly from the Azure DevOps Pipelines service.
 
 ```powershell
 <#
@@ -224,7 +224,7 @@ Main
 
 ### Deploy U-SQL jobs through Azure Data Factory
 
-You can submit U-SQL jobs directly from Azure DevOps. Or you can upload the built scripts to Azure Data Lake Store or Azure Blob storage and [run the scheduled jobs through Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-using-data-lake-analytics).
+You can submit U-SQL jobs directly from the Azure DevOps Pipelines service. Or you can upload the built scripts to Azure Data Lake Store or Azure Blob storage and [run the scheduled jobs through Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-using-data-lake-analytics).
 
 Use the [Azure PowerShell task](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-powershell?view=vsts) in Azure DevOps with the following sample PowerShell script to upload the U-SQL scripts to an Azure Data Lake Store account:
 
@@ -313,9 +313,9 @@ msbuild DatabaseProject.usqldbproj /p:USQLSDKPath=packages\Microsoft.Azure.DataL
 
 The argument `USQLSDKPath=<U-SQL Nuget package>\build\runtime` refers to the install path of the NuGet package for the U-SQL language service.
 
-### Continuous integration with Azure DevOps
+### Continuous integration with the Azure DevOps Pipelines service
 
-In addition to the command line, you can use Visual Studio Build or an MSBuild task to build U-SQL database projects in Azure DevOps. To set up a build task, make sure to add two tasks in the build pipeline: a NuGet restore task and an MSBuild task.
+In addition to the command line, you can use Visual Studio Build or an MSBuild task to build U-SQL database projects in Azure DevOps Pipelines. To set up a build task, make sure to add two tasks in the build pipeline: a NuGet restore task and an MSBuild task.
 
    ![CI/CD MSBuild task for a U-SQL project](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-task.png) 
 
@@ -344,16 +344,16 @@ Adding test cases for table-valued functions and stored procedures directly isn'
 2.	Add a database reference to the U-SQL project. To get the table-valued function and stored procedure definition, you need to reference the database project that contains the DDL statement. Learn more about [database references](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project).
 3.	Add test cases for U-SQL scripts that call table-valued functions and stored procedures. Learn how to [add test cases for U-SQL scripts](data-lake-analytics-cicd-test.md#test-u-sql-scripts).
 
-## Deploy U-SQL database through Azure DevOps
+## Deploy U-SQL database through the Azure DevOps Pipelines service
 
 `PackageDeploymentTool.exe` provides the programming and command-line interfaces that help deploy U-SQL database deployment packages, **.usqldbpack**. The SDK is included in the [U-SQL SDK NuGet package](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/), located at **build/runtime/PackageDeploymentTool.exe**. By using `PackageDeploymentTool.exe`, you can deploy U-SQL databases to both Azure Data Lake Analytics and local accounts.
 
 > [!NOTE]
 >
-> PowerShell command-line support and Azure DevOps release task support for U-SQL database deployment is currently pending.
+> PowerShell command-line support and Pipelines release task support for U-SQL database deployment is currently pending.
 >
 
-Take the following steps to set up a database deployment task in Azure DevOps:
+Take the following steps to set up a database deployment task in Pipelines:
 
 1. Add a PowerShell Script task in a build or release pipeline and execute the following PowerShell script. This task helps to get Azure SDK dependencies for `PackageDeploymentTool.exe` and `PackageDeploymentTool.exe`. You can set the **-AzureSDK** and **-DBDeploymentTool** parameters to load the dependencies and deployment tool to specific folders. Pass the **-AzureSDK** path to `PackageDeploymentTool.exe` as the **-AzureSDKPath** parameter in step 2. 
 

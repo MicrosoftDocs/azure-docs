@@ -22,8 +22,6 @@ ms.reviewer: lenalepa, sureshja
 
 # Quickstart: Remove an application from Azure Active Directory
 
-[!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
-
 Enterprise developers and software-as-a-service (SaaS) providers who have registered applications with Azure Active Directory (Azure AD) may need to remove an application's registration from their Azure AD tenant.
 
 In this quickstart, you'll learn how to:

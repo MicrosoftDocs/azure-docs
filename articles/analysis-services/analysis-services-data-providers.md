@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 09/13/2018
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -19,10 +19,10 @@ Client libraries are necessary for client applications and tools to connect to A
 
 |Download  |Product version  | 
 |---------|---------|
-|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.1.594      |
-|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.1.594      |
-|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.3.1.0    |
-|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    15.3.1.0     |
+|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.1.795      |
+|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.1.795      |
+|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.5.0.0    |
+|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    15.5.0.0     |
 
 ## AMO and ADOMD (NuGet packages)
 

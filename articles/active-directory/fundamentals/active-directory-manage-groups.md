@@ -50,7 +50,7 @@ After a user requests to join a group, the request is forwarded to the group own
 ## Next steps
 Now that you have a bit of an introduction to access management using groups, you start to manage your resources and apps.
 
-- [Create a new group using the Azure AD portal](active-directory-groups-create-azure-portal.md) or [Create and manage a new group using PowerShell cmdlets](../users-groups-roles/groups-settings-v2-cmdlets.md)
+- [Create a new group using Azure Active Directory](active-directory-groups-create-azure-portal.md) or [Create and manage a new group using PowerShell cmdlets](../users-groups-roles/groups-settings-v2-cmdlets.md)
 
 - [Use groups to assign access to an integrated SaaS app](../users-groups-roles/groups-saasapps.md)
 

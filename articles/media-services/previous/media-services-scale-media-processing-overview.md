@@ -31,7 +31,7 @@ The following table helps you make decision when choosing between different enco
 | Scenarios | **S1** | **S2** | **S3** |
 | --- | --- | --- | --- |
 | Intended use case |Single bitrate encoding. <br/>Files at SD or below resolutions, not time sensitive, low cost. |Single bitrate and multiple bitrate encoding.<br/>Normal usage for both SD and HD encoding. |Single bitrate and multiple bitrate encoding.<br/>Full HD and 4K resolution videos. Time sensitive, faster turnaround encoding. |
-| Benchmark |Encoding to a single bitrate MP4 file, at the same resolution, takes approximately 11 minutes. |Encoding with "H264 Single Bitrate 720p" preset takes approximately 5 minutes.<br/><br/>Encoding with "H264 Multiple Bitrate 720p" preset takes approximately 11.5 minutes. |Encoding with "H264 Single Bitrate 1080p" preset takes approximately 2.7 minutes.<br/><br/>Encoding with "H264 Multiple Bitrate 1080p" preset takes approximately 5.7 minutes. |
+| Benchmark for 5 minute video |Encoding to a single bitrate MP4 file, at the same resolution, takes approximately 11 minutes. |Encoding with "H264 Single Bitrate 720p" preset takes approximately 5 minutes.<br/><br/>Encoding with "H264 Multiple Bitrate 720p" preset takes approximately 11.5 minutes. |Encoding with "H264 Single Bitrate 1080p" preset takes approximately 2.7 minutes.<br/><br/>Encoding with "H264 Multiple Bitrate 1080p" preset takes approximately 5.7 minutes. |
 
 
 ## Considerations

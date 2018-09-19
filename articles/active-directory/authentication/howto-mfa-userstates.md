@@ -27,7 +27,7 @@ You can take one of two approaches for requiring two-step verification. The firs
 
 Enabled by conditional access policy - This is the most flexible means to enable two-step verification for your users. Enabling using conditional access policy only works for Azure MFA in the cloud and is a premium feature of Azure AD. More information on this method can be found in [Deploy cloud-based Azure Multi-Factor Authentication](howto-mfa-getstarted.md).
 
-Enabled by Azure AD Identity Protection - This method uses the Azure AD Identity Protection risk policy to require two-step verification based only on sign-in risk for all cloud applications. This method requires Azure Active Directory P2 licensing. More information on this method can be found in [Azure Active Directory Identity Protection](../identity-protection/overview.md#risky-sign-ins)
+Enabled by Azure AD Identity Protection - This method uses the Azure AD Identity Protection risk policy to require two-step verification based only on sign-in risk for all cloud applications. This method requires Azure Active Directory P2 licensing. More information on this method can be found in [Azure Active Directory Identity Protection](../identity-protection/howto-sign-in-risk-policy.md)
 
 > [!Note]
 > More information about licenses and pricing can be found on the [Azure AD](https://azure.microsoft.com/pricing/details/active-directory/

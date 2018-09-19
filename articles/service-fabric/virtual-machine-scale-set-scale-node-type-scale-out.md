@@ -30,7 +30,7 @@ This article describes how to scale an Azure Service Fabric cluster by adding a 
 Here is the process for updating the VM size and operating system of the primary node type VMs.  After the upgrade, the primary node type VMs are size Standard D4_V2 and running Windows Server 2016 Datacenter with Containers.
 
 > [!WARNING]
-> Before attempting this procedure on a production cluster, we recommend that you study the sample templates and verify the process against a test cluster. The cluster is also unavailable for a time.
+> Before attempting this procedure on a production cluster, we recommend that you study the sample templates and verify the process against a test cluster. The cluster is also unavailable for a time. You can NOT make changes to multiple VMSS declared as the same NodeType in parrallel; you will need to perform seperated deployment operations to apply changes to each NodeType VMSS individually.
 
 1. Deploy the initial cluster with two node types and two scale sets (one scale set per node type) using these sample [template](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-2ScaleSets.json) and [parameters](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-2ScaleSets.parameters.json) files.  Both scale sets are size Standard D2_V2 and running Windows Server 2012 R2 Datacenter.  Wait for the cluster to complete the baseline upgrade.   
 2. Optional- deploy a stateful sample to the cluster.

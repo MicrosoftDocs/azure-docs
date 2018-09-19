@@ -54,7 +54,7 @@ The following steps show you how the consent experience works for both the appli
   ![Grant permissions for explicit admin consent](./media/quickstart-v1-integrate-apps-with-azure-ad/grantpermissions.png)
 
   > [!IMPORTANT]
-  > Granting explicit consent using the **Grant permissions** button is currently required for single page applications (SPA) that use ADAL.js. Otherwise, the application fails when the access token is requested.
+  > Granting explicit consent using the **Grant permissions** button is currently required for single-page applications (SPA) that use ADAL.js. Otherwise, the application fails when the access token is requested.
 
 ## Next steps
 

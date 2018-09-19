@@ -2,7 +2,7 @@
 title: "Tutorial: Recognize intents from speech by using the Speech SDK for C#"
 titleSuffix: "Microsoft Cognitive Services"
 description: |
-  In this tutorial, you learns how to recognize intents from speech using the Speech SDK for C#.
+  In this tutorial, you learn how to recognize intents from speech using the Speech SDK for C#.
 services: cognitive-services
 author: wolfma61
 
@@ -54,68 +54,29 @@ LUIS uses two kinds of keys:
 
 The endpoint key is the LUIS key needed for this tutorial. This tutorial uses the example Home Automation LUIS app, which you can create by following [Use prebuilt Home automation app](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app). If you have created a LUIS app of your own, you can use it instead.
 
-When you create a LUIS app, a starter key is automatically generated so you can test the app using text queries. This key does not enable the Speech service integration and won't work with this tutorial. You must create a LUIS resource in your Azure dashboard and assign it to the LUIS app. You can use the free subscription tier for this tutorial. 
+When you create a LUIS app, a starter key is automatically generated so you can test the app using text queries. This key does not enable the Speech service integration and won't work with this tutorial. You must create a LUIS resource in the Azure dashboard and assign it to the LUIS app. You can use the free subscription tier for this tutorial. 
 
-After creating the LUIS resource in the Azure dashboard, log into the [LUIS portal](https://www.luis.ai/home), choose your application on the My Apps page, then switch to the app's Publish page.
+After creating the LUIS resource in the Azure dashboard, log into the [LUIS portal](https://www.luis.ai/home), choose your application on the My Apps page, then switch to the app's Manage page. Finally, click **Keys and Endpoints** in the sidebar.
 
-![LUIS portal Publish page](media/sdk/luis-publish.png)
+![LUIS portal keys and endpoint settings](media/sdk/luis-keys-endpoints-page.png)
 
-On the Publish page:
+On the Keys and Endpoint settings page:
 
-1. Scroll down to the Resources and Keys section and click **Add key**.
+1. Scroll down to the Resources and Keys section and click **Assign resource**.
 1. In the **Assign a key to your app** dialog, choose the following:
 
     * Choose Microsoft as the Tenant.
     * Under Subscription Name, choose the Azure subscription that contains the LUIS resource you want to use.
     * Under Key, choose the LUIS resource that you want to use with the app.
 
-After a moment, the new subscription appears in the table at the bottom of the page. Click the icon next to a key to copy it to the clipboard. (You may use either key.)
+In a moment, the new subscription appears in the table at the bottom of the page. Click the icon next to a key to copy it to the clipboard. (You may use either key.)
 
-![LUIS app subscription keys](media/sdk/luis-keys.png)
+![LUIS app subscription keys](media/sdk/luis-keys-assigned.png)
 
 
 ## Create a speech project in Visual Studio
 
-<!-- make this an include? it's shared with the quickstart -->
-
-1. Start Visual Studio 2017.
- 
-1. Make sure the **.NET desktop environment** workload is available. Choose **Tools** \> **Get Tools and Features** from the Visual Studio menu bar to open the Visual Studio installer. If this workload is already enabled, close the dialog. 
-
-    Otherwise, mark the checkbox next to **.NET desktop development,** then click the **Modify** button at the lower right corner of the dialog. Installation of the new feature will take a moment.
-
-    ![Enable .NET desktop development](media/sdk/vs-enable-net-desktop-workload.png)
-
-1. Create a new Visual C# Console App. In the **New Project** dialog box, from the left pane, expand **Installed** \> **Visual C#** \> **Windows Desktop** and then choose **Console App (.NET Framework)**. For the project name, enter *helloworld*.
-
-    ![Create Visual C# Console App (.NET Framework)](media/sdk/qs-csharp-dotnet-windows-01-new-console-app.png "Create Visual C# Console App (.NET Framework)")
-
-1. Install and reference the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget). In the Solution Explorer, right-click the solution and select **Manage NuGet Packages for Solution**.
-
-    ![Right-click Manage NuGet Packages for Solution](media/sdk/qs-csharp-dotnet-windows-02-manage-nuget-packages.png "Manage NuGet Packages for Solution")
-
-1. In the upper-right corner, in the **Package Source** field, select **Nuget.org**. Search for the `Microsoft.CognitiveServices.Speech` package and install it into the **helloworld** project.
-
-    ![Install Microsoft.CognitiveServices.Speech NuGet Package](media/sdk/qs-csharp-dotnet-windows-03-nuget-install-0.5.0.png "Install Nuget package")
-
-1. Accept the displayed license to begin installation of the NuGet package.
-
-    ![Accept the license](media/sdk/qs-csharp-dotnet-windows-04-nuget-license.png "Accept the license")
-
-    After the package is installed, a confirmation appears in the Package Manager console.
-
-1. Create a platform configuration matching your PC architecture via the Configuration Manager. Select **Build** > **Configuration Manager**.
-
-    ![Launch the configuration manager](media/sdk/qs-csharp-dotnet-windows-05-cfg-manager-click.png "Launch the configuration manager")
-
-1. In the **Configuration Manager** dialog box, add a new platform. From the **Active solution platform** drop-down list, select **New**.
-
-    ![Add a new platform under the configuration manager window](media/sdk/qs-csharp-dotnet-windows-06-cfg-manager-new.png "Add a new platform under the configuration manager window")
-
-1. If you are running 64-bit Windows, create a new platform configuration named `x64`. If you are running 32-bit Windows, create a new platform configuration named `x86`.
-
-    ![On 64-bit Windows, add a new platform named "x64"](media/sdk/qs-csharp-dotnet-windows-07-cfg-manager-add-x64.png "Add x64 platform")
-
+[!INCLUDE [Create project ](../../../includes/cognitive-services-speech-service-create-speech-project-vs-csharp.md)]
 
 ## Add the code
 
@@ -182,22 +143,16 @@ recognizer.AddIntent("off", model, "HomeAutomation.TurnOff");
 recognizer.AddIntent("on", model, "HomeAutomation.TurnOn");
 ```
 
-You may also add intents that aren't defined in the LUIS app. These non-LUIS intents need to be short, imperative phrases that don't contain any information that could differ from one request to the next. An example might be exiting the application. You add such intents using a two-parameter overload of `AddIntent()` that takes the desired `intentID` and the phrase to be recognized, both as strings. For example:
-
-```csharp
-recognizer.AddIntent("exit", "exit application");
-```
-
 ## Start recognition
 
 With the recognizer created and the intents added, recognition can begin. The Speech SDK supports both single-shot and continuous recognition.
 
 |Recognition mode|Methods to call|Result|
 |----------------|-----------------|---------|
-|Single-shot|`RecognizeAsynnc()`|Returns the recognized intent, if any, after one utterance.|
+|Single-shot|`RecognizeAsync()`|Returns the recognized intent, if any, after one utterance.|
 |Continuous|`StartContinuousRecognitionAsync()`<br>`StopContinuousRecognitionAsync()`|Recognizes multiple utterances. Emits events (e.g. `IntermediateResultReceived`) when results are available.|
 
-The tutorial application uses single-shot mode and so calls `RecognizeAsynnc()` to begin recognition. The result is an `IntentRecognitionResult` object containing information about the intent recognized. The LUIS JSON response is extracted by the following expression:
+The tutorial application uses single-shot mode and so calls `RecognizeAsync()` to begin recognition. The result is an `IntentRecognitionResult` object containing information about the intent recognized. The LUIS JSON response is extracted by the following expression:
 
 ```csharp
 result.Properties.Get<string>(ResultPropertyKind.LanguageUnderstandingJson) 
@@ -213,7 +168,7 @@ By default, LUIS recognizes intents in US English (`en-us`). By passing a locale
 
 ## Continuous recognition from a file
 
-The following code illustrates two additional capabilities of intent recognition using the Speech SDK. The first, previously mentioned, is continuous recognition, where the recognizer emits events when results are available. These events can then be processed by event handlers that you provide. With continuous recognition, you call the recognizer's `StartContinuousRecognitionAsync()` to start recognition instead of `RecognizeAsynnc()`.
+The following code illustrates two additional capabilities of intent recognition using the Speech SDK. The first, previously mentioned, is continuous recognition, where the recognizer emits events when results are available. These events can then be processed by event handlers that you provide. With continuous recognition, you call the recognizer's `StartContinuousRecognitionAsync()` to start recognition instead of `RecognizeAsync()`.
 
 The other capability is reading the audio containing the speech to be processed from a WAV file. This involves calling the factory's `CreateIntentRecognizerWithFileInput()` method instead of `CreateIntentRecognizer()`. The file must be single-channel (mono) with a sampling rate of 16 kHz.
 

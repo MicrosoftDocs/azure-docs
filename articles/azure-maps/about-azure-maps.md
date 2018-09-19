@@ -116,7 +116,12 @@ Verify that the location of your current IP address is not in one of the unsuppo
 
 ## Next steps
 
-* For more information on the new features of Azure Maps:
-  * [Route Matrix, Isochrones, IP lookup, and more](https://azure.microsoft.com/blog/route-matrix-isochrones-ip-lookup-and-more-added-to-azure-maps/).
-* Proceed to trying out a sample app showcasing the service:
-  * [Launch a demo interactive search map](quick-demo-map-app.md)
+For more information on the new features of Azure Maps:
+
+> [!div class="nextstepaction"]
+> [Route Matrix, Isochrones, IP lookup, and more](https://azure.microsoft.com/blog/route-matrix-isochrones-ip-lookup-and-more-added-to-azure-maps/)
+
+Proceed to trying out a sample app showcasing the service:
+
+> [!div class="nextstepaction"]
+> [Launch a demo interactive search map](quick-demo-map-app.md)

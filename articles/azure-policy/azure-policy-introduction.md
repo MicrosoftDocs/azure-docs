@@ -208,7 +208,7 @@ an initiative.
 The following overview of Azure Policy is from Build 2018. For slides or video download, please
 visit [Govern your Azure environment through Azure Policy](https://channel9.msdn.com/events/Build/2018/THR2030) on Channel 9.
 
-> [!VIDEO https://channel9.msdn.com/events/Build/2018/THR2030/player]
+> [!VIDEO https://www.youtube.com/embed/dxMaYF2GB7o]
 
 ## Next steps
 

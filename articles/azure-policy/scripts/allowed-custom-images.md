@@ -6,7 +6,7 @@ author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
-ms.date: 06/03/2018
+ms.date: 09/13/2018
 ms.author: dacoulte
 ms.custom: mvc
 ---
@@ -23,6 +23,10 @@ You can deploy this sample policy using:
 - [REST API](#rest-api)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+> [!IMPORTANT]
+> Most of the JSON examples and SDK commands use `<subscriptionId>` and `YourResourceGroup` as
+> placeholders. Replace each as appropriate for your environment to avoid errors.
 
 ## Sample policy
 
