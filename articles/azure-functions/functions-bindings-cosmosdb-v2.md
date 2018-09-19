@@ -49,8 +49,9 @@ See the language-specific example:
 
 * [C#](#trigger---c-example)
 * [C# script (.csx)](#trigger---c-script-example)
-* [JavaScript](#trigger---javascript-example)
 * [Java](#trigger---java-example)
+* [JavaScript](#trigger---javascript-example)
+* [Python](#trigger---python-example)
 
 [Skip trigger examples](#trigger---attributes)
 
@@ -292,9 +293,10 @@ See the language-specific examples that read a single document by specifying an 
 
 * [C#](#input---c-examples)
 * [C# script (.csx)](#input---c-script-examples)
-* [JavaScript](#input---javascript-examples)
 * [F#](#input---f-examples)
 * [Java](#input---java-examples)
+* [JavaScript](#input---javascript-examples)
+* [Python](#input---python-examples)
 
 [Skip input examples](#input---attributes)
 
@@ -1494,9 +1496,9 @@ See the language-specific examples:
 
 * [C#](#output---c-examples)
 * [C# script (.csx)](#output---c-script-examples)
-* [JavaScript](#output---javascript-examples)
 * [F#](#output---f-examples)
 * [Java](#output---java-example)
+* [JavaScript](#output---javascript-examples)
 
 See also the [input example](#input---c-examples) that uses `DocumentClient`.
 
@@ -1862,7 +1864,7 @@ dependencies:
 
 To add a `project.json` file, see [F# package management](functions-reference-fsharp.md#package).
 
-## Output - Java examples
+### Output - Java examples
 
 The following example shows a Java function that adds a document to a database with data from a message in Queue storage.
 

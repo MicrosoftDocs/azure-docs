@@ -75,8 +75,9 @@ See the language-specific example:
 
 * [C#](#trigger---c-example)
 * [C# script (.csx)](#trigger---c-script-example)
-* [JavaScript](#trigger---javascript-example)
 * [Java](#trigger---javascript-example)
+* [JavaScript](#trigger---javascript-example)
+* [Python](#trigger---python-example)
 
 ### Trigger - C# example
 
@@ -462,8 +463,9 @@ See the language-specific example:
 
 * [C#](#input---c-example)
 * [C# script (.csx)](#input---c-script-example)
-* [JavaScript](#input---javascript-example)
 * [Java](#input---java-example)
+* [JavaScript](#input---javascript-example)
+* [Python](#input---python-example)
 
 ### Input - C# example
 
@@ -727,8 +729,9 @@ See the language-specific example:
 
 * [C#](#output---c-example)
 * [C# script (.csx)](#output---c-script-example)
-* [JavaScript](#output---javascript-example)
 * [Java](#output---java-example)
+* [JavaScript](#output---javascript-example)
+* [Python](#output---python-example)
 
 ### Output - C# example
 
