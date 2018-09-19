@@ -84,6 +84,12 @@ To delete a Recovery Services vault:
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15
    ```
+If there are error messages citing "Vault cannot be deleted as there are existing resources within this vault", such as containers that need to be unregistered first, use this command which will force delete the containers as well.
+
+   ```powershell
+   ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01
+   ```
+   
 1. Sign in to your subscription in the Azure portal and verify the vault is deleted.
 
 
