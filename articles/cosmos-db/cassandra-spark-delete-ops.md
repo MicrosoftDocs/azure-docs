@@ -1,6 +1,6 @@
 ---
 title: Delete operations against Azure Cosmos DB Cassandra API from Spark 
-description: This article details how to delete data in tables in Cosmos DB Cassandra API from Spark
+description: This article details how to delete data in tables in Azure Cosmos DB Cassandra API from Spark
 services: cosmos-db
 author: anagha-microsoft
 
@@ -15,8 +15,7 @@ ms.author: ankhanol
 
 # Delete data in Azure Cosmos DB Cassandra API tables from Spark
 
-
-This article is part of a series, which shows how to use Comos DB from Spark using scala. This article describes how to delete data in Azure Cosmos DB Cassandra API tables from Spark.
+This article describes how to delete data in Azure Cosmos DB Cassandra API tables from Spark.
 
 ## Cassandra API configuration
 

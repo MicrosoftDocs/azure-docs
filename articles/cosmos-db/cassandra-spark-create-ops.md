@@ -1,6 +1,6 @@
 ---
 title: Create/Insert data into Azure Cosmos DB Cassandra API from Spark
-description: This article details how to insert sample data into Cosmos DB Cassandra API tables
+description: This article details how to insert sample data into Azure Cosmos DB Cassandra API tables
 services: cosmos-db
 author: anagha-microsoft
 
@@ -15,7 +15,7 @@ ms.author: ankhanol
 
 # Create/Insert data into Azure Cosmos DB Cassandra API from Spark
  
-This article is part of a series, which shows how to use Comos DB from Spark using scala. This article describes how to insert sample data into a table in Azure Cosmos DB Cassandra API account from Spark.
+This article describes how to insert sample data into a table in Azure Cosmos DB Cassandra API from Spark.
 
 ## Cassandra API configuration
 
@@ -67,7 +67,7 @@ booksDF.show
 > [!NOTE]
 > "Create if not exists" functionality, at a row level, is not yet supported.
 
-### Persist to Cosmos DB Cassandra API
+### Persist to Azure Cosmos DB Cassandra API
 
 When saving data, you can also set time-to-live and consistency policy settings as shown in the following example:
 
@@ -114,7 +114,7 @@ booksRDD.take(2).foreach(println)
 > [!NOTE]
 > Create if not exists functionality is not yet supported.
 
-### Persist to Cosmos DB Cassandra API
+### Persist to Azure Cosmos DB Cassandra API
 
 When saving data to Cassandra API, you can also set time-to-live and consistency policy settings as shown in the following example:
 
@@ -134,7 +134,7 @@ select * from books;
 
 ## Next steps
 
-After inserting data into Cassandra API table, proceed to the following articles to perform other operations on the data stored in Cosmos DB Cassandra API:
+After inserting data into the Azure Cosmos DB Cassandra API table, proceed to the following articles to perform other operations on the data stored in Cosmos DB Cassandra API:
  
 * [Read operations](cassandra-spark-read-ops.md)
 * [Upsert operations](cassandra-spark-upsert-ops.md)

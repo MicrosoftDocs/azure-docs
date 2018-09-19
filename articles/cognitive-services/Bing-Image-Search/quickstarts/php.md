@@ -1,14 +1,14 @@
 ---
-title: "Quickstart: Send search queries with the Bing Image Search API and PHP"
+title: "Quickstart: Perform an image search with PHP - Bing Image Search API"
 titleSuffix: Azure Cognitive Services
-description: Use this quickstart to search and find images on the web using the Bing Web Search API.
+description: Use this quickstart to make your first call to the Bing Image Search API and receive a JSON response. The simple application in this article sends a search query and displays the raw results.
 services: cognitive-services
 documentationcenter: ''
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 9/07/2018
 ms.author: aahi
 ---
@@ -125,7 +125,7 @@ Responses from the Bing Image Search API are returned as JSON. This sample respo
 > [!div class="nextstepaction"]
 > [Bing Image Search single-page app tutorial](../tutorial-bing-image-search-single-page-app.md)
 
-## See also 
+## See also
 
 * [What is Bing Image Search?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
 * [Try an online interactive demo](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  

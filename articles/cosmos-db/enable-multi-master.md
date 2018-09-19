@@ -14,8 +14,8 @@ ms.reviewer: sngun
 
 # Enable multi-master for Azure Cosmos DB accounts
 
-Multi-master support can be enabled while creating an Azure Cosmos DB account. Multi-master is not enabled by default, and you can enable it by using the Azure portal, PowerShell, CLI, or an Azure Resource Manager template. 
- 
+Multi-master support is enabled while creating an Azure Cosmos DB account. An Azure Cosmos DB account can be created using the Azure portal, PowerShell, CLI, or an Azure Resource Manager template.
+
 > [!IMPORTANT]
 > Currently, multi-master support can be enabled for new Azure Cosmos DB accounts only. Existing Azure Cosmos DB accounts cannot use feature. We are working to provide support for existing accounts and will announce this support when it's available.
 
@@ -39,9 +39,26 @@ After you create an Azure Cosmos DB account with multi-master support, you can c
    |Enable geo-redundancy   |  Enable  |  Select to enable multi master to be selected below.   |
    |Enable Multi Master | Enable  | Select to enable multi master for this account. |
 
+
+## Enable multi-master using .NET SDK
+
+With a multi-master enabled account, within your applications, you can take advantage of multi-mastering by leveraging the ConnectionPolicy as shown below
+
+```csharp
+ConnectionPolicy policy = new ConnectionPolicy
+{
+   ConnectionMode = ConnectionMode.Direct,
+   ConnectionProtocol = Protocol.Tcp,
+   UseMultipleWriteLocations = true,
+};
+policy.PreferredLocations.Add("West US");
+policy.PreferredLocations.Add("North Europe");
+policy.PreferredLocations.Add("Southeast Asia");
+```
+
 ## Enable multi-master using PowerShell
 
-You can enable multi-master by setting the `enableMultipleWriteLocations` parameter to "true". To create an Azure Cosmos DB account with multi-master enabled, open a PowerShell window, and run the following script:
+You can also create a multi-master enabled Cosmos DB account by setting the `enableMultipleWriteLocations` parameter to "true". To create an Azure Cosmos DB account with multi-master enabled, open a PowerShell window, and run the following script:
 
 ```azurepowershell-interactive
 $locations = @(@{"locationName"="East US"; "failoverPriority"=0},
@@ -50,13 +67,13 @@ $locations = @(@{"locationName"="East US"; "failoverPriority"=0},
 $iprangefilter = "<ip-range-filter>"
 
 $consistencyPolicy = @{"defaultConsistencyLevel"="Session";
-                       "maxIntervalInSeconds"= "10"; 
+                       "maxIntervalInSeconds"= "10";
                        "maxStalenessPrefix"="200"}
 
-$CosmosDBProperties = @{"databaseAccountOfferType"="Standard"; 
-                        "locations"=$locations; 
-                        "consistencyPolicy"=$consistencyPolicy; 
-                        "ipRangeFilter"=$iprangefilter; 
+$CosmosDBProperties = @{"databaseAccountOfferType"="Standard";
+                        "locations"=$locations;
+                        "consistencyPolicy"=$consistencyPolicy;
+                        "ipRangeFilter"=$iprangefilter;
                         "enableMultipleWriteLocations"="true"}
 
 New-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
@@ -64,7 +81,7 @@ New-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
   -ResourceGroupName "myResourceGroup" `
   -Location "East US" `
   -Name "myCosmosDbAccount" `
-  -Properties $CosmosDBProperties 
+  -Properties $CosmosDBProperties
 ```
 
 ## Enable multi-master using CLI
@@ -83,7 +100,7 @@ az cosmosdb create \
 
 ## Enable multi-master using Resource Manager template
 
-The following JSON code is an example Resource Manager template that you can use to deploy an Azure Cosmos DB account. To learn about Resource Manager template format, and the syntax, see [Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) documentation. The key parameter to notice in this template is "enableMultipleWriteLocations": true. 
+The following JSON code is an example Resource Manager template that you can use to deploy an Azure Cosmos DB account. To learn about Resource Manager template format, and the syntax, see [Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) documentation. The key parameter to notice in this template is "enableMultipleWriteLocations": true.
 
 ```json
 {
@@ -136,7 +153,6 @@ The following JSON code is an example Resource Manager template that you can use
 
 In this article, you learned how to enable multi-master support for Azure Cosmos DB accounts. Next, look at the following resources:
 
-* [Conflict resolution for Azure Cosmos DB multi-master](multi-master-conflict-resolution.md) 
+* [Using multi-master with open source NoSQL databases](multi-master-oss-nosql.md)
 
-
-
+* [Understanding conflict resolution in Azure Cosmos DB](multi-master-conflict-resolution.md)

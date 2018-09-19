@@ -63,7 +63,7 @@ The following commands detail how to connect to Azure CosmosDB Cassandra API fro
 ```bash
 export SSL_VERSION=TLSv1_2
 export SSL_VALIDATE=false
-python cqlsh.py YOUR-COSMOSDB-ACCOUNT-NAME.cassandra.cosmosdb.windows-ppe.net 10350 -u YOUR-COSMOSDB-ACCOUNT-NAME -p YOUR-COSMOSDB-ACCOUNT-KEY --ssl
+cqlsh.py YOUR-COSMOSDB-ACCOUNT-NAME.cassandra.cosmosdb.windows-ppe.net 10350 -u YOUR-COSMOSDB-ACCOUNT-NAME -p YOUR-COSMOSDB-ACCOUNT-KEY --ssl
 ```
 
 ### 1.  Azure Databricks
@@ -80,7 +80,7 @@ While the sections above were specific to Azure Spark-based PaaS services, this 
 #### Connector dependencies:
 
 1. Add the maven coordinates for the [Datastax Cassandra connector for Spark](cassandra-spark-generic.md#dependencies-for-connectivity)
-2. Add the maven coordinates for the [Azure Cosmos DB helper library]((cassandra-spark-generic.md#dependencies-for-connectivity) for Cassandra API
+2. Add the maven coordinates for the [Azure Cosmos DB helper library](cassandra-spark-generic.md#dependencies-for-connectivity) for Cassandra API
 
 #### Imports:
 

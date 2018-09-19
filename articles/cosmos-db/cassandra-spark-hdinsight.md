@@ -114,7 +114,7 @@ Spark shell is used for testing/exploration purposes.
 
 HDInsight-Spark comes with Zeppelin and Jupyter notebook services. They are both web-based notebook environments that support Scala and Python. Notebooks are great for interactive exploratory analytics and collaboration, but not meant for operational/productionized processes.
 
-The following Jupyter notebooks can be uploaded into your HDInsight Spark cluster and provide ready samples for working with Azure Cosmos DB Cassandra API. Be sure to review the first notebook `1.0-ReadMe-AzureCosmosDBCassandraAPI.ipynb` to review Spark service configuration for connecting to Azure Cosmos DB Cassandra API.
+The following Jupyter notebooks can be uploaded into your HDInsight Spark cluster and provide ready samples for working with Azure Cosmos DB Cassandra API. Be sure to review the first notebook `1.0-ReadMe.ipynb` to review Spark service configuration for connecting to Azure Cosmos DB Cassandra API.
 
 Download these notebooks under [azure-cosmos-db-cassandra-api-spark-notebooks-jupyter](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-notebooks-jupyter/blob/master/scala/) to your machine.
   
