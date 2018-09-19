@@ -11,7 +11,6 @@ ms.service: active-directory
 ms.component: fundamentals
 ms.topic: overview 
 ms.devlang: na
-ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2018
@@ -117,7 +116,7 @@ Customers who are using Secure Score have seen their score increase five times m
 
 ### Who can use Secure Score?
 
-Anyone who has admin permissions (global admin or a custom admin role) for your Azure AD tenant. Users who aren't assigned an admin role can't access the score. However, admins can use the tool to share their results with other people in their organization. We're looking at including other, non-admin roles in the permissions list in the future. If there are specific roles you'd like us to consider, let us know by posting on the Office Security, Privacy & Compliance community.
+Anyone who has admin permissions (global admin or a custom admin role) for your Azure AD tenant. Users who aren't assigned an admin role can't access the score. However, admins can use the tool to share their results with other people in their organization. 
 
 ### What does [Not Scored] mean?
 
@@ -148,7 +147,7 @@ To see your score history, go to the score analyzer page on the [secure score po
 
 ### How does the identity secure score relate to the Office 365 secure score? 
 
-The [Office 365 secure score](https://docs.microsoft.com/en-us/office365/securitycompliance/office-365-secure-score) is about to be migrated into an aggregate of five different scores:
+The [Office 365 secure score](https://docs.microsoft.com/office365/securitycompliance/office-365-secure-score) is about to be migrated into an aggregate of five different scores:
 
 - Identity
 
