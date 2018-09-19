@@ -56,6 +56,8 @@ The diagram below illustrates the end-to-end workflow for enabling Azure AD auth
 
     Select a new or existing file share that's associated with the same subscription as your Azure AD tenant. For information about creating a new file share, see [Create a file share in Azure Files](storage-how-to-create-file-share.md). 
 
+    The Azure AD tenant must be deployed to a region supported for the preview of Azure AD over SMB. The preview is available in all public regions except for: West US, West US 2, South Central US, East US, East US 2, Central US, North Central US, East Australia, West Europe, North Europe.
+
     For optimal performance, Microsoft recommends that your file share is in the same region as the VM from which you plan to access the share.
 
 5.  **Verify Azure Files connectivity by mounting Azure file shares using your storage account key.**
@@ -76,7 +78,9 @@ Keep in mind that you can enable Azure AD authentication over SMB only after you
 
 **Powershell**
 
-To enable Azure AD authentication over SMB from Azure PowerShell, call [Set-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/set-azurermstorageaccount) and set the **EnableAzureFilesAadIntegrationForSMB** parameter to **true**. In the example below, remember to replace the placeholder values with your own values.
+To enable Azure AD authentication over SMB, install the `AzureRM.Storage 6.0.0-preview` PowerShell module. For information about installing PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+
+Next, call [Set-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/set-azurermstorageaccount) and set the **EnableAzureFilesAadIntegrationForSMB** parameter to **true**. In the example below, remember to replace the placeholder values with your own values.
 
 ```powershell
 # Create a new storage account
@@ -183,6 +187,8 @@ Next, use PowerShell or Azure CLI to create the role and assign it to an Azure A
 
 **Powershell**
 
+To enable Azure AD authentication over SMB, install the `AzureRM.Storage 6.0.0-preview` PowerShell module. For information about installing PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+
 The following PowerShell command creates a custom role and assigns the role to an Azure AD identity, based on sign-in name. For more information about assigning RBAC roles with PowerShell, see [Manage access using RBAC and Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 When running the following sample script, remember to replace placeholder values with your own values.
@@ -226,14 +232,13 @@ To configure NTFS permissions with superuser privileges, you must mount the shar
 
 The following sets of permissions are supported on the root directory of a file share:
 
-- BUILTIN\Administrators:(F)
-- BUILTIN\Administrators:(OI)(CI)(IO)(F)
-- NT AUTHORITY\SYSTEM:(F)
-- NT AUTHORITY\SYSTEM:(OI)(CI)(IO)(F)
-- NT AUTHORITY\Authenticated Users:(M)
-- NT AUTHORITY\Authenticated Users:(OI)(CI)(IO)(M)
+- BUILTIN\Administrators:(OI)(CI)(F)
+- NT AUTHORITY\SYSTEM:(OI)(CI)(F)
 - BUILTIN\Users:(RX)
 - BUILTIN\Users:(OI)(CI)(IO)(GR,GE)
+- NT AUTHORITY\Authenticated Users:(OI)(CI)(M)
+- NT AUTHORITY\SYSTEM:(F)
+- CREATOR OWNER:(OI)(CI)(IO)(F)
 
 #### Step 3.1 Mount an Azure file share from the command prompt
 
