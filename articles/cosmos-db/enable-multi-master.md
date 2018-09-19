@@ -40,9 +40,9 @@ After you create an Azure Cosmos DB account with multi-master support, you can c
    |Enable Multi Master | Enable  | Select to enable multi master for this account. |
 
 
-## Enable multi-master using .NET SDK
+## Using multi-master in SDKs
 
-With a multi-master enabled account, within your applications, you can take advantage of multi-mastering by leveraging the ConnectionPolicy as shown below
+With a multi-master enabled account, within your applications, you can take advantage of multi-mastering by leveraging the ConnectionPolicy as shown below.
 
 ```csharp
 ConnectionPolicy policy = new ConnectionPolicy
