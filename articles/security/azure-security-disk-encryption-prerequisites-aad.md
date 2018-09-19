@@ -65,7 +65,7 @@ An example of commands that can be used to mount the data disks and create the n
     - [Install and configure Azure PowerShell for Windows](/powershell/azure/install-azurerm-ps). 
         - Install PowerShellGet, Azure PowerShell, and load the AzureRM module. 
     - [Install and configure Azure Powershell on macOS and Linux](/powershell/azure/install-azurermps-maclinux).
-        -  Install PowerShell Core, Azure PowerShell for .NET Core, and load the AzureRM.Netcore module.
+        -  Install PowerShell Core, Azure PowerShell for .NET Core, and load the Az module.
 2. Install the [Azure Active Directory PowerShell module](/powershell/azure/active-directory/install-adv2#installing-the-azure-ad-module). 
 
      ```powershell

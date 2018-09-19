@@ -1,6 +1,6 @@
 ﻿---
 title: "Run analytics queries against tenant databases using Azure SQL Data Warehouse | Microsoft Docs"
-description: "Cross-tenant analytics queries using data extracted from multiple Azure SQL Database databases."
+description: "Cross-tenant analytics queries using data extracted from Azure SQL Database, SQL Data Warehouse, Azure Data Factory, or Power BI."
 keywords: "sql database tutorial"
 services: "sql-database"
 documentationcenter: ""
@@ -13,7 +13,7 @@ ms.workload: "Inactive"
 ms.tgt_pltfrm: ""
 ms.devlang: ""
 ms.topic: conceptual
-ms.date: 09/14/2018
+ms.date: 09/19/2018
 ms.author: "anjangsh"
 ---
 # Explore SaaS analytics with Azure SQL Database, SQL Data Warehouse, Data Factory, and Power BI
