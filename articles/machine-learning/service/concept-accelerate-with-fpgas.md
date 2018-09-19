@@ -24,7 +24,7 @@ FPGAs contain an array of programmable logic blocks and a hierarchy of reconfigu
 |Processor||Description|
 |---|:-------:|------|
 |Application-specific integrated circuits|ASICs|Custom circuits, such as Google's TensorFlow Processor Units (TPU), provide the highest efficiency but are inflexible.|
-|Field-programmable gate arrays|FPGAs|FPGAs, such as those available on Azure, provide performance close to ASICs, but are flexible and reconfigurable over time.|
+|Field-programmable gate arrays|FPGAs|FPGAs, such as those available on Azure, provide performance close to ASICs, but are flexible and reconfigurable over time to implement new logic.|
 |Graphics processing units|GPUs|A popular choice for AI computations offering parallel processing capabilities making it faster at image rendering than CPUs.|
 |Central processing units|CPUs|General-purpose processors whose performance is not ideal for graphics and video processing.|
 
