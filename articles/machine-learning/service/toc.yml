@@ -56,7 +56,8 @@
       href: how-to-write-data.md
   - name: Train and tune
     items:    
-    - name: Use automated ML	
+    - name: Use automated ML
+      href: how-to-automated-ml.md	
       items:
       - name: Configure auto training
         href: how-to-configure-auto-train.md 
