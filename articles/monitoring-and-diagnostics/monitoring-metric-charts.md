@@ -34,24 +34,24 @@ Metrics in Microsoft Azure are the series of measured values and counts that are
 1. Open the Azure portal
 2. Navigate to the new **Monitor** tab, and then select **Metrics (preview)**.
 
-   ![Metrics Preview Image](./media/monitoring-metric-charts/001.png)
+   ![Metrics Preview Image](./media/monitoring-metric-charts/0001.png)
 
 3. The **metric selector** will automatically be open for you. Choose a resource from the list to view its associated metrics. Only resources with metrics are shown in the list.
 
-   ![Metrics Preview Image](./media/monitoring-metric-charts/002.png)
+   ![Metrics Preview Image](./media/monitoring-metric-charts/0002.png)
 
    > [!NOTE]
    >If you have more than one Azure subscription, Metrics Explorer pulls out the resources across all subscriptions that are selected in the Portal Settings -> Filter by subscriptions list. To change it, click on the Portal settings gear icon on top of the screen and select which subscriptions you want to use.
 
-4. For some resources types (i.e. Storage Accounts and Virtual Machines), before selecting a metric you must choose a **Sub Service**. Each sub service carries its own set of metrics that are relevant to this sub service only, and not to other sub services.
+4. For some resources types (i.e. Storage Accounts and Virtual Machines), before selecting a metric you must choose a **Namespace**. Each namespace carries its own set of metrics that are relevant to this namespace only, and not to other namespaces.
 
    For example, each Azure Storage has metrics for subservices “Blobs”, “Files”, “Queues” and “Tables”, which are all parts of the storage account. However, the metric “Queue Message Count” is naturally applicable to the subservice “Queue” and not to any other storage account subservices.
 
-   ![Metrics Preview Image](./media/monitoring-metric-charts/003.png)
+   ![Metrics Preview Image](./media/monitoring-metric-charts/0003.png)
 
 5. Select a metric from the list. If you know a partial name of the metric you want, you can start typing it in to see a filtered list of available metrics:
 
-   ![Metrics Preview Image](./media/monitoring-metric-charts/004.png)
+   ![Metrics Preview Image](./media/monitoring-metric-charts/0004.png)
 
 6. After selecting a metric, the chart will render with the default aggregation for the selected metric. At this point you can just click away from the **metrics selector** to close it. You can also optionally switch the chart to a different aggregation. For some metrics, switching aggregation allows you to choose which value you want to see on the chart. For example, you can switch between the average, minimum and maximum values. 
 
@@ -70,15 +70,15 @@ You can apply filters to the charts that show metrics with dimensions. For examp
 
 2. Select which dimension (property) you want to filter
 
-   ![metric image](./media/monitoring-metric-charts/006.png)
+   ![metric image](./media/monitoring-metric-charts/0006.png)
 
 3. Select which dimension values you want to include when plotting the chart (this example shows filtering out the successful storage transactions):
 
-   ![metric image](./media/monitoring-metric-charts/007.png)
+   ![metric image](./media/monitoring-metric-charts/0007.png)
 
 4. After selecting the filter values, click away from the Filter Selector to close it. Now the chart shows how many storage transactions have failed:
 
-   ![metric image](./media/monitoring-metric-charts/008.png)
+   ![metric image](./media/monitoring-metric-charts/0008.png)
 
 5. You can repeat steps 1-4 to apply multiple filters to the same charts.
 
@@ -95,11 +95,11 @@ You can split a metric by dimension to visualize how different segments of the m
 
 2. Choose a dimension on which you want to segment your chart: 
 
-   ![metric image](./media/monitoring-metric-charts/010.png)
+   ![metric image](./media/monitoring-metric-charts/0010.png)
 
    Now the chart now shows multiple lines, one for each segment of dimension:
 
-   ![metric image](./media/monitoring-metric-charts/012.png)
+   ![metric image](./media/monitoring-metric-charts/0012.png)
 
 3. Click away from the **Grouping Selector** to close it.
 
@@ -114,7 +114,7 @@ To pin a configured chart to a dashboard:
 
 After configuring your chart, click on the **Chart Actions** menu in the right top corner of the chart, and click **Pin to dashboard**.
 
-   ![metric image](./media/monitoring-metric-charts/013.png)
+   ![metric image](./media/monitoring-metric-charts/0013.png)
 
 ## Next steps
 
