@@ -1,0 +1,56 @@
+<svg width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="DevOpsIconPipelines96">
+<mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="96" height="96">
+<g id="Union">
+<path d="M14 64.416L18.8301 59.251L24.8323 65.2529L19.9519 70.1338L25.8659 76.0479L30.7462 71.168L36.7895 77.2109L32 82L46 96H68C70.2091 96 72 94.209 72 92V60.0225L92.442 46.375C94.665 44.8916 95.9999 42.3945 95.9999 39.7217V4C95.9999 1.79102 94.2091 0 91.9999 0H56.2781C53.6052 0 51.1088 1.33496 49.6246 3.55762L35.9772 24H4C1.79083 24 0 25.791 0 28V50L14 64.416Z" fill="white"/>
+<path d="M8 88V72H0V96H24V88H8Z" fill="white"/>
+</g>
+</mask>
+<g mask="url(#mask0)">
+<path id="Flame" fill-rule="evenodd" clip-rule="evenodd" d="M0 0L7.99999 2.97878e-08V16.0001H24V24H0V0Z" transform="translate(0 72)" fill="#91B0F2"/>
+<path id="Wings" d="M0 4V26L14 40.4156L20 34L38 52L32 58L46 72H68C70.2091 72 72 70.2091 72 68V36L36 0H4C1.79086 0 0 1.79086 0 4Z" transform="translate(0 24)" fill="#0F46BD"/>
+<g id="Body" filter="url(#filter0_f)">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M0 55.4213L37 0H80.9999V44.0002L25.5789 81.0004L0 55.4213Z" transform="translate(15)" fill="#062AA9"/>
+</g>
+<path id="Body_2" fill-rule="evenodd" clip-rule="evenodd" d="M2.32029 57.7416C0.971342 56.3927 0.762734 54.2789 1.82198 52.6922L34.6246 3.55804C36.1087 1.33497 38.6051 0 41.2781 0H76.9999C79.209 0 80.9999 1.79086 80.9999 4V39.7222C80.9999 42.3951 79.6649 44.8915 77.4419 46.3756L28.308 79.1784C26.7214 80.2377 24.6076 80.0291 23.2586 78.6801L2.32029 57.7416Z" transform="translate(15)" fill="#2560E0"/>
+<g id="Wing shadow" filter="url(#filter1_f)">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M0 30.5401L30.54 0L36.454 5.91397L5.91399 36.4541L0 30.5401Z" transform="translate(19.9519 39.5938)" fill="#0A44C2"/>
+</g>
+<path id="Wing" fill-rule="evenodd" clip-rule="evenodd" d="M0 30.5401L30.54 0L36.454 5.91397L5.91399 36.4541L0 30.5401Z" transform="translate(19.9519 39.5938)" fill="#729AF2"/>
+<path id="Intersect" d="M5.914 31.5732L0 25.6592L25.6595 0L31.5734 5.91406L5.914 31.5732Z" transform="translate(24.8325 39.5938)" fill="#4C80F0"/>
+<g id="Window shadow" filter="url(#filter2_f)">
+<path d="M12 24.0001C18.6274 24.0001 24 18.6275 24 12.0001C24 5.37261 18.6274 0 12 0C5.37258 0 0 5.37261 0 12.0001C0 18.6275 5.37258 24.0001 12 24.0001Z" transform="translate(58 14)" fill="#0A44C2"/>
+</g>
+<path id="Window" d="M12 24.0001C18.6274 24.0001 24 18.6275 24 12.0001C24 5.37261 18.6274 0 12 0C5.37258 0 0 5.37261 0 12.0001C0 18.6275 5.37258 24.0001 12 24.0001Z" transform="translate(58 14)" fill="#91B0F2"/>
+<g id="Union_2" opacity="0.2">
+<path d="M14 64.416L18.8301 59.251L24.8323 65.2529L19.9519 70.1338L25.8659 76.0479L30.7462 71.168L36.7895 77.2109L32 82L46 96H68C70.2091 96 72 94.209 72 92V60.0225L92.442 46.375C94.665 44.8916 95.9999 42.3945 95.9999 39.7217V4C95.9999 1.79102 94.2091 0 91.9999 0H56.2781C53.6052 0 51.1088 1.33496 49.6246 3.55762L35.9772 24H4C1.79083 24 0 25.791 0 28V50L14 64.416Z" fill="url(#paint0_linear)"/>
+<path d="M8 88V72H0V96H24V88H8Z" fill="url(#paint1_linear)"/>
+</g>
+</g>
+</g>
+<defs>
+<filter id="filter0_f" x="7" y="-8" width="96.9999" height="97" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="4" result="effect1_foregroundBlur"/>
+</filter>
+<filter id="filter1_f" x="6.29504" y="25.9365" width="63.7677" height="63.7678" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="4" result="effect1_foregroundBlur"/>
+</filter>
+<filter id="filter2_f" x="50" y="6" width="40" height="40" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="4" result="effect1_foregroundBlur"/>
+</filter>
+<linearGradient id="paint0_linear" x2="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(95.9999) scale(95.9999) rotate(90)">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint1_linear" x2="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(95.9999) scale(95.9999) rotate(90)">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+</defs>
+</svg>
