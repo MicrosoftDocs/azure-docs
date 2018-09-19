@@ -180,7 +180,7 @@
       href: set-runtime-version.md
     - name: Disable a function 
       href: disable-function.md
-    - name: Troubleshoot Bad Storage
+    - name: Troubleshoot storage
       href: functions-recover-storage-account.md
   - name: Monitor
     href: functions-monitoring.md
