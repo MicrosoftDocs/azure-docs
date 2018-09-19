@@ -15,7 +15,7 @@ ms.custom: mvc
 
 # Tutorial: Automate container image builds with Azure Container Registry Tasks
 
-In addition to a [quick task](container-registry-tutorial-quick-build.md), ACR Tasks supports automated Docker container image builds with the *build task*. In this tutorial, you use the Azure CLI to create a task that automatically triggers image builds in the cloud when you commit source code to a Git repository.
+In addition to a [quick task](container-registry-tutorial-quick-task.md), ACR Tasks supports automated Docker container image builds with the *build task*. In this tutorial, you use the Azure CLI to create a task that automatically triggers image builds in the cloud when you commit source code to a Git repository.
 
 In this tutorial, part two in the series:
 
@@ -25,7 +25,7 @@ In this tutorial, part two in the series:
 > * View task status
 > * Trigger the task with a code commit
 
-This tutorial assumes you've already completed the steps in the [previous tutorial](container-registry-tutorial-quick-build.md). If you haven't already done so, complete the steps in the [Prerequisites](container-registry-tutorial-quick-task.md#prerequisites) section of the previous tutorial before proceeding.
+This tutorial assumes you've already completed the steps in the [previous tutorial](container-registry-tutorial-quick-task.md). If you haven't already done so, complete the steps in the [Prerequisites](container-registry-tutorial-quick-task.md#prerequisites) section of the previous tutorial before proceeding.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -35,11 +35,11 @@ If you'd like to use the Azure CLI locally, you must have Azure CLI version **2.
 
 ### Get sample code
 
-This tutorial assumes you've already completed the steps in the [previous tutorial](container-registry-tutorial-quick-build.md), and have forked and cloned the sample repository. If you haven't already done so, complete the steps in the [Prerequisites](container-registry-tutorial-quick-build.md#prerequisites) section of the previous tutorial before proceeding.
+This tutorial assumes you've already completed the steps in the [previous tutorial](container-registry-tutorial-quick-task.md), and have forked and cloned the sample repository. If you haven't already done so, complete the steps in the [Prerequisites](container-registry-tutorial-quick-task.md#prerequisites) section of the previous tutorial before proceeding.
 
 ### Container registry
 
-You must have an Azure container registry in your Azure subscription to complete this tutorial. If you need a registry, see the [previous tutorial](container-registry-tutorial-quick-build.md), or [Quickstart: Create a container registry using the Azure CLI](container-registry-get-started-azure-cli.md).
+You must have an Azure container registry in your Azure subscription to complete this tutorial. If you need a registry, see the [previous tutorial](container-registry-tutorial-quick-task.md), or [Quickstart: Create a container registry using the Azure CLI](container-registry-get-started-azure-cli.md).
 
 ## Overview of ACR Tasks
 

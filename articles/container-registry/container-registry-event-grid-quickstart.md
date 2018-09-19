@@ -229,7 +229,7 @@ You can find the Azure Container Registry event message schema reference in the 
 In this quickstart, you deployed a container registry, built an image with ACR Build, deleted it, and have consumed your registry's events from Event Grid with a sample application. Next, move on to the ACR Build tutorial to learn more about building container images in the cloud, including automated builds on base image update:
 
 > [!div class="nextstepaction"]
-> [Build container images in the cloud with ACR Build](container-registry-tutorial-quick-build.md)
+> [Build container images in the cloud with ACR Build](container-registry-tutorial-quick-task.md)
 
 <!-- IMAGES -->
 [sample-app-01]: ./media/container-registry-event-grid-quickstart/sample-app-01.png

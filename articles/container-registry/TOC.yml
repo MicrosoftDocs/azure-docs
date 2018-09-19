@@ -20,7 +20,7 @@
   - name: Build container images
     items:
     - name: 1 - Build images in Azure
-      href: container-registry-tutorial-quick-build.md
+      href: container-registry-tutorial-quick-task.md
     - name: 2 - Automate image builds
       href: container-registry-tutorial-build-task.md
     - name: 3 - Base image update builds

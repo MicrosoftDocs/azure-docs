@@ -44,7 +44,7 @@ This tutorial assumes you've already completed the steps in the first two tutori
 
 If you haven't already done so, complete the first two tutorials before proceeding:
 
-[Build container images in the cloud with Azure Container Registry Tasks](container-registry-tutorial-quick-build.md)
+[Build container images in the cloud with Azure Container Registry Tasks](container-registry-tutorial-quick-task.md)
 
 [Automate container image builds with Azure Container Registry Tasks](container-registry-tutorial-build-task.md)
 
@@ -80,7 +80,7 @@ In the following sections, you create a task, update the `NODE_VERSION` value in
 
 ## Build the base image
 
-Start by building the base image with an ACR Tasks *quick task*. As discussed in the [first tutorial](container-registry-tutorial-quick-build.md) in the series, this process not only builds the image, but pushes it to your container registry if the build is successful.
+Start by building the base image with an ACR Tasks *quick task*. As discussed in the [first tutorial](container-registry-tutorial-quick-task.md) in the series, this process not only builds the image, but pushes it to your container registry if the build is successful.
 
 ```azurecli-interactive
 az acr build --registry $ACR_NAME --image baseimages/node:9-alpine --file Dockerfile-base .
