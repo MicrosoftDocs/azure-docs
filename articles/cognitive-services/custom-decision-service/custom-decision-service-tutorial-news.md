@@ -1,16 +1,19 @@
 ---
-title: Article personalization - Azure Cognitive Services | Microsoft Docs
-description: A tutorial for article personalization with Azure Custom Decision Service, a cloud-based API for contextual decision-making.
+title: "Tutorial: Article personalization - Custom Decision Service"
+titlesuffix: Azure Cognitive Services
+description: A tutorial for article personalization for contextual decision-making.
 services: cognitive-services
 author: slivkins
-manager: slivkins
+manager: cgronlun
+
 ms.service: cognitive-services
-ms.topic: article
+ms.component: custom-decision-service
+ms.topic: tutorial
 ms.date: 05/08/2018
-ms.author: slivkins;marcozo;alekh;marossi
+ms.author: slivkins
 ---
 
-# Article personalization
+# Tutorial: Article personalization for contextual decision making
 
 This tutorial focuses on personalizing the selection of articles on the front page of a website. The Custom Decision Service affects *multiple* lists of articles on the front page, for instance. Perhaps the page is a news website that covers only politics and sports. It would show three ranked lists of articles: politics, sports, and recent.
 

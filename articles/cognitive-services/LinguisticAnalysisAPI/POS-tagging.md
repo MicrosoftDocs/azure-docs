@@ -1,12 +1,13 @@
 ---
-title: Part-of-Speech Tagging in the Linguistic Analysis API | Microsoft Docs
-description: Learn how Part-of-Speech Tagging in Microsoft Cognitive Services identifies the category or part of speech of each word of text.
+title: Part-of-Speech Tagging - Linguistic Analysis API
+description: Learn how Part-of-Speech Tagging in the Linguistic Analysis API identifies the category or part of speech of each word of text.
 services: cognitive-services
 author: RichardSunMS
-manager: wkwok
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: linguistic-analysis
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/27/2016
 ms.author: lesun
 ---
