@@ -233,7 +233,6 @@ let remoteMachines = remote | summarize by RemoteMachine;
 | summarize Remote=makeset(iff(isempty(RemoteMachine), todynamic('{}'), pack('Machine', RemoteMachine, 'Process', Process1, 'ProcessName', ProcessName1))) by ConnectionId, Direction, Machine, Process, ProcessName, SourceIp, DestinationIp, DestinationPort, Protocol
 ```
 
-## REST API
-All the server, process, and dependency data in Service Map is available via the [Service Map REST API](https://docs.microsoft.com/rest/api/servicemap/).
-
 ## Next steps
+* If you are new to writing queries in Log Analytics, review [how to use the Log Analytics page](../log-analytics/query-language/get-started-analytics-portal.md) in the Azure portal to write Log Analytics queries.
+* Learn about [writing search queries](../log-analytics/query-language/search-queries).

@@ -18,7 +18,7 @@ ms.author: magoedte
 
 ---
 
-## Azure Monitor for VMs Frequently Asked Questions
+# Azure Monitor for VMs Frequently Asked Questions
 This Microsoft FAQ is a list of commonly asked questions about Azure Monitor for VMs in Microsoft Azure. If you have any additional questions about the solution, go to the [discussion forum](https://feedback.azure.com/forums/34192--general-feedback) and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
 
 ## Can I onboard to an existing workspace?

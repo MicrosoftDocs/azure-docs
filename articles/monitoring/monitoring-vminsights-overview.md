@@ -1,5 +1,5 @@
 ---
-title: Overview of Azure Monitor for VMs | Microsoft Docs
+title: What is Azure Monitor for VMs? | Microsoft Docs
 description: Azure Monitor for VMs is a feature of Azure Monitor that combines health and performance monitoring of the Azure VM operating system, as well as automatically discovering application components and dependencies with other resources and maps the communication between them. This article provides an overview.
 services: azure-monitor
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.author: magoedte
 
 ---
 
-## Overview of Azure Monitor for VMs
+## What is Azure Monitor for VMs?
 
 Azure Monitor for VMs monitors your Azure virtual machines (VM) at scale by analyzing the performance and health of your Windows and Linux VMs, including their different processes and interconnected dependencies on other resources and external processes. The solution includes support for monitoring performance and application dependencies for VMs hosted on-premises or another cloud provider.  It includes three key features to deliver this in-depth insight:
 
