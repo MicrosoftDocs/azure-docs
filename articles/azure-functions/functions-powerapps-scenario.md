@@ -37,7 +37,7 @@ In this topic, you learn how to:
 
 ## Prerequisites
 
-+ An active [PowerApps account](https://docs.microsoft.com/en-us/powerapps/maker/signup-for-powerapps) with the same sign in credentials as your Azure account. 
++ An active [PowerApps account](https://docs.microsoft.com/powerapps/maker/signup-for-powerapps) with the same sign in credentials as your Azure account. 
 + Excel and the [Excel sample file](https://procsi.blob.core.windows.net/docs/turbine-data.xlsx) that you will use as a data source for your app.
 + Complete the tutorial [Create an OpenAPI definition for a function](functions-openapi-definition.md).
 

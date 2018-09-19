@@ -29,11 +29,11 @@ As precondition for the installation of an SMT server that fulfills the task for
 
 ## Installation of SMT server on Azure VM
 
-In this step, you install the SMT server in an Azure VM. The first measure is to sign in to the [SUSE Customer Center](https://scc.suse.com/)
+In this step, you install the SMT server in an Azure VM. The first measure is to sign in to the [SUSE Customer Center](https://scc.suse.com/).
 
 As you are logged in, go to Organization--> Organization Credentials. In that section you should find the credentials that are necessary to set up the SMT server.
 
-The third step is to install a SUSE Linux VM in the Azure VNet. To deploy the VM, take a SLES 12 SP2 gallery image of Azure. In the deployment process, don't define a DNS name and do not use static IP addresses as seen in this screenshot
+The third step is to install a SUSE Linux VM in the Azure VNet. To deploy the VM, take a SLES 12 SP2 gallery image of Azure (select BYOS SUSE image). In the deployment process, don't define a DNS name and do not use static IP addresses as seen in this screenshot
 
 ![vm deployment for SMT server](./media/hana-installation/image3_vm_deployment.png)
 
@@ -53,7 +53,28 @@ echo "export NCURSES_NO_UTF8_ACS=1" >> .bashrc
 
 After executing these commands, restart your bash to activate the settings. Then start YAST.
 
-In YAST, go to Software Maintenance and search for smt. Select smt, which switches automatically to yast2-smt as shown below
+Connect your VM (smtserver) to the SUSE site.
+
+```
+smtserver:~ # SUSEConnect -r <registration code> -e s<email address> --url https://scc.suse.com
+Registered SLES_SAP 12.2 x86_64
+To server: https://scc.suse.com
+Using E-Mail: email address
+Successfully registered system.
+```
+
+Once the VM is connected to the SUSE site, install the smt packages. Use the following putty command to install the smt packages.
+
+```
+smtserver:~ # zypper in smt
+Refreshing service 'SUSE_Linux_Enterprise_Server_for_SAP_Applications_12_SP2_x86_64'.
+Loading repository data...
+Reading installed packages...
+Resolving package dependencies...
+```
+
+
+You can also use YAST tool to install the smt packages. In YAST, go to Software Maintenance and search for smt. Select smt, which switches automatically to yast2-smt as shown below
 
 ![SMT in yast](./media/hana-installation/image5_smt_in_yast.PNG)
 

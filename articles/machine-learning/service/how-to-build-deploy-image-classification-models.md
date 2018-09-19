@@ -169,7 +169,7 @@ display(annotation_ui.ui)
 
 ## Augment images
 
-The [`augmentation` module](https://docs.microsoft.com/en-us/python/api/cvtk.augmentation) provides functionality to augment a dataset object using all the transformations described in the [imgaug](https://github.com/aleju/imgaug) library. Image transformations can be grouped in a single pipeline, in which case all transformations in the pipeline are applied simultaneously each image. 
+The [`augmentation` module](https://docs.microsoft.com/python/api/cvtk.augmentation) provides functionality to augment a dataset object using all the transformations described in the [imgaug](https://github.com/aleju/imgaug) library. Image transformations can be grouped in a single pipeline, in which case all transformations in the pipeline are applied simultaneously each image. 
 
 If you would like to apply different augmentation steps separately, or in any different manner, you can define multiple pipelines and pass them to the *augment_dataset* function. For more information and examples of image augmentation, see the [imgaug documentation](https://github.com/aleju/imgaug).
 

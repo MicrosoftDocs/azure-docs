@@ -50,7 +50,7 @@ Follow these steps to set up Azure Dev Spaces:
 1. Build and run your code in AKS. In the terminal window from the **webfrontend folder**, run this command: `azds up`
 1. Scan the console output for information about the URL that was created by the `up` command. It will be in the form: 
 
-   `Service 'webfrontend' port 'http' is available at <url>` 
+   `(pending registration) Service 'webfrontend' port 'http' will be available at <url>\r\nService 'webfrontend' port 80 (TCP) is available at http://localhost:<port>` 
 
    Open this URL in a browser window, and you should see the web app load. 
    

@@ -51,7 +51,7 @@ There are some things that you can't do when you use an ILB ASE:
 
 To create an ILB ASE:
 
-1. In the Azure portal, select **Create a resource** > **Web + Mobile** > **App Service Environment**.
+1. In the Azure portal, select **Create a resource** > **Web** > **App Service Environment**.
 
 1. Select your subscription.
 

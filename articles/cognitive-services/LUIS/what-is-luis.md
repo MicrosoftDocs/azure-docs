@@ -175,7 +175,7 @@ Microsoft client applications for LUIS include:
 * [Windows Mixed Reality](https://docs.microsoft.com/windows/mixed-reality/) - learn more with this [Mixed reality course](https://docs.microsoft.com/windows/mixed-reality/mr-azure-303) with LUIS. 
 
 Microsoft tools to use LUIS with a bot:
-* [Dispatch](https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch) allows several LUIS and QnA Maker apps to be used from a parent app using dispatcher model.
+* [Dispatch](https://aka.ms/dispatch-tool) allows several LUIS and QnA Maker apps to be used from a parent app using dispatcher model.
 * [Conversation learner](https://docs.microsoft.com/azure/cognitive-services/labs/conversation-learner/overview) allows you to build bot conversations quicker with LUIS.
 * [Project personality chat](https://docs.microsoft.com/azure/cognitive-services/project-personality-chat/overview) to handle bot small talk.
 

@@ -237,12 +237,79 @@
       items:
       - name: Release notes
         href: active-directory-b2c-developer-notes-custom.md
-      - name: SSO session providers
-        href: active-directory-b2c-reference-sso-custom.md
-      - name: Language customization
-        href: active-directory-b2c-language-customization-custom.md
       - name: Trust Framework definition
         href: active-directory-b2c-reference-trustframeworks-defined-ief-custom.md
+      - name: Identity Experience Framework schema
+        items:
+        - name: TrustFrameworkPolicy
+          href: trustframeworkpolicy.md
+        - name: BuildingBlocks
+          href: buildingblocks.md
+          items:
+          - name: ClaimsSchema
+            href: claimsschema.md
+          - name: ClaimsTransformations
+            href: claimstransformations.md
+            items:
+            - name: Boolean
+              href: boolean-transformations.md
+            - name: Date
+              href: date-transformations.md
+            - name: General
+              href: general-transformations.md
+            - name: Integer
+              href: integer-transformations.md
+            - name: JSON
+              href: json-transformations.md
+            - name: Social accounts
+              href: social-transformations.md
+            - name: StringCollection
+              href: stringcollection-transformations.md
+            - name: String
+              href: string-transformations.md
+          - name: Predicates
+            href: predicates.md
+          - name: ContentDefinitions
+            href: contentdefinitions.md
+          - name: Localization
+            href: localization.md
+            items:
+            - name: Localization string Ids
+              href: localization-string-ids.md 
+        - name: ClaimsProviders
+          href: claimsproviders.md
+          items:
+          - name: TechnicalProfiles
+            href: technicalprofiles.md
+            items:
+            - name: About technical profiles
+              href: technical-profiles-overview.md
+            - name: Azure Active Directory
+              href: active-directory-technical-profile.md
+            - name: Claims transformation
+              href: claims-transformation-technical-profile.md
+            - name: JWT token issuer
+              href: jwt-issuer-technical-profile.md
+            - name: OAuth1
+              href: oauth1-technical-profile.md
+            - name: OAuth2
+              href: oauth2-technical-profile.md
+            - name: OpenId Connect
+              href: openid-connect-technical-profile.md
+            - name: REST
+              href: restful-technical-profile.md
+            - name: SAML
+              href: saml-technical-profile.md
+            - name: Self-asserted
+              href: self-asserted-technical-profile.md
+            - name: SSO session
+              href: active-directory-b2c-reference-sso-custom.md
+            - name: Validation
+              href: validation-technical-profile.md
+        - name: UserJourneys
+          href: userjourneys.md
+        - name: RelyingParty
+          href: relyingparty.md
   - name: Reference
     items:
     - name: Code samples

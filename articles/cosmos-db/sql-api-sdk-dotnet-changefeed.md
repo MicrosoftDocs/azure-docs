@@ -39,6 +39,10 @@ ms.author: maquaran
 
 ### v2 builds
 
+### <a name="2.1.0"/>2.1.0
+* Added new API, Task&lt;IReadOnlyList&lt;RemainingPartitionWork&gt;&gt; IRemainingWorkEstimator.GetEstimatedRemainingWorkPerPartitionAsync(). This can be used to get estimated work for each partition.
+* Supports Microsoft.Azure.DocumentDB SDK 2.0. Requires Microsoft.Azure.DocumentDB 2.0 or later.
+
 ### <a name="2.0.6"/>2.0.6
 * Added ChangeFeedEventHost.HostName public property for compativility with v1.
 

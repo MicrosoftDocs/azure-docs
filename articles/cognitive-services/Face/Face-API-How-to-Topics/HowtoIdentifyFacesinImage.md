@@ -1,22 +1,23 @@
 ---
-title: Identify faces in images with the Face API | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
-description: Use the Face API in Cognitive Services to identify faces in images.
+title: "Example: Identify faces in images - Face API"
+titleSuffix: Azure Cognitive Services
+description: Use the Face API to identify faces in images.
 services: cognitive-services
 author: SteveMSFT
-manager: corncar
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: face-api
-ms.topic: article
+ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
 ---
 
-# How to identify faces in images
+# Example: How to identify faces in images
 
 This guide demonstrates how to identify unknown faces using PersonGroups, which are created from known people in advance. The samples are written in C# using the Face API client library.
 
-## <a name="concepts"></a> Concepts
+## Concepts
 
 If you are not familiar with the following concepts in this guide, please search for the definitions in our [glossary](../Glossary.md) at any time:
 
@@ -24,7 +25,7 @@ If you are not familiar with the following concepts in this guide, please search
 - Face - Identify
 - PersonGroup
 
-## <a name="preparation"></a> Preparation
+## Preparation
 
 In this sample, we demonstrate the following:
 
@@ -36,7 +37,7 @@ To carry out the demonstration of this sample, you need to prepare a bunch of pi
 - A few photos with the person's face. [Click here to download sample photos](https://github.com/Microsoft/Cognitive-Face-Windows/tree/master/Data) for Anna, Bill, and Clare.
 - A series of test photos, which may or may not contain the faces of Anna, Bill or Clare used to test identification. You can also select some sample images from the preceding link.
 
-## <a name="step1"></a> Step 1: Authorize the API call
+## Step 1: Authorize the API call
 
 Every call to the Face API requires a subscription key. This key can be either passed through a query string parameter, or specified in the request header. To pass the subscription key through query string, please refer to the request URL for the [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) as an example:
 ```
@@ -53,13 +54,13 @@ faceServiceClient = new FaceServiceClient("<Subscription Key>");
  
 The subscription key can be obtained from the Marketplace page of your Azure portal. See [Subscriptions](https://azure.microsoft.com/try/cognitive-services/).
 
-## <a name="step2"></a> Step 2: Create the PersonGroup
+## Step 2: Create the PersonGroup
 
 In this step, we created a PersonGroup named "MyFriends" that contains three people: Anna, Bill, and Clare. Each person has several faces registered. The faces need to be detected from the images. After all of these steps, you have a PersonGroup like the following image:
 
 ![HowToIdentify1](../Images/group.image.1.jpg)
 
-### <a name="step2-1"></a> 2.1 Define people for the PersonGroup
+### 2.1 Define people for the PersonGroup
 A person is a basic unit of identify. A person can have one or more known faces registered. However, a PersonGroup is a collection of people, and each person is defined within a particular PersonGroup. The identification is done against a PersonGroup. So, the task is to create a PersonGroup, and then create people in it, such as Anna, Bill, and Clare.
 
 First, you need to create a new PersonGroup. This is executed by using the [PersonGroup - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) API. The corresponding client library API is the CreatePersonGroupAsync method for the FaceServiceClient class. The group ID specified to create the group is unique for each subscription –you can also get, update, or delete PersonGroups using other PersonGroup APIs. Once a group is defined, people can then be defined within it by using the [PersonGroup Person - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c) API. The client library method is CreatePersonAsync. You can add face to each person after they're created.
@@ -101,7 +102,8 @@ foreach (string imagePath in Directory.GetFiles(friend1ImageDir, "*.jpg"))
 // Do the same for Bill and Clare
 ``` 
 Notice that if the image contains more than one face, only the largest face is added. You can add other faces to the person by passing a string in the format of "targetFace = left, top, width, height" to [PersonGroup Person - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) API's targetFace query parameter, or using the targetFace optional parameter for the AddPersonFaceAsync method to add other faces. Each face added to the person will be given a unique persisted face ID, which can be used in [PersonGroup Person – Delete Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523e) and [Face – Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
-## <a name="step3"></a> Step 3: Train the PersonGroup
+
+## Step 3: Train the PersonGroup
 
 The PersonGroup must be trained before an identification can be performed using it. Moreover, it has to be retrained after adding or removing any person, or if any person has their registered face edited. The training is done by the [PersonGroup – Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249) API. When using the client library, it is simply a call to the TrainPersonGroupAsync method:
  
@@ -126,12 +128,14 @@ while(true)
 } 
 ``` 
 
-## <a name="step4"></a> Step 4: Identify a face against a defined PersonGroup
+## Step 4: Identify a face against a defined PersonGroup
+
 When performing identifications, the Face API can compute the similarity of a test face among all the faces within a group, and returns the most comparable person(s) for that testing face. This is done through the [Face - Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) API or the IdentifyAsync method of the client library.
 
 The testing face needs to be detected using the previous steps, and then the face ID is passed to the identify API as a second argument. Multiple face IDs can be identified at once, and the result will contain all the identify results. By default, the identify returns only one person that matches the test face best. If you prefer, you can specify the optional parameter maxNumOfCandidatesReturned to let the identify return more candidates.
 
 The following code demonstrates the process of identify:
+
 ```CSharp 
 string testImageFile = @"D:\Pictures\test_img1.jpg";
 
@@ -163,12 +167,12 @@ When you have finished the steps, you can try to identify different faces and se
 
 ![HowToIdentify2](../Images/identificationResult.1.jpg )
 
-## <a name="step5"></a> Step 5: Request for large-scale
+## Step 5: Request for large-scale
 
 As is known, a PersonGroup can hold up to 10,000 persons due to the limitation of previous design.
 For more information about up to million-scale scenarios, see [How to use the large-scale feature](how-to-use-large-scale.md).
 
-## <a name="summary"></a> Summary
+## Summary
 
 In this guide, you have learned the process of creating a PersonGroup and identifying a person. The following are a quick reminder of the features previously explained and demonstrated:
 
@@ -178,7 +182,7 @@ In this guide, you have learned the process of creating a PersonGroup and identi
 - Train a PersonGroup using the [PersonGroup – Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249) API
 - Identifying unknown faces against the PersonGroup using the [Face - Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) API
 
-## <a name="related"></a> Related Topics
+## Related Topics
 
 - [How to Detect Faces in Image](HowtoDetectFacesinImage.md)
 - [How to Add Faces](how-to-add-faces.md)

@@ -45,7 +45,7 @@
       href: devtest-lab-test-env.md
     - name: Use labs for training
       href: devtest-lab-training-lab.md
-    - name: DevTest Labs 
+    - name: Introduction to DevTest Labs 
       href: devtest-lab-overview.md
 - name: How-to guides
   items:

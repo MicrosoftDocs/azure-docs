@@ -101,7 +101,7 @@ print('imports done')
 
 ## Load data and explore
 
-This code snippet shows the typical process of starting with a raw data set, in this case the [data from Dominick's Finer Foods](https://research.chicagobooth.edu/kilts/marketing-databases/dominicks).  You can also use the convenience function [load_dominicks_oj_data](https://docs.microsoft.com/en-us/python/api/ftk.data.dominicks_oj.load_dominicks_oj_data).
+This code snippet shows the typical process of starting with a raw data set, in this case the [data from Dominick's Finer Foods](https://research.chicagobooth.edu/kilts/marketing-databases/dominicks).  You can also use the convenience function [load_dominicks_oj_data](https://docs.microsoft.com/python/api/ftk.data.dominicks_oj.load_dominicks_oj_data).
 
 
 ```python
@@ -332,7 +332,7 @@ print('{} time series in the data frame.'.format(nseries))
 
 The data contains approximately 250 different combinations of store and brand in a data frame. Each combination defines its own time series of sales. 
 
-You can use the [TimeSeriesDataFrame](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest)  class to conveniently model multiple series in a single data structure using the _grain_. The grain is specified by the `store` and `brand` columns.
+You can use the [TimeSeriesDataFrame](https://docs.microsoft.com/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest)  class to conveniently model multiple series in a single data structure using the _grain_. The grain is specified by the `store` and `brand` columns.
 
 The difference between _grain_ and _group_ is that grain is always physically meaningful in the real world, while group doesn't have to be. Internal package functions use group to build a single model from multiple time series if the user believes this grouping helps improve model performance. By default, group is set to be equal to grain, and a single model is built for each grain. 
 
@@ -494,7 +494,7 @@ whole_tsdf.loc[pd.IndexSlice['1990-06':'1990-09', 2, 'dominicks'], ['Quantity']]
 
 
 
-The [TimeSeriesDataFrame.ts_report](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#ts-report) function generates a comprehensive report of the time series data frame. The report includes both a general data description as well as statistics specific to time series data. 
+The [TimeSeriesDataFrame.ts_report](https://docs.microsoft.com/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#ts-report) function generates a comprehensive report of the time series data frame. The report includes both a general data description as well as statistics specific to time series data. 
 
 
 ```python
@@ -881,14 +881,14 @@ whole_tsdf.head()
 
 ## Preprocess data and impute missing values
 
-Start by splitting the data into training set and a testing set with the [last_n_periods_split](https://docs.microsoft.com/en-us/python/api/ftk.ts_utils?view=azure-ml-py-latest) utility function. The resulting testing set contains the last 40 observations of each time series. 
+Start by splitting the data into training set and a testing set with the [last_n_periods_split](https://docs.microsoft.com/python/api/ftk.ts_utils?view=azure-ml-py-latest) utility function. The resulting testing set contains the last 40 observations of each time series. 
 
 
 ```python
 train_tsdf, test_tsdf = last_n_periods_split(whole_tsdf, 40)
 ```
 
-Basic time series models require contiguous time series. Check to see if the series are regular, meaning that they have a time index sampled at regular intervals, using the [check_regularity_by_grain](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#check-regularity-by-grain) function.
+Basic time series models require contiguous time series. Check to see if the series are regular, meaning that they have a time index sampled at regular intervals, using the [check_regularity_by_grain](https://docs.microsoft.com/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#check-regularity-by-grain) function.
 
 
 ```python
@@ -963,7 +963,7 @@ print(ts_regularity[ts_regularity['regular'] == False])
     [213 rows x 2 columns]
     
 
-You can see that most of the series (213 out of 249) are irregular. An [imputation transform](https://docs.microsoft.com/en-us/python/api/ftk.transforms.ts_imputer.timeseriesimputer?view=azure-ml-py-latest) is required to fill in missing sales quantity values. While there are many imputation options, the following sample code uses a linear interpolation.
+You can see that most of the series (213 out of 249) are irregular. An [imputation transform](https://docs.microsoft.com/python/api/ftk.transforms.ts_imputer.timeseriesimputer?view=azure-ml-py-latest) is required to fill in missing sales quantity values. While there are many imputation options, the following sample code uses a linear interpolation.
 
 
 ```python
@@ -1029,7 +1029,7 @@ arima_model = Arima(oj_series_freq, arima_order)
 
 ### Combine Multiple Models
 
-The [ForecasterUnion](https://docs.microsoft.com/en-us/python/api/ftk.models.forecaster_union?view=azure-ml-py-latest) estimator allows you to combine multiple estimators and fit/predict on them using one line of code.
+The [ForecasterUnion](https://docs.microsoft.com/python/api/ftk.models.forecaster_union?view=azure-ml-py-latest) estimator allows you to combine multiple estimators and fit/predict on them using one line of code.
 
 
 ```python
@@ -1243,7 +1243,7 @@ print(train_feature_tsdf.head())
 
  **RegressionForecaster**
 
-The [RegressionForecaster](https://docs.microsoft.com/en-us/python/api/ftk.models.regression_forecaster.regressionforecaster?view=azure-ml-py-latest)  function wraps sklearn regression estimators so that they can be trained on TimeSeriesDataFrame. The wrapped forecaster also puts each group, in this case store, into the same model. The forecaster can learn one model for a group of series that were deemed similar and can be pooled together. One model for a group of series often uses the data from longer series to improve forecasts for short series. You can substitute these models for any other models in the library that support regression. 
+The [RegressionForecaster](https://docs.microsoft.com/python/api/ftk.models.regression_forecaster.regressionforecaster?view=azure-ml-py-latest)  function wraps sklearn regression estimators so that they can be trained on TimeSeriesDataFrame. The wrapped forecaster also puts each group, in this case store, into the same model. The forecaster can learn one model for a group of series that were deemed similar and can be pooled together. One model for a group of series often uses the data from longer series to improve forecasts for short series. You can substitute these models for any other models in the library that support regression. 
 
 
 ```python
@@ -1367,7 +1367,7 @@ In the figure below, each square represents data from one time point. The blue s
 ![png](./media/how-to-build-deploy-forecast-models/cv_figure.PNG)
 
 **Parameter Sweeping**  
-The [TSGridSearchCV](https://docs.microsoft.com/en-us/python/api/ftk.model_selection.search.tsgridsearchcv?view=azure-ml-py-latest) class exhaustively searches over specified parameter values and uses `RollingOriginValidator` to evaluate parameter performance in order to find the best parameters.
+The [TSGridSearchCV](https://docs.microsoft.com/python/api/ftk.model_selection.search.tsgridsearchcv?view=azure-ml-py-latest) class exhaustively searches over specified parameter values and uses `RollingOriginValidator` to evaluate parameter performance in order to find the best parameters.
 
 
 ```python

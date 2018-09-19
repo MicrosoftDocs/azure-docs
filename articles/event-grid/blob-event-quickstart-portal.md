@@ -31,7 +31,7 @@ When you're finished, you see that the event data has been sent to the web app.
 
    ![Select storage](./media/blob-event-quickstart-portal/create-storage.png)
 
-1. For events, you must create either a [Blob storage account](../storage/common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) or a [General Purpose v2 storage account](../storage/common/storage-account-options.md#general-purpose-v2-accounts). For applications requiring only block or append blob storage, we recommend using Blob storage accounts. Provide values for either the Blob or StorageV2 account. Provide a unique name for the account. When done providing values, select **Create**.
+1. To subscribe to events, create either a general-purpose v2 storage account or a Blob storage account. For more information, see [Create a storage account](../storage/common/storage-quickstart-create-account.md).
 
    ![Start steps](./media/blob-event-quickstart-portal/provide-blob-values.png)
 

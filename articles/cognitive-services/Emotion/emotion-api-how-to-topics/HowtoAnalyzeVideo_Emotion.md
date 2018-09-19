@@ -1,17 +1,19 @@
 ﻿---
-title: Real-time video analysis with the Emotion API | Microsoft Docs
-description: Use the Emotion API in Cognitive Services to perform near-real-time analysis on frames taken from a live video stream.
+title: "Example: Real-time video analysis - Emotion API"
+titlesuffix: Azure Cognitive Services
+description: Use the Emotion API to perform near-real-time analysis on frames taken from a live video stream.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: sample
 ms.date: 01/25/2017
 ms.author: anroth
 ---
 
-# How to Analyze Videos in Real-time
+# Example: How to Analyze Videos in Real-time
 
 > [!IMPORTANT]
 > Video API Preview will end on October 30th, 2017. Try the new [Video Indexer API Preview](https://azure.microsoft.com/services/cognitive-services/video-indexer/) to easily extract insights from 

@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Database Azure Case Study - Snelstart | Microsoft Docs
-description: Learn about how SnelStart uses SQL Database to rapidly expanded its business services at a rate of 1,000 new Azure SQL Databases per month
+description: Learn about how SnelStart uses SQL Database to rapidly expanded its business services at a rate of 1,000 new Azure SQL databases per month
 services: sql-database
 author: CarlRabeler
 manager: craigg
@@ -11,7 +11,7 @@ ms.date: 04/01/2018
 ms.author: carlrab
 
 ---
-# With Azure, SnelStart has rapidly expanded its business services at a rate of 1,000 new Azure SQL Databases per month
+# With Azure, SnelStart has rapidly expanded its business services at a rate of 1,000 new Azure SQL databases per month
 ![SnelStartLogo](./media/sql-database-implementation-snelstart/snelstartlogo.png)
 
 SnelStart makes popular financial- and business-management software for small- and medium-sized businesses (SMBs) in the Netherlands. Its 55,000 customers are serviced by a staff of 110 employees, including an IT staff of 35. By moving from desktop software to a software-as-a-service (SaaS) offering built on Azure, SnelStart made the most of built-in services, automating management using familiar environment in C#, and optimizing performance and scalability by neither over- or under-provisioning businesses using elastic pools. Using Azure provides SnelStart the fluidity of moving customers between on-premises and the cloud.
@@ -47,7 +47,7 @@ Today, SnelStart is a major provider of a line-of-business (LOB) and business-ad
 ## Optimizing performance and cost with elastic pools
 SnelStart was a large-scale early adopter of elastic pools. Elastic pools help the company limit costs and manage performance requirements more efficiently. According to Been, “By using elastic pools, we can optimize performance based on the needs of our customers, without over-provisioning. If we had to provision based on peak load, it would be quite costly. Instead, the option to share resources between multiple, low-usage databases allows us to create a solution that performs well and is cost effective.”
 
-## Azure SQL Databases help containerize data for isolation and security
+## Azure SQL databases help containerize data for isolation and security
 Azure SQL Database enables SnelStart to easily and transparently move customers’ on-premises business-administration data to Azure. The Azure SQL Database is a convenient container that provides isolation, a boundary for authentication, authorization, and easy backup and restore capabilities. Databases provide a well-suited conceptual model for business administration. According to Carlo Kuip, IT architect, “Items within this container boundary contain sensitive data that is crucial to a business, and storing those items in an isolated database keeps them well protected. We can manage authorization at the database level, and even automate the management and scale-out of these databases without requiring database administrators (DBAs) on staff.”
 
 Azure SQL Data Warehouse also plays a role in the SnelStart security and management story by helping the company gather telemetry data, such as intrusion detection, user activity logging, and connectivity.
