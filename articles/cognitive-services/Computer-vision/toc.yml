@@ -97,6 +97,10 @@
       href: quickstarts-sdk/csharp-thumb-sdk.md
     - name: Extract handwritten text
       href: quickstarts-sdk/csharp-hand-text-sdk.md
+- name: Tutorials
+  items:
+  - name: Build an image processing app
+    href: Tutorials/CSharpTutorial.md
 - name: Concepts
   items:
   - name: Tagging images
@@ -125,8 +129,6 @@
   items:
   - name: First Computer Vision apps
     items:
-    - name: C#
-      href: Tutorials/CSharpTutorial.md
     - name: Java
       href: Tutorials/java-tutorial.md
     - name: JavaScript
