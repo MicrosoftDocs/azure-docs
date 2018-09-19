@@ -27,6 +27,8 @@ For enabling extended offline in a gateway scenario establish a parent-child rel
 
 1. Click **OK** to confirm.
 
-1. In the **Set Modules** screen from the Edge device details, click the **Configure advanced Edge Runtime settings**, and under **Edge Hub** environment variables add an entry **UpstreamProtocol** with value **MQTT**.
+1. In the **Set Modules** screen from the Edge device details, click **Configure advanced Edge Runtime settings**, and under **Edge Hub** environment variables add an entry **UpstreamProtocol** with value **MQTT**. Add the same environment variable and value for the **Edge Agent** as well. 
+
+1. Click **Save** and be sure to **Submit** the changes after clicking **Next** two times.
 
 The Edge device and its child devices are now enabled for extended offline operation.  
