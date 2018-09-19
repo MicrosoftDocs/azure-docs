@@ -22,7 +22,7 @@ ms.custom: aaddev
 
 # What's different about the v2.0 endpoint?
 
-If you're familiar with Azure Active Directory (Azure AD) or have integrated apps with Azure AD in the past, there are some differences in the v2.0 endpoint that may not expect. This article calls out the differences for your understanding.
+If you're familiar with Azure Active Directory (Azure AD) or have integrated apps with Azure AD in the past, there are some differences in the v2.0 endpoint that you may not expect. This article calls out the differences for your understanding.
 
 > [!NOTE]
 > Not all Azure AD scenarios and features are supported by the v2.0 endpoint. To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
