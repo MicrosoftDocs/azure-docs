@@ -125,7 +125,7 @@
     items:
     - name: SQL API Docs
       items:
-      - name: Overview
+      - name: Introduction
         href: sql-api-introduction.md
       - name: Write SQL queries
         href: sql-api-sql-query.md
@@ -221,7 +221,7 @@
           href: sql-api-sql-query-reference.md
     - name: MongoDB API Docs
       items: 
-      - name: Overview
+      - name: Introduction
         href: mongodb-introduction.md
       - name: MongoDB support
         href: mongodb-feature-support.md
@@ -271,7 +271,7 @@
           href: mongodb-indexing.md
     - name: Gremlin API Docs
       items: 
-      - name: Overview
+      - name: Introduction
         href: graph-introduction.md
       - name: Gremlin support
         href: gremlin-support.md
@@ -285,7 +285,7 @@
           href: bulk-executor-graph-dotnet.md
     - name: Cassandra API Docs
       items: 
-      - name: Overview
+      - name: Introduction
         href: cassandra-introduction.md
       - name: Cassandra support
         href: cassandra-support.md
@@ -323,7 +323,7 @@
           href: cassandra-spark-table-copy-ops.md
     - name: Table API Docs
       items:
-      - name: Overview
+      - name: Introduction
         href: table-introduction.md
       - name: Tutorials
         items:

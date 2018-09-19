@@ -1,13 +1,14 @@
 ---
-title: Extracting text with OCR
-titleSuffix: Computer Vision - Cognitive Services - Azure
-description: Concepts related to extracting text with optical character recognition using Computer Vision in Azure Cognitive Services.
+title: Extracting text with OCR - Computer Vision
+titleSuffix: Azure Cognitive Services
+description: Concepts related to extracting text with optical character recognition (OCR) using the Computer Vision API.
 services: cognitive-services
 author: deken
-manager: nolachar
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: v-deken
 ---
