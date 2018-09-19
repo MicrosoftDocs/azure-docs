@@ -190,15 +190,17 @@ In the Data Factory to which the permissions were granted,
 3. The self-hosted IR version must be equal or greater than 3.8.xxxx.xx. Please [download the latest version](https://www.microsoft.com/download/details.aspx?id=39717) of self-hosted IR
 
 4. The data factory in which linked IR is to be created must have an MSI ([managed service identity](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)). By default,
-the data factories created in Ibiza portal or PowerShell cmdlets will have MSI ([managed service identity](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)).
-created implicitly, however, data factories created with Azure Resource Manager (ARM) template or SDK requires “Identity” property to be set to ensure an MSI is created.
+  the data factories created in Ibiza portal or PowerShell cmdlets will have MSI ([managed service identity](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)).
+  created implicitly, however, data factories created with Azure Resource Manager (ARM) template or SDK requires “**Identity**” property to be set to ensure an MSI is created.
 
 5. The ADF .Net SDK which support this feature is version >= 1.1.0
 
 6. The Azure PowerShell which support this feature is version >= 6.6.0
-(AzureRM.DataFactoryV2 >= 0.5.7)
+  (AzureRM.DataFactoryV2 >= 0.5.7)
 
-7. To Grant permission, the user will require "Owner" role or inherited "Owner" role in the Data Factory where the Shared IR exists. 
+7. To Grant permission, the user will require "**Owner**" role or inherited "**Owner**" role in the Data Factory where the Shared IR exists. 
+
+8. For Active Directory **[Guest Users](https://docs.microsoft.com/azure/active-directory/governance/manage-guest-access-with-access-reviews)**, the search functionality (listing all Data Factories using search keyword) in the UI [does not work](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#SearchLimits). But as long as the guest user is the "**Owner**" of the Data Factory, they can share the IR without the search functionality, by directly typing the Managed Service Identity of the Data Factory with which the IR needs to be shared in "**Assign Pemission**" textbox and selecting "**Add**" in ADF UI. 
 
   > [!NOTE]
   > This feature is only available in Azure Data Factory version 2 
