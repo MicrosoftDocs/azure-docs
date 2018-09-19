@@ -36,7 +36,7 @@ Azure Machine Learning service automatically tunes hyperparameters by exploring 
 Each hyperparameter can either be discrete or continuous.
 
 #### Discrete hyperparameters 
-Discrete hyperparameters can be specified as a `choice` among discrete values. `choice` can take either a list of values or a `range` object or any arbitrary `list` object. For example  
+Discrete hyperparameters can be specified as a `choice` among discrete values. `choice` can take either multiple comma separated values or a `range` object or any arbitrary `list` object. For example  
 
 ```Python
     {    
