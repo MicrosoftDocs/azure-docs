@@ -70,7 +70,7 @@ We realize that setting up Single Sign-On (SSO) for Software as a Service (SaaS)
 
 To start using this 1-click experience, go to the **Azure portal** > **SSO configuration** page for the app.
 
-For more information, see ...
+For more information, see [SaaS application integration with Azure Active Directory](../saas-apps/tutorial-list.md)
 
 ---
 
@@ -165,16 +165,15 @@ For more information about using custom extension properties for dynamic members
 **Service category:** Conditional access  
 **Product capability:** Identity security and protection
 
-The following apps are on the list of [approved client apps](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement):
+The following apps are on the list of [approved client apps](../conditional-access/technical-reference.md#approved-client-app-requirement):
 
 - Microsoft To-Do
 
 - Microsoft Stream
 
 For more information, see:
-- [Approved client app requirement](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
 
-- [Azure AD app-based conditional access](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
+- [Azure AD app-based conditional access](../conditional-access/app-based-conditional-access.md)
 
 ---
 
