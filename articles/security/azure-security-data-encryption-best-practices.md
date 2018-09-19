@@ -87,7 +87,7 @@ Because the vast majority of attacks target the end user, the endpoint becomes o
 
 Azure Storage and Azure SQL Database encrypt data at rest by default, and many services offer encryption as an option. You can use Azure Key Vault to maintain control of keys that access and encrypt your data. See [Azure resource providers encryption model support to learn more](azure-security-encryption-atrest.md#azure-resource-providers-encryption-model-support).
 
-**Best practices**: Use encryption to help mitigate risks related to unauthorized data access.
+**Best practices**: Use encryption to help mitigate risks related to unauthorized data access.   
 **Detail**: Encrypt your drives before you write sensitive data to them.
 
 Organizations that don’t enforce data encryption are more exposed to data-integrity issues. For example, unauthorized or rogue users might steal data in compromised accounts or gain unauthorized access to data coded in Clear Format. Companies also must prove that they are diligent and using correct security controls to enhance their data security in order to comply with industry regulations.
