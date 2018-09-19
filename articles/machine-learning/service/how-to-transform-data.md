@@ -1,18 +1,20 @@
 ---
-title: Transform  data with Azure Machine Learning Data Prep SDK
-description: Learn about transforming data with Azure Machine Learning Data Prep SDK
+title: Transform data with Azure Machine Learning Data Prep SDK - Python
+description: Learn about transforming and cleaning data with Azure Machine Learning Data Prep SDK. Use transform methods to add columns, filter out unwanted rows or columns, and impute missing values.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
-ms.topic: how-to
+ms.topic: conceptual
 ms.author: cforbe
 author: cforbe
-ms.date: 08/30/2018
+manager: cgronlun
+ms.reviewer: jmartens
+ms.date: 09/24/2018
 ---
 
 # Transform data with the Azure Machine Learning Data Prep SDK
 
-The Azure Machine Learning Data Prep SDK offers different transform methods to clean your data. These methods make it simple to add columns, filter out unwanted rows or columns, and impute missing values.
+The [Azure Machine Learning Data Prep SDK](https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py) offers different transform methods to clean your data. These methods make it simple to add columns, filter out unwanted rows or columns, and impute missing values.
 
 Currently there are methods for the following tasks:
 - [Add column using an expression](#add-column-using-expression)
