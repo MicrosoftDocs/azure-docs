@@ -1,15 +1,16 @@
 ---
-title: Custom Vision Service Release Notes
+title: Release Notes - Custom Vision Service
+titlesuffix: Azure Cognitive Services
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: custom-vision
+ms.topic: conceptual
 ms.date: 08/28/2018
 ms.author: anroth
-
 ---
-
 
 # Custom Vision Service Release Notes
 
