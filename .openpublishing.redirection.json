@@ -28167,11 +28167,6 @@
             "redirect_document_id" : true
         },
         {
-            "source_path": "articles/dev-spaces/azure-dev-spaces.md",
-            "redirect_url": "/azure/dev-spaces/index",
-            "redirect_document_id" : true
-        },
-        {
             "source_path": "articles/container-registry/container-registry-build-overview.md",
             "redirect_url": "/azure/container-registry/container-registry-tasks-overview",
             "redirect_document_id" : true
