@@ -42,7 +42,7 @@ In this quickstart, you'll learn how an ASP.NET web app can sign in personal acc
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 1: Configure your application in Azure portal
-> For the code sample for this quickstart to work, you need to add a reply URL as `http://localhost:44368/`.
+> For the code sample for this quickstart to work, you need to add a reply URL as `https://localhost:44368/`.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make this change for me]()
 >
