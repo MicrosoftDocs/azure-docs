@@ -244,7 +244,7 @@
       items: 
       - name: Overview of Shared Images 
         href: shared-image-galleries.md
-      - name: Create shared images using PowerShell
+      - name: Create shared images using CLI
         href: shared-images.md
     - name: Find and use images
       href: cli-ps-findimage.md
