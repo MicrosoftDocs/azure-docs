@@ -41,7 +41,6 @@ Under the <code>dict</code> root node, add the following:
         <key>CFBundleURLSchemes</key>
         <array>
             <string>msal[Your_Application_Id_Here]</string>
-            <string>auth</string>
         </array>
     </dict>
 </array>
