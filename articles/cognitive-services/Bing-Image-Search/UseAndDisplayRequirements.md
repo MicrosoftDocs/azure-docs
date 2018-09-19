@@ -1,12 +1,13 @@
 ---
-title: Use and display requirements for Search APIs in Bing Image Search APIs | Microsoft Docs
-description: Modify your implementation of content and related information by using calls to search APIs in Bing Image Search.
+title: Use and display requirements - Bing Image Search API
+titleSuffix: Azure Cognitive Services
+description: Requirements for displaying search results from the Bing Image Search API.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: scottwhi
 ---
