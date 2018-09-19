@@ -1,3 +1,10 @@
+title: include file
+description: include file
+services: active-directory
+documentationcenter: dev-center-name
+author: brandwe
+manager: mtillman
+
 
 ## Add the application’s registration information to your app
 
