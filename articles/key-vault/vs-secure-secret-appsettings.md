@@ -12,7 +12,7 @@ ms.service:
 ms.workload: web, azure
 ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: cawa
 
@@ -37,7 +37,7 @@ If you are doing a quick prototype or you don't have internet access, start with
 If you are running .NET core console application, use Key Vault to save your secret securely.
 
 ### Save secret settings in Azure Key Vault
-If you are developing a team project and need to share source code securely, use [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
+If you are developing a project and need to share source code securely, use [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
 
 1. Create a Key Vault in your Azure subscription. Fill out all required fields on the UI and click *Create* on the bottom of the blade
 
@@ -103,14 +103,13 @@ If you are writing a quick prototype and don't want to provision Azure resources
 2. Create a file that's similar to the follow. Save it under a location outside of your project folder.
 
     ```xml
-
-	   <root>
-	          <secrets ver="1.0">
-	                 <secret name="secret1" value="foo_one" />
-	                    <secret name="secret2" value="foo_two" />
-	                   </secrets>
-	  </root>
-      ```
+    <root>
+        <secrets ver="1.0">
+            <secret name="secret1" value="foo_one" />
+            <secret name="secret2" value="foo_two" />
+        </secrets>
+    </root>
+    ```
 
 3. Define the secret file to be a configuration builder in your Web.config file. Put this section before *appSettings* section.
 

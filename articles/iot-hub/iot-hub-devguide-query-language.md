@@ -160,7 +160,7 @@ Querying on module twins is similar to query on device twins, but using a differ
 SELECT * FROM devices.modules
 ```
 
-We don't allow join between the devices and devices.modules collections. If you want to query module twins across devices, you do do it based on tags. This query will return all module twins across all devices with the scanning status:
+We don't allow join between the devices and devices.modules collections. If you want to query module twins across devices, you do it based on tags. This query will return all module twins across all devices with the scanning status:
 
 ```sql
 Select * from devices.modules where properties.reported.status = 'scanning'

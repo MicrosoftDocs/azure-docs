@@ -8,7 +8,7 @@ services: iot-hub
 ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/30/2018
+ms.date: 09/07/2018
 ms.author: dobett
 # As a developer new to IoT Hub, I need to see how IoT Hub sends telemetry from a device to an IoT hub and how to read that telemetry data from the hub using a back-end application. 
 ---
@@ -43,20 +43,6 @@ python3 --version
 
 Download the sample Python project from https://github.com/Azure-Samples/azure-iot-samples-python/archive/master.zip and extract the ZIP archive.
 
-To install the CLI utility that reads telemetry from the IoT hub, first install Node.js v4.x.x or later on your development machine. You can download Node.js for multiple platforms from [nodejs.org](https://nodejs.org).
-
-You can verify the current version of Node.js on your development machine using the following command:
-
-```cmd/sh
-node --version
-```
-
-To install the `iothub-explorer` CLI utility, run the following command:
-
-```cmd/sh
-npm install -g iothub-explorer
-```
-
 ## Create an IoT hub
 
 [!INCLUDE [iot-hub-quickstarts-create-hub](../../includes/iot-hub-quickstarts-create-hub.md)]
@@ -81,14 +67,6 @@ A device must be registered with your IoT hub before it can connect. In this qui
     ```
 
     Make a note of the device connection string, which looks like `Hostname=...=`. You use this value later in the quickstart.
-
-1. You also need a _service connection string_ to enable the `iothub-explorer` CLI utility to connect to your IoT hub and retrieve the messages. The following command retrieves the service connection string for your IoT hub:
-
-    ```azurecli-interactive
-    az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
-    ```
-
-    Make a note of the service connection string, which looks like `Hostname=...=`. You use this value later in the quickstart. The service connection string is different from the device connection string.
 
 ## Send simulated telemetry
 
@@ -118,15 +96,15 @@ The simulated device application connects to a device-specific endpoint on your 
 
 ## Read the telemetry from your hub
 
-The `iothub-explorer` CLI utility connects to the service-side **Events** endpoint on your IoT Hub. The utility receives the device-to-cloud messages sent from your simulated device. An IoT Hub back-end application typically runs in the cloud to receive and process device-to-cloud messages.
+The IoT Hub CLI extension can connect to the service-side **Events** endpoint on your IoT Hub. The extension receives the device-to-cloud messages sent from your simulated device. An IoT Hub back-end application typically runs in the cloud to receive and process device-to-cloud messages.
 
-In another terminal window, run the following commands replacing `{your hub service connection string}` with the service connection string you made a note of previously:
+Run the following Azure CLI commands, replacing `{YourIoTHubName}` with the name of your IoT hub:
 
-```cmd/sh
-iothub-explorer monitor-events MyPythonDevice --login "{your hub service connection string}"
+```azurecli-interactive
+az iot hub monitor-events --device-id MyPythonDevice --hub-name {YourIoTHubName}
 ```
 
-The following screenshot shows the output as the utility receives telemetry sent by the simulated device to the hub:
+The following screenshot shows the output as the extension receives telemetry sent by the simulated device to the hub:
 
 ![Run the back-end application](media/quickstart-send-telemetry-python/ReadDeviceToCloud.png)
 

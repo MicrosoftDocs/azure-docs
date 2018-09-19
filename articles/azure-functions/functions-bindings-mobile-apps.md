@@ -4,16 +4,12 @@ description: Understand how to use Azure Mobile Apps bindings in Azure Functions
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
 
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
 ---
@@ -74,8 +70,7 @@ Here's the binding data in the *function.json* file:
         "apiKey": "My_MobileApp_Key",
         "direction": "in"
     }
-],
-"disabled": false
+]
 }
 ```
 The [configuration](#input---configuration) section explains these properties.
@@ -120,8 +115,7 @@ Here's the binding data in the *function.json* file:
         "apiKey": "My_MobileApp_Key",
         "direction": "in"
     }
-],
-"disabled": false
+]
 }
 ```
 The [configuration](#input---configuration) section explains these properties.
@@ -220,8 +214,7 @@ Here's the binding data in the *function.json* file:
     "apiKey": "My_MobileApp_Key",
     "direction": "out"
     }
-],
-"disabled": false
+]
 }
 ```
 

@@ -44,7 +44,7 @@ Update Management is supported on the following operating systems:
 
 Linux agents must have access to an update repository.
 
-This solution doesn't support an Operations Management Suite (OMS) Agent for Linux that's configured to report to multiple Azure Log Analytics workspaces.
+This solution doesn't support an Log Analytics Agent for Linux that's configured to report to multiple Azure Log Analytics workspaces.
 
 ## Enable Update Management for Azure virtual machines
 

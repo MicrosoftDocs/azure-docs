@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2018
+ms.date: 09/10/2018
 ms.author: jeedes
 
 ---
@@ -35,6 +35,7 @@ To configure Azure AD integration with Snowflake, you need the following items:
 
 - An Azure AD subscription
 - A Snowflake single sign-on enabled subscription
+- Customers who don't have a Snowflake account, and would like to try it out through Azure AD app gallery, please refer [this](https://trial.snowflake.net/?cloud=azure&utm_source=azure-marketplace&utm_medium=referral&utm_campaign=self-service-azure-mp) link.
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -100,22 +101,22 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
 	![Single sign-on dialog box](./media/snowflake-tutorial/tutorial_snowflake_samlbase.png)
 
-3. On the **Snowflake Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
+3. On the **Snowflake Domain and URLs** section, perform the following steps:
 
 	![Snowflake Domain and URLs single sign-on information](./media/snowflake-tutorial/tutorial_snowflake_url.png)
 
-    a. In the **Identifier** textbox, type a URL using the following pattern: `https://<SNOWFLAKE-URL>`
+    a. In the **Identifier** textbox, type a URL using the following pattern: `https://<SNOWFLAKE-URL>.snowflakecomputing.com`
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<SNOWFLAKE-URL>/fed/login`
+	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<SNOWFLAKE-URL>.snowflakecomputing.com/fed/login`
 
 4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
 	![Snowflake Domain and URLs single sign-on information](./media/snowflake-tutorial/tutorial_snowflake_url1.png)
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<SNOWFLAKE-URL>`
+    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<SNOWFLAKE-URL>.snowflakecomputing.com`
 	 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [Snowflake Client support team](https://support.snowflake.net/s/snowflake-support) to get these values. 
+	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL.
 
 5. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
@@ -129,7 +130,22 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Snowflake Configuration](./media/snowflake-tutorial/tutorial_snowflake_configure.png) 
 
-8. To configure single sign-on on **Snowflake** side, you need to send the downloaded **Certificate (Base64)** and **SAML Single Sign-On Service URL** to [Snowflake support team](https://support.snowflake.net/s/snowflake-support). They set this setting to have the SAML SSO connection set properly on both sides.
+8. In a different web browser window, login to Snowflake as a Security Administrator.
+
+9. Run the below SQL query on worksheet by setting the **certificate** value to the **dowloaded certificate** and **ssoUrl** to the copied **SAML Single Sign-On Service URL** from Azure AD to the value as shown below.
+
+	![Snowflake sql](./media/snowflake-tutorial/tutorial_snowflake_sql.png) 
+
+	```
+	use role accountadmin;
+	alter account set saml_identity_provider = '{
+	"certificate": "<Paste the content of downloaded certificate from Azure portal>",
+	"ssoUrl":"<SAML single sign-on service URL value which you have copied from the Azure portal>",
+	"type":"custom",
+	"label":"AzureAD"
+	}';
+	alter account set sso_login_page = TRUE;
+	```
 
 ### Create an Azure AD test user
 
@@ -165,7 +181,25 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Create a Snowflake test user
 
-In this section, you create a user called Britta Simon in Snowflake. Work with [Snowflake support team](https://support.snowflake.net/s/snowflake-support) to add the users in the Snowflake platform. Users must be created and activated before you use single sign-on.
+To enable Azure AD users to log in to Snowflake, they must be provisioned into Snowflake. In Snowflake, provisioning is a manual task.
+
+**To provision a user account, perform the following steps:**
+
+1. Log in to Snowflake as a Security Administrator.
+
+2. **Switch Role** to **ACCOUNTADMIN**, by clicking on **profile** on the top right side of page.  
+
+	![The Snowflake admin ](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
+
+3. Create the user by running the below SQL query, ensuring "Login name" is set to the Azure AD username on the worksheet as shown below.
+
+	![The Snowflake adminsql ](./media/snowflake-tutorial/tutorial_snowflake_usersql.png)
+
+	```
+
+	use role accountadmin;
+	CREATE USER britta_simon PASSWORD = '' LOGIN_NAME = 'BrittaSimon@contoso.com' DISPLAY_NAME = 'Britta Simon';
+	```
 
 ### Assign the Azure AD test user
 

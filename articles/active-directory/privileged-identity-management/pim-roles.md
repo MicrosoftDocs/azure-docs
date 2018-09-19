@@ -29,20 +29,20 @@ There's no difference in the access given to someone with a permanent versus an 
 ## Roles managed in PIM
 Privileged Identity Management lets you assign users to common administrator roles, including:
 
-* **Global administrator** (also known as Company administrator) has access to all administrative features. You can have more than one global admin in your organization. The person who signs up to purchase Office 365 automatically becomes a global admin.
-* **Privileged role administrator** manages Azure AD PIM and updates role assignments for other users.  
-* **Billing administrator** makes purchases, manages subscriptions, manages support tickets, and monitors service health.
-* **Password administrator** resets passwords, manages service requests, and monitors service health. Password admins are limited to resetting passwords for users.
-* **Service administrator** manages service requests and monitors service health.
+* **Global Administrator** (also known as Company Administrator) has access to all administrative features. You can have more than one Global Administrator in your organization. The person who signs up to purchase Office 365 automatically becomes a Global Administrator.
+* **Privileged Role Administrator** manages Azure AD PIM and updates role assignments for other users.  
+* **Billing Administrator** makes purchases, manages subscriptions, manages support tickets, and monitors service health.
+* **Password Administrator** resets passwords, manages service requests, and monitors service health. Password Administrators are limited to resetting passwords for users.
+* **Service Administrator** manages service requests and monitors service health.
   
   > [!NOTE]
-  > If you are using Office 365, then before assigning the service admin role to a user, first assign the user administrative permissions to a service, such as Exchange Online.
+  > If you are using Office 365, then before assigning the Service Administrator role to a user, first assign the user administrative permissions to a service, such as Exchange Online.
   > 
   > 
-* **User management administrator** resets passwords, monitors service health, and manages user accounts, user groups, and service requests. The user management admin can’t delete a global admin, create other admin roles, or reset passwords for billing, global, and service admins.
-* **Exchange administrator** has administrative access to Exchange Online through the Exchange admin center (EAC), and can perform almost any task in Exchange Online.
-* **SharePoint administrator (Preview)** has administrative access to SharePoint Online through the SharePoint Online admin center, and can perform almost any task in SharePoint Online. This role is currently in preview. Eligible users may experience delays using this role within SharePoint after activating in PIM.
-* **Skype for Business administrator** has administrative access to Skype for Business through the Skype for Business admin center, and can perform almost any task in Skype for Business Online.
+* **User Administrator** resets passwords, monitors service health, and manages user accounts, user groups, and service requests. The User Administrator can’t delete a Global Administrator, create other administrator roles, or reset passwords for billing, global, and service administrators.
+* **Exchange Administrator** has administrative access to Exchange Online through the Exchange admin center (EAC), and can perform almost any task in Exchange Online.
+* **SharePoint Service Administrator** has administrative access to SharePoint Online through the SharePoint Online admin center, and can perform almost any task in SharePoint Online. Eligible users may experience delays using this role within SharePoint after activating in PIM.
+* **Skype for Business Administrator** has administrative access to Skype for Business through the Skype for Business admin center, and can perform almost any task in Skype for Business Online.
 
 Read these articles for more details about [assigning administrator roles in Azure AD](../users-groups-roles/directory-assign-admin-roles.md) and [assigning admin roles in Office 365](https://support.office.com/article/Assigning-admin-roles-in-Office-365-eac4d046-1afd-4f1a-85fc-8219c79e1504).
 
@@ -58,21 +58,19 @@ If you want to give another user access to manage in PIM itself, the roles which
 ## Roles not managed in PIM
 Roles within Exchange Online or SharePoint Online, except for those mentioned above, are not represented in Azure AD and so are not visible in PIM. For more information on changing fine-grained role assignments in these Office 365 services, see [Permissions in Office 365](https://support.office.com/article/Permissions-in-Office-365-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-Azure subscriptions and resource groups are also not represented in Azure AD. To manage Azure subscriptions, see [How to add or change Azure administrator roles](../../billing/billing-add-change-azure-subscription-administrator.md) and for more information on Azure RBAC, see [Azure role-based access control](../../role-based-access-control/role-assignments-portal.md).
-
 <!--**The above links might be replaced by ones that are from within this documentation repository **-->
 
 
 ## User roles and signing in
 For some Microsoft services and applications, assigning a user to a role may not be sufficient to enable that user to be an administrator.
 
-Access to the Azure portal requires the user be a service administrator or co-administrator on an Azure subscription, even if the user does not need to manage the Azure subscriptions.  For example, to manage configuration settings for Azure AD, a user must be both a global administrator in Azure AD and a subscription co-administrator on an Azure subscription.  To learn how to add users to Azure subscriptions, see [How to add or change Azure administrator roles](../../billing/billing-add-change-azure-subscription-administrator.md).
+Access to the Azure portal requires the user be an Owner of an Azure subscription, even if the user does not need to manage the Azure subscriptions.  For example, to manage configuration settings for Azure AD, a user must be both a Global Administrator in Azure AD and an Owner on an Azure subscription.  To learn how to add users to Azure subscriptions, see [Manage access using RBAC and the Azure portal](../..//role-based-access-control/role-assignments-portal.md).
 
 Access to Microsoft Online Services may require the user also be assigned a license before they can open the service's portal or perform administrative tasks.
 
 ## Assign a license to a user in Azure AD
 
-1. Sign in to the [Azure portal](http://portal.azure.com) with a Global Administrator account or a Co-Administrator account.
+1. Sign in to the [Azure portal](http://portal.azure.com) with a Global Administrator or Owner role.
 
 1. Select the Azure AD directory you want to work with and that has licenses associated with it.
 

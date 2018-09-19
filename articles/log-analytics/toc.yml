@@ -117,13 +117,9 @@
     items:
     - name: Language documentation
       items:
-      - name: Language reference
-        href: https://docs.loganalytics.io
       - name: Get started
         items:
-        - name: Get started with Log Search portal
-          href: log-analytics-log-search-log-search-portal.md
-        - name: Get started with Log Analytics page
+        - name: Get started with Log Analytics
           href: query-language/get-started-analytics-portal.md
         - name: Get started with queries
           href: query-language/get-started-queries.md
@@ -155,6 +151,14 @@
           href: query-language/sql-cheatsheet.md
         - name: Splunk
           href: query-language/splunk-cheatsheet.md
+      - name: Language reference
+        items:
+        - name: Language reference
+          href: https://docs.loganalytics.io
+        - name: app expression
+          href: query-language/app-expression.md
+        - name: workspace expression
+          href: query-language/workspace-expression.md
     - name: Cross-resource searches
       href: log-analytics-cross-workspace-search.md
     - name: Take action from search results
@@ -285,10 +289,10 @@
       - name: Security Audit
         href: ../security-center/security-center-intro.md
       - name: Service Fabric with Azure PowerShell
-        href: log-analytics-service-fabric.md
+        href: ../service-fabric/service-fabric-diagnostics-oms-setup.md?toc=%2fazure%2flog-analytics%2ftoc.json
         items:
         - name: Service Fabric with Azure Resource Manager
-          href: log-analytics-service-fabric-azure-resource-manager.md
+          href: ../service-fabric/service-fabric-diagnostics-event-analysis-oms.md?toc=%2fazure%2flog-analytics%2ftoc.json
       - name: Service Map
         items:
         - name: Use

@@ -166,7 +166,7 @@ Which returns the following (partial) results:
 
 ![Screenshot of SQL query results](./media/import-data/sqlqueryresults.png)
 
-Note the aliases such as Address.AddressType and Address.Location.StateProvinceName. By specifying a nesting separator of ‘.’, the import tool creates Address and Address.Location subdocuments during the import. Here is an example of a resulting document in Azure Cosmos DB:
+Note the aliases such as Address.AddressType and Address.Location.StateProvinceName. By specifying a nesting separator of '.', the import tool creates Address and Address.Location subdocuments during the import. Here is an example of a resulting document in Azure Cosmos DB:
 
 *{
   "id": "956",
@@ -200,7 +200,7 @@ Similar to the SQL source, the nesting separator property may be used to create 
 
 ![Screenshot of CSV sample records - CSV to JSON](./media/import-data/csvsample.png)
 
-Note the aliases such as DomainInfo.Domain_Name and RedirectInfo.Redirecting. By specifying a nesting separator of ‘.’, the import tool will create DomainInfo and RedirectInfo subdocuments during the import. Here is an example of a resulting document in Azure Cosmos DB:
+Note the aliases such as DomainInfo.Domain_Name and RedirectInfo.Redirecting. By specifying a nesting separator of '.', the import tool will create DomainInfo and RedirectInfo subdocuments during the import. Here is an example of a resulting document in Azure Cosmos DB:
 
 *{
   "DomainInfo": {
@@ -220,7 +220,7 @@ The import tool attempts to infer type information for unquoted values in CSV fi
 There are two other things to note about CSV import:
 
 1. By default, unquoted values are always trimmed for tabs and spaces, while quoted values are preserved as-is. This behavior can be overridden with the Trim quoted values checkbox or the /s.TrimQuoted command-line option.
-2. By default, an unquoted null is treated as a null value. This behavior can be overridden (that is, treat an unquoted null as a “null” string) with the Treat unquoted NULL as string checkbox or the /s.NoUnquotedNulls command-line option.
+2. By default, an unquoted null is treated as a null value. This behavior can be overridden (that is, treat an unquoted null as a "null" string) with the Treat unquoted NULL as string checkbox or the /s.NoUnquotedNulls command-line option.
 
 Here is a command-line sample for CSV import:
 

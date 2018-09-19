@@ -19,7 +19,7 @@ ms.author: memccror
 ---
 
 # Understanding Azure virtual machine usage
-By analyzing your Azure usage data, powerful consumption insights can be gained – insights that can enable better cost management and allocation throughout your organization. This document provides a deep dive into your Azure Compute consumption details. For more details on general Azure usage, navigate to [Understanding your bill](/billing/billing-understand-your-bill.md).
+By analyzing your Azure usage data, powerful consumption insights can be gained – insights that can enable better cost management and allocation throughout your organization. This document provides a deep dive into your Azure Compute consumption details. For more details on general Azure usage, navigate to [Understanding your bill](https://docs.microsoft.com/azure/billing/billing-understand-your-bill).
 
 ## Download your usage details
 To begin, [download your usage details](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-from-the-account-center-csv). The table below provides the definition and example values of usage for Virtual Machines deployed via the Azure Resource Manager. This document does not contain detailed information for VMs deployed via our classic model.
@@ -125,7 +125,7 @@ The ImageType field is only populated for a subset of images. If you did not dep
 ### Why is the VMName blank in the Additional Info?
 The VMName is only populated in the Additional Info field for VMs in a scale set. The InstanceID field contains the VM name for non-scale set VMs.
 ### What does ComputeHR mean in the UsageType field in the Additional Info?
-ComputeHR stands for Compute Hour, which represents the usage event for the underlying infrasturcture cost. If the UsageType is ComputeHR\_SW, the usage event represents the premium software charge for the VM.
+ComputeHR stands for Compute Hour which represents the usage event for the underlying infrastructure cost. If the UsageType is ComputeHR\_SW, the usage event represents the premium software charge for the VM.
 ### How do I know if I am charged for premium software?
 When exploring which VM Image best fits your needs, be sure to check out the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute). The image has the software plan rate. If you see “Free” for the rate, there is no additional cost for the software. 
 ### What is the difference between Microsoft.ClassicCompute and Microsoft.Compute in the Consumed service?
@@ -140,5 +140,6 @@ In the Classic model, billing for resources is aggregated at the Cloud Service l
 Premium storage capable VMs are billed at the same rate as non-premium storage capable VMs. Only your storage costs differ. Visit the [storage pricing page](https://azure.microsoft.com/pricing/details/storage/unmanaged-disks/) for more information.
 
 ## Next steps
-To learn more about your usage details, see [Understand your bill for Microsoft Azure.](/billing/billing-understand-your-bill.md)
+To learn more about your usage details, see [Understand your bill for Microsoft Azure.](https://docs.microsoft.com/azure/billing/billing-understand-your-bill
+)
 

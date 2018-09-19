@@ -19,7 +19,7 @@ ms.reviewer: John.Haskin
 
 # Release notes - 1802
 
-[!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
+[!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 ## 1802
 

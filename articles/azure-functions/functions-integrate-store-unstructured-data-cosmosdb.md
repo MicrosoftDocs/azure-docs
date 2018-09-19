@@ -4,17 +4,13 @@ description: Store unstructured data using Azure Functions and Cosmos DB
 services: functions
 documentationcenter: functions
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: azure functions, functions, event processing, Cosmos DB, dynamic compute, serverless architecture
 
 ms.assetid: 
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: csharp
 ms.topic: quickstart
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 09/19/2017
 ms.author: glenga
 ms.custom: mvc

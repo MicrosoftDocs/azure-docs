@@ -9,15 +9,27 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create DB - Portal
-    href: sql-database-get-started-portal.md
-  - name: Create DB - Azure CLI
-    href: sql-database-get-started-cli.md
-  - name: Create DB - Azure PowerShell
-    href: sql-database-get-started-powershell.md
-  - name: Create Managed Instance
-    href: sql-database-managed-instance-get-started.md
-  - name: Connect and query
+  - name: Create
+    items: 
+    - name: Single database
+      href: sql-database-get-started-portal.md
+    - name: Managed Instance
+      href: sql-database-managed-instance-get-started.md
+  - name: Configure
+    items:
+    - name: Logical server firewall rule
+      href: sql-database-get-started-portal-firewall.md
+    - name: Client VM connection to a Managed Instance
+      href: sql-database-managed-instance-configure-vm.md
+    - name: Point-to-site connection to a Managed Instance
+      href: sql-database-managed-instance-configure-p2s.md
+  - name: Load data
+    items:
+    - name: Import BACPAC into a single database
+      href: sql-database-import.md
+    - name: Restore a database backup to a Managed Instance
+      href: sql-database-managed-instance-get-started-restore.md
+  - name: Query
     href: sql-database-connect-query.md
     items:
     - name: SSMS
@@ -58,13 +70,9 @@
     href: sql-database-security-tutorial.md
   - name: 5 - Implement a geo-distributed database
     href: sql-database-implement-geo-distributed-database.md 
-  - name: 6 - Create Managed Instance
-    href: sql-database-managed-instance-create-tutorial-portal.md
-  - name: 7 - Restore a backup to a Managed Instance
-    href: sql-database-managed-instance-restore-from-backup-tutorial.md
-  - name: 8 - Migrate to a Managed Instance using DMS
+  - name: 6 - Migrate to a Managed Instance using DMS
     href: ../dms/tutorial-sql-server-to-managed-instance.md
-  - name: 9 - Set up Azure SQL Data Sync
+  - name: 7 - Set up Azure SQL Data Sync
     href: sql-database-get-started-sql-data-sync.md
 - name: Samples
   items:
@@ -134,6 +142,8 @@
       href: sql-database-managed-instance-connect-app.md
     - name: T-SQL differences
       href: sql-database-managed-instance-transact-sql-information.md
+    - name: Transactional replication
+      href: https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance?toc=/azure/sql-database/toc.json
   - name: Business continuity
     items:
     - name: Business continuity
@@ -298,44 +308,46 @@
         href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
   - name: SQL features comparison
     href: sql-database-features.md
-  - name: Monitor and tune
+  - name: Performance and tuning
     items:
-    - name: Monitor and tune
-      href: sql-database-troubleshoot-performance.md
-    - name: Perf monitoring 
-      href: sql-database-single-database-monitor.md
-    - name: Perf recommendations
-      href: sql-database-advisor.md
-    - name: Intelligent query processing
+    - name: Intelligent performance   
       items:
-      - name: Intelligent query processing
-        href: https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json
-      - name: Adaptive query processing
-        href: https://docs.microsoft.com/sql/relational-databases/performance/adaptive-query-processing?toc=/azure/sql-database/toc.json
-    - name: Automatic tuning
-      items:
-      - name: Automatic tuning
-        href: sql-database-automatic-tuning.md
-      - name: Enable automatic tuning
-        href: sql-database-automatic-tuning-enable.md
-      - name: Enable E-mail notifications
-        href: sql-database-automatic-tuning-email-notifications.md
-    - name: Intelligent Insights
-      items:
+      - name: Querying
+        items:
+        - name: Intelligent query processing
+          href: https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json
+        - name: Adaptive query processing
+          href: https://docs.microsoft.com/sql/relational-databases/performance/adaptive-query-processing?toc=/azure/sql-database/toc.json
+      - name: Monitoring and tuning
+        items:
+        - name: Monitoring and tuning overview
+          href: sql-database-monitor-tune-overview.md
+        - name: Database advisor performance recommendations
+          href: sql-database-advisor.md
+        - name: Tuning actions and recommendations
+          href: sql-database-performance.md
+        - name: Apply performance recommendations
+          href: sql-database-advisor-portal.md
       - name: Intelligent Insights
-        href: sql-database-intelligent-insights.md
-      - name: Diagnostic logging
-        href: sql-database-metrics-diag-logging.md
-      - name: Use diagnostics log
-        href: sql-database-intelligent-insights-use-diagnostics-log.md
-      - name: Performance troubleshooting
-        href: sql-database-intelligent-insights-troubleshoot-performance.md
-    - name: Performance recommendations
-      href: sql-database-performance.md
-    - name: Use Query Performance Insight
-      href: sql-database-query-performance.md
-    - name: Apply performance recommendations
-      href: sql-database-advisor-portal.md
+        items:
+        - name: Intelligent Insights overview
+          href: sql-database-intelligent-insights.md
+        - name: Diagnostic logging
+          href: sql-database-metrics-diag-logging.md
+        - name: Use the diagnostics log
+          href: sql-database-intelligent-insights-use-diagnostics-log.md
+        - name: Performance troubleshooting
+          href: sql-database-intelligent-insights-troubleshoot-performance.md
+      - name: Query Performance Insight
+        href: sql-database-query-performance.md
+      - name: Automatic performance tuning
+        items:
+        - name: Automatic tuning overview
+          href: sql-database-automatic-tuning.md
+        - name: Enable automatic tuning
+          href: sql-database-automatic-tuning-enable.md
+        - name: Enable E-mail notifications
+          href: sql-database-automatic-tuning-email-notifications.md
     - name: Manual tuning
       items:
       - name: Manual tuning
@@ -344,16 +356,16 @@
         href: sql-database-monitoring-with-dmvs.md
       - name: Operate query store
         href: sql-database-operate-query-store.md
-    - name: Monitor in-memory
-      href: sql-database-in-memory-oltp-monitoring.md
-    - name: Extended events
-      items:
+      - name: In-memory
+        href: sql-database-in-memory-oltp-monitoring.md
       - name: Extended events
-        href: sql-database-xevent-db-diff-from-svr.md
-      - name: Extended events - event file
-        href: sql-database-xevent-code-event-file.md
-      - name: Extended events - ring buffer
-        href: sql-database-xevent-code-ring-buffer.md
+        items:
+        - name: Extended events
+          href: sql-database-xevent-db-diff-from-svr.md
+        - name: Extended events - event file
+          href: sql-database-xevent-code-event-file.md
+        - name: Extended events - ring buffer
+          href: sql-database-xevent-code-ring-buffer.md
     - name: Create alerts
       href: sql-database-insights-alerts-portal.md
     - name: Troubleshoot connectivity
