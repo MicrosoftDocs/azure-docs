@@ -41,7 +41,7 @@ The sentences do not need to be complete or grammatically correct, but they shou
 
 The language model data should be written in UTF-8 BOM. The text file should contain one example (sentence, utterance, or query) per line.
 
-If you want certain terms to have a higher weight (importance), you can add several utterances to your data that include that term. 
+If you want certain terms to have a higher weight (importance), you can add several utterances to your data that include those terms. 
 
 The main requirements for the language data are summarized in the following table.
 
