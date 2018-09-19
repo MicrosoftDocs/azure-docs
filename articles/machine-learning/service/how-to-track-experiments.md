@@ -4,7 +4,7 @@ description: With the Azure Machine Learning service, you can track your experim
 services: machine-learning
 author: heatherbshapiro
 ms.author: hshapiro
-manager: cgronlun
+
 ms.service: machine-learning
 ms.component: core
 ms.workload: data-services

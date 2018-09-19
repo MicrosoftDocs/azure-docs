@@ -5,7 +5,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: overview
-manager: cgronlun
+
 ms.reviewer: jmartens
 author: j-martens
 ms.author: jmartens

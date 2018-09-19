@@ -5,7 +5,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
-manager: cgronlun
+
 ms.reviewer: jmartens
 author: ph-com
 ms.author: pahusban

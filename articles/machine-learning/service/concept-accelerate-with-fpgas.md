@@ -7,7 +7,7 @@ ms.component: core
 ms.topic: conceptual
 ms.author: tedway
 author: tedway
-manager: cgronlun
+
 ms.reviewer: jmartens
 ms.date: 9/24/2018
 ---

@@ -7,7 +7,7 @@ ms.component: core
 ms.topic: reference
 author: hning86
 ms.author: haining
-manager: cgronlun
+
 ms.date: 03/28/2018
 
 ROBOTS: NOINDEX
