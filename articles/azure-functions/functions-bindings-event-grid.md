@@ -400,14 +400,11 @@ Here's an example of the response that provides the system key:
 }
 ```
 
-<<<<<<< HEAD
-=======
 You can get the master key for your function app from the **Function app settings** tab in the portal.
 
 > [!IMPORTANT]
 > The master key provides administrator access to your function app. Don't share this key with third parties or distribute it in native client applications.
 
->>>>>>> 8cb6349fe2ae37e69d2d3fae2eb1801e4cd8b198
 For more information, see [Authorization keys](functions-bindings-http-webhook.md#authorization-keys) in the HTTP trigger reference article.
 
 Alternatively, you can send an HTTP PUT to specify the key value yourself.
