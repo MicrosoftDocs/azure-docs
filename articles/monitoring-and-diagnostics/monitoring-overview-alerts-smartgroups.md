@@ -1,5 +1,5 @@
 ---
-title: Overview of Smart Groups in Microsoft Azure and Azure Monitor
+title: Smart groups
 description: Smart Groups are aggregations of alerts that help you reduce alert noise
 author: anantr
 services: azure-monitor
