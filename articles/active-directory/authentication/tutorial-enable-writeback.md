@@ -27,7 +27,7 @@ In this tutorial, you will enable password writeback for your hybrid environment
 
 * Access to a working Azure AD tenant with at least a trial license assigned.
 * An account with Global Administrator privileges in your Azure AD tenant.
-* An existing server configured running a current version of [Azure AD Connect](../connect/active-directory-aadconnect-get-started-express.md).
+* An existing server configured running a current version of [Azure AD Connect](../hybrid/how-to-connect-install-express.md).
 * Previous self-service password reset (SSPR) tutorials have been completed.
 
 ## Enable password writeback option in Azure AD Connect

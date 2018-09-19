@@ -1,17 +1,19 @@
 ---
-title: Object detection with Python and Custom Vision API - Azure Cognitive Services | Microsoft Docs
-description: Explore a basic Windows app that uses the Custom Vision API in Microsoft Cognitive Services. Create a project, add tags, upload images, train your project, and make a prediction using the default endpoint.
+title: "Tutorial: Create an object detection project - Custom Vision API, Python"
+titlesuffix: Azure Cognitive Services
+description: Create a project, add tags, upload images, train your project, and make a prediction using the default endpoint.
 services: cognitive-services
 author: areddish
-manager: chbuehle
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/03/2018
 ms.author: areddish
 ---
 
-# Use Custom Vision API to build an object detection project with Python
+# Tutorial: Build an object detection project with Python
 
 Explore a basic Python script that uses the Computer Vision API to create an object detection project. After it's created, you can add tagged regions, upload images, train the project, obtain the project's default prediction endpoint URL, and use the endpoint to programmatically test an image. Use this open-source example as a template for building your own app by using the Custom Vision API.
 
