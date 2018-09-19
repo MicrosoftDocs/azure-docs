@@ -38,3 +38,4 @@ In May 2018, we also released the new [Speech Service](../../speech-service/inde
 ## License
 
 All Cognitive Services SDKs and samples are licensed with the MIT License. For more information, see [License](https://github.com/Microsoft/Cognitive-Speech-STT-JavaScript/blob/master/LICENSE.md).
+
