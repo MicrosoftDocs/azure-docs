@@ -51,15 +51,23 @@ Many consider identity to be the primary perimeter for security. This is a shift
 
 The following sections list best practices for identity and access security using Azure AD.
 
+<<<<<<< HEAD
+To accomplish this [hybrid identity](../active-directory/hybrid/plan-hybrid-identity-design-considerations-overview.md) scenario we recommend two options:
+=======
 ## Centralize identity management
 In a [hybrid identity](https://resources.office.com/ww-landing-M365E-EMS-IDAM-Hybrid-Identity-WhitePaper.html?) scenario we recommend that you integrate your on-premises and cloud directories. Integration enables your IT team to manage accounts from one single location, regardless of where an account is created. Integration also helps your users to be more productive by providing a common identity for accessing both cloud and on-premises resources.
+>>>>>>> 72fef8deb3b74739d94337401a4a4a0921e88f58
 
 
 **Best practice**: Integrate your on-premises directories with Azure AD.  
 **Detail**: Use [Azure AD Connect](../active-directory/connect/active-directory-aadconnect.md) to synchronize your on-premises directory with your cloud directory.
 
+<<<<<<< HEAD
+For more information on Azure AD synchronization, see the article [Integrating your on-premises identities with Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md).
+=======
 **Best practice**: Turn on password hash synchronization.  
 **Detail**: Password hash synchronization is a feature used to synchronize hashes of user password hashes from an on-premises Active Directory instance to a cloud-based Azure AD instance.
+>>>>>>> 72fef8deb3b74739d94337401a4a4a0921e88f58
 
 Even if you decide to use federation with Active Directory Federation Services (AD FS) or other identity providers, you can optionally set up password hash synchronization as a backup in case your on-premises servers fail or become temporarily unavailable. This enables users to sign in to the service by using the same password that they use to sign in to their on-premises Active Directory instance. It also allows Identity Protection to detect compromised credentials by comparing those password hashes with passwords known to be compromised, if a user has used their same email address and password on other services not connected to Azure AD.
 
@@ -67,6 +75,12 @@ For more information, see [Implement password hash synchronization with Azure AD
 
 Organizations that don’t integrate their on-premises identity with their cloud identity can have more overhead in managing accounts. This overhead increases the likelihood of mistakes and security breaches.
 
+<<<<<<< HEAD
+> [!NOTE]
+> the decision to use SSO will impact how you integrate your on-premises directory with your cloud directory. If you want SSO, you will need to use federation, because directory synchronization will only provide [same sign-on experience](../active-directory/hybrid/whatis-hybrid-identity.md).
+>
+>
+=======
 ## Enable single sign-on
 
 In a mobile-first, cloud-first world, you want to enable single sign-on (SSO) to devices, apps, and services from anywhere so your users can be productive wherever and whenever. When you have multiple identity solutions to manage, this becomes an administrative problem not only for IT but also for users who have to remember multiple passwords.
@@ -79,11 +93,16 @@ By using the same identity solution for all your apps and resources, you can ach
 Use SSO to enable users to access their [SaaS applications](../active-directory/active-directory-appssoaccess-whatis.md) based on their work or school account in Azure AD. This is applicable not only for Microsoft SaaS apps, but also other apps, such as [Google Apps](../active-directory/active-directory-saas-google-apps-tutorial.md) and [Salesforce](../active-directory/active-directory-saas-salesforce-tutorial.md). You can configure your application to use Azure AD as a [SAML-based identity](../active-directory/fundamentals-identity.md) provider. As a security control, Azure AD does not issue a token that allows users to sign in to the application unless they have been granted access through Azure AD. You can grant access directly, or through a group that users are a member of.
 
 Organizations that don’t create a common identity to establish SSO for their users and applications are more exposed to scenarios where users have multiple passwords. These scenarios increase the likelihood of users reusing passwords or using weak passwords.
+>>>>>>> 72fef8deb3b74739d94337401a4a4a0921e88f58
 
 ## Turn on conditional access
 Users can access your organization's resources by using a variety of devices and apps from anywhere. As an IT administrator, you want to make sure that these devices meet your standards for security and compliance. Just focusing on who can access a resource is not sufficient anymore.
 
+<<<<<<< HEAD
+You can learn more about Azure AD SSO by reading the article [AD FS management and customization with Azure AD Connect](../active-directory/hybrid/how-to-connect-fed-management.md).
+=======
 To balance security and productivity, you need to think about how a resource is accessed before you can make an access control decision. With Azure AD conditional access, you can address this requirement. With conditional access, you can make automated access control decisions for accessing your cloud apps that are based on conditions.
+>>>>>>> 72fef8deb3b74739d94337401a4a4a0921e88f58
 
 **Best practice**: Manage and control access to corporate resources.  
 **Detail**: Configure Azure AD [conditional access](../active-directory/active-directory-conditional-access-azure-portal.md) based on a group, location, and application sensitivity for SaaS apps and Azure AD–connected apps.
