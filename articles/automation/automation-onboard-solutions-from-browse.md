@@ -37,13 +37,20 @@ The following image is for Update Management. Change tracking and Inventory have
 
 The list of virtual machines is filtered to show only the virtual machines that are in the same subscription and location. If your virtual machines are in more than three resource groups, the first three resource groups are selected.
 
+> [!NOTE]
+> <a name="resource-group-limit"></a>The number of resource groups you can use for onboarding is limited by the [Resource Manager deployment limits](../azure-resource-manager/resource-manager-cross-resource-group-deployment.md). Resource Manager deployments, not to be confused with Update deployments,  are limited to 5 resource groups per deployment. To ensure the integrity of onboarding we reserve 2 of those resource groups for to configure the Log Analytics workspace, Automation account, and related resources. This leaves you with 3 resource groups to select for deployment.
+
 Use the filter controls to select virtual machines from different subscriptions, locations, and resource groups.
 
 ![Onboard Update management solution](media/automation-onboard-solutions-from-browse/onboardsolutions.png)
 
-Review the choices for the Log analytics workspace and Automation account. A new workspace and Automation Account are selected by default. If you have an existing Log Analytics workspace and Automation Account you want to use, click **change** to select them from the **Configuration** page. When done, click **Save**.
+Review the choices for the Log analytics workspace and Automation account. An existing workspace and Automation Account are selected by default. If you want to use a different Log Analytics workspace and Automation Account, click **CUSTOM** to select them from the **Custom Configuration** page. When done, click **OK**.
 
 ![Select workspace and account](media/automation-onboard-solutions-from-browse/selectworkspaceandaccount.png)
+
+If the workspace selected is not linked to an Automation Account, you'll see the following screen. Select an Automation Account and click **OK** when complete.
+
+![No workspace](media/automation-onboard-solutions-from-browse/no-workspace.png)
 
 Deselect the checkbox next to any virtual machine that you don't want to enable. Virtual machines that can't be enabled are already deselected.
 
