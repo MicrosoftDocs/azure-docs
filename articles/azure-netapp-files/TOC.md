@@ -5,6 +5,7 @@
 ## [Understand the storage hierarchy](azure-netapp-files-understand-storage-hierarchy.md)
 
 # Get started
+## [Register for Azure NetApp Files](azure-netapp-files-register.md)
 ## [Create a NetApp account](azure-netapp-files-create-netapp-account.md)
 ## [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
 ## [Create a volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)

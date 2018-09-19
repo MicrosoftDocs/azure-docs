@@ -21,7 +21,8 @@ ms.author: b-juche
 A volume's capacity consumption counts against its pool's provisioned capacity.  You can create multiple volumes in a capacity pool, but the volumes' total capacity consumption must not exceed the pool size. 
 
 ## Before you begin 
-You must have already set up a capacity pool.  
+You must have already set up a capacity pool. 
+You must also have a subnet that you will delegate to Azure NetApp Files. 
 
 [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
 
@@ -46,8 +47,15 @@ You must have already set up a capacity pool.
 
     * **Virtual network**  
         Specify the Azure virtual network (Vnet) from which you want to access the volume. The Vnet you specify must have Azure NetApp Files configured. The Azure NetApp Files service can be accessed only from a Vnet that is in the same location as the volume.   
-
+        
+    * **Subnet**  
+        Specify the subnet that you want to use for the volume.  
+        The subnet you specify must be delegated to the Azure NetApp Files service. 
+        You can create a new subnet by selecting **Create new** under the Subnet field.  
+ 
+<!-- 
     ![New volume](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
+--> 
 
 4.	Click **OK**. 
  
