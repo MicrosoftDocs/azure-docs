@@ -23,11 +23,18 @@ Azure Key Vault helps solve the following problems
 - **Secrets Management** - Azure Key Vault can be used to Securely store and tightly control access to tokens, passwords, certificates, API keys, and other secrets
 - **Key Management** - Azure Key Vault can also be used as a Key Management solution. Azure Key Vault makes it easy to create and control the encryption keys used to encrypt your data. 
 - **Certificate Management** - Azure Key Vault is also a service that lets you easily provision, manage, and deploy public and private Secure Sockets Layer/Transport Layer Security (SSL/TLS) certificates for use with Azure and your internal connected resources. 
-- **Hardware Security Modules** - The secrets and keys can be protected either by software or FIPS 140-2 Level 2 validates HSMs
+- **Store secrets backed by Hardware Security Modules** - The secrets and keys can be protected either by software or FIPS 140-2 Level 2 validates HSMs
 
 ## Basic concepts
 
-Azure Key Vault is a tool for securely storing and accessing secrets. A secret is anything that you want to tightly control access to, such as API keys, passwords, or certificates. A **Vault** is logical group of secrets
+Azure Key Vault is a tool for securely storing and accessing secrets. A secret is anything that you want to tightly control access to, such as API keys, passwords, or certificates. A **Vault** is logical group of secrets. Now to do any operations with Key Vault you first need to authenticate to it. 
+
+Fundamentally there are 3 ways to authenticate to Key Vault
+
+1. Using [Managed Service Identity](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview) (Recommended and Best Practise): When you deploy an App on a Virtual Machine in Azure, you can assign an identity to your Virtual Machine that has access to Key Vault. You can also assign identities to other azure resources that are listed [here](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview). The benefit with this approach is the app / service is not managing the rotation of the first secret. Azure automatically rotates the identity. 
+2. Using Service Principal and Certificate: The 2nd option is to use a Service Principal and an associated certificate that has access to Key Vault. The onus of rotating the certificate is on the application owner or developer and hence this is not recommended
+3. Using Service Principal and Secret: The 3rd option (not preferred option) is to use a Service Principal and a secret to authenticate to Key Vault
+
 Here are some key terms:
 - **Tenant**: A tenant is the organization that owns and manages a specific instance of Microsoft cloud services. It’s most often used in an exact manner to refer to the set of Azure and Office 365 services for an organization.
 - **Vault owner**: A vault owner can create a key vault and gain full access and control over it. The vault owner can also set up auditing to log who accesses secrets and keys. Administrators can control the key lifecycle. They can roll to a new version of the key, back it up, and do related tasks.
