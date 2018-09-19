@@ -30,7 +30,7 @@ Use Microsoft Flow to automate workflows across the many applications and servic
 
 This section shows you how to trigger a mobile notification in the Flow mobile app when a rule is triggered in IoT Central.
 
-1. Start by [creating a rule in IoT Central](howto-create-telemetry-rules.md). After you save the rule conditions, choose the **Microsoft Flow action** as a new action. A new tab or window should open in your browser, taking you into Microsoft Flow.
+1. Start by [creating a rule in IoT Central](howto-create-telemetry-rules.md). After you save the rule conditions, click the **Microsoft Flow action** as a new action. A new tab or window should open in your browser, taking you into Microsoft Flow.
 
     ![Create a new Microsoft Flow action](media/howto-add-microsoft-flow/createflowaction.PNG)
 
@@ -73,7 +73,7 @@ This section shows you how to create a new device in IoT Central at the push of 
 1. Select the Device Name field. From the dynamic content pane, choose **Device Name**. This value will be passed from the input the user enters through the mobile app, and will be the name of your new device in IoT Central. In this example, the only required field is the device name, indicated by the red asterisk. Another device template may have multiple required fields that need to be filled in to create a new device.
 
     ![Flow create device action dynamic pane](./media/howto-add-microsoft-flow/flowcreatedevice.PNG)
-1. (Optional) Fill in other fields as you see fit for your creating new devices. For example, choose if the device is simulated or not.
+1. (Optional) Fill in other fields as you see fit for your creating new devices.
 
 1. Finally, save your workflow.
 
@@ -97,7 +97,7 @@ This section shows you how to update device settings and properties in IoT Centr
 
     ![IoT Central device explorer device ID](./media/howto-add-microsoft-flow/iotcdeviceid.PNG)
 
-1. You can update the device name and if it is a simulated device or not. To update any of the device's properties and settings, you must select the device template of the device you want to update in the **Device Template** dropdown. The action tile expands to show all the properties and settings you can update.
+1. You can update the device name. To update any of the device's properties and settings, you must select the device template of the device you want to update in the **Device Template** dropdown. The action tile expands to show all the properties and settings you can update.
 
 1. Select each of the properties and settings you want to update. From the dynamic content pane, choose the corresponding input from the trigger. In this example, the Location value is propagated down to update the device's Location property.
 
