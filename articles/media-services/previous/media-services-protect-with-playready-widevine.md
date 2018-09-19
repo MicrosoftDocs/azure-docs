@@ -4,7 +4,7 @@ description: You can use Azure Media Services to deliver MPEG-DASH, Smooth Strea
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: 548d1a12-e2cb-45fe-9307-4ec0320567a2
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/09/2017
+ms.date: 09/18/2018
 ms.author: juliako
 
 ---
@@ -154,7 +154,7 @@ You can use the [Azure Media Services Player](http://amsplayer.azurewebsites.net
 2. Add the following elements to **appSettings** defined in your app.config file:
 
 ```xml
-		<add key="Issuer" value="http://testacs.com"/>
+		<add key="Issuer" value="http://testissuer.com"/>
 		<add key="Audience" value="urn:test"/>
 ```
 
