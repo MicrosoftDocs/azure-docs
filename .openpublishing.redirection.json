@@ -1152,6 +1152,51 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/virtual-machines/windows/troubleshoot-bitlocker-boot-error.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/troubleshoot-bitlocker-boot-error",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/troubleshoot-check-disk-boot-error.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/troubleshoot-check-disk-boot-error.md",
+            "redirect_document_id": false
+        },	
+        {
+            "source_path": "articles/virtual-machines/linux/troubleshooting-throttling-errors.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/troubleshooting-throttling-errors",
+            "redirect_document_id": false
+        },
+	    {
+            "source_path": "articles/virtual-machines/windows/troubleshooting-throttling-errors.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/troubleshooting-throttling-errors",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/troubleshoot-vm-by-use-nested-virtualization.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/troubleshoot-vm-by-use-nested-virtualization",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/unexpected-reboots-attached-vhds.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/unexpected-reboots-attached-vhds",
+            "redirect_document_id": false
+        },		
+        {
+            "source_path": "articles/virtual-machines/linux/unexpected-reboots-attached-vhds.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/unexpected-reboots-attached-vhds",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/understand-vm-reboot.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/understand-vm-reboot",
+            "redirect_document_id": false
+        },		
+        {
+            "source_path": "articles/virtual-machines/linux/understand-vm-reboot.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/understand-vm-reboot",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/virtual-machines/linux/storage-resource-deletion-errors.md",
             "redirect_url": "/azure/virtual-machines/troubleshooting/storage-resource-deletion-errors",
             "redirect_document_id": false

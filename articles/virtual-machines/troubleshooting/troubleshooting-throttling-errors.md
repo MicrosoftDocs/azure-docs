@@ -1,15 +1,22 @@
 ---
-title: include file
-description: include file
+title: Troubleshooting throttling errors in Azure | Microsoft Docs
+description: Throttling errors, retries and backoff in Azure Compute.
 services: virtual-machines
+documentationcenter: ''
 author: changov
+manager: jeconnoc
+editor: ''
+tags: azure-resource-manager,azure-service-management
+
 ms.service: virtual-machines
-ms.topic: include
-ms.date: 09/10/2018
+ms.devlang: na
+ms.topic: troubleshooting
+ms.workload: infrastructure-services
+ms.date: 09/18/2018
 ms.author: vashan, rajraj, changov
-ms.custom: include file
 ---
 
+# Troubleshooting API throttling errors 
 
 Azure Compute requests may be throttled at a subscription and on a per-region basis to help with the overall performance of the service. We ensure all the calls to the Azure Compute Resource Provider (CRP) that manages resources under Microsoft.Compute namespace don't exceed the maximum allowed API request rate. This document describes API throttling, details on how to troubleshoot throttling issues, and best practices to avoid being throttled.  
 
