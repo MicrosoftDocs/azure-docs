@@ -14,8 +14,8 @@ ms.date: 09/24/2018
 # Create isolated environments to access Azure Virtual Networks (VNETs) from Azure Logic Apps
 
 > [!NOTE]
-> This capability is currently in *private preview*, 
-> but more details will be available about how you can sign up for access. 
+> This capability is in *private preview*. 
+> To request access, [create your request to join here](https://aka.ms/iseprivatepreview).
 
 For integration scenarios where your logic apps and integration accounts need access to an 
 [Azure virtual network (VNET)](../virtual-network/virtual-networks-overview.md), you can 
