@@ -236,4 +236,4 @@ Congratulations!
 
 Additional [tutorials that build upon the Wingtip SaaS application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials). 
 - [Elastic Jobs](sql-database-elastic-jobs-overview.md).
-- [Cross-tenant analytics using extracted data - single-tenant app](sql-database/saas-tenancy-tenant-analytics.md) 
+- [Cross-tenant analytics using extracted data - single-tenant app](saas-tenancy-tenant-analytics.md) 
