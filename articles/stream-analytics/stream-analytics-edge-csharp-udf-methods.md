@@ -30,19 +30,19 @@ The format of any UDF package has the path `/UserCustomCode/CLR/*`. Dynamic Link
 
 ## Supported types and mapping
 
- |**UDF type (C#)**  |**Azure Stream Analytics type**  |
- |---------|---------|
- |Bool  |  bigint   |
- |int32  |  bigint   |
- |int64  |  bigint   |
- |float  |  double   |
- |double  |  double   |
- |string  |  nvarchar(max)   |
- |dateTime  |  dateTime   |
- |struct  |  IRecord   |
- |object  |  IRecord   |
- |Array  |  IArray   |
- |dictionary<string, object>  |  IRecord   |
+|**UDF type (C#)**  |**Azure Stream Analytics type**  |
+|---------|---------|
+|Bool  |  bigint   |
+|int32  |  bigint   |
+|int64  |  bigint   |
+|float  |  double   |
+|double  |  double   |
+|string  |  nvarchar(max)   |
+|dateTime  |  dateTime   |
+|struct  |  IRecord   |
+|object  |  IRecord   |
+|Array  |  IArray   |
+|dictionary<string, object>  |  IRecord   |
 
 ## CodeBehind
 You can write user-defined functions in the **Script.asql** CodeBehind. Visual Studio tools will automatically compile the CodeBehind file into an assembly file. The assemblies are packaged as a zip file and uploaded to your storage account when you submit your job to Azure. You can learn how to write a C# UDF using CodeBehind by following the [C# UDF for Stream Analytics Edge jobs](stream-analytics-edge-csharp-udf.md) tutorial. 
@@ -108,13 +108,13 @@ To configure the assembly path in the job configuration file, `EdgeJobConfig.jso
 
 Expand the **User-Defined Code Configuration** section, and fill out the configuration with the following suggested values:
 
-    |**Setting**  |**Suggested value**  |
-    |---------|---------|
-    |Assembly Source  |  Local Project Reference or CodeBehind   |
-    |Resource  |  Choose data from current account   |
-    |Subscription  |  Choose your subscription.   |
-    |Storage Account  |  Choose your storage account.   |
-    |Container  |  Choose the container you created in your storage account.   |
+|**Setting**  |**Suggested value**  |
+|---------|---------|
+|Assembly Source  |  Local Project Reference or CodeBehind   |
+|Resource  |  Choose data from current account   |
+|Subscription  |  Choose your subscription.   |
+|Storage Account  |  Choose your storage account.   |
+|Container  |  Choose the container you created in your storage account.   |
 
     ![Azure Stream Analytics Edge job configuration in Visual Studio](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-job-config.png)
 
