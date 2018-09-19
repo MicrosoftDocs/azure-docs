@@ -56,7 +56,7 @@ To create a snapshot of a VM's OS disk, you can use the Azure portal or command-
 
 ### Create an image from a snapshot
 
-To create a managed image from a snapshot, use Azure command-line tools such as the [az disk create](/cli/azure/disk#az_disk_create) command. See the [sample script](./../scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot.md?toc=%2fcli%2fmodule%2ftoc.json) for steps to get the snapshot ID to pass as the source to the `az disk create` command.
+To create a managed image from a snapshot, use Azure command-line tools such as the [az disk create](/cli/azure/disk#az_disk_create) command. See the [sample script](../virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot.md?toc=%2fcli%2fmodule%2ftoc.json) for steps to get the snapshot ID to pass as the source to the `az disk create` command.
 
 ## Create a pool from a custom image in the portal
 
