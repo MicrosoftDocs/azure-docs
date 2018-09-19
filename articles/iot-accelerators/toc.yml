@@ -99,6 +99,8 @@
       href: iot-accelerators-integrate-data-lake.md
     - name: Configure role-based access controls
       href: iot-accelerators-remote-monitoring-rbac.md
+    - name: Grant access to telemetry explorer
+      href: iot-accelerators-remote-monitoring-rbac-tsi.md
 
   - name: Remote Monitoring (previous version)
     items:
