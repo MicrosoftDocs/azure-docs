@@ -4,7 +4,7 @@ description: This article describes how you can use Azure Media Services to deli
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: 8546c2c1-430b-4254-a88d-4436a83f9192
@@ -13,11 +13,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/10/2017
+ms.date: 09/18/2018
 ms.author: juliako
 
 ---
 # Use Azure Media Services to deliver DRM licenses or AES keys
+
 Azure Media Services enables you to ingest, encode, add content protection, and stream your content. For more information, see [Use PlayReady and/or Widevine dynamic common encryption](media-services-protect-with-playready-widevine.md). Some customers want to use Media Services only to deliver licenses and/or keys and encode, encrypt, and stream by using their on-premises servers. This article describes how you can use Media Services to deliver PlayReady and/or Widevine licenses but do the rest with your on-premises servers. 
 
 ## Overview
@@ -38,7 +39,7 @@ To download the sample described in this article, see [Use Azure Media Services 
 
 2. Add the following elements to **appSettings** defined in your app.config file:
 
-    add key="Issuer" value="http://testacs.com"/
+    add key="Issuer" value="http://testissuer.com"/
     
     add key="Audience" value="urn:test"/
 
