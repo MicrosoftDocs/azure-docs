@@ -12,7 +12,7 @@ ms.date: 09/24/2018
 
 # Tutorial: Configure Kafka policies in HDInsight with Enterprise Security Package
 
-Learn how to configure Apache Ranger policies for Enterprise Security Package (ESP) Kafka clusters, which are connected to a domain allowing users to authenticate with domain credentials. In this tutorial, you create two Ranger policies to restrict access to `sales*` and `marketingspend` topics.
+Learn how to configure Apache Ranger policies for Enterprise Security Package (ESP) Kafka clusters. ESP clusters are connected to a domain allowing users to authenticate with domain credentials. In this tutorial, you create two Ranger policies to restrict access to `sales*` and `marketingspend` topics.
 
 In this tutorial, you learn how to:
 
@@ -174,7 +174,7 @@ Based on the Ranger policies configured, **sales_user** can produce/consume topi
    /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $KAFKAZKHOSTS --topic salesevents --security-protocol PLAINTEXTSASL --from-beginning
    ```
  
-   To verify, the messages you entered in the previous step will appear, and **sales_user1** cannot produce to topic **marketingspend**.
+   To verify, the messages you entered in the previous step will appear, and **sales_user1** can't produce to topic **marketingspend**.
 
 6. From the same ssh window as above, execute the following command to produce to the topic **marketingspend**:
 
@@ -200,5 +200,5 @@ Based on the Ranger policies configured, **sales_user** can produce/consume topi
 
 ## Next steps
 
-* [Bring your own key to Kafaka](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-byok)
+* [Bring your own key to Kafka](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-byok)
 * [An introduction to Hadoop security with Enterprise Security Package](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-introduction)
