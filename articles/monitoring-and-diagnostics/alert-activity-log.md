@@ -123,7 +123,7 @@ Alternatively, a simple analogy for understanding conditions on which alert rule
 
 
 ## Manage alert rules for activity log using Azure Resource Template
-o create an activity log alert by using a Resource Manager template, you create a resource of the type `microsoft.insights/activityLogAlerts`. Then you fill in all related properties. Here's a template that creates an activity log alert.
+To create an activity log alert by using a Resource Manager template, you create a resource of the type `microsoft.insights/activityLogAlerts`. Then you fill in all related properties. Here's a template that creates an activity log alert.
 
 ```json
 {
@@ -196,7 +196,7 @@ The sample json above can be saved as (say) sampleActivityLogAlert.json for the 
 > It may take up to 5 minutes for the a new activity log alert rule to become active
 
 ## Manage alert rules for activity log using PowerShell, CLI, or API
-[Azure Monitor - Activity Log Alerts API](https://docs.microsoft.com/en-us/rest/api/monitor/activitylogalerts) is a REST API and fully compatible with Azure Resource Manager REST API. Hence it can be used via Powershell using Resource Manager cmdlet as well as Azure CLI.
+[Azure Monitor - Activity Log Alerts API](https://docs.microsoft.com/rest/api/monitor/activitylogalerts) is a REST API and fully compatible with Azure Resource Manager REST API. Hence it can be used via Powershell using Resource Manager cmdlet as well as Azure CLI.
 
 Illustrated below usage via Azure Resource Manager PowerShell cmdlet for sample Resource Template shown earlier (sampleActivityLogAlert.json) in the [Resource Template section](#manage-alert-rules-for-activity-log-using-azure-resource-template) :
 ```powershell
