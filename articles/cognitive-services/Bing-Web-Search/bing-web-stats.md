@@ -1,18 +1,17 @@
 ---
-title: Bing analytics for Bing Web Search APIs | Microsoft Docs
-titleSuffix: Cognitive Services
-description: Describes how to get analytics for Bing Web Search API. 
+title: Bing Web Search analytics - Bing Web Search API
+titleSuffix: Azure Cognitive Services
+description: Describes how to get analytics for Bing Web Search API.
 services: cognitive-services
 author: swhite-msft
-manager: rosh
-
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: bing-web-search
+ms.component: bing-web-search
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: scottwhi
 ---
 
-# How to get analytics for Bing Web Search API
+# Analytics for the Bing Web Search API
 
 [!INCLUDE [cognitive-services-bing-statistics](../../../includes/cognitive-services-bing-statistics.md)]

@@ -149,6 +149,8 @@
       items:
       - name: Enable Azure to Azure replication
         href: azure-to-azure-how-to-enable-replication.md
+      - name: Enable Azure to Azure replication for encrypted VMs
+        href: azure-to-azure-how-to-enable-replication-ade-vms.md
       - name: Reprotect from an Azure secondary region to primary
         href: azure-to-azure-how-to-reprotect.md
     - name: Troubleshooting
@@ -257,7 +259,7 @@
         href: site-recovery-monitor-and-troubleshoot.md
       - name: Troubleshoot VMware to Azure replication
         href: vmware-azure-troubleshoot-replication.md
-      - name: Troubleshoot the Mobility service in VMware and physical server replication
+      - name: Troubleshoot mobility service/push installation in VMware and physical server replication
         href: vmware-azure-troubleshoot-push-install.md
       - name: Troubleshoot failover to Azure
         href: site-recovery-failover-to-azure-troubleshoot.md
