@@ -21,6 +21,8 @@ This article assumes that neither an HSM or a certificate is a viable option. Ho
 
 This article also assumes that the device update takes place in a secure environment to prevent unauthorized access to the master group key or the derived device key.
 
+This article is oriented toward a Windows-based workstation. However, you can perform the procedures on Linux. For a Linux example, see [How to provision for multitenancy](how-to-provision-multitenant.md).
+
 
 ## Overview
 
@@ -43,12 +45,20 @@ In this section, you will prepare a development environment used to build the [A
 
 The SDK includes the sample code for the simulated device. This simulated device will attempt provisioning during the device's boot sequence.
 
-1. Download the latest release version of the [CMake build system](https://cmake.org/download/). From that same site, look up the cryptographic hash for the version of the binary distribution you chose. Verify the downloaded binary using the corresponding cryptographic hash value. The following example used Windows PowerShell to verify the cryptographic hash for version 3.11.4 of the x64 MSI distribution:
+1. Download the version 3.11.4 of the [CMake build system](https://cmake.org/download/). Verify the downloaded binary using the corresponding cryptographic hash value. The following example used Windows PowerShell to verify the cryptographic hash for version 3.11.4 of the x64 MSI distribution:
 
     ```PowerShell
-    PS C:\Users\wesmc\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
-    PS C:\Users\wesmc\Downloads> $hash.Hash -eq "56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869"
+    PS C:\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
+    PS C:\Downloads> $hash.Hash -eq "56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869"
     True
+    ```
+    
+    The following hash values for version 3.11.4 were listed on the CMake site at the time of this writing:
+
+    ```
+    6dab016a6b82082b8bcd0f4d1e53418d6372015dd983d29367b9153f1a376435  cmake-3.11.4-Linux-x86_64.tar.gz
+    72b3b82b6d2c2f3a375c0d2799c01819df8669dc55694c8b8daaf6232e873725  cmake-3.11.4-win32-x86.msi
+    56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869  cmake-3.11.4-win64-x64.msi
     ```
 
     It is important that the Visual Studio prerequisites (Visual Studio and the 'Desktop development with C++' workload) are installed on your machine, **before** starting the `CMake` installation. Once the prerequisites are in place, and the download is verified, install the CMake build system.
@@ -138,64 +148,45 @@ To generate the device key, use the group master key to compute an [HMAC-SHA256]
 
 Do not include your group master key in your device code.
 
-Use the following steps to create a small console app using C# code to compute your derived device key:
 
-1. Open Visual Studio and click **File** > **New** > **Project**.
+#### Linux workstations
 
-2. In the **New Project** dialog, click **Visual C#** and select the **Console App (.NET Framework)** template. Enter **GenDeviceKey** as the name of the project and choose a location for the project. Then click **OK**.
+If you are using a Linux workstation, you can use openssl to generate your derived device key as shown in the following example.
 
-3. Open the **Program.cs** source file. Replace the code with the following example code, and save the file.
+```bash
+KEY=8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw==
+REG_ID=sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
 
-    ```C#
-    using System;
-    using System.Text;
-    using System.Security.Cryptography;
+keybytes=$(echo $KEY | base64 --decode | xxd -p -u -c 1000)
+echo -n $REG_ID | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64
+```
 
-    namespace GenDeviceKey
-    {
-        class Program
-        {
+```bash
+Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
+```
 
-            public static string ComputeDerivedSymmetricKey(byte[] masterKey, string registrationId)
-            {
-                using (var hmac = new HMACSHA256(masterKey))
-                {
-                    return Convert.ToBase64String(hmac.ComputeHash(Encoding.UTF8.GetBytes(registrationId)));
-                }
-            }
 
-            static void Main(string[] args)
-            {
-                if (args.Length < 2)
-                {
-                    Console.WriteLine("\nUSAGE: GenDeviceKey RegistrationID MasterGroupKey\n");
-                    return;
-                }
+#### Windows-based workstations
 
-                byte[] masterkey = Convert.FromBase64String(args[1]);
-                string registrationID = args[0];
+If you are using a Windows-based workstation, you can use PowerShell to generate your derived device key as shown in the following example.
 
-                Console.WriteLine("\nDerived Device Key : {0}\n",
-                    ComputeDerivedSymmetricKey(masterkey, registrationID));
+```PowerShell
+$key='8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw=='
+$reg_id='sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6'
 
-                return;
-            }
-        }
-    }
-    ```
+$hmacsha256 = New-Object System.Security.Cryptography.HMACSHA256
+$hmacsha256.key = [Convert]::FromBase64String($key)
+$sig = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($reg_id))
+$derivedkey = [Convert]::ToBase64String($sig)
+echo "`n$derivedkey`n"
+```
 
-4. On the menu, click **Build** > **Build solution** and verify the build succeeds.
+```PowerShell
+Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
+```
 
-5. Open a command prompt and navigate to the location of the project. Run the code to generate your derived device key. Replace the arguments shown with your device registration ID and group master key to generate a unique device key.
 
-    ```cmd
-    C:\Example\GenDeviceKey\bin\Debug>GenDeviceKey.exe sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6 8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw==
-
-    Derived Device Key : 9GWVnYuoOLXlHc346XjhLRb9pKgIOrKSwxDRSOgnvXo=
-
-    ```
-
-    Your device will use the derived device key with your unique registration ID to perform symmetric key attestation with the enrollment group during provisioning.
+Your device will use the derived device key with your unique registration ID to perform symmetric key attestation with the enrollment group during provisioning.
 
 
 
@@ -244,7 +235,7 @@ This sample code simulates a device boot sequence that sends the provisioning re
 
     ```c
     static const char* const REGISTRATION_NAME = "sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6";
-    static const char* const SYMMETRIC_KEY_VALUE = "9GWVnYuoOLXlHc346XjhLRb9pKgIOrKSwxDRSOgnvXo=";
+    static const char* const SYMMETRIC_KEY_VALUE = "Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=";
     ```
 
 7. On the Visual Studio menu, select **Debug** > **Start without debugging** to run the solution. In the prompt to rebuild the project, click **Yes**, to rebuild the project before running.

@@ -23,6 +23,7 @@ It is common to combine these two scenarios. For example, a multitenant IoT solu
 
 This article uses a simulated device sample from the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) to demonstrate how to provision devices in a multitenant scenario across regions. You will perform the following steps in this article:
 
+
 * Use the Azure CLI to create two regional IoT hubs (**West US** and **East US**)
 * Create a multitenant enrollment
 * Use the Azure CLI to create two regional Linux VMs to act as devices in the same regions (**West US** and **East US**)
@@ -275,7 +276,7 @@ J5n4NY2GiBYy7Mp4lDDa5CbEe6zDU/c62rhjCuFWxnc=
 ```
 
 
-Your device will use the derived device key with your unique registration ID to perform symmetric key attestation with the enrollment group during provisioning.
+The tenant devices will each use their derived device key and unique registration ID to perform symmetric key attestation with the enrollment group during provisioning to the tenant IoT hubs.
 
 
 

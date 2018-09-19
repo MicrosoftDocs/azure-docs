@@ -18,11 +18,12 @@ In this quickstart, you will learn how to create and run a device simulator on a
 
 Although this article demonstrates provisioning with an individual enrollment, you can use the same procedures with enrollment groups. The only difference is, you must use a derived device key with a unique registration ID for the device. With enrollment groups, the enrollment symmetric key and registration ID are not used directly. Although not limited to legacy devices only, [How to provision legacy devices using Symmetric key attestation](how-to-legacy-device-symm-key.md) provides an example. For more information, see [Group Enrollments for Symmetric Key Attestation](concepts-symmetric-key-attestation.md#group-enrollments).
 
-For more detailed conceptual information about symmetric key attestation, see [Symmetric key attestation](concepts-symmetric-key-attestation.md).
-
-If you're unfamiliar with the process of auto-provisioning, review [Auto-provisioning concepts](concepts-auto-provisioning.md). 
+For more detailed conceptual information about symmetric key attestation, see [Symmetric key attestation](concepts-symmetric-key-attestation.md). If you're unfamiliar with the process of auto-provisioning, review [Auto-provisioning concepts](concepts-auto-provisioning.md). 
 
 Also, make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing with this quickstart. This quickstart requires you to have already created your Device Provisioning Service instance.
+
+This article is oriented toward a Windows-based workstation. However, you can perform the procedures on Linux. For a Linux example, see [How to provision for multitenancy](how-to-provision-multitenant.md).
+
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
