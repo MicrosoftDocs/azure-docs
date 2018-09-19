@@ -33,7 +33,7 @@ To create your application, do the following:
 
 1. In Visual Studio, select **File** > **New** > **Project**.
 2. Under **Templates**, select **Visual C#**.
-3. Select **WPF App** or **WPF Application**, depending on the version of Visual Studio version you're using.
+3. Select **WPF App (.NET Framework)**, depending on the version of Visual Studio version you're using.
 
 ## Add MSAL to your project
 
