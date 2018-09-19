@@ -31,7 +31,7 @@ Now, click the "Create" button to see the form that you'll need to fill out.
 
 ![Management portal: IoT Central resource](media\howto-manage-iot-central-from-portal\image0c.png)
 
-Fill in all the fields in the form. This form is similar to the form you need to fill out to create applications from the IoT Central website. To learn more about how to fill out each field, you can refer to the [Create an IoT Central application](https://docs.microsoft.com/en-us/azure/iot-central/howto-create-application) document. 
+Fill in all the fields in the form. This form is similar to the form you need to fill out to create applications from the IoT Central website. To learn more about how to fill out each field, you can refer to the [Create an IoT Central application](https://docs.microsoft.com/ azure/iot-central/howto-create-application) document. 
 
 ![Management portal: create IoT Central resource](media\howto-manage-iot-central-from-portal\image1.png)  
 
