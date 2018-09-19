@@ -12,11 +12,11 @@ ms.author: iainfou
 
 # Use Azure Container Registry as a Helm repository for your application charts
 
-To quickly manage and deploy applications for Kubernetes, you can use the open-source Helm package manager. With Helm, applications are defined as *charts* that are stored in a central repository. These charts define configurations and dependencies, and can be versioned throughout the application lifecycle. Azure Container Registry can be used as the host for Helm repositories and charts.
+To quickly manage and deploy applications for Kubernetes, you can use the [open-source Helm package manager][helm]. With Helm, applications are defined as *charts* that are stored in a Helm chart repository. These charts define configurations and dependencies, and can be versioned throughout the application lifecycle. Azure Container Registry can be used as the host for Helm charts repositories.
 
-With Azure Container Registry, you have a private, secure Helm repository, that can integrate with build pipelines or other Azure services. Helm repositories in Azure Container Registry include geo-replication features to keep your charts close to deployments and for redundancy. You only pay for the storage used by the charts, and are available across all Azure Container Registry price tiers.
+With Azure Container Registry, you have a private, secure Helm chart repository, that can integrate with build pipelines or other Azure services. Helm chart repositories in Azure Container Registry include geo-replication features to keep your charts close to deployments and for redundancy. You only pay for the storage used by the charts, and are available across all Azure Container Registry price tiers.
 
-This article shows you how to use a Helm repository stored in Azure Container Registry.
+This article shows you how to use a Helm chart repository stored in Azure Container Registry.
 
 ## Before you begin
 
@@ -28,11 +28,17 @@ To complete the steps in this article, the following pre-requisites must be met:
 
 ## Add a repository to Helm client
 
-A Helm repository is an HTTP server that can store Helm charts and an *index.yaml* file to define the contents of the repository. Azure Container Registry can provide this storage for Helm charts, and manage the index definition as you add and remove charts to the repository.
+A Helm repository is an HTTP server that can store Helm charts. Azure Container Registry can provide this storage for Helm charts, and manage the index definition as you add and remove charts to the repository.
 
-To add your Azure Container Registry as a Helm repository, you use the Azure CLI. With this approach, your Helm client is updated with the URI and credentials for the repository backed by Azure Container Registry. You don't need to manually specify this repository information, so the credentials aren't exposed in the command history, for example.
+To add your Azure Container Registry as a Helm chart repository, you use the Azure CLI. With this approach, your Helm client is updated with the URI and credentials for the repository backed by Azure Container Registry. You don't need to manually specify this repository information, so the credentials aren't exposed in the command history, for example.
 
-First, configure the Azure CLI defaults with the name of your Azure Container Registry using the [az configure][az-configure] command. In the following example, replace `<acrName>` with the name of your registry:
+If needed, log in to the Azure CLI and follow the prompts:
+
+```azurecli
+az login
+```
+
+Configure the Azure CLI defaults with the name of your Azure Container Registry using the [az configure][az-configure] command. In the following example, replace `<acrName>` with the name of your registry:
 
 ```azurecli
 az configure --defaults acr=<acrName>
@@ -63,13 +69,13 @@ $ ls
 wordpress-2.1.10.tgz
 ```
 
-Now push the chart to your Helm repository in Azure Container Registry using the Azure CLI [az acr helm push][az-acr-helm-push] command. Specify the name of your Helm chart downloaded in the previous step, such as *wordpress-2.1.10.tgz*:
+Now push the chart to your Helm chart repository in Azure Container Registry using the Azure CLI [az acr helm push][az-acr-helm-push] command. Specify the name of your Helm chart downloaded in the previous step, such as *wordpress-2.1.10.tgz*:
 
 ```azurecli
 az acr helm push wordpress-2.1.10.tgz
 ```
 
-After a few seconds, the Azure CLI reports that your chart has been saved, as shown in the following example output:
+After a few moments, the Azure CLI reports that your chart has been saved, as shown in the following example output:
 
 ```
 $ az acr helm push wordpress-2.1.10.tgz
@@ -207,6 +213,7 @@ Helm charts can be used as part of the container build process. For more informa
 For more information on how to use and manage Azure Container Registry, see the [best practices][acr-bestpractices].
 
 <!-- LINKS - external -->
+[helm]: https://helm.sh/
 [helm-install]: https://docs.helm.sh/using_helm/#installing-helm
 [develop-helm-charts]: https://docs.helm.sh/developing_charts/
 [semver2]: https://semver.org/
