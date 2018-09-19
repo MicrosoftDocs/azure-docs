@@ -1,10 +1,10 @@
 ---
-title: Translator Text translate text with Go | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
-description: In this quickstart, you translate text from one language to another using the Translator Text API with Go in Cognitive Services.
+title: "Quickstart: Translate text - Translator Text, Go"
+titleSuffix: Azure Cognitive Services
+description: In this quickstart, you translate text from one language to another using the Translator Text API with Go.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: translator-text

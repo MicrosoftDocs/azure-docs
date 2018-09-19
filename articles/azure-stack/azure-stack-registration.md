@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 09/18/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
 
@@ -47,7 +47,7 @@ Before registering Azure Stack with Azure, you must have:
   > [!Note]  
   > Germany cloud subscriptions are not currently supported.
 
-- The username and password for an account that is an owner for the subscription (MSA/2FA accounts are supported).
+- The username and password for an account that is an owner for the subscription (MSA/2FA accounts are **not** supported).
 
 - The user account needs to have access to the Azure subscription and have permissions to create identity applications and service principals in the directory associated with that subscription.
 
