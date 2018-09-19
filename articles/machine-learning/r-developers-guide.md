@@ -19,6 +19,7 @@ ms.author: jepeach
 ---
 # R developer's guide to Azure
 <img src="media/r-developers-guide/logo_r.svg" alt="R logo" align="right" width="200" />
+
 Many data scientists dealing with ever-increasing volumes of data are looking for ways to harness the power of cloud
 computing for their analyses.  This article provides an overview of the various ways that data scientists can leverage
 their existing skills with the [R programming language](https://www.r-project.org) in Azure.
