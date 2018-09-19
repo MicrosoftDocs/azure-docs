@@ -36,12 +36,12 @@ Follow the instructions in the article to [install the Azure PowerShell module a
 
 
 
-## Enable Group-Based Filtered Sync
-1. Create service principal with the ID 2565bd9d-da50-47d4-8b85-4c97f669dc36 (online documentation)
-2. Select the groups you want to sync. Run the PowerShell Script below and provide the display name of the groups you want synced.
+## Enable group-based scoped synchronization
+Complete the following steps to configure group-based scoped synchronization to your managed domain:
 
+1. Select the groups you want to sync and provide the display name of the groups you want synchronized to your managed domain.
 
-2. Save the script in the following section to a file called 'Select-GroupsToSync.ps1'. Execute the script like below:
+2. Save the script in the following section to a file called ```Select-GroupsToSync.ps1```. Execute the script like below:
 
   ```powershell
   .\Select-GroupsToSync.ps1 -groupsToAdd @(“GroupName1”, “GroupName2”)
@@ -63,7 +63,7 @@ Follow the instructions in the article to [install the Azure PowerShell module a
   ```
 
 ## Disable group-based scoped synchronization
-You can disable group-based scoped synchronization for your managed domain using the following PowerShell script:
+Use the following PowerShell script to disable group-based scoped synchronization for your managed domain:
 
 ```powershell
 // Login to your Azure AD tenant
@@ -79,7 +79,7 @@ Set-AzureRmResource -Id $DomainServicesResource.ResourceId -Properties $disableS
 ```
 
 ## Script to select groups to synchronize to the managed domain (Select-GroupsToSync.ps1)
-Save the following script to a file (Select-GroupsToSync.ps1). This script configures Azure AD Domain Services to synchronize selected groups to the managed domain. All user accounts belonging to the specified groups will be synchronized to the managed domain.
+Save the following script to a file (```Select-GroupsToSync.ps1```). This script configures Azure AD Domain Services to synchronize selected groups to the managed domain. All user accounts belonging to the specified groups will be synchronized to the managed domain.
 
 ```powershell
 param (
