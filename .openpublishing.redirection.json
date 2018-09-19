@@ -28543,7 +28543,6 @@
             "redirect_document_id" : true
         },
         {
-<<<<<<< HEAD
             "source_path": "articles/azure-resource-manager/management-groups-overview.md",
             "redirect_url": "/azure/governance/management-groups/",
             "redirect_document_id": true
@@ -28868,7 +28867,7 @@
             "redirect_url": "/azure/azure-stack/azure-stack-offer-services-overview",
             "redirect_document_id": false
         },
-				    {
+        {
             "source_path": "articles/application-insights/local-forwarder.md",
             "redirect_url": "/azure/application-insights/app-insights-overview",
             "redirect_document_id" : false
