@@ -5,7 +5,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: reference
-manager: cgronlun
+
 ms.reviewer: jmartens
 ms.author: tedway
 author: tedway
