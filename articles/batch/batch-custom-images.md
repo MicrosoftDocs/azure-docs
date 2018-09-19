@@ -44,8 +44,7 @@ In Azure you can prepare a managed image from from a snapshot of an Azure VM dis
 
 ### Prepare a VM 
 
-If you are creating a new VM for the image, use an Azure Marketplace image supported by Batch as the base image for your managed image and then customize it. For example, start with a Windows Server or Ubuntu Server image from the Marketplace. To get a list of Azure Marketplace image references supported by Azure Batch, see the [List node agent SKUs](/rest/api/batchservice/account/listnodeagentskus
-) operation.
+If you are creating a new VM for the image, use an Azure Marketplace image supported by Batch as the base image for your managed image and then customize it. For example, start with a Windows Server or Ubuntu Server image from the Marketplace. To get a list of Azure Marketplace image references supported by Azure Batch, see the [List node agent SKUs](/rest/api/batchservice/account/listnodeagentskus) operation.
 * Ensure that the VM is created with a managed disk. This is the default storage setting when you create a VM.
 * Do not install Azure extensions, such as the Custom Script extension, on the VM. If the image contains a pre-installed extension, Azure may encounter problems when deploying the Batch pool.
 * Ensure that the base OS image you provide uses the default temp drive. The Batch node agent currently expects the default temp drive.
