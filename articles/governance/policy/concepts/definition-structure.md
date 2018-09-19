@@ -459,9 +459,9 @@ The **ipRules** array is as follows for the example:
 ]
 ```
 
-Here is how the rule is processed:
+Here's how this example is processed:
 
-- `networkAcls.ipRules` - Check that the array is non-null. It is evaluates true, so evaluation continues.
+- `networkAcls.ipRules` - Check that the array is non-null. It evaluates true, so evaluation continues.
 
   ```json
   {
