@@ -222,8 +222,6 @@
       href: azure-stack-solution-template-kubernetes-cluster-add.md
   - name: Offer services
     href: azure-stack-offer-services-overview.md
-  - name: PaaS services overview
-    href: azure-stack-tools-paas-services.md
   - name: Offer SQL as PaaS
     href: azure-stack-sql-resource-provider.md
     items:

@@ -189,7 +189,10 @@ Here is an example for deploying an ONNX model:
 
 ## Examples
  
-The following notebooks demonstrate how to deploy ONNX models with Azure Machine Learning: http://aka.ms/aml-onnx-notebook.
+The following notebooks demonstrate how to deploy ONNX models with Azure Machine Learning: 
++ `/onnx/onnx-inference-mnist.ipynb`
+ 
++ `/onnx/onnx-inference-emotion-recognition.ipynb`
  
 Get this notebook:
  

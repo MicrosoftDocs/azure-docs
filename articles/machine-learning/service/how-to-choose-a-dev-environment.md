@@ -1,15 +1,15 @@
 ---
 title: Development environments for Azure Machine Learning  | Microsoft Docs
-description: An overview of development using Jupyter Notebooks, Azure Notebooks, and IDE/code editors. All of these can be used with the Azure Machine Learning service, as it only requires Python 3.
+description: An overview of development environments you can use with the Azure Machine Learning service. Python 3 is the only requirement for your development environment, but we recommend also using Conda environments. For development tooling, we recommend Jupyter Notebooks, Azure Notebooks, and IDE/code editors.
 services: machine-learning
 author: rastala
 ms.author: roastala
-manager:  danielsc
+manager:  cgronlun
 ms.service: machine-learning
-ms.workload: data-services
-ms.custom: mvc
+ms.reviewer: larryfr
+manager: cgronlun
 ms.topic: conceptual
-ms.date: 8/6/2018
+ms.date: 9/24/2018
 ---
 
 # Development environment for Azure Machine Learning 

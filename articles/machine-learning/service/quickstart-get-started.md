@@ -1,6 +1,6 @@
 ---
-title: Get started with Azure Machine Learning service | Microsoft Docs
-description: In this quickstart, you will learn how to create a workspace and a project to get started with Azure Machine Learning.
+title: "Quickstart: Create a machine learning workspace - Azure"
+description: Use the Azure portal to create an Azure Machine Learning workspace. This workspace is the foundational block in the cloud for experimenting, training, and deploying machine learning models with Azure Machine Learning service.  
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -13,7 +13,7 @@ ms.date: 09/24/2018
 
 # Quickstart: Get started with Azure Machine Learning service
 
-In this quickstart, you'll use the Azure portal to create an Azure Machine Learning workspace. This workspace is the foundational block in the cloud for experimenting, training, and deploying ML models with Azure Machine Learning service (Preview). 
+In this quickstart, you'll use the Azure portal to create an Azure Machine Learning workspace. This workspace is the foundational block in the cloud for experimenting, training, and deploying machine learning models with Azure Machine Learning service. 
 
 In this tutorial, you will:
 

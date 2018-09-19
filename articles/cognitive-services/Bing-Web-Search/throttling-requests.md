@@ -1,6 +1,6 @@
 ---
-title: Throttling requests to the Bing Web Search API
-titleSuffix: Microsoft Cognitive Services
+title: Throttling requests - Bing Web Search API
+titleSuffix: Azure Cognitive Services
 description: Learn more about request throttling and when using the Bing Web Search API.
 services: cognitive-services
 author: erhopf
@@ -8,7 +8,7 @@ manager: cgronlun
 ms.assetid:
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 8/13/2018
 ms.author: erhopf
 ---

@@ -1,22 +1,19 @@
 ---
-title: How to configure a development environment for Azure Machine Learning  | Microsoft Docs
-description: This how-to guide explains how to configure a development environment when working with Azure Machine Learning.
+title: Configure a development environment for Azure Machine Learning  | Microsoft Docs
+description: Learn how to configure a development environment when working with the Azure Machine Learning service. In this document, learn how to use Conda environments, create configuration files, and configure Jupyter Notebooks, Azure Notebooks, IDEs, code editors, and the Data Science Virtual Machine.
 services: machine-learning
 author: rastala
 ms.author: roastala
-manager:  danielsc
 ms.service: machine-learning
-ms.workload: data-services
-ms.custom: mvc
+ms.reviewer: larryfr
+manager: cgronlun
 ms.topic: conceptual
 ms.date: 8/6/2018
 ---
 
 # How to configure a development environment for the Azure Machine Learning service
 
-You'll learn how to create a workspace configuration file to use in any environment.
-
-You'll also learn about configuring the following develop environments:
+Learn how to configure your development environment to work with the Azure Machine Learning service. You will learn how to create a configuration file that associates your environment with an Azure Machine Learning workspace. You'll also learn how to configure the following development environments:
 
 * Jupyter Notebooks on your own computer
 * Visual Studio Code
@@ -37,7 +34,7 @@ The recommended approach is to use Continuum Anaconda [conda virtual environment
 
 The workspace configuration file is used by the SDK to communicate with your Azure Machine Learning service workspace.  There are two ways to get this file:
 
-* When you complete the [quickstart](quickstart-get-started.md), you will notice the file `config.json` is created for you in Azure notebooks.  This is the configuration file.  Download it into the same directory as the scripts or notebooks that reference it.
+* When you complete the [quickstart](quickstart-get-started.md), the file `config.json` is created for you in Azure notebooks.  This file contains the configuration information for your workspace.  Download it into the same directory as the scripts or notebooks that reference it.
 
 * Create the configuration file yourself with following steps:
 
@@ -64,7 +61,7 @@ The workspace configuration file is used by the SDK to communicate with your Azu
 
 Azure Notebooks and Azure Data Science Virtual Machines (DSVM) are pre-configured to work with the Azure Machine Learning service. Required components, such as the Azure Machine Learning SDK, are pre-installed on these environments.
 
-Azure Notebooks is a Jupyter Notebook service in the Azure cloud. Data Science Virtual Machines are VM images that are pre-configured for data science work. They include popular tools, IDEs and packages such as Jupyter Notebooks, PyCharm, and Tensorflow.
+Azure Notebooks is a Jupyter Notebook service in the Azure cloud. The Data Science Virtual Machine is a VM image that is pre-configured for data science work. The VM includes popular tools, IDEs, and packages such as Jupyter Notebooks, PyCharm, and Tensorflow.
 
 You will still need a workspace configuration file to use these environments.
 

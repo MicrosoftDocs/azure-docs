@@ -169,6 +169,8 @@ The following list provides a general summary of Azure services that can be move
 * Automation
 * Azure Active Directory B2C
 * Azure Cosmos DB
+* Azure Database for MySQL
+* Azure Database for PostgreSQL
 * Azure DevOps - Azure DevOps organizations with non-Microsoft extension purchases must [cancel their purchases](https://go.microsoft.com/fwlink/?linkid=871160) before they can move the account across subscriptions.
 * Azure Maps
 * Azure Relay
@@ -233,8 +235,6 @@ The following list provides a general summary of Azure services that can't be mo
 * AD Domain Services
 * AD Hybrid Health Service
 * Application Gateway
-* Azure Database for MySQL
-* Azure Database for PostgreSQL
 * Azure Database Migration
 * Azure Databricks
 * Azure Migrate
