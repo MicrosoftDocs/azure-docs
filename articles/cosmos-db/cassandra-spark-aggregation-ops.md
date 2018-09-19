@@ -1,6 +1,6 @@
 ---
 title: Aggregate operations on Azure Cosmos DB Cassandra API tables from Spark
-description: This article covers basic aggregation operations against Cosmos DB Cassandra API tables from Spark
+description: This article covers basic aggregation operations against Azure Cosmos DB Cassandra API tables from Spark
 services: cosmos-db
 author: anagha-microsoft
 
@@ -16,7 +16,7 @@ ms.author: ankhanol
 
 # Aggregate operations on Azure Cosmos DB Cassandra API tables from Spark 
 
-This article is part of a series, which shows how to use Comos DB from spark using scala. This article describes basic aggregation operations against Azure Cosmos DB Cassandra API tables from Spark. 
+This article describes basic aggregation operations against Azure Cosmos DB Cassandra API tables from Spark. 
 
 > [!NOTE]
 > Server-side filtering, and server-side aggregation is currently not supported in Azure Cosmos DB Cassandra API.
@@ -363,6 +363,6 @@ select book_name,book_price from books_vw order by book_price desc limit 3;
 
 ## Next steps
 
-To perform data copy operations, see:
+To perform table copy operations, see:
 
 * [Table copy operations](cassandra-spark-table-copy-ops.md)
