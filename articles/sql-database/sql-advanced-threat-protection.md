@@ -6,7 +6,7 @@ author: ronitr
 manager: craigg
 ms.service: sql-database
 ms.topic: conceptual
-ms.date: 5/17/2018
+ms.date: 05/17/2018
 ms.author: ronitr
 ms.reviewer: vanto
 ---
