@@ -39,6 +39,8 @@ The workspace configuration file is used by the SDK to communicate with your Azu
 * Create the configuration file yourself with following steps:
 
     1. Open your workspace in the [Azure portal](https://portal.azure.com). Copy the __Workspace name__, __Resource group__, and __Subscription ID__. These values are used to create the configuration file.
+
+       The portal's workspace dashboard is supported on Edge, Chrome and Firefox browsers only.
     
         ![Azure portal](./media/how-to-configure-environment/configure.png) 
     

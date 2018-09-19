@@ -117,6 +117,8 @@ Run the script on your local computer.
 
 In a web browser, visit the URL. A web portal appears with the results of the run. You can inspect the results of that run or previous runs, if they exist.
 
+The portal's dashboard is supported on Edge, Chrome and Firefox browsers only.
+
    ![view history](./media/quickstart-get-started/web-results.png)
 
 ## Clean up resources
