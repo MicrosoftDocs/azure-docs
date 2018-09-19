@@ -17,7 +17,7 @@ ms.author: bwren
 ---
 
 # Monitoring data collected by Azure Monitor
-[Azure Monitor](../azure-monitor/overview.md) is a service that helps you monitor your applications and the resources they rely on. Central to this function is collection of telemetry and other data from monitored resources. This article provides a complete description of each of these types of data and how they are used by Azure Monitor.
+[Azure Monitor](../azure-monitor/overview.md) is a service that helps you monitor your applications and the resources they rely on. Central to this function is storage of telemetry and other data from monitored resources. This article provides a complete description of how this data is stored and used by Azure Monitor.
 
 All data collected by Azure Monitor fits into one of two fundamental types, [metrics](#metrics) and [logs](#logs). Metrics are numerical values that describe some aspect of a system at a particular point in time. They are lightweight and capable of supporting near real-time scenarios. Logs contain different kinds of data organized into records with different sets of properties for each type. Telemetry such as events and traces are stored as logs in addition to performance data so that it can all be combined for analysis.
 
@@ -28,26 +28,25 @@ Metrics are numerical values that describe some aspect of a system at a particul
 
 For example, you might collect processor utilization from a virtual machine every minute or the number of users logged in to your application every 10 minutes. You could fire an alert when one of those collected values or even the difference between two values exceeds a defined threshold.
 
-Specific attributes of metrics include the following:
+Specific attributes of metrics in Azure include the following:
 
 * Collected at one-minute frequency unless specified otherwise in the metric's definition.
 * Uniquely identified by a metric name and a namespace that acts as a category.
 * Stored for 93 days. You can copy metrics to Log Analytics for long term trending.
 
 Each metric value has the following properties:
-* The time that the value was collected.
-* The type of measurement that the value represents.
-* The resource that the value is associated with.
+* The time the value was collected.
+* The type of measurement the value represents.
+* The resource the value is associated with.
 * The value itself.
 * Some metrics may have multiple dimensions as described in the next section. Custom metrics can have up to 10 dimensions.
 
 ### Multi-dimensional metrics
-Dimensions of a metric are name-value pairs that carry additional data to describe the metric value. For example, a metric "Available disk space" can have a dimension called "Drive" with values "C:", "D:", which would allow viewing either available disk space across all drives or for each drive individually. 
+Dimensions of a metric are name-value pairs that carry additional data to describe the metric value. For example, a metric _Available disk space_ can have a dimension called _Drive_ with values _C:_, _D:_, which would allow viewing either available disk space across all drives or for each drive individually. 
 
-The example below illustrates two datasets for a hypothetical metric called "Network Throughput". The first dataset has no dimensions. The second dataset shows the values with two dimensions, "IP Address" and "Direction":
+The example below illustrates two datasets for a hypothetical metric called _Network Throughput_. The first dataset has no dimensions. The second dataset shows the values with two dimensions, I_P Address_ and _Direction_:
 
 ### Network Throughput
-(This metric has no dimensions)
 
  |Timestamp        | Metric Value | 
    | ------------- |:-------------| 
@@ -70,7 +69,7 @@ This non-dimensional metric can only answer a basic question like "what was my n
    | 8/9/2017 8:15 | IP="10.24.2.15"  | Direction="Send"    | 155.0 Kbps |
    | 8/9/2017 8:15 | IP="10.24.2.15"  | Direction="Receive" | 100.1 Kbps |
 
-This metric can answer questions such as "what was the network throughput for each IP address?", and "how much data was sent versus received?" Multi-dimensional metrics carry additional analytical and diagnostic value compared to non-dimensional metrics. 
+This metric can answer questions such as "what was the network throughput for each IP address?", and "how much data was sent versus received?" Multi-dimensional metrics carry additional analytical and diagnostic value compared to non-dimensional metrics.
 
 ### Value of metrics
 Individual metrics typically provide little insight on their own. They provide a single value without any context other than comparison to a simple threshold. They're valuable when combined with other metrics to identify patterns and trends, or when combined with logs that provide context around particular values. 
@@ -82,7 +81,7 @@ There are three fundamental sources of metrics collected by Azure Monitor. All o
 
 **Platform metrics** are created by Azure resources and give you visibility into their health and performance. Each type of resource creates a [distinct set of metrics](../monitoring-and-diagnostics/monitoring-supported-metrics.md) without any configuration required. 
 
-**Application metrics(../application-insights/app-insights-metrics-explorer.md)** are created by Application Insights for your monitored applications and help you detect performance issues and track trends in how your application is being used. This includes such values as _Server response time_ and _Browser exceptions_.
+**Application metrics** are created by Application Insights for your monitored applications and help you detect performance issues and track trends in how your application is being used. This includes such values as _Server response time_ and _Browser exceptions_.
 
 **Custom metrics** are metrics that you define in addition to the standard metric that are automatically available. Custom metrics must be created against a single resource in the same region as that resource. You can create custom metrics using the following methods:
     - [Define custom metrics in your application](../application-insights/app-insights-api-custom-events-metrics.md) that's monitored by Application Insights. These are in addition to the standard set of application metrics.
@@ -176,7 +175,7 @@ As described above, metrics are more responsive than logs, so you can create ale
 The explanation of this feature is available at [Faster Metric Alerts for Logs now in limited public preview](https://azure.microsoft.com/blog/faster-metric-alerts-for-logs-now-in-limited-public-preview/). The list of values support is available at 
 [Supported metrics and creation methods for new metric alerts](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md).
 
-## Stream to external systems
+## Stream data to external systems
 In addition to using the tools in Azure to analyze monitoring data, you may have a requirement to forward it to an external tool such as a security information and event management (SIEM) product. This forwarding is typically done directly from monitored resources through [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/). 
 
 You can get guidance for the different kinds of monitoring data at [Stream Azure monitoring data to an event hub for consumption by an external tool](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md).

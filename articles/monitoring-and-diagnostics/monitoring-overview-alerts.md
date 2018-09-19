@@ -1,6 +1,6 @@
 ---
 title: Overview of alerting and notification monitoring in Azure
-description: Overview of alerting in Azure. What's available and roughly how to use it.  . that allow you to manage alerts and alerts rules across Azure services.
+description: Overview of alerting in Azure. Alerts, classic alerts, the alerts interface. 
 author: rboucher
 services: monitoring
 ms.service: azure-monitor
@@ -52,7 +52,7 @@ You can alert on metrics and logs as described in [monitoring data sources](moni
 
 
 
-## Manage Alerts
+## Manage alerts
 You can set the state of an alert to specify where it is in the resolution process. When the criteria specified in the alert rule is met, an alert is created or fired, it has a status of *New*. You can change the status when you acknowledge an alert and when you close it. All state changes are stored in the history of the alert.
 
 The following alert states are supported.
@@ -169,6 +169,7 @@ For more information see [Alerts classic](./monitoring-overview-alerts-classic.m
 ## Next steps
 
 - [Learn more about Smart Groups](https://aka.ms/smart-groups)
+- [Learn about action groups](monitoring-action-groups.md)
 - [Managing your alert instances in Azure](https://aka.ms/managing-alert-instances)
 - [Managing Smart Groups](https://aka.ms/managing-smart-groups)
 
