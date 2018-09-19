@@ -183,6 +183,7 @@ Use the [az vmss encryption enable](/cli/azure/vmss/encryption#az-vmss-encryptio
     ```azurecli-interactive
      az vmss encryption disable --resource-group "MySecureRG" --name "MySecureVmss"
     ```
+
 ### Register for disk encryption preview using Azure Powershell
 
 The Azure disk encryption for virtual machine scale sets preview requires you to self-register your subscription with [Register-AzureRmProviderFeature](/powershell/module/azurerm.resources/register-azurermproviderfeature). You only need to perform the following steps the first time that you use the disk encryption preview feature:
@@ -197,7 +198,6 @@ It can take up to 10 minutes for the registration request to propagate. You can 
 Get-AzureRmProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
 ```
-
 
 ###  Encrypt virtual machine scale sets with Azure PowerShell
 Use the [Set-Azure​RmVmss​Disk​Encryption​Extension](/powershell/module/azurerm.compute/set-azurermvmssdiskencryptionextension) cmdlet to enable encryption on a Windows virtual machine scale set. The resource group, VM, and key vault should have already been created as prerequisites.
