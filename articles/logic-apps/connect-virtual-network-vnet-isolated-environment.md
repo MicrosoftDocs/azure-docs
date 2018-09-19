@@ -186,14 +186,15 @@ Connectors without the **ISE** label run in the global Logic Apps service.
 * If you previously set up your ISE with an Azure VNET as a peer, 
 the logic apps in your ISE can directly access resources in that VNET. 
 
-  For on-premises systems in an ISE that's linked to a VNET, 
-  logic apps can directly access those systems by using:
+  For on-premises systems in a VNET that's linked to an ISE, 
+  logic apps can directly access those systems by using any 
+  of these items: 
 
-  * If available, an ISE connector for that system, for example, SQL Server
-  * An HTTP action 
-  * A custom connector
+  * ISE connector for that system, for example, SQL Server
+  * HTTP action 
+  * Custom connector
 
-  For on-premises systems that aren't in your VNET or don't have ISE connectors, 
+  For on-premises systems that aren't in a VNET or don't have ISE connectors, 
   you can still connect after you [set up and use the on-premises data gateway](../logic-apps/logic-apps-gateway-install.md).
 
 <a name="create-integration-account-environment"></a>
