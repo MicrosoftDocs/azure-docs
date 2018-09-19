@@ -1,20 +1,20 @@
 ---
-title: Resize and crop Bing thumbnails | Microsoft Docs
-description: Shows how to resize and crop thumbnails included in a Bing response.
+title: Resize and crop Bing thumbnails - Bing Image Search API
+description: Learn how to resize and crop thumbnails included in a response from the Bing Image Search API.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
+manager: cgronlun
 ms.assetid: F4FFAE91-A003-4F7C-8E60-83A142485E28
 ms.service: cognitive-services
 ms.component: bing-image-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
 ---
 
 # Resizing and cropping thumbnail images
 
-Upon processing a search query, Bing will generate thumbnail information for all images in its [response](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images#bing-image-search-response-format). This information can be used to display all, or a subset of the returned thumbnails. If you display a subset, provide a option to view the remaining images. 
+Upon processing a search query, Bing will generate thumbnail information for all images in its [response](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images#bing-image-search-response-format). This information can be used to display all, or a subset of the returned thumbnails. If you display a subset, provide a option to view the remaining images.
 
 
 <!-- Removing image until we can replace it with a sanatized version.
@@ -33,8 +33,8 @@ To get insights about the image, such as web pages that include the image or peo
 
 ## Resizing and cropping thumbnails
 
-You can also resize and expand thumbnails, such as when a user's cursor hovers above it. 
+You can also resize and expand thumbnails, such as when a user's cursor hovers above it.
 > [!NOTE]
-> Be sure to attribute the image if you expand it. For example, by extracting the host from [hostPageDisplayUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#image-hostpagedisplayurl) and displaying it below the image. 
+> Be sure to attribute the image if you expand it. For example, by extracting the host from [hostPageDisplayUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#image-hostpagedisplayurl) and displaying it below the image.
 
 [!INCLUDE [cognitive-services-bing-resize-crop-thumbnails](../../../includes/cognitive-services-bing-resize-crop-thumbnails.md)]
