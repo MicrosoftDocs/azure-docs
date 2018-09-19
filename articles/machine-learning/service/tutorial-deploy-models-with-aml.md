@@ -1,14 +1,14 @@
 ---
-title: "Tutorial: Deploy an image classification model in Azure Container Instance (ACI) with Azure Machine Learning service"
-description: This tutorial shows how to use Azure Machine Learning service to deploy an image classification model with scikit-learn in a Python Jupyter notebook.  This tutorial is part two of a two-part series.
+title: "Tutorial: Deploy an image classification model in Azure Container Instance (ACI) - Azure Machine Learning"
+description: Learn how to deploy a scikit-learn image classification model with a Python Jupyter notebook.  This tutorial is part two of a two-part series.
+author: hning86
+ms.author: haining
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
-ms.topic: tutorial
-
-author: hning86
-ms.author: haining
+ms.topic: conceptual
 ms.reviewer: sgilley
+ms.topic: tutorial
 ms.date: 09/24/2018
 # As a professional data scientist, I can deploy the model previously trained in tutorial1.
 ---

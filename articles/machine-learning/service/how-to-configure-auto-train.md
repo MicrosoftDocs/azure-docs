@@ -1,24 +1,23 @@
 ---
-title: Configure your automatic Machine Learning experiment in Azure Machine Learning
-description: Learn how to define configuration settings to automatically train a machine learning model in Azure Machine Learning
-services: machine-learning
+title: Configure your automated machine learning experiment - Azure Machine Learning
+description: Automated machine learning picks an algorithm for you and generates a model ready for deployment. Learn the options that you can use to configure automated machine learning experiments.
 author: nacharya1
 ms.author: nilesha
-ms.reviewer: sgilley
+ms.reviewer: sgilley 
+services: machine-learning
 ms.service: machine-learning
 ms.component: core
-ms.workload: data-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/24/2018
 ---
 
-# Configure your automated Machine Learning experiment
+# Configure your automated machine learning experiment
 
-Automated Machine Learning (ML) picks an algorithm for you and generates a model ready for deployment. The model can be downloaded to be further customized as well. There are several options that you can use to configure automated ML experiments. In this guide, you will learn how to define various configuration settings.
+Automated machine learning picks an algorithm for you and generates a model ready for deployment. The model can be downloaded to be further customized as well. There are several options that you can use to configure automated machine learning experiments. In this guide, you will learn how to define various configuration settings.
 
-To view examples of an automated ML, see [Tutorial: Automatically train a classification model](tutorial-auto-train-models.md) or [Train models automatically in the cloud](how-to-auto-train-remote.md).
+To view examples of an automated machine learning, see [Tutorial: Automatically train a classification model](tutorial-auto-train-models.md) or [Train models automatically in the cloud](how-to-auto-train-remote.md).
 
-Configuration options available in automated ML:
+Configuration options available in automated machine learning:
 
 * Select your experiment type, e.g.,  Classification, Regression 
 * Data source, formats, and fetch data
@@ -29,7 +28,7 @@ Configuration options available in automated ML:
 * Register and deploy model
 
 ## Select your experiment type
-Before you begin your experiment, you should determine the kind of Machine Learning problem you are solving. Automated ML supports two categories of supervised learning: Classification and Regression. Automated ML supports the following algorithms during the automation and tuning process. As a user, there is no need for you to specify the algorithm.
+Before you begin your experiment, you should determine the kind of machine learning problem you are solving. Automated machine learning supports two categories of supervised learning: Classification and Regression. Automated machine learning supports the following algorithms during the automation and tuning process. As a user, there is no need for you to specify the algorithm.
 Classification | Regression
 --|--
 sklearn.linear_model.LogisticRegression	| sklearn.linear_model.ElasticNet
@@ -136,7 +135,7 @@ Use custom validation dataset if random split is not acceptable (usually time se
 
 ## Compute to run experiment
 
-Next determine where the model will be trained. An automated ML training experiment runs on a compute target that you own and manage. 
+Next determine where the model will be trained. An automated machine learning training experiment runs on a compute target that you own and manage. 
 
 Compute options supported are:
 1.	Your local machine such as a local desktop or laptop – Generally when you have small dataset and you are still in the exploration stage.
@@ -179,7 +178,7 @@ This table lists parameter settings available for your experiment and their defa
 
 Property |	Description	| Default Value
 --|--|--
-`task` (Required)	|Specify the type of Machine Learning problem. Allowed values are <li>Classification</li><li>Regression</li>	|
+`task` (Required)	|Specify the type of machine learning problem. Allowed values are <li>Classification</li><li>Regression</li>	|
 `primary_metric` (Required) |Metric that you want to optimize in building your model. For example, if you specify accuracy as the primary_metric, AutoML looks to find a model with maximum accuracy. You can only specify one primary_metric per experiment. Allowed values are <br/>**Classification**:<br/><li> accuracy </li><li>AUC_macro</li><li> AUC_weighted </li><li> weighted_accuracy </li><li> norm_macro_recall </li><li> balanced_accuracy </li><li> average_precision_score_weighted </li><br/>**Regression**: <br/><li> root_mean_squared_error </li><li> Spearman_correlation </li><li> Normalized_root_mean_squared_error </li><li> R2_score	 </li><li> For Classification: accuracy  </li><li> For Regression: root_mean_squared_error </li> |
 `exit_score` |	You can set a target value for your primary_metric. Once a model is found that meets the primary_metric target, AutoML will stop iterating and the experiment terminates. If this value is not set (default), AutoML experiment will continue to run the number of iterations specified in iterations. Takes a double value. If the target never reaches, then AutoML will continue until it reaches the number of iterations specified in iterations.|	None
 `iterations` |Maximum number of iterations. Each iteration is equal to a training job that results in a pipeline. Pipeline is data preprocessing and model. Recommended value to get a high-quality model is 500 or above.	| 25

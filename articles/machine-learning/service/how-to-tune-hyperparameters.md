@@ -1,28 +1,28 @@
 ---
-title: Tune hyperparameters for your model using Azure Machine Learning service
-description: Learn how to tune the hyperparameters for your Deep Learning / Machine Learning model using Azure Machine Learning service.
+title: Tune hyperparameters for your model using Azure Machine Learning 
+description: Learn how to tune the hyperparameters for your deep learning / machine learning model using Azure Machine Learning service. You will see how to define the parameter search space, specify a primary metric to optimize and early terminate poorly performing configurations. 
+ms.author: swatig
+author: swatig007
+ms.reviewer: sgilley 
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
-ms.reviewer: sgilley
-ms.author: swatig
-author: swatig007
 ms.date: 09/24/2018
 ---
 
 # Tune hyperparameters for your model
 
-In this article, we demonstrate how to efficiently tune hyperparameters for your model. We will show you how to define the parameter search space, specify a primary metric to optimize and early terminate poorly performing configurations. You can also visualize the various training runs and select the best performing configuration for your model.
+In this article, you learn to efficiently tune hyperparameters for your model. You will see how to define the parameter search space, specify a primary metric to optimize and early terminate poorly performing configurations. You can also visualize the various training runs and select the best performing configuration for your model.
 
 ## What are hyperparameters?
 Hyperparameters are adjustable parameters chosen prior to training a model that govern the training process itself. For example, prior to training a deep neural network, you will need to decide the number of hidden layers in the network and the number of nodes in each layer. These values usually stay constant during the training process.
 
-In Deep Learning / Machine Learning scenarios, model performance depends heavily on the hyperparameter values selected. The goal of hyperparameter exploration is to search across various hyperparameter configurations to find a configuration that results in the desired performance. Typically, the hyperparameter exploration process is painstakingly manual, given that the search space is vast and evaluation of each configuration can be expensive.
+In deep learning / machine learning scenarios, model performance depends heavily on the hyperparameter values selected. The goal of hyperparameter exploration is to search across various hyperparameter configurations to find a configuration that results in the desired performance. Typically, the hyperparameter exploration process is painstakingly manual, given that the search space is vast and evaluation of each configuration can be expensive.
 
-Azure Machine Learning service allows users to automate this hyperparameter exploration in an efficient manner, saving users significant time and resources. Users can specify the range of hyperparameter values to explore and a maximum number of training runs for this exploration. The system then automatically launches multiple simultaneous training runs with different parameter configurations and finds the configuration that results in the best performance, as measured by a metric chosen by the user. Poorly performing training runs are automatically early terminated, reducing wastage of compute resources. These resources are instead used to explore other hyperparameter configurations.
+Azure Machine Learning allows you to automate this hyperparameter exploration in an efficient manner, saving you significant time and resources. You can specify the range of hyperparameter values to explore and a maximum number of training runs for this exploration. The system then automatically launches multiple simultaneous training runs with different parameter configurations and finds the configuration that results in the best performance, as measured by a metric chosen by the user. Poorly performing training runs are automatically early terminated, reducing wastage of compute resources. These resources are instead used to explore other hyperparameter configurations.
 
-In order to tune hyperparameters for your model using Azure Machine Learning service, you will need to do the following -
+In order to tune hyperparameters for your model using Azure Machine Learning service, you need to do the following -
 * Define the hyperparameter search space
 * Specify a primary metric to optimize
 * Specify an early termination policy

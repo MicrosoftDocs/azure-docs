@@ -1,11 +1,10 @@
 ---
-title: Build machine learning pipelines with Azure Machine Learning service
-description: Learn about the machine learning pipelines you can build with the Azure Machine Learning SDK for Python and the advantages to using pipelines.
+title: Build machine learning pipelines - Azure Machine Learning service
+description: In this article, learn about the machine learning pipelines you can build with the Azure Machine Learning SDK for Python and the advantages to using pipelines. Machine learning (ML) pipelines are used by data scientists to build, optimize, and manage their machine learning workflows.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
-manager: cgronlun
 ms.reviewer: jmartens
 ms.author: sanpil
 author: sanpil
@@ -14,16 +13,19 @@ ms.date: 09/24/2018
 
 # Pipelines and Azure Machine Learning
 
+In this article, learn about the machine learning pipelines you can build with the Azure Machine Learning SDK for Python and the advantages to using pipelines.
+
+## What are machine learning pipelines?
+
 Machine learning (ML) pipelines are used by data scientists to build, optimize, and manage their machine learning workflows. A typical pipeline involves a sequence of steps that cover the following areas:
+
 + Data preparation, such as normalizations and transformations
 + Model training, such as hyper parameter tuning and validation
 + Model deployment and evaluation  
 
-In this article, you learn about the ML pipelines you can build with the Azure Machine Learning SDK for Python and the advantages to using pipelines.
-
 The following diagram shows an example pipeline:
 
-[ ![Machine learning pipelines](./media/concept-ml-pipelines/pipelines.png) ]
+[ ![Machine learning pipelines in Azure Machine Learning service](./media/concept-ml-pipelines/pipelines.png) ]
 (./media/concept-ml-pipelines/machine-learning-pipelines-big.png#lightbox)
 
 ## Why build pipelines with Azure Machine Learning?
@@ -32,7 +34,7 @@ The Azure Machine Learning SDK for Python can be used to create ML pipelines as 
 
 With pipelines, you can optimize your workflow with simplicity, speed, portability, and reuse. When building pipelines with Azure Machine Learning, you can focus on what you know best &mdash; machine learning &mdash; rather than infrastructure.
 
-Using distinct steps makes it possible to rerun only the steps you need as you tweak and test your workflow. A step is a computational unit in the pipeline. As shown in the diagram above, the task of preparing data may involve many steps including, but not limited to, normalization, transformation, validation, and featurizatin.
+Using distinct steps makes it possible to rerun only the steps you need as you tweak and test your workflow. A step is a computational unit in the pipeline. As shown in the diagram above, the task of preparing data may involve many steps including, but not limited to, normalization, transformation, validation, and featurization.
 
 Once the pipeline is designed, there is often more fine-tuning around the training loop of the pipeline. When you rerun a pipeline, the run jumps to the steps that need to be rerun, such as an updated training script, and skips what hasn't changed. The same paradigm applies to unchanged scripts used for the execution of the step. 
 
@@ -61,7 +63,7 @@ Check out the [Python SDK reference docs for pipelines](http://aka.ms/aml-sdk).
 
 ## Example notebooks
  
-The following notebook demonstrates pipelines with Azure Machine Learning:  `pipeline/06.pipeline-batch-scoring.ipynb`.
+The following notebook demonstrates pipelines with Azure Machine Learning:  `pipeline/pipeline-batch-scoring.ipynb`.
  
 Get these notebooks:
  

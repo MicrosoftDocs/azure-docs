@@ -1,21 +1,21 @@
 ---
-title: "Tutorial: Train a classification model with automated ML in Azure Machine Learning service"
-description: In this tutorial, you'll learn how to generate a machine learning model using automated ML which can then be deployed with Azure Machine Learning service.
+title: "Tutorial: Train a classification model with automated machine learning in Azure Machine Learning service"
+description: Learn how to generate a machine learning model using automated machine learning. The automated process performs data preprocessing, algorithm selection and hyperparameter selection for you. 
+author: nacharya1
+ms.author: nilesha
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
-ms.topic: tutorial
-
-author: nacharya1
-ms.author: nilesha
+ms.topic: conceptual
 ms.reviewer: sgilley
+ms.topic: tutorial
 ms.date: 09/24/2018
 # As an app developer or data scientist I can generate a  machine learning model using Automated ML.
 ---
 
-# Tutorial: Train a classification model with automated Machine Learning
+# Tutorial: Train a classification model with automated machine learning
 
-In this tutorial, you'll learn how to generate a  machine learning model using automated Machine Learning (ML).  Azure Machine Learning can perform data preprocessing, algorithm selection and hyperparameter selection in an automated way for you. The final model can then be deployed following the workflow in the [Deploy a model](tutorial-deploy-models-with-aml.md) tutorial.
+In this tutorial, you'll learn how to generate a machine learning model using automated machine learning (ML). The automated process performs data preprocessing, algorithm selection and hyperparameter selection for you. The final model can then be deployed following the workflow in the [Deploy a model](tutorial-deploy-models-with-aml.md) tutorial.
 
 [ ![flow diagram](./media/tutorial-auto-train-models/flow2.png) ](./media/tutorial-auto-train-models/flow2.png#lightbox)
 

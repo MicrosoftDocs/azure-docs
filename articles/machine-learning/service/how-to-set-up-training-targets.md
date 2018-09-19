@@ -226,6 +226,22 @@ if not found:
     print(compute_target.status.serialize())
 ```
 
+To attach an existing Batch AI cluster as a compute target, you must provide the Azure resource id. To get the resource id from the Azure portal, you will need to :
+1. Search for `Batch AI` service under **All Services**
+1. Click on the workspace name in which your cluster belongs
+1. Select the cluster
+1. Click on **Properties**
+1. Copy the **Id**
+
+The following example uses the SDK to attach a cluster to your workspace. In the example, replace `<name>` with any name for the compute. This does not have to match the name of the cluster. Replace `<resource-id>` with the Azure resource id detailed above:
+
+```python
+from azureml.core.compute import BatchAiCompute
+BatchAiCompute.attach(workspace=ws,
+                      name=<name>,
+                      resource_id=<resource-id>)
+```
+
 You can also check the Batch AI cluster and job status using the following Azure CLI commands:
 
 - Check cluster status. You can see how many nodes are running by using `az batchai cluster list`.

@@ -1,6 +1,6 @@
 ---
-title: Deploy web services to Azure Container Instances | Azure Machine Learning
-description: Learn how to deploy a trained model as a web service on Azure Container Instances (ACI) with Azure Machine Learning service.
+title: Deploy web services to Azure Container Instances (ACI) - Azure Machine Learning
+description: Learn how to deploy a trained model as a web service on Azure Container Instances (ACI) with Azure Machine Learning service. This article shows three different ways to deploy a model on ACI. They differ in the number of lines of code and the control you have in naming parts of the deployment.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -11,9 +11,9 @@ ms.reviewer: sgilley
 ms.date: 09/24/2018
 ---
 
-# Deploy web services to Azure Container Instances
+# Deploy web services to Azure Container Instances 
 
-You can deploy your trained model as a web service on [Azure Container Instances](https://azure.microsoft.com/services/container-instances/) (ACI), [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) (AKS), IoT, or FPGA. 
+You can deploy your trained model as a web service on [Azure Container Instances](https://azure.microsoft.com/services/container-instances/) (ACI), [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) (AKS), IoT edge device, or [field programmable gate arrays (FPGAs)](concept-accelerate-with-fpgas.md) 
 
 ACI is generally cheaper than AKS and can be set up in 4-6 lines of code. ACI is the perfect option for testing deployments. Later, when you're ready to use your models and web services for high-scale, production usage, you can [deploy them to AKS](how-to-deploy-to-aks.md).
 
