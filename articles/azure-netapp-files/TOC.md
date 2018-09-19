@@ -17,5 +17,7 @@
 ## [Manage snapshots](azure-netapp-files-manage-snapshots.md)
 ## [Resize a capacity pool or a volume](azure-netapp-files-resize-capacity-pools-or-volumes.md)
 
+<!--
 # Monitor and troubleshoot
 ## [Troubleshoot Azure NetApp Files Resource Provider errors](azure-netapp-files-troubleshoot-resource-provider-errors.md)
+-->
