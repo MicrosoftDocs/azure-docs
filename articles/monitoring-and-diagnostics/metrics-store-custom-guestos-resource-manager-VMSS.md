@@ -13,15 +13,11 @@ ms.component: metrics
 
 The Azure Monitor [Windows Azure Diagnostics extension](azure-diagnostics.md) (WAD) allows you to collect metrics and logs from the Guest Operation System (guest OS) running as part of a Virtual Machine, Cloud Service, or Service Fabric cluster.  The extension can send telemetry to many different locations listed in the previously linked article.  
 
-Starting with WAD version 1.11, you can write metrics directly to the Azure Monitor metrics store where standard platform metrics are already collected. Storing them in this location allows you to access the same actions available for platform metrics.  Actions include near-real time alerting, charting, routing, access from REST API and more.  In the past, the WAD extension wrote to Azure Storage, but not the Azure Monitor data store.  
-
-This article describes the process to send guest OS performance metrics for a Windows virtual machine scale set to the Azure Monitor data store. The Azure Monitor data store is where the Azure platform metrics are stored. From there, you can do the same things as you can with Azure platform metrics. Actions include near-real time alerting, charting, routing, access from REST API and more.   
+This article describes the process to send guest OS performance metrics for a Windows virtual machine scale set to the Azure Monitor data store. Starting with WAD version 1.11, you can write metrics directly to the Azure Monitor metrics store where standard platform metrics are already collected. Storing them in this location allows you to access the same actions available for platform metrics.  Actions include near-real time alerting, charting, routing, access from REST API and more.  In the past, the WAD extension wrote to Azure Storage, but not the Azure Monitor data store.  
 
 If you are new to Resource Manager templates,  learn about [template deployments](../azure-resource-manager/resource-group-overview.md), and their structure and syntax.  
 
 ## Pre-requisites
-
-- You must be a [Service Administrator or co-administrator](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator.md) on your Azure subscription 
 
 - Your subscription must be registered with [Microsoft.Insights](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) 
 
@@ -80,12 +76,15 @@ Find the Virtual Machine Scale Set definition in the resources section and add t
 In the virtual machine scale set resource, find the **virtualMachineProfile** section. Add a new profile called **extensionsProfile** to manage extensions.  
 
 
-In the **extensionProfile**, add a new extension to the template. This section is the Managed Service Identity (MSI) extension that ensures the metrics being emitted are accepted by Azure Monitor. The **name** field can contain  any name. This setion also adds the diagnostics extension as an extension resource to the VMSS resource (below the MSI extension). The highlighted sections enable the extension to emit metrics directly to Azure Monitor. Feel free to add/remove performance counters as needed. 
+In the **extensionProfile**, add a new extension to the template as shown by the **VMSS-WAD-extension section**.  This section is the Managed Service Identity (MSI) extension that ensures the metrics being emitted are accepted by Azure Monitor. The **name** field can contain any name. 
+
+The code below below the MSI extension also adds the diagnostics extension and configuration as an extension resource to the VMSS resource . Feel free to add/remove performance counters as needed. 
 
 ```json
           "extensionProfile": { 
             "extensions": [ 
-      // beginning of added code     
+            // BEGINNING of added code  
+            // Managed service identity   
                 { 
                  "name": "VMSS-WAD-extension", 
                  "properties": { 
@@ -100,6 +99,7 @@ In the **extensionProfile**, add a new extension to the template. This section i
                      } 
                                 
             }, 
+            // add diagnostic extension. (Remove this comment after pasting.)
             { 
               "name": "[concat('VMDiagnosticsVmExt','_vmNodeType0Name')]", 
               "properties": { 
@@ -183,7 +183,7 @@ In the **extensionProfile**, add a new extension to the template. This section i
           }
       }
     },
-    //end of added code plus a few brackets. Be sure that the number and type of brackets match properly above. 
+    //end of added code plus a few brackets. Be sure that the number and type of brackets match properly when done. 
     {
       "type": "Microsoft.Insights/autoscaleSettings",
 ...
@@ -195,7 +195,7 @@ Add a dependsOn for the storage account to ensure it's created in the correct or
 "dependsOn": [ 
 "[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'))]", 
 "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]" 
-//add this line
+//add this line below
 "[concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]" 
  ```
 

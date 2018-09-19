@@ -13,15 +13,11 @@ ms.component: metrics
 
 The Azure Monitor [Windows Azure Diagnostics extension](azure-diagnostics.md) (WAD) allows you to collect metrics and logs from the Guest Operation System (guest OS) running as part of a Virtual Machine, Cloud Service, or Service Fabric cluster.  The extension can send telemetry to many different locations listed in the previously linked article.  
 
-Starting with WAD version 1.11, you can write metrics directly to the Azure Monitor metrics store where standard platform metrics are already collected. Storing them in this location allows you to access the same actions available for platform metrics.  Actions include near-real time alerting, charting, routing, access from REST API and more.  In the past, the WAD extension wrote to Azure Storage, but not the Azure Monitor data store.  
-
-This article describes the process to send guest OS performance metrics for a Windows Virtual Machine to the Azure Monitor data store. The Azure Montor data store is where the Azure platform metrics are stored. From there, you can do the same things as you can with Azure platform metrics. Actions include near-real time alerting, charting, routing, access from REST API and more.   
+This article describes the process to send guest OS performance metrics for a Windows Virtual Machine to the Azure Monitor data store. Starting with WAD version 1.11, you can write metrics directly to the Azure Monitor metrics store where standard platform metrics are already collected. Storing them in this location allows you to access the same actions available for platform metrics.  Actions include near-real time alerting, charting, routing, access from REST API and more.  In the past, the WAD extension wrote to Azure Storage, but not the Azure Monitor data store.   
 
 If you're new to Resource Manager templates,  learn about [template deployments](../azure-resource-manager/resource-group-overview.md), and their structure and syntax.  
 
 ## Pre-requisites
-
-- You must be a [Service Administrator or co-administrator](../billing/billing-add-change-azure-subscription-administrator.md) on your Azure subscription 
 
 - Your subscription must be registered with [Microsoft.Insights](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) 
 
@@ -86,7 +82,7 @@ Add this Managed Service Identity (MSI) extension to the template at the top of 
             } 
         } 
     }, 
-    ```
+```
 
 Add the "identity" configuration to the VM resource to ensure Azure assigns the MSI extension a system identity. This step ensures the VM can emit guest metrics about itself to Azure Monitor 
 
@@ -101,22 +97,22 @@ Add the "identity" configuration to the VM resource to ensure Azure assigns the 
     }
 },
 { 
-        "apiVersion": "2017-03-30", 
-        "type": "Microsoft.Compute/virtualMachines", 
-        "name": "[variables('vmName')]", 
-        "location": "[resourceGroup().location]", 
-// add these 3 lines below
-        "identity": {  
-        "type": "SystemAssigned" 
-        }, 
-//end of added lines
-        "dependsOn": [
-        "[resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
-        "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
-        ],
-        "properties": {
-        "hardwareProfile": {   
-        ...
+    "apiVersion": "2017-03-30", 
+    "type": "Microsoft.Compute/virtualMachines", 
+    "name": "[variables('vmName')]", 
+    "location": "[resourceGroup().location]", 
+    // add these 3 lines below
+    "identity": {  
+    "type": "SystemAssigned" 
+    }, 
+    //end of added lines
+    "dependsOn": [
+    "[resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
+    "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
+    ],
+    "properties": {
+    "hardwareProfile": {   
+    ...
 ```
 
 Add the following configuration to enable the diagnostics extension on a Windows Virtual Machine.  For a simple Resource Manager-based Virtual Machine, we can add the extension configuration to the resources array for the Virtual Machine. The line "sinks": "AzMonSink",  and the corresponding "SinksConfig" later in the section enable the extension to emit metrics directly to Azure Monitor. Feel free to add/remove performance counters as needed.  
