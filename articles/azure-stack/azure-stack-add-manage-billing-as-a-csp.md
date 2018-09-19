@@ -3,7 +3,7 @@ title: Manage usage and billing for Azure Stack as a Cloud Service Provider | Mi
 description: A walk through registering Azure Stack as a Cloud Provider (CSP) and adding customers for billing.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 
@@ -13,7 +13,7 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: alfredo
 
 ---

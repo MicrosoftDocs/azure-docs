@@ -1,13 +1,13 @@
 ---
-title: "Quickstart: Search for images using the Bing Image Search SDK and Java"
-description: Use this quickstart to search and find images on the web using the Bing Image Search SDK and Java.
+title: "Quickstart: Search for images with the Bing Image Search SDK for Java"
+description: Use this quickstart to make your first image search using the Bing Image Search SDK, which is a wrapper for the API and contains the same features. This simple Java application sends an image search query, parses the JSON response, and displays the URL of the first image returned.
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: aahi
 ---
@@ -16,9 +16,9 @@ ms.author: aahi
 
 Use this quickstart to make your first image search using the Bing Image Search SDK, which is a wrapper for the API and contains the same features. This simple Java application sends an image search query, parses the JSON response, and displays the URL of the first image returned.
 
-The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingImageSearch/Quickstart) with additional error handling and annotations. 
+The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingImageSearch/Quickstart) with additional error handling and annotations.
 
-## Prerequisites 
+## Prerequisites
 
 The latest version of the [Java Development Kit](http://www.oracle.com/technetwork/java/javase/downloads/index.html) (JDK)
 
@@ -31,7 +31,7 @@ Install the Bing Image Search SDK dependencies by using Maven, Gradle, or anothe
       <artifactId>azure-cognitiveservices-imagesearch</artifactId>
       <version>0.0.1-beta-SNAPSHOT</version>
     </dependency>
- </dependencies> 
+ </dependencies>
 ```
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
@@ -91,11 +91,11 @@ else {
 > [!div class="nextstepaction"]
 > [Bing Image Search single-page app tutorial](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app)
 
-## See also 
+## See also
 
 * [What is Bing Image Search?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
 * [Try an online interactive demo](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
-* [Get a free Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api) 
-* [Java samples for the Azure Cognitive Services SDK](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples) 
+* [Get a free Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)
+* [Java samples for the Azure Cognitive Services SDK](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
 * [Azure Cognitive Services Documentation](https://docs.microsoft.com/azure/cognitive-services)
 * [Bing Image Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

@@ -5,7 +5,7 @@ description: Shows how to give cloud B2B users access to on-prem apps with Azure
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/20/2018
 
 ms.author: mimart
@@ -83,5 +83,5 @@ Make sure that you have the correct Client Access Licenses (CALs) for external g
 
 - [Azure Active Directory B2B collaboration for hybrid organizations](hybrid-organizations.md)
 
-- For an overview of Azure AD Connect, see [Integrate your on-premises directories with Azure Active Directory](../connect/active-directory-aadconnect.md).
+- For an overview of Azure AD Connect, see [Integrate your on-premises directories with Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
 

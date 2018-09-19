@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/12/2018
+ms.date: 09/14/2018
 ms.author: celested
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev
@@ -56,11 +56,11 @@ Azure Active Directory (Azure AD) is a cloud-based identity service. The [Azure 
 
 After you've tested that your application integration works with Azure AD, submit your request for access on our [Application Network Portal](https://microsoft.sharepoint.com/teams/apponboarding/Apps). If you have an Office 365 account, use that to sign in to this portal. If not, use your Microsoft account (such as Outlook or Hotmail) to sign in.
 
-If the following page appears after sign in, contact the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>) and provide the email account which you want to use for submitting the request. Then Azure AD team will add the account in the SharePoint portal. 
+If the following page appears after sign in, contact the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>) and provide the email account which you want to use for submitting the request. Then Azure AD team will add the account in the Microsoft Application Network Portal.
 
 ![Access Request on SharePoint portal](./media/howto-app-gallery-listing/errorimage.png)
 
-Once the account is added, you can sign in to the SharePoint portal.
+Once the account is added, you can sign in to the Microsoft Application Network Portal.
 
 And if the following page appears after sign in, provide a business justification for needing access in the text box, and then select **Request Access**.
 
@@ -85,7 +85,7 @@ To list an application in the Azure AD app gallery, you first need to implement 
 
     * If you have any issues regarding access, contact the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
 
-*   **SAML 2.0** or **WS-Fed**: If your app supports SAML 2.0, you can integrate it directly with an Azure AD tenant by using the [instructions to add a custom application](../manage-apps/configure-single-sign-on-non-gallery-applications.md).
+*   **SAML 2.0** or **WS-Fed**: If your app supports SAML 2.0, you can integrate it directly with an Azure AD tenant by using the [instructions to add a custom application](../active-directory-saas-custom-apps.md).
 
     ![TimeLine of listing SAML 2.0 or WS-Fed application into the gallery](./media/howto-app-gallery-listing/saml.png)
 

@@ -8,7 +8,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 09/23/2018
 ms.author: jovanpop
 
 ---
@@ -36,7 +36,7 @@ The following steps show you how to create a Managed Instance.
 
    | Setting| Suggested value | Description |
    | ------ | --------------- | ----------- |
-   | Subscription | Your subscription | A subscription in which you have permission to create new resources |
+   | **Subscription** | Your subscription | A subscription in which you have permission to create new resources |
    |**Managed instance name**|Any valid name|For valid names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    |**Managed instance admin login**|Any valid user name|For valid names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Do not use "serveradmin" as that is a reserved server-level role.| 
    |**Password**|Any valid password|The password must be at least 16 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
@@ -52,12 +52,28 @@ The following steps show you how to create a Managed Instance.
 8. Click **Create** to deploy the Managed Instance.
 9. Click the **Notifications** icon to view the status of deployment.
 
-    ![managed instance create form](./media/sql-database-managed-instance-get-started/deployment-progress.png)
+    ![managed instance deployment progress](./media/sql-database-managed-instance-get-started/deployment-progress.png)
 
-11. Click **Deployment in progress** to open the Managed Instance window to further monitor the deployment progress. 
+10. Click **Deployment in progress** to open the Managed Instance window to further monitor the deployment progress. 
 
 > [!IMPORTANT]
 > For the first instance in a subnet, deployment time is typically much longer than in case of the subsequent instances. Do not cancel deployment operation because it lasts longer than you expected. Creating the second Managed Instance in the subnet only takes a couple of minutes.
+
+## Review resources and retrieve your fully-qualified server name
+
+After the deployment completes successfully, review the resources created and retrieve the fully qualified server name for use in later quickstarts.
+
+1. Open the resource group for your Managed Instance and view its resources that were created for you in the [Create a Managed Instance](sql-database-managed-instance-get-started.md) quickstart.
+
+   ![Managed Instance resources](./media/sql-database-managed-instance-get-started/resources.png)Open your Managed Instance resource in the Azure portal.
+
+2. Click your Managed Instance.
+3. On the **Overview** tab, locate the **Host** property and copy the fully-qualified host address for the Managed Instance.
+
+
+   ![Managed Instance resources](./media/sql-database-managed-instance-get-started/host-name.png)
+
+   The name is similar to this: **your_machine_name.neu15011648751ff.database.windows.net**.
 
 ## Next steps
 
