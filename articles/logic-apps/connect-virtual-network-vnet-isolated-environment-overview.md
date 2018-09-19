@@ -96,14 +96,14 @@ for your environment. However, you can *only* create this
 relationship, or *peering*, when you create your ISE. 
 This relationship gives your ISE access to resources in 
 your VNET, which then lets logic apps in that ISE connect 
-directly to resources in your VNET. 
-
-For on-premises systems in a VNET that's linked to an ISE, 
-logic apps can directly access those systems by using any 
-of these items: 
+directly to resources in your VNET. For on-premises systems 
+in a VNET that's linked to an ISE, logic apps can directly 
+access those systems by using any of these items: 
 
 * ISE connector for that system, for example, SQL Server
+
 * HTTP action 
+
 * Custom connector
 
 For on-premises systems that aren't in a VNET or don't have ISE connectors, 
