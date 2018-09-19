@@ -1,6 +1,6 @@
 ---
-title: What is Automated Machine Learning
-description: Learn what Automated ML is and the technology behind it. 
+title: What is Automated Machine Learning - Azure Machine Learning
+description: In this article, you can learn about automated machine learning. The Azure Machine Learning service can automatically pick an algorithm for you, and generate a model from it. Automated machine learning helps save you time by using the parameters and criteria you provide to select the best algorithm for your model.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -14,7 +14,7 @@ ms.date: 9/24/2018
 
 # What is automated machine learning?
 
-The Azure Machine Learning service can automatically pick an algorithm for you, and generate a model from it. automated machine learning helps save you time by using the parameters and criteria you provide to select the best algorithm for your model.
+In this article, you can learn about automated machine learning. The Azure Machine Learning service can automatically pick an algorithm for you, and generate a model from it. Automated machine learning helps save you time by using the parameters and criteria you provide to select the best algorithm for your model.
 
 ## How it works
 
