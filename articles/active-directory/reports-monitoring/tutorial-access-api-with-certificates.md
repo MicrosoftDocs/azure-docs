@@ -17,6 +17,7 @@ ms.date: 05/07/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk 
 
+# Customer intent: As a developer, I want to learn how to access the Azure AD reporting API using certificates so that I can create an application that does not require user intervention to access reports.
 ---
 # Tutorial: Get data using the Azure Active Directory reporting API with certificates
 

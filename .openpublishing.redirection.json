@@ -28324,7 +28324,7 @@
         },
         {
             "source_path": "articles/azure-government/documentation-government-get-started-connect-with-vsts.md",
-            "redirect_url": "/azure/azure-government/documentation-government-get-started-connect-with-vs",
+            "redirect_url": "/azure/azure-government/connect-with-azure-pipelines",
             "redirect_document_id" : true
         },
         {
