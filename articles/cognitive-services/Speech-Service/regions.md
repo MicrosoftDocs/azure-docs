@@ -14,23 +14,23 @@ ms.author: mahilleb
 # Regions of the Speech service
 
 The Speech service is available in different regions.
-When you create a subscription you can pick an available region, depending on your needs.
+When you create a subscription, you can select an available region based on your needs.
 
-When you use your subscription you have to account for the region you picked.
+When you use your subscription, you have to account for the region you selected.
 
 ## REST API
 
-Using the REST API, pick the right region-specific endpoints.
+Use the REST API to select the correct region-specific endpoints.
 See [REST APIs](rest-apis.md) for details.
 
 ## Speech SDK
 
-In the [Speech SDK](speech-sdk.md), regions are specified as a string
-(for example, as a parameter to [SpeechFactory.FromSubscription](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechfactory.fromsubscription) in the Speech SDK for C#).
+In the [Speech SDK](speech-sdk.md), regions are specified as a string.
+An example is as a parameter to [SpeechFactory.FromSubscription](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechfactory.fromsubscription) in the Speech SDK for C#.
 
 ### Regions for speech recognition and translation
 
-The table below lists the available regions for **speech recognition** and **translation**:
+The following table lists the available regions for **speech recognition** and **translation**.
 
   Region | Speech SDK Parameter | Portal
  ------|-------|--------
@@ -46,6 +46,6 @@ The table below lists the available regions for **speech recognition** and **tra
 
 ### Regions for intent recognition
 
-Available regions for **intent recognition** via the Speech SDK are listed in the [Language Understanding service region page](/azure/cognitive-services/luis/luis-reference-regions).
+Available regions for **intent recognition** via the Speech SDK are listed on the [Language Understanding service region page](/azure/cognitive-services/luis/luis-reference-regions).
 For each publishing region listed, the corresponding Speech SDK region parameter is determined as the first part of the domain name of the endpoint.
 For example, use `westus` to specify the West US publishing region.
