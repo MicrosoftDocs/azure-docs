@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/18/2018
+ms.date: 09/19/2018
 ms.author: jingwang
 
 ---
@@ -42,7 +42,7 @@ To copy data from Office 365 into Azure, you need to complete the following prer
     - Tenant ID.  For instructions, see [Get tenant ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
     - Application ID and Application key.  For instructions, see [Get application ID and authentication key](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key).
 - Add the user identity who will be making the data access request as the owner of the Azure AD web application (from the Azure AD web application > Settings > Owners > Add owner).
-- *(Recommended)* Turn on encryption for Azure data stores where Office 365 data will be written into. [Assign Azure policies](../azure-policy/assign-policy-definition.md) for data encryption to your data stores. Policy compliance information will be shown to the data approvers as part of the data request. Pipeline execution will fail if the policies are not compliant.
+- _(Recommended)_ [Assign Azure policies](../azure-policy/assign-policy-definition.md) for data encryption to your data stores. Policy compliance information will be shown to the data approvers as part of the data request. Once policy assignment is made, for every copy activity run, ADF will check to make sure the policy assignment is enforced. Refer [here](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/Capabilities#policies) for a complete list of supported policies.
 
 ## Approving new data access requests
 
