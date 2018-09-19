@@ -1,3 +1,19 @@
+---
+title: Azure Maps Glossary | Microsoft Docs 
+description: A glossary of commonly used terms associated with Azure Maps, Location Based Services and GIS. 
+author: rbrundritt
+ms.author: richbrun
+ms.date: 09/18/2018
+ms.topic: resource
+ms.service: azure-maps
+services: azure-maps
+manager: cpendle
+---
+
+# Glossary
+
+The following is a list of common words used with Azure Maps.
+
 ## A
 
 <a name="address-validation"></a> **Address validation**: The process of verifying the existence of an address.
