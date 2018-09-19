@@ -26,7 +26,7 @@ Configuring this feature eliminates the need to enter a username and password co
 This topic:
 
 - Provides you with the steps to configure and utilize certificate-based authentication for users of tenants in Office 365 Enterprise, Business, Education, and US Government plans. This feature is available in preview in Office 365 China, US Government Defense, and US Government Federal plans.
-- Assumes that you already have a [public key infrastructure (PKI)](https://go.microsoft.com/fwlink/?linkid=841737) and [AD FS](../connect/active-directory-aadconnectfed-whatis.md) configured.
+- Assumes that you already have a [public key infrastructure (PKI)](https://go.microsoft.com/fwlink/?linkid=841737) and [AD FS](../hybrid/how-to-connect-fed-whatis.md) configured.
 
 ## Requirements
 
