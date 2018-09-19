@@ -37,7 +37,7 @@ To learn more about name resolution, see the
 > [!IMPORTANT]
 > Each domain name label you create must be unique within its Azure Stack location.
 
-The following screen shot shows the **Create public IP address** dialog for creating a public IP address using the portal:
+The following screenshot shows the **Create public IP address** dialog for creating a public IP address using the portal:
 
 ![Create public IP address](media/azure-stack-whats-new-dns/image01.png)
 
