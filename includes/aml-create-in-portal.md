@@ -13,6 +13,8 @@ ms.date: 09/24/2018
 
 Sign in to the [Azure portal](https://portal.azure.com/) using the credentials for the Azure subscription you'll use. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
 
+The portal's workspace dashboard is supported on Edge, Chrome and Firefox browsers only.
+
    ![Azure portal](./media/aml-create-in-portal/portal-dashboard.png)
 
 Select the **Create a resource** button (+) in the upper-left corner of the portal.
