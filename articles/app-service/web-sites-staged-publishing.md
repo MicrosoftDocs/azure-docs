@@ -178,6 +178,10 @@ Some apps may require custom warm-up actions. The `applicationInitialization` co
             <add initializationPage="/Home/About" hostname="[app hostname]" />
         </applicationInitialization>
     </system.webServer>
+    
+> [!IMPORTANT]
+> Neither the initial HTTP request nor `applicationInitialization` requests follow HTTP redirects. If you are using authorization, enforce domain or enforce https rules be aware of this.
+> 
 
 ## Monitor swap progress
 
