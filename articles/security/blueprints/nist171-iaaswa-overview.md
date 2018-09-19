@@ -83,11 +83,11 @@ The architecture defines a private virtual network with an address space of 10.2
 See the configuration for [NSGs](https://github.com/Azure/fedramp-iaas-webapp/blob/master/nestedtemplates/virtualNetworkNSG.json) deployed with this solution. Organizations can configure NSGs by editing the previous file by using [this documentation](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) as a guide.
 
 Each of the subnets has a dedicated NSG:
-- 1 NSG for Application Gateway (LBNSG)
-- 1 NSG for bastion host (MGTNSG)
-- 1 NSG for primary and backup domain controllers (ADNSG)
-- 1 NSG for SQL Servers and Cloud Witness (SQLNSG)
-- 1 NSG for web tier (WEBNSG)
+- One NSG for Application Gateway (LBNSG)
+- One NSG for bastion host (MGTNSG)
+- One NSG for primary and backup domain controllers (ADNSG)
+- One NSG for SQL Servers and Cloud Witness (SQLNSG)
+- One NSG for web tier (WEBNSG)
 
 ### Data in transit
 Azure encrypts all communications to and from Azure data centers by default. Additionally, all transactions to Storage through the Azure portal occur via HTTPS.
