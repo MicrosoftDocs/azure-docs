@@ -12,7 +12,7 @@ ms.suite: integration
 ms.date: 09/24/2018
 ---
 
-# Create and manage automated logic app workflows in Visual Studio Code
+# Create and edit automated logic app workflows - Visual Studio Code
 
 With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
 and Visual Studio Code, you can create and edit logic apps that help 
@@ -90,24 +90,38 @@ which opens a new browser window.
 1. Select your Azure account. After you've signed in, 
 you can close your browser, and return to Visual Studio Code.
 
-1. In the Azure window, which now shows the Azure subscriptions in your account, 
-select the Azure subscription you want to use.
+   In the Azure window, the Logic Apps pane and 
+   Integration Accounts pane now shows the Azure 
+   subscriptions in your account. 
 
    ![Select subscription](./media/create-logic-apps-visual-studio-code/select-azure-subscription.png)
 
-   After expanding your subscription, you can now find 
-   any and all existing logic apps in your subscription.
    If you don't see the subscriptions you expect, 
-   next to **Logic Apps** label, choose **Select Subscriptions** (filter icon).
-   Find and select the subscriptions you want.
+   next to **Logic Apps** label, choose **Select Subscriptions** 
+   (filter icon). Find and select the subscriptions you want.
+
+1. To view any existing logic apps or integration accounts in 
+your Azure subscription, expand your subscription.
+
+   ![View logic apps and integration accounts](./media/create-logic-apps-visual-studio-code/existing-logic-apps.png)
 
 <a name="create-logic-app"></a>
 
 ## Create logic app
 
-1. On the **File** menu, select **New File**.
+1. If you haven't signed in to your Azure subscription 
+from inside Visual Studio Code, [sign in now](#sign-in-azure). 
 
-   Visual Studio Code opens an empty plain text file. 
+1. From your subscription's context menu, select **Create**.
+
+   ![Select "Create"](./media/create-logic-apps-visual-studio-code/create-logic-app.png)
+
+1. From the list that shows Azure resource groups in your subscription, 
+select an existing resource group or **Create a new resource group**. 
+
+   This example creates a new resource group:
+
+
 
 1. In the empty file, start creating your logic app's workflow definition. 
 For reference, see the [Workflow Definition Language schema for logic apps](../logic-apps/logic-apps-workflow-definition-language.md).
