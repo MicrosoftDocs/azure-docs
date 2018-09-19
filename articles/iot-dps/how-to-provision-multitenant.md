@@ -240,26 +240,38 @@ To generate the device key, use the group master key to compute an [HMAC-SHA256]
 
 Do not include your group master key in your device code.
 
-Use the following steps to create a derived device key for each device using **openssl**:
+Use the Bash shell example to create a derived device key for each device using **openssl**.
 
-**=== STILL TESTING THIS ===**
+- Replace the value for **KEY** with the **Primary Key** you noted earlier for your enrollment.
+
+- Replace the value for **REG_ID** with your own unique registration ID for each device. Use lowercase alphanumeric and dash ('-') characters to define both IDs.
+
+Example device key generation for *contoso-simdevice-east*:
 
 ```bash
-MASTERKEY=8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw==
-REGISTRATIONID=contoso-simdevice-east
+KEY=rLuyBPpIJ+hOre2SFIP9Ajvdty3j0EwSP/WvTVH9eZAw5HpDuEmf13nziHy5RRXmuTy84FCLpOnhhBPASSbHYg==
+REG_ID=contoso-simdevice-east
 
-echo -n $REGISTRATIONID | openssl sha256 -hmac $MASTERKEY -binary | base64
-
-thnwVreVgP/sTJXNrHQk75A2HLAoCYoE4e9NxrXj+6o=
+keybytes=$(echo $KEY | base64 --decode | xxd -p -u -c 1000)
+echo -n $REG_ID | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64
 ```
 
 ```bash
-MASTERKEY=8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw==
-REGISTRATIONID=contoso-simdevice-east
+p3w2DQr9WqEGBLUSlFi1jPQ7UWQL4siAGy75HFTFbf8=
+```
 
-echo -n $REGISTRATIONID | openssl sha256 -hmac $MASTERKEY -binary | base64
+Example device key generation for *contoso-simdevice-west*:
 
-/O8t/ze/Ex5w/k9TL10jlcWa9LyHyN8ivvpffgmlJ/I=
+```bash
+KEY=rLuyBPpIJ+hOre2SFIP9Ajvdty3j0EwSP/WvTVH9eZAw5HpDuEmf13nziHy5RRXmuTy84FCLpOnhhBPASSbHYg==
+REG_ID=contoso-simdevice-west
+
+keybytes=$(echo $KEY | base64 --decode | xxd -p -u -c 1000)
+echo -n $REG_ID | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64
+```
+
+```bash
+J5n4NY2GiBYy7Mp4lDDa5CbEe6zDU/c62rhjCuFWxnc=
 ```
 
 
