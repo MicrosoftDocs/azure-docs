@@ -40,8 +40,8 @@ To download the sample described in this article, see [Use Azure Media Services 
 2. Add the following elements to **appSettings** defined in your app.config file:
 
     ```xml
-    add key="Issuer" value="http://testissuer.com"/
-    add key="Audience" value="urn:test"/
+    <add key="Issuer" value="http://testissuer.com"/>
+    <add key="Audience" value="urn:test"/>
     ```
  
 ## .NET code example
