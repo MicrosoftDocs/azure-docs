@@ -48,6 +48,6 @@ See examples and learn how to build models using Automated Machine Learning:
 
 + [Tutorial: Automatically train a classification model with Azure Automated Machine Learning](tutorial-auto-train-models.md)
 
-+ [How to configure settings for automatic training](how-to-automl.md)
++ [How to configure settings for automatic training](how-to-configure-auto-train.md)
 
 + [How to use automatic training on a remote resource](how-to-auto-train-remote.md) 
