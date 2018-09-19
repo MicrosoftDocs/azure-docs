@@ -54,8 +54,9 @@ The following steps show you how the consent experience works for both the appli
   ![Grant permissions for explicit admin consent](./media/quickstart-v1-integrate-apps-with-azure-ad/grantpermissions.png)
 
   > [!IMPORTANT]
-  > Granting explicit consent using the **Grant permissions** button is currently required for single page applications (SPA) that use ADAL.js. Otherwise, the application fails when the access token is requested.
+  > Granting explicit consent using the **Grant permissions** button is currently required for single-page applications (SPA) that use ADAL.js. Otherwise, the application fails when the access token is requested.
 
 ## Next steps
 
-* [How to convert an app to be multi-tenant](howto-convert-app-to-be-multi-tenant.md)
+* See [how to convert an app to be multi-tenant](howto-convert-app-to-be-multi-tenant.md)
+* For more depth, learn [how consent is supported at the OAuth 2.0 protocol layer during the authorization code grant flow.](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code#request-an-authorization-code)

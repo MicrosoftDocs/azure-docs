@@ -49,34 +49,7 @@ To register a web app, see [Register an app with the Azure AD v2.0 endpoint](qui
 
 The user’s session expires when the lifetime of the token issued by Azure AD expires. Your application can shorten this time period if desired, such as signing out users based on a period of inactivity. When the session expires, the user will be prompted to sign in again.
 
-## Web apps that use the Azure AD v2.0 endpoint
-
-For web apps (.NET, PHP, Java, Ruby, Python, Node) that the user accesses through a browser, you can use OpenID Connect for user sign-in. In OpenID Connect, the web app receives an ID token. An ID token is a security token that verifies the user's identity and provides information about the user in the form of claims:
-
-```
-// Partial raw ID token
-eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImtyaU1QZG1Cd...
-
-// Partial content of a decoded ID token
-{
-    "name": "John Smith",
-    "email": "john.smith@gmail.com",
-    "oid": "d9674823-dffc-4e3f-a6eb-62fe4bd48a58"
-    ...
-}
-```
-
-You can learn about all the types of tokens and claims that are available to an app in the [v2.0 tokens reference](v2-id-and-access-tokens.md).
-
-In web server apps, the sign-in authentication flow takes these high-level steps:
-
-![Web app authentication flow](./media/v2-app-types/convergence_scenarios_webapp.png)
-
-You can ensure the user's identity by validating the ID token with a public signing key that is received from the v2.0 endpoint. A session cookie is set, which can be used to identify the user on subsequent page requests.
-
-In addition to simple sign-in, a web server app might need to access another web service, such as a REST API. In this case, the web server app engages in a combined OpenID Connect and OAuth 2.0 flow, by using the [OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md). For more information about this scenario, read about [getting started with web apps and Web APIs](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md).
-
 ## Next steps
 
-- Learn more about other [Application types and scenarios](app-types.md)
-- Learn about the Azure AD [authentication basics](authentication-scenarios.md)
+* Learn more about other [Application types and scenarios](app-types.md)
+* Learn about the Azure AD [authentication basics](authentication-scenarios.md)

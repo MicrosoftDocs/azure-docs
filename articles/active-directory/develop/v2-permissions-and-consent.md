@@ -67,7 +67,7 @@ The `email` scope can be used with the `openid` scope and any others. It gives t
 
 ### profile
 
-The `profile` scope can be used with the `openid` scope and any others. It gives the app access to a substantial amount of information about the user. The information it can access includes, but is not limited to, the user's given name, surname, preferred username, and object ID. For a complete list of the profile claims available in the id_tokens parameter for a specific user, see the [v2.0 tokens reference](v2-id-and-access-tokens.md).
+The `profile` scope can be used with the `openid` scope and any others. It gives the app access to a substantial amount of information about the user. The information it can access includes, but is not limited to, the user's given name, surname, preferred username, and object ID. For a complete list of the profile claims available in the id_tokens parameter for a specific user, see the [`id_tokens` reference](id-tokens.md).
 
 ### offline_access
 

@@ -73,30 +73,6 @@ To register an application with the Azure AD v1.0 endpoint, see [Register an app
 
 When the web application uses its authorization code to get a JWT access token, it also receives a JWT refresh token. When the access token expires, the refresh token can be used to reauthenticate the user without requiring them to sign in again. This refresh token is then used to authenticate the user, which results in a new access token and refresh token.
 
-## Using the v2.0 endpoint to secure web services
-
-You can use the v2.0 endpoint to secure web services, such as your app's RESTful web API. Instead of ID tokens and session cookies, a web API uses an OAuth 2.0 access token to secure its data and to authenticate incoming requests. The caller of a Web API appends an access token in the authorization header of an HTTP request as follows:
-
-```
-GET /api/items HTTP/1.1
-Host: www.mywebapi.com
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6...
-Accept: application/json
-...
-```
-
-The Web API uses the access token to verify the API caller's identity and to extract information about the caller from claims that are encoded in the access token. To learn about all the types of tokens and claims that are available to an app, see the [v2.0 tokens reference](v2-id-and-access-tokens.md).
-
-A web API can give users the power to opt in or opt out of specific functionality or data by exposing permissions, also known as scopes. For a calling app to acquire permission to a scope, the user must consent to the scope during a flow. The v2.0 endpoint asks the user for permission, and then records permissions in all access tokens that the Web API receives. The Web API validates the access tokens it receives on each call and performs authorization checks.
-
-A web API can receive access tokens from all types of apps, including web server apps, desktop and mobile apps, single-page apps, server-side daemons, and even other Web APIs. The high-level flow for a Web API looks like this:
-
-![Web API authentication flow](./media/v2-app-types/convergence_scenarios_webapi.png)
-
-To learn how to secure a Web API by using OAuth2 access tokens, check out the Web API code samples in our [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) section.
-
-In many cases, web APIs also need to make outbound requests to other downstream web APIs secured by Azure Active Directory. To do so, web APIs can take advantage of the **On Behalf Of** flow, which allows the web API to exchange an incoming access token for another access token to be used in outbound requests. The v2.0 endpoint's On Behalf Of flow is described in [detail here](v2-oauth2-on-behalf-of-flow.md).
-
 ## Next steps
 
 - Learn more about other [Application types and scenarios](app-types.md)
