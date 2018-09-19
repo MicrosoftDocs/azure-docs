@@ -18,7 +18,6 @@ In this tutorial, you learn how to run Spark queries on a Azure Databricks clust
 > [!div class="checklist"]
 > * Create a Databricks cluster
 > * Ingest unstructured data into a storage account
-> * Trigger an Azure Function to process data
 > * Running analytics on your data in Blob storage
 
 ## Prerequisites
@@ -31,9 +30,6 @@ This tutorial demonstrates how to consume and query airline flight data, which i
 ## Create an Azure Data Lake Storage Gen2 account
 
 To begin, create a new [Azure Data Lake Storage Gen2 account](quickstart-create-account.md) and give it a unique name. Then navigate to the storage account to retrieve configuration settings.
-
-> [!IMPORTANT]
-> During Preview, Azure Functions only work with Azure Data Lake Storage Gen2 accounts created with a flat namespace.
 
 1. Under **Settings**, click  **Access keys**.
 3. Click the **Copy** button next to **key1** to copy the key value.
@@ -155,7 +151,7 @@ To create dataframes for your data sources, run the following script:
 acDF = spark.read.format('csv').options(header='true', inferschema='true').load(accountsource + "/<YOUR_CSV_FILE_NAME>.csv")
 acDF.write.parquet(accountsource + '/parquet/airlinecodes')
 
-#read the existing parquet file for the flights database that was created via the Azure Function
+#read the existing parquet file for the flights database that was created earlier
 flightDF = spark.read.format('parquet').options(header='true', inferschema='true').load(accountsource + "/parquet/flights")
 
 #print the schema of the dataframes
