@@ -96,6 +96,16 @@ Supported data types.
 }
 ```
 
+#### Using array type in Solidity
+
+Once an array is defined in configuration, you need to include an explicit get function to return the public property of the array type. For example:
+
+```
+function GetQuotes() public constant returns (int[]) {
+     return Quotes;
+}
+```
+
 ### Example configuration of type string
 
 ``` json
