@@ -74,7 +74,7 @@
   - name: Build and patch
     items:
       - name: ACR Tasks
-        href: container-registry-build-overview.md
+        href: container-registry-tasks-overview.md
       - name: Multi-step tasks (preview)
         href: container-registry-tasks-multi-step.md
       - name: Multi-step task reference (preview)
