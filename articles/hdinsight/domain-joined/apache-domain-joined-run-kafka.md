@@ -174,7 +174,7 @@ Based on the Ranger policies configured, **sales_user** can produce/consume topi
    /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $KAFKAZKHOSTS --topic salesevents --security-protocol PLAINTEXTSASL --from-beginning
    ```
  
-   To verify, the messages you entered in the previous step will appear, and **sales_user1** cannot produce to topic **marketingspend**.
+   To verify, the messages you entered in the previous step will appear, and **sales_user1** can't produce to topic **marketingspend**.
 
 6. From the same ssh window as above, execute the following command to produce to the topic **marketingspend**:
 
