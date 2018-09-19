@@ -108,13 +108,13 @@ To configure the assembly path in the job configuration file, `EdgeJobConfig.jso
 
 Expand the **User-Defined Code Configuration** section, and fill out the configuration with the following suggested values:
 
-|**Setting**  |**Suggested value**  |
-|---------|---------|
-|Assembly Source  |  Local Project Reference or CodeBehind   |
-|Resource  |  Choose data from current account   |
-|Subscription  |  Choose your subscription.   |
-|Storage Account  |  Choose your storage account.   |
-|Container  |  Choose the container you created in your storage account.   |
+ |**Setting**  |**Suggested value**  |
+ |---------|---------|
+ |Assembly Source  |  Local Project Reference or CodeBehind   |
+ |Resource  |  Choose data from current account   |
+ |Subscription  |  Choose your subscription.   |
+ |Storage Account  |  Choose your storage account.   |
+ |Container  |  Choose the container you created in your storage account.   |
 
     ![Azure Stream Analytics Edge job configuration in Visual Studio](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-job-config.png)
 
