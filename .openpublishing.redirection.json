@@ -15126,12 +15126,7 @@
             "redirect_url": "/azure/active-directory/connect/active-directory-aadconnect",
             "redirect_document_id": false
         },
-        {
-            "source_path": "articles/active-directory/develop/index.md",
-            "redirect_url": "/azure/active-directory/develop/active-directory-developers-guide",
-            "redirect_document_id": false
-        },
-		        {
+		{
             "source_path": "articles/active-directory/hybrid/whatis-hybrid-identity-health.md",
             "redirect_url": "/azure/active-directory/hybrid/whatis-hybrid-identity",
             "redirect_document_id": false
