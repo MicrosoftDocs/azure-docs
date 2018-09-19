@@ -38,7 +38,7 @@ There are two types of environments you can create.  Deciding which you need is 
 
 The quickstart is broken into two scenarios depending on the type of app you want to build.  If you need more help targeting an identity type, take a look at [about Microsoft identity platform](about-microsoft-identity-platform.md)
 
-## Work and School (Azure AD accounts) or Microsoft account (such as outlook.com, hotmail.com, etc.)
+## Work and school accounts, or personal Microsoft accounts
 
 ### Use an existing tenant
 
@@ -64,9 +64,9 @@ If you don't already have an Azure AD tenant or want to create a new one for dev
 - **Initial domain** - this will be part of *.onmicrosoft.com. You can customize the domain more later. 
 - **Country or region**
 
-## Social and Local accounts (Azure AD B2C)
+## Social and local accounts
 
-To begin building apps that sign in Social and Local accounts, you will need to create an Azure AD B2C tenant. To begin, follow [creating a Azure AD B2C tenant](https://docs.microsoft.com/en-us/azure/active-directory-b2c/tutorial-create-tenant). 
+To begin building apps that sign in social and local accounts, you'll need to create an Azure AD B2C tenant. To begin, follow [creating a Azure AD B2C tenant](https://docs.microsoft.com/en-us/azure/active-directory-b2c/tutorial-create-tenant). 
 
 ## Next steps
 
