@@ -153,6 +153,8 @@ Under **New update deployment**, specify the following information:
 
 * **Operating system**: Select the OS to target for the update deployment.
 
+* **Groups to update (preview)**: Define a query based on a combination of subscription, resource groups, locations, and tags to build a dynamic group of Azure VMs to include in your deployment. To learn more see, [Dynamic Groups](automation-update-management.md#using-dynamic-groups)
+
 * **Machines to update**: Select a Saved search, Imported group, or pick Machine from the drop-down and select individual machines. If you choose **Machines**, the readiness of the machine is shown in the **UPDATE AGENT READINESS** column. To learn about the different methods of creating computer groups in Log Analytics, see [Computer groups in Log Analytics](../log-analytics/log-analytics-computer-groups.md)
 
 * **Update classification**: Select the types of software that the update deployment included in the deployment. For this tutorial, leave all types selected.
@@ -166,8 +168,7 @@ Under **New update deployment**, specify the following information:
 
    For a description of the classification types, see [update classifications](automation-update-management.md#update-classifications).
 
-* **Updates to include/exclude** - This opens the **Include/Exclude** page. Updates to be included or excluded are on seperate tabs. For additional information on how inclusion is handled, see [inclusion behavior](automation-update-management.md#inclusion-behavior)
-
+* **Updates to include/exclude** - This opens the **Include/Exclude** page. Updates to be included or excluded are on separate tabs. For additional information on how inclusion is handled, see [inclusion behavior](automation-update-management.md#inclusion-behavior)
 
 * **Schedule settings**: The **Schedule Settings** pane opens. The default start time is 30 minutes after the current time. You can set the start time to any time from 10 minutes in the future.
 
