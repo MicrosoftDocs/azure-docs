@@ -21,7 +21,7 @@ ms.custom: aaddev
 
 # National Clouds
 
-National Clouds (aka Sovereign clouds) are physically isolated instances of Azure. These regions of Azure are designed to make sure that data residency, sovereignty, and compliance requirements are honored within geographical boundaries.
+National clouds (aka Sovereign clouds) are physically isolated instances of Azure. These regions of Azure are designed to make sure that data residency, sovereignty, and compliance requirements are honored within geographical boundaries.
 
 Including global cloud​, Azure Active Directory is deployed in the following National clouds:  
 
@@ -33,10 +33,10 @@ Including global cloud​, Azure Active Directory is deployed in the followi
 
 The following table lists the base URLs for the Azure Active Directory (Azure AD) endpoints used to register an application for each national cloud.
 
-| National Cloud | Azure AD portal endpoint
+| National cloud | Azure AD portal endpoint
 | --- | --- |
 | Azure AD for US Government |https://portal.azure.us
-|Azure AD Germany |https://portal.azure.de
+|Azure AD Germany |https://portal.microsoftazure.de
 |Azure AD China operated by 21Vianet |https://portal.azure.cn
 |Azure AD (global service)|https://portal.azure.com
 
@@ -44,7 +44,7 @@ The following table lists the base URLs for the Azure Active Directory (Azure AD
 
 The following table lists the base URLs for the Azure Active Directory (Azure AD) endpoints used to acquire tokens to call Microsoft Graph for each national cloud.
 
-| National Cloud | Azure AD auth endpoint
+| National cloud | Azure AD auth endpoint
 | --- | --- |
 | Azure AD for US Government |`https://login.microsoftonline.us`
 |Azure AD Germany| `https://login.microsoftonline.de`
