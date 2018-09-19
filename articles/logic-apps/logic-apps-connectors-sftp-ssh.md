@@ -10,7 +10,7 @@ ms.reviewer: klam, LADocs
 ms.assetid: 697eb8b0-4a66-40c7-be7b-6aa6b131c7ad
 ms.topic: article
 tags: connectors
-ms.date: 08/24/2018
+ms.date: 09/24/2018
 ---
 
 # Monitor, create, and manage SFTP files by using Azure Logic Apps and SFTP-SSH connector
@@ -29,22 +29,21 @@ along with other actions, for example:
 
 
 There are few key difference between SFTP - SSH and the SFTP connector. SFTP - SSH connector:
-* uses **SSH.NET** which is an open source Secure Shell (SSH) library for .NET.
+* uses <a href="https://github.com/sshnet/SSH.NET" target="_blank">**SSH.NET**</a> which is an open source Secure Shell (SSH) library for .NET.
 * provides large files support of upto **1 GB**. The connector can read or write files that are as large as 1 GB
 * provides **Create folder** action, to create folder at the specified path on the SFTP server
 * provides **Rename file** action, to rename file on the SFTP server
 * caches the connection to SFTP server to improve performance and reduce number of connection attempts on the server. 
-Users can control the duration for which the connection is cached by configuring the **ClientAliveInterval** on their 
-SFTP server. http://man.openbsd.org/sshd_config#ClientAliveInterval
+Users can control the duration for which the connection is cached by configuring the <a href="http://man.openbsd.org/sshd_config#ClientAliveInterval" target="_blank">**ClientAliveInterval**</a> on their SFTP server. 
 
 
 ## How trigger polling works
 The triggers work by polling the SFTP file system, and looking for any file which has been modified since the last poll. Certain tools allow the file modification time to be preserved. In such cases, you need to disable the feature for your trigger to work. Here are some common settings:
 
-| SFTP client          | Action                                                                           |
-| :------------------- | --------------------------------------------------------------------------------:|
-| Winscp               | Options → Preferences… → Transfer → Edit… → Preserve timestamp → Disable         |
-| FileZilla            | Transfer → Preserve timestamps of transferred files → Disable                    |
+| SFTP client                  | Action                                                                           |
+| :--------------------------- | :--------------------------------------------------------------------------------|
+| Winscp                       | Options → Preferences… → Transfer → Edit… → Preserve timestamp → Disable         |
+| FileZilla                    | Transfer → Preserve timestamps of transferred files → Disable                    |
 
 
 When the triggers encounter a new file, it will try to ensure that the new file is completely written. For instance, it is possible that the file is being written or modified, and updates are being made at the time the trigger polled the file server. To avoid returning a file with partial content, the trigger will take note of the timestamp such files which are modified recently, but will not immediately return those files. Those files will be returned only when the trigger polls again. Sometimes, this may lead a delay up to twice the trigger polling interval.
@@ -67,9 +66,7 @@ If you're new to logic apps, review
 * An Azure subscription. If you don't have an Azure subscription, 
 <a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
 
-* Your SFTP host server address and account credentials
-
-   Your credentials authorize your logic app to create 
+* Your SFTP host server address and account credentials - your credentials authorize your logic app to create 
    a connection and access your SFTP account.
 
   The content of the SSH private key should be copied/pasted entirely into the “SSH private key” field in the multiline format. Below are sample steps how to provide the SSH private key using Notepad.exe:
@@ -79,11 +76,11 @@ If you're new to logic apps, review
    3. Click Edit → Copy
    4. In the "SSH private key" field (while creating a connection) click right mouse button and click Paste. Do not edit the "SSH private key" field manually.
 
-> [!NOTE]
-> The connector uses SSH.NET library which supports following SSH private key formats
-> * RSA 
-> * DSA
-> Also, the library supports MD5 finger-print only.
+  > [!NOTE]
+  > The connector uses SSH.NET library which supports following SSH private key formats
+  > * RSA 
+  > * DSA
+  > Also, the library supports MD5 finger-print only.
 
 
 
