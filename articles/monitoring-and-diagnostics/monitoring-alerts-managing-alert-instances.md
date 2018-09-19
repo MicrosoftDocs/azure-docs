@@ -34,7 +34,7 @@ With the [unified alerts experience](https://aka.ms/azure-alerts-overview) in Az
     ![All Alerts](./media/monitoring-alerts-managing-alerts-instances/all-alerts.jpg)
 
     > [!NOTE]
-    >  If you came to the page by clicking on any of the severity bands, the list will be pre-filtered for that severity when you land
+    >  If you came to the page by clicking on any of the severity bands, the list will be pre-filtered for that severity when you land on this page
  
 1.	Clicking on any alert instance opens up the **Alert Details** page, allowing you to deep-dive into information about that specific alert instance.   
 ![Alert Details](./media/monitoring-alerts-managing-alerts-instances/alert-details.jpg)  
