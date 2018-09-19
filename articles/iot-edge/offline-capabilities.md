@@ -88,8 +88,7 @@ Parent devices can have multiple child devices, but a child device can only have
 
 ## Optional offline settings
 
- However, you may want to change the time to live setting and add additional disk space for message storage. 
-
+If you expect your devices to experience long offline periods, after which you want to collect all the messages that were generated, configure the Edge hub so that it can store all the messages. There are two changes that you can make to Edge hub to enable long-term message storage. First increase the time to live setting, and then add additional disk space for message storage. 
 
 ### Time to live
 
