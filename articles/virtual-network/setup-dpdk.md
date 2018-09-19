@@ -25,7 +25,7 @@ Typical packet processing using the kernel network stack is interrupt-driven. Ea
 
 DPDK consists of sets of user-space libraries that provide access to lower-level resources such as hardware, logical cores, memory management, and poll mode drivers for network interface cards.
 
-DPDK can run on Azure virtual machines, supporting multiple operating system distributions. DPDK provides key performance differentiation in driving network function virtualization implementations, in the form of network virtual appliances (NVAs), such as virtual routers, firewalls, VPN, load balancers, evolved packet cores, and denial-of-service (DDoS) applications.
+DPDK can run on Azure virtual machines, supporting multiple operating system distributions. DPDK provides key performance differentiation in driving network function virtualization implementations, in the form of network virtual appliances (NVAs), such as virtual routers, firewalls, VPNs, load balancers, evolved packet cores, and denial-of-service (DDoS) applications.
 
 ## Benefit
 
@@ -142,7 +142,7 @@ After restarting, run the following commands once:
 
 DPDK applications must run over the failsafe PMD that is exposed in Azure. If the application runs directly over the VF PMD, it doesn't receive **all** packets destined to the VM, since some packets show up over the synthetic interface. 
 
-Running over the failsafe PMD guarantees that the application receives all packets that are destined to it. It also ensures that the application continues to run in DPDK mode, even if the VF is revoked when the host is being serviced. For more information about failsafe PMD, see [Fail-safe poll mode driver library](http://doc.dpdk.org/guides/nics/fail_safe.html).
+Running DPDK application over the failsafe PMD guarantees that the application receives all packets that are destined to it. It also ensures that the application continues to run in DPDK mode, even if the VF is revoked when the host is being serviced. For more information about failsafe PMD, see [Fail-safe poll mode driver library](http://doc.dpdk.org/guides/nics/fail_safe.html).
 
 ## Run testpmd
 
