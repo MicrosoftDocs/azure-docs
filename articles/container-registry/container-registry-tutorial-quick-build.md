@@ -18,7 +18,7 @@ ms.custom: mvc
 
 **ACR Tasks** is a suite of features within Azure Container Registry that provides streamlined and efficient Docker container image builds in Azure. In this article, you learn how to use the *Quick Task* feature of ACR Tasks.
 
-The "inner-loop" development cycle is the iterative process of writing code, building, and testing your application before committing to source control. Quick Tasks extends your inner-loop to the cloud, providing you with build success validation and automatic pushing of successfully built images to your container registry. Your images are built natively in the cloud, close to your registry, enabling faster deployment.
+The "inner-loop" development cycle is the iterative process of writing code, building, and testing your application before committing to source control. A Quick Task extends your inner-loop to the cloud, providing you with build success validation and automatic pushing of successfully built images to your container registry. Your images are built natively in the cloud, close to your registry, enabling faster deployment.
 
 All your Dockerfile expertise is directly transferrable to ACR Tasks. You don't have to change your Dockerfiles to build in the cloud with ACR Tasks, just the command you run.
 

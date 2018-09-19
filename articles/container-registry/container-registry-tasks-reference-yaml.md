@@ -6,7 +6,7 @@ author: mmacy
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 09/19/2018
+ms.date: 09/24/2018
 ms.author: marsma
 ---
 

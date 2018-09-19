@@ -6,13 +6,13 @@ author: mmacy
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 09/19/2018
+ms.date: 09/24/2018
 ms.author: marsma
 ---
 
 # Run multi-step build, test, and patch tasks in ACR Tasks
 
-Multi-step tasks extend the single image build-and-push capability of ACR Tasks with multi-step, multi-container-based workflows. Use multi-step tasks to build and push several images, in series or in parallel, and run those images as functions within a single task run. Each step defines a container image build or push operation, and can also define the execution of a container. Each step in a multi-step task uses a container as its execution environment.
+Multi-step tasks extend the single image build-and-push capability of ACR Tasks with multi-step, multi-container-based workflows. Use multi-step tasks to build and push several images, in series or in parallel, and run those images as commands within a single task run. Each step defines a container image build or push operation, and can also define the execution of a container. Each step in a multi-step task uses a container as its execution environment.
 
 For example, you can run a task with steps that automate the following:
 
@@ -23,7 +23,7 @@ For example, you can run a task with steps that automate the following:
 1. If the tests pass, build a Helm package
 1. Perform a `helm upgrade` using the new Helm package
 
-All steps are performed within Azure, offloading the work to Azure's compute resources and freeing you from infrastructure management. Besides your Azure container registry, there is no separate service to sign up for, and you pay only for the resources you use. For information on pricing, see the **Container Build** section in [Azure Container Registry pricing][pricing].
+All steps are performed within Azure, offloading the work to Azure's compute resources and freeing you from infrastructure management. Besides your Azure container registry, you pay only for the resources you use. For information on pricing, see the **Container Build** section in [Azure Container Registry pricing][pricing].
 
 > [!IMPORTANT]
 > This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
