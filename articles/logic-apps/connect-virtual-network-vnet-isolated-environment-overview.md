@@ -99,17 +99,16 @@ your VNET, which then lets logic apps in that ISE connect
 directly to resources in your VNET. 
 
 For on-premises systems, here are the conditions where 
-logic apps have direct access to those systems without the 
+logic apps can directly access those systems without the 
 [on-premises data gateway](../logic-apps/logic-apps-gateway-install.md):
 
 * The on-premises system exists inside a VNET that's linked to your ISE.
 * The on-premises system provides an ISE connector, for example, SQL Server.
+* Your logic app uses the HTTP action or a custom connector to access the on-premises system. 
 
-Otherwise, for on-premises systems that don't have an ISE 
-connector or don't sit inside in your VNET, you still have to 
-[set up and use the on-premises data gateway](../logic-apps/logic-apps-gateway-install.md). 
-However, you can use the HTTP action or a custom connector to 
-access on-premises system without using the data gateway. 
+For on-premises systems that don't sit inside in your VNET 
+or don't have an ISE connector, you can still connect by 
+[setting up and using the on-premises data gateway](../logic-apps/logic-apps-gateway-install.md). 
 
 Before you can select an Azure VNET as a peer for your environment, 
 you must set up Role-Based Access Control (RBAC) permissions in 
