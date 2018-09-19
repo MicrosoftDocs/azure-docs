@@ -7,4 +7,4 @@ ms.author: wolfma
 ---
 
 > [!NOTE]
-> First, obtain a subscription key. For more information, see [Try the Speech service for free](~/articles/cognitive-services/speech-service/get-started.md).
+> First, get a subscription key. For more information, see [Try the speech service for free](~/articles/cognitive-services/speech-service/get-started.md).

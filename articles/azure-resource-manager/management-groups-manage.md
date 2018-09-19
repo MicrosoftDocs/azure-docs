@@ -163,7 +163,7 @@ To see what permissions you have, select the management group and then select **
     ![Children](media/management-groups/add_context_sub.png)
 1. Select "Save"
 
-**Remove a subscription from a management group**
+**Move a subscription to another management group**
 
 1. Log into the [Azure portal](https://portal.azure.com)
 2. Select **All services** > **Management groups** 

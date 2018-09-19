@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/31/2018
+ms.date: 08/31/2018
 ms.author: rithorn
 ---
 
@@ -34,7 +34,7 @@ Another scenario where you would use management groups is to provide user access
 
 ### Important facts about management groups
 
-- 10,000 management groups can be supported in a single directory.
+- 10,000 management groups can be supported in a single directory (Azure Active Directory tenant).
 - A management group tree can support up to six levels of depth.
   - This limit doesn't include the Root level or the subscription level.
 - Each management group and subscription can only support one parent.

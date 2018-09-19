@@ -117,7 +117,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<EXTERNAL_DNS_NAME>/portal/sharing/rest/oauth2/saml/signin`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [ArcGIS Enterprise Client support team](mailto:nshampur@esri.com) to get these values. You will get the Identifier value from **Set Identity Provider** section, which is explained later in this tutorial.
+	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [ArcGIS Enterprise Client support team](mailto:support@esri.com) to get these values. You will get the Identifier value from **Set Identity Provider** section, which is explained later in this tutorial.
 
 5. On the **SAML Signing Certificate** section, click the copy button to copy **App Federation Metadata Url** and paste it into notepad.
 
@@ -192,7 +192,7 @@ The objective of this section is to create a test user in the Azure portal calle
 The objective of this section is to create a user called Britta Simon in ArcGIS Enterprise. ArcGIS Enterprise supports just-in-time provisioning, which is by default enabled. There is no action item for you in this section. A new user is created during an attempt to access ArcGIS Enterprise if it doesn't exist yet.
 
 > [!Note]
-> If you need to create a user manually, contact [ArcGIS Enterprise support team](mailto:nshampur@esri.com).
+> If you need to create a user manually, contact [ArcGIS Enterprise support team](mailto:support@esri.com).
 
 ### Assign the Azure AD test user
 

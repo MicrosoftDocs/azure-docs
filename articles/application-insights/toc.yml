@@ -53,8 +53,6 @@
       href: app-insights-asp-net-core.md
     - name: Console
       href: application-insights-console.md
-    - name: Application dashboard
-      href: app-insights-overview-dashboard.md
   - name: Monitor Java apps
     items:
     - name: Web apps
@@ -72,7 +70,7 @@
     - name: JavaScript
       href: app-insights-javascript.md
   - name: Monitor Azure Functions
-    href: ../azure-functions/functions-monitoring.md?toc=%2fazure%2fapplication-insights%2ftoc.json 
+    href: ../azure-functions/functions-monitoring.md?toc=%2fazure%2fapplication-insights%2ftoc.json
   - name: Monitor other platforms
     items:
     - name: SharePoint sites
@@ -246,6 +244,10 @@
       href: app-insights-api-filtering-sampling.md
     - name: Sampling
       href: app-insights-sampling.md
+  - name: Visualize
+    items:
+    - name: Application dashboard
+      href: app-insights-overview-dashboard.md
   - name: Manage
     items:
     - name: Manage pricing and data volume

@@ -1,18 +1,19 @@
 ---
-title: Frequently Asked Questions (FAQ) about Bing Web Search API on Azure | Microsoft Docs
-description: Get answers to common questions about Microsoft Cognitive Services Bing Web Search API on Azure.
+title: Frequently asked questions (FAQ) - Bing Web Search API
+titleSuffix: Azure Cognitive Services
+description: Get answers to common questions about the Bing Web Search API.
 services: cognitive-services
 author: v-jerkin
-manager: jhubbard
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 10/06/2017
 ms.author: v-jerkin
 ---
 
-# Frequently asked questions (FAQ) about Bing Web Search API (Cognitive Services)
- 
+# Frequently asked questions (FAQ)
+
  Find answers to commonly asked questions about concepts, code, and scenarios related to the Bing Web Search API for Microsoft Cognitive Services on Azure.
 
 ## Response headers in JavaScript
@@ -47,9 +48,9 @@ Leave the command window open while you use the tutorial app; closing the window
 
 ## Response headers in production
 
-The CORS proxy approach described in the previous answer is appropriate for development, testing, and learning. 
+The CORS proxy approach described in the previous answer is appropriate for development, testing, and learning.
 
-In a production environment, however, you should host a server-side script on the same domain as the Web page that uses the Bing Web Search API. This script should actually do the API calls upon request from the Web page JavaScript and pass all results, including headers, back to the client. Since the two resources (page and script) share an origin, CORS does not come into play and the special headers are acessible to the JavaScript on the Web page. 
+In a production environment, however, you should host a server-side script on the same domain as the Web page that uses the Bing Web Search API. This script should actually do the API calls upon request from the Web page JavaScript and pass all results, including headers, back to the client. Since the two resources (page and script) share an origin, CORS does not come into play and the special headers are acessible to the JavaScript on the Web page.
 
 This approach also protects your API key from exposure to the public, since only the server-side script needs it. The script can use another method to make sure the request is authorized.
 

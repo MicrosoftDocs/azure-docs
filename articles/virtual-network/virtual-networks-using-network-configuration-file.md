@@ -33,7 +33,7 @@ You can use PowerShell or the Azure CLI to export a network configuration file. 
 
 ### PowerShell
  
-1. [Install Azure PowerShell and sign in to Azure](/powershell/azure/install-azure-ps?toc=%2fazure%2fvirtual-network%2ftoc.json).
+1. [Install Azure PowerShell and sign in to Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-install).
 2. Change the directory (and ensure it exists) and filename in the following command as desired, then run the command to export the network configuration file:
 
     ```powershell
@@ -121,7 +121,7 @@ You can use PowerShell or the Azure CLI to import a network configuration file. 
 
 ### PowerShell
  
-1. [Install Azure PowerShell and sign in to Azure](/powershell/azure/install-azure-ps?toc=%2fazure%2fvirtual-network%2ftoc.json).
+1. [Install Azure PowerShell and sign in to Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-install).
 2. Change the directory and filename in the following command as necessary, then run the command to import the network configuration file:
  
     ```powershell

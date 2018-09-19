@@ -69,7 +69,7 @@ kubectl apply -f azure-file-sc.yaml
 
 AKS clusters use Kubernetes role-based access control (RBAC) to limit actions that can be performed. *Roles* define the permissions to grant, and *bindings* apply them to desired users. These assignments can be applied to a given namespace, or across the entire cluster. For more information, see [Using RBAC authorization][kubernetes-rbac].
 
-To allow the Azure platform to create the required storage resources, create a *clusterrole* and *clusterrolebinding*. Create a file named `azure-pvc-roles.yaml` and copy in the following YAML:
+To allow the Azure platform to create the required storage resources, create a *ClusterRole* and *ClusterRoleBinding*. Create a file named `azure-pvc-roles.yaml` and copy in the following YAML:
 
 ```yaml
 ---

@@ -3,7 +3,7 @@ title: Azure Relay metrics in Azure Monitor (preview) | Microsoft Docs
 description: Use Azure Monitoring to monitor Azure Relay
 services: service-bus-relay
 documentationcenter: .NET
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
-ms.author: sethm
+ms.author: spelluru
 
 ---
 # Azure Relay metrics in Azure Monitor (preview)

@@ -4,15 +4,11 @@ description: Reference documentation for the Azure Functions app settings or env
 services: functions
 author: ggailey777
 manager: jeconnoc
-editor: ''
-tags: ''
 keywords:
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 08/22/2018
+ms.topic: conceptual
+ms.date: 09/16/2018
 ms.author: glenga
 ---
 
@@ -151,18 +147,15 @@ Default is "6.5.0".
 |---|------------|
 |WEBSITE\_NODE\_DEFAULT_VERSION|6.5.0|
 
-## WEBSITE\_RUN\_FROM\_ZIP
+## WEBSITE\_RUN\_FROM\_PACKAGE
 
 Enables your function app to run from a mounted package file.
 
-> [!NOTE]
-> This setting is for a preview feature.
-
 |Key|Sample value|
 |---|------------|
-|WEBSITE\_RUN\_FROM\_ZIP|1|
+|WEBSITE\_RUN\_FROM\_PACKAGE|1|
 
-Valid values are either a URL that resolves to the location of a deployment package file, or `1`. When set to `1`, the package must be in the `d:\home\data\SitePackages` folder. When using zip deployment with this setting, the package is automatically uploaded to this location.  For more information, see [Run your functions from a package file](run-functions-from-deployment-package.md).
+Valid values are either a URL that resolves to the location of a deployment package file, or `1`. When set to `1`, the package must be in the `d:\home\data\SitePackages` folder. When using zip deployment with this setting, the package is automatically uploaded to this location. In preview, this setting was named `WEBSITE_RUN_FROM_ZIP`. For more information, see [Run your functions from a package file](run-functions-from-deployment-package.md).
 
 ## Next steps
 

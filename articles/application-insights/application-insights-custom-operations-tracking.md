@@ -458,7 +458,6 @@ Disposing operation causes operation to be stopped, so you may do it instead of 
 
 ```csharp
 var firstOperation = telemetryClient.StartOperation<DependencyTelemetry>("task 1");
-var firstOperation = telemetryClient.StartOperation<DependencyTelemetry>("task 1");
 var firstTask = RunMyTaskAsync();
 
 var secondOperation = telemetryClient.StartOperation<DependencyTelemetry>("task 2");

@@ -27,16 +27,16 @@ This document introduces how you can create and configure Self-hosted IR.
 1. Create a Self-hosted integration runtime. You can use ADF UI for creating the self-hosted IR. Here is a PowerShell example:
 
 	```powershell
-	Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
+	Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
 	```
 2. Download and install self-hosted integration runtime (on local machine).
 3. Retrieve authentication key and register self-hosted integration runtime with the key. Here is a PowerShell example:
 
 	```powershell
-	Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
+	Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
 	```
 
-## Setting up self-hosted IR on Azure VM using Azure Resource Manager Template (automatation)
+## Setting up self-hosted IR on Azure VM using Azure Resource Manager Template (automation)
 You can automate self-hosted IR setup on an Azure VM using [this Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vms-with-selfhost-integration-runtime). This provides an easy way to have a fully functioning Self-hosted IR inside Azure VNet with High Avalaibility and Scalability feature (as long as you set node count to be 2 or higher).
 
 ## Command flow and data flow
@@ -54,7 +54,7 @@ Here is a high-level data flow for the summary of steps for copy with self-hoste
 
 ## Considerations for using self-hosted IR
 
-- A single self-hosted integration runtime can be used for multiple on-premises data sources. However, a **single self-hosted integration runtime is tied to only one Azure data factory** and cannot be shared with another data factory.
+- A single self-hosted integration runtime can be used for multiple on-premises data sources. A **single self-hosted integration runtime  can** be shared with another data factory within the same Azure Active Directory tenant. For more details, see [sharing a self-hosted integration runtime](#sharing-the-self-hosted-integration-runtime-ir-with-multiple-data-factories).
 - You can have **only one instance of self-hosted integration runtime** installed on a single machine. Suppose, you have two data factories that need to access on-premises data sources, you need to install self-hosted integration runtime on two on-premises computers. In other words, a self-hosted integration runtime is tied to a specific data factory
 - The **self-hosted integration runtime does not need to be on the same machine as the data source**. However, having self-hosted integration runtime closer to the data source reduces the time for the self-hosted integration runtime to connect to the data source. We recommend that you install the self-hosted integration runtime on a machine that is different from the one that hosts on-premises data source. When the self-hosted integration runtime and data source are on different machines, the self-hosted integration runtime does not compete for resources with data source.
 - You can have **multiple self-hosted integration runtimes on different machines connecting to the same on-premises data source**. For example, you may have two self-hosted integration runtime serving two data factories but the same on-premises data source is registered with both the data factories.
@@ -131,7 +131,6 @@ Here are the requirements for the TLS/SSL certificate that is used for securing 
 
 - The certificate must be a publicly trusted X509 v3 certificate. We recommend that you use certificates that are issued by a public (third-party) certification authority (CA).
 - Each integration runtime node must trust this certificate.
-- Wild card certificates are supported. If your FQDN name is **node1.domain.contoso.com**, you can use ***.domain.contoso.com** as subject name of the certificate.
 - SAN certificates are not recommended since only the last item of the Subject Alternative Names will be used and all others will be ignored due to current limitation. E.g. you have a SAN certificate whose SAN are **node1.domain.contoso.com** and **node2.domain.contoso.com**, you can only use this cert on machine whose FQDN is **node2.domain.contoso.com**.
 - Supports any key size supported by Windows Server 2012 R2 for SSL certificates.
 - Certificate using CNG keys are not supported.  
@@ -219,7 +218,7 @@ At **corporate firewall** level, you need configure the following domains and ou
 
 Domain names | Ports | Description
 ------------ | ----- | ------------
-*.servicebus.windows.net | 443, 80 | Used for communication with Data Movement Service backend
+*.servicebus.windows.net | 443 | Used for communication with Data Movement Service backend
 *.core.windows.net | 443 | Used for Staged copy using Azure Blob (if configured)
 *.frontend.clouddatahub.net | 443 | Used for communication with Data Movement Service backend
 download.microsoft.com | 443 | Used for downloading the updates

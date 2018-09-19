@@ -4,10 +4,10 @@
   items:
   - name: What is Bing Web Search?
     href: overview.md
+    expanded: true
 - name: Quickstarts
   items:
   - name: REST APIs
-    expanded: true
     items:
     - name: C#
       href: quickstarts/csharp.md
@@ -25,8 +25,6 @@
       href: quickstarts/ruby.md
   - name: SDKs
     items:
-    - name: Samples overview
-      href: sdk.md
     - name: C#
       href: web-search-sdk-quickstart.md
     - name: Java
@@ -39,14 +37,12 @@
   items:
   - name: Build a single-page web app
     href: tutorial-bing-web-search-single-page-app.md
-  - name: Single-page web app (source code)
-    href: tutorial-bing-web-search-single-page-app-source.md
-  - name: Visual Search mobile app
-    href: computer-vision-web-search-tutorial.md
 - name: Samples
   items:
-  - name: Code samples
-    href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Web+Search
+  - name: REST samples
+    href: https://github.com/Azure-Samples/cognitive-services-REST-api-samples
+  - name: SDK samples
+    href: sdk-samples.md
 - name: How-to guides
   items:
   - name: Filter answers

@@ -4,18 +4,18 @@ description: Azure SQL Database Data Discovery & Classification
 services: sql-database
 author: giladmit
 manager: craigg
-ms.reviewer: carlrab
+ms.reviewer: vanto
 ms.service: sql-database
 ms.custom: security
 ms.topic: conceptual
-ms.date: 07/10/2018
+ms.date: 09/10/2018
 ms.author: giladm
-ms.reviewer: carlrab
+
 
 ---
 # Azure SQL Database Data Discovery and Classification
 Data Discovery & Classification (currently in preview) provides advanced capabilities built into Azure SQL Database for **discovering**, **classifying**, **labeling** & **protecting** the sensitive data in your databases.
-Discovering and classifying your most sensitive data (business, financial, healthcare, PII, etc.) can play a pivotal role in your organizational information protection stature. It can serve as infrastructure for:
+Discovering and classifying your most sensitive data (business, financial, healthcare, personally identifiable data (PII), and so on.) can play a pivotal role in your organizational information protection stature. It can serve as infrastructure for:
 * Helping meet data privacy standards and regulatory compliance requirements.
 * Various security scenarios, such as monitoring (auditing) and alerting on anomalous access to sensitive data.
 * Controlling access to and hardening the security of databases containing highly sensitive data.
@@ -38,6 +38,17 @@ The following section describes the steps for discovering, classifying, and labe
 The classification includes two metadata attributes:
 * Labels – The main classification attributes, used to define the sensitivity level of the data stored in the column.  
 * Information Types – Provide additional granularity into the type of data stored in the column.
+
+## Define and customize your classification taxonomy
+
+SQL Data Discovery & Classification comes with a built-in set of sensitivity labels and a built-in set of information types and discovery logic. You now have the ability to customize this taxonomy and define a set and ranking of classification constructs specifically for your environment.
+
+Definition and customization of your classification taxonomy is done in one central place for your entire Azure tenant. That location is in [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro), as part of your Security Policy. Only someone with administrative rights on the Tenant root management group can perform this task.
+
+As part of the Information Protection policy management, you can define custom labels, rank them, and associate them with a selected set of information types. You can also add your own custom information types and configure them with string patterns, which are added to the discovery logic for identifying this type of data in your databases.
+Learn more about customizing and managing your policy in the [Information Protection policy how-to guide](https://go.microsoft.com/fwlink/?linkid=2009845&clcid=0x409).
+
+Once the tenant-wide policy has been defined, you can continue with the classification of individual databases using your customized policy.
 
 ## Classify your SQL Database
 

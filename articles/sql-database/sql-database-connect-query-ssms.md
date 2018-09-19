@@ -21,6 +21,8 @@ This quickstart uses as its starting point the resources created in one of these
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
+This quickstart also requires that you configure a server-level firewall rule. For a quickstart showing how to do this, see [Create server-level firewall rule](sql-database-get-started-portal-firewall.md).
+
 #### Install the latest SSMS
 
 Before you start, make sure you have installed the newest version of [SSMS][ssms-install-latest-84g]. 

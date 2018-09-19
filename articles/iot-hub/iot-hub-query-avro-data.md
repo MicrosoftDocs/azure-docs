@@ -1,15 +1,12 @@
 ---
 title: Query Avro data by using Azure Data Lake Analytics | Microsoft Docs
 description: Use message body properties to route device telemetry to Blob storage and query the Avro format data that's written to Blob storage.
-services: iot-hub
-documentationcenter: 
-author: ksaye
-manager: obloch
+author: ash2017
 ms.service: iot-hub 
-ms.topic: article
+services: iot-hub 
+ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: Kevin.Saye
-
+ms.author: asrastog
 ---
 
 # Query Avro data by using Azure Data Lake Analytics

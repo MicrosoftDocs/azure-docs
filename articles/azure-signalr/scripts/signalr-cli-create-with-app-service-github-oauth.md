@@ -3,7 +3,7 @@ title: Azure CLI Script Sample - Create a web app that uses SignalR Service and 
 description: Azure CLI Script Sample - Create a web app that uses SignalR Service and GitHub authentication
 services: signalr
 documentationcenter: signalr
-author: wesmc7777
+author: sffamily
 manager: cfowler
 editor: 
 tags: azure-service-management
@@ -14,7 +14,7 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: signalr
 ms.date: 04/22/2018
-ms.author: wesmc
+ms.author: zhshang
 ms.custom: mvc
 ---
 

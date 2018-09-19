@@ -16,7 +16,7 @@ You've completed the getting started guide! You learned how to:
 
 > [!div class="checklist"]
 > * Set up Azure Dev Spaces with a managed Kubernetes cluster in Azure.
-> * Iteratively develop code in containers using VS Code and the command line.
+> * Iteratively develop code in containers.
 > * Independently develop two separate services, and used Kubernetes' DNS service discovery to make a call to another service.
 > * Productively develop and test your code in a team environment.
 

@@ -1,6 +1,6 @@
 ---
-title: Viewing diagnostic logs for Azure Data Lake Store | Microsoft Docs
-description: 'Understand how to setup and access diagnostic logs for Azure Data Lake Store '
+title: Viewing diagnostic logs for Azure Data Lake Storage Gen1 | Microsoft Docs
+description: 'Understand how to setup and access diagnostic logs for Azure Data Lake Storage Gen1 '
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -15,23 +15,23 @@ ms.date: 03/26/2018
 ms.author: nitinme
 
 ---
-# Accessing diagnostic logs for Azure Data Lake Store
-Learn to enable diagnostic logging for your Data Lake Store account and how to view the logs collected for your account.
+# Accessing diagnostic logs for Azure Data Lake Storage Gen1
+Learn to enable diagnostic logging for your Azure Data Lake Storage Gen1 account and how to view the logs collected for your account.
 
-Organizations can enable diagnostic logging for their Azure Data Lake Store account to collect data access audit trails that provides information such as list of users accessing the data, how frequently the data is accessed, how much data is stored in the account, etc. When enabled, the diagnostics and/or requests are logged on a best-effort basis. Both Requests and Diagnostics log entries are created only if there are requests made against the service endpoint.
+Organizations can enable diagnostic logging for their Azure Data Lake Storage Gen1 account to collect data access audit trails that provides information such as list of users accessing the data, how frequently the data is accessed, how much data is stored in the account, etc. When enabled, the diagnostics and/or requests are logged on a best-effort basis. Both Requests and Diagnostics log entries are created only if there are requests made against the service endpoint.
 
 ## Prerequisites
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-* **Azure Data Lake Store account**. Follow the instructions at [Get started with Azure Data Lake Store using the Azure Portal](data-lake-store-get-started-portal.md).
+* **Azure Data Lake Storage Gen1 account**. Follow the instructions at [Get started with Azure Data Lake Storage Gen1 using the Azure Portal](data-lake-store-get-started-portal.md).
 
-## Enable diagnostic logging for your Data Lake Store account
+## Enable diagnostic logging for your Data Lake Storage Gen1 account
 1. Sign on to the new [Azure portal](https://portal.azure.com).
-2. Open your Data Lake Store account, and from your Data Lake Store account blade, click **Diagnostic logs**.
-3. In the **Diagnostics logs** blade, click **Turn on diagnostics**.
+2. Open your Data Lake Storage Gen1 account, and from your Data Lake Storage Gen1 account blade, click **Diagnostic settings**.
+3. In the **Diagnostics settings** blade, click **Turn on diagnostics**.
 
 	![Enable diagnostic logging](./media/data-lake-store-diagnostic-logs/turn-on-diagnostics.png "Enable diagnostic logs")
 
-3. In the **Diagnostic** blade, make the following changes to configure diagnostic logging.
+3. In the **Diagnostics settings** blade, make the following changes to configure diagnostic logging.
    
     ![Enable diagnostic logging](./media/data-lake-store-diagnostic-logs/enable-diagnostic-logs.png "Enable diagnostic logs")
    
@@ -50,24 +50,24 @@ Organizations can enable diagnostic logging for their Azure Data Lake Store acco
 
 Once you have enabled diagnostic settings, you can watch the logs in the **Diagnostic Logs** tab.
 
-## View diagnostic logs for your Data Lake Store account
-There are two ways to view the log data for your Data Lake Store account.
+## View diagnostic logs for your Data Lake Storage Gen1 account
+There are two ways to view the log data for your Data Lake Storage Gen1 account.
 
-* From the Data Lake Store account settings view
+* From the Data Lake Storage Gen1 account settings view
 * From the Azure Storage account where the data is stored
 
-### Using the Data Lake Store Settings view
-1. From your Data Lake Store account **Settings** blade, click **Diagnostic Logs**.
+### Using the Data Lake Storage Gen1 Settings view
+1. From your Data Lake Storage Gen1 account **Settings** blade, click **Diagnostic Logs**.
    
-    ![View diagnostic logging](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs.png "View diagnostic logs") 
-2. In the **Diagnostic Logs** blade, you should see the logs categorized by **Audit Logs** and **Request Logs**.
+    ![View diagnostic logs](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs.png "View diagnostic logs") 
+2. In the **Diagnostics Logs** blade, you should see the logs categorized by **Audit Logs** and **Request Logs**.
    
-   * Request logs capture every API request made on the Data Lake Store account.
-   * Audit Logs are similar to request Logs but provide a much more detailed breakdown of the operations being performed on the Data Lake Store account. For example, a single upload API call in request logs might result in multiple "Append" operations in the audit logs.
+   * Request logs capture every API request made on the Data Lake Storage Gen1 account.
+   * Audit Logs are similar to request Logs but provide a much more detailed breakdown of the operations being performed on the Data Lake Storage Gen1 account. For example, a single upload API call in request logs might result in multiple "Append" operations in the audit logs.
 3. To download the logs, click the **Download** link against each log entry.
 
 ### From the Azure Storage account that contains log data
-1. Open the Azure Storage account blade associated with Data Lake Store for logging, and then click Blobs. The **Blob service** blade lists two containers.
+1. Open the Azure Storage account blade associated with Data Lake Storage Gen1 for logging, and then click Blobs. The **Blob service** blade lists two containers.
    
     ![View diagnostic logging](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account.png "View diagnostic logs")
    
@@ -77,9 +77,9 @@ There are two ways to view the log data for your Data Lake Store account.
    
     ![View diagnostic logging](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account-structure.png "View diagnostic logs")
    
-    As an example, the complete path to an audit log could be `https://adllogs.blob.core.windows.net/insights-logs-audit/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestore/y=2016/m=07/d=18/h=04/m=00/PT1H.json`
+    As an example, the complete path to an audit log could be `https://adllogs.blob.core.windows.net/insights-logs-audit/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestorage/y=2016/m=07/d=18/h=04/m=00/PT1H.json`
    
-    Similarly, the complete path to a request log could be `https://adllogs.blob.core.windows.net/insights-logs-requests/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestore/y=2016/m=07/d=18/h=14/m=00/PT1H.json`
+    Similarly, the complete path to a request log could be `https://adllogs.blob.core.windows.net/insights-logs-requests/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestorage/y=2016/m=07/d=18/h=14/m=00/PT1H.json`
 
 ## Understand the structure of the log data
 The audit and request logs are in a JSON format. In this section, we look at the structure of JSON for request and audit logs.
@@ -94,7 +94,7 @@ Here's a sample entry in the JSON-formatted request log. Each blob has one root 
         ,
         {
              "time": "2016-07-07T21:02:53.456Z",
-             "resourceId": "/SUBSCRIPTIONS/<subscription_id>/RESOURCEGROUPS/<resource_group_name>/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/<data_lake_store_account_name>",
+             "resourceId": "/SUBSCRIPTIONS/<subscription_id>/RESOURCEGROUPS/<resource_group_name>/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/<data_lake_storage_gen1_account_name>",
              "category": "Requests",
              "operationName": "GETCustomerIngressEgress",
              "resultType": "200",
@@ -141,14 +141,14 @@ Here's a sample entry in the JSON-formatted audit log. Each blob has one root ob
         ,
         {
              "time": "2016-07-08T19:08:59.359Z",
-             "resourceId": "/SUBSCRIPTIONS/<subscription_id>/RESOURCEGROUPS/<resource_group_name>/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/<data_lake_store_account_name>",
+             "resourceId": "/SUBSCRIPTIONS/<subscription_id>/RESOURCEGROUPS/<resource_group_name>/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/<data_lake_storage_gen1_account_name>",
              "category": "Audit",
              "operationName": "SeOpenStream",
              "resultType": "0",
              "resultSignature": "0",
              "correlationId": "381110fc03534e1cb99ec52376ceebdf;Append_BrEKAmg;25.66.9.145",
              "identity": "A9DAFFAF-FFEE-4BB5-A4A0-1B6CBBF24355",
-             "properties": {"StreamName":"adl://<data_lake_store_account_name>.azuredatalakestore.net/logs.csv"}
+             "properties": {"StreamName":"adl://<data_lake_storage_gen1_account_name>.azuredatalakestore.net/logs.csv"}
         }
         ,
         . . . .
@@ -174,7 +174,7 @@ Here's a sample entry in the JSON-formatted audit log. Each blob has one root ob
 | StreamName |String |The path the operation was performed on |
 
 ## Samples to process the log data
-When sending logs from Azure Data Lake Store to Azure Log Analytics (see [View or analyze data collected with Log Analytics log search](../log-analytics/log-analytics-tutorial-viewdata.md) for details on using Log Analytics), the following query will return a table containing a list of user display names, the time of the events, and the count of events for the time of the event along with a visual chart. It can easily be modified to show user GUID or other attributes:
+When sending logs from Azure Data Lake Storage Gen1 to Azure Log Analytics (see [View or analyze data collected with Log Analytics log search](../log-analytics/log-analytics-tutorial-viewdata.md) for details on using Log Analytics), the following query will return a table containing a list of user display names, the time of the events, and the count of events for the time of the event along with a visual chart. It can easily be modified to show user GUID or other attributes:
 
 ```
 search *
@@ -183,9 +183,9 @@ search *
 ```
 
 
-Azure Data Lake Store provides a sample on how to process and analyze the log data. You can find the sample at [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample). 
+Azure Data Lake Storage Gen1 provides a sample on how to process and analyze the log data. You can find the sample at [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample). 
 
 ## See also
-* [Overview of Azure Data Lake Store](data-lake-store-overview.md)
-* [Secure data in Data Lake Store](data-lake-store-secure-data.md)
+* [Overview of Azure Data Lake Storage Gen1](data-lake-store-overview.md)
+* [Secure data in Data Lake Storage Gen1](data-lake-store-secure-data.md)
 

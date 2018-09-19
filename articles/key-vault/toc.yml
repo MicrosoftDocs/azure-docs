@@ -38,6 +38,8 @@
     href: key-vault-ovw-storage-keys.md
   - name: Throttling
     href: key-vault-ovw-throttling.md
+  - name: Virtual Network Service Endpoints
+    href: key-vault-overview-vnet-service-endpoints.md
   - name: About keys, secrets and certificates
     href: about-keys-secrets-and-certificates.md
     items:
@@ -67,6 +69,8 @@
     href: key-vault-group-permissions-for-apps.md
   - name: Secure your key vault
     href: key-vault-secure-your-key-vault.md
+  - name: Configure firewalls and virtual networks
+    href: key-vault-network-security.md
 - name: Reference
   items:
   - name: Azure PowerShell
@@ -123,8 +127,8 @@
     href: http://blogs.technet.com/b/kv/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/key-vault/
-  - name: Product Feedback
-    href: https://feedback.azure.com/forums/906355-azure-key-vault
 - name: Release Notes
   href: key-vault-versions.md
+- name: Product Feedback
+  href: https://feedback.azure.com/forums/906355-azure-key-vault
 

@@ -67,11 +67,14 @@ This guide creates an application that displays a button that queries Graph API,
 2. Copy and paste the following command in the **Package Manager Console** window:
 
     ```powershell
-    Install-Package Microsoft.Identity.Client -Pre
+    Install-Package Microsoft.Identity.Client -Pre -Version 1.1.4-preview0002
     ```
 
 > [!NOTE]
 > This command installs [Microsoft Authentication Library](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet). MSAL acquires, caches, and refreshes user tokens that access APIs protected by Azure Active Directory v2.
+
+> [!NOTE]
+> This tutorial does not use yet the latest version of MSAL.NET, but we are working on updating it.
 
 ## Initialize MSAL
 This step helps you create a class to handle interaction with MSAL, such as handling tokens.

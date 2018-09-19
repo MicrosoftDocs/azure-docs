@@ -13,6 +13,8 @@
     href: functions-create-first-azure-function.md
   - name: Create function - Visual Studio
     href: functions-create-your-first-function-visual-studio.md
+  - name: Create function - Visual Studio Code
+    href: functions-create-first-function-vs-code.md
   - name: Create function - Java/Maven
     href: functions-create-first-java-maven.md
   - name: Create function - Azure CLI
@@ -192,7 +194,7 @@
       href: functions-powerapps-scenario.md
     - name: Call a function from Microsoft Flow 
       href: functions-flow-scenario.md
-    - name: Use Managed Service Identity
+    - name: Use a managed identity
       href: ../app-service/app-service-managed-service-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
   - name: Durable Functions
     items:

@@ -4,16 +4,12 @@ description: Use Azure Functions to create a serverless function that is invoked
 services: azure-functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 
 ms.assetid: bc497d71-75e7-47b1-babd-a060a664adca
-ms.service: functions; cosmos-db
+ms.service: azure-functions; cosmos-db
 ms.devlang: multiple
 ms.topic: quickstart
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 03/27/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
@@ -110,7 +106,7 @@ Next, you connect to your Azure Cosmos DB account and create the **Tasks** colle
     | **Collection ID** | Items | The name for the new collection. This must match the name defined in your function binding.  |
     | **Storage capacity** | Fixed (10 GB)|Use the default value. This value is the storage capacity of the database. |
     | **Throughput** |400 RU| Use the default value. If you want to reduce latency, you can scale up the throughput later. |
-    | **[Partition key](../cosmos-db/partition-data.md#design-for-scale)** | /category|A partition key that distributes data evenly to each partition. Selecting the correct partition key is important in creating a performant collection. | 
+    | **[Partition key](../cosmos-db/partition-data.md#best-practices-when-choosing-a-partition-key)** | /category|A partition key that distributes data evenly to each partition. Selecting the correct partition key is important in creating a performant collection. | 
 
 1. Click **OK** to create the **Tasks** collection. It may take a short time for the collection to get created.
 
