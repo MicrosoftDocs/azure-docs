@@ -26,7 +26,7 @@ In the CLI, you can output more information during command execution by using th
 
 ## Debugging services with multiple instances
 
-At this time, Azure Dev Spaces supports debugging only on a single instance (pod). The azds.yaml file contains a setting, replicaCount, that indicates the number of instances that will be run for your service. If you change the replicaCount to configure your app to run multiple instances for a given service, the behavior of the debugger might not be as expected.
+At this time, Azure Dev Spaces works best when debugging a single instance (pod). The azds.yaml file contains a setting, replicaCount, that indicates the number of pods that will be run for your service. If you change the replicaCount to configure your app to run multiple pods for a given service, the debugger will attach to the first pod (when listed alphabetically). If that pod recycles for any reason, the debugger will attach to a different pod, possibly resulting in unexpected behavior.
 
 ## Error 'Failed to create Azure Dev Spaces controller'
 
