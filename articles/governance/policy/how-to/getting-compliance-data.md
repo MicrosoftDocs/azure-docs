@@ -1,5 +1,5 @@
 ---
-title: Getting Compliance Data in Azure Policy
+title: Getting compliance data in Azure Policy
 description: Azure Policy evaluations and effects determine compliance. Learn how to get the compliance details.
 services: azure-policy
 author: DCtheGeek
@@ -10,7 +10,7 @@ ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
 ---
-# Getting Compliance Data
+# Getting compliance data
 
 One of the largest benefits of Azure Policy is the insight and controls it provides over resources
 in a subscription or [management group](../../management-groups/overview.md) of
@@ -139,7 +139,7 @@ those events.
 
 ![Policy Compliance Activity Log](../media/getting-compliance-data/compliance-activitylog.png)
 
-## Command Line
+## Command line
 
 The same information that is available in the portal can be retrieved using the REST API directly
 (including with [ARMClient](https://github.com/projectkudu/ARMClient)) or Azure PowerShell with the
