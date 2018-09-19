@@ -1,3 +1,10 @@
+title: include file
+description: include file
+services: active-directory
+documentationcenter: dev-center-name
+author: brandwe
+manager: mtillman
+
 ## Register your application
 You can register your application in either of two ways, as described in the next two sections.
 
