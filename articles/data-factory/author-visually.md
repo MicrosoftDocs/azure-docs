@@ -106,6 +106,10 @@ To configure the publishing branch - that is, the branch where Resource Manager 
 }
 ```
 
+When you publish from Git mode, you can confirm that Data Factory is using the publish branch that you expect, as shown in the following screenshot:
+
+![Confirm the correct publish branch](media/author-visually/configure-publish-branch.png)
+
 When you specify a new publishing branch, Data Factory doesn't delete the previous publishing branch. If you want to remote the previous publishing branch, delete it manually.
 
 Data Factory only reads the `publish_config.json` file when it loads the factory. If you already have the factory loaded in the portal, refresh the browser to make your changes take effect.
