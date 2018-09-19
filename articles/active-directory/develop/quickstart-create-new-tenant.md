@@ -66,7 +66,7 @@ If you don't already have an Azure AD tenant or want to create a new one for dev
 
 ## Social and local accounts
 
-To begin building apps that sign in social and local accounts, you'll need to create an Azure AD B2C tenant. To begin, follow [creating a Azure AD B2C tenant](../active-directory-b2c/tutorial-create-tenant.md). 
+To begin building apps that sign in social and local accounts, you'll need to create an Azure AD B2C tenant. To begin, follow [creating an Azure AD B2C tenant](../../active-directory-b2c/tutorial-create-tenant.md). 
 
 ## Next steps
 
