@@ -268,8 +268,8 @@ A job recurs if the job's JSON definition includes the **recurrence** object, fo
 
 | Property | Required | Value | Description | 
 |----------|----------|-------|-------------| 
-| **frequency** | Yes, when **recurrence** is used | "Minute", "Hour", "Day", "Week", "Month", "Year" | The time unit between occurences | 
-| **interval** | No | 1 to 1000 inclusively | A positive integer that determines the number of time units between each occurence based on **frequency** | 
+| **frequency** | Yes, when **recurrence** is used | "Minute", "Hour", "Day", "Week", "Month", "Year" | The time unit between occurrences | 
+| **interval** | No | 1 to 1000 inclusively | A positive integer that determines the number of time units between each occurrence based on **frequency** | 
 | **schedule** | No | Varies | The details for more complex and advanced schedules. See **hours**, **minutes**, **weekDays**, **months**, and **monthDays** | 
 | **hours** | No | 1 to 24 | An array with the hour marks for when to run the job | 
 | **minutes** | No | 1 to 24 | An array with the minute marks for when to run the job | 

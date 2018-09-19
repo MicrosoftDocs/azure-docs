@@ -105,10 +105,10 @@ of jobs overall than P10 Premium, providing more scalability.
 then you can get a better deal by having all job collections in a Premium plan.
 
 * If you have one Standard job collection and one Premium job collection, 
-you're billed one standard billing unit *and* one premium billing unit. 
+then you're billed for one standard billing unit *and* one premium billing unit.
 
-  The Scheduler service bills based on the number of active job 
-  collections that are either standard or premium.
+  The Scheduler service bills based on the number of active 
+  job collections that are either standard or premium.
 
 ## See also
 
