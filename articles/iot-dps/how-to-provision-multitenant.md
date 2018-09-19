@@ -291,7 +291,7 @@ The sample code simulates a device boot sequence that sends the provisioning req
 
     ![Extract Device Provisioning Service endpoint information from the portal blade](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
-1. Open **~/azure-iot-sdk-c/provisioning\_client/samples/prov\_dev\_client\_sample/prov\_dev\_client\_sample.c** for editing.
+1. Open **~/azure-iot-sdk-c/provisioning\_client/samples/prov\_dev\_client\_sample/prov\_dev\_client\_sample.c** for editing on both VMs.
 
     ```bash
     vi ~/azure-iot-sdk-c/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c
@@ -305,7 +305,7 @@ The sample code simulates a device boot sequence that sends the provisioning req
 
 1. Find the definition for the `main()` function in the same file. Make sure the `hsm_type` variable is set to `SECURE_DEVICE_TYPE_SYMMETRIC_KEY` as shown below to match the enrollment group attestation method. 
 
-    Save your changes to the file.
+    Save your changes to the files on both VMs.
 
     ```c
     SECURE_DEVICE_TYPE hsm_type;
@@ -315,13 +315,13 @@ The sample code simulates a device boot sequence that sends the provisioning req
     ```
 
 
-1. Open **~/azure-iot-sdk-c/provisioning\_client/adapters/hsm\_client\_key.c**. 
+1. Open **~/azure-iot-sdk-c/provisioning\_client/adapters/hsm\_client\_key.c** on both VMs. 
 
     ```bash
      vi ~/azure-iot-sdk-c/provisioning_client/adapters/hsm_client_key.c
     ```
 
-1. Find the declaration of the `REGISTRATION_NAME` and `SYMMETRIC_KEY_VALUE` constants. Make the following changes to the file and save the file.
+1. Find the declaration of the `REGISTRATION_NAME` and `SYMMETRIC_KEY_VALUE` constants. Make the following changes to the files on both regional VMs and save the files.
 
     Update the value of the `REGISTRATION_NAME` constant with the **unique registration ID for your device**.
     
@@ -332,7 +332,10 @@ The sample code simulates a device boot sequence that sends the provisioning req
     static const char* const SYMMETRIC_KEY_VALUE = "p3w2DQr9WqEGBLUSlFi1jPQ7UWQL4siAGy75HFTFbf8=";
     ```
 
-    Save your changes to the file.
+    ```c
+    static const char* const REGISTRATION_NAME = "contoso-simdevice-west";
+    static const char* const SYMMETRIC_KEY_VALUE = "J5n4NY2GiBYy7Mp4lDDa5CbEe6zDU/c62rhjCuFWxnc=";
+    ```
 
 1. On both VMs, navigate to the sample folder shown below, and build the sample.
 
