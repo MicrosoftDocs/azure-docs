@@ -45,7 +45,7 @@ We'll start with the **Default Template**, which is located under the heading **
 
 ## Editing, rearranging, cloning, and deleting workbook sections
 
-Workbooks have two modes: **editing mode**, and **reading mode**. When the default workbook is first launched it opens in **editing mode**. This shows all the content of the workbook, including any steps and parameters that are otherwise hidden. **Reading mode** presents a simplified report style view. This allows you to abstract away the complexity that went into creating a report while still having the underlying mechanics only a few clicks away when needed for modification.
+Workbooks have two modes: **editing mode**, and **reading mode**. When the default workbook is first launched, it opens in **editing mode**. This shows all the content of the workbook, including any steps and parameters that are otherwise hidden. **Reading mode** presents a simplified report style view. This allows you to abstract away the complexity that went into creating a report while still having the underlying mechanics only a few clicks away when needed for modification.
 
 ![Application Insights Workbooks section editing controls](./media/app-insights-usage-workbooks/editing-controls-new.png)
 
@@ -188,7 +188,7 @@ This will launch the Edit Parameter menu item:
 
 ![Application Insights Workbooks section editing controls](./media/app-insights-usage-workbooks/010-time-range-edit.png)
 
-The query uses a feature of the analytics query langauge called a **datatable** that lets you generate an arbitrary table, full of content, out of thin air! For example, the following analytics query:
+The query uses a feature of the analytics query language called a **datatable** that lets you generate an arbitrary table, full of content, out of thin air! For example, the following analytics query:
 
 ```
 datatable( column1:string, column2:string )
