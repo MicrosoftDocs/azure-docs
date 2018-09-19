@@ -1,6 +1,6 @@
 ---
-title: Assigning administrator roles in Azure Active Directory | Microsoft Docs
-description: An admin role can add users, assign administrative roles, reset user passwords, manage user licenses, or manage domains. A user who is assigned an admin role has the same permissions across all cloud services to which your organization has subscribed.
+title: Administrator roles reference in Azure Active Directory | Microsoft Docs
+description: An admin role can add users, assign administrative roles, reset user passwords, manage user licenses, or manage domains.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 09/07/2018
+ms.date: 09/19/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -325,7 +325,8 @@ Full access to manage devices in Azure AD.
 | **Actions** | **Description** |
 | --- | --- |
 | microsoft.aad.directory/devices/delete | Delete devices in Azure Active Directory. |
-| microsoft.aad.directory/devices/update | Update the accountEnabled property on Devices in Azure Active Directory |
+| microsoft.aad.directory/devices/disable | Disable devices in Azure Active Directory. |
+| microsoft.aad.directory/devices/enable | Enable devices in Azure Active Directory. |
 | microsoft.aad.reports/allEntities/read | Read Azure AD Reports. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
