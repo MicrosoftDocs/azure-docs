@@ -37,15 +37,25 @@ Azure Data Explorer has the following roles:
 
 1. Navigate to your Azure Data Explorer cluster.
 
-1. In the **Overview** section, select **Access control (IAM)**.
+1. In the **Overview** section, select the database where you want to manage permissions.
 
-1. Select **Add**.
+    ![Select database](media/manage-database-permissions/select-database.png)
 
-1. Under **Add permissions**, select the role that you want to assign the principal to.
+1. Select **Permissions** then **Add**.
 
-1. Look up the principal, select it, then select **Save**.
+    ![Database permissions](media/manage-database-permissions/database-permissions.png)
 
-    ![Manage permissions in the Azure portal](media/manage-database-permissions/manage-permissions-portal.png)
+1. Under **Add database permissions**, select the role that you want to assign the principal to, then **Select principals**.
+
+    ![Add database permissions](media/manage-database-permissions/add-permission.png)
+
+1. Look up the principal, select it, then **Select**.
+
+    ![Manage permissions in the Azure portal](media/manage-database-permissions/new-principals.png)
+
+1. Select **Save**.
+
+    ![Manage permissions in the Azure portal](media/manage-database-permissions/save-permission.png)
 
 ## Manage permissions with management commands
 
