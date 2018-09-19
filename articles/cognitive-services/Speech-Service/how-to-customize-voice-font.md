@@ -10,7 +10,7 @@ ms.author: nolach
 ---
 # Creating custom voice fonts
 
-Microsoft Text to Speech (TTS) voice customization enables you to create a recognizable, one-of-a-kind voice for your brand: a *voice font.* 
+Microsoft Text-to-Speech (TTS) voice customization enables you to create a recognizable, one-of-a-kind voice for your brand: a *voice font.* 
 
 To create your voice font, you make a studio recording and upload the associated scripts as the training data. The service then creates a unique voice model tuned to your recording. You can use  this voice font to synthesize speech. 
 
@@ -19,7 +19,7 @@ You can get started with a small amount of data for a proof of concept. But the 
 
 ## Prerequisites
 
-The Text to Speech voice customization feature is currently in private preview. [Fill out the application form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0N8Vcdi8MZBllkZb70o6KdURjRaUzhBVkhUNklCUEMxU0tQMEFPMjVHVi4u) to be considered for access.
+The Text-to-Speech voice customization feature is currently in private preview. [Fill out the application form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0N8Vcdi8MZBllkZb70o6KdURjRaUzhBVkhUNklCUEMxU0tQMEFPMjVHVi4u) to be considered for access.
 
 You also need an Azure account and a subscription to the Speech service. [Create one](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started) if you haven't already. Connect your subscription to the Custom Voice portal as follows.
 
@@ -96,7 +96,7 @@ After you prepre your audio file archive and transcripts, upload them via the [C
 
 1. Sign in to the portal.
 
-2. On the main page, under **Custom Voice,** select **Data**   
+2. On the main page, under **Custom Voice,** select **Data**.   
 
     The **My Voice** table appears. It is empty if you haven't uploaded any voice datasets yet.
 
@@ -123,7 +123,7 @@ Datasets are automatically validated after upload. Data validation includes a se
 
 ![My Voice Data](media/custom-voice/my-voice-data.png)
 
-The following table shows the processing states for imported datasets. 
+The following table shows the processing states for imported datasets: 
 
 | State | Meaning
 | ----- | -------
@@ -153,7 +153,7 @@ After your dataset has been validated, you can use it to build your custom voice
 
 1. As you did when you uploaded your dataset, enter a name and description to help you identify this model. 
 
-    Choose a name carefully. The name you enter here will be the name you use to specify the voice in your request for speech synthesis as part of the SSML input. Only letters, numbers, and a few punctuation characters like '-', '_' '(', ')' are allowed.
+    Choose a name carefully. The name you enter here will be the name you use to specify the voice in your request for speech synthesis as part of the SSML input. Only letters, numbers, and a few punctuation characters such as '-', '_', and '(', ')' are allowed.
 
     A common use of the **Description** field is to record the names of the datasets that were used to create the model.
 
@@ -188,11 +188,11 @@ After your voice font is successfully built, you can test it before deploying it
 
 To display a pop-up menu for submitting text requests, select the **Test with text** button under the table title. You can submit your test request in either plain text or SSML. The maximum input size is 1,024 characters, including all tags for the SSML request. The language of your text must be the same as the language of your voice font.
 
-After filling in the text box and confirming the input mode, select **Yes** to submit your test request and return to the test page. The table now includes an entry that corresponds to your new request and the status column. It can take a few minutes to synthesize speech. When the status column reads **Succeeded,** you can download the text input (a `.txt` file) and audio output (a `.wav` file) and audition the latter for quality.
+After filling in the text box and confirming the input mode, select **Yes** to submit your test request and return to the test page. The table now includes an entry that corresponds to your new request and the status column. It can take a few minutes to synthesize speech. When the status column says **Succeeded,** you can download the text input (a `.txt` file) and audio output (a `.wav` file), and audition the latter for quality.
 
 ## Create and use a custom endpoint
 
-After you've successfully created and tested your voice model, you deploy it in a custom Text to Speech endpoint. You then use this endpoint in place of the usual endpoint when making Text to Speech requests through the REST API. Your custom endpoint can be called only by the subscription that you used to deploy the font.
+After you've successfully created and tested your voice model, you deploy it in a custom Text-to-Speech endpoint. You then use this endpoint in place of the usual endpoint when making Text-to-Speech requests through the REST API. Your custom endpoint can be called only by the subscription that you used to deploy the font.
 
 To create a new custom endpoint, choose **Endpoints** from the **Custom Voice** menu at the top of the page. The **My Deployed Voices** page appears, with its table of current custom voice endpoints, if any. The current locale is reflected in the first row of the table. To create a deployment for a different language, change the displayed locale. (It must match the voice you're deploying.)
 
@@ -211,7 +211,7 @@ When the deployment status is **Succeeded,** the endpoint of your deployed voice
 Online testing of the endpoint is also available via the custom voice portal. To test your endpoint, choose **Endpoints testing** from the **Custom Voice** drop-down menu. The endpoint testing page appears. Choose a deployed custom voice and enter the text to be spoken (in either plain text or SSML format) in the text box.
 
 > [!NOTE] 
-> When using SSML, the `<voice>` tag must specify the name you gave your custom voice when you created it. If you submit plain text, the custom voice is always used.
+> When using SSML, the `<voice>` tag must specify the name that you gave your custom voice when you created it. If you submit plain text, the custom voice is always used.
 
 To hear the text spoken in your custom voice font, select **Play**.
 
