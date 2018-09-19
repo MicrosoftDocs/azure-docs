@@ -141,11 +141,11 @@ ms.author: mtillman
                                                             <a href="conditional-access/app-sign-in-risk.md">Block access when a session risk is detected</a>
                                                         </p>
 														<br><br>
-														<h3><a href="develop/azure-ad-developers-guide.md">Developers</a></h3>
+														<h3><a href="develop/index.yml">Developers</a></h3>
                                                         <p>
-                                                            <a href="develop/authentication-scenarios.md">Application scenarios</a><br>
-                                                            <a href="develop/active-directory-authentication-libraries.md">Azure AD v1.0 auth libraries</a><br>
-                                                            <a href="develop/reference-v2-libraries.md">Azure AD v2.0 auth libraries</a>
+                                                            <a href="develop/about-microsoft-identity-platform.md">About Microsoft identity platform</a><br>
+                                                            <a href="develop/azure-ad-developers-guide.md">v1.0</a><br>
+                                                            <a href="develop/v2-overview.md">v2.0</a>
                                                         </p>
 														<br><br>
 														<h3><a href="devices/index.yml">Device management</a></h3>
