@@ -29,4 +29,4 @@ ms.custom:
 
 ## Next Steps
 
-Learn how to [deploy shared images](shared-images.md).
+Learn how to [deploy shared images using Azure CLI](../linux/shared-images.md).

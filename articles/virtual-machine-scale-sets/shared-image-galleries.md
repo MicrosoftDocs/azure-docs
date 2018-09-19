@@ -31,4 +31,4 @@ ms.custom:
 
 ## Next Steps
 
-Learn how to deploy shared images using [Azure PowerShell](shared-images-ps.md) or [Azure CLI] (shared-images-cli.md)
+Learn how to deploy shared images using the [Azure CLI] (shared-images-cli.md)
