@@ -265,4 +265,3 @@ Make sure to update variables to point to folders where your input files are loc
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-
