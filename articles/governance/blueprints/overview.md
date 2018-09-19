@@ -10,7 +10,7 @@ ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
 ---
-# What is Azure Blueprints
+# What is Azure Blueprints?
 
 Just as a blueprint allows an engineer or an architect to sketch out the design parameters for a
 project, Azure Blueprints enables cloud architects and central IT to define a repeatable set of
@@ -156,7 +156,7 @@ role](../../role-based-access-control/custom-roles.md).
 > [!NOTE]
 > The service principal for Azure Blueprint requires the **Owner** role on the assigned subscription in order to enable deployment. If using the portal, this role is automatically granted and revoked for the deployment. If using the REST API, this role must be manually granted, but is still automatically revoked after the deployment completes.
 
-## Next Steps
+## Next steps
 
 - [Create a blueprint - Portal](create-blueprint-portal.md)
 - [Create a blueprint - REST API](create-blueprint-rest-api.md)

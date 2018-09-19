@@ -1,5 +1,5 @@
 ---
-title: Understanding Azure Policy Effects
+title: Understand Azure Policy effects
 description: Azure Policy definition have various effects that determine how compliance is managed and reported.
 services: azure-policy
 author: DCtheGeek
@@ -10,7 +10,7 @@ ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
 ---
-# Understanding Policy Effects
+# Understand Policy effects
 
 Each policy definition in Azure Policy has a single effect that determines what happens during
 scanning when the **if** segment of the policy rule is evaluated to match the resource being
@@ -25,7 +25,7 @@ There are currently five effects that are supported in a policy definition:
 - Deny
 - DeployIfNotExists
 
-## Order of Evaluation
+## Order of evaluation
 
 When a request to create or update a resource through Azure Resource Manager is made, Policy
 processes several of the effects prior to handing the request to the appropriate Resource Provider.
@@ -48,7 +48,7 @@ Append is used to add additional fields to the requested resource during creatio
 be useful for adding tags on resources such as costCenter or specifying allowed IPs for a storage
 resource.
 
-### Append Evaluation
+### Append evaluation
 
 As mentioned, append evaluates prior to the request getting processed by a Resource Provider during
 the creation or updating of a resource. Append adds field(s) to the resource when the **if**
@@ -59,13 +59,13 @@ When a policy definition using the append effect is run as part of an evaluation
 make changes to resources that already exist. Instead, it marks any resource that meets the **if**
 condition as non-compliant.
 
-### Append Properties
+### Append properties
 
 An append effect only has a **details** array, which is required. As **details** is an array, it can
 take either a single **field/value** pair or multiples. Refer to [definition structure](definition-structure.md#fields)
 for the list of acceptable fields.
 
-### Append Examples
+### Append examples
 
 Example 1: Single **field/value** pair to append a tag.
 
@@ -117,7 +117,7 @@ array **value** to set IP rules on a storage account.
 Deny is used to prevent a resource request that doesn't match desired standards through a policy
 definition and fails the request.
 
-### Deny Evaluation
+### Deny evaluation
 
 When creating or updating a resource, deny prevents the request prior to being sent to the Resource
 Provider. The request is returned as a 403 (Forbidden). In the portal, the Forbidden can be viewed
@@ -126,12 +126,12 @@ as a status on the deployment that was prevented due to the policy assignment.
 During an evaluation cycle, policy definitions with a deny effect that match resources are marked
 as non-compliant, but no action is performed on that resource.
 
-### Deny Properties
+### Deny properties
 
 The deny effect does not have any additional properties for use in the **then** condition of the
 policy definition.
 
-### Deny Example
+### Deny example
 
 Example: Using the deny effect.
 
@@ -146,19 +146,19 @@ Example: Using the deny effect.
 Audit effect is used to create a warning event in the activity log when a non-compliant resource is
 evaluated, but it does not stop the request.
 
-### Audit Evaluation
+### Audit evaluation
 
 The audit effect is the last to run during the creation or update of a resource prior to the
 resource is sent to the Resource Provider. Audit works the same for a resource request and an
 evaluation cycle, and executes a `Microsoft.Authorization/policies/audit/action` operation to the
 activity log. In both cases, the resource is marked as non-compliant.
 
-### Audit Properties
+### Audit properties
 
 The audit effect does not have any additional properties for use in the **then** condition of the
 policy definition.
 
-### Audit Example
+### Audit example
 
 Example: Using the audit effect.
 
@@ -173,7 +173,7 @@ Example: Using the audit effect.
 AuditIfNotExists enables auditing on a resource that matches the **if** condition, but does not
 have the components specified in the **details** of the **then** condition.
 
-### AuditIfNotExists Evaluation
+### AuditIfNotExists evaluation
 
 AuditIfNotExists runs after a Resource Provider has handled a create or update request to a
 resource and has returned a success status code. The effect is triggered if there are no related
@@ -182,7 +182,7 @@ effect is triggered, a `Microsoft.Authorization/policies/audit/action` operation
 log is executed in the same way as the audit effect. When triggered, the resource that satisfied
 the **if** condition is the resource that is marked as non-compliant.
 
-### AuditIfNotExists Properties
+### AuditIfNotExists properties
 
 The **details** property of the AuditIfNotExists effects has all the subproperties that define the
 related resources to match.
@@ -210,7 +210,7 @@ related resources to match.
   - Can use [field()] to check equivalence with values in the **if** condition.
   - For example, could be used to validate that the parent resource (in the **if** condition) is in the same resource location as the matching related resource.
 
-### AuditIfNotExists Example
+### AuditIfNotExists example
 
 Example: Evaluates Virtual Machines to determine if the Antimalware extension exists then audits
 when missing.
@@ -249,7 +249,7 @@ is met.
 > [!NOTE]
 > [Linked and nested templates](../../../azure-resource-manager/resource-group-linked-templates.md) are not currently supported with **deployIfNotExists**.
 
-### DeployIfNotExists Evaluation
+### DeployIfNotExists evaluation
 
 DeployIfNotExists also runs after a Resource Provider has handled a create or update request to a
 resource and has returned a success status code. The effect is triggered if there are no related
@@ -259,7 +259,7 @@ effect is triggered, a template deployment is executed.
 During an evaluation cycle, policy definitions with a DeployIfNotExists effect that match resources
 are marked as non-compliant, but no action is performed on that resource.
 
-### DeployIfNotExists Properties
+### DeployIfNotExists properties
 
 The **details** property of the DeployIfNotExists effects has all the subproperties that define the
 related resources to match and the template deployment to execute.
@@ -298,7 +298,7 @@ related resources to match and the template deployment to execute.
   > the policy to the template. The **value** in this section under a template parameter name is used
   > to perform this value passing (see _fullDbName_ in the DeployIfNotExists example).
 
-### DeployIfNotExists Example
+### DeployIfNotExists example
 
 Example: Evaluates SQL Server databases to determine if transparentDataEncryption is enabled. If
 not, then a deployment to enable it is executed.

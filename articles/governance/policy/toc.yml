@@ -174,7 +174,7 @@
   items:
   - name: Azure Policy definition structure
     href: ./concepts/definition-structure.md
-  - name: Understanding Policy effects
+  - name: Understand Policy effects
     href: ./concepts/effects.md
 - name: How-to guides
   items:

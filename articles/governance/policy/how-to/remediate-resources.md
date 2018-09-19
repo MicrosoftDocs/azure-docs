@@ -95,7 +95,7 @@ To create a **remediation task**, follow these steps:
 
 1. Click on the **remediation task** from the policy compliance page to get details about the progress. The filtering used for the task are shown along with a list of the resources being remediated.
 
-1. From the **remedation task** page, right-click on a resource to either view the remediation task's deployment or the resource. At the end of the row, click on **Related events** to see details such as an error message.
+1. From the **remedation task** page, right-click on a resource to view either the remediation task's deployment or the resource. At the end of the row, click on **Related events** to see details such as an error message.
 
    ![Remediate - resource task context menu](../media/remediate-resources/resource-task-context-menu.png)
 
