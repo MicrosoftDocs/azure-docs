@@ -56,12 +56,6 @@
       href: how-to-write-data.md
   - name: Train and tune
     items:    
-    - name: Use automated ML	
-      items:
-      - name: Configure auto training
-        href: how-to-configure-auto-train.md 
-      - name: Use remote compute targets
-        href: how-to-auto-train-remote.md
     - name: Access data
       href: how-to-access-data.md
     - name: Train ML models
@@ -77,6 +71,13 @@
       href: how-to-tune-hyperparameters.md    
     - name: Track experiments and metrics
       href: how-to-track-experiments.md
+  - name: Automate machine learning
+    href: how-to-automated-ml.md	
+    items:
+    - name: Configure auto training
+      href: how-to-configure-auto-train.md 
+    - name: Use remote compute targets
+      href: how-to-auto-train-remote.md
   - name: Deploy and monitor	
     items:    
     - name: Where to deploy models
