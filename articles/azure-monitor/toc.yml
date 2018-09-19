@@ -221,17 +221,17 @@
           href: ../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md?toc=/azure/azure-monitor/toc.json
         - name: Prepare for JSON Lines diagnostic logs format
           href: ../monitoring-and-diagnostics/monitor-diagnostic-logs-append-blobs.md?toc=/azure/azure-monitor/toc.json
-        - name: Custom metrics to store REST API
+        - name: Custom metrics to metrics store REST API
           href: ../monitoring-and-diagnostics/metrics-store-custom-rest-api.md?toc=/azure/azure-monitor/toc.json
-        - name: Send to metrics store Linux VM (Telegraf)
+        - name: GuestOS to metrics store Linux VM (Telegraf)
           href: ../monitoring-and-diagnostics/metrics-store-custom-linux-telegraf.md?toc=/azure/azure-monitor/toc.json  
-        - name: Send to metrics store VM
+        - name: GuestOS to metrics store VM
           href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-resource-manager-VM.md?toc=/azure/azure-monitor/toc.json  
-        - name: Send to metrics store VM scale set 
+        - name: GuestOS to metrics store VM scale set 
           href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-resource-manager-VMSS.md?toc=/azure/azure-monitor/toc.json  
-        - name: Send to metrics store for classic VM
+        - name: GuestOS to metrics store classic VM
           href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-classic-vm.md?toc=/azure/azure-monitor/toc.json  
-        - name: Send to metrics store for 
+        - name: GuestOS to metrics store cloud service
           href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-classic-cloud-service.md?toc=/azure/azure-monitor/toc.json  
       - name: Troubleshoot
         items:
