@@ -18,7 +18,7 @@ In this quickstart, you learn how to use Node.js to upload, download, and list b
 
 To complete this quickstart, you need an [Azure subscription](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-[!INCLUDE [storage-quickstart-create-account-portal](../../../includes/storage-quickstart-create-account-portal.md)]
+[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 ## Download the sample application
 

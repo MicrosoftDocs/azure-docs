@@ -1,3 +1,15 @@
+---
+ title: include file
+ description: include file
+ services: storage
+ author: tamram
+ ms.service: storage
+ ms.topic: include
+ ms.date: 09/18/2018
+ ms.author: tamram
+ ms.custom: include file
+---
+
 To create a general-purpose v2 storage account in the Azure portal, follow these steps:
 
 1. In the Azure portal, expand the menu on the left side to open the menu of services, and choose **All services**. Then, scroll down to **Storage**, and choose **Storage accounts**. On the **Storage Accounts** window that appears, choose **Add**.

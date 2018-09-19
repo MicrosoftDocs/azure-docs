@@ -87,7 +87,7 @@ A **general-purpose v2** storage account provides access to all of the Azure Sto
 
 # [Portal](#tab/portal)
 
-[!INCLUDE [storage-quickstart-create-account-portal](../../../includes/storage-quickstart-create-account-portal.md)]
+[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 # [PowerShell](#tab/powershell)
 
