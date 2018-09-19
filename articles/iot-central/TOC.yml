@@ -55,8 +55,6 @@
         href: howto-set-up-template.md
       - name: Manage your devices
         href: howto-manage-devices.md
-      - name: Run a job
-        href: howto-run-a-job.md
       - name: Use device sets
         href: howto-use-device-sets.md
       - name: Version device template
@@ -67,7 +65,7 @@
         href: howto-create-telemetry-rules.md
       - name: Create an event rule
         href: howto-create-event-rules.md
-      - name: Create custom analytics
+      - name: Analyze your device data
         href: howto-create-analytics.md 
   - name: Actions and extensibility
     items:
