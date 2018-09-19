@@ -18,7 +18,7 @@ ms.author: jeffgilb
 ms.reviewer: quying
 ---
 
-# Tutorial: create highly available MySQL databases
+# Tutorial: Create highly available MySQL databases
 
 As an Azure Stack tenant user, you can configure server VMs to host MySQL Server databases. After a MySQL cluster is successfully created, and managed by Azure Stack, users who have subscribed to MySQL services can easily create highly available MySQL databases.
 
