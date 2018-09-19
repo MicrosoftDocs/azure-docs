@@ -88,7 +88,7 @@ This query is combining requests from three different applications. An app named
 
 To pull in data from an external Log Analytics workspace use the **workspace** identifier.
 
-To learn more about cross-resource queries refer to the [official guidance](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-cross-workspace-search).
+To learn more about cross-resource queries refer to the [official guidance](https://docs.microsoft.com/azure/log-analytics/log-analytics-cross-workspace-search).
 
 ### Advanced analytic query settings
 
