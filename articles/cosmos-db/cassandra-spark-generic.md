@@ -80,7 +80,7 @@ While the sections above were specific to Azure Spark-based PaaS services, this 
 #### Connector dependencies:
 
 1. Add the maven coordinates for the [Datastax Cassandra connector for Spark](cassandra-spark-generic.md#dependencies-for-connectivity)
-2. Add the maven coordinates for the [Azure Cosmos DB helper library]((cassandra-spark-generic.md#dependencies-for-connectivity) for Cassandra API
+2. Add the maven coordinates for the [Azure Cosmos DB helper library](cassandra-spark-generic.md#dependencies-for-connectivity) for Cassandra API
 
 #### Imports:
 
