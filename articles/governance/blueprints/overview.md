@@ -56,7 +56,7 @@ A blueprint is a package or container for composing focus-specific sets of stand
 requirements related to the implementation of Azure cloud services, security, and design that can be
 reused to ensure consistency and compliance.
 
-A policy is a default allow and explicit deny system focused on resource
+A [policy](../policy/overview.md) is a default allow and explicit deny system focused on resource
 properties during deployment and for already existing resources. It supports IT governance by
 ensuring that resources within a subscription adhere to requirements and standards.
 
