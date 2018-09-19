@@ -51,6 +51,10 @@ We provide additional services to help you prepare scripts for recording. Contac
 
 **A**: Models can't be downloaded and executed locally.
 
+**Q: Are my requests throttled?**
+
+**A**: The REST API limits requests to 25 per 5 seconds. Details can be found in our pages for [Text to Speech](text-to-speech.md). 
+
 ## Next steps
 
 * [Troubleshooting](troubleshooting.md)

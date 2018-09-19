@@ -9,7 +9,7 @@ ms.service: sql-database
 ms.custom: overview-samples, mvc
 ms.devlang: azurecli
 ms.topic: sample
-ms.date: 04/01/2018
+ms.date: 09/07/2018
 ms.author: carlrab
 ---
 
@@ -25,4 +25,5 @@ The following table includes links to Azure CLI script examples for Azure SQL Da
 |**Scale a single database and an elastic pool**||
 | [Scale a single database](scripts/sql-database-monitor-and-scale-database-cli.md?toc=%2fcli%2fazure%2ftoc.json) | This CLI script example scales a single Azure SQL database to a different performance level after querying the size information for the database. |
 | [Scale an elastic pool](scripts/sql-database-scale-pool-cli.md?toc=%2fcli%2fazure%2ftoc.json) | This CLI script example scales a SQL elastic pool to a different performance level.  |
+| [Create and manage a Managed Instance](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) | These CLI scripts show you have to create and manage a Managed Instance using the Azure CLI |
 |||

@@ -32,11 +32,16 @@ In the [Speech SDK](speech-sdk.md), regions are specified as a string
 
 The table below lists the available regions for **speech recognition** and **translation**:
 
-Region|	Value for region parameter in the Speech SDK
+Region|	Value for region parameter in the Speech SDK| Portal
 -|-
-West US| `westus`
-East Asia| `eastasia`
-North Europe| `northeurope`
+West US| `westus`| https://westus.cris.ai
+West US2| `westus2`| https://westus2.cris.ai
+East US| `eastus`| https://eastus.cris.ai
+East US2| `eastus2`| https://eastus2.cris.ai
+East Asia| `eastasia`| https://eastasia.cris.ai
+South East Asia| `southeastasia`| https://southeastasia.cris.ai
+North Europe| `northeurope`| https://northeurope.cris.ai
+West Europe|  `westeurope`| https://westeurope.cris.ai
 
 ### Regions for intent recognition
 

@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 * Fix errors 
 * Retest the batch
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## Before you begin
 
@@ -224,7 +224,7 @@ The app prediction accuracy has increased by finding errors in the batch and cor
 
 ## Clean up resources
 
-[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## Next steps
 

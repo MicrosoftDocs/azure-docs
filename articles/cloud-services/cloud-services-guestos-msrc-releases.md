@@ -3,7 +3,7 @@ title: List of updates applied to the Azure Guest OS | Microsoft Docs
 description: The list of updates applied to Guest OS releases
 services: cloud-services
 documentationcenter: na
-author: raiye
+author: RichardScheel
 manager: timlt
 editor: ''
 
@@ -13,12 +13,35 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 8/3/2018
-ms.author: raiye
+ms.date: 9/12/2018
+ms.author: RichardScheel
 
 ---
 # Azure Guest OS
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in.
+
+## August Guest OS
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 18-08 | [4343887] | Windows 10 Security | 5.22 | August 14, 2018 |
+| Rel 18-08 | [4343899] | Windows Security only | 2.77 | August 14, 2018 |
+| Rel 18-08 | [4343896] | Windows Security only | 3.64 | August 14, 2018 |
+| Rel 18-08 | [4343888] | Windows Security only | 4.57 | August 14, 2018 |
+| Rel 18-08 | [4344177], [4344173] | .NET 3.5, 4.5 Security | 2.77 | August 14, 2018 |
+| Rel 18-08 | [4344175], [4344172] | .NET 3.5, 4.x Security | 3.64 | August 14, 2018 |
+| Rel 18-08 | [4344178], [4344171] | .NET 3.5, 4.x Security | 4.57 | August 14, 2018 |
+| Rel 18-08 | [4346742], [4346739] | .NET 3.5, 4.x OOB release | 3.64 | July 30, 2018 |
+| Rel 18-08 | [4346745], [4346408] | .NET 3.5, 4.x OOB release | 4.57 | July 30, 2018 |
+| Rel 18-08 | [4343902] | Flash | 3.64, 4.57, 5.22 | August 14, 2018 |
+| Rel 18-08 | [4343205] | Internet Explorer | 2.77, 3.64, 4.57 | August 14, 2018 |
+| N/A | [4338818] |July Non-Security rollup |2.77 | July 10, 2018 |
+| N/A | [4019990] |D3D Compiler update for .NET |2.77 | July 10, 2018 |
+| N/A | [4338830] |July Non-Security rollup |3.64 | July 10, 2018 |
+| N/A | [4338421] |July Non-Security .NET 3.5 rollup |3.64 | July 10, 2018 |
+| N/A | [4338416] |July Non-Security .NET 4x rollup |3.64 | July 10, 2018 |
+| N/A | [4338815] |July Non-Security rollup |4.57 | July 10, 2018 |
+| N/A | [4338424] |July Non-Security .NET 3.5 rollup |3.64 | July 10, 2018 |
+| N/A | [4338415] |July Non-Security .NET 4x rollup |3.64 | July 10, 2018 |
 
 
 ## July Guest OS
@@ -692,6 +715,31 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A |[2896881] |Long logon time when you use the AddPrinterConnection VBScript command to map printers for users during logon process in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 
 
+[4343887]: http://support.microsoft.com/kb/4343887
+[4343899]: http://support.microsoft.com/kb/4343899
+[4343896]: http://support.microsoft.com/kb/4343896
+[4343888]: http://support.microsoft.com/kb/4343888
+[4344177]: http://support.microsoft.com/kb/4344177
+[4344173]: http://support.microsoft.com/kb/4344173
+[4344175]: http://support.microsoft.com/kb/4344175
+[4344172]: http://support.microsoft.com/kb/4344172
+[4344178]: http://support.microsoft.com/kb/4344178
+[4344171]: http://support.microsoft.com/kb/4344171
+[4346742]: http://support.microsoft.com/kb/4346742
+[4346739]: http://support.microsoft.com/kb/4346739
+[4346745]: http://support.microsoft.com/kb/4346745
+[4346408]: http://support.microsoft.com/kb/4346408
+[4343902]: http://support.microsoft.com/kb/4343902
+[4343205]: http://support.microsoft.com/kb/4343205
+[4338818]: http://support.microsoft.com/kb/4338818
+[4019990]: http://support.microsoft.com/kb/4019990
+[4338830]: http://support.microsoft.com/kb/4338830
+[4338421]: http://support.microsoft.com/kb/4338421
+[4338416]: http://support.microsoft.com/kb/4338416
+[4338815]: http://support.microsoft.com/kb/4338815
+[4338424]: http://support.microsoft.com/kb/4338424
+[4338415]: http://support.microsoft.com/kb/4338415
+
 
 [4338814]: http://support.microsoft.com/kb/4338814
 [4338823]: http://support.microsoft.com/kb/4338823
@@ -1299,7 +1347,6 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [3057839]:http://support.microsoft.com/kb/3057839
 [3062577]:http://support.microsoft.com/kb/3062577
 [3063858]:http://support.microsoft.com/kb/3063858
-
 
 
 [archive]: https://msdn.microsoft.com/library/azure/dn391773.aspx

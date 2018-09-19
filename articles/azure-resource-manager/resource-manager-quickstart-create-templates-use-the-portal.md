@@ -11,7 +11,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 08/22/2018
+ms.date: 09/07/2018
 ms.topic: quickstart
 ms.author: jgao
 

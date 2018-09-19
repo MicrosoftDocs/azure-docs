@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 09/10/2018
 ms.component: hybrid
 ms.author: billmath
 ---
@@ -56,13 +56,15 @@ Seamless SSO can be combined with either the [Password Hash Synchronization](act
 
 | OS\Browser |Internet Explorer|Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|Yes|No|Yes|Yes\*|N/A
-|Windows 8.1|Yes|N/A|Yes|Yes\*|N/A
-|Windows 8|Yes|N/A|Yes|Yes\*|N/A
-|Windows 7|Yes|N/A|Yes|Yes\*|N/A
-|Mac OS X|N/A|N/A|Yes\*|Yes\*|Yes\*
+|Windows 10|Yes\*|No|Yes|Yes\*\*|N/A
+|Windows 8.1|Yes\*|N/A|Yes|Yes\*\*|N/A
+|Windows 8|Yes\*|N/A|Yes|Yes\*\*|N/A
+|Windows 7|Yes\*|N/A|Yes|Yes\*\*|N/A
+|Mac OS X|N/A|N/A|Yes\*\*|Yes\*\*|Yes\*
 
-\*Requires [additional configuration](active-directory-aadconnect-sso-quick-start.md#browser-considerations)
+\*Requires Internet Explorer versions 10 or above
+
+\*\*Requires [additional configuration](active-directory-aadconnect-sso-quick-start.md#browser-considerations)
 
 >[!NOTE]
 >For Windows 10, the recommendation is to use [Azure AD Join](../active-directory-azureadjoin-overview.md) for the optimal single sign-on experience with Azure AD.

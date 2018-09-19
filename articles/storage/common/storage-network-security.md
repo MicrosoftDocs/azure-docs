@@ -202,7 +202,7 @@ IP network rules for storage accounts can be managed through the Azure portal, P
 2. Click on the settings menu called **Firewalls and virtual networks**.
 3. Ensure that you have elected to allow access from 'Selected networks'.
 4. To grant access to an internet IP range, enter the IP address or address range (in CIDR format) under Firewall, Address Ranges.
-5. To remove an IP network rule, click "..." to open the context menu for the rule, and click "Remove".
+5. To remove an IP network rule, click the trash can icon next to the network rule.
 6. Click *Save* to apply your changes.
 
 #### PowerShell

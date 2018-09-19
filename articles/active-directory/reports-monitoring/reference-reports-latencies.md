@@ -35,7 +35,7 @@ There are two areas of activity reporting:
 
 The following table lists the latency information for activity reports.
 
-| Report | Latency (P95) |Latency (P99)|
+| Report | Latency (95%) |Latency (99%)|
 | :-- | --- | --- | 
 | Audit logs | 2 mins  | 5 mins  |
 | Sign-ins | 2 mins  | 5 mins |

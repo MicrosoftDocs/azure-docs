@@ -52,6 +52,7 @@ The downloadable configuration is just an example; modify it to suit your own ne
 * **Azure CLI**. [Set up the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) environment on your machine.
 * The wget command, if you don't already have it: Run `sudo apt-get install wget`.
 * An existing Azure subscription and an existing storage account within it to store the data.
+* List of supported Linux distributions is on https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic#supported-linux-distributions
 
 ### Sample installation
 

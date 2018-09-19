@@ -31,7 +31,7 @@ The **Speech to Text** API offers the following features:
 
 ## API capabilities
 
-Some capabilities of the **Speech to Text** API are not available via REST. The following table summarizes the capabilities of each method of accessing the API.
+A lot of the capabilities of the **Speech to Text** API -especially around customization- are available via REST. The following table summarizes the capabilities of each method of accessing the API. For a full list of capabilities and API details please consult [Swagger](https://swagger/service/11ed9226-335e-4d08-a623-4547014ba2cc#/)
 
 | Use case | REST | SDKs |
 |-----|-----|-----|----|
@@ -39,6 +39,16 @@ Some capabilities of the **Speech to Text** API are not available via REST. The 
 | Transcribe a longer utterance (> 15 s) | No | Yes |
 | Transcribe streaming audio with optional interim results | No | Yes |
 | Understand speaker intents via LUIS | No\* | Yes |
+| Create Accuracy Tests | Yes | No |
+| Upload datasets for model adaptation | Yes | No |
+| Create & manage speech models | Yes | No |
+| Create & manage model deployments | Yes | No |
+| Manage Subscriptions | Yes | No |
+| Create & manage model deployments | Yes | No |
+| Create & manage model deployments | Yes | No |
+
+> [!NOTE]
+> The REST API implements throttling that limits the API requests to 25 per 5 second. Message hearders will inform of the limits
 
 \* *LUIS intents and entities can be derived using a separate LUIS subscription. With this subscription, the SDK can call LUIS for you and provide entity and intent results as well as speech transcriptions. With the REST API, you can call LUIS yourself to derive intents and entities with your LUIS subscription.*
 

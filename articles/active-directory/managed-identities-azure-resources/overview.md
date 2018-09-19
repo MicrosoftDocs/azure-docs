@@ -20,7 +20,7 @@ ms.author: daveba
 
 # What is managed identities for Azure resources?
 
-[!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
+[!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 A common challenge when building cloud applications is how to manage the credentials in your code for authenticating to cloud services. Keeping the credentials secure is an important task. Ideally, the credentials never appear on developer workstations and aren't checked into source control. Azure Key Vault provides a way to securely store credentials, secrets, and other keys, but your code has to authenticate to Key Vault to retrieve them. 
 
@@ -29,7 +29,7 @@ The managed identities for Azure resources feature in Azure Active Directory (Az
 The managed identities for Azure resources feature is free with Azure AD for Azure subscriptions. There's no additional cost.
 
 > [!NOTE]
-> Managed identities for azure resources is the new name for the service formerly known as Managed Service Identity (MSI).
+> Managed identities for Azure resources is the new name for the service formerly known as Managed Service Identity (MSI).
 
 ## How does the feature work?<a name="how-does-it-work"></a>
 
@@ -50,14 +50,14 @@ The following diagram shows how managed service identities work with Azure virtu
 2. Azure Resource Manager creates a service principal in Azure AD for the identity of the VM. The service principal is created in the Azure AD tenant that's trusted by the subscription.
 3. Azure Resource Manager configures the identity on the VM:
     1. Updates the Azure Instance Metadata Service identity endpoint with the service principal client ID and certificate.
-    1. Provisions the VM extension, and adds the service principal client ID and certificate. (This step is planned for deprecation.)
+    1. Provisions the VM extension (planned for deprecation in January 2019), and adds the service principal client ID and certificate. (This step is planned for deprecation.)
 4. After the VM has an identity, use the service principal information to grant the VM access to Azure resources. To call Azure Resource Manager, use role-based access control (RBAC) in Azure AD to assign the appropriate role to the VM service principal. To call Key Vault, grant your code access to the specific secret or key in Key Vault.
 5. Your code that's running on the VM can request a token from two endpoints that are accessible only from within the VM:
 
     - Azure Instance Metadata Service identity endpoint (recommended): `http://169.254.169.254/metadata/identity/oauth2/token`
         - The resource parameter specifies the service to which the token is sent. To authenticate to Azure Resource Manager, use `resource=https://management.azure.com/`.
         - API version parameter specifies the IMDS version, use api-version=2018-02-01 or greater.
-    - VM extension endpoint (planned for deprecation): `http://localhost:50342/oauth2/token` 
+    - VM extension endpoint (planned for deprecation in January 2019): `http://localhost:50342/oauth2/token` 
         - The resource parameter specifies the service to which the token is sent. To authenticate to Azure Resource Manager, use `resource=https://management.azure.com/`.
 
 6. A call is made to Azure AD to request an access token (as specified in step 5) by using the client ID and certificate configured in step 3. Azure AD returns a JSON Web Token (JWT) access token.
@@ -82,7 +82,7 @@ The following diagram shows how managed service identities work with Azure virtu
         - The client ID parameter specifies the identity for which the token is requested. This value is required for disambiguation when more than one user-assigned identity is on a single VM.
         - The API version parameter specifies the Azure Instance Metadata Service version. Use `api-version=2018-02-01` or higher.
 
-    - VM extension endpoint (planned for deprecation): `http://localhost:50342/oauth2/token`
+    - VM extension endpoint (planned for deprecation in January 2019): `http://localhost:50342/oauth2/token`
         - The resource parameter specifies the service to which the token is sent. To authenticate to Azure Resource Manager, use `resource=https://management.azure.com/`.
         - The client ID parameter specifies the identity for which the token is requested. This value is required for disambiguation when more than one user-assigned identity is on a single VM.
 6. A call is made to Azure AD to request an access token (as specified in step 5) by using the client ID and certificate configured in step 3. Azure AD returns a JSON Web Token (JWT) access token.

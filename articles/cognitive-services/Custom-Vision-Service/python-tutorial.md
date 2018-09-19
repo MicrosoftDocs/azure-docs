@@ -7,13 +7,13 @@ manager: chbuehle
 ms.service: cognitive-services
 ms.component: custom-vision
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 08/28/2018
 ms.author: areddish
 ---
 
 # Custom Vision API Python tutorial
 
-Learn how to create an image classification project with the Custom Vision Service and a basic Python script. After it's created, you can add tags, upload images, train the project, get the project's default prediction endpoint URL,and use it to programmatically test an image. Use this open-source example as a template for building your own app by using the Custom Vision API.
+Learn how to create an image classification project with the Custom Vision Service and a basic Python script. After it's created, you can add tags, upload images, train the project, get the project's default prediction endpoint URL, and use it to programmatically test an image. Use this open-source example as a template for building your own app by using the Custom Vision API.
 
 
 
@@ -30,7 +30,7 @@ To get the keys used in this example, visit the [Custom Vision web page](https:/
 
 ## Install the Custom Vision Service SDK
 
-To install the Custom VIsion Service SDK, use the following command:
+To install the Custom Vision Service SDK, use the following command:
 
 ```
 pip install azure-cognitiveservices-vision-customvision

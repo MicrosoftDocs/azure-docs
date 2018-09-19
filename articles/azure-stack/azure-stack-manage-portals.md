@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/12/2018
 ms.author: mabrigg
 
 ---
@@ -66,7 +66,7 @@ The administrator and user portals are backed by separate instances of Azure Res
 
 ### Customize the dashboard
 
-The dashboard contains a set of default tiles. You can select **Edit dashboard** to modify the default dashboard, or select **New dashboard** to add a custom dashboard. You can easily add tiles to a dashboard. For example, you can select **New**, right-click **Offers + Plans**, and then select **Pin to dashboard**.
+The dashboard contains a set of default tiles. You can select **Edit dashboard** to modify the default dashboard, or select **New dashboard** to add a custom dashboard. You can easily add tiles to a dashboard. For example, you can select **+ Create a resource**, right-click **Offers + Plans**, and then select **Pin to dashboard**.
 
 ### Quick access to online documentation
 

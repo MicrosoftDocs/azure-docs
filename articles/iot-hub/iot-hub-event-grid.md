@@ -29,12 +29,11 @@ IoT Hub publishes the following event types:
 | Event type | Description |
 | ---------- | ----------- |
 | Microsoft.Devices.DeviceCreated | Published when a device is registered to an IoT hub. |
-| Microsoft.Devices.DeviceDeleted | Published when a device is deleted from an IoT hub. | 
-| Microsoft.Devices.DeviceConnected | Published when a device is connected to an IoT hub. | 
-| Microsoft.Devices.DeviceDisconnected | Published when a device is disconnected from an IoT hub. | 
-Note that device connected and device disconnected events will be enabled for Canada East and East US regions soon.
+| Microsoft.Devices.DeviceDeleted | Published when a device is deleted from an IoT hub. |
+| Microsoft.Devices.DeviceConnected | Published when a device is connected to an IoT hub. |
+| Microsoft.Devices.DeviceDisconnected | Published when a device is disconnected from an IoT hub. |
 
-Use either the Azure portal or Azure CLI to configure which events to publish from each IoT hub. For an example, try the tutorial [Send email notifications about Azure IoT Hub events using Logic Apps](../event-grid/publish-iot-hub-events-to-logic-apps.md). 
+Use either the Azure portal or Azure CLI to configure which events to publish from each IoT hub. For an example, try the tutorial [Send email notifications about Azure IoT Hub events using Logic Apps](../event-grid/publish-iot-hub-events-to-logic-apps.md).
 
 ## Event schema
 

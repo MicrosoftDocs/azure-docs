@@ -73,7 +73,7 @@
         href: iot-accelerators-connecting-pi-node.md
       - name: C on Raspberry Pi
         href: iot-accelerators-connecting-pi-c.md
-      - name: MX Chip AZ3166 DevKit
+      - name: MXChip IoT DevKit
         href: iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2.md
     - name: Integrate SIM data
       href: iot-accelerators-remote-monitoring-telefonica-sim.md

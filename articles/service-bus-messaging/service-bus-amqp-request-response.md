@@ -139,6 +139,10 @@ The request message must include the following application properties:
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
 |`lock-tokens`|array of uuid|Yes|Message lock tokens to renew.|  
+
+> [!NOTE]
+> Lock tokens are the `DeliveryTag` property on received messages. See the following example in the [.NET SDK](https://github.com/Azure/azure-service-bus-dotnet/blob/6f144e91310dcc7bd37aba4e8aebd535d13fa31a/src/Microsoft.Azure.ServiceBus/Amqp/AmqpMessageConverter.cs#L336) which retrieves these. The token may also appear in the 'DeliveryAnnotations' as 'x-opt-lock-token' however, this is not guaranteed and the `DeliveryTag` should be preferred. 
+> 
   
 #### Response  
 

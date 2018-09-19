@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,security
 ms.topic: tutorial
-ms.date: 04/24/2018
+ms.date: 09/07/2018
 ms.author: daredis
 
 ---
@@ -41,11 +41,11 @@ To complete this tutorial, make sure you have the following:
 
 - Installed the newest version of [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). 
 - Installed Microsoft Excel
-- Created an Azure SQL server and database - See [Create an Azure SQL database in the Azure portal](sql-database-get-started-portal.md), [Create a single Azure SQL database using the Azure CLI](sql-database-get-started-cli.md), and [Create a single Azure SQL database using PowerShell](sql-database-get-started-powershell.md). 
+- Created an Azure SQL server and database - See [Create an Azure SQL database in the Azure portal](sql-database-get-started-portal.md), [Create a single Azure SQL database using the Azure CLI](sql-database-cli-samples.md), and [Create a single Azure SQL database using PowerShell](sql-database-powershell-samples.md). 
 
 ## Log in to the Azure portal
 
-Log in to the [Azure portal](https://portal.azure.com/).
+Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a server-level firewall rule in the Azure portal
 

@@ -44,7 +44,7 @@ az group create --name myResourceGroup --location eastus
 Create your application in the resource group using the `az mesh deployment create` command.  If you're using a Bash console, run the following:
 
 ```azurecli-interactive
-az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json --parameters "{\"location\": {\"value\": \"eastus\"}}" 
+az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json --parameters "{'location': {'value': 'eastus'}}" 
 ```
 
 If you're using a PowerShell console, run the following:

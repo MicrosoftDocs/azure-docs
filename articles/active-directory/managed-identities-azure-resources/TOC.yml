@@ -56,7 +56,7 @@
     href: /azure/event-hubs/event-hubs-managed-service-identity?context=azure/active-directory/managed-identities-azure-resources/context/msi-context
 - name: How-to guides
   items:
-  - name: Configure Identity for an Azure VM
+  - name: Configure managed identities on VMs
     items:
     - name: Portal
       href: qs-configure-portal-windows-vm.md
@@ -70,7 +70,7 @@
       href: qs-configure-rest-vm.md
     - name: Azure SDKs
       href: qs-configure-sdk-windows-vm.md
-  - name: Configure Identity for Azure VMSS
+  - name: Configure managed identities on virtual machine scale sets
     items:
     - name: Portal
       href: qs-configure-portal-windows-vmss.md
@@ -82,7 +82,7 @@
       href: qs-configure-template-windows-vmss.md
     - name: REST
       href: qs-configure-rest-vmss.md
-  - name: Use a VM Managed Identity
+  - name: Use managed identities on VMs
     items:
     - name: Acquire an access token
       href: how-to-use-vm-token.md

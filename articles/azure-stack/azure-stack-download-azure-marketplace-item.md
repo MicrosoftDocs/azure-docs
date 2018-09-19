@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/05/2018
+ms.date: 09/12/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
 ---
@@ -61,7 +61,7 @@ Your Azure Stack deployment must have internet connectivity, and be [registered 
 
     After the download completes, you can deploy the new marketplace item as either an Azure Stack operator or user.
 
-5. To deploy the downloaded item, select **+New**, and then search among the categories for the new marketplace item. Next select the item to begin the deployment process. The process varies for different marketplace items. 
+5. To deploy the downloaded item, select **+ Create a resource**, and then search among the categories for the new marketplace item. Next select the item to begin the deployment process. The process varies for different marketplace items. 
 
 ## Disconnected or a partially connected scenario
 

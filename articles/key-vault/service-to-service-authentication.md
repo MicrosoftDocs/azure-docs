@@ -8,7 +8,7 @@ services: key-vault
 
 ms.author: bryanla
 ms.date: 09/05/2018
-ms.topic: article
+ms.topic: conceptual
 ms.prod:
 ms.service: key-vault
 ms.technology:

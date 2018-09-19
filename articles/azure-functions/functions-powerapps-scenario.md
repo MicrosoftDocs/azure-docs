@@ -3,17 +3,12 @@ title: Call a function from PowerApps | Microsoft Docs
 description: Create a custom connector then call a function using that connector.
 services: functions
 keywords: cloud apps, cloud services, PowerApps, business processes, business application
-documentationcenter: ''
 author: ggailey777
-manager: cfowler
-editor: ''
+manager: jeconnoc
 
 ms.assetid: ''
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.service: azure-functions
+ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: glenga
 ms.reviewer: sunayv

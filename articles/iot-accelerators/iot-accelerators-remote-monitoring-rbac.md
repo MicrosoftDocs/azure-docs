@@ -131,11 +131,11 @@ The following steps describe how to add a role to an application in Azure Active
 
 ### Define a policy for the new role
 
-After to add the role to the app in the Azure portal, you need to define a policy in [roles.json](https://github.com/Azure/remote-monitoring-services-dotnet/blob/master/pcs-auth/Services/data/policies/roles.json) for the role that assigns the permissions needed to manage devices.
+After to add the role to the app in the Azure portal, you need to define a policy in [roles.json](https://github.com/Azure/remote-monitoring-services-dotnet/blob/master/auth/Services/data/policies/roles.json) for the role that assigns the permissions needed to manage devices.
 
-1. Clone the [Authentication and Authorization microservice](https://github.com/Azure/pcs-auth-dotnet) repository from GitHub to your local machine.
+1. Clone the [Remote Monitoring Microservices](https://github.com/Azure/remote-monitoring-services-dotnet) repository from GitHub to your local machine.
 
-1. Edit the **Services/data/policies/roles.json** file to add the policy for the **ManageDevices** role as shown in the following snippet. The **ID** and **Role** values must match the role definition in the app manifest from the previous section. The list of allowed actions allows someone in the **ManageDevices** role to create, update, and delete devices connected to the solution:
+1. Edit the **auth/Services/data/policies/roles.json** file to add the policy for the **ManageDevices** role as shown in the following snippet. The **ID** and **Role** values must match the role definition in the app manifest from the previous section. The list of allowed actions allows someone in the **ManageDevices** role to create, update, and delete devices connected to the solution:
 
     ```json
     {
@@ -181,7 +181,7 @@ After to add the role to the app in the Azure portal, you need to define a polic
 
 ### How the web UI enforces permissions
 
-The web UI uses the [Authentication and Authorization microservice](https://github.com/Azure/pcs-auth-dotnet) to determine what actions a user is allowed to take and what controls are visible in the UI. For example, if your solution is called **contoso-rm4**, the web UI retrieves a list of allowed actions for the current user by sending the following request:
+The web UI uses the [Authentication and Authorization microservice](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/auth) to determine what actions a user is allowed to take and what controls are visible in the UI. For example, if your solution is called **contoso-rm4**, the web UI retrieves a list of allowed actions for the current user by sending the following request:
 
 ```http
 http://contoso-rm4.azurewebsites.net/v1/users/current
@@ -223,7 +223,7 @@ For more information, see [Protected Components](https://github.com/Azure/pcs-re
 
 The microservices also check permissions to protect against unauthorized API requests. When a microservice receives an API request, it decodes and validates the JWT token to get the user ID and permissions associated with the user's role.
 
-The following snippet from the [DevicesController.cs](https://github.com/Azure/iothub-manager-dotnet/blob/master/WebService/v1/Controllers/DevicesController.cs) file in the [IoTHub Manager microservice](https://github.com/Azure/iothub-manager-dotnet), shows how the permissions are enforced:
+The following snippet from the [DevicesController.cs](https://github.com/Azure/remote-monitoring-services-dotnet/blob/master/iothub-manager/WebService/v1/Controllers/DevicesController.cs) file in the [IoTHub Manager microservice](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/iothub-manager), shows how the permissions are enforced:
 
 ```csharp
 [HttpDelete("{id}")]

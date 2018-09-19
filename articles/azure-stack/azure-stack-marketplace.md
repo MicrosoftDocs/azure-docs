@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/23/2018
+ms.date: 09/12/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
 
@@ -29,7 +29,7 @@ As an Azure Stack operator, you decide which items to add (publish) to the Marke
 > [!Caution]  
 > All gallery item artifacts known as images and json files are accessible without authentication after making them available in the Azure Stack marketplace. For more considerations when publishing custom marketplace items, see [Create and publish a Marketplace item](azure-stack-create-and-publish-marketplace-item.md).
 
-To open the Marketplace, in the admin console select **New**.
+To open the Marketplace, in the admin console select **+ Create a resource**.
 
 ![](media/azure-stack-publish-custom-marketplace-item/image1.png)
 

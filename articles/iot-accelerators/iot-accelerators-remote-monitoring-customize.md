@@ -449,8 +449,8 @@ See the [Connect an external visualization tool](https://github.com/Azure/azure-
 
 To further modify the presentation and visualizations layer in the Remote Monitoring solution, you can edit the code. The relevant GitHub repositories are:
 
-* [The configuration microservice for Azure IoT Solutions (.NET)](https://github.com/Azure/pcs-ui-config-dotnet/)
-* [The configuration microservice for Azure IoT Solutions  (Java)](https://github.com/Azure/pcs-ui-config-java/)
+* [The configuration microservice for Azure IoT Solutions (.NET)](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/config)
+* [The configuration microservice for Azure IoT Solutions  (Java)](https://github.com/Azure/remote-monitoring-services-java/tree/master/config)
 * [Azure IoT PCS Remote Monitoring Web UI](https://github.com/Azure/pcs-remote-monitoring-webui)
 
 ## Next steps

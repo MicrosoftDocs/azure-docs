@@ -4,17 +4,13 @@ description: Understand how to use Azure Service Bus triggers and bindings in Az
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
 
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 04/01/2017
 ms.author: glenga
 
@@ -517,7 +513,7 @@ The following example shows a Java function that sends a message to a Service Bu
 public String pushToQueue(
   @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
   final String message,
-  @HttpOutput(name = "response") final OutputBinding<T>; result ) {
+  @HttpOutput(name = "response") final OutputBinding<T> result ) {
       result.setValue(message + " has been sent.");
       return message;
  }

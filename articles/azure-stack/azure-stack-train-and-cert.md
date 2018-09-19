@@ -6,9 +6,9 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 09/10/2018
 ms.author: mabrigg
-keywords:
+
 ---
 
 # Azure Stack training and certification
@@ -24,6 +24,7 @@ The following training and certification opportunities are available to help you
 - [Job roles and learning paths](https://azure.microsoft.com/training/learning-paths/)
 
 ## Certification
+
 Azure Stack certifications are currently under development. Check back for the latest updates.
 
 ## Next steps

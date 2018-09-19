@@ -1,4 +1,4 @@
----
+﻿---
 title: Use a Windows VM system-assigned managed identity to access Azure Key Vault
 description: A tutorial that walks you through the process of using a Windows VM system-assigned managed identity to access Azure Key Vault. 
 services: active-directory
@@ -19,7 +19,7 @@ ms.author: daveba
 
 # Tutorial: Use a Windows VM system-assigned managed identity to access Azure Key Vault 
 
-[!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
+[!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 This tutorial shows you how to use a system-assigned managed identity for a Windows virtual machine (VM) to access Azure Key Vault. Serving as a bootstrap, Key Vault makes it possible for your client application to then use the secret to access resources not secured by Azure Active Directory (AD). Managed Service Identities are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication, without needing to insert credentials into your code. 
 

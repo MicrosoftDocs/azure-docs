@@ -10,7 +10,7 @@ ms.custom: security
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: ronmat
-ms.reviewer: carlrab
+ms.reviewer: vanto
 
 ---
 # Azure SQL Database Threat Detection

@@ -1,4 +1,4 @@
----
+﻿---
 title: Use a Windows VM system-assigned managed identity to access Azure Storage using a SAS credential
 description: A tutorial that shows you how to use a Windows VM system-assigned managed identity to access Azure Storage, using a SAS credential instead of a storage account access key.
 services: active-directory
@@ -19,7 +19,7 @@ ms.author: daveba
 
 # Tutorial: Use a Windows VM system-assigned managed identity to access Azure Storage via a SAS credential
 
-[!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
+[!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 This tutorial shows you how to use a system-assigned identity for a Windows virtual machine (VM) to obtain a storage Shared Access Signature (SAS) credential. Specifically, a [Service SAS credential](/azure/storage/common/storage-dotnet-shared-access-signature-part-1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures). 
 

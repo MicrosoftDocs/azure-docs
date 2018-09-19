@@ -156,4 +156,4 @@ Your specific cloud disaster recovery strategy can combine or extend these desig
 ## Next steps
 * For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md)
 * To learn about geo-replication and failover groups, see [active geo-replication](sql-database-geo-replication-overview.md)  
-* For information about active geo-replication with Elastic Pools, see [Elastic Pool disaster recovery strategies](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+* For information about active geo-replication with elastic pools, see [Elastic pool disaster recovery strategies](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).

@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2018
+ms.date: 09/12/2018
 ms.author: brenduns
 ms.reviewer: thoroet 
 ---
@@ -61,7 +61,7 @@ You can use the admin portal or PowerShell to add new nodes. The add node operat
 ### Use the admin portal
 
 1. Sign in to the Azure Stack admin portal as an Azure Stack operator.
-2. Navigate to **New** > **Capacity** > **Scale Unit Node**.
+2. Navigate to **+ Create a resource** > **Capacity** > **Scale Unit Node**.
    ![Scale unit node](media/azure-stack-add-scale-node/select-node1.png)
 3. On the **Add node** pane, select the *Region*, and then select the *Scale unit* that you want to add the node to. Also specify the *BMC IP ADDRESS* for the scale unit node you are adding. You can only add one node at a time.
    ![Add node details](media/azure-stack-add-scale-node/select-node2.png)

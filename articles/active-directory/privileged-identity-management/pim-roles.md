@@ -58,21 +58,19 @@ If you want to give another user access to manage in PIM itself, the roles which
 ## Roles not managed in PIM
 Roles within Exchange Online or SharePoint Online, except for those mentioned above, are not represented in Azure AD and so are not visible in PIM. For more information on changing fine-grained role assignments in these Office 365 services, see [Permissions in Office 365](https://support.office.com/article/Permissions-in-Office-365-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-Azure subscriptions and resource groups are also not represented in Azure AD. To manage Azure subscriptions, see [How to add or change Azure administrator roles](../../billing/billing-add-change-azure-subscription-administrator.md) and for more information on Azure RBAC, see [Azure role-based access control](../../role-based-access-control/role-assignments-portal.md).
-
 <!--**The above links might be replaced by ones that are from within this documentation repository **-->
 
 
 ## User roles and signing in
 For some Microsoft services and applications, assigning a user to a role may not be sufficient to enable that user to be an administrator.
 
-Access to the Azure portal requires the user be a service administrator or co-administrator on an Azure subscription, even if the user does not need to manage the Azure subscriptions.  For example, to manage configuration settings for Azure AD, a user must be both a global administrator in Azure AD and a subscription co-administrator on an Azure subscription.  To learn how to add users to Azure subscriptions, see [How to add or change Azure administrator roles](../../billing/billing-add-change-azure-subscription-administrator.md).
+Access to the Azure portal requires the user be an Owner of an Azure subscription, even if the user does not need to manage the Azure subscriptions.  For example, to manage configuration settings for Azure AD, a user must be both a Global Administrator in Azure AD and an Owner on an Azure subscription.  To learn how to add users to Azure subscriptions, see [Manage access using RBAC and the Azure portal](../..//role-based-access-control/role-assignments-portal.md).
 
 Access to Microsoft Online Services may require the user also be assigned a license before they can open the service's portal or perform administrative tasks.
 
 ## Assign a license to a user in Azure AD
 
-1. Sign in to the [Azure portal](http://portal.azure.com) with a Global Administrator account or a Co-Administrator account.
+1. Sign in to the [Azure portal](http://portal.azure.com) with a Global Administrator or Owner role.
 
 1. Select the Azure AD directory you want to work with and that has licenses associated with it.
 

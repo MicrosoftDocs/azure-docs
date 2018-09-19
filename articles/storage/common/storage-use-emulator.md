@@ -62,7 +62,7 @@ You can use the storage emulator command-line tool to initialize the storage emu
 
   You can also use the following command, which directs the emulator to use the default SQL Server instance:
 
-  `AzureStorageEmulator.exe init /server .\\`
+  `AzureStorageEmulator.exe init /server .`
 
   Or, you can use the following command, which reinitializes the database to the default LocalDB instance:
 

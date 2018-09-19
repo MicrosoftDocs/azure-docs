@@ -47,5 +47,5 @@ The DDM recommendations engine, flags certain fields from your database as poten
 See [Azure SQL Database Cmdlets](https://docs.microsoft.com/powershell/module/azurerm.sql).
 
 ## Set up dynamic data masking for your database using REST API
-See [Operations for Azure SQL Databases](https://msdn.microsoft.com/library/dn505719.aspx).
+See [Operations for Azure SQL Database](https://msdn.microsoft.com/library/dn505719.aspx).
 

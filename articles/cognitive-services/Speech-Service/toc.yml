@@ -117,6 +117,8 @@
     href: regions.md
   - name: REST APIs
     href: rest-apis.md
+  - name: Swagger Reference
+    href: https://swagger/service/11ed9226-335e-4d08-a623-4547014ba2cc# 
 #  - name: WebSockets protocols
 #    href: websockets.md
   - name: Speech SDK API

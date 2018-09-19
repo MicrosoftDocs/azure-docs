@@ -177,6 +177,14 @@
       href: virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md
   - name: Deploy
     items:
+    - name: Ansible
+      items:
+      - name: Create and manage scale sets
+        href: /azure/ansible/ansible-create-configure-vmss
+        maintainContext: true
+      - name: Deploy apps to scale sets
+        href: /azure/ansible/ansible-deploy-app-vmss
+        maintainContext: true
     - name: Create with Visual Studio
       href: virtual-machine-scale-sets-vs-create.md
     - name: Use Availability Zones

@@ -48,7 +48,7 @@ There are two types of restore available:
 The estimated time of recovery depends on several factors including the database sizes, the transaction log size, the network bandwidth, and the total number of databases recovering in the same region at the same time. The recovery time is usually less than 12 hours.
 
 > [!IMPORTANT]
-> If you delete the server, all databases that belong to the server are also deleted and cannot be recovered. You cannot restore a deleted server.
+> Deleted servers **cannot** be restored. If you delete the server, all databases that belong to the server are also deleted and cannot be recovered. 
 
 ### Point-in-time restore
 

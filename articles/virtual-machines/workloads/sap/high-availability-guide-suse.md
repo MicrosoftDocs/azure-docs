@@ -368,7 +368,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
      params binfile="/usr/bin/nc" cmdline_options="-l -k 620<b>00</b>" \
      op monitor timeout=20s interval=10 depth=0
    
-   sudo crm configure group g-<b>NW1</b>_ASCS nc_<b>NW1</b>_ASCS vip_<b>NW1</b>_ASCS \
+   sudo crm configure group g-<b>NW1</b>_ASCS fs_<b>NW1</b>_ASCS nc_<b>NW1</b>_ASCS vip_<b>NW1</b>_ASCS \
       meta resource-stickiness=3000
    </code></pre>
 
