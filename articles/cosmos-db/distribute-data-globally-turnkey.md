@@ -26,7 +26,7 @@ Azure Cosmos DB provides native, server-side support for multiple master regions
 ### <a id="UnlimitedRegionsPerAccount"></a>Associating an unlimited number of regions with your Azure Cosmos DB database account
 Azure Cosmos DB allows you to associate any number of Azure regions with your Azure Cosmos DB database account. Outside of geo-fencing restrictions (for example, China, Germany), there are no limitations on the number of regions that can be associated with your Azure Cosmos DB database account. The following figure shows a database account configured to span across 25 Azure regions:
 
-![Azure Cosmos DB database account spanning 25 Azure regions](./media/distribute-data-globally/spanning-regions.png)
+![Azure Cosmos DB database account spanning 25 Azure regions](./media/distribute-data-globally-turnkey/spanning-regions.png)
 
 
 ### <a id="PolicyBasedGeoFencing"></a>Policy-based geo-fencing
@@ -36,9 +36,9 @@ Azure Cosmos DB is designed to support policy-based geo-fencing. Geo-fencing is 
 Azure Cosmos DB allows you to add (associate) or remove (dissociate) regions from your database account at any point in time (see [preceding figure](#UnlimitedRegionsPerAccount)). By virtue of parallel replication of data across partitions, Azure Cosmos DB ensures that when a new region gets added, it is available for operations within 30 minutes anywhere in the world (assuming your data is 100 TBs or less). 
 
 ### <a id="FailoverPriorities"></a>Failover priorities
-To control exact sequence of regional failovers in cases of an outage, Azure Cosmos DB enables you to associate a *priority* with various regions associated with the database account (see the figure below). Azure Cosmos DB ensures that the automatic failover sequence occurs in the priority order you specified. For more information about regional failovers, see [Automatic regional failovers for business continuity in Azure Cosmos DB](regional-failover.md). The following image shows how a tenant in Azure Cosmos DB can  configure the failover priority order (right pane) for regions associated with a database account:
+When not using multi-master, customers can control exact sequence of regional failovers in cases of an outage, Azure Cosmos DB enables you to associate a *priority* with various regions associated with the database account (see the figure below). Azure Cosmos DB ensures that the automatic failover sequence occurs in the priority order you specified. For more information about regional failovers, see [Automatic regional failovers for business continuity in Azure Cosmos DB](regional-failover.md). The following image shows how a tenant in Azure Cosmos DB can  configure the failover priority order (right pane) for regions associated with a database account:
 
-![Configuring failover priorities with Azure Cosmos DB](./media/distribute-data-globally/failover-priorities.png)
+![Configuring failover priorities with Azure Cosmos DB](./media/distribute-data-globally-turnkey/failover-priorities.png)
 
 ### <a id="ConsistencyLevels"></a>Multiple, well-defined consistency models for globally distributed databases
 Azure Cosmos DB supports [multiple well-defined, intuitive, and practical consistency models](consistency-levels.md) backed by SLAs. You can choose a specific consistency model (from the available list of options) depending on the workload/scenarios.
@@ -115,7 +115,7 @@ A more comprehensive variation of CAP theorem is called [PACELC](http://cs-www.c
 ### <a id="ConsistencyAndThroughput"></a>Consistency's relationship with throughput
 Since the implementation of a specific consistency model depends on the choice of a [quorum type](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf), throughput also varies based on the choice of a consistency model. For instance, in Azure Cosmos DB, the RU charge for strongly consistent reads is roughly *double* that of eventually consistent reads. In this case, you will need to provision double the RUs to achieve the same throughput. The following image shows the relationship of read capacity for a specific consistency model in Azure Cosmos DB:
 
-![Relationship between consistency, and throughput](./media/distribute-data-globally/consistency-and-throughput.png)
+![Relationship between consistency, and throughput](./media/distribute-data-globally-turnkey/consistency-and-throughput.png)
 
 ## <a id="ThroughputGuarantees"></a>Throughput guarantees 
 Azure Cosmos DB allows you to scale throughput (as well as, storage), elastically across any number of regions depending on your needs or demand. The following image shows a single Azure Cosmos DB container horizontally partitioned (across three resource partitions within a region) and then globally distributed across three Azure regions:
@@ -129,7 +129,7 @@ An Azure Cosmos DB container gets distributed in two dimensions (i) within a reg
 
 By virtue of a highly responsive partition management, load balancing and strict resource governance, Azure Cosmos DB allows you to elastically scale throughput across multiple Azure regions associated with an Azure Cosmos DB container or database. Changing provisioned throughput is a runtime operation in Azure Cosmos DB. Similar to other database operations, Azure Cosmos DB guarantees the absolute upper bound on latency for your request to change provisioned throughput. For example, the following figure shows a customer's container with elastically provisioned throughput (ranging from 1M-10M requests/sec across two regions) based on the demand.
 
-![Azure Cosmos DB elastically provisioned throughput](./media/distribute-data-globally/elastic-throughput.png)
+![Azure Cosmos DB elastically provisioned throughput](./media/distribute-data-globally-turnkey/elastic-throughput.png)
 
 ### <a id="ThroughputAndConsistency"></a>Throughput's relationship with consistency 
 It is the same as described in [Consistency's relationship with throughput](#ConsistencyAndThroughput).
@@ -146,7 +146,7 @@ Availability’s relationship with consistency, latency, and throughput is descr
 ## <a id="CustomerFacingSLAMetrics"></a>Customer-facing SLA metrics
 Azure Cosmos DB transparently exposes the throughput, latency, consistency, and availability metrics. These metrics are accessible programmatically and via the Azure portal (see the figure below). You can also set up alerts on various thresholds using Azure Application Insights. The following image shows consistency, latency, throughput, and availability metrics that are transparently available to each tenant:
  
-![Azure Cosmos DB customer-visible SLA metrics](./media/distribute-data-globally/customer-slas.png)
+![Azure Cosmos DB customer-visible SLA metrics](./media/distribute-data-globally-turnkey/customer-slas.png)
 
 ## <a id="Next Steps"></a>Next steps
 
