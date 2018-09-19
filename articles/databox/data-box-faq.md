@@ -14,7 +14,7 @@ ms.topic: overview
 ms.custom: 
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 09/12/2018
+ms.date: 09/24/2018
 ms.author: alkohli
 ---
 # Azure Data Box: Frequently Asked Questions
@@ -220,10 +220,8 @@ A.  Once the data copy to Azure is complete, the data from the disks on the Data
 ## Audit report
 
 ### How does Azure Data Box service help support customers chain of custody procedure?
-A.  Azure Data Box service provides specific reports that you can use for your chain of custody documentation.
+A.  Azure Data Box service natively provides reports that you can use for your chain of custody documentation. The audit and copy logs are available in your storage account in Azure and the order history can be downloaded in your order in the Azure portal after the order is complete.
 
-### What is the price associated with these reports?
-A.  Audit reports are a native feature for Data Box and are available at no extra cost.
 
 ### What type of reporting is available to support chain of custody?
 A.  Following reporting is available to support chain of custody:

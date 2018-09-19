@@ -13,9 +13,9 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/05/2018
+ms.date: 09/24/2018
 ms.author: alkohli
-Customer intent: As an IT admin, I need to be able to return Data Box to upload on-premises data from my server onto Azure.
+#Customer intent: As an IT admin, I need to be able to return Data Box to upload on-premises data from my server onto Azure.
 ---
 
 # Tutorial: Return Azure Data Box and verify data upload to Azure
@@ -36,7 +36,7 @@ Before you begin, make sure that you have completed the [Tutorial: Copy data to 
 ## Ship Data Box back
 
 1. Ensure that the device is powered off and cables are removed. Spool and securely place the power cord that was provided with device in the back of the device.
-2. Ensure that the shipping label is visible and schedule a pickup with your carrier. If the label is damaged or lost or not displayed on the E-ink display, download the shipping label from the Azure portal and affix on the device. Go to **Overview > Download shipping label**.
+2. Ensure that the shipping label is displayed on the E-ink display and schedule a pickup with your carrier. If the label is damaged or lost or not displayed on the E-ink display, download the shipping label from the Azure portal and affix on the device. Go to **Overview > Download shipping label**.
 3. Schedule a pickup with UPS if returning the device in US. If you are returning the device in Europe with DHL, request for pickup from DHL by visiting their website and specifying the airway bill number. Go to the country DHL Express website and choose **Book a Courier Collection > eReturn Shipment**. 
 
     Specify the waybill number and click **Schedule Pickup** to arrange for pickup.
@@ -69,6 +69,6 @@ In this tutorial, you learned about Azure Data Box topics such as:
 Advance to the following article to learn how to manage Data Box via the local web UI.
 
 > [!div class="nextstepaction"]
-> [Use local web UI to administer Azure Data Box](./data-box-portal-admin.md)
+> [Use local web UI to administer Azure Data Box](./data-box-local-web-ui-admin.md)
 
 

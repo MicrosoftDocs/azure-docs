@@ -13,9 +13,9 @@ ms.devlang: NA
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/11/2018
+ms.date: 09/24/2018
 ms.author: alkohli
-Customer intent: As an IT admin, I need to quickly deploy Data Box so as to import data into Azure.
+#Customer intent: As an IT admin, I need to quickly deploy Data Box so as to import data into Azure.
 ---
 # Quickstart: Deploy Azure Data Box using the Azure portal
 
@@ -33,6 +33,7 @@ Before you begin:
     - Consumption - Pay as you go. More information about Azure [Pay-as-you-go subscriptions](https://azure.microsoft.com/offers/ms-azr-0003p/).
 
 - Ensure that you have owner or contributor access to the subscription to create a Data Box order.
+- Review the [safety guidelines for your Data Box](data-box-safety.md).
 - You have a host computer that has the data that you want to copy over to Data Box. Your host computer must
     - Run a [Supported operating system](data-box-system-requirements.md).
     - Be connected to high-speed network. We strongly recommend that you have at least one 10 GbE connection. If a 10 GbE connection isn't available, a 1 GbE data link can be used but the copy speeds are impacted. 

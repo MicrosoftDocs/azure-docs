@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/05/2018
+ms.date: 09/24/2018
 ms.author: alkohli
 
 ---
@@ -158,7 +158,7 @@ Fax number: +353 1 706 4110
 
 ![Japan](./media/data-box-safety/japan.png)
 
-**South Korea**
+<!--**South Korea**
 
 ![South Korea](./media/data-box-safety/south-korea.png)
 
@@ -168,7 +168,7 @@ Fax number: +353 1 706 4110
 
 **Taiwan**
 
-![Taiwan](./media/data-box-safety/taiwan.png)
+![Taiwan](./media/data-box-safety/taiwan.png)-->
 
 After you have reviewed these safety notices, you can set up and cable your device.
 

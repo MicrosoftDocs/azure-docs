@@ -16,7 +16,7 @@ ms.workload: NA
 ms.date: 09/24/2018
 ms.author: alkohli
 ms.custom: 
-Customer intent: As an IT admin, I need to understand how to add and connect to shares on Data Box Gateway so I can use it to transfer data to Azure.
+#Customer intent: As an IT admin, I need to understand how to add and connect to shares on Data Box Gateway so I can use it to transfer data to Azure.
 ---
 # Tutorial: Transfer data with Azure Data Box Gateway (Preview)
 
@@ -68,12 +68,11 @@ Perform the following steps in the [Azure portal](https://portal.azure.com/) to 
 8. This step depends on whether you are creating an SMB or an NFS share. 
      
     - **If creating an SMB share** - In the All privilege local user field, choose from **Create new** or **Use existing**. If creating a new local user, provide the **username**, **password**, and then **confirm password**. This assigns the permissions to the local user. After you have assigned the permissions here, you can then use File Explorer to modify these permissions.
-
-        If you check **allow only read operations** for this share data, then you will have the option to specify read-only users.
-
-        ![Add SMB share](./media/data-box-gateway-deploy-add-shares/add-share-smb-1.png)
-
     
+        ![Add SMB share](./media/data-box-gateway-deploy-add-shares/add-share-smb-1.png)
+        
+        If you check **allow only read operations** for this share data, then you will have the option to specify read-only users.
+        
     - **If creating an NFS share** - You need to supply the IP addresses of the allowed clients that can access the share.
 
         ![Add NFS share](./media/data-box-gateway-deploy-add-shares/add-share-nfs-1.png)
