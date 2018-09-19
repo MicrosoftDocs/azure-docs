@@ -25,7 +25,7 @@ The following example shows how an IoT Edge scenario operates in offline mode:
 
 1. Configure an IoT Edge device. 
 
-   Modules deployed to an IoT Edge device automatically have offline capability. To extend that capability to other IoT devices, you need to declare a parent-child relationship between the devices in IoT Hub. 
+   IoT Edge devices automatically have offline capabilities enabled. To extend that capability to other IoT devices, you need to declare a parent-child relationship between the devices in IoT Hub. 
 
 2. Sync with IoT Hub.
 
@@ -45,25 +45,50 @@ The extended offline capabilities described in this article are available in [Io
 
 Extended offline support is available in all regions where IoT Hub is available, except East US and West Europe. 
 
-Currently, the Edge hub module must use MQTT to connect to IoT Hub. Set this in the Edge hub configuration as an environment variable in the Azure portal or deployment manifest. 
-
-   ```json
-    "env": {
-        "UpstreamProtocol": {
-            "value": "MQTT"
-        }
-    }
-   ```
-
 Only non-Edge IoT devices can be added as child devices. 
 
 IoT Edge devices and their assigned child devices can function indefinitely offline after the initial, one-time sync. However, storage of messages depends on the time to live (TTL) setting and the available disk space for storing the messages. 
 
-## Configure offline settings
+## Set up an Edge device
 
-For an IoT Edge device on its own, or with downstream devices that don't have IoT Hub identities, you don't need to explicitly enable offline capabilities. However, you may want to change the time to live setting and add additional disk space for message storage. 
+For any IoT Edge device that you want to perform during extended offline periods, configure the IoT Edge runtime to communicate over MQTT. 
 
-For an IoT Edge device with non-Edge child devices assigned to it, you need to declare the parent-child relationships in the Azure portal in addition to the time to live and storage configurations. 
+For an IoT Edge device to extend its extended offline capabilities to child IoT devices, you need to declare the parent-child relationships in the Azure portal.
+
+### Set the upstream protocol to MQTT
+
+Configure both the Edge hub and the Edge agent to communicate with MQTT as the upstream protocol. This protocol is declared using environment variables in the deployment manifest. 
+
+In the Azure portal, you can access the Edge hub and Edge agent module definitions by selecting the **Configure advanced Edge Runtime settings** button when setting modules for a deployment. For both modules, create an environment variable called **UpstreamProtocol** and set its value to **MQTT**. 
+
+In the deployment template JSON, environment variables are declared as shown in the following example: 
+
+```json
+"edgeAgent": {
+    "type": "docker",
+    "settings": {
+        "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
+        "createOptions": ""
+    },
+    "env": {
+        "UpstreamProtocol": {
+            "value": "MQTT"
+        }
+    },
+}
+```
+
+### Assign child devices
+
+Child devices can be any non-Edge device registered to the same IoT Hub. You can manage the parent-child relationship on creating a new device, or from the device details page of either the parent IoT Edge device or the child IoT device. 
+
+   ![Manage child devices from the IoT Edge device details page](./media/offline-capabilities/manage-child-devices.png)
+
+Parent devices can have multiple child devices, but a child device can only have one parent.
+
+## Optional offline settings
+
+If you expect your devices to experience long offline periods, after which you want to collect all the messages that were generated, configure the Edge hub so that it can store all the messages. There are two changes that you can make to Edge hub to enable long-term message storage. First increase the time to live setting, and then add additional disk space for message storage. 
 
 ### Time to live
 
@@ -105,14 +130,6 @@ You can configure environment variables and the create options for the Edge hub 
     "restartPolicy": "always"
 }
 ```
-
-### Child devices
-
-Child devices can be any non-Edge device registered to the same IoT Hub. You can manage the parent-child relationship on creating a new device, or from the device details page of either the parent IoT Edge device or the child IoT device. 
-
-   ![Manage child devices from the IoT Edge device details page](./media/offline-capabilities/manage-child-devices.png)
-
-Parent devices can have multiple child devices, but a child device can only have one parent. 
 
 ## Next steps
 
