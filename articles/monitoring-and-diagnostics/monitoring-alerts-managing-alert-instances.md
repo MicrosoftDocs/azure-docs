@@ -1,5 +1,5 @@
 ---
-title: Managing Alert Instances
+title: Manage alert instances
 description: Managing alert instances across Azure
 author: anantr
 services: monitoring
