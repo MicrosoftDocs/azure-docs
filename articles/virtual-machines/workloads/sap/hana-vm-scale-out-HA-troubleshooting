@@ -937,24 +937,24 @@ https://<node>:7630
 The following screenshot shows the cluster dashboard:
 
 
-![HAWK cluster dashboard](media/hana-vm-scale-out-HA-verification-troubleshooting/hawk-1.PNG)
+![HAWK cluster dashboard](media/hana-vm-scale-out-HA-troubleshooting/hawk-1.PNG)
 
 
 On this screenshot you can see an example of the location constraints caused by a cluster resource migration as explained in the planned maintenance section:
 
 
-![HAWK list constraints](media/hana-vm-scale-out-HA-verification-troubleshooting/hawk-2.PNG)
+![HAWK list constraints](media/hana-vm-scale-out-HA-troubleshooting/hawk-2.PNG)
 
 
 Another nice feature is the possibility to upload a hb_report output ( see section about hb_report ) in HAWK under "History" as shown on this screenshot :
 
-![HAWK upload hb_report output](media/hana-vm-scale-out-HA-verification-troubleshooting/hawk-3.PNG)
+![HAWK upload hb_report output](media/hana-vm-scale-out-HA-troubleshooting/hawk-3.PNG)
 
 The "History Explorer" then allows to go through all the cluster transitions included in the hb_report output :
 
-![HAWK look at the transitions within the hb_report output](media/hana-vm-scale-out-HA-verification-troubleshooting/hawk-4.PNG)
+![HAWK look at the transitions within the hb_report output](media/hana-vm-scale-out-HA-troubleshooting/hawk-4.PNG)
 
 On the last screenshot you can see the details section of a single transition which shows that the cluster reacted on a primary master node crash 
 ( node hso-hana-vm-s1-0 ) and now promoting the secondary node as the new master ( hso-hana-vm-s2-0 ) :
 
-![HAWK look at a single transition](media/hana-vm-scale-out-HA-verification-troubleshooting/hawk-5.PNG)
+![HAWK look at a single transition](media/hana-vm-scale-out-HA-troubleshooting/hawk-5.PNG)
