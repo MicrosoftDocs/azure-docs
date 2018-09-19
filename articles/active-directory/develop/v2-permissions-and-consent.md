@@ -57,7 +57,7 @@ In OAuth, these types of permissions are called *scopes*. They also often simply
 An app most commonly requests these permissions by specifying the scopes in requests to the v2.0 authorize endpoint. However, certain high privilege permissions can only be granted through administrator consent and generally requested/granted using the [administrator consent endpoint](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-scopes#admin-restricted-scopes). Read on to learn more.
 
 ## Delegated permissions, Application permissions, and Effective permissions
-Microsoft Graph has two types of permissions: **delegated permissions** and **application permissions**.
+Microsoft identity platform supports two types of permissions: **delegated permissions** and **application permissions**.
 
 - **Delegated permissions** are used by apps that have a signed-in user present. For these apps either the user or an administrator consents to the permissions that the app requests and the app is delegated permission to act as the signed-in user when making calls to the target resource. Some delegated permissions can be consented to by non-administrative users, but some higher-privileged permissions require [administrator consent](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-scopes#admin-restricted-scopes).  
 
