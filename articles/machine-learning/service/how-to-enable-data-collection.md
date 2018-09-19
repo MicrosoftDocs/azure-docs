@@ -12,7 +12,7 @@ ms.date: 09/24/2018
 ---
 # Collect data for models in production
 
-In this article, you can learn how to collect input model data from your Azure Machine Learning service in an Azure Blob storage. 
+In this article, you can learn how to collect input model data from the Azure Machine Learning services you've deployed into Azure Kubernetes Cluster (AKS) into an Azure Blob storage. 
 
 Once enabled, this data you collect helps you:
 * Monitor data drifts as production data enters your model
@@ -38,7 +38,7 @@ The path to the output data in the blob follows this syntax:
 
 ```
 /modeldata/<subscriptionid>/<resourcegroup>/<workspace>/<webservice>/<model>/<version>/<identifier>/<year>/<month>/<day>/data.csv
-# example: /modeldata/00000000000000000123456789/myResGrp/myWS/CheckImages/chkimg/3.0/921463985624089562/2018/12/31/data.csv
+# example: /modeldata/92c76a2f-0e1c-4216-b65e-abf7a3f34c1e/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/12/31/data.csv
 ```
 
 ## Prerequisites
