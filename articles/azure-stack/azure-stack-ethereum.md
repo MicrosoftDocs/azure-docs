@@ -1,21 +1,28 @@
 ---
 title: Azure Stack Ethereum blockchain solution template
-description: Use custom solution templates to deploy and configure a consortium Ethereum blockchain network on Azure Stack
+description: Tutorial using a custom solution templates to deploy and configure a consortium Ethereum blockchain network on Azure Stack
 services: azure-stack
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 09/12/2018
-ms.topic: article
+ms.date: 09/13/2018
+ms.topic: tutorial
 ms.service: azure-stack
-ms.reviewer: coborn
+ms.reviewer: seyadava
+ms.custom: mvc
 manager: femila
 ---
-# Azure Stack Ethereum blockchain solution templates
+# Tutorial: Use the Azure Stack Ethereum blockchain solution template
 
 The Ethereum solution template is designed to make it easier and quicker to deploy and configure a multi-member consortium Ethereum blockchain network with minimal Azure and Ethereum knowledge.
 
 With a handful of user inputs and a single-click deployment through the Azure Stack tenant portal, each member can provision their network footprint. Each member's network footprint consists of a set of load-balanced transaction nodes with which an application or user can interact to submit transactions, a set of mining nodes to record transactions, and a Network Virtual Appliance (NVA). A subsequent connection step connects the NVAs to create a fully configured multi-member blockchain network.
+
+To set this up, you will:
+
+> [!div class="checklist"]
+> * Choose a deployment architecture
+> * Deploy a standalone, consortium leader or consortium member network
 
 ## Prerequisites
 
@@ -192,5 +199,13 @@ After deployment is complete, it takes few minutes for leader and member to star
 
 ## Next steps
 
-- To learn more about Ethereum and Azure, see [Blockchain Technology and Applications | Microsoft Azure](https://azure.microsoft.com/solutions/blockchain/).
-- For more information about blockchain scenarios on Azure, see [Ethereum proof-of-work consortium solution template](../blockchain-workbench/ethereum-deployment-guide.md).
+In this tutorial, you learned how to:
+
+> [!div class="checklist"]
+> * Choose a deployment architecture
+> * Deploy a standalone, consortium leader or consortium member network
+
+To learn more about Ethereum and Azure, see:
+
+> [!div class="nextstepaction"]
+> [Blockchain Technology and Applications](https://azure.microsoft.com/solutions/blockchain/)

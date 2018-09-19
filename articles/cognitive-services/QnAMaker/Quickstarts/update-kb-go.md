@@ -1,15 +1,16 @@
 ---
-title: Update Knowledge Base - Go Quickstart - Azure Cognitive Services | Microsoft Docs
+title: "Quickstart: Go Update knowledge base - QnA Maker"
+titleSuffix: Azure Cognitive Services
 description: How to update a knowledge base in Go for QnA Maker.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 06/18/2018
-ms.author: nolachar
+ms.date: 09/12/2018
+ms.author: diberry
 ---
 
 # Update a knowledge base
