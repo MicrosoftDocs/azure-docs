@@ -102,8 +102,6 @@
         href: groups-dynamic-membership.md
       - name: Change group membership type    
         href: groups-change-type.md
-      - name: Troubleshoot    
-        href: groups-troubleshooting.md
     - name: Set up user-created groups    
       href: groups-self-service-management.md
   - name: Assign licenses
