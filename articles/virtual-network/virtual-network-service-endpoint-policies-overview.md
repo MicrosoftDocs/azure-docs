@@ -69,13 +69,14 @@ Virtual network service endpoint policies provide following benefits:
 
      Example, Azure storage accounts could be listed in the endpoint policy definition as below :
     
-     To allow specific storage account:  "/subscriptions/yourSubscriptionId/resourceGroups/yourResourceGroup/providers/Microsoft.Storage/storageAccounts/yourStorageAccountName"
- 
+     To allow specific storage account:         
+     "subscriptions/subscriptionId/resourceGroups/resourceGroup/providers/Microsoft.Storage/storageAccounts/storageAccountName"
+      
      To allow all accounts in a subscription and resource group:
-    "/subscriptions/yourSubscriptionId/resourceGroups/yourResourceGroup"
+     "/subscriptions/subscriptionId/resourceGroups/resourceGroup"
      
      To allow all accounts in a subscription:
-     ""/subscriptions/yourSubscriptionId"
+     "/subscriptions/subscriptionId"
     
 - Only storage accounts using the Azure Resource Model can be specified in the endpoint policy.  
 
