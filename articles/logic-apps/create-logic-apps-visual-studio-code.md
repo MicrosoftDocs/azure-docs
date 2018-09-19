@@ -48,19 +48,26 @@ Before you start, make sure you have these items:
 [workflow definitions](../logic-apps/logic-apps-workflow-definition-language.md) 
 and their structure, which uses JavaScript Object Notation (JSON)
 
+* Access to the web for signing in to Azure and your Azure subscription
+
 * Download and install these tools, if you don't have them already: 
 
-  * <a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code version 1.25.1 or later</a>, which is free. 
+  * <a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code version 1.25.1 or later</a>, which is free
 
-  * <a href="" target="_blank">Visual Code extension for Azure Logic Apps</a> 
-  
-    To learn how to download and install extensions 
-    directly inside Visual Studio Code, see <a href="https://code.visualstudio.com/docs/editor/extension-gallery" target="_blank">Extension Marketplace</a>. 
+  * Visual Studio Code extension for Azure Logic Apps
+
+    You can install this extension from inside Visual Studio Code. 
     Make sure you reload Visual Studio Code after installing. 
-    To check that the extension installed correctly, 
-    the Azure icon appears in your Visual Studio Code toolbar.
 
-* Access to the web for signing in to Azure and your Azure subscription
+    ![Find "Visual Studio Code extension for Azure Logic Apps"](./media/create-logic-apps-visual-studio-code/find-install-logic-apps-extension.png)
+
+    To check that the extension installed correctly, 
+    the Azure icon appears in your Visual Studio Code toolbar. 
+
+    ![Extension installed](./media/create-logic-apps-visual-studio-code/installed-extension.png)
+
+    For more information, see 
+    <a href="https://code.visualstudio.com/docs/editor/extension-gallery" target="_blank">Extension Marketplace</a>. 
 
 <a name="sign-in-azure"></a>
 
@@ -88,7 +95,7 @@ which opens a new browser window.
 
    ![Enter code](./media/create-logic-apps-visual-studio-code/authentication-code.png)
 
-1. Select your Azure account. After you've signed in, 
+1. Select your Azure account. After you sign in, 
 you can close your browser, and return to Visual Studio Code.
 
    In the Azure window, the Logic Apps pane and 
@@ -235,7 +242,7 @@ your logic app definition to your Azure subscription, choose **Upload**.
 ## Edit logic app
 
 To work on an existing logic app that's already deployed in Azure, 
-you can open the workflow definition file for that app in Visual Studio Code.
+you can open that app's workflow definition file in Visual Studio Code.
 
 1. If you haven't signed in to your Azure subscription 
 from inside Visual Studio Code, follow the steps in this 
@@ -268,3 +275,4 @@ choose **Upload**.
 
 * For questions, visit the <a href="https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps" target="_blank">Azure Logic Apps forum</a>.
 * To submit or vote on feature ideas, visit the <a href="http://aka.ms/logicapps-wish" target="_blank">Logic Apps user feedback site</a>.
+
