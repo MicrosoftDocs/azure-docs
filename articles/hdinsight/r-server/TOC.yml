@@ -306,7 +306,7 @@
 - name: Resources
   items:
   - name: R developer's guide 
-  - href: ../../machine-learning/r-developers-guide.md
+    href: ../../machine-learning/r-developers-guide.md
   - name: Release notes
     href: ../hdinsight-release-notes.md
     maintainContext: true

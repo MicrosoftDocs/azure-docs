@@ -222,7 +222,7 @@
 - name: Resources
   items:
   - name: R developer's guide 
-  - href: ../r-developers-guide.md
+    href: ../r-developers-guide.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Net# Neural Networks Language
