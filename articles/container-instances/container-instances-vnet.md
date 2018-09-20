@@ -173,7 +173,7 @@ az container delete --resource-group myResourceGroup --name commchecker -y
 
 ### Delete network resources
 
-During this feature preview, there are several additional commands required to delete the network resources you created earlier. As development of the feature progresses, the `az resource delete` commands will no longer be required.
+The initial preview of this feature requires several additional commands to delete the network resources you created earlier. As development of the feature progresses, the `az resource delete` commands will no longer be required.
 
 ```azurecli
 # PLACEHOLDER
