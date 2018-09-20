@@ -17,14 +17,14 @@ ms.date: 9/20/2018
 ms.author: anandh
 
 ---
-# Performance Diagnostics for Azure virtual machines
+# Performance diagnostics for Azure virtual machines
 
-The performance diagnostics tool helps you troubleshoot performance issues that can affect a Windows virtual machine (VM). Supported troubleshooting scenarios include quick checks on known issues and best practices, complex problems that involve slow VM performance, high CPU, and disk and memory use issues. 
+The performance diagnostics tool helps you troubleshoot performance issues that can affect a Windows virtual machine (VM). Supported troubleshooting scenarios include quick checks on known issues and best practices, and complex problems that involve slow VM performance or high usage of CPU, disk space, or memory. 
 
 You can run performance diagnostics directly from the Azure portal, where you can also review insights and a report on various logs, rich configuration, and diagnostics data. We recommend that you run performance diagnostics and review the insights and diagnostics data before you contact Microsoft Support.
 
- > [!NOTE]
-    > Performance diagnostics is currently supported on Windows VMs that have .NET SDK version 4.5 or a later version installed. For the steps to run performance diagnostics on classic VMs, see [Azure Performance Diagnostics VM extension](performance-diagnostics-vm-extension.md).
+> [!NOTE]
+> Performance diagnostics is currently supported on Windows VMs that have .NET SDK version 4.5 or a later version installed. For the steps to run performance diagnostics on classic VMs, see [Azure Performance Diagnostics VM extension](performance-diagnostics-vm-extension.md).
 
 ### Supported Operating Systems
 Windows 10, Windows 8, Windows 8 Enterprise, Windows 8 Pro, Windows 8.1, Windows Server 2016, Windows Server 2012, Windows Server 2012 Datacenter, Windows Server 2012 R2, Windows Server 2012 R2 Datacenter, Windows Server 2012 R2 Standard, Windows Server 2012 Standard, Windows Server 2008 R2, Windows Server 2008 R2 Datacenter, Windows Server 2008 R2 Enterprise, Windows Server 2008 R2 Foundation, Windows Server 2008 R2 SP1, Windows Server 2008 R2 Standard.
@@ -79,7 +79,7 @@ Select any preselected symptoms from the list, or add new symptoms. This helps u
 ### Provide support request number, if available (optional)
 If you are working with a Microsoft support engineer on an existing support ticket, provide the support ticket number. 
 
-### Review the privacy policy and legal terms, and select the check box to acknowledge (Required)
+### Review the privacy policy and legal terms, and select the check box to acknowledge (required)
 To run the diagnostics, you must agree to the legal terms and accept privacy policy.
 
 ### Select OK to run the diagnostics 
