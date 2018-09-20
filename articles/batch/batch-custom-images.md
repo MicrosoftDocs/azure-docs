@@ -93,6 +93,9 @@ Also note the following:
 - **Size limits** - Batch limits the pool size to 2500 dedicated compute nodes, or 1000 low-priority nodes, when you use a custom image.
 
   If you use the same image (or multiple images based on the same underlying snapshot) to create multiple pools, the total compute nodes in the pools can't exceed the preceding limits. We don't recommend using an image or its underlying snapshot for more than a single pool.
+
+  Limits may be reduced if you configure the pool with [inbound NAT pools](pool-endpoint-configuration.md).
+
 - **Resize timeout** - If your pool contains a fixed number of nodes (doesn't autoscale), increase the resizeTimeout property of the pool to a value such as 20-30 minutes. If your pool doesn't reach its target size within the timeout period, perform another [resize operation](/rest/api/batchservice/pool/resize).
 
   If you plan a pool with more than 300 compute nodes, you might need to resize the pool multiple times to reach the target size.
