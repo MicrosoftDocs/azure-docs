@@ -50,20 +50,20 @@ You can provision a new Azure resource or select an existing resource. After sel
 | [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-wait-statistics-dataset): Contains information about how much time a database spent waiting on different wait types. | Yes | No |
 | [Timeouts](sql-database-metrics-diag-logging.md#time-outs-dataset): Contains information about timeouts that happened on a database. | Yes | No |
 | [Blocks](sql-database-metrics-diag-logging.md#blockings-dataset): Contains information about blocking events that happened on a database. | Yes | No |
-| [SQLInsights](sql-database-metrics-diag-logging.md#intelligent-insights-dataset): Contains Intelligent Insights. [Learn more about Intelligent Insights](sql-database-intelligent-insights.md). | Yes | Yes |
+| [SQLInsights](sql-database-metrics-diag-logging.md#intelligent-insights-dataset): Contains Intelligent Insights into performance. [Learn more about Intelligent Insights](sql-database-intelligent-insights.md). | Yes | Yes |
 
-**Please note** Audit and SQLSecurityAuditEvents logs, although these options are available on a database Diagnostic blade, should be enabled through using SQL Auditing blade to configure streaming telemetry to Log Analytics, Event Hub or Storage.
+**Please note**: To use Audit and SQLSecurityAuditEvents logs, although these options are available inside database Diagnostic settings, these logs should be enabled only through **SQL Auditing** solution to configure streaming telemetry to Log Analytics, Event Hub or Storage.
 
 If you select Event Hubs or a storage account, you can specify a retention policy. This policy deletes data that is older than a selected time period. If you specify Log Analytics, the retention policy depends on the selected pricing tier. For more information, see [Log Analytics pricing](https://azure.microsoft.com/pricing/details/log-analytics/). 
 
-## Enable logging for elastic pool or Managed Instance
+## Enable logging for elastic pools or Managed Instance
 
 Metrics and diagnostics logging elastic pools or Managed Instance is not enabled by default. You can enable and manage metrics and diagnostics telemetry logging for elastic pool or Managed Instance. The following data is available for collection:
 
 | Monitoring telemetry | Elastic pool support | Managed Instance support |
 | :------------------- | ------------------- | ------------------- |
-| [All metrics](sql-database-metrics-diag-logging.md#all-metrics): Contains eDTU/CPU percentage, eDTU/CPU limit, physical data read percentage, log write percentage, sessions percentage, workers percentage, storage, storage percentage, storage limit, and XTP storage percentage. | Yes | No |
-| [ResourceUsageStats](sql-database-metrics-diag-logging.md#resource-usage-stats): Contains vCores count, avarage CPU percentage, IO requests, bytes read/written, reserved storage space, used storage space. | No | Yes |
+| [All metrics](sql-database-metrics-diag-logging.md#all-metrics) (elastic pools): Contains eDTU/CPU percentage, eDTU/CPU limit, physical data read percentage, log write percentage, sessions percentage, workers percentage, storage, storage percentage, storage limit, and XTP storage percentage. | Yes | N/A |
+| [ResourceUsageStats](sql-database-metrics-diag-logging.md#resource-usage-stats) (Managed Instance): Contains vCores count, avarage CPU percentage, IO requests, bytes read/written, reserved storage space, used storage space. | N/A | Yes |
 
 To understand the metrics and log categories that are supported by the various Azure services, we recommend that you read:
 
