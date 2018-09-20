@@ -6,7 +6,7 @@ author: bolzmj
 manager: kfile
 ms.service: postgresql
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 09/20/2018
 ms.author: mbolz
 
 ---
@@ -15,6 +15,10 @@ ms.author: mbolz
 Advanced Threat Protection for Azure Database for PostgreSQL detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases.
 
 Advanced Threat Protection is part of the Advanced Data Security offering, which is a unified package for advanced security capabilities. Advanced Threat Protection can be accessed and managed via the [Azure portal](https://portal.azure.com) and is currently in preview.
+
+> [!NOTE]
+> The Advanced Threat Protection feature is **not** available in the following Azure government regions: US Gov Texas, US Gov Arizona, US Gov Iowa, US, Gov Virginia, US DoD East, US DoD Central, Germany Central, Germany North, China East, China East 2. Please visit [products available by region](https://azure.microsoft.com/en-us/global-infrastructure/services/) for general product availability.
+>
 
 ## Set up threat detection for your database in the Azure portal
 1. Launch the Azure portal at [https://portal.azure.com](https://portal.azure.com).
