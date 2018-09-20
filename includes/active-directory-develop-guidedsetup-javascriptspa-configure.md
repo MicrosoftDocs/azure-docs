@@ -34,7 +34,7 @@ Now you need to register your application in the *Microsoft Application Registra
 ### Option 2: Register your application (Advanced mode)
 
 1. Go to the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app) to register an application
-2. Enter a name for your application and your email 
+2. Enter a name for your application and your email
 3. Make sure the option for *Guided Setup* is unchecked
 4.	Click `Add Platform`, then select `Web`
 5. Add the `Redirect URL` that correspond to the application's URL based on your web server. See the sections below for instructions on how to set/ obtain the redirect URL in Visual Studio and Python.
@@ -55,17 +55,17 @@ Now you need to register your application in the *Microsoft Application Registra
 
 #### Configure your JavaScript SPA
 
-1.	Create a file named `msalconfig.js` containing the application registration information. If you are using Visual Studio, select the project (project root folder), right-click and select: `Add` > `New Item` > `JavaScript File`. Name it `msalconfig.js`
-2.	Add the following code to your `msalconfig.js` file:
+1.	In the  `index.html` file created during project setup, add the application registration information. Add the following code within `<script></script>` tags in the body of your `index.html` file:
 
 ```javascript
-var msalconfig = {
+var applicationConfig = {
     clientID: "Enter_the_Application_Id_here",
-    redirectUri: location.origin
+    graphScopes: ["user.read"],
+    graphEndpoint: "https://graph.microsoft.com/v1.0/me"
 };
 ```
 <ol start="3">
 <li>
-Replace <code>Enter_the_Application_Id_here</code> with the Application Id you just registered 
+Replace <code>Enter_the_Application_Id_here</code> with the Application Id you just registered
 </li>
 </ol>

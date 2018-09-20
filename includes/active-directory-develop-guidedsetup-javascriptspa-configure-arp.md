@@ -42,12 +42,12 @@ Configure the `Redirect URL` field with the URL for your index.html page based o
 
 ### Configure your JavaScript SPA application
 
-1.	Create a file named `msalconfig.js` containing the application registration information. If you are using Visual Studio, select the project (project root folder), right-click and select: `Add` > `New Item` > `JavaScript File`. Name it `msalconfig.js`
-2.	Add the following code to your `msalconfig.js` file:
+1.	In the  `index.html` file created during project setup, add the application registration information. Add the following code within `<script></script>` tags in the body of your `index.html` file:
 
 ```javascript
-var msalconfig = {
-    clientID: "[Enter the application Id here]",
-    redirectUri: location.origin
+var applicationConfig = {
+    clientID: "Enter_the_Application_Id_here",
+    graphScopes: ["user.read"],
+    graphEndpoint: "https://graph.microsoft.com/v1.0/me"
 };
-``` 
+```
