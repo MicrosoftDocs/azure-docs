@@ -48,6 +48,9 @@ The common use cases are:
 * Creating a dataset
 * Plotting a graph as an image file as part of your model-training execution 
 
+>[!Note]
+> Max size of tracked file in outputs folder after a run is 512 MB. This means if your script produces a file larger than 512 MB in the outputs folder, it is not collected there. 
+
 Additionally, you want to compare the outputs across runs, select an output file (such as a model) that was produced by a previous run, and then use it for a subsequent task (such as scoring).
 
 You can write files to a folder named *outputs* that's relative to the root directory. The folder receives special treatment by the Experimentation service. Anything your script creates in the folder during the execution, such as a model file, data file, or plotted image file (collectively known as _artifacts_), is copied to the Azure Blob storage account that's associated with your experimentation account after the run is finished. The files become part of your run history record.
