@@ -81,13 +81,13 @@ Azure SQL Analytics solution provides graphical user interface, reporting and al
 > Quick getting started: The easiest way to get off the ground with using Intelligent Insights is to use it along with Azure SQL Analytics which will provide a graphical user interface to database performance issues. Add Azure SQL Analytics solution from the marketplace, create a workspace inside this solution, and then for each database you wish to enable Intelligent Insights on, configure streaming of "SQLInsights" log in the Diagnostics settings blade of a database to the workspace of Azure SQL Analytics.
 >
 
-To use Intelligent Insights with Azure SQL Analytics, configure Intelligent Insights log data to be streamed to Azure SQL Analytics, see [Azure SQL Database metrics and diagnostics logging](sql-database-metrics-diag-logging.md). 
+Pre-requirement is to have Azure SQL Analytics added to your Azure portal dashboard from the marketplace and to configure a workspace, see [Configure Azure SQL Analytics](../log-analytics/log-analytics-azure-sql.md#configuration) 
 
-The following example shows an Intelligent Insights report in Azure SQL Analytics:
+To use Intelligent Insights with Azure SQL Analytics, configure Intelligent Insights log data to be streamed to Azure SQL Analytics workspace you've created in the previous step, see [Azure SQL Database metrics and diagnostics logging](sql-database-metrics-diag-logging.md). 
+
+The following example shows an Intelligent Insights viewed through Azure SQL Analytics:
 
 ![Intelligent Insights report](./media/sql-database-intelligent-insights/intelligent-insights-azure-sql-analytics.png)
-
-After the Intelligent Insights diagnostics log is configured to stream data to SQL Analytics, you can [monitor the SQL database by using SQL Analytics](../log-analytics/log-analytics-azure-sql.md).
 
 ### Set up with Event Hubs
 
