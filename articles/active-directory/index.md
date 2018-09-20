@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 09/14/2018
+ms.date: 09/20/2018
 ms.author: mtillman
 
 ---
@@ -137,8 +137,8 @@ ms.author: mtillman
 														<h3><a href="develop/index.yml">Developers</a></h3>
                                                         <p>
                                                             <a href="develop/about-microsoft-identity-platform.md">About Microsoft identity platform</a><br>
-                                                            <a href="develop/azure-ad-developers-guide.md">About the V1.0 endpoint</a><br>
-                                                            <a href="develop/v2-overview.md">About the V2.0 endpoint</a>
+                                                            <a href="develop/azure-ad-developers-guide.md">v1.0 platform</a><br>
+                                                            <a href="develop/v2-overview.md">v2.0 platform</a>
                                                         </p>
 														<br><br>
 														<h3><a href="devices/index.yml">Device management</a></h3>
