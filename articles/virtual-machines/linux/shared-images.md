@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/07/2018
+ms.date: 09/19/2018
 ms.author: cynthn
 ms.custom: 
 

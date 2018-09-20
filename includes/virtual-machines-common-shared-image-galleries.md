@@ -18,6 +18,8 @@ Shared images encompasses multiple resources:
 | **Gallery image** | Images are defined within a gallery and carry information about the image and requirements for using it internally. This includes whether the image is Windows or Linux, release notes, and minumum and maximum memory requirements. This type of image is a resource within the resource manager deployment model, but it isn't used directly for creating VMs. It is a definition of a type of image. |
 | **Shared image version** | An **image version** is what you use to create a VM when using a gallery. You can have multiple versions of an image as needed for your environment. Like a managed image, when you use an **image version** to create a VM, the image version is used to create new disks for the VM. Image versions can be used multiple times. |
 
+<br>
+
 
 ![Graphic showing how you can have multiple versions of an image in your gallery](./media/shared-image-galleries/shared-image-gallery.png)
 
@@ -177,7 +179,7 @@ Image version:
  A. The default quota is 
 - 10 shared image galleries, per subscription, per region
 - 100 image definitions, per subscription, per region
- - 1000 image versions, per subscription, per region
+- 1000 image versions, per subscription, per region
 
 
 **Q.** What is the difference between source region and target region?
