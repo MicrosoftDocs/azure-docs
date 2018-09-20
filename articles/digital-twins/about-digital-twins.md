@@ -28,7 +28,7 @@ From **Ontology's** pre-defined models to device **Telemetry**, many services co
 
 A rich **Ontology** of pre-defined object models is provided to better categorize IoT assets and speed along development. These models simplify the representation of many familiar resources an IoT app will use.
 
-These models can be used to simplify API interaction, represent data, or configure you're app.
+These models can be used to simplify API interaction, represent data, or configure your app.
 
 ### Spatial Intelligence Graphs
 
