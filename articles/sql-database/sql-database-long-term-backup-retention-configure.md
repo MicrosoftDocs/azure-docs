@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 09/18/2018
+ms.date: 09/19/2018
 ms.author: sashan
 ms.reviewer: carlrab
 
@@ -71,6 +71,22 @@ The following sections show you how to use PowerShell to configure the long-term
 - [AzureRM.Sql-4.5.0](https://www.powershellgallery.com/packages/AzureRM.Sql/4.5.0) or newer
 - [AzureRM-6.1.0](https://www.powershellgallery.com/packages/AzureRM/6.1.0) or newer
 > 
+
+### RBAC roles to manage long-term retention
+
+In order to manage LTR backups, you will need to be 
+•	Subscription Owner or
+•	SQL Server Contributor role in **Subscription** scope
+
+If more granualr control is required, you can create custom RBAC roles and assign them in **Subscription** scope. 
+
+For Get-LtrBackup/Restore the role need to have following permissions:
+Microsoft.Sql/locations/longTermRetentionBackups/read
+Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionBackups/read
+Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/read
+ 
+For Delete-LtrBackup the role need to have following permissions:
+Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/delete
 
 ### Create an LTR policy
 
