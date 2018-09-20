@@ -162,7 +162,7 @@
     name: Advanced Threat Threat Protection
     items:
     - name: Azure portal
-      href: howto-database-threat-protection-using-portal.md
+      href: howto-database-threat-protection-portal.md
   - name: Virtual Network
     items:
     - name: Azure portal

@@ -17,7 +17,7 @@ Advanced Threat Protection for Azure Database for PostgreSQL detects anomalous a
 Threat Protection is part of the Advanced Threat Protection (ATP) offering, which is a unified package for advanced security capabilities. Advanced Threat Protection can be accessed and managed via the [Azure portal](https://portal.azure.com) and is currently in preview.
 
 > [!NOTE]
-> The Advanced Threat Protection feature is **not** available in the following Azure government and sovereign cloud regions: US Gov Texas, US Gov Arizona, US Gov Iowa, US, Gov Virginia, US DoD East, US DoD Central, Germany Central, Germany North, China East, China East 2. Please visit [products available by region](https://azure.microsoft.com/en-us/global-infrastructure/services/) for general product availability.
+> The Advanced Threat Protection feature is **not** available in the following Azure government and sovereign cloud regions: US Gov Texas, US Gov Arizona, US Gov Iowa, US, Gov Virginia, US DoD East, US DoD Central, Germany Central, Germany North, China East, China East 2. Please visit [products available by region](https://azure.microsoft.com/global-infrastructure/services/) for general product availability.
 >
 
 ## What is Advanced Threat Protection?
@@ -26,7 +26,7 @@ Advanced Threat Protection for Azure Database for PostgreSQL provides a new laye
 
 ![Advanced Threat Protection Concept](media/concepts-data-access-and-security-threat-protection/advanced-threat-protection-concept.png)
 
-## Advanced Threat Protection for Azure Database for PostgreSQL alerts 
+## Advanced Threat Protection alerts 
 Advanced Threat Protection for Azure Database for PostgreSQL detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases and it can trigger the following alerts:
 - **Access from unusual location**: This alert is triggered when there is a change in the access pattern to the Azure Database for PostgreSQL server, where someone has logged on to the Azure Database for PostgreSQL server from an unusual geographical location. In some cases, the alert detects a legitimate action (a new application or developer maintenance). In other cases, the alert detects a malicious action (former employee, external attacker).
 - **Access from unusual Azure data center**: This alert is triggered when there is a change in the access pattern to the Azure Database for PostgreSQL server, where someone has logged on to the SQL server from an unusual Azure data center that was seen on this server during the recent period. In some cases, the alert detects a legitimate action (your new application in Azure, Power BI, Azure Database for PostgreSQL Query Editor). In other cases, the alert detects a malicious action from an Azure resource/service (former employee, external attacker).
@@ -38,4 +38,4 @@ Advanced Threat Protection for Azure Database for PostgreSQL detects anomalous a
 
 * Learn more about [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
 * For more information on pricing, see the [Azure Database for PostgreSQL Pricing page](https://azure.microsoft.com/pricing/details/postgresql/) 
-* Configure [Azure Database for PostgreSQL Advanced Threat Protection](howto-database-threat-protection-using-portal.md) using the Azure portal  
+* Configure [Azure Database for PostgreSQL Advanced Threat Protection](howto-database-threat-protection-portal.md) using the Azure portal  
