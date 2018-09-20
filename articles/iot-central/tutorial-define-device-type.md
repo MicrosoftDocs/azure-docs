@@ -328,7 +328,7 @@ You use _commands_ to enable an operator to run commands directly on the device.
 
     You can create commands of different types based on your requirements. 
 
-1. Click **New Command** to add a command to your device.
+1. Click **New Command** to add a command to your device .
 
 1. To configure your new command, use the information in the following table:
 
@@ -422,7 +422,7 @@ Now you have defined your **Connected Air Conditioner** device template, you can
     | Title                   | Serial number |
     | Settings and Properties | Serial Number |
 
-    ![Serial number property settings](./media/tutorial-define-device-type/propertysettings1.png)
+    ![Serial number property settings](./media/tutorial-define-device-type/propertysettings3.png)
 
     Then choose **Save**.
 
@@ -437,7 +437,7 @@ Now you have defined your **Connected Air Conditioner** device template, you can
     | Title                   | Firmware version |
     | Settings and Properties | Firmware Version |
 
-    ![Serial number property settings](./media/tutorial-define-device-type/propertysettings2.png)
+    ![Serial number property settings](./media/tutorial-define-device-type/propertysettings3.png)
 
     Then choose **Save**.
 
