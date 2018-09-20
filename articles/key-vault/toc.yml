@@ -127,8 +127,8 @@
     href: http://blogs.technet.com/b/kv/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/key-vault/
-  - name: Product Feedback
-    href: https://feedback.azure.com/forums/906355-azure-key-vault
 - name: Release Notes
   href: key-vault-versions.md
+- name: Product Feedback
+  href: https://feedback.azure.com/forums/906355-azure-key-vault
 

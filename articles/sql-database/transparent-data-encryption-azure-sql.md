@@ -5,7 +5,7 @@ services: sql-database
 author: "becczhang"
 manager: craigg
 ms.prod: 
-ms.reviewer: "carlrab"
+ms.reviewer: vanto
 ms.prod_service: sql-database, sql-data-warehouse
 ms.service: "sql-database"
 ms.tgt_pltfrm:

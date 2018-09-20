@@ -88,6 +88,7 @@ Some important things to consider:
 * To create certificates for clusters that are running production workloads, use a correctly configured Windows Server certificate service, or one from an approved [certificate authority (CA)](https://en.wikipedia.org/wiki/Certificate_authority).
 * Never use any temporary or test certificates that you create by using tools like MakeCert.exe in a production environment.
 * You can use a self-signed certificate, but only in a test cluster. Do not use a self-signed certificate in production.
+* When generating the certificate thumbprint, be sure to generate a SHA1 thumbprint. SHA1 is what's used when configuring the Client and Cluster certificate thumbprints.
 
 ### Cluster and server certificate (required)
 These certificates (one primary and optionally a secondary) are required to secure a cluster and prevent unauthorized access to it. These certificates provide cluster and server authentication.

@@ -445,6 +445,8 @@ Use the following tips to help troubleshoot issues you encounter with the Azure 
 
 - If you receive a **Service Unavailable** message, the emulator might be failing to initialize the network stack. Check to see if you have the Pulse secure client or Juniper networks client installed, as their network filter drivers may cause the problem. Uninstalling third-party network filter drivers typically fixes the issue.
 
+- While the Emulator is running, if your computer goes to sleep mode or runs any OS updates, you might see a **Service is currently unavailable** message. Reset the Emulator, by right clicking on the icon that appears on the windows notification tray and select **Reset Data**.
+
 ### <a id="trace-files"></a>Collect trace files
 
 To collect debugging traces, run the following commands from an administrative command prompt:
