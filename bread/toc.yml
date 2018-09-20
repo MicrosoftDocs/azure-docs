@@ -36,6 +36,9 @@
       - name: User Help
         tocHref: /azure/active-directory/user-help/
         topicHref: /azure/active-directory/user-help/         
+      - name: B2B
+        tocHref: /azure/active-directory/b2b/
+        topicHref: /azure/active-directory/b2b/
       - name: B2C
         tocHref: /azure/active-directory-b2c/
         topicHref: /azure/active-directory-b2c/

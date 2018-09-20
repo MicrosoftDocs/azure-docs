@@ -90,14 +90,20 @@ ms.author: mtillman
                                             <div class="cardPadding">
                                                 <div class="card">
                                                     <div class="cardText">
-                                                        <h3><a href="manage-apps/index.yml">App management</a></h3>
+                                                        <h3><a href="governance/access-reviews-overview.md">Access reviews</a></h3>
+                                                        <p>
+                                                            <a href="governance/create-access-review.md">Create an access review</a><br>
+                                                            <a href="governance/perform-access-review.md">Perform an access review</a><br>
+                                                            <a href="governance/active-directory-tou.md">Terms of use</a>
+                                                        </p>
+														<h3><a href="manage-apps/index.yml">App management</a></h3>
                                                         <p>
                                                             <a href="manage-apps/add-application-portal.md">Add an application</a><br>
                                                             <a href="manage-apps/configure-single-sign-on-portal.md">Configure single sign-on (SSO)</a><br>
 												            <a href="manage-apps/application-proxy.md">Application Proxy for on-premises apps</a><br>
                                                         </p>
 														<br><br>
-                                                        <h3><a href="authentication/index.yml">Authentication methods</a></h3>
+                                                        <h3><a href="authentication/index.yml">Authentication</a></h3>
                                                         <p>
                                                             <a href="authentication/tutorial-mfa-applications.md">Enable MFA for Azure portal</a><br>
                                                             <a href="authentication/quickstart-sspr.md">Enable self-service password reset</a><br>
@@ -118,12 +124,6 @@ ms.author: mtillman
                                                             <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-web-api">Grant access to an ASP.NET web API</a>
                                                         </p>
 														<br><br>
-                                                        <h3><a href="governance/access-reviews-overview.md">Access reviews</a></h3>
-                                                        <p>
-                                                            <a href="governance/create-access-review.md">Create an access review</a><br>
-                                                            <a href="governance/perform-access-review.md">Perform an access review</a><br>
-                                                            <a href="governance/active-directory-tou.md">Terms of use</a>
-                                                        </p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -157,9 +157,9 @@ ms.author: mtillman
 														<br><br>
 														<h3><a href="/azure/active-directory-domain-services/index">Domain services</a></h3>
                                                         <p>
-                                                            <a href="/azure/active-directory-domain-services/active-directory-ds-getting-started.md">Enable Azure AD Domain Services</a><br>
-                                                            <a href="/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal.md">Join Windows Server VM to managed domain</a><br>
-                                                            <a href="/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md">Configure secure LDAP</a>
+                                                            <a href="/azure/active-directory-domain-services/active-directory-ds-getting-started">Enable Azure AD Domain Services</a><br>
+                                                            <a href="/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal">Join Windows Server VM to managed domain</a><br>
+                                                            <a href="/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap">Configure secure LDAP</a>
                                                         </p>
 														<br><br>
                                                         <h3><a href="users-groups-roles/index.yml">Enterprise users</a></h3>
@@ -199,11 +199,11 @@ ms.author: mtillman
                                                             <a href="managed-identities-azure-resources/services-support-msi.md">Services that support managed identity</a>
                                                         </p>
 														<br><br>
-                                                        <h3><a href="privileged-identity-management/index.yml">PIM</a></h3>
+                                                        <h3><a href="privileged-identity-management/index.yml">Privileged identity management (PIM)</a></h3>
                                                         <p>
                                                             <a href="privileged-identity-management/pim-getting-started.md">Start using PIM</a><br>
                                                             <a href="privileged-identity-management/pim-how-to-activate-role.md">Activate my directory roles</a><br>
-                                                            <a href="privileged-identity-management/pim-how-to-add-role-to-user.md">Assign a directory roles</a>
+                                                            <a href="privileged-identity-management/pim-how-to-add-role-to-user.md">Assign directory roles</a>
                                                         </p>
 														<br><br>
 														<h3><a href="reports-monitoring/index.yml">Reporting and monitoring</a></h3>
