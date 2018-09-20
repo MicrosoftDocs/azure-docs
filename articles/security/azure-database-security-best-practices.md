@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/19/2018
+ms.date: 09/20/2018
 ms.author: tomsh
 
 ---
@@ -143,7 +143,7 @@ There are several levels of auditing for SQL Server, depending on government or 
 
 Auditing can help you maintain regulatory compliance, understand database activity, and find discrepancies and anomalies that might point to business concerns or security violations. Auditing facilitates adherence to compliance standards but doesn't guarantee compliance.
 
-To learn more about database auditing and how to enable it, see [Get started with SQL database auditing](../sql-database/sql-database-auditing).
+To learn more about database auditing and how to enable it, see [Get started with SQL database auditing](../sql-database/sql-database-auditing.md).
 
 ## Enable database threat detection
 Threat protection goes beyond detection. Database threat protection includes:
