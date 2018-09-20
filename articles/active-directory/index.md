@@ -90,13 +90,6 @@ ms.author: mtillman
                                             <div class="cardPadding">
                                                 <div class="card">
                                                     <div class="cardText">
-                                                        <h3><a href="governance/access-reviews-overview.md">Access reviews</a></h3>
-                                                        <p>
-                                                            <a href="governance/create-access-review.md">Create an access review</a><br>
-                                                            <a href="governance/perform-access-review.md">Perform an access review</a><br>
-                                                            <a href="governance/active-directory-tou.md">Terms of use</a><br>
-                                                        </p>
-														<br><br>
 														<h3><a href="manage-apps/index.yml">Application management</a></h3>
                                                         <p>
                                                             <a href="manage-apps/add-application-portal.md">Add an application</a><br>
@@ -125,6 +118,12 @@ ms.author: mtillman
                                                             <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-web-api">Grant access to an ASP.NET web API</a>
                                                         </p>
 														<br><br>
+                                                        <h3><a href="conditional-access/index.yml">Conditional access</a></h3>
+                                                        <p>
+                                                            <a href="conditional-access/app-based-mfa.md">Require MFA for specific apps</a><br>
+                                                            <a href="conditional-access/require-tou.md">Require terms of use to be accepted</a><br>
+                                                            <a href="conditional-access/app-sign-in-risk.md">Block access when a session risk is detected</a>
+                                                        </p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -135,13 +134,6 @@ ms.author: mtillman
                                             <div class="cardPadding">
                                                 <div class="card">
                                                     <div class="cardText">
-                                                        <h3><a href="conditional-access/index.yml">Conditional access</a></h3>
-                                                        <p>
-                                                            <a href="conditional-access/app-based-mfa.md">Require MFA for specific apps</a><br>
-                                                            <a href="conditional-access/require-tou.md">Require terms of use to be accepted</a><br>
-                                                            <a href="conditional-access/app-sign-in-risk.md">Block access when a session risk is detected</a>
-                                                        </p>
-														<br><br>
 														<h3><a href="develop/index.yml">Developers</a></h3>
                                                         <p>
                                                             <a href="develop/about-microsoft-identity-platform.md">About Microsoft identity platform</a><br>
@@ -169,6 +161,12 @@ ms.author: mtillman
                                                             <a href="users-groups-roles/licensing-groups-assign.md">Assign licenses to groups</a><br>
                                                             <a href="users-groups-roles/groups-create-rule.md">Create a dynamic group</a>
                                                         </p>
+                                                        <h3><a href="hybrid/index.yml">Hybrid identity</a></h3>
+                                                        <p>
+                                                            <a href="hybrid/how-to-connect-install-roadmap.md">Install Azure AD Connect</a><br>
+                                                            <a href="hybrid/how-to-connect-sso.md">Single sign-on with Azure AD Connect</a><br>
+                                                            <a href="hybrid/how-to-connect-fed-whatis.md">Azure AD Connect and federation</a>
+                                                        </p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -179,11 +177,11 @@ ms.author: mtillman
                                             <div class="cardPadding">
                                                 <div class="card">
                                                     <div class="cardText">
-                                                        <h3><a href="hybrid/index.yml">Hybrid identity</a></h3>
+                                                        <h3><a href="governance/access-reviews-overview.md">Access reviews</a></h3>
                                                         <p>
-                                                            <a href="hybrid/how-to-connect-install-roadmap.md">Install Azure AD Connect</a><br>
-                                                            <a href="hybrid/how-to-connect-sso.md">Single sign-on with Azure AD Connect</a><br>
-                                                            <a href="hybrid/how-to-connect-fed-whatis.md">Azure AD Connect and federation</a>
+                                                            <a href="governance/create-access-review.md">Create an access review</a><br>
+                                                            <a href="governance/perform-access-review.md">Perform an access review</a><br>
+                                                            <a href="governance/active-directory-tou.md">Terms of use</a><br>
                                                         </p>
 														<br><br>
                                                         <h3><a href="identity-protection/index.yml">Identity protection</a></h3>
