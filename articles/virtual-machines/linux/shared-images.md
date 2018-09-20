@@ -60,4 +60,4 @@ az vm create\
 
 ## Next steps
 
-For more information about Shared Image Galleries, see the [Overview](shared-image-galleries).
+For more information about Shared Image Galleries, see the [Overview](shared-image-galleries.md).

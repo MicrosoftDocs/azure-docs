@@ -5,7 +5,7 @@
  author: cynthn
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 09/13/2018
+ ms.date: 09/20/2018
  ms.author: cynthn
  ms.custom: include file
 ---

@@ -33,6 +33,8 @@ image definition name is invalid. Allowed characters for image definition are up
 
 The mandatory properties for creating an image definition resource are not populated. The properties such as name, publisher, offer, sku, and OS type are mandatory. Verify if all the properties are being passed.
 
+Make sure that the **OSType**, either Linux or Windows, of the image definition is the same as the source managed image that you are using to create the image version. 
+
 
 ## Unable to create an image version 
 
@@ -61,18 +63,19 @@ The target region list must include the source region of the image version. Make
 
 Replication to all the target regions not completed. Use the **-ReplicationStatus** flag to check if the replication to all the specified target regions has been completed. If not, wait up to 6 hours for the job to complete. If it fails, run the command again to create and replicate the image version.
 
-##Unable to create a Virtual Machine or Virtual Machine Scale Set from the image version
+##Unable to create a VM or a scale set 
 
 Possible causes:
 
-The user trying to create a Virtual Machine or Virtual Machine Scale Set doesn’t have the read access to the image version. Contact the subscription owner and ask them to provide read access to the image version or the parent resources (i.e., shared image gallery or image definition) through Role Based Access Control. 
+The user trying to create a VM or virtual machine scale set doesn’t have the read access to the image version. Contact the subscription owner and ask them to give read access to the image version or the parent resources (like the shared image gallery or image definition) through [Role Based Access Control](https://docs.microsoft.com/en-us/azure/role-based-access-control/rbac-and-directory-admin-roles) (RBAC). 
 
-The image version is not found. Verify if the region in which you are trying to create a Virtual Machine or Virtual Machine Scale Set is included in the list of target regions of the image version. If the region is already in the list of target regions, then verify if the replication job has been completed. You can use the -ReplicationStatus flag to check if the replication to all the specified target regions has been completed. 
+The image version is not found. Verify that the region you are trying to create a VM or virtual machine scale in is included in the list of target regions of the image version. If the region is already in the list of target regions, then verify if the replication job has been completed. You can use the **-ReplicationStatus** flag to check if the replication to all the specified target regions has been completed. 
 
+The VM or virtual machine scale set creation takes a long time. Verify that the **OSType** of the image version that you are trying to create the VM or virtual machine scale set from has the same **OSType** of the source managed image that you used to create the image version. 
 
 ## Unable to share shared image gallery, image definition and image version resources
 
-The sharing of shared image gallery, image definition and image version resources across subscriptions is enabled by Role Based Access Control. 
+The sharing of shared image gallery, image definition and image version resources across subscriptions is enabled using [Role Based Access Control](https://docs.microsoft.com/en-us/azure/role-based-access-control/rbac-and-directory-admin-roles) (RBAC). 
 
 ## Replication of image version across regions is slow
 
@@ -80,4 +83,4 @@ Use the **-ReplicationStatus** flag to check if the replication to all the speci
 
 ## Azure Limits and Quotas for subscriptions
 
-Azure Limits and Quotas apply to all shared image gallery, image definition, and image version resources. Make sure you are within the limits for your subscriptions. 
+[Azure limits and quotas](https://docs.microsoft.com/azure/azure-subscription-service-limits) apply to all shared image gallery, image definition, and image version resources. Make sure you are within the limits for your subscriptions. 

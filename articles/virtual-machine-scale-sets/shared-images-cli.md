@@ -47,9 +47,9 @@ Create a scale set with [az vmss create](/cli/azure/vmss#az-vmss-create). Instea
 
 ```azurecli-interactive
 az vmss create \
-  --resource-group myResourceGroup \
-  --name myScaleSet \
-  --image myImage \
+  -g myGalleryRG \
+  -n myScaleSet \
+  --image "/subscriptions/<subscription ID>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0" \
   --admin-username azureuser \
   --generate-ssh-keys
 ```
@@ -69,3 +69,5 @@ az group delete --name myResourceGroup --no-wait --yes
 
 
 ## Next steps
+
+If you run into any issues, you can [troubleshoot shared image galleries](troubleshoot-shared-images.md).

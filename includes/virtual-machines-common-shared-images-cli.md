@@ -32,7 +32,7 @@ az provider show -n Microsoft.Compute
 
 ## Create an image gallery 
 
-An image gallery is the primary resource used for enabling image sharing. Gallery names must be unique within your subscription. Create an image gallery using [az sig create](/cli/azure). The following example creates a gallery named *myGallery* in *myGalleryRG*.
+An image gallery is the primary resource used for enabling image sharing. Gallery names must be unique within your subscription. Create an image gallery using [az sig create](/cli/azure/sig#az-sig-create). The following example creates a gallery named *myGallery* in *myGalleryRG*.
 
 ```azurecli-interactive
 az group create --name myGalleryRG --location WestCentralUS
@@ -41,7 +41,7 @@ az sig create -g myGalleryRG --gallery-name myGallery
 
 ## Create an image definition
 
-Create an initial image definition in the gallery using [az sig image-definition create](/cli/azure).
+Create an initial image definition in the gallery using [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create).
 
 ```azurecli-interactive 
 az sig image-definition create \
@@ -56,7 +56,7 @@ az sig image-definition create \
 
 ## Create an image version 
  
-Create versions of the image as needed using az image gallery create-image-version. You will need to pass in the ID of the managed image to use as a baseline for creating the image version. You can use [az image list](/cli/azure/image?view#az-image-list) to get information about images that are in a resource group. In this example, the version of our image is *1.0.0*.
+Create versions of the image as needed using [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create). You will need to pass in the ID of the managed image to use as a baseline for creating the image version. You can use [az image list](/cli/azure/image?view#az-image-list) to get information about images that are in a resource group. In this example, the version of our image is *1.0.0* and we are going to create 5 total replicas in the *West Central US*, *South Central US* and East US 2* regions.
 
 ```azurecli-interactive 
 az sig image-version create \
