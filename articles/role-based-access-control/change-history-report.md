@@ -120,7 +120,7 @@ Here are the basic steps to get started:
 
    ![Log Analytics option in portal](./media/change-history-report/azure-log-analytics-option.png)
 
-1. Optionally use the [Log Search](../log-analytics/log-analytics-log-search.md) page or the [Advanced Analytics portal](https://docs.loganalytics.io/docs/Learn) to query and view the logs. For more information about these two options, see [Log Search page or the Advanced Analytics portal](../log-analytics/log-analytics-log-search-portals.md).
+1. Optionally use the [Log Search](../log-analytics/log-analytics-log-search.md) page or the [Advanced Analytics portal](../log-analytics/query-language/get-started-analytics-portal.md) to query and view the logs. For more information about these two options, see [Log Search page or the Advanced Analytics portal](../log-analytics/log-analytics-log-search-portals.md).
 
 Here's a query that returns new role assignments organized by target resource provider:
 
