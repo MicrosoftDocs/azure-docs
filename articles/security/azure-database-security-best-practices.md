@@ -79,7 +79,7 @@ If you use SQL Server authentication, you must:
 - Protect the credentials in the connection string.
 - (Potentially) protect the credentials passed over the network from the web server to the database. For more information, see [How to: Connect to SQL Server Using SQL Authentication in ASP.NET 2.0](https://msdn.microsoft.com/library/ms998300.aspx).
 
-*Azure Active Directory (AD) authentication*
+### *Azure Active Directory (AD) authentication*
 Azure AD authentication is a mechanism of connecting to Azure SQL Database and [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) by using identities in Azure AD. With Azure AD authentication, you can manage the identities of database users and other Microsoft services in one central location. Central ID management provides a single place to manage database users and simplifies permission management.
 
 > [!NOTE]
