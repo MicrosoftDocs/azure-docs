@@ -53,6 +53,6 @@ sections:
     className: cardsD
     items:
     - title: APIs
-      html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference">Bing Custom Search API v7</a></p><p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-autosuggest-api-v7-reference">Bing Custom Autosuggest API v7</a></p><p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference">Bing Custom Image Search API v7</a></p>    
+      html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference">Bing Custom Search API v7</a></p><p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-autosuggest-api-v7-reference">Bing Custom Autosuggest API v7</a></p><p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference">Bing Custom Image Search API v7</a></p><p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference">Bing Custom Video Search API v7</a></p>    
     - title: SDKs
       html: <p><a href="sdk.md">Bing Search SDK</a></p>
