@@ -71,7 +71,7 @@
       href: howto-sspr-authenticationdata.md
     - name: Enable password writeback
       href: howto-sspr-writeback.md
-    - name: SSPR for Windows 7, 8, 8.1
+    - name: SSPR for Windows 7, 8, and 8.1
       href: howto-sspr-windows-7-8.md
   - name: Cloud-based MFA
     items:
