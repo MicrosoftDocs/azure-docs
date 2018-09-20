@@ -57,7 +57,7 @@ Users will authenticate against the middle-tier application and an Oauth [on-beh
 
 1. Get the Service Principal ID from return payload and use it in next step payload as `objectId` to create a role assignment on this object.
 
-1. Create a role assignment in Digital Twins for Service Principal ID above (Note: This needs to be run by someone with Admin privileges) .
+1. Create a role assignment in Digital Twins for Service Principal ID above (Note: This needs to be run by someone with Admin privileges).
 
     * Make a POST call on `https://{resourceName}.{location}.azuresmartspaces.net/management/api/v1.0/roleassignments`
     * Body payload:
