@@ -57,12 +57,12 @@ Refer [here](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/Approving-a-
 
 You can create a pipeline with the copy activity by using one of the following tools or SDKs. Select a link to go to a tutorial with step-by-step instructions to create a pipeline with a copy activity. 
 
-- [Azure portal](../articles/data-factory/quickstart-create-data-factory-portal.md)
-- [.NET SDK](../articles/data-factory/quickstart-create-data-factory-dot-net.md)
-- [Python SDK](../articles/data-factory/quickstart-create-data-factory-python.md)
-- [Azure PowerShell](../articles/data-factory/quickstart-create-data-factory-powershell.md)
-- [REST API](../articles/data-factory/quickstart-create-data-factory-rest-api.md)
-- [Azure Resource Manager template](../articles/data-factory/quickstart-create-data-factory-resource-manager-template.md). 
+- [Azure portal](quickstart-create-data-factory-portal.md)
+- [.NET SDK](quickstart-create-data-factory-dot-net.md)
+- [Python SDK](quickstart-create-data-factory-python.md)
+- [Azure PowerShell](quickstart-create-data-factory-powershell.md)
+- [REST API](quickstart-create-data-factory-rest-api.md)
+- [Azure Resource Manager template](quickstart-create-data-factory-resource-manager-template.md). 
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Office 365 connector.
 
