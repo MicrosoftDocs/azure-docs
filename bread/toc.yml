@@ -12,13 +12,13 @@
       - name: Fundamentals
         tocHref: /azure/active-directory/fundamentals/
         topicHref: /azure/active-directory/fundamentals/
-      - name: Identity Protection
+      - name: Identity protection
         tocHref: /azure/active-directory/identity-protection/
         topicHref: /azure/active-directory/identity-protection/
       - name: Devices
         tocHref: /azure/active-directory/devices/
         topicHref: /azure/active-directory/devices/
-      - name: Conditional Access
+      - name: Conditional access
         tocHref: /azure/active-directory/conditional-access/
         topicHref: /azure/active-directory/conditional-access/
       - name: Authentication
@@ -33,7 +33,7 @@
       - name: Managed identities for Azure resources
         tocHref: /azure/active-directory/managed-identities-azure-resources/
         topicHref: /azure/active-directory/managed-identities-azure-resources/
-      - name: User Help
+      - name: User help
         tocHref: /azure/active-directory/user-help/
         topicHref: /azure/active-directory/user-help/         
       - name: B2B
@@ -42,7 +42,7 @@
       - name: B2C
         tocHref: /azure/active-directory-b2c/
         topicHref: /azure/active-directory-b2c/
-      - name: Domain Services
+      - name: Domain services
         tocHref: /azure/active-directory-domain-services/
         topicHref: /azure/active-directory-domain-services/
       - name: Users, groups, and roles
@@ -51,7 +51,7 @@
       - name: Access reviews
         tocHref: /azure/active-directory/governance/
         topicHref: /azure/active-directory/governance/
-      - name: Manage applications
+      - name: Application management
         tocHref: /azure/active-directory/manage-apps/
         topicHref: /azure/active-directory/manage-apps/
       - name: Reports and monitoring

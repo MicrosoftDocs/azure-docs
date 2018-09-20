@@ -96,7 +96,7 @@ ms.author: mtillman
                                                             <a href="governance/perform-access-review.md">Perform an access review</a><br>
                                                             <a href="governance/active-directory-tou.md">Terms of use</a>
                                                         </p>
-														<h3><a href="manage-apps/index.yml">App management</a></h3>
+														<h3><a href="manage-apps/index.yml">Application management</a></h3>
                                                         <p>
                                                             <a href="manage-apps/add-application-portal.md">Add an application</a><br>
                                                             <a href="manage-apps/configure-single-sign-on-portal.md">Configure single sign-on (SSO)</a><br>
