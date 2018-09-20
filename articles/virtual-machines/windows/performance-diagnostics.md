@@ -161,7 +161,7 @@ Each performance diagnostics run has two stages:
 1)	Install or update the performance diagnostics VM extension.
 2)	Run the diagnostics for the specified duration.
 
-After the VM extension is installed, a notification in the Azure portal indicates that the run is completed successfully. This is when the diagnostics run starts on the VM. You can run your repro steps soon after the run to have the performance diagnostics capture the correct set of data for troubleshooting. 
+Currently there is no easy way to know exactly when the VM extension installation is complete. Generally it takes about 45 seconds to 1 minute to install the VM extension. After the VM extension is installed, you can run your repro steps to have the performance diagnostics capture the correct set of data for troubleshooting. 
 
 ## Next steps
 After you review the performance diagnostics insights and report, if you still cannot determine the cause of the issue and need more help, you can open a support ticket with Microsoft Customer Support. 
