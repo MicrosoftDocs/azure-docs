@@ -127,7 +127,7 @@ To create a new Event Grid subscription, do the following:
 
    The following image displays a namespace that has a few Event Grid subscriptions:
 
-   ![20][]
+   ![Event grid subscriptions](./media/service-bus-to-event-grid-integration-concept/sbtoeventgridportal.png)
 
    The following image shows how to subscribe to a function or a webhook without any specific filtering:
 
