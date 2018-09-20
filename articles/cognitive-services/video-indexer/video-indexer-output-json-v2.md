@@ -1,13 +1,14 @@
 ---
-title: Examine the Azure Video Indexer output produced by v2 API | Microsoft Docs
+title: Examine the Video Indexer output produced by v2 API
+titlesuffix: Azure Cognitive Services
 description: This topic examines the Video Indexer output produced by v2 API.
 services: cognitive services
-documentationcenter: ''
 author: juliako
-manager: femila
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.topic: article
+ms.component: video-indexer
+ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: juliako
 ---

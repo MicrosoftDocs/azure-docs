@@ -71,7 +71,7 @@ The following tools in the Azure portal can help you analyze and fix performance
 
 The Azure portal has more information about both of these tools and how to use them. To efficiently diagnose and correct problems, we recommend that you first try the tools in the Azure portal. We recommend that you use the manual tuning approaches that we discuss next, for missing indexes and query tuning, in special cases.
 
-Find more information about identifying issues in Azure SQL Database on [performance monitoring](sql-database-single-database-monitor.md) article.
+Find more information about identifying issues in Azure SQL Database on [Performance monitoring in the Azure portal](sql-database-monitor-tune-overview.md) and [Monitor databases using DMVs](sql-database-monitoring-with-dmvs.md) articles.
 
 ### Identifying and adding missing indexes
 A common problem in OLTP database performance relates to the physical database design. Often, database schemas are designed and shipped without testing at scale (either in load or in data volume). Unfortunately, the performance of a query plan might be acceptable on a small scale but degrade substantially under production-level data volumes. The most common source of this issue is the lack of appropriate indexes to satisfy filters or other restrictions in a query. Often, missing indexes manifests as a table scan when an index seek could suffice.

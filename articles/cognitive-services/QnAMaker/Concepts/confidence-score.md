@@ -3,13 +3,13 @@ title: Confidence Score - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: A confidence score indicates the degree of match between the user question and the response returned.
 services: cognitive-services
-author: nstulasi
-manager: cgronlun
+author: tulasim88
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
-ms.author: saneppal
+ms.author: tulasim
 ---
 
 # Confidence Score
