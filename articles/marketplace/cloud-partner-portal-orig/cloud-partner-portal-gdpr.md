@@ -3,7 +3,7 @@ title: GDPR Compliance| Microsoft Docs
 description: Cloud Partner Portal and GDPR.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
-author: v-wesda
+author: dan-wesley
 manager: Patrick.Butler  
 editor:
 
