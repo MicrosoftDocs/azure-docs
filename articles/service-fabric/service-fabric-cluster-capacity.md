@@ -160,6 +160,7 @@ For production workloads:
 - The minimum supported use VM SKU is Standard D1 or Standard D1_V2 or equivalent with a minimum of 14 GB of local SSD. 
 - The 14 GB local SSD is a minimum requirement. Our recommendation is a minimum of 50 GB. For your workloads, especially when running Windows containers, larger disks are required. 
 - Partial core VM SKUs like Standard A0 are not supported for production workloads.
+- Standard A0 SKU cannot be used to create a cluster.
 - Standard A1 SKU is not supported for production workloads for performance reasons.
 
 > [!WARNING]
@@ -180,6 +181,7 @@ For production workloads
 - The recommended VM SKU is Standard D3 or Standard D3_V2 or equivalent with a minimum of 14 GB of local SSD.
 - The minimum supported use VM SKU is Standard D1 or Standard D1_V2 or equivalent with a minimum of 14 GB of local SSD. 
 - Partial core VM SKUs like Standard A0 are not supported for production workloads.
+- Standard A0 SKU cannot be used to create a cluster.
 - Standard A1 SKU is specifically not supported for production workloads for performance reasons.
 
 ## Non-primary node type - capacity guidance for stateless workloads
@@ -195,6 +197,7 @@ For production workloads
 - The recommended VM SKU is Standard D3 or Standard D3_V2 or equivalent. 
 - The minimum supported use VM SKU is Standard D1 or Standard D1_V2 or equivalent. 
 - Partial core VM SKUs like Standard A0 are not supported for production workloads.
+- Standard A0 SKU cannot be used to create a cluster.
 - Standard A1 SKU is not supported for production workloads for performance reasons.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
