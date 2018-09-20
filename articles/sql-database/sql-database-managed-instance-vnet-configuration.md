@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: conceptual
-ms.date: 09/18/2018
+ms.date: 09/20/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 ---
@@ -29,7 +29,7 @@ Plan how you deploy a Managed Instance in virtual network using your answers to 
 
    If you plan to use an existing virtual network, you need to modify that network configuration to accommodate your Managed Instance. For more information, see [Modify existing virtual network for Managed Instance](#modify-an-existing-virtual-network-for-managed-instances). 
 
-   If you plan to create new virtual network, see [Create new virtual network for Managed Instance](#create-a-new-virtual-network-for-managed-instances).
+   If you plan to create new virtual network, see [Create new virtual network for Managed Instance](#create-a-new-virtual-network-for-a-managed-instance).
 
 ## Requirements
 
@@ -79,7 +79,7 @@ If you plan to deploy multiple Managed Instances inside the subnet and need to o
 > [!IMPORTANT]
 > Calculation displayed above will become obsolete with further improvements. 
 
-## Create a new virtual network for Managed Instance using Azure Resource Manager deployment
+## Create a new virtual network for a Managed Instance
 
 The easiest way to create and configure virtual network is to use Azure Resource Manager deployment template.
 
@@ -138,8 +138,6 @@ Subnet preparation is done in three simple steps:
 **Do you have custom DNS server configured?** 
 
 If yes, see [Configuring a Custom DNS](sql-database-managed-instance-custom-dns.md). 
-
-- Create the required route table and associate it: see [Create the required route table and associate it](#create-the-required-route-table-and-associate-it)
 
 ## Next steps
 
