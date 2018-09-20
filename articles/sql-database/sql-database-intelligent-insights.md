@@ -89,13 +89,13 @@ The following example shows an Intelligent Insights report in Azure SQL Analytic
 
 After the Intelligent Insights diagnostics log is configured to stream data to SQL Analytics, you can [monitor the SQL database by using SQL Analytics](../log-analytics/log-analytics-azure-sql.md).
 
-### Set up Intelligent Insights with Event Hubs
+### Set up with Event Hubs
 
 To use Intelligent Insights with Event Hubs, configure Intelligent Insights log data to be streamed to Event Hubs, see [Stream Azure diagnostics logs to Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md).
 
 To use Event Hubs to setup custom monitoring and alerting, see [What to do with metrics and diagnostics logs in Event Hubs](sql-database-metrics-diag-logging.md#what-to-do-with-metrics-and-diagnostics-logs-in-event-hubs). 
 
-### Set up Intelligent Insights with Storage
+### Set up with Azure Storage
 
 To use Intelligent Insights with Storage, configure Intelligent Insights log data to be streamed to Storage, see [Stream into Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage).
 
