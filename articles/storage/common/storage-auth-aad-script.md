@@ -59,8 +59,9 @@ Azure PowerShell supports signing in with an Azure AD identity with one of the f
 To use Azure PowerShell to sign in with an Azure AD identity:
 
 1. Uninstall any previous installations of Azure PowerShell:
-    a. Remove any previous installations of Azure PowerShell from Windows using the **Apps & features** setting under **Settings**.
-    b. Remove all **Azure*** modules from `%Program Files%\WindowsPowerShell\Modules`.
+
+    - Remove any previous installations of Azure PowerShell from Windows using the **Apps & features** setting under **Settings**.
+    - Remove all **Azure*** modules from `%Program Files%\WindowsPowerShell\Modules`.
 
 1. Make sure that you have the latest version of PowerShellGet installed. Open a Windows PowerShell window, and run the following command to install the latest version:
  
