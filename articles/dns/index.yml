@@ -42,11 +42,15 @@ sections:
   - type: paragraph
     text: Learn how to host your domain in Azure DNS, create custom DNS records for a web app using Azure DNS, and create a private DNS zone and records.
   - type: list
-    style: ordered
+    style: unordered
     items:
     - html: <a href="/azure/dns/dns-delegate-domain-azure-dns">Host your domain in Azure DNS</a>
     - html: <a href="/azure/dns/dns-web-sites-custom-domain">Create custom DNS records for a web app</a>
     - html: <a href="/azure/dns/private-dns-getstarted-powershell">Create private DNS zone and record</a>
+    - html: <a href="/azure/dns/tutorial-alias-pip">Configure an alias record to refer to an Azure Public IP address</a>
+    - html: <a href="/azure/dns/tutorial-alias-tm">Configure an alias record to support apex domain names with Traffic Manager</a>
+    - html: <a href="/azure/dns/tutorial-alias-rr">Configure an alias record for zone records</a>
+
 
 - title: Free Pluralsight Video Training
   items:
