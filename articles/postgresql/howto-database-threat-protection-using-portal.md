@@ -17,7 +17,7 @@ Advanced Threat Protection for Azure Database for PostgreSQL detects anomalous a
 Advanced Threat Protection is part of the Advanced Data Security offering, which is a unified package for advanced security capabilities. Advanced Threat Protection can be accessed and managed via the [Azure portal](https://portal.azure.com) and is currently in preview.
 
 > [!NOTE]
-> The Advanced Threat Protection feature is **not** available in the following Azure government regions: US Gov Texas, US Gov Arizona, US Gov Iowa, US, Gov Virginia, US DoD East, US DoD Central, Germany Central, Germany North, China East, China East 2. Please visit [products available by region](https://azure.microsoft.com/en-us/global-infrastructure/services/) for general product availability.
+> The Advanced Threat Protection feature is **not** available in the following Azure government and sovereign cloud regions: US Gov Texas, US Gov Arizona, US Gov Iowa, US, Gov Virginia, US DoD East, US DoD Central, Germany Central, Germany North, China East, China East 2. Please visit [products available by region](https://azure.microsoft.com/en-us/global-infrastructure/services/) for general product availability.
 >
 
 ## Set up threat detection for your database in the Azure portal
@@ -33,10 +33,12 @@ Advanced Threat Protection is part of the Advanced Data Security offering, which
 ## Explore anomalous database activities upon detection of a suspicious event
 
 You receive an email notification upon detection of anomalous database activities. The email provides information on the suspicious security event including the nature of the anomalous activities, database name, server name, application name, and the event time. In addition, the email provides information on possible causes and recommended actions to investigate and mitigate the potential threat to the database.
+    
+1. Click the **View recent alerts** link in the email to launch the Azure portal and show the Azure Security Center alerts page, which provides an overview of active threats detected on the SQL database.
 
-![Anomalous activity report](./media/howto-database-threat-protection-using-portal/anomalous-activity-report.png)
-     
-1. Click the **View recent SQL alerts** link in the email to launch the Azure portal and show the Azure Security Center alerts page, which provides an overview of active threats detected on the SQL database.
+   ![Anomalous activity report](./media/howto-database-threat-protection-using-portal/anomalous-activity-report.png)
+
+View active threats:
 
    ![Active threats](./media/howto-database-threat-protection-using-portal/active-threats.png)
 
