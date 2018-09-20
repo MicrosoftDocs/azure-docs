@@ -126,6 +126,9 @@
   - name: Resource Manager
     tocHref: /azure/azure-resource-manager/
     topicHref: /azure/azure-resource-manager/
+  - name: SignalR Service
+    tocHref: /azure/azure-signalr/
+    topicHref: /azure/azure-signalr/
   - name: Azure Stack
     tocHref: /azure/azure-stack/
     topicHref: /azure/azure-stack/
@@ -250,7 +253,7 @@
     - name: Speech API
       tocHref: /azure/cognitive-services/Speech/
       topicHref: /azure/cognitive-services/Speech/home
-    - name: Speech Service (preview)
+    - name: Speech Service
       tocHref: /azure/cognitive-services/Speech-Service/
       topicHref: /azure/cognitive-services/Speech-Service/
     - name: Text Analytics
@@ -296,6 +299,12 @@
   - name: Cosmos DB
     tocHref: /azure/cosmos-db/
     topicHref: /azure/cosmos-db/
+  - name: Data Box
+    tocHref: /azure/databox/
+    topicHref: /azure/databox/ 
+  - name: Data Box Edge/Data Box Gateway
+    tocHref: /azure/databox-online/
+    topicHref: /azure/databox-online/ 
   - name: Data Catalog
     tocHref: /azure/data-catalog/
     topicHref: /azure/data-catalog/
@@ -329,6 +338,22 @@
   - name: Front Door Service
     tocHref: /azure/frontdoor/
     topicHref: /azure/frontdoor/
+  - name: Governance
+    tocHref: /azure/governance/
+    topicHref: /azure/governance/
+    items:
+      - name: Blueprints
+        tocHref: /azure/governance/blueprints/
+        topicHref: /azure/governance/blueprints/
+      - name: Management Groups
+        tocHref: /azure/governance/management-groups/
+        topicHref: /azure/governance/management-groups/
+      - name: Policy
+        tocHref: /azure/governance/policy/
+        topicHref: /azure/governance/policy/
+      - name: Resource Graph
+        tocHref: /azure/governance/resource-graph/
+        topicHref: /azure/governance/resource-graph/
   - name: Guidance
     tocHref: /azure/guidance/
     topicHref: /azure/guidance/
@@ -407,7 +432,7 @@
     tocHref: /azure/machine-learning/
     topicHref: /azure/machine-learning/
     items:
-      - name: Services (preview)
+      - name: Service
         tocHref: /azure/machine-learning/service
         topicHref: /azure/machine-learning/service/
       - name: Studio
@@ -466,31 +491,6 @@
   - name: Operations Management Suite
     tocHref: /azure/operations-management-suite/
     topicHref: /azure/operations-management-suite/
-  - name: Policy documentation
-    tocHref: /azure/azure-policy/
-    topicHref: /azure/azure-policy/
-    items:
-      - name: Overview of Azure Policy
-        tocHref: /azure/azure-policy/azure-policy-introduction/
-        topicHref: /azureazure-policy/azure-policy-introduction/
-      - name: Assign a policy - Portal
-        tocHref: /azure/azure-policy/assign-policy-definition/
-        topicHref: /azureazure-policy/assign-policy-definition/
-      - name: Assign a policy - PowerShell
-        tocHref: /azure/azure-policy/assign-policy-definition-ps/
-        topicHref: /azureazure-policy/assign-policy-definition-ps/
-      - name: Assign a policy - Azure CLI
-        tocHref: /azure/azure-policy/assign-policy-definition-cli/
-        topicHref: /azureazure-policy/assign-policy-definition-cli/
-      - name: Create and manage Azure Policy
-        tocHref: /azure/azure-policy/create-manage-polic/
-        topicHref: /azureazure-policy/create-manage-polic/
-      - name: Policy templates
-        tocHref: /azure/azure-policy/json-samples/
-        topicHref: /azureazure-policy/json-samples/
-      - name: Azure Policy definition structure
-        tocHref: /azure/azure-policy/policy-definition/
-        topicHref: /azureazure-policy/policy-definition/
   - name: PostgreSQL
     tocHref: /azure/postgresql/
     topicHref: /azure/postgresql/
