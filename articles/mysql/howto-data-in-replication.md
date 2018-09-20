@@ -155,7 +155,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
        - It is recommended to pass this parameter in as a variable. See the following examples for more information.
 
 > [!NOTE]
-> If the master server is hosted in an Azure VM, set "Allow access to Azure services" to "ON" to allow the master and replica servers to communicate with each other. This setting can be changed from the **Connection security** options. Refer to [manage firewall rules using portal](howto-manage-firewall-using-portal) for more information.
+> If the master server is hosted in an Azure VM, set "Allow access to Azure services" to "ON" to allow the master and replica servers to communicate with each other. This setting can be changed from the **Connection security** options. Refer to [manage firewall rules using portal](howto-manage-firewall-using-portal.md) for more information.
 
    **Examples**
 
