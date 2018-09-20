@@ -220,6 +220,8 @@ Select the **Update Deployments** tab to view the list of existing update deploy
 
 ![Overview of update deployment results](./media/automation-update-management/update-deployment-run.png)
 
+To view an update deployment from the REST API, see [Software Update Configuration Runs](/rest/api/automation/softwareupdateconfigurationruns).
+
 ## Update classifications
 
 The following tables list the update classifications in Update Management, with a definition for each classification.
