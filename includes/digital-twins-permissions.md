@@ -31,13 +31,17 @@ Users will authenticate against the middle-tier application and an Oauth [on-beh
 
     ![Azure Active Directory app registration third step][5]
 
-1. Generate a secret key and use that value to configure `appSettings.json` as `ClientSecret`:
+1. Generate a secret key by creating a `Password` for your Azure Active Directory app. A `Password` can be obtained under the **Settings -> Keys -> Password** menu. Use that value to configure `appSettings.json` as `ClientSecret`:
 
     ![Azure Active Directory app registration fourth step][6]
 
-1. Get Application ID and use it in configuration `appSettings.json` as `ClientId`:
+1. Get the `Application ID` of your Azure Active Directory app and use it to configure `appSettings.json` as `ClientId`:
 
     ![Azure Active Directory app registration fifth step][4]
+
+1. To configure `Tenant` in your `appSettings.json` file, supply your `Directory ID` located under **Microsoft Properties -> Properties**:
+
+    ![Azure Active Directory app registration sixth step][7]
 
 ### Add permissions for Azure Active Directory registered app to Digital Twins Management API
 
@@ -57,10 +61,10 @@ Users will authenticate against the middle-tier application and an Oauth [on-beh
 
 1. Get the Service Principal ID from return payload and use it in next step payload as `objectId` to create a role assignment on this object.
 
-1. Create a role assignment in Digital Twins for Service Principal ID above (Note: This needs to be run by someone with Admin privileges).
+1. Create a role assignment in Digital Twins for the Service Principal ID above (Note: This needs to be run by someone with Admin privileges).
 
     * Make a POST call on `https://{resourceName}.{location}.azuresmartspaces.net/management/api/v1.0/roleassignments`
-    * Body payload:
+    * The JSON body should be:
         ```json
         {
             "RoleId": "98e44ad7-28d4-4007-853b-b9968ad132d1",
@@ -75,7 +79,6 @@ Users will authenticate against the middle-tier application and an Oauth [on-beh
 [1]: ./media/digital-twins-permissions/aad-app-registration1.png
 [2]: ./media/digital-twins-permissions/aad-app-registration2.png
 [3]: ./media/digital-twins-permissions/aad-app-registration3.png
-
 [4]: ./media/digital-twins-permissions/aad-app-registration.v2.clientid.png
 [5]: ./media/digital-twins-permissions/aad-app-registration.v2.permission.png
 [6]: ./media/digital-twins-permissions/aad-app-registration.v2.secret.png
