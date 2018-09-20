@@ -33,12 +33,8 @@ Azure AD helps you to:
 
 -   Take advantage of the [high-availability and reliability](https://docs.microsoft.com/azure/architecture/checklist/availability) of a worldwide, enterprise-grade, cloud-based identity and access management solution.
 
-<<<<<<< HEAD
-    Additionally, with just [four clicks](../hybrid/how-to-connect-install-express.md), you can integrate Azure AD with an existing Windows Server Active Directory, letting your organization use your existing on-premises identity investments to manage cloud-based SaaS app access.
-=======
 ## Who uses Azure AD
 Azure AD is intended for IT admins, app developers, and for users of Office 365, Azure, or Dynamics CRM Online.
->>>>>>> 73f447b1499ba1f189efb6832ad759f1230e55a2
 
 - **IT admins.** Azure AD provides a more secure solution for your organization through the use of stronger identity management and single sign-on (SSO) access to thousands of [cloud-based SaaS apps](../saas-apps/tutorial-list.md) and on-premises apps. Through these apps, you'll also get cloud-based app security, seamless access, enhanced collaboration, and automation of the identity lifecycle for your users, helping to increase both security and compliance.
 
@@ -77,4 +73,6 @@ Sign up for a free 30-day trial and deploy your first cloud solution, see [Azure
 Sign up for a free 30-day trial and start integrating your apps with Azure AD, see [Azure Active Directory Premium trial](https://azure.microsoft.com/trial/get-started-active-directory/). For more information, you can also see the [Developers Guide](../develop/azure-ad-developers-guide.md) for Azure Active Directory.
 
 ## Next steps
-[Learn more about the fundamentals of Azure identity and access management](identity-fundamentals.md).
+- [Learn more about the fundamentals of Azure identity and access management](identity-fundamentals.md).
+
+- [Integrate Azure AD with Windows Server Active directory](../hybrid/how-to-connect-install-express.md).
