@@ -6021,7 +6021,7 @@ featureFlags:
                                                     SQL Tools
                                                 </h3>
                                                 <p>
-                                                    <a href="/sql/sql-operations-studio/download">SQL Operations Studio <sup>PREVIEW</sup></a>
+                                                    <a href="/sql/azure-data-studio/download">Azure Data Studio <sup>PREVIEW</sup></a>
                                                 </p>
                                                 <p>
                                                     <a href="/sql/ssms/download-sql-server-management-studio-ssms">SQL Server Management Studio (SSMS)</a>
