@@ -122,9 +122,12 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
 *Q.* Can I move my existing image to the shared image gallery?
  
  A. Yes. There are 4 scenarios based on the types of images you may have.
-Scenario 1: If you have a managed image, then you can create an image definition and image version from it.
-Scenario 2: If you have an unmanaged generalized image, you can create a managed image from it, and then create an image definition and image version from it. 
-Scenario 4: If you have a VHD in your local file system, then you need to upload the VHD, create a managed image, then you can create and image definition and image version from it. 
+
+ Scenario 1: If you have a managed image, then you can create an image definition and image version from it.
+
+ Scenario 2: If you have an unmanaged generalized image, you can create a managed image from it, and then create an image definition and image version from it. 
+
+ Scenario 4: If you have a VHD in your local file system, then you need to upload the VHD, create a managed image, then you can create and image definition and image version from it. 
 	- If the VHD is of a Windows VM, see [Upload a generalized VHD](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed).
 	- If the VHD is a for a Linux VM, see [Upload a VHD](https://docs.microsoft.com/azure/virtual-machines/linux/upload-vhd#option-1-upload-a-vhd)
 
