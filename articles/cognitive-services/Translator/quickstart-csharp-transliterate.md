@@ -1,10 +1,10 @@
 ---
-title: Translator Text convert text script with C# | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
-description: In this quickstart, you convert text in one language from one script to another using the Translator Text API with C# in Cognitive Services.
+title: "Quickstart: Convert text script - Translator Text, C#"
+titleSuffix: Azure Cognitive Services
+description: In this quickstart, you convert text in one language from one script to another using the Translator Text API with C#.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: translator-text
@@ -15,6 +15,8 @@ ms.author: nolachar
 # Quickstart: Transliterate text with C&#35;
 
 In this quickstart, you convert text in one language from one script to another using the Translator Text API.
+
+The source code for this sample is available on [Github](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
 
 ## Prerequisites
 

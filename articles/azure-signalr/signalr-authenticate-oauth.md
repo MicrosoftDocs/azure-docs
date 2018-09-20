@@ -19,8 +19,6 @@ ms.author: zhshang
 ---
 # Tutorial: Azure SignalR Service authentication
 
-Microsoft Azure SignalR Service is currently in [Public Preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 This tutorial builds on the chat room application introduced in the quickstart. If you have not completed [Create a chat room with SignalR Service](signalr-quickstart-dotnet-core.md), complete that exercise first. 
 
 In this tutorial, you'll learn how to implement your own authentication and integrate it with the Microsoft Azure SignalR Service. 

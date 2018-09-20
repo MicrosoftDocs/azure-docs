@@ -1,6 +1,6 @@
 ---
-title: Manage Azure SQL Database schema in a multi-tenant app | Microsoft Docs
-description: "Manage Schema for multiple tenants in a multi-tenant application that uses Azure SQL Database"
+title: Manage Azure SQL Database schema in a single-tenant app | Microsoft Docs
+description: "Manage Schema for multiple tenants in a single-tenant app that uses Azure SQL Database"
 keywords: sql database tutorial
 services: sql-database
 author: stevestein
@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 09/19/2018
 ms.author: sstein
 ms.reviewer: billgib
 
 ---
 # Manage schema in a SaaS application using the database-per-tenant pattern with Azure SQL Database
-
+ 
 As a database application evolves, changes inevitably need to be made to the database schema or reference data.  Database maintenance tasks are also needed periodically. Managing an application that uses the database per tenant pattern requires that you apply these changes or maintenance tasks across a fleet of tenant databases.
 
 This tutorial explores two scenarios - deploying reference data updates for all tenants, and rebuilding an index on the table containing the reference data. The [Elastic jobs](sql-database-elastic-jobs-overview.md) feature is used to execute these actions on all tenant databases, and on the template database used to create new tenant databases.

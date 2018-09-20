@@ -1,9 +1,11 @@
 ---
-title: Overview of the Linguistic Analysis API - Azure Cognitive Services | Microsoft Docs
-description: Learn about how the Linguistic Analysis API in Microsoft Cognitive Services provide access to NLP tools that identify the structure of text.
+title: What is the Linguistic Analysis API
+titlesuffix: Azure Cognitive Services
+description: Learn how the Linguistic Analysis API provides access to natural language processing (NLP) tools that identify the structure of text.
 services: cognitive-services
 author: RichardSunMS
-manager: wkwok
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: linguistic-analysis
 ms.topic: overview

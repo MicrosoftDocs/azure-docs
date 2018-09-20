@@ -1,10 +1,10 @@
 ---
-title: Translator Text API sign-up | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
+title: Translator Text API sign-up
+titleSuffix: Azure Cognitive Services
 description: How to sign up for the Translator Text API.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: translator-text

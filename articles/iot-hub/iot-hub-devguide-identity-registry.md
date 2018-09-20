@@ -261,7 +261,7 @@ To explore using the IoT Hub Device Provisioning Service to enable zero-touch, j
 [lnk-getstarted-tutorial]: quickstart-send-telemetry-dotnet.md
 [lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps
 
-[lnk-AM]: ../monitoring-and-diagnostics/index.yml
+[lnk-AM]: ../azure-monitor/index.yml
 [lnk-ARH]: ../service-health/resource-health-overview.md
 [lnk-devguide-evgrid-evtype]: iot-hub-event-grid.md#event-types
 [lnk-howto-evgrid-connstate]: iot-hub-how-to-order-connection-state-events.md

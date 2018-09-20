@@ -14,7 +14,9 @@ ms.component: common
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
 
 ## Support coverage and regional availability
-ZRS currently supports standard [general-purpose v2 (GPv2)](storage-account-options.md#general-purpose-v2-accounts) account types. ZRS is available for block blobs, non-disk page blobs, files, tables, and queues. Additionally, all of your [Storage Analytics](storage-analytics.md) logs and [Storage Metrics](storage-enable-and-view-metrics.md)
+ZRS currently supports standard general-purpose v2 account types. For more information on storage account types, see [Azure storage account overview](storage-account-overview.md).
+
+ZRS is available for block blobs, non-disk page blobs, files, tables, and queues.
 
 ZRS is generally available in the following regions:
 
@@ -75,7 +77,9 @@ A support person will then be in contact with you. That person will be available
 >
 > When ZRS becomes [generally available](#support-coverage-and-regional-availability) in a region, customers will no longer be able to create ZRS Classic accounts from the portal in that region. Using Microsoft PowerShell and Azure CLI to create ZRS Classic accounts is supported until ZRS Classic is deprecated.
 
-ZRS Classic asynchronously replicates data across data centers within one to two regions. A replica may not be available unless Microsoft initiates failover to the secondary. ZRS Classic is available only for **block blobs** in [general-purpose V1 (GPv1)](storage-account-options.md#general-purpose-v1-accounts) storage accounts. A ZRS Classic account cannot be converted to or from LRS or GRS, and does not have metrics or logging capability.
+ZRS Classic asynchronously replicates data across data centers within one to two regions. A replica may not be available unless Microsoft initiates failover to the secondary. A ZRS Classic account cannot be converted to or from LRS or GRS, and does not have metrics or logging capability.
+
+ZRS Classic is available only for **block blobs** in general-purpose V1 (GPv1) storage accounts. For more information about storage accounts, see [Azure storage account overview](storage-account-overview.md).
 
 ZRS Classic accounts cannot be converted to or from LRS, GRS, or RA-GRS. ZRS Classic accounts also do not support metrics or logging.
 

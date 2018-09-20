@@ -75,11 +75,13 @@ You can run multiple Batch workloads in a single Batch account, or distribute yo
 
 Most Batch solutions use Azure Storage for storing resource files and output files. For example, your Batch tasks (including standard tasks, start tasks, job preparation tasks, and job release tasks) typically specify resource files that reside in a storage account.
 
-Batch supports the following Azure Storage [account options](../storage/common/storage-account-options.md):
+Batch supports the following types of Azure Storage accounts:
 
 * General-purpose v2 (GPv2) accounts 
 * General-purpose v1 (GPv1) accounts
 * Blob storage accounts (currently supported for pools in the Virtual Machine configuration)
+
+For more information about storage accounts, see [Azure storage account overview](../storage/common/storage-account-overview.md).
 
 You can associate a storage account with your Batch account when you create the Batch account, or later. Consider your cost and performance requirements when choosing a storage account. For example, the GPv2 and blob storage account options support greater [capacity and scalability limits](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/) compared with GPv1. (Contact Azure Support to request an increase in a storage limit.) These account options can improve the performance of Batch solutions that contain a large number of parallel tasks that read from or write to the storage account.
 
