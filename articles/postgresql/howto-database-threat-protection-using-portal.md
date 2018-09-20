@@ -38,9 +38,7 @@ You receive an email notification upon detection of anomalous database activitie
 
 2. Click a specific alert to get additional details and actions for investigating this threat and remediating future threats.
 
-   For example, SQL injection is one of the most common Web application security issues on the Internet that is used to attack data-driven applications. Attackers take advantage of application vulnerabilities to inject malicious SQL statements into application entry fields, breaching or modifying data in the database. For SQL Injection alerts, the alert’s details include the vulnerable SQL statement that was exploited.
-
-   ![Specific alert](./media/howto-database-threat-protection-using-portal/specific-alert.png)
+      ![Specific alert](./media/howto-database-threat-protection-using-portal/specific-alert.png)
 
 ## Explore threat detection alerts for your database in the Azure portal
 

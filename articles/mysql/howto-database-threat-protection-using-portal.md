@@ -6,7 +6,7 @@ author: bolzmj
 manager: kfile
 ms.service: mysql
 ms.topic: article
-ms.date: 09/14/2018
+ms.date: 09/20/2018
 ms.author: mbolz
 
 ---
@@ -30,17 +30,15 @@ Advanced Threat Protection is part of the Advanced Data Security offering, which
 
 You receive an email notification upon detection of anomalous database activities. The email provides information on the suspicious security event including the nature of the anomalous activities, database name, server name, application name, and the event time. In addition, the email provides information on possible causes and recommended actions to investigate and mitigate the potential threat to the database.
 
-![Anomalous activity report](./media/sql-database-threat-detection/anomalous_activity_report.png)
+![Anomalous activity report](./media/howto-database-threat-protection-using-portal/anomalous-activity-report.png)
      
 1. Click the **View recent SQL alerts** link in the email to launch the Azure portal and show the Azure Security Center alerts page, which provides an overview of active threats detected on the SQL database.
 
-   ![Activty threats](./media/sql-database-threat-detection/active_threats.png)
+   ![Activty threats](./media/howto-database-threat-protection-using-portal/active-threats.png)
 
 2. Click a specific alert to get additional details and actions for investigating this threat and remediating future threats.
 
-   For example, SQL injection is one of the most common Web application security issues on the Internet that is used to attack data-driven applications. Attackers take advantage of application vulnerabilities to inject malicious SQL statements into application entry fields, breaching or modifying data in the database. For SQL Injection alerts, the alert’s details include the vulnerable SQL statement that was exploited.
-
-   ![Specific alert](./media/sql-database-threat-detection/specific_alert.png)
+     ![Specific alert](./media/howto-database-threat-protection-using-portal/specific-alert.png)
 
 ## Explore threat detection alerts for your database in the Azure portal
 
@@ -48,9 +46,8 @@ SQL Database Threat Detection integrates its alerts with [Azure Security Center]
 
 Click **Threat detection alert** to launch the Azure Security Center alerts page and get an overview of active SQL threats detected on the database.
 
-   ![Threat detection alert](./media/sql-database-threat-detection/threat_detection_alert.png)
+   ![Threat detection alert](./media/howto-database-threat-protection-using-portal/threat-detection-alert-asc.png)
    
-   ![Threat detection alert2](./media/sql-database-threat-detection/threat_detection_alert_atp.png)
 
 ## Next steps
 
