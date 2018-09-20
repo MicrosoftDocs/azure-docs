@@ -63,7 +63,7 @@ Metrics and diagnostics logging elastic pools or Managed Instance is not enabled
 | Monitoring telemetry | Elastic pool support | Managed Instance support |
 | :------------------- | ------------------- | ------------------- |
 | [All metrics](sql-database-metrics-diag-logging.md#all-metrics) (elastic pools): Contains eDTU/CPU percentage, eDTU/CPU limit, physical data read percentage, log write percentage, sessions percentage, workers percentage, storage, storage percentage, storage limit, and XTP storage percentage. | Yes | N/A |
-| [ResourceUsageStats](sql-database-metrics-diag-logging.md#resource-usage-stats) (Managed Instance): Contains vCores count, avarage CPU percentage, IO requests, bytes read/written, reserved storage space, used storage space. | N/A | Yes |
+| [ResourceUsageStats](sql-database-metrics-diag-logging.md#resource-usage-stats) (Managed Instance): Contains vCores count, average CPU percentage, IO requests, bytes read/written, reserved storage space, used storage space. | N/A | Yes |
 
 To understand the metrics and log categories that are supported by the various Azure services, we recommend that you read:
 
@@ -271,7 +271,9 @@ Learn how to [download metrics and diagnostics logs from Storage](../storage/blo
 
 ## Metrics and logs available
 
-### All metrics
+Please find detailed monitoring telemetry content of metrics and logs available for Azure SQL Database, elastic pools, Managed Instance, and databases in Managed Instance.
+
+## All metrics
 
 ### All metrics for elastic pools
 
@@ -285,7 +287,7 @@ Learn how to [download metrics and diagnostics logs from Storage](../storage/blo
 |---|---|
 |Azure SQL Database|DTU percentage, DTU used, DTU limit, CPU percentage, physical data read percentage, log write percentage, Successful/Failed/Blocked by firewall connections, sessions percentage, workers percentage, storage, storage percentage, XTP storage percentage, and deadlocks |
 
-### Logs
+## Logs
 
 ### Logs for Managed Instance
 
