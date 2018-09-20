@@ -91,8 +91,8 @@
       href: iot-accelerators-remote-monitoring-deploy-local.md
     - name: Visualize telemetry with PowerBI
       href: iot-accelerators-integrate-data-powerbi.md
-    - name: Visualize telemetry with Time Series Insights
-      href: iot-accelerators-remote-monitoring-time-series-insights.md
+    - name: Integrate Azure Time Series Insights with Remote Monitoring
+      href: iot-accelerators-remote-monitoring-integrate-time-series-insights.md
     - name: Analyze telemetry with Data Lake
       href: iot-accelerators-integrate-data-lake.md
     - name: Configure role-based access controls

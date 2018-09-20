@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/31/2018
+ms.date: 09/12/2018
 ms.author: celested
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev
@@ -22,8 +22,7 @@ ms.custom: aaddev
 
 # List your application in the Azure Active Directory application gallery
 
-
-##	What is the Azure AD application gallery?
+## What is the Azure AD application gallery?
 
 Azure Active Directory (Azure AD) is a cloud-based identity service. The [Azure AD application gallery](https://azure.microsoft.com/marketplace/active-directory/all/) is in the Azure Marketplace app store, where all application connectors are published for single sign-on and user provisioning. Customers who use Azure AD as an identity provider find the different SaaS application connectors published here. IT administrators add connectors from the app gallery, and then configure and use the connectors for single sign-on and provisioning. Azure AD supports all major federation protocols for single sign-on, including SAML 2.0, OpenID Connect, OAuth, and WS-Fed.
 
@@ -53,7 +52,28 @@ Azure Active Directory (Azure AD) is a cloud-based identity service. The [Azure 
 
 - For Automatic User-Provisioning requests, application should be listed in the gallery with single sign-on feature enabled using any of the federation protocol described above. You can request for SSO and User provisioning together on the portal, if it's not already listed.
 
-##	Implementing SSO using federation protocol
+## Submit the request in the portal
+
+After you've tested that your application integration works with Azure AD, submit your request for access on our [Application Network Portal](https://microsoft.sharepoint.com/teams/apponboarding/Apps). If you have an Office 365 account, use that to sign in to this portal. If not, use your Microsoft account (such as Outlook or Hotmail) to sign in.
+
+If the following page appears after sign in, contact the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>) and provide the email account which you want to use for submitting the request. Then Azure AD team will add the account in the SharePoint portal. 
+
+![Access Request on SharePoint portal](./media/howto-app-gallery-listing/errorimage.png)
+
+Once the account is added, you can sign in to the SharePoint portal.
+
+And if the following page appears after sign in, provide a business justification for needing access in the text box, and then select **Request Access**.
+
+  ![Access Request on SharePoint portal](./media/howto-app-gallery-listing/accessrequest.png)
+
+Our team reviews the details and gives you access accordingly. Once your request is approved, you can sign in to the portal and submit the request by clicking the **Submit Request (ISV)** tile form the home page.
+
+![SharePoint portal Home page](./media/howto-app-gallery-listing/homepage.png)
+
+> [!NOTE]
+> If you have any issues regarding access, contact the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
+
+## Implementing SSO using federation protocol
 
 To list an application in the Azure AD app gallery, you first need to implement one of the following federation protocols supported by Azure AD and agree with Azure AD application Gallery terms and conditions. Read the terms and conditions of the Azure AD application gallery from [here](https://azure.microsoft.com/en-us/support/legal/active-directory-app-gallery-terms/).
 
@@ -83,7 +103,7 @@ Create a web application that has an HTML sign-in page to configure [password-ba
 
 * If you have any issues regarding access, contact the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
-##	Update/Remove existing listing
+## Update/Remove existing listing
 
 To update or remove an existing application in the Azure AD app gallery, you first need to submit the request in the [Application Network Portal](https://microsoft.sharepoint.com/teams/apponboarding/Apps). If you have an Office 365 account, use that to sign in to this portal. If not, use your Microsoft account (such as Outlook or Hotmail) to sign in.
 
@@ -97,18 +117,8 @@ To update or remove an existing application in the Azure AD app gallery, you fir
 
     * If you have any issues regarding access, contact the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
 
-## Submit the request in the portal
-
-After you've tested that your application integration works with Azure AD, submit your request for access on our [Application Network Portal](https://microsoft.sharepoint.com/teams/apponboarding/Apps). If you have an Office 365 account, use that to sign in to this portal. If not, use your Microsoft account (such as Outlook or Hotmail) to sign in.
-
-After you sign in, the following page appears. Provide a business justification for needing access in the text box, and then select **Request Access**. Our team reviews the details and gives you access accordingly. After that, you can sign in to the portal and submit your detailed request for the application.
-
-If you have any issues regarding access, contact the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
-
-![Access Request on SharePoint portal](./media/howto-app-gallery-listing/accessrequest.png)
-
 ## Timelines
-    
+
 The timeline for the process of listing a SAML 2.0 or WS-Fed application in the gallery is 7-10 business days.
 
    ![TimeLine of listing saml application into the gallery](./media/howto-app-gallery-listing/timeline.png)

@@ -62,7 +62,7 @@ To deploy the client application from the previous step to your Windows 10 IoT d
 * Copy the text file to the device’s document folder: 
 `[device-IP-address]\C$\Data\Users\DefaultAccount\Documents\connection.string.iothub`
 
-Once you've done that, you'll need to open the [Windows Device Portal](https://docs.microsoft.com/en-us/windows/iot-core/manage-your-device/deviceportal) by typing in http://[device-IP-address]:8080 into any browser.
+Once you've done that, you'll need to open the [Windows Device Portal](https://docs.microsoft.com/windows/iot-core/manage-your-device/deviceportal) by typing in http://[device-IP-address]:8080 into any browser.
 
 From there and, as shown in the if below, you'll want to:
 1. Expand the "Apps" node on the left.

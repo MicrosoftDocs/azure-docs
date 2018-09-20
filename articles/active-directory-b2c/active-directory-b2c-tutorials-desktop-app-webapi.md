@@ -106,7 +106,7 @@ To call a protected web API from an app, you need to grant your app permissions 
 
 5. Click **OK**.
 
-Your **My Sample WPF App** is registered to call the protected **My sample Node.js web API**. A user [authenticates](../active-directory/develop/developer-glossary.md#authentication) with Azure AD B2C to use the WPF deskop app app. The desktop app obtains an [authorization grant](../active-directory/develop/developer-glossary.md#authorization-grant) from Azure AD B2C to access the protected web API.
+Your **My Sample WPF App** is registered to call the protected **My sample Node.js web API**. A user [authenticates](../active-directory/develop/developer-glossary.md#authentication) with Azure AD B2C to use the WPF desktop app. The desktop app obtains an [authorization grant](../active-directory/develop/developer-glossary.md#authorization-grant) from Azure AD B2C to access the protected web API.
 
 ## Update web API code
 

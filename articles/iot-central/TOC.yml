@@ -35,8 +35,6 @@
     href: concepts-connectivity.md
 - name: How-to guides
   items:
-  - name: Create an application
-    href: howto-create-application.md
   - name : Connect devices
     items:
       - name: Prepare and connect a Node.js (generic) application 

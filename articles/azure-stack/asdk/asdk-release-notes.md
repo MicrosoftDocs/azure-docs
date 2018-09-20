@@ -62,7 +62,7 @@ This build includes the following improvements and fixes for Azure Stack.
 
 - <!-- 2515955   | IS ,ASDK--> *All services* replaces *More services* in the Azure Stack admin and user portals. You can now use *All services* as an alternative to navigate in the Azure Stack portals the same way you do in the Azure portals.
 
-- <!-- TBD | IS, ASDK --> **+ Create a resource** replaces **+ New** in the Azure Stack admin and user portals.  You can now use *+ Create a resource* as an alternative to navigate in the Azure Stack portals the same way you do in the Azure portals. 
+- <!-- TBD | IS, ASDK --> *+ Create a resource* replaces *+ New* in the Azure Stack admin and user portals.  You can now use *+ Create a resource* as an alternative to navigate in the Azure Stack portals the same way you do in the Azure portals. 
 
 - <!--  TBD – IS, ASDK --> *Basic A* virtual machine sizes are retired for [creating virtual machine scale sets](.\.\azure-stack-compute-add-scalesets.md) (VMSS) through the portal. To create a VMSS with this size, use PowerShell or a template. 
 

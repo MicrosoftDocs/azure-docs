@@ -16,7 +16,7 @@ We recommend following this pattern when building your apps.
 
 ![Custom Decision Service workflow](media/custom-decision-service-workflow.png)
 
-Add an [Azure Storage connection string](https://docs.microsoft.com/en-us/azure/storage/common/storage-configure-connection-string).
+Add an [Azure Storage connection string](https://docs.microsoft.com/azure/storage/common/storage-configure-connection-string).
 
 ## Next steps
 

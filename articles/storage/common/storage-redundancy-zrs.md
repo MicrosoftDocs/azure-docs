@@ -14,7 +14,7 @@ ms.component: common
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
 
 ## Support coverage and regional availability
-ZRS currently supports standard [general-purpose v2 (GPv2)](storage-account-options.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#general-purpose-v2-accounts) account types. ZRS is available for block blobs, non-disk page blobs, files, tables, and queues. Additionally, all of your [Storage Analytics](storage-analytics.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) logs and [Storage Metrics](storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
+ZRS currently supports standard [general-purpose v2 (GPv2)](storage-account-options.md#general-purpose-v2-accounts) account types. ZRS is available for block blobs, non-disk page blobs, files, tables, and queues. Additionally, all of your [Storage Analytics](storage-analytics.md) logs and [Storage Metrics](storage-enable-and-view-metrics.md)
 
 ZRS is generally available in the following regions:
 
@@ -32,7 +32,7 @@ Microsoft continues to enable ZRS in additional Azure regions. Check the [Azure 
 ## What happens when a zone becomes unavailable?
 Your data remains resilient if a zone becomes unavailable. Microsoft recommends that you continue to follow practices for transient fault handling, such as implementing retry policies with exponential back-off. When a zone is unavailable, Azure undertakes networking updates, such as DNS repointing. These updates may affect your application if you are accessing your data before they have completed.
 
-ZRS may not protect your data against a regional disaster where multiple zones are permanently affected. Instead, ZRS offers resiliency for your data if it becomes temporarily unavailable. For protection against regional disasters, Microsoft recommends using geo-redundant storage (GRS). For more information about GRS, see [Geo-redundant storage (GRS): Cross-regional replication for Azure Storage](storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+ZRS may not protect your data against a regional disaster where multiple zones are permanently affected. Instead, ZRS offers resiliency for your data if it becomes temporarily unavailable. For protection against regional disasters, Microsoft recommends using geo-redundant storage (GRS). For more information about GRS, see [Geo-redundant storage (GRS): Cross-regional replication for Azure Storage](storage-redundancy-grs.md).
 
 ## Converting to ZRS replication
 Today, you can use either the Azure portal or the Storage Resource Provider API to change your account's redundancy type, as long as you are migrating to or from to LRS, GRS, and RA-GRS. With ZRS, however, migration is not as straightforward because it involves the physical data movement from a single storage stamp to multiple stamps within a region. 
@@ -75,7 +75,7 @@ A support person will then be in contact with you. That person will be available
 >
 > When ZRS becomes [generally available](#support-coverage-and-regional-availability) in a region, customers will no longer be able to create ZRS Classic accounts from the portal in that region. Using Microsoft PowerShell and Azure CLI to create ZRS Classic accounts is supported until ZRS Classic is deprecated.
 
-ZRS Classic asynchronously replicates data across data centers within one to two regions. A replica may not be available unless Microsoft initiates failover to the secondary. ZRS Classic is available only for **block blobs** in [general-purpose V1 (GPv1)](storage-account-options.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#general-purpose-v1-accounts) storage accounts. A ZRS Classic account cannot be converted to or from LRS or GRS, and does not have metrics or logging capability.
+ZRS Classic asynchronously replicates data across data centers within one to two regions. A replica may not be available unless Microsoft initiates failover to the secondary. ZRS Classic is available only for **block blobs** in [general-purpose V1 (GPv1)](storage-account-options.md#general-purpose-v1-accounts) storage accounts. A ZRS Classic account cannot be converted to or from LRS or GRS, and does not have metrics or logging capability.
 
 ZRS Classic accounts cannot be converted to or from LRS, GRS, or RA-GRS. ZRS Classic accounts also do not support metrics or logging.
 

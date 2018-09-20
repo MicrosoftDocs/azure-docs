@@ -36,6 +36,9 @@ No. The vault is created at a subscription level, and can't be reassigned to ano
 ### Can I migrate backup data to another vault? <br/>
 No. Backup data stored in a vault can't be moved to a different vault.
 
+### Can I change from GRS to LRS after a backup? <br/>
+No. A Recovery Services vault can only change storage options before any backups have been stored. 
+
 ### Recovery Services vaults are Resource Manager based. Are Backup vaults still supported? <br/>
 Backup vaults have been converted to Recovery Services vaults. If you did not convert the Backup vault to a Recovery Services vault, then the Backup vault was converted to a Recovery Services vault for you. 
 

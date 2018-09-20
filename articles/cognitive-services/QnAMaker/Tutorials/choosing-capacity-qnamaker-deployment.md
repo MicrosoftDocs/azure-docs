@@ -22,7 +22,7 @@ The QnA Maker service, takes a dependency on three Azure resources:
 Before you create your QnA Maker service, you should decide which tiers of the above services is appropriate for you. 
 
 Typically there are three parameters you need to consider:
-1. **The throughput you need from the service**: Select the appropriate [App Plan](https://azure.microsoft.com/en-in/pricing/details/app-service/plans/) for your App service based on your needs. You can [scale up](https://docs.microsoft.com/en-us/azure/app-service/web-sites-scale) or down the App. This should also influence your Azure Search SKU selection, see more details [here](https://docs.microsoft.com/en-us/azure/search/search-sku-tier).
+1. **The throughput you need from the service**: Select the appropriate [App Plan](https://azure.microsoft.com/en-in/pricing/details/app-service/plans/) for your App service based on your needs. You can [scale up](https://docs.microsoft.com/azure/app-service/web-sites-scale) or down the App. This should also influence your Azure Search SKU selection, see more details [here](https://docs.microsoft.com/azure/search/search-sku-tier).
 
 2. **Size and the number of knowledge bases**: Choose the appropriate [Azure search SKU](https://azure.microsoft.com/en-in/pricing/details/search/) for your scenario. You can publish N-1 knowledge bases in a particular tier, where N is the maximum indexes allowed in the tier. Also check the maximum size and the number of documents allowed per tier.
 

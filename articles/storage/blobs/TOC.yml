@@ -30,6 +30,8 @@
     href: storage-quickstart-blobs-go.md
   - name: Work with blobs - Ruby 
     href: storage-quickstart-blobs-ruby.md
+  - name: Work with blobs - Node.js (Storage SDK v10)
+    href: storage-quickstart-blobs-nodejs-v10.md
   - name: Work with blobs - Node.js
     href: storage-quickstart-blobs-nodejs.md
   - name: Work with blobs - JS/HTML

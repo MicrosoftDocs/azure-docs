@@ -21,7 +21,7 @@
       href: quickstarts/python.md
     - name: "Using Ruby"
       href: quickstarts/ruby.md
-  - name: "Request and filter images using the SDK"
+  - name: "Search for images using the SDK"
     items:
     - name: "Using C#"
       href: image-search-sdk-quickstart.md
