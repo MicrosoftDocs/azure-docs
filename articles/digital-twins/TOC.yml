@@ -1,0 +1,93 @@
+- name: Azure IoT Fundamentals
+  href: /azure/iot-fundamentals
+#- name: IoT Smart Spaces Documentation
+#  href: index.yml
+- name: Overview
+  items:
+  - name: Overview of Azure Digital Twins
+    href: about-digital-twins.md
+- name: Quickstarts
+  items:
+  - name: View space occupancy
+    href: quickstart-view-occupancy-dotnet.md
+# - name: Tutorials
+#   items:
+#   - name: Create app to manage facilities
+#     href: tutorial-facilities-app.md
+- name: Concepts
+  items:
+  - name: Understanding Object Model and Spatial Intelligence Graph
+    href: concepts-objectmodel-spatialgraph.md
+#- name: How-to guides
+#  items:
+#- name: Reference
+#  items:
+- name: Related
+  items:
+  - name: Solutions
+    items:
+    - name: IoT solution accelerators
+      href: /azure/iot-accelerators
+    - name: IoT Central
+      href: https://docs.microsoft.com/microsoft-iot-central/
+  - name: Platform Services
+    items:
+    - name: IoT Hub
+      href: /azure/iot-hub
+    - name: IoT Hub Device Provisioning Service
+      href: /azure/iot-dps
+    - name: IoT Service SDKs
+      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
+    - name: Maps
+      href: /azure/azure-maps
+    - name: Time Series Insights
+      href: /azure/time-series-insights
+  - name: Edge
+    items:
+    - name: IoT Edge
+      href: /azure/iot-edge
+    - name: IoT Device SDKs
+      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
+- name: Resources
+  items:
+    # replace IoT hub by Smart Spaces links below
+  - name: Azure IoT Samples for C# (.NET)
+    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/
+  - name: Azure IoT Samples for Node.js
+    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-node/
+  - name: Azure IoT Samples for Java
+    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-java/
+  - name: Azure IoT Samples for Python
+    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-python/
+  - name: Azure IoT Samples for iOS Platform
+    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/
+  - name: Azure Certified for IoT device catalog
+    href: https://catalog.azureiotsuite.com/
+  - name: Azure IoT Developer Center
+    href: https://azure.microsoft.com/develop/iot/
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=iot
+  - name: Azure IoT Toolkit
+    href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit
+  - name: DeviceExplorer tool
+    href: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer
+  - name: iothub-diagnostics tool
+    href: https://github.com/Azure/iothub-diagnostics
+  - name: iothub-explorer tool
+    href: https://github.com/Azure/iothub-explorer
+  - name: Learning path
+    href: https://azure.microsoft.com/documentation/learning-paths/iot-hub/
+  - name: MSDN forum
+    href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/iot-hub/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?product=iot-hub
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-iot-hub
+  - name: Technical case studies
+    href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
+  - name: Videos
+    href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
