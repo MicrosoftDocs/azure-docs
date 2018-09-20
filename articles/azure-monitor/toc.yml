@@ -226,9 +226,9 @@
         - name: GuestOS to metrics store Linux VM (Telegraf)
           href: ../monitoring-and-diagnostics/metrics-store-custom-linux-telegraf.md?toc=/azure/azure-monitor/toc.json  
         - name: GuestOS to metrics store VM
-          href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-resource-manager-VM.md?toc=/azure/azure-monitor/toc.json  
+          href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-resource-manager-vm.md?toc=/azure/azure-monitor/toc.json  
         - name: GuestOS to metrics store VM scale set 
-          href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-resource-manager-VMSS.md?toc=/azure/azure-monitor/toc.json  
+          href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-resource-manager-vmss.md?toc=/azure/azure-monitor/toc.json  
         - name: GuestOS to metrics store classic VM
           href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-classic-vm.md?toc=/azure/azure-monitor/toc.json  
         - name: GuestOS to metrics store cloud service
