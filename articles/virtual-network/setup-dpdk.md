@@ -17,15 +17,15 @@ ms.date: 07/27/2018
 ms.author: labattul
 
 ---
-# Setup DPDK in a Linux virtual machine
+# Set up DPDK in a Linux virtual machine
 
-Data Plane Development Kit (DPDK) on Azure offers a faster user-space packet processing framework for performance-intensive applications that bypass the virtual machine’s kernel network stack.
+Data Plane Development Kit (DPDK) on Azure offers a faster user-space packet processing framework for performance-intensive applications that bypasses the virtual machine’s kernel network stack.
 
 Typical packet processing using the kernel network stack is interrupt-driven. Each time the network interface receives incoming packets, there is a kernel interrupt to process the packet and a context switch from the kernel space to the user space. DPDK eliminates context switching and the interrupt-driven method in favor of a user-space implementation that uses poll mode drivers for fast packet processing.
 
-DPDK consists of sets of user-space libraries that provide access to lower-level resources such as hardware, logical cores, memory management, and poll mode drivers for network interface cards.
+DPDK consists of sets of user-space libraries that provide access to lower-level resources. These resources can include hardware, logical cores, memory management, and poll mode drivers for network interface cards.
 
-DPDK can run on Azure virtual machines, supporting multiple operating system distributions. DPDK provides key performance differentiation in driving network function virtualization implementations, in the form of network virtual appliances (NVAs), such as virtual routers, firewalls, VPNs, load balancers, evolved packet cores, and denial-of-service (DDoS) applications.
+DPDK can run on Azure virtual machines, supporting multiple operating system distributions. DPDK provides key performance differentiation in driving network function virtualization implementations. These implementations can take the form of network virtual appliances (NVAs), such as virtual routers, firewalls, VPNs, load balancers, evolved packet cores, and denial-of-service (DDoS) applications.
 
 ## Benefit
 
@@ -101,7 +101,7 @@ zypper \
   --gpg-auto-import-keys install kernel-default-devel gcc make libnuma-devel numactl librdmacm1 rdma-core-devel
 ```
 
-## Se up the virtual machine environment (once)
+## Set up the virtual machine environment (once)
 
 1. [Download the latest DPDK](https://core.dpdk.org/download). Version 18.02 or higher is required for Azure.
 2. Build the default config with `make config T=x86_64-native-linuxapp-gcc`.
@@ -124,17 +124,17 @@ After restarting, run the following commands once:
 
    *  Create a directory for mounting with `mkdir /mnt/huge`.
    *  Mount hugepages with `mount -t hugetlbfs nodev /mnt/huge`.
-   *  Check hugepages are reserved with `grep Huge /proc/meminfo`.
+   *  Check that hugepages are reserved with `grep Huge /proc/meminfo`.
 
      > [!NOTE]
-     > There is a way to modify the grub file so that huge pages are reserved on boot by following the [instructions](http://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment) for the DPDK. The instructions are at the bottom of the page. When you're using an Azure Linux virtual machine, modify files under **/etc/config/grub.d** instead, to reserve hugepages across reboots.
+     > There is a way to modify the grub file so that hugepages are reserved on boot by following the [instructions](http://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment) for the DPDK. The instructions are at the bottom of the page. When you're using an Azure Linux virtual machine, modify files under **/etc/config/grub.d** instead, to reserve hugepages across reboots.
 
 2. MAC & IP addresses: Use `ifconfig –a` to view the MAC and IP address of the network interfaces. The *VF* network interface and *NETVSC* network interface have the same MAC address, but only the *NETVSC* network interface has an IP address. VF interfaces are running as subordinate interfaces of NETVSC interfaces.
 
 3. PCI addresses
 
    * Use `ethtool -i <vf interface name>` to find out which PCI address to use for *VF*.
-   * Ensure that testpmd doesn’t accidentally take over the VF pci device for *eth0*, if *eth0* has accelerated networking enabled. If the DPDK application has accidentally taken over the management network interface and causes loss of your SSH connection, use the serial console to stop the DPDK application, or to stop or start the virtual machine.
+   * If *eth0* has accelerated networking enabled, make sure that testpmd doesn’t accidentally take over the VF pci device for *eth0*. If the DPDK application has accidentally taken over the management network interface and causes loss of your SSH connection, use the serial console to stop the DPDK application. You can also use the serial console to stop or start the virtual machine.
 
 4. Load *ibuverbs* on each reboot with `modprobe -a ib_uverbs`. For SLES 15 only, also load *mlx4_ib* with `modprobe -a mlx4_ib`.
 
@@ -142,7 +142,7 @@ After restarting, run the following commands once:
 
 DPDK applications must run over the failsafe PMD that is exposed in Azure. If the application runs directly over the VF PMD, it doesn't receive **all** packets destined to the VM, since some packets show up over the synthetic interface. 
 
-Running DPDK application over the failsafe PMD guarantees that the application receives all packets that are destined to it. It also ensures that the application continues to run in DPDK mode, even if the VF is revoked when the host is being serviced. For more information about failsafe PMD, see [Fail-safe poll mode driver library](http://doc.dpdk.org/guides/nics/fail_safe.html).
+Running a DPDK application over the failsafe PMD guarantees that the application receives all packets that are destined to it. It also ensures that the application continues to run in DPDK mode, even if the VF is revoked when the host is being serviced. For more information about failsafe PMD, see [Fail-safe poll mode driver library](http://doc.dpdk.org/guides/nics/fail_safe.html).
 
 ## Run testpmd
 
@@ -169,7 +169,7 @@ To run testpmd in root mode, use `sudo` before the *testpmd* command.
    -- -i
    ```
 
-   If you're running testpmd with more than 2 NICs, the `--vdev` argument follows this pattern: `net_vdev_netvsc<id>,iface=<vf’s pairing eth>`.
+   If you're running testpmd with more than two NICs, the `--vdev` argument follows this pattern: `net_vdev_netvsc<id>,iface=<vf’s pairing eth>`.
 
 3.  After it's started, run `show port info all` to check port information. You should see one or two DPDK ports that are net_failsafe (not *net_mlx4*).
 4.  Use `start <port> /stop <port>` to start traffic.
