@@ -1,10 +1,10 @@
 ---
-title: Face API C# tutorial | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
-description: In this tutorial, you create a Windows app that uses the Cognitive Services Face service to detect and frame faces in an image.
+title: "Tutorial: Detect and frame faces in an image - Face API, C#"
+titleSuffix: Azure Cognitive Services
+description: In this tutorial, you create a Windows app that uses the Face API to detect and frame faces in an image.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: face-api
