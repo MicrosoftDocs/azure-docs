@@ -54,7 +54,7 @@ The audio is sent in the body of the HTTP `PUT` request and should be in 16-bit 
 
 ### Chunked transfer
 
-Chunked transfer (`Transfer-Encoding: chunked`) can help reduce recognition latency because it allows the Speech service to begin processing the audio file to while it is being transmitted. The REST API does not provide partial or interim results; this option is intended solely to improve responsiveness.
+Chunked transfer (`Transfer-Encoding: chunked`) can help reduce recognition latency because it allows the Speech service to begin processing the audio file while it is being transmitted. The REST API does not provide partial or interim results; this option is intended solely to improve responsiveness.
 
 The following code illustrates how to send audio in chunks. `request` is an HTTPWebRequest object connected to the appropriate REST endpoint. `audioFile` is the path to an audio file on disk.
 
@@ -132,7 +132,7 @@ The `RecognitionStatus` field may contain the following values.
 | `Error` | The recognition service encountered an internal error and could not continue. Try again if possible. |
 
 > [!NOTE]
-> If the user speaks only profanity, and the `profanity` query parameter is set to `remove`, the service does not return a speech result unless the recognition mode is `interactive`. In this case, the service returns a speech result with a `RecognitionStatus` of `NoMatch`. 
+> If the audio consists only of profanity, and the `profanity` query parameter is set to `remove`, the service does not return a speech result. 
 
 The `detailed` format includes the same fields as the `simple` format, along with an `NBest` field. The `NBest` field is a list of alternative interpretations of the same speech, ranked from most likely to least likely. The first entry is the same as the main recognition result. Each entry contains the following fields:
 
@@ -256,9 +256,10 @@ HTTP code|Meaning|Possible reason
 -|-|-|
 200|OK|The request was successful; the response body is an audio file.
 400|Bad request|Required header field missing, value too long, or invalid SSML document.
-401|Unauthorized|Subscription key or authorization token is invalid in the specified region, or invalid endpoint.
-403|Forbidden|Missing subscription key or authorization token.
-413|Request entity too large|The input text is longer than 1,000 characters.
+400 |Bad Request |A required parameter is missing, empty, or null. Or, the value passed to either a required or optional parameter is invalid. A common issue is a header that is too long.
+401|Unauthorized |The request is not authorized. Check to make sure your subscription key or token is valid and in the correct region.
+413|Request Entity Too Large|The SSML input is longer than 1024 characters.
+|502|Bad Gateway	| Network or server-side issue. May also indicate invalid headers.
 
 If the HTTP status is `200 OK`, the body of the response contains an audio file in the requested format. This file may be played as it is transferred, or saved to a buffer or file for later playback or other use.
 
