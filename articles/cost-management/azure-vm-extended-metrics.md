@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 06/12/2018
+ms.date: 08/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
@@ -14,19 +14,19 @@ ms.custom:
 
 # Add extended metrics for Azure virtual machines
 
-Cost Management uses Azure metric data from your Azure VMs to show you detailed information about their resources. Metric data, also called performance counters, is used by Cost Management to generate reports. However, Cost Management does not automatically gather all Azure metric data from guest VMs — you must enable metric collection. This article helps you enable and configure additional diagnostics metrics for your Azure VMs.
+Cloudyn uses Azure metric data from your Azure VMs to show you detailed information about their resources. Metric data, also called performance counters, is used by Cloudyn to generate reports. However, Cloudyn does not automatically gather all Azure metric data from guest VMs — you must enable metric collection. This article helps you enable and configure additional diagnostics metrics for your Azure VMs.
 
 After you enable metric collection, you can:
 
 - Know when your VMs are reaching their memory, disk, and CPU limits.
 - Detect usage trends and anomalies.
 - Control your costs by sizing according to usage.
-- Get cost effective sizing optimization recommendations from Cost Management.
+- Get cost effective sizing optimization recommendations from Cloudyn.
 
 For example, you might want to monitor the CPU % and Memory % of your Azure VMs. The Azure VM metrics correspond to _[Host] Percentage CPU_ and _[Guest] Memory percentage_.
 
 > [!NOTE]
-> Extended metric data collection is only supported with Azure guest-level monitoring. Cost Management is not compatible with the Log Analytics VM extension.
+> Extended metric data collection is only supported with Azure guest-level monitoring. Cloudyn is not compatible with the Log Analytics VM extension.
 
 ## Verify that metrics are enabled on VMs
 
@@ -63,7 +63,7 @@ When you create new VMs, ensure that you select **Guest OS diagnostics**.
 
 ## Resource Manager credentials
 
-After you enable extended metrics, ensure that Cost Management has access to your [Resource Manager credentials](activate-subs-accounts.md). Your credentials are required for Cost Management to collect and display performance data for your VMs. They're also used to create cost optimization recommendations. Cost Management needs at least three days of performance data from an instance to determine if it is a candidate for a downsizing recommendation.
+After you enable extended metrics, ensure that Cloudyn has access to your [Resource Manager credentials](activate-subs-accounts.md). Your credentials are required for Cloudyn to collect and display performance data for your VMs. They're also used to create cost optimization recommendations. Cloudyn needs at least three days of performance data from an instance to determine if it is a candidate for a downsizing recommendation.
 
 ## Enable VM metrics with a script
 
