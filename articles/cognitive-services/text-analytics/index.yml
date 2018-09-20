@@ -5,7 +5,7 @@ metadata:
   title: Text Analytics API Documentation - Tutorials, API Reference - Azure Cognitive Services  | Microsoft Docs
   description:  Learn how to use Text Analytics API to perform advanced natural language processing on text. Tutorials show you how write code that makes use of the Text Analytics service.
   services: cognitive-services
-  author: HeidiSteen
+  author: nitinme
   manager: cgronlun
   layout: LandingPage
   ms.service: cognitive-services
@@ -13,15 +13,36 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 03/07/2018
-  ms.author: heidist
+  ms.date: 09/24/2018
+  ms.author: nitinme
 abstract:
   description: 'The Text Analytics API is a cloud-based service that provides advanced natural language processing over raw text, and includes three main functions: sentiment analysis, key phrase extraction, and language detection. Learn how to analyze content in different ways with our quickstarts, tutorials, and samples.'
 sections:
+- items:
+    - type: list
+      style: cards
+      className: cardsM
+      columns: 3
+      items:
+        - href: /azure/cognitive-services/text-analytics/overview
+          html: <p>Learn about the Text Analytics API.</p>
+          image:
+            src: ../media/index/i_overview.svg
+          title: What is Text Analytics?
+        - href: /azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-signup
+          html: <p>Learn how to sign up for the Text Analytics API.</p>
+          image:
+            src: ../media/index/i_get-started.svg
+          title: Sign up for Text Analytics API
+        - href: /azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-access-key
+          html: <p>Learn how to get the access keys and endpoints for Text Analytics API.</p>
+          image:
+            src: ../media/index/i_tasks.svg
+          title: Access keys for Text Analytics API
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'Get started using the Text Analytics API by detecting language, analyzing sentiment, and extracting key phrases:'
+    text: 'Get started with the Text Analytics API by detecting language, analyzing sentiment, and extracting key phrases:'
   - type: list
     style: icon48
     items: 
@@ -62,3 +83,7 @@ sections:
     items:
     - title: REST
       html: <p><a href="https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7">API Reference</a></p>
+    - title: PowerShell 
+      html: <p><a href=https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services">Azure PowerShell</a></p>
+    - title: CLI 
+      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list">Azure CLI</a></p>
