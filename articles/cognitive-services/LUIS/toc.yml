@@ -84,7 +84,7 @@
   - name: Use bot
     items:
     - name: With Node.js
-      href: luis-nodejs-quickstart-bf-v4.md
+      href: luis-nodejs-tutorial-bf-v4.md
 - name: Samples
   items:
   - name: Code samples
