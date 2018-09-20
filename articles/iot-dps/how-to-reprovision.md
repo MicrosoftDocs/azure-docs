@@ -16,7 +16,7 @@ During the lifecycle of an IoT solution, it is common to move devices between Io
 
 * **Geolocation**: As a device moves between locations, network latency is improved by having the device migrated to an IoT hub closer to each location.
 
-* **Multi-tenacy**: A device could be used within the same IoT solution but, reassigned or leased to a new customer, or customer site. This new customer may be serviced using a different IoT hub.
+* **Multi-tenancy**: A device could be used within the same IoT solution but, reassigned or leased to a new customer, or customer site. This new customer may be serviced using a different IoT hub.
 
 * **Solution change**: A device could be moved into a new or updated IoT solution. This reassignment may require that the device communicate with a new IoT hub that is connected to other backend components. 
 
