@@ -25,6 +25,32 @@ Container groups deployed into an Azure virtual network enable scenarios like:
 > [!IMPORTANT]
 > This feature is currently in preview, and some [limitations apply](#preview-limitations). Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
 
+## Virtual network deployment limitations
+
+Certain limitation apply when you deploy container groups to a virtual network.
+
+* To deploy container groups to a subnet, the subnet cannot contain any other resource types. Remove all existing resources from an existing subnet prior to deploying container groups, or create a new subnet.
+* Container groups deployed to a virtual network do not currently support public IP addresses or DNS name labels.
+* Due to the additional networking resources involved, deploying a container group to a virtual network is typically somewhat slower than deploying a standard container instance.
+
+## Preview limitations
+
+While this feature is in preview, the following limitations apply when deploying container instances to a virtual network.
+
+**Supported** regions:
+
+* North Europe (northeurope)
+* West Europe (westeurope)
+* West US (westus)
+
+**Unsupported** resources:
+
+* Network Security Group
+* Azure Load Balancer
+* Windows containers
+
+**Network resource deletion** requires [additional steps](#delete-network-resources) once you've deployed container groups to the virtual network.
+
 ## Required network resources
 
 There are three Azure Virtual Network resources required for deploying container groups to a virtual network: the [virtual network](#virtual-network) itself, a [delegated subnet](#subnet-delegated) within the virtual network, and a [network profile](#network-profile).
@@ -35,9 +61,9 @@ A virtual network defines the address space in which you create one or more subn
 
 ### Subnet (delegated)
 
-You create one or several subnets within a virtual network. Subnets segment the virtual network into separate address spaces usable by the Azure resources you place in them.
+Subnets segment the virtual network into separate address spaces usable by the Azure resources you place in them. You create one or several subnets within a virtual network.
 
-When you first deploy a container group to a subnet, Azure *delegates* that subnet to Azure Container Instances. Once delegated, the subnet can be used only for container groups. If you attempt to deploy resources other than container groups to a delegated subnet, the operation fails.
+The subnet that you use for container groups can container only container groups. When you first deploy a container group to a subnet, Azure delegates that subnet to Azure Container Instances. Once delegated, the subnet can be used only for container groups. If you attempt to deploy resources other than container groups to a delegated subnet, the operation fails.
 
 ### Network profile
 
@@ -59,6 +85,8 @@ To deploy to a new virtual network and have Azure create the network resources f
 * Virtual network address prefix in CIDR format
 * Subnet name
 * Subnet address prefix in CIDR format
+
+The virtual network and subnet address prefixes specify the address spaces for the virtual network and subnet, respectively. These values are represented in Classless Inter-Domain Routing (CIDR) notation, for example `10.0.0.0/16`. For more information about working with subnets, see [Add, change, or delete a virtual network subnet](../virtual-network/virtual-network-manage-subnet.md).
 
 Once you've deployed your first container group with this method, you can deploy to the same subnet by specifying the virtual network and subnet names, or the network profile that Azure automatically creates for you. Because Azure delegates the subnet to Azure Container Instances, you can deploy *only* container groups to the subnet.
 
@@ -92,8 +120,6 @@ az container create \
     --subnet aci-subnet \
     --subnet-address-prefix 10.0.0.0/24
 ```
-
-The prefixes defined by `--vnet-address-prefix` and `--subnet-address-prefix` specify the address spaces for the virtual network and subnet, respectively. These values are represented in Classless Inter-Domain Routing (CIDR) notation. For more information about working with subnets, see [Add, change, or delete a virtual network subnet](../virtual-network/virtual-network-manage-subnet.md).
 
 When you deploy to a new virtual network by using this method, the deployment can take a few minutes while the network resources are created. After the initial deployment, additional container group deployments complete more quickly.
 
@@ -145,28 +171,6 @@ index.html           100% |*******************************|  1663   0:00:00 ETA
 
 The log output should show that `wget` was able to connect and download the index file from the first container using its private IP address on the local subnet. Network traffic between the two container groups remained within the virtual network.
 
-## Virtual network deployment limitations
-
-* To deploy container groups to a subnet, the subnet cannot contain any other resource types. Remove all existing resources from an existing subnet prior to deploying container groups, or create a new subnet.
-* Container groups deployed to a virtual network do not currently support public IP addresses or DNS name labels.
-* Due to the additional networking resources involved, deploying a container group to a virtual network is typically somewhat slower than deploying a standard container instance.
-
-## Preview limitations
-
-While in preview, the following limitations apply when deploying container instances to a virtual network.
-
-**Supported** regions:
-
-* North Europe (northeurope)
-* West Europe (westeurope)
-* West US (westus)
-
-**Unsupported** resources:
-
-* Network Security Group
-* Azure Load Balancer
-* Windows containers
-
 ## Clean up resources
 
 ### Delete container instances
@@ -180,7 +184,7 @@ az container delete --resource-group myResourceGroup --name commchecker -y
 
 ### Delete network resources
 
-The initial preview of this feature requires several additional commands to delete the network resources you created earlier. As development of the feature progresses, the `az resource delete` commands will no longer be required.
+The initial preview of this feature requires several additional commands to delete the network resources you created earlier.
 
 ```azurecli
 # PLACEHOLDER
