@@ -10,7 +10,7 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 08/30/2018
 ms.author: alinast
-# As a developer new to Digital Twins, I need to see how to send motion and CO2 telemetry to a space in a Azure Digital Twins and how to find availale rooms with fresh air using a back-end application. 
+# As a developer new to Digital Twins, I need to see how to send motion and CO2 telemetry to a space in a Azure Digital Twins and how to find available rooms with fresh air using a back-end application. 
 ---
 
 # Use Azure Digital Twins to find available rooms with fresh air (C#)
@@ -32,7 +32,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
     git clone https://github.com/Azure-Samples/digital-twins-samples-csharp.git
     ```
 
-1. The repo is composed of several standalone projects. The [Occupancy sample]() is provided to get started.
+1. The repo is composed of several standalone projects. The [Occupancy sample](https://github.com/Azure-Samples/digital-twins-samples-csharp/tree/master/occupancy-quickstart) is provided to get started.
 
 1. We have included a [visual studio code workspace file](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/digital-twins-samples.code-workspace) for our [Visual Studio Code](https://code.visualstudio.com/) users containing all samples. Alternatively, each folder can be opened individually.
 

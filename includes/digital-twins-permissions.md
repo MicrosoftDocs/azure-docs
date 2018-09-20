@@ -31,7 +31,7 @@ Users will authenticate against the middle-tier application and an Oauth [on-beh
 
     ![Azure Active Directory app registration third step][5]
 
-1. Generate a secret key by creating a `Password` for your Azure Active Directory app. A `Password` can be obtained under the **Settings -> Keys -> Password** menu. Use that value to configure `appSettings.json` as `ClientSecret`:
+1. Generate a secret key by creating a `Password` for your Azure Active Directory app. A `Password` can be obtained under the **Settings > Keys > Password** menu. Use that value to configure `appSettings.json` as `ClientSecret`:
 
     ![Azure Active Directory app registration fourth step][6]
 
@@ -39,7 +39,7 @@ Users will authenticate against the middle-tier application and an Oauth [on-beh
 
     ![Azure Active Directory app registration fifth step][4]
 
-1. To configure `Tenant` in your `appSettings.json` file, supply your `Directory ID` located under **Microsoft Properties -> Properties**:
+1. To configure `Tenant` in your `appSettings.json` file, supply your `Directory ID` located under **Microsoft Properties > Properties**:
 
     ![Azure Active Directory app registration sixth step][7]
 
