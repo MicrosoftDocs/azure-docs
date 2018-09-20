@@ -44,7 +44,7 @@ Configure the Azure CLI defaults with the name of your Azure Container Registry 
 az configure --defaults acr=<acrName>
 ```
 
-Now add your Azure Container Registry Helm chart repository to your Helm client using the [az acr helm repo add][az-acr-helm-repo-add] command. This command gets an authentication token for your Azure container registry that can be used by the Helm client. The authentication token is valid for 1 hour. Similar to `docker login`, you can run this command in future CLI sessions to authenticate your Helm client with your Azure Container Registry Helm chart repository:
+Now add your Azure Container Registry Helm chart repository to your Helm client using the [az acr helm repo add][az-acr-helm-repo-add] command. This command gets an authentication token for your Azure container registry that is used by the Helm client. The authentication token is valid for 1 hour. Similar to `docker login`, you can run this command in future CLI sessions to authenticate your Helm client with your Azure Container Registry Helm chart repository:
 
 ```azurecli
 az acr helm repo add
