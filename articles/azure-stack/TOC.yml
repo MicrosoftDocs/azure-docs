@@ -1,7 +1,6 @@
 - name: Azure Stack Operator Documentation
   href: index.yml
 - name: Overview
-  expanded: true
   items:
   - name: What is Azure Stack?
     href: azure-stack-poc.md
