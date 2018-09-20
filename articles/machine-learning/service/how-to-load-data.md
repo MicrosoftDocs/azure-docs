@@ -206,12 +206,12 @@ The Azure Machine Learning Data Prep SDK can also load data from SQL servers. Cu
 To read data from a SQL server, create a data source object that contains the connection information.
 
 ```
-secret = dprep.register_secret("dpr3pTestU$er", "anySecretId")
+secret = dprep.register_secret("[SECRET-USERNAME]", "[SECRET-PASSWORD]")
 
-ds = dprep.MSSQLDataSource(server_name="dprep-sql-test.database.windows.net",
-                           database_name="dprep-sql-test",
-                           user_name="dpr3pTestU$er",
-                           password=secret)
+ds = dprep.MSSQLDataSource(server_name="[SERVER-NAME]",
+                           database_name="[DATABASE-NAME]",
+                           user_name="[DATABASE-USERNAME]",
+                           password=[DATABASE-PASSWORD])
 ```
 As you can see, the password parameter of `MSSQLDataSource` accepts a secret object. You can get a secret object in two ways:
 -	Register the secret and its value with the execution engine. 
