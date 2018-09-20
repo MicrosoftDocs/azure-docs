@@ -3,8 +3,8 @@ title: Find available rooms with fresh air with Azure Digital Twins quickstart (
 description: In this quickstart, you run two .NET Core sample applications to send simulated motion and CO2 telemetry to a space in Azure Digital Twins. The goal is to find available rooms with fresh air from Management APIs after computed processing in the cloud.
 author: alinamstanciu
 manager: bertvanhoof
-ms.service: digital-twins
-services: digital-twins
+ms.service: azure-digital-twins
+services: azure-digital-twins
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
@@ -17,7 +17,7 @@ ms.author: alinast
 
 In a busy office scenario, it's important to find out available rooms, preferably with the fresh air. This article shows how you can do this using Azure Digital Twins.
 
-The [quickstart]() uses two sample .NET Core console applications that use the Digital Twins APIs. The first one will send motion and CO2 telemetry to your service, and the second one will provision topology as well as find available rooms with fresh air.
+The [quickstart](https://github.com/Azure-Samples/digital-twins-samples-csharp) uses two sample .NET Core console applications that use the Digital Twins APIs. The first one will send motion and CO2 telemetry to your service, and the second one will provision topology as well as find available rooms with fresh air.
 
 Before you run these two applications, you create an Azure Digital Twins service and grant permissions to the applications to read from its Management APIs.
 
@@ -88,8 +88,10 @@ If you plan to continue to the tutorials, do not clean up the resources created 
 
 ## Next steps
 
-Advance to the next article to learn how to create...
+See full code samples:
+
 > [!div class="nextstepaction"]
+> [C# code samples](https://github.com/Azure-Samples/digital-twins-samples-csharp)
 
 <!-- Images -->
 [1]: media/quickstart-view-occupancy-dotnet/create-digital-twins-portal.png

@@ -1,12 +1,12 @@
 ---
-title: Overview of Digital Twins | Microsoft Docs
-description: An introduction to Digital Twins
+title: Overview of Azure Digital Twins | Microsoft Docs
+description: An introduction to Azure Digital Twins
 author: adamgerard
 ms.author: adgera
 ms.date: 09/19/2018
 ms.topic: overview
-ms.service: digital-twins
-services: digital-twins
+ms.service: azure-digital-twins
+services: azure-digital-twins
 manager: timlt
 ms.custom: mvc
 #Customer intent: As an Azure enterprise customer, I want to know what capabilities Digital Twins has so that I can build next generation IoT services. 
