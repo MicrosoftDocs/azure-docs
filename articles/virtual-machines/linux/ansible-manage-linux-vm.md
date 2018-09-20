@@ -38,14 +38,14 @@ This section illustrates how to use Ansible to deallocate (stop) an Azure virtua
 
     ```yaml
     - name: Stop Azure VM
-    hosts: localhost
-    connection: local
-    tasks:
-    - name: Deallocate the virtual machine
+      hosts: localhost
+      connection: local
+      tasks:
+      - name: Deallocate the virtual machine
         azure_rm_virtualmachine:
             resource_group: myResourceGroup
             name: myVM
-            allocated: no 
+            allocated: no
     ```
 
 1. Exit insert mode by selecting the **Esc** key.
@@ -96,10 +96,10 @@ This section illustrates how to use Ansible to start a deallocated (stopped) Azu
 
     ```yaml
     - name: Start Azure VM
-    hosts: localhost
-    connection: local
-    tasks:
-    - name: Start the virtual machine
+      hosts: localhost
+      connection: local
+      tasks:
+      - name: Start the virtual machine
         azure_rm_virtualmachine:
             resource_group: myResourceGroup
             name: myVM
@@ -124,7 +124,7 @@ This section illustrates how to use Ansible to start a deallocated (stopped) Azu
     The output looks similar to the following example that shows the virtual machine has been successfully started:
 
     ```bash
-    PLAY [Stop Azure VM] ********************************************************
+    PLAY [Start Azure VM] ********************************************************
 
     TASK [Gathering Facts] ******************************************************
     ok: [localhost]
