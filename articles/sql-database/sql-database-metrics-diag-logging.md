@@ -273,13 +273,13 @@ Learn how to [download metrics and diagnostics logs from Storage](../storage/blo
 
 ### All metrics
 
-####Elastic pools
+### All metrics for elastic pools
 
 |**Resource**|**Metrics**|
 |---|---|
 |Elastic pool|eDTU percentage, eDTU used, eDTU limit, CPU percentage, physical data read percentage, log write percentage, sessions percentage, workers percentage, storage, storage percentage, storage limit, XTP storage percentage |
 
-####Azure SQL Database
+### All metrics for Azure SQL Database
 
 |**Resource**|**Metrics**|
 |---|---|
@@ -287,7 +287,7 @@ Learn how to [download metrics and diagnostics logs from Storage](../storage/blo
 
 ### Logs
 
-#####Managed Instance
+### Logs for Managed Instance
 
 ### Resource Usage Stats
 
@@ -314,7 +314,7 @@ Learn how to [download metrics and diagnostics logs from Storage](../storage/blo
 |io_bytes_read_s|IOPS bytes read|
 |io_bytes_written_s|IOPS bytes written|
 
-####Azure SQL Database and Managed Instance database
+### Logs for Azure SQL Database and Managed Instance database
 
 ### Query Store runtime statistics
 
