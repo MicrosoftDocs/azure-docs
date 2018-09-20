@@ -3,7 +3,7 @@ title: IoT Edge Module Marketplace FAQ | Microsoft Docs
 description: IoT Edge Module Marketplace FAQ.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
-author: v-wesda
+author: dan-wesley
 manager: Patrick.Butler  
 editor:
 
@@ -59,7 +59,7 @@ Not yet. Currently, only Microsoft-authored modules are published in the IoT Edg
 While not yet open, the onboarding process will be done through the Azure
 Marketplace. Detailed guidelines are in the [Azure Marketplace and AppSource publishing guide](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide). Refer to the transact listing type for Containers. 
 
-Partners will first need to become a Publisher for the Azure Marketplace. Then they'll be able to onboard their Edge modules through the [Cloud Partner Portal](./getting-started-with-the-cpp-5.md).
+Partners will first need to become a Publisher for the Azure Marketplace. Then they'll be able to onboard their Edge modules through the [Cloud Partner Portal](./cloud-partner-portal-getting-started-with-the-cloud-partner-portal.md).
 
 ## Are there any monetization capabilities?
 
