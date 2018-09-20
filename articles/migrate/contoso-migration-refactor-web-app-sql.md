@@ -232,7 +232,7 @@ With the database migrated, Contoso admins can now provision the two web apps.
 4. After they're done, they browse to the address of the apps to check they've been created successfully.
 
 
-## Step 4: Set up AzureDevOps
+## Step 4: Set up Azure DevOps
 
 
 Contoso needs to build the DevOps infrastructure and pipelines for the application.  To do this, Contoso admins create a new DevOps project, import the code, and then set up build and release pipelines.
