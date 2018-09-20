@@ -86,6 +86,7 @@ telegraf --input-filter cpu:mem --output-filter azure_monitor config > azm-teleg
 # replace the example config with the new generated config 
 sudo cp azm-telegraf.conf /etc/telegraf/telegraf.conf 
 ```
+
 >![NOTE]
 >The above only enables two input plugins “cpu” and “mem”, feel free to add more input plugins (Docker, MySQL, NGINX, etc.) depending on the workload running on your machine. A full list of input plugins can be found here. 
 
