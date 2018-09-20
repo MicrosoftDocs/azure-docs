@@ -252,7 +252,7 @@ featureFlags:
                                                     </li>
 													<li>
                                                         <a class="barLink" href="https://docs.microsoft.com/azure/devops/pipelines/index">
-                                                            <img src="https://docs.microsoft.com/azure/media/azure-devops/devopsiconpipelines96.svg" alt="">
+                                                            <img src="https://docs.microsoft.com/azure/devops/_img/index/devopsiconpipelines96.svg" alt="">
                                                             Azure Pipelines
                                                     </a>
                                                     </li>
