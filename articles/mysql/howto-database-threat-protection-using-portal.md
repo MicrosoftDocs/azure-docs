@@ -40,7 +40,7 @@ You receive an email notification upon detection of anomalous database activitie
 
 View active threats:
 
-    ![Active threats](./media/howto-database-threat-protection-using-portal/active-threats.png)
+   ![Active threats](./media/howto-database-threat-protection-using-portal/active-threats.png)
 
 2. Click a specific alert to get additional details and actions for investigating this threat and remediating future threats.
 
