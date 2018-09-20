@@ -3,7 +3,7 @@ title: Delete an offer or SKU from Azure Marketplace | Microsoft Docs
 description: Steps for deleting an offer or SKU.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
-author: v-wesda
+author: dan-wesley
 manager: Patrick.Butler  
 editor:
 
