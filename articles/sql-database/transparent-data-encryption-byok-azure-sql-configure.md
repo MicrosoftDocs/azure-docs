@@ -4,7 +4,7 @@ description: "Learn how to configure an Azure SQL Database and Data Warehouse to
 services: sql-database
 keywords:
 documentationcenter:
-author: "aliceku"
+author: aliceku
 manager: craigg
 editor:
 ms.prod: 
@@ -16,7 +16,7 @@ ms.tgt_pltfrm:
 ms.devlang: "azurecli, powershell"
 ms.topic: conceptual
 ms.date: "06/28/2018"
-ms.author: "aliceku"
+ms.author: aliceku
 monikerRange: "= azuresqldb-current || = azure-sqldw-latest || = sqlallproducts-allversions"
 ---
 

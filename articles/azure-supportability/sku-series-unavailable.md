@@ -4,7 +4,7 @@ description: Some SKU series are unavailable for the selected subscription for t
 services: Azure Supportability
 documentationcenter: ''
 author: stevendotwang
-manager: "rajatk"
+manager: rajatk
 editor: ''
 
 

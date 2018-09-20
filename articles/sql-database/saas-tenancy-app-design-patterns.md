@@ -3,14 +3,14 @@ title: "Multi-tenant SaaS patterns - Azure SQL Database | Microsoft Docs"
 description: "Learn about the requirements and common data architecture patterns of multi-tenant software as a service (SaaS) database applications that run in the Azure cloud environment."
 keywords: "sql database tutorial"
 services: "sql-database"
-author: "billgib"
-manager: "craigg"
+author: billgib
+manager: craigg
 ms.service: "sql-database"
 ms.custom: "scale out apps"
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.reviewer: genemi
-ms.author: "billgib"
+ms.author: billgib
 ---
 # Multi-tenant SaaS database tenancy patterns
 

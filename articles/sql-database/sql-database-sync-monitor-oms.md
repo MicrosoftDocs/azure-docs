@@ -5,9 +5,9 @@ services: sql-database
 ms.date: "04/01/2018"
 ms.topic: conceptual
 ms.service: "sql-database"
-author: "allenwux"
-ms.author: "xiwu"
-manager: "craigg"
+author: allenwux
+ms.author: xiwu
+manager: craigg
 ms.custom: data-sync
 ---
 # Monitor SQL Data Sync with Log Analytics 

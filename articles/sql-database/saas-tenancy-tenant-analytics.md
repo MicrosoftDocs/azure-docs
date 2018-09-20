@@ -3,8 +3,8 @@ title: "Run cross-tenant analytics using extracted data| Microsoft Docs"
 description: "Cross-tenant analytics queries using data extracted from multiple Azure SQL Database databases."
 keywords: "sql database tutorial"
 services: "sql-database"
-author: "stevestein"
-manager: "craigg"
+author: stevestein
+manager: craigg
 ms.service: "sql-database"
 ms.custom: "scale out apps"
 ms.topic: conceptual
