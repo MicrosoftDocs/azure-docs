@@ -16,7 +16,7 @@ ms.date: 09/20/2018
 ms.author: barclayn
 
 ---
-# Windows Defender Advanced Threat Protection (ATP) with Azure Security Center (Public preview)
+# Windows Defender Advanced Threat Protection (ATP) with Azure Security Center
 
 Azure Security Center is extending its Cloud Workload Protection Platforms (CWPP) offering by integrating with [Windows Defender ATP](https://www.microsoft.com/WindowsForBusiness/windows-atp).
 This change brings comprehensive Endpoint Detection and Response (EDR) capabilities. It enables you to spot abnormalities, detect, and respond to advanced attacks on server endpoints monitored by ASC.
