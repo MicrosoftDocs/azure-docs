@@ -1,61 +1,54 @@
 ---
-title: #Required; page title displayed in search results. Include the brand.
-description: #Required; article description that is displayed in search results.
-services: #Required for articles that deal with a service; service slug assigned to your service by ACOM.
-author: #Required; your GitHub user alias, with correct capitalization.
-
-ms.service: #Required; service per approved list.
-ms.topic: overview #Required
-ms.date: #Required; mm/dd/yyyy format.
-ms.author: #Required; microsoft alias of author; optional team alias.
+title: Overview of Digital Twins | Microsoft Docs
+description: An introduction to Digital Twins
+author: adamgerard
+ms.author: adgera
+ms.date: 09/19/2018
+ms.topic: overview
+ms.service: digital-twins
+services: digital-twins
+manager: timlt
+ms.custom: mvc
+#Customer intent: As an Azure enterprise customer, I want to know what capabilities Digital Twins has so that I can build next generation IoT services. 
 ---
 
-<!---Recommended: Removal all the comments in this template before you sign-off or merge to master.--->
+# What is Digital Twins?
 
-<!---overview articles are for new customers and explain the service from a technical point of view.
-They are not intended to define benefits or value prop; that would be in marketing content.
---->
+Digital Twins is an Azure IoT Cloud platform enabling next generation IoT solutions to be built from distributed devices, sensors, and places.
 
-# What is <product/service>? 
-<!---Required: 
-For the H1 - that's the primary heading at the top of the article - use the format "What is <service>?"
-You can also use this in the TOC if your service name doesn’t cause the phrase to wrap.
---->
+Digital Twins makes it easy to to represent the physical world with a "digital twin" that effectively models the relationships between people, places, and devices. These predefined models, or Ontology, simplify building solutions unique to industry domain.
 
-Introductory paragraph.
-<!---Required:
-The introductory paragraph helps customers quickly determine whether an article is relevant.
-Describe in customer-friendly terms what the service is and does, and why the customer should care. Keep it short for the intro.
-You can go into more detail later in the article. Many services add artwork or videos below the introduction.
---->
+The platform supplies powerful real-time analytics and device telemetry, user-defined functions to automate event and data processing, and robust security for your IoT app.
 
-<!---Avoid notes, tips, and important boxes. Readers tend to skip over them. Better to put that info directly into the article text.--->
+## Services in Digital Twins
 
-<!---Screenshots and videos can add another way to show and tell the overview story. But don’t overdo them. Make sure that they offer value for the overview.
-If users access your product/service via a web browser, the first screenshot should always include the full browser window in Chrome or Safari. This is to show users that the portal is browser-based - OS and browser agnostic.
---->
+Many services combine to make Digital Twins a next generation Cloud IoT platform.  
 
-## <article body>
-<!---
-After the intro, you can develop your overview by discussing the features that answer the "Why should I care" question with a bit more depth.
-Be sure to call out any basic requirements and dependencies, as well as limitations or overhead.
-Don't catalog every feature, and some may only need to be mentioned as available, without any discussion.
---->
+### Object Ontology
 
-## <Top task>
-<!---Suggested:
-An effective way to structure you overview article is to create an H2 for the top customer tasks identified in milestone one of the [APEX content model](contribute-get-started-mvc.md) and describe how the product/service helps customers with that task.
-Create a new H2 for each task you list.
---->
+A rich **Ontology** of pre-defined object models is provided to better categorize IoT assets and speed along development. These models simplify the representation of many familiar resources an IoT app will use.
+
+### Spatial Intelligence Graphs
+
+IoT apps must bring together numerous devices, sensors, and places. 
+
+For example, a smart utility app might involve several electricity usage devices that are connected across a neighborhood. In order to accurately monitor electricity use and ensure correct billing, the smart utility company must track each device, sensor, and their locations.
+
+Digital Twins enables complex relationships between people, places, and devices to be easily defined through its powerful **Ontology** and situated into a contextual IoT space or Topology.
+
+### User-Defined Functions
+
+**User-Defined Functions** can be specified for each node in an IoT Topology allowing custom, repeat, and automatic data processing to occur for individual or grouped devices and sensors.
+
+### Telemetry and Insights
+
+Devices, sensors, and whole locations can stream their data directly to your IoT app through Azure IoT Hub event data processing and telemetry pipeline.
+
+Using **Telemetry**, your app can collect temperature data from multiple sensors or calculate the current room capacity of an entire office building.
 
 ## Next steps
 
-<!---Some context for the following links goes here--->
-<!--- [link to next logical step for the customer](quickstart-view-occupancy.md) --->
+//TODO
 
-<!--- Required:
-In Overview articles, provide at least one next step and no more than three.
-Next steps in overview articles will often link to a quickstart.
-Use regular links; do not use a blue box link. What you link to will depend on what is really a next step for the customer.
-Do not use a "More info section" or a "Resources section" or a "See also section".
---->
+> [!div class="nextstepaction"]
+> []()
