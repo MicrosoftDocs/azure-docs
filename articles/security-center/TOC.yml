@@ -39,7 +39,7 @@
     href: security-center-secure-score.md
   - name: Upgrade to advanced security
     href: security-center-onboarding.md
-  - name: Server protection with Windows Defender ATP (Preview)
+  - name: Server protection with Windows Defender ATP
     href: security-center-wdatp.md
   - name: Set security policies
     href: security-center-azure-policy.md
