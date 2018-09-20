@@ -45,9 +45,13 @@ Use the filter controls to select virtual machines from different subscriptions,
 
 ![Onboard Update management solution](media/automation-onboard-solutions-from-browse/onboardsolutions.png)
 
-Review the choices for the Log analytics workspace and Automation account. A new workspace and Automation Account are selected by default. If you have an existing Log Analytics workspace and Automation Account you want to use, click **change** to select them from the **Configuration** page. When done, click **Save**.
+Review the choices for the Log analytics workspace and Automation account. An existing workspace and Automation Account are selected by default. If you want to use a different Log Analytics workspace and Automation Account, click **CUSTOM** to select them from the **Custom Configuration** page. When you choose a Log Analytics workspace, a check is made to determine if it is linked with an Automation Account. If a linked Automation Account is found, you will see the following screen. When done, click **OK**.
 
 ![Select workspace and account](media/automation-onboard-solutions-from-browse/selectworkspaceandaccount.png)
+
+If the workspace selected is not linked to an Automation Account, you'll see the following screen. Select an Automation Account and click **OK** when complete.
+
+![No workspace](media/automation-onboard-solutions-from-browse/no-workspace.png)
 
 Deselect the checkbox next to any virtual machine that you don't want to enable. Virtual machines that can't be enabled are already deselected.
 
