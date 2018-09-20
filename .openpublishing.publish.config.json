@@ -170,7 +170,7 @@
     {
       "path_to_root": "samples-cognitive-services-speech-sdk",
       "url": "https://github.com/Azure-Samples/cognitive-services-speech-sdk",
-      "branch": "docs-201807",
+      "branch": "docs-201809",
       "branch_mapping": {}
     },
     {

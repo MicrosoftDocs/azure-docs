@@ -3,7 +3,7 @@ title: "Quickstart: Python Update knowledge base - QnA Maker"
 description: How to update a knowledge base in Python for QnA Maker.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: cjgronlund
 
 ms.service: cognitive-services
 ms.component: qna-maker
@@ -15,6 +15,8 @@ ms.author: diberry
 # Update a knowledge base in Python
 
 The following code updates an existing knowledge base, using the [Update](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) method.
+
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-python-repo-note.md)]
 
 If you don't have a knowledge base yet, you can create a sample one to use for this quickstart: [Create a new knowledge base](create-new-kb-python.md).
 
