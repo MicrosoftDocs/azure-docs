@@ -3,7 +3,7 @@ title: Containers | Microsoft Docs
 description: Steps for publishing a container image.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
-author: v-wesda
+author: dan-wesley
 manager: Patrick.Butler  
 editor:
 
