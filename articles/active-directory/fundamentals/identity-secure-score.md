@@ -23,7 +23,7 @@ ms.reviewer: nigu
 
 How secure is your Azure AD tenant? If you don't know how to answer this question, read this article to learn how the identity secure score helps you to monitor and improve your identity security posture. 
 
-## What is a secure score?
+## What is an identity secure score?
 
 The identity secure score is number between 1 and 248 that functions as indicator for how aligned you are with Microsoft's best practices recommendations for security.
 
@@ -66,17 +66,6 @@ By following the improvement actions, you can:
  
 - Take advantage of Microsoft’s Identity features. 
 
-The improvement actions take into consideration:
-
-- Privileged accounts
-
-- App management
-
-- Conditional access policies
-
-- Authentication methods
-
-- Auditing and reporting. 
 
 
 ## How do I get my secure score?
