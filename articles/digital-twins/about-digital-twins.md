@@ -55,4 +55,4 @@ Using **Telemetry**, your app can collect temperature data from multiple sensors
 For full code samples:
 
 > [!div class="nextstepaction"]
-> [C# code samples]()
+> [C# code samples](https://github.com/Azure-Samples/digital-twins-samples-csharp)

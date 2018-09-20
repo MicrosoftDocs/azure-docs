@@ -83,7 +83,7 @@ The tutorials go into detail about how to build an application for facility mana
 
 If you plan to continue to the tutorials, do not clean up the resources created in this Quickstart. If you do not plan to continue, use the following steps to delete all resources created by this Quickstart.
 
-1. Delete the folder that was created when cloning the sample repository
+1. Delete the folder that was created when cloning the sample repository.
 1. From the left-hand menu in the [Azure portal](http://portal.azure.com), click **All resources** and then select your Digital Twins resource. At the top of the **All resources** blade, click **Delete**.
 
 ## Next steps
