@@ -14,26 +14,31 @@
 
 ## List information
 
-List galleries across subscriptions.
-
-```azurecli-interactive
-az account list -otsv --query "[].id" | xargs -n 1 az sig list  --subscription
-```
-
-Get the location, status and other information about the available image galleries using [az sig list](/cli/azure/)
+Get the location, status and other information about the available image galleries using [az sig list](/cli/azure/sig#az-sig-list).
 
 ```azurecli-interactive 
 az sig list -o table
 ```
 
-List the image definitions in a gallery, including information about OS type and status, using [az sig image-definition list](/cli/azure/).
+List the image definitions in a gallery, including information about OS type and status, using [az sig image-definition list](/cli/azure/sig/image-definition#az-sig-image-definition-list).
 
 ```azurecli-interactive 
 az sig image-definition list -g myGalleryRG -r myGallery -o table
 ```
 
-List the shared image versions in a gallery, using [az sig image-version list](/cli/azure/).
+List the shared image versions in a gallery, using [az sig image-version list](/cli/azure/sig/image-version#az-sig-image-version-list).
 
 ```azurecli-interactive
 az sig image-version list -g myGalleryRG -r myGallery -i myGalleryImage -o table
+```
+
+Get the ID of an image version using [az sig image-version show](/cli/azure/sig/image-version#az-sig-image-version-show).
+
+```
+az sig image-version show \
+-g myGalleryRG \     
+-r myGallery \     
+-i myGalleryImage \     
+--gallery-image-version-name 1.0.0 \     
+--query "id"
 ```
