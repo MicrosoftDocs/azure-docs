@@ -1,3 +1,16 @@
+---
+title: include file
+description: include file
+services: functions
+author: ggailey777
+manager: jeconnoc
+ms.service: azure-functions
+ms.topic: include
+ms.date: 09/20/2018
+ms.author: glenga
+ms.custom: include file
+---
+
 This is reference information for Azure Functions developers. If you're new to Azure Functions, start with the following resources:
 
 * [Create your first function](../articles/azure-functions/functions-create-first-azure-function.md)
