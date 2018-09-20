@@ -76,7 +76,7 @@ In the latest version, models are deployed as web services to [Azure Container I
 Learn more in these articles:
 + [Deploy to ACI](how-to-deploy-to-aci.md)
 + [Deploy to AKS](how-to-deploy-to-aks.md)
-+ [Tutorial:Deploy models with Azure Machine Learning service](tutorial-deploy-models-with-aml.md)
++ [Tutorial: Deploy models with Azure Machine Learning service](tutorial-deploy-models-with-aml.md)
 
 When [support for the previous CLI ends](overview-what-happened-to-workbench.md#timeline), you won't be able to manage the web services you originally deployed with your Model Management account. However, those web services will continue to work for as long as Azure Container Service (ACS) is still supported.
 
