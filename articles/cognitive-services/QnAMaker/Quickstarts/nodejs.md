@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Get information and code samples to help you quickly get started using the Microsoft Translator Text API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: cjgronlund
 
 ms.service: cognitive-services
 ms.technology: qna-maker
@@ -32,6 +32,8 @@ This article shows you how to use the [Microsoft QnA Maker API](../Overview/over
 - [Re-generate the current endpoint keys.](#PutKeys)
 - [Get the current set of word alterations.](#GetAlterations)
 - [Replace the current set of word alterations.](#PutAlterations)
+
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
 
 ## Prerequisites
 
