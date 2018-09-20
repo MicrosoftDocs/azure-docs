@@ -179,7 +179,7 @@ For more information, see:
 
 After you set up this new feature, your users will see a link to reset their password from the **Lock** screen of a device running Windows 7, Windows 8, or Windows 8.1. By clicking that link, the user is guided through the same password reset flow as through the web browser.
 
-For more information, see aka.ms/ssprforwindows78
+For more information, see [How to enable password reset from Windows 7, 8, and 8.1](https://aka.ms/ssprforwindows78)
 
 ---
 
