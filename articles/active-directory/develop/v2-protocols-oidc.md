@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2018
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
@@ -135,7 +135,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 
 | Parameter | Description |
 | --- | --- |
-| id_token |The ID token that the app requested. You can use the `id_token` parameter to verify the user's identity and begin a session with the user. For more information about ID tokens and their contents, see the [v2.0 endpoint tokens reference](v2-id-and-access-tokens.md). |
+| id_token |The ID token that the app requested. You can use the `id_token` parameter to verify the user's identity and begin a session with the user. For more information about ID tokens and their contents, see the [`id_tokens` reference](id-tokens.md). |
 | state |If a `state` parameter is included in the request, the same value should appear in the response. The app should verify that the state values in the request and response are identical. |
 
 ### Error response
@@ -171,20 +171,18 @@ The following table describes error codes that can be returned in the `error` pa
 
 ## Validate the ID token
 
-Receiving an ID token is not sufficient to authenticate the user. You must also validate the ID token's signature and verify the claims in the token per your app's requirements. The v2.0 endpoint uses [JSON Web Tokens (JWTs)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) and public key cryptography to sign tokens and verify that they are valid.
+Just receiving an id_token is not sufficient to authenticate the user; you must validate the id_token's signature and verify the claims in the token per your app's requirements. The v2.0 endpoint uses [JSON Web Tokens (JWTs)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) and public key cryptography to sign tokens and verify that they are valid.
 
-You can choose to validate the ID token in client code, but a common practice is to send the ID token to a back-end server and perform the validation there. After you've validated the signature of the ID token, you'll need to verify a few claims. For more information, including more about [validating tokens](v2-id-and-access-tokens.md#validating-tokens) and [important information about signing key rollover](v2-id-and-access-tokens.md#validating-tokens), see the [v2.0 tokens reference](v2-id-and-access-tokens.md). We recommend using a library to parse and validate tokens. There's at least one of these libraries available for most languages and platforms.
+You can choose to validate the `id_token` in client code, but a common practice is to send the `id_token` to a backend server and perform the validation there. Once you've validated the signature of the id_token, there are a few claims you will be required to verify. See the [`id_token` reference](id-tokens.md) for more information, including [Validating Tokens](id-tokens.md#validating-idtokens) and [Important Information About Signing Key Rollover](active-directory-signing-key-rollover.md). We recommend making use of a library for parsing and validating tokens - there is at least one available for most languages and platforms.
 <!--TODO: Improve the information on this-->
 
-You also might want to validate additional claims, depending on your scenario. Some common validations include:
+You may also wish to validate additional claims depending on your scenario. Some common validations include:
 
-* Ensure that the user or organization has signed up for the app.
-* Ensure that the user has required authorization or privileges.
-* Ensure that a certain strength of authentication has occurred, such as multi-factor authentication.
+* Ensuring the user/organization has signed up for the app.
+* Ensuring the user has proper authorization/privileges
+* Ensuring a certain strength of authentication has occurred, such as multi-factor authentication.
 
-For more information about the claims in an ID token, see the [v2.0 endpoint tokens reference](v2-id-and-access-tokens.md).
-
-After you have validated the ID token, you can begin a session with the user. Use the claims in the ID token to get information about the user in your app. You can use this information for display, records, authorizations, and so on.
+Once you have completely validated the id_token, you can begin a session with the user and use the claims in the id_token to obtain information about the user in your app. This information can be used for display, records, personalization, etc.
 
 ## Send a sign-out request
 
@@ -253,7 +251,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAA
 
 | Parameter | Description |
 | --- | --- |
-| id_token |The ID token that the app requested. You can use the ID token to verify the user's identity and begin a session with the user. You'll find more details about ID tokens and their contents in the [v2.0 endpoint tokens reference](v2-id-and-access-tokens.md). |
+| id_token |The ID token that the app requested. You can use the ID token to verify the user's identity and begin a session with the user. You'll find more details about ID tokens and their contents in the [`id_tokens` reference](id-tokens.md). |
 | code |The authorization code that the app requested. The app can use the authorization code to request an access token for the target resource. An authorization code is very short-lived. Typically, an authorization code expires in about 10 minutes. |
 | state |If a state parameter is included in the request, the same value should appear in the response. The app should verify that the state values in the request and response are identical. |
 
@@ -276,4 +274,4 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 For a description of possible error codes and recommended client responses, see [Error codes for authorization endpoint errors](#error-codes-for-authorization-endpoint-errors).
 
-When you have an authorization code and an ID token, you can sign the user in and get access tokens on their behalf. To sign the user in, you must validate the ID token [exactly as described](#validate-the-id-token). To get access tokens, follow the steps described in [OAuth protocol documentation](v2-oauth2-auth-code-flow.md#request-an-access-token).
+When you have an authorization code and an ID token, you can sign the user in and get access tokens on their behalf. To sign the user in, you must validate the ID token [exactly as described](id-tokens.md#validating-idtokens). To get access tokens, follow the steps described in [OAuth code flow documentation](v2-oauth2-auth-code-flow.md#request-an-access-token).
