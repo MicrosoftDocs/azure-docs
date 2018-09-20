@@ -100,7 +100,7 @@
     items:
     - name: From the Translator Speech API
       href: how-to-migrate-from-translator-speech-api.md
-    - name: From Custom Speech Service
+    - name: From the Custom Speech service
       href: how-to-migrate-from-custom-speech-service.md
     - name: From Bing Speech
       href: how-to-migrate-from-bing-speech.md

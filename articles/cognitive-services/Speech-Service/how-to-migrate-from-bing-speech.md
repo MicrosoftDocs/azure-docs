@@ -3,13 +3,13 @@ title: How to migrate to the Speech Service
 titleSuffix: "Microsoft Cognitive Services"
 description: Learn the differences between Bing Speech and the Speech Service from a developer standpoint and migrate your application to use the Speech Service.
 services: cognitive-services
-author: wolfma61
+author: wsturman
 
 ms.service: cognitive-services
 ms.technology: Speech
 ms.topic: article
 ms.date: 09/12/2018
-ms.author: nitinme
+ms.author: gracez
 
 # Customer intent: As a developer currently using the deprecated Bing Speech, I want to learn the differences between Bing Speech and the Speech Service so that I can migrate my application to the Speech Service.
 ---
@@ -38,10 +38,11 @@ From a developer standpoint, the main differences between Bing Speech and the Sp
     * [Custom speech-to-text](https://cris.ai/CustomSpeech)
     * [Text-to-speech](text-to-speech.md)
     * [Custom text-to-speech voices](https://cris.ai/CustomVoice)
-    * [Speech translation](speech-translation.md)
+    * [Speech translation](speech-translation.md) (does not include [Text translation](https://docs.microsoft.com/azure/cognitive-services/translator/translator-info-overview))
 
-    > [!NOTE]
-    > [Text translation](https://docs.microsoft.com/azure/cognitive-services/translator/translator-info-overview) is not part of the Speech Service and requires its own subscription.
+* Recognition modes are no longer used for speech-to-text transcription. However, endpoint URIs for REST API calls that contain recognition modes still work.
+
+* When using the Speech SDK, there is no time limit on streaming speech-to-text transcription.
 
 * A [Language Understanding Service](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) endpoint key can also be used with the Speech Service. See the [intent recognition tutorial](how-to-recognize-intents-from-speech-csharp.md) for details.
 
@@ -51,11 +52,13 @@ From a developer standpoint, the main differences between Bing Speech and the Sp
 
 * The Speech Service WebSockets protocols are also compatible with those used by Bing Speech. We recommend that new development target the Speech Service SDK, rather than using WebSockets, and we encourage you to migrate existing code to the SDK as well. However, as with the REST APIs, existing code that uses Bing Speech via WebSockets requires only a change in endpoint and an updated key.
 
-* The Speech Service provides SDKs for several popular programming languagse. The APIs of these SDKs are different from those of the Bing Speech client libraries. See the following section.
+* The Speech Service provides SDKs for several popular programming languages. The APIs of these SDKs are different from those of the Bing Speech client libraries. See the following section.
 
 ## Speech SDK
 
 If you're using a Bing Speech client library for a specific programming language, migrating to the Speech SDK will require changes to your application because the API is different. Migrating to the Speech SDK can make your code simpler, as well as giving you access to new features now and in the future, making it a good investment of your time.
+
+At this writing, the Speech SDK supports C# (Windows 10, UWP, .NET Standard), Java (Android and custom devices), and C++ (Windows and Linux). APIs on all platforms are similar to ease multi-platform development. Support for additional platforms may be added from time to time.
 
 To get started with the new Speech SDK:
 
