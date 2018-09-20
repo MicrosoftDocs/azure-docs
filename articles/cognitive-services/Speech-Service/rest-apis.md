@@ -210,8 +210,6 @@ The following fields are sent in the HTTP request header.
 |`Authorization`|An authorization token preceded by the word `Bearer`. Required. See [Authentication](#authentication).|
 |`Content-Type`|The input content type: `application/ssml+xml`.|
 |`X-Microsoft-OutputFormat`|The output audio format. See next table.|
-|`X-Search-AppId`|Hex-only GUID (no dashes) that uniquely identifies the client application. This can be the store ID. Ff it is not a store app, you can use any GUID.|
-|`X-Search-ClientId`|Hex-only GUID (no dashes) that uniquely identifies an application instance for each installation.|
 |`User-Agent`|Application name. Required; must contain fewer than 255 characters.|
 
 The available audio output formats (`X-Microsoft-OutputFormat`) incorporate both a bitrate and an encoding.
@@ -225,9 +223,12 @@ The available audio output formats (`X-Microsoft-OutputFormat`) incorporate both
 `riff-24khz-16bit-mono-pcm`        | `audio-24khz-160kbitrate-mono-mp3`
 `audio-24khz-96kbitrate-mono-mp3`  | `audio-24khz-48kbitrate-mono-mp3`
 
+> [!NOTE]
+> If your selected voice and output format have different bit rates, the audio is resampled as necessary. However, 24khz voices do not support `audio-16khz-16kbps-mono-siren` and `riff-16khz-16kbps-mono-siren` output formats. 
+
 ### Request body
 
-The text to be synthesized into speech is sent as the body of an HTTP `POST` request in either plain text or [Speech Synthesis Markup Language](speech-synthesis-markup.md) (SSML) format with UTF-8 text encoding. You must use SSML if you want to use a voice other than the service's default voice.
+The text to be converted to speech is sent as the body of an HTTP `POST` request in either plain text (ASCII or UTF-8) or [Speech Synthesis Markup Language](speech-synthesis-markup.md) (SSML) format (UTF-8). Plain text requests use the service's default voice and language. Send SSML to use a different voice.
 
 ### Sample request
 
@@ -255,10 +256,9 @@ The HTTP status of the response indicates success or common error conditions.
 HTTP code|Meaning|Possible reason
 -|-|-|
 200|OK|The request was successful; the response body is an audio file.
-400|Bad request|Required header field missing, value too long, or invalid SSML document.
 400 |Bad Request |A required parameter is missing, empty, or null. Or, the value passed to either a required or optional parameter is invalid. A common issue is a header that is too long.
 401|Unauthorized |The request is not authorized. Check to make sure your subscription key or token is valid and in the correct region.
-413|Request Entity Too Large|The SSML input is longer than 1024 characters.
+413|Request entity too large|The SSML input is longer than 1024 characters.
 |502|Bad Gateway	| Network or server-side issue. May also indicate invalid headers.
 
 If the HTTP status is `200 OK`, the body of the response contains an audio file in the requested format. This file may be played as it is transferred, or saved to a buffer or file for later playback or other use.
