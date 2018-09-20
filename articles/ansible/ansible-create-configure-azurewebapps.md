@@ -10,8 +10,8 @@ ms.topic: tutorial
 ms.date: 09/20/2018
 ---
 
-# Create Azure Web Apps using Ansible (Preview)
-[Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-overview) Web Apps (or just Web Apps) is a service for hosting web applications, REST APIs, and mobile back ends. You can develop in your favorite language, be it .NET, .NET Core, Java, Ruby, Node.js, PHP, or Python.
+# Create Azure App Service Web Apps using Ansible (Preview)
+[Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview)  (or just Web Apps) is a service for hosting web applications, REST APIs, and mobile back ends. You can develop in your favorite language, be it .NET, .NET Core, Java, Ruby, Node.js, PHP, or Python.
 
 Ansible allows you to automate the deployment and configuration of resources in your environment. This article shows you how to use Ansible to create a Web App with Java runtime. 
 
@@ -22,14 +22,13 @@ Ansible allows you to automate the deployment and configuration of resources in 
 > [!Note]
 > Ansible 2.7 is required to run the following the sample playbooks in this tutorial. You could install Ansible 2.7 RC version by running `sudo pip install ansible[azure]==2.7.0rc2`. Ansible 2.7 will be released on 4th Oct. After that, you need not specify the version here because the default version will be 2.7. 
 
-## Create a Simple Java Web App in App Service on Linux
+## Create a simple App service
 This section presents a sample Ansible playbook that defines the folliwng resources:
 - Resource group, where your app service plan and web app will be deployed to
 - Web App, a Web App with Java 8 and Tomcat container runtime in App Service on Linux
 
 ```
-- name: Create Azure VM
-  hosts: localhost
+- hosts: localhost
   connection: local
   vars:
     resource_group: myfirstResourceGroup
@@ -41,7 +40,7 @@ This section presents a sample Ansible playbook that defines the folliwng resour
         name: "{{ resource_group }}"
         location: "{{ location }}"
 
-    - name: Create a Java Web App in App Service on Linux
+    - name: Create App Service on Linux with Java Runtime
       azure_rm_webapp:
         resource_group: "{{ resource_group }}"
         name: "{{ webapp_name }}"
@@ -71,7 +70,7 @@ The output from running the Ansible playbook shows that the Web app has been suc
 TASK [Create a resource group] *************************************************
 changed: [localhost]
 
-TASK [Create a Java Web App in App Service on Linux] ******************************
+TASK [Create App Service on Linux with Java Runtime] ******************************
  [WARNING]: Azure API profile latest does not define an entry for
 WebSiteManagementClient
 changed: [localhost]
@@ -80,7 +79,7 @@ PLAY RECAP *********************************************************************
 localhost                  : ok=2    changed=2    unreachable=0    failed=0   
 ```
 
-## Create a Java Web App with Azure Traffic Manager
+## Creat App Service with Traffic Manager
 You can use [Azure Traffic Manager](https://docs.microsoft.com/azure/app-service/web-sites-traffic-manager) to control how requests from web clients are distributed to apps in Azure App Service. When App Service endpoints are added to an Azure Traffic Manager profile, Azure Traffic Manager keeps track of the status of your App Service apps (running, stopped, or deleted) so that it can decide which of those endpoints should receive traffic.
 
 In App Service, an app runs in an [App Service plan](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview
@@ -126,7 +125,7 @@ This section presents a sample Ansible playbook that defines the following resou
       sku: S1
       number_of_workers: 1
 
-  - name: Create a Java Web App in App Service on Linux
+  - name: Create App Service on Linux with Java Runtime
     azure_rm_webapp:
         resource_group: "{{ resource_group }}"
         name: "{{ app_name }}"
@@ -165,7 +164,7 @@ This section presents a sample Ansible playbook that defines the following resou
         port: 80
         path: '/'
 
-  - name: Add endpoint to traffic manager profile, using the web site created above
+  - name: Add endpoint to traffic manager profile, using created web site
     azure_rm_trafficmanagerendpoint:
       resource_group: "{{ resource_group }}"
       profile_name: "{{ traffic_manager_profile_name }}"
@@ -195,7 +194,7 @@ TASK [Create App Service Plan] *************************************************
 
 changed: [localhost]
 
-TASK [Create a Java Web App in App Service on Linux] ****************************************************************************
+TASK [Create App Service on Linux with Java Runtime] ****************************************************************************
 changed: [localhost]
 
 TASK [Get web app facts] *****************************************************************************
