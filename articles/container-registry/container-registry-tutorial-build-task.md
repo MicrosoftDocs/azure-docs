@@ -94,6 +94,9 @@ az acr task create \
     --git-access-token $GIT_PAT
 ```
 
+> [!IMPORTANT]
+> If you previously created tasks during the preview with the `az acr build-task` command, those tasks need to be re-created using the [az acr task][az-acr-task] command.
+
 This task specifies that any time code is committed to the *master* branch in the repository specified by `--context`, ACR Tasks will build the container image from the code in that branch. The Dockerfile specified by `--file` from the repository root is used. The `--image` argument specifies a parameterized value of `{{.Run.ID}}` for the version portion of the image's tag, ensuring the built image correlates to a specific build, and is tagged uniquely.
 
 Output from a successful [az acr task create][az-acr-task-create] command is similar to the following:

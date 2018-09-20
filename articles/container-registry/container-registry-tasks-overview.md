@@ -52,6 +52,9 @@ Learn how to use quick tasks in the first ACR Tasks tutorial, [Build container i
 
 Use ACR Tasks to automatically trigger a container image build when code is committed to a Git repository. Build tasks, configurable with the Azure CLI command [az acr task][az-acr-task], allow you to specify a Git repository and optionally a branch and Dockerfile. When your team commits code to the repository, an ACR Tasks-created webhook triggers a build of the container image defined in the repo.
 
+> [!IMPORTANT]
+> If you previously created tasks during the preview with the `az acr build-task` command, those tasks need to be re-created using the [az acr task][az-acr-task] command.
+
 Learn how to trigger builds on source code commit in the second ACR Tasks tutorial, [Automate container image builds with Azure Container Registry Tasks](container-registry-tutorial-build-task.md).
 
 ## Automate OS and framework patching

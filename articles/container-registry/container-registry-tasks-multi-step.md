@@ -14,6 +14,9 @@ ms.author: marsma
 
 Multi-step tasks extend the single image build-and-push capability of ACR Tasks with multi-step, multi-container-based workflows. Use multi-step tasks to build and push several images, in series or in parallel, and run those images as commands within a single task run. Each step defines a container image build or push operation, and can also define the execution of a container. Each step in a multi-step task uses a container as its execution environment.
 
+> [!IMPORTANT]
+> If you previously created tasks during the preview with the `az acr build-task` command, those tasks need to be re-created using the [az acr task][az-acr-task] command.
+
 For example, you can run a task with steps that automate the following:
 
 1. Build a web application image

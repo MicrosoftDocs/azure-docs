@@ -102,6 +102,9 @@ az acr task create \
     --git-access-token $GIT_PAT
 ```
 
+> [!IMPORTANT]
+> If you previously created tasks during the preview with the `az acr build-task` command, those tasks need to be re-created using the [az acr task][az-acr-task] command.
+
 This task is similar to the quick task created in the [previous tutorial](container-registry-tutorial-build-task.md). It instructs ACR Tasks to trigger an image build when commits are pushed to the repository specified by `--context`.
 
 Where it differs is in its behavior, in that it also triggers a build of the image when its *base image* is updated. The Dockerfile specified by the `--file` argument, [Dockerfile-app][dockerfile-app], supports specifying an image from within the same registry as its base:
