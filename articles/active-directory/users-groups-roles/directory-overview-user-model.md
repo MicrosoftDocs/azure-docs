@@ -56,17 +56,19 @@ You want to assign the least possible privilege to users to perform their tasks.
 New Azure AD administrator roles are being added frequently.
 
 ## Assign app access to users
-You can [use Azure AD to manage group or user assignments to enterprise apps](https://docs.microsoft.com/azure/active-directory/manage-apps/assign-user-or-group-access-portal) that are deployed in your Azure AD tenant. If you combine dynamic groups with group assignment to apps, you can automate how you scale up your user app acesss assignments. You'll need an Azure Active Directory Premium P1 or Premium P2 license to assign access to enterprise apps.
 
-Azure AD gives you granular control of the data flows between the app and the users and groups to whom you assign access. In **All Services > Enterprise Applications > Provisioning**:
-* You can set up automatic provisioning (when the app supports it),
-* Provide credentials to connect to the application's user management API 
-* Set up the mappings that which user attributes flow between Azure AD and the app, when user accounts are provisioned or updated.
+You can use Azure AD to manage group or user assignments to enterprise apps that are deployed in your Azure AD tenant. If you combine dynamic groups with group assignment to apps, you can automate how you scale up your user app acesss assignments. You'll need an Azure Active Directory Premium P1 or Premium P2 license to assign access to enterprise apps.
+
+Azure AD also gives you granular control of the data flows between the app and the users and groups to whom you assign access. In **All Services > Enterprise Applications > Provisioning**:
+
+* You can set up automatic provisioning (when the app supports it)
+* Provide credentials to connect to the application's user management API
+* Set up the mappings that which user attributes flow between Azure AD and the app, when user accounts are provisioned or updated 
 * Start and stop the Azure AD provisioning service for the selected application, as well as optionally clear the provisioning cache and restart the service
-* View the **Provisioning activity report** that provides a log of all users and groups created, updated, and removed between Azure AD and the app, and the **Provisioning error report** that provides more detailed error messages. 
+* View the **Provisioning activity report** that provides a log of all users and groups created, updated, and removed between Azure AD and the app, and the **Provisioning error report** that provides more detailed error messages
 
 ## Next steps
 
 If you're a beginning Azure AD administrator, get the basics down in Azure Active Directory Fundamentals.[Will be linked to the landing page for Fundamentals]
 
-Or you can start [creating groups](../fundamentals/active-directory-groups-create-azure-portal.md), [assigning licenses](../fundamentals/active-directory-licensing-whatis-azure-portal.md), or [assigning administrator roles](directory-assign-admin-roles.md).
+Or you can start [creating groups](../fundamentals/active-directory-groups-create-azure-portal.md), [assigning licenses](../fundamentals/active-directory-licensing-whatis-azure-portal.md), [assigning app assess](https://docs.microsoft.com/azure/active-directory/manage-apps/assign-user-or-group-access-portal) or [assigning administrator roles](directory-assign-admin-roles.md).
