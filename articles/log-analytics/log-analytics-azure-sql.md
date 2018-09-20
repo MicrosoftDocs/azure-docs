@@ -25,16 +25,17 @@ Azure SQL Analytics is a cloud monitoring solution for monitoring performance of
 
 By using metrics that you collect with the solution, you can create custom monitoring rules and alerts. The solution helps you to identify issues at each layer of your application stack. It uses Azure Diagnostic metrics along with Log Analytics views to present data about all your Azure SQL databases, elastic pools, and databases in Managed Instances in a single Log Analytics workspace. Log Analytics helps you to collect, correlate, and visualize structured and unstructured data.
 
-Currently, this preview solution supports up to 200,000 Azure SQL databases and 5,000 SQL elastic pools per workspace.
-
 For a hands-on overview on using Azure SQL Analytics solution and for typical usage scenarios, see the embedded video:
+
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player]
 >
 
 ## Connected sources
 
-Azure SQL Analytics is a cloud only monitoring solution supporting streaming of diagnostics telemetry for Azure SQL databases, elastic pools, and Managed Instances. As it doesn't use agents to connect to the Log Analytics service, the solution doesn't support monitoring of on-premises SQL Servers or VMs, see the compatibility table below.
+Azure SQL Analytics is a cloud only monitoring solution supporting streaming of diagnostics telemetry for Azure SQL Database, Managed Instance databases and elastic pools.
+
+As the solution does not use agents to connect to the Log Analytics service, the solution does not support monitoring of SQL Server hosted on-premises or in VMs, see the compatibility table below.
 
 | Connected Source | Supported | Description |
 | --- | --- | --- |
@@ -46,7 +47,7 @@ Azure SQL Analytics is a cloud only monitoring solution supporting streaming of 
 
 ## Configuration
 
-Perform the following steps to add the Azure SQL Analytics solution to your workspace.
+Perform the following steps to add the Azure SQL Analytics solution to your Azure dashboard.
 
 1. Add the Azure SQL Analytics solution to your workspace from [Azure marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureSQLAnalyticsOMS?tab=Overview).
 2. In the Azure portal, click **+ Create a resource**, then search for **Azure SQL Analytics**.  
@@ -59,9 +60,9 @@ Perform the following steps to add the Azure SQL Analytics solution to your work
 
 ### Configure Azure SQL databases and elastic pools to stream diagnostics telemetry
 
-Once you've created Azure SQL Analytics solution in your workspace, in order to monitor performance of Azure SQL databases and/or elastic pools, you will need to **configure each** of Azure SQL Database and elastic pool resource you wish to monitor to stream its diagnostics telemetry to the solution.
+Once you have created Azure SQL Analytics solution in your workspace, in order to monitor performance of Azure SQL databases, Managed Instance databases and elastic pools, you will need to **configure each** of these resources you wish to monitor to stream its diagnostics telemetry to the solution.
 
-- Enable Azure Diagnostics for your Azure SQL databases and elastic pools and [configure them to send their data to Log Analytics](../sql-database/sql-database-metrics-diag-logging.md).
+- Enable Azure Diagnostics for your Azure SQL Database, Managed Instance databases and elastic pools to [stream diagnostics telemetry to Azure SQL Analytics](../sql-database/sql-database-metrics-diag-logging.md).
 
 ### To configure multiple Azure subscriptions
 
@@ -79,7 +80,7 @@ PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
 
 ## Using the solution
 
-When you add the solution to your workspace, the Azure SQL Analytics tile is added to your workspace, and it appears in Overview. The tile shows the number of Azure SQL databases and Azure SQL elastic pools that the solution is connected to.
+When you add the solution to your workspace, the Azure SQL Analytics tile is added to your workspace, and it appears in Overview. The tile shows the number of Azure SQL databases, elastic pools, Managed Instances, and databases in Managed instances that the solution is receiving diagnostics telemetry from.
 
 ![Azure SQL Analytics tile](./media/log-analytics-azure-sql/azure-sql-sol-tile.png)
 
