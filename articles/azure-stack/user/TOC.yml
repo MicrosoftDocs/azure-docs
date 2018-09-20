@@ -35,6 +35,14 @@
     href: azure-stack-subscribe-services.md
   - name: Create a VM from a template
     href: azure-stack-create-vm-template.md
+  - name: Create an edge machine learning solution
+    href: azure-stack-solution-machine-learning.md
+  - name: Create a staged data analytics solution
+    href: azure-stack-solution-staged-data-analytics.md
+  - name: Create cross-cloud scaling solutions with Azure
+    href: azure-stack-solution-cloud-burst.md
+  - name: Create a geo-distributed app solution
+    href: azure-stack-solution-geo-distributed.md
 - name: How-to guides
   items:
   - name: Use the Azure Stack Portal
