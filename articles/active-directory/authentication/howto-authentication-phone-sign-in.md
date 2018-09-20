@@ -58,7 +58,7 @@ Once the user has the MFA account with push notifications set up in the Microsof
 
 ### AD FS Integration
 
-When a user has enabled the Microsoft Authenticator passwordless credential, authentication for that user will always default to sending a notification for approval. This logic prevents users in a hybrid tenant from being directed to ADFS for sign-in verification without the user taking an additional step to click “Use your password instead.” This process will also bypass any on-premises Conditional Access policies, and Pass-through authentication flows. The exception to this bypass is if a login_hint is specified, a user will be auto-forwarded to AD FS, and bypass the option to use the passwordless credential.
+When a user has enabled the Microsoft Authenticator passwordless credential, authentication for that user will always default to sending a notification for approval. This logic prevents users in a hybrid tenant from being directed to ADFS for sign-in verification without the user taking an additional step to click “Use your password instead.” This process will also bypass any on-premises Conditional Access policies, and Pass-through authentication flows. The exception to this process is if a login_hint is specified, a user will be auto-forwarded to AD FS, and bypass the option to use the passwordless credential.
 
 ### Azure MFA server
 
