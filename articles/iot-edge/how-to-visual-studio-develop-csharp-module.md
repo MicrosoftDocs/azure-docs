@@ -104,10 +104,6 @@ Typically, we want to test/debug each module before we make it running within an
 
    ![Module Running](./media/how-to-visual-studio-develop-csharp-module/single-module-run.png)
 
-
-   > [!NOTE]
-   > If you see any conflicts error, you might need to stop your running containers with the same name with Docker CLI and press F5 again.
-
 4. Now you can set a breakpoint in **PipeMessage** in **Program.cs**, then sending message by running the following command in your **Git Bash** or **WSL Bash** (do not run it in CMD or Powershell) (you can also find this command in the VS Output window):
 
     ```cmd
