@@ -37,6 +37,10 @@
   - name: Get started with Speech Devices SDK
     href: speech-devices-sdk-qsg.md
     displayName: roobo, speech devices sdk
+- name: Tutorials
+  items:
+    - name: 'Recognize intents in speech (C#)'
+      href: how-to-recognize-intents-from-speech-csharp.md
 - name: How-to guides
   items:
   - name: Recognize speech
@@ -56,8 +60,6 @@
   - name: Recognize intents from speech
     displayName: recognize intent, intent recognition, language understanding service, luis
     items:
-    - name: 'C#'
-      href: how-to-recognize-intents-from-speech-csharp.md
     - name: C++
       href: how-to-recognize-intents-from-speech-cpp.md
     - name: Java
@@ -117,8 +119,8 @@
     href: regions.md
   - name: REST APIs
     href: rest-apis.md
-  - name: Swagger Reference
-    href: https://swagger/service/11ed9226-335e-4d08-a623-4547014ba2cc# 
+#  - name: Swagger Reference
+#    href: https://cris.ai/swagger/ui/index 
 #  - name: WebSockets protocols
 #    href: websockets.md
   - name: Speech SDK API

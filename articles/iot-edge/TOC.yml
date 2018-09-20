@@ -41,6 +41,8 @@
   items: 
   - name: IoT Edge runtime
     href: iot-edge-runtime.md
+  - name: IoT Edge Certificates
+    href: iot-edge-certs.md
   - name: IoT Edge modules
     href: iot-edge-modules.md
     items: 
@@ -55,8 +57,9 @@
   - name: IoT Edge device as a gateway
     href: iot-edge-as-gateway.md
   - name: Security
-    href: security.md
     items:
+    - name: Securing Azure IoT Edge
+      href: security.md
     - name: IoT Edge security manager
       href: iot-edge-security-manager.md
   - name: Platform support
@@ -97,6 +100,8 @@
       href: how-to-develop-csharp-function.md
     - name: C#
       href: how-to-develop-csharp-module.md
+    - name: Python
+      href: how-to-develop-python-module.md
     - name: Node.js
       href: how-to-develop-node-module.md
     - name: Java

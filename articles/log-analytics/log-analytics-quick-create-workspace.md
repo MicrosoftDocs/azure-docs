@@ -43,7 +43,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
   
 2. Click **Create**, and then select choices for the following items:
 
-  * Provide a name for the new **OMS Workspace**, such as *DefaultLAWorkspace*. 
+  * Provide a name for the new **Log Analytics Workspace**, such as *DefaultLAWorkspace*. 
   * Select a **Subscription** to link to by selecting from the drop-down list if the default selected is not appropriate.
   * For **Resource Group**, choose to use an existing resource group already setup or create a new one.  
   * Select an available **Location**.  For more information, see which [regions Log Analytics is available in](https://azure.microsoft.com/regions/services/).
@@ -51,7 +51,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
         ![Create Log Analytics resource blade](media/log-analytics-quick-collect-azurevm/create-loganalytics-workspace-02.png)  
 
-3. After providing the required information on the **OMS Workspace** pane, click **OK**.  
+3. After providing the required information on the **Log Analytics Workspace** pane, click **OK**.  
 
 While the information is verified and the workspace is created, you can track its progress under **Notifications** from the menu. 
 
