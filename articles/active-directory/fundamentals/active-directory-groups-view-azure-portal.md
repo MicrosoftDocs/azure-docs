@@ -24,12 +24,17 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 ## Prerequisites
 Before you begin, you’ll need to:
 
-1. Create an Azure Active Directory tenant. For more information, see [Access the Azure Active Directory portal and create a new tenant](active-directory-access-create-new-tenant.md).
-
-2.	Create the _MDM policy - West_ group and add member, _Alain Charon_. For more information, see [Create a basic group and add members](active-directory-groups-create-azure-portal.md).
+- Create an Azure Active Directory tenant. For more information, see [Access the Azure Active Directory portal and create a new tenant](active-directory-access-create-new-tenant.md).
 
 ## Sign in to the Azure portal
 You must sign in to the [Azure portal](https://portal.azure.com/) using a Global administrator account for the directory.
+
+## Create a new group and add a member 
+Create the _MDM policy - West_ group and add member, _Alain Charon_.
+
+Minimum steps to do this.
+
+For more information, see [Create a basic group and add members](active-directory-groups-create-azure-portal.md).
 
 ## View your existing groups
 You can see all the groups for your organization in the **Groups - All groups** page of the Azure portal.
