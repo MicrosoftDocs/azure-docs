@@ -45,7 +45,7 @@ To test your module on a device, you need an active IoT hub with at least one Io
 
 ## Create a new solution with C# module
 
-Take these steps to create an IoT Edge module based on .NET Core 2.0 using Visual Studio Code and the Azure IoT Edge extension. First you create a solution, and then you generate the first module in that solution. Each solution can contain more than one module. 
+Take these steps to create an IoT Edge module based on .NET Core 2.1 using Visual Studio Code and the Azure IoT Edge extension. First you create a solution, and then you generate the first module in that solution. Each solution can contain more than one module. 
 
 1. In Visual Studio Code, select **View** > **Integrated Terminal**.
 3. Select **View** > **Command Palette**. 
