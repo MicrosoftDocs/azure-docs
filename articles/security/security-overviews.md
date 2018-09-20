@@ -10,11 +10,11 @@ editor: TomSh
 ms.assetid:
 ms.service: security
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/16/2018
-ms.author:
+ms.author: tomsh
 
 ---
 # Azure Security technical overviews
