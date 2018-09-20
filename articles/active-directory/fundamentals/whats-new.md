@@ -127,9 +127,17 @@ For more information, see ...
 **Service category:** B2C - Consumer Identity Management  
 **Product capability:** B2B/B2C
 
-We've updated the built-in policies name to _user flows_, along with making the creation and management experience easier. To use the new experience, click the banner at the top of your directory **Overview** page. Provide us with feedback by using the smile and frown buttons at the top of the portal.
+We’re introducing a new Azure portal experience around the creation and management of policies. Some of the changes include: 
 
-For more information, see ...
+- Changing the name of built-in policies to user flows.
+
+- Adding and consolidating descriptions and terminology, helping to make the experience more friendly for new users and users not familiar with identity.
+
+- Streamlining common practices, which are intended to help reduce the number of necessary requirements before you can use authentication.
+
+- New patterns and controls that help to provide a better and easier-to-use experience.
+
+To use the new experience, click the banner at the top of your directory's **Overview** page. Provide us with feedback by using the smile and frown buttons at the top of the Azure portal.
 
 ---
 
@@ -171,7 +179,7 @@ For more information, see:
 
 After you set up this new feature, your users will see a link to reset their password from the **Lock** screen of a device running Windows 7, Windows 8, or Windows 8.1. By clicking that link, the user is guided through the same password reset flow as through the web browser.
 
-For more information, see ...
+For more information, see aka.ms/ssprforwindows78
 
 ---
 
