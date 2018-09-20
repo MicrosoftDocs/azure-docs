@@ -104,12 +104,14 @@ Additionally, you also have the option to set recommendations to be ignored if t
 
 ## How does it help me?
 
-Using the secure score helps increase your organization's security by encouraging you to use the built-in security features such as:
+The secure score helps you to:
 
+- Objectively measure your identity security posture
 
-Learning more about these features as you use the tool will help give you piece of mind that you're taking the right steps to protect your organization from threats.
+- Plan identity security improvements
 
-Customers who are using Secure Score have seen their score increase five times more than customers who aren't using it. (The increase in score corresponds with the security features being used in their organizations.)
+- Review the success of your improvements
+
 
 
 ## What you should know
