@@ -84,7 +84,7 @@ localhost                  : ok=2    changed=2    unreachable=0    failed=0
 You can use [Azure Traffic Manager](https://docs.microsoft.com/azure/app-service/web-sites-traffic-manager) to control how requests from web clients are distributed to apps in Azure App Service. When App Service endpoints are added to an Azure Traffic Manager profile, Azure Traffic Manager keeps track of the status of your App Service apps (running, stopped, or deleted) so that it can decide which of those endpoints should receive traffic.
 
 In App Service, an app runs in an [App Service plan](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview
-). An App Service plan defines a set of compute resources for a web app to run. You can manage your App Service plan and Web App in diffirient groups.
+). An App Service plan defines a set of compute resources for a web app to run. You can manage your App Service plan and Web App in different groups.
 
 This section presents a sample Ansible playbook that defines the following resources:
 - Resource group, where your app service plan will be deployed to
@@ -182,7 +182,7 @@ To run the playbook,  use the **ansible-playbook** command as follows:
 ansible-playbook webapp.yml
 ```
 
-The output from running the Ansible playbook shows that the App service plan, Web app, Traffic Manager profile and endpoint have been successfully created:
+The output from running the Ansible playbook shows that the App service plan, Web app, Traffic Manager profile, and endpoint have been successfully created:
 ```
 TASK [Create resource group] ****************************************************************************
 changed: [localhost]
