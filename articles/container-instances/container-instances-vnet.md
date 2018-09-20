@@ -37,7 +37,7 @@ A virtual network defines the address space in which you create one or more subn
 
 You create one or several subnets within a virtual network. Subnets segment the virtual network into separate address spaces usable by the Azure resources you place in them.
 
-When you first deploy a container group to a subnet, Azure *delegates* that subnet to Azure Container Instances. Once delegated, the subnet can be used *only* for container groups. If you attempt to deploy resources other than container groups to a delegated subnet, the operation fails.
+When you first deploy a container group to a subnet, Azure *delegates* that subnet to Azure Container Instances. Once delegated, the subnet can be used only for container groups. If you attempt to deploy resources other than container groups to a delegated subnet, the operation fails.
 
 ### Network profile
 
@@ -60,9 +60,7 @@ To deploy to a new virtual network and have Azure create the network resources f
 * Subnet name
 * Subnet address prefix in CIDR format
 
-Once you've deployed your first container group with this method, you can deploy to the same subnet by specifying the virtual network and subnet names, or the network profile that Azure automatically creates for you.
-
-After deploying a container group using this method, Azure delegates the subnet to Azure Container Instances. You can deploy *only* container groups to that subnet.
+Once you've deployed your first container group with this method, you can deploy to the same subnet by specifying the virtual network and subnet names, or the network profile that Azure automatically creates for you. Because Azure delegates the subnet to Azure Container Instances, you can deploy *only* container groups to the subnet.
 
 ### Existing virtual network
 
@@ -95,7 +93,7 @@ az container create \
     --subnet-address-prefix 10.0.0.0/24
 ```
 
-The prefixes defined by `--vnet-address-prefix` and `--subnet-address-prefix` define the address spaces for the virtual network and subnet, respectively. These values are represented in Classless Inter-Domain Routing (CIDR) notation. For more information about working with subnets, see [Add, change, or delete a virtual network subnet](../virtual-network/virtual-network-manage-subnet.md).
+The prefixes defined by `--vnet-address-prefix` and `--subnet-address-prefix` specify the address spaces for the virtual network and subnet, respectively. These values are represented in Classless Inter-Domain Routing (CIDR) notation. For more information about working with subnets, see [Add, change, or delete a virtual network subnet](../virtual-network/virtual-network-manage-subnet.md).
 
 When you deploy to a new virtual network by using this method, the deployment can take a few minutes while the network resources are created. After the initial deployment, additional container group deployments complete more quickly.
 
@@ -106,7 +104,14 @@ Now that you've deployed a container group to a new virtual network, deploy a se
 First, get the IP address of the first container group you deployed, the *appcontainer*:
 
 ```azurecli
-az container show --resource-group myResourceGroup --name appcontainer --query ipAddress --output tsv
+az container show --resource-group myResourceGroup --name appcontainer --query ipAddress.ip --output tsv
+```
+
+The output should display the IP address of the container group in the private subnet:
+
+```console
+$ az container show --resource-group myResourceGroup --name appcontainer --query ipAddress.ip --output tsv
+10.0.0.4
 ```
 
 Now, set `CONTAINER_GROUP_IP` to the IP you retrieved with the `az container show` command, and execute the following `az container create` command. This second container, *commchecker*, runs an Alpine Linux-based image and executes `wget` against the first container group's private subnet IP address.
@@ -134,7 +139,7 @@ If the second container communicated successfully with the first, output should 
 
 ```console
 $ az container logs --resource-group myResourceGroup --name commchecker
-Connecting to 10.2.0.4 (10.2.0.4:80)
+Connecting to 10.0.0.4 (10.0.0.4:80)
 index.html           100% |*******************************|  1663   0:00:00 ETA
 ```
 
@@ -153,6 +158,8 @@ While in preview, the following limitations apply when deploying container insta
 **Supported** regions:
 
 * North Europe (northeurope)
+* West Europe (westeurope)
+* West US (westus)
 
 **Unsupported** resources:
 
