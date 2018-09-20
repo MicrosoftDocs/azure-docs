@@ -6,7 +6,7 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 08/29/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -29,7 +29,7 @@ The following diagram shows a conceptual view of the behavior and data flow with
 
 ![Update Management process flow](media/automation-update-management/update-mgmt-updateworkflow.png)
 
-Update Management can be used to natively onboard machines in multiple subscriptions in the same tenant. To manage machines in a different tenant you must onboard them as [Non-Azure machines](automation-onboard-solutions-from-automation-account.md#onboard-a-non-azure-machine).
+Update Management can be used to natively onboard machines in multiple subscriptions in the same tenant. To manage machines in a different tenant you must onboard them as [Non-Azure machines](automation-onboard-solutions-from-automation-account.md#onboard-a-non-azure-machine). 
 
 After a computer performs a scan for update compliance, the agent forwards the information in bulk to Azure Log Analytics. On a Windows computer, the compliance scan is performed every 12 hours by default.
 
@@ -49,6 +49,8 @@ The scheduled deployment defines what target computers receive the applicable up
 Updates are installed by runbooks in Azure Automation. You can't view these runbooks, and the runbooks don’t require any configuration. When an update deployment is created, the update deployment creates a schedule that starts a master update runbook at the specified time for the included computers. The master runbook starts a child runbook on each agent to perform installation of required updates.
 
 At the date and time specified in the update deployment, the target computers execute the deployment in parallel. Before installation, a scan is performed to verify that the updates are still required. For WSUS client computers, if the updates aren't approved in WSUS, the update deployment fails.
+
+Having a machine registered for Update Management in multiple Log Analytics Workspaces (multi-homing) is not supported.
 
 ## Clients
 
@@ -184,7 +186,7 @@ To run a log search that returns information about the machine, update, or deplo
 
 After updates are assessed for all the Linux and Windows computers in your workspace, you can install required updates by creating an *update deployment*. An update deployment is a scheduled installation of required updates for one or more computers. You specify the date and time for the deployment and a computer or group of computers to include in the scope of a deployment. To learn more about computer groups, see [Computer groups in Log Analytics](../log-analytics/log-analytics-computer-groups.md).
 
- When you include computer groups in your update deployment, group membership is evaluated only once, at the time of schedule creation. Subsequent changes to a group aren't reflected. To work around this, delete the scheduled update deployment and re-create it.
+ When you include computer groups in your update deployment, group membership is evaluated only once, at the time of schedule creation. Subsequent changes to a group aren't reflected. To get around this use [Dyanmic groups](#using-dynamic-groups), these groups are resolved at deployment time and are defined by a query.
 
 > [!NOTE]
 > Windows virtual machines that are deployed from the Azure Marketplace by default are set to receive automatic updates from Windows Update Service. This behavior doesn't change when you add this solution or add Windows virtual machines to your workspace. If you don't actively manage updates by using this solution, the default behavior (to automatically apply updates) applies.
@@ -192,6 +194,23 @@ After updates are assessed for all the Linux and Windows computers in your works
 To avoid updates being applied outside of a maintenance window on Ubuntu, reconfigure the Unattended-Upgrade package to disable automatic updates. For information about how to configure the package, see [Automatic Updates topic in the Ubuntu Server Guide](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
 
 Virtual machines that were created from the on-demand Red Hat Enterprise Linux (RHEL) images that are available in the Azure Marketplace are registered to access the [Red Hat Update Infrastructure (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) that's deployed in Azure. Any other Linux distribution must be updated from the distribution's online file repository by following the distribution's supported methods.
+
+To create a new update deployment, select **Schedule update deployment**. The **New Update Deployment** pane opens. Enter values for the properties described in the following table and then click **Create**:
+
+| Property | Description |
+| --- | --- |
+| Name |Unique name to identify the update deployment. |
+|Operating System| Linux or Windows|
+| Groups to update (preview)|Define a query based on a combination of subscription, resource groups, locations, and tags to build a dynamic group of Azure VMs to include in your deployment. To learn more see, [Dynamic Groups](automation-update-management.md#using-dynamic-groups)|
+| Machines to update |Select a Saved search, Imported group, or pick Machine from the drop-down and select individual machines. If you choose **Machines**, the readiness of the machine is shown in the **UPDATE AGENT READINESS** column.</br> To learn about the different methods of creating computer groups in Log Analytics, see [Computer groups in Log Analytics](../log-analytics/log-analytics-computer-groups.md) |
+|Update classifications|Select all the update classifications that you need|
+|Include/exclude updates|This opens the **Include/Exclude** page. Updates to be included or excluded are on separate tabs. For additional information on how inclusion is handled, see [inclusion behavior](automation-update-management.md#inclusion-behavior) |
+|Schedule settings|Select the time to start, and select either Once or recurring for the recurrence|
+| Pre-scripts + Post-scripts|Select the scripts to run before and after your deployment|
+| Maintenance window |Number of minutes set for updates. The value can be not be less than 30 minutes and no more than 6 hours |
+| Reboot control| Determines how reboots should be handled. Available options are:</br>Reboot if required (Default)</br>Always reboot</br>Never reboot</br>Only reboot - will not install updates|
+
+Update Deployments can also be created programmatically. To learn how to create an Update Deployment with the REST API, see [Software Update Configurations - Create](/rest/api/automation/softwareupdateconfigurations/create). There is also a sample runbook that can be used to create a weekly Update Deployment. To learn more about this runbook, see [Create a weekly update deployment for one or more VMs in a resource group](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1).
 
 ## View missing updates
 
@@ -203,20 +222,7 @@ Select the **Update Deployments** tab to view the list of existing update deploy
 
 ![Overview of update deployment results](./media/automation-update-management/update-deployment-run.png)
 
-## Create or edit an update deployment
-
-To create a new update deployment, select **Schedule update deployment**. The **New Update Deployment** pane opens. Enter values for the properties described in the following table and then click **Create**:
-
-| Property | Description |
-| --- | --- |
-| Name |Unique name to identify the update deployment. |
-|Operating System| Linux or Windows|
-| Machines to update |Select a Saved search, Imported group, or pick Machine from the drop-down and select individual machines. If you choose **Machines**, the readiness of the machine is shown in the **UPDATE AGENT READINESS** column.</br> To learn about the different methods of creating computer groups in Log Analytics, see [Computer groups in Log Analytics](../log-analytics/log-analytics-computer-groups.md) |
-|Update classifications|Select all the update classifications that you need|
-|Updates to exclude|Enter the updates to exclude. For  Windows, enter the KB without the 'KB' prefix. For Linux, enter the package name or use a wildcard.  |
-|Schedule settings|Select the time to start, and select either Once or recurring for the recurrence|
-| Maintenance window |Number of minutes set for updates. The value can be not be less than 30 minutes and no more than 6 hours |
-| Reboot control| Determines how reboots should be handled. Available options are:</br>Reboot if required (Default)</br>Always reboot</br>Never reboot</br>Only reboot - will not install updates|
+To view an update deployment from the REST API, see [Software Update Configuration Runs](/rest/api/automation/softwareupdateconfigurationruns).
 
 ## Update classifications
 
@@ -478,11 +484,32 @@ Update
 | project-away ClassificationWeight, InformationId, InformationUrl
 ```
 
+## <a name="using-dynamic-groups"></a>Using dynamic groups (preview)
+
+Update Management provides the ability to target a dynamic group of Azure VMs for update deployments. These groups are defined by a query, when an update deployment begins, the members of that group are evaluated. When defining your query the following items can be used together to populate the dynamic group
+
+* Subscription
+* Resource groups
+* Locations
+* Tags
+
+![Select groups](./media/automation-update-management/select-groups.png)
+
+To preview the results of a dynamic group, click the **Preview** button. This preview shows the group membership at that time, in this example, we are searching for machines with the tag **Role** is equal to **BackendServer**. If more machines have this tag added, they will be added to any future deployments against that group.
+
+![preview groups](./media/automation-update-management/preview-groups.png)
+
 ## Integrate with System Center Configuration Manager
 
 Customers who have invested in System Center Configuration Manager for managing PCs, servers, and mobile devices also rely on the strength and maturity of Configuration Manager to help them manage software updates. Configuration Manager is part of their software update management (SUM) cycle.
 
 To learn how to integrate the management solution with System Center Configuration Manager, see [Integrate System Center Configuration Manager with Update Management](oms-solution-updatemgmt-sccmintegration.md).
+
+## Inclusion behavior
+
+Update inclusion allows you to specify specific updates to apply. Patches or packages that are set to be included are installed no matter the classifications selected for the deployment.
+
+For Linux machines if a package is included but has a dependant package that was specifcally excluded, the package is not installed.
 
 ## Patch Linux machines
 
@@ -521,3 +548,5 @@ Continue to the tutorial to learn how to manage updates for your Windows virtual
 
 * Use log searches in [Log Analytics](../log-analytics/log-analytics-log-searches.md) to view detailed update data.
 * [Create alerts](../log-analytics/log-analytics-alerts.md) when critical updates are detected as missing from computers or if a computer has automatic updates disabled.
+
+* To learn how to interact with Update Management through the REST API, see [Software Update Configurations](/rest/api/automation/softwareupdateconfigurations)
