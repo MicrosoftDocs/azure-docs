@@ -221,7 +221,7 @@ In this section, you will create a new enrollment group that uses the custom all
 
                     if (obj.iotHubHostName == null)
                     {
-                        message = "No heatpumps hub found for the enrollment.";
+                        message = "No heat pumps hub found for the enrollment.";
                         log.Info(message);
                         fail = true;
                     }
@@ -242,8 +242,7 @@ In this section, you will create a new enrollment group that uses the custom all
             {
                 Content = new StringContent(JsonConvert.SerializeObject(obj, Formatting.Indented), Encoding.UTF8, "application/json")
             };
-    }
-    
+    }    
 
     public class DeviceTwinObj
     {
@@ -461,7 +460,7 @@ This sample code simulates a device boot sequence that sends the provisioning re
 
 2. On the Visual Studio menu, select **Debug** > **Start without debugging** to run the solution. In the prompt to rebuild the project, click **Yes**, to rebuild the project before running.
 
-    The following output is an example of the simulated toaster device successfully booting up, and connecting to the provisioning Service instance to be assigned to the toasters IoT hub by the custom alloction policy:
+    The following output is an example of the simulated toaster device successfully booting up, and connecting to the provisioning Service instance to be assigned to the toasters IoT hub by the custom allocation policy:
 
     ```cmd
     Provisioning API Version: 1.2.9
@@ -478,7 +477,7 @@ This sample code simulates a device boot sequence that sends the provisioning re
     ```
 
 
-#### Simulate the Contoso Heatpump device
+#### Simulate the Contoso heat pump device
 
 1. Back in Visual Studio's *Solution Explorer* window, navigate to the **hsm\_security\_client** project and expand it. Expand **Source Files**, and open **hsm\_client\_key.c**. 
 
@@ -495,7 +494,7 @@ This sample code simulates a device boot sequence that sends the provisioning re
 
 7. On the Visual Studio menu, select **Debug** > **Start without debugging** to run the solution. In the prompt to rebuild the project, click **Yes**, to rebuild the project before running.
 
-    The following output is an example of the simulated heat pump device successfully booting up, and connecting to the provisioning Service instance to be assigned to the Contoso heat pumps IoT hub by the custom alloction policy:
+    The following output is an example of the simulated heat pump device successfully booting up, and connecting to the provisioning Service instance to be assigned to the Contoso heat pumps IoT hub by the custom allocation policy:
 
     ```cmd
     Provisioning API Version: 1.2.9
