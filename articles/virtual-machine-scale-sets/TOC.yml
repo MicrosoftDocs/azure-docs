@@ -217,7 +217,7 @@
       items:
       - name: Create shared images using CLI
         href: shared-images-cli.md
-      - name: Troubleshooting shared images
+      - name: Troubleshoot shared images
         href: troubleshooting-shared-images.md
     - name: Vertical scaling in a scale set
       href: virtual-machine-scale-sets-vertical-scale-reprovision.md
