@@ -37,8 +37,11 @@ The Azure Stack 1809 update build number is **1.1809.x.xx**.
 This update includes the following improvements for Azure Stack.
 
 
- ### Fixed issues
+### Fixed issues
 
+- <!-- 2702741 -  IS ASDK --> Fixed issue in which public IPs that were deployed by using the Dynamic allocation method were not guaranteed to be preserved after a Stop-Deallocate is issued. They are now preserved.
+
+- <!-- 3078022 - IS ASDK --> If a VM was stop-deallocated before 1808 it could not be re-allocated after the 1808 update. This issue is fixed in 1809.
 
 ### Changes
 - <!-- 1697698  | IS, ASDK --> *Quickstart tutorials* in the User portal dashboard now link to relevant articles in the on-line Azure Stack documentation.
@@ -206,8 +209,6 @@ The following are post-installation known issues for this build version.
 
 - <!-- 16309153 - IS ASDK --> On a Virtual Network that was created with a DNS Server setting of *Automatic*, changing to a custom DNS Server fails. The updated settings are not pushed to VMs in that Vnet.
 
-- <!-- 2702741 -  IS ASDK --> Public IPs that are deployed by using the Dynamic allocation method are not guaranteed to be preserved after a Stop-Deallocate is issued.
-
 - <!-- 2529607 - IS ASDK --> During Azure Stack *Secret Rotation*, there is a period in which Public IP Addresses are unreachable for two to five minutes.
 
 -	<!-- 2664148 - IS ASDK --> In scenarios where the tenant is accessing their virtual machines by using a S2S VPN tunnel, they might encounter a scenario where connection attempts fail if the on-premises subnet was added to the Local Network Gateway after gateway was already created. 
@@ -220,11 +221,9 @@ The following are post-installation known issues for this build version.
 
 - <!-- 2352906 - IS ASDK --> Users must register the storage resource provider before they create their first Azure Function in the subscription.
 
-- <!-- 2489178 - IS ASDK --> In order to scale out infrastructure (workers, management, front-end roles), you must use PowerShell as described in the release notes for Compute.
-
-
 
 ### Usage  
+
 - <!-- TBD - IS ASDK --> Usage Public IP address usage meter data shows the same *EventDateTime* value for each record instead of the *TimeDate* stamp that shows when the record was created. Currently, you can’t use this data to perform accurate accounting of public IP address usage.
 
 
