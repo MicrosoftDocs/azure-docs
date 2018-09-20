@@ -27,7 +27,7 @@ Application upgrades are initiated via one of three user-selectable upgrade mode
 - Unmonitored Auto
 - Unmonitored Manual
 
-Service Fabric application upgrades using PowerShell use the [Start-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/en-us/powershell/module/servicefabric/start-servicefabricapplicationupgrade) command. The upgrade mode is selected by passing either the Monitored, UnmonitoredAuto, or UnmonitoredManual parameter to Start-ServiceFabricApplicationUpgrade.
+Service Fabric application upgrades using PowerShell use the [Start-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/en-us/powershell/module/servicefabric/start-servicefabricapplicationupgrade) command. The upgrade mode is selected by passing either the **Monitored**, **UnmonitoredAuto**, or **UnmonitoredManual** parameter to [Start-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/en-us/powershell/module/servicefabric/start-servicefabricapplicationupgrade).
 
 Visual Studio Service Fabric application upgrade parameters are set via the Visual Studio Upgrade Settings dialog. The Visual Studio upgrade mode is selected using the **UpgradeMode** dropdown box. For more information, see [Configure the upgrade of a Service Fabric application in Visual Studio](service-fabric-visualstudio-configure-upgrade.md).
 
