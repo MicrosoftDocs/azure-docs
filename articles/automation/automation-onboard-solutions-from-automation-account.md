@@ -111,7 +111,7 @@ After you remove these solutions, you can perform the following steps to unlink 
 
 > [!NOTE]
 > Some solutions including earlier versions of the Azure SQL monitoring solution may have created automation assets and may also need to be removed prior to unlinking the workspace.
-> 
+
 1. From the Azure portal, open your Automation account, and on the Automation account page  select **Linked workspace** under the section **Related Resources** on the left.
 
 1. On the Unlink workspace page, click **Unlink workspace**.
