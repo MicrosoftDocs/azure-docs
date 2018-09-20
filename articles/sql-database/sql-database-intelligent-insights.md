@@ -8,13 +8,13 @@ ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 09/20/2018
 ms.author: v-daljep
 
 ---
 # Intelligent Insights
 
-Azure SQL Database Intelligent Insights lets you know what is happening with your database performance.
+Azure SQL Database Intelligent Insights lets you know what is happening with your SQL Database and Managed Instance database performance.
 
 Intelligent Insights uses built-in intelligence to continuously monitor database usage through artificial intelligence and detect disruptive events that cause poor performance. Once detected, a detailed analysis is performed that generates a diagnostics log with an intelligent assessment of the issue. This assessment consists of a root cause analysis of the database performance issue and, where possible, recommendations for performance improvements. 
 
@@ -32,7 +32,7 @@ Intelligent Insights is a unique capability of Azure built-in intelligence that 
 
 ## How does Intelligent Insights work?
 
-Intelligent Insights analyzes SQL Database performance by comparing the database workload from the last hour with the past seven-day baseline workload. Database workload is composed of queries determined to be the most significant to the database performance, such as the most repeated and largest queries. Because each database is unique based on its structure, data, usage, and application, each workload baseline that is generated is specific and unique to an individual instance. Intelligent Insights, independent of the workload baseline, also monitors absolute operational thresholds and detects issues with excessive wait times, critical exceptions, and issues with query parameterizations that might affect performance.
+Intelligent Insights analyzes database performance by comparing the database workload from the last hour with the past seven-day baseline workload. Database workload is composed of queries determined to be the most significant to the database performance, such as the most repeated and largest queries. Because each database is unique based on its structure, data, usage, and application, each workload baseline that is generated is specific and unique to an individual instance. Intelligent Insights, independent of the workload baseline, also monitors absolute operational thresholds and detects issues with excessive wait times, critical exceptions, and issues with query parameterizations that might affect performance.
 
 After a performance degradation issue is detected from multiple observed metrics by using artificial intelligence, analysis is performed. A diagnostics log is generated with an intelligent insight on what is happening with your database. Intelligent Insights makes it easy to track the database performance issue from its first appearance until resolution. Each detected issue is tracked through its lifecycle from initial issue detection and verification of performance improvement to its completion. Updates are provided in the diagnostics log every 15 minutes. 
 
@@ -53,29 +53,29 @@ Identified SQL Database performance degradations are recorded in the diagnostics
 | Root cause analysis | Root cause analysis of the issue identified in a human-readable format. Some insights might contain a performance improvement recommendation where possible. |
 |||
 
-Performance issues that are recorded in the diagnostics log are flagged with one of the three states of an issue lifecycle: "Active", "Verifying", and "Complete". After a performance issue is detected, and as long it's deemed as present by SQL Database built-in intelligence, the issue is flagged as "Active". When the issue is considered mitigated, it's verified and the issue status is changed to "Verifying". After SQL Database built-in intelligence considers the issue resolved, the issue status is flagged as "Complete".
-
 ## Use Intelligent Insights
 
-Intelligent Insights is a smart performance diagnostics log. It can be integrated with other products for consumption and specific applications such are Azure Log Analytics, Azure Event Hubs and Azure storage, or a third party products. 
+Output of the Intelligent Insights is a smart performance diagnostics log. This log can be used consumed through streaming it to Azure SQL Analytics, Azure Event Hubs and Azure storage, or a third party product. 
 
-Intelligent Insights along with Azure Log Analytics is typically used to view the insights through a web browser and perhaps one of the easiest ways to get off the ground with using the product. Intelligent Insights along with Azure Event Hubs is typically used to configure custom monitoring and alerting scenarios. Intelligent insights along with Azure storage is typically used for custom application development, such is for example custom reporting, or perhaps data archiving and retrieval.
+* Intelligent Insights along with [Azure SQL Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql) is typically used to view the insights through a web browser and perhaps one of the easiest ways to get off the ground with using the product. 
+* Intelligent Insights along with Azure Event Hubs can be used to configure custom monitoring and alerting scenarios
+* Intelligent insights along with Azure storage can be used for custom application development, such are for example custom reporting, data archiving and retrieval and so forth.
 
-Integration of Intelligent Insights with other products Azure Log Analytics, Azure Event Hub, Azure storage, or third party products for consumption is performed through first enabling Intelligent Insights logging (SQLInsights log) and then configuring Intelligent Insights log data to be streamed into one of these products. For more information on how to enable Intelligent Insights logging and to configure log data to be streamed to a consuming product, see [Azure SQL Database metrics and diagnostics logging](sql-database-metrics-diag-logging.md). 
+Integration of Intelligent Insights with other products Azure SQL Analytics, Azure Event Hub, Azure storage, or third party products for consumption is performed through first enabling Intelligent Insights logging (the "SQLInsights" log) in the Diagnostic settings blade of a SQL Database, or Managed Instance database, and then configuring Intelligent Insights log data to be streamed into one of these products. For more information on how to enable Intelligent Insights logging and to configure log data to be streamed to a consuming product, see [Azure SQL Database metrics and diagnostics logging](sql-database-metrics-diag-logging.md). 
 
-For a hands-on overview on using Intelligent Insights with Azure Log Analytics and for typical usage scenarios, see the embedded video:
+For a hands-on overview on using Intelligent Insights with Azure SQL Analytics and for typical usage scenarios, see the embedded video:
 
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player]
 >
 
-Intelligent Insights shines in discovering and troubleshooting SQL Database performance issues. In order to use Intelligent Insights to troubleshoot SQL Database performance, see [Troubleshoot Azure SQL Database performance issues with Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
+Intelligent Insights shines in discovering and troubleshooting SQL Database performance issues. In order to use Intelligent Insights to troubleshoot SQL Database and Managed Instance database performance, see [Troubleshoot Azure SQL Database performance issues with Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
 
-## Set up Intelligent Insights with Log Analytics 
+## Set up Intelligent Insights with Azure SQL Analytics 
 
-Log Analytics solution provides reporting and alerting capabilities on top of the Intelligent Insights diagnostics log data.
+Azure SQL Analytics solution provides reporting and alerting capabilities along with the Intelligent Insights diagnostics log data.
 
-To use Intelligent Insights with Log Analytics, configure Intelligent Insights log data to be streamed to Log Analytics, see [Azure SQL Database metrics and diagnostics logging](sql-database-metrics-diag-logging.md). 
+To use Intelligent Insights with Azure SQL Analytics, configure Intelligent Insights log data to be streamed to Azure SQL Analytics, see [Azure SQL Database metrics and diagnostics logging](sql-database-metrics-diag-logging.md). 
 
 The following example shows an Intelligent Insights report in Azure SQL Analytics:
 
