@@ -30,7 +30,7 @@ To enroll in the Public Preview program of Azure NetApp Files, you must submit a
     `az feature register –-namespace Microsoft.NetApp –-name publicPreviewADC`
   
 2.	After your request is approved, display your status to confirm that your subscription has been registered for the NetApp Resource Provider:   
-    1. From Azure Portal, click the **Subscriptions** blade.  
+    1. From the Azure portal, click the **Subscriptions** blade. 
     2. In the Subscriptions blade, click your subscription ID.  
     3. In the Settings of the subscription, click **Resource providers** to verify that Microsoft.NetApp shows ****Registered**.  
       ![Registered Microsoft.NetApp](../media/azure-netapp-files/azure-netapp-files-registered-resource-providers.png)
