@@ -36,7 +36,7 @@ You receive an email notification upon detection of anomalous database activitie
     
     1. Click the **View recent alerts** link in the email to launch the Azure portal and show the Azure Security Center alerts page, which provides an overview of active threats detected on the SQL database.
     
-       ![Anomalous activity report](./media/howto-database-threat-protection-portal/anomalous-activity-report.png)
+   ![Anomalous activity report](./media/howto-database-threat-protection-portal/anomalous-activity-report.png)
 
 View active threats:
 
@@ -44,7 +44,7 @@ View active threats:
 
     2. Click a specific alert to get additional details and actions for investigating this threat and remediating future threats.
     
-          ![Specific alert](./media/howto-database-threat-protection-portal/specific-alert.png)
+   ![Specific alert](./media/howto-database-threat-protection-portal/specific-alert.png)
 
 ## Explore threat detection alerts
 
