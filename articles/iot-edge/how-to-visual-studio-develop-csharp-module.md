@@ -148,8 +148,8 @@ After we finish developing single module, next, we want to run and debug the ent
 
 1. Make sure **AzureIoTEdgeApp1** is your Start-Up project. Select **Debug** or **Release** configuration for your module images to build.
 
-> [!NOTE]
-> When choosing **Debug**, VS will use `Dockerfile.debug` to build Docker images. This includes the .NET Core command-line debugger VSDBG in your container image while building it. We recommend that you use **Release** configuration which uses `Dockerfile` without VSDBG for production-ready IoT Edge modules.
+    > [!NOTE]
+    > When choosing **Debug**, VS will use `Dockerfile.debug` to build Docker images. This includes the .NET Core command-line debugger VSDBG in your container image while building it. We recommend that you use **Release** configuration which uses `Dockerfile` without VSDBG for production-ready IoT Edge modules.
 
 2. If you are using private registry like Azure Container Registry, run Docker log in with the following command in your terminal. If you are using local registry, you can [Run a local registry](https://docs.docker.com/registry/deploying/#run-a-local-registry).
 
