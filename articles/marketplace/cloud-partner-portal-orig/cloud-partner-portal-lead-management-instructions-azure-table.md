@@ -3,7 +3,7 @@ title: Azure Table | Microsoft Docs
 description: Configure lead management for Azure Table.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
-author: v-wesda
+author: dan-wesley
 manager: Patrick.Butler  
 editor:
 
