@@ -22,11 +22,15 @@ To enroll in the Public Preview program of Azure NetApp Files, you must submit a
 ## Steps 
 
 1. To submit a request, run the following commands by using PowerShell or CLI 2.0:
-  * PowerShell:  
-    `Register-AzureProvider -ProviderNamespace Microsoft.NetApp`
+  * PowerShell  
+
+    `Register-AzureProvider -ProviderNamespace Microsoft.NetApp`  
+
     `Register-AzureRmProviderFeature -FeatureName publicPreviewADC -ProviderNamespace Microsoft.NetApp`
   * CLI 2.0  
-    `az provider register –-namespace Microsoft.NetApp`
+
+    `az provider register –-namespace Microsoft.NetApp`  
+    
     `az feature register –-namespace Microsoft.NetApp –-name publicPreviewADC`
   
 2.	After your request is approved, display your status to confirm that your subscription has been registered for the NetApp Resource Provider:   
