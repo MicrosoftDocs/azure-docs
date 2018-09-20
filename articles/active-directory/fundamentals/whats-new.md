@@ -117,27 +117,7 @@ For more information, see [What is the My Apps portal?](../user-help/active-dire
 
 The new **Troubleshooting and Support** tab on the **Sign-ins** page of the Azure portal, is intended to help admins and support engineers troubleshoot issues related to Azure AD sign-ins. This new tab provides the error code, error message, and remediation recommendations (if any) to help solve the problem. If you're unable to resolve the problem, we also give you a new way to create a support ticket using the **Copy to clipboard** experience, which populates the **Request ID** and **Date (UTC)** fields for the log file in your support ticket.  
 
-For more information, see ... 
-
----
-
-### Updated B2C policy management experience
-
-**Type:** Changed feature  
-**Service category:** B2C - Consumer Identity Management  
-**Product capability:** B2B/B2C
-
-We’re introducing a new Azure portal experience around the creation and management of policies. Some of the changes include: 
-
-- Changing the name of built-in policies to user flows.
-
-- Adding and consolidating descriptions and terminology, helping to make the experience more friendly for new users and users not familiar with identity.
-
-- Streamlining common practices, which are intended to help reduce the number of necessary requirements before you can use authentication.
-
-- New patterns and controls that help to provide a better and easier-to-use experience.
-
-To use the new experience, click the banner at the top of your directory's **Overview** page. Provide us with feedback by using the smile and frown buttons at the top of the Azure portal.
+For more information, see ...
 
 ---
 
