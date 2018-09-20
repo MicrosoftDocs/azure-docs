@@ -1,0 +1,76 @@
+- name: Azure Governance Documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: Azure Management
+    href: azure-management.md
+- name: Components and Services
+  expanded: true
+  items:
+  - name: Management Groups
+    href: management-groups/overview.md
+    items:
+    - name: Create
+      href: management-groups/create.md
+    - name: Manage
+      href: management-groups/manage.md
+  - name: Resource Graph
+    href: resource-graph/overview.md
+  - name: Policy
+    href: policy/overview.md
+  - name: Blueprints
+    href: blueprints/overview.md
+- name: Implementations
+  expanded: true
+  items:
+  - name: Enterprise Cloud Adoption
+    items:
+    - name: What is cloud resource governance?
+      href: /azure/architecture/cloud-adoption/getting-started/what-is-governance?toc=/azure/governance/toc.json
+    - name: Resource access governance in Azure
+      href: /azure/architecture/cloud-adoption/getting-started/azure-resource-access?toc=/azure/governance/toc.json
+    - name: Governance design for a single team
+      href: /azure/architecture/cloud-adoption/governance/governance-single-team?toc=/azure/governance/toc.json
+    - name: Governance design for multiple teams
+      href: /azure/architecture/cloud-adoption/governance/governance-multiple-teams?toc=/azure/governance/toc.json
+  - name: Azure Enterprise Scaffold
+    items:
+    - name: Prescriptive Subscription Governance
+      href: /azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=/azure/governance/toc.json
+    - name: Implement Azure Enterprise Scaffold
+      href: /azure/architecture/cloud-adoption/appendix/azure-scaffold-examples?toc=/azure/governance/toc.json
+- name: References
+  items:
+  - name: Blueprints
+    items:
+    - name: REST API
+      href: /rest/api
+    - name: Azure CLI
+      href: /cli/azure
+  - name: Policy
+    items:
+    - name: REST API
+      href: /rest/api
+    - name: Azure CLI
+      href: /cli/azure
+    - name: Azure PowerShell
+      href: /powershell/azure
+  - name: Resource Graph
+    items:
+    - name: Azure CLI
+      href: /cli/azure
+    - name: Azure PowerShell
+      href: /powershell/azure
+- name: Resources
+  items:
+  - name: Video Link
+    href: /
+  - name: GitHub
+    href: /
+  - name: Azure roadmap
+    href: /
+  - name: Pricing calculator
+    href: /
+  - name: Blog article
+    href: / 

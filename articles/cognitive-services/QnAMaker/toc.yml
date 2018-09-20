@@ -50,6 +50,8 @@
     href: Concepts/knowledge-base.md
   - name: Development lifecyle of a knowledge base
     href: Concepts/development-lifecycle-knowledge-base.md
+  - name: Best practices
+    href: Concepts/best-practices.md
   - name: Confidence score
     href: Concepts/confidence-score.md
   - name: Data sources supported
@@ -62,6 +64,8 @@
     href: Quickstarts/create-publish-knowledge-base.md
   - name: Create a knowledge base
     href: How-To/create-knowledge-base.md
+  - name: How to add chit-chat to knowledge base
+    href: How-to/chit-chat-knowledge-base.md
   - name: Use metadata with GenerateAnswer API
     href: How-To/metadata-generateanswer-usage.md
   - name: Migrate a knowledge base from Preview
@@ -110,8 +114,6 @@
     href: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff
   - name: FAQ
     href: faqs.md
-  - name: Best Practices
-    href: Concepts/best-practices.md
   - name: Limits
     href: limits.md
   - name: Glossary

@@ -106,6 +106,8 @@
       href: premium-storage.md
     - name: Standard SSDs
       href: disks-standard-ssd.md
+    - name: Ultra SSDs
+      href: disks-ultra-ssd.md
     - name: Premium storage performance
       href: premium-storage-performance.md
     - name: Standard storage
@@ -187,6 +189,8 @@
       href: change-vm-size.md
     - name: Swap the OS disk
       href: os-disk-swap.md
+    - name: Time sync
+      href: time-sync.md
     - name: Tag a VM
       href: tag.md
     - name: Run scripts on a VM
@@ -410,8 +414,10 @@
       href: mount-azure-file-storage-on-linux-using-smb.md
     - name: Deploy disks with template
       href: using-managed-disks-template-deployments.md
-    - name: Enable write accelerator
+    - name: Using write accelerator
       href: how-to-enable-write-accelerator.md
+    - name: Enable Ultra SSD
+      href: disks-enable-ultra-ssd.md
     - name: Optimize performance
       href: optimization.md
       items:
