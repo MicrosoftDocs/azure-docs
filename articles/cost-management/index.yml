@@ -26,7 +26,7 @@ sections:
     - image:
         src: https://docs.microsoft.com/media/common/i_portal.svg
       text: Analyze costs
-      href: quick-register-azure-sub
+      href: quick-acm-cost-analysis
 - title: Step-by-step Tutorials
   items:
   - type: paragraph
