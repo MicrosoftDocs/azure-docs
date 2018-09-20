@@ -4,13 +4,13 @@ description: Use Azure Event Grid to subscribe to Media Services job state chang
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 09/20/2018
 ms.author: juliako
 ---
 
@@ -22,6 +22,12 @@ Typically, you send events to an endpoint that responds to the event, such as a 
 
 When you complete the steps described in this article, you see that the event data has been sent to an endpoint.
 
+## Prerequisites
+
+[Create a Media Services account](create-account-cli-how-to.md).
+
+Make sure to remember the values that you used for the Media Services account name, storage name, and resource name.
+
 ## Log in to Azure
 
 Log in to the [Azure portal](http://portal.azure.com) and launch **CloudShell** to execute CLI commands, as shown in the next steps.
@@ -29,10 +35,6 @@ Log in to the [Azure portal](http://portal.azure.com) and launch **CloudShell** 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
 If you choose to install and use the CLI locally, this article requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). 
-
-[!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
-
-Make sure to remember the values that you used for the Media Services account name, storage name, and resource name.
 
 ## Enable Event Grid resource provider
 
@@ -141,7 +143,7 @@ az eventgrid event-subscription create \
 
 The Media Services account resource id value looks similar to this:
 
-/subscriptions/81212121-2f4f-4b5d-a3dc-ba0015515f7b/resourceGroups/amsResourceGroup/providers/Microsoft.Media/mediaservices/amstestaccount
+```/subscriptions/81212121-2f4f-4b5d-a3dc-ba0015515f7b/resourceGroups/amsResourceGroup/providers/Microsoft.Media/mediaservices/amstestaccount```
 
 ## Test the events
 
@@ -168,16 +170,6 @@ For example:
 ```
 
 ![Test events](./media/job-state-events-cli-how-to/test_events.png)
-
-## Clean up resources
-
-If you plan to continue working with this storage account and event subscription, do not clean up the resources created in this article. If you do not plan to continue, use the following command to delete the resources you created in this article.
-
-Replace `<resource_group_name>` with the resource group you created above.
-
-```azurecli-interactive
-az group delete --name <resource_group_name>
-```
 
 ## Next steps
 
