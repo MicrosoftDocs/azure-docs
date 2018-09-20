@@ -90,15 +90,24 @@
   - name: Application Gateway
     tocHref: /azure/application-gateway/
     topicHref: /azure/application-gateway/
-  - name: Application Insights
-    tocHref: /azure/application-insights/
-    topicHref: /azure/application-insights/
   - name: Automation
     tocHref: /azure/automation/
     topicHref: /azure/automation/
   - name: Azure Databricks
     tocHref: /azure/azure-databricks/
     topicHref: /azure/azure-databricks/
+  - name: Azure Monitor
+    tocHref: /azure/application-insights/
+    topicHref: /azure/azure-monitor/
+  - name: Azure Monitor
+    tocHref: /azure/log-analytics/
+    topicHref: /azure/azure-monitor/
+  - name: Azure Monitor
+    tocHref: /azure/monitoring/
+    topicHref: /azure/azure-monitor/
+  - name: Azure Monitor
+    tocHref: /azure/monitoring-and-diagnostics/
+    topicHref: /azure/azure-monitor/
   - name: Container Registry
     tocHref: /azure/container-registry/
     topicHref: /azure/container-registry/
@@ -335,6 +344,9 @@
   - name: Firewall
     tocHref: /azure/firewall/
     topicHref: /azure/firewall/
+  - name: Front Door Service
+    tocHref: /azure/frontdoor/
+    topicHref: /azure/frontdoor/
   - name: Governance
     tocHref: /azure/governance/
     topicHref: /azure/governance/
@@ -419,9 +431,6 @@
   - name: Load Balancer
     tocHref: /azure/load-balancer/
     topicHref: /azure/load-balancer/
-  - name: Log Analytics
-    tocHref: /azure/log-analytics/
-    topicHref: /azure/log-analytics/
   - name: Logic Apps
     tocHref: /azure/logic-apps/
     topicHref: /azure/logic-apps/
@@ -463,9 +472,6 @@
   - name: Mobile Services
     tocHref: /azure/mobile-services/
     topicHref: /azure/mobile-services/
-  - name: Monitoring And Diagnostics
-    tocHref: /azure/monitoring-and-diagnostics/
-    topicHref: /azure/monitoring-and-diagnostics/
   - name: Multi-Factor Authentication
     tocHref: /azure/multi-factor-authentication/
     topicHref: /azure/multi-factor-authentication/

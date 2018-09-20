@@ -709,6 +709,12 @@ featureFlags:
                                                 <p>Azure Firewall</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure/frontdoor/">
+                                                <img src="media/index/frontdoor.svg" alt="" />
+                                                <p>Azure Front Door Service</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <h3>AI + Machine Learning</h3>
                                     <ul>
@@ -2212,6 +2218,25 @@ featureFlags:
                                                 <div class="cardText">
                                                     <h3>Virtual WAN</h3>
                                                     <p>Build secure global scale branch connectivity</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/frontdoor/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/frontdoor.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Front Door Service</h3>
+                                                    <p>Scalable and secure entry point to deliver global web apps</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -6046,7 +6071,7 @@ featureFlags:
                                                     SQL Tools
                                                 </h3>
                                                 <p>
-                                                    <a href="/sql/sql-operations-studio/download">SQL Operations Studio <sup>PREVIEW</sup></a>
+                                                    <a href="/sql/azure-data-studio/download">Azure Data Studio <sup>PREVIEW</sup></a>
                                                 </p>
                                                 <p>
                                                     <a href="/sql/ssms/download-sql-server-management-studio-ssms">SQL Server Management Studio (SSMS)</a>

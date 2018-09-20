@@ -100,11 +100,11 @@ Fortunately, it is possible to avoid these issues entirely. There are many sourc
 
 |Text source|Description|
 |-|-|
-|[CMU Arctic corpus](http://festvox.org/cmu_arctic/)|About 1,100 sentences selected from out-of-copyright works specifically for use in speech synthesis projects. An excellent starting point.|
-|Works no longer<br>under copyright|Usually, works published prior to 1923. For English, [Project Gutenberg](https://www.gutenberg.org/) offers tens of thousands of such works. You might want to focus on newer works, because the language will be closer to modern English.|
-|Government&nbsp;works|Works that are created by the United States government are not copyrighted in the United States, although the government may claim copyright in other countries.|
-|Public domain|Works for which copyright has been explicitly disclaimed or that have been dedicated to the public domain. (It might not be possible to waive copyright entirely in some jurisdictions.)|
-|Permissively-licensed works|Works distributed under a license, such as Creative Commons or the GNU Free Documentation License (GFDL). Wikipedia uses the GFDL. Some licenses, however, might impose restrictions on performance of the licensed content that might affect the creation of a custom voice model, so read the license carefully.|
+|[CMU Arctic corpus](http://festvox.org/cmu_arctic/)|About 1100 sentences selected from out-of-copyright works specifically for use in speech synthesis projects. An excellent starting point.|
+|Works no longer<br>under copyright|Typically works published prior to 1923. For English, [Project Gutenberg](https://www.gutenberg.org/) offers tens of thousands of such works. You may want to focus on newer works, as the language will be closer to modern English.|
+|Government&nbsp;works|Works created by the United States government are not copyrighted in the United States, though the government may claim copyright in other countries.|
+|Public domain|Works for which copyright has been explicitly disclaimed or that have been dedicated to the public domain. (It may not be possible to waive copyright entirely in some jurisdictions.)|
+|Permissively-licensed works|Works distributed under a license like Creative Commons or the GNU Free Documentation License (GFDL). Wikipedia uses the GFDL. Some licenses, however, may impose restrictions on performance of the licensed content that may impact the creation of a custom voice model, so read the license carefully.|
 
 ## Recording your script
 
@@ -145,7 +145,7 @@ Here, most of the range (height) is used, but the highest peaks of the signal do
 
 Record directly into the computer by using a high-quality audio interface or a USB port, depending on the mic you're using. For analog, keep the audio chain simple: mic, preamp, audio interface, computer. You can license both [Avid Pro Tools](http://www.avid.com/en/pro-tools) and [Adobe Audition](https://www.adobe.com/products/audition.html) monthly at a reasonable cost. If your budget is extremely tight, try the free [Audacity](https://www.audacityteam.org/).
 
-Record at 44.1-KHz 16-bit monophonic (CD quality) or better. The current state of the art is 48-KHz 24-bit, if your equipment supports it. You will downsample your audio to 16-KHz 16-bit before you submit it to the Custom Voice portal. Still, it pays to have a high-quality original recording in the event that edits are needed.
+Record at 44.1 kHz 16 bit monophonic (CD quality) or better. Current state-of-the-art is 48 kHz 24-bit, if your equipment supports it. You will down-sample your audio to 16 kHz 16-bit before you submit it to the Custom Voice portal. Still, it pays to have a high-quality original recording in the event edits are needed.
 
 Ideally, have different people serve in the roles of director, engineer, and talent. Don't try to do it all yourself. In a pinch, one person can be both the director and the engineer.
 
@@ -193,7 +193,7 @@ Take regular breaks and provide a beverage to help your voice talent keep his or
 
 ### After the session
 
-Modern recording studios run on computers. At the end of the session, you receive one or more audio files, not a tape. These files will probably be WAV or AIFF format in CD quality (44.1 KHz 16-bit) or better. 48 KHz 24-bit is common and desirable. Higher sampling rates, such as 96 KHz, are generally not needed.
+Modern recording studios run on computers. At the end of the session, you receive one or more audio files, not a tape. These files will probably be WAV or AIFF format in CD quality (44.1 kHz 16-bit) or better. 48 kHz 24-bit is common and desirable. Higher sampling rates, such as 96 kHz, are generally not needed.
 
 The Custom Voice portal requires each provided utterance to be in its own file. Each audio file delivered by the studio contains multiple utterances. So the primary post-production task is to split up the recordings and prepare them for submission. The recording engineer might have placed markers in the file (or provided a separate cue list) to indicate where each utterance starts.
 
@@ -203,7 +203,7 @@ Leave only about 0.2 seconds of silence at the beginning and end of each clip, e
 
 Listen to each file carefully. At this stage, you can edit out small unwanted sounds that you missed during recording, like a slight lip smack before a line, but be careful not to remove any actual speech. If you can't fix a file, remove it from your dataset and note that you have done so.
 
-Convert each file to 16 bits and a sample rate of 16 KHz before you save it and, if you recorded the studio chatter, remove the second channel. Save each file in WAV format, and name the files by including the utterance number from your script.
+Convert each file to 16 bits and a sample rate of 16 kHz before saving and, if you recorded the studio chatter, remove the second channel. Save each file in WAV format, naming the files with the utterance number from your script.
 
 Finally, create the *transcript* that associates each WAV file with a text version of the corresponding utterance. [Creating custom voice fonts](how-to-customize-voice-font.md) includes details of the required format. You can copy the text directly from your script. Then create a Zip file of the WAV files and the text transcript.
 
