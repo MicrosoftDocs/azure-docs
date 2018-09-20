@@ -3,7 +3,7 @@ title: Consulting Services | Microsoft Docs
 description: Guide for defining and publishing a consulting service offer.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
-author: v-wesda
+author: dan-wesley
 manager: Patrick.Butler  
 editor:
 
