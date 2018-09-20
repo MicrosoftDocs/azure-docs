@@ -35,9 +35,10 @@ With this feature, the DELETE operation on a key vault or key vault object is a 
 
 Soft-delete is an optional Key Vault behavior and is **not enabled by default** in this release. 
 
-### Do not purge flag
-A user who wants to force deletion of the vault or the vault object can do so. That is if a user who has permissions to delete a vault or an object within the vault can force purge even if Soft delete for that vault is turned on. But if the user wants to prevent force deletion of the vault or the vault object they can set --enable-purge-protection flag to be true. When you create a vault you can enable the flag by doing so. 
-The prerequisite to turning on purge protection is you must have soft delete turned on. The command to do so in Azure CLI 2 is
+### Purge protection  flag
+Purge protection(**--enable-purge-protection** in Azure CLI) flag is off by default. When this flag is turned on, a vault or an object in deleted state cannot be purged until the retention period of 90 days has passed. Such vault or object can still be recovered. This flag gives added assurance to customers that a vault or an object can never be permanently deleted until the retention period has passed. You can turn on the purge protection flag only if the soft-delete flag is on, or at vault creation you turn on both soft-delete and purge protection.
+
+**Please Note** the prerequisite to turning on purge protection is you must have soft delete turned on. The command to do so in Azure CLI 2 is
 
 ```
 az keyvault create --name "VaultName" --resource-group "ResourceGroupName" --location westus --enable-soft-delete true --enable-purge-protection true
