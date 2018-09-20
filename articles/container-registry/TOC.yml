@@ -20,7 +20,7 @@
   - name: Build container images
     items:
     - name: 1 - Build images in Azure
-      href: container-registry-tutorial-quick-build.md
+      href: container-registry-tutorial-quick-task.md
     - name: 2 - Automate image builds
       href: container-registry-tutorial-build-task.md
     - name: 3 - Base image update builds
@@ -59,6 +59,8 @@
       href: container-registry-upgrade.md
     - name: Use ACR webhooks
       href: container-registry-webhook.md
+    - name: Use Helm chart repositories
+      href: container-registry-helm-repos.md
   - name: Authentication
     items:
     - name: Authentication overview
@@ -72,7 +74,7 @@
   - name: Build and patch
     items:
       - name: ACR Tasks
-        href: container-registry-build-overview.md
+        href: container-registry-tasks-overview.md
       - name: Multi-step tasks (preview)
         href: container-registry-tasks-multi-step.md
       - name: Multi-step task reference (preview)

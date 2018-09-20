@@ -20,8 +20,8 @@ For example, you can run a task with steps that automate the following:
 1. Run the web application container
 1. Build a web application test image
 1. Run the web application test container which performs tests against the running application container
-1. If the tests pass, build a Helm package
-1. Perform a `helm upgrade` using the new Helm package
+1. If the tests pass, build a Helm chart archive package
+1. Perform a `helm upgrade` using the new Helm chart archive package
 
 All steps are performed within Azure, offloading the work to Azure's compute resources and freeing you from infrastructure management. Besides your Azure container registry, you pay only for the resources you use. For information on pricing, see the **Container Build** section in [Azure Container Registry pricing][pricing].
 
@@ -84,10 +84,10 @@ Tasks support both manual execution, called a "quick run," and automated executi
 
 To run a task, you first define the task's steps in a YAML file, then execute the Azure CLI command [az acr run][az-acr-run].
 
-Here's an example Azure CLI command that runs a task using a sample task YAML file. Its steps build and then push an image. Update `myregistry` with the name of your own Azure container registry before running the command.
+Here's an example Azure CLI command that runs a task using a sample task YAML file. Its steps build and then push an image. Update `\<acrName\>` with the name of your own Azure container registry before running the command.
 
 ```azurecli
-az acr run --registry myregistry -f build-push-hello-world.yaml https://github.com/Azure-Samples/acr-tasks.git
+az acr run --registry <acrName> -f build-push-hello-world.yaml https://github.com/Azure-Samples/acr-tasks.git
 ```
 
 When you run the task, the output should show the progress of each step defined in the YAML file. In the following output, the steps appear as `acb_step_0` and `acb_step_1`.

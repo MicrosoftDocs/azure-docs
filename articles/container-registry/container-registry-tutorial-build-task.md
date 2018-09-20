@@ -15,7 +15,7 @@ ms.custom: mvc
 
 # Tutorial: Automate container image builds with Azure Container Registry Tasks
 
-In addition to a [quick task](container-registry-tutorial-quick-build.md), ACR Tasks supports automated Docker container image builds with the *build task*. In this tutorial, you use the Azure CLI to create a task that automatically triggers image builds in the cloud when you commit source code to a Git repository.
+In addition to a [quick task](container-registry-tutorial-quick-task.md), ACR Tasks supports automated Docker container image builds with the *build task*. In this tutorial, you use the Azure CLI to create a task that automatically triggers image builds in the cloud when you commit source code to a Git repository.
 
 In this tutorial, part two in the series:
 
@@ -25,27 +25,27 @@ In this tutorial, part two in the series:
 > * View task status
 > * Trigger the task with a code commit
 
-This tutorial assumes you've already completed the steps in the [previous tutorial](container-registry-tutorial-quick-build.md). If you haven't already done so, complete the steps in the [Prerequisites](container-registry-tutorial-quick-build.md#prerequisites) section of the previous tutorial before proceeding.
+This tutorial assumes you've already completed the steps in the [previous tutorial](container-registry-tutorial-quick-task.md). If you haven't already done so, complete the steps in the [Prerequisites](container-registry-tutorial-quick-task.md#prerequisites) section of the previous tutorial before proceeding.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you'd like to use the Azure CLI locally, you must have Azure CLI version **2.0.46** or later installed. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI][azure-cli].
+If you'd like to use the Azure CLI locally, you must have Azure CLI version **2.0.46** or later installed  and logged in with [az login][az-login]. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI][azure-cli].
 
 ## Prerequisites
 
 ### Get sample code
 
-This tutorial assumes you've already completed the steps in the [previous tutorial](container-registry-tutorial-quick-build.md), and have forked and cloned the sample repository. If you haven't already done so, complete the steps in the [Prerequisites](container-registry-tutorial-quick-build.md#prerequisites) section of the previous tutorial before proceeding.
+This tutorial assumes you've already completed the steps in the [previous tutorial](container-registry-tutorial-quick-task.md), and have forked and cloned the sample repository. If you haven't already done so, complete the steps in the [Prerequisites](container-registry-tutorial-quick-task.md#prerequisites) section of the previous tutorial before proceeding.
 
 ### Container registry
 
-You must have an Azure container registry in your Azure subscription to complete this tutorial. If you need a registry, see the [previous tutorial](container-registry-tutorial-quick-build.md), or [Quickstart: Create a container registry using the Azure CLI](container-registry-get-started-azure-cli.md).
+You must have an Azure container registry in your Azure subscription to complete this tutorial. If you need a registry, see the [previous tutorial](container-registry-tutorial-quick-task.md), or [Quickstart: Create a container registry using the Azure CLI](container-registry-get-started-azure-cli.md).
 
 ## Overview of ACR Tasks
 
 A task defines the properties of an automated build, including the location of the container image source code and the event that triggers the build. When an event defined in the task occurs, such as a commit to a Git repository, ACR Tasks initiates a container image build in the cloud. By default, it then pushes a successfully built image to the Azure container registry specified in the task.
 
-ACR tasks currently supports the following triggers:
+ACR Tasks currently support the following triggers:
 
 * Commit to a Git repository
 * Base image update
@@ -326,6 +326,7 @@ Output from the command should appear similar to the following. The runs that AC
 
 ```console
 $ az acr task list-runs --registry $ACR_NAME --output table
+
 RUN ID    TASK             PLATFORM    STATUS     TRIGGER     STARTED               DURATION
 --------  --------------  ----------  ---------  ----------  --------------------  ----------
 da4       taskhelloworld  Linux       Succeeded  Git Commit  2018-09-17T23:03:45Z  00:00:44

@@ -20,16 +20,16 @@ Containers provide new levels of virtualization, isolating application and devel
 
 Build and test container images with ACR Tasks in four ways:
 
-* [Quick Task](#quick-task): Build and push container images on-demand, in Azure, without needing a local Docker Engine installation. Think `docker build`, `docker push` in the cloud. Build from local source code or a Git repository.
+* [Quick task](#quick-task): Build and push container images on-demand, in Azure, without needing a local Docker Engine installation. Think `docker build`, `docker push` in the cloud. Build from local source code or a Git repository.
 * [Build on source code commit](#automatic-build-on-source-code-commit): Trigger a container image build automatically when code is commited to a Git repository.
 * [Build on base image update](#automate-os-and-framework-patching): Trigger a container image build  when that image's base image has been updated.
 * [Multi-step tasks](#multi-step-tasks-preview) (preview): Define multi-step tasks that build images, run containers as commands, and push images to a registry. This preview feature of ACR Tasks supports on-demand task execution and parallel image build, test, and push operations.
 
-## Quick Task
+## Quick task
 
 The inner-loop development cycle, the iterative process of writing code, building, and testing your application before committing to source control, is really the beginning of container lifecycle management.
 
-Before you commit your first line of code, ACR Tasks's [Quick Task](container-registry-tutorial-quick-build.md) feature can provide an integrated development experience by offloading your container image builds to Azure. With Quick Tasks, you can verify your automated build definitions and catch potential problems prior to committing your code.
+Before you commit your first line of code, ACR Tasks's [quick task](container-registry-tutorial-quick-task.md) feature can provide an integrated development experience by offloading your container image builds to Azure. With quick tasks, you can verify your automated build definitions and catch potential problems prior to committing your code.
 
 Using the familiar `docker build` format, the [az acr build][az-acr-build] command in the Azure CLI takes a *context* (the set of files to build), sends it ACR Tasks and, by default, pushes the built image to its registry upon completion.
 
@@ -46,7 +46,7 @@ The following table shows a few examples of supported context locations for ACR 
 
 ACR Tasks is designed as a container lifecycle primitive. For example, integrate ACR Tasks into your CI/CD solution. By executing [az login][az-login] with a [service principal][az-login-service-principal], your CI/CD solution could then issue [az acr build][az-acr-build] commands to kick off image builds.
 
-Learn how to use Quick Tasks in the first ACR Tasks tutorial, [Build container images in the cloud with Azure Container Registry Tasks](container-registry-tutorial-quick-build.md).
+Learn how to use quick tasks in the first ACR Tasks tutorial, [Build container images in the cloud with Azure Container Registry Tasks](container-registry-tutorial-quick-task.md).
 
 ## Automatic build on source code commit
 
@@ -79,8 +79,8 @@ For example, you can create a multi-step task that automates the following:
 1. Run the web application container
 1. Build a web application test image
 1. Run the web application test container which performs tests against the running application container
-1. If the tests pass, build a Helm package
-1. Perform a `helm upgrade` using the new Helm package
+1. If the tests pass, build a Helm chart archive package
+1. Perform a `helm upgrade` using the new Helm chart archive package
 
 Multi-step tasks enable you to split the building, running, and testing of an image into more composable steps, with inter-step dependency support. With multi-step tasks in ACR Tasks, you have more granular control over image building, testing, and OS and framework patching workflows.
 
@@ -94,7 +94,7 @@ Learn about multi-step tasks in [Run multi-step build, test, and patch tasks in 
 When you're ready to automate OS and framework patching by building your container images in the cloud, check out the three-part ACR Tasks tutorial series.
 
 > [!div class="nextstepaction"]
-> [Build container images in the cloud with Azure Container Registry Tasks](container-registry-tutorial-quick-build.md)
+> [Build container images in the cloud with Azure Container Registry Tasks](container-registry-tutorial-quick-task.md)
 
 <!-- LINKS - External -->
 [base-alpine]: https://hub.docker.com/_/alpine/
@@ -102,6 +102,7 @@ When you're ready to automate OS and framework patching by building your contain
 [base-node]: https://hub.docker.com/_/node/
 [base-windows]: https://hub.docker.com/r/microsoft/nanoserver/
 [sample-archive]: https://github.com/Azure-Samples/acr-build-helloworld-node/archive/master.zip
+[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli

@@ -47,12 +47,12 @@ Configure [ACR Tasks](#azure-container-registry-build) to automatically rebuild 
 
 ## Azure Container Registry Tasks
 
-[Azure Container Registry Tasks](container-registry-build-overview.md) (ACR Tasks) is a suite of features within Azure Container Registry that provides streamlined and efficient Docker container image builds in Azure. Use ACR Tasks to extend your development inner-loop to the cloud by offloading `docker build` operations to Azure. Configure build tasks to automate your container OS and framework patching pipeline, and build images automatically when your team commits code to source control.
+[Azure Container Registry Tasks](container-registry-tasks-overview.md) (ACR Tasks) is a suite of features within Azure Container Registry that provides streamlined and efficient Docker container image builds in Azure. Use ACR Tasks to extend your development inner-loop to the cloud by offloading `docker build` operations to Azure. Configure build tasks to automate your container OS and framework patching pipeline, and build images automatically when your team commits code to source control.
 
-[Multi-step tasks](container-registry-build-overview.md#multi-step-tasks-preview), a preview feature of ACR Tasks, provides step-based task definition and execution for building, testing, and patching container images in the cloud. Task steps define individual container image build and push operations. They can also define the execution of one or more containers, with each step using the container as its execution environment.
+[Multi-step tasks](container-registry-tasks-overview.md#multi-step-tasks-preview), a preview feature of ACR Tasks, provides step-based task definition and execution for building, testing, and patching container images in the cloud. Task steps define individual container image build and push operations. They can also define the execution of one or more containers, with each step using the container as its execution environment.
 
 ## Next steps
 
 * [Create a container registry using the Azure portal](container-registry-get-started-portal.md)
 * [Create a container registry using the Azure CLI](container-registry-get-started-azure-cli.md)
-* [Automate OS and framework patching with ACR Tasks](container-registry-build-overview.md)
+* [Automate OS and framework patching with ACR Tasks](container-registry-tasks-overview.md)

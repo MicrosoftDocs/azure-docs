@@ -229,4 +229,4 @@ For more information on how to use and manage Azure Container Registry, see the 
 [az-acr-helm-list]: /cli/azure/acr/helm#az-acr-helm-list
 [az-acr-helm-show]: /cli/azure/acr/helm#az-acr-helm-show
 [az-acr-helm-delete]: /cli/azure/acr/helm#az-acr-helm-delete
-[acr-tasks]: container-registry-build-overview.md
+[acr-tasks]: container-registry-tasks-overview.md

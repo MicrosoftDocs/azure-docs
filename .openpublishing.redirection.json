@@ -28167,6 +28167,16 @@
             "redirect_document_id" : true
         },
         {
+            "source_path": "articles/container-registry/container-registry-build-overview.md",
+            "redirect_url": "/azure/container-registry/container-registry-tasks-overview",
+            "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/container-registry/container-registry-tutorial-quick-build.md",
+            "redirect_url": "/azure/container-registry/container-registry-tutorial-quick-task",
+            "redirect_document_id" : true
+        },
+        {
             "source_path": "articles/log-analytics/log-analytics-log-search-log-search-portal.md",
             "redirect_url": "/azure/log-analytics/query-language/get-started-analytics-portal",
             "redirect_document_id" : true

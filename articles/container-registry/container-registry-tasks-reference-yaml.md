@@ -14,7 +14,7 @@ ms.author: marsma
 
 Multi-step task definition in ACR Tasks provides a container-centric compute primitive focused on building, testing, and patching containers. This article covers the commands, parameters, properties, and syntax for the YAML files that define your multi-step  tasks.
 
-This article contains reference for creating multi-step task YAML files for ACR Tasks. If you'd like an introduction to ACR Tasks, see the [ACR Tasks overview](container-registry-build-overview.md).
+This article contains reference for creating multi-step task YAML files for ACR Tasks. If you'd like an introduction to ACR Tasks, see the [ACR Tasks overview](container-registry-tasks-overview.md).
 
 > [!IMPORTANT]
 > The multi-step tasks feature of ACR Tasks is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
@@ -426,7 +426,7 @@ The current UTC time the run began.
 
 For an overview of multi-step tasks, see the [Run multi-step build, test, and patch tasks in ACR Tasks](container-registry-tasks-multi-step.md).
 
-For single-step builds, see the [ACR Tasks overview](container-registry-build-overview.md).
+For single-step builds, see the [ACR Tasks overview](container-registry-tasks-overview.md).
 
 <!-- IMAGES -->
 

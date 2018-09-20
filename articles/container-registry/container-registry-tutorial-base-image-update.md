@@ -44,7 +44,7 @@ This tutorial assumes you've already completed the steps in the first two tutori
 
 If you haven't already done so, complete the first two tutorials before proceeding:
 
-[Build container images in the cloud with Azure Container Registry Tasks](container-registry-tutorial-quick-build.md)
+[Build container images in the cloud with Azure Container Registry Tasks](container-registry-tutorial-quick-task.md)
 
 [Automate container image builds with Azure Container Registry Tasks](container-registry-tutorial-build-task.md)
 
@@ -80,7 +80,7 @@ In the following sections, you create a task, update the `NODE_VERSION` value in
 
 ## Build the base image
 
-Start by building the base image with an ACR Tasks *quick task*. As discussed in the [first tutorial](container-registry-tutorial-quick-build.md) in the series, this process not only builds the image, but pushes it to your container registry if the build is successful.
+Start by building the base image with an ACR Tasks *quick task*. As discussed in the [first tutorial](container-registry-tutorial-quick-task.md) in the series, this process not only builds the image, but pushes it to your container registry if the build is successful.
 
 ```azurecli-interactive
 az acr build --registry $ACR_NAME --image baseimages/node:9-alpine --file Dockerfile-base .
@@ -157,14 +157,14 @@ If you completed the previous tutorial (and didn't delete the registry), you sho
 ```console
 $ az acr task list-runs --registry $ACR_NAME --output table
 
-RUN ID    TASK             PLATFORM    STATUS     TRIGGER     STARTED               DURATION
---------  ---------------  ----------  ---------  ----------  --------------------  ----------
+RUN ID    TASK            PLATFORM    STATUS     TRIGGER     STARTED               DURATION
+--------  --------------  ----------  ---------  ----------  --------------------  ----------
 da6       taskhelloworld  Linux       Succeeded  Manual      2018-09-17T23:07:22Z  00:00:38
-da5                        Linux      Succeeded  Manual      2018-09-17T23:06:33Z  00:00:31
+da5                       Linux       Succeeded  Manual      2018-09-17T23:06:33Z  00:00:31
 da4       taskhelloworld  Linux       Succeeded  Git Commit  2018-09-17T23:03:45Z  00:00:44
 da3       taskhelloworld  Linux       Succeeded  Manual      2018-09-17T22:55:35Z  00:00:35
 da2       taskhelloworld  Linux       Succeeded  Manual      2018-09-17T22:50:59Z  00:00:32
-da1                        Linux      Succeeded  Manual      2018-09-17T22:29:59Z  00:00:57
+da1                       Linux       Succeeded  Manual      2018-09-17T22:29:59Z  00:00:57
 ```
 
 ## Update the base image
@@ -196,16 +196,16 @@ Output is similar to the following. The TRIGGER for the last-executed build shou
 ```console
 $ az acr task list-builds --registry $ACR_NAME --output table
 
-Run ID    TASK             PLATFORM    STATUS     TRIGGER       STARTED               DURATION
---------  ---------------  ----------  ---------  ------------  --------------------  ----------
+Run ID    TASK            PLATFORM    STATUS     TRIGGER       STARTED               DURATION
+--------  --------------  ----------  ---------  ------------  --------------------  ----------
 da8       taskhelloworld  Linux       Succeeded  Image Update  2018-09-17T23:11:50Z  00:00:33
-da7                        Linux      Succeeded  Manual        2018-09-17T23:11:27Z  00:00:35
+da7                       Linux       Succeeded  Manual        2018-09-17T23:11:27Z  00:00:35
 da6       taskhelloworld  Linux       Succeeded  Manual        2018-09-17T23:07:22Z  00:00:38
-da5                        Linux      Succeeded  Manual        2018-09-17T23:06:33Z  00:00:31
+da5                       Linux       Succeeded  Manual        2018-09-17T23:06:33Z  00:00:31
 da4       taskhelloworld  Linux       Succeeded  Git Commit    2018-09-17T23:03:45Z  00:00:44
 da3       taskhelloworld  Linux       Succeeded  Manual        2018-09-17T22:55:35Z  00:00:35
 da2       taskhelloworld  Linux       Succeeded  Manual        2018-09-17T22:50:59Z  00:00:32
-da1                        Linux      Succeeded  Manual        2018-09-17T22:29:59Z  00:00:57
+da1                       Linux       Succeeded  Manual        2018-09-17T22:29:59Z  00:00:57
 ```
 
 If you'd like to perform the following optional step of running the newly built container to see the updated version number, take note of the **RUN ID** value for the Image Update-triggered build (in the preceding output, it's "da8").
