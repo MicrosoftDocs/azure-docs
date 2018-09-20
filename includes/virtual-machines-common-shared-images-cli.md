@@ -64,9 +64,8 @@ az sig image-version create \
    --gallery-name myGallery \
    --gallery-image-definition myImageDefinition \
    --gallery-image-version 1.0.0 \
-   --target-regions "EastUS=5" "WestUS=7" \
-   --managed-image "/subscriptions/<subscription id>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage"
+   --target-regions "WestCentralUS" "SouthCentralUS=1" "EastUS2=1" \
+   --replica-count 5 \
+   --managed-image "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage"
 ```
-
-az sig image-version create -g sig1 --gallery-name gal1 --gallery-image-definition image1 --gallery-image-version 1.0.2 --target-regions "West Central US" "South Central US=1" "East US 2=1" --replica-count 5 --managed-image <resource-id-of-the-managed-image>
 

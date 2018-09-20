@@ -44,13 +44,13 @@ If you choose to install and use the CLI locally, this article requires that you
 
 ## Create a VM
 
-Create a VM from the image in the image gallery using [az vm create](/cli/azure/vm#az-vm-create).
+Create a VM from the image version using [az vm create](/cli/azure/vm#az-vm-create).
 
 ```azurecli-interactive 
 az vm create\
    -g myGalleryRG \
    -n myVM \
-   --image /subscriptions/<subscription-ID>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0 \
+   --image "/subscriptions/<subscription-ID>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0" \
    --generate-ssh-keys
 ```
 
@@ -60,3 +60,4 @@ az vm create\
 
 ## Next steps
 
+For more information about Shared Image Galleries, see the [Overview](shared-image-galleries).
