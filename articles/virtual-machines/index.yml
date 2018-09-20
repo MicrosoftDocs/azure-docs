@@ -92,8 +92,8 @@ sections:
       image: 
         src: /learn/achievements/caching-and-performance-azure-storage-and-disks.svg
         href: /learn/modules/caching-and-performance-azure-storage-and-disks/
-    - type: paragraph
-      text: <a href="/learn/browse/?products=virtualMachines">More interactive learning...</a>
+  - type: paragraph
+    text: <a href="/learn/browse/?products=virtualMachines">More interactive learning...</a>
 - title: Free Pluralsight Video Training
   items:
   - type: list
