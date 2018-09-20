@@ -200,6 +200,7 @@ The following list provides a general summary of Azure services that can be move
 * Log Analytics
 * Logic Apps
 * Machine Learning - Machine Learning Studio web services can be moved to a resource group in the same subscription, but not a different subscription. Other Machine Learning resources can be moved across subscriptions.
+* Managed Disks - see [Virtual Machines limitations for constraints](#virtual-machines-limitations)
 * Managed Identity - user-assigned
 * Media Services
 * Mobile Engagement
@@ -250,7 +251,6 @@ The following list provides a general summary of Azure services that can't be mo
 * Lab Services - move to new resource group in same subscription is enabled, but cross subscription move isn't enabled.
 * Load Balancers - see [Load Balancer limitations](#lb-limitations)
 * Managed Applications
-* Managed Disks - see [Virtual Machines limitations](#virtual-machines-limitations)
 * Microsoft Genomics
 * NetApp
 * Public IP - see [Public IP limitations](#pip-limitations)
@@ -263,22 +263,28 @@ The following list provides a general summary of Azure services that can't be mo
 
 ## Virtual Machines limitations
 
-Managed disks don't support move. This restriction means that several related resources can't be moved too. You can't move:
+Managed disks are supported for move as of September 24th, 2018. This means you can also move:
 
-* Managed disks
 * Virtual machines with the managed disks
-* Images created from managed disks
-* Snapshots created from managed disks
+* Managed Images
+* Managed Snapshots
 * Availability sets with virtual machines with managed disks
 
-Although you can't move a managed disk, you can create a copy and then create a new virtual machine from the existing managed disk. For more information, see:
+Here are the constraints that are not yer supported
 
-* Copy managed disks in the same subscription or different subscription with [PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md) or [Azure CLI](../virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md)
-* Create a virtual machine using an existing managed OS disk with [PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md) or [Azure CLI](../virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md).
+* Virtual Machines with certificate stored in Key Vault can be moved to a new resource group in the same subscription, but not across subscriptions.
+* Virtual Machines configured with Azure Backup. Use the below workaround to move these Virtual Machines
+  * Locate the location of your Virtual Machine.
+  * Locate a resource group with the following naming pattern: "AzureBackupRG_<location of your VM>_1" e.g. AzureBackupRG_westus2_1
+  * If in Azure Portal, then check "Show hidden types"
+  * If in PowerShell, use the `Get-AzureRmResource -ResourceGroupName AzureBackupRG_<location of your VM>_1` cmdlet
+  * If in CLI, use the `az resource list -g AzureBackupRG_<location of your VM>_1`
+  * Now locate the resource with type `Microsoft.Compute/restorePointCollections` that has the naming pattern `AzureBackup_<name of your VM that you're trying to move>_###########`
+  * Delete this resource
+  * After Delete is complete, you will be able to move your Virtual Machine
+* Virtual Machine Scale Sets with Standard SKU Load Balancer or Standard SKU Public IP cannot be moved
+* Virtual machines created from Marketplace resources with plans attached can't be moved across resource groups or subscriptions. Deprovision the virtual machine in the current subscription, and deploy again in the new subscription.
 
-Virtual machines created from Marketplace resources with plans attached can't be moved across resource groups or subscriptions. Deprovision the virtual machine in the current subscription, and deploy again in the new subscription.
-
-Virtual Machines with certificate stored in Key Vault can be moved to a new resource group in the same subscription, but not across subscriptions.
 
 ## Virtual Networks limitations
 
