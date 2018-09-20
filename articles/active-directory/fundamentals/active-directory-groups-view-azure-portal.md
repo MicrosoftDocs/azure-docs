@@ -122,7 +122,7 @@ This group is used in several of the how-to processes that are available in the 
     >This doesn't delete the user Alain Charon, just his membership in the deleted group.
 
 ## Next steps
-Advance to the next article to learn how to manage access to resources
+Advance to the next article to learn how to associate a subscription to your Azure AD directory.
 
 > [!div class="nextstepaction"]
 > [Next steps button](active-directory-how-subscriptions-associated-directory.md)
