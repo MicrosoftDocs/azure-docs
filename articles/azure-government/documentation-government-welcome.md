@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 08/03/2018
+ms.date: 09/17/2018
 ms.author: juliako
 
 #Customer intent: As the chairman of the municipal council, I want to find out if Azure Government will meet our security and compliance requirements.
@@ -41,7 +41,7 @@ To start using Azure Government, first check out [Guidance for developers](docum
 * [Connect with the Azure CLI](documentation-government-get-started-connect-with-cli.md)
 * [Connect with PowerShell](documentation-government-get-started-connect-with-ps.md)
 * [Connect with Visual Studio](documentation-government-get-started-connect-with-vs.md)
-* [Connect with Azure DevOps Services](documentation-government-get-started-connect-with-vsts.md)
+* [Deploy with Azure DevOps Services](connect-with-azure-pipelines.md)
 * [Connect with SQL Server Management Studio](documentation-government-connect-ssms.md)
 * [Connect to Storage in Azure Government](documentation-government-get-started-connect-to-storage.md)
 

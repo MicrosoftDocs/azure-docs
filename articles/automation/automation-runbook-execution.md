@@ -53,7 +53,7 @@ You can view a summarized status of all runbook jobs or drill into details of a 
 
 On the right of your selected Automation account, you can see a summary of all of the runbook jobs for a selected Automation account under **Job Statistics** tile.
 
-![Job Statistics tile](./media/automation-runbook-execution/automation-account-job-status-summary.png).
+![Job Statistics tile](./media/automation-runbook-execution/automation-account-job-status-summary.png)
 
 This tile displays a count and graphical representation of the job status for all jobs executed.
 

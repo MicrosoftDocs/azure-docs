@@ -98,6 +98,8 @@
       href: premium-storage.md
     - name: Standard SSDs
       href: disks-standard-ssd.md
+    - name: Ultra SSDs
+      href: disks-ultra-ssd.md
     - name: Premium storage performance
       href: premium-storage-performance.md
     - name: Standard storage
@@ -193,6 +195,8 @@
       href: os-disk-swap.md
     - name: Tag a VM
       href: tag.md
+    - name: Time sync
+      href: time-sync.md
     - name: Run scripts on a VM
       href: run-scripts-in-vm.md
       items:
@@ -316,7 +320,9 @@
     - name: Deploy disks with template
       href: using-managed-disks-template-deployments.md
     - name: Enable write accelerator
-      href: how-to-enable-write-accelerator.md 
+      href: how-to-enable-write-accelerator.md
+    - name: Using Ultra SSD
+      href: disks-enable-ultra-ssd.md
     - name: Migrate to Managed Disks
       href: migrate-to-managed-disks.md
       items:

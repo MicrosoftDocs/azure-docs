@@ -5,10 +5,10 @@ services: active-directory
 keywords: 
 author: CelesteDG
 manager: mtillman
-editor: PatAltimore
+
 ms.author: celested
 ms.reviewer: dadobali
-ms.date: 07/19/2017
+ms.date: 09/24/2018
 ms.service: active-directory
 ms.component: develop
 ms.devlang: na
@@ -35,14 +35,14 @@ Knowledge of [single](quickstart-v1-integrate-apps-with-azure-ad.md) and [multi-
 
 ### App types impacted
 
-In most common cases, conditional access does not change an app's behavior or requires any changes from the developer. Only in certain cases when an app indirectly or silently requests a token for a service, an app requires code changes to handle conditional access "challenges". It may be as simple as performing an interactive sign-in request. 
+In most common cases, conditional access does not change an app's behavior or requires any changes from the developer. Only in certain cases when an app indirectly or silently requests a token for a service, an app requires code changes to handle conditional access "challenges". It may be as simple as performing an interactive sign-in request.
 
-Specifically, the following scenarios require code to handle conditional access "challenges": 
+Specifically, the following scenarios require code to handle conditional access "challenges":
 
 * Apps accessing Microsoft Graph
 * Apps performing the on-behalf-of flow
 * Apps accessing multiple services/resources
-* Single page apps using ADAL.js
+* Single-page apps using ADAL.js
 * Web Apps calling a resource
 
 Conditional access policies can be applied to the app, but also can be applied to a web API your app accesses. To learn more about how to configure a conditional access policy, see [Quickstart: Require MFA for specific apps with Azure Active Directory conditional access](../conditional-access/app-based-mfa.md).
@@ -82,7 +82,7 @@ The following information only applies in these conditional access scenarios:
 * Apps accessing Microsoft Graph
 * Apps performing the on-behalf-of flow
 * Apps accessing multiple services/resources
-* Single page apps using ADAL.js
+* Single-page apps using ADAL.js
 
 The following sections discuss common scenarios that are more complex. The core operating principle is conditional access policies are evaluated at the time the token is requested for the service that has a conditional access policy applied unless it's being accessed through Microsoft Graph.
 
@@ -142,7 +142,7 @@ For code samples that demonstrate how to handle the claims challenge, refer to t
 
 ## Scenario: App performing the on-behalf-of flow
 
-In this scenario, we walk through the case in which a native app calls a web service/API. In turn, this service does [the "on-behalf-of" flow](authentication-scenarios.md#application-types-and-scenarios) to call a downstream service. In our case, we've applied our conditional access policy to the downstream service (Web API 2) and are using a native app rather than a server/daemon app. 
+In this scenario, we walk through the case in which a native app calls a web service/API. In turn, this service does [he "on-behalf-of" flow to call a downstream service. In our case, we've applied our conditional access policy to the downstream service (Web API 2) and are using a native app rather than a server/daemon app. 
 
 ![App performing the on-behalf-of flow diagram](./media/conditional-access-dev-guide/app-performing-on-behalf-of-scenario.png)
 
@@ -185,9 +185,9 @@ claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 
 If the app is using the ADAL library, a failure to acquire the token is always retried interactively. When this interactive request occurs, the end user has the opportunity to comply with the conditional access. This is true unless the request is a `AcquireTokenSilentAsync` or `PromptBehavior.Never` in which case the app needs to perform an interactive ```AcquireToken``` request to give the end use the opportunity to comply with the policy. 
 
-## Scenario: Single Page App (SPA) using ADAL.js
+## Scenario: Single-page app (SPA) using ADAL.js
 
-In this scenario, we walk through the case when we have a single page app (SPA), using ADAL.js to call a conditional access protected web API. This is a simple architecture but has some nuances that need to be taken into account when developing around conditional access.
+In this scenario, we walk through the case when we have a single-page app (SPA), using ADAL.js to call a conditional access protected web API. This is a simple architecture but has some nuances that need to be taken into account when developing around conditional access.
 
 In ADAL.js, there are a few functions that obtain tokens: `login()`, `acquireToken(...)`, `acquireTokenPopup(…)`, and `acquireTokenRedirect(…)`. 
 
@@ -197,7 +197,7 @@ In ADAL.js, there are a few functions that obtain tokens: `login()`, `acquireTok
 
 When an app needs an access token to call a Web API, it attempts an `acquireToken(…)`. If the token session is expired or we need to comply with a conditional access policy, then the *acquireToken* function fails and the app uses `acquireTokenPopup()` or `acquireTokenRedirect()`.
 
-![Single page app using ADAL flow diagram](./media/conditional-access-dev-guide/spa-using-adal-scenario.png)
+![Single-page app using ADAL flow diagram](./media/conditional-access-dev-guide/spa-using-adal-scenario.png)
 
 Let's walk through an example with our conditional access scenario. The end user just landed on the site and doesn’t have a session. We perform a `login()` call, get an ID token without multi-factor authentication. Then the user hits a button that requires the app to request data from a web API. The app tries to do an `acquireToken()` call but fails since the user has not performed multi-factor authentication yet and needs to comply with the conditional access policy.
 

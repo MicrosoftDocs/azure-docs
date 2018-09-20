@@ -37,6 +37,8 @@
         href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
       - name: SQL Database
         href: ../sql-database/sql-database-reserved-capacity.md?toc=/azure/billing/TOC.json
+      - name: Cosmos DB
+        href: ../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/billing/TOC.json
       - name: SUSE Linux software 
         href: ../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/billing/TOC.json
     - name: How discount is applied
@@ -45,7 +47,9 @@
         href: billing-understand-vm-reservation-charges.md
       - name: SQL Database reserved capacity
         href: billing-understand-reservation-charges.md
-        name: SUSE Linux software plans
+      - name: Cosmos DB reserved capacity
+        href: billing-understand-cosmosdb-reservation-charges.md
+      - name: SUSE Linux software plans
         href: billing-understand-suse-reservation-charges.md
     - name: Software costs not included
       href: billing-reserved-instance-windows-software-costs.md
