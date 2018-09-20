@@ -302,7 +302,7 @@ print('\n batch size:',parameter_values[7])
 
 ## Sample notebook
 Refer to 
-* `training/03.hyperparameter-tuning-with-tensorflow/03.hyperparameter-tuning-with-tensorflow.ipynb` for a tutorial on tuning hyperparameters for a Tensorflow model. 
+* `training/03.train-hyperparameter-tune-deploy-with-tensorflow/03.train-hyperparameter-tune-deploy-with-tensorflow.ipynb` for a tutorial on tuning hyperparameters for a Tensorflow model. 
 
 Get this notebook:
 
