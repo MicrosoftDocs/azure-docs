@@ -22,13 +22,12 @@ Users will authenticate against the middle-tier application and an Oauth [on-beh
  ![Azure Active Directory app registration second step][2]
 
 2. After app registration is complete, click **Settings** > **Required permissions**:
-
-	* Click **Add** on the top left.
-	* Click **Select an API** to use to get external data into Digital Twins.
-	* Search for **Azure Smart Spaces Service** API and click **Select**.
-	* Click **Select permissions** that your app needs to have to access the correct information.
-	* Check the **Read/Write Access** delegated permissions box and click **Select**.
-	* Click **Done** and select **Grant permissions**.
+    * Click **Add** on the top left.
+    * Click **Select an API** to use to get external data into Digital Twins.
+    * Search for **Azure Smart Spaces Service** API and click **Select**.
+    * Click **Select permissions** that your app needs to have to access the correct information.
+    * Check the **Read/Write Access** delegated permissions box and click **Select**.
+    * Click **Done** and select **Grant permissions**.
 
  ![Azure Active Directory app registration third step][5]
 
@@ -46,13 +45,9 @@ Users will authenticate against the middle-tier application and an Oauth [on-beh
 
 2. Run the following commands (using the Application ID from Azure Active Directory app registration):
 
-	```bash
-	Login-AzureRmAccount
-    ```
-	```bash
-    Connect-AzureAD
-	```
     ```bash
+    Login-AzureRmAccount
+    Connect-AzureAD
     Get-AzureRmADServicePrincipal -ApplicationId <Application ID>
     ```
 
@@ -60,17 +55,17 @@ Users will authenticate against the middle-tier application and an Oauth [on-beh
 
 4. Create a role assignment in Digital Twins for Service Principal ID above (Note: This needs to be run by someone with Admin privileges) .
 
-	* Make a POST call on `https://{resourceName}.{location}.azuresmartspaces.net/management/api/v1.0/roleassignments`
-	* Body payload
-	```json
-		{
-		"RoleId": "98e44ad7-28d4-4007-853b-b9968ad132d1",
-		"objectId": "Service Principal Id above",
-		"objectIdType": "ServicePrincipalId",
-		"Path": "/",
-		"tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47"
-		}
-	```
+    * Make a POST call on `https://{resourceName}.{location}.azuresmartspaces.net/management/api/v1.0/roleassignments`
+    * Body payload:
+        ```json
+        {
+            "RoleId": "98e44ad7-28d4-4007-853b-b9968ad132d1",
+            "objectId": "Service Principal Id above",
+            "objectIdType": "ServicePrincipalId",
+            "Path": "/",
+            "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47"
+        }
+        ```
 
 <!-- Images -->
 [1]: ./media/digital-twins-permissions/aad-app-registration1.png
