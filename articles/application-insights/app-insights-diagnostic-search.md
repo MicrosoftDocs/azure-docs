@@ -119,8 +119,8 @@ Here are the search expressions you can use:
 | Sample query | Effect |
 | --- | --- |
 | `apple` |Find all events in the time range whose fields include the word "apple" |
-| `apple AND banana` <br/>`apple banana` |Find events that contain both words. Use capital "AND", not "and". |
-| `apple OR banana` |Find events that contain either word. Use "OR", not "or".<br/>Short form. |
+| `apple AND banana` <br/>`apple banana` |Find events that contain both words. Use capital "AND", not "and". <br/>Short form. |
+| `apple OR banana` |Find events that contain either word. Use "OR", not "or". |
 | `apple NOT banana` |Find events that contain one word but not the other. |
 
 ## Sampling
