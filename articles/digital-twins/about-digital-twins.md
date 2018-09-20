@@ -22,7 +22,7 @@ The platform supplies powerful real-time analytics and device telemetry, user-de
 
 ## Services in Digital Twins
 
-Many services combine to make Digital Twins a next generation Cloud IoT platform.  
+Many services combine to make Digital Twins a next generation Cloud IoT platform.
 
 ### Object Ontology
 
@@ -30,7 +30,7 @@ A rich **Ontology** of pre-defined object models is provided to better categoriz
 
 ### Spatial Intelligence Graphs
 
-IoT apps must bring together numerous devices, sensors, and places. 
+IoT apps must bring together numerous devices, sensors, and places. Azure Digital Twins provides a sophisticated way to unite these elements into a coherent and unified whole.
 
 For example, a smart utility app might involve several electricity usage devices that are connected across a neighborhood. In order to accurately monitor electricity use and ensure correct billing, the smart utility company must track each device, sensor, and their locations.
 
