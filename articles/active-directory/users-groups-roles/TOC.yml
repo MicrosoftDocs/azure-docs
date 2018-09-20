@@ -98,12 +98,10 @@
       items: 
       - name: Create a dynamic group    
         href: groups-create-rule.md
-      - name: Rule syntax and propertiess    
+      - name: Rule syntax and properties    
         href: groups-dynamic-membership.md
       - name: Change group membership type    
         href: groups-change-type.md
-      - name: Troubleshoot    
-        href: groups-troubleshooting.md
     - name: Set up user-created groups    
       href: groups-self-service-management.md
   - name: Assign licenses
