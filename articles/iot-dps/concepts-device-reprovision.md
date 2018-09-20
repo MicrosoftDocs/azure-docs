@@ -15,7 +15,7 @@ manager: timlt
 
 During the lifecycle of an IoT solution, it is common to move devices between IoT hubs. The reasons for this move may include the following scenarios:
 
-* **Geolocation**: As a device moves between locations, network latency is improved by having the device migrated to a closer IoT hub.
+* **Geolocation / GeoLatency**: As a device moves between locations, network latency is improved by having the device migrated to a closer IoT hub.
 
 * **Multi-tenancy**: A device may be used within the same IoT solution and reassigned to a new customer, or customer site. This new customer may be serviced using a different IoT hub.
 
