@@ -180,9 +180,9 @@ ms.author: mtillman
                                                     <div class="cardText">
                                                         <h3><a href="hybrid/index.yml">Hybrid identity</a></h3>
                                                         <p>
-                                                            <a href="hybrid/tutorial-password-hash-sync.md">Azure AD Connect</a><br>
-                                                            <a href="hybrid/tutorial-passthrough-authentication.md">Integrate an AD forest to cloud</a><br>
-                                                            <a href="hybrid/tutorial-federation.md">Federate an AD forest to the cloud</a>
+                                                            <a href="hybrid/how-to-connect-install-roadmap.md">Install Azure AD Connect</a><br>
+                                                            <a href="hybrid/how-to-connect-sso.md">Single sign-on with Azure AD Connect</a><br>
+                                                            <a href="hybrid/how-to-connect-fed-whatis.md">Azure AD Connect and federation</a>
                                                         </p>
 														<br><br>
                                                         <h3><a href="identity-protection/index.yml">Identity protection</a></h3>
