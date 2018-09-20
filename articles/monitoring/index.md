@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/09/2018
+ms.date: 09/07/2018
 ms.author: bwren
 
 ---
@@ -29,13 +29,10 @@ The following diagram illustrates the different areas of management that are req
 ![Management capabilities](media/management-overview/management-capabilities.png)
 
 
-No single Azure service completely fills the requirements of a particular management area, but instead each are realized by multiple services working together.  Some services provide targeted functionality such as Application Insights that provides monitoring for web applications.  Others provide common functions such as Log Analytics that stores management data for other services allowing you to analyze data of different types collected by different services.  
-
 The following sections briefly describe the different management areas and provide links to detailed content on the main Azure services intended to address them.
 
 ## Monitor
-Monitoring is the act of collecting and analyzing data to determine the performance, health, and availability of your business application and the resources it depends on. An effective monitoring strategy will help you understand the detailed operation of the different components of your application and to increase your uptime by proactively notifying you of critical issues so that you can resolve them before they become problems.  You can read an overview of Monitoring in Azure that identifies the different services used for a monitoring strategy at [Monitoring Azure applications and resources](monitoring-overview.md).
-
+Monitoring is the act of collecting and analyzing data to determine the performance, health, and availability of your business application and the resources it depends on. An effective monitoring strategy will help you understand the detailed operation of the different components of your application and to increase your uptime by proactively notifying you of critical issues so that you can resolve them before they become problems. Monitoring in Azure is primarily provided by [Azure Monitor](../azure-monitor/overview.md) which provides common stores for storing monitoring data, multiple data sources for collecting data from the different tiers supporting your application, and features for analyzing and responding to collected data.
 
 ## Configure
 Configure refers to the initial deployment and configuration of applications and resources and their ongoing maintenance with patches and updates.  Automation of these tasks through script and policy allows you to eliminate redundancy, minimizing your time and effort and increasing your accuracy and efficiency.  [Azure Automation](..\automation\automation-intro.md) provides the bulk of services for automating configuration tasks.  In addition to runbooks for automating processes, it provides configuration and update management, which assist you in managing configuration through policy and in identifying and deploying updates.

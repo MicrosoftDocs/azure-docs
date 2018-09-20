@@ -73,6 +73,10 @@ Take advantage of defensive measures already provided for components you use in 
 
 There are a number of factors which impact how instances of your function app scale. The details are provided in the documentation for [function scaling](functions-scale.md).  The following are some best practices to ensure optimal scalability of a function app.
 
+### Share and manage connections
+
+Re-use connections to external resources whenever possible.  See [how to manage connections in Azure Functions](./manage-connections.md).
+
 ### Don't mix test and production code in the same function app
 
 Functions within a function app share resources. For example, memory is shared. If you're using a function app in production, don't add test-related functions and resources to it. It can cause unexpected overhead during production code execution.

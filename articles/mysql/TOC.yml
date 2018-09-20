@@ -95,6 +95,8 @@
     items:
     - name: Data-in replication
       href: concepts-data-in-replication.md
+    - name: Read replicas
+      href: concepts-read-replicas.md  
 - name: How-to guides
   items:
   - name: Manage a Server
@@ -151,6 +153,8 @@
     items:
     - name: Configure data-in replication
       href: howto-data-in-replication.md
+    - name: Create read replicas Azure portal
+      href: howto-read-replicas-portal.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot query performance

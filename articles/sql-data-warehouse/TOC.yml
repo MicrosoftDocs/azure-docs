@@ -185,7 +185,7 @@
       href: load-data-from-azure-blob-storage-using-polybase.md
     - name: Contoso public data
       href: sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
-    - name: Azure Data Lake Store
+    - name: Azure Data Lake Storage Gen1
       href: sql-data-warehouse-load-from-azure-data-lake-store.md
     - name: Azure Databricks
       href: /azure/azure-databricks/databricks-extract-load-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json
