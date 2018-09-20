@@ -14,6 +14,8 @@ ms.author: lizross
 ms.custom: it-pro
 ms.reviewer: krbain
 ---
+<!--As a brand-new Azure AD administrator, I need to view my organization’s groups along with the assigned members, so I can manage permissions to apps and services for people in my organization-->
+
 # Quickstart: View your organization's groups and members in Azure Active Directory
 You can view your organization's existing groups and group members using the Azure portal. Groups are used to manage users (members) that all need the same access and permissions for potentially restricted apps and services.
 
