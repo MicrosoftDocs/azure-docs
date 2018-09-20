@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.component: user-help
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/11/18
+ms.date: 09/11/2018
 ms.author: lizross
 ms.reviewer: asteen
 ---
@@ -198,7 +198,7 @@ For example, if an application is configured to authenticate users by using AD F
 
 ## Next steps
 
-- To view a list of all topics that are related to application management, see the [article index for application management in Azure Active Directory](../active-directory-apps-index.md).
+- To learn about application management, see [Application Management in Azure Active Directory](../manage-apps/what-is-application-management.md).
  
 - To learn how to integrate a SaaS app with Azure AD, see the [list of tutorials on how to integrate SaaS apps](../saas-apps/tutorial-list.md).
  

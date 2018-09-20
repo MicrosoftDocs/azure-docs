@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/07/2018
+ms.date: 09/13/2018
 ms.author: cephalin
 ms.custom: mvc
 ---
@@ -58,7 +58,7 @@ FLASK_APP=application.py flask run
 py -3 -m venv env
 env\scripts\activate
 pip install -r requirements.txt
-set FLASK_APP=application.py
+Set-Item Env:FLASK_APP ".\application.py"
 flask run
 ```
 

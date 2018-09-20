@@ -62,6 +62,10 @@ sections:
   - type: list
     style: icon48
     items: 
+    - image: 
+        src: media/index/DevOpsPipelines.svg
+      text: Azure Pipelines
+      href: connect-with-azure-pipelines.md
     - image:
         src: media/index/logo_vs.svg
       text: Visual Studio

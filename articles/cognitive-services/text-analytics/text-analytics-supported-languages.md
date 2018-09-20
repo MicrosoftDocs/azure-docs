@@ -1,16 +1,18 @@
 ---
-title: Supported languages in Text Analytics API - Azure Cognitive Services | Microsoft Docs
+title: Supported languages in Text Analytics API
+titleSuffix: Azure Cognitive Services
 description: List of generally available and preview language support for Text Analytics API operations. Applies to sentiment analysis, key phrase extraction, and language detection.
 services: cognitive-services
 author: ashmaka
 manager: cgronlun
+
 ms.service: cognitive-services
 ms.technology: text-analytics
 ms.topic: conceptual
-ms.date: 05/02/2018
+ms.date: 09/12/2018
 ms.author: ashmaka
 ---
-# Supported languages in the Text Analytics API
+# Supported languages in the Text Analytics Cognitive Service
 
 This article explains which languages are supported for each operation: sentiment analysis, key phrase extraction, and language detection.
 

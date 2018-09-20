@@ -150,7 +150,7 @@
       href: app-service-authentication-how-to.md
     - name: Restrict IPs
       href: app-service-ip-restrictions.md
-    - name: Use Managed Service Identity
+    - name: Use a managed identity
       href: app-service-managed-service-identity.md
     - name: Use SSL cert in application code
       href: app-service-web-ssl-cert-load.md

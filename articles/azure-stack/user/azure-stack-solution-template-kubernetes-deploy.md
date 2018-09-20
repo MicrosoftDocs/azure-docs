@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2018
+ms.date: 09/12/2018
 ms.author: mabrigg
 ms.reviewer: waltero
 
@@ -103,7 +103,7 @@ Give the service principal access to your subscription so that the principal can
 
 1. Open the [Azure Stack portal](https://portal.local.azurestack.external).
 
-1. Select **+New** > **Compute** > **Kubernetes Cluster**. Click **Create**.
+1. Select **+ Create a resource** > **Compute** > **Kubernetes Cluster**. Click **Create**.
 
     ![Deploy Solution Template](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 

@@ -8,7 +8,7 @@ ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 09/14/2018
 ms.author: v-daljep
 
 ---
@@ -36,7 +36,7 @@ Intelligent Insights automatically detects performance issues with SQL Database 
 | [New Query](sql-database-intelligent-insights-troubleshoot-performance.md#new-query) | A new query was detected, which affects overall SQL Database performance. |
 | [Unusual Wait Statistic](sql-database-intelligent-insights-troubleshoot-performance.md#unusual-wait-statistic) | Unusual database wait times were detected, which affects SQL Database performance. |
 | [TempDB Contention](sql-database-intelligent-insights-troubleshoot-performance.md#tempdb-contention) | Multiple threads try to access the same tempDB resources, which causes a bottleneck that affects SQL Database performance. |
-| [Elastic Pool DTU Shortage](sql-database-intelligent-insights-troubleshoot-performance.md#elastic-pool-dtu-shortage) | A shortage of available eDTUs in the elastic pool affects SQL Database performance. |
+| [Elastic pool DTU Shortage](sql-database-intelligent-insights-troubleshoot-performance.md#elastic-pool-dtu-shortage) | A shortage of available eDTUs in the elastic pool affects SQL Database performance. |
 | [Plan Regression](sql-database-intelligent-insights-troubleshoot-performance.md#plan-regression) | A new plan or a change in the workload of an existing plan was detected, which affects SQL Database performance. |
 | [Database-Scoped Configuration Value Change](sql-database-intelligent-insights-troubleshoot-performance.md#database-scoped-configuration-value-change) | A configuration change on the database affects SQL Database performance. |
 | [Slow Client](sql-database-intelligent-insights-troubleshoot-performance.md#slow-client) | A slow application client that is unable to consume output from the SQL Database fast enough was detected, which affects SQL Database performance. |
@@ -224,7 +224,7 @@ The diagnostics log outputs tempDB contention details. You can use the informati
 
 For more information, see [Introduction to memory-optimized tables](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables). 
 
-## Elastic Pool DTU Shortage
+## Elastic pool DTU Shortage
 
 ### What is happening
 
@@ -278,7 +278,7 @@ Database-scoped configuration changes can be set for each individual database. T
 
 ### Troubleshooting
 
-The diagnostics log outputs database-scoped configuration changes that were made recently that caused performance degradation compared to the previous seven-day workload behavior. You can revert the configuration changes to the previous values. You also can tune value by value until the desired performance level is reached. You can copy database-scope configuration values from a similar database with satisfactory performance. If you're unable to troubleshoot the performance, revert to the default SQL Database default values and attempt to fine-tune starting from this baseline.
+The diagnostics log outputs database-scoped configuration changes that were made recently that caused performance degradation compared to the previous seven-day workload behavior. You can revert the configuration changes to the previous values. You also can tune value by value until the desired compute size is reached. You can copy database-scope configuration values from a similar database with satisfactory performance. If you're unable to troubleshoot the performance, revert to the default SQL Database default values and attempt to fine-tune starting from this baseline.
 
 For more information on optimizing database-scoped configuration and T-SQL syntax on changing the configuration, see [Alter database-scoped configuration (Transact-SQL)](https://msdn.microsoft.com/library/mt629158.aspx).
 

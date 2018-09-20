@@ -15,7 +15,7 @@ ms.author: victorh
 
 Azure DNS is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services.
 
-You can't use Azure DNS to buy a domain name. For an annual fee,  you can buy a domain name using [Azure Web Apps](https://docs.microsoft.com/en-us/azure/app-service/custom-dns-web-site-buydomains-web-app#buy-the-domain) or a third-party domain name registrar. Your domains can then be hosted in Azure DNS for record management. See [Delegate a Domain to Azure DNS](dns-domain-delegation.md) for details.
+You can't use Azure DNS to buy a domain name. For an annual fee,  you can buy a domain name using [Azure Web Apps](https://docs.microsoft.com/azure/app-service/custom-dns-web-site-buydomains-web-app#buy-the-domain) or a third-party domain name registrar. Your domains can then be hosted in Azure DNS for record management. See [Delegate a Domain to Azure DNS](dns-domain-delegation.md) for details.
 
 The following features are included with Azure DNS:
 
@@ -27,11 +27,11 @@ DNS domains in Azure DNS are hosted on Azure's global network of DNS name server
 
 The Azure DNS service is based on Azure Resource Manager. So, you get Resource Manager features such as:
 
-* [role-based access control](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#access-control) - to control who has access to specific actions for your organization.
+* [role-based access control](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#access-control) - to control who has access to specific actions for your organization.
 
-* [activity logs](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#activity-logs) - to monitor how a user in your organization modified a resource or to find an error when troubleshooting.
+* [activity logs](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#activity-logs) - to monitor how a user in your organization modified a resource or to find an error when troubleshooting.
 
-* [resource locking](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-lock-resources) - to lock a subscription, resource group, or resource to prevent other users in your organization from accidentally deleting or modifying critical resources.
+* [resource locking](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources) - to lock a subscription, resource group, or resource to prevent other users in your organization from accidentally deleting or modifying critical resources.
 
 For more information, see [How to protect DNS zones and records](dns-protect-zones-recordsets.md). 
 

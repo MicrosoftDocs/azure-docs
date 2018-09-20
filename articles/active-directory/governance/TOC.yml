@@ -1,0 +1,26 @@
+- name: Azure AD access reviews documentation
+- name: Overview
+  items:
+  - name: What is an access review?
+    href: access-reviews-overview.md
+- name: How-to guides
+  expanded: true
+  items:
+  - name: Create an access review
+    href: create-access-review.md
+  - name: Complete an access review
+    href: complete-access-review.md
+  - name: Perform an access review
+    href: perform-access-review.md
+  - name: Review your access
+    href: review-your-access.md
+  - name: Guest access with access reviews
+    href: manage-guest-access-with-access-reviews.md
+  - name: Manage user access with reviews
+    href: manage-user-access-with-access-reviews.md
+  - name: Manage programs and their controls
+    href: manage-programs-controls.md
+  - name: Retrieve access review results
+    href: retrieve-access-review.md
+  - name: Terms of use
+    href: active-directory-tou.md
