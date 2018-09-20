@@ -45,22 +45,22 @@ The `workspace` expression is used in a Log Analytics query to retrieve data fro
 
 ## Examples
 
-```
+```Kusto
 workspace("contosoretail").Update | count
 ```
-```
+```Kusto
 workspace("b438b4f6-912a-46d5-9cb1-b44069212ab4").Update | count
 ```
-```
+```Kusto
 workspace("/subscriptions/e427267-5645-4c4e-9c67-3b84b59a6982/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail").Event | count
 ```
-```
+```Kusto
 union 
 (workspace("myworkspace").Heartbeat | where Computer contains "Con"),
 (app("myapplication").requests | where cloud_RoleInstance contains "Con")
 | count  
 ```
-```
+```Kusto
 union 
 (workspace("myworkspace").Heartbeat), (app("myapplication").requests)
 | where TimeGenerated between(todatetime("2018-02-08 15:00:00") .. todatetime("2018-12-08 15:05:00"))
