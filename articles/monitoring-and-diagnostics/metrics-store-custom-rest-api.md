@@ -13,15 +13,19 @@ ms.component: metrics
 
 This article shows you how to send custom metrics for Azure resources to the Azure Monitor metrics store via a REST API.  Once the metrics are in Azure Monitor, you can do all the things with them you do with standard metrics, such as charting, alerting, routing them to other external tools, etc.  
 
-> NOTE: The REST API only permits sending custom metrics for Azure resources. To send metrics for resources in different environments or on-premises, you can use [Application Insights](../application-insights/app-insights-api-custom-events-metrics.md).    
+>[!NOTE] 
+>The REST API only permits sending custom metrics for Azure resources. To send metrics for resources in different environments or on-premises, you can use [Application Insights](../application-insights/app-insights-api-custom-events-metrics.md).    
 
 
 ## Create and authorize a service principal to emit metrics 
 
-Create a service principle in your Azure Active Directory tenant using the instructions found at [Create a service principal](../azure-resource-manager/resource-group-create-service-principal-portal.md). Note the following while going through this process: 
-    - You can put in any URL for the sign-on URL.  
-    - Create new client secret for this app  
-    - Save the Key and the client ID for use in later steps.  
+Create a service principle in your Azure Active Directory tenant using the instructions found at [Create a service principal](../azure-resource-manager/resource-group-create-service-principal-portal.md). 
+
+Note the following while going through this process: 
+
+- You can put in any URL for the sign-on URL.  
+- Create new client secret for this app  
+- Save the Key and the client ID for use in later steps.  
 
 Give the app created as part of step 1 “Monitoring Metrics Publisher” permissions to the resource you wish to emit metrics against. If you plan to use the app to emit custom metrics against many resources, you can grant these permissions at the resource group or subscription level. 
 
@@ -95,7 +99,7 @@ If you receive an error with some part of the process, considering the following
 
 1. On the Monitor page, click **Metrics**. 
 
-![Access Token](./media/metrics-store-custom-rest-api/metrics.png) 
+   ![Access Token](./media/metrics-store-custom-rest-api/metrics.png) 
 
 1. Change the aggregation period to **Last 30 minutes**.  
 

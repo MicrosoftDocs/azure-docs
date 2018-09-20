@@ -17,7 +17,7 @@ Azure Monitor enables you to collect custom metrics via your application telemet
 
 [Telegraf](https://docs.influxdata.com/telegraf/v1.7/) is a plugin-driven agent that enables the collection of metrics from over 150 different sources. Depending on what workloads are running on your VM (ex. MySQL, NGINX, Apache, etc.) you can configure the agent to leverage specialized input plugins to collect metrics. Output plugins, then enable the agent to write to destinations of your choosing. The Telegraf agent has integrated directly with the Azure Monitor custom metrics REST API, and supports a “Azure Monitor Output plugin”. This enables the agent to collect workload specific metrics on your Linux VM and submit them as custom metrics to Azure Monitor. 
 
- ![Telegraph Agent Overview](./media/metrics-store-custom-linux-telegraf/telegraf-agent-overview .png)
+ ![Telegraph Agent Overview](./media/metrics-store-custom-linux-telegraf/telegraf-agent-overview.png)
 
 ## Send custom metrics 
 
@@ -87,7 +87,7 @@ telegraf --input-filter cpu:mem --output-filter azure_monitor config > azm-teleg
 sudo cp azm-telegraf.conf /etc/telegraf/telegraf.conf 
 ```
 >![NOTE]
-> The above only enables two input plugins “cpu” and “mem”, feel free to add more input plugins (Docker, MySQL, NGINX, etc.) depending on the workload running on your machine. A full list of input plugins can be found here. 
+>The above only enables two input plugins “cpu” and “mem”, feel free to add more input plugins (Docker, MySQL, NGINX, etc.) depending on the workload running on your machine. A full list of input plugins can be found here. 
 
 Finally, to have the agent start using the new configuration we force the agent to stop and start, by running the following commands 
 

@@ -46,7 +46,8 @@ Create a service principle in your Azure Active Directory tenant using the instr
 
 Give the app created in the previous step *Monitoring Metrics Publisher* permissions to the resource you wish to emit metrics against. If you plan to use the app to emit custom metrics against many resources, you can grant these permissions at the resource group or subscription level.  
 
-![NOTE]: The Diagnostics Extension uses the service principal to authenticate against Azure Monitor and emit metrics for your cloud service 
+>![NOTE]
+>The Diagnostics Extension uses the service principal to authenticate against Azure Monitor and emit metrics for your cloud service 
 
 ## Author Diagnostics Extension Configuration 
 
