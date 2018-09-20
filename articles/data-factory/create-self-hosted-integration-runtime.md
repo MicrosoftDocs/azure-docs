@@ -105,141 +105,131 @@ A self-hosted integration runtime can be associated with multiple on-premises ma
 * Higher availability of self-hosted integration runtime so that it is no longer the single point of failure in your big data	solution or cloud data integration with Azure Data Factory, ensuring continuity with up to four nodes.
 * Improved performance and throughput during data movement between on-premises and cloud data stores. Get more information on [performance comparisons](copy-activity-performance.md).
 
-You can associate multiple nodes by simply installing the self-hosted integration runtime software from the [download center](https://www.microsoft.com/download/details.aspx?id=39717) and by registering it by either of the Authentication Keys obtained from New-AzureRmDataFactoryV2IntegrationRuntimeKey cmdlet as described in the [tutorial](tutorial-hybrid-copy-powershell.md)
+You can associate multiple nodes by simply installing the self-hosted integration runtime software from the [download center](https://www.microsoft.com/download/details.aspx?id=39717). Then, register it by either of the authentication keys obtained from the New-AzureRmDataFactoryV2IntegrationRuntimeKey cmdlet, as described in the [tutorial](tutorial-hybrid-copy-powershell.md).
 
 > [!NOTE]
-> You do not need to create new self-hosted integration runtime for associating each node. You can install the self-hosted integration runtime on another machine and register it using the same Authentication Key. 
+> You don't need to create new self-hosted integration runtime for associating each node. You can install the self-hosted integration runtime on another machine and register it by using the same authentication key. 
 
 > [!NOTE]
-> Before adding another node for **High Availability and Scalability**, please ensure **'Remote access to intranet'** option is **enabled** on the 1st node (Microsoft Integration Runtime Configuration Manager -> Settings -> Remote access to intranet). 
+> Before you add another node for **High Availability and Scalability**, ensure that the **Remote access to intranet** option is **enabled** on the first node (**Microsoft Integration Runtime Configuration Manager** > **Settings** > **Remote access to intranet**). 
 
 ### Scale considerations
 
 #### Scale out
 
-When the **available memory on the self-hosted IR is low** and the **CPU usage is high**, adding a new node helps scale out the load across machines. If activities are failing due to time-out or self-hosted IR node being offline, it helps if you add a node to the gateway.
+When the available memory on the self-hosted IR is low and the CPU usage is high, adding a new node helps scale out the load across machines. If activities are failing because they're timing our or because the self-hosted IR node is offline, it helps if you add a node to the gateway.
 
 #### Scale up
 
 When the available memory and CPU are not utilized well, but the concurrent jobs execution is reaching the limit, you should scale up by increasing the number of concurrent jobs that can run on a node. You may also want to scale up when activities are timing out because the self-hosted IR is overloaded. As shown in the following image, you can increase the maximum capacity for a node.  
 
-![](media\create-self-hosted-integration-runtime\scale-up-self-hosted-IR.png)
+![Increasing concurrent jobs that can run on an node](media\create-self-hosted-integration-runtime\scale-up-self-hosted-IR.png)
 
 ### TLS/SSL certificate requirements
 
 Here are the requirements for the TLS/SSL certificate that is used for securing communications between integration runtime nodes:
 
-- The certificate must be a publicly trusted X509 v3 certificate. We recommend that you use certificates that are issued by a public (third-party) certification authority (CA).
+- The certificate must be a publicly trusted X509 v3 certificate. We recommend that you use certificates that are issued by a public (partner) certification authority (CA).
 - Each integration runtime node must trust this certificate.
-- SAN certificates are not recommended since only the last item of the Subject Alternative Names will be used and all others will be ignored due to current limitation. E.g. you have a SAN certificate whose SAN are **node1.domain.contoso.com** and **node2.domain.contoso.com**, you can only use this cert on machine whose FQDN is **node2.domain.contoso.com**.
-- Supports any key size supported by Windows Server 2012 R2 for SSL certificates.
-- Certificate using CNG keys are not supported.  
+- We don't recommend Subject Alternative Name (SAN) certificates because only the last SAN item will be used and all others will be ignored due to current limitations. For example, if you have a SAN certificate whose SANs are **node1.domain.contoso.com** and **node2.domain.contoso.com**, you can use this certificate only on a machine whose FQDN is **node2.domain.contoso.com**.
+- The certificate supports any key size supported by Windows Server 2012 R2 for SSL certificates.
+- Certificates that use CNG keys are not supported.  
 
 ## Sharing the self-hosted integration runtime with multiple data factories
 
-You can reuse an existing self-hosted integration runtime infrastructure that you may already have setup in a data factory. This allows you to create a **linked self-hosted integration runtime** in a different data factory by referencing an already existing self-hosted IR (Shared).
+You can reuse an existing self-hosted integration runtime infrastructure that you already set up in a data factory. This enables you to create a **linked self-hosted integration runtime** in a different data factory by referencing an already existing self-hosted IR (shared).
 
-#### **Terminologies**
+#### Terminology
 
-- **Shared IR** – The original self-hosted IR which is running on a physical infrastructure.  
-- **Linked IR** – The IR which references another Shared IR. This is a logical IR and uses the infrastructure of another self-hosted IR (shared).
+- **Shared IR**: The original self-hosted IR that's running on a physical infrastructure.  
+- **Linked IR**: The IR that references another shared IR. This is a logical IR and uses the infrastructure of another self-hosted IR (shared).
 
-#### High level steps for creating a Linked self-hosted IR
+#### High-level steps for creating a linked self-hosted IR
 
-In the self-hosted IR to be shared,
+1. In the self-hosted IR to be shared, grant permission to the data factory in which you want to create the linked IR. 
 
-1. Grant permission to the Data Factory in which you would like to create the Linked IR. 
+   ![Button for granting permission on the Sharing tab](media\create-self-hosted-integration-runtime\grant-permissions-IR-sharing.png)
 
-   ![](media\create-self-hosted-integration-runtime\grant-permissions-IR-sharing.png)
+   ![Selections for assigning permissions](media\create-self-hosted-integration-runtime\3_rbac_permissions.png)
 
-   ![](media\create-self-hosted-integration-runtime\3_rbac_permissions.png)
+2. Note the resource ID of the self-hosted IR to be shared.
 
-2. Note the **Resource ID** of the self-hosted IR to be shared.
+   ![Location of the resource ID](media\create-self-hosted-integration-runtime\4_ResourceID_self-hostedIR.png)
 
-   ![](media\create-self-hosted-integration-runtime\4_ResourceID_self-hostedIR.png)
+3. In the data factory to which the permissions were granted, create a new self-hosted IR (linked) and enter the resource ID.
 
-In the Data Factory to which the permissions were granted,
+   ![Button for creating a linked self-hosted integration runtime](media\create-self-hosted-integration-runtime\6_create-linkedIR_2.png)
 
-3. Create a new Self-hosted IR (linked) and enter the above **Resource ID**
-
-   ![](media\create-self-hosted-integration-runtime\6_create-linkedIR_2.png)
-
-   ![](media\create-self-hosted-integration-runtime\6_create-linkedIR_3.png)
+   ![Boxes for name and resource ID](media\create-self-hosted-integration-runtime\6_create-linkedIR_3.png)
 
 #### Monitoring 
 
 - **Shared IR**
 
-  ![](media\create-self-hosted-integration-runtime\Contoso-shared-IR.png)
+  ![Selections for finding a shared integration runtime](media\create-self-hosted-integration-runtime\Contoso-shared-IR.png)
 
-  ![](media\create-self-hosted-integration-runtime\contoso-shared-ir-monitoring.png)
+  ![Tab for monitoring](media\create-self-hosted-integration-runtime\contoso-shared-ir-monitoring.png)
 
 - **Linked IR**
 
-  ![](media\create-self-hosted-integration-runtime\Contoso-linked-ir.png)
+  ![Selections for finding a linked integration runtime](media\create-self-hosted-integration-runtime\Contoso-linked-ir.png)
 
-  ![](media\create-self-hosted-integration-runtime\Contoso-linked-ir-monitoring.png)
+  ![Tab for monitoring](media\create-self-hosted-integration-runtime\Contoso-linked-ir-monitoring.png)
 
 #### Known limitations of self-hosted IR sharing
 
-1. Default number of linked IR that can be created under single self-hosted IR is **20**. If you require more then contact Support. 
+* The default number of linked IRs that can be created under single self-hosted IR is **20**. If you need more, contact Support. 
 
-2. The data factory in which linked IR is to be created must have an MSI ([managed service identity](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)). By default, the data factories created in Ibiza portal or PowerShell cmdlets will have MSI 
-  created implicitly. However, in some cases when data factory is created using an Azure Resorce Manager template or SDK, the “**Identity**” **property must be set** explicitly to ensure Azure Resorce Manager creates a data factory containing an MSI. 
+* The data factory in which a linked IR will be created must have an MSI ([managed service identity](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)). By default, the data factories created in the Azure portal or PowerShell cmdlets will have an MSI created implicitly. However, in some cases when a data factory is created through an Azure Resorce Manager template or an SDK, the **Identity** property must be set explicitly to ensure that Azure Resorce Manager creates a data factory that contains an MSI. 
 
-3. The self-hosted IR version must be equal or greater than 3.8.xxxx.xx. Please [download the latest version](https://www.microsoft.com/download/details.aspx?id=39717) of self-hosted IR
+* The self-hosted IR version must be equal to or greater than 3.8.xxxx.xx. [Download the latest version](https://www.microsoft.com/download/details.aspx?id=39717) of the self-hosted IR.
 
-4. The data factory in which linked IR is to be created must have an MSI ([managed service identity](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)). By default,
-the data factories created in Ibiza portal or PowerShell cmdlets will have MSI ([managed service identity](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)).
-created implicitly, however, data factories created with Azure Resource Manager (ARM) template or SDK requires “Identity” property to be set to ensure an MSI is created.
+* The Azure Data Factory .NET SDK that supports this feature is version 1.1.0 or later.
 
-5. The ADF .Net SDK which support this feature is version >= 1.1.0
+* The Azure PowerShell instance that supports this feature is version 6.6.0 or later (for AzureRM.DataFactoryV2, version 0.5.7 or later).
 
-6. The Azure PowerShell which support this feature is version >= 6.6.0
-(AzureRM.DataFactoryV2 >= 0.5.7)
-
-7. To Grant permission, the user will require "Owner" role or inherited "Owner" role in the Data Factory where the Shared IR exists. 
+* To grant permission, the user will need the Owner role or the inherited Owner role in the data factory where the shared IR exists. 
 
   > [!NOTE]
-  > This feature is only available in Azure Data Factory version 2 
+  > This feature is available only in Azure Data Factory version 2. 
 
-## System tray icons/ notifications
+## System tray icons/notifications
 
-If you move cursor over the system tray icon/notification message, you can find details about the state of the self-hosted integration runtime.
+If you move your cursor over the icon or message in the notification area, you can find details about the state of the self-hosted integration runtime.
 
-![System tray notifications](media\create-self-hosted-integration-runtime\system-tray-notifications.png)
+![Notifications in the notification area](media\create-self-hosted-integration-runtime\system-tray-notifications.png)
 
 ## Ports and firewall
-There are two firewalls you need to consider: **corporate firewall** running on the central router of the organization, and **Windows firewall** configured as a daemon on the local machine where the self-hosted integration runtime is installed.
+There are two firewalls to consider: the *corporate firewall* running on the central router of the organization, and *Windows firewall* configured as a daemon on the local machine where the self-hosted integration runtime is installed.
 
 ![Firewall](media\create-self-hosted-integration-runtime\firewall.png)
 
-At **corporate firewall** level, you need configure the following domains and outbound ports:
+At the *corporate firewall* level, you need to configure the following domains and outbound ports:
 
 Domain names | Ports | Description
 ------------ | ----- | ------------
-*.servicebus.windows.net | 443 | Used for communication with Data Movement Service backend
-*.core.windows.net | 443 | Used for Staged copy using Azure Blob (if configured)
-*.frontend.clouddatahub.net | 443 | Used for communication with Data Movement Service backend
+*.servicebus.windows.net | 443 | Used for communication with the back-end data movement service
+*.core.windows.net | 443 | Used for staged copy through Azure Blob storage (if configured)
+*.frontend.clouddatahub.net | 443 | Used for communication with the back-end data movement service
 download.microsoft.com | 443 | Used for downloading the updates
 
-At **Windows firewall** level (machine level), these outbound ports are normally enabled. If not, you can configure the domains and ports accordingly on self-hosted integration runtime machine.
+At the *Windows firewall* level (machine level), these outbound ports are normally enabled. If not, you can configure the domains and ports accordingly on a self-hosted integration runtime machine.
 
 > [!NOTE]
-> Based on your source/ sinks, you may have to whitelist additional domains and outbound ports in your corporate/Windows firewall.
+> Based on your source and sinks, you might have to whitelist additional domains and outbound ports in your corporate firewall or Windows firewall.
 >
-> For some Cloud Databases (For example: Azure SQL Database, Azure Data Lake, etc.), you may need to whitelist IP address of self-hosted integration runtime machine on their firewall configuration.
+> For some cloud databases (for example, Azure SQL Database and Azure Data Lake), you might need to whitelist IP addresses of self-hosted integration runtime machines on their firewall configuration.
 
 ### Copy data from a source to a sink
 Ensure that the firewall rules are enabled properly on the corporate firewall, Windows firewall on the self-hosted integration runtime machine, and the data store itself. Enabling these rules allows the self-hosted integration runtime to connect to both source and sink successfully. Enable rules for each data store that is involved in the copy operation.
 
-For example, to copy from an **on-premises data store to an Azure SQL Database sink or an Azure SQL Data Warehouse sink**, do the following steps:
+For example, to copy from an on-premises data store to an Azure SQL Database sink or an Azure SQL Data Warehouse sink, take the following steps:
 
-- Allow outbound **TCP** communication on port **1433** for both Windows firewall and corporate firewall.
-- Configure the firewall settings of Azure SQL server to add the IP address of the self-hosted integration runtime machine to the list of allowed IP addresses.
+1. Allow outbound TCP communication on port 1433 for both Windows firewall and corporate firewall.
+2. Configure the firewall settings of the Azure SQL database to add the IP address of the self-hosted integration runtime machine to the list of allowed IP addresses.
 
 > [!NOTE]
-> If your firewall does not allow outbound port 1433, self-hosted integration runtime can't access Azure SQL directly. In this case, you may use [Staged Copy](copy-activity-performance.md) to SQL Azure Database/ SQL Azure DW. In this scenario, you would only require HTTPS (port 443) for the data movement.
+> If your firewall does not allow outbound port 1433, the self-hosted integration runtime can't access the Azure SQL database directly. In this case, you can use a [staged copy](copy-activity-performance.md) to Azure SQL Database and Azure SQL Data Warehouse. In this scenario, you would require only HTTPS (port 443) for the data movement.
 
 
 ## Proxy server considerations
