@@ -25,14 +25,14 @@ ms.reviewer: jairoc
 
 # How To: Manage the stale devices in Azure AD
 
-Ideally, to complete the lifecyle, registered devices should be unregistered when they are not needed anymore. However, due to, for example, lost, stolen,broken devices, or OS reinstallations you typically have stale devices in your environment. As an IT admin, you probably want a method to remove stale devices, so that you can focus your resources on managing devices that actually require management.
+Ideally, to complete the lifecycle, registered devices should be unregistered when they are not needed anymore. However, due to, for example, lost, stolen, broken devices, or OS reinstallations you typically have stale devices in your environment. As an IT admin, you probably want a method to remove stale devices, so that you can focus your resources on managing devices that actually require management.
 
 In this article, you learn how to efficiently manage stale devices in your environment.
   
 
 ## What is a stale device?
 
-A stale device is a device that has been registered with Azure AD but has not been used to access any cloud apps for a specific timeframe. Stale devices have an impact impact on your ability to manage and support your devices and users in the tenant because: 
+A stale device is a device that has been registered with Azure AD but has not been used to access any cloud apps for a specific timeframe. Stale devices have an impact on your ability to manage and support your devices and users in the tenant because: 
 
 - Duplicate devices can make it difficult for your helpdesk staff to identify which device is currently active.
 
@@ -47,7 +47,7 @@ Stale devices in Azure AD can interfere with the general lifecycle policies for 
 
 ## Detect stale devices
 
-Because a stale device is defined as registered device that hasn't been used to access any cloud apps for a specific timeframe, detecting stale devices requires a timestamp related property. In Azure AD, this property is called **ApproximateLastLogonTimestamp** or **activity timestamp**. If the delta between now and the value of the **activity timestamp** exceeds the timeframe you have defined for active devices, a device is considered to be stale.
+Because a stale device is defined as registered device that hasn't been used to access any cloud apps for a specific timeframe, detecting stale devices requires a timestamp-related property. In Azure AD, this property is called **ApproximateLastLogonTimestamp** or **activity timestamp**. If the delta between now and the value of the **activity timestamp** exceeds the timeframe you have defined for active devices, a device is considered to be stale.
 
 ## How is the value of the activity timestamp managed?  
 
@@ -67,7 +67,7 @@ If the delta between the existing value of the activity timestamp and the curren
 
 You have two options to retrieve the value of the activity timestamp:
 
-- The **Activity** colum on the [devices page](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices) in the Azure portal
+- The **Activity** column on the [devices page](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices) in the Azure portal
 
     ![Activity timestamp](./media/manage-stale-devices/01.png)
 
@@ -80,7 +80,7 @@ You have two options to retrieve the value of the activity timestamp:
 
 ## Plan the cleanup of your stale devices
 
-To efficiently cleanup stale devices in your environment, you should define a related policy. This policy helps you to ensure that you capture all considerations that are related to stale devices. The following sections provide you with examples for common policy considerations. 
+To efficiently clean up stale devices in your environment, you should define a related policy. This policy helps you to ensure that you capture all considerations that are related to stale devices. The following sections provide you with examples for common policy considerations. 
 
 ### Cleanup account
 
@@ -109,9 +109,9 @@ It is not advisable to immediately delete a device that appears to be stale beca
 If your device is under control of Intune or any other MDM solution, retire the device in the management system before disabling or deleting it.
 
 
-### System managed devices
+### System-managed devices
 
-Don't delete system managed devices. These are generally devices such as auto-pilot. Once deleted, these devices  can't be re-provisioned. The new Get-MmsolDevice cmdlet excludes system managed devices by default. 
+Don't delete system-managed devices. These are generally devices such as auto-pilot. Once deleted, these devices  can't be reprovisioned. The new Get-MmsolDevice cmdlet excludes system-managed devices by default. 
 
 
 ### Hybrid Azure AD joined devices
@@ -139,7 +139,7 @@ Disable or delete Azure AD registered devices in the Azure AD.
 
 ## Cleanup stale devices in the Azure portal  
 
-While you can cleanup stale devices in the Azure portal, it is more efficient, to handle this process using a PowerShell script. You must use the latest PowerShell V1 module to use the timestamp filter and to filter out system managed devices such as auto-pilot. At this point, using PowerShell V2 is not recommended.
+While you can cleanup stale devices in the Azure portal, it is more efficient, to handle this process using a PowerShell script. Use the latest PowerShell V1 module to use the timestamp filter and to filter out system-managed devices such as auto-pilot. At this point, using PowerShell V2 is not recommended.
 
 
 A typical routine consists of the following steps:
@@ -161,7 +161,7 @@ Get-MsolDevice -all | select-object -Property Enabled, DeviceId, DisplayName, De
 mateLastLogonTimestamp | export-csv devicelist-summary.csv
 ```
 
-if you have a large amount of devices in your directory, use the timestamp filter to narrow down the number of returned devices. To get all devices with a timestamp older than specific date and store the returned data in a CSV file: 
+if you have a large number of devices in your directory, use the timestamp filter to narrow down the number of returned devices. To get all devices with a timestamp older than specific date and store the returned data in a CSV file: 
 
 ```powershell
 $dt = [datetime]’2017/01/01’
@@ -189,7 +189,7 @@ Any authentication where a device is being used to authenticate to Azure AD are 
 
 - **Hybrid Azure AD joined device** - Users might be to use the device to sign-in to their on-premises domain. However, they can't access Azure AD resources such as Office 365.
 
-- **Azure AD joined device** - Users can't use the device to sign-in. 
+- **Azure AD joined device** - Users can't use the device to sign in. 
 
 - **Mobile devices** - User can't access Azure AD resources such as Office 365. 
 
