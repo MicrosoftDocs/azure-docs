@@ -22,7 +22,7 @@ Cancel operation
 =================
 
 This API cancels an operation currently in progress on the offer. Use the [Retrieve operations
-API](./cloud-partner-portal-api-retrieve-operations.html) to get an
+API](./cloud-partner-portal-api-retrieve-operations.md) to get an
 `operationId` to pass to this API. Cancellation is usually a synchronous
 operation, however in some complex scenarios a new operation may be
 required to cancel an existing one. In this case, the HTTP response body
