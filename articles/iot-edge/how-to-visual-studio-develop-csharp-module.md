@@ -32,7 +32,7 @@ Because this article uses Visual Studio 2017 as the main development tool, insta
 
 After your Visual Studio 2017 is ready, you also need:
 
-- Download and Install [Azure IoT Edge extension](https://marketplace.visualstudio.com/items?itemName=vsc-iot.azureiotedgetools) from Visual Studio marketplace to create IoT Edge project in Visual Studio 2017.
+- Download and install [Azure IoT Edge extension](https://marketplace.visualstudio.com/items?itemName=vsc-iot.azureiotedgetools) from Visual Studio marketplace to create IoT Edge project in Visual Studio 2017.
 - [Docker Community Edition](https://docs.docker.com/install/) on your development machine to build and run your module images. You need to properly set the Docker CE running in Linux container mode or Windows container mode.
 - To set up local development environment to debug, run, and test your IoT Edge solution, you need [Azure IoT EdgeHub Dev Tool](https://pypi.org/project/iotedgehubdev/). Install [Python (2.7/3.6) and Pip](https://www.python.org/). Then install **iotedgehubdev** by running below command in your terminal. Make sure your Azure IoT EdgeHub Dev Tool version is greater than 0.3.0.
 
@@ -49,7 +49,7 @@ After your Visual Studio 2017 is ready, you also need:
 
 1. From the **Tools** menu, choose **Extensions and Updates**. Expand **Installed > Tools** and you can find **Azure IoT Edge** and **Cloud Explorer**.
 
-2. Note the installed Version. You can compare this version with the latest version on Visual Studio Marketplace ([Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS), [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsc-iot.azureiotedgetools))
+2. Note the installed version. You can compare this version with the latest version on Visual Studio Marketplace ([Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS), [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsc-iot.azureiotedgetools))
 
 3. If your version is older, update your tools in Visual Studio as shown in the following section.
 
@@ -121,7 +121,7 @@ Typically, we want to test/debug each module before we make it running within an
 
 ## Build and debug IoT Edge solution with multiple modules
 
-After finish developing single module, next, we want to run and debug the entire solution with multiple modules.
+After we finish developing single module, next, we want to run and debug the entire solution with multiple modules.
 
 1. Add your second C# module into the solution. Right-click **AzureIoTEdgeApp1** and select **Add** -> **New IoT Edge Module**. The default name of the second module is **IoTEdgeModule2** and it is still a pipe module.
 
@@ -186,7 +186,7 @@ In the quickstart article that you used to set up your IoT Edge device, you depl
 
 2. In **Cloud Explorer**, expand your subscription, find your Azure IoT Hub and the Azure IoT Edge device you want to deploy.
 
-3. Right click on IoT Edge device to create deployment for it, you need to choose the deployment manifest file under the `$AzureIoTEdgeApp1\config\Debug|Release\deployment.json`.
+3. Right-click on IoT Edge device to create deployment for it, you need to choose the deployment manifest file under the `$AzureIoTEdgeApp1\config\Debug|Release\deployment.json`.
 
 4. Click the refresh button. You should see the new modules running along with the **TempSensor** module and the **$edgeAgent** and **$edgeHub**.
 
