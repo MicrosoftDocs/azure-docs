@@ -271,14 +271,23 @@ Learn how to [download metrics and diagnostics logs from Storage](../storage/blo
 
 ## Metrics and logs available
 
-### All metrics (databases and elastic pools)
+### All metrics
+
+####Elastic pools
 
 |**Resource**|**Metrics**|
 |---|---|
-|Database|DTU percentage, DTU used, DTU limit, CPU percentage, physical data read percentage, log write percentage, Successful/Failed/Blocked by firewall connections, sessions percentage, workers percentage, storage, storage percentage, XTP storage percentage, and deadlocks |
 |Elastic pool|eDTU percentage, eDTU used, eDTU limit, CPU percentage, physical data read percentage, log write percentage, sessions percentage, workers percentage, storage, storage percentage, storage limit, XTP storage percentage |
 
-### Logs (Managed Instance)
+####Azure SQL Database
+
+|**Resource**|**Metrics**|
+|---|---|
+|Azure SQL Database|DTU percentage, DTU used, DTU limit, CPU percentage, physical data read percentage, log write percentage, Successful/Failed/Blocked by firewall connections, sessions percentage, workers percentage, storage, storage percentage, XTP storage percentage, and deadlocks |
+
+### Logs
+
+#####Managed Instance
 
 ### Resource Usage Stats
 
@@ -305,7 +314,7 @@ Learn how to [download metrics and diagnostics logs from Storage](../storage/blo
 |io_bytes_read_s|IOPS bytes read|
 |io_bytes_written_s|IOPS bytes written|
 
-### Logs (Azure SQL Database or Managed Instance database)
+####Azure SQL Database and Managed Instance database
 
 ### Query Store runtime statistics
 
