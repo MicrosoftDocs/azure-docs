@@ -20,7 +20,7 @@ Ansible allows you to automate the deployment and configuration of resources in 
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
 > [!Note]
-> Ansible 2.7 is required to run the following the sample playbooks in this tutorial. You could install Ansible 2.7 RC version by running `sudo pip install ansible[azure]==2.7.0rc2`. Ansible 2.7 will be released on Oct 4th. After that, you need not specify the version here because the default version will be 2.7. 
+> Ansible 2.7 is required to run the following the sample playbooks in this tutorial. You could install Ansible 2.7 RC version by running `sudo pip install ansible[azure]==2.7.0rc2`. Ansible 2.7 will be released on 4th Oct. After that, you need not specify the version here because the default version will be 2.7. 
 
 ## Create a Simple Java Web App in App Service on Linux
 This section presents a sample Ansible playbook that defines the folliwng resources:
@@ -65,7 +65,8 @@ To run the playbook,  use the **ansible-playbook** command as follows:
 ansible-playbook firstwebapp.yml
 ```
 
-After running the playbook, output similiar to the following example shows that the Web app has been successfully created:
+The output from running the Ansible playbook shows that the Web app has been successfully created:
+
 ```
 TASK [Create a resource group] *************************************************
 changed: [localhost]
@@ -83,9 +84,9 @@ localhost                  : ok=2    changed=2    unreachable=0    failed=0
 You can use [Azure Traffic Manager](https://docs.microsoft.com/azure/app-service/web-sites-traffic-manager) to control how requests from web clients are distributed to apps in Azure App Service. When App Service endpoints are added to an Azure Traffic Manager profile, Azure Traffic Manager keeps track of the status of your App Service apps (running, stopped, or deleted) so that it can decide which of those endpoints should receive traffic.
 
 In App Service, an app runs in an [App Service plan](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview
-). An App Service plan defines a set of compute resources for a web app to run. You can manage your App Serivce plan and Web App in diffirient groups.
+). An App Service plan defines a set of compute resources for a web app to run. You can manage your App Service plan and Web App in diffirient groups.
 
-This section presents a sample Ansible playbook that defines the folliwng resources:
+This section presents a sample Ansible playbook that defines the following resources:
 - Resource group, where your app service plan will be deployed to
 - App Service Plan
 - Secondary Resource group, where your web app will be deployed to
@@ -181,7 +182,7 @@ To run the playbook,  use the **ansible-playbook** command as follows:
 ansible-playbook webapp.yml
 ```
 
-After running the playbook, output similiar to the following example shows that the App service plan, Web app, Traffic Manager profile and endpoint has been successfully created:
+The output from running the Ansible playbook shows that the App service plan, Web app, Traffic Manager profile and endpoint have been successfully created:
 ```
 TASK [Create resource group] ****************************************************************************
 changed: [localhost]
