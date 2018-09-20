@@ -14,7 +14,7 @@ ms.reviewer: vanto
 ---
 # Azure SQL Database Managed Instance Threat Detection
 
-SQL Threat Detection detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases in an Azure SQL Database Managed Instance (preview).
+SQL Threat Detection detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases in an Azure SQL Database Managed Instance.
 
 ## Overview
 
