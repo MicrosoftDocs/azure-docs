@@ -70,4 +70,4 @@ az group delete --name myResourceGroup --no-wait --yes
 
 ## Next steps
 
-If you run into any issues, you can [troubleshoot shared image galleries](troubleshoot-shared-images.md).
+If you run into any issues, you can [troubleshoot shared image galleries](troubleshooting-shared-images.md).
