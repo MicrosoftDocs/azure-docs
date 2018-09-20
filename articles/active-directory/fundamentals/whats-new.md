@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/27/2018
+ms.date: 09/24/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
 ---
@@ -34,7 +34,7 @@ This page is updated monthly, so revisit it regularly.
 ---
 ## September 2018
  
-### Specific administrator roles can now manage dynamic membership rules in Azure AD
+### Updated administrator role permissions for dynamic groups
 
 **Type:** Fixed  
 **Service category:** Group Management  
@@ -50,7 +50,7 @@ The roles are:
 
 - User Account Administrator
 
-For more information, see ...
+For more information, see [Create a dynamic group and check status](../users-groups-roles/groups-create-rule.md)
 
 ---
 
@@ -68,21 +68,19 @@ We realize that setting up Single Sign-On (SSO) for Software as a Service (SaaS)
 
 - Jamf Pro
 
-To start using this 1-click experience, go to the **Azure portal** > **SSO configuration** page for the app.
-
-For more information, see [SaaS application integration with Azure Active Directory](../saas-apps/tutorial-list.md)
+To start using this 1-click experience, go to the **Azure portal** > **SSO configuration** page for the app. For more information, see [SaaS application integration with Azure Active Directory](../saas-apps/tutorial-list.md)
 
 ---
 
-### New Azure Active Directory - Where is your data located? page
+### Azure Active Directory - Where is your data located? page
 
 **Type:** New feature  
 **Service category:** Other  
 **Product capability:** GoLocal
 
-Select a region from the **Azure Active Directory - Where is your data located** page (http://aka.ms/AADDataMap) to view which Azure datacenter houses your Azure AD data at rest for all Azure AD services. You can also use this page to view specific Azure AD services for your company's region.
+Select your company's region from the **Azure Active Directory - Where is your data located** page to view which Azure datacenter houses your Azure AD data at rest for all Azure AD services. You can filter the information by specific Azure AD services for your company's region.
 
-For more information, see ...
+To access this feature and for more information, see [Azure Active Directory - Where is your data located](http://aka.ms/AADDataMap).
 
 ---
 
@@ -98,16 +96,16 @@ For more information, see ...
 
 ---
 
-### New deployment plan available for the MyApps Access panel
+### New deployment plan available for the My Apps Access panel
 
 **Type:** New feature  
 **Service category:** My Apps  
 **Product capability:** SSO
 
-Check out the new deployment plan that's available for the MyApps Access panel (http://aka.ms/deploymentplans).
-The MyApps Access panel provides users with a single place to find and access their apps. This portal also provides users with self-service opportunities, such as requesting access to apps and groups, or managing access to these resources on behalf of others.
+Check out the new deployment plan that's available for the My Apps Access panel (http://aka.ms/deploymentplans).
+The My Apps Access panel provides users with a single place to find and access their apps. This portal also provides users with self-service opportunities, such as requesting access to apps and groups, or managing access to these resources on behalf of others.
 
-For more information, see ...
+For more information, see [What is the My Apps portal?](../user-help/active-directory-saas-access-panel-introduction.md)
 
 ---
 
@@ -120,18 +118,6 @@ For more information, see ...
 The new **Troubleshooting and Support** tab on the **Sign-ins** page of the Azure portal, is intended to help admins and support engineers troubleshoot issues related to Azure AD sign-ins. This new tab provides the error code, error message, and remediation recommendations (if any) to help solve the problem. If you're unable to resolve the problem, we also give you a new way to create a support ticket using the **Copy to clipboard** experience, which populates the **Request ID** and **Date (UTC)** fields for the log file in your support ticket.  
 
 For more information, see ... 
-
----
-
-### Enhanced error messaging on Azure AD sign-in pages
-
-**Type:** New feature  
-**Service category:** Authentications (Logins)  
-**Product capability:** User Authentication
- 
-We’ve enhanced the error messaging for the Azure AD sign-in pages. This enhancement helps users understand whether they've entered the wrong username or password, or if both the username and password are correct, but aren't synced to Azure AD. This is particularly helpful for users in partially synced organizations, who might have a valid work email address, but whose account hasn't yet been synced to Azure AD.
-
-For more information, see [Hybrid identity and Microsoft's identity solutions](../hybrid/whatis-hybrid-identity.md)
 
 ---
 
