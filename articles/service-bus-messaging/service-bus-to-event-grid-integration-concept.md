@@ -125,7 +125,7 @@ To create a new Event Grid subscription, do the following:
 2. In the left pane, select the **Event Grid**. 
 3. Select **Event Subscription**.  
 
-   The following image displays a namespace that has a few Event Grid subscriptions:
+   The following image displays a namespace that has an Event Grid subscription:
 
    ![Event grid subscriptions](./media/service-bus-to-event-grid-integration-concept/sbtoeventgridportal.png)
 
