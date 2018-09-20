@@ -3,7 +3,7 @@ title: Private SKUs | Microsoft Docs
 description: How to use private SKUs to manage the offer availability.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
-author: v-wesda
+author: dan-wesley
 manager: Patrick.Butler  
 editor:
 
