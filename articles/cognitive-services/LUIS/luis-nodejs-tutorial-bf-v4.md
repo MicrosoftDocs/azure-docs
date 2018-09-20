@@ -13,15 +13,15 @@ ms.author: diberry
 ---
 
 # Tutorial: LUIS bot in Node.js
-Using Node.js, build a chat bot integrated with language understanding (LUIS). This bot uses the HomeAutomation app to quickly implement a bot solution. The bot is built with [Bot Framework version](https://github.com/Microsoft/botbuilder-js) v4 and the Azure [Web app bot](https://docs.microsoft.com/azure/bot-service/).
+Using Node.js, you can build a chat bot integrated with language understanding (LUIS). This bot uses the HomeAutomation app to implement a bot solution. The bot is built the Azure [Web app bot](https://docs.microsoft.com/azure/bot-service/) with [Bot Framework version](https://github.com/Microsoft/botbuilder-js) v4.
 
 **In this tutorial, you learn how to:**
 
 > [!div class="checklist"]
-> * Create a web app bot
-> * Add prebuilt domain to new LUIS model
-> * Download bot code project from Azure portal
-> * Start bot & emulator
+> * Create a web app bot. This process creates a new LUIS app for you.
+> * Add a prebuilt domain to the new LUIS model
+> * Download the project created by the Web bot service
+> * Start bot & emulator locally on your computer
 > * Modify bot code for new LUIS intents
 > * View utterance results in bot
 
@@ -35,11 +35,11 @@ https://github.com/Microsoft/BotBuilder-Samples/tree/v4/javascript_nodejs/12.nlp
 
 ## Create web app bot
 
-1. In the [Azure portal](https://portal.azure.com), select **Create new resource**, select **See all**.
+1. In the [Azure portal](https://portal.azure.com), select **Create new resource**.
 
-2. In the search box, search for **Web App Bot**. 
+2. In the search box, search for and select **Web App Bot**. Select **Create**.
 
-3. In the **Bot Service** blade, provide the required information:
+3. In **Bot Service**, provide the required information:
 
     |Setting|Purpose|Suggested setting|
     |--|--|--|
@@ -64,10 +64,10 @@ https://github.com/Microsoft/BotBuilder-Samples/tree/v4/javascript_nodejs/12.nlp
 
     ![Create web app bot](./media/bfv4-nodejs/create-web-app-service.png)
 
-6. Leave this browser tab open. For any steps with the LUIS portal, open a new browser tab. 
+6. Leave this browser tab open. For any steps with the LUIS portal, open a new browser tab. Continue to the next section when the new bot service is deployed.
 
 ## Add prebuilt domain to model
-The basic bot provides intent mapping to the new LUIS app for the following intents: 
+Part of the bot service deployment creates a new LUIS app with intents and example utterances. The bot provides intent mapping to the new LUIS app for the following intents: 
 
 |Basic bot LUIS intents|example utterance|
 |--|--|
