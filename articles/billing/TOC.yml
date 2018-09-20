@@ -43,7 +43,9 @@
         href: billing-understand-vm-reservation-charges.md
       - name: SQL Database reserved capacity
         href: billing-understand-reservation-charges.md
-        name: SUSE Linux software plans
+      - name: Cosmos DB reserved capacity
+        href: billing-understand-cosmosdb-reservation-charges.md
+      - name: SUSE Linux software plans
         href: billing-understand-suse-reservation-charges.md
     - name: Software costs not included
       href: billing-reserved-instance-windows-software-costs.md
