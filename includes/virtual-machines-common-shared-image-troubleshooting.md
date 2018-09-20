@@ -20,7 +20,7 @@ If you run into issues while performing any operations on Shared Image Galleries
 
 Possible causes:
 
-The gallery name is invalid. Allowed characters for Gallery name are uppercase or lowercase letters, digits, dots and periods. The gallery name cannot have dashes in it. Please change the gallery name and try again. 
+The gallery name is invalid. Allowed characters for Gallery name are uppercase or lowercase letters, digits, dots, and periods. The gallery name cannot have dashes in it. Change the gallery name and try again. 
 
 The gallery name is not unique within your subscription. Pick another gallery name and try again.
 
@@ -29,7 +29,7 @@ The gallery name is not unique within your subscription. Pick another gallery na
 
 Possible causes:
 
-image definition name is invalid. Allowed characters for image definition are uppercase or lowercase letters, digits, dots, dashes and periods. Please change the image definition name and try again.
+image definition name is invalid. Allowed characters for image definition are uppercase or lowercase letters, digits, dots, dashes and periods. Change the image definition name and try again.
 
 The mandatory properties for creating an image definition resource are not populated. The properties such as name, publisher, offer, sku, and OS type are mandatory. Verify if all the properties are being passed.
 
@@ -40,7 +40,7 @@ Make sure that the **OSType**, either Linux or Windows, of the image definition 
 
 Possible causes:
 
-image version name is invalid. Allowed characters for image version are digits and periods. Digits must be within the range of a 32-bit integer. Format: <MajorVersion>.<MinorVersion>.<Patch>. Please change the image version name and try again.
+image version name is invalid. Allowed characters for image version are digits and periods. Digits must be within the range of a 32-bit integer. Format: <MajorVersion>.<MinorVersion>.<Patch>. Change the image version name and try again.
 
 Source managed image from which the image version is being created is not found. Check if the source image exists and is in the same region as the location of the image version.
 
