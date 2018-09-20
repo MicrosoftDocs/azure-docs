@@ -51,7 +51,12 @@ The environment variable associated with the `--auth-mode` parameter is `AZURE_S
 
 ## Call PowerShell commands with an Azure AD identity
 
-Azure PowerShell supports signing in with an Azure AD identity only by using one of the following preview modules: 4.4.0-preview or 4.4.1-preview. To use Azure PowerShell to sign in with an Azure AD identity:
+Azure PowerShell supports signing in with an Azure AD identity with one of the following preview modules only: 
+
+- 4.4.0-preview 
+- 4.4.1-preview 
+
+To use Azure PowerShell to sign in with an Azure AD identity:
 
 1. Uninstall any previous installations of Azure PowerShell:
     a. Remove any previous installations of Azure PowerShell from Windows using the **Apps & features** setting under **Settings**.
