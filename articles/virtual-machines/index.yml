@@ -71,6 +71,29 @@ sections:
         src: https://docs.microsoft.com/azure/virtual-machines/windows/media/index/cli.svg
       text: Azure CLI
       href: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-quick-create-cli?toc=/azure/virtual-machines/windows/toc.json
+- title: Build your skills with Microsoft Learn
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Introduction to Azure Virtual Machines
+      href: /learn/modules/intro-to-azure-virtual-machines/
+      image: 
+        src: /learn/achievements/intro-to-azure-virtual-machines.svg
+        href: /learn/modules/intro-to-azure-virtual-machines/
+    - title:  Add and size disks in Azure Virtual Machines
+      href: /learn/modules/add-and-size-disks-in-azure-virtual-machines/
+      image: 
+        src: /learn/achievements/add-and-size-disks-in-azure-virtual-machines.svg
+        href: /learn/modules/add-and-size-disks-in-azure-virtual-machines/
+    - title: Caching and performance in Azure Storage disks
+      href: /learn/modules/caching-and-performance-azure-storage-and-disks/
+      image: 
+        src: /learn/achievements/caching-and-performance-azure-storage-and-disks.svg
+        href: /learn/modules/caching-and-performance-azure-storage-and-disks/
+    - type: paragraph
+      text: [More interactive learning...](/learn/browse/?products=virtualMachines)
 - title: Free Pluralsight Video Training
   items:
   - type: list
