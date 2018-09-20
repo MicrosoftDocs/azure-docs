@@ -2,16 +2,16 @@
  title: include file
  description: include file
  services: virtual-machines
- author: cynthn
+ author: axayjo
  ms.service: virtual-machines
  ms.topic: include
  ms.date: 09/20/2018
- ms.author: cynthn
+ ms.author: akjosh; cynthn
  ms.custom: include file
 ---
 
 
-If you run into issues while performing any operations on shared image galleries, image definitions, and image versions, run the failing command again in debug mode. Debug mode can be activated by passing **-debug** switch with CLI and the **-Debug** using PowerShell. Once you’ve located the error, follow this document to troubleshoot the errors.
+If you run into issues while performing any operations on shared image galleries, image definitions, and image versions, run the failing command again in debug mode. Debug mode can be activated by passing **-debug** switch with CLI and the **-Debug** switch with PowerShell. Once you’ve located the error, follow this document to troubleshoot the errors.
 
 
 ## Unable to create a shared image gallery

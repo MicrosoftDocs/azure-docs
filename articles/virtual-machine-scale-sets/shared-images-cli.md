@@ -3,7 +3,7 @@ title: Use shared VM images to create a scale set in Azure | Microsoft Docs
 description: Learn how to use the Azure CLI to create shared VM images to use for deploying virtual machine scale sets in Azure.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: axayjo
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2018
-ms.author: cynthn
+ms.author: akjosh; cynthn
 ms.custom: 
 
 ---

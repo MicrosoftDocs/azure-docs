@@ -3,7 +3,7 @@ title: Troubleshoot issues with shared images in Azure | Microsoft Docs
 description: Learn how to troubleshoot issues with shared image galleries.
 services: virtual-machine-scale-sets
 documentationcenter: virtual-machine-scale-sets
-author: cynthn
+author: axayjo
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 09/20/2018
-ms.author: cynthn
+ms.author: akjosh; cynthn
 ms.custom: 
 ---
 

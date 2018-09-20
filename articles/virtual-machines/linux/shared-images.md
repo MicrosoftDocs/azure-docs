@@ -3,7 +3,7 @@ title: Create shared VM images with the Azure CLI | Microsoft Docs
 description: In this article, you learn how to use the Azure CLI to create a shared image of a VM in Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: cynthn
+author: axayjo
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/19/2018
-ms.author: cynthn
+ms.author: akjosh; cynthn
 ms.custom: 
 
 #Customer intent: As an IT administrator, I want to learn about how to create shared VM images to minimize the number of post-deployment configuration tasks.
