@@ -89,7 +89,7 @@ There is no extra charge for using the Shared Image Gallery service. You will be
 
 ## Frequently asked questions 
 
-*Q.* How do I sign up for the Shared Image Gallery Public Preview?
+**Q.** How do I sign up for the Shared Image Gallery Public Preview?
  
  A. In order to sign up for the Shared Image Gallery public preview, you need to register for the feature by running the following commands from each of the subscriptions in which you intend to create a shared image gallery, image definition, or image version resources, and also where you intend to deploy Virtual Machines using the image versions.
 
@@ -107,7 +107,7 @@ Register-AzureRmProviderFeature -FeatureName GalleryPreview -ProviderNamespace M
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
 ```
 
-*Q.* How can I list all the Shared Image Gallery resources across subscriptions? 
+**Q.** How can I list all the Shared Image Gallery resources across subscriptions? 
  
  A. In order to list all the Shared Image Gallery resources across subscriptions that you have access to on the Azure Portal, follow the steps below:
 
@@ -124,12 +124,12 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
  ```
 
 
-*Q.* How do I share my images across subscriptions?
+**Q.** How do I share my images across subscriptions?
  
  A. You can share images across subscriptions using Role Based Access Control (RBAC). Any user that has read permissions to an image version, even across subscriptions, will be able to deploy a Virtual Machine using the image version.
 
 
-*Q.* Can I move my existing image to the shared image gallery?
+**Q.** Can I move my existing image to the shared image gallery?
  
  A. Yes. There are 4 scenarios based on the types of images you may have.
 
