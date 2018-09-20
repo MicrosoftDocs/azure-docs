@@ -457,12 +457,12 @@ In the Azure portal, Contoso admins provision the Function App.
 
 Contoso admins create two different projects for the front-end site. 
 
-1. In Azure DevO[s, they create a project **SmartHotelFrontend**.
+1. In Azure DevOps, they create a project **SmartHotelFrontend**.
 
     ![Front-end project](./media/contoso-migration-rebuild/function-app1.png)
 
 2. They import the [SmartHotel360 front-end](https://github.com/Microsoft/SmartHotel360-public-web.git) Git repo into the new project.
-3. For the Function App, they create another Azure DevO[s] project (SmartHotelPetChecker), and import the [PetChecker](https://github.com/Microsoft/SmartHotel360-PetCheckerFunction ) Git repo into this project.
+3. For the Function App, they create another Azure DevOps project (SmartHotelPetChecker), and import the [PetChecker](https://github.com/Microsoft/SmartHotel360-PetCheckerFunction ) Git repo into this project.
 
 ### Configure the Web App
 
