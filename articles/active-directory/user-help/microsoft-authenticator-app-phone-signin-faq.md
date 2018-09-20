@@ -19,7 +19,7 @@ The Microsoft Authenticator app not only helps you keep your accounts secure by 
 
 This feature is available on iOS and Android devices running Android 6.0 or above.
 
->[NOTE]
+>[!NOTE]
 >You don’t have to use the Microsoft Authenticator app. If you’re already using another authenticator app, you can continue to use it.
  
 ## How it works
