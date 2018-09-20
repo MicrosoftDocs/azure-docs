@@ -60,12 +60,12 @@ For example, if your domain is *contoso.com*, the URL is: [https://login.windows
 "authorization_endpoint":"https://login.windows.net/6babcaad-604b-40ac-a9d7-9fd97c0b779f/oauth2/authorize"
 ```
 
-The tenant ID in this case is `6babcaad-604b-40ac-a9d7-9fd97c0b779f`. Set the values for AAD_TENANT_ID, KUSTO_ENGINE_CLUSTER, KUSTO_INGEST_CLUSTER, and KUSTO_DATABASE before running this code.
+The tenant ID in this case is `6babcaad-604b-40ac-a9d7-9fd97c0b779f`. Set the values for AAD_TENANT_ID, KUSTO_URI, KUSTO_INGEST_URI, and KUSTO_DATABASE before running this code.
 
 ```python
 AAD_TENANT_ID = "<TenantId>"
-KUSTO_ENGINE_CLUSTER = "https://<ClusterName>.<Region>.kusto.windows.net:443/"
-KUSTO_INGEST_CLUSTER = "https://ingest-<ClusterName>.<Region>.kusto.windows.net:443/"
+KUSTO_URI = "https://<ClusterName>.<Region>.kusto.windows.net:443/"
+KUSTO_INGEST_URI = "https://ingest-<ClusterName>.<Region>.kusto.windows.net:443/"
 KUSTO_DATABASE  = "<DatabaseName>"
 ```
 
@@ -74,11 +74,9 @@ Now construct the connection string. This example uses device authentication to 
 You create the destination table and mapping in a later step.
 
 ```python
-KCSB_INGEST = KustoConnectionStringBuilder.with_aad_device_authentication(KUSTO_INGEST_CLUSTER)
-KCSB_INGEST.authority_id = AAD_TENANT_ID
+KCSB_INGEST = KustoConnectionStringBuilder.with_aad_device_authentication(KUSTO_INGEST_URI, AAD_TENANT_ID)
 
-KCSB_ENGINE = KustoConnectionStringBuilder.with_aad_device_authentication(KUSTO_ENGINE_CLUSTER)
-KCSB_ENGINE.authority_id = AAD_TENANT_ID
+KCSB_DATA = KustoConnectionStringBuilder.with_aad_device_authentication(KUSTO_URI, AAD_TENANT_ID)
 
 DESTINATION_TABLE = "StormEvents"
 DESTINATION_TABLE_COLUMN_MAPPING = "StormEvents_CSV_Mapping"
@@ -106,10 +104,10 @@ BLOB_PATH = "https://" + ACCOUNT_NAME + ".blob.core.windows.net/" + CONTAINER + 
 Create a table that matches the schema of the data in the StormEvents.csv file. When this code runs, it returns a message like the following: *To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code F3W4VWZDM to authenticate*. Follow the steps to sign in, then return to run the next code block. Subsequent code blocks that make a connection require you to sign in again.
 
 ```python
-ENGINE_CLIENT = KustoClient(KCSB_ENGINE)
+KUSTO_CLIENT = KustoClient(KCSB_ENGINE)
 CREATE_TABLE_COMMAND = ".create table StormEvents (StartTime: datetime, EndTime: datetime, EpisodeId: int, EventId: int, State: string, EventType: string, InjuriesDirect: int, InjuriesIndirect: int, DeathsDirect: int, DeathsIndirect: int, DamageProperty: int, DamageCrops: int, Source: string, BeginLocation: string, EndLocation: string, BeginLat: real, BeginLon: real, EndLat: real, EndLon: real, EpisodeNarrative: string, EventNarrative: string, StormSummary: dynamic)"
 
-df_table_create_output = ENGINE_CLIENT.execute_mgmt(KUSTO_DATABASE, CREATE_TABLE_COMMAND).primary_results[0].to_dataframe()
+df_table_create_output = KUSTO_CLIENT.execute_mgmt(KUSTO_DATABASE, CREATE_TABLE_COMMAND).primary_results[0].to_dataframe()
 
 df_table_create_output
 ```
@@ -121,7 +119,7 @@ Map incoming CSV data to the column names and data types used when creating the 
 ```python
 CREATE_MAPPING_COMMAND = """.create table StormEvents ingestion csv mapping 'StormEvents_CSV_Mapping' '[{"Name":"StartTime","datatype":"datetime","Ordinal":0}, {"Name":"EndTime","datatype":"datetime","Ordinal":1},{"Name":"EpisodeId","datatype":"int","Ordinal":2},{"Name":"EventId","datatype":"int","Ordinal":3},{"Name":"State","datatype":"string","Ordinal":4},{"Name":"EventType","datatype":"string","Ordinal":5},{"Name":"InjuriesDirect","datatype":"int","Ordinal":6},{"Name":"InjuriesIndirect","datatype":"int","Ordinal":7},{"Name":"DeathsDirect","datatype":"int","Ordinal":8},{"Name":"DeathsIndirect","datatype":"int","Ordinal":9},{"Name":"DamageProperty","datatype":"int","Ordinal":10},{"Name":"DamageCrops","datatype":"int","Ordinal":11},{"Name":"Source","datatype":"string","Ordinal":12},{"Name":"BeginLocation","datatype":"string","Ordinal":13},{"Name":"EndLocation","datatype":"string","Ordinal":14},{"Name":"BeginLat","datatype":"real","Ordinal":16},{"Name":"BeginLon","datatype":"real","Ordinal":17},{"Name":"EndLat","datatype":"real","Ordinal":18},{"Name":"EndLon","datatype":"real","Ordinal":19},{"Name":"EpisodeNarrative","datatype":"string","Ordinal":20},{"Name":"EventNarrative","datatype":"string","Ordinal":21},{"Name":"StormSummary","datatype":"dynamic","Ordinal":22}]'"""
 
-df_mapping_create_output = ENGINE_CLIENT.execute_mgmt(KUSTO_DATABASE, CREATE_MAPPING_COMMAND).primary_results[0].to_dataframe()
+df_mapping_create_output = KUSTO_CLIENT.execute_mgmt(KUSTO_DATABASE, CREATE_MAPPING_COMMAND).primary_results[0].to_dataframe()
 
 df_mapping_create_output
 ```
@@ -131,10 +129,10 @@ df_mapping_create_output
 Queue a message to pull data from blob storage and ingest that data into Azure Data Explorer.
 
 ```python
-INGESTION_CLIENT = KustoIngestClient(KCSB_INGEST)
+KUSTO_INGEST_CLIENT = KustoIngestClient(KCSB_INGEST)
 
 INGESTION_PROPERTIES  = IngestionProperties(database=KUSTO_DATABASE, table=DESTINATION_TABLE, dataFormat=DataFormat.csv, mappingReference=DESTINATION_TABLE_COLUMN_MAPPING, additionalProperties={'ignoreFirstRecord': 'true'})
-INGESTION_CLIENT.ingest_from_multiple_blobs([BlobDescriptor(BLOB_PATH,FILE_SIZE)],delete_sources_on_success=False,ingestion_properties=INGESTION_PROPERTIES)
+KUSTO_INGEST_CLIENT.ingest_from_multiple_blobs([BlobDescriptor(BLOB_PATH,FILE_SIZE)],delete_sources_on_success=False,ingestion_properties=INGESTION_PROPERTIES)
 
 print('Done queueing up ingestion with Kusto')
 ```
@@ -146,7 +144,7 @@ Wait for five to ten minutes for the queued ingestion to schedule the ingest and
 ```python
 QUERY = "StormEvents | count"
 
-df = ENGINE_CLIENT.execute_query(KUSTO_DATABASE, QUERY).primary_results[0].to_dataframe()
+df = KUSTO_CLIENT.execute_query(KUSTO_DATABASE, QUERY).primary_results[0].to_dataframe()
 
 df
 ```
