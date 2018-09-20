@@ -1,16 +1,16 @@
 ---
 title: "Create a Kubernetes dev space in the cloud | Microsoft Docs"
 titleSuffix: Azure Dev Spaces
-author: "stepro"
+author: stepro
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
-ms.author: "stephpr"
+ms.author: stephpr
 ms.date: "08/01/2018"
 ms.topic: "quickstart"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
-manager: "mmontwil"
+manager: mmontwil
 ---
 # Quickstart: Create a Kubernetes dev space with Azure Dev Spaces (Java and VS Code)
 

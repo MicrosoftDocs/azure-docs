@@ -4,7 +4,7 @@ description: "How-to guide for responding to a potentially compromised TDE prote
 keywords:
 services: "sql-database"
 documentationcenter:
-author: "becczhang"
+author: becczhang
 manager: craigg
 ms.prod: 
 ms.reviewer: vanto
@@ -15,7 +15,7 @@ ms.custom:
 ms.tgt_pltfrm:
 ms.topic: conceptual
 ms.date: "08/07/2017"
-ms.author: "rebeccaz"
+ms.author: rebeccaz
 monikerRange: "= azuresqldb-current || = azure-sqldw-latest || = sqlallproducts-allversions"
 ---
 # Remove a Transparent Data Encryption (TDE) protector using PowerShell

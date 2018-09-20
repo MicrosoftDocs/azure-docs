@@ -3,7 +3,7 @@ title: "Run analytics queries against Azure SQL databases | Microsoft Docs"
 description: "Cross-tenant analytics queries using data extracted from multiple Azure SQL Database databases."
 keywords: "sql tutorial"
 services: "sql-database"
-author: "stevestein"
+author: stevestein
 manager: craigg
 ms.service: "sql-database"
 ms.custom: "scale out apps"

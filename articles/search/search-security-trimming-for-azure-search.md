@@ -5,9 +5,9 @@ ms.service: search
 ms.topic: conceptual
 services: search
 ms.date: "08/07/2017"
-author: "revitalbarletz"
-ms.author: "revitalb"
-manager: "jlembicz"
+author: revitalbarletz
+ms.author: revitalb
+manager: jlembicz
 ---
 
 # Security filters for trimming results in Azure Search

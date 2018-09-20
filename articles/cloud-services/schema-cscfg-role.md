@@ -10,9 +10,9 @@ ms.tgt_pltfrm: ""
 ms.topic: "reference"
 ms.assetid: e4fbffc1-98eb-449c-971c-de415e45ab34
 caps.latest.revision: 12
-author: "jpconnock"
-ms.author: "jeconnoc"
-manager: "timlt"
+author: jpconnock
+ms.author: jeconnoc
+manager: timlt
 ---
 
 # Azure Cloud Services Config Role Schema

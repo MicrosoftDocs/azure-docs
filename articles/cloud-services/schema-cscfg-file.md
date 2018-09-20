@@ -10,9 +10,9 @@ ms.tgt_pltfrm: ""
 ms.topic: "reference"
 ms.assetid: 3ddc7fea-3339-4fc0-bdf9-853c32b25f69
 caps.latest.revision: 35
-author: "jpconnock"
-ms.author: "jeconnoc"
-manager: "timlt"
+author: jpconnock
+ms.author: jeconnoc
+manager: timlt
 ---
 
 # Azure Cloud Services Config Schema (.cscfg File)

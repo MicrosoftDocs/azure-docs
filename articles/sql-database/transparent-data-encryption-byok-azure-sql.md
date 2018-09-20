@@ -4,7 +4,7 @@ description: "Bring Your Own Key (BYOK) support for Transparent Data Encryption 
 keywords: ""
 services: "sql-database"
 documentationcenter: ""
-author: "aliceku"
+author: aliceku
 manager: craigg
 ms.prod: 
 ms.reviewer: vanto
@@ -15,7 +15,7 @@ ms.custom:
 ms.tgt_pltfrm: ""
 ms.topic: conceptual
 ms.date: "08/30/2018"
-ms.author: "aliceku"
+ms.author: aliceku
 monikerRange: "= azuresqldb-current || = azure-sqldw-latest || = sqlallproducts-allversions"
 --- 
 # Transparent Data Encryption with Bring Your Own Key support for Azure SQL Database and Data Warehouse

@@ -4,13 +4,13 @@ titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
-author: "johnsta"
-ms.author: "johnsta"
+author: johnsta
+ms.author: johnsta
 ms.date: "05/11/2018"
 ms.topic: "article"
 description: "Use a custom NuGet feed to access and use NuGet packages in an Azure Dev Space."
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Container Service, containers"
-manager: "ghogen"
+manager: ghogen
 ---
 #  Use a custom NuGet feed in an Azure Dev Space
 
