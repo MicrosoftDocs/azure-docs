@@ -5,7 +5,7 @@ services: active-directory
 author: eross-msft
 manager: mtillman
 
-ms.service: active-directoary
+ms.service: active-directory
 ms.workload: identity
 ms.component: user-help
 ms.topic: conceptual
@@ -37,7 +37,7 @@ If your organization has turned on this new experience, you’ll be able to turn
 
 1. Sign in to your work or school account, as normal. 
 
-    After typing your username, you'll see a page with a 2-digit number, asking you to approve the sign-in through the Microsoft Authenticator app. If you don’t want to use this sign in method, you can select **Use your password instead**, and sign in using your password.
+    After typing your username, you'll see a page with a two-digit number, asking you to approve the sign-in through the Microsoft Authenticator app. If you don’t want to use this sign in method, you can select **Use your password instead**, and sign in using your password.
 
     ![Approve sign-in box](media\microsoft-authenticator-app-phone-signin-faq/microsoft-auth-app-sign-in.png)
 
