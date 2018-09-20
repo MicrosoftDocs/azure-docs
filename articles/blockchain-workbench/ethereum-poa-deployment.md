@@ -1031,6 +1031,6 @@ The transaction throughput will be highly dependent upon the types of transactio
 
 Ethereum Proof-of-Authority now supports web-sockets.  Check your deployment email or deployment output to locate the web-socket URL and port.
 
-### Next steps
+## Next steps
 
 Get started by using the [Ethereum Proof-of-Authority Consortium](https://portal.azure.com/?pub_source=email&pub_status=success#create/microsoft-azure-blockchain.azure-blockchain-ethereumethereum-poa-consortium) solution.
