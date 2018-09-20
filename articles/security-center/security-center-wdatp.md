@@ -55,11 +55,11 @@ Only servers in subscriptions in Standard tier
 
 ## Onboarding instructions
 
-- To view if Windows Defender ATP integration is enabled, you can select Security center > Security policy > Subscription > Edit settings
+To view if Windows Defender ATP integration is enabled, you can select Security center > Security policy > Subscription > Edit settings
 
   ![Viewing the policy](media/security-center-wdatp/policy-management.png)
 
-- Here you can see the integrations currently enabled
+Here you can see the integrations currently enabled
 
   ![Enabled integrations](media/security-center-wdatp/enable-integrations.png)
 
