@@ -18,8 +18,8 @@ Users will authenticate against the middle-tier application and an Oauth [on-beh
 
 1. Follow the following steps to [integrate applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) and register an application in Azure:
 
- ![Azure Active Directory app registration first step][1]
- ![Azure Active Directory app registration second step][2]
+    ![Azure Active Directory app registration first step][1]
+     ![Azure Active Directory app registration second step][2]
 
 1. After app registration is complete, click **Settings** > **Required permissions**:
     * Click **Add** on the top left.
@@ -29,15 +29,15 @@ Users will authenticate against the middle-tier application and an Oauth [on-beh
     * Check the **Read/Write Access** delegated permissions box and click **Select**.
     * Click **Done** and select **Grant permissions**.
 
- ![Azure Active Directory app registration third step][5]
+    ![Azure Active Directory app registration third step][5]
 
 1. Generate a secret key and use that value to configure `appSettings.json` as `ClientSecret`:
 
- ![Azure Active Directory app registration fourth step][6]
+    ![Azure Active Directory app registration fourth step][6]
 
 1. Get Application ID and use it in configuration `appSettings.json` as `ClientId`:
 
-![Azure Active Directory app registration fifth step][4]
+    ![Azure Active Directory app registration fifth step][4]
 
 ### Add permissions for Azure Active Directory registered app to Digital Twins Management API
 
