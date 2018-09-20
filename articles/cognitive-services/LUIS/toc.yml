@@ -47,6 +47,10 @@
         href: luis-get-started-python-add-utterance.md
       - name: Ruby
         href: luis-get-started-ruby-add-utterance.md
+  - name: Add to a bot
+    items:
+    - name: Using Node.js
+      href: luis-nodejs-quickstart-bf-v4.md
 - name: Tutorials
   items: 
   - name: Build app
