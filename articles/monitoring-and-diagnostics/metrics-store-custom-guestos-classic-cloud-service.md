@@ -46,8 +46,8 @@ Create a service principle in your Azure Active Directory tenant using the instr
 
 Give the app created in the previous step *Monitoring Metrics Publisher* permissions to the resource you wish to emit metrics against. If you plan to use the app to emit custom metrics against many resources, you can grant these permissions at the resource group or subscription level.  
 
->![NOTE]
->The Diagnostics Extension uses the service principal to authenticate against Azure Monitor and emit metrics for your cloud service 
+> [!NOTE]
+> The Diagnostics Extension uses the service principal to authenticate against Azure Monitor and emit metrics for your cloud service 
 
 ## Author Diagnostics Extension Configuration 
 
@@ -157,7 +157,8 @@ Deploy the diagnostics extension to your cloud service with the diagnostics file
 Set-AzureServiceDiagnosticsExtension -ServiceName <classicCloudServiceName> -StorageAccountName $storage_account -StorageAccountKey $storage_keys -DiagnosticsConfigurationPath $diagconfig 
 ```
  
->[NOTE] It is still mandatory to provide a Storage Account as part of the installation of the diagnostics extension. Any logs and/or performance counters specified in the diagnostics config file will be written to the specified storage account.  
+> [!NOTE] 
+> It is still mandatory to provide a Storage Account as part of the installation of the diagnostics extension. Any logs and/or performance counters specified in the diagnostics config file will be written to the specified storage account.  
 
 ## Plot metrics in the Azure portal 
 

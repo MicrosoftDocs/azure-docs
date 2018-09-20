@@ -78,7 +78,7 @@ In the virtual machine scale set resource, find the **virtualMachineProfile** se
 
 In the **extensionProfile**, add a new extension to the template as shown by the **VMSS-WAD-extension section**.  This section is the Managed Service Identity (MSI) extension that ensures the metrics being emitted are accepted by Azure Monitor. The **name** field can contain any name. 
 
-The code below below the MSI extension also adds the diagnostics extension and configuration as an extension resource to the VMSS resource . Feel free to add/remove performance counters as needed. 
+The code below below the MSI extension also adds the diagnostics extension and configuration as an extension resource to the virtual machine scale set resource . Feel free to add/remove performance counters as needed. 
 
 ```json
           "extensionProfile": { 
@@ -242,11 +242,12 @@ To deploy the Resource Manager template, we will leverage Azure PowerShell.
     New-AzureRmResourceGroup -Name "VMSSWADtestGrp" -Location "<Azure Region>" 
    ```
 
-   Note: Remember to use an Azure region that is enabled for custom metrics. 
+   > [!NOTE]  
+   > Remember to use an Azure region that is enabled for custom metrics. See 
  
 1. Execute the following commands to deploy the VM with the  
    > [!NOTE] 
-   > If you wish to update an existing VMSS, simply add *-Mode Incremental* to the end of the following command. 
+   > If you wish to update an existing scale set, simply add *-Mode Incremental* to the end of the following command. 
  
    ```PowerShell
    New-AzureRmResourceGroupDeployment -Name "VMSSWADTest" -ResourceGroupName "VMSSWADtestGrp" -TemplateFile "<File path of your azuredeploy.JSON file>" -TemplateParameterFile "<File path of your azuredeploy.parameters.JSON file>"  

@@ -45,17 +45,15 @@ To create a new Linux VM:
 
 1. On the summary page, select Create to start the VM deployment. 
 
-The VM is pinned to the Azure portal dashboard. Once the deployment has completed, the VM summary automatically opens. 
+1. The VM is pinned to the Azure portal dashboard. Once the deployment has completed, the VM summary automatically opens. 
 
-In the VM blade, navigate to the **Identity** tab and ensure your VM has a system assigned identity *On*. 
+1. In the VM blade, navigate to the **Identity** tab and ensure your VM has a system assigned identity *On*. 
  
 ![fillin](./media/metrics-store-custom-linux-telegraf/connect-to-VM.png)
  
-Connect to the VM 
+## Connect to the VM 
 
-## Create an SSH connection with the VM 
-
-Select the Connect button on the overview page for your VM. 
+Create an SSH connection with the VM. Select the Connect button on the overview page for your VM. 
 
 ![fillin](./media/metrics-store-custom-linux-telegraf/connect-VM-button2.png)
 
@@ -87,8 +85,8 @@ telegraf --input-filter cpu:mem --output-filter azure_monitor config > azm-teleg
 sudo cp azm-telegraf.conf /etc/telegraf/telegraf.conf 
 ```
 
->![NOTE]
->The above only enables two input plugins “cpu” and “mem”, feel free to add more input plugins (Docker, MySQL, NGINX, etc.) depending on the workload running on your machine. A full list of input plugins can be found here. 
+> [!NOTE]
+> The above only enables two input plugins “cpu” and “mem”, feel free to add more input plugins (Docker, MySQL, NGINX, etc.) depending on the workload running on your machine. A full list of input plugins can be found here. 
 
 Finally, to have the agent start using the new configuration we force the agent to stop and start, by running the following commands 
 
