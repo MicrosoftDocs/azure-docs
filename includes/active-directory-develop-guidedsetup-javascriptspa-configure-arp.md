@@ -42,7 +42,7 @@ Configure the `Redirect URL` field with the URL for your index.html page based o
 
 ### Configure your JavaScript SPA application
 
-1.	In the  `index.html` file created during project setup, add the application registration information. Add the following code within `<script></script>` tags in the body of your `index.html` file:
+1.	In the  `index.html` file created during project setup, add the application registration information. Add the following code at the top within the `<script></script>` tags in the body of your `index.html` file:
 
 ```javascript
 var applicationConfig = {

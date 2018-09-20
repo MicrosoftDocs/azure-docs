@@ -37,8 +37,14 @@ Now you need to register your application in the *Microsoft Application Registra
 2. Enter a name for your application and your email
 3. Make sure the option for *Guided Setup* is unchecked
 4.	Click `Add Platform`, then select `Web`
-5. Add the `Redirect URL` that correspond to the application's URL based on your web server. See the sections below for instructions on how to set/ obtain the redirect URL in Visual Studio and Python.
+5. Add the `Redirect URL` that correspond to the application's URL based on your web server. See the sections below for instructions on how to set/ obtain the redirect URL in Visual Studio and Node.
 6. Click *Save*
+
+> #### Setting Redirect URL for Node
+> For Node.js, you can set the web server port in the *server.js* file. This tutorial uses the port 30662 for reference but feel free to use any other port available. In any case, follow the instructions below to set up a redirect URL in the application registration information:<br/>
+> - Switch back to the *Application Registration Portal* and set `http://localhost:30662/` as a `Redirect URL`, or use `http://localhost:[port]/` if you are using a custom TCP port (where *[port]* is the custom TCP port number) and click 'Save'
+
+<p/>
 
 > #### Visual Studio instructions for obtaining redirect URL
 > Follow the instructions to obtain your redirect URL:
@@ -46,16 +52,10 @@ Now you need to register your application in the *Microsoft Application Registra
 > 2.	Copy the value from `URL` to the clipboard:<br/> ![Project properties](media/active-directory-develop-guidedsetup-javascriptspa-configure/vs-project-properties-screenshot.png)<br />
 > 3.	Switch back to the *Application Registration Portal* and paste the value as a `Redirect URL` and click 'Save'
 
-<p/>
-
-> #### Setting Redirect URL for Node
-> For Node.js, you can set the web server port in the *server.js* file. This tutorial uses the port 30662 for reference but feel free to use any other port available. In any case, follow the instructions below to set up a redirect URL in the application registration information:<br/>
-> - Switch back to the *Application Registration Portal* and set `http://localhost:30662/` as a `Redirect URL`, or use `http://localhost:[port]/` if you are using a custom TCP port (where *[port]* is the custom TCP port number) and click 'Save'
-
 
 #### Configure your JavaScript SPA
 
-1.	In the  `index.html` file created during project setup, add the application registration information. Add the following code within `<script></script>` tags in the body of your `index.html` file:
+1.	In the  `index.html` file created during project setup, add the application registration information. Add the following code at the top within the `<script></script>` tags in the body of your `index.html` file:
 
 ```javascript
 var applicationConfig = {

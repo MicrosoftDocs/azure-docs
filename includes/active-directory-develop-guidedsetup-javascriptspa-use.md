@@ -93,6 +93,7 @@ function acquireTokenRedirectCallBack(errorDesc, token, error, tokenType)
  }
 }
 
+
 // Browser check variables
 var ua = window.navigator.userAgent;
 var msie = ua.indexOf('MSIE ');
@@ -100,6 +101,7 @@ var msie11 = ua.indexOf('Trident/');
 var msedge = ua.indexOf('Edge/');
 var isIE = msie > 0 || msie11 > 0;
 var isEdge = msedge > 0;
+
 //If you support IE, our recommendation is that you sign-in using Redirect APIs
 //If you as a developer are testing using Edge InPrivate mode, please add "isEdge" to the if check
 if (!isIE) {

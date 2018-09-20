@@ -36,18 +36,18 @@ Instructions in this guide are based on both Node.js and Visual Studio 2017, but
 
 ## Create your project
 
-> ### Option 1: Visual Studio
+> ### Option 1: Node/ other web servers
+> Make sure you have installed [Node.js](https://nodejs.org/en/download/), then follow the step below:
+> -	Create a folder to host your application.
+
+<p/><!-- -->
+
+> ### Option 2: Visual Studio
 > If you are using Visual Studio and are creating a new project, follow the steps below to create a new Visual Studio solution:
 > 1.	In Visual Studio:  `File` > `New` > `Project`
 > 2.	Under `Visual C#\Web`, select `ASP.NET Web Application (.NET Framework)`
 > 3.	Name your application and click *OK*
 > 4.	Under `New ASP.NET Web Application`, select `Empty`
-
-<p/><!-- -->
-
-> ### Option 2: Node/ other web servers
-> Make sure you have installed [Node.js](https://nodejs.org/en/download/), then follow the step below:
-> -	Create a folder to host your application.
 
 
 ## Create your single page application’s UI
