@@ -139,7 +139,7 @@
   - name: Provision for multitenancy
     href: how-to-provision-multitenant.md
   - name: Use custom allocation policies
-    href: how-to-use-custom-allocatin-policies.md
+    href: how-to-use-custom-allocation-policies.md
   - name: Use symmetric keys with legacy devices
     href: how-to-legacy-device-symm-key.md
   - name: Use SDK tools for development
