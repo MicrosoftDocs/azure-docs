@@ -1,11 +1,11 @@
 - name: LUIS Documentation
   href: index.yml
 - name: Overview
+  expanded: true
   items: 
   - name: What is Language Understanding?
     href: what-is-luis.md
 - name: Quickstarts
-  expanded: true
   items: 
   - name: Build prebuilt domain app
     href: luis-get-started-create-app.md
