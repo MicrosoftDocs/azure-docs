@@ -11,12 +11,10 @@
 ---
 
 
-# Troubleshooting issues with the Shared Image Gallery, Image Definition, and Image Versions
-
-If you run into issues while performing any operations on Shared Image Galleries, Image Definitions, and Image Versions, run the failing command again in debug mode. Debug mode can be activated by passing **-debug** switch with CLI and the **-Debug** using PowerShell. Once you’ve located the error, follow this document to troubleshoot the errors.
+If you run into issues while performing any operations on shared image galleries, image definitions, and image versions, run the failing command again in debug mode. Debug mode can be activated by passing **-debug** switch with CLI and the **-Debug** using PowerShell. Once you’ve located the error, follow this document to troubleshoot the errors.
 
 
-## Unable to create a Shared Image Gallery
+## Unable to create a shared image gallery
 
 Possible causes:
 
@@ -63,7 +61,7 @@ The target region list must include the source region of the image version. Make
 
 Replication to all the target regions not completed. Use the **-ReplicationStatus** flag to check if the replication to all the specified target regions has been completed. If not, wait up to 6 hours for the job to complete. If it fails, run the command again to create and replicate the image version.
 
-##Unable to create a VM or a scale set 
+## Unable to create a VM or a scale set 
 
 Possible causes:
 
@@ -81,6 +79,6 @@ The sharing of shared image gallery, image definition and image version resource
 
 Use the **-ReplicationStatus** flag to check if the replication to all the specified target regions has been completed. If not, wait for up to 6 hours for the job to complete. If it fails, trigger the command again to create and replicate the image version.
 
-## Azure Limits and Quotas for subscriptions
+## Azure limits and quotas 
 
 [Azure limits and quotas](https://docs.microsoft.com/azure/azure-subscription-service-limits) apply to all shared image gallery, image definition, and image version resources. Make sure you are within the limits for your subscriptions. 

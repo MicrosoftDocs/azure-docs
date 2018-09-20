@@ -19,7 +19,7 @@ ms.author: cynthn
 ms.custom: 
 ---
 
-# Troubleshooting shread image galleries
+# Troubleshooting shared image galleries
 
 
 [!INCLUDE [virtual-machines-common-shared-image-troubleshooting](../../../includes/virtual-machines-common-shared-image-troubleshooting.md)]
