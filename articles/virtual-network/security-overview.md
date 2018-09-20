@@ -15,8 +15,8 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: jdial
-
 ---
+
 # Security groups
 <a name="network-security-groups"></a>
 
