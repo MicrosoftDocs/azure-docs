@@ -34,7 +34,7 @@ Advanced Threat Protection is part of the Advanced Data Security offering, which
 
 You receive an email notification upon detection of anomalous database activities. The email provides information on the suspicious security event including the nature of the anomalous activities, database name, server name, application name, and the event time. In addition, the email provides information on possible causes and recommended actions to investigate and mitigate the potential threat to the database.
     
-    1. Click the **View recent alerts** link in the email to launch the Azure portal and show the Azure Security Center alerts page, which provides an overview of active threats detected on the SQL database.
+   1. Click the **View recent alerts** link in the email to launch the Azure portal and show the Azure Security Center alerts page, which provides an overview of active threats detected on the SQL database.
     
    ![Anomalous activity report](./media/howto-database-threat-protection-portal/anomalous-activity-report.png)
 
@@ -42,7 +42,7 @@ View active threats:
 
    ![Active threats](./media/howto-database-threat-protection-portal/active-threats.png)
 
-    2. Click a specific alert to get additional details and actions for investigating this threat and remediating future threats.
+   2. Click a specific alert to get additional details and actions for investigating this threat and remediating future threats.
     
    ![Specific alert](./media/howto-database-threat-protection-portal/specific-alert.png)
 
