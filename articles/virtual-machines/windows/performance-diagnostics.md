@@ -27,7 +27,7 @@ You can run performance diagnostics directly from the Azure portal, where you ca
     > Performance diagnostics is currently supported on Windows VMs that have .NET SDK version 4.5 or a later version installed. For the steps to run performance diagnostics on classic VMs, see [Azure Performance Diagnostics VM extension](performance-diagnostics-vm-extension.md).
 
 ### Supported Operating Systems
-Windows 10 , Windows 8, Windows 8 Enterprise, Windows 8 Pro, Windows 8.1, Windows Server 2016, Windows Server 2012, Windows Server 2012 Datacenter, Windows Server 2012 R2, Windows Server 2012 R2 Datacenter, Windows Server 2012 R2 Standard, Windows Server 2012 Standard, Windows Server 2008 R2, Windows Server 2008 R2 Datacenter, Windows Server 2008 R2 Enterprise, Windows Server 2008 R2 Foundation, Windows Server 2008 R2 SP1, Windows Server 2008 R2 Standard.
+Windows 10, Windows 8, Windows 8 Enterprise, Windows 8 Pro, Windows 8.1, Windows Server 2016, Windows Server 2012, Windows Server 2012 Datacenter, Windows Server 2012 R2, Windows Server 2012 R2 Datacenter, Windows Server 2012 R2 Standard, Windows Server 2012 Standard, Windows Server 2008 R2, Windows Server 2008 R2 Datacenter, Windows Server 2008 R2 Enterprise, Windows Server 2008 R2 Foundation, Windows Server 2008 R2 SP1, Windows Server 2008 R2 Standard.
 
 ## Installing and running performance diagnostics on your VM
 Performance diagnostics installs a VM extension that runs a diagnostics tool that is named [PerfInsights](https://aka.ms/perfinsights). To install and run performance diagnostics, follow these steps:
@@ -62,7 +62,7 @@ The following analysis scenarios are available from the Azure portal. Select an 
     Checks for known issues, analyzes best practices, and collects diagnostics data. This analysis takes several minutes to run. [Learn more](https://aka.ms/perfinsights/quick)
 
 * **Performance analysis**  
-    Includes all checks in the quick performance analysis and monitors high resource consumption. Use this version to troubleshoot general performance issues, such as high CPU, memory and disk usage. This analysis takes 30 seconds to 15 minutes, depending on the selected duration. [Learn more](https://aka.ms/perfinsights/vmslow) 
+    Includes all checks in the quick performance analysis and monitors high resource consumption. Use this version to troubleshoot general performance issues, such as high CPU, memory, and disk usage. This analysis takes 30 seconds to 15 minutes, depending on the selected duration. [Learn more](https://aka.ms/perfinsights/vmslow) 
     
 * **Advanced performance analysis**  
     Includes all checks in the performance analysis, and collects one or more of the traces, as listed in the following sections. Use this scenario to troubleshoot complex issues that require additional traces. Running this scenario for longer periods will increase the overall size of diagnostics output, depending on the size of the VM and the trace options that are selected. This analysis takes 30 seconds to 15 minutes to run, depending on the selected duration. [Learn more](https://aka.ms/perfinsights/advanced) 
@@ -77,7 +77,7 @@ The following analysis scenarios are available from the Azure portal. Select an 
 Select any preselected symptoms from the list, or add new symptoms. This helps us improve the analysis in the future. 
 
 ### Provide support request number, if available (optional)
-If you are working with a Microsoft support engineer on an existing support ticket, please provide the support ticket number. 
+If you are working with a Microsoft support engineer on an existing support ticket, provide the support ticket number. 
 
 ### Review the privacy policy and legal terms, and select the check box to acknowledge (Required)
 To run the diagnostics, you must agree to the legal terms and accept privacy policy.
@@ -119,7 +119,7 @@ You can select an insight to view more details about the affected resources, sug
 ![Screenshot of a Performance diagnostics insight detail](media/performance-diagnostics/insight-detail.png)
 
 ### Download and review the full performance diagnostics report
-You can use the **Download report** button to download an HTML report that contains additional rich diagnostics information, such as storage and network configuration, performance counters, traces, list of processes, and logs The content depends on the selected analysis. For advanced troubleshooting, the report may contain additional information and interactive charts that are related to high CPU usage, high disk usage, and processes that consume excessive memory. For more information about the performance diagnostics report, see [Review diagnostics report](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/how-to-use-perfinsights#review-the-diagnostics-report).
+You can use the **Download report** button to download an HTML report that contains additional rich diagnostics information, such as storage and network configuration, performance counters, traces, list of processes, and logs. The content depends on the selected analysis. For advanced troubleshooting, the report may contain additional information and interactive charts that are related to high CPU usage, high disk usage, and processes that consume excessive memory. For more information about the performance diagnostics report, see [Review diagnostics report](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/how-to-use-perfinsights#review-the-diagnostics-report).
 
 ## Manage performance diagnostics reports
 You can delete one or more performance diagnostics reports by using the **Delete report** button.
@@ -144,7 +144,7 @@ When you open a support ticket with Microsoft, it is important to share the perf
 
 **Option 2:** Generate a Shared Access Signature for the diagnostics report compressed file  
 You may share a link to the reports compressed file by using Shared Access Signatures. To do this, follow these steps: 
-1)	In the Azure Portal, browse to the storage account in which the diagnostics data is stored.
+1)	In the Azure portal, browse to the storage account in which the diagnostics data is stored.
 2)	Select **Blobs** under the **Blob service** section. 
 3)	Select the **azdiagextnresults** container.
 4)	Select the Performance diagnostics output compressed file that you want to share.
