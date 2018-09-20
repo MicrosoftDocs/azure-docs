@@ -1,16 +1,17 @@
 ---
-title: Get started with the Microsoft Speech Recognition API in Objective-C on iOS | Microsoft Docs
-description: Use the Microsoft Speech Recognition API to develop iOS applications that convert spoken audio to text.
+title: Get started with the Bing Speech Recognition API in Objective-C on iOS | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Use the Bing Speech Recognition API to develop iOS applications that convert spoken audio to text.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
 ---
-# Get started with the Speech Recognition API in Objective-C on iOS
+# Quickstart: Use the Bing Speech Recognition API in Objective-C on iOS
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
