@@ -8,7 +8,7 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/17/2018
+ms.date: 09/20/2018
 ms.author: davidmu
 ms.component: B2C
 ---
@@ -32,9 +32,6 @@ To enable sign-in for users from a specific Azure AD organization, you need to r
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Make sure you're using the directory that contains organizational Azure AD tenant (contoso.com) by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
-
-    ![Switch to your Azure AD B2C tenant](./media/active-directory-b2c-setup-aad-custom/switch-directories.png)
-
 3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **App registrations**.
 4. Select **New application registration**.
 5. Enter a name for your application. For example, `Azure AD B2C App`.
@@ -153,7 +150,7 @@ At this point, the identity provider has been set up, but it’s not available i
 
 The **ClaimsProviderSelection** element is analogous to an identity provider button on a sign-up/sign-in screen. If you add a **ClaimsProviderSelection** element for Azure AD, a new button shows up when a user lands on the page.
 
-1. Find the **OrchestrationStep** element that includes `Order="1"` in the user journey that you just created.
+1. Find the **OrchestrationStep** element that includes `Order="1"` in the user journey that you created.
 2. Under **ClaimsProviderSelects**, add the following element. Set the value of **TargetClaimsExchangeId** to an appropriate value, for example `ContosoExchange`:
 
     ```XML
@@ -177,7 +174,7 @@ Now that you have a button in place, you need to link it to an action. The actio
 
 ### Update and test the relying party file
 
-Update the relying party (RP) file that initiates the user journey that you just created:
+Update the relying party (RP) file that initiates the user journey that you created.
 
 1. Make a copy of *SignUpOrSignIn.xml* in your working directory, and rename it. For example, rename it to *SignUpSignInContoso.xml*.
 2. Open the new file and update the value of the **PolicyId** attribute for **TrustFrameworkPolicy** with a unique value. For example, `SignUpSignInContoso`.

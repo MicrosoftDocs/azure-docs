@@ -61,7 +61,7 @@ This article shows you how to enable sign-in for users from a Salesforce organiz
 1. On the **Manage** page of your connected app, click **Manage Profiles**.
 2. Select the profiles (or groups of users) that you want to federate with Azure AD B2C. As a system administrator, select the **System Administrator** check box, so that you can federate by using your Salesforce account.
 
-## Generate a signing certificate for Azure AD B2C
+## Generate a signing certificate
 
 Requests sent to Salesforce need to be signed by Azure AD B2C. To generate a signing certificate, open Azure PowerShell, and then run the following commands.
 
@@ -81,7 +81,7 @@ Export-PfxCertificate -Cert $Cert -FilePath .\B2CSigningCert.pfx -Password $pwd
 
 ## Create a policy key
 
-You need to store the the certificate that you created in your Azure AD B2C tenant.
+You need to store the certificate that you created in your Azure AD B2C tenant.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.

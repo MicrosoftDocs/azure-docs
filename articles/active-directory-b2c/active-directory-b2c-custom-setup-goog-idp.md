@@ -8,16 +8,16 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/04/2017
+ms.date: 09/20/2018
 ms.author: davidmu
 ms.component: B2C
 ---
 
-# Set up sign in with a Google account using custom policies in Azure Active Directory B2C
+# Set up sign-in with a Google account using custom policies in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-This article shows you how to enable sign-in for users from a Google account by using use [custom policies](active-directory-b2c-overview-custom.md) in Azure Active Directory (Azure AD) B2C.
+This article shows you how to enable sign-in for users from a Google account by using [custom policies](active-directory-b2c-overview-custom.md) in Azure Active Directory (Azure AD) B2C.
 
 ## Prerequisites
 
@@ -32,10 +32,10 @@ To enable sign-in for users from a Google account, you need to create a Google a
 2. Enter a **Project Name**, click **Create**, and then make sure you are using the new project.
 3. Select **Credentials** in the left menu, and then select **Create credentials > Oauth client ID**.
 4. Select **Configure consent screen**.
-5. Select or specify a valid **Email address**, provide a **Product name** shown to users, , enter `b2clogin.com` in **Authorized domains**, and then click **Save**.
+5. Select or specify a valid **Email address**, provide a **Product name** shown to users, enter `b2clogin.com` in **Authorized domains**, and then click **Save**.
 6. Under **Application type**, select **Web application**.
 7. Enter a **Name** for your application.
-8. In **Authorized JavaScript origins**, enter `https://your-tenant-name.b2clogin.com` and in **Authorized redirect URIs**, enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` . Replace your-tenant-name with the name of your tenant. You need to use all lowercase letters when entering your tenant name even if the tenant is defined with uppercase letters in Azure AD B2C.
+8. In **Authorized JavaScript origins**, enter `https://your-tenant-name.b2clogin.com` and in **Authorized redirect URIs**, enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Replace your-tenant-name with the name of your tenant. You need to use all lowercase letters when entering your tenant name even if the tenant is defined with uppercase letters in Azure AD B2C.
 8. Click **Create**.
 9. Copy the values of **Client ID** and **Client secret**. You will need both of them to configure Google as an identity provider in your tenant. Client secret is an important security credential.
 
@@ -119,7 +119,7 @@ By now, you have configured your policy so that Azure AD B2C knows how to commun
 
 ## Register the claims provider
 
-At this point, the identity provider has been set up, but it’s not available in any of the sign-up/sign-in screens. To make it available, you create a duplicate of an existing template user journey, and then modify it so that it also has the Azure AD identity provider:
+At this point, the identity provider has been set up, but it’s not available in any of the sign-up/sign-in screens. To make it available, you create a duplicate of an existing template user journey, and then modify it so that it also has the Azure AD identity provider.
 
 1. Open the *TrustFrameworkBase.xml* file from the starter pack.
 2. Find and copy the entire contents of the **UserJourney** element that includes `Id="SignUpOrSignIn"`.
@@ -131,7 +131,7 @@ At this point, the identity provider has been set up, but it’s not available i
 
 The **ClaimsProviderSelection** element is analogous to an identity provider button on a sign-up/sign-in screen. If you add a **ClaimsProviderSelection** element for a Google account, a new button shows up when a user lands on the page.
 
-1. Find the **OrchestrationStep** element that includes `Order="1"` in the user journey that you just created.
+1. Find the **OrchestrationStep** element that includes `Order="1"` in the user journey that you created.
 2. Under **ClaimsProviderSelects**, add the following element. Set the value of **TargetClaimsExchangeId** to an appropriate value, for example `GoogleExchange`:
 
     ```XML
@@ -155,7 +155,7 @@ Now that you have a button in place, you need to link it to an action. The actio
 
 ### Update and test the relying party file
 
-Update the relying party (RP) file that initiates the user journey that you just created:
+Update the relying party (RP) file that initiates the user journey that you created.
 
 1. Make a copy of *SignUpOrSignIn.xml* in your working directory, and rename it. For example, rename it to *SignUpSignInGoogle.xml*.
 2. Open the new file and update the value of the **PolicyId** attribute for **TrustFrameworkPolicy** with a unique value. For example, `SignUpSignInGoogle`.

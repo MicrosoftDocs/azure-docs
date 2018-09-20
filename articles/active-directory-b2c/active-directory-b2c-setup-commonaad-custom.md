@@ -8,7 +8,7 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/18/2018
+ms.date: 09/20/2018
 ms.author: davidmu
 ms.component: B2C
 ---
@@ -32,9 +32,6 @@ To enable sign-in for users from a specific Azure AD organization, you need to r
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Make sure you're using the directory that contains organizational Azure AD tenant (contoso.com) by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
-
-    ![Switch to your Azure AD B2C tenant](./media/active-directory-b2c-setup-aad-custom/switch-directories.png)
-
 3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **App registrations**.
 4. Select **New application registration**.
 5. Enter a name for your application. For example, `Azure AD B2C App`.
@@ -126,7 +123,7 @@ You can define Azure AD as a claims provider by adding Azure AD to the **ClaimsP
 
 4. Under the **ClaimsProvider** element, update the value for **Domain** to a unique value that can be used to distinguish it from other identity providers.
 5. Under the **TechnicalProfile** element, update the value for **DisplayName**. This value is displayed on the sign-in button on your sign-in screen.
-6. Set `<Item Key="client_id">` to the application ID from the Azure AD mulity-tenant app registration.
+6. Set **client_id** to the application ID from the Azure AD mulity-tenant app registration.
 
 ### Restrict access
 
@@ -135,7 +132,7 @@ You can define Azure AD as a claims provider by adding Azure AD to the **ClaimsP
 
 You need to update the list of valid token issuers and restrict access to a specific list of Azure AD tenant users who can sign in. To obtain the values, you need to look at the metadata for each of the specific Azure AD tenants that you would like to have users sign in from. The format of the data looks like the following: `https://login.windows.net/your-tenant/.well-known/openid-configuration`, where `your-tenant` is your Azure AD tenant name (contoso.com or any other Azure AD tenant).
 
-1. Open your browser and go to the **METADATA** URL and look for the **issuer** object and copy its value. It should look like the following: `https://sts.windows.net/{tenantId}/`.
+1. Open your browser and go to the **METADATA** URL and look for the **issuer** object and copy its value. It should look like the following: `https://sts.windows.net/tenant-id/`.
 2. Copy and paste the value for the **ValidTokenIssuerPrefixes** key. You can add multiple by separating them using a comma. An example of this is commented in the sample XML above.
 
 ### Upload the extension file for verification
@@ -148,7 +145,7 @@ By now, you have configured your policy so that Azure AD B2C knows how to commun
 
 ## Register the claims provider
 
-At this point, the identity provider has been set up, but it’s not available in any of the sign-up/sign-in screens. To make it available, you create a duplicate of an existing template user journey, and then modify it so that it also has the Azure AD identity provider:
+At this point, the identity provider has been set up, but it’s not available in any of the sign-up/sign-in screens. To make it available, you create a duplicate of an existing template user journey, and then modify it so that it also has the Azure AD identity provider.
 
 1. Open the *TrustFrameworkBase.xml* file from the starter pack.
 2. Find and copy the entire contents of the **UserJourney** element that includes `Id="SignUpOrSignIn"`.
@@ -162,7 +159,7 @@ At this point, the identity provider has been set up, but it’s not available i
 
 The **ClaimsProviderSelection** element is analogous to an identity provider button on a sign-up/sign-in screen. If you add a **ClaimsProviderSelection** element for Azure AD, a new button shows up when a user lands on the page.
 
-1. Find the **OrchestrationStep** element that includes `Order="1"` in the user journey that you just created.
+1. Find the **OrchestrationStep** element that includes `Order="1"` in the user journey that you created.
 2. Under **ClaimsProviderSelects**, add the following element. Set the value of **TargetClaimsExchangeId** to an appropriate value, for example `AzureADExchange`:
 
     ```XML
@@ -171,7 +168,7 @@ The **ClaimsProviderSelection** element is analogous to an identity provider but
 
 ### Link the button to an action
 
-Now that you have a button in place, you need to link it to an action. The action, in this case, is for Azure AD B2C to communicate with Azure AD to receive a token. Link the button to an action by linking the technical profile for your Azure AD claims provider:
+Now that you have a button in place, you need to link it to an action. The action, in this case, is for Azure AD B2C to communicate with Azure AD to receive a token. Link the button to an action by linking the technical profile for your Azure AD claims provider.
 
 1. Find the **OrchestrationStep** that includes `Order="2"` in the user journey.
 2. Add the following **ClaimsExchange** element making sure that you use the same value for **Id** that you used for **TargetClaimsExchangeId**:
@@ -187,7 +184,7 @@ Now that you have a button in place, you need to link it to an action. The actio
 
 ### Update and test the relying party file
 
-Update the relying party (RP) file that initiates the user journey that you just created:
+Update the relying party (RP) file that initiates the user journey that you created.
 
 1. Make a copy of *SignUpOrSignIn.xml* in your working directory, and rename it. For example, rename it to *SignUpSignContoso.xml*.
 2. Open the new file and update the value of the **PolicyId** attribute for **TrustFrameworkPolicy** with a unique value. For example, `SignUpSignInContoso`.
