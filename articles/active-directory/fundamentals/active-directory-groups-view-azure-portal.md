@@ -58,7 +58,7 @@ Create a new user, named _Alain Charon_. A user must exist before being added as
 3. Copy the auto-generated password provided in the **Password** box, and then select **Create**.
 
 ## Add a group member
-Now that you have a group and a user, you can add _Alain Charon_ as a member to the _MDM policy - West_ group. For more information about adding group members, see [How to add or remove group members](active-directory-group-members-azure-portal.md).
+Now that you have a group and a user, you can add _Alain Charon_ as a member to the _MDM policy - West_ group. For more information about adding group members, see [How to add or remove group members](active-directory-groups-members-azure-portal.md).
 
 1. Select **Azure Active Directory** > **Groups**.
 
