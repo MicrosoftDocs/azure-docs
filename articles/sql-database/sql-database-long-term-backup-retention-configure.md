@@ -74,8 +74,8 @@ The following sections show you how to use PowerShell to configure the long-term
 ### RBAC roles to manage long-term retention
 
 In order to manage LTR backups, you will need to be 
-* Subscription Owner or
-* SQL Server Contributor role in **Subscription** scope
+- Subscription Owner or
+- SQL Server Contributor role in **Subscription** scope
 
 If more granualr control is required, you can create custom RBAC roles and assign them in **Subscription** scope. 
 
