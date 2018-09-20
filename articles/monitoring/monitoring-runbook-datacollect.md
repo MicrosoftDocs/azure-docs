@@ -1,6 +1,6 @@
 ﻿---
 title: Collecting Log Analytics data with a runbook in Azure Automation | Microsoft Docs
-description: Step by step tutorial that walks through creating a runbook in Azure Automation to collect data into the OMS repository for analysis by Log Analytics.  
+description: Step by step tutorial that walks through creating a runbook in Azure Automation to collect data into the repository for analysis by Log Analytics.  
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -52,7 +52,7 @@ The PowerShell Gallery though gives you a quick option to deploy a module direct
 
 
 ## 2. Create Automation variables
-[Automation variables](..\automation\automation-variables.md) hold values that can be used by all runbooks in your Automation account.  They make runbooks more flexible by allowing you to change these values without editing the actual runbook. Every request from the HTTP Data Collector API requires the ID and key of the OMS workspace, and variable assets are ideal to store this information.  
+[Automation variables](..\automation\automation-variables.md) hold values that can be used by all runbooks in your Automation account.  They make runbooks more flexible by allowing you to change these values without editing the actual runbook. Every request from the HTTP Data Collector API requires the ID and key of the Log Analytics workspace, and variable assets are ideal to store this information.  
 
 ![Variables](media/monitoring-runbook-datacollect/variables.png)
 
