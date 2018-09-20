@@ -22,7 +22,7 @@ ms.custom:
 # Troubleshooting shread image galleries
 
 
-[!INCLUDE [virtual-machines-common-shared-image-troubleshooting](../../includes/virtual-machines-common-shared-image-troubleshooting.md)]
+[!INCLUDE [virtual-machines-common-shared-image-troubleshooting](../../../includes/virtual-machines-common-shared-image-troubleshooting.md)]
 
 ## Next steps
 

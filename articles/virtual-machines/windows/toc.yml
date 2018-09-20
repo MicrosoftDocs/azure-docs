@@ -230,8 +230,12 @@
     items:
     - name: Shared images (preview)
       items: 
-      - name: Overview of Shared Images 
+      - name: Overview
         href: shared-image-galleries.md
+      - name: Create shared images using CLI
+        href: ../linux/shared-images.md
+      - name: Troubleshooting shared images
+        href: troubleshooting-shared-images.md
     - name: Find and use images
       href: cli-ps-findimage.md
     - name: Prepare VM for upload
