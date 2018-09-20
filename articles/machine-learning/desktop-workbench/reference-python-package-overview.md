@@ -24,30 +24,18 @@ The Azure Machine Learning packages are **Python pip-installable extensions for 
 
 With Azure ML Package for Computer Vision, you can build, fine-tune, and deploy deep learning models for image classification, object detection, and image similarity.
 
-Try these next steps for this package:
-1. [Download](https://aka.ms/aml-packages/vision/download) the package.
-1. Read the [install docs](https://aka.ms/aml-packages/vision).
-1. [Build and deploy a computer vision model](how-to-build-deploy-image-classification-models.md) with a Jupyter notebook.
-1. Explore the package [reference documentation](https://aka.ms/aml-packages/vision).
+This package is no longer available for download. 
 
 <a name="amlpf"></a>
 ## Azure ML Package for Forecasting
 
 With Azure ML Package for Forecasting, you can create and deploy time series forecasting models for financial and demand forecasting scenarios.
 
-Try these next steps for this package:
-1. [Download](https://aka.ms/aml-packages/forecasting/download) the package.
-1. Read the [install docs](https://aka.ms/aml-packages/forecasting).
-1. [Build and deploy a forecast model](how-to-build-deploy-forecast-models.md) with a Jupyter notebook.
-1. Explore the package [reference documentation](https://aka.ms/aml-packages/forecasting).
+This package is no longer available for download
 
 <a name="amlpta"></a>
 ## Azure ML Package for Text Analytics
 
 With Azure ML Package for Text Analytics, you can build text deep-learning models for text classification, custom entity extraction, and word embedding.
 
-Try these next steps for this package:
-1. [Download](https://aka.ms/aml-packages/text/download) the package.
-1. Read the [install docs](https://aka.ms/aml-packages/text).
-1. [Build and deploy a text classification model](how-to-build-deploy-text-classification-models.md) with a Jupyter notebook.
-1. Explore the package [reference documentation](https://aka.ms/aml-packages/text).
+This package is no longer available for download
