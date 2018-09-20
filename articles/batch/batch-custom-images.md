@@ -33,7 +33,7 @@ Using a custom image configured for your scenario can provide several advantages
 
 ## Prerequisites
 
-- **A managed image resource**. To create a pool of virtual machines using a custom image, you need to have or create a managed image resource in the same Azure subscription and region as the Batch account. For options and considerations to prepare a managed image, see the following section. 
+- **A managed image resource**. To create a pool of virtual machines using a custom image, you need to have or create a managed image resource in the same Azure subscription and region as the Batch account. The image should be created from a VM snapshot. For more information and steps to prepare a managed image, see the following section. 
   - Use a unique custom image for each pool you create.
   - To create a pool with the image using the Batch APIs, specify the **resource ID** of the image, which is of the form `/subscriptions/xxxx-xxxxxx-xxxxx-xxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage`. To use the portal, use the **name** of the image.  
   - The managed image resource should exist for the lifetime of the pool to allow scale-up and can be removed after the pool is deleted.
