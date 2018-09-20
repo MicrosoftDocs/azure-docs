@@ -18,15 +18,12 @@ ms.reviewer: librown
 The Microsoft Authenticator app not only helps you keep your accounts secure by performing two-step verification after you enter your password, but now it can replace the password for your Microsoft account entirely.
 
 This feature is available on iOS and Android devices running Android 6.0 or above.
-
->[!NOTE]
->You don’t have to use the Microsoft Authenticator app. If you’re already using another authenticator app, you can continue to use it.
  
 ## How it works
 Many of you use the Microsoft Authenticator app for two-step verification when you sign in to your Microsoft account. You type your password and then go to the app to either approve a notification or to get a verification code. With phone sign-in, you skip the password and do all your identity verification on your phone. Because phone sign-in is a type of two-step verification, you still need to verify your identity by providing a thing you know and a thing you have. The phone is still the thing you have, but your phone's PIN or biometric key is now the thing you know.
 
 ## Turn on phone sign-in for your work or school account 
-If your organization uses Azure Active Directory for identity management and authentication, and has enabled the tenant to allow this new experience, you can use phone sign-in after you turn it on in the Microsoft Authenticator app.
+If your organization has turned on this new experience, you’ll be able to turn on and use phone sign-in from the Microsoft Authenticator app.
 
 ### To turn on phone sign-in for your account
 
