@@ -1,6 +1,6 @@
 ---
-title: Add LUIS data to Application Insights using C# | Microsoft Docs
-titleSuffix: Azure
+title: Application Insights data from LUIS using C# 
+titleSuffix: Azure Cognitive Services
 description: Build a bot integrated with a LUIS application and Application Insights using C#.
 services: cognitive-services
 author: diberry
@@ -8,12 +8,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 09/24/2018
 ms.author: diberry
 ---
 
-# Add LUIS results to Application Insights from a web app bot
-This tutorial adds LUIS response information to [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetry data storage. Once you have that data, you can query it with the Kusto language or PowerBi to analyze, aggregate, and report on intents, and entities of the utterance in real-time. This analysis helps you determine if you should add or edit the intents and entities of your LUIS app.
+# Add LUIS results to Application Insights
+This tutorial adds LUIS response information to [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetry data storage. Once you have that data, you can query it with the Kusto language or PowerBi to analyze, aggregate, and report on intents, and entities of the utterance in real-time. This analysis helps you determine if you should add or edit the intents and entities of your LUIS app. 
+
+The bot is built with the Bot Framework 3.x and the Azure Web app bot.
 
 In this tutorial, you learn how to:
 
