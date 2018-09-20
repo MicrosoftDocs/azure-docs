@@ -238,6 +238,7 @@ With the database migrated, Contoso admins can now provision the two web apps.
 Contoso needs to build the DevOps infrastructure and pipelines for the application.  To do this, Contoso admins create a new DevOps project, import the code, and then set up build and release pipelines.
 
 1.	 In the Contoso Azure DevOps account, they create a new project (**ContosoSmartHotelRefactor**), and select **Git** for version control.
+
     ![New project](./media/contoso-migration-refactor-web-app-sql/vsts1.png)
 2. They import the Git Repo that currently holds their app code. It's in a [public repo](https://github.com/Microsoft/SmartHotel360-internal-booking-apps) and you can download it.
 
