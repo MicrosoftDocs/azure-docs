@@ -53,7 +53,7 @@ Create a new user, named _Alain Charon_. A user must exist before being added as
 
     - **Name:** Type _Alain Charon_.
 
-    - **User name:** Type _alain@contoso.com_.
+    - **User name:** Type *alain@contoso.com*.
 
 3. Copy the auto-generated password provided in the **Password** box, and then select **Create**.
 
@@ -102,7 +102,7 @@ Now that you’ve found the group, you can view all the assigned members.
     ![List of members assigned to the MDM policy – West group](media/active-directory-groups-view-azure-portal/groups-all-members.png)
 
 ## Clean up resources
-This group is used in several of the how-to processes, available in the **How-to guides** section of this documentation. However, if you'd rather not use this group, you can delete it and its assigned members using the following steps:
+This group is used in several of the how-to processes that are available in the **How-to guides** section of this documentation. However, if you'd rather not use this group, you can delete it and its assigned members using the following steps:
 
 1. On the **Groups - All groups** page, search for the **MDM policy - West** group.
 
@@ -123,4 +123,4 @@ This group is used in several of the how-to processes, available in the **How-to
 Advance to the next article to learn how to manage access to resources
 
 > [!div class="nextstepaction"]
-> [Next steps button](active-directory-manage-groups.md)
+> [Next steps button](active-directory-how-subscriptions-associated-directory.md)
