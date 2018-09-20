@@ -22,7 +22,7 @@ ms.author: tomsh
 
 * [Azure database security overview](azure-database-security-overview.md)
 * [Azure encryption overview](security-azure-encryption-overview.md)
-* [Azure identity management security overview](security-azure-encryption-overview.md)
+* [Azure identity management security overview](security-identity-management-overview.md)
 * [Azure network security overview](security-network-overview.md)
 * [Azure operational security overview](azure-operational-security-overview.md)
 * [Azure security management and monitoring overview](security-management-and-monitoring-overview.md)
