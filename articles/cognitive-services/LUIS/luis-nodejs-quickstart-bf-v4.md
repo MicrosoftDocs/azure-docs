@@ -329,6 +329,8 @@ In the `bot.js` file, add code to handle the new intents.
     ```
 
 ## Learn more about Bot Framework
+Azure Bot service uses the Bot Framework SDK. Learn more about the SDK and bot framework:
+
 
 ## Next steps
 
