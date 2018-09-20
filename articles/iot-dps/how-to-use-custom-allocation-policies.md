@@ -18,7 +18,7 @@ A custom allocation policy gives you more control over how devices are assigned 
 
 By using custom allocation policies you define your own allocation policies when the policies provided by the Device Provisioning Service do not meet the requirements of your scenario.
 
-For example, maybe you want to examine the certificate a device is using during provisioning, and assign the device to an IoT hub based on a certificate propery. Maybe you may have information stored in a database for your devices and need to query the database to determine which IoT hub a device should be assigned to.
+For example, maybe you want to examine the certificate a device is using during provisioning, and assign the device to an IoT hub based on a certificate property. Maybe you may have information stored in a database for your devices and need to query the database to determine which IoT hub a device should be assigned to.
 
 
 This article demonstrates a custom allocation policy using an Azure Function written in C#. Two new IoT hubs are created representing a *Contoso Toasters Division* and a *Contoso Heat Pumps Division*. Devices requesting provisioning must have a registration ID with one of the following suffixes to be accepted for provisioning:
@@ -53,7 +53,7 @@ In this section, you will use the Azure Cloud Shell to create two new IoT hubs r
 
 1. Use the Azure Cloud Shell to create a resource group with the [az group create](/cli/azure/group#az-group-create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
 
-    The following example creates a resource group named *contoso-us-resource-group* in the *eastus* region. It is recommended that you use this group for all resources created in this article. This will make clean up easier after you are finished.
+    The following example creates a resource group named *contoso-us-resource-group* in the *eastus* region. It is recommended that you use this group for all resources created in this article. This approach will make clean up easier after you are finished.
 
     ```azurecli-interactive 
     az group create --name contoso-us-resource-group --location eastus
@@ -121,7 +121,7 @@ In this section, you will create a new enrollment group that uses the custom all
 
 6. On **Add Enrollment Group**, scroll down to the **Select Azure Function** section and click **Create a new function app**.
 
-7. On **Function App** create page that opens, enter the following for your new function and click **Create**:
+7. On **Function App** create page that opens, enter the following settings for your new function and click **Create**:
 
     **App name**: Enter a unique function app name. **contoso-function-app-1098** is shown as an example.
 
