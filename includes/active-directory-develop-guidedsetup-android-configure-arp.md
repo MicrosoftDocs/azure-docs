@@ -1,6 +1,27 @@
-## Add the application’s registration information to your app
+---
+title: include file
+description: include file
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
 
-In this step, you need to add the Client ID to your project.
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/13/2018
+ms.author: andret
+ms.custom: include file 
+
+---
+
+## Add the application’s registration to your code
+
+In this step, you need to add the Application / Client ID to your project.
 
 1.	Open `MainActivity` (under `app` > `java` > *`{host}.{namespace}`*)
 2.	Replace the line starting with `final static String CLIENT_ID` with:
@@ -8,7 +29,7 @@ In this step, you need to add the Client ID to your project.
 final static String CLIENT_ID = "[Enter the application Id here]";
 ```
 3. Open: `app` > `manifests` > `AndroidManifest.xml`
-4. Add the following activity to `manifest\application` node. This register a `BrowserTabActivity` to allow the OS to resume your application after completing the authentication:
+4. Add the following activity to `manifest\application`. The`BrowserTabActivity` allows the Microsoft to call back to your application after completing the authentication:
 
 ```xml
 <!--Intent filter to capture System Browser calling back to our app after Sign In-->
