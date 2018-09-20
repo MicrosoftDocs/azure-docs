@@ -1,4 +1,14 @@
-
+---
+ title: include file
+ description: include file
+ services: virtual-machines
+ author: cynthn
+ ms.service: virtual-machines
+ ms.topic: include
+ ms.date: 09/20/2018
+ ms.author: cynthn
+ ms.custom: include file
+---
 
 Shared Image Gallery is a service that helps you build structure and organization around your custom VM images. Shared Image Gallery provides three main value propositions
 - Simple management
