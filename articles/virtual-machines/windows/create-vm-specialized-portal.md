@@ -19,18 +19,18 @@ ms.author: cynthn
 ---
 # Create a VM from a VHD by using the Azure portal
 
-There are several ways to create a virtual machines (VM) in Azure: 
+There are several ways to create a virtual machine (VM) in Azure: 
 
-- If you already have a virtual hard drive (VHD) to use or you want to copy the VHD from an existing VM to use, you can create a new VM by *attaching* the VHD to the new VM as the OS disk. 
+- If you already have a virtual hard drive (VHD) to use or you want to copy the VHD from an existing VM to use, you can create a new VM by *attaching* the VHD to the new VM as an OS disk. 
 
-- You can also create a new VM from the VHD of a VM that has been deleted. For example, if you have an Azure VM that is not working correctly, you can delete the VM and use its VHD to create a new VM. You can either reuse the same VHD or create a copy of the VHD by creating a snapshot and then creating a new managed disk from the snapshot. Although the snapshot method takes a few more steps, it preserves the original VHD and provides you a snapshot to use as a fallback.
+- You can create a new VM from the VHD of a VM that has been deleted. For example, if you have an Azure VM that isn't working correctly, you can delete the VM and use its VHD to create a new VM. You can either reuse the same VHD or create a copy of the VHD by creating a snapshot and then creating a new managed disk from the snapshot. Although creating a snapshot takes a few more steps, it preserves the original VHD and provides you with a fallback.
  
-- You can create an Azure VM from an on-premises VHD by uploading the on-premises VHD and attaching it to a new VM. To upload a VHD, you need to use PowerShell or another tool to upload it to a storage account, and then create a managed disk from the VHD. For more information, see [Upload a specialized VHD](create-vm-specialized.md#option-2-upload-a-specialized-vhd). Don't use this method if you want to use a VM or VHD to create multiple VMs. For larger deployments, [create an image](capture-image-resource.md) and then [use that image to create multiple VMs](create-vm-generalized-managed.md).
+- You can create an Azure VM from an on-premises VHD by uploading the on-premises VHD and attaching it to a new VM. You use PowerShell or another tool to upload the VHD to a storage account, and then you create a managed disk from the VHD. For more information, see [Upload a specialized VHD](create-vm-specialized.md#option-2-upload-a-specialized-vhd). Don't use this method if you want to use a VM or VHD to create multiple VMs. Instead, for larger deployments, [create an image](capture-image-resource.md) and then [use that image to create multiple VMs](create-vm-generalized-managed.md).
 
 
 ## Copy a disk
 
-Create a snapshot and then create a disk from the snapshot. This strategy allows you to keep the original VHD as a fallback.
+Create a snapshot and then create a disk from the snapshot. This strategy allows you to keep the original VHD as a fallback:
 
 1. From the Azure portal, on the left menu, select **All services**.
 2. In the **All services** search box, enter **disks** and then select **Disks** to display the list of available disks.
@@ -52,7 +52,7 @@ Create a snapshot and then create a disk from the snapshot. This strategy allows
 
 ## Create a VM from a disk
 
-After you have the managed disk VHD that you want to use, you can create the VM in the portal.
+After you have the managed disk VHD that you want to use, you can create the VM in the portal:
 
 1. From the Azure portal, on the left menu, select **All services**.
 2. In the **All services** search box, enter **disks** and then select **Disks** to display the list of available disks.
