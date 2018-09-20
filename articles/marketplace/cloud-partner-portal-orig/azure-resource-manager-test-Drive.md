@@ -290,7 +290,7 @@ We call a Uri of this blob container Base Uri. Every revision of your Lab has it
 Transforming Template Examples for Test Drive
 ---------------------------------------------
 
-The process from turning an architecture of resources into a Test Drive Resource Manager template can be daunting. In order to help make this process easier, we\'ve made examples on how to best [transform current deployment templates here](./transforming-examples-for-test-drive).
+The process from turning an architecture of resources into a Test Drive Resource Manager template can be daunting. In order to help make this process easier, we\'ve made examples on how to best [transform current deployment templates here](./transforming-examples-for-test-drive.md).
 
 How to publish a Test Drive
 ---------------------------
@@ -419,4 +419,4 @@ It is important to note that you do not delete any Test Drive instances as they 
 
 Once you feel comfortable with your Preview offering, now it is time to **go live**! There is a final review process from Microsoft once the offer has been published to double check the entire end to end experience. If for some reason the offer gets rejected, we will send a notification to the engineering contact for your offer explaining what will need to get fixed.
 
-If you have more questions, are looking for troubleshooting advice, or want to make your Test Drive more successful, please go to [FAQ, Troubleshooting, & Best Practices](./marketing-and-best-practices).
+If you have more questions, are looking for troubleshooting advice, or want to make your Test Drive more successful, please go to [FAQ, Troubleshooting, & Best Practices](./marketing-and-best-practices.md).
