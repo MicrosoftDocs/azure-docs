@@ -2997,6 +2997,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/azure-functions/functions-create-generic-webhook-triggered-function.md",
+            "redirect_url": "/azure/azure-functions/functions-bindings-http-webhook",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-functions/functions-create-github-webhook-triggered-function.md",
+            "redirect_url": "/azure/azure-functions/functions-bindings-http-webhook",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/automation/automation-sec-configure-azure-runas-account.md",
             "redirect_url": "/azure/automation/manage-runas-account",
             "redirect_document_id": false
@@ -10381,6 +10391,11 @@
         {
             "source_path": "articles/monitoring-and-diagnostics/insights-service-health.md",
             "redirect_url": "/azure/monitoring-and-diagnostics/monitoring-service-notifications",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/monitoring/monitoring-container-health.md",
+            "redirect_url": "/azure/monitoring/monitoring-container-insights-overview",
             "redirect_document_id": false
         },
         {
