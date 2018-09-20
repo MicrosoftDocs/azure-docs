@@ -1,6 +1,6 @@
 ﻿---
 title: Automatic tuning email notifications how-to guide - Azure SQL Database | Microsoft Docs
-description: Azure SQL Database analyzes SQL query and automatically adapts to user workload.
+description: Enable e-mail notifications for Azure SQL Database automatic query tuning.  
 services: sql-database
 author: danimir
 manager: craigg
@@ -8,7 +8,7 @@ ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 02/05/2018
+ms.date: 09/19/2018
 ms.author: v-daljep
 
 ---
