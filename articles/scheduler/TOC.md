@@ -18,6 +18,7 @@
 
 ## Develop
 ### [Build complex schedules and advanced recurrences](scheduler-advanced-complexity.md)
+### [Create and manage schedules - Azure PowerShell](scheduler-powershell-reference.md)
 
 ## Secure
 ### [Authenticate outbound calls](scheduler-outbound-authentication.md)
@@ -27,8 +28,8 @@
 ## [REST API](/rest/api/scheduler)
 
 # Resources
-## [Azure Scheduler roadmap](https://azure.microsoft.com/en-us/updates/?product=scheduler)
-## [Azure roadmap](https://azure.microsoft.com/en-us/updates/)
+## [Azure Scheduler roadmap](https://azure.microsoft.com/updates/?product=scheduler)
+## [Azure roadmap](https://azure.microsoft.com/updates/)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/home?forum=azurescheduler)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-scheduler)
 ## [Pricing](https://azure.microsoft.com/pricing/details/scheduler/)

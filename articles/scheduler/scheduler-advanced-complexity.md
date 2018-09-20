@@ -79,7 +79,7 @@ The provider name for the Azure Scheduler service is **Microsoft.Scheduler**.
 in the Scheduler REST API. 
 
 1. Create a job by using the 
-[Create or Update operation for jobs](https://docs.microsoft.com/en-us/rest/api/scheduler/jobs/createorupdate). 
+[Create or Update operation for jobs](https://docs.microsoft.com/rest/api/scheduler/jobs/createorupdate). 
 
 ## Job schema elements
 
