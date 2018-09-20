@@ -94,8 +94,9 @@ ms.author: mtillman
                                                         <p>
                                                             <a href="governance/create-access-review.md">Create an access review</a><br>
                                                             <a href="governance/perform-access-review.md">Perform an access review</a><br>
-                                                            <a href="governance/active-directory-tou.md">Terms of use</a>
+                                                            <a href="governance/active-directory-tou.md">Terms of use</a><br>
                                                         </p>
+														<br><br>
 														<h3><a href="manage-apps/index.yml">Application management</a></h3>
                                                         <p>
                                                             <a href="manage-apps/add-application-portal.md">Add an application</a><br>
