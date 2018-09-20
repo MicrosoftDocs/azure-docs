@@ -21,7 +21,7 @@ Users will authenticate against the middle-tier application and an Oauth [on-beh
  ![Azure Active Directory app registration first step][1]
  ![Azure Active Directory app registration second step][2]
 
-2. After app registration is complete, click **Settings** > **Required permissions**:
+1. After app registration is complete, click **Settings** > **Required permissions**:
     * Click **Add** on the top left.
     * Click **Select an API** to use to get external data into Digital Twins.
     * Search for **Azure Smart Spaces Service** API and click **Select**.
@@ -31,11 +31,11 @@ Users will authenticate against the middle-tier application and an Oauth [on-beh
 
  ![Azure Active Directory app registration third step][5]
 
-3. Generate a secret key and use that value to configure `appSettings.json` as `ClientSecret`:
+1. Generate a secret key and use that value to configure `appSettings.json` as `ClientSecret`:
 
  ![Azure Active Directory app registration fourth step][6]
 
-4. Get Application ID and use it in configuration `appSettings.json` as `ClientId`:
+1. Get Application ID and use it in configuration `appSettings.json` as `ClientId`:
 
 ![Azure Active Directory app registration fifth step][4]
 
@@ -43,17 +43,21 @@ Users will authenticate against the middle-tier application and an Oauth [on-beh
 
 1. Open a PowerShell command window.
 
-2. Run the following commands (using the Application ID from Azure Active Directory app registration):
+1. Run the following commands (using the Application ID from Azure Active Directory app registration):
 
     ```bash
     Login-AzureRmAccount
+    ```
+    ```bash
     Connect-AzureAD
+    ```
+    ```bash
     Get-AzureRmADServicePrincipal -ApplicationId <Application ID>
     ```
 
-3. Get the Service Principal ID from return payload and use it in next step payload as `objectId` to create a role assignment on this object.
+1. Get the Service Principal ID from return payload and use it in next step payload as `objectId` to create a role assignment on this object.
 
-4. Create a role assignment in Digital Twins for Service Principal ID above (Note: This needs to be run by someone with Admin privileges) .
+1. Create a role assignment in Digital Twins for Service Principal ID above (Note: This needs to be run by someone with Admin privileges) .
 
     * Make a POST call on `https://{resourceName}.{location}.azuresmartspaces.net/management/api/v1.0/roleassignments`
     * Body payload:

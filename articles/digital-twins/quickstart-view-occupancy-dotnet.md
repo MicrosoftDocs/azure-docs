@@ -27,24 +27,24 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 1. The two console applications you run in this quickstart are written using C#. You need to install [.NET Core SDK](https://www.microsoft.com/net/download) on your development machine.
 
-2. Clone the sample C# projects repo:
-```bash
-git clone https://github.com/Azure-Samples/digital-twins-samples-csharp.git
-```
+1. Clone the sample C# projects repo:
+    ```bash
+    git clone https://github.com/Azure-Samples/digital-twins-samples-csharp.git
+    ```
 
-3. The repo is composed of several standalone projects. The [Occupancy sample]() is provided to get started.
+1. The repo is composed of several standalone projects. The [Occupancy sample]() is provided to get started.
 
-4. We have included a [visual studio code workspace file](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/digital-twins-samples.code-workspace) for our [Visual Studio Code](https://code.visualstudio.com/) users containing all samples. Alternatively, each folder can be opened individually.
+1. We have included a [visual studio code workspace file](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/digital-twins-samples.code-workspace) for our [Visual Studio Code](https://code.visualstudio.com/) users containing all samples. Alternatively, each folder can be opened individually.
 
 ## Create a Digital Twins instance in Azure Portal
 
 1. Sign in to the [Azure portal](http://portal.azure.com).
 
-2. Select **Create a resource** > **Internet of Things** > **Digital Twins** (or search by **Digital Twins**).
+1. Select **Create a resource** > **Internet of Things** > **Digital Twins** (or search by **Digital Twins**).
 
     ![Select to install Digital Twins][1]
 
-3. In the **Digital Twins** pane, enter the following information for your Digital Twins:
+1. In the **Digital Twins** pane, enter the following information for your Digital Twins:
 
    * **Subscription**: Choose the subscription that you want to use to create this Digital Twins instance.
    * **Resource group**: Select or create a resource group for the Digital Twins instance. For more information on resource groups, see [Use resource groups to manage your Azure resources][lnk-resource-groups].
@@ -53,9 +53,9 @@ git clone https://github.com/Azure-Samples/digital-twins-samples-csharp.git
 
    ![Create Digital Twins][2]
 
-4. Review your Digital Twins information, then click **Create**. Your Digital Twins might take a few minutes to create. You can monitor the progress in the **Notifications** pane.
+1. Review your Digital Twins information, then click **Create**. Your Digital Twins might take a few minutes to create. You can monitor the progress in the **Notifications** pane.
 
-5. Digital Twins provides a collection of REST APIs for management and interaction with your topology. These APIs are called Management APIs.
+1. Digital Twins provides a collection of REST APIs for management and interaction with your topology. These APIs are called Management APIs.
 
 The URL is generated in the **Overview** section and has the following format: `https://[yourDigitalTwinsName].[yourLocation].azuresmartspaces.net/management/swagger`.
 
@@ -84,7 +84,7 @@ The tutorials go into detail about how to build an application for facility mana
 If you plan to continue to the tutorials, do not clean up the resources created in this Quickstart. If you do not plan to continue, use the following steps to delete all resources created by this Quickstart.
 
 1. Delete the folder that was created when cloning the sample repository
-2. From the left-hand menu in the [Azure portal](http://portal.azure.com), click **All resources** and then select your Digital Twins resource. At the top of the **All resources** blade, click **Delete**.
+1. From the left-hand menu in the [Azure portal](http://portal.azure.com), click **All resources** and then select your Digital Twins resource. At the top of the **All resources** blade, click **Delete**.
 
 ## Next steps
 
