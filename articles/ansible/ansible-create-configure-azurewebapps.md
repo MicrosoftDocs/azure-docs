@@ -23,7 +23,7 @@ Ansible allows you to automate the deployment and configuration of resources in 
 > Ansible 2.7 is required to run the following the sample playbooks in this tutorial. You could install Ansible 2.7 RC version by running `sudo pip install ansible[azure]==2.7.0rc2`. Ansible 2.7 will be released on Oct of 2018. After that, you need not specify the version here because the default version will be 2.7. 
 
 ## Create a simple App service
-This section presents a sample Ansible playbook that defines the folliwng
+This section presents a sample Ansible playbook that defines the following resources:
 - Resource group, where your app service plan and web app will be deployed to
 - Web App, a Web App with Java 8 and Tomcat container runtime in App Service on Linux
 
