@@ -3,7 +3,7 @@ title: "Quickstart: Creating a KB - QnA Maker"
 titleSuffix: Azure Cognitive Services 
 description: You can create a QnA Maker knowledge base (KB) from your own content, such as FAQs or product manuals. The QnA Maker KB in this example is created from a simple FAQ webpage to answer questions on BitLocker key recovery.
 author: diberry
-manager: cgronlun
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article

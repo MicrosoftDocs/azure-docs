@@ -19,9 +19,9 @@ You can get started with a small amount of data for a proof of concept. But the 
 
 ## Prerequisites
 
-The Text-to-Speech voice customization feature is currently in private preview. [Fill out the application form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0N8Vcdi8MZBllkZb70o6KdURjRaUzhBVkhUNklCUEMxU0tQMEFPMjVHVi4u) to be considered for access.
+The **Text to Speech** voice customization feature is currently in private preview. [Fill out the application form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0N8Vcdi8MZBllkZb70o6KdURjRaUzhBVkhUNklCUEMxU0tQMEFPMjVHVi4u) to be considered for access.
 
-You also need an Azure account and a subscription to the Speech service. [Create one](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started) if you haven't already. Connect your subscription to the Custom Voice portal as follows.
+You also need an Azure account and a subscription to the Speech service. [Create one](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started) if you haven't already. Connect your subscription to the Custom Voice portal as follows:
 
 1. Sign in to the [Custom Voice portal](https://customvoice.ai) using the same Microsoft account that you used to apply for access.
 
