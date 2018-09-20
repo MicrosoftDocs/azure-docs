@@ -55,7 +55,7 @@ Identified SQL Database performance degradations are recorded in the diagnostics
 
 ## Use Intelligent Insights
 
-Output of the Intelligent Insights is a smart performance diagnostics log. This log can be used consumed through streaming it to Azure SQL Analytics, Azure Event Hubs and Azure storage, or a third party product. 
+Output of the Intelligent Insights is a smart performance diagnostics log. This log can be consumed through streaming it to Azure SQL Analytics, Azure Event Hubs and Azure storage, or a third party product. 
 
 * Intelligent Insights along with [Azure SQL Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql) is typically used to view the insights through a web browser and perhaps one of the easiest ways to get off the ground with using the product. 
 * Intelligent Insights along with Azure Event Hubs can be used to configure custom monitoring and alerting scenarios
@@ -69,7 +69,7 @@ For a hands-on overview on using Intelligent Insights with Azure SQL Analytics a
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player]
 >
 
-Intelligent Insights shines in discovering and troubleshooting SQL Database performance issues. In order to use Intelligent Insights to troubleshoot SQL Database and Managed Instance database performance, see [Troubleshoot Azure SQL Database performance issues with Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
+Intelligent Insights shines in discovering and troubleshooting SQL Database performance issues. In order to use Intelligent Insights to troubleshoot SQL Database and Managed Instance database performance issues, see [Troubleshoot Azure SQL Database performance issues with Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
 
 ## Set up Intelligent Insights with Azure SQL Analytics 
 
