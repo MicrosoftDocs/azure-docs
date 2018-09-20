@@ -18,9 +18,15 @@ ms.topic: article
 ms.date: 09/15/2017
 ms.author: anta
 
+ROBOTS: NOINDEX
 ---
 
+
 # Energy Demand Time Series Forecasting
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 
 Time series forecasting is the task of predicting future values in a time-ordered sequence of observations. It is a common problem and has applications in many industries. For example, retail companies need to forecast future product sales so they can effectively organize their supply chains to meet demand. Similarly, package delivery companies need to estimate the demand for their services so they can plan workforce requirements and delivery routes ahead of time. In many cases, the financial risks of inaccurate forecasts can be significant. Therefore, forecasting is often a business critical activity.
@@ -54,7 +60,7 @@ This scenario details the construction of a machine learning energy demand forec
 ## Prerequisites
 
 - An [Azure account](https://azure.microsoft.com/free/) (free trials are available).
-- An installed copy of [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) following the [quick start installation guide](../service/quickstart-installation.md) to install the program and create a workspace.
+- An installed copy of [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) following the [quick start installation guide](quickstart-installation.md) to install the program and create a workspace.
 - This sample assumes that you are running Azure ML Workbench on Windows 10 with [Docker engine](https://www.docker.com/) locally installed. If you are using macOS, the instructions are largely the same.
 - Azure Machine Learning Operationalization installed with a local deployment environment set up and a model management account created as described in this  [guide](./model-management-configuration.md).
 - This sample requires that you update the Pandas installation to version 0.20.3 or higher and install matplotlib. Click *Open Command Prompt* from the *File* menu in the Workbench and run the following commands to install these dependencies:
