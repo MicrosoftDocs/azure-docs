@@ -1,20 +1,16 @@
 ﻿---
-title: 'Azure Active Directory B2C: Add Google+ as an OAuth2 identity provider using custom policies'
-description: Sample using Google+ as identity provider using OAuth2 protocol
+title: Add Google+ as an OAuth2 identity provider using custom policies in Azure Active Directory B2C | Microsoft Docs
+description: Sample using Google+ as identity provider using OAuth2 protocol.
 services: active-directory-b2c
-documentationcenter: ''
-author: yoelhor
+author: davidmu1
 manager: mtillman
-editor: 
 
-ms.assetid:
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.devlang: na
+ms.topic: conceptual
 ms.date: 08/04/2017
-ms.author: yoelh
+ms.author: davidmu
+ms.component: B2C
 ---
 
 # Azure Active Directory B2C: Add Google+ as an OAuth2 identity provider using custom policies
@@ -78,7 +74,7 @@ To use Google+ as an identity provider in Azure Active Directory (Azure AD) B2C,
 
     ![Google+ - Select application type](media/active-directory-b2c-custom-setup-goog-idp/goog-web-app.png)
 
-13.  Provide a **Name** for your application, enter `https://login.microsoftonline.com` in the **Authorized JavaScript origins** field, and `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` in the **Authorized redirect URIs** field. Replace **{tenant}** with your tenant's name (for example, contosob2c.onmicrosoft.com). The **{tenant}** value is case-sensitive. Click **Create**.
+13.  Provide a **Name** for your application, enter `https://{tenant}.b2clogin.com` in the **Authorized JavaScript origins** field, and `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp` in the **Authorized redirect URIs** field. Replace **{tenant}** with your tenant's name (for example, contosob2c). The **{tenant}** value is case-sensitive. Click **Create**.
 
     ![Google+ - Provide Authorized JavaScript origins and redirect URIs](media/active-directory-b2c-custom-setup-goog-idp/goog-create-client-id.png)
 

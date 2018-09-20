@@ -17,7 +17,7 @@ ms.date: 02/1/2018
 ms.author: mazha
 
 ---
-# Manage expiration of Azure Blob storage in Azure Content Delivery Network
+# Manage expiration of Azure Blob storage in Azure CDN
 > [!div class="op_single_selector"]
 > * [Azure web content](cdn-manage-expiration-of-cloud-service-content.md)
 > * [Azure Blob storage](cdn-manage-expiration-of-blob-content.md)
@@ -40,7 +40,7 @@ You can also control cache settings from the Azure portal by setting [CDN cachin
 The preferred method for setting a blob's `Cache-Control` header is to use caching rules in the Azure portal. For more information about CDN caching rules, see [Control Azure CDN caching behavior with caching rules](cdn-caching-rules.md).
 
 > [!NOTE] 
-> Caching rules are available only for **Azure CDN from Verizon Standard** and **Azure CDN from Akamai Standard** profiles. For **Azure CDN from Verizon Premium** profiles, you must use the [Azure CDN rules engine](cdn-rules-engine.md) in the **Manage** portal for similar functionality.
+> Caching rules are available only for **Azure CDN Standard from Verizon** and **Azure CDN Standard from Akamai** profiles. For **Azure CDN Premium from Verizon** profiles, you must use the [Azure CDN rules engine](cdn-rules-engine.md) in the **Manage** portal for similar functionality.
 
 **To navigate to the CDN caching rules page**:
 
@@ -145,7 +145,7 @@ class Program
 ## Setting Cache-Control headers by using other methods
 
 ### Azure Storage Explorer
-With [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/), you can view and edit your blob storage resources, including properties such as the *CacheControl* property. 
+With [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), you can view and edit your blob storage resources, including properties such as the *CacheControl* property. 
 
 To update the *CacheControl* property of a blob with Azure Storage Explorer:
    1. Select a blob, then select **Properties** from the context menu. 
@@ -156,7 +156,7 @@ To update the *CacheControl* property of a blob with Azure Storage Explorer:
 ![Azure Storage Explorer properties](./media/cdn-manage-expiration-of-blob-content/cdn-storage-explorer-properties.png)
 
 ### Azure Command-Line Interface
-With the [Azure Command-Line Interface](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest) (CLI), you can manage Azure blob resources from the command line. To set the cache-control header when you upload a blob with the Azure CLI, set the *cacheControl* property by using the `-p` switch. The following example shows how to set the TTL to one hour (3600 seconds):
+With the [Azure Command-Line Interface](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) (CLI), you can manage Azure blob resources from the command line. To set the cache-control header when you upload a blob with the Azure CLI, set the *cacheControl* property by using the `-p` switch. The following example shows how to set the TTL to one hour (3600 seconds):
   
 ```azurecli
 azure storage blob upload -c <connectionstring> -p cacheControl="max-age=3600" .\<blob name> <container name> <blob name>
@@ -165,8 +165,8 @@ azure storage blob upload -c <connectionstring> -p cacheControl="max-age=3600" .
 ### Azure storage services REST API
 You can use the [Azure storage services REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx) to explicitly set the *x-ms-blob-cache-control* property by using the following operations on a request:
   
-   - [Put Blob](https://msdn.microsoft.com/en-us/library/azure/dd179451.aspx)
-   - [Put Block List](https://msdn.microsoft.com/en-us/library/azure/dd179467.aspx)
+   - [Put Blob](https://msdn.microsoft.com/library/azure/dd179451.aspx)
+   - [Put Block List](https://msdn.microsoft.com/library/azure/dd179467.aspx)
    - [Set Blob Properties](https://msdn.microsoft.com/library/azure/ee691966.aspx)
 
 ## Testing the Cache-Control header

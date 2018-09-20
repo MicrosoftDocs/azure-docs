@@ -4,9 +4,8 @@ description: Learn how to create custom workflows based on your content policies
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
-
 ms.service: cognitive-services
-ms.technology: content-moderator
+ms.component: content-moderator
 ms.topic: article
 ms.date: 01/07/2018
 ms.author: sajagtap

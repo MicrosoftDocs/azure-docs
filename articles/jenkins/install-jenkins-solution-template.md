@@ -1,15 +1,13 @@
 ---
 title: Create a Jenkins server on Azure
 description: Install Jenkins on an Azure Linux virtual machine from the Jenkins solution template and build a sample Java application.
-author: mlearned
-manager: douge
-ms.service: multiple
-ms.workload: web
-ms.devlang: java
-ms.topic: article
-ms.date: 08/21/2017
-ms.author: mlearned
-ms.custom: Jenkins
+ms.service: jenkins
+keywords: jenkins, azure, devops, portal, virtual machine, solution template
+author: tomarcher
+manager: jeconnoc
+ms.author: tarcher
+ms.topic: quickstart
+ms.date: 6/7/2017
 ---
 
 # Create a Jenkins server on an Azure Linux VM from the Azure portal
@@ -24,28 +22,9 @@ This quickstart shows how to install [Jenkins](https://jenkins.io) on an Ubuntu 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Create the Jenkins VM from the solution template
+Jenkins supports a model where the Jenkins server delegates work to one or more agents to allow a single Jenkins installation to host a large number of projects or to provide different environments needed for builds or tests. The steps in this section guide you through installing and configuring a Jenkins server on Azure.
 
-Open the [marketplace image for Jenkins](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins?tab=Overview) in your web browser and select  **GET IT NOW** from the left-hand side of the page. Review the pricing details and select **Continue**, then select **Create** to configure the Jenkins server in the Azure portal. 
-   
-![Azure portal dialog](./media/install-jenkins-solution-template/ap-create.png)
-
-In the **Configure basic settings** tab, fill in the following fields:
-
-![Configure basic settings](./media/install-jenkins-solution-template/ap-basic.png)
-
-* Use **Jenkins** for **Name**.
-* Enter a **User name**. The user name must meet [specific requirements](/azure/virtual-machines/linux/faq#what-are-the-username-requirements-when-creating-a-vm).
-* Select **Password** as the **Authentication type** and enter a password. The password must have an upper case character, a number, and one special character.
-* Use **myJenkinsResourceGroup** for the **Resource Group**.
-* Choose the **East US** [Azure region](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) from the **Location** drop-down.
-
-Select **OK** to proceed to the **Configure additional options** tab. Enter a unique domain name to identify the Jenkins server and select **OK**.
-
-![Set up additional options](./media/install-jenkins-solution-template/ap-addtional.png)  
-
- Once validation passes, select **OK** again from the **Summary** tab. Finally, select **Purchase** to create the Jenkins VM. When your server is ready, you get a notification in the Azure portal:   
-
-![Jenkins is ready notification](./media/install-jenkins-solution-template/jenkins-deploy-notification-ready.png)
+[!INCLUDE [jenkins-install-from-azure-marketplace-image](../../includes/jenkins-install-from-azure-marketplace-image.md)]
 
 ## Connect to Jenkins
 
@@ -91,7 +70,7 @@ Select the **Build** tab, then select **Add build step**, **Invoke Gradle script
 
 ![Use the Gradle wrapper to build](./media/install-jenkins-solution-template/jenkins-job-gradle-config.png) 
 
-Select **Advanced..** and then enter `complete` in the **Root Build script** field. Select **Save**.
+Select **Advanced** and then enter `complete` in the **Root Build script** field. Select **Save**.
 
 ![Set advanced settings in the Gradle wrapper build step](./media/install-jenkins-solution-template/jenkins-job-gradle-advances.png) 
 
@@ -102,6 +81,10 @@ Select **Build Now** to compile the code and package the sample app. When your b
 ![Browse to the workspace to get the JAR file from the build](./media/install-jenkins-solution-template/jenkins-access-workspace.png) 
 
 Navigate to `complete/build/libs` and ensure the `gs-spring-boot-0.1.0.jar` is there to verify that your build was successful. Your Jenkins server is now ready to build your own projects in Azure.
+
+## Troubleshooting the Jenkins solution template
+
+If you encounter any bugs with the Jenkins solution template, file an issue in the [Jenkins GitHub repo](https://github.com/azure/jenkins/issues).
 
 ## Next Steps
 

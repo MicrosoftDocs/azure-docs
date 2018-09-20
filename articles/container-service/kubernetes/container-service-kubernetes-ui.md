@@ -3,7 +3,7 @@ title: Manage Azure Kubernetes cluster with web UI
 description: Using the Kubernetes web UI in Azure Container Service
 services: container-service
 author: bburns
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article

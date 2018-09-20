@@ -1,42 +1,37 @@
----
-title: 'Azure Active Directory B2C: Reference: Customize the UI of a user journey with Custom Policies | Microsoft Docs'
-description: A topic on Azure Active Directory B2C custom policies
+﻿---
+title: Customize the UI of a user journey with custom policies | Microsoft Docs
+description: Learn about Azure Active Directory B2C custom policies.
 services: active-directory-b2c
-documentationcenter: ''
-author: rojasja
+author: davidmu1
 manager: mtillman
-editor: rojasja
 
-ms.assetid:
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.devlang: na
+ms.topic: conceptual
 ms.date: 04/25/2017
-ms.author: joroja
-
+ms.author: davidmu
+ms.component: B2C
 ---
 
-# Customize the UI of a user journey with Custom Policies
+# Customize the UI of a user journey with custom policies
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 > [!NOTE]
-> This article is an advanced description of how UI customization works and how to enable with B2C Custom policies, using the Identity Experience Framework
+> This article is an advanced description of how UI customization works and how to enable with Azure AD B2C custom policies, using the Identity Experience Framework.
 
 
 A seamless user experience is key for any business-to-consumer solution. A seamless user experience is an experience, whether on device or browser, where a user’s journey through the service is indistinguishable from that of the customer service they are using.
 
 ## Understand the CORS way for UI customization
 
-Azure AD B2C lets you customize the look-and-feel of user experience (UX) on the various pages that are served and displayed by Azure AD B2C via your custom policies.
+Azure AD B2C lets you customize the look-and-feel of user experience (UX) on the various pages that are served and displayed by Azure AD B2C using your custom policies.
 
 For that purpose, Azure AD B2C runs code in your consumer's browser and uses the modern and standard approach [Cross-Origin Resource Sharing (CORS)](http://www.w3.org/TR/cors/) to load custom content from a specific URL that you specify in a custom policy to point to your HTML5/CSS templates. CORS is a mechanism that allows restricted resources, like fonts, on a web page to be requested from another domain outside the domain from which the resource originated.
 
 Compared to the old traditional way, where template pages are owned by the solution where you provided limited text and images, where limited control of layout and feel was offered leading to more than difficulties to achieve a seamless experience, the CORS way supports HTML5 and CSS and allow you to:
 
-- Host the content and the solution injects its controls using client side script.
+- Host the content and the solution injects its controls using client-side script.
 - Have full control over every pixel of layout and feel.
 
 You can provide as many content pages as you like by crafting HTML5/CSS files as appropriate.
@@ -58,7 +53,7 @@ In each of your HTML5/CSS templates, you provide an *anchor* element, which corr
 </html>
 ```
 
-Azure AD B2C-related content for the page is injected into this div, while the rest of the page is yours to control. The Azure AD B2C’s JavaScript code pulls in your content and injects HTML into this specific div element. Azure AD B2C injects the following controls as appropriate: account chooser control, log in controls, multi-factor (currently phone-based) controls, and attribute collection controls. Azure AD B2C ensures that all the controls are HTML5 compliant and accessible, all the controls can be fully styled, and that a control version does not regress.
+Azure AD B2C-related content for the page is injected into this div, while the rest of the page is yours to control. The Azure AD B2C JavaScript code pulls in your content and injects HTML into this specific div element. Azure AD B2C injects the following controls as appropriate: account chooser control, log in controls, multi-factor (currently phone-based) controls, and attribute collection controls. Azure AD B2C ensures that all the controls are HTML5 compliant and accessible, all the controls can be fully styled, and that a control version does not regress.
 
 The merged content is eventually displayed as the dynamic document to your consumer.
 
@@ -117,7 +112,7 @@ If you followed the preceding steps, the HTML5 and CSS files of the *UI-Customiz
 
 ## Ensure the storage account has CORS enabled
 
-CORS (Cross-Origin Resource Sharing) must be enabled on your endpoint for Azure AD B2C Premium to load your content because your content is hosted on a different domain than the domain Azure AD B2C Premium is serving the page from.
+CORS (Cross-Origin Resource Sharing) must be enabled on your endpoint for Azure AD B2C to load your content. This is because your content is hosted on a different domain than the domain Azure AD B2C will be serving the page from.
 
 To verify that the storage you are hosting your content on has CORS enabled, proceed with the following steps:
 
@@ -163,11 +158,11 @@ The following table describes the set of content definition IDs recognized by th
 | *api.idpselections.signup* | **Identity provider selection for sign-up**. This page contains a list of identity providers that the user can choose from during sign-up. These providers are either enterprise identity providers, social identity providers such as Facebook and Google+, or local accounts (based on email address or user name). |
 | *api.localaccountpasswordreset* | **Forgot password page**. This page contains a form that the user has to fill to initiate their password reset.  |
 | *api.localaccountsignin* | **Local account sign-in page**. This page contains a sign-in form that the user has to fill in when signing in with a local account that is based on an email address or a user name. The form can contain a text input box and password entry box. |
-| *api.localaccountsignup* | **Local account sign-up page**. This page contains a sign up form that the user has to fill in when signing up for a local account that is based on an email address or a user name. The form can contain different input controls such as text input box, password entry box, radio button, single-select drop-down boxes, and multi-select check boxes. |
-| *api.phonefactor* | **Multi-factor authentication page**. On this page, users can verify their phone numbers (using text or voice) during sign up or sign in. |
-| *api.selfasserted* | **Social account sign-up page**. This page contains a sign up form that the user has to fill in when signing up using an existing account from a social identity provider such as Facebook or Google+. This page is similar to the preceding social account sign up page with the exception of the password entry fields. |
-| *api.selfasserted.profileupdate* | **Profile update page**. This page contains a form that the user can use to update their profile. This page is similar to the preceding social account sign up page with the exception of the password entry fields. |
-| *api.signuporsignin* | **Unified sign-up or sign-in page**.  This page handles both sign up & sign in of users, who can use enterprise identity providers, social identity providers such as Facebook or Google+, or local accounts.
+| *api.localaccountsignup* | **Local account sign-up page**. This page contains a sign-up form that the user has to fill in when signing up for a local account that is based on an email address or a user name. The form can contain different input controls such as text input box, password entry box, radio button, single-select drop-down boxes, and multi-select check boxes. |
+| *api.phonefactor* | **Multi-factor authentication page**. On this page, users can verify their phone numbers (using text or voice) during sign-up or sign-in. |
+| *api.selfasserted* | **Social account sign-up page**. This page contains a sign-up form that the user has to fill in when signing up using an existing account from a social identity provider such as Facebook or Google+. This page is similar to the preceding social account sign-up page with the exception of the password entry fields. |
+| *api.selfasserted.profileupdate* | **Profile update page**. This page contains a form that the user can use to update their profile. This page is similar to the preceding social account sign-up page with the exception of the password entry fields. |
+| *api.signuporsignin* | **Unified sign-up or sign-in page**.  This page handles both sign-up & sign in of users, who can use enterprise identity providers, social identity providers such as Facebook or Google+, or local accounts.
 
 ## Next steps
 [Reference: Understand how custom policies work with the Identity Experience Framework in B2C](active-directory-b2c-reference-custom-policies-understanding-contents.md)

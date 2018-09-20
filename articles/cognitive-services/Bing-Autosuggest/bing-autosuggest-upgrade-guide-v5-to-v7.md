@@ -4,15 +4,13 @@ description: Identifies the parts of your application that you need to update to
 services: cognitive-services
 author: swhite-msft
 manager: ehansen
-
 ms.assetid: 751EDCF0-0C8B-4C23-942C-FA06F5DAD3FD
 ms.service: cognitive-services
-ms.technology: bing-autosuggest
+ms.component: bing-autosuggest
 ms.topic: article
 ms.date: 01/12/2017
 ms.author: scottwhi
 ---
-
 # Autosuggest API upgrade guide
 
 This upgrade guide identifies the changes between version 5 and version 7 of the Bing Autosuggest API. Use this guide to help you identify the parts of your application that you need to update to use version 7.
@@ -30,9 +28,9 @@ This upgrade guide identifies the changes between version 5 and version 7 of the
 - Added the following fields to the `Error` object.  
   - `subCode`&mdash;Partitions the error code into discrete buckets, if possible
   - `moreDetails`&mdash;Additional information about the error described in the `message` field
-   
-- Replaced the v5 error codes with the following possible `code` and `subCode` values.  
-  
+
+- Replaced the v5 error codes with the following possible `code` and `subCode` values.
+
 |Code|SubCode|Description
 |-|-|-
 |ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|Bing returns ServerError whenever any of the sub-code conditions occur. The response includes these errors if the HTTP status code is 500.
@@ -40,9 +38,9 @@ This upgrade guide identifies the changes between version 5 and version 7 of the
 |RateLimitExceeded||Bing returns RateLimitExceeded whenever you exceed your queries per second (QPS) or queries per month (QPM) quota.<br/><br/>Bing returns HTTP status code 429 if you exceeded QPS and 403 if you exceeded QPM.
 |InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|Bing returns InvalidAuthorization when Bing cannot authenticate the caller. For example, the `Ocp-Apim-Subscription-Key` header is missing or the subscription key is not valid.<br/><br/>Redundancy occurs if you specify more than one authentication method.<br/><br/>If the error is InvalidAuthorization, the HTTP status code is 401.
 |InsufficientAuthorization|AuthorizationDisabled<br/>AuthorizationExpired|Bing returns InsufficientAuthorization when the caller does not have permissions to access the resource. This can occur if the subscription key has been disabled or has expired. <br/><br/>If the error is InsufficientAuthorization, the HTTP status code is 403.
-  
-- The following maps the previous error codes to the new codes. If you've taken a dependency on v5 error codes, update your code accordingly.  
-  
+
+- The following maps the previous error codes to the new codes. If you've taken a dependency on v5 error codes, update your code accordingly.
+
 |Version 5 code|Version 7 code.subCode
 |-|-
 |RequestParameterMissing|InvalidRequest.ParameterMissing

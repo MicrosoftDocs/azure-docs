@@ -5,7 +5,7 @@
  author: tfitzmac
  ms.service: azure-resource-manager
  ms.topic: include
- ms.date: 02/16/2018
+ ms.date: 05/21/2018
  ms.author: tomfitz
  ms.custom: include file
 ---
@@ -21,7 +21,7 @@ Let's suppose you want to add a third tag. Every time you apply tags to a resour
 ```azurepowershell-interactive
 # Get existing tags and add a new tag
 $tags = (Get-AzureRmResourceGroup -Name myResourceGroup).Tags
-$tags += @{Project="Documentation"}
+$tags.Add("Project", "Documentation")
 
 # Reapply the updated set of tags 
 Set-AzureRmResourceGroup -Tag $tags -Name myResourceGroup
@@ -35,26 +35,32 @@ $group = Get-AzureRmResourceGroup myResourceGroup
 
 if ($group.Tags -ne $null) {
     # Get the resources in the resource group
-    $resources = $group | Find-AzureRmResource
+    $resources = Get-AzureRmResource -ResourceGroupName $group.ResourceGroupName
 
     # Loop through each resource
     foreach ($r in $resources)
     {
         # Get the tags for this resource
         $resourcetags = (Get-AzureRmResource -ResourceId $r.ResourceId).Tags
-
-        # Loop through each tag from the resource group
-        foreach ($key in $group.Tags.Keys)
+        
+        # If the resource has existing tags, add new ones
+        if ($resourcetags)
         {
-            # Check if the resource already has a tag for the key from the resource group. If so, remove it from the resource
-            if (($resourcetags) -AND ($resourcetags.ContainsKey($key))) { $resourcetags.Remove($key) }
+            foreach ($key in $group.Tags.Keys)
+            {
+                if (-not($resourcetags.ContainsKey($key)))
+                {
+                    $resourcetags.Add($key, $group.Tags[$key])
+                }
+            }
+
+            # Reapply the updated tags to the resource 
+            Set-AzureRmResource -Tag $resourcetags -ResourceId $r.ResourceId -Force
         }
-
-        # Add the tags from the resource group to the resource tags
-        $resourcetags += $group.Tags
-
-        # Reapply the updated tags to the resource 
-        Set-AzureRmResource -Tag $resourcetags -ResourceId $r.ResourceId -Force
+        else
+        {
+            Set-AzureRmResource -Tag $group.Tags -ResourceId $r.ResourceId -Force
+        }
     }
 }
 ```
@@ -66,7 +72,7 @@ Alternatively, you can apply tags from the resource group to the resources witho
 $g = Get-AzureRmResourceGroup -Name myResourceGroup
 
 # Find all the resources in the resource group, and for each resource apply the tags from the resource group
-Find-AzureRmResource -ResourceGroupNameEquals $g.ResourceGroupName | ForEach-Object {Set-AzureRmResource -ResourceId $_.ResourceId -Tag $g.Tags -Force }
+Get-AzureRmResource -ResourceGroupName $g.ResourceGroupName | ForEach-Object {Set-AzureRmResource -ResourceId $_.ResourceId -Tag $g.Tags -Force }
 ```
 
 To combine several values in a single tag, use a JSON string.

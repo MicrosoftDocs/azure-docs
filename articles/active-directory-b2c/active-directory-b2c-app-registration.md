@@ -1,19 +1,16 @@
----
-title: Application registration - Azure Active Directory B2C 
+﻿---
+title: Application registration in Azure Active Directory B2C | Microsoft Docs 
 description: How to register your application with Azure Active Directory B2C
 services: active-directory-b2c
-author: PatAltimore
+author: davidmu1
 manager: mtillman
-editor: parakhj
 
-ms.custom: seo
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 6/13/2017
-ms.author: parakhj
+ms.author: davidmu
+ms.component: B2C
 ---
 
 # Azure Active Directory B2C: Register your application
@@ -131,7 +128,7 @@ To delete the app, go to the [Application Registration Portal](https://apps.dev.
 
 ## Next steps
 
-Now that you have an application registered with Azure AD B2C, you can complete one of [the quickstart tutorials](active-directory-b2c-overview.md#get-started) to get up and running.
+Now that you have an application registered with Azure AD B2C, you can complete one of [the quickstart tutorials](active-directory-b2c-overview.md) to get up and running.
 
 > [!div class="nextstepaction"]
 > [Create an ASP.NET web app with sign-up, sign-in, and password reset](active-directory-b2c-devquickstarts-web-dotnet-susi.md)

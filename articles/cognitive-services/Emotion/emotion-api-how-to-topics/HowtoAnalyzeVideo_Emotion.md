@@ -1,18 +1,19 @@
----
-title: Real-time video analysis with the Emotion API | Microsoft Docs
-description: Use the Emotion API in Cognitive Services to perform near-real-time analysis on frames taken from a live video stream.
+﻿---
+title: "Example: Real-time video analysis - Emotion API"
+titlesuffix: Azure Cognitive Services
+description: Use the Emotion API to perform near-real-time analysis on frames taken from a live video stream.
 services: cognitive-services
-author: v-royhar
-manager: yutkuo
+author: anrothMSFT
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: emotion
-ms.topic: article
+ms.component: emotion-api
+ms.topic: sample
 ms.date: 01/25/2017
 ms.author: anroth
 ---
 
-# How to Analyze Videos in Real-time
+# Example: How to Analyze Videos in Real-time
 
 > [!IMPORTANT]
 > Video API Preview will end on October 30th, 2017. Try the new [Video Indexer API Preview](https://azure.microsoft.com/services/cognitive-services/video-indexer/) to easily extract insights from 
@@ -181,7 +182,7 @@ In most modes, there will be a visible delay between the live video on the left,
 ### Integrating into your codebase
 To get started with this sample, follow these steps:
 
-1. Get API keys for the Vision APIs from [Subscriptions](https://azure.microsoft.com/en-us/try/cognitive-services/). For video frame analysis, the applicable APIs are:
+1. Get API keys for the Vision APIs from [Subscriptions](https://azure.microsoft.com/try/cognitive-services/). For video frame analysis, the applicable APIs are:
 	- [Computer Vision API](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)
 	- [Emotion API](https://docs.microsoft.com/azure/cognitive-services/emotion/home)
 	- [Face API](https://docs.microsoft.com/azure/cognitive-services/face/overview)
@@ -197,14 +198,14 @@ When you're ready to integrate, **simply reference the VideoFrameAnalyzer librar
 
 
 ## Developer Code of Conduct
-As with all the Cognitive Services, Developers developing with our APIs and samples are required to follow the "[Developer Code of Conduct for Microsoft Cognitive Services](https://azure.microsoft.com/en-us/support/legal/developer-code-of-conduct/)." 
+As with all the Cognitive Services, Developers developing with our APIs and samples are required to follow the "[Developer Code of Conduct for Microsoft Cognitive Services](https://azure.microsoft.com/support/legal/developer-code-of-conduct/)." 
 
 
 The image, voice, video or text understanding capabilities of VideoFrameAnalyzer uses Microsoft Cognitive Services. Microsoft will receive the images, audio, video, and other data that you upload (via this app) and may use them for service improvement purposes. We ask for your help in protecting the people whose data your app sends to Microsoft Cognitive Services. 
 
 
 ## Summary
-In this guide, you learned how to run near-real-time analysis on live video streams using the Face, Computer Vision, and Emotion APIs, and how you can use our sample code to get started.  You can get started building your app with free API keys at the [Microsoft Cognitive Services sign-up page](https://azure.microsoft.com/en-us/try/cognitive-services/). 
+In this guide, you learned how to run near-real-time analysis on live video streams using the Face, Computer Vision, and Emotion APIs, and how you can use our sample code to get started.  You can get started building your app with free API keys at the [Microsoft Cognitive Services sign-up page](https://azure.microsoft.com/try/cognitive-services/). 
 
 Please feel free to provide feedback and suggestions in the [GitHub repository](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/), or for more broad API feedback, on our [UserVoice site](https://cognitive.uservoice.com/).
 

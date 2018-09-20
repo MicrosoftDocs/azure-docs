@@ -1,22 +1,15 @@
 ---
-title: Use Hadoop Hive with PowerShell in HDInsight - Azure | Microsoft Docs
+title: Use Hadoop Hive with PowerShell in HDInsight - Azure 
 description: Use PowerShell to run Hive queries in Hadoop on HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+ms.reviewer: jasonh
 
-ms.assetid: cb795b7c-bcd0-497a-a7f0-8ed18ef49195
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 01/26/2018
-ms.author: larryfr
+ms.topic: conceptual
+ms.date: 04/23/2018
+ms.author: jasonh
 
 ---
 # Run Hive queries using PowerShell
@@ -44,7 +37,7 @@ Azure PowerShell provides *cmdlets* that allow you to remotely run Hive queries 
 
 The following cmdlets are used when running Hive queries in a remote HDInsight cluster:
 
-* `Add-AzureRmAccount`: Authenticates Azure PowerShell to your Azure subscription.
+* `Connect-AzureRmAccount`: Authenticates Azure PowerShell to your Azure subscription.
 * `New-AzureRmHDInsightHiveJobDefinition`: Creates a *job definition* by using the specified HiveQL statements.
 * `Start-AzureRmHDInsightJob`: Sends the job definition to HDInsight and starts the job. A *job* object is returned.
 * `Wait-AzureRmHDInsightJob`: Uses the job object to check the status of the job. It waits until the job completes or the wait time is exceeded.

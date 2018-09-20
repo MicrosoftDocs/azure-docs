@@ -1,5 +1,5 @@
-# Azure Premium Storage: Design for High Performance
-## Overview
+﻿# Azure Premium Storage: Design for High Performance
+
 This article provides guidelines for building high performance applications using Azure Premium Storage. You can use the instructions provided in this document combined with performance best practices applicable to technologies used by your application. To illustrate the guidelines, we have used SQL Server running on Premium Storage as an example throughout this document.
 
 While we address performance scenarios for the Storage layer in this article, you will need to optimize the application layer. For example, if you are hosting a SharePoint Farm on Azure Premium Storage, you can use the SQL Server examples from this article to optimize the database server. Additionally, optimize the SharePoint Farm's Web server and Application server to get the most performance.
@@ -90,11 +90,11 @@ The PerfMon counters are available for processor, memory and, each logical disk 
 | **Throughput** |Amount of data read from or written to the disk per second. |Disk Read Bytes/sec <br> Disk Write Bytes/sec |kB_read/s <br> kB_wrtn/s |
 | **Latency** |Total time to complete a disk IO request. |Average Disk sec/Read <br> Average disk sec/Write |await <br> svctm |
 | **IO size** |The size of I/O requests issues to the storage disks. |Average Disk Bytes/Read <br> Average Disk Bytes/Write |avgrq-sz |
-| **Queue Depth** |Number of outstanding I/O requests waiting to be read form or written to the storage disk. |Current Disk Queue Length |avgqu-sz |
+| **Queue Depth** |Number of outstanding I/O requests waiting to be read from or written to the storage disk. |Current Disk Queue Length |avgqu-sz |
 | **Max. Memory** |Amount of memory required to run application smoothly |% Committed Bytes in Use |Use vmstat |
 | **Max. CPU** |Amount CPU required to run application smoothly |% Processor time |%util |
 
-Learn more about [iostat](http://linuxcommand.org/man_pages/iostat1.html) and [PerfMon](https://msdn.microsoft.com/library/aa645516.aspx).
+Learn more about [iostat](https://linux.die.net/man/1/iostat) and [PerfMon](https://msdn.microsoft.com/library/aa645516.aspx).
 
 ## Optimizing Application Performance
 The main factors that influence performance of an application running on Premium Storage are Nature of IO Requests, VM size, Disk size, Number of disks, Disk Caching, Multithreading and Queue Depth. You can control some of these factors with knobs provided by the system. Most applications may not give you an option to alter the IO size and Queue Depth directly. For example, if you are using SQL Server, you cannot choose the IO size and queue depth. SQL Server chooses the optimal IO size and queue depth values to get the most performance. It is important to understand the effects of both types of factors on your application performance, so that you can provision appropriate resources to meet performance needs.
@@ -102,15 +102,18 @@ The main factors that influence performance of an application running on Premium
 Throughout this section, refer to the application requirements checklist that you created, to identify how much you need to optimize your application performance. Based on that, you will be able to determine which factors from this section you will need to tune. To witness the effects of each factor on your application performance, run benchmarking tools on your application setup. Refer to the [Benchmarking](#Benchmarking) section at the end of this article for steps to run common benchmarking tools on Windows and Linux VMs.
 
 ### Optimizing IOPS, Throughput and Latency at a glance
-The table below summarizes all the performance factors and the steps to optimize IOPS, Throughput and Latency. The sections following this summary will describe each factor is much more depth.
+
+The table below summarizes performance factors and the steps necessary to optimize IOPS, throughput and latency. The sections following this summary will describe each factor is much more depth.
+
+For more information on VM sizes and on the IOPS, throughput, and latency available for each type of VM, see [Linux VM sizes](../articles/virtual-machines/linux/sizes.md) or [Windows VM sizes](../articles/virtual-machines/windows/sizes.md).
 
 | &nbsp; | **IOPS** | **Throughput** | **Latency** |
 | --- | --- | --- | --- |
 | **Example Scenario** |Enterprise OLTP application requiring very high transactions per second rate. |Enterprise Data warehousing application processing large amounts of data. |Near real-time applications requiring instant responses to user requests, like online gaming. |
 | Performance factors | &nbsp; | &nbsp; | &nbsp; |
 | **IO size** |Smaller IO size yields higher IOPS. |Larger IO size to yields higher Throughput. | &nbsp;|
-| **VM size** |Use a VM size that offers IOPS greater than your application requirement. See VM sizes and their IOPS limits here. |Use a VM size with Throughput limit greater than your application requirement. See VM sizes and their Throughput limits here. |Use a VM size that offers scale limits greater than your application requirement. See VM sizes and their limits here. |
-| **Disk size** |Use a disk size that offers IOPS greater than your application requirement. See disk sizes and their IOPS limits here. |Use a disk size with Throughput limit greater than your application requirement. See disk sizes and their Throughput limits here. |Use a disk size that offers scale limits greater than your application requirement. See disk sizes and their limits here. |
+| **VM size** |Use a VM size that offers IOPS greater than your application requirement. |Use a VM size with throughput limit greater than your application requirement. |Use a VM size that offers scale limits greater than your application requirement. |
+| **Disk size** |Use a disk size that offers IOPS greater than your application requirement. |Use a disk size with Throughput limit greater than your application requirement. |Use a disk size that offers scale limits greater than your application requirement. |
 | **VM and Disk Scale Limits** |IOPS limit of the VM size chosen should be greater than total IOPS driven by premium storage disks attached to it. |Throughput limit of the VM size chosen should be greater than total Throughput driven by premium storage disks attached to it. |Scale limits of the VM size chosen must be greater than total scale limits of attached premium storage disks. |
 | **Disk Caching** |Enable ReadOnly Cache on premium storage disks with Read heavy operations to get higher Read IOPS. | &nbsp; |Enable ReadOnly Cache on premium storage disks with Ready heavy operations to get very low Read latencies. |
 | **Disk Striping** |Use multiple disks and stripe them together to get a combined higher IOPS and Throughput limit. Note that the combined limit per VM should be higher than the combined limits of attached premium disks. | &nbsp; | &nbsp; |
@@ -193,13 +196,13 @@ With Azure Premium Storage, you get the same level of Performance for VMs runnin
 When running Linux with Premium Storage, check the latest updates about required drivers to ensure high performance.
 
 ## Premium Storage Disk Sizes
-Azure Premium Storage offers seven disk sizes currently. Each disk size has a different scale limit for IOPS, Bandwidth and Storage. Choose the right Premium Storage Disk size depending on the application requirements and the high scale VM size. The table below shows the seven disks sizes and their capabilities. P4 and P6 sizes are currently only supported for Managed Disks.
+Azure Premium Storage offers eight disk sizes currently. Each disk size has a different scale limit for IOPS, Bandwidth and Storage. Choose the right Premium Storage Disk size depending on the application requirements and the high scale VM size. The table below shows the eight disks sizes and their capabilities. P4, P6, and P15 sizes are currently only supported for Managed Disks.
 
-| Premium Disks Type  | P4    | P6    | P10   | P20   | P30   | P40   | P50   | 
-|---------------------|-------|-------|-------|-------|-------|-------|-------|
-| Disk size           | 32 GB | 64 GB | 128 GB| 512 GB            | 1024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
-| IOPS per disk       | 120   | 240   | 500   | 2300              | 5000              | 7500              | 7500              | 
-| Throughput per disk | 25 MB per second  | 50 MB per second  | 100 MB per second | 150 MB per second | 200 MB per second | 250 MB per second | 250 MB per second | 
+| Premium Disks Type  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   | 
+|---------------------|-------|-------|-------|-------|-------|-------|-------|-------|
+| Disk size           | 32 GB | 64 GB | 128 GB| 256 GB| 512 GB            | 1024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
+| IOPS per disk       | 120   | 240   | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 
+| Throughput per disk | 25 MB per second  | 50 MB per second  | 100 MB per second |125 MB per second | 150 MB per second | 200 MB per second | 250 MB per second | 250 MB per second | 
 
 
 How many disks you choose depends on the disk size chosen. You could use a single P50 disk or multiple P10 disks to meet your application requirement. Take into account considerations listed below when making the choice.
@@ -236,7 +239,7 @@ It is important to enable cache on the right set of disks. Whether you should en
 | **Disk Type** | **Default Cache Setting** |
 | --- | --- |
 | OS disk |ReadWrite |
-| Data disk |None |
+| Data disk |ReadOnly |
 
 Following are the recommended disk cache settings for data disks,
 
@@ -250,7 +253,7 @@ Following are the recommended disk cache settings for data disks,
 By configuring ReadOnly caching on Premium Storage data disks, you can achieve low Read latency and get very high Read IOPS and Throughput for your application. This is due two reasons,
 
 1. Reads performed from cache, which is on the VM memory and local SSD, are much faster than reads from the data disk, which is on the Azure blob storage.  
-2. Premium Storage does not count the Reads served from cache, towards the disk IOPS and Throughput. Therefore, your application is able to achieve higher total IOPS and Throughput.
+1. Premium Storage does not count the Reads served from cache, towards the disk IOPS and Throughput. Therefore, your application is able to achieve higher total IOPS and Throughput.
 
 *ReadWrite*  
 By default, the OS disks have ReadWrite caching enabled. We have recently added support for ReadWrite caching on data disks as well. If you are using ReadWrite caching, you must have a proper way to write the data from cache to persistent disks. For example, SQL Server handles writing cached data to the persistent storage disks on its own. Using ReadWrite cache with an application that does not handle persisting the required data can lead to data loss, if the VM crashes.
@@ -260,7 +263,7 @@ As an example, you can apply these guidelines to SQL Server running on Premium S
 1. Configure "ReadOnly" cache on premium storage disks hosting data files.  
    a.  The fast reads from cache lower the SQL Server query time since data pages are retrieved much faster from the cache compared to directly from the data disks.  
    b.  Serving reads from cache, means there is additional Throughput available from premium data disks. SQL Server can use this additional Throughput towards retrieving more data pages and other operations like backup/restore, batch loads, and index rebuilds.  
-2. Configure "None" cache on premium storage disks hosting the log files.  
+1. Configure "None" cache on premium storage disks hosting the log files.  
    a.  Log files have primarily write-heavy operations. Therefore, they do not benefit from the ReadOnly cache.
 
 ## Disk Striping
@@ -378,12 +381,12 @@ Perform the steps below to warm up cache
    | --- | --- | --- | --- |
    | RandomWrites\_1MB |1MB |100 |0 |
    | RandomReads\_1MB |1MB |100 |100 |
-2. Run the Iometer test for initializing cache disk with following parameters. Use three worker threads for the target volume and a queue depth of 128. Set the "Run time" duration of the test to 2hrs on the "Test Setup" tab.
+1. Run the Iometer test for initializing cache disk with following parameters. Use three worker threads for the target volume and a queue depth of 128. Set the "Run time" duration of the test to 2hrs on the "Test Setup" tab.
 
    | Scenario | Target Volume | Name | Duration |
    | --- | --- | --- | --- |
    | Initialize Cache Disk |CacheReads |RandomWrites\_1MB |2hrs |
-3. Run the Iometer test for warming up cache disk with following parameters. Use three worker threads for the target volume and a queue depth of 128. Set the "Run time" duration of the test to 2hrs on the "Test Setup" tab.
+1. Run the Iometer test for warming up cache disk with following parameters. Use three worker threads for the target volume and a queue depth of 128. Set the "Run time" duration of the test to 2hrs on the "Test Setup" tab.
 
    | Scenario | Target Volume | Name | Duration |
    | --- | --- | --- | --- |

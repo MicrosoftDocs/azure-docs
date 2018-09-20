@@ -10,7 +10,7 @@
     ssh -L 127.0.0.1:8080:localhost:8080 <username>@<domain>.eastus.cloudapp.azure.com
     ```
 
-1. Follow the `ssh` prompts to log into the Jenkins virtual machine.
+1. Follow the `ssh` prompts to sign in to the Jenkins virtual machine.
 
 1. Enter the following command to retrieve the initial password for unlocking Jenkins.
 

@@ -2,20 +2,16 @@
 title: Get started with blob storage and Visual Studio connected services (cloud services) | Microsoft Docs
 description: How to get started using Azure Blob storage in a cloud service project in Visual Studio after connecting to a storage account using Visual Studio connected services
 services: storage
-documentationcenter: ''
-author: kraigb
-manager: ghogen
-editor: ''
-
+author: ghogen
+manager: douge
 ms.assetid: 1144a958-f75a-4466-bb21-320b7ae8f304
-ms.service: storage
-ms.workload: web
-ms.tgt_pltfrm: vs-getting-started
-ms.devlang: na
-ms.topic: article
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.custom: vs-azure
+ms.workload: azure-vs
+ms.topic: conceptual
 ms.date: 12/02/2016
-ms.author: kraigb
-
+ms.author: ghogen
 ---
 # Get started with Azure Blob Storage and Visual Studio connected services (cloud services projects)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
@@ -144,7 +140,7 @@ contains **CloudBlobDirectory** and **CloudBlockBlob** objects representing the 
     Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
 
 
-Optionally, you can set the **UseFlatBlobListing** parameter of of the **ListBlobs** method to
+Optionally, you can set the **UseFlatBlobListing** parameter of the **ListBlobs** method to
 **true**. This results in every blob being returned as a **CloudBlockBlob**, regardless of directory. Here is the call to **ListBlobs**:
 
     // Loop over items within the container and output the length and URI.

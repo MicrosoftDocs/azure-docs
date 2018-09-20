@@ -3,7 +3,7 @@ title: Enable public read access for containers and blobs in Azure Blob storage 
 description: Learn how to make containers and blobs available for anonymous access, and how to access them programmatically.
 services: storage
 author: tamram
-manager: jeconnoc
+
 
 ms.service: storage
 ms.topic: article
@@ -36,7 +36,7 @@ You can use the following to set container permissions:
 To set container permissions in the [Azure portal](https://portal.azure.com), follow these steps:
 
 1. Open your **Storage account** blade in the portal. You can find your storage account by selecting **Storage accounts** in the main portal menu blade.
-1. Under **BLOB SERVICE** on the menu blade, select **Containers**.
+1. Under **BLOB SERVICE** on the menu blade, select **Blobs**.
 1. Right-click on the container row or select the ellipsis to open the container's **Context menu**.
 1. Select **Access policy** in the context menu.
 1. Select an **Access type** from the drop down menu.

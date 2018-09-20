@@ -2,17 +2,13 @@
 title: OpenAPI metadata in Azure Functions | Microsoft Docs
 description: Overview of OpenAPI support in Azure Functions
 services: functions
-documentationcenter: ''
 author: alexkarcher-msft
-manager: cfowler
-editor: ''
+manager: jeconnoc
 
 ms.assetid:
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alkarche
 
@@ -29,6 +25,9 @@ OpenAPI 2.0 (formerly Swagger) metadata support in Azure Functions is a preview 
 
 ## <a name="enable"></a>Enable OpenAPI definition support
 You can configure all OpenAPI settings on the **API Definition** page in your function app's **Platform features**.
+
+> [!NOTE]
+> Function API definition feature is not supported for beta runtime currently.
 
 To enable the generation of a hosted OpenAPI definition and a quickstart definition, set **API definition source** to **Function (Preview)**. **External URL** allows your function to use an OpenAPI definition that's hosted elsewhere.
 

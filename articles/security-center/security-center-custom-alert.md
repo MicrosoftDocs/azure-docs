@@ -3,18 +3,18 @@ title: Custom Alert Rules in Azure Security Center  | Microsoft Docs
 description: This document helps you to create custom alert rules in Azure Security Center.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: TerryLanfear
 manager: mbaldwin
 editor: ''
 
 ms.assetid: f335d8c4-0234-4304-b386-6f1ecda07833
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/18/2017
-ms.author: yurid
+ms.date: 06/29/2018
+ms.author: terrylan
 
 ---
 # Custom Alert Rules in Azure Security Center (Preview)
@@ -22,9 +22,14 @@ This document helps you to create custom alert rules in Azure Security Center.
 
 ## What are custom alert rules in Security Center?
 
-Security Center has a set of predefined [security alerts](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts), which are triggered when a threat, or suspicious activity takes place. In some scenarios, you may want to create a custom alert to address specific needs of your environment. 
+Security Center has a set of predefined [security alerts](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts), which are triggered when a threat, or suspicious activity takes place. In some scenarios, you may want to create a custom alert to address specific needs of your environment.
 
-Custom alert rules in Security Center allow you to define new security alerts based on data that is already collected from your environment. You can create queries, and the result of these queries can be used as criteria for the custom rule, and once this criteria is matched, the rule is executed. You can use computers security events, partner's security solution logs or data ingested using APIs to create your custom queries. 
+Custom alert rules in Security Center allow you to define new security alerts based on data that is already collected from your environment. You can create queries, and the result of these queries can be used as criteria for the custom rule, and once this criteria is matched, the rule is executed. You can use computers security events, partner's security solution logs or data ingested using APIs to create your custom queries.
+
+> [!NOTE]
+> Custom alerts are not supported in Security Center's [investigation feature](security-center-investigation.md).
+>
+>
 
 ## How to create a custom alert rule in Security Center?
 
@@ -34,16 +39,23 @@ Open **Security Center** dashboard, and follow these steps to create a custom al
 2.	In the **Security Center – Custom alert rules (Preview)** page click **New custom alert rule**.
 
 	![Custom alert](./media/security-center-custom-alert/security-center-custom-alert-fig1.png)
-	
+
 3.	The Create custom alert rule page appears with the following options:
-	
+
 	![Create](./media/security-center-custom-alert/security-center-custom-alert-fig2.png)
 
 4.	Type the name for this custom rule in the **Name** field.
 5.	Type a brief description that reflects the intent of this rule in the **Description** field.
 6.	Select the severity level (High, Medium, Low) according to your needs in the **Severity** field.
 7.	Select the subscription in which this rule is applicable in the **Subscription** field.
-8.	Select the workspace that you want to monitor with this rule in the **Workspace** field, and in the **Search Query** field, the query that you to use to obtain the results. The query’s result triggers the alert. Notice that when you type a valid query, the green check mark appears in the right corner of this field:
+8.	Select the workspace that you want to monitor with this rule in the **Workspace** field, and in the **Search Query** field, the query that you want to use to obtain the results.
+
+    > [!NOTE]
+    > You need write permission in the workspace that you select to store your custom alert.
+    >
+    >
+
+    The query’s result triggers the alert. Notice that when you type a valid query, the green check mark appears in the right corner of this field:
 
 	![Query](./media/security-center-custom-alert/security-center-custom-alert-fig3.png)
 
@@ -69,7 +81,6 @@ In this document, you learned how to create a custom alert rule in Azure Securit
 * [Managing and responding to security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Learn how to manage alerts, and respond to security incidents in Security Center.
 * [Security health monitoring in Azure Security Center](security-center-monitoring.md). Learn how to monitor the health of your Azure resources.
 * [Understanding security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Learn about the different types of security alerts.
-* [Azure Security Center Troubleshooting Guide](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Learn how to troubleshoot common issues in Security Center. 
+* [Azure Security Center Troubleshooting Guide](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Learn how to troubleshoot common issues in Security Center.
 * [Azure Security Center FAQ](security-center-faq.md). Find frequently asked questions about using the service.
 * [Azure Security Blog](http://blogs.msdn.com/b/azuresecurity/). Find blog posts about Azure security and compliance.
-

@@ -13,11 +13,11 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2018
+ms.date: 09/12/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ---
-
+ 
 # Datacenter integration considerations for Azure Stack integrated systems
 If you’re interested in an Azure Stack integrated system, you should understand some of the major planning considerations around deployment and how the system fits into your datacenter. This article provides a high-level overview of these considerations to help you make important infrastructure decisions for your Azure Stack multi-node system. An understanding of these considerations helps when working with your OEM hardware vendor as they deploy Azure Stack to your datacenter.  
 
@@ -31,7 +31,7 @@ While researching and collecting the required information, you might need to mak
 ## Capacity planning considerations
 When evaluating an Azure Stack Solution for acquisition, hardware configuration choices must be made which have a direct impact on the overall capacity of their Azure Stack solution. These include the classic choices of CPU, memory density, storage configuration, and overall solution scale (e.g. number of servers). Unlike a traditional virtualization solution, the simple arithmetic of these components to determine usable capacity does not apply. The first reason is that Azure Stack is architected to host the infrastructure or management components within the solution itself. The second reason is that some of the solution’s capacity is reserved in support of resiliency; the updating of the solution’s software in a way that minimizes disruption of tenant workloads. 
 
-The [Azure Stack capacity planner spreadsheet](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) helps you make informed decisions with respect to planning capacity in two ways: either the by selecting a hardware offering and attempting to fit a combination of resources or by defining the workload that Azure Stack is intended to run to view the available hardware SKUs that can support it. Finally, the spreadsheet is intended as a guide to help in making decisions related to Azure Stack planning and configuration. 
+The [Azure Stack capacity planner spreadsheet](https://aka.ms/azstackcapacityplanner) helps you make informed decisions with respect to planning capacity in two ways: either the by selecting a hardware offering and attempting to fit a combination of resources or by defining the workload that Azure Stack is intended to run to view the available hardware SKUs that can support it. Finally, the spreadsheet is intended as a guide to help in making decisions related to Azure Stack planning and configuration. 
 
 The spreadsheet is not intended to serve as a substitute for your own investigation and analysis.  Microsoft makes no representations or warranties, express or implied, with respect to the information provided within the spreadsheet.
 
@@ -47,7 +47,9 @@ When a higher level of access is needed for troubleshooting issues that aren’t
 ## Identity considerations
 
 ### Choose identity provider
-You'll need to consider which identity provider you want to use for Azure Stack deployment, either Azure AD or AD FS. You can’t switch identity providers after deployment without full system redeployment.
+You'll need to consider which identity provider you want to use for Azure Stack deployment, either Azure AD or AD FS. You can’t switch identity providers after deployment without full system redeployment. If you do not own the Azure AD account and are using an account provided to you by your Cloud Service Provider, and if you decide to switch provider and use a different Azure AD account, at this point you will have to contact your solution provider to redeploy the solution for you at your cost.
+
+
 
 Your identity provider choice has no bearing on tenant virtual machines, the identity system, and accounts they use, whether they can join an Active Directory domain, etc. This is separate.
 
@@ -83,7 +85,7 @@ The following table summarizes these domain naming decisions.
 
 | Name | Description | 
 | -------- | ------------- | 
-|Region name | The name of your first Azure Stack region. This name is used as part of the FQDN for the public virtual IP addresses (VIPs) that Azure Stack manages. Typically, the region name would be a physical location identifier such as a datacenter location. | 
+|Region name | The name of your first Azure Stack region. This name is used as part of the FQDN for the public virtual IP addresses (VIPs) that Azure Stack manages. Typically, the region name would be a physical location identifier such as a datacenter location.<br><br>The region name must consist of only letters and numbers between 0-9. No special characters like “-“ or “#”, etc. are allowed.| 
 | External domain name | The name of the Domain Name System (DNS) zone for endpoints with external-facing VIPs. Used in the FQDN for these public VIPs. | 
 | Private (internal) domain name | The name of the domain (and internal DNS zone) created on Azure Stack for infrastructure management. 
 | | |
@@ -129,9 +131,9 @@ The following table summarizes the hybrid connectivity scenarios, with the pros,
 
 | Scenario | Connectivity Method | Pros | Cons | Good For |
 | -- | -- | --| -- | --|
-| Single tenant Azure Stack, intranet deployment | Outbound NAT | Better bandwidth for faster transfers. Simple to implement; no gateways required. | Traffic not encrypted; no isolation or encryption beyond the TOR. | Enterprise deployments where all tenants are equally trusted.<br><br>Enterprises that have an Azure ExpressRoute circuit to Azure. |
+| Single tenant Azure Stack, intranet deployment | Outbound NAT | Better bandwidth for faster transfers. Simple to implement; no gateways required. | Traffic not encrypted; no isolation or encryption outside the stack. | Enterprise deployments where all tenants are equally trusted.<br><br>Enterprises that have an Azure ExpressRoute circuit to Azure. |
 | Multi-tenant Azure Stack, intranet deployment | Site-to-site VPN | Traffic from the tenant VNet to destination is secure. | Bandwidth is limited by site-to-site VPN tunnel.<br><br>Requires a gateway in the virtual network and a VPN device on the destination network. | Enterprise deployments where some tenant traffic must be secured from other tenants. |
-| Single tenant Azure Stack, internet deployment | Outbound NAT | Better bandwidth for faster transfers. | Traffic not encrypted; no isolation or encryption beyond the TOR. | Hosting scenarios where the tenant gets their own Azure Stack deployment and a dedicated circuit to the Azure Stack environment. For example, ExpressRoute and Multiprotocol Label Switching (MPLS).
+| Single tenant Azure Stack, internet deployment | Outbound NAT | Better bandwidth for faster transfers. | Traffic not encrypted; no isolation or encryption outside the stack. | Hosting scenarios where the tenant gets their own Azure Stack deployment and a dedicated circuit to the Azure Stack environment. For example, ExpressRoute and Multiprotocol Label Switching (MPLS).
 | Multi-tenant Azure Stack, internet deployment | Site-to-site VPN | Traffic from the tenant VNet to destination is secure. | Bandwidth is limited by site-to-site VPN tunnel.<br><br>Requires a gateway in the virtual network and a VPN device on the destination network. | Hosting scenarios where the provider wants to offer a multi-tenant cloud, where the tenants don’t trust each other and traffic must be encrypted.
 |  |  |  |  |  |
 
@@ -185,10 +187,7 @@ Azure Stack does not back up tenant applications and data. You must plan for bac
 
 To back up Linux or Windows IaaS virtual machines, you must use backup products with access to the guest operating system to protect file, folder, operating system state, and application data. You can use Azure Backup, System Center Data Center Protection Manager, or supported third-party products.
 
-To replicate data to a secondary location and orchestrate application failover if a disaster occurs, you can use Azure Site Recovery, or supported third-party products. (At the initial release of integrated systems, Azure Site Recovery won’t support failback. However, you can achieve failback through a manual process.) Also, applications that support native replication (like Microsoft SQL Server) can replicate data to another location where the application is running.
-
-> [!IMPORTANT]
-> At the initial release of integrated systems, we’ll support protection technologies that work at the guest level of an IaaS virtual machine. You can’t install agents on underlying infrastructure servers.
+To replicate data to a secondary location and orchestrate application failover if a disaster occurs, you can use Azure Site Recovery, or supported third-party products. Also, applications that support native replication, like Microsoft SQL Server, can replicate data to another location where the application is running.
 
 ## Learn more
 

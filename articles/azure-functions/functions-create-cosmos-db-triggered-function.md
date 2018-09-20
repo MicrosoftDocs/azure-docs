@@ -4,19 +4,15 @@ description: Use Azure Functions to create a serverless function that is invoked
 services: azure-functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 
 ms.assetid: bc497d71-75e7-47b1-babd-a060a664adca
-ms.service: functions; cosmos-db
+ms.service: azure-functions; cosmos-db
 ms.devlang: multiple
 ms.topic: quickstart
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 12/07/2017
+ms.date: 03/27/2018
 ms.author: glenga
-ms.custom: 
+ms.custom: cc996988-fb4f-47
 ---
 # Create a function triggered by Azure Cosmos DB
 
@@ -30,7 +26,8 @@ To complete this tutorial:
 
 + If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
+> [!NOTE]
+> [!INCLUDE [SQL API support only](../../includes/functions-cosmosdb-sqlapi-note.md)]
 
 ## Create an Azure Function app
 
@@ -70,7 +67,7 @@ Next, you create a function in the new function app.
     | Setting      | Suggested value  | Description                                |
     | ------------ | ---------------- | ------------------------------------------ |
     | **ID** | Name of database | Unique ID for the Azure Cosmos DB database  |
-    | **API** | SQL (DocumentDB) | This topic uses the document database API.  |
+    | **API** | SQL | This topic uses the SQL API.  |
     | **Subscription** | Azure Subscription | The subscription under which this new Cosmos DB account is created.  |
     | **Resource Group** | myResourceGroup |  Use the existing resource group that contains your function app. |
     | **Location**  | WestEurope | Select a location near to either your function app or to other apps that use the stored documents.  |
@@ -109,7 +106,7 @@ Next, you connect to your Azure Cosmos DB account and create the **Tasks** colle
     | **Collection ID** | Items | The name for the new collection. This must match the name defined in your function binding.  |
     | **Storage capacity** | Fixed (10 GB)|Use the default value. This value is the storage capacity of the database. |
     | **Throughput** |400 RU| Use the default value. If you want to reduce latency, you can scale up the throughput later. |
-    | **[Partition key](../cosmos-db/partition-data.md#design-for-partitioning)** | /category|A partition key that distributes data evenly to each partition. Selecting the correct partition key is important in creating a performant collection. | 
+    | **[Partition key](../cosmos-db/partition-data.md#best-practices-when-choosing-a-partition-key)** | /category|A partition key that distributes data evenly to each partition. Selecting the correct partition key is important in creating a performant collection. | 
 
 1. Click **OK** to create the **Tasks** collection. It may take a short time for the collection to get created.
 

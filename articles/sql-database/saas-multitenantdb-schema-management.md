@@ -3,23 +3,17 @@ title: Manage Azure SQL Database schema in a multi-tenant app | Microsoft Docs
 description: "Manage Schema for multiple tenants in a multi-tenant application that uses Azure SQL Database"
 keywords: sql database tutorial
 services: sql-database
-documentationcenter: ''
 author: MightyPen
 manager: craigg
-editor: ''
-
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: "Inactive"
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/03/2018
+ms.topic: conceptual
+ms.date: 09/19/2018
 ms.reviewers: billgib
 ms.author: genemi
 ---
 # Manage schema in a SaaS application that uses sharded multi-tenant SQL databases
-
+ 
 This tutorial examines the challenges in maintaining a fleet of databases in a Software as a Service (SaaS) application. Solutions are demonstrated for fanning out schema changes across the fleet of databases.
 
 Like any application, the Wingtip Tickets SaaS app will evolve over time, and will require changes to the database. Changes may impact schema or reference data, or apply database maintenance tasks. With a SaaS application using a database per tenant pattern, changes must be coordinated across a potentially massive fleet of tenant databases. In addition, you must incorporate these changes into the database provisioning process to ensure they are included in new databases as they are created.
@@ -168,10 +162,9 @@ Observe the following items in the *OnlineReindex.sql* script:
 In this tutorial you learned how to:
 
 > [!div class="checklist"]
-.
 > * Create a job agent to run T-SQL jobs across multiple databases
 > * Update reference data in all tenant databases
 > * Create an index on a table in all tenant databases
 
-Next, try the [Ad-hoc reporting tutorial] (saas-multitenantdb-adhoc-reporting.md) to explore running distributed queries across tenant databases.
+Next, try the [Ad-hoc reporting tutorial](saas-multitenantdb-adhoc-reporting.md) to explore running distributed queries across tenant databases.
 

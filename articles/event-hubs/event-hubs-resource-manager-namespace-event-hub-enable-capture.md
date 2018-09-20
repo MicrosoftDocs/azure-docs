@@ -13,8 +13,8 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/30/2018
-ms.author: sethm
+ms.date: 08/16/2018
+ms.author: shvija
 
 ---
 
@@ -175,7 +175,7 @@ The size interval at which Capture starts capturing the data.
 }
 ```
 
-###captureNameFormat
+### captureNameFormat
 
 The name format used by Event Hubs Capture to write the Avro files. Note that a Capture name format must contain `{Namespace}`, `{EventHub}`, `{PartitionId}`, `{Year}`, `{Month}`, `{Day}`, `{Hour}`, `{Minute}`, and `{Second}` fields. These can be arranged in any order, with or without delimiters.
  
@@ -234,7 +234,7 @@ The blob container in which to capture your event data.
 
 Use the following parameters if you choose Azure Data Lake Store as your destination. You must set permissions on your Data Lake Store path, in which you want to Capture the event. To set permissions, see [this article](event-hubs-capture-enable-through-portal.md#capture-data-to-an-azure-data-lake-store-account).
 
-###subscriptionId
+### subscriptionId
 
 Subscription ID for the Event Hubs namespace and Azure Data Lake Store. Both these resources must be under the same subscription ID.
 
@@ -247,7 +247,7 @@ Subscription ID for the Event Hubs namespace and Azure Data Lake Store. Both the
  }
 ```
 
-###dataLakeAccountName
+### dataLakeAccountName
 
 The Azure Data Lake Store name for the captured events.
 
@@ -260,7 +260,7 @@ The Azure Data Lake Store name for the captured events.
 }
 ```
 
-###dataLakeFolderPath
+### dataLakeFolderPath
 
 The destination folder path for the captured events. This is the folder in your Data Lake Store to which the events will be pushed during the capture operation. To set permissions on this folder, see [Use Azure Data Lake Store to capture data from Event Hubs](../data-lake-store/data-lake-store-archive-eventhub-capture.md).
 

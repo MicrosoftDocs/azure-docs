@@ -27,7 +27,7 @@ This feature is used by tenant admins to customize the claims emitted in tokens 
 - Choose or change the source of data emitted in specific claims.
 
 >[!NOTE]
->This capability currently is in public preview. Be prepared to revert or remove any changes. The feature is available in any Azure Active Directory (Azure AD) subscription during public preview. However, when the feature becomes generally available, some aspects of the feature might require an Azure Active Directory premium subscription.
+>This capability currently is in public preview. Be prepared to revert or remove any changes. The feature is available in any Azure Active Directory (Azure AD) subscription during public preview. However, when the feature becomes generally available, some aspects of the feature might require an Azure Active Directory premium subscription. This feature supports configuring claim mapping policies for WS-Fed, SAML, OAuth and OpenID Connect protocols.
 
 ## Claims mapping policy type
 In Azure AD, a **Policy** object represents a set of rules enforced on individual applications, or on all applications in an organization. Each type of policy has a unique structure, with a set of properties that are then applied to objects to which they are assigned.
@@ -231,7 +231,7 @@ Restricted claims cannot be modified by using policy. The data source cannot be 
 |http://schemas.microsoft.com/identity/claims/scope|
 
 ## Claims mapping policy properties
-Use the properties of a claims mapping policy to control which claims are emitted, and where the data is sourced from. If no policy is set, the system issues tokens containing the core claim set, the basic claim set, and any optional claims that the application has chosen to receive.
+Use the properties of a claims mapping policy to control which claims are emitted, and where the data is sourced from. If no policy is set, the system issues tokens containing the core claim set, the basic claim set, and any [optional claims](develop/active-directory-optional-claims.md) that the application has chosen to receive.
 
 ### Include basic claim set
 
@@ -353,7 +353,7 @@ Based on the method chosen, a set of inputs and outputs is expected. These are d
 |TransformationMethod|Expected input|Expected output|Description|
 |-----|-----|-----|-----|
 |Join|string1, string2, separator|outputClaim|Joins input strings by using a separator in between. For example: string1:"foo@bar.com" , string2:"sandbox" , separator:"." results in outputClaim:"foo@bar.com.sandbox"|
-|ExtractMailPrefix|mail|outputClaim|Extracts the local part of an email address. For example: mail:"foo@bar.com" results in outputClaim:"foo". If no @ sign is present, then the orignal input string is returned as is.|
+|ExtractMailPrefix|mail|outputClaim|Extracts the local part of an email address. For example: mail:"foo@bar.com" results in outputClaim:"foo". If no \@ sign is present, then the orignal input string is returned as is.|
 
 **InputClaims:** Use an InputClaims element to pass the data from a claim schema entry to a transformation. It has two attributes: **ClaimTypeReferenceId** and 
 **TransformationClaimType**.
@@ -465,7 +465,7 @@ In this example, you create a policy that adds the EmployeeID and TenantCountry 
 	1. To create the policy, run this command:  
 	 
 	 ``` powershell
-	New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name","JwtClaimType":"name"},{"Source":"company","ID":" tenantcountry ","SamlClaimType":" http://schemas.xmlsoap.org/ws/2005/05/identity/claims/country ","JwtClaimType":"country"}]}}') -DisplayName "ExtraClaimsExample” -Type "ClaimsMappingPolicy"
+	New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name","JwtClaimType":"name"},{"Source":"company","ID":"tenantcountry","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/country","JwtClaimType":"country"}]}}') -DisplayName "ExtraClaimsExample" -Type "ClaimsMappingPolicy"
 	```
 	
 	2. To see your new policy, and to get the policy ObjectId, run the following command:

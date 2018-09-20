@@ -39,7 +39,7 @@
     href: tutorial-monitoring.md
   - name: 12 - Manage VM security
     href: tutorial-azure-security.md
-  - name: 13 - Team Services CI/CD
+  - name: 13 - Azure Pipelines CI/CD
     href: tutorial-vsts-iis-cicd.md
   - name: 14 - Install a SQL\IIS\.NET stack
     href: tutorial-iis-sql.md
@@ -80,9 +80,13 @@
       - name: Setup GPU drivers
         href: n-series-driver-setup.md      
     - name: High performance compute
-      href: sizes-hpc.md    
+      href: sizes-hpc.md   
+    - name: Previous generations
+      href: sizes-previous-gen.md      
     - name: Azure compute units (ACU)
-      href: acu.md          
+      href: acu.md 
+    - name: Benchmark scores
+      href: compute-benchmark-scores.md       
   - name: Maintenance and updates
     href: maintenance-and-updates.md
   - name: Disk storage
@@ -92,6 +96,8 @@
       href: managed-disks-overview.md
     - name: Premium storage
       href: premium-storage.md
+    - name: Standard SSDs
+      href: disks-standard-ssd.md
     - name: Premium storage performance
       href: premium-storage-performance.md
     - name: Standard storage
@@ -99,9 +105,7 @@
     - name: Scalability targets for disks
       href: disk-scalability-targets.md
     - name: Backup and disaster recovery for disks
-      href: backup-and-disaster-recovery-for-azure-iaas-disks.md
-    - name: Troubleshoot attached VHDs
-      href: troubleshoot-vhds.md      
+      href: backup-and-disaster-recovery-for-azure-iaas-disks.md           
   - name: Networking
     href: network-overview.md
   - name: Auto-scale applications
@@ -110,6 +114,8 @@
     href: infrastructure-automation.md
   - name: Security and policy
     href: security-policy.md
+  - name: States and lifecycle
+    href: states-lifecycle.md
   - name: Monitoring
     href: monitor.md
   - name: Backup and recovery
@@ -157,7 +163,7 @@
     - name: Use WinRM
       href: winrm.md
     - name: Use access controls
-      href: ../../active-directory/role-based-access-control-what-is.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      href: ../../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Use policies
       href: policy.md
     - name: Create a Key Vault
@@ -175,8 +181,6 @@
         href: ../../backup/tutorial-backup-vm-at-scale.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
   - name: Manage VMs
     items:
-    - name: Prepay for VMs - Reserved Instances
-      href: prepay-reserved-vm-instances.md
     - name: VM usage
       href: vm-usage.md
     - name: Common PowerShell tasks
@@ -185,10 +189,19 @@
       href: move-vm.md
     - name: Change VM size
       href: resize-vm.md
+    - name: Swap the OS disk
+      href: os-disk-swap.md
     - name: Tag a VM
       href: tag.md
+    - name: Time sync
+      href: time-sync.md
     - name: Run scripts on a VM
-      href: extensions-customscript.md
+      href: run-scripts-in-vm.md
+      items:
+        - name: Custom Script Extension
+          href: ../extensions/custom-script-windows.md
+        - name: Run Command
+          href: run-command.md
     - name: Change temp drive letter
       href: change-drive-letter.md
     - name: Change availability set
@@ -196,7 +209,7 @@
     - name: Download template
       href: download-template.md
     - name: Azure VM agent
-      href: agent-user-guide.md
+      href: ../extensions/agent-windows.md
     - name: Planned maintenance
       href: maintenance-notifications.md
     - name: Mitigating speculative execution
@@ -207,6 +220,14 @@
       href: instance-metadata-service.md
     - name: Enable nested virtualization
       href: nested-virtualization.md
+  - name: Manage costs
+    items:
+    - name: Prepay for VMs - Azure Reservations
+      href: prepay-reserved-vm-instances.md
+    - name: What are Azure Reservations?
+      href: ../../billing/billing-save-compute-costs-reservations.md
+    - name: VM instance size flexibility
+      href: reserved-vm-instance-size-flexibility.md
   - name: Use Images
     items:
     - name: Find and use images
@@ -296,6 +317,8 @@
       href: mount-azure-file-storage.md
     - name: Deploy disks with template
       href: using-managed-disks-template-deployments.md
+    - name: Enable write accelerator
+      href: how-to-enable-write-accelerator.md 
     - name: Migrate to Managed Disks
       href: migrate-to-managed-disks.md
       items:
@@ -324,33 +347,22 @@
       href: portal-create-fqdn.md
     - name: DNS resolution
       href: ../../dns/dns-for-azure-services.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-  - name: Use VM extensions
+  - name: Configure managed identities
     items:
-    - name: VM extensions overview
-      href: extensions-features.md
-    - name: Custom Script extension
-      href: extensions-customscript.md
-    - name: OMS agent extension
-      href: extensions-oms.md
-    - name: PowerShell DSC extension
-      href: extensions-dsc-overview.md
-      items:
-      - name: PowerShell DSC extension Credential Handling
-        href: extensions-dsc-credentials.md
-      - name: DSC and VMSS with templates
-        href: extensions-dsc-template.md
-    - name: Azure Log Collector extension
-      href: log-collector-extension.md
-    - name: Azure diagnostics extension
-      href: ps-extensions-diagnostics.md
-    - name: Exporting VM extensions
-      href: extensions-export-templates.md
-    - name: Troubleshoot extensions
-      href: extensions-troubleshoot.md
-    - name: Monitoring and Diagnostics Extension
-      href: extensions-diagnostics-template.md
-    - name: Network Watcher Agent
-      href: extensions-nwa.md
+    - name: Portal
+      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
+    - name: CLI
+      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
+    - name: PowerShell
+      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
+    - name: Azure Resource Manager Template
+      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
+    - name: REST
+      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-rest-vm?context=azure/virtual-machines/windows/context/windows-vm-context
+    - name: Azure SDKs
+      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
+  - name: Use VM extensions
+    href: ../extensions/overview.md
   - name: Migrate VMs
     items:
     - name: Migrate AWS and on-premises VMs
@@ -396,6 +408,11 @@
       href: reset-network-interface.md
     - name: Boot diagnostics
       href: boot-diagnostics.md
+    - name: Serial console 
+      href: serial-console.md
+      items:
+        - name: CMD and PowerShell commands
+          href: serial-console-cmd-ps-commands.md
     - name: Creating a VM
       href: troubleshoot-deployment-new-vm.md
     - name: Deployment issues
@@ -408,6 +425,8 @@
       href: troubleshoot-activation-problems.md
     - name: Allocation failures
       href: allocation-failure.md
+    - name: Allocation failures-classic VM
+      href: allocation-failure-classic.md
     - name: Redeploy a VM
       href: redeploy-to-new-node.md
     - name: Common error messages
@@ -426,6 +445,20 @@
       href: troubleshoot-vm-by-use-nested-virtualization.md
     - name: Install the VM agent in offline mode
       href: install-vm-agent-offline.md
+    - name: Troubleshoot attached VHDs
+      items:
+      - name: Storage resource deletion errors
+        href: storage-resource-deletion-errors.md  
+      - name: Unexpected reboots of VMs with attached VHDs  
+        href: unexpected-reboots-attached-vhds.md
+    - name: Throttling errors
+      href: troubleshooting-throttling-errors.md
+    - name: Troubleshoot boot errors
+      items:
+      - name: BitLocker errors 
+        href: troubleshoot-bitlocker-boot-error.md  
+      - name: Checking file system errors
+        href: troubleshoot-check-disk-boot-error.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -443,7 +476,7 @@
   - name: Compute REST
     href: /rest/api/compute
   - name: Managed Disks REST
-    href: /rest/api/manageddisks
+    href: /rest/api/compute/disks
 - name: Resources
   items:
   - name: Author templates

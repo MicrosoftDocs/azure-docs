@@ -74,7 +74,9 @@
     - name: Firewall rules
       href: concepts-firewall-rules.md
     - name: Configuring SSL
-      href: concepts-ssl-connection-security.md 
+      href: concepts-ssl-connection-security.md
+    - name: VNet
+      href: concepts-data-access-and-security-vnet.md 
   - name: Business continuity
     items:
     - name: Overview
@@ -89,6 +91,10 @@
       href: concepts-compatibility.md
     - name: Application development
       href: concepts-database-application-development.md
+  - name: Replication
+    items:
+    - name: Data-in replication
+      href: concepts-data-in-replication.md
 - name: How-to guides
   items:
   - name: Manage a Server
@@ -141,18 +147,30 @@
     items:
     - name: Create alerts on metrics
       href: howto-alert-on-metric.md
+  - name: Replication
+    items:
+    - name: Configure data-in replication
+      href: howto-data-in-replication.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot query performance
       href: howto-troubleshoot-query-performance.md
     - name: How to use views in sys schema
       href: howto-troubleshoot-sys-schema.md
+  - name: Virtual Network
+    items:
+    - name: Azure portal
+      href: howto-manage-vnet-using-portal.md
+    - name: Azure CLI
+      href: howto-manage-vnet-using-cli.md
 - name: Reference
   items:
   - name: Azure CLI
     href: /cli/azure/mysql
   - name: REST API
     href: /rest/api/mysql
+  - name: Data-in replication stored procedures
+    href: reference-data-in-stored-procedures.md
 - name: Resources
   items:
   - name: Deployment templates
@@ -166,7 +184,19 @@
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-database-mysql
   - name: Videos
-    href: videos.md
+    items:
+    - name: Product videos
+      href: videos.md
+    - name: How to video series
+      items:
+      - name: Learn product features and benefits
+        href: https://aka.ms/mysql-intro-vid
+      - name: Migrate your MySQL app to Azure
+        href: https://aka.ms/mysql-migrate-vid
+      - name: Build and deploy Web Apps
+        href: https://aka.ms/mysql-webapps-vid
+      - name: Connect containers using OSBA
+        href: https://aka.ms/mysql-osba-vid
   - name: Request a feature
     href: https://feedback.azure.com/forums/597982-azure-database-for-mysql
   - name: Region availability
@@ -175,5 +205,7 @@
     href: https://azure.microsoft.com/support/options/
   - name: Customer stories
     href: https://customers.microsoft.com/en-us/search?sq="Azure%20Database%20for%20MySQL%20"
+  - name: Partners
+    href: partners-migration-mysql.md
   - name: Database Migration Guide
     href: https://datamigration.microsoft.com/

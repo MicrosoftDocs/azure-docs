@@ -3,15 +3,11 @@ title: Handling external events in Durable Functions - Azure
 description: Learn how to handle external events in the Durable Functions extension for Azure Functions.
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords:
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: azfuncdf
 ---
@@ -23,6 +19,8 @@ Orchestrator functions have the ability to wait and listen for external events. 
 ## Wait for events
 
 The [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) method allows an orchestrator function to asynchronously wait and listen for an external event. The listening orchestrator function declares the *name* of the event and the *shape of the data* it expects to receive.
+
+#### C#
 
 ```csharp
 [FunctionName("BudgetApproval")]
@@ -41,9 +39,26 @@ public static async Task Run(
 }
 ```
 
+#### JavaScript (Functions v2 only)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df(function*(context) {
+    const approved = yield context.df.waitForExternalEvent("Approval");
+    if (approved) {
+        // approval granted - do the approved action
+    } else {
+        // approval denied - send a notification
+    }
+});
+```
+
 The preceding example listens for a specific single event and takes action when it's received.
 
 You can listen for multiple events concurrently, like in the following example, which waits for one of three possible event notifications.
+
+#### C#
 
 ```csharp
 [FunctionName("Select")]
@@ -70,7 +85,30 @@ public static async Task Run(
 }
 ```
 
+#### JavaScript (Functions v2 only)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df(function*(context) {
+    const event1 = context.df.waitForExternalEvent("Event1");
+    const event2 = context.df.waitForExternalEvent("Event2");
+    const event3 = context.df.waitForExternalEvent("Event3");
+
+    const winner = yield context.df.Task.any([event1, event2, event3]);
+    if (winner === event1) {
+        // ...
+    } else if (winner === event2) {
+        // ...
+    } else if (winner === event3) {
+        // ...
+    }
+});
+```
+
 The previous example listens for *any* of multiple events. It's also possible to wait for *all* events.
+
+#### C#
 
 ```csharp
 [FunctionName("NewBuildingPermit")]
@@ -90,12 +128,31 @@ public static async Task Run(
 }
 ```
 
+#### JavaScript (Functions v2 only)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df(function*(context) {
+    const applicationId = context.df.getInput();
+
+    const gate1 = context.df.waitForExternalEvent("CityPlanningApproval");
+    const gate2 = context.df.waitForExternalEvent("FireDeptApproval");
+    const gate3 = context.df.waitForExternalEvent("BuildingDeptApproval");
+
+    // all three departments must grant approval before a permit can be issued
+    yield context.df.Task.all([gate1, gate2, gate3]);
+
+    yield context.df.callActivityAsync("IssueBuildingPermit", applicationId);
+});
+```
+
 [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) waits indefinitely for some input.  The function app can be safely unloaded while waiting. If and when an event arrives for this orchestration instance, it is awakened automatically and immediately processes the event.
 
 > [!NOTE]
 > If your function app uses the Consumption Plan, no billing charges are incurred while an orchestrator function is awaiting a task from `WaitForExternalEvent`, no matter how long it waits.
 
-If the event payload cannot be converted into the expected type `T`, an exception is thrown.
+In .NET, if the event payload cannot be converted into the expected type `T`, an exception is thrown.
 
 ## Send events
 
@@ -124,7 +181,7 @@ Internally, `RaiseEventAsync` enqueues a message that gets picked up by the wait
 > [Learn how to set up eternal orchestrations](durable-functions-eternal-orchestrations.md)
 
 > [!div class="nextstepaction"]
-> [Run a sample that waits for external events](durable-functions-counter.md)
+> [Run a sample that waits for external events](durable-functions-phone-verification.md)
 
 > [!div class="nextstepaction"]
 > [Run a sample that waits for human interaction](durable-functions-phone-verification.md)

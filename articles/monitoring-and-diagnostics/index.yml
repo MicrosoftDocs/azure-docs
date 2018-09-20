@@ -5,14 +5,13 @@ metadata:
   title: Azure Monitor Documentation - Tutorials, API Reference | Microsoft Docs
   description: Azure Monitor is part of Microsoft Azure's overall monitoring solution. Azure Monitor helps you track performance, maintain security, and identify trends. Learn how to audit, create alerts, and archive data with our quickstarts and tutorials.
   services: monitoring-and-diagnostics
-  author: czeumault
-  manager: carolz
+  author: rboucher
   ms.service: monitoring-and-diagnostics
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 09/18/2017
-  ms.author: carolz
+  ms.author: robb
 abstract:
   description: Azure Monitor is part of Microsoft Azure's overall monitoring solution. Azure Monitor helps you track performance, maintain security, and identify trends. Learn how to audit, create alerts, and archive data with our quickstarts and tutorials.
 sections:
@@ -46,16 +45,11 @@ sections:
     style: cards
     className: cardsFTitle
     items:
-    - title: Get Started with IaaS Monitoring
-      href: https://app.pluralsight.com/library/courses/azure-iaas-monitoring-management-getting-started/table-of-contents
+    - title: Azure Administrator
+      href: https://go.microsoft.com/fwlink/?linkid=2012827
       image: 
         src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://app.pluralsight.com/library/courses/azure-iaas-monitoring-management-getting-started/table-of-contents
-    - title: Managing Infrastructure on Microsoft Azure
-      href: https://app.pluralsight.com/library/courses/managing-infrastructure-microsoft-azure-getting-started
-      image: 
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://app.pluralsight.com/library/courses/managing-infrastructure-microsoft-azure-getting-started
+        href: https://go.microsoft.com/fwlink/?linkid=2012827
 - title: Reference
   items:
   - type: list

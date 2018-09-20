@@ -6,7 +6,7 @@ services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.technology: bing-entity-search
+ms.component: bing-entity-search
 ms.topic: article
 ms.date: 02/19/2018
 ms.author: v-gedod
@@ -14,6 +14,8 @@ ms.author: v-gedod
 # Bing Entity Search SDK Java quickstart
 
 The Bing Entity Search SDK provides the REST API functionality for entity queries and parsing results. 
+
+The [source code for Java Bing Entity Search SDK samples](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingEntitySearch) is available on Git Hub. 
 
 ## Application dependencies
 Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under **Search**. 
@@ -68,7 +70,7 @@ public static EntitySearchAPIImpl getClient(final String subscriptionKey) {
 }
 
 ```
-Search for the single entity "Tom Cruise" and print a short description.
+Search for the single entity "Satya Nadella" and print a short description.
 ```
 public static void dominantEntityLookup(final String subscriptionKey)
 {
@@ -76,7 +78,7 @@ public static void dominantEntityLookup(final String subscriptionKey)
     {
         EntitySearchAPIImpl client = getClient(subscriptionKey);
         SearchResponseInner entityData = client.entities().search(
-                "tom cruise", null, null, null, null, null, null, "en-us", null, null, SafeSearch.STRICT, null);
+                "satya nadella", null, null, null, null, null, null, "en-us", null, null, SafeSearch.STRICT, null);
 
         if (entityData.entities().value().size() > 0)
         {
@@ -85,7 +87,7 @@ public static void dominantEntityLookup(final String subscriptionKey)
             Thing dominateEntry = null;
             for(Thing thing : entrys) {
                 if(thing.entityPresentationInfo().entityScenario() == EntityScenario.DOMINANT_ENTITY) {
-                    System.out.println("\r\nSearched for \"Tom Cruise\" and found a dominant entity with this description:");
+                    System.out.println("\r\nSearched for \"Satya Nadella\" and found a dominant entity with this description:");
                     System.out.println(thing.description());
                     break;
                 }
@@ -93,7 +95,7 @@ public static void dominantEntityLookup(final String subscriptionKey)
 
             if(dominateEntry == null)
             {
-                 System.out.println("Couldn't find main entity tom cruise!");
+                 System.out.println("Couldn't find main entity Satya Nadella!");
             }
         }
         else
@@ -108,7 +110,7 @@ public static void dominantEntityLookup(final String subscriptionKey)
 }
 
 ```
-Search for "Harry Potter" and handle disambiguation results for the ambiguous query.
+Search for "William Gates" and handle disambiguation results for the ambiguous query.
 ```
 public static void handlingDisambiguation(String subscriptionKey)
 {
@@ -116,7 +118,7 @@ public static void handlingDisambiguation(String subscriptionKey)
     {
         EntitySearchAPIImpl client = getClient(subscriptionKey);
         SearchResponseInner entityData = client.entities().search(
-                "harry potter", null, null, null, null, null, null, "en-us", null, null, SafeSearch.STRICT, null);
+                "william gates", null, null, null, null, null, null, "en-us", null, null, SafeSearch.STRICT, null);
         if (entityData.entities().value().size() > 0)
         {
             // Find the entity that represents the dominant entity
@@ -125,15 +127,15 @@ public static void handlingDisambiguation(String subscriptionKey)
             List<Thing> disambigEntities = new ArrayList<Thing>();
             for(Thing thing : entrys) {
                 if(thing.entityPresentationInfo().entityScenario() == EntityScenario.DOMINANT_ENTITY) {
-                    System.out.println("\r\nSearched for \"Harry Potter\" and found a dominant entity with this description:");
-                    System.out.println(String.format("Searched for \"Harry Potter\" and found a dominant entity with type hint \"%s\" with this description:",
+                    System.out.println("\r\nSearched for \"William Gates\" and found a dominant entity with this description:");
+                    System.out.println(String.format("Searched for \"William Gates\" and found a dominant entity with type hint \"%s\" with this description:",
                             thing.entityPresentationInfo().entityTypeDisplayHint()));
                     System.out.println(thing.description());
                 }
 
                 if(thing.entityPresentationInfo().entityScenario() == EntityScenario.DISAMBIGUATION_ITEM) {
                     disambigEntities.add(thing);
-                    System.out.println("Searched for \"Harry Potter\" and found a dominant entity with this description:");
+                    System.out.println("Searched for \"William Gates\" and found a dominant entity with this description:");
                     System.out.println(thing.description());
                 }
 
@@ -141,7 +143,7 @@ public static void handlingDisambiguation(String subscriptionKey)
 
             if (dominateEntry == null)
             {
-                 System.out.println("Couldn't find a reliable dominant entity for harry potter!");
+                 System.out.println("Couldn't find a reliable dominant entity for William Gates!");
             }
 
             if (disambigEntities.size() > 0)
@@ -160,7 +162,7 @@ public static void handlingDisambiguation(String subscriptionKey)
             }
             else
             {
-                 System.out.println("We didn't find any disambiguation items for harry potter, so we must be certain what you're talking about!");
+                 System.out.println("We didn't find any disambiguation items for William Gates, so we must be certain what you're talking about!");
             }
         }
         else
@@ -175,26 +177,26 @@ public static void handlingDisambiguation(String subscriptionKey)
 }
 
 ```
-Search for a single restaurant with the query "John Howie Bellevue" and print the phone number for the result.
+Search for a single store with the query "Microsoft Store" and print the phone number for the result.
 ```
-public static void restaurantLookup(String subscriptionKey)
+public static void storeLookup(String subscriptionKey)
 {
     try
     {
         EntitySearchAPIImpl client = getClient(subscriptionKey);
         SearchResponseInner entityData = client.entities().search(
-                "John Howie Bellevue", null, null, null, null, null, null, "en-us", null, null, SafeSearch.STRICT, null);
+                "Microsoft Store", null, null, null, null, null, null, "en-us", null, null, SafeSearch.STRICT, null);
 
         if (entityData.places() != null && entityData.places().value().size() > 0)
         {
             // Some local entities are places, others are not. Depending on the data that you want, try to cast to the appropriate schema.
-            // In this case, the returned item is technically a restaurant, but the Place schema has the data that we want (telephone).
-            Place restaurant = (Place)entityData.places().value().get(0);
+            // In this case, the returned item is technically a store, but the Place schema has the data that we want (telephone).
+            Place store = (Place)entityData.places().value().get(0);
 
-            if (restaurant != null)
+            if (store != null)
             {
-                 System.out.println("\r\nSearched for \"John Howie Bellevue\" and found a restaurant with this phone number:");
-                 System.out.println(restaurant.telephone());
+                 System.out.println("\r\nSearched for \"Microsoft Store\" and found a store with this phone number:");
+                 System.out.println(store.telephone());
             }
             else
             {

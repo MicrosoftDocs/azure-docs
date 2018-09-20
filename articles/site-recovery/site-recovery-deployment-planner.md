@@ -13,7 +13,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/04/2017
+ms.date: 07/06/2018
 ms.author: nisoneji
 
 ---
@@ -33,7 +33,7 @@ The tool provides the following details:
 **Compatibility assessment**
 
 * VM eligibility assessment, based on number of disks, disk size, IOPS, churn, boot type (EFI/BIOS), and OS version
- 
+
 **Network bandwidth need versus RPO assessment**
 
 * Estimated network bandwidth that's required for delta replication
@@ -80,8 +80,8 @@ The tool has two main phases: profiling and report generation. There is also a t
 
 | Server requirement | Description|
 |---|---|
-|Profiling and throughput measurement| <ul><li>Operating system: Windows Server 2016 or Windows Server 2012 R2<br>(ideally matching at least the [size recommendations for the configuration server](https://aka.ms/asr-v2a-on-prem-components))</li><li>Machine configuration: 8 vCPUs, 16 GB RAM, 300 GB HDD</li><li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Visual C++ Redistributable for Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Internet access to Azure from this server</li><li>Azure storage account</li><li>Administrator access on the server</li><li>Minimum 100 GB of free disk space (assuming 1,000 VMs with an average of three disks each, profiled for 30 days)</li><li>VMware vCenter statistics level settings should be set to 2 or high level</li><li>Allow 443 port: Site Recovery Deployment Planner uses this port to connect to the vCenter server/ESXi host</ul></ul>|
-| Report generation | A Windows PC or Windows Server with Excel 2013 or later |
+|Profiling and throughput measurement| <ul><li>Operating system: Windows Server 2016 or Windows Server 2012 R2<br>(ideally matching at least the [size recommendations for the configuration server](https://aka.ms/asr-v2a-on-prem-components))</li><li>Machine configuration: 8 vCPUs, 16 GB RAM, 300 GB HDD</li><li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Visual C++ Redistributable for Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Internet access to Azure from this server</li><li>Azure storage account</li><li>Administrator access on the server</li><li>Minimum 100 GB of free disk space (assuming 1,000 VMs with an average of three disks each, profiled for 30 days)</li><li>VMware vCenter statistics level settings should be set to 1 or high level</li><li>Allow 443 port: Site Recovery Deployment Planner uses this port to connect to the vCenter server/ESXi host</ul></ul>|
+| Report generation | A Windows PC or Windows Server with Excel 2013 or later <li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Visual C++ Redistributable for Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli) is required only when VM details need to be refreshed</li>|
 | User permissions | Read-only permission for the user account that's used to access the VMware vCenter server/VMware vSphere ESXi host during profiling |
 
 > [!NOTE]
@@ -90,22 +90,22 @@ The tool has two main phases: profiling and report generation. There is also a t
 >
 
 ## Download and extract the deployment planner tool
-1. Download the latest version of [Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner). 
+1. Download the latest version of [Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner).
 The tool is packaged in a .zip folder. The current version of the tool supports only the VMware to Azure scenario.
 
-2. Copy the .zip folder to the Windows server from which you want to run the tool. 
+2. Copy the .zip folder to the Windows server from which you want to run the tool.
 You can run the tool from Windows Server 2012 R2 if the server has network access to connect to the vCenter server/vSphere ESXi host that holds the VMs to be profiled. However, we recommend that you run the tool on a server whose hardware configuration meets the [configuration server sizing guidelines](https://aka.ms/asr-v2a-on-prem-components). If you already deployed Site Recovery components on-premises, run the tool from the configuration server.
 
     We recommend that you have the same hardware configuration as the configuration server (which has an in-built process server) on the server where you run the tool. Such a configuration ensures that the achieved throughput that the tool reports matches the actual throughput that Site Recovery can achieve during replication. The throughput calculation depends on available network bandwidth on the server and hardware configuration (such as CPU and storage) of the server. If you run the tool from any other server, the throughput is calculated from that server to Azure. Also, because the hardware configuration of the server might differ from that of the configuration server, the achieved throughput that the tool reports might be inaccurate.
 
-3. Extract the .zip folder. 
+3. Extract the .zip folder.
 The folder contains multiple files and subfolders. The executable file is ASRDeploymentPlanner.exe in the parent folder.
 
-    Example: 
+    Example:
     Copy the .zip file to E:\ drive and extract it.
-    E:\ASR Deployment Planner_v2.1zip
+    E:\ASR Deployment Planner_v2.2.zip
 
-    E:\ASR Deployment Planner_v2.1\ASRDeploymentPlanner.exe
+    E:\ASR Deployment Planner_v2.2\ASRDeploymentPlanner.exe
 
 ### Update to the latest version of Deployment Planner
 If you have a previous version of Deployment Planner, do either of the following:
@@ -121,7 +121,7 @@ If you have a previous version of Deployment Planner, do either of the following
 
 
 ## Version history
-The latest Site Recovery Deployment Planner tool version is 2.1.
+The latest Site Recovery Deployment Planner tool version is 2.2.
 See the [Site Recovery Deployment Planner version history](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) page for the fixes that are added in each update.
 
 ## Next steps

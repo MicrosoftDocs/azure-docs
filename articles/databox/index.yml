@@ -1,0 +1,40 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Data Box Documentation
+metadata:
+  title: Azure Data Box Documentation
+  description: The Azure Data Box service lets you transfer terabytes of data into Azure in a quick, inexpensive, and reliable manner. Microsoft accelerates the secure data transfer by shipping you disks and handling the end-to-end logistics.
+  services: databox
+  author: alkohli
+  manager: twooley
+  ms.service: databox
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 07/10/2018
+  ms.author: alkohli
+abstract:
+  description: The Azure Data Box service lets you transfer terabytes of data into Azure in a quick, inexpensive, and reliable manner. Microsoft accelerates the secure data transfer by shipping you disks and handling the end-to-end logistics.<p>Transfer large amounts of data to Azure in 4 easy steps – order, receive, copy data to disks, and return disks to Azure. After the disks are received, data is ingested into Azure and disks are securely wiped.<p><a href="/azure/databox/data-box-disk-overview">Learn more about Data Box Disk</a>.</p>
+sections:
+- title: Quickstart
+  items:
+  - type: paragraph
+    text: 'Learn how to use Data Box Disk to transfer data to Azure.'
+  - type: list
+    style: icon48
+    items:    
+    - image:
+        src: https://docs.microsoft.com/media/common/i_portal.svg
+      text: Azure Portal
+      href: /azure/databox/data-box-disk-quickstart-portal
+- title: Step-by-Step tutorial
+  items:
+  - type: paragraph
+    text: Learn how Data Box Disk lets you import data into Azure.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="data-box-disk-deploy-ordered">Order Data Box Disk</a>
+    - html: <a href="data-box-disk-deploy-set-up">Set up Data Box Disk</a>
+    - html: <a href="data-box-disk-deploy-copy-data">Copy data to Data Box Disk</a>
+    - html: <a href="data-box-disk-deploy-picked-up">Return Data Box Disk and upload data to Azure</a>

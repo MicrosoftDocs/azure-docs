@@ -5,10 +5,10 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2018
-ms.topic: article
+ms.date: 06/07/2018
+ms.topic: conceptual
 ms.service: cost-management
-manager: carmonm
+manager: dougeby
 ms.custom:
 ---
 
@@ -55,7 +55,7 @@ To collect usage and asset information, Cost Management needs the following Goog
 
 ## Add a Google Cloud account to Cost Management
 
-1. Open the Cloudyn portal from the Azure portal or navigate to [https://azure.cloudyn.com](https://azure.cloudyn.com/) and log in.
+1. Open the Cloudyn portal from the Azure portal or navigate to [https://azure.cloudyn.com](https://azure.cloudyn.com/) and sign in.
 2. Click **Settings** (cog symbol) and then select **Cloud Accounts**.
 3. In **Accounts Management**, select the **Google Accounts** tab and then click **Add new +**.
 4. In **Google Account Name**, enter the email address for the billing account then click **Next**.
@@ -69,4 +69,4 @@ Within a few hours, Cost Management reports show Google cost and usage informati
 
 ## Next steps
 
-- To learn more about Azure Cost Management by Cloudyn, continue to the [Review usage and costs](./tutorial-review-usage.md) tutorial for Cost Management.
+- To learn more about Azure Cost Management, continue to the [Review usage and costs](./tutorial-review-usage.md) tutorial for Cost Management.

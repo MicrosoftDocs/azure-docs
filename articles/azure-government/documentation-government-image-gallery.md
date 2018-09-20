@@ -4,7 +4,7 @@ description: This article provides an overview of the Azure Government image gal
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: sarahwel
+author: gsacavdm
 manager: pathuff
 
 ms.assetid: f6dd4386-7b79-448a-8ae3-409258cc257b
@@ -13,21 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 02/06/2018
+ms.date: 07/13/2018
 ms.author: gsacavdm
 
 ---
 # Azure Government Marketplace images
-
 The Azure Government Marketplace provides a similar experience as the public Azure portal. You can choose to deploy prebuilt images from Microsoft and our partners, or upload your own VHDs. This gives you the flexibility to deploy your own standardized images if needed.
 
-The following table shows a list of available images within the Azure Government Marketplace.  Some of the prebuilt images include pay-as-you-go licensing for specific software. Work with your Microsoft account team or reseller for Azure Government-specific pricing. For more information, see [Virtual machine pricing](http://azure.microsoft.com/pricing/details/virtual-machines/).
+The following table shows a list of available images within the Azure Government Marketplace. If you'd like to see other images in Azure Government, please request them via the [Azure Government Feedback Forum](https://feedback.azure.com/forums/558487-azure-government).
+
+Some of the prebuilt images include pay-as-you-go licensing for specific software. Work with your Microsoft account team or reseller for Azure Government-specific pricing. For more information, see [Virtual machine pricing](http://azure.microsoft.com/pricing/details/virtual-machines/).
 
 ## Images
 The list of virtual machine images available in Azure Government can be obtained by [connecting to Azure Government via PowerShell](documentation-government-get-started-connect-with-ps.md) and running the following commands:
 
 ```powershell
-Login-AzureRMAccount -Environment AzureUSGovernment
+Connect-AzureRmAccount -Environment AzureUSGovernment
 
 Get-AzureRmVMImagePublisher -Location USGovVirginia | `
 Get-AzureRmVMImageOffer | `
@@ -42,32 +43,39 @@ Select-Object -ExpandProperty Entry | `
 Out-File vm-images.md
 -->
 
-The table below contains a snapshot of the list of virtual machine images available in Azure Government via Resource Manager as of February 6, 2018.
+The table below contains a snapshot of the list of virtual machine images available in Azure Government via Resource Manager as of July 13, 2018.
 
 |Publisher|Offer|SKU|
 | --- | --- | --- |
 | a10networks | a10-vthunder-adc | vthunder_410_byol |
 | a10networks | a10-vthunder-adc | vthunder_byol |
-| ACEPublishing | f5-big-ip | f5-bigip-virtual-edition-best-byol |
 | akumina | akumina-interchange | akam101 |
 | alertlogic | alert-logic-tm | 20215000100-tmpbyol |
 | alertlogic | alert-logic-wsm | 20216000100-wsmpbyl |
 | altamira-corporation | lumify | lumify |
 | asigra | asigra-on-azure | asigra-evaluation-vm |
+| aviatrix-systems | aviatrix-cloud-services | av-csg-byol |
+| aviatrix-systems | aviatrix-companion-gateway-v2 | aviatrix-companion-gateway-v2 |
 | barracudanetworks | barracuda-app-sec-control-center | byol |
 | barracudanetworks | barracuda-email-security-gateway | byol |
+| barracudanetworks | barracuda-email-security-gateway | hourly |
 | barracudanetworks | barracuda-message-archiver | byol |
 | barracudanetworks | barracuda-ng-cc | byol |
 | barracudanetworks | barracuda-ng-firewall | byol |
+| barracudanetworks | barracuda-ng-firewall | hourly |
+| barracudanetworks | barracuda-ng-firewall-90-day-trial | hourly-90-day-trial |
 | barracudanetworks | barracuda-spam-firewall | byol |
+| barracudanetworks | barracuda-waf-90-day-trial | hourly-90-day-trial |
 | barracudanetworks | waf | byol |
+| barracudanetworks | waf | hourly |
+| batch | rendering-centos73 | rendering |
+| batch | rendering-windows2016 | rendering |
 | beyondtrust | beyondinsight | uvm-azm |
 | bitnami | abantecart | 1-2 |
 | bitnami | activemq | 5-13 |
 | bitnami | activemq | default |
 | bitnami | akeneo | 1-4 |
 | bitnami | alfrescocommunity | 201602 |
-| bitnami | ametys | 3-7 |
 | bitnami | apachesolr | 5-5 |
 | bitnami | artifactory | 4-5 |
 | bitnami | canvaslms | 2016-02 |
@@ -77,7 +85,6 @@ The table below contains a snapshot of the list of virtual machine images availa
 | bitnami | chyrp | 2-5 |
 | bitnami | civicrm | 4-7 |
 | bitnami | cmsmadesimple | 2-1 |
-| bitnami | codedx | 2-3 |
 | bitnami | codiad | 2-7 |
 | bitnami | concrete5 | 5-7 |
 | bitnami | coppermine | 1-5 |
@@ -114,6 +121,8 @@ The table below contains a snapshot of the list of virtual machine images availa
 | bitnami | kafka | 0-1 |
 | bitnami | kafka | default |
 | bitnami | kafka | kafka |
+| bitnami | kong | default |
+| bitnami | kubernetessandbox | default |
 | bitnami | lampstack | 5-6 |
 | bitnami | lappstack | 5-6 |
 | bitnami | letschat | 0-4 |
@@ -202,8 +211,8 @@ The table below contains a snapshot of the list of virtual machine images availa
 | bitnami | spree | 3-0 |
 | bitnami | squash | 20151209 |
 | bitnami | subversion | 1-8 |
-| bitnami | sugarcrm | 6-5 |
 | bitnami | suitecrm | 7-4 |
+| bitnami | tensorflowserving | default |
 | bitnami | testlink | 1-9 |
 | bitnami | tikiwikicmsgroupware | 14-2 |
 | bitnami | tinytinyrss | 20160220 |
@@ -215,7 +224,7 @@ The table below contains a snapshot of the list of virtual machine images availa
 | bitnami | wildfly | 10-0 |
 | bitnami | wordpress | 4-4 |
 | bitnami | wordpress-multisite | 4 |
-| bitnami | x-cart | public |
+| bitnami | wordpresspro | default |
 | bitnami | x2enginesalescrm | 5-5 |
 | bitnami | xoops | 2-5 |
 | bitnami | youtrack | 7-0 |
@@ -239,7 +248,11 @@ The table below contains a snapshot of the list of virtual machine images availa
 | cisco | cisco-csr-1000v | 16_7 |
 | cisco | cisco-csr-1000v | 3_16 |
 | cisco | cisco-csr-1000v | csr-azure-byol |
+| cisco | cisco-ftdv | ftdv-azure-byol |
+| cisco | cisco_cloud_vedge_17_2_4 | cisco_vedge_azurecloud_18_2_0 |
+| citrix | netscaler-sd-wan | netscalersd-wanstandardedition |
 | citrix | netscalervpx-120 | netscalerbyol |
+| citrix | netscalervpx-121 | netscalerbyol |
 | citrix | netscalervpx110-6531 | netscalerbyol |
 | citrix | netscalervpx111 | netscalerbyol |
 | citrix | xenapp-server | coldfireserver |
@@ -248,15 +261,17 @@ The table below contains a snapshot of the list of virtual machine images availa
 | citrix | xenapp-vda-vdi | coldfirevdi |
 | citrix | xenapp-vda-vdi | server2016vdi |
 | clouber | cws | cuber |
+| cloud-checkr | cloudcheckr-gov | cloudcheckr-gov |
 | cloudera | cloudera-centos-6 | cloudera-centos-6 |
 | cloudera | cloudera-centos-os | 6_7 |
 | cloudera | cloudera-centos-os | 6_8 |
 | cloudera | cloudera-centos-os | 7_2 |
 | cloudera | cloudera-centos-os | 7_4 |
+| codelathe | codelathe-filecloud-ubuntu | filecloud_ubuntu_byol |
 | codelathe | codelathe-filecloud-win2012r2 | filecloud_byol |
 | codelathe | filecloud-efss-windows2016 | filecloud_windows2016 |
 | cohesive | vns3_4x_network_security | cohesive-vns3-4x-byol |
-| commvault | commvault | csmav11 |
+| commvault | commvault | commvaulttrial |
 | composable | composable | composable-govt |
 | connecting-software | cb-replicator-byol | cbrep-gov-byol |
 | CoreOS | CoreOS | Stable |
@@ -267,9 +282,13 @@ The table below contains a snapshot of the list of virtual machine images availa
 | credativ | Debian | 8-backports |
 | credativ | Debian | 9 |
 | credativ | Debian | 9-beta |
+| datacore | datacore-maxparallel_sql2012 | 1b-sq12e13-w1220-mp200 |
+| datacore | datacore-maxparallel_sql2012 | 1b-sq12s13-w1220-mp200 |
 | datastax | datastax-enterprise | datastaxenterprise |
-| dell_software | rapid-recovery-replication-target-vm-for-azure | quest_rr_replication_target_vm_for_azure |
+| dellemc | dell-emc-datadomain-virtual-edition | ddve-31-ver-060100 |
+| dellemc | dell-emc-datadomain-virtual-edition | ddve-31-ver-060101 |
 | dell_software | uccs | uccs |
+| delphix | delphix_dynamic_data_platform | dynamic_data_platform_for_azure_5-1-8-0 |
 | derdack | enterprisealert | enterprisealert-2017-datacenter-byol |
 | docker | docker-ee | docker-ee |
 | docker | docker4azure-cs | docker4azure-cs-1_12 |
@@ -278,23 +297,49 @@ The table below contains a snapshot of the list of virtual machine images availa
 | enterprise-ethereum-alliance | quorum-demo | quorum-demo |
 | esri | arcgis-10-4-for-server | cloud |
 | esri | arcgis-desktop | desktop-byol-106 |
+| esri | arcgis-desktop | desktop-byol-1061 |
 | esri | arcgis-enterprise | byol |
 | esri | arcgis-enterprise | byol-1051 |
 | esri | arcgis-enterprise-106 | byol-106 |
+| esri | arcgis-enterprise-106 | byol-1061 |
 | esri | arcgis-for-server | cloud |
 | eventtracker | eventtracker-siem | etlm |
 | eventtracker | eventtracker-siem | etsc |
-| f5-networks | f5-big-ip | f5-bigip-virtual-edition-best-byol |
-| f5-networks | f5-big-ip | f5-bigip-virtual-edition-better-byol |
-| f5-networks | f5-big-ip | f5-bigip-virtual-edition-good-byol |
+| f5-networks | f5-big-ip-adc | f5-bigip-virtual-edition-better-byol |
+| f5-networks | f5-big-ip-adc | f5-bigip-virtual-edition-good-byol |
+| f5-networks | f5-big-ip-advanced-waf | f5-bigip-virtual-edition-1g-waf-hourly |
+| f5-networks | f5-big-ip-advanced-waf | f5-bigip-virtual-edition-200m-waf-hourly |
+| f5-networks | f5-big-ip-advanced-waf | f5-bigip-virtual-edition-25m-waf-hourly |
+| f5-networks | f5-big-ip-best | f5-bigip-virtual-edition-1g-best-hourly |
+| f5-networks | f5-big-ip-best | f5-bigip-virtual-edition-200m-best-hourly |
+| f5-networks | f5-big-ip-best | f5-bigip-virtual-edition-25m-best-hourly |
+| f5-networks | f5-big-ip-best | f5-bigip-virtual-edition-best-byol |
+| f5-networks | f5-big-ip-better | f5-bigip-virtual-edition-1g-better-hourly |
+| f5-networks | f5-big-ip-better | f5-bigip-virtual-edition-200m-better-hourly |
+| f5-networks | f5-big-ip-better | f5-bigip-virtual-edition-25m-better-hourly |
+| f5-networks | f5-big-ip-better | f5-bigip-virtual-edition-better-byol |
+| f5-networks | f5-big-ip-good | f5-bigip-virtual-edition-200m-good-hourly |
+| f5-networks | f5-big-ip-good | f5-bigip-virtual-edition-25m-good-hourly |
+| f5-networks | f5-big-ip-good | f5-bigip-virtual-edition-good-byol |
+| f5-networks | f5-big-iq | f5-bigiq-virtual-edition-byol |
 | flashgrid-inc | flashgrid-ol7-g | fg-17-05-ol74-g |
 | flashgrid-inc | flashgrid-ol7-g | fg-rh-gc |
+| flashgrid-inc | flashgrid-racnode | fg-1709-ol |
+| flashgrid-inc | flashgrid-racnode | fg-1709-rh |
+| flashgrid-inc | flashgrid-racnode | fg-1709-rh-mc |
+| flashgrid-inc | flashgrid-racnode | fg-ol7-priv-byol |
+| flashgrid-inc | flashgrid-racnode | fg-rh7-priv-byol |
 | fortinet | fortinet-fortianalyzer | fortinet-fortianalyzer |
 | fortinet | fortinet-fortimanager | fortinet-fortimanager |
 | fortinet | fortinet_fortigate-vm_v5 | fortinet_fg-vm |
 | fortinet | fortinet_fortimail | fortinet_fortimail |
 | fortinet | fortinet_fortiweb-vm_v5 | fortinet_fw-vm |
+| gigamon-inc | gigamon-fm-5_3_01 | gfm-azure |
+| gigamon-inc | gigamon-fm-5_3_01 | gvtap-cntlr |
+| gigamon-inc | gigamon-fm-5_3_01 | vseries-cntlr |
+| gigamon-inc | gigamon-fm-5_3_01 | vseries-node |
 | hanu | hanu-insightv2 | hanu-insight-v2-enterprise-byol |
+| hanu | hanu-insightv2 | hanu-insight-v2-standard-byol |
 | infoblox | infoblox-vnios-te-v1420 | vnios-cp-v1400 |
 | infoblox | infoblox-vnios-te-v1420 | vnios-cp-v2200 |
 | infoblox | infoblox-vnios-te-v1420 | vnios-cp-v800 |
@@ -302,15 +347,22 @@ The table below contains a snapshot of the list of virtual machine images availa
 | infoblox | infoblox-vnios-te-v1420 | vnios-te-v2220 |
 | infoblox | infoblox-vnios-te-v1420 | vnios-te-v820 |
 | infoblox | infoblox-vnios-te-v1420 | vsot |
+| jamcracker | 4632d5b4-feb0-4332-8452-f2e66133672f | jamcracker_cloud_control_appliance_version5 |
 | jamcracker | jamcracker-cloudanalytics-version4 | jamcracker-cloud-analytics-version4 |
+| jamcracker | jamcracker-cloudanalytics-version5 | jamcracker-cloudanalytics-version5 |
+| jamcracker | jamcracker-csb-service-provider | jc-csbsp-version5 |
+| jamcracker | jamcracker-csb-serviceprovider | jc-csbsp-version5 |
+| jamcracker | jamcracker-csb-standard | jamcracker-csb-standard-version5 |
 | jamcracker | jamcracker-csb-standard-v3 | jamcracker-csb-standard-v3 |
 | jamcracker | jamcracker-csb-standard-version4 | jamcracker-csb-standard-version4 |
 | jamcracker | jamcracker-hybrid-cloud-management-version4 | jamcracker-hybrid-cloud-management-version4 |
 | jamcracker | jamcracker_cloud_control_appliance_version4 | jamcracker-cloud-control-appliance-version4 |
 | jamcracker | jsdnapp_csb_serviceprovider-version4 | jc-csbsp-version4 |
-| jamcracker | jsdnapp_hybrid_v3 | jsdnapp_hybrid_v3 |
+| jamcracker | jsdnapp_hybrid_v3 | jamcracker-hybrid-cloud-management-version5 |
+| juniper-networks | vmx-services-gateway-byol | vmx-services-gateway-byol |
 | juniper-networks | vsrx-next-generation-firewall | vsrx-byol-azure-image |
 | juniper-networks | vsrx-next-generation-firewall-solution-template | vsrx-byol-azure-image-solution-template |
+| kali-linux | kali-linux | kali |
 | kemptech | kemp360central-byol | kemp360central-byol |
 | kemptech | kemp360central-byol | kemp360central-spla |
 | kemptech | vlm-azure | basic-byol |
@@ -319,6 +371,7 @@ The table below contains a snapshot of the list of virtual machine images availa
 | kemptech | vlm-azure | vlm-spla |
 | kemptech | vlm-azure | vlm-spla-lts |
 | kinetica | kineticadbbyol | centos73-601 |
+| kinetica | kineticadbbyol | centos75-620 |
 | liebsoft | enterprise_random_password_manager | redim5521 |
 | mapr-technologies | mapr52-base-dev | 5202 |
 | marklogic | marklogic-9-byol | ml9031_centos_byol |
@@ -326,6 +379,9 @@ The table below contains a snapshot of the list of virtual machine images availa
 | mico | mobile-impact-platform | mipvm |
 | microsoft-ads | linux-data-science-vm-ubuntu | linuxdsvmubuntubyol |
 | microsoft-ads | windows-data-science-vm | windows2016byol |
+| microsoft-dsvm | dsvm-windows | server-2016 |
+| microsoft-dsvm | linux-data-science-vm-ubuntu | linuxdsvmubuntu |
+| microsoft-hyperv | rs5_preview | 2019-datacenter |
 | MicrosoftAzureSiteRecovery | Process-Server | Windows-2012-R2-Datacenter |
 | MicrosoftHybridCloudStorage | StorSimple | StorSimple-Garda-8000-Series |
 | MicrosoftHybridCloudStorage | StorSimple | StorSimple-Garda-8000-Series-BBUpdate |
@@ -390,6 +446,13 @@ The table below contains a snapshot of the list of virtual machine images availa
 | MicrosoftSQLServer | SQL2016SP1-WS2016 | Web |
 | MicrosoftSQLServer | SQL2016SP1-WS2016-BYOL | Enterprise |
 | MicrosoftSQLServer | SQL2016SP1-WS2016-BYOL | Standard |
+| MicrosoftSQLServer | SQL2016SP2-WS2016 | Enterprise |
+| MicrosoftSQLServer | SQL2016SP2-WS2016 | Express |
+| MicrosoftSQLServer | SQL2016SP2-WS2016 | SQLDEV |
+| MicrosoftSQLServer | SQL2016SP2-WS2016 | Standard |
+| MicrosoftSQLServer | SQL2016SP2-WS2016 | Web |
+| MicrosoftSQLServer | SQL2016SP2-WS2016-BYOL | Enterprise |
+| MicrosoftSQLServer | SQL2016SP2-WS2016-BYOL | Standard |
 | MicrosoftSQLServer | SQL2017-RHEL73 | Evaluation |
 | MicrosoftSQLServer | SQL2017-WS2016 | Enterprise |
 | MicrosoftSQLServer | SQL2017-WS2016 | Express |
@@ -401,14 +464,18 @@ The table below contains a snapshot of the list of virtual machine images availa
 | MicrosoftVisualStudio | VisualStudio | VS-2015-Comm-VSU3-AzureSDK-29-WS2012R2 |
 | MicrosoftVisualStudio | VisualStudio | VS-2015-Comm-VSU3-AzureSDK-291-WS2012R2 |
 | MicrosoftVisualStudio | VisualStudio | VS-2015-Ent-VSU3-AzureSDK-29-WS2012R2 |
+| MicrosoftVisualStudio | VisualStudio | VS-2017-Comm-Latest-Preview-WS2016 |
 | MicrosoftVisualStudio | VisualStudio | VS-2017-Comm-Latest-WS2016 |
 | MicrosoftVisualStudio | VisualStudio | VS-2017-Comm-WS2016 |
+| MicrosoftVisualStudio | VisualStudio | VS-2017-Ent-Latest-Preview-WS2016 |
 | MicrosoftVisualStudio | VisualStudio | VS-2017-Ent-Latest-WS2016 |
 | MicrosoftVisualStudio | VisualStudio | VS-2017-Ent-WS2016 |
 | MicrosoftWindowsDesktop | Windows-10 | RS2-Pro |
 | MicrosoftWindowsDesktop | Windows-10 | RS2-ProN |
 | MicrosoftWindowsDesktop | Windows-10 | RS3-Pro |
 | MicrosoftWindowsDesktop | Windows-10 | RS3-ProN |
+| MicrosoftWindowsDesktop | Windows-10 | rs4-pro |
+| MicrosoftWindowsDesktop | Windows-10 | rs4-pron |
 | MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 |
 | MicrosoftWindowsServer | WindowsServer | 2012-Datacenter |
 | MicrosoftWindowsServer | WindowsServer | 2012-Datacenter-smalldisk |
@@ -427,15 +494,22 @@ The table below contains a snapshot of the list of virtual machine images availa
 | MicrosoftWindowsServer | WindowsServer-HUB | 2016-Datacenter-HUB |
 | MicrosoftWindowsServer | WindowsServerSemiAnnual | Datacenter-Core-1709-smalldisk |
 | MicrosoftWindowsServer | WindowsServerSemiAnnual | Datacenter-Core-1709-with-Containers-smalldisk |
+| MicrosoftWindowsServer | WindowsServerSemiAnnual | Datacenter-Core-1803-with-Containers-smalldisk |
 | MicrosoftWindowsServerRemoteDesktop | WindowsServer | RDSH-Office365P |
 | MicrosoftWindowsServerRemoteDesktop | WindowsServer | Remote-Desktop-Session-Host |
-| naaraaadvertising | naaraahosting | partyhard |
+| nasuni | nasuni-nmc | nasuni_nmc_7_10_6_prod |
+| nasuni | nasuni_edge_appliance | nasuni_edge_appliance_7_10_6_prod |
 | netapp | netapp-oncommand-cloud-manager | occm-byol |
 | netapp | netapp-ontap-cloud | ontap_cloud_byol |
 | noobaa | noobaa-hybrid-s3-archive-05 | pay-per-usage |
+| nubeva-inc | controller | byol |
 | nuxeo | nuxeo-6-lts | nuxeo-6-lts |
 | nuxeo | nuxeo-lts | nuxeo-lts-2015 |
 | nuxeo | nuxeo-lts | nuxeo-lts-2016 |
+| onyx-point-inc | op-bnf-v1 | bnfcv1 |
+| onyx-point-inc | op-bnf1_6-v1 | bnf1_6cv1 |
+| onyx-point-inc | op-dfi-v1 | dfiv1 |
+| onyx-point-inc | op-scc-v1 | op-scc-v1 |
 | OpenLogic | CentOS | 6.7 |
 | OpenLogic | CentOS | 6.8 |
 | OpenLogic | CentOS | 6.9 |
@@ -443,6 +517,12 @@ The table below contains a snapshot of the list of virtual machine images availa
 | OpenLogic | CentOS | 7.2n |
 | OpenLogic | CentOS | 7.3 |
 | OpenLogic | CentOS | 7.4 |
+| OpenLogic | CentOS | 7.5 |
+| OpenLogic | CentOS-CI | 7-CI |
+| OpenLogic | CentOS-HPC | 6.8 |
+| OpenLogic | CentOS-HPC | 7.1 |
+| OpenLogic | CentOS-HPC | 7.4 |
+| OpenLogic | CentOS-LVM | 7-LVM |
 | opentext | opentext-content-server-16 | ot-cs16 |
 | Oracle | Oracle-Database-Ee | 12.1.0.2 |
 | Oracle | Oracle-Database-Se | 12.1.0.2 |
@@ -451,11 +531,20 @@ The table below contains a snapshot of the list of virtual machine images availa
 | Oracle | Oracle-Linux | 7.2 |
 | orfast-technologies | orfast-mam-1 | orasft_mam_01 |
 | paloaltonetworks | vmseries1 | byol |
+| panzura-file-system | azura-freedom-filer-v7110 | fd-vm-azure-byol |
 | panzura-file-system | panzura-cloud-filer | fd-vm-azure-byol |
 | panzura-file-system | panzura-freedom-filer-v7020 | fd-vm-azure-byol |
+| pivotal | bosh-windows-server | 2012r2gov |
 | pivotal | pivotal-ops-manager | pivotal-ops-manager |
 | qlik | qlik-sense | qliksense |
-| qualysguard | qualys-virtual-scanner-v23b | qvsa-23 |
+| qualysguard | qualys-virtual-scanner-v24 | qvsa-24 |
+| quest | rapid-recovery-core-vm | quest_rapid_recovery_core_vm |
+| radiant-logic | radiantone-vms | node-centos-7-5 |
+| radiant-logic | radiantone-vms | node-redhat-7-4 |
+| radiant-logic | radiantone-vms | node-redhat-7-5 |
+| radiant-logic | radiantone-vms | node-ubuntu-16-04-lts |
+| radiant-logic | radiantone-vms | node-ubuntu-18-04-lts |
+| radiant-logic | radiantone-vms | node-ws-2016 |
 | rapid7 | nexpose-scan-engine | nexpose-scan-engine |
 | rapid7 | rapid7-vm-console | rapid7-vm-console |
 | RedHat | RHEL | 6.8 |
@@ -466,12 +555,13 @@ The table below contains a snapshot of the list of virtual machine images availa
 | RedHat | RHEL | 7.2 |
 | RedHat | RHEL | 7.3 |
 | RedHat | RHEL | 7.3-LVM |
+| RedHat | RHEL | 7.4 |
 | RedHat | RHEL | 7.4-LVM |
 | RedHat | RHEL | 7.4-RAW |
 | RedHat | RHEL | 7.4.Beta |
 | RedHat | RHEL | 7.4.Beta-LVM |
-| RedHat | rhel-byol | rhel74 |
 | RedHat | rhel-ocp-marketplace | rhel74 |
+| RedHat | rhel-ocp-marketplace | rhel75 |
 | RedHat | RHEL-SAP-APPS | 6.8 |
 | RedHat | RHEL-SAP-APPS | 7.3 |
 | RedHat | RHEL-SAP-HANA | 6.7 |
@@ -484,7 +574,7 @@ The table below contains a snapshot of the list of virtual machine images availa
 | scalegrid | centos | free |
 | silver-peak-systems | silver_peak_edgeconnect | silver_peak_edgeconnect_8_1 |
 | silver-peak-systems | silver_peak_vx | silver-peak-vx-8-1 |
-| softnas | mp_nas_byol | mp_nas_byol_16pb |
+| softnas | mp_nas_byol | mp_enterprise_byol |
 | sophos | sophos-xg | byol |
 | splunk | splunk-enterprise-base-image | splunk-on-ubuntu-14-04-lts |
 | starwind | starwindvirtualsan | starwindbyol |
@@ -492,15 +582,16 @@ The table below contains a snapshot of the list of virtual machine images availa
 | stonefly | stonefly-cloud-drive | byol_stonefly |
 | SUSE | openSUSE-Leap | 42.3 |
 | SUSE | SLES | 11-SP4 |
-| SUSE | SLES | 12-SP2 |
 | SUSE | SLES | 12-SP3 |
 | SUSE | SLES-BYOS | 11-SP4 |
-| SUSE | SLES-BYOS | 12-SP2 |
 | SUSE | SLES-BYOS | 12-SP3 |
+| SUSE | SLES-HPC | 12-SP3 |
 | SUSE | SLES-SAP-BYOS | 12-SP1 |
 | SUSE | SLES-SAP-BYOS | 12-SP2 |
 | SUSE | SLES-SAP-BYOS | 12-SP3 |
 | SUSE | SLES-SAPCAL | 11-SP4 |
+| SUSE | SUSE-CaaSP-Admin-BYOS | 2.1 |
+| SUSE | SUSE-CaaSP-Cluster-BYOS | 2.1 |
 | SUSE | SUSE-Manager-Proxy-BYOS | 3.0 |
 | SUSE | SUSE-Manager-Proxy-BYOS | 3.1 |
 | SUSE | SUSE-Manager-Server-BYOS | 3.0 |
@@ -509,6 +600,28 @@ The table below contains a snapshot of the list of virtual machine images availa
 | tableau | tableau-server | bring-your-own-license |
 | talon | talon-fast | talon-azure-byol |
 | tenable | tenable-nessus-6-byol | tenable-nessus-byol |
+| tenable | tenablecorenessus | tenablecorenessusbyol |
+| teradata | teradata-data-mover | teradata-data-mover-agent-byol |
+| teradata | teradata-data-mover | teradata-data-mover-byol |
+| teradata | teradata-data-stream-controller | teradata-data-stream-controller-byol |
+| teradata | teradata-database-1510-byol | teradata-database-advanced-1510-byol |
+| teradata | teradata-database-1510-byol | teradata-database-base-1510-byol |
+| teradata | teradata-database-1510-byol | teradata-database-enterprise-1510-byol |
+| teradata | teradata-database-1620-byol | teradata-database-advanced-1620-byol |
+| teradata | teradata-database-1620-byol | teradata-database-base-1620-byol |
+| teradata | teradata-database-1620-byol | teradata-database-enterprise-1620-byol |
+| teradata | teradata-querygrid-manager | teradata-querygrid-manager |
+| teradata | teradata-querygrid-manager-intellisphere | teradata-querygrid-manager-intellisphere |
+| teradata | teradata-rest-services | teradata-rest-services-byol |
+| teradata | teradata-server-management | teradata-server-management-byol |
+| teradata | teradata-viewpoint | teradata-viewpoint-multiple-systems-byol |
+| teradata | teradata-viewpoint | teradata-viewpoint-single-system-byol |
+| teradata | teradata-viewpoint | teradata-viewpoint-single-system-data-lab-byol |
+| teradata | teradata-viewpoint-intellisphere | teradata-viewpoint-intellisphere |
+| thales-vormetric | ciphertrust-ckm | ciphertrust-ckm |
+| thales-vormetric | vormetric-dsm | dsm-6-0-2-5162 |
+| thales-vormetric | vts-2_2_0_2604 | vts-2_2_0_2604 |
+| veeam | veeam-backup-replication | veeam-backup-replication-95 |
 | veeam | veeam-cloud-connect-enterprise | veeamcloudcconnectenterprise |
 | veeam | veeamcloudconnect | veeambackup |
 | velocitydb-inc | velocitydb | velocitydb |
@@ -518,11 +631,12 @@ The table below contains a snapshot of the list of virtual machine images availa
 | vidizmo | vidizmo-highavailability-servers | vidizmo-application |
 | vidizmo | vidizmo-separate-servers | vidizmo-application |
 | vidizmo | vidizmo-separate-servers | vidizmo-database |
+| websense-apmailpe | forcepoint-email-security-85beta | forcepoint_email_security_v85_beta |
 | winmagic_securedoc_cloudvm | seccuredoc_cloudvm_5 | winmagic_securedoc_cloudvm_byol |
 | wowza | wowzastreamingengine | linux-byol |
 | wowza | wowzastreamingengine | windows-byol |
-| zerto | zerto-cloud-appliance-50 | zerto55u2zca |
-| zerto | zerto-cloud-appliance-50 | zerto55u3zca |
+| zerto | zerto-cloud-appliance-50 | zerto60ga |
+| zerto | zerto-cloud-appliance-50 | zerto60u1ga |
 
 ## Next steps
 * [Create a Windows virtual machine with the Azure portal](../virtual-machines/windows/quick-create-portal.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json)

@@ -4,7 +4,7 @@ description: Create a Linux VM on Azure by using the Azure CLI 1.0
 services: virtual-machines-linux
 documentationcenter: ''
 author: vlivech
-manager: timlt
+manager: jeconnoc
 editor: ''
 
 ms.assetid: facb1115-2b4e-4ef3-9905-330e42beb686

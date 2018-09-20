@@ -47,7 +47,7 @@
             {
                 try
                 {
-                    // Login with the identity provider.
+                    // Sign in with the identity provider.
                     user = await App.MobileService
                         .LoginAsync(provider, "{url_scheme_of_your_app}");
    
@@ -57,11 +57,11 @@
                     vault.Add(credential);
    
                     success = true;
-                    message = string.Format("You are now logged in - {0}", user.UserId);
+                    message = string.Format("You are now signed in - {0}", user.UserId);
                 }
                 catch (MobileServiceInvalidOperationException)
                 {
-                    message = "You must log in. Login Required";
+                    message = "You must sign in. Sign-In Required";
                 }
             }
    

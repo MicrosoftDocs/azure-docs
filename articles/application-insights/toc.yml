@@ -69,6 +69,8 @@
     items:
     - name: JavaScript
       href: app-insights-javascript.md
+  - name: Monitor Azure Functions
+    href: ../azure-functions/functions-monitoring.md?toc=%2fazure%2fapplication-insights%2ftoc.json
   - name: Monitor other platforms
     items:
     - name: SharePoint sites
@@ -121,7 +123,11 @@
         href: app-insights-configuration-with-applicationinsights-config.md
       - name: Snapshot Debugger
         href: app-insights-snapshot-debugger.md
-    - name: J2EE
+    - name: ASP.NET Core
+      items:
+      - name: Profiler for Linux App services
+        href: app-insights-profiler-aspnetcore-linux.md
+    - name: Java
       items:
       - name: Log traces
         href: app-insights-java-trace-logs.md
@@ -154,6 +160,10 @@
         href: app-insights-proactive-low-utilization-cloud-resources.md
       - name: Security detection
         href: app-insights-proactive-application-security-detection-pack.md
+      - name: Azure Cloud Services
+        href: app-insights-proactive-cloud-services.md
+      - name: Manage smart detection rules
+        href: app-insights-proactive-arm-config.md 
     - name: Create a resource
       href: app-insights-create-new-resource.md
   - name: Analyze
@@ -192,8 +202,10 @@
         href: app-insights-usage-segmentation.md
       - name: Funnels
         href: usage-funnels.md
+      - name: Cohorts
+        href: app-insights-usage-cohorts.md
       - name: Impact
-        href: app-insights-usage-impact.md     
+        href: app-insights-usage-impact.md
       - name: Retention
         href: app-insights-usage-retention.md
       - name: User Flows
@@ -220,6 +232,8 @@
       href: app-insights-automate-with-flow.md
     - name: Automate with an Azure Logic App
       href: automate-with-logic-apps.md
+    - name: Custom email reports
+      href: automate-custom-reports.md
   - name: Develop
     items:
     - name: API for custom events and metrics
@@ -230,10 +244,17 @@
       href: app-insights-api-filtering-sampling.md
     - name: Sampling
       href: app-insights-sampling.md
+  - name: Visualize
+    items:
+    - name: Application dashboard
+      href: app-insights-overview-dashboard.md
   - name: Manage
     items:
     - name: Manage pricing and data volume
       href: app-insights-pricing.md
+      items:
+      - name: Enterprise plan details
+        href: app-insights-pricing-enterprise-details.md
     - name: Application Performance Monitoring using Application Insights for SCOM
       href: app-insights-scom.md
   - name: Export
@@ -246,13 +267,15 @@
         - name: Export to SQL using Stream Analytics
           href: app-insights-code-sample-export-sql-stream-analytics.md
         - name: Export to Stream Analytics
-          href: app-insights-export-stream-analytics.md         
+          href: app-insights-export-stream-analytics.md
     - name: Export data model
       href: app-insights-export-data-model.md
     - name: Export to Power BI
       href: app-insights-export-power-bi.md
   - name: Secure
     items:
+    - name: Personal data handling
+      href: app-insights-customer-data.md
     - name: Data collection, retention, and storage
       href: app-insights-data-retention-privacy.md
     - name: Resources, roles, and access control
@@ -263,8 +286,6 @@
     items:
     - name: No data for .NET
       href: app-insights-asp-net-troubleshoot-no-data.md
-    - name: Snapshot debugger
-      href: app-insights-troubleshoot-snapshot-debugger.md
     - name: Analytics
       href: app-insights-analytics-troubleshooting.md
     - name: Java
@@ -279,6 +300,10 @@
   items:
   - name: Analytics query language
     href: https://docs.loganalytics.io/
+  - name: Dependency auto-collection
+    href: auto-collect-dependencies.md
+  - name: Azure PowerShell
+    href: https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/?view=azurermps-5.7.0#monitor
   - name: .NET
     href: https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights
   - name: Java
@@ -287,6 +312,8 @@
     href: https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md
   - name: Data access API
     href: https://dev.applicationinsights.io/
+  - name: REST API
+    href: https://docs.microsoft.com/rest/api/application-insights/
   - name: Data model
     href: application-insights-data-model.md
     items:
@@ -306,6 +333,8 @@
       href: application-insights-data-model-context.md
   - name: Telemetry correlation
     href: application-insights-correlation.md
+  - name: Correlate custom data sources
+    href: app-insights-custom-data-correlation.md
   - name: Code samples
     href: https://azure.microsoft.com/en-us/resources/samples/?service=application-insights
 - name: Resources

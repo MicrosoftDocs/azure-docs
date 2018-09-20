@@ -1,10 +1,10 @@
-﻿---
+---
 title: Azure PowerShell Script Sample - Create a Windows VM | Microsoft Docs
-description: Azure PowerShell Script Sample - Create a Windows VM 
+description: Azure PowerShell Script Sample - Create a Windows VM
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: neilpeterson
-manager: timlt
+author: cynthn
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 
@@ -15,7 +15,7 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/02/2017
-ms.author: nepeters
+ms.author: cynthn
 ms.custom: mvc
 ---
 
@@ -31,7 +31,7 @@ This script creates an Azure Virtual Machine running Windows Server 2016. After 
 
 [!code-powershell[main](../../../powershell_scripts/virtual-machine/create-vm-detailed/create-windows-vm-detailed.ps1 "Create VM detailed")]
 
-## Clean up deployment 
+## Clean up deployment
 
 Run the following command to remove the resource group, VM, and all related resources.
 

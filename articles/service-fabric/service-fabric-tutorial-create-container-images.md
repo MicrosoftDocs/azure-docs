@@ -1,5 +1,5 @@
 ---
-title: Create container images for Azure Service Fabric | Microsoft Docs
+title: Create container images on Service Fabric in Azure | Microsoft Docs
 description: In this tutorial, you learn how to create container images for a multi-container Service Fabric application.
 services: service-fabric
 documentationcenter: ''
@@ -18,19 +18,18 @@ ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
 ---
+# Tutorial: Create container images on a Linux Service Fabric cluster
 
-# Tutorial: create container images for Service Fabric
-
-This tutorial is part one of a tutorial series that demonstrates how to use containers in a Linux Service Fabric cluster. In this tutorial, a multi-container application is prepared for use with Service Fabric. In subsequent tutorials, these images are used as part of a Service Fabric application. In this tutorial you learn how to: 
+This tutorial is part one of a tutorial series that demonstrates how to use containers in a Linux Service Fabric cluster. In this tutorial, a multi-container application is prepared for use with Service Fabric. In subsequent tutorials, these images are used as part of a Service Fabric application. In this tutorial you learn how to:
 
 > [!div class="checklist"]
-> * Clone application source from GitHub  
+> * Clone application source from GitHub
 > * Create a container image from the application source
 > * Deploy an Azure Container Registry (ACR) instance
 > * Tag a container image for ACR
 > * Upload the image to ACR
 
-In this tutorial series, you learn how to: 
+In this tutorial series, you learn how to:
 
 > [!div class="checklist"]
 > * Create container images for Service Fabric
@@ -39,13 +38,13 @@ In this tutorial series, you learn how to:
 
 ## Prerequisites
 
-- Linux development environment set up for Service Fabric. Follow the instructions [here](service-fabric-get-started-linux.md) to set up your Linux environment. 
-- This tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
-- Additionally, it requires that you have an Azure subscription available. For more information on a free trial version, go [here](https://azure.microsoft.com/free/).
+* Linux development environment set up for Service Fabric. Follow the instructions [here](service-fabric-get-started-linux.md) to set up your Linux environment.
+* This tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+* Additionally, it requires that you have an Azure subscription available. For more information on a free trial version, go [here](https://azure.microsoft.com/free/).
 
 ## Get application code
 
-The sample application used in this tutorial is a voting app. The application consists of a front-end web component and a back-end Redis instance. The components are packaged into container images. 
+The sample application used in this tutorial is a voting app. The application consists of a front-end web component and a back-end Redis instance. The components are packaged into container images.
 
 Use git to download a copy of the application to your development environment.
 
@@ -55,15 +54,17 @@ git clone https://github.com/Azure-Samples/service-fabric-containers.git
 cd service-fabric-containers/Linux/container-tutorial/
 ```
 
-The solution contains two folders and a 'docker-compose.yml' file. The 'azure-vote' folder contains the Python frontend service along with the Dockerfile used to build the image. The 'Voting' directory contains the Service Fabric application package that is deployed to the cluster. These directories contain the necessary assets for this tutorial.  
+The solution contains two folders and a 'docker-compose.yml' file. The 'azure-vote' folder contains the Python frontend service along with the Dockerfile used to build the image. The 'Voting' directory contains the Service Fabric application package that is deployed to the cluster. These directories contain the necessary assets for this tutorial.
 
 ## Create container images
 
-Inside the **azure-vote** directory, run the following command to build the image for the front-end web component. This command uses the Dockerfile in this directory to build the image. 
+Inside the **azure-vote** directory, run the following command to build the image for the front-end web component. This command uses the Dockerfile in this directory to build the image.
 
 ```bash
 docker build -t azure-vote-front .
 ```
+> [!Note]
+> If you are getting permission denied then follow [this](https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user) documentation on how to work with docker without sudo.
 
 This command can take some time since all the necessary dependencies need to be pulled from Docker Hub. When completed, use the [docker images](https://docs.docker.com/engine/reference/commandline/images/) command to see the created images.
 
@@ -82,13 +83,13 @@ tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago 
 
 ## Deploy Azure Container Registry
 
-First run the **az login** command to log in to your Azure account. 
+First run the **az login** command to log in to your Azure account.
 
 ```bash
 az login
 ```
 
-Next, use the **az account** command to choose your subscription to create the Azure Container registry. You have to enter the subscription ID of your Azure subscription in place of <subscription_id>. 
+Next, use the **az account** command to choose your subscription to create the Azure Container registry. You have to enter the subscription ID of your Azure subscription in place of <subscription_id>.
 
 ```bash
 az account set --subscription <subscription_id>
@@ -102,13 +103,13 @@ Create a resource group with the **az group create** command. In this example, a
 az group create --name <myResourceGroup> --location westus
 ```
 
-Create an Azure Container registry with the **az acr create** command. Replace \<acrName> with the name of the container registry you want to create under your subscription. This name must be alphanumeric and unique. 
+Create an Azure Container registry with the **az acr create** command. Replace \<acrName> with the name of the container registry you want to create under your subscription. This name must be alphanumeric and unique.
 
 ```bash
 az acr create --resource-group <myResourceGroup> --name <acrName> --sku Basic --admin-enabled true
 ```
 
-Throughout the rest of this tutorial, we use "acrName" as a placeholder for the container registry name that you chose. Please make note of this value. 
+Throughout the rest of this tutorial, we use "acrName" as a placeholder for the container registry name that you chose. Please make note of this value.
 
 ## Log in to your container registry
 
@@ -160,7 +161,6 @@ docker tag azure-vote-front <acrName>.azurecr.io/azure-vote-front:v1
 
 Once tagged, run 'docker images' to verify the operation.
 
-
 Output:
 
 ```bash
@@ -206,13 +206,13 @@ At tutorial completion, the container image has been stored in a private Azure C
 In this tutorial, an application was pulled from Github and container images were created and pushed to a registry. The following steps were completed:
 
 > [!div class="checklist"]
-> * Clone application source from GitHub  
+> * Clone application source from GitHub
 > * Create a container image from the application source
 > * Deploy an Azure Container Registry (ACR) instance
 > * Tag a container image for ACR
 > * Upload the image to ACR
 
-Advance to the next tutorial to learn about packaging containers into a Service Fabric application using Yeoman. 
+Advance to the next tutorial to learn about packaging containers into a Service Fabric application using Yeoman.
 
 > [!div class="nextstepaction"]
 > [Package and deploy containers as a Service Fabric application](service-fabric-tutorial-package-containers.md)

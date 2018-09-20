@@ -3,18 +3,18 @@ title: Optimize your System Center Operations Manager environment with Azure Log
 description: You can use the System Center Operations Manager Health Check solution to assess the risk and health of your environments on a regular interval.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: tysonn
 ms.assetid: 49aad8b1-3e05-4588-956c-6fdd7715cda1
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/27/2017
+ms.date: 06/25/2018
 ms.author: magoedte
-ms.custom: H1Hack27Feb2017
+ms.component: na
 
 ---
 
@@ -208,14 +208,14 @@ Every recommendation includes guidance about why it is important. Use this guida
 
 ## Use health check focus area recommendations
 
-Before you can use a health check solution in Log Analytics, you must have the solution installed. To read more about installing solutions, see [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md). After it is installed, you can view the summary of recommendations by using the System Center Operations Manager Health Check tile on the Overview page in the OMS portal.
+Before you can use a health check solution in Log Analytics, you must have the solution installed. To read more about installing solutions, see [Install a management solution](log-analytics-add-solutions.md). After it is installed, you can view the summary of recommendations by using the System Center Operations Manager Health Check tile on the **Overview** page for your workspace in the Azure portal.
 
 View the summarized compliance assessments for your infrastructure and then drill-into recommendations.
 
 ### To view recommendations for a focus area and take corrective action
 1. Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 2. In the Azure portal, click **More services** found on the lower left-hand corner. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
-3. In the Log Analytics subscriptions pane, select a workspace and then click the **OMS Portal** tile.  
+3. In the Log Analytics subscriptions pane, select a workspace and then click the **Workspace summary** menu item.  
 4. On the **Overview** page, click the **System Center Operations Manager Health Check** tile.
 5. On the **System Center Operations Manager Health Check** page, review the summary information in one of the focus area blades and then click one to view recommendations for that focus area.
 6. On any of the focus area pages, you can view the prioritized recommendations made for your environment. Click a recommendation under **Affected Objects** to view details about why the recommendation is made.<br><br> ![focus area](./media/log-analytics-scom-assessment/log-analytics-scom-healthcheck-dashboard-02.png)<br>
@@ -225,10 +225,8 @@ View the summarized compliance assessments for your infrastructure and then dril
 
 If you have recommendations that you want to ignore, you can create a text file that Log Analytics uses to prevent recommendations from appearing in your assessment results.
 
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
-
 ### To identify recommendations that you want to ignore
-1. In the Azure portal on the Log Analytics workspace page for your selected workspace, click the **Log Search** tile.
+1. In the Azure portal on the Log Analytics workspace page for your selected workspace, click the **Log Search** menu item.
 2. Use the following query to list recommendations that have failed for computers in your environment.
 
     ```

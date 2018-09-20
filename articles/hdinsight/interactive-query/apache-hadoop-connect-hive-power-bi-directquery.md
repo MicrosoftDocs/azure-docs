@@ -1,23 +1,15 @@
 ---
-title: Visualize Interactive Query Hive data with Power BI in Azure HDInsight | Microsoft Docs
+title: Visualize Interactive Query Hive data with Power BI in Azure HDInsight 
 description: Learn how to use Microsoft Power BI to visualize Interactive Query Hive data processed by Azure HDInsight.
 keywords: hdinsight,hadoop,hive,interactive query,interactive hive,LLAP,directquery 
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 
 ms.service: hdinsight
-ms.custom: hdinsightactive,
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 12/19/2017
-ms.author: jgao
-
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
+ms.custom: hdinsightactive
+ms.topic: conceptual
+ms.date: 03/14/2018
 ---
 # Visualize Interactive Query Hive data with Microsoft Power BI using direct query in Azure HDInsight
 
@@ -25,7 +17,8 @@ Learn how to connect Microsoft Power BI to Azure HDInsight Interactive Query clu
 
 ![HDInsight Power BI the map report](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-visualization.png)
 
-For how to connect to Hive using ODBC, see [Visualize Hive data with Microsoft Power BI using ODBC in Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md). 
+You can leverage the [Hive ODBC driver](../hadoop/apache-hadoop-connect-hive-power-bi.md) to do import via the generic ODBC connector in Power BI Desktop. However it is not recommended for BI workloads given non-interactive nature of the Hive query engine. [HDInsight Interactive Query connector](./apache-hadoop-connect-hive-power-bi-directquery.md) and 
+[HDInsight Spark connector](https://docs.microsoft.com/power-bi/spark-on-hdinsight-with-direct-connect) are better choices for their performance.
 
 ## Prerequisites
 Before going through this article, you must have the following items:

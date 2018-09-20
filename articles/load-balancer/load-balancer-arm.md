@@ -19,7 +19,7 @@ ms.author: kumud
 
 # Using Azure Resource Manager Support with Azure Load Balancer
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+
 
 Azure Resource Manager is the preferred management framework for services in Azure. Azure Load Balancer can be managed using Azure Resource Manager-based APIs and tools.
 
@@ -43,7 +43,7 @@ Templates can include definitions for Virtual Machines, Virtual Networks, Availa
 
 [Learn more about templates](../azure-resource-manager/resource-manager-template-walkthrough.md)
 
-[Learn more about Network Resources](../virtual-network/resource-groups-networking.md)
+[Learn more about Network Resources](../networking/networking-overview.md)
 
 For Quickstart templates using Azure Load Balancer, see the [GitHub repository](https://github.com/Azure/azure-quickstart-templates) that hosts a set of community generated templates.
 
@@ -57,7 +57,7 @@ Examples of templates:
 
 Get started with Azure Resource Manager cmdlets, command line tools, and REST APIs
 
-* [Azure Networking Cmdlets](https://msdn.microsoft.com/library/azure/mt163510.aspx) can be used to create a Load Balancer.
+* [Azure Networking Cmdlets](https://docs.microsoft.com/powershell/module/azurerm.network#networking) can be used to create a Load Balancer.
 * [How to create a load balancer using Azure Resource Manager](load-balancer-get-started-ilb-arm-ps.md)
 * [Using the Azure CLI with Azure Resource Management](../xplat-cli-azure-resource-manager.md)
 * [Load Balancer REST APIs](https://msdn.microsoft.com/library/azure/mt163651.aspx)

@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Create a pipeline using Resource Manager Template | Microsoft Docs'
 description: In this tutorial, you create an Azure Data Factory pipeline by using an Azure Resource Manager template. This pipeline copies data from an Azure blob storage to an Azure SQL database. 
 services: data-factory
@@ -12,7 +12,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 
@@ -31,7 +31,7 @@ robots: noindex
 > 
 
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [copy activity tutorial in version 2 documentation](../quickstart-create-data-factory-dot-net.md). 
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [copy activity tutorial](../quickstart-create-data-factory-dot-net.md). 
 
 This tutorial shows you how to use an Azure Resource Manager template to create an Azure data factory. The data pipeline in this tutorial copies data from a source data store to a destination data store. It does not transform input data to produce output data. For a tutorial on how to transform data using Azure Data Factory, see [Tutorial: Build a pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md).
 
@@ -316,7 +316,7 @@ Create a JSON file named **ADFCopyTutorialARM-Parameters.json** that contains pa
    * Run the following command and enter the user name and password that you use to sign in to the Azure portal.
    
 	```PowerShell
-	Login-AzureRmAccount   	
+	Connect-AzureRmAccount   	
 	```  
    * Run the following command to view all the subscriptions for this account.
    

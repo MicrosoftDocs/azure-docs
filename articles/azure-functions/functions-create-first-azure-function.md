@@ -4,21 +4,16 @@ description: Learn how to create your first Azure Function for serverless execut
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: '' 
+manager: jeconnoc
 
 ms.assetid: 96cf87b9-8db6-41a8-863a-abb828e3d06d
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 01/21/2018
+ms.date: 03/28/2018
 ms.author: glenga
-ms.custom: mvc, devcenter
-experiment: true  
-experiment_id: 8992afe4-2272-47 
+ms.custom: mvc, devcenter, cc996988-fb4f-47
+
 
 ---
 # Create your first function in the Azure portal
@@ -29,6 +24,9 @@ Azure Functions lets you execute your code in a [serverless](https://azure.micro
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+> [!NOTE]
+> C# developers should consider [creating your first function in Visual Studio 2017](functions-create-your-first-function-visual-studio.md) instead of in the portal. 
+
 ## Log in to Azure
 
 Sign in to the Azure portal at <http://portal.azure.com> with your Azure account.
@@ -38,8 +36,6 @@ Sign in to the Azure portal at <http://portal.azure.com> with your Azure account
 You must have a function app to host the execution of your functions. A function app lets you group functions as a logic unit for easier management, deployment, and sharing of resources. 
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
-
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
 Next, you create a function in the new function app.
 

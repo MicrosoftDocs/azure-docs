@@ -4,7 +4,7 @@ description: Use the Azure portal to log on to a Windows virtual machine created
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 ROBOTS: NOINDEX
@@ -39,20 +39,22 @@ Learn how to [perform these steps using new Azure portal](../connect-logon.md?to
 
     ![Virtual-machine-locations](./media/connect-logon/azureportaldashboard.png)
 
-3. Click **Connect** on the command bar atop the virtual machine dashboard.
-
-    ![Connect icon for the virtual machine](./media/connect-logon/virtualmachine_dashboard_connect.png)
-
-<!-- Don't know if this still applies
-     I think we can zap this.
-> [!TIP]
-> If the **Connect** button isn't available, see the troubleshooting tips at the end of this article.
->
->
--->
-
-## Log on to the virtual machine
-[!INCLUDE [virtual-machines-log-on-win-server](../../../../includes/virtual-machines-log-on-win-server.md)]
+1. Click the **Connect** button on the virtual machine properties page. 
+2. In the **Connect to virtual machine** page, keep select the appropriate options and click **Download RDP file**.
+2. Open the downloaded RDP file and click **Connect** when prompted. 
+2. You get a warning that the `.rdp` file is from an unknown publisher. This is normal. In the Remote Desktop window, click **Connect** to continue.
+   
+    ![Screenshot of a warning about an unknown publisher.](./media/connect-logon/rdp-warn.png)
+3. In the **Windows Security** window, select **More choices** and then **Use a different account**. Type the credentials for an account on the virtual machine and then click **OK**.
+   
+     **Local account** - this is usually the local account user name and password that you specified when you created the virtual machine. In this case, the domain is the name of the virtual machine and it is entered as *vmname*&#92;*username*.  
+   
+    **Domain joined VM** - if the VM belongs to a domain, enter the user name in the format *Domain*&#92;*Username*. The account also needs to either be in the Administrators group or have been granted remote access privileges to the VM.
+   
+    **Domain controller** - if the VM is a domain controller, type the user name and password of a domain administrator account for that domain.
+4. Click **Yes** to verify the identity of the virtual machine and finish logging on.
+   
+   ![Screenshot showing a message abut verifying the identity of the VM.](./media/connect-logon/cert-warning.png)
 
 ## Next steps
 * If the **Connect** button is inactive or you are having other problems with the Remote Desktop connection, try resetting the configuration. click **Reset remote access** from the virtual machine dashboard.

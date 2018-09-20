@@ -1,25 +1,20 @@
 ---
 title: "Run cross-tenant analytics using extracted data| Microsoft Docs"
-description: "Cross-tenant analytics queries using data extracted from multiple Azure SQL Database databases."
+description: "Cross-tenant analytics queries using data extracted from multiple Azure SQL Database databases in a single tenant app."
 keywords: "sql database tutorial"
 services: "sql-database"
-documentationcenter: ""
 author: "stevestein"
-manager: "jhubbard"
-editor: "MightyPen"
-
+manager: "craigg"
 ms.service: "sql-database"
 ms.custom: "scale out apps"
-ms.workload: "Inactive"
-ms.tgt_pltfrm: ""
-ms.devlang: ""
-ms.topic: "article"
-ms.date: "11/08/2017"
-ms.author: "anjangsh; billgib; genemi"
+ms.topic: conceptual
+ms.date: 09/19/2018
+ms.author: sstein
+ms.reviewer: "anjangsh; billgib; genemi"
 ---
-# Cross-tenant analytics using extracted data
-
-In this tutorial, you walk through a complete analytics scenario. The scenario demonstrates how analytics can enable businesses to make smart decisions. Using data extracted from each tenant database, you use analytics to gain insights into tenant behavior and application usage. This scenario involves three steps: 
+# Cross-tenant analytics using extracted data - single-tenant app
+ 
+In this tutorial, you walk through a complete analytics scenario for a single tenant implementatoin. The scenario demonstrates how analytics can enable businesses to make smart decisions. Using data extracted from each tenant database, you use analytics to gain insights into tenant behavior, including their use of the sample Wingtip Tickets SaaS application. This scenario involves three steps: 
 
 1.	**Extract** data from each tenant database and **Load** into an analytics store.
 2.	**Transform the extracted data** for analytics processing.
@@ -205,7 +200,7 @@ You can drill into the data again to see if this mad rush is true for all events
 
 The preceding plot for Contoso Concert Hall shows that the mad rush does not happen for all events. Play around with the filter options to see sale trends for other venues.
 
-The insights into ticket selling patterns might lead Wingtip Tickets to optimize their business model. Instead of charging all tenants equally, perhaps Wingtip should introduce service tiers with different performance levels. Larger venues that need to sell more tickets per day could be offered a higher tier with a higher service level agreement (SLA). Those venues could have their databases placed in pool with higher per-database resource limits. Each service tier could have an hourly sales allocation, with additional fees charged for exceeding the allocation. Larger venues that have periodic bursts of sales would benefit from the higher tiers, and Wingtip Tickets can monetize their service more efficiently.
+The insights into ticket selling patterns might lead Wingtip Tickets to optimize their business model. Instead of charging all tenants equally, perhaps Wingtip should introduce service tiers with different compute sizes. Larger venues that need to sell more tickets per day could be offered a higher tier with a higher service level agreement (SLA). Those venues could have their databases placed in pool with higher per-database resource limits. Each service tier could have an hourly sales allocation, with additional fees charged for exceeding the allocation. Larger venues that have periodic bursts of sales would benefit from the higher tiers, and Wingtip Tickets can monetize their service more efficiently.
 
 Meanwhile, some Wingtip Tickets customers complain that they struggle to sell enough tickets to justify the service cost. Perhaps in these insights there is an opportunity to boost ticket sales for underperforming venues. Higher sales would increase the perceived value of the service. Right click fact_Tickets and select **New measure**. Enter the following expression for the new measure called **AverageTicketsSold**:
 
@@ -240,3 +235,4 @@ Congratulations!
 
 - Additional [tutorials that build upon the Wingtip SaaS application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
 - [Elastic Jobs](sql-database-elastic-jobs-overview.md).
+- [Cross-tenant analytics using extracted data - multi-tenant app](saas-multitenantdb-tenant-analytics.md)

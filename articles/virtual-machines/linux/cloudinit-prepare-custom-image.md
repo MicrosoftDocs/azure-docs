@@ -40,22 +40,20 @@ Update the `cloud_init_modules` section in `/etc/cloud/cloud.cfg` to include the
 
 Here is a sample of what a general-purpose `cloud_init_modules` section looks like.
 ```bash
- cloud_config_modules:
- - mounts
- - locale
- - set-passwords
- - rh_subscription
- - yum-add-repo
- - package-update-upgrade-install
- - timezone
- - puppet
- - chef
- - salt-minion
- - mcollective
- - disable-ec2-metadata
- - runcmd
+cloud_init_modules:
+ - migrator
+ - bootcmd
+ - write-files
+ - growpart
+ - resizefs
  - disk_setup
  - mounts
+ - set_hostname
+ - update_hostname
+ - update_etc_hosts
+ - rsyslog
+ - users-groups
+ - ssh
 ```
 A number of tasks relating to provisioning and handling ephemeral disks need to be updated in `/etc/waagent.conf`. Run the following commands to update the appropriate settings. 
 ```bash
@@ -71,9 +69,31 @@ Allow only Azure as a datasource for the Azure Linux Agent by creating a new fil
 datasource_list: [ Azure ]
 ```
 
+Add a configuration to address an outstanding hostname registration bug.
+```bash
+cat > /etc/cloud/hostnamectl-wrapper.sh <<\EOF
+#!/bin/bash -e
+if [[ -n $1 ]]; then
+  hostnamectl set-hostname $1
+else
+  hostname
+fi
+EOF
+
+chmod 0755 /etc/cloud/hostnamectl-wrapper.sh
+
+cat > /etc/cloud/cloud.cfg.d/90-hostnamectl-workaround-azure.cfg <<EOF
+# local	fix to ensure hostname is registered
+datasource:
+  Azure:
+    hostname_bounce:
+      hostname_command: /etc/cloud/hostnamectl-wrapper.sh
+EOF
+```
+
 If your existing Azure image has a swap file configured and you want to change the swap file configuration for new images using cloud-init, you need to remove the existing swap file.
 
-For RedHat based images - follow the instructions in the following RedHat document explaining how to [remove the swap file](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/5/html/Deployment_Guide/s2-swap-removing-file.html).
+For Red Hat based images - follow the instructions in the following Red Hat document explaining how to [remove the swap file](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/storage_administration_guide/swap-removing-file).
 
 For CentOS images with swapfile enabled, you can run the following command to turn off the swapfile:
 ```bash
@@ -113,7 +133,7 @@ All Azure platform images have the Azure Linux Agent installed, regardless if it
 sudo waagent -deprovision+user -force
 ```
 
-For more information about the Azure Linux Agent deprovision commands, see the [Azure Linux Agent](agent-user-guide.md) for more details.
+For more information about the Azure Linux Agent deprovision commands, see the [Azure Linux Agent](../extensions/agent-linux.md) for more details.
 
 Exit the SSH session, then from your bash shell, run the following AzureCLI commands to deallocate, generalize and create a new Azure VM image.  Replace `myResourceGroup` and `sourceVmName` with the appropriate information reflecting your sourceVM.
 

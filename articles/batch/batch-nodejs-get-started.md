@@ -3,7 +3,7 @@ title: Tutorial - Use the Azure Batch client library for Node.js | Microsoft Doc
 description: Learn the basic concepts of Azure Batch and build a simple solution using Node.js.
 services: batch
 author: shwetams
-manager: timlt
+manager: jeconnoc
 
 ms.assetid: 
 ms.service: batch
@@ -15,13 +15,6 @@ ms.author: shwetams
 ---
 
 # Get started with Batch SDK for Node.js
-
-> [!div class="op_single_selector"]
-> * [.NET](batch-dotnet-get-started.md)
-> * [Python](batch-python-tutorial.md)
-> * [Node.js](batch-nodejs-get-started.md)
->
->
 
 Learn the basics of building a Batch client in Node.js using [Azure Batch Node.js SDK](/javascript/api/overview/azure/batch). We take a step by step approach of understanding a scenario for a batch application and then setting it up using a Node.js client.  
 
@@ -70,7 +63,7 @@ This command installs the latest version of azure-batch node SDK.
 
 ### Step 2: Create an Azure Batch account
 
-You can create it from the [Azure portal](batch-account-create-portal.md) or from command line ([Powershell](batch-powershell-cmdlets-get-started.md) /[Azure cli](/cli/azure/overview)).
+You can create it from the [Azure portal](batch-account-create-portal.md) or from command line ([Powershell](batch-powershell-cmdlets-get-started.md) /[Azure cli](/cli/azure)).
 
 Following are the commands to create one through Azure CLI.
 
