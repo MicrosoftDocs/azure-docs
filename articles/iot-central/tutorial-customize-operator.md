@@ -86,10 +86,10 @@ As a builder, you can also configure the operator's view of the device settings.
 
     ![Edit the settings layout](media/tutorial-customize-operator/settingslayout.png)
 
+3. Click **Done** when you are finished making changes.
+
 > [!NOTE]
 > In **Edit Template** mode, you can't edit the values of the settings.
-
-3. Click **Done** when you are finished making changes.
 
 ## Configure your properties layout
 
