@@ -554,7 +554,7 @@
   items:
   - name: Azure PowerShell
     href: /powershell/module/azurerm.sql/#sql
-  - name: Azure CLI 2.0
+  - name: Azure CLI
     href: /cli/azure/sql
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.sql.models
