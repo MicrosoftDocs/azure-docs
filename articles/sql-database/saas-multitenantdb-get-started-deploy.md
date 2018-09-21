@@ -7,7 +7,7 @@ ms.subservice: scenario
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: MightPen
+author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, stein
 manager: craigg
