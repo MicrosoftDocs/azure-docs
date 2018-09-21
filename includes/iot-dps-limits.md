@@ -18,6 +18,6 @@ The Device Provisioning Service throttles requests when the following quotas are
 
 | Throttle | Per-unit value |
 | --- | --- |
-| Operations | 100/min/service |
-| Device registrations | 100/min/service |
+| Operations | 200/min/service |
+| Device registrations | 200/min/service |
 | Device polling operation | 5/10sec/device |
