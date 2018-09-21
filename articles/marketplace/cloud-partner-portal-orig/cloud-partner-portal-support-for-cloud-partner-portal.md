@@ -3,7 +3,7 @@ title: Support for Cloud Partner Portal | Microsoft Docs
 description: Get support in the Cloud Partner Portal.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
-author: v-wesda
+author: dan-wesley
 manager: Patrick.Butler  
 editor:
 
