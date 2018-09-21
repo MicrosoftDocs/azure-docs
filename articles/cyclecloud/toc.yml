@@ -139,7 +139,7 @@
       - name: Download Existing Cluster Templates
         href: download-cluster-templates.md
   - name: CycleCloud Application
-    items: 
+    items:
     - name: Performance Tuning
       href: ~/cyclecloud-references/performance-tuning.md
     - name: Backup and Restore
