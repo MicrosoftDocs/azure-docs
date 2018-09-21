@@ -1,5 +1,5 @@
 ---
-title: Migrate from custom speech serivce - Speech service
+title: Migrate from Custom Speech Service to Speech service
 titlesuffix: Azure Cognitive Services 
 description: Learn how to migration from the Custom Speech service to the Speech Service.
 services: cognitive-services
@@ -11,7 +11,8 @@ ms.topic: article
 ms.date: 09/24/2018
 ms.author: panosper
 ---
-# Migration guide for Custom Speech service
+# Migrate from the Custom Speech service to the Speech service
+
 Learn how to migrate from the Custom Speech service to the **Speech Service**.
 
 Custom Speech Service and its corresponding Client libraries and APIs are being deprecated. Switch to the Speech Service and SDK to benefit from the latest quality and feature updates. 

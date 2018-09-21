@@ -1,6 +1,6 @@
 ---
-title: How to migrate to the Speech Service
-titleSuffix: "Microsoft Cognitive Services"
+title: Migrate from Bing Speech to the Speech Service
+titleSuffix: Azure Cognitive Services
 description: Learn the differences between Bing Speech and the Speech Service from a developer standpoint and migrate your application to use the Speech Service.
 services: cognitive-services
 author: wsturman
@@ -14,7 +14,7 @@ ms.author: gracez
 # Customer intent: As a developer currently using the deprecated Bing Speech, I want to learn the differences between Bing Speech and the Speech Service so that I can migrate my application to the Speech Service.
 ---
 
-# How to migrate from Bing Speech to the Speech Service
+# Migrate from Bing Speech to the Speech Service
 
 The Speech service unites the Azure speech features previously available via the [Bing Speech](https://docs.microsoft.com/azure/cognitive-services/speech/home), [Translator Speech](https://docs.microsoft.com/azure/cognitive-services/translator-speech/), [Custom Speech](https://docs.microsoft.com/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home), and [Custom Voice](http://customvoice.ai/) services. Now, one subscription provides access to all of these capabilities.
 
