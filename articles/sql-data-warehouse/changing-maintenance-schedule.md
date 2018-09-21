@@ -17,11 +17,11 @@ ms.reviewer: igorstan
 ## Portal
 A Maintenance schedule can be updated or changed at any time. However, if the selected instance is currently going through active maintenance cycle the settings will be saved and only become active during the next identified maintenance period. [Learn more](https://docs.microsoft.com/en-us/azure/service-health/resource-health-overview) about monitoring your data warehouse during an active maintenance event. 
 
-In preview we will be asking you to select 2 maintenance windows during a 7-day period. Each maintenance windows can be between 3 and 8 hours each, with 3hrs currently being the shortest available option. Maintenance can occur at any time within an identified maintenance window but will not occur outside of those identified Time windows with prior notification, you will also experience be brief loss of connectivity as the service deploys new code to your data warehouse. 
+In preview, we will be asking you to select two maintenance windows during a 7-day period. Each maintenance window can be between 3 and 8 hours each, with 3 hrs currently being the shortest available option. Maintenance can occur at any time within an identified maintenance window but will not occur outside of those identified Time windows with prior notification, you will also experience be brief loss of connectivity as the service deploys new code to your data warehouse. 
 
 ### Note
 
-The Primary and Secondary windows must be identified within separate day ranges (i.e. Primary window (Tuesday – Thursday), Secondary window (Saturday – Sunday)
+The Primary and Secondary windows must be identified within separate day ranges (That is, Primary window (Tuesday – Thursday), Secondary window (Saturday – Sunday)
 
 Complete the following steps to change the maintenance schedule that has been applied to your data warehouse in portal.
 1.	Sign in to the [Azure portal](https://portal.azure.com/).
@@ -34,12 +34,12 @@ Complete the following steps to change the maintenance schedule that has been ap
 
 ![Maintenance settings blade](media/sql-data-warehouse-maintenance-scheduling/maintenance-settings-page.png)
 
-5.	Choose your preferred Primary and Secondary maintenance windows using the Day, Start time and Time window dropdowns below.The Schedule summary at the bottom of the blade will update based on the dropdown values selected. 
+5. Choose your preferred Primary and Secondary maintenance windows using the Day, Start time and Time window dropdowns below. The Schedule summary at the bottom of the blade will update based on the dropdown values selected 
 
 #### Dropdown options
 - Day: Preferred day to perform maintenance during the selected window.
-- Start time: Preferred maintenance window start time
-- Time window: Preffer 
+- Start time: Preferred maintenance window start time.
+- Time window: Preferred duration of your time window.
 
 ### Note
 During preview some regions may not yet support the full set of available Day options. These values will update in the coming months.
