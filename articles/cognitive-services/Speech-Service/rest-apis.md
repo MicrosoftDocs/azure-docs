@@ -381,7 +381,11 @@ Connection: Keep-Alive
     Hello, world!
 </voice></speak>
 ```
-
+> [!NOTE]
+> Custom Voice服务中 ``` <voice> ``` 中 ``` name ``` 属性应为Font Name，否则将会报错。
+  
+  ![FontName](https://raw.githubusercontent.com/SylvesterLi/NoteRepo/master/PicSource/FontName.png)
+  
 ### Renewing authorization
 
 The authorization token expires after 10 minutes. Renew your authorization by obtaining a new token before it expires—for example, after nine minutes. 
