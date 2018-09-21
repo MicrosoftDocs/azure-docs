@@ -9,6 +9,7 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: zhouwang
+ROBOTS: NOINDEX
 ---
 # Get started with the Speech Recognition API in JavaScript
 

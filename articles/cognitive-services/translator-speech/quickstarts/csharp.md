@@ -11,6 +11,7 @@ ms.component: translator-speech
 ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
+ROBOTS: NOINDEX
 ---
 # Quickstart: Translator Speech API with C# 
 <a name="HOLTop"></a>

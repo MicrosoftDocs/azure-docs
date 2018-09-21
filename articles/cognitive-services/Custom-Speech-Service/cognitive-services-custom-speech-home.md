@@ -9,6 +9,7 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: panosper
+ROBOTS: NOINDEX
 ---
 
 # What is Custom Speech Service?

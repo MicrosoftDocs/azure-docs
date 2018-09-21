@@ -9,6 +9,7 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: zhouwang
+ROBOTS: NOINDEX
 ---
 # Get started with the speech recognition service library in C&#35; for .NET Windows
 

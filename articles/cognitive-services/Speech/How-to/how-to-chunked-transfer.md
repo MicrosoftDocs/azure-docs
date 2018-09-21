@@ -9,6 +9,7 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: zhouwang
+ROBOTS: NOINDEX
 ---
 # Chunked transfer encoding
 
