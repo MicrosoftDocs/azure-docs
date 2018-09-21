@@ -567,7 +567,7 @@ Full list of resources:
 </code></pre>
 
 
-And this is the command to end the cluster maintenance mode :
+And this is the command to end the cluster maintenance mode:
 
 <pre><code>
 crm configure property maintenance-mode=false
