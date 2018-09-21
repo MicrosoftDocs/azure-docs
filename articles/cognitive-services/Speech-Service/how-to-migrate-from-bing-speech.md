@@ -22,11 +22,11 @@ This article outlines the differences between the Bing Speech APIs and the Speec
 
 A single Speech Service subscription key grants access to the following features. Each is metered separately, so you're charged only for the features you use.
 
-    * [Speech-to-text](speech-to-text.md)
-    * [Custom speech-to-text](https://cris.ai/CustomSpeech)
-    * [Text-to-speech](text-to-speech.md)
-    * [Custom text-to-speech voices](https://cris.ai/CustomVoice)
-    * [Speech translation](speech-translation.md) (does not include [Text translation](https://docs.microsoft.com/azure/cognitive-services/translator/translator-info-overview))
+* [Speech-to-text](speech-to-text.md)
+* [Custom speech-to-text](https://cris.ai/CustomSpeech)
+* [Text-to-speech](text-to-speech.md)
+* [Custom text-to-speech voices](https://cris.ai/CustomVoice)
+* [Speech translation](speech-translation.md) (does not include [Text translation](https://docs.microsoft.com/azure/cognitive-services/translator/translator-info-overview))
 
 The [Speech SDK](speech-sdk.md) is a functional replacement for Bing Search client libraries, but uses a different API.
 
