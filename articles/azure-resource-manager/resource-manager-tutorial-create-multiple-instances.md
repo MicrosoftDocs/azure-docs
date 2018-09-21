@@ -25,6 +25,8 @@ Learn how to iterate in your Azure Resource Manager template to create multiple 
 > * Edit the template
 > * Deploy the template
 
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+
 ## Prerequisites
 
 To complete this article, you need:
