@@ -241,12 +241,12 @@ network.
 -   **Auditable Change History -** Each change is recorded on the
     blockchain providing transparency and auditability.
 
-#### Getting Started with Governance
+#### Getting started with governance
 To perform any kind of transactions through the Governance DApp, you will need to leverage an Ethereum wallet.  The most straightforward approach is to use an in-browser wallet such as [MetaMask](https://metamask.io); however, because these are smart contracts deployed on the network you may also automate your interactions to the Governance contract.
 
 After installing MetaMask, navigate to the Governance DApp in the browser.  You can locate the URL in the deployment confirmation email or through Azure portal in the deployment output.  If you don't have an in-browser wallet installed you will not be able to perform any actions; however, you'll still be able to read the administrator state.  
 
-#### Becoming an Admin
+#### Becoming an admin
 If you are the first member that deployed on the network, then you will automatically become an Admin and your Parity nodes will be listed as Validators.  If you are joining the network, you will need to get voted in as an Admin by a majority (greater than 50%) of the existing Admin set.  If you choose not to become an Admin then your nodes will still sync and validate the blockchain; however, they will not participate in the block creation process. To start the voting process to become an Admin, click __Nominate__ and enter your Ethereum address and alias.
 
 ![Nominate](./media/ethereum-poa-deployment-guide/governance-dapp-nominate.png)
@@ -269,10 +269,10 @@ The address of each validator is automatically assigned via the [identity store]
 
 ![Validators](./media/ethereum-poa-deployment-guide/governance-dapp-validators.png)
 
-#### Consortium Name
+#### Consortium name
 Any Admin may update the Consortium Name, displayed at the top of the page.  Select the gear icon in the top left to update the Consortium Name.
 
-#### Account Menu
+#### Account menu
 In the top-right is your Ethereum account alias and identicon.  If you are an Admin you will have the ability to update your alias.
 
 ![Account](./media/ethereum-poa-deployment-guide/governance-dapp-account.png)
@@ -316,7 +316,7 @@ machine properties.
 
 A detailed description of each parameter follows:
 
-Parameter Name|Description|Allowed Values|Default Values
+Parameter name|Description|Allowed values|Default values
 ---|---|---|---
 Create a new network or join existing network?|Create a new network or join a preexisting consortium network|Create New Join Existing|Create New
 Email Address (Optional)|You'll receive an email notification when your deployment completes with information about your deployment.|Valid email address|NA
@@ -343,7 +343,7 @@ two or more regions for high-availability.
 
 A detailed description of each parameter follows:
 
-  Parameter Name|Description|Allowed Values|Default Values
+  Parameter name|Description|Allowed values|Default values
   ---|---|---|---
   Number of region(s)|Number of regions to deploy the consortium network|1, 2, 3, 4, 5|1
   First region|First region to deploy the consortium network|All allowed Azure regions|NA
@@ -364,7 +364,7 @@ blockchain. This can be changed after deployment.
 
 A detailed description of each parameter follows:
 
-  Parameter Name|Description|Allowed Values|Default Values
+  Parameter name|Description|Allowed values|Default values
   ---|---|---|---
   Number of load balanced validator nodes|The number of validator nodes to provision as part of the network|2-15|2
   Validator node storage performance|The type of managed disk backing each of the deployed validator nodes.|Standard SSD or Premium|Standard SSD
@@ -385,7 +385,7 @@ Note that Virtual Machine and Storage Tier will affect network performance.  We 
 A sample deployment is shown below:
 ![network size and performance](./media/ethereum-poa-deployment-guide/network-size-and-performance.png)
 
-#### Ethereum Settings
+#### Ethereum settings
 
 Next, under Ethereum settings, specify Ethereum-related configuration
 settings, like the network ID and Ethereum account password or genesis
@@ -393,7 +393,7 @@ block.
 
 A detailed description of each parameter follows:
 
-  Parameter Name|Description|Allowed Values|Default Values
+  Parameter name|Description|Allowed values|Default values
   ---|---|---|---
 Consortium Member ID|The ID associated with each member participating in the consortium network used to configure IP address spaces to avoid collision. In the case of a private network, Member ID should be unique across different organizations in the same network.  A unique member ID is needed even when the same organization deploys to multiple regions. Make note of the value of this parameter since you will need to share it with other joining members to ensure there’s no collision.|0-255|NA
 Network ID|The network ID for the consortium Ethereum network being deployed.  Each Ethereum network has its own Network ID, with 1 being the ID for the public network.|5 - 999,999,999|10101010
@@ -414,7 +414,7 @@ resource for your network. The monitoring agent will collect and surface useful
 metrics and logs from your network, providing the ability to quickly
 check the network health or debug issues.
 
-  Parameter Name|Description|Allowed Values|Default Values
+  Parameter name|Description|Allowed values|Default values
   ---|---|---|---
 Monitoring|Option to enable Monitoring|Enable or Disable|Enable
 Connect to existing Log Analytics|Create a new Log Analytics instance or join an existing instance|Create new or Join existing|Create new
@@ -436,9 +436,9 @@ Review legal and privacy terms and click 'Purchase' to deploy. If the
 deployment includes VNet Gateways, the deployment will take up 45 to 50
 minutes.
 
-#### Post Deployment
+#### Post deployment
 
-##### Deployment Output
+##### Deployment output
 
 Once the deployment has completed, you'll be able to access the
 necessary parameters via the confirmation email or through the Azure
@@ -454,7 +454,7 @@ portal. In these parameters you'll find:
 
 -   VNet Gateway Resource ID (optional)
 
-##### Confirmation Email
+##### Confirmation email
 
 If you provide an email address ([Basics Section](#basics)), an email
 would be sent to the email address with the deployment output
@@ -1019,7 +1019,7 @@ Ether doesn't serve a purpose in proof-of-authority consortium. Hence there is n
 
 Monitoring is an optional feature. In some rare cases where your deployment fails because of inability to successfully provision Azure Monitor resource you can redeploy without Azure Monitor.
 
-#### Are Public IP deployments compatible with Private network deployments?
+#### Are public IP deployments compatible with private network deployments?
 
 No, peering requires two-way communication so the entire network must either be public or private.
 
