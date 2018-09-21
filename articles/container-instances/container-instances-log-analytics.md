@@ -144,7 +144,7 @@ For information about monitoring container instance CPU and memory resources, se
 
 <!-- LINKS - External -->
 [fluentd]: https://hub.docker.com/r/fluent/fluentd/
-[query_lang]: https://docs.loganalytics.io/
+[query_lang]: https://aka.ms/LogAnalyticsLanguage
 
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container#az-container-create

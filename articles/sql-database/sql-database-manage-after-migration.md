@@ -166,7 +166,7 @@ Express Route also allows you to burst up to 2x the bandwidth limit you purchase
 - [Workflows](../expressroute/expressroute-workflows.md)
 
 ### Is SQL Database compliant with any regulatory requirements, and how does that help with my own organization's compliance?
-SQL Database is compliant with a range of regulatory compliances. To view the latest set of compliances that have been met, visit the [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/compliance/complianceofferings) and drill down on the compliances that are important to your organization to see if SQL Database is included under the compliant Azure services. It is important to note that although SQL Database may be certified as a compliant service, it aids in the compliance of your organization’s service but does not automatically guarantee it.
+SQL Database is compliant with a range of regulatory compliances. To view the latest set of compliances that have been met, visit the [Microsoft Trust Center](https://microsoft.com/trustcenter/compliance/complianceofferings) and drill down on the compliances that are important to your organization to see if SQL Database is included under the compliant Azure services. It is important to note that although SQL Database may be certified as a compliant service, it aids in the compliance of your organization’s service but does not automatically guarantee it.
 
 ## Intelligent database monitoring and maintenance after migration
 
