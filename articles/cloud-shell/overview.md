@@ -23,7 +23,7 @@ Linux users can opt for a Bash experience, while Windows users can opt for Power
 
 Try from shell.azure.com by clicking below.
 
-[![](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
+[![Embed launch](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
 
 Try from Azure portal using the Cloud Shell icon.
 

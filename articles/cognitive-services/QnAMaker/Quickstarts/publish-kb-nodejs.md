@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: How to publish a knowledge base in Node.js for QnA Maker.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: cjgronlund
 
 ms.service: cognitive-services
 ms.technology: qna-maker
@@ -16,6 +16,8 @@ ms.author: diberry
 # Publish a knowledge base in Node.js
 
 The following code publishes an existing knowledge base, using the [Publish](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) method.
+
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
 
 If you don't have a knowledge base yet, you can create a sample one to use for this quickstart: [Create a new knowledge base](create-new-kb-nodejs.md).
 
