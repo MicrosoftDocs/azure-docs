@@ -198,6 +198,8 @@ You need elevated privileges to run `iotedge` commands. After installing the run
 
 On resource constrained devices, it is highly recommended that you set the *OptimizeForPerformance* environment variable to *false* as per instructions in the [troubleshooting guide][lnk-trouble].
 
+If your network that has a proxy server, follow the steps in [Configure your IoT Edge device to communicate through a proxy server](how-to-configure-proxy-support.md).
+
 ## Next steps
 
 If you are having problems with the Edge runtime installing properly, check out the [troubleshooting][lnk-trouble] page.
