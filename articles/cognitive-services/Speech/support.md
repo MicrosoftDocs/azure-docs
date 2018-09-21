@@ -10,6 +10,7 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/08/2018
 ms.author: zhouwang
+ROBOTS: NOINDEX
 ---
 # Support
 
