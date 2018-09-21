@@ -75,7 +75,7 @@ To use the .NET Azure SDK with Azure Stack, you must supply the following values
 | Client Secret             | AZURE\_CLIENT\_SECRET   | The service principal application secret saved when the service principal was created.                                      |
 | Resource Manager Endpoint | ARM\_ENDPOINT           | See [*the Azure Stack resource manager endpoint*][].                                                                    |
 
-To find the Tenant ID for your Azure Stack, follow the instructions found here. To set your environment variables, do the following:
+To find the Tenant ID for your Azure Stack, follow the instructions found [here](../azure-stack-csp-ref-operations.md). To set your environment variables, do the following:
 
 ### Microsoft Windows
 
