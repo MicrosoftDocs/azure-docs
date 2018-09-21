@@ -94,4 +94,4 @@ You will now set up the local administrator account for CycleCloud. This account
 
 ## Update CycleCloud
 
-See the [Update Azure CycleCloud](update-install.md) page.
+See the [Update Azure CycleCloud](~/cyclecloud-references/upgrade-and-migrate.md) page.

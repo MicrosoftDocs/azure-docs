@@ -139,7 +139,7 @@
       - name: Download Existing Cluster Templates
         href: download-cluster-templates.md
   - name: CycleCloud Application
-    items: 
+    items:
     - name: Performance Tuning
       href: ~/cyclecloud-references/performance-tuning.md
     - name: Backup and Restore
@@ -148,6 +148,8 @@
       href: ~/cyclecloud-references/upgrade-and-migrate.md
     - name: HTTP Proxy Configuration
       href: ~/cyclecloud-references/running-behind-proxy.md
+    - name: User Interface Theming
+      href: ~/cyclecloud-references/theming.md
   - name: Jetpack
     href: jetpack.md
   - name: Common Cookbook Reference
@@ -183,6 +185,8 @@
     items:
     - name: Current Release
       href: release-notes.md
+      name: v7.5.3
+      href: ~/release-notes/7-5-3.md
     - name: v7.5.2
       href: ~/release-notes/7-5-2.md
     - name: v7.5.1
