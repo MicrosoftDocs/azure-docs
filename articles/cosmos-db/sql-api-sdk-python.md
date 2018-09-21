@@ -10,7 +10,7 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: python
 ms.topic: reference
-ms.date: 5/8/2018
+ms.date: 9/21/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 
@@ -32,13 +32,13 @@ ms.custom: H1Hack27Feb2017
 
 <table>
 
-<tr><td>**Download SDK**</td><td>[PyPI](https://pypi.python.org/pypi/pydocumentdb)</td></tr>
+<tr><td>**Download SDK**</td><td>[PyPI](https://pypi.org/project/azure-cosmos)</td></tr>
 
-<tr><td>**API documentation**</td><td>[Python API reference documentation](https://docs.microsoft.com/python/api/pydocumentdb?view=azure-python)</td></tr>
+<tr><td>**API documentation**</td><td>[Python API reference documentation](https://docs.microsoft.com/python/api/azure-cosmos)</td></tr>
 
-<tr><td>**SDK installation instructions**</td><td>[Python SDK installation instructions](http://azure.github.io/azure-documentdb-python/)</td></tr>
+<tr><td>**SDK installation instructions**</td><td>[Python SDK installation instructions](https://github.com/Azure/azure-cosmos-python)</td></tr>
 
-<tr><td>**Contribute to SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-python)</td></tr>
+<tr><td>**Contribute to SDK**</td><td>[GitHub](https://github.com/Azure/azure-cosmos-python)</td></tr>
 
 <tr><td>**Get started**</td><td>[Get started with the Python SDK](sql-api-python-application.md)</td></tr>
 
