@@ -30,7 +30,7 @@ One way to retrieve events from your activity log is to use the Azure portal. Cl
 
 ## Batch account-level monitoring
 
-Monitor each Batch account using features of [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md). Azure Monitor collects [metrics](../monitoring-and-diagnostics/monitoring-overview-metrics.md) and optionally [diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) for resources scoped at the level of a Batch account, such as pools, jobs, and tasks. Collect and consume this data manually or programmatically to monitor activities in your Batch account and to diagnose issues. For details, see [Batch metrics, alerts, and logs for diagnostic evaluation and monitoring](batch-diagnostics.md).
+Monitor each Batch account using features of [Azure Monitor](../azure-monitor/overview.md). Azure Monitor collects [metrics](../monitoring/monitoring-data-collection.md#metrics) and optionally [diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) for resources scoped at the level of a Batch account, such as pools, jobs, and tasks. Collect and consume this data manually or programmatically to monitor activities in your Batch account and to diagnose issues. For details, see [Batch metrics, alerts, and logs for diagnostic evaluation and monitoring](batch-diagnostics.md).
  
 > [!NOTE]
 > Metrics are available by default in your Batch account without additional configuration, and they have a 30-day rolling history. You must enable diagnostic logging for a Batch account, and you may incur additional costs to store or process diagnostic log data. 
