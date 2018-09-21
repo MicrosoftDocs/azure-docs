@@ -64,9 +64,9 @@
   - name: .NET SDK
     href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet
   - name: Python SDK
-    href: https://docs.microsoft.com/en-us/python/api/overview/azure/hdinsight?view=azure-python
+    href: https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python
   - name: Java SDK
-    href: https://docs.microsoft.com/en-us/java/api/overview/azure/hdinsight?view=azure-java-preview
+    href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-preview
   - name: Go SDK
     href: ../hdinsight-go-sdk-overview.md
   - name: .NET (HBase)

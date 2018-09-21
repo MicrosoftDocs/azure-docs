@@ -24,7 +24,7 @@ The HDInsight Go SDK provides classes and functions that allow you to manage you
 * An Azure account. If you don't have one, [get a free trial](https://azure.microsoft.com/free/).
 * [Go](https://golang.org/dl/)
 
-## SDK Installation
+## SDK installation
 
 From your GOPATH location, run `go get github.com/Azure/azure-sdk-for-go/tree/master/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight`
 
@@ -33,9 +33,9 @@ From your GOPATH location, run `go get github.com/Azure/azure-sdk-for-go/tree/ma
 The SDK first needs to be authenticated with your Azure subscription.  Follow the example below to create a service principal and use it to authenticate. After this is done, you will have an instance of a `ClustersClient`, which contains many functions (outlined in below sections) that can be used to perform management operations.
 
 > [!NOTE]
-> There are other ways to authenticate besides the below example that could potentially be better suited for your needs. All functions are outlined here: [Authentication functions in the Azure SDK for Go](https://docs.microsoft.com/en-us/go/azure/azure-sdk-go-authorization)
+> There are other ways to authenticate besides the below example that could potentially be better suited for your needs. All functions are outlined here: [Authentication functions in the Azure SDK for Go](https://docs.microsoft.com/go/azure/azure-sdk-go-authorization)
 
-### Authentication Example Using a Service Principal
+### Authentication example using a service principal
 
 First, login to [Azure Cloud Shell](https://shell.azure.com/bash). Verify you are currently using the subscription in which you want the service principal created. 
 
@@ -127,12 +127,12 @@ func main() {
     }
 ```
 
-## Cluster Management
+## Cluster management
 
 > [!NOTE]
 > This section assumes you have already authenticated and constructed a `ClusterClient` instance and store it in a variable called `client`. Instructions for authenticating and obtaining a `ClusterClient` can be found in the Authentication section above.
 
-### Create a Cluster
+### Create a cluster
 
 A new cluster can be created by calling `client.Create()`. 
 
@@ -143,13 +143,13 @@ This example demonstrates how to create a Spark cluster with 2 head nodes and 1 
 > [!NOTE]
 > You first need to create a Resource Group and Storage Account, as explained below. If you have already created these, you can skip these steps.
 
-##### Creating a Resource Group
+##### Creating a resource group
 
 You can create a resource group using the [Azure Cloud Shell](https://shell.azure.com/bash) by running
 ```azurecli-interactive
 az group create -l <Region Name (i.e. eastus)> --n <Resource Group Name>
 ```
-##### Creating a Storage Account
+##### Creating a storage account
 
 You can create a storage account using the [Azure Cloud Shell](https://shell.azure.com/bash) by running:
 ```azurecli-interactive
@@ -240,13 +240,13 @@ var parameters = hdi.ClusterCreateParametersExtended {
 }
 client.Create(context.Background(), resourceGroupName, clusterName, parameters)
 ```
-### List Clusters
+### List clusters
 
-#### List Clusters Under The Subscription
+#### List clusters under the subscription
 ```golang
 client.List()
 ```
-#### List Clusters By Resource Group
+#### List clusters by resource group
 ```golang
 client.ListByResourceGroup("<Resource Group Name>")
 ```
@@ -272,7 +272,7 @@ for (page.NotDone()) {
 }
 ```
 
-### Get Cluster Details
+### Get cluster details
 
 To get properties for a given cluster:
 
@@ -280,7 +280,7 @@ To get properties for a given cluster:
 client.Get(context.Background(), "<Resource Group Name>", "<Cluster Name>")
 ```
 
-### Delete a Cluster
+### Delete a cluster
 
 To delete a cluster:
 
@@ -288,7 +288,7 @@ To delete a cluster:
 client.Delete(context.Background(), "<Resource Group Name>", "<Cluster Name>")
 ```
 
-### Update Cluster Tags
+### Update cluster tags
 
 You can update the tags of a given cluster like so:
 
@@ -301,7 +301,7 @@ client.Update(context.Background(), "<Resource Group Name>", "<Cluster Name>", h
 client.Update(context.Background(), "SDKTestRG", "SDKTest", hdi.ClusterPatchParameters{map[string]*string{"tag1Name" : to.StringPtr("tag1Value"), "tag2Name" : to.StringPtr("tag2Value")}})
 ```
 
-### Scale Cluster
+### Scale cluster
 
 You can scale a given cluster's number of worker nodes by specifying a new size like so:
 
@@ -309,7 +309,7 @@ You can scale a given cluster's number of worker nodes by specifying a new size 
 client.Resize(context.Background(), "<Resource Group Name>", "<Cluster Name>", hdi.ClusterResizeParameters{<Num of Worker Nodes (int)>})
 ```
 
-## Cluster Monitoring
+## Cluster monitoring
 
 The HDInsight Management SDK can also be used to manage monitoring on your clusters via the Operations Management Suite (OMS).
 
@@ -323,10 +323,10 @@ extClient.Authorizer, _ = credentials.Authorizer()
 > [!NOTE]
 > The below monitoring examples assume you have already initialized an `ExtensionClient` called `extClient` and set its `Authorizer` as shown above.
 
-### Enable OMS Monitoring
+### Enable OMS monitoring
 
 > [!NOTE]
-> To enable OMS Monitoring, you must have an existing Log Analytics workspace. If you have not already created one, you can learn how to do that here: [Create a Log Analytics workspace in the Azure portal](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-quick-create-workspace).
+> To enable OMS Monitoring, you must have an existing Log Analytics workspace. If you have not already created one, you can learn how to do that here: [Create a Log Analytics workspace in the Azure portal](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
 
 To enable OMS Monitoring on your cluster:
 
@@ -334,7 +334,7 @@ To enable OMS Monitoring on your cluster:
 extClient.EnableMonitoring(context.Background(), "<Resource Group Name", "Cluster Name", hdi.ClusterMonitoringRequest {WorkspaceID: to.StringPtr("<Workspace Id>")})
 ```
 
-### View Status Of OMS Monitoring
+### View status of OMS monitoring
 
 To get the status of OMS on your cluster:
 
@@ -342,7 +342,7 @@ To get the status of OMS on your cluster:
 extClient.GetMonitoringStatus(context.Background(), "<Resource Group Name", "Cluster Name")
 ```
 
-### Disable OMS Monitoring
+### Disable OMS monitoring
 
 To disable OMS on your cluster:
 
@@ -350,13 +350,13 @@ To disable OMS on your cluster:
 extClient.DisableMonitoring(context.Background(), "<Resource Group Name", "Cluster Name")
 ```
 
-## Script Actions
+## Script actions
 
 HDInsight provides a configuration function called script actions that invokes custom scripts to customize the cluster.
 > [!NOTE]
-> More information on how to use script actions can be found here: [Customize Linux-based HDInsight clusters using script actions](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux)
+> More information on how to use script actions can be found here: [Customize Linux-based HDInsight clusters using script actions](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux)
 
-### Execute Script Actions
+### Execute script actions
 
 You can execute script actions on a given cluster like so:
 
@@ -375,7 +375,7 @@ scriptActionsClient.Authorizer, _ = credentials.Authorizer()
 > [!NOTE]
 > The below script actions examples assume you have already initialized a `ScriptActionsClient` called `scriptActionsClient` and set its `Authorizer` as shown above.
 
-### Delete Script Action
+### Delete script action
 
 To delete a specified persisted script action on a given cluster:
 
@@ -383,7 +383,7 @@ To delete a specified persisted script action on a given cluster:
 scriptActionsClient.Delete(context.Background(), "<Resource Group Name>", "<Cluster Name>", "<Script Name>")
 ```
 
-### List Persisted Script Actions
+### List persisted script actions
 
 > [!NOTE]
 > Both `ListByCluster()` returns a `ScriptActionsListPage` struct. To get the next page, you can call `Next()`. This can be repeated until `ClusterListResultPage.NotDone()` returns `false`, as shown in the example below.
@@ -411,7 +411,7 @@ for (page.NotDone()) {
 }
 ```
 
-### List All Scripts' Execution History
+### List all scripts' execution history
 
 For this operation, you need to create a `ScriptExecutionHistoryClient` to use for, similarly to how you created `ClusterClient` to use for management operations. Once you have completed the Authentication section above, you can create a `ScriptActionsClient` like so:
 
@@ -448,3 +448,7 @@ for (page.NotDone()) {
     }       
 }
 ```
+
+## Next steps:
+
+* [Explore the GoDoc reference material](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight): The GoDocs provide reference documentation for all functions in the SDK.
