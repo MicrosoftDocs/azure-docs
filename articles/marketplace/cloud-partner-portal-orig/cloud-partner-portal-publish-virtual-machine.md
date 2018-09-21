@@ -404,7 +404,7 @@ The Hero logo is optional. The publisher can choose not to upload a Hero logo. H
 ### Lead Management
 
 To configure the lead management settings of the offer, follow
-[these instructions](./cloud-partner-portal-get-customer-leads/how-to-connect-your-crm-system-with-the-cloud-partner-portal.md).
+[these instructions](./cloud-partner-portal-get-customer-leads.md).
 
 ## To configure Support
 
