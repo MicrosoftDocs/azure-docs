@@ -758,7 +758,7 @@ Check the failover process via command "SAPHanaSR-showAttr". What helps to monit
 watch SAPHanaSR-showAttr
 </code></pre>
 
-The output should reflect the manual failover by showing that the former secondary master node got "promoted" (in this sanmple hso-hana-vm-s2-0) and the former primary site stopped (lss value "1" for former primary master node hso-hana-vm-s1-0): 
+The output should reflect the manual failover by showing that the former secondary master node got "promoted" (in this sample hso-hana-vm-s2-0) and the former primary site stopped (lss value "1" for former primary master node hso-hana-vm-s1-0): 
 
 <pre><code>
 Global cib-time                 prim  sec srHook sync_state
@@ -797,7 +797,7 @@ Within the cluster configuration, you find a new location constraint caused by t
 location cli-ban-msl_SAPHanaCon_HSO_HDB00-on-hso-hana-vm-s1-0 msl_SAPHanaCon_HSO_HDB00 role=Started -inf: hso-hana-vm-s1-0
 </code></pre>
 
-Unfortunately such constraints might have an impact on the overall cluster behavior. Therefore it's mandatory to remove them again before bringing the whole system back up. With the "unmigrate" command it's possible to clean up the location constraints which were created before. The naming might be a bit confusing. It doesn't mean that it would try to migrate the resource back to its original VM from which it was migrated. It just removes the location constraints and also returns corresponding information when running the command:
+Unfortunately such constraints might have an impact on the overall cluster behavior. Therefore it's mandatory to remove them again before bringing the whole system back up. With the "unmigrate" command it's possible to clean up the location constraints, which were created before. The naming might be a bit confusing. It doesn't mean that it would try to migrate the resource back to its original VM from which it was migrated. It just removes the location constraints and also returns corresponding information when running the command:
 
 
 <pre><code>
@@ -806,13 +806,13 @@ crm resource unmigrate msl_SAPHanaCon_HSO_HDB00
 INFO: Removed migration constraints for msl_SAPHanaCon_HSO_HDB00
 </code></pre>
 
-At the end of the maintenance work you stop the cluster maintenance mode as shown in the pacemaker section.
+At the end of the maintenance work, you stop the cluster maintenance mode as shown in the pacemaker section.
 
 
 
 ## hb_report to collect log files
 
-To analyze pacemaker cluster issues it's very helpful and also requested by SUSE support to run the hb_report utility. It collects all important logfiles which allow the analysis of what happened. Here is a sample call using a start and end time where a specific incident occured (also see first section about important notes):
+To analyze pacemaker cluster issues, it's helpful and also requested by SUSE support to run the hb_report utility. It collects all important logfiles, which allow the analysis of what happened. Here is a sample call using a start and end time where a specific incident occured (also see first section about important notes):
 
 <pre><code>
 hb_report -f "2018/09/13 07:36" -t "2018/09/13 08:00" /tmp/hb_report_log
@@ -825,7 +825,7 @@ The report is saved in /tmp/hb_report_log.tar.bz2
 Report timespan: 09/13/18 07:36:00 - 09/13/18 08:00:00
 </code></pre>
 
-You can then simply extract the individual files via the standard tar command:
+You can then extract the individual files via the standard tar command:
 
 <pre><code>
 tar -xvf hb_report_log.tar.bz2
@@ -850,7 +850,7 @@ drwxr-xr-x 3 root root   4096 Sep 13 09:01 hso-hana-vm-s2-2
 </code></pre>
 
 
-Within the time range which was specified the current master node hso-hana-vm-s1-0 was killed. In the journal.log you can find entries related to this event:
+Within the time range, which was specified the current master node hso-hana-vm-s1-0 was killed. In the journal.log you can find entries related to this event:
 
 <pre><code>
 2018-09-13T07:38:01+0000 hso-hana-vm-s2-1 su[93494]: (to hsoadm) root on none
@@ -872,7 +872,7 @@ Within the time range which was specified the current master node hso-hana-vm-s1
 2018-09-13T07:38:03+0000 hso-hana-vm-s2-1 su[93494]: pam_unix(su-l:session): session closed for user hsoadm
 </code></pre>
 
-Another example is the pacemaker log file on the secondary master which became the new primary master. Here is an excerpt which shows that the status of the killed primary master node was set to "offline".
+Another example is the pacemaker log file on the secondary master, which became the new primary master. Here is an excerpt, which shows that the status of the killed primary master node was set to "offline".
 
 <pre><code>
 Sep 13 07:38:02 [4178] hso-hana-vm-s2-0 stonith-ng:     info: pcmk_cpg_membership:      Node 3 still member of group stonith-ng (peer=hso-hana-vm-s1-2, counter=5.1)
@@ -893,7 +893,7 @@ Sep 13 07:38:02 [4184] hso-hana-vm-s2-0       crmd:     info: pcmk_cpg_membershi
 ## SAP HANA global.ini
 
 
-These are excerpts from the SAP HANA global.ini file on cluster site 2 as an example to show the hostname resolution entries for using different networks for SAP HANA inter-node communication and HSR:
+Below you see excerpts from the SAP HANA global.ini file on cluster site 2 as an example to show the hostname resolution entries for using different networks for SAP HANA inter-node communication and HSR:
 
 <pre><code>
 [communication]
@@ -934,7 +934,7 @@ listeninterface = .internal
 
 ## HAWK
 
-The cluster solution also provides a browser interface which offers a nice GUI for those who prefer this compared to all the commands on shell level.
+The cluster solution also provides a browser interface which offers a nice GUI for people who prefer menus and graphics compared to all the commands on shell level.
 To use the browser interface, take the URL shown below and replace "node" by an actual SAP HANA node and then enter the credentials of the cluster (user hacluster):
 
 <pre><code>
@@ -961,7 +961,7 @@ The "History Explorer" then allows going through all the cluster transitions inc
 
 ![HAWK look at the transitions within the hb_report output](media/hana-vm-scale-out-HA-troubleshooting/hawk-4.png)
 
-On the last screenshot you can see the details section of a single transition which shows that the cluster reacted on a primary master node crash 
+On the last screenshot, you can see the details section of a single transition which shows that the cluster reacted on a primary master node crash 
 (node hso-hana-vm-s1-0) and is now promoting the secondary node as the new master (hso-hana-vm-s2-0):
 
 ![HAWK look at a single transition](media/hana-vm-scale-out-HA-troubleshooting/hawk-5.png)
