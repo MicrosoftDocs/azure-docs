@@ -107,13 +107,15 @@ inet addr:10.0.2.42  Bcast:10.0.2.255  Mask:255.255.255.0
 </code></pre>
 
 
-Second step is verification of SAP HANA ports for nameserver and HSR. SAP HANA should listen on the corresponding subnets. Depending on the SAP HANA instance number you have to adapt the commands. For the test system the instance number was 00. There are different ways to figure this. A SQL statement, which returns instance ID and instance number among other information looks like:
+Second step is verification of SAP HANA ports for nameserver and HSR. SAP HANA should listen on the corresponding subnets. Depending on the SAP HANA instance number, you have to adapt the commands. For the test system, the instance number was 00. There are different ways to figure out which ports are used. 
+
+Below you see a SQL statement, which returns instance ID and instance number among other information:
 
 <pre><code>
 select * from "SYS"."M_SYSTEM_OVERVIEW"
 </code></pre>
 
-Regarding the ports you can look for example in HANA Studio under "Configuration" or via a SQL statement:
+Regarding the ports, you can look for example, in HANA Studio under "Configuration" or via a SQL statement:
 
 <pre><code>
 select * from M_INIFILE_CONTENTS WHERE KEY LIKE 'listen%'
@@ -162,12 +164,12 @@ nc: connect to 10.0.2.40 port 40002 (tcp) failed: Connection refused
 ## Corosync
 
 
-The corosync config file has to be correct on every node in the cluster including the majority maker node. In case the cluster join of a node didn't work as expected simply create and/or copy /etc/corosync/corosync.conf manually on/to all nodes and restart the service.
+The corosync config file has to be correct on every node in the cluster including the majority maker node. In case the cluster join of a node didn't work as expected create and/or copy /etc/corosync/corosync.conf manually on/to all nodes and restart the service.
 
 Here is the content of corosync.conf from the test system as an example.
 
 First section is "totem" as described in the documentation. You can ignore the mcastaddr entry. Just keep the existing entry. Make sure that especially "token" and "consensus" are set
-according to the Microsoft Azure SAP HANA documentation which you can find [here](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker)
+according to the Microsoft Azure SAP HANA documentation, which you can find [here](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker)
 
 <pre><code>
 totem {
@@ -250,7 +252,7 @@ nodelist {
 }
 </code></pre>
 
-In the last section "quorum" it's important to set the value for "expected_votes" to the number of nodes including the majority maker node. And the value for "two_node" has to be "0". Don't remove the entry completely. Just set the value to "0".
+In the last section "quorum", it's important to set the value for "expected_votes" to the number of nodes including the majority maker node. And the value for "two_node" has to be "0". Don't remove the entry completely. Just set the value to "0".
 
 <pre><code>
 quorum {
@@ -282,7 +284,7 @@ targetcli ls
 </code></pre>
 
 
-On the test system the output of the command looked like the sample below. The ACL names like "iqn.2006-04.hso-db-0.local:hso-db-0" have to be entered as the corresponding initiator name on the VMs. Every VM needs a different one.
+On the test system, the output of the command looked like the sample below. The ACL names like "iqn.2006-04.hso-db-0.local:hso-db-0" have to be entered as the corresponding initiator name on the VMs. Every VM needs a different one.
 
 <pre><code>
  | | o- sbddbhso ................................................................... [/sbd/sbddbhso (50.0MiB) write-thru activated]
@@ -355,7 +357,7 @@ The output should look like the sample below. Keep in mind that the names might 
 [6:0:0:0]    disk    LIO-ORG  sbddbhso         4.0   /dev/sdm
 </code></pre>
 
-Depending on the status of the system it might sometimes help to simply restart the iscsi services in case of any issues. Then run the following commands:
+Depending on the status of the system it might sometimes help to restart the iscsi services to solve issues. Then run the following commands:
 
 <pre><code>
 systemctl restart iscsi
@@ -363,7 +365,7 @@ systemctl restart iscsid
 </code></pre>
 
 
-From any node you can check if all nodes are "clear". Just watch out to use the correct device name on a specific node:
+From any node, you can check if all nodes are "clear". Just watch out to use the correct device name on a specific node:
 
 <pre><code>
 sbd -d /dev/sdm list
