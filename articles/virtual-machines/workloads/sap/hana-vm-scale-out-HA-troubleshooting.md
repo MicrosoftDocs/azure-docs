@@ -411,7 +411,7 @@ One more check for SBD is the possibility to send a message to another node. You
 sbd -d /dev/sdm message hso-hana-vm-s2-2 test
 </code></pre>
 
-On the traget VM side - which was hso-hana-vm-s2-2 in this example - you can find the following entry in /var/log/messages:
+On the target VM side - which was hso-hana-vm-s2-2 in this example - you can find the following entry in /var/log/messages:
 
 <pre><code>
 /dev/disk/by-id/scsi-36001405e614138d4ec64da09e91aea68:   notice: servant: Received command test from hso-hana-vm-s2-1 on disk /dev/disk/by-id/scsi-36001405e614138d4ec64da09e91aea68
@@ -527,7 +527,7 @@ Full list of resources:
      rsc_nc_HSO_HDB00   (ocf::heartbeat:anything):      Started hso-hana-vm-s1-0
 </code></pre>
 
-An important feature of pacemaker is to put it into maintenance mode. This mode allows to make modifications (for example a VM reboot) without provoking an immediate cluster action. A typical use case would be planned OS or Azure infrastructure maintenance (also see separate section about planned maintenance). Use the following command to put pacemaker into maintenance mode:
+An important feature of pacemaker is to put it into maintenance mode. This mode allows making modifications (for example a VM reboot) without provoking an immediate cluster action. A typical use case would be planned OS or Azure infrastructure maintenance (also see separate section about planned maintenance). Use the following command to put pacemaker into maintenance mode:
 
 <pre><code>
 crm configure property maintenance-mode=true
@@ -581,7 +581,7 @@ crm configure property maintenance-mode=false
 </code></pre>
 
 
-Another crm command allows to get the complete cluster configuration into an editor with the possibility to edit. After saving the changes the cluster starts appropriate actions:
+Another crm command allows getting the complete cluster configuration into an editor with the possibility to edit. After saving the changes the cluster starts appropriate actions:
 
 <pre><code>
 crm configure edit
@@ -662,7 +662,7 @@ wicked ifdown eth0
 wicked ifdown eth1
 wicked ifdown eth2
 ......
-wciked ifdown eth<n>
+wicked ifdown eth<n>
 </code></pre>
 
 As also described in the section about planned maintenance, a good way to monitor the cluster activities is to run SAPHanaSR-showAttr with the "watch" command:
@@ -671,7 +671,7 @@ As also described in the section about planned maintenance, a good way to monito
 watch SAPHanaSR-showAttr
 </code></pre>
 
-In addition, it helps to look at the SAP HANA landscape status coming from a SAP python script. This status value is the one, which the cluster setup is looking for. It becomes clear when thinking about a worker node failure. If a worker node goes down, SAP HANA does not immediately return an error for the health of the whole scale-out system. There are some retries to avoid unnecessary failovers. Only if the status changes from Ok (return value 4) to error (return value 1) the cluster reacts. Because of this it's correct, if the output from SAPHanaSR-showAttr shows a VM with state "offline" but there is no activity yet to switch primary and secondary as long as SAP HANA doesn't return an error.
+In addition, it helps to look at the SAP HANA landscape status coming from an SAP python script. This status value is the one, which the cluster setup is looking for. It becomes clear when thinking about a worker node failure. If a worker node goes down, SAP HANA does not immediately return an error for the health of the whole scale-out system. There are some retries to avoid unnecessary failovers. Only if the status changes from Ok (return value 4) to error (return value 1) the cluster reacts. Because of this it's correct, if the output from SAPHanaSR-showAttr shows a VM with state "offline" but there is no activity yet to switch primary and secondary as long as SAP HANA doesn't return an error.
 
 You can monitor the SAP HANA landscape health status as user <HANA SID>adm by calling the SAP python script the following way (you might have to adapt the path):
 
@@ -737,7 +737,7 @@ The procedure for maintenance on the current primary site is more complex:
 - SAP HANA on the former primary site is getting shut down by the cluster setup
 - put the cluster into maintenance mode
 - after the maintenance work is done register the former primary as the new secondary site
-- cleanup cluster configuration (see details below)
+- clean up cluster configuration (see details below)
 - end the cluster maintenance mode
 
 
@@ -797,7 +797,7 @@ Within the cluster configuration, you find a new location constraint caused by t
 location cli-ban-msl_SAPHanaCon_HSO_HDB00-on-hso-hana-vm-s1-0 msl_SAPHanaCon_HSO_HDB00 role=Started -inf: hso-hana-vm-s1-0
 </code></pre>
 
-Unfortunately such constraints might have an impact on the overall cluster behavior. Therefore it's mandatory to remove them again before bringing the whole system back up. With the "unmigrate" command it's possible to cleanup the location constraints which were created before. The naming might be a bit confusing. It doesn't mean that it would try to migrate the resource back to its original VM from which it was migrated. It just removes the location constraints and also returns it as an information when running the command:
+Unfortunately such constraints might have an impact on the overall cluster behavior. Therefore it's mandatory to remove them again before bringing the whole system back up. With the "unmigrate" command it's possible to clean up the location constraints which were created before. The naming might be a bit confusing. It doesn't mean that it would try to migrate the resource back to its original VM from which it was migrated. It just removes the location constraints and also returns a corresponding information when running the command:
 
 
 <pre><code>
@@ -953,7 +953,7 @@ On the second screenshot you can see an example of the location constraints caus
 ![HAWK list constraints](media/hana-vm-scale-out-HA-troubleshooting/hawk-2.png)
 
 
-Another nice feature is the possibility to upload a hb_report output (see section about hb_report) in HAWK under "History" as shown on the next screenshot :
+Another nice feature is the possibility to upload a hb_report output (see section about hb_report) in HAWK under "History" as shown on the next screenshot:
 
 ![HAWK upload hb_report output](media/hana-vm-scale-out-HA-troubleshooting/hawk-3.png)
 
