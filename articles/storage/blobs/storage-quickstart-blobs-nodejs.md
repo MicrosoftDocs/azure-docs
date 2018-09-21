@@ -349,9 +349,7 @@ See these additional resources for Node.js development with Blob storage:
 
 ## Next steps
 
-This quickstart demonstrates how to upload a file between a local disk and Azure Blob storage using Node.js. To learn more about working with Blob storage, continue to the Blob storage How-to.
+This quickstart demonstrates how to upload a file between a local disk and Azure Blob storage using Node.js. To learn more about working with Blob storage, continue to the GitHub repository.
 
 > [!div class="nextstepaction"]
-> [Blob Storage Operations How-To](storage-nodejs-how-to-use-blob-storage.md)
-
-For the Node.js reference for Azure Storage, see [azure-storage package](https://docs.microsoft.com/javascript/api/azure-storage).
+> [Azure Storage SDK for JavaScript repository](https://github.com/Azure/azure-storage-node)
