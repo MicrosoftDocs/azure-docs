@@ -65,7 +65,7 @@ Note the current virtual machine's size. After you've verified that the virtual 
 In the list of candidates to shut down or resize, select **Resize the virtual machine**.
 ![Resize the virtual machine](./media/tutorial-acm-opt-recommendations/resize-vm.png)
 
-Next, you're presented with a list of available resize options. Choose the one that will give the best performance and cost-effectiveness for your scenario. In the following example, the option chosen resizes from a **DS14\_V2** to a **DS13\_V2**. Following the recommendation saves $551.30/month or $6,61560/year.
+Next, you're presented with a list of available resize options. Choose the one that will give the best performance and cost-effectiveness for your scenario. In the following example, the option chosen resizes from a **DS14\_V2** to a **DS13\_V2**. Following the recommendation saves $551.30/month or $6,615.60/year.
 
 ![Choose a size](./media/tutorial-acm-opt-recommendations/choose-size.png)
 
