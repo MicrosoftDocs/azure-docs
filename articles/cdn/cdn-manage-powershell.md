@@ -3,8 +3,8 @@ title: Manage Azure CDN with PowerShell | Microsoft Docs
 description: Learn how to use the Azure PowerShell cmdlets to manage Azure CDN.
 services: cdn
 documentationcenter: ''
-author: zhangmanling
-manager: erikre
+author: mdgattuso
+manager: danielgi
 editor: ''
 
 ms.assetid: fb6f57a5-6e26-4847-8fd9-b51fb05a79eb
@@ -13,8 +13,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2018
-ms.author: mazha
+ms.date: 09/13/2018
+ms.author: magattus
 
 ---
 # Manage Azure CDN with PowerShell
@@ -140,10 +140,8 @@ Get-AzureRmCdnProfile | Get-AzureRmCdnEndpoint | Where-Object { $_.ResourceState
 - Premium_Verizon
 - Custom_Verizon
 - Standard_Akamai
+- Standard_Microsoft
 - Standard_ChinaCdn
-
-> [!NOTE]
-> The Standard_Microsoft SKU is not supported while it is in preview.
 
 ```powershell
 # Create a new profile

@@ -203,7 +203,7 @@ To make a user an administrator of an Azure subscription, assign them the [Owner
 
 1. In the **Role** drop-down list, select a role such as **Management Group Contributor**.
 
-    For information about the supported actions on management groups for various roles, see [Organize your resources with Azure management groups](../azure-resource-manager/management-groups-overview.md#management-group-access).
+    For information about the supported actions on management groups for various roles, see [Organize your resources with Azure management groups](../governance/management-groups/overview.md#management-group-access).
 
 1. In the **Select** list, select a user, group, or application. If you don't see the security principal in the list, you can type in the **Select** box to search the directory for display names, email addresses, and object identifiers.
 
