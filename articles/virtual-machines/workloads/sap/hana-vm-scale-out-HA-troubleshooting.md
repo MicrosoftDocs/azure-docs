@@ -22,7 +22,7 @@ ms.author: hermannd
 # Verification and troubleshooting of SAP HANA scale-out HSR-Pacemaker setup on SLES 12 SP3
 
 
-This article should help to check the Pacemaker cluster configuration for SAP HANA scale-out in combination with SAP HANA System Replication (HSR) on SLES 12 SP3 using the SUSE RPM package SAPHanaSR-ScaleOut. There are several sections which cover different areas and include sample commands as well as excerpts from config files as a recommendation to verify if everything looks right.
+This article should help to check the Pacemaker cluster configuration for SAP HANA scale-out in combination with SAP HANA System Replication (HSR) on SLES 12 SP3 using the SUSE RPM package SAPHanaSR-ScaleOut. There are several sections, which cover different areas and include sample commands as well as excerpts from config files as a recommendation to verify if everything looks right.
 
 
 
@@ -30,7 +30,7 @@ This article should help to check the Pacemaker cluster configuration for SAP HA
 
  > [!NOTE]
    > All testing for SAP HANA scale-out in combination with SAP HANA System Replication and Pacemaker was done with SAP HANA 2.0 only on SLES 12 SP3 using the SUSE RPM package SAPHanaSR-ScaleOut.
-   > SUSE published a detailed description of this performance optimized setup which can be found [here](https://www.suse.com/documentation/suse-best-practices/singlehtml/SLES4SAP-hana-scaleOut-PerfOpt-12/SLES4SAP-hana-scaleOut-PerfOpt-12.html)
+   > SUSE published a detailed description of this performance optimized setup, which can be found [here](https://www.suse.com/documentation/suse-best-practices/singlehtml/SLES4SAP-hana-scaleOut-PerfOpt-12/SLES4SAP-hana-scaleOut-PerfOpt-12.html)
    >
    > For certified VM types supported for SAP HANA scale-out HANA check the [SAP HANA certified IaaS directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html)
    >
@@ -38,7 +38,7 @@ This article should help to check the Pacemaker cluster configuration for SAP HA
    > got fixed. The following SAP HANA versions are supported for the scale-out HA configuration in combination with Pacemaker and SUSE RPM package SAPHanaSR-ScaleOut:
    > rev2.00.024.04 or higher & rev2.00.032 or higher.
    >
-   > In case there should be a situation which requires support from SUSE follow [this](https://www.suse.com/support/kb/doc/?id=7022702) guide to collect all information about the SAP HANA HA cluster 
+   > In case there should be a situation, which requires support from SUSE follow [this](https://www.suse.com/support/kb/doc/?id=7022702) guide to collect all information about the SAP HANA HA cluster, 
    > which SUSE support needs for further analysis.
    >
    > During internal testing it happened that the cluster setup got confused by a normal graceful VM shutdown via the Azure portal. Therefore it's strongly recommended to test a cluster failover
@@ -58,7 +58,7 @@ This article should help to check the Pacemaker cluster configuration for SAP HA
 
 ## Test system description
 
-For SAP HANA scale-out HA verification and certification a setup was used consisting of two systems with three SAP HANA nodes each - one master and two workers. Here is the list of VM names and internal IP addresses. All verification samples further down were done on these VMs. This should help to better understand the commands and their outputs.
+For SAP HANA scale-out HA verification and certification a setup was used, consisting of two systems with three SAP HANA nodes each - one master and two workers. Here is the list of VM names and internal IP addresses. All verification samples further down were done on these VMs. Using these VM names and IP addresses in the command samples should help to better understand the commands and their outputs.
 
 
 | Node type | VM name | IP address |
