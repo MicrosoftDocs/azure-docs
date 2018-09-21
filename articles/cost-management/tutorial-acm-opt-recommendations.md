@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 09/10/2018
+ms.date: 09/21/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
@@ -24,12 +24,12 @@ In this tutorial, you learn how to:
 > * Verify the action to ensure that the virtual machine was successfully resized
 
 ## Prerequisites
-You must have an [Azure Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) with at least read access to one or more of the following items:
+Recommendations are available to all [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) customers. You must have at least read access to one or more of the following scopes to view cost data.
 
-- Azure EA subscription
-- Azure EA subscription resource group
+- Subscription
+- Resource group
 
-And you must have active virtual machines with at least 14 days of activity.
+You must have active virtual machines with at least 14 days of activity.
 
 ## Sign in to Azure
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com/).
