@@ -46,7 +46,7 @@ The following fields are sent in the HTTP request header.
 |`Content-type`|Describes the format and codec of the audio data. Currently, this value must be `audio/wav; codec=audio/pcm; samplerate=16000`.|
 |`Transfer-Encoding`|Optional. If given, must be `chunked` to allow audio data to be sent in multiple small chunks instead of a single file.|
 |`Expect`|If using chunked transfer, send `Expect: 100-continue`. The Speech service acknowledges the initial request and awaits additional data.|
-|`Accept`|Optional. If provided, must include `application/json`, as the Speech service provides results in JSON format. (Some Web request frameworks provide an incompatible default value if you do not specify one, so it is good practice to always include `Accept`)|
+|`Accept`|Optional. If provided, must include `application/json`, as the Speech service provides results in JSON format. (Some Web request frameworks provide an incompatible default value if you do not specify one, so it is good practice to always include `Accept`.)|
 
 ### Audio format
 
