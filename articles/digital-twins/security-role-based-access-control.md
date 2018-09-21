@@ -12,34 +12,41 @@ ms.author: adgera
 
 # Azure Digital Twins Role-Based Access Control
 
-Digital Twins security enables precise access to specific resources and actions in your IoT topology. It does so through granular role and permission management called Digital Twins Role-Based Access Control (RBAC for short).
+Digital Twins security enables precise access to specific resources and actions in your IoT topology. It does so through granular role and permission management called Digital Twins Role-Based Access Control.
 
-Using RBAC, you’re able to segregate duties and grant only the specific amount of access that a user, group of users, or service principal needs to perform a task.
+Using Role-Based Access Control, permission can be granted to the specific user, users, or service principal as needed. Additionally, the degree of access can also be fine-tuned.
 
-RBAC is unique in that permissions are inherited down the topology tree.
+Role-Based Access Control is unique in that permissions are inherited down the topology tree.
 
-## What can I do with RBAC?
+## What can I do with Role-Based Access Control?
 
 * Grant a user the ability to manage devices for an entire building, or only a particular room or floor
 * Grant an admin global access to all topology nodes for an entire topology, or only a section
 * Grant a support specialist read access to the topology, except for access keys
 * Grant every member of a domain read access to all topology objects
 
-## Best practices
+## Role-Based Access Control best practices
 
-You should always follow the principle of least privilege to grant an identity only the amount of access that it needs to perform its job. This is particularly important given the downward inheritance that is building into RBAC.
+>[!NOTE]
+> Always follow the principle of least privilege: grant an identity only the amount of access needed to perform its job.
 
-Periodic auditing of the role assignments that are active for your service is recommended. It's also encouraged to perform a clean-up process as individuals change roles or assignments.
+This is particularly important given the downward inheritance that is built into Role-Based Access Control.
 
-## Role Based Access Control Components
+Periodic auditing of role assignments is recommended.
+
+It's also encouraged to perform a clean-up process as individuals change roles or assignments.
+
+## Role-Based Access Control Components
+
+Role-Based Access Control involves several pieces.
 
 ### Role definitions
 
 A **role definition** is a collection of permissions and is sometimes just called a **role**.
 
-A **role definition** lists the operations that can be performed, such as *read*, *write*, and *delete*. It also specifies a set of conditions that might exclude certain object types in the topology.
+A **role definition** lists the operations that can be performed. These include *read*, *write*, and *delete*. It also specifies a set of conditions that might exclude certain object types in the topology.
 
-The following roles are available in RBAC:
+The following roles are available in Role-Based Access Control:
 
 * Space Administrator: Global access able to perform all operations for the specified space and all nodes underneath
 * User Administrator: CRUD for users and user related objects. Read for spaces.
