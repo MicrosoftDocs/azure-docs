@@ -170,3 +170,4 @@ You can find multi-step task reference and examples here:
 <!-- LINKS - Internal -->
 [az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
 [az-acr-run]: /cli/azure/acr/run#az-acr-run
+[az-acr-task]: /cli/azure/acr#az-acr-task
