@@ -90,6 +90,29 @@ sections:
     - html: Java &#58; <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=blob&sort=0&platform=java">Blobs</a> | <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=file&sort=0&platform=java">Files</a> | <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=queue&sort=0&platform=java">Queues</a>
     - html: <a href="/azure/storage/blobs/storage-samples-blobs-powershell">Azure PowerShell</a>
     - html: <a href="/azure/storage/blobs/storage-samples-blobs-cli">Azure CLI</a>
+- title: Build your skills with Microsoft Learn
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Communicate between applications with Azure Queue storage
+      href: /learn/modules/communicate-between-apps-with-azure-queue-storage/
+      image: 
+        src: /learn/achievements/communicate-between-apps-with-storage-queues.svg
+        href: /learn/modules/communicate-between-apps-with-azure-queue-storage/
+    - title:  Create an Azure storage account
+      href: /learn/modules/create-azure-storage-account/
+      image: 
+        src: /learn/achievements/create-azure-storage-account.svg
+        href: /learn/modules/create-azure-storage-account/
+    - title: Connect an app to Azure Storage
+      href: /learn/modules/connect-an-app-to-azure-storage
+      image: 
+        src: /learn/achievements/connect-an-app-to-azure-storage.svg
+        href: /learn/modules/connect-an-app-to-azure-storage
+  - type: paragraph
+    text: <a href="/learn/browse/?products=storage">More interactive learning...</a>
 - title: Free Pluralsight Video Training
   items:
   - type: list

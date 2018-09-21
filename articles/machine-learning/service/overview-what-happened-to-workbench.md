@@ -31,7 +31,7 @@ While there are new improved CLI and SDK clients in the current release, the des
 
 ## How do I migrate?
 
-Most of the artifacts created in the earlier version of the Azure Machine Learning service are stored in your own local or cloud storage. These artifacts won't ever disappear. To migrate, you need to register the artifacts again with the updated Azure Machine Learning offering. Learn what you can migrate and how in this [migration article](how-to-migrate.md).
+Most of the artifacts created in the earlier version of the Azure Machine Learning service are stored in your own local or cloud storage. These artifacts won't ever disappear. To migrate, you need to register the artifacts again with the updated Azure Machine Learning service. Learn what you can migrate and how in this [migration article](how-to-migrate.md).
 
 <a name="timeline"></a>
 
@@ -71,9 +71,15 @@ You can use this same SDK for larger data sets or use Azure Databricks to prepar
 
 You won't lose any code or work. In the older version, projects are cloud entities with a local directory. In the latest version, you attach local directories to the Azure Machine Learning Workspace using a local config file. [See a diagram of the latest architecture](concept-azure-machine-learning-architecture.md).
 
-Since much of the project contents was already on your local machine, you just need to create a config file in that directory and reference it in your code to connect to your workspace. [Learn how migrate your existing projects.](how-to-migrate.md#projects)
+Since much of the project content was already on your local machine, you just need to create a config file in that directory and reference it in your code to connect to your workspace. [Learn how migrate your existing projects.](how-to-migrate.md#projects)
 
 Learn how to get started [in Python with the SDK](quickstart-get-started.md).
+
+## What about my registers models and images?
+ 
+The models that you registered in your old model registry must migrated to your new workspace if you want to continue to use them. You can do this by [downloading the models and re-registering them](how-to-migrate.md) in your new workspace. 
+
+The images that you created in your old image registry must be re-created in the new workspace to continue to use them. You can do this by following the [create docker image](how-to-deploy-to-aci.md) section. 
 
 ## What about deployed web services?
 
@@ -81,11 +87,11 @@ The models you deployed as web services using your Model Management account will
 
 In the newer version, models are deployed as web services to [Azure Container Instances](how-to-deploy-to-aci.md) (ACI) or [Azure Kubernetes Service](how-to-deploy-to-aks.md) (AKS) clusters. You can also [deploy to FPGAs and to the IoT edge](how-to-deploy-and-where.md). Without having to change any of your scoring files, dependencies, and schemas, you can redeploy your models using the new SDK or CLI. 
 
-## What about the SDK & CLI?
+## What about the old SDK & CLI?
 
 Yes, they will continue to work for a while (see the [timeline](#timeline) above). We recommend that you start creating your new experiments and models with the latest SDK and/or CLI.
 
-In the latest release, the new Python SDK allows you to interact with the Azure Machine Learning service in any Python environment. Learn how to install the <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a>.  You can also use the [updated Azure CLI machine learning extension](reference-azure-machine-learning-cli.md) with the rich set of `az ml` commands to interact the service in any command-line environment, including Azure portal cloud shell.
+In the latest release, the new Python SDK allows you to interact with the Azure Machine Learning service in any Python environment. Learn how to install the latest <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a>.  You can also use the [updated Azure CLI machine learning extension](reference-azure-machine-learning-cli.md) with the rich set of `az ml` commands to interact the service in any command-line environment, including Azure portal cloud shell.
 
 ## What about VS Code Tools for AI?
 

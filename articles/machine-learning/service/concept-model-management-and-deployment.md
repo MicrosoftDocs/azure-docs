@@ -49,12 +49,14 @@ Images allow for reliable model deployment, along with all components needed to 
 
 The image can also include SDK components for logging and monitoring. The SDK logs data can be used to fine-tune or retrain your model, including the input and output of the model.
 
+Azure Machine Learning supports the most popular frameworks, but in general any framework that can be pip installed can work.
+
 When your workspace was created, so were other several other Azure resources used by that workspace.
 All the objects used to create the image are stored in the Azure storage account in your workspace. The image is created and stored in the Azure Container Registry. You can provide additional metadata tags when creating the image, which are also stored by the image registry and can be queried to find your image.
 
 ## Step 3: Deployment
 
-You can deploy registered images into the cloud or to edge devices. The deployment process creates all the resources needed to monitor, load-balance, and auto-scale your model. You can also upgrade an existing deployment to use a newer image.
+You can deploy registered images into the cloud or to edge devices. The deployment process creates all the resources needed to monitor, load-balance, and auto-scale your model. Access to the deployed services can be secured with certificate based authentication by providing the security assets during deployment. You can also upgrade an existing deployment to use a newer image.
 
 Web service deployments are also searchable. For example, you can search for all deployments of a specific model or image.
 
