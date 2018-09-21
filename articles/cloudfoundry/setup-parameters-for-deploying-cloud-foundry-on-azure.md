@@ -67,7 +67,7 @@ The copy “appId” value in the output as your **ClientID** to be used later.
 
 5. Set the permission role of your service principal as a **Contributor**.
 
-`az role assignment create --assignee “http://MyOPsMgr” --role “Contributor” `
+`az role assignment create --assignee “{enter-your-homepage}” --role “Contributor” `
 
 Or you can also use…
 
