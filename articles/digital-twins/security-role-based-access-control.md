@@ -71,11 +71,11 @@ The `ObjectIdType` refers to the type of identity that is being given a role. Ap
 * The ServicePrincipalId type assigns a role to a service principal object id.
 * The UserDefinedFunctionId type assigns a role to a User Defined Function (UDF)
 
-To query for the object id for a user reference the documentation [here](https://docs.microsoft.com/en-us/powershell/module/azuread/get-azureaduser?view=azureadps-2.0).
+To query for the object id for a user reference the documentation [here](https://docs.microsoft.com/powershell/module/azuread/get-azureaduser?view=azureadps-2.0).
 
-To obtain the object id for a service principal reference the documentation [here](https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/get-azurermadserviceprincipal?view=azurermps-6.8.1).
+To obtain the object id for a service principal reference the documentation [here](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermadserviceprincipal?view=azurermps-6.8.1).
 
-To retrieve the object id for an AAD tenant reference the documentation [here](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-create-new-tenant).
+To retrieve the object id for an AAD tenant reference the documentation [here](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
 
 ## Role Assignments
 

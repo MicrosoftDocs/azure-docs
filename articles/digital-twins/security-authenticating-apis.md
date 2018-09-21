@@ -14,16 +14,16 @@ ms.author: adgera
 
 Digital Twins uses Azure Active Directory (AAD) to authenticate users and protect applications.
 
-If you're unfamiliar with AAD, [here](https://docs.microsoft.com/en-us/azure/active-directory/develop/azure-ad-developers-guide). The Windows Azure Authentication Library offers many ways to acquire Active Directory tokens. For a deep-dive into the library, take a look [here](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki). This article gives an overview of two scenarios: A production scenario involving a middle-tier API, and authentication in the client application Postman for quick start-up and testing.
+If you're unfamiliar with AAD, [here](https://docs.microsoft.com/azure/active-directory/develop/azure-ad-developers-guide). The Windows Azure Authentication Library offers many ways to acquire Active Directory tokens. For a deep-dive into the library, take a look [here](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki). This article gives an overview of two scenarios: A production scenario involving a middle-tier API, and authentication in the client application Postman for quick start-up and testing.
 
 Solutions developers have at least two ways to connect to Digital Twins. They can create a client application or a middle-tier API. Client apps require users to authenticate and then use the Oauth **on-behalf-of token flow** to call a downstream API.
 
-1. Create or make use of an existing AAD Application. View the documentation [here](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad).
+1. Create or make use of an existing AAD Application. View the documentation [here](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad).
 1. Specify the Sign-on and Redirect Uris if needed.
 1. In the application manifest set oauth2AllowImplicitFlow to true.
 1. In Required Permissions add Digital Twins by searching “Azure Smart Spaces Service.” Select Delegated Permissions Read/Write Access and click the Grant Permissions button.
 
-For detailed instructions on how to orchestrate the on-behalf-of flow visit [this page](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow) and you can view code samples [here](https://azure.microsoft.com/en-us/resources/samples/active-directory-dotnet-webapi-onbehalfof/).
+For detailed instructions on how to orchestrate the on-behalf-of flow visit [this page](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow) and you can view code samples [here](https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapi-onbehalfof/).
 
 ## Test with the Postman Client
 
