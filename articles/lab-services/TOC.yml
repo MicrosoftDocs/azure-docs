@@ -74,13 +74,13 @@
     - name: Set up DevTest Labs infrastructure in your enterprise
       href: devtest-lab-guidance-prescriptive-adoption.md
       items:
-      - name: Get started with using Azure DevTest Labs
+      - name: Get started with using DevTest Labs
         href: devtest-lab-guidance-get-started.md
       - name: Scale up your DevTest Labs deployment
         href: devtest-lab-guidance-scale.md
-      - name: Orchestrate the implementation of Azure DevTest Labs
+      - name: Orchestrate the implementation of DevTest Labs
         href: devtest-lab-guidance-orchestrate-implementation.md
-      - name: Governance of Azure DevTest Labs infrastructure
+      - name: Governance of DevTest Labs infrastructure
         items: 
         - name: Resources
           href: devtest-lab-guidance-governance-resources.md
