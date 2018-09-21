@@ -7,7 +7,7 @@ services: sql-database
 ms.service: sql-database
 ms.custom: monitor and tune
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 09/14/2018
 ms.author: aamalvea
 
 ---
@@ -103,7 +103,7 @@ Once you have created an alert, you can select it and:
 | SQL data warehouse | connection_successful | Successful Connections | Total | 10 minutes |
 | SQL data warehouse | connection_failed | Failed Connections | Total | 10 minutes |
 | SQL data warehouse | blocked_by_firewall | Blocked by Firewall | Total | 10 minutes |
-| SQL data warehouse | service_level_objective | Service level objective of the database | Total | 10 minutes |
+| SQL data warehouse | service_level_objective | Service tier of the database | Total | 10 minutes |
 | SQL data warehouse | dwu_limit | dwu limit | Maximum | 10 minutes |
 | SQL data warehouse | dwu_consumption_percent | DWU percentage | Average | 10 minutes |
 | SQL data warehouse | dwu_used | DWU used | Average | 10 minutes |

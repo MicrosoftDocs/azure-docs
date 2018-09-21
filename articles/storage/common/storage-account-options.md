@@ -57,7 +57,7 @@ Set-AzureRmStorageAccount -ResourceGroupName <resource-group> -AccountName <stor
 
 #### Upgrade with Azure CLI
 
-To upgrade a GPv1 or Blob storage account to a GPv2 account using Azure CLI, first install the latest version of Azure CLI. See [Install the Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) for information about installing the CLI. Then call the following command to upgrade the account, substituting the name of your resource group and storage account:
+To upgrade a GPv1 or Blob storage account to a GPv2 account using Azure CLI, first install the latest version of Azure CLI. See [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) for information about installing the CLI. Then call the following command to upgrade the account, substituting the name of your resource group and storage account:
 
 ```cli
 az storage account update -g <resource-group> -n <storage-account> --set kind=StorageV2
@@ -338,7 +338,7 @@ No. Blob storage accounts support only block and append blobs, and not page blob
 
 **Can I tier page blobs in GPv2 storage accounts?**
 
-No. Page blobs will infer the storage tier of your account but it has no effect on pricing or availability. You will not be able to change the access tier of a page blob to hot, cool, or archive. The Set Blob Tier operation is allowed on a page blob in a premium storage account but it only determines the allowed size, IOPS, and bandwidth of the premium page blob. For more information, see [Set Blob Tier](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier).
+No. Page blobs will infer the storage tier of your account but it has no effect on pricing or availability. You will not be able to change the access tier of a page blob to hot, cool, or archive. The Set Blob Tier operation is allowed on a page blob in a premium storage account but it only determines the allowed size, IOPS, and bandwidth of the premium page blob. For more information, see [Set Blob Tier](https://docs.microsoft.com/en-us/rest/api/storageservices/set-blob-tier).
 
 **Do I need to change my existing applications to use GPv2 storage accounts?**
 
