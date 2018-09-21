@@ -49,8 +49,9 @@ The supported ObjectIdTypes are:
 
 ## Create a Role Assignment
 
-HTTP
-POST /api/v1.0/roleassignments
+```plaintext
+HTTP POST /api/v1.0/roleassignments
+```
 
 | **Name** | **Required** | **Type** | **Description** |
 |---------|---------|---------|---------|

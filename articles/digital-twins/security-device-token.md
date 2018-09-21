@@ -10,7 +10,7 @@ ms.date: 09/20/2018
 ms.author: adgera
 ---
 
-# Understand Azure Digital Twins Device Connectivity and Authentication
+# Azure Digital Twins device connectivity and authentication
 
 Physical devices can be manufactured with the information needed to connect to the service on (first) power up.
 
@@ -20,7 +20,8 @@ It is possible to create and install the SAS Token before a Device is created in
 
 The SAS Token is an authorization token which allows a device to access its Device in the Topology and obtain configuration information, including its IoT Hub connection string.
 
-Note: The generation of the SAS Token can take place before a Device is created in the Topology and associated with a Space object, to simplify provisioning.
+>[!NOTE]
+>The generation of the SAS Token can take place before a Device is created in the Topology and associated with a Space object, to simplify provisioning.
 
 ## SAS Tokens
 
@@ -40,7 +41,7 @@ Here is an example SAS Token:
 SharedAccessSignature id=010203040506&sig=dD80ihBh5jfNpymO5Hg1IdiJIEvHcJpCMiCMnN/RnbI%3d&se=2017-09-15T01:06:22Z&kv=1
 ```
 
-## Obtain a SAS Token
+## Obtain a SAS token
 
 Getting a valid SAS Token involves the following steps:
 

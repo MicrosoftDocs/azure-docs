@@ -6,7 +6,7 @@ manager: bertvanhoof
 ms.service: azure-digital-twins
 services: azure-digital-twins
 ms.topic: conceptual
-ms.date: 09/14/2018
+ms.date: 09/21/2018
 ms.author: alinast
 ---
 

@@ -20,7 +20,7 @@ Azure Digital Twins provides the capability to stream data from your connected d
 
 Users should specify one or more egress endpoints to send out these events or to forward the messages. Events and messages will be sent to the endpoints according to the pre-defined routing preferences. In other words, user can specify which endpoint should receive graph operation, user-defined function, sensor change, space change, or device telemetry events.
 
-Event Grid and Service Bus don't guarantee that endpoints will receive events in the same order that they occurred. However, the event schema does include a timestamp that can be used to identify the order after the events arrive at the endpoint. 
+Event Grid and Service Bus don't guarantee that endpoints will receive events in the same order that they occurred. However, the event schema does include a timestamp that can be used to identify the order after the events arrive at the endpoint.
 
 The system currently supports the following `EndpointTypes`:
 
