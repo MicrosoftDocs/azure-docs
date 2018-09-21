@@ -184,26 +184,32 @@ az container delete --resource-group myResourceGroup --name commchecker -y
 
 ### Delete network resources
 
-The initial preview of this feature requires several additional commands to delete the network resources you created earlier.
+The initial preview of this feature requires several additional commands to delete the network resources you created earlier. After you remove all container groups from the subnet, you can execute the following script to delete the network resources you created earlier.
 
 ```azurecli
-# PLACEHOLDER
+# Replace <my-resource-group> with the name of your resource group
+RES_GROUP=<my-resource-group>
 
 # Get network profile ID
-# TODO
+NETWORK_PROFILE_ID=$(az network profile list --resource-group $RES_GROUP --query [0].id --output tsv)
 
-# Delete all the network profiles referencing the subnet
-az resource delete --ids /subscriptions/<SUB ID>/resourceGroups/VnetDemoRG/providers/Microsoft.Network/networkProfiles/DemoNetworkProfile --api-version 2018-07-01
+# Delete the network profile
+az network profile delete --id $NETWORK_PROFILE_ID -y
 
-# Delete the  default service association link for the subnet (make sure the api-version is included)
-az resource delete --ids /subscriptions/<SUB ID>/resourceGroups/VnetDemoRG/providers/Microsoft.Network/virtualNetworks/demovnet/subnets/demoSubnet/providers/Microsoft.ContainerInstance/serviceAssociationLinks/default --api-version 2018-07-01
+# Get the service association link (SAL) ID
+SAL_ID=$(az network vnet subnet show --resource-group $RES_GROUP --vnet-name aci-vnet --name aci-subnet --query id --output tsv)/providers/Microsoft.ContainerInstance/serviceAssociationLinks/default
 
-# Remove the delegation to Microsoft.ContainerInstance
-# TODO (portal required?)
+# Delete the default SAL ID for the subnet (remove delegation)
+az resource delete --ids $SAL_ID --api-version 2018-07-01
 
-# Delete subnet and virtual network
-az network vnet subnet delete --resource-group myResourceGroup --name aci-subnet -y
-az network vnet delete --resource-group myResourceGroup --name aci-vnet -y
+# Delete the delegation to Microsoft.ContainerInstance
+az network vnet subnet update --resource-group $RES_GROUP --vnet-name aci-vnet --name aci-subnet --remove delegations 0
+
+# Delete the subnet
+az network vnet subnet delete --resource-group $RES_GROUP --vnet-name aci-vnet --name aci-subnet
+
+# Delete VNet
+az network vnet delete --resource-group $RES_GROUP --name aci-vnet
 ```
 
 ## Next steps
