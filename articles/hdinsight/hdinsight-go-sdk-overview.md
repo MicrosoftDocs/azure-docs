@@ -449,6 +449,6 @@ for (page.NotDone()) {
 }
 ```
 
-## Next steps:
+## Next steps
 
-* [Explore the GoDoc reference material](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight): The GoDocs provide reference documentation for all functions in the SDK.
+* Explore the [GoDoc reference material](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight). The GoDocs provide reference documentation for all functions in the SDK.
