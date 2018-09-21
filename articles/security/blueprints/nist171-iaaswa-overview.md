@@ -39,7 +39,7 @@ This solution uses the following Azure services. For more information, see the [
 	- (2) SQL Server cluster node (SQL Server 2017 on Windows Server 2016)
 	- (2) Web/IIS (Windows Server 2016 Datacenter)
 - Azure Virtual Network
-	- (1) /16 networks
+	- (1) /16 network
 	- (5) /24 networks
 	- (5) Network security groups
 - Availability sets
@@ -60,7 +60,7 @@ This solution uses the following Azure services. For more information, see the [
 - Azure Storage
 - Azure Log Analytics
 - Azure Automation
-- Cloud witness
+- Cloud Witness
 - Recovery Services vault
 
 ## Deployment architecture
@@ -156,7 +156,7 @@ The architecture reduces the risk of security vulnerabilities by using an applic
 
 **Recovery Services vault**: The [Recovery Services Vault](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview) houses backup data and protects all configurations of Azure Virtual Machines in this architecture. With a Recovery Services vault, customers can restore files and folders from an IaaS VM without restoring the entire VM. This process speeds up restore times.
 
-**Cloud witness**: [Cloud witness](https://docs.microsoft.com/windows-server/failover-clustering/whats-new-in-failover-clustering#BKMK_CloudWitness) is a type of failover cluster quorum witness in Windows Server 2016 that uses Azure as the arbitration point. The cloud witness, like any other quorum witness, gets a vote and can participate in the quorum calculations. It uses the standard publicly available Azure Blob storage. This arrangement eliminates the extra maintenance overhead of VMs hosted in a public cloud.
+**Cloud Witness**: [Cloud Witness](https://docs.microsoft.com/windows-server/failover-clustering/whats-new-in-failover-clustering#BKMK_CloudWitness) is a type of failover cluster quorum witness in Windows Server 2016 that uses Azure as the arbitration point. Cloud Witness, like any other quorum witness, gets a vote and can participate in the quorum calculations. It uses the standard publicly available Azure Blob storage. This arrangement eliminates the extra maintenance overhead of VMs hosted in a public cloud.
 
 ### Logging and auditing
 
