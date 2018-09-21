@@ -215,7 +215,7 @@ The following are post-installation known issues for this build version.
 
 - <!-- TBD - IS ASDK --> When you create virtual machines on the Azure Stack user portal, the portal displays an incorrect number of data disks that can attach to a DS series VM. DS series VMs can accommodate as many data disks as the Azure configuration.
 
-- <!-- TBD - IS ASDK --> If you're using multi-tenant environment, provisioning VM with managed disk in a subscription not belongs to default tenant fails with an error: *The resource operation completed with terminal provisioning state 'Failed'.*
+- <!-- TBD - IS ASDK --> If you're using a multi-tenant environment, provisioning a VM with managed disk in a subscription not belonging to the default tenant fails with the following error: *The resource operation completed with terminal provisioning state 'Failed'.*
 
 - <!-- TBD - IS ASDK --> If provisioning an extension on a VM deployment takes too long, users should let the provisioning time-out instead of trying to stop the process to deallocate or delete the VM.  
 
