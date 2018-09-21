@@ -8,7 +8,7 @@ author: fmegen
 ms.service: cognitive-services
 ms.technology: Speech
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 09/24/2018
 ms.author: fmegen
 ---
 
@@ -16,7 +16,9 @@ ms.author: fmegen
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-In this article, you create a Java application for Android 6.0 Marshmallow (API 23) or later using the Cognitive Services [Speech SDK](speech-sdk.md) to transcribe speech to text in real time from your device's microphone. The application is built with the Speech SDK Maven package and [Android Studio](https://developer.android.com/studio/) 3.1 running on a PC. The Speech SDK libraries are currently compatible with Android devices having 64-bit ARM processors.
+In this article, you'll learn how to create a Java application for Android using the Cognitive Services Speech SDK to transcribe speech to text.
+The application is based on the Microsoft Cognitive Services Speech SDK Maven Package, version 1.0.0, and Android Studio 3.1.
+The Speech SDK is currently compatible with Android devices having 32-bit or 64-bit ARM processors.
 
 > [!NOTE]
 > For the Speech Devices SDK and the Roobo device, see [Speech Devices SDK](speech-devices-sdk.md).
@@ -31,7 +33,7 @@ You need a Speech service subscription key to complete this Quickstart. You can 
 
     ![](media/sdk/qs-java-android-01-start-new-android-studio-project.png)
 
-1. The **Create New Project** wizard appears. FIn the **Create Android Project** screen, enter **Quickstart** as **application name**, **samples.speech.cognitiveservices.microsoft.com** as **company domain**, and choose a project directory. Leave the C++ and Kotlin checkboxes unchecked, and click **Next**.
+1. The **Create New Project** wizard appears. In the **Create Android Project** screen, enter **Quickstart** as **application name**, **samples.speech.cognitiveservices.microsoft.com** as **company domain**, and choose a project directory. Leave the C++ and Kotlin checkboxes unchecked, and click **Next**.
 
    ![](media/sdk/qs-java-android-02-create-android-project.png)
 
@@ -51,7 +53,12 @@ Android Studio takes a moment to prepare your new Android project. Next, configu
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-The Speech SDK for Android is packaged as an [AAR (Android Library)](https://developer.android.com/studio/projects/android-library), which includes the necessary libraries and the Android permissions needed to use it. It is hosted in a Maven repository and so is automatically downloaded by Android Studio for use in your application.
+The current version of the Cognitive Services Speech SDK is `1.0.0`.
+
+The Speech SDK for Android is packaged as an [AAR (Android Library)](https://developer.android.com/studio/projects/android-library), which includes the necessary libraries as well as required Android permissions for using it.
+It is hosted in a Maven repository at https://csspeechstorage.blob.core.windows.net/maven/.
+
+We describe below how to set up your project to use the Speech SDK.
 
 To set up your project to use the Speech SDK, open the Project Structure window by choosing **File** \> **Project Structure** from the Android Studio menu bar.
 In the Project Structure window, make the following changes. 
@@ -64,7 +71,8 @@ In the Project Structure window, make the following changes.
 
    ![](media/sdk/qs-java-android-07-add-module-dependency.png)
 
-1. In the window that appears, enter the name and version of the Speech SDK for Android in the expected format, `com.microsoft.cognitiveservices.speech:client-sdk:0.6.0`, then click **OK**. The Speech SDK is added to the list of dependencies now, as shown here.
+1. In the window that comes up, enter the name and version of our Speech SDK for Android, `com.microsoft.cognitiveservices.speech:client-sdk:1.0.0`, then click **OK**.
+   The Speech SDK should be added to the list of dependencies now, as shown below:
 
    ![](media/sdk/qs-java-android-08-dependency-added.png)
 
@@ -137,7 +145,7 @@ Look for this sample in the `quickstart/java-android` folder.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Recognize intents from speech by using the Speech SDK for C#](how-to-recognize-intents-from-speech-csharp.md)
+> [Recognize intents from speech by using the Speech SDK for Java](how-to-recognize-intents-from-speech-java.md)
 
 ## See also
 
