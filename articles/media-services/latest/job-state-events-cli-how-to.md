@@ -24,17 +24,12 @@ When you complete the steps described in this article, you see that the event da
 
 ## Prerequisites
 
-[Create a Media Services account](create-account-cli-how-to.md).
+- Have an active Azure subscription.
+- [Create a Media Services account](create-account-cli-how-to.md).
 
-Make sure to remember the values that you used for the Media Services account name, storage name, and resource name.
+    Make sure to remember the values that you used for the resource group name and Media Services account name.
 
-## Log in to Azure
-
-Log in to the [Azure portal](http://portal.azure.com) and launch **CloudShell** to execute CLI commands, as shown in the next steps.
-
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
-
-If you choose to install and use the CLI locally, this article requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). 
+- Install the [Azure CLI]( /cli/azure/install-azure-cli). This article requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. You can also use the [Azure Cloud Shell](https://shell.azure.com/bash).
 
 ## Enable Event Grid resource provider
 
@@ -130,7 +125,7 @@ Press **Save and run** at the top of the window.
 
 You subscribe to an article to tell Event Grid which events you want to track. The following example subscribes to the Media Services account you created, and passes the URL from  Azure Function webhook you created as the endpoint for event notification. 
 
-Replace `<event_subscription_name>` with a unique name for your event subscription. For `<resource_group_name>` and `<ams_account_name>`, use the values you created earlier.  For the `<endpoint_URL>` paste your endpoint URL. Remove *&clientID=default* from the URL. By specifying an endpoint when subscribing, Event Grid handles the routing of events to that endpoint. 
+Replace `<event_subscription_name>` with a unique name for your event subscription. For `<resource_group_name>` and `<ams_account_name>`, use the values you used when creating the Media Services account. For the `<endpoint_URL>` paste your endpoint URL. Remove *&clientID=default* from the URL. By specifying an endpoint when subscribing, Event Grid handles the routing of events to that endpoint. 
 
 ```cli
 amsResourceId=$(az ams account show --name <ams_account_name> --resource-group <resource_group_name> --query id --output tsv)
@@ -143,7 +138,9 @@ az eventgrid event-subscription create \
 
 The Media Services account resource id value looks similar to this:
 
-```/subscriptions/81212121-2f4f-4b5d-a3dc-ba0015515f7b/resourceGroups/amsResourceGroup/providers/Microsoft.Media/mediaservices/amstestaccount```
+```
+/subscriptions/81212121-2f4f-4b5d-a3dc-ba0015515f7b/resourceGroups/amsResourceGroup/providers/Microsoft.Media/mediaservices/amstestaccount
+```
 
 ## Test the events
 
@@ -151,7 +148,7 @@ Run an encoding job. For example, as described in the [Stream video files](strea
 
 You have triggered the event, and Event Grid sent the message to the endpoint you configured when subscribing. Browse to the webhook you created earlier. Click **Monitor** and **Refresh**. You see the job's state changes events: "Queued", "Scheduled", "Processing", "Finished", "Error", "Canceled", "Canceling".  For more information, see [Media Services event schemas](media-services-event-schemas.md).
 
-For example:
+The following example shows the schema of the JobStateChange event:
 
 ```json
 [{
