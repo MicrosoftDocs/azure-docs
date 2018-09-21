@@ -1,4 +1,4 @@
----
+,---
 title: Provisioning Pivotal Cloud Foundry on Azure
 description: Learn how to setup parameters needed to provision a Pivotal Cloud Foundry PCF cluster on Azure
 services: Cloud Foundry
@@ -35,7 +35,7 @@ ssh-keygen -t rsa -b 2048
 
 > [!NOTE]
 >
-> Creating a service principal requires an owner account permission.  In addition, you can write a script to automate creating the Service Principal. For example using Azure CLI [az ad sp create-for-rbac](https://docs.microsoft.com/en-us/cli/azure/ad/sp?view=azure-cli-latest)
+> Creating a service principal requires an owner account permission.  In addition, you can write a script to automate creating the Service Principal. For example, using Azure CLI [az ad sp create-for-rbac](https://docs.microsoft.com/en-us/cli/azure/ad/sp?view=azure-cli-latest)
 
 1. Log into your azure
 
