@@ -59,7 +59,6 @@ ms.author: mtillman
                                                     </div>
                                                 </a>
                                             </li>
-<!--This is the learning section 
                                             <li>
                                                 <a href="">
                                                     <div class="cardSize">
@@ -67,14 +66,14 @@ ms.author: mtillman
                                                             <div class="card">
                                                                 <div class="cardImageOuter">
                                                                     <div class="cardImage">
-                                                                        <img alt="" src="https://docs.microsoft.com/media/common/i_learn-about.svg" data-linktype="external">
+                                                                        <img alt="" src="/learn/achievements/secure-azure-resources-with-conditional-access.svg" data-linktype="external">
                                                                     </div>
                                                                 </div>
                                                                 <div class="cardText" style="padding-left: 0px">
                                                                     <h3><a href="">Build your skills with Microsoft Learn</a></h3> 
 																	<p>
-																	    <a href="https://docs.microsoft.com/learn/modules/secure-azure-resources-with-conditional-access">Secure your Azure resources with conditional access</a><br>
-                                                                        <a href="">More interactive learning ...</a><br>
+																	    <a href="/learn/modules/secure-azure-resources-with-conditional-access/">Secure your Azure resources with conditional access</a><br>
+                                                                        <a href="/learn/browse/">More interactive learning ...</a><br>
 																    </p>
 																</div>
                                                             </div>
@@ -82,7 +81,6 @@ ms.author: mtillman
                                                     </div>
                                                 </a>
                                             </li>
- End of the learning section -->
 										</ul>
                                     </li>
                                     <li>
