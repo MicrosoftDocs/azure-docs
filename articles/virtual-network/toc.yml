@@ -259,7 +259,7 @@
       items:
       - name: Azure PowerShell
         href: virtual-networks-create-nsg-classic-ps.md
-      - name: Azure CLI 1.0
+      - name: Azure classic CLI
         href: virtual-networks-create-nsg-classic-cli.md
     - name: Create a route table
       items:
