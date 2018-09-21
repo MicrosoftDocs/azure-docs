@@ -44,6 +44,8 @@
       href: vmsnapshot-linux.md
     - name: Windows
       href: vmsnapshot-windows.md
+  - name: Chef
+    href: chef.md
   - name: Network Watcher Agent
     items:
     - name: Linux
