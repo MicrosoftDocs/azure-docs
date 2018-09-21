@@ -6,7 +6,7 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 09/19/2018
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -39,8 +39,10 @@ Because modules are updated regularly by the product group, changes can occur wi
 
     If the modules are already up-to-date, then the process completes in a few seconds. When the update process completes, you are notified.<br><br> ![Update Azure Modules update status](media/automation-update-azure-modules/automation-update-azure-modules-updatestatus.png)
 
+    The .NET core AzureRm modules (AzureRm.*.Core) are not supported in Azure Automation and can not be imported.
+
 > [!NOTE]
-> Azure Automation uses the latest modules in your Automation account when a new scheduled job is run.    
+> Azure Automation uses the latest modules in your Automation account when a new scheduled job is run.  
 
 If you use cmdlets from these Azure PowerShell modules in your runbooks, you want to run this update process every month or so to make sure that you have the latest modules. Azure Automation uses the AzureRunAsConnection connection to authenticate when updating the modules, if the service principal is expired or no longer exists on the subscription level, the module update will fail.
 

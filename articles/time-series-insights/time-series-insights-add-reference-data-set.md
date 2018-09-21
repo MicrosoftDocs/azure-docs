@@ -20,6 +20,12 @@ A Reference Data Set is a collection of items that augment the events from your 
 
 Reference data is not joined retroactively. This means that only current and future ingress data is matched and joined to the reference date set, once it has been configured and uploaded.
 
+## Video: 
+
+### In this video, we cover Time Series Insight’s reference data model.</br>
+
+> [!VIDEO https://www.youtube.com/embed/Z0NuWQUMv1o]
+
 ## Add a reference data set
 
 1. Sign in to the [Azure portal](https://portal.azure.com).

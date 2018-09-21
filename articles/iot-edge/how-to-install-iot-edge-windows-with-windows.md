@@ -105,6 +105,10 @@ And, list running modules with:
 iotedge list
 ```
 
+## Tips and suggestions
+
+If your network that has a proxy server, follow the steps in [Configure your IoT Edge device to communicate through a proxy server](how-to-configure-proxy-support.md).
+
 ## Next steps
 
 Now that you have an IoT Edge device provisioned with the runtime installed, you can [deploy IoT Edge modules][lnk-modules].
