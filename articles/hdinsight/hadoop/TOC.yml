@@ -10,6 +10,9 @@
   - name: Hadoop components on HDInsight
     href: ../hdinsight-component-versioning.md
     maintainContext: true
+  - name: HDInsight 4.0
+    href: ../hdinsight-version-release.md
+    maintainContext: true
 - name: Quickstart
   items:
   - name: Create Hadoop cluster - Portal
@@ -51,6 +54,7 @@
       items:
       - name: Use the HDInsight tools for VSCode
         href: ../hdinsight-for-vscode.md
+        maintainContext: true
       - name: Use the HDInsight tools for Visual Studio
         href: apache-hadoop-use-hive-visual-studio.md
       - name: Use the Hive View

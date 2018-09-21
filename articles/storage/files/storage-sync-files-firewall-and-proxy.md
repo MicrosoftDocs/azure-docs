@@ -5,7 +5,7 @@ services: storage
 author: fauhse
 ms.service: storage
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 08/08/2018
 ms.author: fauhse
 ms.component: files
 ---
@@ -41,15 +41,47 @@ Azure File Sync will work through any means available that allow reach into Azur
 ## Proxy
 Azure File Sync supports app-specific and machine-wide proxy settings.
 
-Machine-wide proxy settings are transparent to the Azure File Sync agent as the entire traffic of the server is routed through the proxy.
-
-App-specific proxy settings allow configuration of a proxy specifically for Azure File Sync traffic. App-specific proxy settings are supported on agent version 3.0.12.0 or later and can be configured during the agent installation or by using the Set-StorageSyncProxyConfiguration PowerShell cmdlet.
+**App-specific proxy settings** allow configuration of a proxy specifically for Azure File Sync traffic. App-specific proxy settings are supported on agent version 3.0.12.0 or later and can be configured during the agent installation or by using the Set-StorageSyncProxyConfiguration PowerShell cmdlet.
 
 PowerShell commands to configure app-specific proxy settings:
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Set-StorageSyncProxyConfiguration -Address <url> -Port <port number> -ProxyCredential <credentials>
 ```
+**Machine-wide proxy settings** are transparent to the Azure File Sync agent as the entire traffic of the server is routed through the proxy.
+
+To configure machine-wide proxy settings, follow the steps below: 
+
+1. Configure proxy settings for .NET applications 
+
+  - Edit these two files:  
+    C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config  
+    C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config\machine.config
+
+  - Add the <system.net> section in the machine.config files (below the <system.serviceModel> section).  Change 127.0.01:8888 to the IP address and port for the proxy server. 
+  ```
+      <system.net>
+        <defaultProxy enabled="true" useDefaultCredentials="true">
+          <proxy autoDetect="false" bypassonlocal="false" proxyaddress="http://127.0.0.1:8888" usesystemdefault="false" />
+        </defaultProxy>
+      </system.net>
+  ```
+
+2. Set the WinHTTP proxy settings 
+
+  - Run the following command from an elevated command prompt or PowerShell to see the existing proxy setting:   
+
+    netsh winhttp show proxy
+
+  - Run the following command from an elevated command prompt or PowerShell to set the proxy setting (change 127.0.01:8888 to the IP address and port for the proxy server):  
+
+    netsh winhttp set proxy 127.0.0.1:8888
+
+3. Restart the Storage Sync Agent service by running the following command from an elevated command prompt or PowerShell: 
+
+      net stop filesyncsvc
+
+      Note: The Storage Sync Agent (filesyncsvc) service will auto-start once stopped.
 
 ## Firewall
 As mentioned in a previous section, port 443 needs to be open outbound. Based on policies in your datacenter, branch or region, further restricting traffic over this port to specific domains may be desired or required.
@@ -72,7 +104,7 @@ If &ast;.one.microsoft.com is too broad, you can limit the server's communicatio
 For business continuity and disaster recovery (BCDR) reasons you may have specified your Azure file shares in a globally redundant (GRS) storage account. If that is the case, then your Azure file shares will fail over to the paired region in the event of a lasting regional outage. Azure File Sync uses the same regional pairings as storage. So if you use GRS storage accounts, you need to enable additional URLs to allow your server to talk to the paired region for Azure File Sync. The table below calls this "Paired region". Additionally, there is a traffic manager profile URL that needs to be enabled as well. This will ensure network traffic can be seamlessly re-routed to the paired region in the event of a fail-over and is called "Discovery URL" in the table below.
 
 | Region | Primary endpoint URL | Paired region | Discovery URL |
-|--------|---------------------------------------||--------||---------------------------------------|
+|--------|---------------------------------------|--------|---------------------------------------|
 | Australia East | https://kailani-aue.one.microsoft.com | Australia Souteast | https://kailani-aue.one.microsoft.com |
 | Australia Southeast | https://kailani-aus.one.microsoft.com | Australia East | https://tm-kailani-aus.one.microsoft.com |
 | Canada Central | https://kailani-cac.one.microsoft.com | Canada East | https://tm-kailani-cac.one.microsoft.com |

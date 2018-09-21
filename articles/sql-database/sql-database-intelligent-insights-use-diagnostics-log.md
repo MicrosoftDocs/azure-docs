@@ -84,7 +84,7 @@ Depending on the performance issue detected, the details outputted in the diagno
 | New Query | <li>Query hash of the new queries</li> |
 | Unusual Wait Statistic | <li>Unusual wait types</li><li>Query hashes</li><li>Query wait times</li> |
 | TempDB Contention | <li>Query hashes of queries causing contention</li><li>Query attribution to the overall database pagelatch contention wait time [%]</li> |
-| Elastic Pool DTU Shortage | <li>Elastic pool</li><li>Top DTU-consuming database</li><li>Percent of pool DTU used by the top consumer</li> |
+| Elastic pool DTU Shortage | <li>Elastic pool</li><li>Top DTU-consuming database</li><li>Percent of pool DTU used by the top consumer</li> |
 | Plan Regression | <li>Query hashes</li><li>Good plan IDs</li><li>Bad plan IDs</li> |
 | Database-Scoped Configuration Value Change | <li>Database-scoped configuration changes compared to the default values</li> |
 | Slow Client | <li>Query hashes</li><li>Wait times</li> |

@@ -3,13 +3,13 @@ title: Azure Service Bus metrics in Azure Monitor (preview) | Microsoft Docs
 description: Use Azure Monitoring to monitor Service Bus entities
 services: service-bus-messaging
 documentationcenter: .NET
-author: sethmanheim
+author: spelluru
 manager: timlt
 
 ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 05/31/2018
-ms.author: sethm
+ms.author: spelluru
 
 ---
 # Azure Service Bus metrics in Azure Monitor (preview)
@@ -23,7 +23,7 @@ Azure Monitor provides unified user interfaces for monitoring across various Azu
 
 ## Access metrics
 
-Azure Monitor provides multiple ways to access metrics. You can either access metrics through the [Azure portal](https://portal.azure.com), or use the Azure Monitor APIs (REST and .NET) and analysis solutions such as Log Analytics and Event Hubs. For more information, see [Azure Monitor metrics](../monitoring-and-diagnostics/monitoring-overview-metrics.md#access-metrics-via-the-rest-api).
+Azure Monitor provides multiple ways to access metrics. You can either access metrics through the [Azure portal](https://portal.azure.com), or use the Azure Monitor APIs (REST and .NET) and analysis solutions such as Log Analytics and Event Hubs. For more information, see [Monitoring data collected by Azure Monitor](../monitoring/monitoring-data-collection.md).
 
 Metrics are enabled by default, and you can access the most recent 30 days of data. If you need to retain data for a longer period of time, you can archive metrics data to an Azure Storage account. This is configured in [diagnostic settings](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) in Azure Monitor.
 

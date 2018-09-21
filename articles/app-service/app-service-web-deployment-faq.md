@@ -58,7 +58,7 @@ If you see this message, it's likely that you are running into a disk quota in t
 
 ## How do I set up continuous deployment for my App Service web app?
 
-You can set up continuous deployment from several resources, including Visual Studio Team Services, OneDrive, GitHub, Bitbucket, Dropbox, and other Git repositories. These options are available in the portal. [Continuous deployment to App Service](app-service-continuous-deployment.md) is a helpful tutorial that explains how to set up continuous deployment.
+You can set up continuous deployment from several resources, including Azure DevOps, OneDrive, GitHub, Bitbucket, Dropbox, and other Git repositories. These options are available in the portal. [Continuous deployment to App Service](app-service-continuous-deployment.md) is a helpful tutorial that explains how to set up continuous deployment.
 
 ## How do I troubleshoot issues with continuous deployment from GitHub and Bitbucket?
 
@@ -81,9 +81,9 @@ The Azure Quickstart is designed to help you deploy your app by using the deploy
 
 To learn about the circumstances under which an application deployment might result in a restart, see [Deployment vs. runtime issues](https://github.com/projectkudu/kudu/wiki/Deployment-vs-runtime-issues#deployments-and-web-app-restarts"). As the article describes, App Service deploys files to the wwwroot folder. It never directly restarts your app.
 
-## How do I integrate Visual Studio Team Services code with App Service?
+## How do I integrate Azure DevOps code with App Service?
 
-You have two options for using continuous deployment with Visual Studio Team Services:
+You have two options for using continuous deployment with Azure DevOps:
 
 *   Use a Git project. Connect via App Service by using the deployment options for that repo.
 *   Use a Team Foundation Version Control (TFVC) project. Deploy by using the build agent for App Service.
@@ -91,7 +91,7 @@ You have two options for using continuous deployment with Visual Studio Team Ser
 Continuous code deployment for both these options depends on existing developer workflows and check-in procedures. For more information, see these articles: 
 
 *   [Implement continuous deployment of your app to an Azure website](https://www.visualstudio.com/docs/release/examples/azure/azure-web-apps-from-build-and-release-hubs)
-*   [Set up a Visual Studio Team Services account so it can deploy to a web app](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)
+*   [Set up an Azure DevOps organization so it can deploy to a web app](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)
 
 ## How do I use FTP or FTPS to deploy my app to App Service?
 

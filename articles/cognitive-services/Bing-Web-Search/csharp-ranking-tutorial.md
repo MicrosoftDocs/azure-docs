@@ -1,13 +1,14 @@
 ---
-title: Using rank to display search results | Microsoft Docs
+title: Using rank to display search results
+titleSuffix: Azure Cognitive Services
 description: Shows how to use the Bing RankingResponse answer to display search results in rank order.
 services: cognitive-services
 author: bradumbaugh
-manager: bking
+manager: cgronlun
 ms.assetid: 2575A80C-FC74-4631-AE5D-8101CF2591D3
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/08/2017
 ms.author: brumbaug
 ---
@@ -40,8 +41,8 @@ Name the application **MyConsoleSearchApp**, and then click **OK**.
 
 JSON.net allows you to work with the JSON responses returned by the API. Add its NuGet package to your project:
 
-- In **Solution Explorer** right-click on the project and select **Manage NuGet Packages...**. 
-- On the  **Browse** tab, search search for `Newtonsoft.Json`. Select the latest version, and then click **Install**. 
+- In **Solution Explorer** right-click on the project and select **Manage NuGet Packages...**.
+- On the  **Browse** tab, search for `Newtonsoft.Json`. Select the latest version, and then click **Install**.
 - Click the **OK** button on the **Review Changes** window.
 - Close the Visual Studio tab titled **NuGet: MyConsoleSearchApp**.
 
@@ -55,7 +56,7 @@ This tutorial relies on the `System.Web` assembly. Add a reference to this assem
 
 ## Add some necessary using statements
 
-The code in this tutorial requires three additional using statements. Add these statements below the existing `using` statements at the top of **Program.cs**: 
+The code in this tutorial requires three additional using statements. Add these statements below the existing `using` statements at the top of **Program.cs**:
 
 ```csharp
 using System.Web;
@@ -140,7 +141,7 @@ Make sure to set the value of `Ocp-Apim-Subscription-Key` to your subscription k
 
 ## Display ranked results
 
-Before showing how to display the results in ranked order, take a look at a sample web search response: 
+Before showing how to display the results in ranked order, take a look at a sample web search response:
 
 ```json
 {
@@ -166,7 +167,7 @@ Before showing how to display the results in ranked order, take a look at a samp
         },
 
         ...
-        
+
         ],
         "someResultsRemoved" : true
     },
@@ -179,7 +180,7 @@ Before showing how to display the results in ranked order, take a look at a samp
         }
 
         ...
-        
+
         ]
     },
     "rankingResponse" : {
@@ -215,7 +216,7 @@ Before showing how to display the results in ranked order, take a look at a samp
 }
 ```
 
-The `rankingResponse` JSON object ([documentation](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse)) describes the appropriate display order for search results. It includes one or more of the following, prioritized groups: 
+The `rankingResponse` JSON object ([documentation](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse)) describes the appropriate display order for search results. It includes one or more of the following, prioritized groups:
 
 - `pole`: The search results to get the most visible treatment (for example, displayed above the mainline and sidebar).
 - `mainline`: The search results to display in the mainline.
@@ -268,7 +269,7 @@ static void DisplayAllRankedResults(Newtonsoft.Json.Linq.JObject responseObjects
 This method:
 
 - Loops over the `rankingResponse` groups that the response contains
-- Displays the items in each group by calling `DisplaySpecificResults(...)` 
+- Displays the items in each group by calling `DisplaySpecificResults(...)`
 
 In **Program.cs**, add the following two methods:
 

@@ -1,22 +1,17 @@
 ---
-title: Tutorial - Monitor Azure Firewall logs 
-description: In this tutorial, you learn how to enable and manage Azure Firewall logs.
+title: Tutorial - Monitor Azure Firewall logs and metrics
+description: In this tutorial, you learn how to enable and manage Azure Firewall logs and metrics.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 7/11/2018
+ms.date: 9/24/2018
 ms.author: victorh
-#Customer intent: As an administrator, I want monitor Azure Firewall logs so that I can track firewall activity.
+#Customer intent: As an administrator, I want monitor Azure Firewall logs and metrics so that I can track firewall activity.
 ---
-# Tutorial: Monitor Azure Firewall logs
+# Tutorial: Monitor Azure Firewall logs and metrics
 
-[!INCLUDE [firewall-preview-notice](../../includes/firewall-preview-notice.md)]
-
-The examples in the Azure Firewall articles assume that you have already enabled the Azure Firewall public preview. For more information, see [Enable the Azure Firewall public preview](public-preview.md).
-
-You can monitor Azure Firewall using firewall logs. You can also use activity logs to audit operations on Azure Firewall resources.
+You can monitor Azure Firewall using firewall logs. You can also use activity logs to audit operations on Azure Firewall resources. Using metrics, you can view performance counters in the portal. 
 
 You can access some of these logs through the portal. Logs can be sent to [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), Storage, and Event Hubs and analyzed in Log Analytics or by different tools such as Excel and Power BI.
 
@@ -27,69 +22,12 @@ In this tutorial, you learn how to:
 > * Enable logging with PowerShell
 > * View and analyze the activity log
 > * View and analyze the network and application rule logs
+> * View metrics
 
-## Diagnostic logs
+## Prerequisites
 
- The following diagnostic logs are available for Azure Firewall:
+Before starting this tutorial, you should read [Azure Firewall logs and metrics](logs-and-metrics.md) for an overview of the diagnostics logs and metrics available for Azure Firewall.
 
-* **Application rule log**
-
-   The Application rule log is saved to a storage account, streamed to Event hubs and/or sent to Log Analytics only if you have enabled it for each Azure Firewall. Each new connection that matches one of your configured application rules results in a log for the accepted/denied connection. The data is logged in JSON format, as shown in the following example:
-
-   ```
-   Category: access logs are either application or network rule logs.
-   Time: log timestamp.
-   Properties: currently contains the full message. 
-   note: this field will be parsed to specific fields in the future, while maintaining backward compatibility with the existing properties field.
-   ```
-
-   ```json
-   {
-    "category": "AzureFirewallApplicationRule",
-    "time": "2018-04-16T23:45:04.8295030Z",
-    "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/AZUREFIREWALLS/{resourceName}",
-    "operationName": "AzureFirewallApplicationRuleLog",
-    "properties": {
-        "msg": "HTTPS request from 10.1.0.5:55640 to mydestination.com:443. Action: Allow. Rule Collection: collection1000. Rule: rule1002"
-    }
-   }
-   ```
-
-* **Network rule log**
-
-   The Network rule log is saved to a storage account, streamed to Event hubs and/or sent Log Analytics only if you have enabled it for each Azure Firewall. Each new connection that matches one of your configured network rules results in a log for the accepted/denied connection. The data is logged in JSON format, as shown in the following example:
-
-   ```
-   Category: access logs are either application or network rule logs.
-   Time: log timestamp.
-   Properties: currently contains the full message. 
-   note: this field will be parsed to specific fields in the future, while maintaining backward compatibility with the existing properties field.
-   ```
-
-   ```json
-  {
-    "category": "AzureFirewallNetworkRule",
-    "time": "2018-06-14T23:44:11.0590400Z",
-    "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/AZUREFIREWALLS/{resourceName}",
-    "operationName": "AzureFirewallNetworkRuleLog",
-    "properties": {
-        "msg": "TCP request from 111.35.136.173:12518 to 13.78.143.217:2323. Action: Deny"
-    }
-   }
-
-   ```
-
-You have three options for storing your logs:
-
-* **Storage account**: Storage accounts are best used for logs when logs are stored for a longer duration and reviewed when needed.
-* **Event hubs**: Event hubs are a great option for integrating with other security information and event management (SEIM) tools to get alerts on your resources.
-* **Log Analytics**: Log Analytics is best used for general real-time monitoring of your application or looking at trends.
-
-## Activity logs
-
-   Activity log entries are collected by default, and you can view them in the Azure portal.
-
-   You can use [Azure activity logs](../azure-resource-manager/resource-group-audit.md) (formerly known as operational logs and audit logs) to view all operations that are submitted to your Azure subscription.
 
 ## Enable diagnostic logging through the Azure portal
 
@@ -100,8 +38,8 @@ It can take a few minutes for the data to appear in your logs after you complete
 
    For Azure Firewall, two service-specific logs are available:
 
-   * Application rule log
-   * Network rule log
+   * AzureFirewallApplicationRule
+   * AzureFirewallNetworkRule
 
 3. To start collecting data, click **Turn on diagnostics**.
 4. The **Diagnostics settings** page provides the settings for the diagnostic logs. 
@@ -158,10 +96,12 @@ You can also connect to your storage account and retrieve the JSON log entries f
 > [!TIP]
 > If you are familiar with Visual Studio and basic concepts of changing values for constants and variables in C#, you can use the [log converter tools](https://github.com/Azure-Samples/networking-dotnet-log-converter) available from GitHub.
 
+## View metrics
+Browse to an Azure Firewall, under **Monitoring** click **Metrics**. To view the available values, select the **METRIC** drop-down list.
 
 ## Next steps
 
-Now that you've configured your firewall to collect logs, you can explore Log Anaytics to view your data.
+Now that you've configured your firewall to collect logs, you can explore Log Analytics to view your data.
 
 > [!div class="nextstepaction"]
 > [Networking monitoring solutions in Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md)

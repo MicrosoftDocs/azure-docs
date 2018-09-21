@@ -37,7 +37,7 @@ To complete this tutorial, make sure you have installed:
 
 ## Log in to the Azure portal
 
-Log in to the [Azure portal](https://portal.azure.com/).
+Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a blank SQL database
 
@@ -127,7 +127,7 @@ You can now connect to the SQL Database server and its databases using SQL Serve
 
 Get the fully qualified server name for your Azure SQL Database server in the Azure portal. You use the fully qualified server name to connect to your server using SQL Server Management Studio.
 
-1. Log in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Select **SQL Databases** from the left-hand menu and click your database on the **SQL databases** page. 
 3. In the **Essentials** pane in the Azure portal page for your database, locate and then copy the **Server name**.
 

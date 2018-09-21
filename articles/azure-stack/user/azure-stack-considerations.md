@@ -3,7 +3,7 @@ title: Understand the key differences between Azure and Azure Stack when using s
 description: What you need to know to use services or build apps for Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 04/16/2018
-ms.author: mabrigg
+ms.date: 09/12/2018
+ms.author: sethm
 
 ---
 # Key considerations: Using services or building apps for Azure Stack
@@ -29,7 +29,7 @@ Your Azure Stack operator will let you know which services are available for you
 
 The Azure technical content assumes that apps are being developed for an Azure service instead of Azure Stack. When you build and deploy apps to Azure Stack, you must understand some key differences, such as:
 
-* Azure Stack delivers a subset of the services and features that are available in Azure.
+* Azure Stack delivers a **subset** of the services and features that are available in Azure.
 * Your company or service provider can choose which services they want to offer. The available options might include customized services or applications. They may offer their own customized documentation.
 * You must use the correct Azure Stack-specific endpoints (for example, the URLs for the portal address and the Azure Resource Manager endpoint).
 * You must use PowerShell and API versions that are supported by Azure Stack. Using supported versions ensures that your apps will work in both Azure Stack and Azure.
@@ -71,11 +71,11 @@ Azure Stack supports specific versions of Azure PowerShell and Azure service API
 To make sure that you use a correct version of Azure PowerShell, use [API version profiles](azure-stack-version-profiles.md). To determine the latest API version profile that you can use, find out the build of Azure Stack you're using. You can get this information from your Azure Stack administrator.
 
 >[!NOTE]
- If you're using the Azure Stack Development Kit, and you have administrative access, see the "Determine the current version" section of [Manage updates](https://docs.microsoft.com/azure/azure-stack/azure-stack-updates#determine-the-current-version) to determine the Azure Stack build.
+ If you're using the Azure Stack Development Kit, and you have administrative access, see the "Determine the current version" section of [Manage updates](../azure-stack-updates.md#determine-the-current-version) to determine the Azure Stack build.
 
 For other APIs, run the following PowerShell command to output the namespaces, resource types, and API versions that are supported in your Azure Stack subscription. Note there may still be differences at a property level. (For this command to work, you must have already [installed](azure-stack-powershell-install.md) and [configured](azure-stack-powershell-configure-user.md) PowerShell for an Azure Stack environment. You must also have a subscription to an Azure Stack offer.)
 
- ```powershell
+```powershell
 Get-AzureRmResourceProvider | Select ProviderNamespace -Expand ResourceTypes | Select * -Expand ApiVersions | `
 Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}} 
 ```

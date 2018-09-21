@@ -3,15 +3,11 @@ title: Durable Functions publishing to Azure Event Grid (preview)
 description: Learn how to configure automatic Azure Event Grid publishing for Durable Functions.
 services: functions
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords:
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: glenga
 ---

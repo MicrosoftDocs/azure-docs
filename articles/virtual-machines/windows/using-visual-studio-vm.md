@@ -9,11 +9,13 @@ editor: tysonn
 tags: azure-resource-manager
 
 ms.service: virtual-machines-windows
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.prod: vs-devops-alm 
-ms.date: 03/02/2018
+ms.date: 09/12/2018
 ms.author: phillee
 keywords: visualstudio
 ---
@@ -28,9 +30,9 @@ Images for the most recent major versions, Visual Studio 2017 and Visual Studio 
 
 | Release version                                              | Editions                     |     Product version     |
 |:------------------------------------------------------------:|:----------------------------:|:-----------------------:|
-| Visual Studio 2017: Latest (Version 15.7)                    |    Enterprise, Community     |      Version 15.7.5     |
-| Visual Studio 2017: Latest Preview (Version 15.8, Preview 5) |    Enterprise, Community     |      Version 15.8.5     |
-|         Visual Studio 2017: RTW                              |    Enterprise, Community     |      Version 15.0.15    |
+| Visual Studio 2017: Latest (Version 15.8)                    |    Enterprise, Community     |      Version 15.8.4     |
+| Visual Studio 2017: Latest Preview (Version 15.9, Preview 2) |    Enterprise, Community     |      Version 15.9.0     |
+|         Visual Studio 2017: RTW                              |    Enterprise, Community     |      Version 15.0.18    |
 |   Visual Studio 2015: Latest (Update 3)                      |    Enterprise, Community     |  Version 14.0.25431.01  |
 |         Visual Studio 2015: RTW                              |             None             | (Expired for servicing) |
 

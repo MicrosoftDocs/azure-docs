@@ -55,7 +55,7 @@ Add apt source for Microsoft Linux product repository and install AzCopy:
 ```bash
 sudo echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-trusty-prod/ trusty main" > azure.list
 sudo cp ./azure.list /etc/apt/sources.list.d/
-apt-key adv --keyserver packages.microsoft.com --recv-keys B02C46DF417A0893
+apt-key adv --keyserver packages.microsoft.com --recv-keys EB3E94ADBE1229CF
 ```
 
 ```bash
@@ -70,7 +70,7 @@ Add apt source for Microsoft Linux product repository and install AzCopy:
 ```bash
 echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod/ xenial main" > azure.list
 sudo cp ./azure.list /etc/apt/sources.list.d/
-apt-key adv --keyserver packages.microsoft.com --recv-keys B02C46DF417A0893
+apt-key adv --keyserver packages.microsoft.com --recv-keys EB3E94ADBE1229CF
 ```
 
 ```bash

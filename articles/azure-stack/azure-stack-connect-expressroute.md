@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/14/2018
+ms.date: 09/12/2018
 ms.author: brenduns
 ms.reviewer:  
 
@@ -95,7 +95,7 @@ Use the following procedures to create the required network resources in Azure S
 #### Create the virtual network and VM subnet
 
 1. Sign in to the user portal with a user (tenant) account.
-1. In the portal, select **New**.
+1. In the portal, select **+ Create a resource**.
 
 1. Under **Azure Marketplace**, select **Networking**.
 
@@ -128,7 +128,7 @@ Use the following procedures to create the required network resources in Azure S
 
 #### Create the virtual network gateway
 
-1. In the Azure Stack user portal, select **New**.
+1. In the Azure Stack user portal, select **+ Create a resource**.
 1. Under **Azure Marketplace**, select **Networking**.
 1. Select **Virtual network gateway** from the list of network resources.
 1. In the **Name** field, enter **GW1**.
@@ -144,7 +144,7 @@ Use the following procedures to create the required network resources in Azure S
 
 The Local network gateway resource identifies the remote gateway at the other end of the VPN connection. For this example, the remote end of the connection is the LAN subinterface of the ExpressRoute router. For Tenant 1, shown in *Figure 2*, the remote address is 10.60.3.255.
 
-1. Sign in to the Azure Stack user portal with your user account and select **New**.
+1. Sign in to the Azure Stack user portal with your user account and select **+ Create a resource**.
 1. Under **Azure Marketplace**, select **Networking**.
 1. Select **local network gateway** from the list of resources.
 1. In the **Name** field, enter **ER-Router-GW**.
@@ -161,7 +161,7 @@ The Local network gateway resource identifies the remote gateway at the other en
 
 #### Create the connection
 
-1. In the Azure Stack user portal, select **New**.
+1. In the Azure Stack user portal, select **+ Create a resource**.
 1. Under **Azure Marketplace**, select **Networking**.
 1. Select **Connection** from the list of resources.
 1. Under **Basics**, choose **Site-to-site (IPSec)** as
@@ -179,14 +179,14 @@ After you create the Virtual network gateway you can get the gateway's public IP
 
 1. In the Azure Stack user portal, select **All resources**.
 1. Under **All resources**, select the virtual network gateway, which is **GW1** in the example.
-1. Under **Virtual network gateway**, select **Overview**. from the list of resources. Alternatively, you can select **Properties**.
+1. Under **Virtual network gateway**, select **Overview** from the list of resources. Alternatively, you can select **Properties**.
 1. The IP address that you want to note is listed under **Public IP address**. For the example configuration, this address is 192.68.102.1.
 
 #### Create a virtual machine
 
 To test data traffic over the VPN Connection, you need virtual machines to send and receive data in the Azure Stack VNet. Create a virtual machine and deploy it to the VM subnet for your virtual network.
 
-1. In the Azure Stack user portal, select **New**.
+1. In the Azure Stack user portal, select **+ Create a resource**.
 1. Under **Azure Marketplace**, select **Compute**.
 1. In the list of virtual machine images, select the **Windows Server 2016 Datacenter Eval** image.
 
@@ -359,7 +359,7 @@ Repeat these steps for any additional tenant VNets you want to connect in Azure 
 
 ## Configure the router
 
-You can use the following *ExpressRoute router configuration* diagram as a guide for configuring your ExpressRoute Router. This diagram shows two tenants (Tenant 1 and Tenant 2) with their respective Express Route circuits. Each tenant is linked to their own VRF (Virtual Routing and Forwarding) in the LAN and WAN side of the ExpressRoute router. This configuration ensures end-to-end isolation between the two tenants. Take note of the IP addresses used in the router interfaces as you follow the configuration example.
+You can use the following *ExpressRoute router configuration* diagram as a guide for configuring your ExpressRoute Router. This diagram shows two tenants (Tenant 1 and Tenant 2) with their respective ExpressRoute circuits. Each tenant is linked to their own VRF (Virtual Routing and Forwarding) in the LAN and WAN side of the ExpressRoute router. This configuration ensures end-to-end isolation between the two tenants. Take note of the IP addresses used in the router interfaces as you follow the configuration example.
 
 *Figure 4. ExpressRoute router configuration*
 
@@ -367,7 +367,7 @@ You can use the following *ExpressRoute router configuration* diagram as a guide
 
 You can use any router that supports IKEv2 VPN and BGP to terminate the Site-to-Site VPN connection from Azure Stack. The same router is used to connect to Azure using an ExpressRoute circuit.
 
-The following Cisco Azure Site Recovery 1000 configuration example supports the network infrastructure shown in the *ExpressRoute router configuration* diagram.
+The following Cisco ASR 1000 Series Aggregation Services Router configuration example supports the network infrastructure shown in the *ExpressRoute router configuration* diagram.
 
 **Cisco ASR 1000 configuration example**
 
@@ -456,7 +456,7 @@ description S2S VPN Tunnel for Tenant 2
  tunnel protection ipsec profile V4-PROFILE
 !
 interface GigabitEthernet0/0/1
- description PRIMARY Express Route Link to AZURE over Equinix
+ description PRIMARY ExpressRoute Link to AZURE over Equinix
  no ip address
  negotiation auto
 !
@@ -475,7 +475,7 @@ description Primary WAN interface of Tenant 2
  ip address 192.168.1.17 255.255.255.252
 !
 interface GigabitEthernet0/0/2
- description BACKUP Express Route Link to AZURE over Equinix
+ description BACKUP ExpressRoute Link to AZURE over Equinix
  no ip address
  negotiation auto
 !

@@ -3,14 +3,14 @@ title: Azure Event Hubs Role-Based Access Control (RBAC) preview | Microsoft Doc
 description: Azure Event Hubs Role-Based Access Control
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
-ms.author: sethm
+ms.author: shvija
 
 ---
 

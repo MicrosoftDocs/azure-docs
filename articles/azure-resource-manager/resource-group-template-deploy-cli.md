@@ -193,19 +193,6 @@ If your template has a syntax error, the command returns an error indicating it 
 }
 ```
 
-[!INCLUDE [resource-manager-deployments](../../includes/resource-manager-deployments.md)]
-
-To use complete mode, use the `mode` parameter:
-
-```azurecli-interactive
-az group deployment create \
-  --name ExampleDeployment \
-  --mode Complete \
-  --resource-group ExampleGroup \
-  --template-file storage.json \
-  --parameters storageAccountType=Standard_GRS
-```
-
 ## Sample template
 
 The following template is used for the examples in this article. Copy and save it as a file named storage.json. To understand how to create this template, see [Create your first Azure Resource Manager template](resource-manager-create-first-template.md).  
@@ -257,7 +244,7 @@ The following template is used for the examples in this article. Copy and save i
 
 ## Next steps
 * The examples in this article deploy resources to a resource group in your default subscription. To use a different subscription, see [Manage multiple Azure subscriptions](/cli/azure/manage-azure-subscriptions-azure-cli).
-* For a complete sample script that deploys a template, see [Resource Manager template deployment script](resource-manager-samples-cli-deploy.md).
+* To specify how to handle resource that exist in the resource group but aren't defined in the template, see [Azure Resource Manager deployment modes](deployment-modes.md).
 * To understand how to define parameters in your template, see [Understand the structure and syntax of Azure Resource Manager templates](resource-group-authoring-templates.md).
 * For tips on resolving common deployment errors, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](resource-manager-common-deployment-errors.md).
 * For information about deploying a template that requires a SAS token, see [Deploy private template with SAS token](resource-manager-cli-sas-token.md).

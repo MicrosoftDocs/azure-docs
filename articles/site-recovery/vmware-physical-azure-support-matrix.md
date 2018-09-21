@@ -6,13 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 09/10/2018
 ms.author: raynew
 
 ---
 # Support matrix for VMware and physical server replication to Azure
 
 This article summarizes supported components and settings for disaster recovery of VMware VMs to Azure by using [Azure Site Recovery](site-recovery-overview.md).
+
+To start using Azure Site Recovery with the simplest deployment scenario, visit our [tutorials](tutorial-prepare-azure.md). You can learn more about Azure Site Recovery architecture [here](vmware-azure-architecture.md).
 
 ## Replication scenario
 
@@ -57,7 +59,7 @@ Site Recovery supports replication of any workload running on a supported machin
 --- | ---
 Machine settings | Machines that replicate to Azure must meet [Azure requirements](#azure-vm-requirements).
 Windows operating system | 64-bit Windows Server 2016 (Server Core, Server with Desktop Experience), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 with at least SP1. </br></br>  [Windows Server 2008 with at least SP2 - 32 bit and 64 bit](migrate-tutorial-windows-server-2008.md) (migration only). </br></br> Windows 2016 Nano Server isn't supported.
-Linux operating system | Red Hat Enterprise Linux: 5.2 to 5.11<b>\*\*</b>, 6.1 to 6.9<b>\*\*</b>, 7.0 to 7.5 <br/><br/>CentOS: 5.2 to 5.11<b>\*\*</b>, 6.1 to 6.9<b>\*\*</b>, 7.0 to 7.5 <br/><br/>Ubuntu 14.04 LTS server[ (supported kernel versions)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS server[ (supported kernel versions)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (supported kernel versions)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1,SP2,SP3 [ (supported kernel versions)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3<b>\*\*</b>, SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Enterprise Linux 6.4, 6.5 running the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/></br>* *Upgrading replicated machines from SUSE Linux Enterprise Server 11 SP3 to SP4 isn't supported. To upgrade, disable replication and enable it again after the upgrade.*</br></br><b>\*\*</b> *Refer to [support for Linux virtual machines in Azure](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) to understand support for Linux and open source technology in Azure. Azure Site Recovery lets you failover and run Linux servers in Azure, however Linux vendors may limit support to only those versions of their distribution that have not reached end of life.*
+Linux operating system | Red Hat Enterprise Linux: 5.2 to 5.11<b>\*\*</b>, 6.1 to 6.10<b>\*\*</b>, 7.0 to 7.5 <br/><br/>CentOS: 5.2 to 5.11<b>\*\*</b>, 6.1 to 6.10<b>\*\*</b>, 7.0 to 7.5 <br/><br/>Ubuntu 14.04 LTS server[ (supported kernel versions)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS server[ (supported kernel versions)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (supported kernel versions)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1,SP2,SP3 [ (supported kernel versions)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3<b>\*\*</b>, SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Enterprise Linux 6.4, 6.5 running the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/></br>* *Upgrading replicated machines from SUSE Linux Enterprise Server 11 SP3 to SP4 isn't supported. To upgrade, disable replication and enable it again after the upgrade.*</br></br><b>\*\*</b> *Refer to [support for Linux virtual machines in Azure](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) to understand support for Linux and open source technology in Azure. Azure Site Recovery lets you failover and run Linux servers in Azure, however Linux vendors may limit support to only those versions of their distribution that have not reached end of life.*
 
 
 >[!NOTE]
@@ -73,15 +75,15 @@ Linux operating system | Red Hat Enterprise Linux: 5.2 to 5.11<b>\*\*</b>, 6.1 t
 
 **Supported release** | **Azure Site Recovery Mobility Service version** | **Kernel version** |
 --- | --- | --- |
+14.04 LTS | 9.19 | 3.13.0-24-generic to 3.13.0-153-generic,<br/>3.16.0-25-generic to 3.16.0-77-generic,<br/>3.19.0-18-generic to 3.19.0-80-generic,<br/>4.2.0-18-generic to 4.2.0-42-generic,<br/>4.4.0-21-generic to 4.4.0-131-generic |
 14.04 LTS | 9.18 | 3.13.0-24-generic to 3.13.0-153-generic,<br/>3.16.0-25-generic to 3.16.0-77-generic,<br/>3.19.0-18-generic to 3.19.0-80-generic,<br/>4.2.0-18-generic to 4.2.0-42-generic,<br/>4.4.0-21-generic to 4.4.0-130-generic |
 14.04 LTS | 9.17 | 3.13.0-24-generic to 3.13.0-149-generic,<br/>3.16.0-25-generic to 3.16.0-77-generic,<br/>3.19.0-18-generic to 3.19.0-80-generic,<br/>4.2.0-18-generic to 4.2.0-42-generic,<br/>4.4.0-21-generic to 4.4.0-127-generic |
 14.04 LTS | 9.16 | 3.13.0-24-generic to 3.13.0-144-generic,<br/>3.16.0-25-generic to 3.16.0-77-generic,<br/>3.19.0-18-generic to 3.19.0-80-generic,<br/>4.2.0-18-generic to 4.2.0-42-generic,<br/>4.4.0-21-generic to 4.4.0-119-generic |
-14.04 LTS | 9.15 | 3.13.0-24-generic to 3.13.0-144-generic,<br/>3.16.0-25-generic to 3.16.0-77-generic,<br/>3.19.0-18-generic to 3.19.0-80-generic,<br/>4.2.0-18-generic to 4.2.0-42-generic,<br/>4.4.0-21-generic to 4.4.0-119-generic |
 |||
+16.04 LTS | 9.19 | 4.4.0-21-generic to 4.4.0-131-generic,<br/>4.8.0-34-generic to 4.8.0-58-generic,<br/>4.10.0-14-generic to 4.10.0-42-generic,<br/>4.11.0-13-generic to 4.11.0-14-generic,<br/>4.13.0-16-generic to 4.13.0-45-generic,<br/>4.15.0-13-generic to 4.15.0-30-generic<br/>4.11.0-1009-azure to 4.11.0-1016-azure,<br/>4.13.0-1005-azure to 4.13.0-1018-azure <br/>4.15.0-1012-azure to 4.15.0-1019-azure|
 16.04 LTS | 9.18 | 4.4.0-21-generic to 4.4.0-130-generic,<br/>4.8.0-34-generic to 4.8.0-58-generic,<br/>4.10.0-14-generic to 4.10.0-42-generic,<br/>4.11.0-13-generic to 4.11.0-14-generic,<br/>4.13.0-16-generic to 4.13.0-45-generic |
 16.04 LTS | 9.17 | 4.4.0-21-generic to 4.4.0-127-generic,<br/>4.8.0-34-generic to 4.8.0-58-generic,<br/>4.10.0-14-generic to 4.10.0-42-generic,<br/>4.11.0-13-generic to 4.11.0-14-generic,<br/>4.13.0-16-generic to 4.13.0-43-generic |
 16.04 LTS | 9.16 | 4.4.0-21-generic to 4.4.0-119-generic,<br/>4.8.0-34-generic to 4.8.0-58-generic,<br/>4.10.0-14-generic to 4.10.0-42-generic,<br/>4.11.0-13-generic to 4.11.0-14-generic,<br/>4.13.0-16-generic to 4.13.0-38-generic |
-16.04 LTS | 9.15 | 4.4.0-21-generic to 4.4.0-119-generic,<br/>4.8.0-34-generic to 4.8.0-58-generic,<br/>4.10.0-14-generic to 4.10.0-42-generic,<br/>4.11.0-13-generic to 4.11.0-14-generic,<br/>4.13.0-16-generic to 4.13.0-38-generic |
 
 
 ### Debian kernel versions
@@ -89,12 +91,12 @@ Linux operating system | Red Hat Enterprise Linux: 5.2 to 5.11<b>\*\*</b>, 6.1 t
 
 **Supported release** | **Azure Site Recovery Mobility Service version** | **Kernel version** |
 --- | --- | --- |
-Debian 7 | 9.17, 9.18 | 3.2.0-4-amd64 to 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
-Debian 7 | 9.15, 9.16 | 3.2.0-4-amd64 to 3.2.0-5-amd64, 3.16.0-0.bpo.4-amd64 |
+Debian 7 | 9.17,9.18,9.19 | 3.2.0-4-amd64 to 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
+Debian 7 | 9.16 | 3.2.0-4-amd64 to 3.2.0-5-amd64, 3.16.0-0.bpo.4-amd64 |
 |||
+Debian 8 | 9.19 | 3.16.0-4-amd64 to 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 to 4.9.0-0.bpo.7-amd64 |
 Debian 8 | 9.17, 9.18 | 3.16.0-4-amd64 to 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 to 4.9.0-0.bpo.6-amd64 |
 Debian 8 | 9.16 | 3.16.0-4-amd64 to 3.16.0-5-amd64, 4.9.0-0.bpo.4-amd64 to 4.9.0-0.bpo.6-amd64 |
-Debian 8 | 9.15 | 3.16.0-4-amd64 to 3.16.0-5-amd64, 4.9.0-0.bpo.4-amd64 to 4.9.0-0.bpo.5-amd64 |
 
 ### SUSE Linux Enterprise Server 12 supported kernel versions
 
@@ -236,12 +238,15 @@ Move vault across resource groups<br/><br/> Within and across subscriptions | No
 Move storage, network, Azure VMs across resource groups<br/><br/> Within and across subscriptions | No
 
 
-## Mobility Service
+## Download latest Azure Site Recovery components
 
-**Name** | **Description** | **Latest version** | **Details**
+**Name** | **Description** | **Latest version download instructions**
 --- | --- | --- | --- | ---
-Azure Site Recovery Unified Setup | Coordinates communications between on-premises VMware servers and Azure <br/><br/> Installed on on-premises VMware servers | 9.12.4653.1 (available from portal) | [Latest features and fixes](https://aka.ms/latest_asr_updates)
-Mobility Service | Coordinates replication between on-premises VMware servers/physical servers and Azure/secondary site<br/><br/> Installed on VMware VM or physical servers you want to replicate | 9.12.4653.1 (available from portal) | [Latest features and fixes](https://aka.ms/latest_asr_updates)
+Configuration server | Coordinates communications between on-premises VMware servers and Azure <br/><br/> Installed on on-premises VMware servers | For fresh installation, click [here](vmware-azure-deploy-configuration-server.md). For upgrading existing component to latest version, click [here](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
+Process server|Installed by default on the configuration server. It receives replication data; optimizes it with caching, compression, and encryption; and sends it to Azure Storage. As your deployment grows, you can add additional, separate process servers to handle larger volumes of replication traffic.| For fresh installation, click [here](vmware-azure-set-up-process-server-scale.md). For upgrading existing component to latest version, click [here](vmware-azure-manage-process-server.md#upgrade-a-process-server).
+Mobility Service | Coordinates replication between on-premises VMware servers/physical servers and Azure/secondary site<br/><br/> Installed on VMware VM or physical servers you want to replicate | For fresh installation, click [here](vmware-azure-install-mobility-service.md). For upgrading existing component to latest version, click [here](vmware-azure-install-mobility-service.md#update-mobility-service).
+
+To learn about the latest features and fixes, click [here](https://aka.ms/latest_asr_updates).
 
 
 ## Next steps

@@ -4,7 +4,7 @@ description: Learn how to set up and use the Microsoft Hive ODBC driver for Exce
 keywords: hadoop excel,hive excel,hive odbc
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual

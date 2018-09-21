@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 05/10/2018
+ms.date: 08/28/2018
 ms.author: barclayn
 #Customer intent:As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 
@@ -28,7 +28,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 If you choose to install and use PowerShell locally, this tutorial requires Azure PowerShell module version 5.1.1 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure.
 
-```azurepowershell
+```azurepowershell-interactive
 Login-AzureRmAccount
 ```
 
@@ -36,7 +36,7 @@ Login-AzureRmAccount
 
 Create an Azure resource group with [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed. 
 
-```azurepowershell
+```azurepowershell-interactive
 New-AzureRmResourceGroup -Name ContosoResourceGroup -Location EastUS
 ```
 
@@ -50,7 +50,7 @@ Although we use “Contoso KeyVault2” as the name for our Key Vault throughout
 - **Resource group name** ContosoResourceGroup.
 - **Location** East US.
 
-```azurepowershell
+```azurepowershell-interactive
 New-AzureRmKeyVault -VaultName 'Contoso-Vault2' -ResourceGroupName 'ContosoResourceGroup' -Location 'East US'
 ```
 
@@ -69,19 +69,19 @@ To add a secret to the vault, you just need to take a couple of steps. In this c
 
 First convert the value of Pa$$w0rd to a secure string by typing:
 
-```azurepowershell
+```azurepowershell-interactive
 $secretvalue = ConvertTo-SecureString 'Pa$$w0rd' -AsPlainText -Force
 ```
 
 Then, type the PowerShell commands below to create a secret in Key Vault called **ExamplePassword** with the value **Pa$$w0rd** :
 
-```azurepowershell
+```azurepowershell-interactive
 $secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'ExamplePassword' -SecretValue $secretvalue
 ```
 
 To view the value contained in the secret as plain text:
 
-```azurepowershell
+```azurepowershell-interactive
 (Get-AzureKeyVaultSecret -vaultName "Contosokeyvault" -name "ExamplePassword").SecretValueText
 ```
 
@@ -93,7 +93,7 @@ Now, you have created a Key Vault, stored a secret, and retrieved it.
 
 When no longer needed, you can use the [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) command to remove the resource group, Key Vault, and all related resources.
 
-```azurepowershell
+```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name ContosoResourceGroup
 ```
 
@@ -102,4 +102,4 @@ Remove-AzureRmResourceGroup -Name ContosoResourceGroup
 In this quickstart, you have created a Key Vault and stored a software key in it. To learn more about Key Vault and how you can use it with your applications continue to the tutorial for web applications working with Key Vault.
 
 > [!div class="nextstepaction"]
-> To learn how to read a secret from Key Vault from a web application using managed service identities, continue with the following tutorial [Configure an Azure web application to read a secret from Key vault](tutorial-web-application-keyvault.md).
+> To learn how to read a secret from Key Vault from a web application using managed identities for Azure resources, continue with the following tutorial [Configure an Azure web application to read a secret from Key vault](quick-create-net.md).

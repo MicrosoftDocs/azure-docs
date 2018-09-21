@@ -134,6 +134,8 @@ The Microsoft Authenticator app can help prevent unauthorized access to accounts
 > When two methods are required users will be able to reset using **EITHER** notification **OR** verification code in addition to any other enabled methods.
 >
 
+If you enable the use of both notification through mobile app and verification code from mobile app, users who register the Microsoft Authenticator app using a notification are able to use both notification and code to verify their identity.
+
 ### Verification code from mobile app
 
 The Microsoft Authenticator app or other third-party apps can be used as a software token to generate an OATH verification code. After entering your username and password, you enter the code provided by the app into the sign-in screen. The verification code provides a second form of authentication.

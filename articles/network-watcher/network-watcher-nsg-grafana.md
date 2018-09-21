@@ -3,8 +3,8 @@ title: Manage Network Security Group Flow Logs using Network Watcher and Grafana
 description: Manage and analyze Network Security Group Flow Logs in Azure using Network Watcher and Grafana.
 services: network-watcher
 documentationcenter: na
-author: kumudD
-manager: timlt
+author: mattreatMSFT
+manager: vitinnan
 editor: ''
 tags: azure-resource-manager
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
-ms.author: kumud
+ms.author: mareat
 
 ---
 # Manage and analyze Network Security Group flow logs using Network Watcher and Grafana
@@ -59,7 +59,7 @@ You use Logstash to flatten the JSON formatted flow logs to a flow tuple level.
 
 3. Add the following content to the file. Change the storage account name and access key to reflect your storage account details:
 
-    ```bash
+   ```bash
     input {
       azureblob
       {
@@ -129,9 +129,9 @@ You use Logstash to flatten the JSON formatted flow logs to a flow tuple level.
 	    index => "nsg-flow-logs"
       }
     }
-    ```
+   ```
 
-The Logstash config file provided is composed of three parts: the input, filter, and output. 
+The Logstash config file provided is composed of three parts: the input, filter, and output.
 The input section designates the input source of the logs that Logstash will process – in this case we are going to use an “azureblob” input plugin (installed in the next steps) that will allow us to access the NSG flow log JSON files stored in blob storage. 
 
 The filter section then flattens each flow log file so that each individual flow tuple and its associated properties becomes a separate Logstash event.

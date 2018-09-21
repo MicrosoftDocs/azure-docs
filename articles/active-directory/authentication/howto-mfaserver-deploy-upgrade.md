@@ -18,7 +18,7 @@ ms.reviewer: michmcla
 
 This article walks you through the process of upgrading Azure Multi-Factor Authentication (MFA) Server v6.0 or higher. If you need to upgrade an old version of the PhoneFactor Agent, refer to [Upgrade the PhoneFactor Agent to Azure Multi-Factor Authentication Server](howto-mfaserver-deploy-upgrade-pf.md).
 
-If you're upgrading from v6.x or older to v7.x or newer, all components change from .NET 2.0 to .NET 4.5. All components also require Microsoft Visual C++ 2015 Redistributable Update 1 or higher. The MFA Server installer installs both the x86 and x64 versions of these components if they aren't already installed. If the User Portal and Mobile App Web Service run on separate servers, you need to install those packages before upgrading those components. You can search for the latest Microsoft Visual C++ 2015 Redistributable update on the [Microsoft Download Center](https://www.microsoft.com/en-us/download/). 
+If you're upgrading from v6.x or older to v7.x or newer, all components change from .NET 2.0 to .NET 4.5. All components also require Microsoft Visual C++ 2015 Redistributable Update 1 or higher. The MFA Server installer installs both the x86 and x64 versions of these components if they aren't already installed. If the User Portal and Mobile App Web Service run on separate servers, you need to install those packages before upgrading those components. You can search for the latest Microsoft Visual C++ 2015 Redistributable update on the [Microsoft Download Center](https://www.microsoft.com/download/). 
 
 ## Install the latest version of Azure MFA Server
 

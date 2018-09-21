@@ -11,7 +11,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.date: 06/21/2018
 ms.author: jingwang
 ---
@@ -33,7 +33,7 @@ In this tutorial, you perform the following steps:
 
 ## Prerequisites
 * **Azure subscription**. If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
-* **Azure storage account**. You use Blob storage as a *source* data store. If you don't have a storage account, see [Create an Azure storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) for steps to create one.
+* **Azure storage account**. You use Blob storage as a *source* data store. If you don't have a storage account, see [Create an Azure storage account](../storage/common/storage-quickstart-create-account.md) for steps to create one.
 * **Azure SQL Database**. You use the database as a *sink* data store. If you don't have a SQL database, see [Create a SQL database](../sql-database/sql-database-get-started-portal.md) for steps to create one.
 
 ### Create a blob and a SQL table
@@ -224,7 +224,7 @@ To validate the pipeline, select **Validate** from the tool bar.
 You can see the JSON code associated with the pipeline by clicking **Code** on the upper-right.
 
 ## Debug and publish the pipeline
-You can debug a pipeline before you publish artifacts (linked services, datasets, and pipeline) to Data Factory or your own Visual Studio Team Services Git repository. 
+You can debug a pipeline before you publish artifacts (linked services, datasets, and pipeline) to Data Factory or your own Azure Repos Git repository. 
 
 1. To debug the pipeline, select **Debug** on the toolbar. You see the status of the pipeline run in the **Output** tab at the bottom of the window. 
 

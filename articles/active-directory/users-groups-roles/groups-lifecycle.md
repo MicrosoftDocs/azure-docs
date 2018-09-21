@@ -40,7 +40,7 @@ Role | Permissions
 Global Administrator or User Account Administrator | Can create, read, update, or delete the Office 365 groups expiration policy settings<br>Can renew any Office 365 group
 User | Can renew an Office 365 group that they own<br>Can restore an Office 365 group that they own<br>Can read the expiration policy settings
 
-For more information on permissions to restore a deleted group, see [Restore a deleted Office 365 group in Azure Active Directory](../fundamentals/active-directory-groups-restore-azure-portal.md).
+For more information on permissions to restore a deleted group, see [Restore a deleted Office 365 group in Azure Active Directory](groups-restore-deleted.md).
 
 ## Set group expiration
 
@@ -68,7 +68,7 @@ When a group expires, the group is deleted one day after the expiration date. An
 
 ![Group deletion email notification](./media/groups-lifecycle/deletion-notification.png)
 
-The group can be restored within 30 days of its deletion by selecting **Restore group** or by using PowerShell cmdlets, as described in [Restore a deleted Office 365 group in Azure Active Directory](../fundamentals/active-directory-groups-restore-azure-portal.md).
+The group can be restored within 30 days of its deletion by selecting **Restore group** or by using PowerShell cmdlets, as described in [Restore a deleted Office 365 group in Azure Active Directory](groups-restore-deleted.md).
     
 If the group you're restoring contains documents, SharePoint sites, or other persistent objects, it might take up to 24 hours to fully restore the group and its contents.
 

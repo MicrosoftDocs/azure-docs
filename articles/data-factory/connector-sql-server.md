@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/22/2018
+ms.date: 09/12/2018
 ms.author: jingwang
 
 ---
@@ -55,6 +55,9 @@ The following properties are supported for SQL Server linked service:
 | userName |Specify user name if you are using Windows Authentication. Example: **domainname\\username**. |No |
 | password |Specify password for the user account you specified for the userName. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |No |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Self-hosted Integration Runtime or Azure Integration Runtime (if your data store is publicly accessible). If not specified, it uses the default Azure Integration Runtime. |No |
+
+>[!TIP]
+>If you hit error with error code as "UserErrorFailedToConnectToSqlServer" and message like "The session limit for the database is XXX and has been reached.", add `Pooling=false` to your connection string and try again.
 
 **Example 1: using SQL authentication**
 
@@ -440,7 +443,7 @@ Define the SqlSink section in copy activity as follows.
 }
 ```
 
-In your database, define the stored procedure with the same name as SqlWriterStoredProcedureName. It handles input data from your specified source, and merge into the output table. Notice that the parameter name of the stored procedure should be the same as the "tableName" defined in dataset.
+In your database, define the stored procedure with the same name as SqlWriterStoredProcedureName. It handles input data from your specified source, and merge into the output table. The parameter name of the table type in the stored procedure should be the same as the "tableName" defined in dataset.
 
 ```sql
 CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)
@@ -468,6 +471,9 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 ```
 
 The stored procedure feature takes advantage of [Table-Valued Parameters](https://msdn.microsoft.com/library/bb675163.aspx).
+
+>[!NOTE]
+>If you write to Money/Smallmoney data type by invoking Stored Procedure, values may be rounded. Specify the corresponding data type in TVP as Decimal instead of Money/Smallmoney to mitigate. 
 
 ## Data type mapping for SQL server
 

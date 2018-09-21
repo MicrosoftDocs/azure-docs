@@ -1,6 +1,6 @@
 ---
-title: Performance best practices for SQL Server in Azure | Microsoft Docs
-description: Provides best practices for optimizing SQL Server performance in Microsoft Azure VMs.
+title: Performance guidelines for SQL Server in Azure | Microsoft Docs
+description: Provides guidelines for optimizing SQL Server performance in Microsoft Azure VMs.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 04/19/2018
+ms.date: 08/24/2018
 ms.author: jroth
 
 ---
-# Performance best practices for SQL Server in Azure Virtual Machines
+# Performance guidelines for SQL Server in Azure Virtual Machines
 
 ## Overview
 

@@ -8,7 +8,7 @@ manager: mtillman
 
 ms.assetid: 56a5bade-7dcc-4dcf-8092-a7d4bf5df3c1
 ms.service: active-directory
-ms.component: protection
+ms.component: conditional-access
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -48,7 +48,7 @@ With conditional access policies, you control how your users access your [cloud 
 
 You can assign a conditional access policy to the following cloud apps from Microsoft:
 
-- Azure Information Protection - [Learn more](https://docs.microsoft.com/information-protection/get-started/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
+- Azure Information Protection - [Learn more](/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
 
 - Azure RemoteApp
 
@@ -62,7 +62,7 @@ You can assign a conditional access policy to the following cloud apps from Micr
 
 - Microsoft Power BI 
 
-- Microsoft Visual Studio Team Services
+- Azure DevOps
 
 - Microsoft Teams
 
@@ -190,7 +190,7 @@ This setting has an impact on access attempts made from the following mobile app
 |Outlook mobile app|Office 365 Exchange Online|Android, iOS|
 |PowerBI app|PowerBI service|Windows 10, Windows 8.1, Windows 7, Android and iOS|
 |Skype for Business|Office 365 Exchange Online|Android, IOS |
-|Visual Studio Team Services app|Visual Studio Team Services|Windows 10, Windows 8.1, Windows 7, iOS, and Android|
+|Azure DevOps app|Azure DevOps|Windows 10, Windows 8.1, Windows 7, iOS, and Android|
 
 
 

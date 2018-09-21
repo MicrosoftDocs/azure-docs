@@ -34,7 +34,6 @@ The IoT Edge module that you create in this tutorial filters the temperature dat
 An Azure IoT Edge device:
 
 * You can use your development machine or a virtual machine as an Edge device by following the steps in the quickstart for [Linux](quickstart-linux.md) or [Windows devices](quickstart.md).
-* The Azure Machine Learning module does not support ARM processors.
 
 Cloud resources:
 
@@ -85,8 +84,14 @@ Use **npm** to create a Node.js solution template that you can build on top of.
    3. Choose **Node.js Module** as the module template. 
    4. Name your module **NodeModule**. 
    5. Specify the Azure Container Registry that you created in the previous section as the image repository for your first module. Replace **localhost:5000** with the login server value that you copied. The final string looks like **\<registry name\>.azurecr.io/nodemodule**.
- 
-The VS Code window loads your IoT Edge solution workspace. There is a **.vscode** folder, a **modules** folder, an **.env** file, and a deployment manifest template file
+
+   ![Provide Docker image repository](./media/tutorial-node-module/repository.png)
+
+The VS Code window loads your IoT Edge solution workspace. The solution workspace contains five top-level components. You won't edit the **\.vscode** folder or **\.gitignore** file in this tutorial. The **modules** folder contains the Node.js code for your module as well as Dockerfiles for building your module as a container image. The **\.env** file stores your container registry credentials. The **deployment.template.json** file contains the information that the IoT Edge runtime uses to deploy modules on a device. 
+
+If you didn't specify a container registry when creating your solution, but accepted the default localhost:5000 value, you won't have a \.env file. 
+
+   ![Node.js solution workspace](./media/tutorial-node-module/workspace.png)
 
 ### Add your registry credentials
 
@@ -105,7 +110,7 @@ Each template comes with sample code included, which takes simulated sensor data
 5. Add a temperature threshold variable below required node modules. The temperature threshold sets the value that the measured temperature must exceed in order for the data to be sent to IoT Hub.
 
     ```javascript
-    var temperatureThreshold = 30;
+    var temperatureThreshold = 25;
     ```
 
 6. Replace the entire `PipeMessage` function with the `FilterMessage` function.
@@ -181,7 +186,7 @@ In the previous section you created an IoT Edge solution and added code to the N
         }
     ```
 5. Save this file.
-6. In the VS Code explorer, right-click the **deployment.template.json** file and select **Build IoT Edge solution**. 
+6. In the VS Code explorer, right-click the **deployment.template.json** file and select **Build and Push IoT Edge solution**. 
 
 When you tell Visual Studio Code to build your solution, it first takes the information in the deployment template and generates a `deployment.json` file in a new **config** folder. Then it runs two commands in the integrated terminal: `docker build` and `docker push`. These two commands build your code, containerize the your Node.js code, and the push it to the container registry that you specified when you initialized the solution. 
 
@@ -189,23 +194,21 @@ You can see the full container image address with tag in the `docker build` comm
 
 ## Deploy and run the solution
 
-You could use the Azure portal to deploy your Node.ms module to an IoT Edge device like you did in the quickstarts, but you can also deploy and monitor modules from within Visual Studio Code. The following sections use the Azure IoT Edge extension for VS Code that was listed in the prerequisites. Install that now if you did not already. 
+In the quickstart article that you used to set up your IoT Edge device, you deployed a module by using the Azure portal. You can also deploy modules using the Azure IoT Toolkit extension for Visual Studio Code. You already have a deployment manifest prepared for your scenario, the **deployment.json** file. All you need to do now is select a device to receive the deployment.
 
-1. Open the VS Code command palette by selecting **View** > **Command Palette**.
+1. In the VS Code command palette, run **Azure IoT Hub: Select IoT Hub**. 
 
-2. Search for and run the command **Azure: Sign in**. Follow the instructions to sign in your Azure account. 
+2. Choose the subscription and IoT hub that contain the IoT Edge device that you want to configure. 
 
-3. In the command palette, search for and run the command **Azure IoT Hub: Select IoT Hub**. 
+3. In the VS Code explorer, expand the **Azure IoT Hub Devices** section. 
 
-4. Select the subscription that contains your IoT hub, then select the IoT hub that you want to access.
+4. Right-click the name of your IoT Edge device, then select **Create Deployment for Single Device**. 
 
-5. In the VS Code explorer, expand the **Azure IoT Hub Devices** section. 
+   ![Create deployment for single device](./media/tutorial-node-module/create-deployment.png)
 
-6. Right-click the name of your IoT Edge device, then select **Create Deployment for IoT Edge device**. 
+5. Select the **deployment.json** file in the **config** folder and then click **Select Edge Deployment Manifest**. Do not use the deployment.template.json file. 
 
-7. Navigate to the solution folder that contains NodeModule. Open the **config** folder and select the **deployment.json** file. Click **Select Edge Deployment Manifest**.
-
-8. Refresh the **Azure IoT Hub Devices** section. You should see the new **NodeModule** running along with the **TempSensor** module and the **$edgeAgent** and **$edgeHub**. 
+6. Click the refresh button. You should see the new **NodeModule** running along with the **TempSensor** module and the **$edgeAgent** and **$edgeHub**. 
 
 
 ## View generated data
@@ -218,32 +221,14 @@ You could use the Azure portal to deploy your Node.ms module to an IoT Edge devi
 
 ## Clean up resources 
 
-<!--[!INCLUDE [iot-edge-quickstarts-clean-up-resources](../../includes/iot-edge-quickstarts-clean-up-resources.md)] -->
+If you plan to continue to the next recommended article, you can keep the resources and configurations that you created and reuse them. You can also keep using the same IoT Edge device as a test device. 
 
-If you will be continuing to the next recommended article, you can keep the resources and configurations you've already created and reuse them.
+Otherwise, you can delete the local configurations and the Azure resources that you created in this article to avoid charges. 
 
-Otherwise, you can delete the local configurations and the Azure resources created in this article to avoid charges. 
+[!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-> [!IMPORTANT]
-> Deleting Azure resources and resource group is irreversible. Once deleted, the resource group and all the resources contained in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the IoT Hub inside an existing resource group that contains resources you want to keep, only delete the IoT Hub resource itself instead of deleting the resource group.
->
+[!INCLUDE [iot-edge-clean-up-local-resources](../../includes/iot-edge-clean-up-local-resources.md)]
 
-To delete only the IoT Hub execute the following command using your hub name and resource group name:
-
-```azurecli-interactive
-az iot hub delete --name {hub_name} --resource-group IoTEdgeResources
-```
-
-
-To delete the entire resource group by name:
-
-1. Sign in to the [Azure portal](https://portal.azure.com) and click **Resource groups**.
-
-2. In the **Filter by name...** textbox, type the name of the resource group containing your IoT Hub. 
-
-3. To the right of your resource group in the result list, click **...** then **Delete resource group**.
-
-4. You will be asked to confirm the deletion of the resource group. Type the name of your resource group again to confirm, and then click **Delete**. After a few moments, the resource group and all of its contained resources are deleted.
 
 ## Next steps
 

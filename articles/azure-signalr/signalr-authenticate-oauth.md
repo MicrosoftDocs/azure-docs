@@ -3,7 +3,7 @@ title: Tutorial for authenticating Azure SignalR Service clients | Microsoft Doc
 description: In this tutorial, you learn how to authenticate Azure SignalR Service clients
 services: signalr
 documentationcenter: ''
-author: wesmc7777
+author: sffamily
 manager: cfowler
 editor: ''
 
@@ -14,12 +14,10 @@ ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/13/2018
-ms.author: wesmc
+ms.author: zhshang
 #Customer intent: As an ASP.NET Core developer, I want to provide real authentication for my clients before allowing them to push content updates.
 ---
 # Tutorial: Azure SignalR Service authentication
-
-Microsoft Azure SignalR Service is currently in [Public Preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 This tutorial builds on the chat room application introduced in the quickstart. If you have not completed [Create a chat room with SignalR Service](signalr-quickstart-dotnet-core.md), complete that exercise first. 
 

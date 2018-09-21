@@ -28,6 +28,11 @@ Known resolutions for troubleshooting issues in Azure Cloud Shell include:
 - **Details**: Cloud Shell utilizes an open websocket to pass input/output to your browser. FireFox has preset policies that can close the websocket prematurely causing early timeouts in Cloud Shell.
 - **Resolution**: Open FireFox and navigate to "about:config" in the URL box. Search for "network.websocket.timeout.ping.request" and change the value from 0 to 10.
 
+### Disabling Cloud Shell in a locked down network environment
+
+- **Details**: Administrators may wish to disable access to Cloud Shell for their users. Cloud Shell utilizes access to the `ux.console.azure.com` domain which can be denied, stopping any access to Cloud Shell's entrypoints including portal.azure.com, shell.azure.com, Visual Studio Code Azure Account extension, and docs.microsoft.com.
+- **Resolution**: Restrict access to `ux.console.azure.com` via network settings to your environment. The Cloud Shell icon will still exist in portal.azure.com, but will not successfully connect to the service.
+
 ### Storage Dialog - Error: 403 RequestDisallowedByPolicy
 
 - **Details**: When creating a storage account through Cloud Shell, it is unsuccessful due to an Azure policy placed by your admin. Error message will include: `The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
@@ -97,7 +102,7 @@ Cloud Shell supports the latest versions of following browsers:
 
 ### Copy and paste
 
-[!include [copy-paste](../../includes/cloud-shell-copy-paste.md)]
+[!INCLUDE [copy-paste](../../includes/cloud-shell-copy-paste.md)]
 
 ### For a given user, only one shell can be active
 

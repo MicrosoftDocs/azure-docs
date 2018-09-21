@@ -1,5 +1,5 @@
 ---
-title: Tutorial- Debug an Azure Service Fabric Mesh web application | Microsoft Docs
+title: Tutorial- Debug an Azure Service Fabric Mesh web application running in your local development cluster | Microsoft Docs
 description: In this tutorial, debug an Azure Service Fabric Mesh application running on your local cluster.
 services: service-fabric-mesh
 documentationcenter: .net
@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/17/2018
+ms.date: 09/18/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter 
-#Customer intent: As a developer, I want learn how to debug a Service Fabric Mesh app that communicates with another service.
+#Customer intent: As a developer, I want learn how to debug a Service Fabric Mesh app on my local development cluster
 ---
 
-# Tutorial: Debug a Service Fabric Mesh web application
+# Tutorial: Debug a Service Fabric Mesh application running in your local development cluster
 
-This tutorial is part two of a series and shows you how to debug an Azure Service Fabric Mesh web application on your local development cluster.
+This tutorial is part two of a series and shows you how to build and debug an Azure Service Fabric Mesh app on your local development cluster.
 
 In this tutorial you will learn:
 
@@ -30,9 +30,11 @@ In this tutorial you will learn:
 
 In this tutorial series you learn how to:
 > [!div class="checklist"]
-> * [Build a Service Fabric Mesh application](service-fabric-mesh-tutorial-create-dotnetcore.md)
-> * Debug the app locally
-> * [Publish the app to Azure](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
+> * [Create a Service Fabric Mesh app in Visual Studio](service-fabric-mesh-tutorial-create-dotnetcore.md)
+> * Debug a Service Fabric Mesh app running in your local development cluster
+> * [Deploy a Service Fabric Mesh app](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
+> * [Upgrade a Service Fabric Mesh app](service-fabric-mesh-tutorial-upgrade.md)
+> * [Clean up Service Fabric Mesh resources](service-fabric-mesh-tutorial-cleanup-resources.md)
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
@@ -70,9 +72,17 @@ After the local deployment is finished, and Visual Studio is running your app, a
 
 **Debugging tips**
 
-* If you get the **No Service Fabric local cluster is running** error, make sure that the Service Local Custer Manager (SLCM) is running and right-click the SLCM icon in the task bar, then click **Start Local Cluster**. Once it has started, return to Visual Studio and press **F5**.
-* If you get a **404** error when the app starts, it probably means that your environment variables in **service.yaml** are incorrect. Make sure that `ApiHostPort` and `ServiceName` are set correctly per the instructions in [Create environment variables](https://docs.microsoft.com/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore#create-environment-variables).
-* If you get build errors in **service.yaml**, make sure that spaces, not tabs, are used to indent the lines. Also, for now, you must build the app using the English locale.
+There is currently an issue that causes the call to `using (HttpResponseMessage response = client.GetAsync("").GetAwaiter().GetResult())` to fail connect to the service. This can happen whenever your host IP address changes. To resolve this:
+
+1. Remove the app from the local cluster (in Visual Studio, **Build** > **Clean Solution**).
+2. From the Service Fabric Local Cluster Manager, select **Stop Local CLuster**, and then **Start Local Cluster**.
+3. Redeploy the app (in Visual Studio, **F5**).
+
+If you get the **No Service Fabric local cluster is running** error, make sure that the Service Fabric Local Custer Manager (LCM) is running and right-click the LCM icon in the task bar, then click **Start Local Cluster**. Once it has started, return to Visual Studio and press **F5**.
+
+If you get a **404** error when the app starts, it could mean that your environment variables in **service.yaml** are incorrect. Make sure that `ApiHostPort` and `ToDoServiceName` are set correctly per the instructions in [Create environment variables](https://docs.microsoft.com/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore#create-environment-variables).
+
+If you get build errors in **service.yaml**, make sure that spaces, not tabs, are used to indent the lines. Also, for now, you must build the app using the English locale.
 
 ### Debug in Visual Studio
 
@@ -93,4 +103,4 @@ In this part of the tutorial, you learned:
 
 Advance to the next tutorial:
 > [!div class="nextstepaction"]
-> [Publish a Service Fabric Mesh web application](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
+> [Deploy a Service Fabric Mesh app](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)

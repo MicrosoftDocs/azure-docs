@@ -16,7 +16,7 @@ ms.reviewer: michmcla
 ---
 # Remote Desktop Gateway and Azure Multi-Factor Authentication Server using RADIUS
 
-Often, Remote Desktop (RD) Gateway uses the local Network Policy Services (NPS) to authenticate users. This article describes how to route RADIUS requests out from the Remote Desktop Gateway (through the local NPS) to the Multi-Factor Authentication Server. The combination of Azure MFA and RD Gateway means that your users can access their work environments from anywhere while performing strong authentication. 
+Often, Remote Desktop (RD) Gateway uses the local [Network Policy Services (NPS)](https://docs.microsoft.com/windows-server/networking/core-network-guide/core-network-guide#BKMK_optionalfeatures) to authenticate users. This article describes how to route RADIUS requests out from the Remote Desktop Gateway (through the local NPS) to the Multi-Factor Authentication Server. The combination of Azure MFA and RD Gateway means that your users can access their work environments from anywhere while performing strong authentication. 
 
 Since Windows Authentication for terminal services is not supported for Server 2012 R2, use RD Gateway and RADIUS to integrate with MFA Server. 
 
@@ -25,6 +25,7 @@ Install the Azure Multi-Factor Authentication Server on a separate server, which
 ## Prerequisites
 
 - A domain-joined Azure MFA Server. If you don't have one installed already, follow the steps in [Getting started with the Azure Multi-Factor Authentication Server](howto-mfaserver-deploy.md).
+- An existing configured NPS Server.
 - A Remote Desktop Gateway that authenticates with Network Policy Services.
 
 ## Configure the Remote Desktop Gateway

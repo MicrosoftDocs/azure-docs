@@ -21,6 +21,10 @@ ms.custom: aaddev
 
 # Call Microsoft Graph API from a Universal Windows Platform application (XAML)
 
+
+> [!div renderon="docs"]
+> [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
+
 This guide explains how a native Universal Windows Platform (UWP) application can request an access token and then call Microsoft Graph API. The guide also applies to other APIs that require access tokens from the Azure Active Directory v2 endpoint.
 
 At the end of this guide, your application calls a protected API by using personal accounts. Examples are outlook.com, live.com, and others. Your application also calls work and school accounts from any company or organization that has Azure Active Directory.
@@ -67,11 +71,14 @@ This guide creates an application that displays a button that queries Graph API,
 2. Copy and paste the following command in the **Package Manager Console** window:
 
     ```powershell
-    Install-Package Microsoft.Identity.Client -Pre
+    Install-Package Microsoft.Identity.Client -Pre -Version 1.1.4-preview0002
     ```
 
 > [!NOTE]
 > This command installs [Microsoft Authentication Library](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet). MSAL acquires, caches, and refreshes user tokens that access APIs protected by Azure Active Directory v2.
+
+> [!NOTE]
+> This tutorial does not use yet the latest version of MSAL.NET, but we are working on updating it.
 
 ## Initialize MSAL
 This step helps you create a class to handle interaction with MSAL, such as handling tokens.

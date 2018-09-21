@@ -72,7 +72,7 @@ Use of ASEs for this architecture are allowed for the following controls/configu
 The [Guidance and recommendations](#guidance-and-recommendations) section contains additional information about ASEs.
 
 **Azure Web App**:
-[Azure Web Apps](https://docs.microsoft.com/azure/app-service/) enables customers to build and host web applications in the programming language of their choice without managing infrastructure. It offers auto-scaling and high availability, supports both Windows and Linux, and enables automated deployments from GitHub, Visual Studio Team Services, or any Git repo.
+[Azure Web Apps](https://docs.microsoft.com/azure/app-service/) enables customers to build and host web applications in the programming language of their choice without managing infrastructure. It offers auto-scaling and high availability, supports both Windows and Linux, and enables automated deployments from GitHub, Azure DevOps, or any Git repo.
 
 ### Virtual Network
 The architecture defines a private virtual network with an address space of 10.200.0.0/16.

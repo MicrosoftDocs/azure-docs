@@ -74,7 +74,7 @@ If the SSH tunnel was successfully created, the DC/OS portal is returned.
 
 ## Install DC/OS CLI
 
-The DC/OS command line interface is used to manage a DC/OS cluster from the command-line. Install the DC/OS cli using the [az acs dcos install-cli](/azure/acs/dcos#install-cli) command. If you are using Azure CloudShell, the DC/OS CLI is already installed. 
+The DC/OS command line interface is used to manage a DC/OS cluster from the command-line. Install the DC/OS cli using the [az acs dcos install-cli](/cli/azure/acs/dcos#az-acs-dcos-install-cli) command. If you are using Azure CloudShell, the DC/OS CLI is already installed. 
 
 If you are running the Azure CLI on macOS or Linux, you might need to run the command with sudo.
 

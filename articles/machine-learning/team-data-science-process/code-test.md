@@ -1,5 +1,5 @@
 ---
-title: "Data science code testing on Azure with the UCI adult income prediction dataset - Team Data Science Process and Visual Studio Team Services"
+title: "Data science code testing on Azure with the UCI adult income prediction dataset - Team Data Science Process and Azure DevOps Services"
 description: Data science code testing with UCI adult income prediction data
 services: machine-learning, team-data-science-process
 documentationcenter: ''
@@ -32,8 +32,8 @@ This article replaces the term "unit testing" with "code testing." It refers to 
 
 This article provides references as useful resources.
 
-## Visual Studio Team Services for the testing framework
-This article describes how to perform and automate testing by using Visual Studio Team Services (VSTS). You might decide to use alternative tools. We also show how to set up an automatic build by using VSTS and build agents. For build agents, we use Azure Data Science Virtual Machines (DSVMs).
+## Azure DevOps for the testing framework
+This article describes how to perform and automate testing by using Azure DevOps. You might decide to use alternative tools. We also show how to set up an automatic build by using Azure DevOps and build agents. For build agents, we use Azure Data Science Virtual Machines (DSVMs).
 
 ## Flow of code testing
 The overall workflow of testing code in a data science project looks like this: 
@@ -43,7 +43,7 @@ The overall workflow of testing code in a data science project looks like this:
     
 ## Detailed steps
 
-Use the following steps to set up and run code testing and an automated build by using a build agent and VSTS:
+Use the following steps to set up and run code testing and an automated build by using a build agent and Azure DevOps:
 
 1. Create a project in the Visual Studio desktop application:
 
@@ -55,7 +55,7 @@ Use the following steps to set up and run code testing and an automated build by
 
     ![Solution Explorer](./media/code-test/solution_explorer_in_vs.PNG)
 
-1. Feed your project code into the VSTS project code repository: 
+1. Feed your project code into the Azure DevOps project code repository: 
 
     ![Project code repository](./media/code-test/create_repo.PNG)
 
@@ -103,13 +103,13 @@ Use the following steps to set up and run code testing and an automated build by
 
     ![Running the tests](./media/code-test/run_tests.PNG)
 
-1. Check in your code to the project repository by using Git commands. Your most recent work will be reflected shortly in VSTS.
+1. Check in your code to the project repository by using Git commands. Your most recent work will be reflected shortly in Azure DevOps.
 
     ![Git commands for checking in code](./media/code-test/git_check_in.PNG)
 
-    ![Most recent work in VSTS](./media/code-test/git_check_in_most_recent_work.PNG)
+    ![Most recent work in Azure DevOps](./media/code-test/git_check_in_most_recent_work.PNG)
 
-1. Set up automatic build and test in VSTS:
+1. Set up automatic build and test in Azure DevOps:
 
 	a. In the project repository, select **Build and Release**, and then select **+New** to create a new build process.
 
@@ -123,7 +123,7 @@ Use the following steps to set up and run code testing and an automated build by
 
        ![List of templates and "Empty process" button](./media/code-test/start_empty_process_template.PNG)
 
-	d. Name the build and select the agent. You can choose the default here if you want to use a DSVM to finish the build process. For more information about setting agents, see [Build and release agents](https://docs.microsoft.com/vsts/build-release/concepts/agents/agents?view=vsts).
+	d. Name the build and select the agent. You can choose the default here if you want to use a DSVM to finish the build process. For more information about setting agents, see [Build and release agents](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=vsts).
 	
        ![Build and agent selections](./media/code-test/select_agent.PNG)
 
@@ -137,17 +137,17 @@ Use the following steps to set up and run code testing and an automated build by
 	
        ![PowerShell details](./media/code-test/powershell_scripts.PNG)
 
-	g. Select **Save & queue** to finish the build definition process.
+	g. Select **Save & queue** to finish the build pipeline process.
 
        !["Save & queue" button](./media/code-test/save_and_queue_build_definition.PNG)
 
 Now every time a new commit is pushed to the code repository, the build process will start automatically. (Here we use master as the repository, but you can define any branch.) The process runs the **test1.py** file in the agent machine to make sure that everything defined in the code runs correctly. 
 
-If alerts are set up correctly, you'll be notified in email when the build is finished. You can also check the build status in VSTS. If it fails, you can check the details of the build and find out which piece is broken.
+If alerts are set up correctly, you'll be notified in email when the build is finished. You can also check the build status in Azure DevOps. If it fails, you can check the details of the build and find out which piece is broken.
 
 ![Email notification of build success](./media/code-test/email_build_succeed.PNG)
 
-![VSTS notification of build success](./media/code-test/vs_online_build_succeed.PNG)
+![Azure DevOps notification of build success](./media/code-test/vs_online_build_succeed.PNG)
 
 ## Next steps
 * See the [UCI income prediction repository](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) for concrete examples of unit tests for data science scenarios.
@@ -156,5 +156,5 @@ If alerts are set up correctly, you'll be notified in email when the build is fi
 ## References
 * [Team Data Science Process](https://aka.ms/tdsp)
 * [Visual Studio Testing Tools](https://www.visualstudio.com/vs/features/testing-tools/)
-* [VSTS Testing Resources](https://www.visualstudio.com/team-services/)
+* [Azure DevOps Testing Resources](https://www.visualstudio.com/team-services/)
 * [Data Science Virtual Machines](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)

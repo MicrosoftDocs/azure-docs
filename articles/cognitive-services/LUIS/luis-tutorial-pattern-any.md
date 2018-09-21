@@ -1,40 +1,25 @@
 ---
-title: Tutorial using pattern.any entity to improve LUIS predictions - Azure | Microsoft Docs 
-titleSuffix: Cognitive Services
-description: In this tutorial, use the pattern.any entity to improve LUIS intent and entity predictions.
+title: "Tutorial 5: Pattern.any entity for free-form text"
+titleSuffix: Azure Cognitive Services
+description: Use the pattern.any entity to extract data from utterances where the utterances is well-formatted and where the end of the data may be easily confused with the remaining words of the utterance.  
 services: cognitive-services
 author: diberry
 manager: cjgronlund
-
-
 ms.service: cognitive-services
-ms.technology: luis
+ms.technology: language-understanding
 ms.topic: article
-ms.date: 08/02/2018
+ms.date: 09/09/2018
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use pattern.any entity to improve predictions. 
 ---
 
-# Tutorial: Improve app with pattern.any entity
+# Tutorial: 5. Extract free-form data
 
-In this tutorial, use the pattern.any entity to increase intent and entity prediction.  
+In this tutorial, use the pattern.any entity to extract data from utterances where the utterances are well-formatted and where the end of the data may be easily confused with the remaining words of the utterance. 
 
-> [!div class="checklist"]
-* Learn when and how to use pattern.any
-* Create pattern that uses pattern.any
-* How to verify prediction improvements
+The pattern.any entity allows you to find free-form data where the wording of the entity makes it difficult to determine the end of the entity from the rest of the utterance. 
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## Before you begin
-If you don't have the Human Resources app from the [pattern roles](luis-tutorial-pattern-roles.md) tutorial, [import](luis-how-to-start-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website. The app to import is found in the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-roles-HumanResources.json) GitHub repository.
-
-If you want to keep the original Human Resources app, clone the version on the [Settings](luis-how-to-manage-versions.md#clone-a-version) page, and name it `patt-any`. Cloning is a great way to play with various LUIS features without affecting the original version. 
-
-## The purpose of pattern.any
-The pattern.any entity allows you to find free form data where the wording of the entity makes it difficult to determine the end of the entity from the rest of the utterance. 
-
-This Human Resources app helps employees find company forms. Forms were added in the [regular expression tutorial](luis-quickstart-intents-regex-entity.md). The form names from that tutorial used a regular expression to extract a form name that was well-formatted such as the form names in bold in the following utterance table:
+This Human Resources app helps employees find company forms. 
 
 |Utterance|
 |--|
@@ -52,11 +37,38 @@ Utterances with the friendly form name look like:
 |Who authored **"Request relocation from employee new to the company 2018 version 5"**?|
 |**Request relocation from employee new to the company 2018 version 5** is published in French?|
 
-The varying length includes phrases that may confuse LUIS about where the entity ends. Using a Pattern.any entity in a pattern allows you to specify the beginning and end of the form name so LUIS correctly extracts the form name.
+The varying length includes words that may confuse LUIS about where the entity ends. Using a Pattern.any entity in a pattern allows you to specify the beginning and end of the form name so LUIS correctly extracts the form name.
 
-**While patterns allow you to provide fewer example utterances, if the entities are not detected, the pattern does not match.**
+|Template utterance example|
+|--|
+|Where is {FormName}[?]|
+|Who authored {FormName}[?]|
+|{FormName} is published in French[?]|
 
-## Add example utterances to the existing intent FindForm 
+**In this tutorial, you learn how to:**
+
+> [!div class="checklist"]
+> * Use existing tutorial app
+> * Add example utterances to existing entity
+> * Create Pattern.any entity
+> * Create pattern
+> * Train
+> * Test new pattern
+
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## Use existing app
+Continue with the app created in the last tutorial, named **HumanResources**. 
+
+If you do not have the HumanResources app from the previous tutorial, use the following steps:
+
+1.  Download and save [app JSON file](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-roles-HumanResources.json).
+
+2. Import the JSON into a new app.
+
+3. From the **Manage** section, on the **Versions** tab, clone the version, and name it `patt-any`. Cloning is a great way to play with various LUIS features without affecting the original version. Because the version name is used as part of the URL route, the name can't contain any characters that are not valid in a URL.
+
+## Add example utterances 
 Remove the prebuilt keyPhrase entity if it is difficult to create and label the FormName entity. 
 
 1. Select **Build** from the top navigation, then select **Intents** from left navigation.
@@ -106,7 +118,7 @@ The Pattern.any entity extracts entities of varying length. It only works in a p
 
 ## Train the LUIS app
 
-[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## Test the new pattern for free-form data extraction
 1. Select **Test** from the top bar to open the test panel. 
@@ -123,9 +135,11 @@ The Pattern.any entity extracts entities of varying length. It only works in a p
 
 ## Clean up resources
 
-[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## Next steps
+
+This tutorial added example utterances to an existing intent then created a new Pattern.any for the form name. Then the tutorial created a pattern for the existing intent with the new example utterances and entity. Interactive testing showed that the pattern and its intent were predicted because the entity was found. 
 
 > [!div class="nextstepaction"]
 > [Learn how to use roles with a pattern](luis-tutorial-pattern-roles.md)

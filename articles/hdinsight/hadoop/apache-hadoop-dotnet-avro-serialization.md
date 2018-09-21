@@ -4,7 +4,7 @@ description: Learn how to serialize and deserialize data in Hadoop on HDInsight 
 keywords: avro,hadoop avro
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.topic: conceptual
@@ -32,7 +32,7 @@ The <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" targe
 The serialized representation of an object in the Avro system consists of two parts: schema and actual value. The Avro schema describes the language-independent data model of the serialized data with JSON. It is presented side by side with a binary representation of data. Having the schema separate from the binary representation permits each object to be written with no per-value overheads, making serialization fast, and the representation small.
 
 ## The Hadoop scenario
-The Apache Avro serialization format is widely used in Azure HDInsight and other Apache Hadoop environments. Avro provides a convenient way to represent complex data structures within a Hadoop MapReduce job. The format of Avro files (Avro object container file) has been designed to support the distributed MapReduce programming model. The key feature that enables the distribution is that the files are “splittable” in the sense that one can seek any point in a file and start reading from a particular block.
+The Apache Avro serialization format is widely used in Azure HDInsight and other Apache Hadoop environments. Avro provides a convenient way to represent complex data structures within a Hadoop MapReduce job. The format of Avro files (Avro object container file) has been designed to support the distributed MapReduce programming model. The key feature that enables the distribution is that the files are "splittable" in the sense that one can seek any point in a file and start reading from a particular block.
 
 ## Serialization in Avro Library
 The .NET Library for Avro supports two ways of serializing objects:

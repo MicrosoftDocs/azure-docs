@@ -3,7 +3,7 @@ title: How to use Azure Service Bus topics with Java | Microsoft Docs
 description: Use Service Bus topics and subscriptions in Azure.
 services: service-bus-messaging
 documentationcenter: java
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 10/17/2017
-ms.author: sethm
+ms.author: spelluru
 
 ---
 # How to use Service Bus topics and subscriptions with Java

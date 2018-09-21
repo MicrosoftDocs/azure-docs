@@ -11,9 +11,12 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/26/2017
----
 
+ROBOTS: NOINDEX
+---
 # Create DSVM and HDI Spark cluster as compute targets
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
 You can easily scale up or scale out your machine learning experiment by adding additional compute targets such as Ubuntu-based DSVM (Data Science Virtual Machine), and Apache Spark for Azure HDInsight cluster. This article walks you through the steps of creating these compute targets in Azure. For more information on Azure ML compute targets, refer to [overview of Azure Machine Learning experimentation service](experimentation-service-configuration.md).
 
@@ -64,14 +67,14 @@ For the _vmSize_ field, you can use any suppported VM size listed in the [Ubuntu
 >[!TIP]
 > For [deep learning workloads](how-to-use-gpu.md) you can deploy to GPU powered VMs.
 
-- [General Purpose VMs](/virtual-machines/linux/sizes-general.md)
+- [General Purpose VMs](../../virtual-machines/linux/sizes-general.md)
   - Standard_DS2_v2 
   - Standard_DS3_v2 
   - Standard_DS4_v2 
   - Standard_DS12_v2 
   - Standard_DS13_v2 
   - Standard_DS14_v2 
-- [GPU powered VMs](/virtual-machines/linux/sizes-gpu.md)
+- [GPU powered VMs](../../virtual-machines/linux/sizes-gpu.md)
   - Standard_NC6 
   - Standard_NC12 
   - Standard_NC24 

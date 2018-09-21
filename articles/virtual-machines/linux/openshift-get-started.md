@@ -30,16 +30,16 @@ OpenShift includes Kubernetes for container orchestration and management. It add
 
 There are multiple versions of OpenShift available:
 
-- OpenShift Origin
+- OKD (Formerly OpenShift Origin)
 - OpenShift Container Platform
 - OpenShift Online
 - OpenShift Dedicated
 
 Of the four versions covered in this article, only two are available for customers to deploy in Azure: OpenShift Origin and OpenShift Container Platform.
 
-## OpenShift Origin
+## OKD (Formerly OpenShift Origin)
 
-Origin is an [open-source](https://www.openshift.org/) upstream project of OpenShift that's community supported. Origin can be installed on CentOS or Red Hat Enterprise Linux (RHEL).
+OKD is an [open-source](https://www.okd.io/) upstream project of OpenShift that's community supported. OKD can be installed on CentOS or Red Hat Enterprise Linux (RHEL).
 
 ## OpenShift Container Platform
 

@@ -8,7 +8,7 @@ tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
 ms.topic: article
-ms.date: 07/13/2018
+ms.date: 09/11/2018
 ms.author: byvinyal
 
 ---
@@ -47,9 +47,12 @@ In the limits below, a new table has been added to reflect any differences in li
 * [Azure Database for PostgreSQL](#azure-database-for-postgresql)
 * [Azure Event Grid](#azure-event-grid-limits)
 * [Azure Maps](#azure-maps-limits)
+* [Azure Monitor](#monitor-limits)
+* [Azure Policy](#azure-policy-limits)
 * [Azure Redis Cache](#azure-redis-cache-limits)
 * [Backup](#backup-limits)
 * [Batch](#batch-limits)
+* [Batch AI](#batch-ai-limits)
 * [BizTalk Services](#biztalk-services-limits)
 * [CDN](#cdn-limits)
 * [Cloud Services](#cloud-services-limits)
@@ -63,6 +66,7 @@ In the limits below, a new table has been added to reflect any differences in li
 * [DNS](#dns-limits)
 * [Event Hubs](#event-hubs-limits)
 * [Azure Firewall](#azure-firewall-limits)
+* [Front Door](#azure-front-door-service-limits)
 * [IoT Hub](#iot-hub-limits)
 * [IoT Hub Device Provisioning Service](#iot-hub-device-provisioning-service-limits)
 * [Key Vault](#key-vault-limits)
@@ -71,7 +75,6 @@ In the limits below, a new table has been added to reflect any differences in li
 * [Media Services](#media-services-limits)
 * [Mobile Engagement](#mobile-engagement-limits)
 * [Mobile Services](#mobile-services-limits)
-* [Monitor](#monitor-limits)
 * [Multi-Factor Authentication](#multi-factor-authentication)
 * [Networking](#networking-limits)
 * [Network Watcher](#network-watcher-limits)
@@ -150,11 +153,18 @@ The following table details the features and limits of the Basic, Standard, and 
 #### Azure Firewall limits
 [!INCLUDE [azure-firewall-limits](../includes/firewall-limits.md)]
 
-### Storage limits
-For additional details on storage account limits, see [Azure Storage Scalability and Performance Targets](storage/common/storage-scalability-targets.md).
+#### Azure Front Door Service limits
+[!INCLUDE [azure-front-door-service-limits](../includes/front-door-limits.md)]
 
+### Storage limits
 <!--like # storage accts -->
 [!INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
+
+[!INCLUDE [storage-limits-increase-include](../includes/storage-limits-increase-include.md)]
+
+For additional details on storage account limits, see [Azure Storage Scalability and Performance Targets](storage/common/storage-scalability-targets.md).
+
+#### Storage resource provider limits 
 
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../includes/azure-storage-limits-azure-resource-manager.md)]
 
@@ -195,7 +205,7 @@ See [Virtual machine sizes](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtu
 [!INCLUDE [azure-cloud-services-limits](../includes/azure-cloud-services-limits.md)]
 
 ### App Service limits
-The following App Service limits include limits for Web Apps, Mobile Apps, API Apps, and Logic Apps.
+The following App Service limits include limits for Web Apps, Mobile Apps, and API Apps.
 
 [!INCLUDE [azure-websites-limits](../includes/azure-websites-limits.md)]
 
@@ -204,6 +214,9 @@ The following App Service limits include limits for Web Apps, Mobile Apps, API A
 
 ### Batch limits
 [!INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
+
+### Batch AI limits
+[!INCLUDE [azure-batch-ai-limits](../includes/azure-batch-ai-limits.md)]
 
 ### BizTalk Services limits
 The following table shows the limits for Azure Biztalk Services.
@@ -289,6 +302,9 @@ To learn more about limits on a more granular level, such as document size, quer
 
 ### Azure Maps limits
 [!INCLUDE [maps-limits](../includes/maps-limits.md)]
+
+### Azure Policy limits
+[!INCLUDE [policy-limits](../includes/azure-policy-limits.md)]
 
 ### StorSimple System limits
 [!INCLUDE [storsimple-limits-table](../includes/storsimple-limits-table.md)]

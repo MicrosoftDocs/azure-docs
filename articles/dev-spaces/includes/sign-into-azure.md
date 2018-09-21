@@ -5,11 +5,11 @@ ms.custom: "include file"
 services: azure-dev-spaces
 ms.service: "azure-dev-spaces"
 ms.component: "azds-kubernetes"
-author: "ghogen"
-ms.author: "ghogen"
+author: ghogen
+ms.author: ghogen
 ms.date: "05/11/2018"
 ms.topic: "include"
-manager: "douge"
+manager: douge
 ---
 ### Sign in to Azure CLI
 Sign in to Azure. Type the following command in a terminal window:

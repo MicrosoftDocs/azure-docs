@@ -1,43 +1,63 @@
 ---
-title: Outlook.com connector in Azure Logic Apps| Microsoft Docs
-description: Create Logic apps with Azure App service. Outlook.com connector allows you to manage your mail, calendars, and contacts. You can perform various actions such as send mail, schedule meetings, add contacts, etc.
+title: Connect to Outlook.com - Azure Logic Apps | Microsoft Docs
+description: Manage email, calendars, and contacts with Outlook.com REST APIs and Azure Logic Apps
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: ecfan
-manager: jeconnoc
-editor: ''
-tags: connectors
-
-ms.assetid: 87113c85-d158-4dd5-9ed5-5748130003d6
 ms.service: logic-apps
-ms.devlang: multiple
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
+ms.assetid: 87113c85-d158-4dd5-9ed5-5748130003d6
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
 ms.date: 08/18/2016
-ms.author: estfan; ladocs
-
+ms.reviewer: klam, LADocs
+ms.suite: integration
 ---
-# Get started with the Outlook.com connector
-Outlook.com connector allows you to manage your mail, calendars, and contacts. You can perform various actions such as send mail, schedule meetings, add contacts, etc.
 
-You can get started by creating a Logic app now, see [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+# Manage email, calendars, and contacts in Outlook.com with Azure Logic Apps
 
-## Create a connection to Outlook.com
-To create Logic apps with Outlook.com, you must first create a **connection** then provide the details for the following properties:
+This article shows how you can create and manage your 
+Outlook.com account inside a logic app with the Box connector. 
+That way, you can create logic apps that automate tasks 
+and workflows for your Outlook.com account, for example:
 
-| Property | Required | Description |
-| --- | --- | --- |
-| Token |Yes |Provide Outlook.com Credentials |
+* Send email. 
+* Schedule meetings.
+* Add contacts. 
 
-After you create the connection, you can use it to execute the actions and listen for the triggers described in this article.
+If you're new to logic apps, review 
+[What is Azure Logic Apps](../logic-apps/logic-apps-overview.md).
 
-> [!INCLUDE [Steps to create a connection to Outlook.com](../../includes/connectors-create-api-outlook.md)]
->
+## Prerequisites
 
-## Connector-specific details
+* An [Outlook.com account](https://outlook.live.com/owa/)
 
-View any triggers and actions defined in the swagger, and also see any limits in the [connector details](/connectors/outlook/).
+* An Azure subscription. If you don't have an Azure subscription, 
+<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
 
-## More connectors
-Go back to the [APIs list](apis-list.md).
+* The logic app where you want to access your Outlook.com account. 
+To start your logic app with an Outlook trigger, you need a 
+[blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
+
+* Basic knowledge about 
+[how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+
+## Connect to Outlook.com
+
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
+
+[!INCLUDE [Connect to Outlook.com](../../includes/connectors-create-api-outlook.md)]
+
+## Connector reference
+
+For technical details, such as triggers, actions, and limits, 
+as described by the connector's Swagger file, 
+see the [connector's reference page](/connectors/outlook/). 
+
+## Get support
+
+* For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](http://aka.ms/logicapps-wish).
+
+## Next steps
+
+* Learn about other [Logic Apps connectors](../connectors/apis-list.md)

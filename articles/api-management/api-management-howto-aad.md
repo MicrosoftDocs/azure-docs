@@ -59,7 +59,7 @@ This article shows you how to enable access to the developer portal for users fr
     The **Create** pane appears on the right. That's where you enter the Azure AD app-relevant information.
 1. Enter a name for the application.
 1. For the application type, select **Web app/API**.
-1. For the sign-in URL, enter the sign-in URL of your developer portal. In this example, the sign-in URL is https://apimwithaad.portal.azure-api.net/signin.
+1. For the sign-in URL, enter the sign-in URL of your developer portal. In this example, the sign-in URL is `https://apimwithaad.portal.azure-api.net/signin`.
 1. Select **Create** to create the application.
 1. To find your app, select **App registrations** and search by name.
 
@@ -75,7 +75,10 @@ This article shows you how to enable access to the developer portal for users fr
 
     ![Check boxes for permissions](./media/api-management-howto-aad/api-management-with-aad005.png)
 
+1. Select **Grant permissions** to consent application permissions.
+
     For more information about application permissions and delegated permissions, see [Accessing the Graph API][Accessing the Graph API].
+    
 1. In the left pane, copy the **Application ID** value.
 
     !["Application ID" value](./media/api-management-howto-aad/application-id.png)
@@ -94,6 +97,7 @@ This article shows you how to enable access to the developer portal for users fr
     > Make a note of this key. After you close the Azure AD configuration pane, the key cannot be displayed again.
     > 
     > 
+
 1. Switch back to your API Management application. 
 
     In the **Add identity provider** window, paste the key in the **Client secret** text box.
@@ -102,6 +106,7 @@ This article shows you how to enable access to the developer portal for users fr
     > Please make sure to update the **Client secret** before the key expires. 
     >  
     >
+
 1. The **Add identity provider** window also contains the **Allowed Tenants** text box. There, specify the domains of the Azure AD instances to which you want to grant access to the APIs of the API Management service instance. You can separate multiple domains with newlines, spaces, or commas.
 
     You can specify multiple domains in the **Allowed Tenants** section. Before any user can sign in from a different domain than the original domain where the application was registered, a global administrator of the different domain must grant permission for the application to access directory data. To grant permission, the global administrator should:

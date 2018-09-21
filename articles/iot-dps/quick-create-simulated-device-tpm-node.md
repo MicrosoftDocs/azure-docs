@@ -19,7 +19,7 @@ These steps show how to create a simulated device on your development machine ru
 
 If you're unfamiliar with the process of auto-provisioning, be sure to also review [Auto-provisioning concepts](concepts-auto-provisioning.md). Also make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing. 
 
-[!INCLUDE [IoT DPS basic](../../includes/iot-dps-basic.md)]
+[!INCLUDE [IoT Device Provisioning Service basic](../../includes/iot-dps-basic.md)]
 
 ## Prepare the environment 
 
@@ -147,7 +147,7 @@ If you're unfamiliar with the process of auto-provisioning, be sure to also revi
 
 1. In the Azure portal, select the **Overview** blade for your Device Provisioning service and note down the **_Global Device Endpoint_** and **_ID Scope_** values.
 
-    ![Extract DPS endpoint information from the portal blade](./media/quick-create-simulated-device/extract-dps-endpoints.png) 
+    ![Extract Device Provisioning Service endpoint information from the portal blade](./media/quick-create-simulated-device/extract-dps-endpoints.png) 
 
 1. Using a text editor, create a new **RegisterDevice.js** file in the **registerdevice** folder.
 

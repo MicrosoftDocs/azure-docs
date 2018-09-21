@@ -3,7 +3,7 @@ title: Add an API manually using the Azure portal  | Microsoft Docs
 description: This tutorial shows you how to use API Management (APIM) to add an API manually.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: mikebudzynski
 manager: cfowler
 editor: ''
 
@@ -12,11 +12,12 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/22/2017
+ms.date: 08/27/2018
 ms.author: apimpm
 
 ---
-# Add an API manually 
+
+# Add an API manually
 
 The steps in this article show how to use the Azure portal to add an API manually to the API Management (APIM) instance. A common scenario when you would want to create a blank API and define it manually is when you want to mock the API. For details about mocking an API, see [Mock API responses](mock-api-responses.md).
 
@@ -50,17 +51,16 @@ Complete the following quickstart: [Create an Azure API Management instance](get
     |**Products**|"*Unlimited*" |Publish the API by associating the API with a product. If you want for the API to be published and be available to developers, add it to a product. You can do it during API creation or set it later.<br/><br/>Products are associations of one or more APIs. You can include a number of APIs and offer them to developers through the developer portal. <br/>Developers must first subscribe to a product to get access to the API. When they subscribe, they get a subscription key that is good for any API in that product. If you created the APIM instance, you are an administrator already, so you are subscribed to every product by default.<br/><br/> By default, each API Management instance comes with two sample products: **Starter** and **Unlimited**.| 
 5. Select **Create**.
 
-At this point, you have no operations in APIM that map to the operations in your back-end API. If you call an operation that is exposed through the back end but not through the APIM, you get a **404**. 
+At this point, you have no operations in APIM that map to the operations in your back-end API. If you call an operation that is exposed through the back end but not through the APIM, you get a **404**.
 
 >[!NOTE] 
 > By default, when you add an API, even if it is connected to some back-end service, APIM will not expose any operations until you whitelist them. To whitelist an operation of your back-end service, create an APIM operation that maps to the back-end operation.
->
 
 ## Add and test an operation
 
 This section shows how to add a "/get" operation in order to map it to the back end "http://httpbin.org/get" operation.
 
-### Add the operation
+### Add an operation
 
 1. Select the API you created in the previous step.
 2. Click **+ Add Operation**.
@@ -68,7 +68,7 @@ This section shows how to add a "/get" operation in order to map it to the back 
 4. Enter "*FetchData*" for **Display name**.
 5. Select **Save**.
 
-### Test the operation
+### Test an operation
 
 Test the operation in the Azure portal. Alternatively, you can test it in the **Developer portal**.
 

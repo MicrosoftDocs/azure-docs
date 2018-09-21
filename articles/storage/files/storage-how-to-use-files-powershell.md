@@ -50,7 +50,7 @@ $storageAcct = New-AzureRmStorageAccount `
 ```
 
 ## Create an Azure file share
-Now you can create your first Azure file share. You can create a file share using the [New-AzureStorageShare](/powershell/module/azurerm.storage/new-azurestorageshare) cmdlet. This example creates a share named `myshare`.
+Now you can create your first Azure file share. You can create a file share using the [New-AzureStorageShare](https://docs.microsoft.com/powershell/module/servicemanagement/azure.storage/new-azurestorageshare) cmdlet. This example creates a share named `myshare`.
 
 ```azurepowershell-interactive
 New-AzureStorageShare `
@@ -70,7 +70,7 @@ Now that you have created an Azure file share, you can mount the file share with
 
 
 ### Create directory
-To create a new directory named *myDirectory* at the root of your Azure file share, use the [New-AzureStorageDirectory](/powershell/module/azurerm.storage/new-azurestoragedirectory) cmdlet.
+To create a new directory named *myDirectory* at the root of your Azure file share, use the [New-AzureStorageDirectory](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragedirectory) cmdlet.
 
 
 ```azurepowershell-interactive

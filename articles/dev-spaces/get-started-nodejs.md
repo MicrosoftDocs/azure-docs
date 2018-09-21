@@ -4,23 +4,23 @@ titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
-author: "ghogen"
-ms.author: "ghogen"
+author: ghogen
+ms.author: ghogen
 ms.date: "07/09/2018"
 ms.topic: "tutorial"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
-manager: "douge"
+manager: douge
 ---
 # Get Started on Azure Dev Spaces with Node.js
 
-[!INCLUDE[](includes/learning-objectives.md)]
+[!INCLUDE [](includes/learning-objectives.md)]
 
-[!INCLUDE[](includes/see-troubleshooting.md)]
+[!INCLUDE [](includes/see-troubleshooting.md)]
 
 You're now ready to create a Kubernetes-based development environment in Azure.
 
-[!INCLUDE[](includes/portal-aks-cluster.md)]
+[!INCLUDE [](includes/portal-aks-cluster.md)]
 
 ## Install the Azure CLI
 Azure Dev Spaces requires minimal local machine setup. Most of your dev space's configuration gets stored in the cloud, and is shareable with other users. Your local machine can run Windows, Mac, or Linux. For Linux, the following distributions are supported: Ubuntu (18.04, 16.04, and 14.04), Debian 8 and 9, RHEL 7, Fedora 26+, CentOS 7, openSUSE 42.2, and SLES 12.
@@ -28,13 +28,13 @@ Azure Dev Spaces requires minimal local machine setup. Most of your dev space's 
 Start by downloading and running the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). 
 
 > [!IMPORTANT]
-> If you already have the Azure CLI installed, make sure you are using version 2.0.38 or higher.
+> If you already have the Azure CLI installed, make sure you are using version 2.0.43 or higher.
 
-[!INCLUDE[](includes/sign-into-azure.md)]
+[!INCLUDE [](includes/sign-into-azure.md)]
 
-[!INCLUDE[](includes/use-dev-spaces.md)]
+[!INCLUDE [](includes/use-dev-spaces.md)]
 
-[!INCLUDE[](includes/install-vscode-extension.md)]
+[!INCLUDE [](includes/install-vscode-extension.md)]
 
 While you're waiting for the cluster to be create, you can start writing code.
 
@@ -45,9 +45,9 @@ In this section, you'll create a Node.js web app and get it running in a contain
 ### Create a Node.js Web App
 Download code from GitHub by navigating to https://github.com/Azure/dev-spaces and select **Clone or Download** to download the GitHub repository to your local environment. The code for this guide is in `samples/nodejs/getting-started/webfrontend`.
 
-[!INCLUDE[](includes/azds-prep.md)]
+[!INCLUDE [](includes/azds-prep.md)]
 
-[!INCLUDE[](includes/build-run-k8s-cli.md)]
+[!INCLUDE [](includes/build-run-k8s-cli.md)]
 
 ### Update a content file
 Azure Dev Spaces isn't just about getting code running in Kubernetes - it's about enabling you to quickly and iteratively see your code changes take effect in a Kubernetes environment in the cloud.
@@ -101,9 +101,9 @@ But there is an even *faster method* for developing code, which you'll explore i
 
 ## Debug a container in Kubernetes
 
-[!INCLUDE[](includes/debug-intro.md)]
+[!INCLUDE [](includes/debug-intro.md)]
 
-[!INCLUDE[](includes/init-debug-assets-vscode.md)]
+[!INCLUDE [](includes/init-debug-assets-vscode.md)]
 
 ### Select the AZDS debug configuration
 1. To open the Debug view, click on the Debug icon in the **Activity Bar** on the side of VS Code.
@@ -119,7 +119,7 @@ Hit **F5** to debug your code in Kubernetes!
 
 Similar to the `up` command, code is synced to the development environment when you start debugging, and a container is built and deployed to Kubernetes. This time, the debugger is attached to the remote container.
 
-[!INCLUDE[](includes/tip-vscode-status-bar-url.md)]
+[!INCLUDE [](includes/tip-vscode-status-bar-url.md)]
 
 Set a breakpoint in a server-side code file, for example within the `app.get('/api'...` in  `server.js`. Refresh the browser page, or press the 'Say It Again' button, and you should hit the breakpoint and be able to step through code.
 

@@ -48,10 +48,10 @@
     href: user-help-auth-app-overview.md
   - name: Get started
     href: microsoft-authenticator-app-how-to.md
-  - name: Sign in with your phone, not your password
-    href: microsoft-authenticator-app-phone-signin-faq.md
   - name: Backup and recover
     href: microsoft-authenticator-app-backup-and-recovery.md
+  - name: Sign in with your phone
+    href: microsoft-authenticator-app-phone-signin-faq.md
   - name: FAQ
     href: microsoft-authenticator-app-faq.md
 - name: My Apps portal help
@@ -66,7 +66,7 @@
   items:
   - name: Overview
     href: user-help-device-mgmt-overview.md
-  - name: Join your devices
-    href: device-management-azuread-joined-devices-setup.md
-  - name: Register your Windows 10 devices
-    href: device-management-azuread-registered-devices-windows10-setup.md
+  - name: Join your work device
+    href: user-help-join-device-on-network.md
+  - name: Register your personal device for work
+    href: user-help-register-device-on-network.md

@@ -58,7 +58,7 @@ Before Stream Analytics can analyze the fraudulent calls data stream, you should
    ![Create event hub namespace](media/stream-analytics-manage-job/create-ehns.png)
 
 5. When the namespace has finished deploying, go to **All resources** > find "myEventHubNS" in the list of Azure resources > select to open it.  
-6. Next select **+Event Hub** > **Name** the event hub “MyEventHub”. You can use a different name. Use default options on remaining settings, select **Create** and wait for the deployment to succeed.
+6. Next select **+Event Hub** > **Name** the event hub "MyEventHub". You can use a different name. Use default options on remaining settings, select **Create** and wait for the deployment to succeed.
 
    ![Create event hub](media/stream-analytics-manage-job/create-eh.png)
 
@@ -66,7 +66,7 @@ Before Stream Analytics can analyze the fraudulent calls data stream, you should
 
 Before an application can send data to Azure Event Hubs, the event hub must have a policy that allows appropriate access. The access policy produces a connection string that includes authorization information.
 
-1. Navigate to the **Event Hubs** you created in the previous step that is “MyEventHub” > select **Shared access policies** from the event hub pane > select **+Add**.  
+1. Navigate to the **Event Hubs** you created in the previous step that is "MyEventHub" > select **Shared access policies** from the event hub pane > select **+Add**.  
 2. Set the Policy name to **Mypolicy** > and select **Manage** > select **Create**.  
 
    ![Create event hub shared access policy](media/stream-analytics-manage-job/create-ehpolicy.png)
@@ -237,7 +237,7 @@ You can test a query from the query editor and you need sample data to test a qu
 
 2. Select **Now** for job output start time and select **Start**. The job starts in few minutes and you can view the status in the notification bar.  
 
-3. After the job succeeds, navigate to [Powerbi.com](https://powerbi.com/) and sign in with your work or school account. If the Stream Analytics job query outputs results, you see that your dataset is already created. Navigate to the **Datasets** tab, you can view a dataset named “ASAdataset”.  
+3. After the job succeeds, navigate to [Powerbi.com](https://powerbi.com/) and sign in with your work or school account. If the Stream Analytics job query outputs results, you see that your dataset is already created. Navigate to the **Datasets** tab, you can view a dataset named "ASAdataset".  
 
 4. From your workspace, select **+Create**. Create a new dashboard and name it Fraudulent Calls. You will add two tiles to this dashboard, where one tile is used to view the count of fraudulent calls at a given instance and the other tile has a line chart visualization.  
 

@@ -3,7 +3,7 @@ title: "Quickstart: Scale out compute in Azure SQL Data Warehouse - T-SQL | Micr
 description: Scale compute in Azure SQL Data Warehouse using T-SQL and SQL Server Management Studio (SSMS). Scale out compute for better performance, or scale back compute to save costs. 
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.component: manage
@@ -20,7 +20,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Before you begin
 
-Download and install the newest version of [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS).
+Download and install the newest version of [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
  
 ## Create a data warehouse
 
@@ -28,7 +28,7 @@ Use [Quickstart: create and Connect - portal](create-data-warehouse-portal.md) t
 
 ## Connect to the server as server admin
 
-This section uses [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) to establish a connection to your Azure SQL server.
+This section uses [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) to establish a connection to your Azure SQL server.
 
 1. Open SQL Server Management Studio.
 

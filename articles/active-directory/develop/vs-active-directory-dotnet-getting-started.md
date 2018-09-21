@@ -7,11 +7,11 @@ manager: douge
 ms.assetid: 1c8b6a58-5144-4965-a905-625b9ee7b22b
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
-ms.custom: aaddev
+ms.custom: aaddev, vs-azure
 
 ---
 # Getting Started with Azure Active Directory (ASP.NET MVC Projects)

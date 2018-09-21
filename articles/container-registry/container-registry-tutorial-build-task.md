@@ -156,7 +156,7 @@ $ az acr build-task create \
 
 ## Test the build task
 
-You now have a build task that defines your build. To test the build definition, trigger a build manually by executing the [az acr build-task run][az-acr-build-task-run] command:
+You now have a build task that defines your build. To test the build pipeline, trigger a build manually by executing the [az acr build-task run][az-acr-build-task-run] command:
 
 ```azurecli-interactive
 az acr build-task run --registry $ACR_NAME --name buildhelloworld

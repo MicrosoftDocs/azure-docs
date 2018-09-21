@@ -173,7 +173,7 @@ ms.author: sedusch
 [Logo_Linux]:media/virtual-machines-shared-sap-shared/Linux.png
 [Logo_Windows]:media/virtual-machines-shared-sap-shared/Windows.png
 
-[msdn-set-azurermvmaemextension]:https://msdn.microsoft.com/library/azure/mt670598.aspx
+[msdn-set-azurermvmaemextension]:https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmaemextension
 
 [planning-guide]:planning-guide.md (Azure Virtual Machines planning and implementation for SAP)
 [planning-guide-1.2]:planning-guide.md#e55d1e22-c2c8-460b-9897-64622a34fdff (Resources)
@@ -479,7 +479,7 @@ In the Azure portal, enter the following parameters for the template:
   * **Admin username** and **Admin password**: A username and password.
     A new user is created, for signing in to the virtual machine.
   * **New or existing subnet**: Determines whether a new virtual network and subnet are  created or an existing subnet is used. If you already have a virtual network that is connected to your on-premises network, select **Existing**.
-  * **Subnet ID**: The ID of the subnet the virtual machines will connect to. Select the subnet of your virtual private network (VPN) or Azure ExpressRoute virtual network to use to connect the virtual machine to your on-premises network. The ID usually looks like this:
+  * **Subnet ID**: If you want to deploy the VM into an existing VNet where you have a subnet defined the VM should be assigned to, name the ID of that specific subnet. The ID usually looks like this:
   /subscriptions/&lt;subscription id>/resourceGroups/&lt;resource group name>/providers/Microsoft.Network/virtualNetworks/&lt;virtual network name>/subnets/&lt;subnet name>
 
 1. **Terms and conditions**:  
@@ -611,8 +611,7 @@ In the Azure portal, enter the following parameters for the template:
 
     A new user is created, for signing in to the virtual machine.
   * **New or existing subnet**: Determines whether a new virtual network and subnet is created or an existing subnet is used. If you already have a virtual network that is connected to your on-premises network, select **Existing**.
-  * **Subnet ID**: The ID of the subnet to which the virtual machines will connect to. Select the subnet of your VPN or ExpressRoute virtual network to use to connect the virtual machine to your on-premises network. The ID usually looks like this:
-
+  * **Subnet ID**: If you want to deploy the VM into an existing VNet where you have a subnet defined the VM should be assigned to, name the ID of that specific subnet. The ID usually looks like this:
     /subscriptions/&lt;subscription id>/resourceGroups/&lt;resource group name>/providers/Microsoft.Network/virtualNetworks/&lt;virtual network name>/subnets/&lt;subnet name>
 
 1. **Terms and conditions**:  
@@ -694,8 +693,7 @@ In the Azure portal, enter the following parameters for the template:
   * **OS disk VHD URI** (unmanaged disk template only): The URI of the private OS disk, for example, https://&lt;accountname>.blob.core.windows.net/vhds/osdisk.vhd.
   * **OS disk Managed Disk Id** (managed disk template only): The Id of the Managed Disk OS disk, /subscriptions/92d102f7-81a5-4df7-9877-54987ba97dd9/resourceGroups/group/providers/Microsoft.Compute/disks/WIN
   * **New or existing subnet**: Determines whether a new virtual network and subnet are created, or an existing subnet is used. If you already have a virtual network that is connected to your on-premises network, select **Existing**.
-  * **Subnet ID**: The ID of the subnet to which the virtual machines will connect to. Select the subnet of your VPN or Azure ExpressRoute virtual network to use to connect the virtual machine to your on-premises network. The ID usually looks like this:
-
+  * **Subnet ID**: If you want to deploy the VM into an existing VNet where you have a subnet defined the VM should be assigned to, name the ID of that specific subnet. The ID usually looks like this:
     /subscriptions/&lt;subscription id>/resourceGroups/&lt;resource group name>/providers/Microsoft.Network/virtualNetworks/&lt;virtual network name>/subnets/&lt;subnet name>
 
 1. **Terms and conditions**:  

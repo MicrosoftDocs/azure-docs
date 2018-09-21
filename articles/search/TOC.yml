@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What is Azure Search?
+  - name: About Azure Search
     href: search-what-is-azure-search.md
 - name: Quickstarts
   expanded: true
@@ -27,13 +27,13 @@
       href: search-import-data-rest-api.md
     - name: Search
       href: search-query-rest-api.md
-    - name: Test with REST clients
+    - name: Expore using Postman or Fiddler
       href: search-fiddler.md
 - name: Tutorials
   items:
   - name: Use built-in tools
     href: search-get-started-portal.md
-  - name: Cognitive search development
+  - name: Learn cognitive search APIs
     href: cognitive-search-tutorial-blob.md
   - name: Index Azure blobs
     href: search-semi-structured-data.md
@@ -143,12 +143,12 @@
       href: search-synonyms.md
   - name: Indexing data
     items:
-    - name: Push vs. Pull indexing
+    - name: Load data
       href: search-what-is-data-import.md
-    - name: Import wizard (portal)
-      href: search-import-data-portal.md
     - name: Rebuild an index
       href: search-howto-reindex.md
+    - name: Import wizard (portal)
+      href: search-import-data-portal.md
     - name: Index large data sets
       href: search-howto-large-index.md
     - name: Handle concurrent updates
@@ -175,13 +175,13 @@
         href: search-indexer-field-mappings.md
   - name: Searching data
     items:
-    - name: Fundamentals
+    - name: Query types & composition
       href: search-query-overview.md
     - name: Search explorer (portal)
       href: search-explorer.md
-    - name: Examples for simple syntax
+    - name: Simple syntax examples 
       href: search-query-simple-examples.md
-    - name: Examples for full syntax
+    - name: Full syntax examples
       href: search-query-lucene-examples.md
     - name: Query reference
       items:

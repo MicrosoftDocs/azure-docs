@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 07/25/2018
+ms.date: 09/18/2018
 ms.author: sashan
 ms.reviewer: carlrab
 
@@ -24,7 +24,7 @@ The following sections show you how to use the Azure portal to configure the lon
 
 You can configure SQL Database to [retain automated backups](sql-database-long-term-retention.md) for a period longer than the retention period for your service tier. 
 
-1. In the Azure portal, select your SQL server and then click **Manage Backups**. On the **Configure policies** tab, select the database on which you want to set or modify long-term backup retention policies.
+1. In the Azure portal, select your SQL server and then click **Manage Backups**. On the **Configure policies** tab, select the checkbox for the database on which you want to set or modify long-term backup retention policies.
 
    ![manage backups link](./media/sql-database-long-term-retention/ltr-configure-ltr.png)
 
@@ -120,20 +120,20 @@ This example shows how to list the LTR backups within a server.
 # The backups are grouped by the logical database id.
 # Within each group they are ordered by the timestamp, the earliest
 # backup first.  
-$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -LocationName $server.Location 
+$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -Location $server.Location 
 
 # Get the list of LTR backups from the Azure region under 
 # the named server. 
-$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -LocationName $server.Location -ServerName $serverName
+$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -Location $server.Location -ServerName $serverName
 
 # Get the LTR backups for a specific database from the Azure region under the named server 
-$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -LocationName $server.Location -ServerName $serverName -DatabaseName $dbName
+$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -Location $server.Location -ServerName $serverName -DatabaseName $dbName
 
 # List LTR backups only from live databases (you have option to choose All/Live/Deleted)
-$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -LocationName $server.Location -DatabaseState Live
+$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -Location $server.Location -DatabaseState Live
 
 # Only list the latest LTR backup for each database 
-$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -LocationName $server.Location -ServerName $serverName -OnlyLatestPerDatabase
+$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -Location $server.Location -ServerName $serverName -OnlyLatestPerDatabase
 ```
 
 ### Delete LTR backups
