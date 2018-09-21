@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Autoscale a scale set with the Azure CLI 2.0 | Microsoft Docs
-description: Learn how to use the Azure CLI 2.0 to automatically scale a virtual machine scale set as CPU demands increases and decreases
+title: Tutorial - Autoscale a scale set with the Azure CLI | Microsoft Docs
+description: Learn how to use the Azure CLI to automatically scale a virtual machine scale set as CPU demands increases and decreases
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -19,7 +19,7 @@ ms.author: cynthn
 ms.custom: mvc
 
 ---
-# Tutorial: Automatically scale a virtual machine scale set with the Azure CLI 2.0
+# Tutorial: Automatically scale a virtual machine scale set with the Azure CLI
 
 When you create a scale set, you define the number of VM instances that you wish to run. As your application demand changes, you can automatically increase or decrease the number of VM instances. The ability to autoscale lets you keep up with customer demand or respond to application performance changes throughout the lifecycle of your app. In this tutorial you learn how to:
 
@@ -33,7 +33,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.32 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.32 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Create a scale set
 
@@ -212,7 +212,7 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ## Next steps
 
-In this tutorial, you learned how to automatically scale in or out a scale set with the Azure CLI 2.0:
+In this tutorial, you learned how to automatically scale in or out a scale set with the Azure CLI:
 
 > [!div class="checklist"]
 > * Use autoscale with a scale set
@@ -220,7 +220,7 @@ In this tutorial, you learned how to automatically scale in or out a scale set w
 > * Stress-test VM instances and trigger autoscale rules
 > * Autoscale back in as demand is reduced
 
-For more examples of virtual machine scale sets in action, see the following sample Azure CLI 2.0 sample scripts:
+For more examples of virtual machine scale sets in action, see the following sample Azure CLI sample scripts:
 
 > [!div class="nextstepaction"]
-> [Scale set script samples for Azure CLI 2.0](cli-samples.md)
+> [Scale set script samples for Azure CLI](cli-samples.md)
