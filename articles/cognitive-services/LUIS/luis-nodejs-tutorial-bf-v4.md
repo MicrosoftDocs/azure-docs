@@ -350,7 +350,7 @@ Azure Bot service uses the Bot Framework SDK. Learn more about the SDK and bot f
 
 ## Next steps
 
-In this quickstart, you created an Azure bot service, copied the bot secret and .bot file path, downloaded the zip file of the code. You added the prebuilt HomeAutomation domain to the LUIS app created as part of the new Azure bot service, then trained and published the app again. You extracted the code project, created an environment file (`.env`), and set the bot secret and the .bot file path. In the bot.js file, you added code to handle the two new intents. Then you tested the bot in the bot emulator to see the LUIS response for an utterance of one of the new intents. 
+You created an Azure bot service, copied the bot secret and .bot file path, downloaded the zip file of the code. You added the prebuilt HomeAutomation domain to the LUIS app created as part of the new Azure bot service, then trained and published the app again. You extracted the code project, created an environment file (`.env`), and set the bot secret and the .bot file path. In the bot.js file, you added code to handle the two new intents. Then you tested the bot in the bot emulator to see the LUIS response for an utterance of one of the new intents. 
 
 
 > [!div class="nextstepaction"]
