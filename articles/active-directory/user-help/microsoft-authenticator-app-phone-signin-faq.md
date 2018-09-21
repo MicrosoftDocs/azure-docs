@@ -5,7 +5,7 @@ services: active-directory
 author: eross-msft
 manager: mtillman
 
-ms.service: active-directoary
+ms.service: active-directory
 ms.workload: identity
 ms.component: user-help
 ms.topic: conceptual
