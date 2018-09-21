@@ -45,6 +45,7 @@ HTTP
 POST /api/v1.0/roleassignments
 
 | **Name** | **Required** | **Type** | **Description** |
+|---------|---------|---------|---------|
 |roleId	| Yes |	string | The role definition identifier. Role definitions and their identifiers can be found by querying the system API. |
 |objectId | Yes |	string | The object id for the role assignment that must be formatted according to its associated type.
 For the DomainName ObjectIdType, ObjectId must begin with the “@” character. |
@@ -99,6 +100,7 @@ HTTP GET /api/v1/roleassignments?path={path}
 ```
 
 | **Name** | **In** |	**Required** |	**Type** |	**Description** |
+|---------|---------|---------|---------|---------|
 | Path | Path	| True | String |	The full path to the space |
 
 To DELETE a Role Assignment:
@@ -108,4 +110,5 @@ HTTP DELETE /api/v1/roleassignments/{id}
 ```
 
 | **Name** | **In** |	**Required** |	**Type** |	**Description** |
+|---------|---------|---------|---------|---------|
 | Id	| Path	| True |	String |	Role Assignment Id |
