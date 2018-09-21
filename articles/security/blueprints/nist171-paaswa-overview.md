@@ -40,7 +40,7 @@ This solution uses the following Azure services. For more information, see the [
 - Azure Virtual Machines
 	- (1) Management/bastion (Windows Server 2016 Datacenter)
 - Azure Virtual Network
-	- (1) /16 networks
+	- (1) /16 network
 	- (4) /24 networks
 	- (4) Network security groups
 - Azure Application Gateway
