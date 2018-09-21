@@ -13,3 +13,10 @@ ms.author: adgera
 # Azure Digital Twins security best practices
 
 [](https://docs.microsoft.com/en-us/azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-hub/rc/rc)
+
+## Next steps
+
+Read more about Azure Digital Twins security:
+
+> [!div class="nextstepaction"]
+> [Role-Based Access Control] (./security-role-based-access-control.md)

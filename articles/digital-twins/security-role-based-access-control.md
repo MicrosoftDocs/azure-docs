@@ -85,5 +85,7 @@ For example, a user is given a role assignment with role DeviceInstaller for the
 
 ## Next steps
 
+Read more about Azure Digital Twins security:
+
 > [!div class="nextstepaction"]
-> [Creating a role assignment] (./concepts-create-manage-role-assignments.md)
+> [Create and manage role assignments] (./security-create-manage-role-assignments.md)

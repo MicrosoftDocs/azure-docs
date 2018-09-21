@@ -45,3 +45,10 @@ For detailed instructions on how to orchestrate the on-behalf-of flow visit [thi
     1. Close Postman and reopen it and try again.
     1. Delete the secret key in your App, recreate a new one and renter the value in the above form.
 1. Scroll down and click Use token
+
+## Next steps
+
+Read more about Azure Digital Twins security:
+
+> [!div class="nextstepaction"]
+> [Device connectivity and authentication] (./security-device-token.md)

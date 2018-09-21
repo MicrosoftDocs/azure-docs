@@ -49,3 +49,10 @@ Getting a valid SAS Token involves the following steps:
 1. Create a Key
 1. Generate a SAS Token using the known Hardware ID of the device
 1. Provision the SAS Token and Topology API URL to the device
+
+## Next steps
+
+Read more about Azure Digital Twins security:
+
+> [!div class="nextstepaction"]
+> [Creating a role assignment] (./concepts-create-manage-role-assignments.md)
