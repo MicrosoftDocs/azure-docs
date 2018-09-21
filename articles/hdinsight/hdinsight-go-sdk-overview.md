@@ -26,7 +26,7 @@ The HDInsight Go SDK provides classes and functions that allow you to manage you
 
 ## SDK Installation
 
-From your GOPATH location, run `go get -u github.com/Azure/azure-sdk-for-go/tree/master/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight`
+From your GOPATH location, run `go get github.com/Azure/azure-sdk-for-go/tree/master/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight`
 
 ## Authentication
 
