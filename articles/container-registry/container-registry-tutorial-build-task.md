@@ -244,34 +244,6 @@ The following dependencies were found:
 Run ID: da2 was successful after 27s
 ```
 
-## View build status
-
-You may occasionally find it useful to view the status of an ongoing task you've not triggered manually. For example, while troubleshooting tasks triggered by source code commits. In this section, you trigger a manual task, but suppress the default behavior of streaming the task log to your console. Then, you use the `az acr task logs` command to monitor the ongoing task.
-
-First, trigger a task manually as you've done previously, but specify the `--no-logs` argument to suppress logging to your console:
-
-```azurecli-interactive
-az acr task run --registry $ACR_NAME --name taskhelloworld --no-logs
-```
-
-Next, use the `az task logs` command to view the log of the currently running task:
-
-```azurecli-interactive
-az acr task logs --registry $ACR_NAME
-```
-
-The log for the currently running task is streamed to your console, and should appear similar to the following output (shown here truncated):
-
-```console
-$ az acr task logs --registry $ACR_NAME
-Showing logs of the last created run.
-Run ID: da3
-
-[...]
-
-Run ID: da3 was successful after 33s
-```
-
 ## Trigger a build with a commit
 
 Now that you've tested the task by manually running it, trigger it automatically with a source code change.
@@ -354,6 +326,7 @@ In this tutorial, you learned how to use a task to automatically trigger contain
 [az-acr-task-create]: /cli/azure/acr#az-acr-task-create
 [az-acr-task-run]: /cli/azure/acr#az-acr-task-run
 [az-acr-task-list-runs]: /cli/azure/acr#az-acr-task-list-runs
+[az-login]: /cli/azure/reference-index#az-login
 
 <!-- IMAGES -->
 [build-task-01-new-token]: ./media/container-registry-tutorial-build-tasks/build-task-01-new-token.png

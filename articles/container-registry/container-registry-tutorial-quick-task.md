@@ -285,7 +285,7 @@ Start streaming logs:
 Server running at http://localhost:80
 ```
 
-When `Server running at http://localhost:80` appears, navigate to the container's FQDN in your browser to see the running application. The FQDN should have been displayed in the output of the `az container create` command you executed in the previous.
+When `Server running at http://localhost:80` appears, navigate to the container's FQDN in your browser to see the running application. The FQDN should have been displayed in the output of the `az container create` command you executed in the previous section.
 
 ![Screenshot of sample application rendered in browser][quick-build-02-browser]
 

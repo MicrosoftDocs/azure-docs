@@ -18,6 +18,9 @@ With Azure Container Registry, you have a private, secure Helm chart repository,
 
 This article shows you how to use a Helm chart repository stored in Azure Container Registry.
 
+> [!IMPORTANT]
+> This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
+
 ## Before you begin
 
 To complete the steps in this article, the following pre-requisites must be met:
@@ -220,6 +223,7 @@ For more information on how to use and manage Azure Container Registry, see the 
 [helm-install]: https://docs.helm.sh/using_helm/#installing-helm
 [develop-helm-charts]: https://docs.helm.sh/developing_charts/
 [semver2]: https://semver.org/
+[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 
 <!-- LINKS - internal -->
 [azure-cli-install]: /cli/azure/install-azure-cli
