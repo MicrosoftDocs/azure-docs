@@ -1,22 +1,24 @@
 ﻿---
-title: Overview of Azure Cost Management | Microsoft Docs
-description: Azure Cost Management is a multi-cloud cost management solution that helps you use Azure and other cloud resources.
+title: Overview of Cloudyn in Azure | Microsoft Docs
+description: Cloudyn is a multi-cloud cost management solution that helps you use Azure and other cloud resources.
 services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 09/18/2018
 ms.topic: overview
 ms.service: cost-management
 manager: dougeby
-ms.custom: 
+ms.custom:
 ---
 
-# What is Azure Cost Management?
+# What is Cloudyn?
 
-Azure Cost Management licensed by Cloudyn, a Microsoft subsidiary, allows you to track cloud usage and expenditures for your Azure resources and other cloud providers including AWS and Google. Easy-to-understand dashboard reports help with cost allocation and showbacks/chargebacks as well. Cost Management helps optimize your cloud spending by identifying underutilized resources that you can then manage and adjust.
+Cloudyn, a Microsoft subsidiary, allows you to track cloud usage and expenditures for your Azure resources and other cloud providers including AWS and Google. Easy-to-understand dashboard reports help with cost allocation and showbacks/chargebacks as well. Cloudyn helps optimize your cloud spending by identifying underutilized resources that you can then manage and adjust.
 
-To watch an introductory video, see [Introduction to Azure Cost Management](https://azure.microsoft.com/resources/videos/azure-cost-management-overview-and-demo).
+To watch an introductory video, see [Introduction to Azure Cloudyn](https://azure.microsoft.com/resources/videos/azure-cost-management-overview-and-demo).
+
+Azure Cost Management offers similar functionality to Cloudyn. Azure Cost Management is a native Azure cost management solution. It helps you analyze costs, create and manage budgets, export data, and review and act on optimization recommendations to save money. For more information, see [Azure Cost Management](overview-cost-mgt.md).
 
 ## Monitor usage and spending
 
@@ -24,12 +26,9 @@ Monitoring your usage and spending is critically important for cloud infrastruct
 
 Reports help you monitor spending to analyze and track cloud usage, costs, and trends. Using Over Time reports, you can detect anomalies that differ from normal trends. Inefficiencies in your cloud deployment are visible in optimization reports. You can also notice inefficiencies in cost analysis reports.
 
-![Cost Over Time report](media\overview\cost-over-time-rpt.png)
-
-
 ## Manage costs
 
-Historical data can help manage costs when you analyze usage and costs over time to identify trends. Trends are then used to forecast future spending. Cost Management also includes useful projected cost reports.
+Historical data can help manage costs when you analyze usage and costs over time to identify trends. Trends are then used to forecast future spending. Cloudyn also includes useful projected cost reports.
 
 Cost allocation manages costs by analyzing your costs based on your tagging policy. You can use tags on your custom accounts, resources, and entities to refine cost allocation. Category Manager organizes your tags to help provide additional governance. And, you use cost allocation for showback/chargeback to show resource utilization and associated costs to influence consumption behaviors or charge tenant customers.
 
@@ -39,14 +38,12 @@ Alerting helps manage costs by notifying you automatically when unusual spending
 
 ## Improve efficiency
 
-You can determine optimal VM usage and identify idle VMs or remove idle VMs and unattached disks with Cost Management. Using information in Sizing Optimization and Inefficiency reports, you can create a plan to down-size or remove idle VMs. However, optimization reports are not currently supported for CSP partner accounts or subscriptions.
-
-![sizing recommendations](.\media\overview\sizing.png)
+You can determine optimal VM usage and identify idle VMs or remove idle VMs and unattached disks with Cloudyn. Using information in Sizing Optimization and Inefficiency reports, you can create a plan to down-size or remove idle VMs. However, optimization reports are not currently supported for CSP partner accounts or subscriptions.
 
 If you provisioned AWS Reserved Instances, you can improve your reserved instances utilization with Optimization reports where you can view buying recommendations, modify unused reservations, and plan provisioning.
 
 ## Next steps
 
-Now that you’re familiar with Cost Management, the next step is to register your cloud environment and start exploring your data.
+Now that you’re familiar with Cloudyn, the next step is to register your cloud environment and start exploring your data.
 
 - [Register an individual Azure subscription](quick-register-azure-sub.md)
