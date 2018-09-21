@@ -8,7 +8,7 @@ author: wolfma61
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 09/24/2018
 ms.author: wolfma
 ---
 
@@ -19,7 +19,7 @@ ms.author: wolfma
 In this article, you create a C# Universal Windows Platform (UWP) application using the Cognitive Services [Speech SDK](speech-sdk.md) to transcribe speech to text in real time from your device's microphone. The application is built with the [Speech SDK NuGet Package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2017 (any edition).
 
 > [!NOTE]
-> The Universal Windows Platform lets you develop apps that run on any device that supports Windows 10, including PCs, Xbox, Surface Hub, and other devices. Apps using the Speech SDK do not yet pass the Windows App Certification Kit (WACK). It is possible to sideload your app, but it may not currently be submitted to the Windows Store.
+> The Universal Windows Platform lets you develop apps that run on any device that supports Windows 10, including PCs, Xbox, Surface Hub, and other devices.
 
 ## Prerequisites
 
@@ -62,7 +62,11 @@ You need a Speech service subscription key to complete this Quickstart. You can 
 
     ![Accept the license](media/sdk/qs-csharp-uwp-06-nuget-license.png "Accept the license")
 
-    After the package is installed, a confirmation appears in the Package Manager console.
+1. The following output line appears in the Package Manager console.
+
+   ```text
+   Successfully installed 'Microsoft.CognitiveServices.Speech 1.0.0' to helloworld
+   ```
 
 1. Since the application uses the microphone for speech input, add the **Microphone** capability to the project.
 

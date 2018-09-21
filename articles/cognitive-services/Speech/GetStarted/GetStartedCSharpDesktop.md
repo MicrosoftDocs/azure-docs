@@ -10,6 +10,7 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
+ROBOTS: NOINDEX
 ---
 # Quickstart: Use the Bing Speech Recognition API in C&#35; for .NET on Windows
 
