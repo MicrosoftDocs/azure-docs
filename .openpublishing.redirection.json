@@ -6,6 +6,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/batch-ai/quickstart-cli.md",
+            "redirect_url": "/azure/batch-ai/quickstart-tensorflow-training-cli",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/batch/batch-dotnet-get-started.md",
             "redirect_url": "/azure/batch/quick-run-dotnet",
             "redirect_document_id": true
