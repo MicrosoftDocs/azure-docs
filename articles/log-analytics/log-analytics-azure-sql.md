@@ -55,7 +55,8 @@ Perform the following steps to add the Azure SQL Analytics solution to your Azur
 3. Select **Azure SQL Analytics (Preview)** from the list
 4. In the **Azure SQL Analytics (Preview)** area, click **Create**.  
     ![Create](./media/log-analytics-azure-sql/portal-create.png)
-5. In the **Create new solution** area, create new, or select an existing workspace that you want to add the solution to, and then click **Create**.  
+5. In the **Create new solution** area, create new, or select an existing workspace that you want to add the solution to, and then click **Create**.
+
     ![add to workspace](./media/log-analytics-azure-sql/add-to-workspace.png)
 
 ### Configure Azure SQL databases and elastic pools to stream diagnostics telemetry
