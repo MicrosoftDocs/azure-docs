@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/19/2018
+ms.date: 09/21/2018
 ms.author: jingwang
 
 ---
@@ -42,13 +42,16 @@ To copy data from Office 365 into Azure, you need to complete the following prer
     - Tenant ID.  For instructions, see [Get tenant ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
     - Application ID and Application key.  For instructions, see [Get application ID and authentication key](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key).
 - Add the user identity who will be making the data access request as the owner of the Azure AD web application (from the Azure AD web application > Settings > Owners > Add owner).
-- _(Recommended)_ [Assign Azure policies](../azure-policy/assign-policy-definition.md) for data encryption to your data stores. Policy compliance information will be shown to the data approvers as part of the data request. Once policy assignment is made, for every copy activity run, ADF will check to make sure the policy assignment is enforced. Refer [here](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/Capabilities#policies) for a complete list of supported policies.
 
 ## Approving new data access requests
 
 If this is the first time you are requesting data for this context (a combination of which data table is being access, which destination account is the data being loaded into, and which user identity is making the data access request), you will see the copy activity status as "In Progress", and only when you click into ["Details" link under Actions](copy-activity-overview.md#monitoring) will you see the status as “RequestingConsent”.  A member of the data access approver group needs to approve the request in the Privileged Access Management before the data extraction can proceed.
 
 Refer [here](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/Approving-a-data-access-request) on how the approver can approve the data access request, and refer [here](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/On-boarding) for an explanation on the overall integration with Privileged Access Management, including how to set up the data access approver group.
+
+## Policy validation
+
+If ADF is created as part of a managed app and Azure policies assignments are made on resources within the management resource group, then for every copy activity run, ADF will check to make sure the policy assignments are enforced. Refer [here](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/Capabilities#policies) for a list of supported policies.
 
 ## Getting started
 
