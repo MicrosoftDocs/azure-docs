@@ -10,8 +10,7 @@ editor: ruyakubu
 ms.assetid:
 ms.author: ruyakubu
 ms.date: 09/13/2018
-ms.devlang: 
-ms.service: Cloud Foundry
+ms.devlangms.service: Cloud Foundry
 ms.tgt_pltfrm: multiple
 ms.topic: article
 ms.workload: web
@@ -19,7 +18,7 @@ ms.workload: web
 
 # Provisioning Pivotal Cloud Foundry on Azure
 
-This tutorial provides quick steps on creating and generated parameters needed to provision a Pivotal Cloud Foundry PCF cluster on Azure.  To Pivotal Cloud Foundry can be found by performing a search on Azure [MarketPlace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/pivotal.pivotal-cloud-foundry)
+This tutorial provides quick steps on creating and generated parameters needed to provision a Pivotal Cloud Foundry PCF cluster on Azure.  The Pivotal Cloud Foundry solution can be found by performing a search on Azure [MarketPlace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/pivotal.pivotal-cloud-foundry)
 
 <img src="media/deploy/pcf-marketplace1.png"> 
 
@@ -32,11 +31,11 @@ ssh-keygen -t rsa -b 2048
 ```
 - Click here to see [instructions]( https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ssh-from-windows) for your environment
 
-## Create Service Principle
+## Create Service Principal
 
 > [!NOTE]
 >
-> Creating a service principle requires an owner account permission
+> Creating a service principal requires an owner account permission
 
 1. Log into your azure
 
@@ -52,15 +51,21 @@ Copy the “id” value as your **subscription ID** and the **tenantId** value t
 
 3. Create an AAD application for your PCF and specify a unique alpha-numeric password.  Store the password as your **clientSecret** to be used later.
 
-`az ad app create --display-name "Svc Prinicipal for OpsManager" --password {enter-your-password} --homepage "http://MyOpsMgr" --identifier-uris http://MyOPsMgr`
+`az ad app create --display-name "Svc Prinicipal for OpsManager" --password {enter-your-password} --homepage "{enter-your-homepage}" --identifier-uris {enter-your-homepage}`
 
 The copy “appId” value in the output as your **ClientID** to be used later.
 
-4. Create a service principle with your new “appId”
+
+> [!NOTE]
+>
+> Choose your own application homepage and identifier URI.  e.g. http://www.contoso.com
+
+
+4. Create a service principal with your new “appId”
 
 `az ad sp create --id {appId}`
 
-5. Set the permission role of your service principle as a **Contributor**.
+5. Set the permission role of your service principal as a **Contributor**.
 
 `az role assignment create --assignee “http://MyOPsMgr” --role “Contributor” `
 
@@ -89,7 +94,7 @@ Or you can also use…
 
 1. Register or log into your [Pivotal Network](https://network.pivotal.io) account
 2. Click on your profile name on the top upper right-hand side of the page, the select **Edit Profile”
-3. Scroll to the bottom of the page and copy the **LEGENCY API TOKEN** value.  This is your **Pivotal Network Token** value that will be used later.
+3. Scroll to the bottom of the page and copy the **LEGACY API TOKEN** value.  This is your **Pivotal Network Token** value that will be used later.
 
 ## Provision your PCF cluster
 1. Now you have all the parameters needed to provision your [Pivotal Cloud Foundry on Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/pivotal.pivotal-cloud-foundry) cluster
