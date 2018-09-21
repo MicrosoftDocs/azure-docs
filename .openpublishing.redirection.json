@@ -29703,6 +29703,11 @@
         {    "source_path": "articles/billing/billing-set-up-alerts.md",
             "redirect_url": "/azure/billing/billing-getting-started",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/web-sites-java-add-app.md",
+            "redirect_url": "/azure/app-service/app-service-web-get-started-java",
+            "redirect_document_id" : false
         }
     ]
 }
