@@ -223,16 +223,16 @@ The *host.json* file configures how much logging a function app sends to Applica
 ```
 
 #### Functions Version 2 
+Functions v2 now uses the [.NET Core logging filter hierarchy](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering). 
 ```json
 {
   "logging": {
-    "categoryFilter": {
-      "defaultLevel": "Information",
-      "categoryLevels": {
-        "Host.Results": "Error",
-        "Function": "Error",
-        "Host.Aggregator": "Trace"
-      }
+    "fileLoggingMode": "always",
+    "logLevel": {
+      "default": "Information",
+      "Host.Results": "Error",
+      "Function": "Error",
+      "Host.Aggregator": "Trace"
     }
   }
 }
@@ -267,14 +267,13 @@ If *host.json* includes multiple categories that start with the same string, the
 #### Functions Version 2 
 ```json
 {
-  "logger": {
-    "categoryFilter": {
-      "defaultLevel": "Information",
-      "categoryLevels": {
-        "Host": "Error",
-        "Function": "Error",
-        "Host.Aggregator": "Information"
-      }
+  "logging": {
+    "fileLoggingMode": "always",
+    "logLevel": {
+      "default": "Information",
+      "Host": "Error",
+      "Function": "Error",
+      "Host.Aggregator": "Information"
     }
   }
 }
