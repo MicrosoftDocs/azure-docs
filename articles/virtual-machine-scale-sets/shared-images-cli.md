@@ -21,13 +21,14 @@ ms.custom:
 ---
 # Create and use shared images for virtual machine scale sets with the Azure CLI 2.0
 
-When you create a scale set, you specify an image to be used when the VM instances are deployed. To reduce the number of tasks after VM instances are deployed, you can use a custom VM image. This custom VM image includes any required application installs or configurations. Any VM instances created in the scale set use the custom VM image and are ready to serve your application traffic. In this article you learn how to:
+When you create a scale set, you specify an image to be used when the VM instances are deployed. The Shared Image Gallery service greatly simplifies custom image sharing across your organization. Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap configurations such as preloading applications, application configurations, and other OS configurations. The Shared Image Gallery lets you share your custom VM images with others in your organization, within or across regions, within an AAD tenant. Choose which images you want to share, which regions you want to make them available in, and who you want to share them with. You can create multiple galleries so that you can logically group shared images. The gallery is a top-level resource that provides full role-based access control (RBAC). Images can be versioned, and you can choose to replicate each image version to a different set of Azure regions. The gallery only works with Managed Images. In this article you learn how to:
 
 > [!div class="checklist"]
-> * Create and customize a VM
-> * Deprovision and generalize the VM
-> * Create a custom VM image
-> * Deploy a scale set that uses the custom VM image
+> * Create a shared image gallery
+> * Create a shared image definition
+> * Create a shared image version
+> * Create a VM from a shared image
+> * Delete a resources
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 

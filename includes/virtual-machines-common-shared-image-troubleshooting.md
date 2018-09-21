@@ -35,7 +35,7 @@ Possible causes:
 
 Allowed characters for image definition are uppercase or lowercase letters, digits, dots, dashes and periods. Change the image definition name and try again.
 
-*The mandatory properties for creating an image definition are not populated. *
+*The mandatory properties for creating an image definition are not populated.*
 
 The properties such as name, publisher, offer, sku, and OS type are mandatory. Verify if all the properties are being passed.
 

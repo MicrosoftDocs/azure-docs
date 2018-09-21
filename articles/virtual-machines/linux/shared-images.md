@@ -28,10 +28,9 @@ The Shared Image Gallery greatly simplifies custom image sharing across your org
 In this article, you create your own gallery and custom images of an Azure virtual machine. You learn how to:
 
 > [!div class="checklist"]
-> * Deprovision and generalize VMs
-> * Create a managed image
-> * Create an image gallery
-> * Create a shared image
+> * Create a shared image gallery
+> * Create a shared image definition
+> * Create a shared image version
 > * Create a VM from a shared image
 > * Delete a resources
 

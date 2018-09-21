@@ -113,8 +113,9 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
  1.	Open the [Azure portal](https://portal.azure.com).
  1.	Go to **All Resources**.
  1.	Select all the subscriptions under which you’d like to list all the resources.
- 1.	Look for resources of type “Private gallery”.
+ 1.	Look for resources of type **Private gallery**.
  
+ To see the image definitions and image versions, you should also select **Show hidden types**.
  
  To list all the shared image gallery resources across subscriptions that you have permissions to, use the following command in the Azure CLI:
 
