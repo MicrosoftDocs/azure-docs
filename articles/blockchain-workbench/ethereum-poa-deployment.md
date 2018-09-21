@@ -175,7 +175,7 @@ to start with the public IP model first.
 
 Each consortium member deployment includes:
 
--   Virtual M Scale Sets (VMSS) for running the PoA validators
+-   Virtual Machines for running the PoA validators
 
 -   Azure Load Balancer for distributing RPC, peering, and Governance
     DApp requests
@@ -296,7 +296,7 @@ Here's an example of a multi-party deployment flow:
 6.  *Member A* and *Member B* both vote *Member C* as an admin
 
 This process requires an Azure subscription that can support deploying
-several virtual machines scale sets and managed disks. If necessary,
+several virtual machines and managed disks. If necessary,
 [create a free Azure account](https://azure.microsoft.com/free/)
 to begin.
 
@@ -618,7 +618,7 @@ ParityLog_CL
 ### SSH access
 
 For security reasons, the SSH port access is denied by a network group
-security rule by default. To access the virtual machine scale set instances in the PoA
+security rule by default. To access the virtual machine instances in the PoA
 network, you will need to change this rule to \"Allow\"
 
 1.  Start in the Overview section of the deployed resource group from
@@ -626,7 +626,7 @@ network, you will need to change this rule to \"Allow\"
 
     ![ssh overview](./media/ethereum-poa-deployment-guide/ssh-overview.png)
 
-2.  Select the Network Security Group
+2.  Select the Network Security Group for the region of the VM that you are wanting to access
 
     ![ssh nsg](./media/ethereum-poa-deployment-guide/ssh-nsg.png)
 
@@ -644,7 +644,7 @@ You can now remotely connect to the virtual machines for the validator
 nodes via SSH with your provided admin username and password/SSH key.
 The SSH command to run to access the first validator node is listed in
 the template deployment output parameter as,
-'SSH\_TO\_FIRST\_VL\_NODE\_REGION1' (for the sample deployment: ssh - p
+'SSH\_TO\_FIRST\_VL\_NODE\_REGION1' (for the sample deployment: ssh -p
 4000 poaadmin\@leader4vb.eastus.cloudapp.azure.com). To get to
 additional transaction nodes, increment the port number by one (For example, the
 first transaction node is on port 4000).
@@ -685,7 +685,7 @@ Search for and select \"Traffic Manager profile\" after clicking the
 ![search for azure traffic manager](./media/ethereum-poa-deployment-guide/traffic-manager-search.png)
 
 Give the profile a unique name and select the Resource Group that was
-created during the PoA deployment.
+created during the PoA deployment. Click the "Create" button to deploy.
 
 ![create traffic manager](./media/ethereum-poa-deployment-guide/traffic-manager-create.png)
 
@@ -694,7 +694,7 @@ DNS name to access the traffic manager can be found in the Overview tab
 
 ![Locate traffic manager DNS](./media/ethereum-poa-deployment-guide/traffic-manager-dns.png)
 
-Select the Endpoints tab and click the Add button. Then change the
+Select the Endpoints tab and click the Add button. Give the endpoint a unique name. Change the
 Target resource type to Public IP address. Then select the public IP
 address of the first region\'s load balancer.
 
