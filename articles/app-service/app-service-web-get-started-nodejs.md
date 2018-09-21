@@ -3,7 +3,7 @@ title: Create a Node.js web app in Azure | Microsoft Docs
 description: Deploy your first Node.js Hello World in Azure App Service Web Apps in minutes.
 services: app-service\web
 documentationcenter: ''
-author: cephalin
+author: msangapu
 manager: jeconnoc
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 09/18/2018
-ms.author: cephalin;msangapu
+ms.author: msangapu;cephalin
 ms.custom: mvc, devcenter
 ---
 # Create a Node.js web app in Azure
@@ -74,13 +74,13 @@ In your terminal window, press **Ctrl+C** to exit the web server.
 
 In the Cloud Shell, create a web app in the `myAppServicePlan` App Service plan with the [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) command. 
 
-In the following example, replace `<app_name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`). The runtime is set to `NODE|6.9`. To see all supported runtimes, run [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes). 
+In the following example, replace `<app_name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`). The runtime is set to `NODE|8.11`. To see all supported runtimes, run [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes). 
 
 ```azurecli-interactive
 # Bash
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "NODE|6.9"
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "NODE|8.11"
 # PowerShell
-az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "NODE|6.9"
+az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "NODE|8.11"
 ```
 
 When the web app has been created, the Azure CLI shows output similar to the following example:
