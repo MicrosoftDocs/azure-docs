@@ -22,6 +22,7 @@ We'll walk through the following advanced queries:
 > [!div class="checklist"]
 > - [Find virtual machine scale sets that do not have disk encryption or the encryption is not enabled](#vmss-not-encrypted)
 > - [List all tag names](#list-all-tags)
+> - [Virtual machines matched by regex](#vm-regex)
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
 
@@ -70,6 +71,36 @@ az graph query -q "project tags | summarize buildschema(tags)"
 
 ```azurepowershell-interactive
 Search-AzureRmGraph -Query "project tags | summarize buildschema(tags)"
+```
+
+## <a name="vm-regex"></a>Virtual machines matched by regex
+
+This query looks for virtual machines that match a [regular expression](/dotnet/standard/base-types/regular-expression-language-quick-reference) (known as _regex_).
+The **matches regex @** allows us to define the regex to match, which is **^Contoso(.*)[0-9]+$**. That regex definition is explained as:
+
+- `^` - Match must start at the beginning of the string.
+- `Contoso` - The core string we are matching for (case-sensitive).
+- `(.*)` - A sub-expression match:
+  - `.` - Matches any single character (except a new line).
+  - `*` - Matches previous element zero or more times.
+- `[0-9]` - Character group match for numbers 0 through 9.
+- `+` - Matches previous element one or more times.
+- `$` - Match of the previous element must occur at the end of the string.
+
+After matching by name, the query projects the name and orders by name ascending.
+
+```Query
+where type =~ 'microsoft.compute/virtualmachines' and name matches regex @'^Contoso(.*)[0-9]+$'
+| project name
+| order by name asc
+```
+
+```azurecli-interactive
+az graph query -q "where type =~ 'microsoft.compute/virtualmachines' and name matches regex @'^Contoso(.*)[0-9]+$' | project name | order by name asc"
+```
+
+```azurepowershell-interactive
+Search-AzureRmGraph -Query "where type =~ 'microsoft.compute/virtualmachines' and name matches regex @'^Contoso(.*)[0-9]+$' | project name | order by name asc"
 ```
 
 ## Next steps
