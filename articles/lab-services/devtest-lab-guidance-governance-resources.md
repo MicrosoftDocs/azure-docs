@@ -22,7 +22,7 @@ This article addresses the alignment and management of resources for DevTest Lab
 ## Align within an Azure subscription 
 
 ### Question
-How should DevTest Labs resources be aligned within an Azure subscription?
+How do I align DevTest Labs resources within an Azure subscription?
 
 ### Answer
 Before an organization begins to use Azure for general application development, IT planners should first review how to introduce the capability as part of their overall portfolio of services. Areas for review should address the following concerns:
@@ -40,14 +40,14 @@ The **second recommended practice** is to enable the DevTest subscription within
 
 This model provides an organization the flexibility to deploy Azure DevTest Labs at scale. An organization can support hundreds of labs for various business units with 100 to 1000 virtual machines running in parallel. It promotes the notion of a centralized enterprise lab solution that can share the same principles of configuration management and security controls.
 
-This model also ensures that the organization does not exhaust their resource limits associated with their Azure subscription. For details about subscription and service limits, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md). The DevTest Labs provisioning process can consume large number of resource groups. You can request for limits to be increased through a support request in the Azure DevTest subscription. The resources within the production subscription are not affected as the development subscription grows in use. For additional guidance on scaling DevTest Labs, see [Scale quotas and limits in DevTest Labs](devtest-lab-scale-lab.md).
+This model also ensures that the organization does not exhaust their resource limits associated with their Azure subscription. For details about subscription and service limits, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md). The DevTest Labs provisioning process can consume large number of resource groups. You can request for limits to be increased through a support request in the Azure DevTest subscription. The resources within the production subscription are not affected as the development subscription grows in use. For more information on scaling DevTest Labs, see [Scale quotas and limits in DevTest Labs](devtest-lab-scale-lab.md).
 
 A common subscription level limit that needs to be accounted for is how the network IP range assignments are allocated to support both production and development subscriptions. These assignments should account for growth over time (assuming on-premises connectivity or another networking topology that requires the enterprise to manage their networking stack instead of defaulting to Azure’s implementation). The recommended practice is to have a few virtual networks that have a large IP address prefix assigned and divided with many large subnets rather than to have multiple virtual networks with small subnets. For example, with 10 subscriptions, you can define 10 virtual networks (one for each subscription). All labs that don’t require isolation can share the same subnet on the subscription’s vnet.
 
 ## Maintain naming conventions
 
 ### Question
-How to maintain a naming convention across my DevTest Labs environment?
+How do I maintain a naming convention across my DevTest Labs environment?
 
 ### Answer
 You may want to extend current enterprise naming conventions to Azure operations and make them consistent across the DevTest Labs environment.
@@ -57,14 +57,14 @@ When deploying DevTest Labs, we recommend that you have specific starting polici
 ## Number of users per lab and labs per organization
 
 ### Question 
-How to determine the ratio of users per lab and the overall number of labs needed across an organization?
+How do I determine the ratio of users per lab and the overall number of labs needed across an organization?
 
 ### Answer
-We recommend that business units and development groups that are associated with the same development project should be associated with the same lab. It allows for the same types of policies, images, and shutdown policies to be applied for both groups. 
+We recommend that business units and development groups that are associated with the same development project are associated with the same lab. It allows for same types of policies, images, and shutdown policies to be applied to both groups. 
 
 You may also need to consider geographic boundaries. For example, developers in the north east United States (US) may use a lab provisioned in East US2. And, developers in Dallas, Texas, and Denver, Colorado may be directed to use a resource in US South Central. If there is a collaborative effort with an external third party, they could be assigned to a lab that is not used by internal developers. 
 
-Another option recommended practice for consideration may be to use a project per lab with a specific project within Visual Studio Team Services team project and further apply security trimming through a specified Azure Active Directory Group, which allows access to both set of resources. The virtual network assigned to the lab can be another boundary to consolidate users.
+You may also use a lab for a specific project within Visual Studio Team Services team project. Then, you apply security through a specified Azure Active Directory group, which allows access to both set of resources. The virtual network assigned to the lab can be another boundary to consolidate users.
 
 ## Deletion of resources
 
@@ -72,7 +72,7 @@ Another option recommended practice for consideration may be to use a project pe
 How can we prevent the deletion of resources within a lab?
 
 ### Answer
-The recommended practice to avoid deletion or changing of the policies applied at the lab level is to set proper permissions. All developers should be placed within the **DevTest Labs Users** group. The lead developer or the infrastructure lead should be the **DevTest Labs Owner**. A recommended practice is to have only two lab owners. This policy extends towards the code repository to avoid corruption. Lab uses have rights to use resources but cannot update lab policies. See the following article that lists the roles and rights each built-in group has within a lab: [Add owners and users in Azure DevTest Labs](devtest-lab-add-devtest-user.md).
+We recommend that you set proper permissions at the lab level so that only authorized users can delete resources or change lab policies. Developers should be placed within the **DevTest Labs Users** group. The lead developer or the infrastructure lead should be the **DevTest Labs Owner**. We recommend that you have only two lab owners. This policy extends towards the code repository to avoid corruption. Lab uses have rights to use resources but cannot update lab policies. See the following article that lists the roles and rights that each built-in group has within a lab: [Add owners and users in Azure DevTest Labs](devtest-lab-add-devtest-user.md).
 
 ## Move lab to another resource group 
 
