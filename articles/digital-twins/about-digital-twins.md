@@ -26,7 +26,7 @@ From **Ontology's** custom defined models to device **Telemetry**, many services
 
 ### Object Ontology
 
-A rich [Ontology](../concepts-objectmodel-spatialgraph.md) of customized object models can be defined to categorize IoT assets and speed along development.
+A rich [Ontology](./concepts-objectmodel-spatialgraph.md) of customized object models can be defined to categorize IoT assets and speed along development.
 
 These models simplify the representation of the resources an IoT app will use. For example, customers may specify a solution tailored to fit their current needs: smart spaces, buildings, energy grids, factories, etc. Those models can then be used to interact with an API, represent data, or configure your app.
 

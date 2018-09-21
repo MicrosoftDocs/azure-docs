@@ -1,5 +1,5 @@
 ---
-title: Concepts: Understanding Azure Digital Twins Data Processing, User-defined functions, and Computation | Microsoft Docs
+title: Understanding Azure Digital Twins Data Processing, User-defined functions, and Computation | Microsoft Docs
 description: Using Azure Digital Twins user-defined functions for data processing and computation
 author: adamgerard
 manager: timlt
