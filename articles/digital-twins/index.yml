@@ -30,15 +30,15 @@ sections:
     className: spaced noBullet
     items:
     - html: <a href="/azure/digital-twins/quickstart-view-occupancy-dotnet">C# code sample</a>
-- title: Reference
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Command-Line
-      html: <p><a href="/powershell/resourcemanager">Azure PowerShell</a></p>
-    - title: Languages
-      html: <p><a href="/dotnet/api">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.network">Java</a></p>
-    - title: REST
-      html: <p><a href="https://docs.microsoft.com/rest/api/firewall/">Compute REST API Reference</a></p>
+# - title: Reference
+#  items:
+#  - type: list
+#    style: cards
+#    className: cardsD
+#    items:
+#    - title: Command-Line
+#      html: <p><a href="/powershell/resourcemanager">Azure PowerShell</a></p>
+#    - title: Languages
+#      html: <p><a href="/dotnet/api">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.network">Java</a></p>
+#    - title: REST
+#      html: <p><a href="https://docs.microsoft.com/rest/api/firewall/">Compute REST API Reference</a></p>

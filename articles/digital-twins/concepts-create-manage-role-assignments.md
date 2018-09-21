@@ -6,13 +6,21 @@ manager: alinast
 ms.service: azure-digital-twins
 services: azure-digital-twins
 ms.topic: conceptual
-ms.date: 09/20/2018
+ms.date: 09/21/2018
 ms.author: adgera
 ---
 
 # Create and manage Role Assignments
 
-For an overview of Role Based Access Control in Azure Digital Twins platform see [Digital Twins Role Based Access Control](). Role Assignments are the mechanism through which access to Digital Twins topology resources is granted and revoked. Each role assignment includes an object identifier (such as user’s Azure Active Directory object id, service principal object id, domain name, etc.), an object identifier type, a role definition id, a Space path, and in most cases an AAD Tenant id.
+For an overview of Role Based Access Control in Azure Digital Twins platform see [Digital Twins Role Based Access Control](./security-role-based-access-control.md). Role Assignments are the mechanism through which access to Digital Twins topology resources is granted and revoked.
+
+Each Role Assignment includes:
+
+* A unique **object identifier**: such as user’s Azure Active Directory ID, a service principal object ID, or a domain name
+* An **object identifier type**
+* A **role definition ID**
+* A **Space path**
+* (In most cases) an Azure Active Directory **tenant id**
 
 ## Role Definition Identifiers
 
