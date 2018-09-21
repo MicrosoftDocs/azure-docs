@@ -463,6 +463,8 @@
         href: troubleshoot-bitlocker-boot-error.md  
       - name: Checking file system errors
         href: troubleshoot-check-disk-boot-error.md
+      - name: Common blue-screen errors
+        href: troubleshoot-common-blue-screen-error.md
 - name: Reference
   items:
   - name: Azure CLI
