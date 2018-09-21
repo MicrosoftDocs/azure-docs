@@ -11,7 +11,7 @@
 ---
 
 
-If you run into issues while performing any operations on shared image galleries, image definitions, and image versions, run the failing command again in debug mode. Debug mode can be activated by passing **-debug** switch with CLI and the **-Debug** switch with PowerShell. Once you’ve located the error, follow this document to troubleshoot the errors.
+If you run into issues while performing any operations on shared image galleries, image definitions, and image versions, run the failing command again in debug mode. Debug mode is activated by passing the **-debug** switch with CLI and the **-Debug** switch with PowerShell. Once you’ve located the error, follow this document to troubleshoot the errors.
 
 
 ## Unable to create a shared image gallery
@@ -52,7 +52,7 @@ Allowed characters for image version are numbers and periods. Numbers must be wi
 
 *Source managed image from which the image version is being created is not found.* 
 
-Check if the source image exists and is in the same region as the location of the image version.
+Check if the source image exists and is in the same region as the image version.
 
 *The managed image isn't done being provisioned.*
 
@@ -63,7 +63,7 @@ Make sure the provisioning state of the source managed image is **Succeeded**.
 Use the table below to see if the intended source region is supported:
 <br>
 
-| Create Gallery In i.e. “source region” | Replicate Version To i.e. “target region” |
+| Create gallery in or “source region”   | Replicate rersion to or “target region” |
 |----------------------------------------|-------------------------------------------|
 | West Central US                        | All Azure Public Cloud regions            |
 | South Central US                       |                                           |
@@ -97,7 +97,7 @@ Verify that the **OSType** of the image version that you are trying to create th
 
 ## Unable to share resources
 
-The sharing of shared image gallery, image definition and image version resources across subscriptions is enabled using [Role Based Access Control](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles) (RBAC). 
+The sharing of shared image gallery, image definition, and image version resources across subscriptions is enabled using [Role Based Access Control](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles) (RBAC). 
 
 ## Replication is slow
 
