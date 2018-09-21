@@ -40,7 +40,6 @@ While this feature is in preview, the following limitations apply when deploying
 
 **Supported** regions:
 
-* North Europe (northeurope)
 * West Europe (westeurope)
 * West US (westus)
 
@@ -63,7 +62,7 @@ A virtual network defines the address space in which you create one or more subn
 
 Subnets segment the virtual network into separate address spaces usable by the Azure resources you place in them. You create one or several subnets within a virtual network.
 
-The subnet that you use for container groups can container only container groups. When you first deploy a container group to a subnet, Azure delegates that subnet to Azure Container Instances. Once delegated, the subnet can be used only for container groups. If you attempt to deploy resources other than container groups to a delegated subnet, the operation fails.
+The subnet that you use for container groups may contain only container groups. When you first deploy a container group to a subnet, Azure delegates that subnet to Azure Container Instances. Once delegated, the subnet can be used only for container groups. If you attempt to deploy resources other than container groups to a delegated subnet, the operation fails.
 
 ### Network profile
 
@@ -108,7 +107,7 @@ The following sections describe how to deploy container groups to a virtual netw
 
 First, deploy a container group and specify the parameters for a new virtual network and subnet. When you specify these parameters, Azure creates the virtual network and subnet, delegates the subnet to Azure Container instances, and also creates a network profile. Once these resources are created, your container group is deployed to the subnet.
 
-Run the following [az container create][az-container-create] command which specifies settings for a new virtual network and subnet. This command deploys the [microsoft/aci-helloworld][aci-helloworld] container which runs a small Node.js webserver serving a static web page. In the next section, you'll deploy a second container group to the same subnet, and test communication between the two container instances.
+Run the following [az container create][az-container-create] command that specifies settings for a new virtual network and subnet. This command deploys the [microsoft/aci-helloworld][aci-helloworld] container that runs a small Node.js webserver serving a static web page. In the next section, you'll deploy a second container group to the same subnet, and test communication between the two container instances.
 
 ```azurecli
 az container create \
