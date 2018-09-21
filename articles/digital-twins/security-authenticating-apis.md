@@ -12,9 +12,9 @@ ms.author: adgera
 
 # Connect and Authenticate to APIs Using Azure Digital Twins
 
-Digital Twins uses Azure Active Directory to authenticate users and protect applications.
+Digital Twins uses Azure Active Directory (AAD) to authenticate users and protect applications.
 
-If you're unfamiliar with Azure Active Directory, [here](https://docs.microsoft.com/en-us/azure/active-directory/develop/azure-ad-developers-guide). The Windows Azure Authentication Library offers many ways to acquire Active Directory tokens. For a deep-dive into ADAL view the documentation [here](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki). This article gives an overview of two scenarios: A production scenario involving a middle-tier API, and authentication in the client application Postman for quick start-up and testing.
+If you're unfamiliar with AAD, [here](https://docs.microsoft.com/en-us/azure/active-directory/develop/azure-ad-developers-guide). The Windows Azure Authentication Library offers many ways to acquire Active Directory tokens. For a deep-dive into the library, take a look [here](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki). This article gives an overview of two scenarios: A production scenario involving a middle-tier API, and authentication in the client application Postman for quick start-up and testing.
 
 Solutions developers have at least two ways to connect to Digital Twins. They can create a client application or a middle-tier API. Client apps require users to authenticate and then use the Oauth **on-behalf-of token flow** to call a downstream API.
 

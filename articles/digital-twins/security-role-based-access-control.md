@@ -1,33 +1,33 @@
 ---
-title: Understanding Azure Digital Twins role based access control | Microsoft Docs
-description: Using Azure Digital Twins role based access control
+title: Understanding Azure Digital Twins Role-Based Access Control | Microsoft Docs
+description: Using Azure Digital Twins Role-Based Access Control
 author: adamgerard
 manager: alinast
 ms.service: azure-digital-twins
 services: azure-digital-twins
 ms.topic: conceptual
-ms.date: 09/20/2018
+ms.date: 09/21/2018
 ms.author: adgera
 ---
 
-# Azure Digital Twins Role Based Access Control
+# Azure Digital Twins Role-Based Access Control
 
-Digital Twins Role Based Access Control is a system that enables very granular regulation of access to specific resources and actions in your topology.
+Digital Twins security enables precise access to specific resources and actions in your IoT topology. It does so through granular role and permission management called Digital Twins Role-Based Access Control (RBAC for short).
 
-Using Role Based Access Control, you’re able to segregate duties and grant only the specific amount of access that a user, group of users, or service principal needs to perform a task.
+Using RBAC, you’re able to segregate duties and grant only the specific amount of access that a user, group of users, or service principal needs to perform a task.
 
-Digital Twins Role Based Access Control is unique in that permissions are inherited down the topology tree.
+RBAC is unique in that permissions are inherited down the topology tree.
 
-## What can I do with Role Based Access Control?
+## What can I do with RBAC?
 
 * Grant a user the ability to manage devices for an entire building, or only a particular room or floor
-* Grant an Admin global access to all topology nodes for an entire topology, or only a section
+* Grant an admin global access to all topology nodes for an entire topology, or only a section
 * Grant a support specialist read access to the topology, except for access keys
 * Grant every member of a domain read access to all topology objects
 
 ## Best practices
 
-You should always follow the principle of least privilege to grant an identity only the amount of access that it needs to perform its job. This is particularly important given the downward inheritance that is building into Role Based Access Control.
+You should always follow the principle of least privilege to grant an identity only the amount of access that it needs to perform its job. This is particularly important given the downward inheritance that is building into RBAC.
 
 Periodic auditing of the role assignments that are active for your service is recommended. It's also encouraged to perform a clean-up process as individuals change roles or assignments.
 
@@ -35,9 +35,11 @@ Periodic auditing of the role assignments that are active for your service is re
 
 ### Role definitions
 
-A role definition is a collection of permissions. It's sometimes just called a role. A role definition lists the operations that can be performed, such as read, write, and delete, as well as a set of conditions that might exclude certain object types in the topology.
+A **role definition** is a collection of permissions and is sometimes just called a **role**.
 
-The following roles are available in Digital Twins Role Based Access Control:
+A **role definition** lists the operations that can be performed, such as *read*, *write*, and *delete*. It also specifies a set of conditions that might exclude certain object types in the topology.
+
+The following roles are available in RBAC:
 
 * Space Administrator: Global access able to perform all operations for the specified space and all nodes underneath
 * User Administrator: CRUD for users and user related objects. Read for spaces.
@@ -53,7 +55,7 @@ The following roles are available in Digital Twins Role Based Access Control:
 
 ### Object Types
 
-The `ObjectIdType` refers to the type of identity that is being given a role. Apart from the `DeviceId` and `UserDefinedFunctionId` types, the types correspond to a property of an Azure Active Directory object:
+The `ObjectIdType` refers to the type of identity that is being given a role. Apart from the `DeviceId` and `UserDefinedFunctionId` types, the types correspond to a property of an Azure Active Directory (AAD) object:
   
 * The UserId type assigns a role to a user.
 * The DeviceId type assigns a role to a device.
@@ -66,11 +68,11 @@ To query for the object id for a user reference the documentation [here](https:/
 
 To obtain the object id for a service principal reference the documentation [here](https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/get-azurermadserviceprincipal?view=azurermps-6.8.1).
 
-To retrieve the object id for an Active Directory tenant reference the documentation [here](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-create-new-tenant).
+To retrieve the object id for an AAD tenant reference the documentation [here](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-create-new-tenant).
 
 ## Role Assignments
 
-Permissions are granted by created a role assignment, and revoked by removing a role assignment. A Digital Twins role assignment associates an object (user, Active Directory tenant, etc.), role, and a space. Permissions are then inherited by any child spaces.
+Permissions are granted by created a role assignment, and revoked by removing a role assignment. A Digital Twins role assignment associates an object (user, AAD tenant, etc.), role, and a space. Permissions are then inherited by any child spaces.
 
 For example, a user is given a role assignment with role DeviceInstaller for the root node of a topology, which represents a building. She then is able to read and update devices not only for that node, but all other child spaces in the building.
 

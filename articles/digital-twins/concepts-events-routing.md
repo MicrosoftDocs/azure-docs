@@ -12,7 +12,7 @@ ms.author: alinast
 
 # Events routing
 
-Azure Digital Twins provides the capability to stream data from your connected devices and integrate that data into your business applications. Digital Twins offers two methods for integrating IoT events into other Azure services or business applications. 
+Azure Digital Twins provides the capability to stream data from your connected devices and integrate that data into your business applications. Digital Twins offers two methods for integrating IoT events into other Azure services or business applications.
 
 * **Digital Twins events routing**: This feature enables users to send a variety of events to the following services: Event Hubs, Service Bus topics, and Event Grids for further processing. Events could be triggered when an object in the graph changes, or sensor telemetry reading changes as it received. User-defined functions can also create new events based incoming telemetry and graph's nodes, for instance once a certain threshold has been reached for specific type of spaces.
 
