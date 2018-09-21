@@ -84,9 +84,19 @@ When you add the solution to your workspace, the Azure SQL Analytics tile is add
 
 ![Azure SQL Analytics tile](./media/log-analytics-azure-sql/azure-sql-sol-tile.png)
 
+The solution provides two separate views -- one for monitoring Azure SQL Databases and elastic pools, and the other view for monitoring Managed Instance, and databases in Managed Instances.
+
+To view Azure SQL Analytics monitoring dashboard for Azure SQL Databases and elastic pools, click on the upper part of the tile. To view Azure SQL Analytics monitoring dashboard for Managed Instance, and databases in Managed Instance, click on the lower part of the tile.
+
 ### Viewing Azure SQL Analytics data
 
-Click on the **Azure SQL Analytics** tile to open the Azure SQL Analytics dashboard. The dashboard includes the overview of all databases that are monitored through different perspectives. For different perspectives to work, you must enable proper metrics or logs on your SQL resources to be streamed to Azure Log Analytics workspace.
+The dashboard includes the overview of all databases that are monitored through different perspectives. For different perspectives to work, you must enable proper metrics or logs on your SQL resources to be streamed to Azure Log Analytics workspace.
+
+Please note that if some metrics or logs are not streamed into Azure Log Analytics, the tiles in the solution will not be populated with monitoring information.
+
+### Azure SQL Database and elastic pool view
+
+Once the Azure SQL Analytics tile for Azure SQL Database and elastic pools is selected, the monitoring dashboard is shown.
 
 ![Azure SQL Analytics Overview](./media/log-analytics-azure-sql/azure-sql-sol-overview.png)
 
@@ -94,22 +104,38 @@ Selecting any of the tiles, opens a drill-down report into the specific perspect
 
 ![Azure SQL Analytics Timeouts](./media/log-analytics-azure-sql/azure-sql-sol-metrics.png)
 
-Each perspective provides summaries on subscription, server, elastic pool, and database level. In addition, each perspective shows a perspective specific to the report on the right. Selecting subscription, server, pool, or database from the list continues the drill-down.
+Each perspective in this view provides summaries on subscription, server, elastic pool, and database level. In addition, each perspective shows a perspective specific to the report on the right. Selecting subscription, server, pool, or database from the list continues the drill-down.
 
-| Perspective | Description |
-| --- | --- |
-| Resource by type | Perspective that counts all the resources monitored. Drill-down provides the summary of DTU and GB metrics. |
-| Insights | Provides hierarchical drill-down into Intelligent Insights. Learn more about intelligent insights. |
-| Errors | Provides hierarchical drill-down into SQL errors that happened on the databases. |
-| Timeouts | Provides hierarchical drill-down into SQL timeouts that happened on the databases. |
-| Blockings | Provides hierarchical drill-down into SQL blockings that happened on the databases. |
-| Database waits | Provides hierarchical drill-down into SQL wait statistics on the database level. Includes summaries of total waiting time and the waiting time per wait type. |
-| Query duration | Provides hierarchical drill-down into the query execution statistics such as query duration, CPU usage, Data IO usage, Log IO usage. |
-| Query waits | Provides hierarchical drill-down into the query wait statistics by wait category. |
+### Managed Instance and databases in Managed Instance view
+
+Once the Azure SQL Analytics tile for Managed Instances and Managed Instnace databases is selected, the monitoring dashboard is shown.
+
+![Azure SQL Analytics Overview](./media/log-analytics-azure-sql/azure-sql-sol-overview-mi.png)
+
+Selecting any of the tiles, opens a drill-down report into the specific perspective. Once the perspective is selected, the drill-down report is opened.
+
+Selecting Managed Instance view, shows details on the Managed Instance utilization, databases it contains, and telemetry on the queries executed across the instance.
+
+![Azure SQL Analytics Timeouts](./media/log-analytics-azure-sql/azure-sql-sol-metrics-mi.png)
+
+### Perspectives
+
+The below table outlines perspectives supported for two versions of the dashboard, one for Azure SQL database and elastic pools, and the other one for Managed Instance.
+
+| Perspective | Description | SQL Database and elastic pools support | Managed Instance support |
+| --- | ------- | ----- | ----- |
+| Resource by type | Perspective that counts all the resources monitored. | Yes | Yes | 
+| Insights | Provides hierarchical drill-down into Intelligent Insights into performance. | Yes | Yes |
+| Errors | Provides hierarchical drill-down into SQL errors that happened on the databases. | Yes | Yes |
+| Timeouts | Provides hierarchical drill-down into SQL timeouts that happened on the databases. | Yes | No |
+| Blockings | Provides hierarchical drill-down into SQL blockings that happened on the databases. | Yes | No |
+| Database waits | Provides hierarchical drill-down into SQL wait statistics on the database level. Includes summaries of total waiting time and the waiting time per wait type. |Yes | Yes |
+| Query duration | Provides hierarchical drill-down into the query execution statistics such as query duration, CPU usage, Data IO usage, Log IO usage. | Yes | Yes |
+| Query waits | Provides hierarchical drill-down into the query wait statistics by wait category. | Yes | Yes |
 
 ### Intelligent Insights report
 
-Azure SQL Database [Intelligent Insights](../sql-database/sql-database-intelligent-insights.md) lets you know what is happening with your database performance. All Intelligent Insights collected can be visualized and accessed through the Insights perspective.
+Azure SQL Database [Intelligent Insights](../sql-database/sql-database-intelligent-insights.md) lets you know what is happening with performance of Azure SQL Databases and Managed Instance databases. All Intelligent Insights collected can be visualized and accessed through the Insights perspective.
 
 ![Azure SQL Analytics Insights](./media/log-analytics-azure-sql/azure-sql-sol-insights.png)
 
