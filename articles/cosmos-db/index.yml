@@ -100,7 +100,7 @@ sections:
           values:
           - href: /azure/cosmos-db/create-sql-api-java
           - href: /azure/cosmos-db/create-sql-api-dotnet
-          - href: /azure/cosmos-db/create-sql-api-nodejs-preview
+          - href: /azure/cosmos-db/create-sql-api-nodejs
           - href: /azure/cosmos-db/create-sql-api-python
           - href:
           - href:

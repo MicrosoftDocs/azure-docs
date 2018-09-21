@@ -21,14 +21,14 @@ ms.custom: aaddev
 ---
 
 # Azure Active Directory v2.0 tokens reference
+
 The Azure Active Directory (Azure AD) v2.0 endpoint emits several types of security tokens in each [authentication flow](v2-app-types.md). This reference describes the format, security characteristics, and contents of each type of token.
 
 > [!NOTE]
 > The v2.0 endpoint does not support all Azure Active Directory scenarios and features. To determine whether you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
->
->
 
 ## Types of tokens
+
 The v2.0 endpoint supports the [OAuth 2.0 authorization protocol](active-directory-v2-protocols.md), which uses access tokens and refresh tokens. The v2.0 endpoint also supports authentication and sign-in via [OpenID Connect](active-directory-v2-protocols.md). OpenID Connect introduces a third type of token, the ID token. Each of these tokens is represented as a *bearer* token.
 
 A bearer token is a lightweight security token that grants the bearer access to a protected resource. The bearer is any party that can present the token. Although a party must authenticate with Azure AD to receive the bearer token, if steps are not taken to secure the token during transmission and storage, it can be intercepted and used by an unintended party. Some security tokens have a built-in mechanism to prevent unauthorized parties from using them, but bearer tokens do not. Bearer tokens must be transported in a secure channel such as transport layer security (HTTPS). If a bearer token is transmitted without this type of security, a malicious party could use a "man-in-the-middle attack" to acquire the token and use it for unauthorized access to a protected resource. The same security principles apply when storing or caching bearer tokens for later use. Always ensure that your app securely transmits and stores bearer tokens. For more security considerations for bearer tokens, see [RFC 6750 Section 5](http://tools.ietf.org/html/rfc6750).
@@ -36,6 +36,7 @@ A bearer token is a lightweight security token that grants the bearer access to 
 Many of the tokens issued by the v2.0 endpoint are implemented as JSON Web Tokens (JWTs). A JWT is a compact, URL-safe way to transfer information between two parties. The information in a JWT is called a *claim*. It's an assertion of information about the bearer and subject of the token. The claims in a JWT are JavaScript Object Notation (JSON) objects that are encoded and serialized for transmission. Because the JWTs issued by the v2.0 endpoint are signed but not encrypted, you can easily inspect the contents of a JWT for debugging purposes. For more information about JWTs, see the [JWT specification](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
 
 ### ID tokens
+
 An ID token is a form of sign-in security token that your app receives when it performs authentication by using [OpenID Connect](active-directory-v2-protocols.md). ID tokens are represented as [JWTs](#types-of-tokens), and they contain claims that you can use to sign the user in to your app. You can use the claims in an ID token in various ways. Typically, admins use ID tokens to display account information or to make access control decisions in an app. The v2.0 endpoint issues only one type of ID token, which has a consistent set of claims, regardless of the type of user that is signed in. The format and content of ID tokens are the same for personal Microsoft account users and for work or school accounts.
 
 Currently, ID tokens are signed but not encrypted. When your app receives an ID token, it must [validate the signature](#validating-tokens) to prove the token's authenticity and validate a few claims in the token to prove its validity. The claims validated by an app vary depending on scenario requirements, but your app must perform some [common claim validations](#validating-tokens) in every scenario.
@@ -43,16 +44,16 @@ Currently, ID tokens are signed but not encrypted. When your app receives an ID 
 We give you the full details about claims in ID tokens in the following sections, in addition to a sample ID token. Note that claims in ID tokens are not returned in a specific order. Also, new claims can be introduced into ID tokens at any time. Your app should not break when new claims are introduced. The following list includes the claims that your app currently can reliably interpret. You can find more details in the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html).
 
 #### Sample ID token
+
 ```
 eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSJ9.eyJhdWQiOiI2NzMxZGU3Ni0xNGE2LTQ5YWUtOTdiYy02ZWJhNjkxNDM5MWUiLCJpc3MiOiJodHRwczovL2xvZ2luLm1pY3Jvc29mdG9ubGluZS5jb20vYjk0MTk4MTgtMDlhZi00OWMyLWIwYzMtNjUzYWRjMWYzNzZlL3YyLjAiLCJpYXQiOjE0NTIyODUzMzEsIm5iZiI6MTQ1MjI4NTMzMSwiZXhwIjoxNDUyMjg5MjMxLCJuYW1lIjoiQmFiZSBSdXRoIiwibm9uY2UiOiIxMjM0NSIsIm9pZCI6ImExZGJkZGU4LWU0ZjktNDU3MS1hZDkzLTMwNTllMzc1MGQyMyIsInByZWZlcnJlZF91c2VybmFtZSI6InRoZWdyZWF0YmFtYmlub0BueXkub25taWNyb3NvZnQuY29tIiwic3ViIjoiTUY0Zi1nZ1dNRWppMTJLeW5KVU5RWnBoYVVUdkxjUXVnNWpkRjJubDAxUSIsInRpZCI6ImI5NDE5ODE4LTA5YWYtNDljMi1iMGMzLTY1M2FkYzFmMzc2ZSIsInZlciI6IjIuMCJ9.p_rYdrtJ1oCmgDBggNHB9O38KTnLCMGbMDODdirdmZbmJcTHiZDdtTc-hguu3krhbtOsoYM2HJeZM3Wsbp_YcfSKDY--X_NobMNsxbT7bqZHxDnA2jTMyrmt5v2EKUnEeVtSiJXyO3JWUq9R0dO-m4o9_8jGP6zHtR62zLaotTBYHmgeKpZgTFB9WtUq8DVdyMn_HSvQEfz-LWqckbcTwM_9RNKoGRVk38KChVJo4z5LkksYRarDo8QgQ7xEKmYmPvRr_I7gvM2bmlZQds2OeqWLB1NSNbFZqyFOCgYn3bAQ-nEQSKwBaA36jYGPOVG2r2Qv1uKcpSOxzxaQybzYpQ
 ```
 
 > [!TIP]
 > For practice, to inspect the claims in the sample ID token, paste the sample ID token into [jwt.ms](http://jwt.ms/).
->
->
 
 #### Claims in ID tokens
+
 | Name | Claim | Example value | Description |
 | --- | --- | --- | --- |
 | audience |`aud` |`6731de76-14a6-49ae-97bc-6eba6914391e` |Identifies the intended recipient of the token. In ID tokens, the audience is your app's Application ID, assigned to your app in the Microsoft Application Registration Portal. Your app should validate this value, and reject the token if the value does not match. |
@@ -78,23 +79,26 @@ The v2.0 endpoint allows third party apps that are registered with Azure AD to i
 When you request an access token from the v2.0 endpoint, the v2.0 endpoint also returns metadata about the access token for your app to use. This information includes the expiry time of the access token and the scopes for which it is valid. Your app uses this metadata to perform intelligent caching of access tokens without having to parse open the access token itself.
 
 ### Refresh tokens
+
 Refresh tokens are security tokens that your app can use to get new access tokens in an OAuth 2.0 flow. Your app can use refresh tokens to achieve long-term access to resources on behalf of a user without requiring interaction with the user.
 
 Refresh tokens are multi-resource. A refresh token received during a token request for one resource can be redeemed for access tokens to a completely different resource.
 
 To receive a refresh in a token response, your app must request and be granted the `offline_access` scope. To learn more about the `offline_access` scope, see the [consent and scopes](v2-permissions-and-consent.md) article.
 
-Refresh tokens are, and always will be, completely opaque to your app. They are issued by the Azure AD v2.0 endpoint and can only be inspected and interpreted by the v2.0 endpoint. They are long-lived, but your app should not be written to expect that a refresh token will last for any period of time. Refresh tokens can be invalidated at any moment for various reasons - for details, see [token revocation](v1-id-and-access-tokens.md#token-revocation). The only way for your app to know if a refresh token is valid is to attempt to redeem it by making a token request to the v2.0 endpoint.
+Refresh tokens are, and always will be, completely opaque to your app. They are issued by the Azure AD v2.0 endpoint and can only be inspected and interpreted by the v2.0 endpoint. They are long-lived, but your app should not be written to expect that a refresh token will last for any period of time. Refresh tokens can be invalidated at any moment for various reasons - for details, see [token revocation](access-tokens.md#revocation). The only way for your app to know if a refresh token is valid is to attempt to redeem it by making a token request to the v2.0 endpoint.
 
 When you redeem a refresh token for a new access token (and if your app had been granted the `offline_access` scope), you receive a new refresh token in the token response. Save the newly issued refresh token, to replace the one you used in the request. This guarantees that your refresh tokens remain valid for as long as possible.
 
 ## Validating tokens
+
 Currently, the only token validation your apps should need to perform is validating ID tokens. To validate an ID token, your app should validate both the ID token's signature and the claims in the ID token.
 
 <!-- TODO: Link -->
 Microsoft provides libraries and code samples that show you how to easily handle token validation. In the next sections, we describe the underlying process. Several third-party open-source libraries also are available for JWT validation. There's at least one library option for almost every platform and language.
 
 ### Validate the signature
+
 A JWT contains three segments, which are separated by the `.` character. The first segment is known as the *header*, the second segment is the *body*, and the third segment is the *signature*. The signature segment can be used to validate the authenticity of the ID token so that it can be trusted by your app.
 
 ID tokens are signed by using industry-standard asymmetric encryption algorithms, such as RSA 256. The header of the ID token has information about the key and encryption method used to sign the token. For example:
@@ -128,6 +132,7 @@ This metadata document is a JSON object that has several useful pieces of inform
 Performing signature validation is outside the scope of this document. Many open-source libraries are available to help you with this.
 
 ### Validate the claims
+
 When your app receives an ID token upon user sign-in, it should also perform a few checks against the claims in the ID token. These include but are not limited to:
 
 * **audience** claim, to verify that the ID token was intended to be given to your app
@@ -140,6 +145,7 @@ For a full list of claim validations that your app should perform, see the [Open
 Details of the expected values for these claims are included in the [ID tokens](# ID tokens) section.
 
 ## Token lifetimes
+
 We provide the following token lifetimes for your information only. The information might help you as you develop and debug apps. Your apps should not be written to expect any of these lifetimes to remain constant. Token lifetimes can and will change at any time.
 
 | Token | Lifetime | Description |

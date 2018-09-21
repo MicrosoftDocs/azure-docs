@@ -44,7 +44,7 @@ Before you begin this tutorial:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * Install the [Service Fabric CLI](service-fabric-cli.md)
-* Install the [Azure CLI 2.0](/cli/azure/install-azure-cli)
+* Install the [Azure CLI](/cli/azure/install-azure-cli)
 
 The following procedures create a five-node Service Fabric cluster. To calculate cost incurred by running a Service Fabric cluster in Azure use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/).
 
