@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 09/21/2018
 ms.author: sethm
 ms.reviewer: justini
 
@@ -41,9 +41,10 @@ This update includes the following improvements for Azure Stack.
 
 - <!-- 2702741 -  IS ASDK --> Fixed issue in which public IPs that were deployed by using the Dynamic allocation method were not guaranteed to be preserved after a Stop-Deallocate is issued. They are now preserved.
 
-- <!-- 3078022 - IS ASDK --> If a VM was stop-deallocated before 1808 it could not be re-allocated after the 1808 update. This issue is fixed in 1809.
+- <!-- 3078022 - IS ASDK --> If a VM was stop-deallocated before 1808 it could not be re-allocated after the 1808 update.  This issue is fixed in 1809. Instances that were in this state and could not be started can be started in 1809 with this fix. The fix also prevents this issue from reoccurring.
 
 ### Changes
+
 - <!-- 1697698  | IS, ASDK --> *Quickstart tutorials* in the User portal dashboard now link to relevant articles in the on-line Azure Stack documentation.
 
 - <!-- 2515955   | IS ,ASDK--> *All services* replaces *More services* in the Azure Stack admin and user portals. You can now use *All services* as an alternative to navigate in the Azure Stack portals the same way you do in the Azure portals.
@@ -224,7 +225,7 @@ The following are post-installation known issues for this build version.
 
 ### Usage  
 
-- <!-- TBD - IS ASDK --> Usage Public IP address usage meter data shows the same *EventDateTime* value for each record instead of the *TimeDate* stamp that shows when the record was created. Currently, you can’t use this data to perform accurate accounting of public IP address usage.
+- <!-- TBD - IS ASDK --> The public IP address usage meter data shows the same *EventDateTime* value for each record instead of the *TimeDate* stamp that shows when the record was created. Currently, you cannot use this data to perform accurate accounting of public IP address usage.
 
 
 <!-- #### Identity -->
