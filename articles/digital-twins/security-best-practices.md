@@ -9,3 +9,7 @@ ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: adgera
 ---
+
+# Azure Digital Twins security best practices
+
+[](https://docs.microsoft.com/en-us/azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-hub/rc/rc)

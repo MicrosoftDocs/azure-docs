@@ -16,7 +16,7 @@
   - name: Guide to Telemetry Ingress
     href: concepts-telemetry-ingress.md
   - name: Data processing, user-defined functions and computation
-    href:  concepts-user-defined-functions.md 
+    href: concepts-user-defined-functions.md 
   - name: Overview of events and messages routing to service endpoints
     href: concepts-events-routing.md 
   - name: Management API limitations and throttles
@@ -27,7 +27,9 @@
       href: security-best-practices.md
     - name: Role Based Access Control
       href: security-role-based-access-control.md
-    - name: Management APIs Authentication
+    - name: Create and manage role assignments
+      href: security-create-manage-role-assignments.md
+    - name: Management APIs authentication
       href: security-authenticating-apis.md
     - name: Device connectivity
       href: security-device-token.md
