@@ -69,9 +69,7 @@ The regions a Shared image version is replicated to can be updated after creatio
 
 
 ## Access
-As the shared image gallery, shared image and shared image version are all resources, they can be shared using the built-in native Azure RBAC controls. Using RBAC you can share these resources to other users, service principals, and groups in your organization. The scope of sharing these resources is within the same AD tenant. Once a user has access to the Shared image version, they can deploy a VM or a virtual machine scale set in any of the subscriptions they have access to within the same AD tenant as the Shared image version.  Here is the sharing matrix that helps understand what the user gets access to
-
-The user will have access to different resources, depending on what level they are granted access:
+As the shared image gallery, shared image and shared image version are all resources, they can be shared using the built-in native Azure RBAC controls. Using RBAC you can share these resources to other users, service principals, and groups in your organization. The scope of sharing these resources is within the same AD tenant. Once a user has access to the Shared image version, they can deploy a VM or a virtual machine scale set in any of the subscriptions they have access to within the same AD tenant as the Shared image version.  Here is the sharing matrix that helps understand what the user gets access to:
 
 | Shared with User     | Shared Image Gallery | Shared Image | Shared image version |
 |----------------------|----------------------|--------------|----------------------|
