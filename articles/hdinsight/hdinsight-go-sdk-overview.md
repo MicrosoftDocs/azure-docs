@@ -240,6 +240,35 @@ var parameters = hdi.ClusterCreateParametersExtended {
 }
 client.Create(context.Background(), resourceGroupName, clusterName, parameters)
 ```
+
+### Get cluster details
+
+To get properties for a given cluster:
+
+```golang
+client.Get(context.Background(), "<Resource Group Name>", "<Cluster Name>")
+```
+
+#### Example
+
+You can use `get` to confirm that you have successfully created your cluster.
+
+```golang
+cluster, err := client.Get(context.Background(), resourceGroupName, clusterName)
+if (err != nil) {
+    fmt.Println("Error: ", err)
+}
+fmt.Println(*cluster.Name)
+fmt.Println(*cluster.ID
+```
+
+The output should look like:
+
+```
+<Cluster Name>
+/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/<Resource Group Name>/providers/Microsoft.HDInsight/clusters/<Cluster Name>
+```
+
 ### List clusters
 
 #### List clusters under the subscription
@@ -270,14 +299,6 @@ for (page.NotDone()) {
         fmt.Println("Error: ", err)
     }
 }
-```
-
-### Get cluster details
-
-To get properties for a given cluster:
-
-```golang
-client.Get(context.Background(), "<Resource Group Name>", "<Cluster Name>")
 ```
 
 ### Delete a cluster
