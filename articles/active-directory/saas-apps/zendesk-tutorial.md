@@ -126,7 +126,7 @@ To configure Azure AD single sign-on with Zendesk, perform the following steps:
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Zendesk Client support team](https://support.zendesk.com/hc/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise) to get these values.
 
-6. Zendesk application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
+6. Zendesk expects the SAML assertions in a specific format. There are no mandatory SAML attributes but optionally you can add an attribute from **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
 
 	![image](./media/zendesk-tutorial/i4-attribute.png)
 
@@ -144,11 +144,11 @@ To configure Azure AD single sign-on with Zendesk, perform the following steps:
 
 	d. Select Source as **Attribute**.
 	
-	c. From the **Source attribute** list, type the attribute value shown for that row.
+	e. From the **Source attribute** list, type the attribute value shown for that row.
 	
-	d. Click **Ok**
+	f. Click **Ok**
 
-	f. Click **Save**.
+	g. Click **Save**.
 
 	> [!NOTE]
     > You use extension attributes to add attributes that are not in Azure AD by default. Click [User attributes that can be set in SAML](https://support.zendesk.com/hc/en-us/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise-) to get the complete list of SAML attributes that **Zendesk** accepts.
@@ -181,7 +181,7 @@ To configure Azure AD single sign-on with Zendesk, perform the following steps:
 
     ![image](./media/zendesk-tutorial/d2_saml.png) 
   
-    * Using the My Apps Browser extension, you can automate the configuration within Zendesk. Clicking on **setup Zendesk** will direct you to the Zendesk application. From there, provide the admin credentials to sign into Zendesk. The browser extension will automatically configure the application for you and automate step 10.
+    * Using the My Apps Browser extension, you can automate the configuration within Zendesk. Clicking on **setup Zendesk** will direct you to the Zendesk application. From there, provide the admin credentials to sign into Zendesk. The browser extension will automatically configure the application for you and automate step 12.
 
 12. For configuring Zendesk manually, follow the below steps:
 
