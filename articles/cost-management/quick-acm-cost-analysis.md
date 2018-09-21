@@ -42,7 +42,11 @@ Cost analysis is available to all [Enterprise Agreement (EA)](https://azure.micr
 
 ## Review costs in cost analysis
 
-To review your costs with cost analysis, in the Azure portal, navigate to **Cost Management + Billing** &gt; **Cost Management** &gt; **Change scope**, choose a scope, and then click **Select**. The scope that you select is used throughout Cost Management to provide data consolidation and to control access to cost information. Click **Open Cost analysis**.
+To review your costs with cost analysis, in the Azure portal, navigate to **Cost Management + Billing** &gt; **Cost Management** &gt; **Change scope**, choose a scope, and then click **Select**.
+
+The scope that you select is used throughout Cost Management to provide data consolidation and to control access to cost information. When you use scopes, you don't multi-select them. Instead, you select a larger scope that others roll-up to and then you filter-down to what you want. This is important to understand because some people should not have access to a parent scope that child scopes roll up to.
+
+Click **Open Cost analysis**.
 
 The initial cost analysis view includes the following areas:
 
