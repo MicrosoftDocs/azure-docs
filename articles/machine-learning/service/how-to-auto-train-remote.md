@@ -1,5 +1,5 @@
 ---
-title: Set up remote compute targets for automated machine learning - Azure 
+title: Set up remote compute targets for automated machine learning - Azure Machine Learning service 
 description: This article explains how to build models using  automated machine learning on a Data Science Virtual machine (DSVM) remote compute target with Azure Machine Learning service
 services: machine-learning
 author: nacharya1
