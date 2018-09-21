@@ -6,7 +6,6 @@ documentationcenter:
 author: pbutlerm
 manager: Patrick.Butler  
 editor:
-
 ms.assetid: 
 ms.service: marketplace
 ms.workload: 
