@@ -453,7 +453,7 @@ During testing and verification occurrences happened where after a VM reboot the
 - if it's not the case then set it to **When Booting** instead of **Manually**
 - next switch the top tab to **Connected Targets**
 - on the Connected Targets screen you should see an entry for the SBD device like this sample: **10.0.0.19:3260 iqn.2006-04.dbhso.local:dbhso**
-- check if the Start-Up value is set to **onboot**
+- check if the Start-Up value is set to "**onboot**"
 - if not choose **Edit** and change it
 - save the changes and exit yast2
 
@@ -653,7 +653,7 @@ Waiting for 7 replies from the CRMd....... OK
 
 As mentioned already in the first section with important notes, you should not use a standard graceful shutdown to test the cluster failover or SAP HANA HSR takeover. Instead it's recommended to trigger, for example, a kernel panic or force a resource migration or maybe shut down all networks on OS level of a VM. Another method would be the crm <node> standby command. Also see the SUSE document, which can be found [here](https://www.suse.com/documentation/sle-ha-12/pdfdoc/book_sleha/book_sleha.pdf) Below you see three sample commands to force a cluster failover:
 
-pre><code>
+<pre><code>
 echo c > /proc/sysrq-trigger
 
 crm resource migrate msl_SAPHanaCon_HSO_HDB00 hso-hana-vm-s2-0 force
