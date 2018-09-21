@@ -172,13 +172,13 @@ Now that you have a button in place, you need to link it to an action. The actio
 
 3. Save the *TrustFrameworkExtensions.xml* file and upload it again for verification.
 
-### Update and test the relying party file
+## Update and test the relying party file
 
 Update the relying party (RP) file that initiates the user journey that you created.
 
 1. Make a copy of *SignUpOrSignIn.xml* in your working directory, and rename it. For example, rename it to *SignUpSignInContoso.xml*.
 2. Open the new file and update the value of the **PolicyId** attribute for **TrustFrameworkPolicy** with a unique value. For example, `SignUpSignInContoso`.
-3. Update the value of **PublicPolicyUri** with the URI for the policy. For example,`http://contoso.com/B2C_1A_signup_signin_contoso">
+3. Update the value of **PublicPolicyUri** with the URI for the policy. For example,`http://contoso.com/B2C_1A_signup_signin_contoso`
 4. Update the value of the **ReferenceId** attribute in **DefaultUserJourney** to match the ID of the new user journey that you created (SignUpSignInContoso).
 5. Save your changes, upload the file, and test it by opening it and clicking **Run now**.
 

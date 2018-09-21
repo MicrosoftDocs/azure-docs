@@ -1,6 +1,6 @@
 ---
-title: Add an Azure AD provider using built-in policies in Azure Active Directory B2C | Microsoft Docs
-description: Learn how to add an Open ID Connect identity provider (Azure AD).
+title: Set up sign-in Azure Active Directory accounts a built-in policy in Azure Active Directory B2C | Microsoft Docs
+description: Set up sign-in Azure Active Directory accounts a built-in policy in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
@@ -8,17 +8,17 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/19/2018
+ms.date: 09/21/2018
 ms.author: davidmu
 ms.component: B2C
 ---
 
-# Azure Active Directory B2C: Sign in using Azure AD accounts through a built-in policy
+# Set up sign-in Azure Active Directory accounts a built-in policy in Azure Active Directory B2C
 
 >[!NOTE]
 > This feature is in public preview. Do not use the feature in production environments.
 
-This article shows you how to enable sign-in for users from a specific Azure Active Directory (Azure AD) organization built-in policies.
+This article shows you how to enable sign-in for users from a specific Azure Active Directory (Azure AD) organization using a built-in policy in Azure Active Directory (Azure AD) B2C.
 
 ## Create an Azure AD app
 
