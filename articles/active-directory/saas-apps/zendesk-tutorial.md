@@ -18,29 +18,40 @@ ms.date: 09/21/2018
 ms.author: jeedes
 
 ---
-# SSO Tutorial: Azure Active Directory integration with Zendesk
+# Tutorial: Azure Active Directory integration with Zendesk
 
 In this tutorial, you learn how to integrate Zendesk with Azure Active Directory (Azure AD).
+
 Integrating Zendesk with Azure AD provides you with the following benefits:
 
-* You can control in Azure AD who has access to Zendesk.
-* You can enable your users to be automatically signed-in to Zendesk (Single Sign-On) with their Azure AD accounts.
-* You can manage your accounts in one central location - the Azure portal.
+- You can control in Azure AD who has access to Zendesk.
+- You can enable your users to automatically get signed-on to Zendesk (Single Sign-On) with their Azure AD accounts.
+- You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
 To configure Azure AD integration with Zendesk, you need the following items:
 
-* Azure AD subscription
-* Zendesk single sign-on enabled subscription
+- An Azure AD subscription
+- A Zendesk single sign-on enabled subscription
+
+> [!NOTE]
+> To test the steps in this tutorial, we do not recommend using a production environment.
+
+To test the steps in this tutorial, you should follow these recommendations:
+
+- Do not use your production environment, unless it is necessary.
+- If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD single sign-on in a test environment. The scenario outlined in this tutorial consists of two main building blocks:
-Adding Zendesk from the gallery, and Configuring and testing Azure AD single sign-on.
+In this tutorial, you test Azure AD single sign-on in a test environment.
+The scenario outlined in this tutorial consists of two main building blocks:
+
+1. Adding Zendesk from the gallery
+2. Configuring and testing Azure AD single sign-on
 
 ## Adding Zendesk from the gallery
 
@@ -66,9 +77,11 @@ To configure the integration of Zendesk into Azure AD, you need to add Zendesk f
 
 ## Configure and test Azure AD single sign-on
 
-In this section, you configure and test Azure AD single sign-on with Zendesk based on a test user called "Britta Simon."
-For single sign-on to work, a link relationship between an Azure AD user and the related user in Zendesk needs to be established.
-In Zendesk, assign the value of the user name in Azure AD as the value of the Username to establish the link relationship.
+In this section, you configure and test Azure AD single sign-on with Zendesk based on a test user called "Britta Simon".
+
+For single sign-on to work, Azure AD needs to know what the counterpart user in Zendesk is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Zendesk needs to be established.
+
+In Zendesk, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
 
 To configure and test Azure AD single sign-on with Zendesk, you need to complete the following building blocks:
 
@@ -110,8 +123,8 @@ To configure Azure AD single sign-on with Zendesk, perform the following steps:
 
     ![image](./media/zendesk-tutorial/b1-domains_and_urls.png)
 
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Zendesk Client support team]([support]) to get these values.
+	> [!NOTE] 
+	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Zendesk Client support team](https://support.zendesk.com/hc/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise) to get these values.
 
 6. Zendesk application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
 
@@ -136,6 +149,9 @@ To configure Azure AD single sign-on with Zendesk, perform the following steps:
 	d. Click **Ok**
 
 	f. Click **Save**.
+
+	> [!NOTE]
+    > You use extension attributes to add attributes that are not in Azure AD by default. Click [User attributes that can be set in SAML](https://support.zendesk.com/hc/en-us/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise-) to get the complete list of SAML attributes that **Zendesk** accepts.
 
 8. In the SAML Signing Certificate section, in the **SAML Signing Certificate** section, copy the **Thumbprint**, and save it on your computer.
 
@@ -165,7 +181,7 @@ To configure Azure AD single sign-on with Zendesk, perform the following steps:
 
     ![image](./media/zendesk-tutorial/d2_saml.png) 
   
-    * Using the My Apps Browser extension, you can automate the configuration within Zendesk. Clicking on setup Zendesk will direct you to the Zendesk application. From there, provide the admin credentials to sign into Zendesk. The browser extension will automatically configure the application for you and automate step 10.
+    * Using the My Apps Browser extension, you can automate the configuration within Zendesk. Clicking on **setup Zendesk** will direct you to the Zendesk application. From there, provide the admin credentials to sign into Zendesk. The browser extension will automatically configure the application for you and automate step 10.
 
 12. For configuring Zendesk manually, follow the below steps:
 
@@ -245,15 +261,19 @@ The objective of this section is to create a user called Britta Simon in Zendesk
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting access to Zendesk.
 
-1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Zendesk**.
+1. In the Azure portal, select **Enterprise Applications**, select **All applications**.
 
 	![image](./media/zendesk-tutorial/d_all_applications.png)
 
-2. In the menu on the left, select **Users and groups**.
+2. In the applications list, select **Zendesk**.
+
+	![image](./media/zendesk-tutorial/d_all_zendeskapplications.png)
+
+3. In the menu on the left, select **Users and groups**.
 
     ![image](./media/zendesk-tutorial/d_leftpaneusers.png)
 
-3. Select the **Add** button, then select **Users and groups** in the **Add Assignment** dialog.
+4. Select the **Add** button, then select **Users and groups** in the **Add Assignment** dialog.
 
     ![image](./media/zendesk-tutorial/d_assign_user.png)
 
@@ -261,13 +281,15 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 5. In the **Add Assignment** dialog select the **Assign** button.
 
-### Test single sign-on 
+### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Zendesk tile in the Access Panel, you should be automatically signed in to the Zendesk for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Zendesk tile in the Access Panel, you should get automatically signed-on to your Zendesk application.
+For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md).
 
-## Additional Resources
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+## Additional resources
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Configure User Provisioning](zendesk-provisioning-tutorial.md)
