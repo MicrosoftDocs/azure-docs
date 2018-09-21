@@ -184,9 +184,12 @@ az container delete --resource-group myResourceGroup --name commchecker -y
 
 ### Delete network resources
 
-The initial preview of this feature requires several additional commands to delete the network resources you created earlier. After you remove all container groups from the subnet, you can execute the following script to delete those network resources.
+The initial preview of this feature requires several additional commands to delete the network resources you created earlier. If you used the example commands in previous sections of this article to create your virtual network and subnet, then you can use the following script to delete those network resources.
 
 Before executing the script, set the `RES_GROUP` variable to the name of the resource group containing the virtual network and subnet that should be deleted. The script is formatted for the Bash shell. If you prefer another shell such as PowerShell or Command Prompt, you'll need to adjust variable assignment and accessors accordingly.
+
+> [!WARNING]
+> This script deletes resources! It deletes the virtual network and all subnets it contains. Be sure that you no longer need *any* of the resources in the virtual network, including any subnets it contains, prior to running this script. Once deleted, **these resources are unrecoverable**.
 
 ```azurecli
 # Replace <my-resource-group> with the name of your resource group
