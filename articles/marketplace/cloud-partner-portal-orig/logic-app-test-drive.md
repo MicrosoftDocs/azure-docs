@@ -1,6 +1,6 @@
 ---
 title: Logic App Test Drive | Microsoft Docs
-description: his article is for Publishers who have their offer on AppSource and want to build their Test Drive that connects with a Dynamics AX/CRM instance or any other resource beyond just Azure
+description: Explains how to build their Test Drive that connects with a Dynamics AX/CRM instance or any other resource beyond just Azure.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
 author: pbutlerm
