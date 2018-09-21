@@ -10,7 +10,7 @@ ms.date: 09/21/2018
 ms.author: adgera
 ---
 
-# Connect and Authenticate to APIs Using Azure Digital Twins
+# Connect and authenticate to APIs
 
 Digital Twins uses Azure Active Directory (AAD) to authenticate users and protect applications.
 
@@ -25,7 +25,7 @@ Solutions developers have at least two ways to connect to Digital Twins. They ca
 
 For detailed instructions on how to orchestrate the on-behalf-of flow visit [this page](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow) and you can view code samples [here](https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapi-onbehalfof/).
 
-## Test with the Postman Client
+## Test with the Postman client
 
 1. Follow the initial steps above to create (or modify) an Azure Active Directory application. Then, set oauth2AllowImplicitFlow to true in the app manifest and grant permissions to “Azure Smart Spaces Service.”
 1. Set a reply url to [https://www.getpostman.com/oauth2/callback](https://www.getpostman.com/oauth2/callback).

@@ -10,7 +10,7 @@ ms.date: 09/20/2018
 ms.author: adgera
 ---
 
-# Azure Digital Twins device connectivity and authentication
+# Device connectivity and authentication
 
 Physical devices can be manufactured with the information needed to connect to the service on (first) power up.
 
@@ -23,7 +23,7 @@ The SAS Token is an authorization token which allows a device to access its Devi
 >[!NOTE]
 >The generation of the SAS Token can take place before a Device is created in the Topology and associated with a Space object, to simplify provisioning.
 
-## SAS Tokens
+## SAS tokens
 
 The SAS token is composed of:
 

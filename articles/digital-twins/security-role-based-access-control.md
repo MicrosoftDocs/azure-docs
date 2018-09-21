@@ -36,7 +36,7 @@ Periodic auditing of role assignments is recommended.
 
 It's also encouraged to perform a clean-up process as individuals change roles or assignments.
 
-## Role-Based Access Control Components
+## Role-Based Access Control components
 
 Role-Based Access Control involves several pieces.
 
@@ -60,7 +60,7 @@ The following roles are available in Role-Based Access Control:
 
 *The full definitions for the above can be retrieved by querying the system/roles API.*
 
-### Object Types
+### Object types
 
 The `ObjectIdType` refers to the type of identity that is being given a role. Apart from the `DeviceId` and `UserDefinedFunctionId` types, the types correspond to a property of an Azure Active Directory (AAD) object:
   
@@ -77,7 +77,7 @@ To obtain the object id for a service principal reference the documentation [her
 
 To retrieve the object id for an AAD tenant reference the documentation [here](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
 
-## Role Assignments
+## Role assignments
 
 Permissions are granted by created a role assignment, and revoked by removing a role assignment. A Digital Twins role assignment associates an object (user, AAD tenant, etc.), role, and a space. Permissions are then inherited by any child spaces.
 

@@ -10,7 +10,7 @@ ms.date: 09/21/2018
 ms.author: adgera
 ---
 
-# Create and manage Role Assignments
+# Create and manage role assignments
 
 For an overview of Role Based Access Control in Azure Digital Twins platform see [Digital Twins Role Based Access Control](./security-role-based-access-control.md). Role Assignments are the mechanism through which access to Digital Twins topology resources is granted and revoked.
 
@@ -22,7 +22,7 @@ Each Role Assignment includes:
 * A **Space path**
 * (In most cases) an Azure Active Directory **tenant id**
 
-## Role Definition Identifiers
+## Role definition identifiers
 
 The following can be obtained by querying the System/Roles API:
 
@@ -47,7 +47,7 @@ The supported ObjectIdTypes are:
 * ServicePrincipalId
 * UserDefinedFunctionId
 
-## Create a Role Assignment
+## Create a role assignment
 
 ```plaintext
 HTTP POST /api/v1.0/roleassignments
@@ -65,7 +65,7 @@ Required for UserId and ServicePrincipalId ObjectIdTypes.
 Optional for the DomainName ObjectIdType. |
 | path* |	Yes	| string |The full access path to the Space object. Ex: /{Guid}/{Guid} If an identifier needs the role assignment for the entire topology specify "/" which designates the root. However, this is discouraged as you should always follow the principle of least privilege |
 
-## Sample Configuration
+## Sample configuration
 
 A user needs administrative access to a floor of a tenant space:
 
