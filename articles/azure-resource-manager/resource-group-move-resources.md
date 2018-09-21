@@ -263,14 +263,22 @@ The following list provides a general summary of Azure services that can't be mo
 
 ## Virtual Machines limitations
 
-Managed disks are supported for move as of September 24th, 2018. This means you can also move:
+Managed disks are supported for move as of September 24th, 2018. You'll have to register to enable this feature
+
+#### PowerShell
+`Register-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute`
+#### CLI
+`az feature register Microsoft.Compute ManagedResourcesMove`
+
+
+This means you can also move:
 
 * Virtual machines with the managed disks
 * Managed Images
 * Managed Snapshots
 * Availability sets with virtual machines with managed disks
 
-Here are the constraints that are not yer supported
+Here are the constraints that are not yet supported
 
 * Virtual Machines with certificate stored in Key Vault can be moved to a new resource group in the same subscription, but not across subscriptions.
 * Virtual Machines configured with Azure Backup. Use the below workaround to move these Virtual Machines
