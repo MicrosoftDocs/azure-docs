@@ -12,7 +12,7 @@ ms.date: 09/24/2018
 # As an app developer or data scientist I can generate a  machine learning model using Automated ML.
 ---
 
-# Tutorial: Train a classification model with automated machine learning
+# Tutorial: Train a classification model with automated machine learning in Azure Machine Learning
 
 In this tutorial, you'll learn how to generate a  machine learning model using automated machine learning (automated ML).  Azure Machine Learning can perform data preprocessing, algorithm selection and hyperparameter selection in an automated way for you. The final model can then be deployed following the workflow in the [Deploy a model](tutorial-deploy-models-with-aml.md) tutorial.
 
