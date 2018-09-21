@@ -89,7 +89,7 @@ Following SAP HANA network recommendations, three subnets were created within on
 
 Regarding SAP HANA configuration related to using multiple networks see the section about global.ini further down.
 
-Corresponding to the number of subnets every VM in the cluster has three vNICs. There is documentation, which describes a potential routing issue when deploying a Linux VM on Microsoft Azure, which uses multiple vNICs. You can find information about it [here](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/multiple-nics). The problem is solved by SUSE per default in SLES 12 SP3. The article from SUSE about this topic can be found [here](https://www.suse.com/c/multi-nic-cloud-netconfig-ec2-azure/).
+Corresponding to the number of subnets every VM in the cluster has three vNICs. There is documentation, which describes a potential routing issue on Azure when deploying a Linux VM. This applies only for usage of multiple vNICs. You can find information about it [here](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/multiple-nics). The problem is solved by SUSE per default in SLES 12 SP3. The article from SUSE about this topic can be found [here](https://www.suse.com/c/multi-nic-cloud-netconfig-ec2-azure/).
 
 
 As a basic check to verify if SAP HANA is configured correctly for using multiple networks, just run the commands below. First step is simply to double-check on OS level that all three internal IP addresses for all three subnets are active. In case you defined the subnets with different IP address ranges you have to adapt the commands accordingly:
@@ -123,7 +123,7 @@ select * from M_INIFILE_CONTENTS WHERE KEY LIKE 'listen%'
 
 To find every port, which is used in the SAP software stack including SAP HANA, search [here](https://help.sap.com/viewer/ports).
 
-Given the instance number 00 in the SAP HANA 2.0 test system you are interested in port 30001 for the nameserver and 40002 for HSR meta data communication. One option is to sign in to a worker node and then check the master node services. Here the check was done on worker node 2 on site 2 trying to connect to the master node on site 2.
+Given the instance number 00 in the SAP HANA 2.0 test system, the port number for the nameserver is 30001. The port number for HSR meta data communication is 40002. One option is to sign in to a worker node and then check the master node services. Here the check was done on worker node 2 on site 2 trying to connect to the master node on site 2.
 
 Check the nameserver port:
 
@@ -417,7 +417,7 @@ On the target VM side - which was hso-hana-vm-s2-2 in this example - you can fin
 /dev/disk/by-id/scsi-36001405e614138d4ec64da09e91aea68:   notice: servant: Received command test from hso-hana-vm-s2-1 on disk /dev/disk/by-id/scsi-36001405e614138d4ec64da09e91aea68
 </code></pre>
 
-Double-check if the entries in /etc/sysconfig/sbd correspond to the description in our documentation and verify that the startup setting in /etc/iscsi/iscsid.conf is set to automatic.
+Double-check if the entries in /etc/sysconfig/sbd correspond to the description in our documentation. Verify that the startup setting in /etc/iscsi/iscsid.conf is set to automatic.
 
 Important entries in /etc/sysconfig/sbd (adapt the id value if necessary):
 
@@ -429,7 +429,7 @@ SBD_WATCHDOG=yes
 </code></pre>
 
 
-Another item to check is the startup setting in "**/etc/iscsi/iscsid.conf**". The required setting should have happened by the iscsiadm command as described in the documentation. Nevertheless it makes sense to verify and maybe adapt it manually with vi in case it's different.
+Another item to check is the startup setting in "**/etc/iscsi/iscsid.conf**". The required setting should have happened by the iscsiadm command shown below, which is described in the documentation. Nevertheless it makes sense to verify and maybe adapt it manually with vi in case it's different.
 
 Command to set startup behavior:
 
@@ -499,7 +499,7 @@ To see all configured resources in pacemaker, run the following command:
 crm status
 </code></pre>
 
-The output should look like the sample below. It's ok that the cln and msl resources are shown as stopped on the majority maker VM (hs-hana-dm) as there is no HANA installation on the majority maker node. It's important that it shows the correct total number of VMs (7), that all VMs, which are part of the cluster are listed with status **Online** and that it recognizes correctly the current primary master node (in this example it is "**hso-hana-vm-s1-0**").
+The output should look like the sample below. It's ok that the cln and msl resources are shown as stopped on the majority maker VM (hs-hana-dm). There is no SAP HANA installation on the majority maker node. Therefore the cln and msl resources are shown as stopped. It's important that it shows the correct total number of VMs (7), that all VMs, which are part of the cluster are listed with status **Online** and that it recognizes correctly the current primary master node (in this example it is "**hso-hana-vm-s1-0**").
 
 <pre><code>
 Stack: corosync
