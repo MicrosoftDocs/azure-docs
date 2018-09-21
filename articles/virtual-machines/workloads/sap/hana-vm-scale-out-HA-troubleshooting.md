@@ -581,7 +581,7 @@ crm configure property maintenance-mode=false
 </code></pre>
 
 
-Another crm command allows getting the complete cluster configuration into an editor with the possibility to edit. After saving the changes the cluster starts appropriate actions:
+Another crm command allows getting the complete cluster configuration into an editor with the possibility to edit. After saving the changes, the cluster starts appropriate actions:
 
 <pre><code>
 crm configure edit
@@ -671,7 +671,7 @@ As also described in the section about planned maintenance, a good way to monito
 watch SAPHanaSR-showAttr
 </code></pre>
 
-In addition, it helps to look at the SAP HANA landscape status coming from an SAP python script. This status value is the one, which the cluster setup is looking for. It becomes clear when thinking about a worker node failure. If a worker node goes down, SAP HANA does not immediately return an error for the health of the whole scale-out system. There are some retries to avoid unnecessary failovers. Only if the status changes from Ok (return value 4) to error (return value 1) the cluster reacts. Because of this it's correct, if the output from SAPHanaSR-showAttr shows a VM with state "offline" but there is no activity yet to switch primary and secondary as long as SAP HANA doesn't return an error.
+In addition, it helps to look at the SAP HANA landscape status coming from an SAP python script. This status value is the one, which the cluster setup is looking for. It becomes clear when thinking about a worker node failure. If a worker node goes down, SAP HANA does not immediately return an error for the health of the whole scale-out system. There are some retries to avoid unnecessary failovers. Only if the status changes from Ok (return value 4) to error (return value 1) the cluster reacts. Therefore it's correct, if the output from SAPHanaSR-showAttr shows a VM with state "offline" but there is no activity yet to switch primary and secondary as long as SAP HANA doesn't return an error.
 
 You can monitor the SAP HANA landscape health status as user <HANA SID>adm by calling the SAP python script the following way (you might have to adapt the path):
 
@@ -723,7 +723,7 @@ Intense internal testing was done to verify the infrastructure maintenance use c
 There are two different situations in this regard:
 
 - planned maintenance on the current secondary. In this case, you can just put the cluster into maintenance mode and do the work on the secondary without affecting the cluster
-- planned maintenance on the current primary. To allow the users to continue working during the maintenance it's necessary to force a failover. You have to trigger this failover and SAP HANA takeover by pacemaker and not just on SAP HANA HSR level. In addition, it's necessary to accomplish the failover before putting the cluster into maintenance mode
+- planned maintenance on the current primary. To allow the users to continue working during the maintenance, it's necessary to force a failover. You have to trigger this failover and SAP HANA takeover by pacemaker and not just on SAP HANA HSR level. In addition, it's necessary to accomplish the failover before putting the cluster into maintenance mode
 
 The procedure for maintenance on the current secondary site would like the steps below:
 
@@ -934,7 +934,7 @@ listeninterface = .internal
 
 ## HAWK
 
-The cluster solution also provides a browser interface which offers a nice GUI for people who prefer menus and graphics compared to all the commands on shell level.
+The cluster solution also provides a browser interface, which offers a nice GUI for people who prefer menus and graphics compared to all the commands on shell level.
 To use the browser interface, take the URL shown below and replace "node" by an actual SAP HANA node and then enter the credentials of the cluster (user hacluster):
 
 <pre><code>
@@ -961,7 +961,7 @@ The "History Explorer" then allows going through all the cluster transitions inc
 
 ![HAWK look at the transitions within the hb_report output](media/hana-vm-scale-out-HA-troubleshooting/hawk-4.png)
 
-On the last screenshot, you can see the details section of a single transition which shows that the cluster reacted on a primary master node crash 
+On the last screenshot, you can see the details section of a single transition, which shows that the cluster reacted on a primary master node crash 
 (node hso-hana-vm-s1-0) and is now promoting the secondary node as the new master (hso-hana-vm-s2-0):
 
 ![HAWK look at a single transition](media/hana-vm-scale-out-HA-troubleshooting/hawk-5.png)
