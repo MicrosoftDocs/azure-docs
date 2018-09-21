@@ -53,7 +53,7 @@ Http Functions:
 [8/27/2018 10:38:27 PM] Job host started
 ```
 
-Copy the URL of your `HTTPTrigger` function from the runtime output and paste it into your browser's address bar. Append the query string `?name=<yourname>` to this URL and execute the request. The following shows the response in the browser to the GET request returned by the local function:
+Copy the URL of your `HttpTrigger` function from the runtime output and paste it into your browser's address bar. Append the query string `?name=<yourname>` to this URL and execute the request. The following shows the response in the browser to the GET request returned by the local function:
 
 ![Test locally in the browser](./media/functions-run-function-test-local/functions-test-local-browser.png)
 

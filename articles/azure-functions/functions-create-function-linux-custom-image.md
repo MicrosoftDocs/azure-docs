@@ -52,7 +52,7 @@ Before running this sample, you must have the following:
 
 ## Create the local function app project
 
-Run the following command from the command line to create a function app project in the `MyFunctionProj` folder of the current local directory. A GitHub repo is also created in `MyFunctionProj`.
+Run the following command from the command line to create a function app project in the `MyFunctionProj` folder of the current local directory.
 
 ```bash
 func init MyFunctionProj --docker
@@ -60,7 +60,7 @@ func init MyFunctionProj --docker
 
 When you include the `--docker` option, a dockerfile is generated for the project. This file is used to create a custom container in which to run the project. The base image used depends on the worker runtime language chosen.  
 
-When prompted, use the arrow keys to select a worker runtime from the following language choices:
+When prompted, choose a worker runtime from the following languages:
 
 * `dotnet`: creates a .NET class library project (.csproj).
 * `node`: creates a JavaScript project.
@@ -110,16 +110,25 @@ docker build --tag <docker-id>/mydockerimage:v1.0.0 .
 When the command executes, you see something like the following output, which in this case is for a JavaScript worker runtime:
 
 ```bash
-Sending build context to Docker daemon  10.24kB
+Sending build context to Docker daemon  17.41kB
 Step 1/3 : FROM mcr.microsoft.com/azure-functions/node:2.0
- ---> ca953c224532
+2.0: Pulling from azure-functions/node
+802b00ed6f79: Pull complete
+44580ea7a636: Pull complete
+73eebe8d57f9: Pull complete
+3d82a67477c2: Pull complete
+8bd51cd50290: Pull complete
+7bd755353966: Pull complete
+Digest: sha256:480e969821e9befe7c61dda353f63298f2c4b109e13032df5518e92540ea1d08
+Status: Downloaded newer image for mcr.microsoft.com/azure-functions/node:2.0
+ ---> 7c71671b838f
 Step 2/3 : ENV AzureWebJobsScriptRoot=/home/site/wwwroot
- ---> Using cache
- ---> c17556509e35
+ ---> Running in ed1e5809f0b7
+Removing intermediate container ed1e5809f0b7
+ ---> 39d9c341368a
 Step 3/3 : COPY . /home/site/wwwroot
- ---> Using cache
- ---> 015003cb2ba2
-Successfully built 015003cb2ba2
+ ---> 5e196215935a
+Successfully built 5e196215935a
 Successfully tagged <docker-id>/mydockerimage:v1.0.0
 ```
 
@@ -165,7 +174,7 @@ fd9e998161c9: Mounted from <docker-id>/mydockerimage
 e7796c35add2: Mounted from <docker-id>/mydockerimage
 ae9a05b85848: Mounted from <docker-id>/mydockerimage
 45c86e20670d: Mounted from <docker-id>/mydockerimage
-v1.0.0: digest: sha256:be080d80770df71234eb893fbe4d... size: 2422
+v1.0.0: digest: sha256:be080d80770df71234eb893fbe4d... size: 1796
 ```
 
 Now, you can use this image as the deployment source for a new function app in Azure.

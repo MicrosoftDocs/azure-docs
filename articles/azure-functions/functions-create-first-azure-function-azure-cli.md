@@ -40,7 +40,7 @@ Run the following command from the command line to create a function app project
 func init MyFunctionProj
 ```
 
-When prompted, use the arrow keys to select a worker runtime from the following language choices:
+When prompted, select a worker runtime from the following language choices:
 
 + `dotnet`: creates a .NET class library project (.csproj).
 + `node`: creates a JavaScript project.

@@ -22,7 +22,7 @@ func new --name MyHttpTrigger --template "HttpTrigger"
 When the command executes, you see something like the following output, which in this case is for a JavaScript function:
 
 ```output
-Writing C:\functions\MyFunctionProj\MyHttpTrigger\index.js
-Writing C:\functions\MyFunctionProj\MyHttpTrigger\sample.dat
-Writing C:\functions\MyFunctionProj\MyHttpTrigger\function.json
+Writing MyFunctionProj/MyHttpTrigger/index.js
+Writing MyFunctionProj/MyHttpTrigger/sample.dat
+Writing MyFunctionProj/MyHttpTrigger/function.json
 ```
