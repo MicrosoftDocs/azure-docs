@@ -27,7 +27,7 @@ In the future, portal notifications informing customers that newer versions of k
 
 1)	What happens when a customer upgrades a kubernetes cluster with a minor version that is not supported?
 
-If the customer is on the n-4 version, you are out of the SLO but if your upgrade from version n-4 to n-3 succeeds then you are back in the SLO. For example, if the supported AKS versions are 1.11.x, 1.10.a/b, 1.9.c/d, 1.8.e/f and the customer cluster is on 1.7.g/h then the customer can upgrade to 1.8.e/f but it is best effort and not covered under the SLO. Upgrade to versions < n-4 will not be supported. In such cases, we recommend customers to create new AKS clusters and redeploy their workloads.
+If you are on the n-4 version, you are out of the SLO but if your upgrade from version n-4 to n-3 succeeds then you are back in the SLO. For example, if the supported AKS versions are 1.11.x, 1.10.a/b, 1.9.c/d, 1.8.e/f and you are on 1.7.g/h then you are out of the SLO but if the upgrade from 1.7.g/h to 1.8.e/f succeeds then you are back in the SLO. Upgrade to versions < n-4 will not be supported. In such cases, we recommend customers to create new AKS clusters and redeploy their workloads.
 
 2)	What happens when a customer scales a kubernetes cluster with a minor version that is not supported?
 
