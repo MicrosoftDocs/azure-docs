@@ -13,7 +13,7 @@ ms.date: 09/13/2018
 ms.devlangms.service: Cloud Foundry
 ms.tgt_pltfrm: multiple
 ms.topic: article
-ms.workload: web
+.ms.workload: web
 ---
 
 # Provisioning Pivotal Cloud Foundry on Azure
@@ -35,7 +35,7 @@ ssh-keygen -t rsa -b 2048
 
 > [!NOTE]
 >
-> Creating a service principal requires an owner account permission
+> Creating a service principal requires an owner account permission.  In addition, you can write a script to automate creating the Service Principal. For example using Azure CLI [az ad sp create-for-rbac](https://docs.microsoft.com/en-us/cli/azure/ad/sp?view=azure-cli-latest)
 
 1. Log into your azure
 
