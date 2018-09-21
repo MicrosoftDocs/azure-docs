@@ -29,7 +29,7 @@ When you complete the steps described in this article, you see that the event da
 
     Make sure to remember the values that you used for the resource group name and Media Services account name.
 
-- Install the [Azure CLI]( /cli/azure/install-azure-cli). This article requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. You can also use the [Azure Cloud Shell](https://shell.azure.com/bash).
+- Install the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). This article requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. You can also use the [Azure Cloud Shell](https://shell.azure.com/bash).
 
 ## Enable Event Grid resource provider
 
