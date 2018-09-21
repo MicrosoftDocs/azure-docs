@@ -80,7 +80,7 @@ Otherwise, select the values that you want:
 
    1. Select **Send to Log Analytics**. 
    2. Under **Log Analytics**, choose **Configure**. 
-   3. Under **Log Analytics workspaces**, select the workspace to use for logging. 
+   3. Under **OMS workspaces**, select the Log Analytics workspace to use for logging. 
    > [!NOTE]
    > OMS workspaces are now referred to as Log Analytics workspaces. 
    4. Under **Log**, select the **IntegrationAccountTrackingEvents** category.
@@ -123,8 +123,10 @@ Otherwise, select the values that you want:
 
    1. Select **Send to Log Analytics**. 
    2. Under **Log Analytics**, choose **Configure**. 
-   3. Under **Log Analytics workspaces**, select the workspace 
+   3. Under **OMS workspaces**, select the Log Analytics workspace 
    to use for logging.
+   > [!NOTE]
+   > OMS workspaces are now referred to as Log Analytics workspaces.
    4. Under **Log**, select the **IntegrationAccountTrackingEvents** category.
    5. When you're done, choose **Save**.
 

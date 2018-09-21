@@ -77,7 +77,7 @@ and choose **Log Analytics** as shown:
 
    ![Select your Log Analytics workspace](media/logic-apps-monitor-your-logic-apps-oms/select-logic-app.png)
 
-3. Under **Management**, choose **Overview**.
+3. Under **Management**, choose **Workspace summary**.
 
    ![Choose "Overview"](media/logic-apps-monitor-your-logic-apps-oms/ibiza-portal-page.png)
 
