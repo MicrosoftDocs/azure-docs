@@ -81,7 +81,7 @@ Principles and patterns for the network perimeter have been available for decade
 The following are best practices for managing the identity perimeter.
 
 **Best practice**: Secure your keys and credentials to secure your PaaS deployment.   
-**Detail**: Losing keys and credentials is a common problem. You can use a centralized solution where keys and secrets can be stored in hardware security modules. Azure provides you an HSM in the cloud with [Azure Key Vault](../azure/key-vault/key-vault-whatis.md).
+**Detail**: Losing keys and credentials is a common problem. You can use a centralized solution where keys and secrets can be stored in hardware security modules. Azure provides you an HSM in the cloud with [Azure Key Vault](../key-vault/key-vault-whatis.md).
 
 **Best practice**: Don’t put credentials and other secrets in source code or GitHub.   
 **Detail**: The only thing worse than losing your keys and credentials is having an unauthorized party gain access to them. Attackers can take advantage of bot technologies to find keys and secrets stored in code repositories such as GitHub. Do not put key and secrets in these public code repositories.
@@ -96,7 +96,7 @@ If possible, use alternate approaches like using virtual private networks in an 
 
 Use platform-supplied authentication and authorization mechanisms instead of custom code. The reason is that developing custom authentication code can be error prone. Most of your developers are not security experts and are unlikely to be aware of the subtleties and the latest developments in authentication and authorization. Commercial code (for example, from Microsoft) is often extensively security reviewed.
 
-Use two-factor authentication. Two-factor authentication is the current standard for authentication and authorization because it avoids the security weaknesses inherent in username and password types of authentication. Access to both the Azure management (portal/remote PowerShell) interfaces and customer-facing services should be designed and configured to use [Azure Multi-Factor Authentication](../azure/active-directory/authentication/multi-factor-authentication.md).
+Use two-factor authentication. Two-factor authentication is the current standard for authentication and authorization because it avoids the security weaknesses inherent in username and password types of authentication. Access to both the Azure management (portal/remote PowerShell) interfaces and customer-facing services should be designed and configured to use [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md).
 
 Use standard authentication protocols, such as OAuth2 and Kerberos. These protocols have been extensively peer reviewed and are likely implemented as part of your platform libraries for authentication and authorization.
 
@@ -109,7 +109,7 @@ The following table lists the STRIDE threats and gives some example mitigations 
 | --- | --- | --- |
 | Spoofing | Authentication | Require HTTPS connections. |
 | Tampering | Integrity | Validate SSL certificates. |
-| Repudiation | Non-repudiation | Enable Azure [monitoring and diagnostics](../architecture/best-practices/monitoring.md). |
+| Repudiation | Non-repudiation | Enable Azure [monitoring and diagnostics](https://docs.microsoft.com/azure/architecture/best-practices/monitoring). |
 | Information disclosure | Confidentiality | Encrypt sensitive data at rest by using [service certificates](https://docs.microsoft.com/rest/api/appservice/certificates). |
 | Denial of service | Availability | Monitor performance metrics for potential denial-of-service conditions. Implement connection filters. |
 | Elevation of privilege | Authorization | Use [Privileged Identity Management](../active-directory/privileged-identity-management/subscription-requirements.md). |
@@ -132,7 +132,7 @@ Following are best practices for using App Service.
 **Detail**: [App Service Environment](../app-service/environment/intro.md) has a virtual network integration feature that helps you restrict incoming source IP addresses through network security groups. Virtual networks enable you to place Azure resources in a non-internet, routable network that you control access to. To learn more, see [Integrate your app with an Azure virtual network](../app-service/web-sites-integrate-with-vnet.md).
 
 **Best practice**: Monitor the security state of your App Service environments.   
-**Detail**: Use [Azure Security Center to monitor your App Service environments](../security-center/security-center-virtual-machine-recommendations.md#monitor-compute-and-app-services). When Security Center identifies potential security vulnerabilities, it creates recommendations that guide you through the process of configuring the needed controls.
+**Detail**: Use Azure Security Center to monitor your App Service environments. When Security Center identifies potential security vulnerabilities, it creates [recommendations](../security-center/security-center-virtual-machine-recommendations.md) that guide you through the process of configuring the needed controls.
 
 > [!NOTE]
 > Monitoring App Service is in preview and available only on the [Standard tier](../security-center/security-center-pricing.md) of Security Center.
