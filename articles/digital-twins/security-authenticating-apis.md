@@ -16,7 +16,7 @@ Digital Twins uses Azure Active Directory to authenticate users and protect appl
 
 If you're unfamiliar with Azure Active Directory, [here](https://docs.microsoft.com/en-us/azure/active-directory/develop/azure-ad-developers-guide). The Windows Azure Authentication Library offers many ways to acquire Active Directory tokens. For a deep-dive into ADAL view the documentation [here](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki). This article gives an overview of two scenarios: A production scenario involving a middle-tier API, and authentication in the client application Postman for quick start-up and testing.
 
-Digital Twins solutions developers may choose to create a client application or middle-tier API that will send requests to Digital Twins. Users would first authenticate to the client app, and then an on-behalf-of token flow would be used when calling the downstream API.
+Solutions developers have at least two ways to connect to Digital Twins. They can create a client application or a middle-tier API. Client apps require users to authenticate and then use the Oauth **on-behalf-of token flow** to call a downstream API.
 
 1. Create or make use of an existing AAD Application. View the documentation [here](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad).
 1. Specify the Sign-on and Redirect Uris if needed.
@@ -27,7 +27,7 @@ For detailed instructions on how to orchestrate the on-behalf-of flow visit [thi
 
 ## Test with the Postman Client
 
-1. Follow the initial steps above to create (or re-purpose an existing) AAD Application, set oauth2AllowImplicitFlow to true in the app manifest, and grant permissions to “Azure Smart Spaces Service.”
+1. Follow the initial steps above to create (or modify) an Azure Active Directory application. Then, set oauth2AllowImplicitFlow to true in the app manifest and grant permissions to “Azure Smart Spaces Service.”
 1. Set a reply url to [https://www.getpostman.com/oauth2/callback](https://www.getpostman.com/oauth2/callback).
 1. In postman select the Authorization Tab, click on OAuth 2.0 and select Get New Access Token.
 
