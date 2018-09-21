@@ -204,7 +204,7 @@ ms.author: mtillman
                                                             <a href="privileged-identity-management/pim-how-to-add-role-to-user.md">Assign directory roles</a>
                                                         </p>
 														<br><br>
-														<h3><a href="reports-monitoring/index.yml">Reporting and monitoring</a></h3>
+														<h3><a href="reports-monitoring/index.yml">Reports and monitoring</a></h3>
                                                         <p>
                                                             <a href="reports-monitoring/howto-find-activity-reports.md">Find activity reports</a><br>
                                                             <a href="reports-monitoring/concept-activity-logs-in-azure-monitor.md">Use Azure AD logs in Azure Monitor</a><br>
