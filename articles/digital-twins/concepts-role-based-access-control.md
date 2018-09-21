@@ -45,7 +45,7 @@ The following roles are available in Digital Twins RBAC:
 
 The full definitions for the above can be retrieved by querying the system/roles API
 
-Object Types
+## Object Types
 
 The ObjectIdType refers to the type of identity that is being given a role. Apart from the DeviceId and UserDefinedFunctionId types, the types correspond to a property of an Azure Active Directory (AAD) object.
   
@@ -68,4 +68,5 @@ For example, a user is given a role assignment with role DeviceInstaller for the
 
 ## Next steps
 
-Creating a role assignment (link to the other page)
+> [!div class="nextstepaction"]
+> [Creating a role assignment] (./concepts-create-manage-role-assignments.md)
