@@ -6,7 +6,6 @@ documentationcenter: ''
 
 author: zroiy
 manager: jeconnoc
-
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
@@ -100,7 +99,7 @@ The following JSON shows the schema for the Chef VM Extension. The extension req
 
 ## Template deployment
 
-Azure VM extensions can be deployed with Azure Resource Manager (ARM) templates. ARM templates can be used to deploy one or more virtual machines, install the Chef Client, connect to the Chef Server and the perform the initial configuration on the server as defined by the [Run-list](https://docs.chef.io/run_lists.html)
+Azure VM extensions can be deployed with Azure Resource Manager templates. Templates can be used to deploy one or more virtual machines, install the Chef Client, connect to the Chef Server and the perform the initial configuration on the server as defined by the [Run-list](https://docs.chef.io/run_lists.html)
 
 A sample Resource Manager template that includes the Chef VM Extension can be found on the [Azure Quick Start Gallery](https://github.com/Azure/azure-quickstart-templates/tree/master/chef-json-parameters-linux-vm).
 

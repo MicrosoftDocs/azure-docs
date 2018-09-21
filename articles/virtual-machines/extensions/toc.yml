@@ -44,8 +44,6 @@
       href: vmsnapshot-linux.md
     - name: Windows
       href: vmsnapshot-windows.md
-  - name: Chef
-    href: chef.md
   - name: Network Watcher Agent
     items:
     - name: Linux
@@ -87,6 +85,8 @@
       href: diagnostics-template.md
   - name: Third-party extensions
     items:
+    - name: Chef
+      href: chef.md
     - name: Stackify Retrace
       href: stackify-retrace-linux.md
     - name: Symantec
