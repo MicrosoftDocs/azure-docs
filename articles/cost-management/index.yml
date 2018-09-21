@@ -39,3 +39,15 @@ sections:
     - html: <a href="tutorial-manage-costs">Manage costs with cost allocation and showback and chargeback reports</a>
     - html: <a href="tutorial-optimize-reserved-instances">Optimize reserved instances</a>
     - html: <a href="tutorial-user-access">Assign access to Cost Management data</a>
+- title: Build your skills with Microsoft Learn
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Predict costs and optimize spending for Azure
+      href: /learn/modules/predict-costs-and-optimize-spending/
+      image: 
+        src: /learn/achievements/predict-costs-and-optimize-spending.svg
+  - type: paragraph
+    text: <a href="/learn/browse/">More interactive learning...</a>
