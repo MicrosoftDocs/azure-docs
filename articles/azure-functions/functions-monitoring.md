@@ -206,9 +206,26 @@ Log level `None` is explained in the next section.
 
 The *host.json* file configures how much logging a function app sends to Application Insights. For each category, you indicate the minimum log level to send. Here's an example:
 
+#### Functions Version 1 
 ```json
 {
   "logger": {
+    "categoryFilter": {
+      "defaultLevel": "Information",
+      "categoryLevels": {
+        "Host.Results": "Error",
+        "Function": "Error",
+        "Host.Aggregator": "Trace"
+      }
+    }
+  }
+}
+```
+
+#### Functions Version 2 
+```json
+{
+  "logging": {
     "categoryFilter": {
       "defaultLevel": "Information",
       "categoryLevels": {
@@ -231,6 +248,23 @@ The category value in *host.json* controls logging for all categories that begin
 
 If *host.json* includes multiple categories that start with the same string, the longer ones are matched first. For example, suppose you want everything from the runtime except "Host.Aggregator" to log at `Error` level, but you want "Host.Aggregator" to log at the `Information` level:
 
+#### Functions Version 1 
+```json
+{
+  "logger": {
+    "categoryFilter": {
+      "defaultLevel": "Information",
+      "categoryLevels": {
+        "Host": "Error",
+        "Function": "Error",
+        "Host.Aggregator": "Information"
+      }
+    }
+  }
+}
+```
+
+#### Functions Version 2 
 ```json
 {
   "logger": {
