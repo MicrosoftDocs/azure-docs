@@ -33,9 +33,10 @@ When you deploy an AKS cluster in the portal or with the Azure CLI, the cluster 
 
 **What happens when a customer upgrades a Kubernetes cluster with a minor version that is not supported?**
 
-If you are on the *n-4* version, you are out of the SLO. If your upgrade from version n-4 to n-3 succeeds, then you are back in the SLO.
+If you are on the *n-4* version, you are out of the SLO. If your upgrade from version n-4 to n-3 succeeds, then you are back in the SLO. For example:
 
-For example, if the supported AKS versions are *1.10.a* + *1.10.b*, *1.9.c* + *1.9d*, *1.8.e* + *1.8f* and you are on *1.7.g* or *1.7.h*, you are out of the SLO. If the upgrade from *1.7.g* or *1.7.h* to *1.8.e* or *1.8.f* succeeds, you are back in the SLO.
+- If the supported AKS versions are *1.10.a* + *1.10.b*, *1.9.c* + *1.9d*, *1.8.e* + *1.8f* and you are on *1.7.g* or *1.7.h*, you are out of the SLO.
+- If the upgrade from *1.7.g* or *1.7.h* to *1.8.e* or *1.8.f* succeeds, you are back in the SLO.
 
 Upgrades to versions older than *n-4* are not supported. In such cases, we recommend customers create new AKS clusters and redeploy their workloads.
 
@@ -59,4 +60,4 @@ For information on how to upgrade your cluster, see [Upgrade an Azure Kubernetes
 [acs-engine]: https://github.com/Azure/acs-engine
 
 <!-- LINKS - Internal -->
-[aks-upgrade] upgrade-cluster.md
+[aks-upgrade]: upgrade-cluster.md
