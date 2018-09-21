@@ -161,6 +161,7 @@ ms.author: mtillman
                                                             <a href="users-groups-roles/licensing-groups-assign.md">Assign licenses to groups</a><br>
                                                             <a href="users-groups-roles/groups-create-rule.md">Create a dynamic group</a>
                                                         </p>
+														<br><br>
                                                         <h3><a href="hybrid/index.yml">Hybrid identity</a></h3>
                                                         <p>
                                                             <a href="hybrid/how-to-connect-install-roadmap.md">Install Azure AD Connect</a><br>
