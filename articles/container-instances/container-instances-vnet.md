@@ -29,6 +29,7 @@ Container groups deployed into an Azure virtual network enable scenarios like:
 
 Certain limitations apply when you deploy container groups to a virtual network.
 
+* Windows containers are unsupported
 * To deploy container groups to a subnet, the subnet cannot contain any other resource types. Remove all existing resources from an existing subnet prior to deploying container groups to it, or create a new subnet.
 * Container groups deployed to a virtual network do not currently support public IP addresses or DNS name labels.
 * Due to the additional networking resources involved, deploying a container group to a virtual network is typically somewhat slower than deploying a standard container instance.
@@ -43,11 +44,10 @@ While this feature is in preview, the following limitations apply when deploying
 * West Europe (westeurope)
 * West US (westus)
 
-**Unsupported** resources:
+**Unsupported** network resources:
 
 * Network Security Group
 * Azure Load Balancer
-* Windows containers
 
 **Network resource deletion** requires [additional steps](#delete-network-resources) once you've deployed container groups to the virtual network.
 
@@ -184,7 +184,7 @@ az container delete --resource-group myResourceGroup --name commchecker -y
 
 ### Delete network resources
 
-The initial preview of this feature requires several additional commands to delete the network resources you created earlier. After you remove all container groups from the subnet, you can execute the following script to delete the network resources you created earlier.
+The initial preview of this feature requires several additional commands to delete the network resources you created earlier. After you remove all container groups from the subnet, you can execute the following script to delete those network resources.
 
 ```azurecli
 # Replace <my-resource-group> with the name of your resource group
