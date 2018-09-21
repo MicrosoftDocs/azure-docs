@@ -148,6 +148,8 @@
       href: ~/cyclecloud-references/upgrade-and-migrate.md
     - name: HTTP Proxy Configuration
       href: ~/cyclecloud-references/running-behind-proxy.md
+    - name: User Interface Theming
+      href: ~/cyclecloud-references/theming.md
   - name: Jetpack
     href: jetpack.md
   - name: Common Cookbook Reference
