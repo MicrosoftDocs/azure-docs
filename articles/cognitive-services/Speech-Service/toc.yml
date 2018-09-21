@@ -104,9 +104,6 @@
     href: prepare-transcription.md
   - name: Use custom audio streams
     href: how-to-use-audio-input-streams.md
-  - name: Customize device wake word (Devices SDK)
-    href: speech-devices-sdk-create-kws.md
-    displayName: roobo, speech devices sdk, wake word, keyword spotting, kws
   - name: Migrate
     items:
     - name: From the Translator Speech API
