@@ -282,7 +282,7 @@ For more information about API profiles, see:
 - [Resource provider API versions supported by profiles](azure-stack-profiles-azure-resource-manager-versions.md)
 
   [Getting Started - Installing Git]: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
-  [Finding and installing a package]: ~/nuget/tools/package-manager-ui
+  [Finding and installing a package]: /nuget/tools/package-manager-ui
   [NuGet Package Manager instructions]: https://marketplace.visualstudio.com/items?itemName=jmrog.vscode-nuget-package-manager
   [Create subscriptions to offers in Azure Stack]: ../azure-stack-subscribe-plan-provision-vm.md
   [Provide applications access to Azure Stack]: ../azure-stack-create-service-principals.md
@@ -292,4 +292,4 @@ For more information about API profiles, see:
   [Summary of API profiles]: ../user/azure-stack-version-profiles.md#summary-of-api-profiles
   [Test Project to Virtual Machine, vNet, resource groups, and storage account]: https://github.com/seyadava/azure-sdk-for-net-samples/tree/master/TestProject
   [Use Azure PowerShell to create a service principal with a certificate]: ../azure-stack-create-service-principals.md
-  [Run unit tests with Test Explorer.]: ~/visualstudio/test/run-unit-tests-with-test-explorer?view=vs-2017
+  [Run unit tests with Test Explorer.]: /visualstudio/test/run-unit-tests-with-test-explorer?view=vs-2017
