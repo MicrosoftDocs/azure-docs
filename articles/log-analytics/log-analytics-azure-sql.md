@@ -59,7 +59,7 @@ Perform the following steps to add the Azure SQL Analytics solution to your Azur
 
     ![add to workspace](./media/log-analytics-azure-sql/add-to-workspace.png)
 
-### Configure Azure SQL databases and elastic pools to stream diagnostics telemetry
+### Configure Azure SQL Databases, elastic pools and Managed Instances to stream diagnostics telemetry
 
 Once you have created Azure SQL Analytics solution in your workspace, in order to monitor performance of Azure SQL databases, Managed Instance databases and elastic pools, you will need to **configure each** of these resources you wish to monitor to stream its diagnostics telemetry to the solution.
 
