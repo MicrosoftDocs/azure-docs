@@ -8,7 +8,7 @@ author: wolfma61
 ms.service: cognitive-services
 ms.technology: Speech
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 09/24/2018
 ms.author: wolfma
 ---
 
@@ -26,7 +26,9 @@ You need a Speech service subscription key to complete this Quickstart. You can 
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-You can use the Speech SDK for Linux to build both 64-bit and 32-bit applications. You can [download](https://aka.ms/csspeech/linuxbinary) the required libraries and header files as a tar file.
+The current version of the Cognitive Services Speech SDK is `1.0.0`.
+
+The Speech SDK for Linux can be used to build both 64-bit and 32-bit applications. The required libraries and header files can be downloaded as a tarfile from https://aka.ms/csspeech/linuxbinary.
 
 Download and install the SDK as follows:
 
@@ -119,7 +121,7 @@ Download and install the SDK as follows:
 
    ```text
    Say something...
-   We recognized: What's the weather
+   We recognized: What's the weather like?
    ```
 
 [!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
@@ -128,7 +130,7 @@ Look for this sample in the `quickstart/cpp-linux` folder.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Recognize intents from speech by using the Speech SDK for C#](how-to-recognize-intents-from-speech-csharp.md)
+> [Recognize intents from speech by using the Speech SDK for C++](how-to-recognize-intents-from-speech-cpp.md)
 
 ## See also
 

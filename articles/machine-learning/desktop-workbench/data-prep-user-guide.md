@@ -13,8 +13,14 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 02/01/2018
+
+ROBOTS: NOINDEX
 ---
 # Data Preparations user guide 
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 The Azure Machine Learning Data Preparations experience provides a lot of rich functionality. This article documents the deepest parts of the experience.
 
 ### Step execution, history, and caching 
