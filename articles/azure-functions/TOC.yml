@@ -260,6 +260,8 @@
     href: functions-api-definition.md     
 - name: Resources
   items:
+  - name: Build your skills with Microsoft Learn
+    href: /learn/browse/?products=azure-functions
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=compute
   - name: Pricing

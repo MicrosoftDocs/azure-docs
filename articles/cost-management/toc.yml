@@ -33,6 +33,8 @@
       href: https://azure.microsoft.com/roadmap/
   - name: Resources
     items:
+    - name: Build your skills with Microsoft Learn
+      href: /learn/browse/?products=azure-cost-management
     - name: Azure Roadmap
       href: https://azure.microsoft.com/roadmap/
     - name: Pricing
