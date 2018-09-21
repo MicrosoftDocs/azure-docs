@@ -140,7 +140,7 @@ You can view the storage account information by using the Settings button on the
 There are multiple ways to share the diagnostics report with Microsoft.
 
 **Option 1:** Automatically share the latest report  
-When you open a support ticket with Microsoft, it is important to share the performance diagnostics report. If you opted to share this information with Microsoft while you run the diagnostics (by selecting the “**I agree to share diagnostics information with Microsoft**” check box), Microsoft will be able to access the report from your storage account for up to 30 days from the run date. Only the latest report is available to the support engineer. 
+When you open a support ticket with Microsoft, it is important to share the performance diagnostics report. If you opted to share this information with Microsoft while you run the diagnostics (by selecting the “**I agree to share diagnostics information with Microsoft**” check box), Microsoft will be able to access the report from your storage account using a SAS link to the output zip file for up to 30 days from the run date. Only the latest report is available to the support engineer. 
 
 **Option 2:** Generate a Shared Access Signature for the diagnostics report compressed file  
 You may share a link to the reports compressed file by using Shared Access Signatures. To do this, follow these steps: 
