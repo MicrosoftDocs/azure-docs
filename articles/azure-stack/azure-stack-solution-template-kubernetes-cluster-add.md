@@ -103,7 +103,7 @@ Add the Kubernetes from the Marketplace:
 
 1. Open the [Administration portal](https://adminportal.local.azurestack.external).
 
-1. Select **ALL services** and then under the **ADMINISTRATION** category, select **Marketplace Management**.
+1. Select **All services** and then under the **ADMINISTRATION** category, select **Marketplace Management**.
 
 1. Select **+ Add from Azure**.
 
