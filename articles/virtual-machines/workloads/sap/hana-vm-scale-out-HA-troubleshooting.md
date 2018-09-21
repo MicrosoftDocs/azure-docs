@@ -22,7 +22,7 @@ ms.author: hermannd
 # Verification and troubleshooting of SAP HANA scale-out HSR-Pacemaker setup on SLES 12 SP3
 
 
-This article should help to check the Pacemaker cluster configuration for SAP HANA scale-out in combination with SAP HANA System Replication (HSR) on SLES 12 SP3 using the SUSE RPM package SAPHanaSR-ScaleOut. There are several sections, which cover different areas and include sample commands as well as excerpts from config files as a recommendation to verify if everything looks right.
+This article was written to help checking the Pacemaker cluster configuration for SAP HANA scale-out. The cluster setup was accomplished in combination with SAP HANA System Replication (HSR) and the SUSE RPM package SAPHanaSR-ScaleOut. All tests were done on SUSE SLES 12 SP3 only. There are several sections, which cover different areas and include sample commands as well as excerpts from config files. These samples are recommended to verify and check the whole cluster setup.
 
 
 
