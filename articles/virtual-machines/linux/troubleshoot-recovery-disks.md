@@ -1,7 +1,7 @@
 ---
 
-title: Use a Linux troubleshooting VM with the Azure CLI 2.0 | Microsoft Docs
-description: Learn how to troubleshoot Linux VM issues by connecting the OS disk to a recovery VM using the Azure CLI 2.0
+title: Use a Linux troubleshooting VM with the Azure CLI | Microsoft Docs
+description: Learn how to troubleshoot Linux VM issues by connecting the OS disk to a recovery VM using the Azure CLI
 services: virtual-machines-linux
 documentationCenter: ''
 authors: cynthn
@@ -18,11 +18,12 @@ ms.author: cynthn
 
 ---
 
-# Troubleshoot a Linux VM by attaching the OS disk to a recovery VM with the Azure CLI 2.0
-If your Linux virtual machine (VM) encounters a boot or disk error, you may need to perform troubleshooting steps on the virtual hard disk itself. A common example would be an invalid entry in `/etc/fstab` that prevents the VM from being able to boot successfully. This article details how to use the Azure CLI 2.0 to connect your virtual hard disk to another Linux VM to fix any errors, then re-create your original VM. 
+# Troubleshoot a Linux VM by attaching the OS disk to a recovery VM with the Azure CLI
 
+If your Linux virtual machine (VM) encounters a boot or disk error, you may need to perform troubleshooting steps on the virtual hard disk itself. A common example would be an invalid entry in `/etc/fstab` that prevents the VM from being able to boot successfully. This article details how to use the Azure CLI to connect your virtual hard disk to another Linux VM to fix any errors, then re-create your original VM. 
 
 ## Recovery process overview
+
 The troubleshooting process is as follows:
 
 1. Delete the VM encountering issues, keeping the virtual hard disks.
@@ -33,7 +34,7 @@ The troubleshooting process is as follows:
 
 For the VM that uses managed disk, see [Troubleshoot a Managed Disk VM by attaching a new OS disk](#troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk).
 
-To perform these troubleshooting steps, you need the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/reference-index#az_login).
+To perform these troubleshooting steps, you need the latest [Azure CLI](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/reference-index#az_login).
 
 In the following examples, replace parameter names with your own values. Example parameter names include `myResourceGroup`, `mystorageaccount`, and `myVM`.
 

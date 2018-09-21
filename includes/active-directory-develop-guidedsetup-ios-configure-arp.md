@@ -1,3 +1,23 @@
+---
+title: include file
+description: include file
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: ios
+ms.workload: identity
+ms.date: 09/19/2018
+ms.author: andret
+ms.custom: include file 
+
+---
 
 ## Add the application’s registration information to your app
 
@@ -28,7 +48,6 @@ Under the <code>dict</code> root node, add the following:
         <key>CFBundleURLSchemes</key>
         <array>
             <string>msal[Enter the application Id here]</string>
-            <string>auth</string>
         </array>
     </dict>
 </array>

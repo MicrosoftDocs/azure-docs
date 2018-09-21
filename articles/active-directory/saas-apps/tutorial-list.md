@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/20/2018
+ms.date: 09/11/2018
 ms.author: markvi
 ms.custom: it-pro
 ms.reviewer: jeedes
@@ -639,4 +639,4 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 
 ## Related articles
 
-[Article Index for Application Management in Azure Active Directory](../active-directory-apps-index.md)
+[Application Management in Azure Active Directory](../manage-apps/what-is-application-management.md)

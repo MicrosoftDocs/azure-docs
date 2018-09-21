@@ -5,7 +5,7 @@ description: Discusses sharing resources with external partners using O365 and A
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/24/2017
 
 ms.author: mimart
@@ -36,9 +36,14 @@ To manage external sharing in OneDrive/SharePoint Online with Azure AD B2B colla
 
 ![The OneDrive/SharePoint Online external sharing setting](media/o365-external-user/odsp-sharing-setting.png)
 
+After enabling external sharing, the ability to search for existing guest users in the SharePoint Online (SPO) people picker is OFF by default to match legacy behavior.
+
+You can enable this feature by using the setting 'ShowPeoplePickerSuggestionsForGuestUsers' at the tenant and site collection level. You can set the feature using the Set-SPOTenant and Set-SPOSite cmdlets, which allow members to search all existing guest users in the directory. Changes in the tenant scope do not affect already provisioned SPO sites.
+
 ## Next steps
 
 * [What is Azure AD B2B collaboration?](what-is-b2b.md)
 * [Adding a B2B collaboration user to a role](add-guest-to-role.md)
 * [Delegate B2B collaboration invitations](delegate-invitations.md)
 * [Dynamic groups and B2B collaboration](use-dynamic-groups.md)
+* [Troubleshooting Azure Active Directory B2B collaboration](troubleshoot.md)

@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Script Sample - Scale a Web App manually using Azure CLI 2.0 | Microsoft Docs
-description: Azure CLI Script Sample - Scale a Web App manually using Azure CLI 2.0
+title: Azure CLI Script Sample - Scale a Web App manually using Azure CLI | Microsoft Docs
+description: Azure CLI Script Sample - Scale a Web App manually using Azure CLI 
 services: appservice
 documentationcenter: appservice
 author: syntaxc4
@@ -27,7 +27,7 @@ This sample script creates a resource group, an App Service plan, and a web app.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, you need Azure CLI version 2.0 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, you need Azure CLI version 2.0 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Sample script
 

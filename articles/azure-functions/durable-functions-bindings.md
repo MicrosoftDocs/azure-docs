@@ -116,7 +116,7 @@ module.exports = df(function*(context) {
 
 The activity trigger enables you to author functions that are called by orchestrator functions.
 
-If you're using Visual Studio, the activity trigger is configured using the [ActvityTriggerAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.ActivityTriggerAttribute.html) .NET attribute. 
+If you're using Visual Studio, the activity trigger is configured using the [ActivityTriggerAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.ActivityTriggerAttribute.html) .NET attribute. 
 
 If you're using the Azure portal for development, the activity trigger is defined by the following JSON object in the `bindings` array of *function.json*:
 

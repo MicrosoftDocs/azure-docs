@@ -3,7 +3,7 @@ title: Azure Marketplace items available for Azure Stack | Microsoft Docs
 description: These Azure Marketplace items can be used in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: jeffgo
 
 ---
@@ -97,6 +97,7 @@ Microsoft Azure Stack supports the following Azure Marketplace virtual machines 
 
 |  | Item name | Description | Publisher |
 | --- | --- | --- | --- |
+| ![Arista vEOS Router](media/azure-stack-marketplace-azure-items/arista.png) | [Arista vEOS Router](https://azuremarketplace.microsoft.com/marketplace/apps/arista-networks.veos-router) | The Arista vEOS Router is a feature rich multi-cloud and multi-hypervisor virtual router that empowers enterprises and cloud providers to build consistent, highly secure, and scalable hybrid networks. | Arista Networks |
 | ![AbanteCart](media/azure-stack-marketplace-azure-items/abantecart.png) | [AbanteCart](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.abantecart) | Open-source ecommerce shopping cart. | Bitnami |
 | ![ActiveMQ](media/azure-stack-marketplace-azure-items/activemq.png) | [ActiveMQ](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.activemq) | Open-source message broker in Java. | Bitnami |
 | ![Akeneo](media/azure-stack-marketplace-azure-items/akeneo.png) | [Akeneo](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.akeneo) | Powerful PIM designed to simplify management processes. | Bitnami |
@@ -152,6 +153,7 @@ Microsoft Azure Stack supports the following Azure Marketplace virtual machines 
 | ![Memcached Multiple Instances](media/azure-stack-marketplace-azure-items/memcached.png) | [Memcached Multiple Instances](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.memcached-multipleinstances) | Memcached is an high-performance, distributed memory object caching system. This solution provisions multiple Memcached nodes to create a high performance, failure-resistant distributed cache for your application. **This solution template also requires Debian 8 and Custom Script for Linux 2.0 Extension.** | Bitnami |
 | ![MODX](media/azure-stack-marketplace-azure-items/modx.png) | [MODX](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.modx) | Intuitive Web CMS. | Bitnami |
 | ![MongoDB](media/azure-stack-marketplace-azure-items/mongodb.png) | [MongoDB](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.mongodb) | High-performance open-source NoSQL database written in C++. | Bitnami |
+| ![MongoDB with Replication](media/azure-stack-marketplace-azure-items/mongodb.png) | [MongoDB with Replication](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.production-mongodb) | High-performance open-source NoSQL database written in C++. **This solution template requires your Azure Stack to be at version 1807 or later, and also requires Debian 8 and Custom Script for Linux 2.0 Extension.** | Bitnami |
 | ![Moodle](media/azure-stack-marketplace-azure-items/moodle.png) | [Moodle](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.moodle) | Effective CMS designed for online learning communities. | Bitnami |
 | ![Multicraft](media/azure-stack-marketplace-azure-items/multicraft.png) | [Multicraft](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.multicraft) | Minecraft server hosting solution and control panel. | Bitnami |
 | ![MyBB](media/azure-stack-marketplace-azure-items/mybb.png) | [MyBB](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.mybb) | Free and open-source Forum Software. | Bitnami |
@@ -190,6 +192,7 @@ Microsoft Azure Stack supports the following Azure Marketplace virtual machines 
 | ![RabbitMQ Cluster](media/azure-stack-marketplace-azure-items/rabbitmq.png) | [RabbitMQ Cluster](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.rabbitmq-cluster) | RabbitMQ is a messaging broker that gives your applications a common platform to send and receive messages, and your messages a safe place to live until received. This solution uses multiple VMs to provision multiple nodes in a RabbitMQ Cluster to form a single logical broker. **This solution template also requires Debian 8 and Custom Script for Linux 2.0 Extension.** | Bitnami |
 | ![Re:dash](media/azure-stack-marketplace-azure-items/redash.png) | [Re:dash](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.redash) | Open-source Data Visualization and Collaboration Platform. | Bitnami |
 | ![Redis](media/azure-stack-marketplace-azure-items/redis.png) | [Redis](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.redis) | Powerful open-source key-value store. | Bitnami |
+| ![Redis High Availability](media/azure-stack-marketplace-azure-items/redis.png) | [Redis High Availability](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.production-redis) | Powerful open-source key-value store. **This solution template requires your Azure Stack to be at version 1807 or later, and also requires Debian 8 and Custom Script for Linux 2.0 Extension.** | Bitnami |
 | ![Redmine](media/azure-stack-marketplace-azure-items/redmine.png) | [Redmine](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.redmine) | Powerful project management web app | Bitnami |
 | ![Redmine+Agile](media/azure-stack-marketplace-azure-items/redmineagile.png) | [Redmine+Agile](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.redmineplusagile) | Project management application preconfigured with Agile plugin. | Bitnami |
 | ![ReportServer Community](media/azure-stack-marketplace-azure-items/reportserver.png) | [ReportServer Community](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.reportserver) | Open-source business intelligence platform. | Bitnami |

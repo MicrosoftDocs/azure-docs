@@ -45,7 +45,7 @@ To test your module on a device, you need an active IoT hub with at least one Io
 
 ## Create a new solution with C# module
 
-Take these steps to create an IoT Edge module based on .NET Core 2.0 using Visual Studio Code and the Azure IoT Edge extension. First you create a solution, and then you generate the first module in that solution. Each solution can contain more than one module. 
+Take these steps to create an IoT Edge module based on .NET Core 2.1 using Visual Studio Code and the Azure IoT Edge extension. First you create a solution, and then you generate the first module in that solution. Each solution can contain more than one module. 
 
 1. In Visual Studio Code, select **View** > **Integrated Terminal**.
 3. Select **View** > **Command Palette**. 
@@ -113,6 +113,9 @@ The IoT Edge C# module is a .Net Core application. And it depends on Azure IoT C
 3. Navigate to VS Code debug view. Select the debug configuration **ModuleName Local Debug (.NET Core)**. 
 
 4. Click **Start Debugging** or press **F5**. You will start the debug session.
+
+   > [!NOTE]
+   > If your .Net Core `TargetFramework` is not consistent with your program path in `launch.json`. You need to manually update the program path in `launch.json` to respect the `TargetFramework` in your .csproj file. So that VS Code can successfully launch this program.
 
 5. In VS Code integrated terminal, run the following command to send a **Hello World** message to your module. This is the command showed in previous steps when setup IoT Edge simulator successfully.
 

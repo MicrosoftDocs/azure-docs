@@ -66,9 +66,11 @@ To customize the default OS security configuration in Security Center, do the fo
    > By default, the configuration file that you download is in *json* format. For instructions about modifying this file, go to [Customize the configuration file](#customize-the-configuration-file).
    >
 
-   After you've successfully saved the file, the configuration is applied to all VMs and computers that are connected to all workspaces under the subscription. The process usually takes a few minutes but can take longer, depending on the infrastructure size.
-
 6. To commit the change, select **Save**. Otherwise, the policy is not stored.
+
+    ![The Save button](media/security-center-customize-os-security-config/save-successfully.png)
+
+   After you've successfully saved the file, the configuration is applied to all VMs and computers that are connected to the workspaces under the subscription. The process usually takes a few minutes but can take longer, depending on the infrastructure size.
 
 At any point, you can reset the current policy configuration to its default state. To do so, in the **Edit OS security configuration rules** window, select **Reset**. Confirm this option by selecting **Yes** in the confirmation pop-up window.
 

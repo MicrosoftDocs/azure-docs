@@ -9,6 +9,7 @@ ms.custom: mvc,security
 ms.topic: tutorial
 ms.date: 09/07/2018
 ms.author: daredis
+ms.reviewer: vanto
 
 ---
 # Secure your Azure SQL Database
