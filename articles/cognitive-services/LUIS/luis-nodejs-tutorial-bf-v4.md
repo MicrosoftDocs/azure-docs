@@ -62,7 +62,7 @@ https://github.com/Microsoft/BotBuilder-Samples/tree/v4/javascript_nodejs/12.nlp
     
 5. Select **Create**. This creates and deploys the bot service to Azure. Part of this process creates a LUIS app named `luis-nodejs-bot-XXXX`. This name is based on the bot and app name's in the previous section.
 
-    ![Create web app bot](./media/bfv4-nodejs/create-web-app-service.png)
+    [ ![Create web app bot](./media/bfv4-nodejs/create-web-app-service.png) ](./media/bfv4-nodejs/create-web-app-service.png#lightbox)
 
 6. Leave this browser tab open. For any steps with the LUIS portal, open a new browser tab. Continue to the next section when the new bot service is deployed.
 
@@ -102,7 +102,7 @@ In order to develop the web app bot code, download the code and use on your loca
 
 3. Select **Download Bot source code**. 
 
-    ![Download web app bot source code for basic bot](../../../includes/media/cognitive-services-luis/bfv4/download-code.png)
+    [ ![Download web app bot source code for basic bot](../../../includes/media/cognitive-services-luis/bfv4/download-code.png) ](../../../includes/media/cognitive-services-luis/bfv4/download-code.png#lightbox)
 
 4. When the source code is zipped, a message will provide a link to download the code. Select the link. 
 
