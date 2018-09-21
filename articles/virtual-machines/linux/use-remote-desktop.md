@@ -24,7 +24,7 @@ Linux virtual machines (VMs) in Azure are usually managed from the command line 
 ## Prerequisites
 This article requires an existing Ubuntu 16.04 LTS VM in Azure. If you need to create a VM, use one of the following methods:
 
-- The [Azure CLI 2.0](quick-create-cli.md)
+- The [Azure CLI](quick-create-cli.md)
 - The [Azure portal](quick-create-portal.md)
 
 
@@ -82,7 +82,7 @@ sudo passwd azureuser
 ## Create a Network Security Group rule for Remote Desktop traffic
 To allow Remote Desktop traffic to reach your Linux VM, a network security group rule needs to be created that allows TCP on port 3389 to reach your VM. For more information about network security group rules, see [What is a network security group?](../../virtual-network/security-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) You can also [use the Azure portal to create a network security group rule](../windows/nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-The following example creates a network security group rule with [az vm open-port](/cli/azure/vm#az-vm-open-port) on port *3389*. From the Azure CLI 2.0, not the SSH session to your VM, open the following network security group rule:
+The following example creates a network security group rule with [az vm open-port](/cli/azure/vm#az-vm-open-port) on port *3389*. From the Azure CLI, not the SSH session to your VM, open the following network security group rule:
 
 ```azurecli
 az vm open-port --resource-group myResourceGroup --name myVM --port 3389

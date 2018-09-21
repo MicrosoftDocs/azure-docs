@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Create and use disks for scale sets with Azure CLI 2.0 | Microsoft Docs
-description: Learn how to use the Azure CLI 2.0 to create and use Managed Disks with virtual machine scale set, including how to add, prepare, list, and detach disks.
+title: Tutorial - Create and use disks for scale sets with Azure CLI | Microsoft Docs
+description: Learn how to use the Azure CLI to create and use Managed Disks with virtual machine scale set, including how to add, prepare, list, and detach disks.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -19,7 +19,7 @@ ms.author: cynthn
 ms.custom: mvc
 
 ---
-# Tutorial: Create and use disks with virtual machine scale set with the Azure CLI 2.0
+# Tutorial: Create and use disks with virtual machine scale set with the Azure CLI
 Virtual machine scale sets use disks to store the VM instance's operating system, applications, and data. As you create and manage a scale set, it is important to choose a disk size and configuration appropriate to the expected workload. This tutorial covers how to create and manage VM disks. In this tutorial you learn how to:
 
 > [!div class="checklist"]
@@ -33,7 +33,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.29 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.29 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 
 ## Default Azure disks
@@ -294,7 +294,7 @@ az group delete --name myResourceGroup --no-wait --yes
 
 
 ## Next steps
-In this tutorial, you learned how to create and use disks with scale sets with the Azure CLI 2.0:
+In this tutorial, you learned how to create and use disks with scale sets with the Azure CLI:
 
 > [!div class="checklist"]
 > * OS disks and temporary disks
