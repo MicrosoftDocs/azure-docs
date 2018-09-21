@@ -31,8 +31,6 @@
     href: billing-spending-limit.md
   - name: Set up billing alerts
     href: billing-set-up-alerts.md
-  - name: Analyze costs
-    href: billing-cost-analysis.md
   - name: Save with Azure Reservations
     items:
     - name: What are Azure Reservations?
