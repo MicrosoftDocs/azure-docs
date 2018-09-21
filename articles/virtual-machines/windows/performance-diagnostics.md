@@ -29,7 +29,7 @@ You can run performance diagnostics directly from the Azure portal, where you ca
 ### Supported Operating Systems
 Windows 10, Windows 8, Windows 8 Enterprise, Windows 8 Pro, Windows 8.1, Windows Server 2016, Windows Server 2012, Windows Server 2012 Datacenter, Windows Server 2012 R2, Windows Server 2012 R2 Datacenter, Windows Server 2012 R2 Standard, Windows Server 2012 Standard, Windows Server 2008 R2, Windows Server 2008 R2 Datacenter, Windows Server 2008 R2 Enterprise, Windows Server 2008 R2 Foundation, Windows Server 2008 R2 SP1, Windows Server 2008 R2 Standard.
 
-## Installing and running performance diagnostics on your VM
+## Install and run performance diagnostics on your VM
 Performance diagnostics installs a VM extension that runs a diagnostics tool that is named [PerfInsights](https://aka.ms/perfinsights). To install and run performance diagnostics, follow these steps:
 1)	In the left column of commands, select **Virtual machines**.
 2)	From the list of VM names, select the VM that you want to run diagnostics on.
@@ -95,7 +95,7 @@ After the upload, a new diagnostics report is listed in the Azure portal.
 
 ![Screenshot of a list of diagnostics report in Performance diagnostics blade](media/performance-diagnostics/diagnostics-report-list.png)
 
-## Changing performance diagnostics settings
+## How to change performance diagnostics settings
 Use the **Settings** toolbar button to change the storage account where the diagnostics insights and output can be stored. You can use the same storage account for multiple VMs that use performance diagnostics. When you change the storage account, the old reports and insights are not deleted. However, they will no longer be displayed in the list of diagnostics reports. 
 
 ## Review insights and performance diagnostics report
@@ -124,7 +124,7 @@ You can use the **Download report** button to download an HTML report that conta
 ## Manage performance diagnostics reports
 You can delete one or more performance diagnostics reports by using the **Delete report** button.
 
-## Uninstalling performance diagnostics
+## How to uninstall performance diagnostics
 You can uninstall performance diagnostics from a VM. This action removes the VM extension but does not affect any diagnostics data that is in the storage account. 
 
 ![Screenshot of the Performance diagnostics blade toolbar with Uninstall button highlighted](media/performance-diagnostics/uninstal-button.png)
