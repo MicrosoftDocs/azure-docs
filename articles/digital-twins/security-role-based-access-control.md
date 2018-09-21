@@ -10,7 +10,7 @@ ms.date: 09/21/2018
 ms.author: adgera
 ---
 
-# Azure Digital Twins Role-Based Access Control
+# Role-Based Access Control
 
 Digital Twins security enables precise access to specific resources and actions in your IoT topology. It does so through granular role and permission management called Digital Twins Role-Based Access Control.
 
@@ -28,7 +28,7 @@ Role-Based Access Control is unique in that permissions are inherited down the t
 ## Role-Based Access Control best practices
 
 >[!NOTE]
-> Always follow the principle of least privilege: grant an identity only the amount of access needed to perform its job.
+> **Always follow the principle of least privilege**: grant an identity only the amount of access needed to perform its job.
 
 This is particularly important given the downward inheritance that is built into Role-Based Access Control.
 

@@ -11,13 +11,13 @@
   #  href: smart-spaces-in-iot.md
 - name: Concepts
   items:
-  - name: Understanding Object Model and Spatial Intelligence Graph
+  - name: Object Model and Spatial Intelligence Graph
     href: concepts-objectmodel-spatialgraph.md
   - name: Guide to Telemetry Ingress
     href: concepts-telemetry-ingress.md
-  - name: Data processing, user-defined functions and computation
+  - name: Data processing and User-Defined Functions
     href: concepts-user-defined-functions.md 
-  - name: Overview of events and messages routing to service endpoints
+  - name: Event and message routing to service endpoints
     href: concepts-events-routing.md 
   - name: Management API limitations and throttles
     href: concepts-management-api-limits.md 
