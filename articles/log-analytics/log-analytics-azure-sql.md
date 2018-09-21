@@ -141,7 +141,7 @@ Azure SQL Database [Intelligent Insights](../sql-database/sql-database-intellige
 
 ### Elastic pool and Database reports
 
-Both elastic pools and Databases have their own specific reports that show all the data that is collected for the resource in the specified time.
+Both elastic pools and SQL Databases have their own specific reports that show all the data that is collected for the resource in the specified time.
 
 ![Azure SQL Analytics Database](./media/log-analytics-azure-sql/azure-sql-sol-database.png)
 
@@ -154,6 +154,8 @@ Through the Query duration and query waits perspectives, you can correlate the p
 ![Azure SQL Analytics Queries](./media/log-analytics-azure-sql/azure-sql-sol-queries.png)
 
 ### Analyze data and create alerts
+
+### Creating alerts for Azure SQL Database
 
 You can easily [create alerts](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) with the data coming from Azure SQL Database resources. Here are some useful [log search](log-analytics-log-searches.md) queries that you can use with a log alert:
 
@@ -228,6 +230,23 @@ AzureDiagnostics
 | where Category == "SQLInsights" and status_s == "Active" 
 | distinct rootCauseAnalysis_s
 ```
+
+### Creating alerts for Managed Instance
+
+*Managed Instance storage is above 90%
+
+```
+let storage_percentage_treshold = 90;
+AzureDiagnostics
+| where Category =="ResourceUsageStats"
+| summarize (TimeGenerated, calculated_storage_percentage) = arg_max(TimeGenerated, todouble(storage_space_used_mb_s) *100 / todouble (reserved_storage_mb_s))
+   by ResourceId
+| where calculated_storage_percentage > storage_percentage_treshold
+```
+
+> [!NOTE]
+> - Pre-requirement of setting up this alert is that monitored Managed Instance has the the streaming of ResourceUsageStats log enabled to the solution.
+> - This query requires an alert rule to be set up to fire off an alert when there exist results (> 0 results) from the query, denoting that the condition exists on the Managed Instance. The output is storage percentage consumption on the Managed Instance.
 
 ## Next steps
 
