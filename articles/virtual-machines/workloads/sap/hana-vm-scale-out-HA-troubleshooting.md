@@ -98,7 +98,7 @@ As a basic check to verify if SAP HANA is configured correctly for using multipl
 ifconfig | grep "inet addr:10\."
 </code></pre>
 
-Here is a sample output from the second worker node on site 2. You can see three different internal IP addresses from eth0, eth1, and eth2 :
+Here is a sample output from the second worker node on site 2. You can see three different internal IP addresses from eth0, eth1, and eth2:
 
 <pre><code>
 inet addr:10.0.0.42  Bcast:10.0.0.255  Mask:255.255.255.0
@@ -429,7 +429,7 @@ SBD_WATCHDOG=yes
 </code></pre>
 
 
-Another item to check is the startup setting in "**/etc/iscsi/iscsid.conf**". The required entry should have happened by the iscsiadm command as described in the documentation. Nevertheless it makes sense to verify and maybe adapt it manually with vi in case it's different.
+Another item to check is the startup setting in "**/etc/iscsi/iscsid.conf**". The required setting should have happened by the iscsiadm command as described in the documentation. Nevertheless it makes sense to verify and maybe adapt it manually with vi in case it's different.
 
 Command to set startup behavior:
 
@@ -443,7 +443,7 @@ Entry in /etc/iscsi/iscsid.conf:
 node.startup = automatic
 </code></pre>
 
-During testing and verification occurrences happened where after a VM reboot the SBD device wasn't visible anymore. There was a discrepancy between the startup setting and what yast2 showed. To double-check the settings, perform these steps below:
+During testing and verification occurrences happened where after the restart of a VM the SBD device wasn't visible anymore. There was a discrepancy between the startup setting and what yast2 showed. To double-check the settings, perform these steps below:
 
 - start yast2
 - select **"Network Services"** on the left side
@@ -797,7 +797,7 @@ Within the cluster configuration, you find a new location constraint caused by t
 location cli-ban-msl_SAPHanaCon_HSO_HDB00-on-hso-hana-vm-s1-0 msl_SAPHanaCon_HSO_HDB00 role=Started -inf: hso-hana-vm-s1-0
 </code></pre>
 
-Unfortunately such constraints might have an impact on the overall cluster behavior. Therefore it's mandatory to remove them again before bringing the whole system back up. With the "unmigrate" command it's possible to clean up the location constraints which were created before. The naming might be a bit confusing. It doesn't mean that it would try to migrate the resource back to its original VM from which it was migrated. It just removes the location constraints and also returns a corresponding information when running the command:
+Unfortunately such constraints might have an impact on the overall cluster behavior. Therefore it's mandatory to remove them again before bringing the whole system back up. With the "unmigrate" command it's possible to clean up the location constraints which were created before. The naming might be a bit confusing. It doesn't mean that it would try to migrate the resource back to its original VM from which it was migrated. It just removes the location constraints and also returns corresponding information when running the command:
 
 
 <pre><code>
@@ -935,7 +935,7 @@ listeninterface = .internal
 ## HAWK
 
 The cluster solution also provides a browser interface which offers a nice GUI for those who prefer this compared to all the commands on shell level.
-To make use of it simply take this URL and replace "node" by an actual SAP HANA node and then enter the credentials of the cluster (user hacluster):
+To use the browser interface, take the URL shown below and replace "node" by an actual SAP HANA node and then enter the credentials of the cluster (user hacluster):
 
 <pre><code>
 https://<node>:7630
@@ -957,7 +957,7 @@ Another nice feature is the possibility to upload a hb_report output (see sectio
 
 ![HAWK upload hb_report output](media/hana-vm-scale-out-HA-troubleshooting/hawk-3.png)
 
-The "History Explorer" then allows to go through all the cluster transitions included in the hb_report output:
+The "History Explorer" then allows going through all the cluster transitions included in the hb_report output:
 
 ![HAWK look at the transitions within the hb_report output](media/hana-vm-scale-out-HA-troubleshooting/hawk-4.png)
 
