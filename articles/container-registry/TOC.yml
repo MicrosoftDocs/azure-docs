@@ -59,7 +59,7 @@
       href: container-registry-upgrade.md
     - name: Use ACR webhooks
       href: container-registry-webhook.md
-    - name: Use Helm chart repositories
+    - name: Helm chart repositories (preview)
       href: container-registry-helm-repos.md
   - name: Authentication
     items:
