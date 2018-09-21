@@ -35,7 +35,7 @@ After a test run succeeds, add more activities to your pipeline and continue deb
 
 ![Cancel a test run](media/iterative-development-debugging/iterative-development-image3.png)
 
-When you do test runs, you don't have to publish your changes to the data factory before you select **Debug**. This is helpful in scenarios where you want to make sure that the changes work as expected before you update the data factory workflow.
+When you do test runs, you don't have to publish your changes to the data factory before you select **Debug**. This feature is helpful in scenarios where you want to make sure that the changes work as expected before you update the data factory workflow.
 
 ## More info about debugging
 
@@ -45,7 +45,7 @@ When you do test runs, you don't have to publish your changes to the data factor
 
 ## Visualizing debug runs
 
-You can visualize all the debug runs that are in progress for your data factory in one place. Select **View debug runs** in the upper right corner of the page. This is useful in scenarios where you have master pipelines kicking off debug runs for child pipelines, and you want a single view to see all the active debug runs.
+You can visualize all the debug runs that are in progress for your data factory in one place. Select **View debug runs** in the upper right corner of the page. This feature is useful in scenarios where you have master pipelines kicking off debug runs for child pipelines, and you want a single view to see all the active debug runs.
 
 ![Select the View active debug runs icon](media/iterative-development-debugging/view-debug-runs-image1.png)
 
