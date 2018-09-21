@@ -37,7 +37,7 @@
   items:  
   - name: Manage workspaces
     href: how-to-manage-workspace.md 
-  - name: Set up development environment 	
+  - name: Set up development environment 	
     items:    
     - name: Choose an environment 
       href: how-to-choose-a-dev-environment.md 
