@@ -3,7 +3,8 @@ title: Biomedical entity recognition - Team Data Science Process - Azure Machine
 description: A Team Data Science Process project quickstart that uses deep learning for biomedical entity recognition in Azure Machine Learning Workbench.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
+ms.author: deguhath
 manager: cgronlun
 editor: cgronlun
 
@@ -16,11 +17,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
-ms.author: bradsev
 
+ROBOTS: NOINDEX
 ---
 
+
 # Biomedical entity recognition using Team Data Science Process (TDSP) Template
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 Entity extraction is a subtask of information extraction (also known as [Named-entity recognition (NER)](https://en.wikipedia.org/wiki/Named-entity_recognition), entity chunking, and entity identification). The aim of this real-world scenario is to highlight how to use Azure Machine Learning Workbench to solve a complicated Natural Language Processing (NLP) task such as entity extraction from unstructured text:
 
@@ -92,7 +98,7 @@ Following is the link to the public GitHub repository of the real-world scenario
 ## Prerequisites 
 
 * An Azure [subscription](https://azure.microsoft.com/free/)
-* Azure Machine Learning Workbench. See [installation guide](../service/quickstart-installation.md). Currently the Azure Machine Learning Workbench can be installed on the following operating systems only: 
+* Azure Machine Learning Workbench. See [installation guide](quickstart-installation.md). Currently the Azure Machine Learning Workbench can be installed on the following operating systems only: 
     * Windows 10 or Windows Server 2016
     * macOS Sierra (or newer)
 
@@ -115,7 +121,7 @@ All the required dependencies are defined in the aml_config/conda_dependencies.y
 
 ### Basic instructions for Azure Machine Learning (AML) workbench
 * [Overview](../service/overview-what-is-azure-ml.md)
-* [Installation](../service/quickstart-installation.md)
+* [Installation](quickstart-installation.md)
 * [Using TDSP](how-to-use-tdsp-in-azure-ml.md)
 * [How to read and write files](how-to-read-write-files.md)
 * [How to use Jupyter Notebooks](how-to-use-jupyter-notebooks.md)

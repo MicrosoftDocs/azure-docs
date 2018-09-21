@@ -261,7 +261,7 @@ To stop all the charges, you must delete the cloud appliance. To delete the back
 ## Troubleshoot Internet connectivity errors
 During the creation of a cloud appliance, if there is no connectivity to the Internet, the creation step fails. To troubleshoot Internet connectivity failures, perform the following steps in the Azure portal:
 
-1. [Create a Windows server 2012 virtual machine in Azure](/articles/virtual-machines/windows/quick-create-portal.md). This virtual machine should use the same storage account, VNet, and subnet as used by your cloud appliance. If there is an existing Windows Server host in Azure using the same storage account, VNet, and subnet, you can also use it to troubleshoot the Internet connectivity.
+1. [Create a Windows virtual machine in the Azure portal](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal). This virtual machine should use the same storage account, VNet, and subnet as used by your cloud appliance. If there is an existing Windows Server host in Azure using the same storage account, VNet, and subnet, you can also use it to troubleshoot the Internet connectivity.
 2. Remote log into the virtual machine created in the preceding step.
 3. Open a command window inside the virtual machine (Win + R and then type `cmd`).
 4. Run the following cmd at the prompt.

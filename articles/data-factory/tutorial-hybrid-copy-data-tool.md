@@ -9,7 +9,7 @@ ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
-ms.topic: hero-article
+ms.topic: tutorial
 ms.date: 01/04/2018
 ms.author: jingwang
 
@@ -35,9 +35,9 @@ In this tutorial, you perform the following steps:
 Before you begin, if you don't already have an Azure subscription, [create a free account](https://azure.microsoft.com/free/).
 
 ### Azure roles
-To create data factory instances, the user account you use to log in to Azure must be assigned a *contributor* or *owner* role or must be an *administrator* of the Azure subscription. 
+To create data factory instances, the user account you use to log in to Azure must be assigned a *Contributor* or *Owner* role or must be an *administrator* of the Azure subscription. 
 
-To view the permissions you have in the subscription, go to the Azure portal. Select your user name in the upper-right corner, and then select **Permissions**. If you have access to multiple subscriptions, select the appropriate subscription. For sample instructions on how to add a user to a role, see [Add roles](../billing/billing-add-change-azure-subscription-administrator.md).
+To view the permissions you have in the subscription, go to the Azure portal. Select your user name in the upper-right corner, and then select **Permissions**. If you have access to multiple subscriptions, select the appropriate subscription. For sample instructions on how to add a user to a role, see [Manage access using RBAC and the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 ### SQL Server 2014, 2016, and 2017
 In this tutorial, you use an on-premises SQL Server database as a *source* data store. The pipeline in the data factory you create in this tutorial copies data from this on-premises SQL Server database (source) to Blob storage (sink). You then create a table named **emp** in your SQL Server database and insert a couple of sample entries into the table. 
@@ -67,7 +67,7 @@ In this tutorial, you use an on-premises SQL Server database as a *source* data 
     ```
 
 ### Azure storage account
-In this tutorial, you use a general-purpose Azure storage account (specifically, Blob storage) as a destination/sink data store. If you don't have a general-purpose storage account, see [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) for instructions to create one. The pipeline in the data factory you that create in this tutorial copies data from the on-premises SQL Server database (source) to this Blob storage (sink). 
+In this tutorial, you use a general-purpose Azure storage account (specifically, Blob storage) as a destination/sink data store. If you don't have a general-purpose storage account, see [Create a storage account](../storage/common/storage-quickstart-create-account.md) for instructions to create one. The pipeline in the data factory you that create in this tutorial copies data from the on-premises SQL Server database (source) to this Blob storage (sink). 
 
 #### Get the storage account name and account key
 You use the name and key of your storage account in this tutorial. To get the name and key of your storage account, take the following steps: 

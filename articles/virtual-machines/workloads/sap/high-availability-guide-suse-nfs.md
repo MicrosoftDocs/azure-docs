@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/21/2018
+ms.date: 08/16/2018
 ms.author: sedusch
 
 ---
@@ -98,12 +98,12 @@ The NFS server uses a dedicated virtual hostname and virtual IP addresses for ev
 
 ## Set up a highly available NFS server
 
-You can either use an Azure Template from github to deploy all required Azure resources, including the virtual machines, availability set, and load balancer or you can deploy the resources manually.
+You can either use an Azure Template from GitHub to deploy all required Azure resources, including the virtual machines, availability set, and load balancer or you can deploy the resources manually.
 
 ### Deploy Linux via Azure Template
 
 The Azure Marketplace contains an image for SUSE Linux Enterprise Server for SAP Applications 12 that you can use to deploy new virtual machines.
-You can use one of the quickstart templates on github to deploy all required resources. The template deploys the virtual machines, the load balancer, availability set etc.
+You can use one of the quickstart templates on GitHub to deploy all required resources. The template deploys the virtual machines, the load balancer, availability set etc.
 Follow these steps to deploy the template:
 
 1. Open the [SAP file server template][template-file-server] in the Azure portal   
@@ -117,7 +117,7 @@ Follow these steps to deploy the template:
    4. Admin Username and Admin Password  
       A new user is created that can be used to log on to the machine.
    5. Subnet ID  
-      The ID of the subnet to which the virtual machines should be connected to. Leave empty if you want to create a new virtual network or select the subnet of your VPN or Express Route virtual network to connect the virtual machine to your on-premises network. The ID usually looks like /subscriptions/**&lt;subscription ID&gt;**/resourceGroups/**&lt;resource group name&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;virtual network name&gt;**/subnets/**&lt;subnet name&gt;**
+      If you want to deploy the VM into an existing VNet where you have a subnet defined the VM should be assigned to, name the ID of that specific subnet. The ID usually looks like /subscriptions/**&lt;subscription ID&gt;**/resourceGroups/**&lt;resource group name&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;virtual network name&gt;**/subnets/**&lt;subnet name&gt;**
 
 ### Deploy Linux manually via Azure portal
 
@@ -398,7 +398,6 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo mkdir /srv/nfs/NW1
    sudo chattr +i /srv/nfs/NW1
    sudo mount -t xfs /dev/drbd0 /srv/nfs/NW1
-   sudo mkdir /srv/nfs/NW1
    sudo mkdir /srv/nfs/NW1/sidsys
    sudo mkdir /srv/nfs/NW1/sapmntsid
    sudo mkdir /srv/nfs/NW1/trans

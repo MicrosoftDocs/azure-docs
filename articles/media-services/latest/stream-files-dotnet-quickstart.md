@@ -39,7 +39,7 @@ If you do not have Visual Studio installed, you can get [Visual Studio Community
 Clone a GitHub repository that contains the streaming .NET sample to your machine using the following command:  
 
  ```bash
- git clone https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts.git
+ git clone http://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts.git
  ```
 
 The sample is located in the [EncodeAndStreamFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/tree/master/AMSV3Quickstarts/EncodeAndStreamFiles) folder.

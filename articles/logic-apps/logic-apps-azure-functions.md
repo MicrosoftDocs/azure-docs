@@ -7,25 +7,24 @@ author: ecfan
 ms.author: estfan
 manager: jeconnoc
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 08/20/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ---
 
 # Add and run custom code snippets in Azure Logic Apps with Azure Functions
 
-When you want to create and run only enough code 
-that addresses a specific problem in your logic apps, 
-you can create your own functions by using 
+When you want to run only enough code that 
+performs a specific job in your logic apps, 
+you can create your own functions with 
 [Azure Functions](../azure-functions/functions-overview.md). 
-This service provides the capability for creating and running 
-custom code snippets written with Node.js or C# in your logic 
-apps without worrying about creating an entire app or the 
-infrastructure for running your code. Azure Functions 
-provides serverless computing in the cloud and is useful 
-for performing tasks, such as these examples:
+This service helps you create Node.js, C#, and F# code 
+snippets so you don't have to build a complete 
+app or the infrastructure for running your code. 
+Azure Functions provides serverless computing in the cloud 
+and is useful for performing tasks such as these examples:
 
-* Extend your logic app's behavior with functions supported by Node.js or C#.
+* Extend your logic app's behavior with functions in Node.js or C#.
 * Perform calculations in your logic app workflow.
 * Apply advanced formatting or compute fields in your logic apps.
 
@@ -33,59 +32,51 @@ You can also [call logic apps from inside Azure functions](#call-logic-app).
 
 ## Prerequisites
 
-To follow this article, here are the items you need:
+To follow this article, you need these items:
 
 * If you don't have an Azure subscription yet, 
 <a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
 
-* The logic app where you want to add the function
+* An Azure function app, which is a container for Azure functions, 
+and your Azure function. If you don't have a function app, 
+[create your function app first](../azure-functions/functions-create-first-azure-function.md). 
+You can then create your function either [separately outside your logic app](#create-function-external), 
+or [from inside your logic app](#create-function-designer) in the Logic App Designer.
+
+  Both existing and new function apps and functions 
+  have the same requirements for working with logic apps:
+
+  * Your function app must have the same Azure subscription as your logic app.
+
+  * Your function uses an HTTP trigger, for example, 
+  the **HTTP trigger** function template for **JavaScript** or **C#**. 
+
+    The HTTP trigger template can accept content that has 
+    `application/json` type from your logic app. 
+    When you add an Azure function to your logic app, 
+    the Logic App Designer shows custom functions created 
+    from this template within your Azure subscription. 
+
+  * Your function doesn't use custom routes unless you've defined an 
+  [OpenAPI definition](../azure-functions/functions-openapi-definition.md), 
+  formerly known as a [Swagger file](http://swagger.io/). 
+  
+  * If you've defined an OpenAPI definition for your function, 
+  the Logic Apps Designer gives you a richer experience for 
+  working with function parameters. Before your logic app can 
+  find and access functions that have OpenAPI definitions, 
+  [set up your function app by following these steps](#function-swagger).
+
+* The logic app where you want to add the function, including a 
+[trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) 
+as the first step in your logic app 
+
+  Before you can add actions that can run functions, 
+  your logic app must start with a trigger.
 
   If you're new to logic apps, review 
   [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
   and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
-
-* A [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) 
-as the first step in your logic app 
-
-  Before you can add actions for running functions, 
-  your logic app must start with a trigger.
-
-* An Azure function app, which is a container for Azure functions, 
-and your Azure function. If you don't have a function app, you must 
-[create your function app first](../azure-functions/functions-create-first-azure-function.md). 
-You can then create your function either 
-[separately outside your logic app](#create-function-external), 
-or [from inside your logic app](#create-function-designer) 
-in the Logic App Designer.
-
-  Both new and existing Azure function apps and functions 
-  have the same requirements for working with your logic apps:
-
-  * Your function app must belong to the same Azure subscription as your logic app.
-
-  * Your function must use the **Generic webhook** function template for 
-  either **JavaScript** or **C#**. This template can accept content that has 
-  `application/json` type from your logic app. These templates also help the 
-  Logic App Designer find and show the custom functions that you create with 
-  these templates when you add those functions to your logic apps.
-
-  * Check that your function template's **Mode** property is set to 
-  **Webhook** and the **Webhook type** property is set to **Generic JSON**.
-
-    1. Sign in to the <a href="https://portal.azure.com" target="_blank">Azure portal</a>.
-    2. On the main Azure menu, select **Function Apps**. 
-    3. In the **Function Apps** list, select your function app, 
-    expand your function, and select **Integrate**. 
-    4. Check your template's **Mode** property 
-    is set to **Webhook** and that the **Webhook type** 
-    property is set to **Generic JSON**. 
-
-  * If your function has an 
-  [API definition](../azure-functions/functions-openapi-definition.md), 
-  formerly known as a [Swagger file](http://swagger.io/), the Logic Apps Designer 
-  offers a richer experience for work with function parameters. 
-  Before your logic app can find and access functions that have Swagger descriptions, 
-  [set up your function app by following these steps](#function-swagger).
 
 <a name="create-function-external"></a>
 
@@ -93,27 +84,15 @@ in the Logic App Designer.
 
 In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, 
 create your Azure function app, which must have the same Azure subscription 
-as your logic app, and then create your Azure function. 
-If you're new to Azure Functions, learn how to 
+as your logic app, and then create your Azure function.
+If you're new to creating Azure functions, learn how to 
 [create your first function in the Azure portal](../azure-functions/functions-create-first-azure-function.md), 
-but note these requirements for creating Azure functions 
-that you can add and call from logic apps.
+but note these requirements for creating functions that you can call from logic apps:
 
-* Make sure you select the **Generic webhook** 
-function template for either **JavaScript** or **C#**.
+* Make sure you select the **HTTP trigger** function 
+template for either **JavaScript** or **C#**.
 
-  ![Generic webhook - JavaScript or C#](./media/logic-apps-azure-functions/generic-webhook.png)
-
-* After you create your Azure function, check that the template's 
-**Mode** and **Webhook type** properties are set correctly.
-
-  1. In the **Function Apps** list, expand your function, 
-  and select **Integrate**. 
-
-  2. Check that your template's **Mode** property is set to **Webhook** 
-  and that the **Webhook type** property is set to **Generic JSON**. 
-
-     ![Your function template's "Integrate" properties](./media/logic-apps-azure-functions/function-integrate-properties.png)
+  ![HTTP trigger - JavaScript or C#](./media/logic-apps-azure-functions/http-trigger-function.png)
 
 <a name="function-swagger"></a>
 
@@ -121,23 +100,23 @@ function template for either **JavaScript** or **C#**.
 formerly known as a [Swagger file](http://swagger.io/), for your function, 
 you can get a richer experience when you work with function parameters 
 in the Logic Apps Designer. To set up your function app so your logic 
-app can find and access functions that have Swagger descriptions:
+app can find and use functions that have Swagger descriptions, 
+follow these steps:
 
-  * Make sure your function app is actively running.
+  1. Make sure your function app is actively running.
 
-  * In your function app, set up [Cross-Origin Resource Sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) so all 
-  origins are permitted:
+  2. In your function app, set up [Cross-Origin Resource Sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) so all 
+  origins are permitted by following these steps:
 
-    1. Starting from the **Function Apps** list, 
-    select your function app > **Platform features** > **CORS**.
+     1. From the **Function Apps** list, 
+     select your function app > **Platform features** > **CORS**.
 
-       ![Select your function app > "Platform features" > "CORS"](./media/logic-apps-azure-functions/function-platform-features-cors.png)
+        ![Select your function app > "Platform features" > "CORS"](./media/logic-apps-azure-functions/function-platform-features-cors.png)
 
-    2. Under **CORS**, add the `*` wildcard character, 
-    but remove all the other origins in the list, 
-    and choose **Save**.
+     2. Under **CORS**, add the `*` wildcard character, 
+     but remove all the other origins in the list, and choose **Save**.
 
-       ![Select your function app > "Platform features" > "CORS"](./media/logic-apps-azure-functions/function-platform-features-cors-origins.png)
+        ![Set "CORS* to the wildcard character "*"](./media/logic-apps-azure-functions/function-platform-features-cors-origins.png)
 
 ### Access property values inside HTTP requests
 
@@ -198,8 +177,14 @@ create that function app first. See
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, 
 open your logic app in the Logic App Designer. 
 
-2. Under the step where you want to create and add the function, 
-choose **New step** > **Add an action**. 
+2. To create and add your function, 
+follow the step that applies to your scenario:
+
+   * Under the last step in your logic app's workflow, choose **New step**.
+
+   * Between existing steps in your logic app's workflow, 
+   move your mouse over the arrow, choose the plus (+) sign, 
+   and then select **Add an action**.
 
 3. In the search box, enter "azure functions" as your filter.
 From the actions list, select this action: 
@@ -218,54 +203,56 @@ After the actions list opens, select this action:
    1. In the **Function name** box, 
    provide a name for your function. 
 
-   2. In the **Code** box, add your function 
-   code to the template, including the response 
-   and payload you want returned to your logic 
-   app after your function finishes running. 
-   The context object in the template code 
-   describes the message and content that your 
-   logic app passes to your function, for example:
+   2. In the **Code** box, add your code to the function template, 
+   including the response and payload you want returned to your 
+   logic app after your function finishes running. 
 
       ![Define your function](./media/logic-apps-azure-functions/function-definition.png)
 
-      Inside your function, you can reference the properties 
-      in the context object by using this syntax:
+      In the template's code, the *`context` object* refers 
+      to the message that your logic app sends through 
+      the **Request Body** field in a later step. 
+      To access the `context` object's properties 
+      from inside your function, use this syntax: 
 
-      ```text
-      context.<token-name>.<property-name>
-      ```
-      For this example, here is the syntax you'd use:
+      `context.body.<property-name>`
 
-      ```text
-      context.body.content
-      ```
+      For example, to reference the `content` property 
+      inside the `context` object, use this syntax: 
 
+      `context.body.content`
+
+      The template code also includes an `input` variable, 
+      which stores the value from the `data` parameter 
+      so your function can perform operations on that value. 
+      Inside JavaScript functions, the `data` variable 
+      is also a shortcut for `context.body`.
+
+      > [!NOTE]
+      > The `body` property here applies to the `context` object and 
+      > isn't the same as the **Body** token from an action's output, 
+      > which you might also pass to your function. 
+ 
    3. When you're done, choose **Create**.
 
-6. In the **Request Body** box, specify the context object 
-to pass as your function's input, which must be formatted 
-in JavaScript Object Notation (JSON). 
-When you click in the **Request Body** box, 
-the dynamic content list opens so you can select 
-tokens for properties available from previous steps. 
+6. In the **Request Body** box, provide your function's input, 
+which must be formatted as a JavaScript Object Notation (JSON) object. 
 
-   This example passes the object in the 
-   **Body** token from the email trigger:  
+   This input is the *context object* or message that your logic app 
+   sends to your function. When you click in the **Request Body** field, 
+   the dynamic content list appears so you can select tokens for outputs 
+   from previous steps. This example specifies that the context payload 
+   contains a property named `content` that has the **From** token's 
+   value from the email trigger:
 
    !["Request Body" example - context object payload](./media/logic-apps-azure-functions/function-request-body-example.png)
 
-   Based on the content in the context object, 
-   the Logic App Designer generates a function 
-   template that you can then edit inline. 
-   Logic Apps also creates variables based on 
-   the input context object.
-
-   In this example, the context object isn't cast as a string, 
-   so the content gets directly added to the JSON payload. 
-   However, if the object isn't a JSON token, which must be 
-   either a string, a JSON object, or a JSON array, you get an error. 
-   To cast the context object as a string, add double-quotation marks, 
-   for example:
+   Here, the context object isn't cast as a string, so the object's 
+   content gets added directly to the JSON payload. However, when the 
+   context object isn't a JSON token that passes a string, a JSON object, 
+   or a JSON array, you get an error. So, if this example used the 
+   **Received Time** token instead, you can cast the context 
+   object as a string by adding double-quotation marks:  
 
    ![Cast object as string](./media/logic-apps-azure-functions/function-request-body-string-cast-example.png)
 
@@ -297,31 +284,30 @@ After the functions list appears, select your function.
 
    ![Select your function app and Azure function](./media/logic-apps-azure-functions/select-function-app-existing-function.png)
 
-   For functions that have API definitions (Swagger descriptions) 
-   and that are [set up so your logic app can find and access those functions](#function-swagger), you can select **Swagger actions**:
+   For functions that have API definitions (Swagger descriptions) and are 
+   [set up so your logic app can find and access those functions](#function-swagger), 
+   you can select **Swagger actions**:
 
    ![Select your function app, "Swagger actions"", and your Azure function](./media/logic-apps-azure-functions/select-function-app-existing-function-swagger.png)
 
-5. In the **Request Body** box, specify the context object 
-to pass as your function's input, which must be formatted 
-in JavaScript Object Notation (JSON). This context object 
-describes the message and content that your logic app 
-sends to your function. 
+5. In the **Request Body** box, provide your function's input, 
+which must be formatted as a JavaScript Object Notation (JSON) object. 
 
-   When you click in the **Request Body** box, 
-   the dynamic content list opens so you can select 
-   tokens for properties available from previous steps. 
-   This example passes the object in the 
-   **Body** token from the email trigger:
+   This input is the *context object* or message that your logic app 
+   sends to your function. When you click in the **Request Body** field, 
+   the dynamic content list appears so you can select tokens for outputs 
+   from previous steps. This example specifies that the context payload 
+   contains a property named `content` that has the **From** token's 
+   value from the email trigger:
 
    !["Request Body" example - context object payload](./media/logic-apps-azure-functions/function-request-body-example.png)
 
-   In this example, the context object isn't cast as a string, 
-   so the content gets directly added to the JSON payload. 
-   However, if the object isn't a JSON token, which must be 
-   either a string, a JSON object, or a JSON array, you get an error. 
-   To cast the context object as a string, add double-quotation marks, 
-   for example:
+   Here, the context object isn't cast as a string, so the object's 
+   content gets added directly to the JSON payload. However, when the 
+   context object isn't a JSON token that passes a string, a JSON object, 
+   or a JSON array, you get an error. So, if this example used the 
+   **Received Time** token instead, you can cast the context 
+   object as a string by adding double-quotation marks: 
 
    ![Cast object as string](./media/logic-apps-azure-functions/function-request-body-string-cast-example.png)
 
@@ -332,13 +318,13 @@ request headers, or query parameters, choose **Show advanced options**.
 
 ## Call logic apps from functions
 
-To trigger a logic app from inside an Azure function, 
-that logic app must have a callable endpoint, 
-or more specifically, a **Request** trigger. 
-Then, from inside your function, send an HTTP POST 
-request to the URL for that **Request** trigger and 
-include the payload you want that logic app to process. 
-For more information, see [Call, trigger, or nest logic apps](../logic-apps/logic-apps-http-endpoint.md). 
+When you want to trigger a logic app from inside an Azure function, 
+the logic app must start with a trigger that provides a callable endpoint. 
+For example, you can start the logic app with the **HTTP**, **Request**, 
+**Azure Queues**, or **Event Grid** trigger. Inside your function, 
+send an HTTP POST request to the trigger's URL, and include the 
+payload you want that logic app to process. For more information, see 
+[Call, trigger, or nest logic apps](../logic-apps/logic-apps-http-endpoint.md). 
 
 ## Get support
 

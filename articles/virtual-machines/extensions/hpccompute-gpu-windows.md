@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/03/2018
+ms.date: 08/20/2018
 ms.author: roiyz
 
 ---
@@ -59,7 +59,8 @@ The following JSON shows the schema for the extension.
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverWindows",
-    "typeHandlerVersion": "1.0",
+    "typeHandlerVersion": "1.2",
+    "autoUpgradeMinorVersion": true,
     "settings": {
     }
   }
@@ -73,7 +74,7 @@ The following JSON shows the schema for the extension.
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.HpcCompute | string |
 | type | NvidiaGpuDriverWindows | string |
-| typeHandlerVersion | 1.0 | int |
+| typeHandlerVersion | 1.2 | int |
 
 
 ## Deployment
@@ -99,7 +100,8 @@ The following example assumes the extension is nested inside the virtual machine
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverWindows",
-    "typeHandlerVersion": "1.0",
+    "typeHandlerVersion": "1.2",
+    "autoUpgradeMinorVersion": true,
     "settings": {
     }
   }
@@ -116,7 +118,7 @@ Set-AzureRmVMExtension
     -Publisher "Microsoft.HpcCompute" `
     -ExtensionName "NvidiaGpuDriverWindows" `
     -ExtensionType "NvidiaGpuDriverWindows" `
-    -TypeHandlerVersion 1.0 `
+    -TypeHandlerVersion 1.2 `
     -SettingString '{ `
 	}'
 ```
@@ -129,7 +131,7 @@ az vm extension set `
   --vm-name myVM `
   --name NvidiaGpuDriverWindows `
   --publisher Microsoft.HpcCompute `
-  --version 1.0 `
+  --version 1.2 `
   --settings '{ `
   }'
 ```
@@ -160,7 +162,8 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverMicrosoft\
 | :---: | --- | --- |
 | 0 | Operation successful |
 | 1 | Operation successful. Reboot required. |
-| 4, 10 | Operation timeout. | Retry operation.
+| 100 | Operation not supported or could not be completed. | Possible causes: PowerShell version not supported, VM size is not an N-series VM, Failure downloading data. Check the log files to determine cause of error. |
+| 240, 840 | Operation timeout. | Retry operation. |
 | -1 | Exception occurred. | Check the log files to determine cause of exception. |
 | -5x | Operation interrupted due to pending reboot. | Reboot VM. Installation will continue after reboot. Uninstall should be invoked manually. |
 

@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 12/02/2017
+ms.date: 08/20/2017
 ms.author: marsma
 ---
 
@@ -91,4 +91,14 @@ az acr webhook delete --registry mycontainerregistry --name myacrwebhook01
 
 ## Next steps
 
+### Webhook schema reference
+
+For details on the format and properties of the JSON event payloads emitted by Azure Container Registry, see the webhook schema reference:
+
 [Azure Container Registry webhook schema reference](container-registry-webhook-reference.md)
+
+### Event Grid events
+
+In addition to the native registry webhook events discussed in this article, Azure Container Registry can emit events to Event Grid:
+
+[Quickstart: Send container registry events to Event Grid](container-registry-event-grid-quickstart.md)

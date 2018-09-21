@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: migrate
 ms.topic: conceptual
-ms.date: 03/16/2018
+ms.date: 09/14/2018
 ms.author: carlrab
 
 ---
 # SQL Server database migration to Azure SQL Database
 
-In this article, you learn about the primary methods for migrating a SQL Server 2005 or later database to a single or pooled database in Azure SQL Database. For information on migrating to a Managed Instance, see [Migrate to SQL Server instance to Azure SQL Database Managed Instance (preview)](sql-database-managed-instance-migrate.md). 
+In this article, you learn about the primary methods for migrating a SQL Server 2005 or later database to a single or pooled database in Azure SQL Database. For information on migrating to a Managed Instance, see [Migrate to SQL Server instance to Azure SQL Database Managed Instance](sql-database-managed-instance-migrate.md). 
 
 ## Migrate to a single database or a pooled database
 There are two primary methods for migrating a SQL Server 2005 or later database to a single or pooled database in Azure SQL Database. The first method is simpler but requires some, possibly substantial, downtime during the migration. The second method is more complex, but substantially eliminates downtime during the migration.
@@ -46,7 +46,7 @@ The following list contains the general workflow for a SQL Server database migra
 
 The following list contains recommendations for best performance during the import process.
 
-* Choose the highest service level and performance tier that your budget allows to maximize the transfer performance. You can scale down after the migration completes to save money. 
+* Choose the highest service tier and compute size that your budget allows to maximize the transfer performance. You can scale down after the migration completes to save money. 
 * Minimize the distance between your BACPAC file and the destination data center.
 * Disable auto-statistics during migration
 * Partition tables and indexes

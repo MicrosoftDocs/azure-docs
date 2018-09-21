@@ -27,7 +27,7 @@ You learn how to register an application in the next tutorial.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-Log in to the [Azure portal](https://portal.azure.com/).
+Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create an Azure AD B2C tenant
 
@@ -45,17 +45,13 @@ To start managing your new tenant, click the word **here** where it says **Click
 
 You need to link your Azure AD B2C tenant to your Azure subscription to enable all functionality and pay for usage charges. If you don't link your tenant to your subscription, your applications won't work correctly.
 
-1. Make sure you're using the directory that contains the subscription you want to associate to the new tenant by switching the directory in the top-right corner of the Azure portal.
+Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant. 
 
-    ![Switch directories](./media/tutorial-create-tenant/switch-directories.png)
+![Switch to your Azure AD B2C tenant](./media/tutorial-create-tenant/switch-directories.png)
 
-    And then selecting the directory that contains your subscription.
-
-    ![Select directory](./media/tutorial-create-tenant/select-directory.png)
-
-2. Choose **Create a resource** in the upper top-left corner of the Azure portal.
-3. In the search box above the list of Azure Marketplace resources, search for and select **Active Directory B2C**, and then click **Create**.
-4. Choose **Link an existing Azure AD B2C Tenant to my Azure subscription**, select the tenant that you created, select your subscription, enter *myContosoTenantRG* for the resource group name, accept the location, and then click **Create**.
+1. Choose **Create a resource** in the upper top-left corner of the Azure portal.
+2. In the search box above the list of Azure Marketplace resources, search for and select **Active Directory B2C**, and then click **Create**.
+3. Choose **Link an existing Azure AD B2C Tenant to my Azure subscription**, select the tenant that you created, select your subscription, enter *myContosoTenantRG* for the resource group name, accept the location, and then click **Create**.
 
 ## Next steps
 

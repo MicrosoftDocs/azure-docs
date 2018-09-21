@@ -54,7 +54,7 @@ Sign-in to the [Azure portal](http://portal.azure.com). If you don't already hav
 
 Diagnostics will be saved in Table Storage in the specified storage account. If logs are not being saved, it is because no relevant logs are being produced.
 
-    ![Portal - Diagnostics logs](./media/load-balancer-monitor-log/load-balancer-diagnostics.png)
+![Portal - Diagnostics logs](./media/load-balancer-monitor-log/load-balancer-diagnostics.png)
 
 > [!NOTE]
 > Audit logs do not require a separate storage account. The use of storage for event and health probe logging will incur service charges.

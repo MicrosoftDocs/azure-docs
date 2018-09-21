@@ -4,7 +4,7 @@ description: Lists of third-party business intelligence partners with solutions 
 services: sql-data-warehouse
 services: sql-data-warehouse
 author: jrowlandjones
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: consume

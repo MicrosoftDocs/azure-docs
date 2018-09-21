@@ -45,7 +45,7 @@
       href: devtest-lab-test-env.md
     - name: Use labs for training
       href: devtest-lab-training-lab.md
-    - name: DevTest Labs 
+    - name: Introduction to DevTest Labs 
       href: devtest-lab-overview.md
 - name: How-to guides
   items:
@@ -69,6 +69,8 @@
       href: devtest-lab-get-started-with-lab-policies.md 
     - name: Store secrets in Azure Key Vault
       href: devtest-lab-store-secrets-in-key-vault.md
+    - name: Test your app in Azure
+      href: test-app-azure.md
     - name: Use VMs in a lab
       items: 
       - name: Create VMs
@@ -91,6 +93,8 @@
       items:
       - name: Create an environment
         href: devtest-lab-create-environment-from-arm.md
+      - name: Configure and use public environments
+        href: devtest-lab-configure-use-public-environments.md        
     - name: Secure access to labs
       items:
       - name: Add lab owners and users
@@ -157,7 +161,7 @@
       href: devtest-lab-scale-lab.md
     - name: Integrate with CI/CD
       items:
-      - name: Integrate labs into your VSTS CI/CD pipeline
+      - name: Integrate labs into your Azure DevOps CI/CD pipeline
         href: devtest-lab-integrate-ci-cd-vsts.md
     - name: Create or modify labs using Resource Manager template
       href: devtest-lab-use-arm-and-powershell-for-lab-resources.md

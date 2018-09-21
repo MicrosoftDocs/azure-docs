@@ -6,8 +6,7 @@ ms.date: 07/27/2018
 ms.author: wolfma
 ---
 
-## Translation using the microphone
+## Translation from the microphone
 
-The code snippet below shows how to translate speech input from English to German, and also get the voice output of the translated text.
-It uses the microphone.
+The following code snippet shows you how to translate speech input from English to German and gets the voice output of the translated text. The code uses the microphone.
 

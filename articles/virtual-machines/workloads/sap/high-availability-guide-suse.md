@@ -15,7 +15,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/27/2017
+ms.date: 08/16/2018
 ms.author: sedusch
 
 ---
@@ -70,7 +70,7 @@ Read the following SAP Notes and papers first
 * SAP Note [1999351] has additional troubleshooting information for the Azure Enhanced Monitoring Extension for SAP.
 * [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) has all required SAP Notes for Linux.
 * [Azure Virtual Machines planning and implementation for SAP on Linux][planning-guide]
-* [Azure Virtual Machines deployment for SAP on Linux (this article)][deployment-guide]
+* [Azure Virtual Machines deployment for SAP on Linux][deployment-guide]
 * [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide]
 * [SUSE SAP HA Best Practice Guides][suse-ha-guide]
   The guides contain all required information to set up Netweaver HA and SAP HANA System Replication on-premises. Use these guides as a general baseline. They provide much more detailed information.
@@ -120,13 +120,13 @@ SAP NetWeaver requires shared storage for the transport and profile directory. R
 
 ## Setting up (A)SCS
 
-You can either use an Azure Template from github to deploy all required Azure resources, including the virtual machines, availability set and load balancer or you can deploy the resources manually.
+You can either use an Azure Template from GitHub to deploy all required Azure resources, including the virtual machines, availability set and load balancer or you can deploy the resources manually.
 
 ### Deploy Linux via Azure Template
 
 The Azure Marketplace contains an image for SUSE Linux Enterprise Server for SAP Applications 12 that you can use to deploy new virtual machines. The marketplace image contains the resource agent for SAP NetWeaver.
 
-You can use one of the quickstart templates on github to deploy all required resources. The template deploys the virtual machines, the load balancer, availability set etc.
+You can use one of the quickstart templates on GitHub to deploy all required resources. The template deploys the virtual machines, the load balancer, availability set etc.
 Follow these steps to deploy the template:
 
 1. Open the [ASCS/SCS Multi SID template][template-multisid-xscs] or the [converged template][template-converged] on the Azure portal
@@ -149,7 +149,7 @@ Follow these steps to deploy the template:
    9. Admin Username and Admin Password  
       A new user is created that can be used to log on to the machine.
    10. Subnet ID  
-   The ID of the subnet to which the virtual machines should be connected to.  Leave empty if you want to create a new virtual network or select the same subnet that you used or created as part of the NFS server deployment. The ID usually looks like /subscriptions/**&lt;subscription ID&gt;**/resourceGroups/**&lt;resource group name&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;virtual network name&gt;**/subnets/**&lt;subnet name&gt;**
+   If you want to deploy the VM into an existing VNet where you have a subnet defined the VM should be assigned to, name the ID of that specific subnet. The ID usually looks like /subscriptions/**&lt;subscription ID&gt;**/resourceGroups/**&lt;resource group name&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;virtual network name&gt;**/subnets/**&lt;subnet name&gt;**
 
 ### Deploy Linux manually via Azure portal
 
@@ -368,7 +368,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
      params binfile="/usr/bin/nc" cmdline_options="-l -k 620<b>00</b>" \
      op monitor timeout=20s interval=10 depth=0
    
-   sudo crm configure group g-<b>NW1</b>_ASCS nc_<b>NW1</b>_ASCS vip_<b>NW1</b>_ASCS \
+   sudo crm configure group g-<b>NW1</b>_ASCS fs_<b>NW1</b>_ASCS nc_<b>NW1</b>_ASCS vip_<b>NW1</b>_ASCS \
       meta resource-stickiness=3000
    </code></pre>
 

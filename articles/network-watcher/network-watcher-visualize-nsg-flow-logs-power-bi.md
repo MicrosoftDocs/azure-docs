@@ -47,10 +47,6 @@ You must also have the Power BI Desktop client installed on your machine, and en
 
 ### Steps
 
-> [!WARNING]
-> The following steps work with flow logs version 1. The format of NSG flow logs will be upgraded to version 2 soon. For details, see [Network security group flow log changes](prepare-flow-log.md). The following instructions will not work with version 2 of the log files, without modification.
-
-
 1. Download and open the following Power BI template in the Power BI Desktop Application [Network Watcher PowerBI flow logs template](https://aka.ms/networkwatcherpowerbiflowlogstemplate)
 1. Enter the required Query parameters
     1. **StorageAccountName** – Specifies to the name of the storage account containing the NSG flow logs that you would like to load and visualize.

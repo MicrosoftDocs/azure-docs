@@ -104,7 +104,7 @@ If &ast;.one.microsoft.com is too broad, you can limit the server's communicatio
 For business continuity and disaster recovery (BCDR) reasons you may have specified your Azure file shares in a globally redundant (GRS) storage account. If that is the case, then your Azure file shares will fail over to the paired region in the event of a lasting regional outage. Azure File Sync uses the same regional pairings as storage. So if you use GRS storage accounts, you need to enable additional URLs to allow your server to talk to the paired region for Azure File Sync. The table below calls this "Paired region". Additionally, there is a traffic manager profile URL that needs to be enabled as well. This will ensure network traffic can be seamlessly re-routed to the paired region in the event of a fail-over and is called "Discovery URL" in the table below.
 
 | Region | Primary endpoint URL | Paired region | Discovery URL |
-|--------|---------------------------------------||--------||---------------------------------------|
+|--------|---------------------------------------|--------|---------------------------------------|
 | Australia East | https://kailani-aue.one.microsoft.com | Australia Souteast | https://kailani-aue.one.microsoft.com |
 | Australia Southeast | https://kailani-aus.one.microsoft.com | Australia East | https://tm-kailani-aus.one.microsoft.com |
 | Canada Central | https://kailani-cac.one.microsoft.com | Canada East | https://tm-kailani-cac.one.microsoft.com |

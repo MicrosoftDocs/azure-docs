@@ -4,12 +4,10 @@ description: Learn how to use Ansible to configure a virtual machine scale set a
 ms.service: ansible
 keywords: ansible, azure, devops, bash, playbook, virtual machine, virtual machine scale set, vmss
 author: tomarcher
-manager: jpconnock
-editor: na
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.date: 07/11/2018
+manager: jeconnoc
 ms.author: tarcher
+ms.topic: tutorial
+ms.date: 09/11/2018
 ---
 
 # Deploy applications to virtual machine scale sets in Azure using Ansible
@@ -17,11 +15,7 @@ Ansible allows you to automate the deployment and configuration of resources in 
 
 ## Prerequisites
 - **Azure subscription** - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
-- **Configure Ansible** - [Create Azure credentials and configure Ansible](../virtual-machines/linux/ansible-install-configure.md#create-azure-credentials)
-- **Ansible and the Azure Python SDK modules** 
-  - [CentOS 7.4](../virtual-machines/linux/ansible-install-configure.md#centos-74)
-  - [Ubuntu 16.04 LTS](../virtual-machines/linux/ansible-install-configure.md#ubuntu-1604-lts)
-  - [SLES 12 SP2](../virtual-machines/linux/ansible-install-configure.md#sles-12-sp2)
+- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 - **Virtual machine scale set** - If you don't already have a virtual machine scale set, you can [create a virtual machine scale set with Ansible](ansible-create-configure-vmss.md). 
 - **git** - [git](https://git-scm.com) is used to download a Java sample used in this tutorial.
 - **Java SE Development Kit (JDK)** - The JDK is used to build the sample Java project.
@@ -32,7 +26,7 @@ Ansible allows you to automate the deployment and configuration of resources in 
 
 ## Get host information
 
-This section illustrates how to use Ansible to retrieve host information for a group of Azure virtual machines. Below is a sample Ansible playbook. The code gets the public IP addresses and load balancer within specified resource group, and creates a host group named **saclesethosts** in inventory. 
+This section illustrates how to use Ansible to retrieve host information for a group of Azure virtual machines. Below is a sample Ansible playbook. The code gets the public IP addresses and load balancer within specified resource group, and creates a host group named **scalesethosts** in inventory. 
 
 Save the following sample playbook as `get-hosts-tasks.yml`: 
 
@@ -154,7 +148,7 @@ To use the ssh connection type with passwords, you must install the sshpass prog
   - For Ubunto 16.04, run the command `apt-get install sshpass`.
   - For CentOS 7.4, run the command `yum install sshpass`.
 
-You may see an error like **Using an SSH password instead of a key is not possible because Host Key checking is enabled and sshpass does not support this.  Add this host's fingerprint to your known_hosts file to manage this host.** If you see this error, you can disable host key checking by adding the following line to either the `/etc/ansible/ansible.cfg` file or the `~/.ansible.cfg` file:
+You may see an error like **Using an SSH password instead of a key is not possible because Host Key checking is enabled and sshpass does not support this. Add this host's fingerprint to your known_hosts file to manage this host.** If you see this error, you can disable host key checking by adding the following line to either the `/etc/ansible/ansible.cfg` file or the `~/.ansible.cfg` file:
   ```bash
   [defaults]
   host_key_checking = False

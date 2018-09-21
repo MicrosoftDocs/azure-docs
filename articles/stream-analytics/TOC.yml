@@ -20,8 +20,10 @@
     href: stream-analytics-with-azure-functions.md
   - name: 3 - Run a Javascript UDF
     href: stream-analytics-javascript-user-defined-functions.md
-  - name: 4 - Deploy with CI/CD in VSTS
+  - name: 4 - Deploy with CI/CD in Azure Pipelines
     href: stream-analytics-tools-visual-studio-cicd-vsts.md
+  - name: 5 - Run C# UDF on Edge
+    href: stream-analytics-edge-csharp-udf.md
 - name: Samples
   items:
   - name: Code samples
@@ -42,6 +44,8 @@
       href: stream-analytics-documentdb-output.md
   - name: Window functions
     href: stream-analytics-window-functions.md
+  - name: Geospatial functions
+    href: stream-analytics-geospatial-functions.md
   - name: Compatibility level
     href: stream-analytics-compatibility-level.md
   - name: Common query patterns
@@ -119,14 +123,18 @@
     items:
     - name: Install tools
       href: stream-analytics-tools-for-visual-studio-install.md
-    - name: Test a job locally
+    - name: Test with sample data
       href: stream-analytics-vs-tools-local-run.md
+    - name: Test with live data
+      href: stream-analytics-live-data-local-testing.md
     - name: View jobs in Visual Studio
       href: stream-analytics-vs-tools.md
     - name: Develop an Edge job
       href: stream-analytics-tools-for-visual-studio-edge-jobs.md
     - name: Set up CI/CD pipeline
       href: stream-analytics-tools-for-visual-studio-cicd.md
+    - name: Write .NET UDF for Edge
+      href: stream-analytics-edge-csharp-udf-methods.md
   - name: Troubleshoot
     items:
     - name: Troubleshooting steps

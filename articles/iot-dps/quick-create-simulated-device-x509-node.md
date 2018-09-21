@@ -19,7 +19,7 @@ These steps show how to create an enrollment entry in the Device Provisioning Se
 
 If you're unfamiliar with the process of auto-provisioning, be sure to also review [Auto-provisioning concepts](concepts-auto-provisioning.md). Also make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing. 
 
-[!INCLUDE [IoT DPS basic](../../includes/iot-dps-basic.md)]
+[!INCLUDE [IoT Device Provisioning Service basic](../../includes/iot-dps-basic.md)]
 
 ## Prepare the environment 
 
@@ -87,7 +87,7 @@ The [Azure IoT Hub Node.js Device SDK](https://github.com/Azure/azure-iot-sdk-no
 
 1. In the Azure portal, select the **Overview** blade for your Device Provisioning service and note down the **_GLobal Device Endpoint_** and **_ID Scope_** values.
 
-    ![Extract DPS endpoint information from the portal blade](./media/quick-create-simulated-device-x509-node/extract-dps-endpoints.png) 
+    ![Extract Device Provisioning Service endpoint information from the portal blade](./media/quick-create-simulated-device-x509-node/extract-dps-endpoints.png) 
 
 2. Copy your _certificate_ and _key_ to the sample folder.
 

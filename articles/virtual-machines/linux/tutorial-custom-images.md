@@ -38,7 +38,7 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 ## Before you begin
 
-The steps below detail how to take an existing VM and turn it into a re-usable custom image that you can use to create new VM instances.
+The steps below detail how to take an existing VM and turn it into a reusable custom image that you can use to create new VM instances.
 
 To complete the example in this tutorial, you must have an existing virtual machine. If needed, this [script sample](../scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md) can create one for you. When working through the tutorial, replace the resource group and VM names where needed.
 

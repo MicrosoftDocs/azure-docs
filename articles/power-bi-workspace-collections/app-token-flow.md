@@ -2,18 +2,11 @@
 title: Authenticating and authorizing with Power BI Workspace Collections | Microsoft Docs
 description: Authenticating and authorizing with Power BI Workspace Collections.
 services: power-bi-embedded
-documentationcenter: ''
 author: markingmyname
-manager: kfile
-editor: ''
-tags: ''
-
 ROBOTS: NOINDEX
 ms.assetid: 1c1369ea-7dfd-4b6e-978b-8f78908fd6f6
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan

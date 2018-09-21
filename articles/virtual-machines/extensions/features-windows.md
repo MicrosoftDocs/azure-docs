@@ -39,7 +39,7 @@ In addition to process-specific extensions, a Custom Script extension is availab
 
 ## Prerequisites
 
-To handle the extension on the VM, you need the Azure Linux Agent installed. Some individual extensions have prerequisites, such as access to resources or dependencies.
+To handle the extension on the VM, you need the Azure Windows Agent installed. Some individual extensions have prerequisites, such as access to resources or dependencies.
 
 ### Azure VM agent
 
@@ -63,7 +63,7 @@ Some extensions are not supported across all OSes and may emit *Error Code 51, '
 Extension packages are downloaded from the Azure Storage extension repository, and extension status uploads are posted to Azure Storage. If you use [supported](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) version of the agents, you do not need to allow access to Azure Storage in the VM region, as can use the agent to redirect the communication to the Azure fabric controller for agent communications. If you are on a non-supported version of the agent, you need to allow outbound access to Azure storage in that region from the VM.
 
 > [!IMPORTANT]
-> If you have blocked access to *168.63.129.1* using the guest firewall, then extensions fail irrespective of the above.
+> If you have blocked access to *168.63.129.16* using the guest firewall, then extensions fail irrespective of the above.
 
 Agents can only be used to download extension packages and reporting status. For example, if an extension install needs to download a script from GitHub (Custom Script) or needs access to Azure Storage (Azure Backup), then additional firewall/Network Security Group ports need to be opened. Different extensions have different requirements, since they are applications in their own right. For extensions that require access to Azure Storage, you can allow access using Azure NSG Service Tags for [Storage](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 

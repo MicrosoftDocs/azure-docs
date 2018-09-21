@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/13/2018
+ms.date: 08/20/2018
 ms.author: daseidma;bwren
 
 ---
@@ -114,14 +114,6 @@ The following section list the supported operating systems for the Dependency ag
 |:--|:--|
 |12 SP2 | 4.4.* |
 |12 SP3 | 4.4.* |
-
-### SUSE Linux 11 Enterprise Server
-
-| OS version | Kernel version
-|:--|:--|
-| 11 SP2 | 3.0.101-0.7 |
-| 11 SP3 | 3.0.101-0.47 |
-| 11 SP4 | 3.0.101-65 |
 
 ## Dependency agent downloads
 
@@ -260,7 +252,7 @@ The Dependency agent is installed on Linux computers from `InstallDependencyAgen
 
 Use the following steps to install the Dependency agent on each Linux computer:
 
-1.	Install the OMS Agent following one of the methods described in [Collect data in a hybrid environment with Log Analytics agent](../log-analytics/log-analytics-concept-hybrid.md).
+1.	Install the Log Analytics agent following one of the methods described in [Collect data in a hybrid environment with Log Analytics agent](../log-analytics/log-analytics-concept-hybrid.md).
 2.	Install the Linux Dependency agent as root by running the following command:
     
     `sh InstallDependencyAgent-Linux64.bin`
@@ -390,9 +382,9 @@ If your Dependency agent installation succeeded, but you don't see your server i
 
 * Is your server sending log and perf data to Log Analytics? Go to Log Search and run the following query for your computer: 
 
-		* Computer="<your computer name here>" | measure count() by Type
-		
-  Did you get a variety of events in the results? Is the data recent? If so, your OMS Agent is operating correctly and communicating with Log Analytics. If not, check the OMS Agent on your server: [OMS Agent for Windows troubleshooting](https://support.microsoft.com/help/3126513/how-to-troubleshoot-monitoring-onboarding-issues) or [OMS Agent for Linux troubleshooting](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md).
+		Usage | where Computer == "admdemo-appsvr" | summarize sum(Quantity), any(QuantityUnit) by DataType
+
+Did you get a variety of events in the results? Is the data recent? If so, your Log Analytics Agent is operating correctly and communicating with Log Analytics. If not, check the agent on your server: [Log Analytics agent for Windows troubleshooting](https://support.microsoft.com/help/3126513/how-to-troubleshoot-monitoring-onboarding-issues) or [Log Analytics agent for Linux troubleshooting](../log-analytics/log-analytics-agent-linux-support.md).
 
 #### Server appears in Service Map but has no processes
 If you see your server in Service Map, but it has no process or connection data, that indicates that the Dependency agent is installed and running, but the kernel driver didn't load. 

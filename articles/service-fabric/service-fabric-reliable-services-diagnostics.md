@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 6/28/2018
+ms.date: 8/24/2018
 ms.author: dekapur
 
 ---
@@ -117,7 +117,10 @@ The Reliable Services runtime emits the following events under the `Service Fabr
 
  Counter name | Description |
 | --- | --- |
-| Item Count | The number of keys in the store.|
+| Item Count | The number of items in the store.|
+| Disk Size | The total disk size, in bytes, of checkpoint files for the store.|
+| Checkpoint File Write Bytes/sec | The number of bytes written per second for the most recent checkpoint file.|
+| Copy Disk Transfer Bytes/sec | The number of disk bytes read (on the primary replica) or written (on a secondary replica) per second during a store copy.|
 
 ## Next steps
 [EventSource providers in PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)

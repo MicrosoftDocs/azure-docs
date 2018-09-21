@@ -133,7 +133,9 @@ spec:
       nodeSelector:
         kubernetes.io/hostname: virtual-kubelet-virtual-kubelet-linux
       tolerations:
-      - key: azure.com/aci
+      - key: virtual-kubelet.io/provider
+        operator: Equal
+        value: azure
         effect: NoSchedule
 ```
 
@@ -202,6 +204,9 @@ Use the [az aks remove-connector][aks-remove-connector] command to remove Virtua
 ```azurecli-interactive
 az aks remove-connector --resource-group myAKSCluster --name myAKSCluster --connector-name virtual-kubelet
 ```
+
+> [!NOTE]
+> If you encounter errors removing both OS connectors, or want to remove just the Windows or Linux OS connector, you can manually specify the OS type. Add the `--os-type` parameter to the previous `az aks remove-connector` command, and specify `Windows` or `Linux`.
 
 ## Next steps
 

@@ -5,8 +5,7 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 author: yanancai
 ms.author: yanacai
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.assetid: bcd0b01e-1755-4112-8e8a-a5cabdca4df2
 ms.topic: conceptual
 ms.date: 11/30/2017

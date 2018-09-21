@@ -45,7 +45,7 @@ To create an Azure Database for PostgreSQL server, take the following steps:
     Server admin login |*myadmin*| Your own login account to use when you connect to the server. The admin login name can't be **azure_superuser**, **azure_pg_admin**, **admin**, **administrator**, **root**, **guest**, or **public**. It can't start with **pg_**.
     Password |Your password| A new password for the server admin account. It must contain between 8 and 128 characters. Your password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers (0 through 9), and non-alphanumeric characters (!, $, #, %, etc.).
     Location|The region closest to your users| The location that is closest to your users.
-    Version|The latest version| The latest PostgreSQL version, unless you have specific requirements otherwise.
+    Version|The latest major version| The latest PostgreSQL major version, unless you have specific requirements otherwise.
     Pricing tier | **General Purpose**, **Gen 4**, **2 vCores**, **5 GB**, **7 days**, **Geographically Redundant** | The compute, storage, and backup configurations for your new server. Select **Pricing tier**. Next, select the **General Purpose** tab. *Gen 4*, *2 vCores*, *5 GB*, and *7 days* are the default values for **Compute Generation**, **vCore**, **Storage**, and **Backup Retention Period**. You can leave those sliders as is. To enable your server backups in geo-redundant storage select **Geographically Redundant** from the **Backup Redundancy Options**. To save this pricing tier selection, select **OK**. The next screenshot captures these selections.
 
     > [!IMPORTANT]
@@ -80,6 +80,10 @@ Azure Database for PostgreSQL creates a firewall at the server level. It prevent
     AllowAllIps | 0.0.0.0 | 255.255.255.255
 
      ![Set Firewall Rules](./media/quickstart-create-database-portal/5-firewall-2.png)
+     
+      > [!NOTE]
+      > For production instances you should only set your firewall rules to accept incoming requests from known IP addresses.  These settings are for example purposes only.
+      >
 
 4. On the upper toolbar of the **Connection security** page, select **Save**. Wait until the notification appears stating that the connection security update has finished successfully before you continue.
 
