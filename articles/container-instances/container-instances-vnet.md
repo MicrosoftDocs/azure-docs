@@ -186,6 +186,8 @@ az container delete --resource-group myResourceGroup --name commchecker -y
 
 The initial preview of this feature requires several additional commands to delete the network resources you created earlier. After you remove all container groups from the subnet, you can execute the following script to delete those network resources.
 
+Before executing the script, set the `RES_GROUP` variable to the name of the resource group containing the virtual network and subnet that should be deleted. The script is formatted for the Bash shell. If you prefer another shell such as PowerShell or Command Prompt, you'll need to adjust variable assignment and accessors accordingly.
+
 ```azurecli
 # Replace <my-resource-group> with the name of your resource group
 RES_GROUP=<my-resource-group>
@@ -199,16 +201,16 @@ az network profile delete --id $NETWORK_PROFILE_ID -y
 # Get the service association link (SAL) ID
 SAL_ID=$(az network vnet subnet show --resource-group $RES_GROUP --vnet-name aci-vnet --name aci-subnet --query id --output tsv)/providers/Microsoft.ContainerInstance/serviceAssociationLinks/default
 
-# Delete the default SAL ID for the subnet (remove delegation)
+# Delete the default SAL ID for the subnet
 az resource delete --ids $SAL_ID --api-version 2018-07-01
 
-# Delete the delegation to Microsoft.ContainerInstance
+# Delete the subnet delegation to Azure Container Instances
 az network vnet subnet update --resource-group $RES_GROUP --vnet-name aci-vnet --name aci-subnet --remove delegations 0
 
 # Delete the subnet
 az network vnet subnet delete --resource-group $RES_GROUP --vnet-name aci-vnet --name aci-subnet
 
-# Delete VNet
+# Delete virtual network
 az network vnet delete --resource-group $RES_GROUP --name aci-vnet
 ```
 
