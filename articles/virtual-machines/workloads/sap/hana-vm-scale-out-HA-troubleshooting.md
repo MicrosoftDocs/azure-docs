@@ -92,7 +92,7 @@ Regarding SAP HANA configuration related to using multiple networks see the sect
 Corresponding to the number of subnets every VM in the cluster has three vNICs. There is documentation, which describes a potential routing issue when deploying a Linux VM on Microsoft Azure which uses multiple vNICs. You can find information about it [here](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/multiple-nics). The problem is solved by SUSE per default in SLES 12 SP3. The article from SUSE about this topic can be found [here](https://www.suse.com/c/multi-nic-cloud-netconfig-ec2-azure/).
 
 
-As a basic check to verify if SAP HANA is configured correctly for using multiple networks just run the commands below. First step is simply to double-check on OS level that all three internal IP addresses for all three subnets are active. In case you defined the subnets with different IP address ranges please adapt the commands accordingly:
+As a basic check to verify if SAP HANA is configured correctly for using multiple networks, just run the commands below. First step is simply to double-check on OS level that all three internal IP addresses for all three subnets are active. In case you defined the subnets with different IP address ranges you have to adapt the commands accordingly:
 
 <pre><code>
 ifconfig | grep "inet addr:10\."
