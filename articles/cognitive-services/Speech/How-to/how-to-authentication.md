@@ -1,21 +1,18 @@
 ---
-title: Authenticate to Bing Speech | Microsoft Docs
-titlesuffix: Azure Cognitive Services
-description: Request authentication to use the Bing Speech API
+title: Authenticate to Microsoft Speech Service | Microsoft Docs
+description: Request authentication to use the Microsoft Speech API
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 09/15/2017
 ms.author: zhouwang
 ---
 # Authenticate to the Speech API
 
-[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
-
-Bing Speech supports authentication by using:
+Speech Service supports authentication by using:
 
 - A subscription key.
 - An authorization token.
