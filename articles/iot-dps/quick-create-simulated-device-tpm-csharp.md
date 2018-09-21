@@ -79,7 +79,7 @@ If you're unfamiliar with the process of auto-provisioning, be sure to also revi
 
 1. Verify that the device has been provisioned. On successful provisioning of the simulated device to the IoT hub linked with your provisioning service, the device ID appears on the hub's **IoT Devices** blade. 
 
-    ![Device is registered with the IoT hub](./media/quick-create-simulated-device-tpm-csharp/hubregistration.png) 
+    ![Device is registered with the IoT hub](./media/quick-create-simulated-device-tpm-csharp/hub_registration.png) 
 
     If you changed the *initial device twin state* from the default value in the enrollment entry for your device, it can pull the desired twin state from the hub and act accordingly. For more information, see [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md)
 

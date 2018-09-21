@@ -186,7 +186,7 @@ In this section, update the sample code to send the device's boot sequence to yo
 
 7. In the portal, navigate to the IoT hub linked to your provisioning service and click the **IoT Devices** tab. On successful provisioning of the simulated X.509 device to the hub, its device ID appears on the **IoT Devices** blade, with *STATUS* as **enabled**. Note that you might need to click the **Refresh** button at the top. 
 
-    ![Device is registered with the IoT hub](./media/quick-create-simulated-device/register_device.png) 
+    ![Device is registered with the IoT hub](./media/quick-create-simulated-device/hub-registration.png) 
 
 
 ## Clean up resources
