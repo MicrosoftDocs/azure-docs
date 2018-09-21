@@ -3,7 +3,7 @@ title: Overview of Azure Digital Twins | Microsoft Docs
 description: An introduction to Azure Digital Twins
 author: adamgerard
 ms.author: adgera
-ms.date: 09/19/2018
+ms.date: 09/21/2018
 ms.topic: overview
 ms.service: azure-digital-twins
 services: azure-digital-twins
@@ -20,6 +20,10 @@ Azure Digital Twins makes it easy to create a "digital twin" that effectively mo
 
 Your "digital twin" will supply powerful real-time analytics and device telemetry, user-defined functions to automate event and data processing, and robust security for your IoT app.
 
+The following video provides an in-depth introduction:
+
+<iframe src="https://www.youtube.com/embed/zvLLQ4fY82M" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
+
 ## Services in Azure Digital Twins
 
 From **Ontology's** custom defined models to device **Telemetry**, many services combine to make the Azure Digital Twins platform.
@@ -28,7 +32,7 @@ From **Ontology's** custom defined models to device **Telemetry**, many services
 
 A rich [Ontology](./concepts-objectmodel-spatialgraph.md) of customized object models can be defined to categorize IoT assets and assist with development.
 
-These models simplify the representation of the resources an IoT app will use. For example, customers may specify a solution tailored for: smart spaces, buildings, energy grids, factories, etc. 
+These models simplify the representation of the resources an IoT app will use. For example, customers may specify a solution tailored for: smart spaces, buildings, energy grids, factories, etc.
 
 Those models can then be used to interact with an API, represent data, or configure an IoT app.
 
