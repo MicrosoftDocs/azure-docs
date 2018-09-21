@@ -13,8 +13,6 @@ ms.author: panosper
 
 # Glossary
 
-[!INCLUDE [Deprecation note](../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
-
 ## A
 
 ### Acoustic Model

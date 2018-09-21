@@ -13,8 +13,6 @@ ms.author: panosper
 
 # What is Custom Speech Service?
 
-[!INCLUDE [Deprecation note](../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
-
 Custom Speech Service is a cloud-based service that provides users with the ability to customize speech models for Speech-to-Text transcription.
 To use the Custom Speech Service, refer to the [Custom Speech Service Portal](https://cris.ai).
 
