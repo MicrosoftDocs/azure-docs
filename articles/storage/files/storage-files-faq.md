@@ -156,7 +156,7 @@ This article answers common questions about Azure Files features and functionali
 
 * <a id="afs-effective-vfs"></a>
 **How is *volume free space* interpreted when I have multiple server endpoints on a volume?**  
-    When there is more than one server endpoint on a volume, the effective volume free space threshold is the largest volume free space specified across any server endpoint on that volume. Files will be tiered according to their usage patterns regardless of which server endpoint to which they belong. For example, if you have two server endpoints on a volume, Endpoint1 and Endpoint2, where Endpoint1 has a volume free space threshold of 25% and Endpoint2 has a volume free space threshold of 50%, the volume free space threshold for both server endpoints will be 50%.
+    When there is more than one server endpoint on a volume, the effective volume free space threshold is the largest volume free space specified across any server endpoint on that volume. Files will be tiered according to their usage patterns regardless of which server endpoint to which they belong. For example, if you have two server endpoints on a volume, Endpoint1 and Endpoint2, where Endpoint1 has a volume free space threshold of 25% and Endpoint2 has a volume free space threshold of 50%, the volume free space threshold for both server endpoints will be 50%. For more information on cloud tiering, see [Understanding Cloud Tiering](storage-sync-cloud-tiering.md).
 
 * <a id="afs-files-excluded"></a>
 **Which files or folders are automatically excluded by Azure File Sync?**  
