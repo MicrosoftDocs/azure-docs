@@ -64,7 +64,7 @@
 - name: Concepts
   items:
   - name: Azure management
-    href: ../monitoring/index.md?toc=/azure/azure-monitor/toc.json
+    href: azure-management.md?toc=/azure/azure-monitor/toc.json
   - name: Monitoring data
     items: 
     - name: Metrics and logs
