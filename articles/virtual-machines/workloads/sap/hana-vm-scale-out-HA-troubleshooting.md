@@ -66,14 +66,14 @@ For SAP HANA scale-out HA verification and certification a setup was used consis
 | Master node on site 1 | hso-hana-vm-s1-0 | 10.0.0.30 |
 | Worker node 1 on site 1 | hso-hana-vm-s1-1 | 10.0.0.31 |
 | Worker node 2 on site 1 | hso-hana-vm-s1-2 | 10.0.0.32 |
-| --- | --- | --- |
-- Master node on site 2 | hso-hana-vm-s2-0 | 10.0.0.40 |
-- Worker node 1 on site 2 | hso-hana-vm-s2-1 | 10.0.0.41 |
-- Worker node 2 on site 2 | hso-hana-vm-s2-2  | 10.0.0.42 |
-| --- | --- | --- |
+| | | |
+| Master node on site 2 | hso-hana-vm-s2-0 | 10.0.0.40 |
+| Worker node 1 on site 2 | hso-hana-vm-s2-1 | 10.0.0.41 |
+| Worker node 2 on site 2 | hso-hana-vm-s2-2  | 10.0.0.42 |
+| | | |
 | Majority maker node | hso-hana-dm | 10.0.0.13 |
 | SBD device server | hso-hana-sbd | 10.0.0.19 |
-| --- | --- | --- |
+| | | |
 | NFS server 1 | hso-nfs-vm-0 | 10.0.0.15 |
 | NFS server 2 | hso-nfs-vm-1 | 10.0.0.14 |
 
