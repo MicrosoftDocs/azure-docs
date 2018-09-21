@@ -28,6 +28,6 @@ ms.custom:
 [!INCLUDE [virtual-machines-common-shared-image-galleries](../../../includes/virtual-machines-common-shared-image-galleries.md)]
 
 
-## Next Steps
+## Next steps
 
 Learn how to [deploy shared images](shared-images.md).
