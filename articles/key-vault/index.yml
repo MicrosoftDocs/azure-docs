@@ -70,6 +70,19 @@ sections:
       image: 
         src: media/index/get-started.svg
         href: /azure/key-vault/key-vault-use-from-web-application
+- title: Build your skills with Microsoft Learn
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Manage secrets in your server apps with Azure Key Vault
+      href: /learn/modules/manage-secrets-with-azure-key-vault/
+      image: 
+        src: /learn/achievements/manage-secrets-with-azure-key-vault.svg
+        href: /learn/modules/manage-secrets-with-azure-key-vault/
+  - type: paragraph
+    text: <a href="/learn/browse/">More interactive learning...</a>
 - title: Reference
   items:
   - type: list
