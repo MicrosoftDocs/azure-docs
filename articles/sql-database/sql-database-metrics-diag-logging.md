@@ -31,7 +31,7 @@ Metrics and diagnostics logging on SQL Database, or Managed Instance database is
 - PowerShell
 - Azure CLI
 - Azure Monitor REST API 
-- Azure Resource Manager (ARM) template
+- Azure Resource Manager template
 
 When you enable metrics and diagnostics logging, you need to specify the Azure resource where selected data will be collected. Options available include:
 
