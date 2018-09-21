@@ -53,7 +53,7 @@ Regional support for shared image galleries is limited, but will expand over tim
 |                    |South India|
 |                    |Southeast Asia|
 
-West Central US, South Central US, East US 2, Southeast Asia, West Europe
+
 
 ## Scaling
 Shared Image Gallery allows you to specify the number of replicas you want Azure to keep for the images. This helps in multi-VM deployment scenarios as the VM deployments can be spread to different replicas reducing the chance of instance creation process being throttled due to overloading of a single replica.
@@ -72,9 +72,8 @@ The regions a Shared image version is replicated to can be updated after creatio
 As the shared image gallery, shared image and shared image version are all resources, they can be shared using the built-in native Azure RBAC controls. Using RBAC you can share these resources to other users, service principals, and groups in your organization. The scope of sharing these resources is within the same AD tenant. Once a user has access to the Shared image version, they can deploy a VM or a virtual machine scale set in any of the subscriptions they have access to within the same AD tenant as the Shared image version.  Here is the sharing matrix that helps understand what the user gets access to
 
 
-|                      |                      | User has access to: |                      |
-|----------------------|----------------------|--------------|----------------------|
-| Shared with User                       | Shared Image Gallery | Shared Image | Shared image version |
+|                      |                      | User has access to: |               |
+| Shared with User     | Shared Image Gallery | Shared Image | Shared image version |
 |----------------------|----------------------|--------------|----------------------|
 | Shared Image Gallery | Yes                  | Yes          | Yes                  |
 | Shared Image         | No                   | Yes          | Yes                  |
@@ -142,14 +141,14 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
 	- If the VHD is for a Linux VM, see [Upload a VHD](https://docs.microsoft.com/azure/virtual-machines/linux/upload-vhd#option-1-upload-a-vhd)
 
 
-**Q.** Can I create an image version with a specialized image?
+**Q.** Can I create an image version from a specialized disk?
 
- A. No, we do not currently support specialized images. If you have a specialized image, then follow the steps under Scenario 3 in the previous question to generalize it before creating an image version out of it.
+ A. No, we do not currently support specialized disks as images. If you have a specialized disk, you need to [create a VM from the VHD](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal#create-a-vm-from-a-disk) by attaching the specializeddisk to a new VM. Once you have a running VM, you need to follow the instructions to create a managed image from the [Windows VM] (https://docs.microsoft.com/en-us/azure/virtual-machines/windows/tutorial-custom-images) or [Linux VM](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-custom-images). Once you have a generalized managed image, you can start the process to create a shared image description and image version.
 
 
-**Q.** Can I create Shared Image Gallery, image definition, and image version through the Azure portal?
+**Q.** Can I create a shared image gallery, image definition, and image version through the Azure portal?
 
- A. No, currently we do not support the creation of any of the Shared Image Gallery artifacts through Azure portal. However, we do support the creation of the Shared Image Gallery artifacts through CLI, PowerShell, Templates, and SDKs.
+ A. No, currently we do not support the creation of any of the Shared Image Gallery resources through Azure portal. However, we do support the creation of the Shared Image Gallery resources through CLI, Templates, and SDKs. PowerShell will also be release soon.
 
  
 **Q.** Once created, can I update the image definition or the image version? What kind of details can I modify?
@@ -198,8 +197,8 @@ Image version:
 
  A. The default quota is 
 - 10 shared image galleries, per subscription, per region
-- 100 image definitions, per subscription, per region
-- 1000 image versions, per subscription, per region
+- 200 image definitions, per subscription, per region
+- 2000 image versions, per subscription, per region
 
 
 **Q.** What is the difference between source region and target region?
@@ -214,12 +213,21 @@ Image version:
 
 **Q.** How do I specify the number of image version replicas to be created in each region?
 
- A. There are two ways you can specify the number of image version replicas to be created in each region. One is the regional replica count which specifies the number of replicas you want to create per region. And the other one is the common replica count which is the default per region count in case regional replica count is not specified. To specify the common replica count in CLI, use the --replica-count argument in the “az sig image-version create” command and to specify the regional replica count, pass the location along with the number of replicas you intend to create in that region like this – “South Central US=2”. If regional replica count is not specified with each location, then the default number of replicas will be the common replica count that you specified. 
+ A. There are two ways you can specify the number of image version replicas to be created in each region:
+ 
+1. The regional replica count which specifies the number of replicas you want to create per region. 
+2. The common replica count which is the default per region count in case regional replica count is not specified. 
+
+To specify the regional replica count, pass the location along with the number of replicas you want to create in that region like this: “South Central US=2”. 
+
+If regional replica count is not specified with each location, then the default number of replicas will be the common replica count that you specified. 
+
+To specify the common replica count in CLI, use the **--replica-count** argument in the `az sig image-version create` command.
 
 
-**Q.** Can I create the Shared Image Gallery in a location different from the one that I intend to create the image definition and image version in?
+**Q.** Can I create the shared image gallery in a different location than the one where I want to create the image definition and image version?
 
- A. Yes, this is possible. But as a best practice, we encourage you to keep the location of the Resource Group, the Shared Image Gallery, the image definition and the image version consistent.
+ A. Yes, this is possible. But as a best practice, we encourage you to keep the resource group, shared image gallery, image definition and image version in the same location.
 
 
 **Q.** What are the charges for using the Shared Image Gallery?
