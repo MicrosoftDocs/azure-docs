@@ -55,5 +55,5 @@ sections:
         src: /learn/achievements/build-and-store-container-images.svg
         href: /learn/modules/build-and-store-container-images/
   - type: paragraph
-    text: <a href="/learn/browse/">More interactive learning...</a>
+    text: <a href="/learn/browse/?products=azure-container-registry%2Cazure-container-instances">More interactive learning...</a>
           

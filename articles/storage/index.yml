@@ -112,7 +112,7 @@ sections:
         src: /learn/achievements/connect-an-app-to-azure-storage.svg
         href: /learn/modules/connect-an-app-to-azure-storage
   - type: paragraph
-    text: <a href="/learn/browse/?products=storage">More interactive learning...</a>
+    text: <a href="/learn/browse/?products=azure-storage">More interactive learning...</a>
 - title: Free Pluralsight Video Training
   items:
   - type: list

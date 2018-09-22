@@ -70,7 +70,7 @@ sections:
         src: /learn/achievements/choose-a-messaging-model-in-azure-to-connect-your-services.svg
         href: /learn/modules/choose-a-messaging-model-in-azure-to-connect-your-services/
   - type: paragraph
-    text: <a href="/learn/browse/">More interactive learning...</a>
+    text: <a href="/learn/browse/?products=azure-event-grid">More interactive learning...</a>
 - title: Reference
   items:
   - type: list

@@ -63,7 +63,7 @@ sections:
         src: /learn/achievements/enable-reliable-messaging-for-big-data-apps-using-azure-event-hubs.svg
         href: /learn/modules/enable-reliable-messaging-for-big-data-apps-using-event-hubs/
   - type: paragraph
-    text: <a href="/learn/browse/">More interactive learning...</a>
+    text: <a href="/learn/browse/?products=azure-event-hubs">More interactive learning...</a>
 - title: Free Pluralsight Video Training
   items:
   - type: list

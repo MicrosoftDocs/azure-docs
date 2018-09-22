@@ -331,7 +331,7 @@ featureFlags:
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a class="barLink" href="/learn/browse/">More interactive learning...</a>
+                                                        <a class="barLink" href="/learn/browse/?products=azure">More interactive learning...</a>
                                                     </li>
                                                 </ul>
                                             </div>

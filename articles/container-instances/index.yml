@@ -56,7 +56,7 @@ sections:
       image: 
         src: /learn/achievements/run-docker-with-azure-container-instances.svg
   - type: paragraph
-    text: <a href="/learn/browse/">More interactive learning...</a>
+    text: <a href="/learn/browse/?products=azure-container-instances">More interactive learning...</a>
 - title: Reference
   items:
   - type: list

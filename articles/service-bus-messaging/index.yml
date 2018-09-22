@@ -66,7 +66,7 @@ sections:
       image: 
         src: /learn/achievements/implement-message-workflows-with-service-bus.svg
   - type: paragraph
-    text: <a href="/learn/browse/">More interactive learning...</a>
+    text: <a href="/learn/browse/?products=azure-service-bus">More interactive learning...</a>
 - title: Free Pluralsight Video Training
   items:
   - type: list

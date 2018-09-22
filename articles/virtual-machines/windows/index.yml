@@ -88,7 +88,7 @@ sections:
         src: /learn/achievements/create-windows-virtual-machine-in-azure.svg
         href: /learn/modules/create-windows-virtual-machine-in-azure/
   - type: paragraph
-    text: <a href="/learn/browse/">More interactive learning...</a>
+    text: <a href="/learn/browse/?products=azure-virtual-machines">More interactive learning...</a>
 - title: Free Pluralsight Video Training
   items:
   - type: list

@@ -187,7 +187,7 @@ Learn how to use Azure Redis Cache, a secure data cache and messaging broker tha
     </li>
 </ul>   
 
-**[More interactive learning...](/learn/browse/)**
+**[More interactive learning...](/learn/browse?products=azure-redis-cache/)**
 
 ---
 

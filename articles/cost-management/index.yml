@@ -48,4 +48,4 @@ sections:
       image: 
         src: /learn/achievements/predict-costs-and-optimize-spending.svg
   - type: paragraph
-    text: <a href="/learn/browse/">More interactive learning...</a>
+    text: <a href="/learn/browse/?products=azure-cost-management">More interactive learning...</a>

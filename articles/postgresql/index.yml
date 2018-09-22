@@ -53,7 +53,7 @@ sections:
         src: /learn/achievements/create-azure-db-for-postgresql-server.svg
         href: /learn/modules/create-azure-db-for-postgresql-server/
   - type: paragraph
-    text: <a href="/learn/browse/">More interactive learning...</a>
+    text: <a href="/learn/browse/?products=azure">More interactive learning...</a>
 - title: Samples
   items:
   - type: paragraph

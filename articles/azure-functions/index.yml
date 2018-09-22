@@ -104,7 +104,7 @@ sections:
         src: /learn/achievements/chain-azure-functions-data-using-bindings.svg
         href: /learn/modules/chain-azure-functions-data-using-bindings/
   - type: paragraph
-    text: <a href="/learn/browse/?products=azureFunctions">More interactive learning...</a>
+    text: <a href="/learn/browse/?products=azure-functions">More interactive learning...</a>
 - title: Reference
   items:
   - type: list

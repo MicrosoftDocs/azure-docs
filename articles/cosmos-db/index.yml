@@ -177,7 +177,7 @@ sections:
           src: /learn/achievements/build-cosmos-db-app-with-vscode.svg
           href: /learn/modules/build-cosmos-db-app-with-vscode
     - type: paragraph
-      text: <a href="/learn/browse/">More interactive learning...</a>
+      text: <a href="/learn/browse/?products=azure-cosmos-db">More interactive learning...</a>
 
 
   - title: Reference
