@@ -48,6 +48,8 @@ UnmonitoredManual | PS | Indicates that the upgrade mode is unmonitored manual. 
 
 The health evaluation parameters are optional. If the health evaluation criteria are not specified when an upgrade starts, Service Fabric uses the application health policies specified in the ApplicationManifest.xml of the application instance.
 
+Use the horizontal scrollbar at the bottom of the table to view the full description field.
+
 (PS=PowerShell, VS=Visual Studio)
 
 | Parameter | Applies To | Description |
