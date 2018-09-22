@@ -42,7 +42,7 @@ In the dialogs that follow, make the following selections:
 
 1. Project Options Dialog
     1. Enter a name for the quickstart app, for example `helloworld`.
-    1. Enter appropriate organization name and organization identifer, if you already have an Apple developer account. For testing purpose, you can just pick any name like `testorg`. In order to sign the App, you also need proper provisioning profile too. Please refer to [Apple developer site](https://developer.apple.com/) for details.
+    1. Enter an appropriate organization name and organization identifier, if you already have an Apple developer account. For testing purposes, you can just pick any name like `testorg`. In order to sign the app, you also need a proper provisioning profile too. Please refer to the [Apple developer site](https://developer.apple.com/) for details.
     1. Make sure Objective-C is chosen as the language for the project.
     1. Disable all checkboxes for tests and core data.
     ![Project Settings](media/sdk/qs-objectivec-project-settings.png)
@@ -86,8 +86,8 @@ Click **Finish** in the following dialog without changing the settings.
 ## Building and Running the Sample
 
 1. Make the debug output visible (**View** > **Debug Area** > **Activate Console**).
-1. Build and run the example code in the iOS simulator by selecting **Product** -> **Run** from the menu or clicking the **Play** button.
-1. After you click the "Recognize!" button in the app, you should see the contents of the audio file "What's the weather like?" on the lower part of the simulated screen.
+1. Build and run the example code in the iOS simulator by selecting **Product** -> **Run** from the menu or clicking the **Play** button. For running on an iOS device, connect the device to your development machine and select the device as the running target. Currently the Speech SDK only supports 64bit iOS platform.
+1. After you click the "Recognize!" button in the app, you should see the contents of the audio file "What's the weather like?" on the lower part of the screen.
 
  ![Simulated iOS App](media/sdk/qs-objectivec-simulated-app.png)
 
