@@ -28,7 +28,7 @@ Device onboarding process involves the following high-level steps. For step deta
 * Device is ready to send data from multiple sensors to Digital Twins instance
 * Digital Twins is ready for telemetry processing evaluating the User-Defined Function logic
 
-This article focuses on how to get IoT Hub device connection string from Digital Twins Management API and how to change telemetry message to send sensor unique identifier. Digital Twins requires that each piece of telemetry it receives be associated with a particular sensor within the graph; this is how Digital Twins ensures it can process and route the data in the proper way.
+This article focuses on how to get IoT Hub device connection string from Digital Twins Management API and how to change telemetry message to send sensor unique identifier. Digital Twins requires that each piece of telemetry it receives be associated with a sensor within the graph; this is how Digital Twins ensures it can process and route the data in the proper way.
 
 # Get IoT Hub device connection string from Management API
 
@@ -37,7 +37,7 @@ Query device management API with `includes=ConnectionString` parameter to get th
 GET https://{{endpoint-management}}/api/v1.0/devices/device-guid?includes=ConnectionString
 ```
     
-In the response payload, get the connectionString property
+In the response payload, get the `connectionString` property
 ```
 "connectionString": "HostName=ih-8324e8f5-91e3-492a-8b8d-b096a970ec0d-2.azure-devices.net;DeviceId=45a0be1a-2bb8-498f-9b39-5725ef4cc4d3;SharedAccessKey=7ZrJDKxaY6m0y0RVwtRACzxIHIrzUNoqh677Clt0Uy4="
 ```
