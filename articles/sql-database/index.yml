@@ -164,7 +164,7 @@ sections:
         src: /learn/achievements/provision-azure-sql-db.svg
         href: /learn/modules/provision-azure-sql-db/
   - type: paragraph
-    text: <a href="/learn/browse/">More interactive learning...</a>
+    text: <a href="/learn/browse/?products=azure-sql-database">More interactive learning...</a>
 - title: Free Pluralsight Video Training
   items:
   - type: list
