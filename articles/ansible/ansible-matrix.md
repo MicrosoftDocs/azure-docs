@@ -68,7 +68,7 @@ This article lists the Ansible modules for Azure that can provision Azure cloud 
 | azure_rm_aks_facts                          | -            | -                           | Yes          | Yes          | Yes                                 | 
 | azure_rm_acs                                | Yes          | Yes                         | Yes          | Yes          | Yes                                 | 
 | azure_rm_containerinstance                  | -            | Yes                         | Yes          | Yes          | Yes                                 | 
-| azure_rm_containerinstance_facts            | -            | -                           | -            | Yes          | Yes                                 | 
+| azure_rm_containerinstance_facts            | -            | -                           | -              | -            | Yes                                 | 
 | azure_rm_containerregistry                  | -            | Yes                         | Yes          | Yes          | Yes                                 | 
 | azure_rm_containerregistry_facts            | -            | -                           | -            | Yes          | Yes                                 | 
 | azure_rm_containerregistryreplication       | -            | -                           | -            | -            | Yes                                 | 
@@ -105,7 +105,7 @@ This article lists the Ansible modules for Azure that can provision Azure cloud 
 | azure_rm_postgresqlconfiguration_facts      | -            | -                           | -            | -            | Yes                                 | 
 | **Key Vault**                    |           |                          |                          |                             |                               | 
 | azure_rm_keyvault                           | -            | Yes                         | Yes          | Yes          | Yes                                 |
-| azure_rm_keyvault_facts                     | -            | -                           | -            | Yes          | Yes                                 |
+| azure_rm_keyvault_facts                     | -            | -                           | -              | -              | Yes                               |
 | azure_rm_keyvaultkey                        | -            | Yes                         | Yes          | Yes          | Yes                                 |
 | azure_rm_keyvaultsecret                     | -            | Yes                         | Yes          | Yes          | Yes                                 |
 | **Web Apps**                    |           |                          |                          |                             |                               | 
