@@ -117,19 +117,19 @@ The Cognitive Services Client Speech SDK is re-using source code originating in 
 
 The Cognitive Services Client Speech SDK is using 'openssl - TLS/SSL and crypto library', obtained from https://github.com/openssl/openssl. It is licensed under the following [license](https://github.com/openssl/openssl/blob/master/LICENSE):
 
-   LICENSE ISSUES
-   ==============
+    LICENSE ISSUES
+    ==============
 
-   The OpenSSL toolkit stays under a double license, i.e. both the conditions of
-   the OpenSSL License and the original SSLeay license apply to the toolkit.
-   See below for the actual license texts. Actually both licenses are BSD-style
-   Open Source licenses. In case of any license issues related to OpenSSL
-   please contact openssl-core@openssl.org.
+    The OpenSSL toolkit stays under a double license, i.e. both the conditions of
+    the OpenSSL License and the original SSLeay license apply to the toolkit.
+    See below for the actual license texts. Actually both licenses are BSD-style
+    Open Source licenses. In case of any license issues related to OpenSSL
+    please contact openssl-core@openssl.org.
 
-   OpenSSL License
-   ---------------
+    OpenSSL License
+    ---------------
 
-   /* ====================================================================
+    /* ====================================================================
     * Copyright (c) 1998-2018 The OpenSSL Project.  All rights reserved.
     *
     * Redistribution and use in source and binary forms, with or without
@@ -186,7 +186,7 @@ The Cognitive Services Client Speech SDK is using 'openssl - TLS/SSL and crypto 
     Original SSLeay License
     -----------------------
 
-   /* Copyright (C) 1995-1998 Eric Young (eay@cryptsoft.com)
+    /* Copyright (C) 1995-1998 Eric Young (eay@cryptsoft.com)
     * All rights reserved.
     *
     * This package is an SSL implementation written
