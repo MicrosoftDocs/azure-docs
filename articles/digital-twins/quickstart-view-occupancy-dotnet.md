@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 08/30/2018
 ms.author: alinast
-# As a developer new to Digital Twins, I need to see how to send motion and CO2 telemetry to a space in a Azure Digital Twins and how to find availale rooms with fresh air using a back-end application. 
+# As a developer new to Digital Twins, I need to see how to send motion and CO2 telemetry to a space in a Azure Digital Twins and how to find available rooms with fresh air using a back-end application. 
 ---
 
 # Use Azure Digital Twins to find available rooms with fresh air (C#)
 
-In a busy office scenario, it's important to find out available rooms, preferably with the fresh air. This article shows how you can do this using Azure Digital Twins.
+In a busy office scenario, it's important to find out available rooms and preferably those with the freshest air. This article shows how you can do that using Azure Digital Twins.
 
 The [quickstart](https://github.com/Azure-Samples/digital-twins-samples-csharp) uses two sample .NET Core console applications that use the Digital Twins APIs. The first one will send motion and CO2 telemetry to your service, and the second one will provision topology as well as find available rooms with fresh air.
 
@@ -32,7 +32,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
     git clone https://github.com/Azure-Samples/digital-twins-samples-csharp.git
     ```
 
-1. The repo is composed of several standalone projects. The [Occupancy sample]() is provided to get started.
+1. The repo is composed of several standalone projects. The [Occupancy sample](https://github.com/Azure-Samples/digital-twins-samples-csharp/tree/master/occupancy-quickstart) is provided to get started.
 
 1. We have included a [visual studio code workspace file](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/digital-twins-samples.code-workspace) for our [Visual Studio Code](https://code.visualstudio.com/) users containing all samples. Alternatively, each folder can be opened individually.
 
@@ -83,7 +83,7 @@ The tutorials go into detail about how to build an application for facility mana
 
 If you plan to continue to the tutorials, do not clean up the resources created in this Quickstart. If you do not plan to continue, use the following steps to delete all resources created by this Quickstart.
 
-1. Delete the folder that was created when cloning the sample repository
+1. Delete the folder that was created when cloning the sample repository.
 1. From the left-hand menu in the [Azure portal](http://portal.azure.com), click **All resources** and then select your Digital Twins resource. At the top of the **All resources** blade, click **Delete**.
 
 ## Next steps

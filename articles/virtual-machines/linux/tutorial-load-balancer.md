@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Load balance Linux virtual machines in Azure | Microsoft Docs
-description: In this tutorial, you learn how to use the Azure CLI 2.0 to create a load balancer for a highly available and secure application across three Linux virtual machines
+description: In this tutorial, you learn how to use the Azure CLI to create a load balancer for a highly available and secure application across three Linux virtual machines
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -21,7 +21,7 @@ ms.custom: mvc
 #Customer intent: As an IT administrator, I want to learn how to load balance virtual machines in Azure so that I can deploy a redundant application with traffic automatically distributed to available VMs.
 ---
 
-# Tutorial: Load balance Linux virtual machines in Azure to create a highly available application with the Azure CLI 2.0
+# Tutorial: Load balance Linux virtual machines in Azure to create a highly available application with the Azure CLI
 
 Load balancing provides a higher level of availability by spreading incoming requests across multiple virtual machines. In this tutorial, you learn about the different components of the Azure load balancer that distribute traffic and provide high availability. You learn how to:
 
@@ -36,7 +36,7 @@ Load balancing provides a higher level of availability by spreading incoming req
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Azure load balancer overview
 An Azure load balancer is a Layer-4 (TCP, UDP) load balancer that provides high availability by distributing incoming traffic among healthy VMs. A load balancer health probe monitors a given port on each VM and only distributes traffic to an operational VM.
