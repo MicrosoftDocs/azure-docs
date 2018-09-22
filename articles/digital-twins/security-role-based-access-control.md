@@ -27,14 +27,17 @@ Role-Based Access Control is unique in that permissions are inherited down the t
 
 ## Role-Based Access Control best practices
 
+The **principle of least privilege** grants an identity only the amount of access needed to perform its job.
+
 >[!NOTE]
-> **Always follow the principle of least privilege**: grant an identity only the amount of access needed to perform its job.
+> **Always follow the principle of least privilege**.
 
-This is particularly important given the downward inheritance that is built into Role-Based Access Control.
+Permissions and roles in Role-Based Access Control are inherited from parent roles.
 
-Periodic auditing of role assignments is recommended.
+Two other important practices to follow:
 
-It's also encouraged to perform a clean-up process as individuals change roles or assignments.
+* Periodically audit role assignments.
+* Roles and assignments should be cleaned-up as individuals change roles or assignments.
 
 ## Role-Based Access Control components
 
@@ -44,11 +47,11 @@ Role-Based Access Control involves several pieces.
 
 A **role definition** is a collection of permissions and is sometimes just called a **role**.
 
-A **role definition** lists the operations that can be performed. These include *read*, *write*, and *delete*. It also specifies a set of conditions that might exclude certain object types in the topology.
+A **role definition** lists allowed operations including *read*, *write*, and *delete*. It also specifies a set of conditions that might exclude certain object types in the topology.
 
 The following roles are available in Role-Based Access Control:
 
-* Space Administrator: Global access able to perform all operations for the specified space and all nodes underneath
+* Space Administrator: Global access able to run all operations for the specified space and all nodes underneath.
 * User Administrator: CRUD for users and user related objects. Read for spaces.
 * Device Administrator: CRUD for devices and device related objects. Read for spaces.
 * Key Administrator: CRUD for access keys. Read for spaces.
@@ -69,13 +72,16 @@ The `ObjectIdType` refers to the type of identity that is being given a role. Ap
 * The DomainName type assigns a role to a domain name. Each user with the specified domain name will have the access rights of the corresponding role.
 * The TenantId type assigns a role to a tenant. Each user belonging to the specified AAD tenant id will have the access rights of the corresponding role.
 * The ServicePrincipalId type assigns a role to a service principal object id.
-* The UserDefinedFunctionId type assigns a role to a User Defined Function (UDF)
+* The UserDefinedFunctionId type assigns a role to a User-Defined Function (UDF).
 
-To query for the object id for a user reference the documentation [here](https://docs.microsoft.com/powershell/module/azuread/get-azureaduser?view=azureadps-2.0).
+> [!div class="nextstepaction"]
+> [Query or the object id for a user](https://docs.microsoft.com/powershell/module/azuread/get-azureaduser?view=azureadps-2.0)
 
-To obtain the object id for a service principal reference the documentation [here](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermadserviceprincipal?view=azurermps-6.8.1).
+> [!div class="nextstepaction"]
+> [Obtain the object id for a service principal](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermadserviceprincipal?view=azurermps-6.8.1)
 
-To retrieve the object id for an AAD tenant reference the documentation [here](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
+> [!div class="nextstepaction"]
+> [Retrieve the object id for an AAD tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant)
 
 ## Role assignments
 
