@@ -43,7 +43,8 @@
     href: manage-database-permissions.md
   - name: Check cluster health
     href: check-cluster-health.md
-  - name: Manage cluster size
+  - name: Manage cluster scaling
+    href: manage-cluster-scaling.md
   - name: Troubleshooting
     items:
     - name: Creating a cluster
