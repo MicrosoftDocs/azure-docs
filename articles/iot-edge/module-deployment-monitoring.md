@@ -4,7 +4,7 @@ description: Learn about how modules get deployed to edge devices
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/06/2018
+ms.date: 09/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -18,14 +18,14 @@ Azure IoT Edge devices follow a [device lifecycle][lnk-lifecycle] that is simila
 1. The devices are configured to run [IoT Edge modules][lnk-modules], and then monitored for health. 
 1. Finally, devices may be retired when they are replaced or become obsolete.  
 
-Azure IoT Edge provides two ways to configure the modules to run on IoT Edge devices: one for development and fast iterations on a single device (you used this method in the Azure IoT Edge tutorials), and one for managing large fleets of IoT Edge devices. Both of these approaches are available in the Azure portal and programmatically.
+Azure IoT Edge provides two ways to configure the modules to run on IoT Edge devices: one for development and fast iterations on a single device (you used this method in the Azure IoT Edge [tutorials](tutorial-deploy-function.md)), and one for managing large fleets of IoT Edge devices. Both of these approaches are available in the Azure portal and programmatically. For targeting groups or a large number of devices, you can specify which devices you'd like to deploy your modules to using [tags](https://docs.microsoft.com/en-us/azure/iot-edge/how-to-deploy-monitor#identify-devices-using-tags) in the device twin. The following steps talk about a deployment to a Washington State device group identified through the tags property. 
 
-This article focuses on the configuration and monitoring stages for fleets of devices, collectively referred to as IoT Edge automatic deployments. The overall deployment steps are as follows:   
+This article focuses on the configuration and monitoring stages for fleets of devices, collectively referred to as IoT Edge automatic deployments. The overall deployment steps are as follows: 
 
 1. An operator defines a deployment that describes a set of modules as well as the target devices. Each deployment has a deployment manifest that reflects this information. 
-1. The IoT Hub service communicates with all targeted devices to configure them with the desired modules. 
-1. The IoT Hub service retrieves status from the IoT Edge devices and surfaces those for the operator to monitor.  For example, an operator can see when an Edge device is not configured successfully or if a module fails during runtime. 
-1. At any time, new IoT Edge devices that meet the targeting conditions are configured for the deployment. For example, a deployment that targets all IoT Edge devices in Washington State automatically configures a new IoT Edge device once it is provisioned and added to the Washington State device group. 
+2. The IoT Hub service communicates with all targeted devices to configure them with the desired modules. 
+3. The IoT Hub service retrieves status from the IoT Edge devices and surfaces those for the operator to monitor.  For example, an operator can see when an Edge device is not configured successfully or if a module fails during runtime. 
+4. At any time, new IoT Edge devices that meet the targeting conditions are configured for the deployment. For example, a deployment that targets all IoT Edge devices in Washington State automatically configures a new IoT Edge device once it is provisioned and added to the Washington State device group. 
  
 This article describes each component involved in configuring and monitoring a deployment. For a walkthrough of creating and updating a deployment, see [Deploy and monitor IoT Edge modules at scale][lnk-howto].
 
