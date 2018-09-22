@@ -48,8 +48,8 @@ ms.custom: H1Hack27Feb2017
 ## Release notes
 
 ### <a name="3.0.0"/>3.0.0
-* Support for multi-region writes
-* Namespace changed to azure.cosmos
+* Support for multi-region writes.
+* Namespace changed to azure.cosmos.
 * Collection and document concepts renamed to container and item, document_client renamed to cosmos_client. 
 
 ### <a name="2.3.2"/>2.3.2
