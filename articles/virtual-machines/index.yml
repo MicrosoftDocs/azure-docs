@@ -77,6 +77,11 @@ sections:
     style: cards
     className: cardsFTitle
     items:
+    - title: Introduction to Azure compute
+      href: /learn/modules/intro-to-azure-compute/
+      image: 
+        src: /learn/achievements/intro-to-azure-compute.svg
+        href: /learn/modules/intro-to-azure-compute/
     - title: Introduction to Azure Virtual Machines
       href: /learn/modules/intro-to-azure-virtual-machines/
       image: 
@@ -87,11 +92,6 @@ sections:
       image: 
         src: /learn/achievements/add-and-size-disks-in-azure-virtual-machines.svg
         href: /learn/modules/add-and-size-disks-in-azure-virtual-machines/
-    - title: Caching and performance in Azure Storage disks
-      href: /learn/modules/caching-and-performance-azure-storage-and-disks/
-      image: 
-        src: /learn/achievements/caching-and-performance-azure-storage-and-disks.svg
-        href: /learn/modules/caching-and-performance-azure-storage-and-disks/
   - type: paragraph
     text: <a href="/learn/browse/?products=azure-virtual-machines">More interactive learning...</a>
 - title: Free Pluralsight Video Training

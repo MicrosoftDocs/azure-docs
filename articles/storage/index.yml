@@ -96,21 +96,21 @@ sections:
     style: cards
     className: cardsFTitle
     items:
-    - title: Communicate between applications with Azure Queue storage
-      href: /learn/modules/communicate-between-apps-with-azure-queue-storage/
+    - title: Introduction to data in Azure
+      href: /learn/modules/intro-to-data-in-azure/
       image: 
-        src: /learn/achievements/communicate-between-apps-with-storage-queues.svg
-        href: /learn/modules/communicate-between-apps-with-azure-queue-storage/
+        src: /learn/achievements/intro-to-data-in-azure.svg
+        href: //learn/modules/intro-to-data-in-azure/
+    - title:  Choose a data storage approach in Azure
+      href: /learn/modules/choose-storage-approach-in-azure/
+      image: 
+        src: /learn/achievements/choose-storage-approach-in-azure.svg
+        href: /learn/modules/choose-storage-approach-in-azure/
     - title:  Create an Azure storage account
       href: /learn/modules/create-azure-storage-account/
       image: 
         src: /learn/achievements/create-azure-storage-account.svg
         href: /learn/modules/create-azure-storage-account/
-    - title: Connect an app to Azure Storage
-      href: /learn/modules/connect-an-app-to-azure-storage
-      image: 
-        src: /learn/achievements/connect-an-app-to-azure-storage.svg
-        href: /learn/modules/connect-an-app-to-azure-storage
   - type: paragraph
     text: <a href="/learn/browse/?products=azure-storage">More interactive learning...</a>
 - title: Free Pluralsight Video Training

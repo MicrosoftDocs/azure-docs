@@ -313,9 +313,9 @@ featureFlags:
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a class="barLink" href="/learn/modules/align-requirements-in-azure/">
-                                                            <img src="/learn/achievements/align-requirements-in-azure.svg" alt="">
-                                                             Align requirements with cloud types and service models in Azure
+                                                        <a class="barLink" href="/learn/modules/build-a-serverless-web-app/">
+                                                            <img src="/learn/achievements/build-a-serverless-web-app.svg" alt="">
+                                                             Build a serverless web app
                                                         </a>
                                                     </li>
                                                     <li>
