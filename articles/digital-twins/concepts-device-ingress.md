@@ -37,7 +37,7 @@ Query device management API with `includes=ConnectionString` parameter to get th
 GET https://{{endpoint-management}}/api/v1.0/devices/device-guid?includes=ConnectionString
 ```
     
-In the response payload, get the `connectionString` property
+In the response payload, get the device `connectionString` property. Example of device connection string:
 ```
 "connectionString": "HostName=ih-8324e8f5-91e3-492a-8b8d-b096a970ec0d-2.azure-devices.net;DeviceId=45a0be1a-2bb8-498f-9b39-5725ef4cc4d3;SharedAccessKey=7ZrJDKxaY6m0y0RVwtRACzxIHIrzUNoqh677Clt0Uy4="
 ```
