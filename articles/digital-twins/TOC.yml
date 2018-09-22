@@ -19,7 +19,7 @@
   - name: Understanding Object Model and Spatial Intelligence Graph
     href: concepts-objectmodel-spatialgraph.md
   - name: Device Connectivity and Ingress
-    href: concepts-device-ingress
+    href: concepts-device-ingress.md
   - name: Overview of events and messages routing to service endpoints
     href: concepts-events-routing.md 
 #- name: How-to guides
