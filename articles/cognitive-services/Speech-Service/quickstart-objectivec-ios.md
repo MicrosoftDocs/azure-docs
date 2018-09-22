@@ -50,7 +50,7 @@ In the dialogs that follow, make the following selections:
     1. Choose your home directory to put the project in. This will create a `helloworld` directory in your home directory that contains all the files for the Xcode project.
     1. Disable the creation of a Git repo for this example project.
     1. Adjust the paths to the SDK in the *Project Settings*.
-        1. In the **General** tab under the **Embedded Binaries** header, add the SDK library as a framework: **Add embedded binaries** > **Add other...** > Navigate to your home directory and choose the file `MicrosoftCognitiveServicesSpeech.framework`. This will also automatically add the SDK library to the header "Linked Framework and Libraries".
+        1. In the **General** tab under the **Embedded Binaries** header, add the SDK library as a framework: **Add embedded binaries** > **Add other...** > Navigate to your home directory and choose the file `MicrosoftCognitiveServicesSpeech.framework`. This will also automatically add the SDK library to the header **Linked Framework and Libraries**.
         ![Added Framework](media/sdk/qs-objectivec-framework.png)
         1. Go to the **Build Settings** tab and activate **All** settings.
         1. Add the directory `$(SRCROOT)/..` to the *Framework Search Paths* under the **Search Paths** heading.
@@ -77,6 +77,7 @@ Click **Finish** in the following dialog without changing the settings.
 1. Add the request for microphone access. Right click the info.plist entry of the project tree and select **Open As...** > **Source Code**. Add the following lines into the `<dict>` section and then save the file.
     ```xml
     <key>NSMicrophoneUsageDescription</key>
+
     <string>Need microphone access for speech recognition from microphone.</string>
     ```
 1. Replace the string `YourSubscriptionKey` with your subscription key.
