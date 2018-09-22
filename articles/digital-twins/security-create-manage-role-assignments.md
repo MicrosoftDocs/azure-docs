@@ -26,6 +26,8 @@ Each Role Assignment includes:
 
 The following can be obtained by querying the System/Roles API:
 
+|**Role** | **Identifier** |
+|---------|---------|
 | Space Administrator | 98e44ad7-28d4-4007-853b-b9968ad132d1 |
 | User Administrator| dfaac54c-f583-4dd2-b45d-8d4bbc0aa1ac | 
 | Device Administrator | 3cdfde07-bc16-40d9-bed3-66d49a8f52ae |

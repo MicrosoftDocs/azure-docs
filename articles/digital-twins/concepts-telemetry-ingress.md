@@ -14,6 +14,12 @@ ms.author: adgera
 
 Azure Digital Twins provides powerful data analytics and telemetry tools.
 
+## Telemetry ingress
+
+Telemetry endpoints are provisioned to handle streaming IoT data.
+
+The source of this data might originate from devices, sensors, or other nodes in your IoT topology.
+
 ## Next steps
 
 Read more about Azure stack telemetry:
