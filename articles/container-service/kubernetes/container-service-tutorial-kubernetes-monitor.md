@@ -145,7 +145,7 @@ To install the Container solution using the [Log Analytics portal](https://mms.m
 
 In the Log Analytics portal, look for a **Containers** summary tile on the dashboard. Click the tile for details including: container events, errors, status, image inventory, and CPU and memory usage. For more granular information, click a row on any tile, or perform a [log search](../../log-analytics/log-analytics-log-searches.md).
 
-![Containers dashboard in OMS portal](./media/container-service-tutorial-kubernetes-monitor/oms-containers-dashboard.png)
+![Containers dashboard in Azure portal](./media/container-service-tutorial-kubernetes-monitor/oms-containers-dashboard.png)
 
 Similarly, in the Azure portal, go to **Log Analytics** and select your workspace name. To see the **Containers** summary tile, click **Solutions** > **Containers**. To see details, click the tile.
 
