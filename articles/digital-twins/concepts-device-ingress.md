@@ -10,7 +10,7 @@ ms.date: 09/18/2018
 ms.author: alinast
 ---
 
-# Onboarding a Device with Digital Twins
+# Device Connectivity and Telemetry Ingress
 
 An IoT solution relies on data from devices and sensors on which to operate. An `IoTHub` ingress resource should be created within the spatial graph to allow devices to send messages to Azure Digital Twins. Once IoTHub resource has been created, and device and sensors have been registered within the service, those devices can start sending data to Digital Twins service via the [Azure IoT Device SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks). 
 
