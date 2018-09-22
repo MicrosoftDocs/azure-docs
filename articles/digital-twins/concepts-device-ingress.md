@@ -1,6 +1,6 @@
 ---
 title: Device Connectivity and Telemetry Ingress with Azure Digital Twins | Microsoft Docs
-description: Overview of Onboarding a Device with Azure Digital Twins
+description: Overview of onboarding a device with Azure Digital Twins
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
