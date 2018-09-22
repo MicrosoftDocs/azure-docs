@@ -34,8 +34,15 @@ Docker image](https://hub.docker.com/r/azuresdk/azure-powershell/), or locally i
 The Azure Resource Graph module requires the following software:
 
 - Azure PowerShell 6.3.0 or higher. If it is not yet installed, follow [these instructions](/powershell/azure/install-azurerm-ps).
+
   - For PowerShell Core, use the **Az** version of the Azure PowerShell module.
+
+    > [!NOTE]
+    > PowerShell for [Cloud Shell](https://shell.azure.com) now uses PowerShell Core. Use the PowerShell Core instructions
+    > for configuring Resource Graph when using PowerShell in Cloud Shell.
+
   - For Windows PowerShell, use the **AzureRm** version of the Azure PowerShell module.
+
 - PowerShellGet. If it is not installed or updated, follow [these instructions](/powershell/gallery/installing-psget).
 
 ### PowerShell Core
@@ -144,3 +151,4 @@ Remove-Module -Name 'AzureRm.ResourceGraph'
 - Run your first query with [Azure CLI](first-query-azurecli.md)
 - See samples of [Starter queries](./samples/starter.md)
 - See samples of [Advanced queries](./samples/advanced.md)
+- Provide feedback on [UserVoice](https://feedback.azure.com/forums/915958-azure-governance)

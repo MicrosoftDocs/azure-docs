@@ -112,3 +112,4 @@ az extension remove -n resource-graph
 - Run your first query with [Azure PowerShell](first-query-powershell.md)
 - See samples of [Starter queries](./samples/starter.md)
 - See samples of [Advanced queries](./samples/advanced.md)
+- Provide feedback on [UserVoice](https://feedback.azure.com/forums/915958-azure-governance)
