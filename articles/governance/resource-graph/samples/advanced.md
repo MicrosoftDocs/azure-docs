@@ -20,7 +20,7 @@ resources you're looking for.
 We'll walk through the following advanced queries:
 
 > [!div class="checklist"]
-> - [Find VMSS missing encryption](#vmss-not-encrypted)
+> - [Get VMSS capacity and size](#vmss-capacity)
 > - [List all tag names](#list-all-tags)
 > - [Virtual machines matched by regex](#vm-regex)
 
@@ -34,25 +34,26 @@ Graph. Before performing any of the following queries, check that your environme
 PowerShell](../first-query-powershell.md#add-the-resource-graph-module) for steps to install and
 validate your shell environment of choice.
 
-## <a name="vmss-not-encrypted"></a>Find VMSS missing encryption
+## <a name="vmss-capacity"></a>Get VMSS capacity and size
 
-This query looks for virtual machine scale set (VMSS) resources, expands the extensions details,
-looks at the extension **Type** and **EncryptionOperation** properties, summarizes, and returns the
-resources where the count of expected configurations were 0.
+This query looks for virtual machine scale set (VMSS) resources and gets various details including
+the virtual machine size and the capacity of the scale set. This information uses the `toint()`
+function to cast the capacity to a number so that it can be sorted. This also renames the values
+returned into custom named properties.
 
 ```Query
-where type =~ 'microsoft.compute/virtualmachinescalesets'
-| project id, extension = properties.virtualMachineProfile.extensionProfile.extensions
-| where extension !has 'AzureDiskEncryption' or extension !has '"EnableEncryption"'
-| project id
+where type=~ 'microsoft.compute/virtualmachinescalesets'
+| where name contains 'contoso'
+| project subscriptionId, name, location, resourceGroup, Capacity = toint(sku.capacity), Tier = sku.name
+| order by Capacity desc
 ```
 
 ```azurecli-interactive
-az graph query -q "where type =~ 'microsoft.compute/virtualmachinescalesets' | project id, extension = properties.virtualMachineProfile.extensionProfile.extensions | where extension !has 'AzureDiskEncryption' or extension !has '"EnableEncryption"' | project id"
+az graph query -q "where type=~ 'microsoft.compute/virtualmachinescalesets' | where name contains 'contoso' | project subscriptionId, name, location, resourceGroup, Capacity = toint(sku.capacity), Tier = sku.name | order by Capacity desc"
 ```
 
 ```azurepowershell-interactive
-Search-AzureRmGraph -Query "where type =~ 'microsoft.compute/virtualmachinescalesets' | project id, extension = properties.virtualMachineProfile.extensionProfile.extensions | where extension !has 'AzureDiskEncryption' or extension !has '"EnableEncryption"' | project id"
+Search-AzureRmGraph -Query "where type=~ 'microsoft.compute/virtualmachinescalesets' | where name contains 'contoso' | project subscriptionId, name, location, resourceGroup, Capacity = toint(sku.capacity), Tier = sku.name | order by Capacity desc"
 ```
 
 ## <a name="list-all-tags"></a>List all tag names
