@@ -20,13 +20,13 @@ resources you're looking for.
 We'll walk through the following advanced queries:
 
 > [!div class="checklist"]
-> - [Find virtual machine scale sets that do not have disk encryption or the encryption is not enabled](#vmss-not-encrypted)
+> - [Find VMSS missing encryption](#vmss-not-encrypted)
 > - [List all tag names](#list-all-tags)
 > - [Virtual machines matched by regex](#vm-regex)
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
 
-## Language Support
+## Language support
 
 Azure CLI (through an extension) and Azure PowerShell (through a module) support Azure Resource
 Graph. Before performing any of the following queries, check that your environment is ready. See
@@ -34,11 +34,11 @@ Graph. Before performing any of the following queries, check that your environme
 PowerShell](../first-query-powershell.md#add-the-resource-graph-module) for steps to install and
 validate your shell environment of choice.
 
-## <a name="vmss-not-encrypted"></a>Find virtual machine scale sets that do not have disk encryption or the encryption is not enabled
+## <a name="vmss-not-encrypted"></a>Find VMSS missing encryption
 
-This query looks for virtual machine scale set resources, expands the extensions details, looks at
-the extension **Type** and **EncryptionOperation** properties, summarizes, and returns the resources
-where the count of expected configurations were 0.
+This query looks for virtual machine scale set (VMSS) resources, expands the extensions details,
+looks at the extension **Type** and **EncryptionOperation** properties, summarizes, and returns the
+resources where the count of expected configurations were 0.
 
 ```Query
 where type =~ 'microsoft.compute/virtualmachinescalesets'
