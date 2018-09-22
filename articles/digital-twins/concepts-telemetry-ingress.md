@@ -11,3 +11,12 @@ ms.author: adgera
 ---
 
 # Azure Digital Twins Telemetry Ingress
+
+Azure Digital Twins provides powerful data analytics and telemetry tools.
+
+## Next steps
+
+Read more about Azure stack telemetry:
+
+> [!div class="nextstepaction"]
+> [Azure stack telemetry] (https://docs.microsoft.com/azure/azure-stack/azure-stack-telemetry)
