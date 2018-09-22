@@ -1,25 +1,26 @@
 ---
-title: Get started with Azure Data Lake Analytics using Azure CLI 2.0
-description: Learn how to use the Azure Command-line Interface 2.0 to create an Azure Data Lake Analytics account and submit a U-SQL job.
+title: Get started with Azure Data Lake Analytics using Azure CLI
+description: Learn how to use the Azure Command-line Interface to create an Azure Data Lake Analytics account and submit a U-SQL job.
 ms.service: data-lake-analytics
 services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
-
 ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 06/18/2017
 ---
-# Get started with Azure Data Lake Analytics using Azure CLI 2.0
+# Get started with Azure Data Lake Analytics using Azure CLI
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-This article describes how to use the Azure CLI 2.0 command-line interface to create an Azure Data Lake Analytics accounts, submit a USQL jobs, and catalogs. The job reads a tab separated values (TSV) file and converts it into a comma-separated values (CSV) file. 
+This article describes how to use the Azure CLI command-line interface to create Azure Data Lake Analytics accounts, submit USQL jobs, and catalogs. The job reads a tab separated values (TSV) file and converts it into a comma-separated values (CSV) file. 
 
 ## Prerequisites
 Before you begin, you need the following items:
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-* **Azure CLI 2.0**. See [Install and configure Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* This article requires that you are running the Azure CLI version 2.0 or later. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli). 
+
+
 
 ## Log in to Azure
 
@@ -91,7 +92,7 @@ In this tutorial, you process some search logs.  The search log can be stored in
 
 The Azure portal provides a user interface for copying some sample data files to the default Data Lake Store account, which include a search log file. See [Prepare source data](data-lake-analytics-get-started-portal.md) to upload the data to the default Data Lake Store account.
 
-To upload files using CLI 2.0, use the following commands:
+To upload files using Azure CLI, use the following commands:
 
 ```
 az dls fs upload --account "<Data Lake Store Account Name>" --source-path "<Source File Path>" --destination-path "<Destination File Path>"
@@ -188,6 +189,6 @@ az dls fs download --account "myadlsaccount" --source-path "/Output/SearchLog-fr
 
 ## Next steps
 
-* To see the Data Lake Analytics CLI 2.0 reference document, see [Data Lake Analytics](https://docs.microsoft.com/cli/azure/dla).
-* To see the Data Lake Store CLI 2.0 reference document, see [Data Lake Store](https://docs.microsoft.com/cli/azure/dls).
+* To see the Data Lake Analytics Azure CLI reference document, see [Data Lake Analytics](/cli/azure/dla).
+* To see the Data Lake Store Azure CLI reference document, see [Data Lake Store](/cli/azure/dls).
 * To see a more complex query, see [Analyze Website logs using Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
