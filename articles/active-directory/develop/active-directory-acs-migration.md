@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/07/2018
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
 ---
@@ -96,9 +96,12 @@ Follow the steps in this section to find out which of your apps will be impacted
 
 ### Check which applications will be impacted
 
-1. Use the namespace from the previous step and go to `https://<namespace>.accesscontrol.windows.net`. For example, if one of the namespaces is contoso-test, go to `https://contoso-test.accesscontrol.windows.net`.
-2. Under **Trust relationships**, select **Relying party applications** to see the list of apps that will be impacted by ACS retirement.
-3. Repeat steps 1-2 for any other ACS namespace(s) that you have.
+1. Use the namespace from the previous step and go to `https://<namespace>.accesscontrol.windows.net`
+
+    For example, if one of the namespaces is contoso-test, go to `https://contoso-test.accesscontrol.windows.net`
+
+1. Under **Trust relationships**, select **Relying party applications** to see the list of apps that will be impacted by ACS retirement.
+1. Repeat steps 1-2 for any other ACS namespace(s) that you have.
 
 ## Retirement schedule
 
