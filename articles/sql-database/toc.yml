@@ -597,6 +597,8 @@
       href: /sql/connect/odbc/microsoft-odbc-driver-for-sql-server
 - name: Resources
   items:
+  - name: Build your skills with Microsoft Learn
+    href: /learn/browse/?products=azure-sql-database
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: FAQ
