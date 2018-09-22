@@ -210,7 +210,7 @@
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn
-    href: /learn/browse/
+    href: /learn/browse/?term=securityS
   - name: Manage user data
     href: security-center-privacy.md
   - name: FAQ

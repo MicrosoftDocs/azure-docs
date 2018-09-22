@@ -61,7 +61,7 @@ sections:
         src: /learn/achievements/intro-to-security-in-azure.svg
         href: /learn/modules/intro-to-security-in-azure/
   - type: paragraph
-    text: <a href="/learn/browse/">More interactive learning...</a>
+    text: <a href="/learn/browse/?term=security">More interactive learning...</a>
 - title: Free Video Training
   items:
   - type: list
