@@ -64,7 +64,7 @@ Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" 
 ```    
 
 #### CLIv2
-1. [Install Azure CLI 2.0](/cli/azure/install-azure-cli) and [Login](/cli/azure/authenticate-azure-cli).
+1. [Install the Azure CLI](/cli/azure/install-azure-cli) and [Login](/cli/azure/authenticate-azure-cli).
 2. Display the status of the default rule for the storage account.
 ```azurecli
 az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkRuleSet.defaultAction
@@ -146,7 +146,7 @@ Remove-AzureRmStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -Na
 >
 
 #### CLIv2
-1. [Install Azure CLI 2.0](/cli/azure/install-azure-cli) and [Login](/cli/azure/authenticate-azure-cli).
+1. [Install the Azure CLI](/cli/azure/install-azure-cli) and [Login](/cli/azure/authenticate-azure-cli).
 2. List Virtual Network rules
 ```azurecli
 az storage account network-rule list --resource-group "myresourcegroup" --account-name "mystorageaccount" --query virtualNetworkRules
@@ -237,7 +237,7 @@ Remove-AzureRMStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -Ac
 >
 
 #### CLIv2
-1. [Install Azure CLI 2.0](/cli/azure/install-azure-cli) and [Login](/cli/azure/authenticate-azure-cli).
+1. [Install the Azure CLI](/cli/azure/install-azure-cli) and [Login](/cli/azure/authenticate-azure-cli).
 2. List IP network rules
 ```azurecli
 az storage account network-rule list --resource-group "myresourcegroup" --account-name "mystorageaccount" --query ipRules
@@ -323,7 +323,7 @@ Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" 
 >
 
 #### CLIv2
-1. [Install Azure CLI 2.0](/cli/azure/install-azure-cli) and [Login](/cli/azure/authenticate-azure-cli).
+1. [Install the Azure CLI](/cli/azure/install-azure-cli) and [Login](/cli/azure/authenticate-azure-cli).
 2. Display the exceptions for the storage account network rules.
 ```azurecli
 az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkRuleSet.bypass
