@@ -57,7 +57,7 @@ Use Python to create your ML pipelines. The Azure Machine Learning SDK offers im
 
 Using declarative data dependencies, you can optimize your tasks. The SDK includes a framework of pre-built modules for common tasks such as data transfer, compute target creation, and model publishing. The framework can be extended to model your own conventions by implementing custom steps that are reusable across pipelines.
 
-Pipelines can be saved as templates so you can schedule batch-scoring or retraining jobs.
+Pipelines can be saved as templates and can be deployed to a REST endpoint so you can schedule batch-scoring or retraining jobs.
 
 Check out the [Python SDK reference docs for pipelines](http://aka.ms/aml-sdk).
 

@@ -11,6 +11,7 @@ ms.component: translator-speech
 ms.topic: tutorial
 ms.date: 3/5/2018
 ms.author: v-jerkin
+ROBOTS: NOINDEX
 ---
 # Tutorial: Translator Speech application in C#
 

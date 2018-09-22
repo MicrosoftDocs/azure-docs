@@ -90,15 +90,27 @@
   - name: Application Gateway
     tocHref: /azure/application-gateway/
     topicHref: /azure/application-gateway/
-  - name: Application Insights
-    tocHref: /azure/application-insights/
-    topicHref: /azure/application-insights/
   - name: Automation
     tocHref: /azure/automation/
     topicHref: /azure/automation/
   - name: Azure Databricks
     tocHref: /azure/azure-databricks/
     topicHref: /azure/azure-databricks/
+  - name: Azure Data Explorer
+    tocHref: /azure/data-explorer/
+    topicHref: /azure/data-explorer/
+  - name: Azure Monitor
+    tocHref: /azure/application-insights/
+    topicHref: /azure/azure-monitor/
+  - name: Azure Monitor
+    tocHref: /azure/log-analytics/
+    topicHref: /azure/azure-monitor/
+  - name: Azure Monitor
+    tocHref: /azure/monitoring/
+    topicHref: /azure/azure-monitor/
+  - name: Azure Monitor
+    tocHref: /azure/monitoring-and-diagnostics/
+    topicHref: /azure/azure-monitor/
   - name: Container Registry
     tocHref: /azure/container-registry/
     topicHref: /azure/container-registry/
@@ -126,6 +138,9 @@
   - name: Resource Manager
     tocHref: /azure/azure-resource-manager/
     topicHref: /azure/azure-resource-manager/
+  - name: SignalR Service
+    tocHref: /azure/azure-signalr/
+    topicHref: /azure/azure-signalr/
   - name: Azure Stack
     tocHref: /azure/azure-stack/
     topicHref: /azure/azure-stack/
@@ -296,6 +311,12 @@
   - name: Cosmos DB
     tocHref: /azure/cosmos-db/
     topicHref: /azure/cosmos-db/
+  - name: Data Box
+    tocHref: /azure/databox/
+    topicHref: /azure/databox/ 
+  - name: Data Box Edge/Data Box Gateway
+    tocHref: /azure/databox-online/
+    topicHref: /azure/databox-online/ 
   - name: Data Catalog
     tocHref: /azure/data-catalog/
     topicHref: /azure/data-catalog/
@@ -326,6 +347,9 @@
   - name: Firewall
     tocHref: /azure/firewall/
     topicHref: /azure/firewall/
+  - name: Front Door Service
+    tocHref: /azure/frontdoor/
+    topicHref: /azure/frontdoor/
   - name: Governance
     tocHref: /azure/governance/
     topicHref: /azure/governance/
@@ -410,9 +434,6 @@
   - name: Load Balancer
     tocHref: /azure/load-balancer/
     topicHref: /azure/load-balancer/
-  - name: Log Analytics
-    tocHref: /azure/log-analytics/
-    topicHref: /azure/log-analytics/
   - name: Logic Apps
     tocHref: /azure/logic-apps/
     topicHref: /azure/logic-apps/
@@ -454,9 +475,6 @@
   - name: Mobile Services
     tocHref: /azure/mobile-services/
     topicHref: /azure/mobile-services/
-  - name: Monitoring And Diagnostics
-    tocHref: /azure/monitoring-and-diagnostics/
-    topicHref: /azure/monitoring-and-diagnostics/
   - name: Multi-Factor Authentication
     tocHref: /azure/multi-factor-authentication/
     topicHref: /azure/multi-factor-authentication/

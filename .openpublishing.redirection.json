@@ -6,6 +6,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/batch-ai/quickstart-cli.md",
+            "redirect_url": "/azure/batch-ai/quickstart-tensorflow-training-cli",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/batch/batch-dotnet-get-started.md",
             "redirect_url": "/azure/batch/quick-run-dotnet",
             "redirect_document_id": true
@@ -250,32 +255,32 @@
             "source_path": "articles/machine-learning/service/how-to-improve-accuracy-for-computer-vision-models.md",
             "redirect_url": "/azure/machine-learning/desktop-workbench/how-to-improve-accuracy-for-computer-vision-models",
             "redirect_document_id": true
-        },        
+        },
         {
             "source_path": "articles/machine-learning/service/reference-python-package-overview.md",
             "redirect_url": "/azure/machine-learning/desktop-workbench/reference-python-package-overview",
             "redirect_document_id": true
-        },        
+        },
         {
             "source_path": "articles/machine-learning/service/how-to-build-deploy-forecast-models.md",
             "redirect_url": "/azure/machine-learning/desktop-workbench/how-to-build-deploy-forecast-models",
             "redirect_document_id": true
-        },        
+        },
         {
             "source_path": "articles/machine-learning/service/how-to-build-deploy-image-classification-models.md",
             "redirect_url": "/azure/machine-learning/desktop-workbench/how-to-build-deploy-image-classification-models",
             "redirect_document_id": true
-        },        
+        },
         {
             "source_path": "articles/machine-learning/service/how-to-build-deploy-image-similarity-models.md",
             "redirect_url": "/azure/machine-learning/desktop-workbench/how-to-build-deploy-image-similarity-models",
             "redirect_document_id": true
-        },        
+        },
         {
             "source_path": "articles/machine-learning/service/how-to-build-deploy-object-detection-models.md",
             "redirect_url": "/azure/machine-learning/desktop-workbench/how-to-build-deploy-object-detection-models",
             "redirect_document_id": true
-        },        
+        },
         {
             "source_path": "articles/machine-learning/service/how-to-build-deploy-text-classification-models.md",
             "redirect_url": "/azure/machine-learning/desktop-workbench/how-to-build-deploy-text-classification-models",
@@ -2958,7 +2963,7 @@
         },
         {
             "source_path": "articles/application-insights/app-insights-search-diagnostic-logs.md",
-            "redirect_url": "/azure/application-insights/app-insights-analytics-diagnostics",
+            "redirect_url": "/azure/application-insights/app-insights-analytics",
             "redirect_document_id": false
         },
         {
@@ -2994,6 +2999,16 @@
         {
             "source_path": "articles/azure-functions/functions-how-to-use-sendgrid.md",
             "redirect_url": "/azure/azure-functions/functions-bindings-sendgrid",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-functions/functions-create-generic-webhook-triggered-function.md",
+            "redirect_url": "/azure/azure-functions/functions-bindings-http-webhook",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-functions/functions-create-github-webhook-triggered-function.md",
+            "redirect_url": "/azure/azure-functions/functions-bindings-http-webhook",
             "redirect_document_id": false
         },
         {
@@ -7302,7 +7317,7 @@
             "source_path": "articles/cosmos-db/mongodb-multi-master-support.md",
             "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/multi-master-oss-nosql",
             "redirect_document_id": false
-        }, 
+        },
         {
             "source_path": "articles/cosmos-db/20-days-of-tips.md",
             "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/",
@@ -7674,11 +7689,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/data-lake-analytics/data-lake-analytics-get-started-cli.md",
-            "redirect_url": "/azure/data-lake-analytics/data-lake-analytics-get-started-cli2",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/data-lake-analytics/data-lake-analytics-get-started-net-sdk.md",
             "redirect_url": "/azure/data-lake-analytics/data-lake-analytics-get-started-cli2",
             "redirect_document_id": false
@@ -7687,6 +7697,11 @@
             "source_path": "articles/data-lake-analytics/data-lake-analytics-get-started-python.md",
             "redirect_url": "/azure/data-lake-analytics/data-lake-analytics-get-started-cli2",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/data-lake-analytics/data-lake-analytics-get-started-cli2.md",
+            "redirect_url": "/azure/data-lake-analytics/data-lake-analytics-get-started-cli",
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/data-lake-analytics/data-lake-analytics-u-sql-combine-data-with-joins.md",
@@ -9394,8 +9409,23 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/application-insights/app-insights-customer-data.md",
+            "redirect_url": "https://docs.microsoft.com/azure/log-analytics/log-analytics-personal-data-mgmt",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/log-analytics/log-analytics-log-search-transition.md",
             "redirect_url": "https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/log-analytics/log-analytics-overview.md",
+            "redirect_url": "https://docs.microsoft.com/azure/log-analytics/log-analytics-queries",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/log-analytics/log-analytics-log-search.md",
+            "redirect_url": "https://docs.microsoft.com/azure/log-analytics/log-analytics-queries",
             "redirect_document_id": false
         },
         {
@@ -10381,6 +10411,11 @@
         {
             "source_path": "articles/monitoring-and-diagnostics/insights-service-health.md",
             "redirect_url": "/azure/monitoring-and-diagnostics/monitoring-service-notifications",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/monitoring/monitoring-container-health.md",
+            "redirect_url": "/azure/monitoring/monitoring-container-insights-overview",
             "redirect_document_id": false
         },
         {
@@ -14054,7 +14089,7 @@
             "redirect_url": "vmware-physical-azure-support-matrix",
             "redirect_document_id": false
         },
-        
+
         {
             "source_path": "articles/active-directory/active-directory-aadconnect-health-adds.md",
             "redirect_url": "/azure/active-directory/connect-health/active-directory-aadconnect-health-adds",
@@ -14096,17 +14131,17 @@
             "redirect_url": "/azure/active-directory/connect-health/active-directory-aadconnect-health-version-history",
             "redirect_document_id": false
         },
-       
-       
-      
-       
-     
+
+
+
+
+
         {
             "source_path": "articles/active-directory/active-directory-aadconnectsync-connector-domino.md",
             "redirect_url": "https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-domino",
             "redirect_document_id": false
         },
-       
+
         {
             "source_path": "articles/active-directory/active-directory-aadconnectsync-connector-genericldap.md",
             "redirect_url": "https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap",
@@ -14653,24 +14688,24 @@
 "redirect_document_id": false
 },
 
-      
-    
-     
-       
-       
-       
-       
+
+
+
+
+
+
+
         {
             "source_path": "articles/iot-hub/iot-hub-security-ground-up.md",
             "redirect_url": "/azure/iot-fundamentals/iot-security-ground-up",
             "redirect_document_id": true
         },
-      
-      
-      
-       
-        
-        
+
+
+
+
+
+
         {
             "source_path": "articles/active-directory/active-directory-app-gallery-listing.md",
             "redirect_url": "/azure/active-directory/develop/active-directory-app-gallery-listing",
@@ -15798,7 +15833,7 @@
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-linux-expand-disks-nodejs.md",
-            "redirect_url": "/azure/virtual-machines/linux/expand-disks-nodejs",
+            "redirect_url": "/azure/virtual-machines/linux/expand-disks",
             "redirect_document_id": false
         },
         {
@@ -18358,7 +18393,7 @@
         },
         {
             "source_path": "articles/monitoring-and-diagnostics/insights-how-to-use-diagnostics.md",
-            "redirect_url": "/azure/monitoring-and-diagnostics/monitoring-get-started",
+            "redirect_url": "/azure/azure-monitor/overview",
             "redirect_document_id": false
         },
         {
@@ -18425,7 +18460,7 @@
             "source_path": "articles/active-directory/active-directory-named-locations.md",
             "redirect_url": "/azure/active-directory/reports-monitoring/quickstart-configure-named-locations",
             "redirect_document_id": true
-        },        
+        },
         {
             "source_path": "articles/active-directory/active-directory-reporting-activity-sign-ins.md",
             "redirect_url": "/azure/active-directory/reports-monitoring/concept-sign-ins",
@@ -18568,7 +18603,7 @@
             "source_path": "articles/active-directory/reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md",
             "redirect_url": "/azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub",
             "redirect_document_id": true
-        },        
+        },
         {
             "source_path": "articles/active-directory/reporting-azure-monitor-diagnostics-azure-storage-account.md",
             "redirect_url": "/azure/active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account",
@@ -18583,7 +18618,7 @@
             "source_path": "articles/active-directory/reports-monitoring/overview-activity-logs-in-azure-monitor.md",
             "redirect_url": "/azure/active-directory/reports-monitoring/concept-activity-logs-in-azure-monitor",
             "redirect_document_id": true
-        },        
+        },
         {
             "source_path": "articles/active-directory/reporting-azure-monitor-diagnostics-sign-in-log-schema.md",
             "redirect_url": "/azure/active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema",
@@ -23671,7 +23706,7 @@
         },
         {
             "source_path": "articles/operations-management-suite/operations-management-suite-monitoring-product-comparison.md",
-            "redirect_url": "/azure/monitoring/monitoring-overview",
+            "redirect_url": "/azure/azure-monitor/overview",
             "redirect_document_id": false
         },
         {
@@ -23824,7 +23859,7 @@
             "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements",
             "redirect_document_id": false
         },
-        
+
         {
             "source_path": "articles/azure-stack/azure-stack-deploy.md",
             "redirect_url": "/azure/azure-stack/asdk/asdk-deploy",
@@ -27140,7 +27175,7 @@
             "redirect_url": "/azure/key-vault/key-vault-overview",
             "redirect_document_id": true
         },
-        
+
         {
             "source_path": "articles/azure-stack/asdk/asdk-deploy.md",
             "redirect_url": "/azure/azure-stack/asdk/asdk-install",
@@ -27615,7 +27650,7 @@
             "source_path": "articles/active-directory/fundamentals/get-started-azure-ad.md",
             "redirect_url": "/azure/active-directory/fundamentals/active-directory-whatis",
             "redirect_document_id": false
-        },        
+        },
         {
             "source_path": "articles/active-directory/active-directory-troubleshooting-support-howto.md",
             "redirect_url": "/azure/active-directory/fundamentals/active-directory-troubleshooting-support-howto",
@@ -28596,34 +28631,99 @@
             "redirect_document_id" : true
         },
         {
-            "source_path": "articles/cosmos-db/create-sql-api-nodejs-preview.md",
-            "redirect_url": "/azure/cosmos-db/create-sql-api-nodejs",
-            "redirect_document_id" : false
-        },    
-        {
-            "source_path": "articles/cosmos-db/sql-api-nodejs-application-preview.md",
-            "redirect_url": "/azure/cosmos-db/sql-api-nodejs-application",
-            "redirect_document_id" : false
+            "source_path": "articles/billing/billing-cost-analysis.md",
+            "redirect_url": "/azure/cost-management/quick-acm-cost-analysis",
+            "redirect_document_id" : true
         },
-        {
-            "source_path": "articles/cosmos-db/sql-api-nodejs-get-started-preview.md",
-            "redirect_url": "/azure/cosmos-db/sql-api-nodejs-get-started",
-            "redirect_document_id" : false
-        },
-        {
-            "source_path": "articles/cosmos-db/sql-api-nodejs-samples-preview.md",
-            "redirect_url": "/azure/cosmos-db/sql-api-nodejs-samples",
-            "redirect_document_id" : false
-        },   
         {
             "source_path": "articles/dev-spaces/azure-dev-spaces.md",
             "redirect_url": "/azure/dev-spaces/index",
             "redirect_document_id" : true
         },
         {
+            "source_path": "articles/monitoring/monitoring-overview.md",
+            "redirect_url": "/azure/azure-monitor/overview",
+            "redirect_document_id" : false
+        },
+        {
+            "source_path": "articles/monitoring-and-diagnostics/monitoring-overview.md",
+            "redirect_url": "/azure/azure-monitor/overview",
+            "redirect_document_id" : false
+        },
+        {
+            "source_path": "articles/monitoring-and-diagnostics/monitoring-overview-azure-monitor.md",
+            "redirect_url": "/azure/azure-monitor/overview",
+            "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/application-insights/app-insights-analytics-diagnostics.md",
+            "redirect_url": "/azure/application-insights/app-insights-analytics",
+            "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/application-insights/app-insights-java-eclipse.md",
+            "redirect_url": "/azure/application-insights/app-insights-java-quick-start",
+            "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/monitoring-and-diagnostics/monitoring-get-started.md",
+            "redirect_url": "/azure/azure-monitor/overview",
+            "redirect_document_id" : false
+        },
+        {
             "source_path": "articles/log-analytics/log-analytics-log-search-log-search-portal.md",
             "redirect_url": "/azure/log-analytics/query-language/get-started-analytics-portal",
             "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/application-insights/app-insights-azure.md",
+            "redirect_url": "/azure/application-insights/app-insights-overview",
+            "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/application-insights/app-insights-analytics-tour.md",
+            "redirect_url": "/azure/log-analytics/query-language/get-started-analytics-portal",
+            "redirect_document_id" : false
+        },
+        {
+            "source_path": "articles/application-insights/app-insights-analytics-using.md",
+            "redirect_url": "/azure/log-analytics/query-language/get-started-queries",
+            "redirect_document_id" : false
+        },
+        {
+            "source_path": "articles/monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md",
+            "redirect_url": "/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook",
+            "redirect_document_id" : false
+        },
+        {
+            "source_path": "articles/monitoring-and-diagnostics/insights-how-to-customize-monitoring.md",
+            "redirect_url": "/azure/monitoring/monitoring-data-collection",
+            "redirect_document_id" : false
+        },
+        {
+            "source_path": "articles/monitoring-and-diagnostics/monitoring-overview-metrics.md",
+            "redirect_url": "/azure/monitoring/monitoring-data-collection",
+            "redirect_document_id" : false
+        },
+        {
+            "source_path": "articles/monitoring-and-diagnostics/monitoring-activity-log-alerts-new-experience.md",
+            "redirect_url": "/azure/monitoring-and-diagnostics/alert-activity-log",
+            "redirect_document_id" : false
+        },
+        {
+            "source_path": "articles/monitoring-and-diagnostics/index.md",
+            "redirect_url": "/azure/azure-monitor",
+            "redirect_document_id" : false
+        },
+        {
+            "source_path": "articles/log-analytics/index.md",
+            "redirect_url": "/azure/azure-monitor/overview",
+            "redirect_document_id" : false
+        },
+        {
+            "source_path": "articles/application-insights/index.md",
+            "redirect_url": "/azure/azure-monitor/overview",
+            "redirect_document_id" : false
         },
         {
             "source_path": "articles/azure-resource-manager/management-groups-overview.md",
@@ -28644,7 +28744,7 @@
             "source_path": "articles/security/governance-in-azure.md",
             "redirect_url": "/azure/governance/",
             "redirect_document_id": false
-        },        
+        },
         {
             "source_path": "articles/azure-policy/azure-policy-introduction.md",
             "redirect_url": "/azure/governance/policy/overview",
