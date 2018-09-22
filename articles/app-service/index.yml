@@ -116,15 +116,10 @@ sections:
     className: cardsFTitle
     items:
     - title: Host a web application with Azure App service
-      href: /learn/modules/host-a-web-app-with-azure-web-apps/
+      href: /learn/modules/host-a-web-app-with-azure-app-service/
       image: 
         src: /learn/achievements/host-a-web-app-with-azure-app-service.svg
-        href: /learn/modules/host-a-web-app-with-azure-web-apps/
-    - title: Publish an Azure web app with Visual Studio for Windows or Mac
-      href: /learn/modules/publish-azure-web-app-with-visual-studio/
-      image: 
-        src: /learn/achievements/publish-azure-web-app-with-visual-studio.svg
-        href: /learn/modules/publish-azure-web-app-with-visual-studio/
+        href: /learn/modules/host-a-web-app-with-azure-app-service/
   - type: paragraph
     text: <a href="/learn/browse/">More interactive learning...</a>
 - title: Free Pluralsight Video Training
