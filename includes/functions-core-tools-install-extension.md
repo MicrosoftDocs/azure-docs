@@ -18,11 +18,7 @@ After you have updated your *function.json* file to include all the bindings tha
 func extensions install
 ```
 
-The command reads the *function.json* file to see which packages you need, installs them, and rebuilds the extensions project. It adds any new bindings at the current version but does not update existing bindings. Use the `--force` option to update existing bindings to the latest version when installing new ones. All bindings can be updated to the latest version by using the `sync` command, as follows:
-
-```bash
-func extensions sync
-```  
+The command reads the *function.json* file to see which packages you need, installs them, and rebuilds the extensions project. It adds any new bindings at the current version but does not update existing bindings. Use the `--force` option to update existing bindings to the latest version when installing new ones.
 
 If you want to install a particular version of a package or you want to install packages before editing the *function.json* file, use the `func extensions install` command with the name of the package, as shown in the following example:
 
