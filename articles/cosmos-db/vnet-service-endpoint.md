@@ -270,7 +270,7 @@ When virtual network service endpoints are enabled, the source IP addresses of r
 
 Azure Cosmos DB is a multi-tenant service with a public IP address. When you restrict access to a subnet of an Azure Virtual network by using the service endpoint feature, access is restricted for your Azure Cosmos DB account through the given Azure Virtual Network and its subnet.  Azure Cosmos DB account does not reside in that Azure Virtual Network. 
 
-### What if anything will be logged in Log Analytics/OMS if it is enabled?  
+### What if anything will be logged in Log Analytics if it is enabled?  
 
 Azure Cosmos DB will push logs with IP address (without the last octet) with status 403 for request blocked by ACL.  
 
