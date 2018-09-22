@@ -18,7 +18,7 @@ ms.author: subramar
 
 ---
 # Application upgrade parameters
-This article describes the various parameters that apply during the upgrade of an Azure Service Fabric application. Application parameters control the time-outs and health checks that are applied during the upgrade, and they specify the policies that must be applied when an upgrade fails.
+This article describes the various parameters that apply during the upgrade of an Azure Service Fabric application. Application upgrade parameters control the time-outs and health checks that are applied during the upgrade, and they specify the policies that must be applied when an upgrade fails.
 
 Application parameters apply to upgrades using either PowerShell or Visual Studio. The required and optional parameters applicable to PowerShell and/or Visual Studio are described in the Required Parameters and Optional Parameters tables as follows.
 
@@ -29,20 +29,20 @@ Application upgrades are initiated via one of three user-selectable upgrade mode
 
 Service Fabric application upgrades using PowerShell use the [Start-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/en-us/powershell/module/servicefabric/start-servicefabricapplicationupgrade) command. The upgrade mode is selected by passing either the **Monitored**, **UnmonitoredAuto**, or **UnmonitoredManual** parameter to [Start-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/en-us/powershell/module/servicefabric/start-servicefabricapplicationupgrade).
 
-Visual Studio Service Fabric application upgrade parameters are set via the Visual Studio Upgrade Settings dialog. The Visual Studio upgrade mode is selected using the **UpgradeMode** dropdown box. For more information, see [Configure the upgrade of a Service Fabric application in Visual Studio](service-fabric-visualstudio-configure-upgrade.md).
+Visual Studio Service Fabric application upgrade parameters are set via the Visual Studio Upgrade Settings dialog. The Visual Studio upgrade mode is selected using the **Upgrade Mode** dropdown box to either **Monitored**, **UnmonitoredAuto**, or **UnmonitoredManual**. For more information, see [Configure the upgrade of a Service Fabric application in Visual Studio](service-fabric-visualstudio-configure-upgrade.md).
 
 ## Required Parameters
 (PS=PowerShell, VS=Visual Studio)
 
 | Parameter | Applies To | Description |
 | --- | --- | --- |
-| ApplicationName |PS | Name of the application that is being upgraded. Examples: fabric:/VisualObjects, fabric:/ClusterMonitor. |
-| ApplicationTypeVersion | PS | The version of the application type that the upgrade targets. |
-| FailureAction |PS, VS | Allowed values are **Invalid**, **Rollback**, and **Manual**. The action taken by Service Fabric when the upgrade fails. The application may be rolled back to the pre-update version (Rollback), or the upgrade may be stopped at the current upgrade domain. In the latter case, the upgrade mode is also changed to **Manual**.
-| Monitored | PS | Indicates that the upgrade mode is monitored. After the cmdlet finishes an upgrade for an upgrade domain, if the health of the upgrade domain and the cluster meet the health policies that you define, Service Fabric upgrades the next upgrade domain. If the upgrade domain or cluster fails to meet health policies, the upgrade fails and Service Fabric rolls back the upgrade for the upgrade domain or reverts to manual mode per the policy specified. This is the recommended mode for application upgrades in a production environment. |
-| UpgradeMode | VS | Allowed values are **Monitored** (default), **UnmonitoredAuto**, or **UnmonitoredManual**. See PowerShell parameters for each mode in this article for details. |
-| UnmonitoredAuto | PS | Indicates that the upgrade mode is unmonitored automatic. After Service Fabric upgrades an upgrade domain, Service Fabric upgrades the next upgrade domain irrespective of the application health state. This mode is not recommended for production, and is only useful during development of an application. |
-| UnmonitoredManual | PS | Indicates that the upgrade mode is unmonitored manual. After Service Fabric upgrades an upgrade domain, it waits for you to upgrade the next upgrade domain by using the *Resume-ServiceFabricApplicationUpgrade* cmdlet. |
+ApplicationName |PS| Name of the application that is being upgraded. Examples: fabric:/VisualObjects, fabric:/ClusterMonitor. |
+ApplicationTypeVersion|PS|The version of the application type that the upgrade targets. |
+FailureAction |PS, VS|Allowed values are **Invalid**, **Rollback**, and **Manual**. The action taken by Service Fabric when the upgrade fails. The application may be rolled back to the pre-update version (Rollback), or the upgrade may be stopped at the current upgrade domain. In the latter case, the upgrade mode is also changed to **Manual**.|
+Monitored |PS|Indicates that the upgrade mode is monitored. After the cmdlet finishes an upgrade for an upgrade domain, if the health of the upgrade domain and the cluster meet the health policies that you define, Service Fabric upgrades the next upgrade domain. If the upgrade domain or cluster fails to meet health policies, the upgrade fails and Service Fabric rolls back the upgrade for the upgrade domain or reverts to manual mode per the policy specified. This is the recommended mode for application upgrades in a production environment. |
+UpgradeMode | VS | Allowed values are **Monitored** (default), **UnmonitoredAuto**, or **UnmonitoredManual**. See PowerShell parameters for each mode in this article for details. |
+UnmonitoredAuto | PS | Indicates that the upgrade mode is unmonitored automatic. After Service Fabric upgrades an upgrade domain, Service Fabric upgrades the next upgrade domain irrespective of the application health state. This mode is not recommended for production, and is only useful during development of an application. |
+UnmonitoredManual | PS | Indicates that the upgrade mode is unmonitored manual. After Service Fabric upgrades an upgrade domain, it waits for you to upgrade the next upgrade domain by using the *Resume-ServiceFabricApplicationUpgrade* cmdlet. |
 
 ## Optional Parameters
 
@@ -52,11 +52,11 @@ The health evaluation parameters are optional. If the health evaluation criteria
 
 | Parameter | Applies To | Description |
 | --- | --- | --- |
-| ApplicationParameter |PS | Specifies the overrides for application parameters as name/value pairs. |
-| Confirm |PS | Allowed values are **True** and **False**. Prompts for confirmation before running the cmdlet. |
+| ApplicationParameter |PS, VS| Specifies the overrides for application parameters.<br>PowerShell applcation parameters are specified as hashtable name/value pairs. For example, @{ "VotingData_MinReplicaSetSize" = "3"; "VotingData_PartitionCount" = "1" }.<br>Visual Studio application parameters can be specified in the Publish Service Fabric Application dialog in the **Application Parameters File** field.
+| Confirm |PS| Allowed values are **True** and **False**. Prompts for confirmation before running the cmdlet. |
 | ConsiderWarningAsError |PS, VS |Allowed values are **True** and **False**. Default value is **False**. Treat the warning health events for the application as errors when evaluating the health of the application during upgrade. By default, Service Fabric does not evaluate warning health events to be failures (errors), so the upgrade can proceed even if there are warning events. |
-| DefaultServiceTypeHealthPolicy | PS, VS | Specifies the health policy for the default service type to use for the monitored upgrade in the format MaxPercentUnhealthyPartitionsPerService, MaxPercentUnhealthyReplicasPerPartition, MaxPercentUnhealthyServices. For example, 5,10,15 indicates the following values: MaxPercentUnhealthyPartitionsPerService = 5, MaxPercentUnhealthyReplicasPerPartition = 10, MaxPercentUnhealthyServices = 15. |
-| Force | PS, VS | Allowed values are **True** and **False**. Indicates that this cmdlet skips the warning message and forces the upgrade. |
+| DefaultServiceTypeHealthPolicy | PS, VS |Specifies the health policy for the default service type to use for the monitored upgrade in the format MaxPercentUnhealthyPartitionsPerService, MaxPercentUnhealthyReplicasPerPartition, MaxPercentUnhealthyServices. For example, 5,10,15 indicates the following values: MaxPercentUnhealthyPartitionsPerService = 5, MaxPercentUnhealthyReplicasPerPartition = 10, MaxPercentUnhealthyServices = 15. |
+| Force | PS, VS | Allowed values are **True** and **False**. Indicates that the upgrade process skips the warning message and forces the upgrade even when the version number hasn’t changed. This is useful for local testing but is not recommended for use in a production environment as it requires removing the existing deployment which causes down-time and potential data loss. |
 | ForceRestart |PS, VS |If you update a configuration or data package without updating the service code, the service is restarted only if the ForceRestart property is set to **True**. When the update is complete, Service Fabric notifies the service that a new configuration package or data package is available. The service is responsible for applying the changes. If necessary, the service can restart itself. |
 | HealthCheckRetryTimeoutSec |PS, VS |The duration (in seconds) that Service Fabric continues to perform health evaluation before declaring the upgrade as failed. The default is 600 seconds. This duration starts after *HealthCheckWaitDurationSec* is reached. Within this *HealthCheckRetryTimeout*, Service Fabric might perform multiple health checks of the application health. The default value is 10 minutes and should be customized appropriately for your application. |
 | HealthCheckStableDurationSec |PS, VS |The duration (in seconds) to verify that the application is stable before moving to the next upgrade domain or completing the upgrade. This wait duration is used to prevent undetected changes of health right after the health check is performed. The default value is 120 seconds, and should be customized appropriately for your application. |
