@@ -64,13 +64,11 @@
       href: /powershell/azure
 - name: Resources
   items:
-  - name: Video Link
-    href: /
-  - name: GitHub
-    href: /
   - name: Azure roadmap
-    href: /
+    href: https://azure.microsoft.com/roadmap/
   - name: Pricing calculator
-    href: /
-  - name: Blog article
-    href: / 
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: User Voice
+    href: https://feedback.azure.com/forums/915958-azure-governance
+  - name: Governance Video
+    href: https://www.youtube.com/watch?v=MhGbKjlmuRs
