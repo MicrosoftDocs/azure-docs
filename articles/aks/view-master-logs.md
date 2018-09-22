@@ -33,9 +33,12 @@ Log Analytics is enabled and managed in the Azure portal. To enable log collecti
 1. In the list of available logs, select the logs you wish to enable, such as *kube-apiserver*, *kube-controller-manager*, and *kube-scheduler*. You can return and change the collected logs once Log Analytics are enabled.
 1. When ready, select **Save** to enable collection of the selected logs.
 
-The following example portal screenshot shows the *Diagnostics settings* window and then option to create an OMS workspace:
+The following example portal screenshot shows the *Diagnostics settings* window and then option to create an Log Analytics workspace:
 
-![Enable OMS workspace for Log Analytics of AKS cluster](media/view-master-logs/enable-oms-log-analytics.png)
+![Enable Log Analytics workspace for Log Analytics of AKS cluster](media/view-master-logs/enable-oms-log-analytics.png)
+
+>[!NOTE]
+>OMS workspaces are now referred to as Log Analytics workspaces. 
 
 ## Schedule a test pod on the AKS cluster
 
@@ -64,7 +67,7 @@ pod/nginx created
 
 ## View collected logs
 
-It may take a few minutes for the diagnostics logs to be enabled and appear in the OMS workspace. In the Azure portal, select the resource group for your Log Analytics workspace, such as *myResourceGroup*, then choose your Log Analytics resource, such as *myAKSLogs*.
+It may take a few minutes for the diagnostics logs to be enabled and appear in the Log Analytics workspace. In the Azure portal, select the resource group for your Log Analytics workspace, such as *myResourceGroup*, then choose your Log Analytics resource, such as *myAKSLogs*.
 
 ![Select the Log Analytics workspace for your AKS cluster](media/view-master-logs/select-log-analytics-workspace.png)
 
