@@ -232,9 +232,6 @@ For Azure Database for MySQL limits, see [Limitations in Azure Database for MySQ
 ### Azure Database for PostgreSQL
 For Azure Database for PostgreSQL limits, see [Limitations in Azure Database for PostgreSQL](postgresql/concepts-limits.md).
 
-### Mobile Engagement limits
-[!INCLUDE [azure-mobile-engagement-limits](../includes/azure-mobile-engagement-limits.md)]
-
 ### Search limits
 Pricing tiers determine the capacity and limits of your search service. Tiers include:
 
