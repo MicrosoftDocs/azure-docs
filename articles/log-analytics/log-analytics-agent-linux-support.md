@@ -28,10 +28,10 @@ This article provides help troubleshooting errors you might experience with the 
 * The Log Analytics and Azure Automation Service Endpoints are not whitelisted in your datacenter 
 
 ### Resolutions
-1. Reonboard to the Log Analytics service with the Log Analytics agent for Linux by using the following command with the option `-v` enabled. This allows verbose output of the agent connecting through the proxy to the OMS Service. 
+1. Reonboard to the Log Analytics service with the Log Analytics agent for Linux by using the following command with the option `-v` enabled. This allows verbose output of the agent connecting through the proxy to the Log Analytics Service. 
 `/opt/microsoft/omsagent/bin/omsadmin.sh -w <Log Analytics Workspace ID> -s <Log Analytics Workspace Key> -p <Proxy Conf> -v`
 
-[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
+  [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
 
 2. Review the section [Update proxy settings](log-analytics-agent-manage.md#update-proxy-settings) to verify you have properly configured the agent to communicate through a proxy server.    
 * Double check that the following Log Analytics service endpoints are whitelisted:
