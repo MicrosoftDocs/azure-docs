@@ -98,12 +98,12 @@ Before you start the TelcoGenerator app, you should configure it to send data to
 5. Next open a command window, change to the folder where you have is unzipped the TelcoGenerator application and enter the following command:
 
    ```
-   telcodatagen.exe 1000 .2 2
+   telcodatagen.exe 1000 0.2 2
    ```
 
    This command takes the following parameters:
    * **Number of call data records per hour**.  
-   * **Percentage of fraud Probability** - that is how often, the app should simulate a fraudulent call. The value .2 means that about 20% of the call records will look fraudulent.  
+   * **Percentage of fraud Probability** - that is how often, the app should simulate a fraudulent call. The value 0.2 means that about 20% of the call records will look fraudulent.  
    * **Duration in hours** - the number of hours that the app should run. You can also stop the app any time by ending the process (Ctrl+C) at the command line.
 
    After a few seconds, the app starts displaying phone call records on the screen as it sends them to the event hub. The phone call data contains the following fields:
