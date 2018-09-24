@@ -219,7 +219,9 @@ Before changing any code or settings, verify the bot works.
     
     To talk to your bot, open the luis-nodejs-bot-pattiowens.bot file in the Emulator
     ```
+
 ## Start the emulator
+
 1. Begin the Bot Emulator. 
 
 2. In the bot emulator, select the *.bot file in the root of the project. This `.bot` file includes the bot's URL endpoint for messages:
