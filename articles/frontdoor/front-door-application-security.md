@@ -1,5 +1,5 @@
 ---
-title: Azure Front Door Service - DDoS and application layer security | Microsoft Docs
+title: Azure Front Door Service - Application layer security | Microsoft Docs
 description: This article helps you understand how Azure Front Door Service enables to protect and secure your application backends
 services: frontdoor
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.date: 09/10/2018
 ms.author: sharadag
 ---
 
-# DDoS protection and application layer security with Front Door
-Azure Front Door Service provides web application protection capability to safeguard your web applications from DDoS network attacks and common web vulnerabilities exploits like SQL Injection or Cross Site Scripting (XSS). Enabled for http(s) front-ends, Front Door's application layer security is globally distributed and always on, stopping malicious attacks at Azure's network edge, far away from your backends. With added security and performance optimization, Front Door delivers fast and secure web experiences to your end users.
+# Application layer security with Front Door
+Azure Front Door Service provides web application protection capability to safeguard your web applications from network attacks and common web vulnerabilities exploits like SQL Injection or Cross Site Scripting (XSS). Enabled for http(s) front-ends, Front Door's application layer security is globally distributed and always on, stopping malicious attacks at Azure's network edge, far away from your backends. With added security and performance optimization, Front Door delivers fast and secure web experiences to your end users.
 
-##DDoS protection
+## Application protection
 Front Door's application protection is configured on each edge environment around the globe, in line with applications, and automatically blocks non-http(s) traffic from reaching your web applications. Our multi-tenant distributed architecture enables global protection at scale without sacrificing performance. For http(s) workloads, Front Door's web application protection service provides a rich rules engine for custom rules, pre-configured ruleset against common attacks, and detailed logging for all requests that matches a rule. Flexible actions including allow, block, or log only are supported.
 
 ## Custom access control rules

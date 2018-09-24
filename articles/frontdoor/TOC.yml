@@ -20,8 +20,8 @@
   items:
   - name: Backends and backend pools
     href: front-door-backend-pool.md
-  - name: DDoS protection and application layer security
-    href: front-door-ddos-security.md
+  - name: Application layer security
+    href: front-door-application-security.md
   - name: Load-balancing with Azure’s application delivery suite
     href: front-door-lb-with-azure-app-delivery-suite.md
   - name: Routing architecture
@@ -42,6 +42,20 @@
     href: front-door-http-headers-protocol.md
   - name: Monitoring
     href: front-door-diagnostics.md
+- name: Reference
+  items:
+  - name: Azure PowerShell
+    href: AzureRM.FrontDoor.md
+  - name: REST API
+    href: front-door-rest-api.md
+- name: How To
+  items:
+  - name: Troubleshoot
+    items:
+    - name: Troubleshoot routing issues
+      href: front-door-troubleshoot-routing.md
+    - name: Allowed certificate authorities
+      href: front-door-troubleshoot-allowed-ca.md
 - name: Resources
   items:
   - name: Azure Roadmap
