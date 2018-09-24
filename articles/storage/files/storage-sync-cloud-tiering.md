@@ -32,7 +32,7 @@ Volume free space is the amount of free space you wish to reserve on the volume 
 ### How does the volume free space tiering policy work with regards to new server endpoints?
 When a server endpoint is newly provisioned and connected to an Azure file share, the server will first pull down the namespace and then will pull down the actual files until it hits its volume free space threshold. This process is also known as fast disaster recovery or rapid namespace restore.
 
-<a id="volume-free-space-multiple-endpoints"></a>
+<a id="afs-effective-vfs"></a>
 ### How is volume free space interpreted when I have multiple server endpoints on a volume?
 When there is more than one server endpoint on a volume, the effective volume free space threshold is the largest volume free space specified across any server endpoint on that volume. Files will be tiered according to their usage patterns regardless of which server endpoint to which they belong. For example, if you have two server endpoints on a volume, Endpoint1 and Endpoint2, where Endpoint1 has a volume free space threshold of 25% and Endpoint2 has a volume free space threshold of 50%, the volume free space threshold for both server endpoints will be 50%. 
 
