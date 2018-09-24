@@ -1,10 +1,9 @@
 ---
-title: About Speech Translation | Microsoft Docs
+title: About Speech Translation
 description: An overview of the capabilities of Speech Translation
 titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 
 ms.service: cognitive-services
 ms.component: speech-service
@@ -39,4 +38,6 @@ The differences between models are internal to the translation engine. End users
 ## Next steps
 
 * [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
-* [See how to recognize speech in C#](quickstart-csharp-windows.md)
+* [See how to translate speech in C#](how-to-translate-speech-csharp.md)
+* [See how to translate speech in C++](how-to-translate-speech-cpp.md)
+* [See how to translate speech in Java](how-to-translate-speech-java.md)

@@ -1,20 +1,13 @@
 ---
-title: Azure Data Catalog prerequisites | Microsoft Docs
+title: Azure Data Catalog prerequisites
 description: Learn about the prerequisites you need to get started with Azure Data Catalog.
 services: data-catalog
-documentationcenter: ''
 author: steelanddata
-manager: NA
-editor: ''
-tags: ''
-
+ms.author: maroche
 ms.assetid: ef497a54-dc4d-4820-b5bf-c361b64b964d
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: maroche
-
 ---
 # Azure Data Catalog prerequisites
 
@@ -23,7 +16,7 @@ You need to take care of a few things before you can set up Azure Data Catalog. 
 ## Azure subscription
 To set up Data Catalog, you must be the owner or co-owner of an Azure subscription.
 
-Azure subscriptions help you organize access to cloud-service resources such as Data Catalog. Subscriptions also help you control how resource usage is reported, billed, and paid for. Each subscription can have a separate billing and payment setup, so you can have subscriptions and plans that vary by department, project, regional office, and so on. Every cloud service belongs to a subscription, and you need to have a subscription before you set up Data Catalog. To learn more, see [Manage accounts, subscriptions, and administrative roles](../active-directory/active-directory-assign-admin-roles-azure-portal.md).
+Azure subscriptions help you organize access to cloud-service resources such as Data Catalog. Subscriptions also help you control how resource usage is reported, billed, and paid for. Each subscription can have a separate billing and payment setup, so you can have subscriptions and plans that vary by department, project, regional office, and so on. Every cloud service belongs to a subscription, and you need to have a subscription before you set up Data Catalog. To learn more, see [Manage accounts, subscriptions, and administrative roles](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
 ## Azure Active Directory
 To set up Data Catalog, you must be signed in with an Azure Active Directory (Azure AD) user account.

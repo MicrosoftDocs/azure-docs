@@ -8,7 +8,7 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 06/21/2018
+ms.date: 07/11/2018
 ---
 
 # Azure Database for MySQL pricing tiers
@@ -40,7 +40,7 @@ Compute resources are provided as vCores, which represent the logical CPU of the
 
 | **Azure region** | **Gen 4** | **Gen 5** |
 |:---|:----------:|:--------------------:|
-| Central US | X |  |
+| Central US | X | X |
 | East US | X | X |
 | East US 2 | X | X |
 | North Central US | X | X |
@@ -58,6 +58,8 @@ Compute resources are provided as vCores, which represent the logical CPU of the
 | East Asia | X | X |
 | Southeast Asia | X | X |
 | Australia East |  | X |
+| Australia Central |  | X |
+| Australia Central 2 |  | X |
 | Australia Southeast |  | X |
 | Central India | X | X |
 | West India | X | X |
@@ -87,6 +89,8 @@ You can monitor your I/O consumption in the Azure portal or by using Azure CLI c
 The server is marked read-only when the amount of free storage reaches less than 5 GB or 5% of provisioned storage, whichever is less. For example, if you have provisioned 100 GB of storage, and the actual utilization goes over 95 GB, the server is marked read-only. Alternatively, if you have provisioned 5 GB of storage, the server is marked read-only when the free storage reaches less than 250 MB.  
 
 While the service attempts to make the server read-only, all new write transaction requests are blocked and existing active transactions will continue to execute. When the server is set to read-only, all subsequent write operations and transaction commits fail. Read queries will continue to work uninterrupted. After you increase the provisioned storage, the server will be ready to accept write transactions again.
+
+We recommend that you set up an alert to notify you when your server storage is approaching the threshold so you can avoid getting into the read-only state. For more information, see the documentation on [how to set up an alert](howto-alert-on-metric.md).
 
 ## Backup
 

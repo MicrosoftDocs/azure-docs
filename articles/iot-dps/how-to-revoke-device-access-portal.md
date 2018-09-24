@@ -1,8 +1,8 @@
 ---
 title: How to disenroll a device from Azure IoT Hub Device Provisioning Service 
 description: How to disenroll a device to prevent provisioning through Azure IoT Hub Device Provisioning Service
-author: bryanla
-ms.author: bryanla
+author: wesmc7777
+ms.author: wesmc
 ms.date: 04/05/2018
 ms.topic: conceptual
 ms.service: iot-dps
@@ -29,9 +29,12 @@ To temporarily blacklist the device by disabling its enrollment entry:
 2. In the list of resources, select the provisioning service that you want to blacklist your device from.
 3. In your provisioning service, select **Manage enrollments**, and then select the **Individual Enrollments** tab.
 4. Select the enrollment entry for the device that you want to blacklist. 
-5. Scroll to the bottom, and select **Disable** on the **Enable entry** switch, and then select **Save**.  
 
-   [![Disable individual enrollment entry in the portal](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png#lightbox)  
+    ![Select your individual enrollment](./media/how-to-revoke-device-access-portal/select-individual-enrollment.png)
+
+5. On your enrollment page, scroll to the bottom, and select **Disable** for the **Enable entry** switch, and then select **Save**.  
+
+   ![Disable individual enrollment entry in the portal](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)
 
 To permanently blacklist the device by deleting its enrollment entry:
 
@@ -42,7 +45,8 @@ To permanently blacklist the device by deleting its enrollment entry:
 5. Select **Delete** at the top of the window, and then select **Yes** to confirm that you want to remove the enrollment. 
 
    ![Delete individual enrollment entry in the portal](./media/how-to-revoke-device-access-portal/delete-individual-enrollment.png)
-    
+
+
 After you finish the procedure, you should see your entry removed from the list of individual enrollments.  
 
 ## Blacklist an X.509 intermediate or root CA certificate by using an enrollment group
@@ -86,14 +90,18 @@ To blacklist an individual device in an enrollment group, follow these steps:
 1. Sign in to the Azure portal and select **All resources** from the left menu.
 2. From the list of resources, select the provisioning service that contains the enrollment group for the device that you want to blacklist.
 3. In your provisioning service, select **Manage enrollments**, and then select the **Individual Enrollments** tab.
-4. Select the **Add** button at the top. 
-5. Select **X.509** as the attestation mechanism for the device, and upload the device certificate. This is the signed end-entity certificate installed on the device. The device uses it to generate certificates for authentication.
-6. For **IoT Hub device ID**, enter the ID for the device. 
-7. Select **Disable** on the **Enable entry** switch, and then select **Save**. 
+4. Select the **Add individual enrollment** button at the top. 
+5. On the **Add Enrollment** page, select **X.509** as the attestation **Mechanism** for the device.
+
+    Upload the device certificate, and enter the device ID of the device to be blacklisted. For the certificate, use the signed end-entity certificate installed on the device. The device uses the signed end-entity certificate for authentication.
+
+    ![Set device properties for the blacklisted device](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group-1.png)
+
+6. Scroll to the bottom of the **Add Enrollment** page and select **Disable** on the **Enable entry** switch, and then select **Save**. 
 
     [![Use disabled individual enrollment entry to disable device from group enrollment, in the portal](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png)](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png#lightbox)
 
-When you successfully create your enrollment, you should see your device appear on the **Individual Enrollments** tab.
+When you successfully create your enrollment, you should see your disabled device enrollment listed on the **Individual Enrollments** tab. 
 
 ## Next steps
 

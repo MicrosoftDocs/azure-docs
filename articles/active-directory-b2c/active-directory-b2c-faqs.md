@@ -7,7 +7,7 @@ manager: mtillman
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
@@ -15,6 +15,9 @@ ms.component: B2C
 
 # Azure AD B2C: Frequently asked questions (FAQ) 
 This page answers frequently asked questions about the Azure Active Directory (Azure AD) B2C. Keep checking back for updates.
+
+### Why can't I access the Azure AD B2C extension in the Azure portal?
+There are two common reasons for why the Azure AD extension is not working for you.  Azure AD B2C requires your user role in the directory to be global administrator.  Please contact your administrator if you think you should have access.  If you have global administrator privileges, make sure that you are in an Azure AD B2C directory and not an Azure Active Directory directory.  You can see instructions for [creating an Azure AD B2C directory here](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant).
 
 ### Can I use Azure AD B2C features in my existing, employee-based Azure AD tenant?
 Azure AD and Azure AD B2C are separate product offerings and cannot coexist in the same tenant.  An Azure AD tenant represents an organization.  An Azure AD B2C tenant represents a collection of identities to be used with relying party applications.  With custom policies (in public preview), Azure AD B2C can federate to Azure AD allowing authentication of employees in an organization.

@@ -26,9 +26,7 @@ It creates a resource group, a storage account, and a container,
 then it creates a VM by uploading the VHD to the container.
 It replaces the ssh public key with your public key so that you have access to the VM.
 
-You'll need a bootable VHD.
-You can download the VHD that we used from https://azclisamples.blob.core.windows.net/vhds/sample.vhd,
-or use your own VHD. The script looks for `~/sample.vhd`.
+You'll need a bootable VHD. The script looks for `~/sample.vhd`.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -61,7 +59,6 @@ This script uses the following commands to create a resource group, virtual mach
 | [az storage blob upload](https://docs.microsoft.com/cli/azure/storage/blob#az_storage_blob_upload) | Creates a blob in the container by uploading the VHD. |
 | [az vm list](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | Used with `--query` check whether the VM name is in use. | 
 | [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set#az_vm_availability_set_create) | Creates the virtual machines. |
-| [az vm access set-linux-user](https://docs.microsoft.com/cli/azure/vm/access#az_vm_access_set_linux_user) | Resets the SSH key to give the current user access to the VM. |
 | [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm#az_vm_list-ip-addresses) | Gets the IP address of the VM that was created. |
 
 ## Next steps

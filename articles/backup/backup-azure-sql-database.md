@@ -1,6 +1,6 @@
 ---
-title: Back up SQL Server database to Azure | Microsoft Docs
-description: This tutorial explains SQL Server backup to Azure. The article also explains SQL Server recovery.
+title: Back up SQL Server databases to Azure | Microsoft Docs
+description: This tutorial explains how to back up SQL Server to Azure. The article also explains SQL Server recovery.
 services: backup
 documentationcenter: ''
 author: markgalioto
@@ -14,37 +14,41 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 6/29/2018
+ms.date: 08/02/2018
 ms.author: markgal;anuragm
 ms.custom: 
 
 ---
-# Back up SQL Server database in Azure
+# Back up SQL Server databases to Azure
 
-SQL Server databases are critical workloads requiring low Recovery Point Objective (RPO) and long-term retention. Azure Backup provides a SQL Serverbackup solution that requires zero infrastructure, which means no complex backup server, no management agent, or backup storage to manage. Azure Backup provides centralized management for your backups across all SQL servers, or even different workloads.
+SQL Server databases are critical workloads that require a low recovery point objective (RPO) and long-term retention. Azure Backup provides a SQL Server backup solution that requires zero infrastructure: no complex backup server, no management agent, and no backup storage to manage. Azure Backup provides centralized management for your backups across all servers that are running SQL Server, or even different workloads.
 
- In this article you learn:
+In this article, you learn:
 
 > [!div class="checklist"]
-> * Prerequisites to back up SQL Server to Azure
-> * Create and use a Recovery Services vault
-> * Configure SQL Server database backups
-> * Set a backup (or retention) policy for the recovery points
-> * How to restore the database
+> * The prerequisites to back up a SQL Server instance to Azure.
+> * How to create and use a Recovery Services vault.
+> * How to configure SQL Server database backups.
+> * How to set a backup (or retention) policy for the recovery points.
+> * How to restore the database.
 
-Before starting the procedures in this article, you should have a SQL Server running in Azure. [You can use SQL marketplace virtual machines to quickly create a SQL Server](../sql-database/sql-database-get-started-portal.md).
+Before you start the procedures in this article, you should have a SQL Server instance that's running in Azure. [Use SQL Marketplace virtual machines to quickly create a SQL Server instance](../sql-database/sql-database-get-started-portal.md).
 
 ## Public Preview limitations
 
-The following items are the known limitations for the Public Preview.
+The following items are known limitations for the Public Preview:
 
-- The SQL virtual machine requires internet connectivity to access Azure public IP addresses. For more detail, see the section, [Establish network connectivity](backup-azure-sql-database.md#establish-network-connectivity).
-- You can protect up to 2000 SQL databases in one Recovery Services vault. Additional SQL databases should be stored in a separate Recovery Services vault.
-- [Distributed availability groups backup has limitations](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/distributed-availability-groups?view=sql-server-2017).
-- SQL Failover Cluster Instances (FCI) are not supported.
-- Use the Azure portal to configure Azure Backup to protect SQL Server databases. Support for Azure PowerShell, CLI, and REST APIs is not currently available.
+- The SQL virtual machine (VM) requires internet connectivity to access Azure public IP addresses. For details, see [Establish network connectivity](backup-azure-sql-database.md#establish-network-connectivity).
+- Protect up to 2,000 SQL databases in one Recovery Services vault. Additional SQL databases should be stored in a separate Recovery Services vault.
+- [Backups of distributed availability groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/distributed-availability-groups?view=sql-server-2017) have limitations.
+- SQL Server Always On Failover Cluster Instances (FCIs) aren't supported.
+- Use the Azure portal to configure Azure Backup to protect SQL Server databases. Azure PowerShell, the Azure CLI, and the REST APIs aren't currently supported.
 
-## Supported Azure GEOs
+Please refer to [FAQ section](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#faq) for more details on support/not supported scenarios.
+
+## Support for Azure geos
+
+Azure Backup is supported for the following geos:
 
 - Australia South East (ASE) 
 - Brazil South (BRS)
@@ -55,10 +59,10 @@ The following items are the known limitations for the Public Preview.
 - East Australia (AE) 
 - East US (EUS)
 - East US 2 (EUS2)
-- Japan East (JPE)
-- Japan West (JPW)
 - India Central (INC) 
 - India South (INS)
+- Japan East (JPE)
+- Japan West (JPW)
 - Korea Central (KRC)
 - Korea South (KRS)
 - North Central US (NCUS) 
@@ -67,14 +71,14 @@ The following items are the known limitations for the Public Preview.
 - South East Asia (SEA)
 - UK South (UKS) 
 - UK West (UKW) 
+- West Central US (WCUS)
 - West Europe (WE) 
 - West US (WUS)
-- West Central US (WCUS)
 - West US 2 (WUS 2) 
 
-## Supported operating systems and versions of SQL server
+## Support for operating systems and SQL Server versions
 
-The following supported operating systems and versions of SQL Server apply to SQL marketplace Azure virtual machines, and non-marketplace virtual machines (where SQL Server is manually installed).
+This section describes Azure Backup support for operating systems and versions of SQL Server. SQL Marketplace Azure virtual machines and non-Marketplace virtual machines (where SQL Server is manually installed) are supported.
 
 ### Supported operating systems
 
@@ -82,545 +86,573 @@ The following supported operating systems and versions of SQL Server apply to SQ
 - Windows Server 2012 R2
 - Windows Server 2016
 
-Linux is currently not supported.
+Linux isn't currently supported.
 
-### Supported versions/editions of SQL Server
+### Supported SQL Server versions and editions
 
-- SQL 2012 Enterprise, Standard, Web, Developer, Express
-- SQL 2014 Enterprise, Standard, Web, Developer, Express
-- SQL 2016 Enterprise, Standard, Web, Developer, Express
-- SQL 2017 Enterprise, Standard, Web, Developer, Express
+- SQL Server 2012 Enterprise, Standard, Web, Developer, Express
+- SQL Server 2014 Enterprise, Standard, Web, Developer, Express
+- SQL Server 2016 Enterprise, Standard, Web, Developer, Express
+- SQL Server 2017 Enterprise, Standard, Web, Developer, Express
 
+## Prerequisites
 
-## Prerequisites for using Azure Backup to protect SQL Server 
+Before you back up your SQL Server database, check the following conditions:
 
-Before you can back up your SQL Server database, check the following conditions. :
-
-- Identify or [create a Recovery Services vault](backup-azure-sql-database.md#create-a-recovery-services-vault) in the same region, or locale, as the virtual machine hosting SQL Server.
-- [Check the permissions on the virtual machine](backup-azure-sql-database.md#set-permissions-for-non-marketplace-sql-vms) needed to back up SQL databases.
-- [SQL virtual machine has network connectivity](backup-azure-sql-database.md#establish-network-connectivity).
+- Identify or [create a Recovery Services vault](backup-azure-sql-database.md#create-a-recovery-services-vault) in the same region or locale as the virtual machine that hosts your SQL Server instance.
+- [Check the permissions on the virtual machine](backup-azure-sql-database.md#set-permissions-for-non-marketplace-sql-vms) that are needed to back up the SQL databases.
+- Verify that the [SQL virtual machine has network connectivity](backup-azure-sql-database.md#establish-network-connectivity).
 
 > [!NOTE]
-> You can have only one backup solution at a time to backup SQL Server databases. Please disable any other SQL backup before using this feature, else backups will interfere and fail. You can enable Azure Backup for IaaS VM along with SQL backup without any conflict 
+> You can have only one backup solution at a time to back up SQL Server databases. Disable all other SQL backups before you use this feature; otherwise, the backups will interfere and fail. You can enable Azure Backup for IaaS VM along with SQL backup without any conflict.
 >
 
-If these conditions exist in your environment, proceed to the section, [Configure your vault to protect a SQL database](backup-azure-sql-database.md#configure-your-vault-to-protect-a-sql-database). If any of the prerequisites do not exist, continue reading this section.
+If these conditions exist in your environment, continue to [Configure backup for SQL Server databases](backup-azure-sql-database.md#configure-backup-for-sql-server-databases). If any of the prerequisites don't exist, continue reading.
 
 
 ## Establish network connectivity
 
-For all operations, the SQL virtual machine needs connectivity to Azure public IP addresses. SQL virtual machine operations (such as database discovery, configuring backup, scheduled backups, restoring recovery points, and so on) fail without connectivity to the public IP addresses. Use either of the following options to provide a clear path for backup traffic:
+For all operations, the SQL virtual machine needs connectivity to Azure public IP addresses. SQL virtual machine operations (such as database discovery, configure backups, schedule backups, restore recovery points, and so on) fail without connectivity to the public IP addresses. Use either of the following options to provide a clear path for backup traffic:
 
-- Whitelist the Azure datacenter IP ranges - To whitelist the Azure datacenter IP ranges, use the [download center page for details on the IP ranges and instructions](https://www.microsoft.com/download/details.aspx?id=41653). 
-- Deploy an HTTP proxy server for routing traffic - When you're backing up a SQL database in a VM, the backup extension on the VM uses HTTPS APIs to send management commands to Azure Backup and data to Azure Storage. The backup extension also uses Azure Active Directory (AAD) for authentication. Route the backup extension traffic for these three services through the HTTP proxy, because it's the only component configured for access to the public internet.
+- Whitelist the Azure datacenter IP ranges: To whitelist the Azure datacenter IP ranges, use the [Download Center page for details on the IP ranges and instructions](https://www.microsoft.com/download/details.aspx?id=41653). 
+- Deploy an HTTP proxy server to route traffic: When you back up a SQL database in a VM, the backup extension on the VM uses the HTTPS APIs to send management commands to Azure Backup and data to Azure Storage. The backup extension also uses Azure Active Directory (Azure AD) for authentication. Route the backup extension traffic for these three services through the HTTP proxy. The extension's the only component that's configured for access to the public internet.
 
-The tradeoffs between the choices are: manageability, granular control, and cost.
+The tradeoffs between the options are manageability, granular control, and cost.
 
 > [!NOTE]
->Service tags for Azure Backup should be available by General Availability.
+> Service tags for Azure Backup should be available by General Availability.
 >
 
 | Option | Advantages | Disadvantages |
 | ------ | ---------- | ------------- |
-| Whitelist IP ranges | No additional costs. <br/> For opening access in an NSG, use **Set-AzureNetworkSecurityRule** cmdlet. | Complex to manage as the affected IP ranges change over time. <br/>Provides access to the whole of Azure, not just storage.|
-| Use an HTTP proxy   | Granular control in the proxy over the storage URLs is allowed. <br/>Single point of internet access to VMs. <br/> Not subject to Azure IP address changes. | Additional costs for running a VM with the proxy software. |
+| Whitelist IP ranges | No additional costs. <br/> For access to open in an NSG, use the **Set-AzureNetworkSecurityRule** cmdlet. | Complex to manage because the affected IP ranges change over time. <br/>Provides access to the whole of Azure, not just Azure Storage.|
+| Use an HTTP proxy   | Granular control in the proxy over the storage URLs is allowed. <br/>Single point of internet access to VMs. <br/> Not subject to Azure IP address changes. | Additional costs to run a VM with the proxy software. |
 
-## Set permissions for non-marketplace SQL VMs
+## Set permissions for non-Marketplace SQL VMs
 
-To back up a virtual machine, Azure Backup requires the **AzureBackupWindowsWorkload** extension be installed. If you are using Azure marketplace virtual machines, skip ahead to [Discover SQL server databases](backup-azure-sql-database.md#discover-sql-server-databases). If the virtual machine hosting your SQL databases was not created from the Azure marketplace, complete the following section to install the extension and set appropriate permissions. In addition to the **AzureBackupWindowsWorkload** extension, Azure Backup requires SQL sysadmin privileges to protect SQL databases. While discovering databases on the virtual machine, Azure Backup creates an account, NT Service\AzureWLBackupPluginSvc. For Azure Backup to discover SQL databases, the NT Service\AzureWLBackupPluginSvc account must have SQL log in and SQL sysadmin permissions. The following procedure explains how to provide these permissions.
+To back up a virtual machine, Azure Backup requires the **AzureBackupWindowsWorkload** extension to be installed. If you use Azure Marketplace virtual machines, continue to [Discover SQL Server databases](backup-azure-sql-database.md#discover-sql-server-databases). If the virtual machine that hosts your SQL databases isn't created from the Azure Marketplace, complete the following procedure to install the extension and set the appropriate permissions. In addition to the **AzureBackupWindowsWorkload** extension, Azure Backup requires SQL sysadmin privileges to protect SQL databases. To discover databases on the virtual machine, Azure Backup creates the account **NT Service\AzureWLBackupPluginSvc**. For Azure Backup to discover SQL databases, the **NT Service\AzureWLBackupPluginSvc** account must have SQL and SQL sysadmin permissions. The following procedure explains how to provide these permissions.
 
 To configure permissions:
 
-1. In the [Azure portal](https://portal.azure.com), open the Recovery Services vault you're using to protect SQL databases.
-2. In the vault dashboard menu, click **+ Backup** to open the **Backup Goal** menu.
+1. In the [Azure portal](https://portal.azure.com), open the Recovery Services vault that you use to protect the SQL databases.
 
-   ![Click + Backup to open the Backup goal menu](./media/backup-azure-sql-database/open-backup-menu.png)
+2. On the **Recovery Services vault** dashboard, select **Backup**. The **Backup Goal** menu opens.
 
-3. On the **Backup Goal** menu, in the **Where is your workload running?** menu, leave **Azure** as the default.
+   ![Select Backup to open the Backup Goal menu](./media/backup-azure-sql-database/open-backup-menu.png)
 
-4. On the **What do you want to backup** menu, expand the drop-down menu and select **SQL Server in Azure VM**.
+3. On the **Backup Goal** menu, set **Where is your workload running** to the default: **Azure**.
 
-    ![Click + Backup to open the Backup goal menu](./media/backup-azure-sql-database/choose-sql-database-backup-goal.png)
+4. Expand the **What do you want to backup** drop-down list box and select **SQL Server in Azure VM**.
 
-    The **Backup Goal** menu displays two new steps: **Discover DBs in VMs** and **Configure Backup**. **Discover DBs in VMs** starts a search for Azure virtual machines.
+    ![Select SQL Server in Azure VM for the backup](./media/backup-azure-sql-database/choose-sql-database-backup-goal.png)
 
-    ![Shows the new Backup goal steps](./media/backup-azure-sql-database/backup-goal-menu-step-one.png)
+    The **Backup Goal** menu displays two steps: **Discover DBs in VMs** and **Configure Backup**. The **Discover DBs in VMs** step start a search for Azure virtual machines.
 
-5. Click **Start Discovery** to search for unprotected virtual machines in the subscription. Depending on the number of unprotected virtual machines in the subscription, it can take a while to go through all virtual machines.
+    ![Review the two Backup Goal steps](./media/backup-azure-sql-database/backup-goal-menu-step-one.png)
 
-    ![Backup pending](./media/backup-azure-sql-database/discovering-sql-databases.png)
+5. Under **Discover DBs in VMs**, select **Start Discovery** to search for unprotected virtual machines in the subscription. It can take a while to search all of the virtual machines. The search time depends on the number of unprotected virtual machines in the subscription.
+
+    ![Backup is pending during search for DBs in VMs](./media/backup-azure-sql-database/discovering-sql-databases.png)
  
-    Once an unprotected virtual machine is discovered, it appears in the list. Unprotected virtual machines are listed by their virtual machine name and resource group. It is possible for multiple virtual machines to have the same name. However, virtual machines with the same name belong to different resource groups. If an expected virtual machine does not appear in the list, see if the virtual machine is already protected to a vault.
+    After an unprotected virtual machine is discovered, it appears in the list. Unprotected virtual machines are listed by their virtual machine name and resource group. It's possible for multiple virtual machines to have the same name. However, virtual machines with the same name belong to different resource groups. If an expected virtual machine isn't listed, see if the virtual machine's already protected to a vault.
 
-6. From the list of virtual machines, select the VM containing the SQL database you want to back up, and click **Discover DBs**. 
+6. In the list of virtual machines, select the VM that has the SQL database to back up, and then select **Discover DBs**. 
 
-    The discovery process installs the **AzureBackupWindowsWorkload** extension on the virtual machine. The extension allows the Azure Backup service to communicate with the virtual machine so it can back up the SQL databases. Once the extension installs, Azure Backup creates the Windows virtual service account, **NT Service\AzureWLBackupPluginSvc**, on the virtual machine. The virtual service account requires SQL sysadmin permission. During the virtual service account installation process, if you see the error, **UserErrorSQLNoSysadminMembership**, see the section, [Fixing SQL sysadmin permissions](backup-azure-sql-database.md#fixing-sql-sysadmin-permissions).
+    The discovery process installs the **AzureBackupWindowsWorkload** extension on the virtual machine. The extension allows the Azure Backup service to communicate with the virtual machine so it can back up the SQL databases. After the extension installs, Azure Backup creates the Windows virtual service account **NT Service\AzureWLBackupPluginSvc** on the virtual machine. The virtual service account requires SQL sysadmin permission. During the virtual service account installation process, if you receive the error `UserErrorSQLNoSysadminMembership`, see [Fix SQL sysadmin permissions](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
 
-    The Notifications area shows the progress of the database discovery. Depending on how many databases are on the virtual machine, it can take a while for the job to complete. When selected databases have been discovered, a success message appears.
+    The **Notifications** area shows the progress of the database discovery. It can take a while for the job to complete. The job time depends on how many databases are on the virtual machine. When the selected databases are discovered, a success message appears.
 
-    ![successful deployment notification message](./media/backup-azure-sql-database/notifications-db-discovered.png)
+    ![Deployment success message](./media/backup-azure-sql-database/notifications-db-discovered.png)
 
-Once you associate the database with the Recovery Services vault, the next step is to [configure the backup](backup-azure-sql-database.md#configure-your-vault-to-protect-a-sql-database).
+After you associate the database with the Recovery Services vault, the next step is to [configure the backup job](backup-azure-sql-database.md#configure-backup-for-sql-server-databases).
 
-### Fixing SQL sysadmin permissions
+### Fix SQL sysadmin permissions
 
-During the installation process, if you see the error, **UserErrorSQLNoSysadminMembership**, sign into SQL Server Management Studio (SSMS) with an account that has SQL sysadmin permission. Unless you require special permissions, you should be able to use Windows authentication to recognize the account.
+During the installation process, if you receive the error `UserErrorSQLNoSysadminMembership`, use an account with SQL Server sysadmin permissions to sign in to SQL Server Management Studio (SSMS). Unless you need special permissions, Windows authentication should work.
 
-1. On the SQL Server, open the **Security/Logins** folder.
+1. On the SQL Server, open the Security/Logins folder.
 
-    ![Open the SQL Server and security and login folders to see accounts](./media/backup-azure-sql-database/security-login-list.png)
+    ![Open the Security/Logins folder to see accounts](./media/backup-azure-sql-database/security-login-list.png)
 
-2. On the Logins folder, right click and select **New Login**, and in the Login - New dialog, click **Search**
+2. Right-click the Logins folder and select **New Login**. In the **Login - New** dialog box, select **Search**.
 
-    ![Open Search in the Login - New dialog](./media/backup-azure-sql-database/new-login-search.png)
+    ![In the Login - New dialog box, select Search](./media/backup-azure-sql-database/new-login-search.png)
 
-3. Since the Windows virtual service account, **NT Service\AzureWLBackupPluginSvc** has already been created during the virtual machine registration and SQL discovery phase, enter the account name as it appears in the **Enter the object name to select** dialog. Click **Check Names** to resolve the name. 
+3. The Windows virtual service account **NT Service\AzureWLBackupPluginSvc** was created during the virtual machine registration and SQL discovery phase. Enter the account name as shown in the **Enter the object name to select** box. Select **Check Names** to resolve the name. 
 
-    ![Click Check Names button to resolve the unknown service name](./media/backup-azure-sql-database/check-name.png)
+    ![Select Check Names to resolve the unknown service name](./media/backup-azure-sql-database/check-name.png)
 
-4. Click **OK** to close the Select User or Group dialog.
+4. Select **OK** to close the dialog box.
 
-5. In the **Server Roles** dialog, make sure the **sysadmin** role is selected. Then click **OK** to close **Login - New**.
+5. In the **Server Roles** box, make sure the **sysadmin** role is selected. Select **OK** to close the dialog box.
 
     ![Make sure the sysadmin server role is selected](./media/backup-azure-sql-database/sysadmin-server-role.png)
 
     The required permissions should now exist.
 
-6. Though you fixed the permissions error, you still need to associate the database with the Recovery Services vault. In the Azure portal **Protected Servers** list, right click the server in error, and select **Rediscover DBs**.
+6. Although you fixed the permissions error, you need to associate the database with the Recovery Services vault. In the Azure portal, in the **Protected Servers** list, right-click the server that's in an error state and select **Rediscover DBs**.
 
-    ![Verify the server has the appropriate permissions](./media/backup-azure-sql-database/check-erroneous-server.png)
+    ![Verify the server has appropriate permissions](./media/backup-azure-sql-database/check-erroneous-server.png)
 
-    The Notifications area shows the progress of the database discovery. Depending on how many databases are on the virtual machine, it can take a while for the job to complete. When selected databases have been found, a success message appears in the Notifications area.
+    The **Notifications** area shows the progress of the database discovery. It can take a while for the job to complete. The job time depends on how many databases are on the virtual machine. When the selected databases are found, a success message appears.
 
-    ![successful deployment notification message](./media/backup-azure-sql-database/notifications-db-discovered.png)
+    ![Deployment success message](./media/backup-azure-sql-database/notifications-db-discovered.png)
 
-Once you associate the database with the Recovery Services vault, the next step is to [configure the backup](backup-azure-sql-database.md#configure-your-vault-to-protect-a-sql-database).
+After you associate the database with the Recovery Services vault, the next step is to [configure the backup job](backup-azure-sql-database.md#configure-backup-for-sql-server-databases).
 
-[!INCLUDE [Section explaining how to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
+[!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
 ## Discover SQL Server databases
 
-Azure Backup can discover all databases on a SQL Server instance so you can protect them per your backup requirements. Use the following procedure to identify the virtual machine hosting the SQL databases. Once you identify the virtual machine, Azure Backup installs a lightweight extension to discover the SQL server databases.
+Azure Backup discovers all databases on a SQL Server instance. You can protect the databases according to your backup requirements. Use the following procedure to identify the virtual machine that hosts the SQL databases. After you identify the virtual machine, Azure Backup installs a lightweight extension to discover the SQL Server databases.
 
 1. Sign in to your subscription in the [Azure portal](https://portal.azure.com/).
-2. In the left-hand menu, select **All Services**.
 
-    ![Choose the All Services option in main menu](./media/backup-azure-sql-database/click-all-services.png) <br/>
+2. On the left menu, select **All services**.
 
-3. In the All services dialog, type *Recovery Services*. As you begin typing, your input filters the list of resources. Once you see it, select **Recovery Services vaults**.
+    ![Select All services](./media/backup-azure-sql-database/click-all-services.png) <br/>
 
-    ![Type Recovery Services in the All services dialog](./media/backup-azure-sql-database/all-services.png) <br/>
+3. In the **All services** dialog box, enter **Recovery Services**. As you type, your input filters the list of resources. Select **Recovery Services vaults** in the list.
+
+    ![Enter and choose Recovery Services vaults](./media/backup-azure-sql-database/all-services.png) <br/>
 
     The list of Recovery Services vaults in the subscription appears. 
 
-4. From the list of Recovery Services vault, select the vault that you want to use to protect your SQL databases.
+4. In the list of Recovery Services vaults, select the vault to use to protect your SQL databases.
 
-5. In the vault dashboard menu, click **+ Backup** to open the **Backup Goal** menu.
+5. On the **Recovery Services vault** dashboard, select **Backup**. The **Backup Goal** menu opens.
 
-   ![Click + Backup to open the Backup goal menu](./media/backup-azure-sql-database/open-backup-menu.png)
+   ![Select Backup to open the Backup Goal menu](./media/backup-azure-sql-database/open-backup-menu.png)
 
-6. On the **Backup Goal** menu, in the **Where is your workload running?** menu, leave **Azure** as the default.
+6. On the **Backup Goal** menu, set **Where is your workload running** to the default: **Azure**.
 
-7. On the **What do you want to backup** menu, expand the drop-down menu and select **SQL Server in Azure VM**.
+7. Expand the **What do you want to back up** drop-down list box and select **SQL Server in Azure VM**.
 
-    ![Click + Backup to open the Backup goal menu](./media/backup-azure-sql-database/choose-sql-database-backup-goal.png)
+    ![Select SQL Server in Azure VM for the backup](./media/backup-azure-sql-database/choose-sql-database-backup-goal.png)
 
-    Once selected, the **Backup Goal** menu displays two steps: Discover DBs in VMs, and Configure Backup. 
+    The **Backup Goal** menu displays two steps: **Discover DBs in VMs** and **Configure Backup**.
+    
+    ![Review the two Backup Goal steps](./media/backup-azure-sql-database/backup-goal-menu-step-one.png)
 
-    ![Shows the new Backup goal steps](./media/backup-azure-sql-database/backup-goal-menu-step-one.png)
+8. Under **Discover DBs in VMs**, select **Start Discovery** to search for unprotected virtual machines in the subscription. It can take a while to search through all of the virtual machines. The search time depends on the number of unprotected virtual machines in the subscription.
 
-8. Click **Start Discovery** to search for unprotected virtual machines in the subscription. Depending on the number of unprotected virtual machines in the subscription, it can take a while to go through all virtual machines.
-
-    ![Backup pending](./media/backup-azure-sql-database/discovering-sql-databases.png)
+    ![Backup is pending during search for DBs in VMs](./media/backup-azure-sql-database/discovering-sql-databases.png)
  
-    Once an unprotected virtual machine is discovered, it appears in the list. Multiple virtual machines can have the same name. However, multiple virtual machines with the same name belong to different resource groups. The unprotected virtual machines are listed by their virtual machine name and resource group. If an expected virtual machine is not listed, see if that virtual machine is already protected to a vault.
+    After an unprotected virtual machine is discovered, it appears in the list. Multiple virtual machines can have the same name. However, virtual machines with the same name belong to different resource groups. Unprotected virtual machines are listed by their virtual machine name and resource group. If an expected virtual machine isn't listed, see if that virtual machine's already protected to a vault.
 
-9. From the list of virtual machines, select the checkbox of the virtual machine that contains the SQL databases you want to protect, and click **Discover DBs**.
+9. In the list of virtual machines, select the VM that has the SQL database to back up, and then select **Discover DBs**.
 
-    Azure Backup discovers all SQL databases on the virtual machine. For information about what happens during the database discovery phase, see the following section, [Backend operations when discovering SQL databases](backup-azure-sql-database.md#backend-operations-when-discovering-sql-databases). After discovering the SQL databases, you are ready to [configure the backup job](backup-azure-sql-database.md#configure-your-vault-to-protect-a-sql-database).
+    Azure Backup discovers all SQL databases on the virtual machine. For information about what happens during the database discovery phase, see [Background operations](backup-azure-sql-database.md#background-operations). After the SQL databases are discovered, you're ready to [configure the backup job](backup-azure-sql-database.md#configure-backup-for-sql-server-databases).
 
-### Backend operations when discovering SQL databases
+### Background operations
 
 When you use the **Discover DBs** tool, Azure Backup executes the following operations in the background:
 
-- registers the virtual machine with the Recovery Services vault for workload backup. All databases on the registered virtual machine can only be backed up to this Recovery Services vault. 
+- Register the virtual machine with the Recovery Services vault for workload backup. All databases on the registered virtual machine can be backed up to this Recovery Services vault only. 
 
-- installs the **AzureBackupWindowsWorkload** extension on the virtual machine. Backing up a SQL database is an agentless solution, that is, with the extension installed on the virtual machine, no agent is installed on the SQL database.
+- Install the **AzureBackupWindowsWorkload** extension on the virtual machine. Back up of a SQL database is an agentless solution. The extension is installed on the virtual machine and no agent's installed on the SQL database.
 
-- creates the service account, **NT Service\AzureWLBackupPluginSvc**, on the virtual machine. All backup and restore operations use the service account. **NT Service\AzureWLBackupPluginSvc** needs SQL sysadmin permissions. All SQL Marketplace virtual machines come with the SqlIaaSExtension installed, and AzureBackupWindowsWorkload uses SQLIaaSExtension to automatically get required permissions. If your virtual machine doesn't have SqlIaaSExtension installed, the Discover DB operation fails, and you get the error message, **UserErrorSQLNoSysAdminMembership**. To add the sysadmin permission for backup, follow the instructions in [Setting up Azure Backup permissions for non-marketplace SQL VMs](backup-azure-sql-database.md#set-permissions-for-non--marketplace-sql-vms).
+- Create the service account **NT Service\AzureWLBackupPluginSvc** on the virtual machine. All backup and restore operations use the service account. **NT Service\AzureWLBackupPluginSvc** needs SQL sysadmin permissions. All SQL Marketplace virtual machines come with the **SqlIaaSExtension** installed. The **AzureBackupWindowsWorkload** extension uses the **SQLIaaSExtension** to automatically get the required permissions. If your virtual machine doesn't have the **SqlIaaSExtension** installed, the Discover DB operation fails with the error message `UserErrorSQLNoSysAdminMembership`. To add the sysadmin permission for backup, follow the instructions in [Set up Azure Backup permissions for non-Marketplace SQL VMs](backup-azure-sql-database.md#set-permissions-for-non-marketplace-sql-vms).
 
-    ![select the vm and database](./media/backup-azure-sql-database/registration-errors.png)
+    ![Select the VM and database](./media/backup-azure-sql-database/registration-errors.png)
 
-## Configure backup for SQL Server database
+## Configure backup for SQL Server databases
 
-Azure Backup provides management services to protect your SQL Server databases and manage backup jobs. The management and monitoring capabilities depend on your Recovery Services vault. 
+Azure Backup provides management services to protect your SQL Server databases and manage backup jobs. The management and monitoring functions depend on your Recovery Services vault. 
 
 > [!NOTE]
-> You can have only one backup solution at a time to backup SQL Server databases. Please disable any other SQL backup before using this feature, else backups will interfere and fail. You can enable Azure Backup for IaaS VM along with SQL backup without any conflict 
+> You can have only one backup solution at a time to back up SQL Server databases. Disable all other SQL backups before you use this feature; otherwise, the backups will interfere and fail. You can enable Azure Backup for IaaS VM along with SQL backup without any conflict.
 >
 
-To configure protection for your SQL database:
+To configure protection for a SQL database:
 
-1. Open the Recovery Services vault registered with the SQL virtual machine.
+1. Open the Recovery Services vault that's registered with the SQL virtual machine.
 
-2. In the vault dashboard menu, click **+ Backup** to open the **Backup Goal** menu.
+2. On the **Recovery Services vault** dashboard, select **Backup**. The **Backup Goal** menu opens.
 
-    ![Click + Backup to open the Backup goal menu](./media/backup-azure-sql-database/open-backup-menu.png)
+   ![Select Backup to open the Backup Goal menu](./media/backup-azure-sql-database/open-backup-menu.png)
 
-3. On the **Backup Goal** menu, in the **Where is your workload running?** menu, leave **Azure** as the default.
+3. On the **Backup Goal** menu, set **Where is your workload running** to the default: **Azure**.
 
-4. On the **What do you want to backup** menu, expand the drop-down menu and select **SQL Server in Azure VM**.
+4. Expand the **What do you want to back up** drop-down list box and select **SQL Server in Azure VM**.
 
-    ![Click + Backup to open the Backup goal menu](./media/backup-azure-sql-database/choose-sql-database-backup-goal.png)
+    ![Select SQL Server in Azure VM for the backup](./media/backup-azure-sql-database/choose-sql-database-backup-goal.png)
 
-    Once selected, the **Backup Goal** menu displays two steps: Discover DBs in VMs, and Configure Backup. If you've gone through this article in order, you've already discovered the unprotected virtual machines, and this vault is registered with a virtual machine. You're now ready to configure protection for the SQL databases.
+    The **Backup Goal** menu displays two steps: **Discover DBs in VMs** and **Configure Backup**.
+    
+    If you completed the steps in this article in order, you've discovered the unprotected virtual machines and this vault is registered with a virtual machine. Now you're ready to configure protection for the SQL databases.
+    
+5. On the **Backup Goal** menu, select **Configure Backup**.
 
-5. In the Backup Goal menu, click **Configure Backup**.
+    ![Select Configure Backup](./media/backup-azure-sql-database/backup-goal-configure-backup.png)
 
-    ![Shows the new Backup goal steps](./media/backup-azure-sql-database/backup-goal-configure-backup.png)
-
-    The Azure Backup service displays all SQL instances with standalone databases, as well as SQL AlwaysOn availability groups. To view the standalone databases in the SQL instance, click the chevron next to the instance name to view the databases. The following images show examples of a standalone instance and an Always On availability group.
+    The Azure Backup service displays all SQL Server instances with standalone databases and SQL Server Always On availability groups. To view the standalone databases in the SQL Server instance, select the chevron to the left of the instance name. The following images show examples of a standalone instance and an Always On availability group.
 
     > [!NOTE]
-    > Full and differential backups happen from the primary node, as SQL platform has that limitation. Log backup can happen based on your backup preference. Due to this limitation, the primary node must be registered.
+    > For a SQL Server Always On availability group, the SQL backup preference is honored. But, due to a SQL platform limitation, full and differential backups need to happen from the primary node. Log back up happens according to your backup preference. Due to this limitation, the primary node must always be registered for availability groups.
     >
 
-    ![List of databases in SQL instance](./media/backup-azure-sql-database/discovered-databases.png)
+    ![List of databases in the SQL instance](./media/backup-azure-sql-database/discovered-databases.png)
 
-    Click the chevron next to AlwaysOn availability groups to view the list of databases.
+    Select the chevron to the left of the Always On availability group to view the list of databases.
 
-    ![List of databases in AlwaysOn availability group](./media/backup-azure-sql-database/discovered-database-availability-group.png)
+    ![List of databases in the Always On availability group](./media/backup-azure-sql-database/discovered-database-availability-group.png)
 
-6. From the list of databases, select all that you want to protect, and click **OK**.
+6. In the list of databases, select all of the databases to protect, and then select **OK**.
 
-    ![select multiple databases to protect them](./media/backup-azure-sql-database/select-multiple-database-protection.png)
+    ![Select multiple databases to protect](./media/backup-azure-sql-database/select-multiple-database-protection.png)
 
-    You can select up to 50 databases at one time. If you want to protect more than 50 databases, make multiple passes. After you protect the first 50 databases, repeat this step to protect the next set of databases.
+    Select up to 50 databases at a time. To protect more than 50 databases, make several passes. After you protect the first 50 databases, repeat this step to protect the next set of databases.
+
     > [!Note] 
     > To optimize backup loads, Azure Backup breaks large backup jobs into multiple batches. The maximum number of databases in one backup job is 50.
     >
     >
 
-7. To create or choose a backup policy, in the **Backup** menu, select **Backup policy**, to open the menu.
+7. To create or choose a backup policy, on the **Backup** menu, select **Backup policy**. The **Backup policy** menu opens.
 
-    ![select backup policy option](./media/backup-azure-sql-database/select-backup-policy.png)
+    ![Select Backup policy](./media/backup-azure-sql-database/select-backup-policy.png)
 
-8. From the **Choose backup policy** drop-down menu, choose a backup policy, and click **OK**. For information on creating your own backup policy, see the section, [Define a backup policy](backup-azure-sql-database.md#define-a-backup-policy).
+8. In the **Choose backup policy** drop-down list box, choose a backup policy, and then select **OK**. For information on how to create a backup policy, see [Define a backup policy](backup-azure-sql-database.md#define-a-backup-policy).
 
-    ![choose a backup policy from the drop-down menu](./media/backup-azure-sql-database/select-backup-policy-steptwo.png)
+   > [!NOTE]
+   > During Preview, you can't edit Backup policies. If you want a different policy than what's available in the list, you must create that policy. For information on creating a new backup policy, see the section, [Define a backup policy](backup-azure-sql-database.md#define-a-backup-policy).
 
-    In the Backup policy menu, from the **Choose backup policy** drop-down menu, you can choose: 
-    - the default HourlyLogBackup policy, 
-    - an existing backup policy previously created for SQL,
-    - to [define a new policy](backup-azure-sql-database.md#define-a-backup-policy) based on your recovery point objective (RPO) and retention range. 
+    ![Choose a backup policy from the list](./media/backup-azure-sql-database/select-backup-policy-steptwo.png)
+
+    On the **Backup policy** menu, in the **Choose backup policy** drop-down list box, you can: 
+    - Select the default policy: **HourlyLogBackup**.
+    - Choose an existing backup policy previously created for SQL.
+    - [Define a new policy](backup-azure-sql-database.md#define-a-backup-policy) based on your RPO and retention range. 
 
     > [!Note]
-    > Azure Backup supports long-term retention based on the grandfather-father-son backup scheme to optimize backend storage consumption while meeting compliance needs.
+    > Azure Backup supports long-term retention that's based on the grandfather-father-son backup scheme. The scheme optimizes back-end storage consumption while meeting compliance needs.
     >
 
-9. Once you have chosen a backup policy, in the **Backup menu** click **Enable backup**.
+9. After you choose a backup policy, on the **Backup menu**, select **Enable backup**.
 
-    ![enable the chosen backup policy](./media/backup-azure-sql-database/enable-backup-button.png)
+    ![Enable the chosen backup policy](./media/backup-azure-sql-database/enable-backup-button.png)
 
-    You can track the configuration progress in the Notifications area of the portal.
+    Track the configuration progress in the **Notifications** area of the portal.
 
-    ![view notification area](./media/backup-azure-sql-database/notifications-area.png)
+    ![Notification area](./media/backup-azure-sql-database/notifications-area.png)
 
 
 ### Define a backup policy
 
-A backup policy defines a matrix of when the backups are taken, and how long the backups are retained. You can use Azure Backup to schedule three types of backup for SQL databases:
+A backup policy defines a matrix of when backups are taken and how long they're retained. Use Azure Backup to schedule three types of backup for SQL databases:
 
-* Full backup - A full database backup backs up the entire database. A full backup contains all the data in a specific database or set of filegroups or files, and enough log to recover that data. At most, you can trigger one full backup per day. You can choose to take a full backup on a daily or weekly interval. 
-* Differential backup - A differential backup is based on the most recent, previous full data backup. A differential backup captures only the data that has changed since the full backup. At most, you can trigger one differential backup per day. You cannot configure a full backup and a differential backup on the same day.
-* Transaction log backup - a log backup enables point-in-time restoration up to a specific second. At most, you can configure transactional log backups every 15 minutes.
+* Full backup: A full database backup backs up the entire database. A full backup contains all of the data in a specific database, or a set of filegroups or files, and enough logs to recover that data. At most, you can trigger one full backup per day. You can choose to take a full backup on a daily or weekly interval. 
+* Differential backup: A differential backup is based on the most recent, previous full data backup. A differential backup captures only the data that's changed since the full backup. At most, you can trigger one differential backup per day. You can't configure a full backup and a differential backup on the same day.
+* Transaction log backup: A log backup enables point-in-time restoration up to a specific second. At most, you can configure transactional log backups every 15 minutes.
 
-Policy is created at the Recovery Services vault level. If you have multiple vaults, the vaults can use the same backup policy, but you must apply the backup policy to each vault. When creating a backup policy, the daily, Full Backup is the default. You can add a Differential Backup, but only if you switch Full Backups to occur Weekly. The following procedure explains how to create a backup policy for a SQL server in an Azure virtual machine.
+The policy's created at the Recovery Services vault level. Multiple vaults can use the same backup policy, but you must apply the backup policy to each vault. When you create a backup policy, the daily full backup is the default. You can add a differential backup, but only if you configure full backups to occur weekly. The following procedure explains how to create a backup policy for a SQL Server instance in an Azure virtual machine. 
 
-To create a backup policy
+> [!NOTE]
+> In Preview, you can't edit a Backup policy. Instead, you must create a new policy with the desired details.  
+ 
+To create a backup policy:
 
-1. On the Backup policy menu, from the **Choose backup policy** drop-down menu, select **Create New**.
+1. In the Recovery Services vault that protects the SQL database, click **Backup policies**, and then click **Add**. 
 
-   ![create new backup policy](./media/backup-azure-sql-database/create-new-backup-policy.png)
+   ![Open the create new backup policy dialog](./media/backup-azure-sql-database/new-policy-workflow.png)
 
-    The Backup policy menu switches to provide the fields necessary for any new SQL server backup policy.
+   The **Add** menu appears.
 
-   ![new backup policy fields](./media/backup-azure-sql-database/blank-new-policy.png)
+2. In the **Add** menu, click **SQL Server in Azure VM**.
 
-2. In **Policy name**, provide a name. 
+   ![Choose a policy type for the new backup policy](./media/backup-azure-sql-database/policy-type-details.png)
 
-3. A Full Backup is mandatory. You can accept the default values for the Full Backup, or click **Full Backup** to edit the policy.
+   Selecting SQL Server in Azure VM defines the policy type, and opens the Backup policy menu. The **Backup policy** menu shows the fields that are necessary for a new SQL Server backup policy.
 
-    ![new backup policy fields](./media/backup-azure-sql-database/full-backup-policy.png)
+3. In **Policy name**, enter a name for the new policy.
 
-    Within the Full Backup policy, choose Daily or Weekly for the frequency. If you choose Daily, choose the hour and timezone, when the backup job begins. If you choose Daily Full Backups, you cannot create Differential Backups.
+4. A Full backup is mandatory; you can't turn off the **Full Backup** option. Click **Full Backup** to view and edit the policy. Even if you don't change the Backup policy, you should view the policy details.
 
-   ![daily interval setting](./media/backup-azure-sql-database/daily-interval.png)
+    ![New backup policy fields](./media/backup-azure-sql-database/full-backup-policy.png)
 
-    If you choose Weekly, choose the day of the week, hour and timezone when the backup job begins.
+    In the **Full Backup policy** menu, for **Backup Frequency**, choose **Daily** or **Weekly**. For **Daily**, select the hour and time zone when the backup job begins. You can't create differential backups for daily full backups.
 
-   ![weekly interval setting](./media/backup-azure-sql-database/weekly-interval.png)
+   ![Daily interval setting](./media/backup-azure-sql-database/daily-interval.png)
 
-4. By default, all Retention Range options (daily, weekly, monthly, and yearly) are selected. Uncheck any retention range limit you do not want, and set the intervals to use. In the Full Backup policy menu, click **OK** to accept the settings.
+    For **Weekly**, select the day of the week, hour, and time zone when the backup job begins.
 
-   ![retention range interval setting](./media/backup-azure-sql-database/retention-range-interval.png)
+   ![Weekly interval setting](./media/backup-azure-sql-database/weekly-interval.png)
 
-    Recovery points are tagged for retention, based on their retention range. For example, if you select a daily, Full backup only one Full backup is triggered each day. Depending on your weekly retention, the specific day's backup is tagged and retained based on the weekly retention range. The monthly and yearly retention range behaves similarly.
+5. By default, all **Retention Range** options are selected: daily, weekly, monthly, and yearly. Deselect any undesired retention range limits. Set the intervals to use. In the **Full Backup policy** menu, select **OK** to accept the settings.
 
-5. To add a differential backup policy, click **Differential Backup** to open its menu. 
+   ![Retention range interval settings](./media/backup-azure-sql-database/retention-range-interval.png)
 
-   ![open differential policy](./media/backup-azure-sql-database/backup-policy-menu-choices.png)
+    Recovery points are tagged for retention based on their retention range. For example, if you select a daily full backup, only one full backup is triggered each day. The backup for a specific day is tagged and retained based on the weekly retention range and your weekly retention setting. The monthly and yearly retention ranges behave in a similar way.
 
-    In the Differential Backup policy menu, select **Enable** to open the frequency and retention controls. You can trigger, at most, one differential backup per day.
+6. To add a differential backup policy, select **Differential Backup**. The **Differential Backup policy** menu opens. 
+
+   ![Open the differential backup policy menu](./media/backup-azure-sql-database/backup-policy-menu-choices.png)
+
+    On the **Differential Backup policy** menu, select **Enable** to open the frequency and retention controls. At most, you can trigger one differential backup per day.
+    
     > [!Important] 
-    > At most, differential backups can be retained for 180 days. If you need longer retention, you must use Full backups, you cannot use differential backups.
+    > Differential backups can be retained for a maximum of 180 days. If you need longer retention, you must use full backups.
     >
 
-   ![edit differential policy](./media/backup-azure-sql-database/enable-differential-backup-policy.png)
+   ![Edit the differential backup policy](./media/backup-azure-sql-database/enable-differential-backup-policy.png)
 
-    Click **OK** to save the policy and return to the main Backup Policy menu.
+    Select **OK** to save the policy and return to the main **Backup policy** menu.
 
-6. To add a transactional Log Backup policy, click **Log Backup** to open its menu. In the Log Backup menu, select **Enable**, and set the frequency and retention controls. Log backups can occur as often as every 15 minutes, and can be retained for up to 35 days. Click **OK** to save the policy and return to the main Backup Policy menu.
+7. To add a transactional log backup policy, select **Log Backup**. The **Log Backup** menu opens.
 
-   ![edit log backup policy](./media/backup-azure-sql-database/log-backup-policy-editor.png)
+    In the **Log Backup** menu, select **Enable**, and then set the frequency and retention controls. Log backups can occur as often as every 15 minutes, and can be retained for up to 35 days. Select **OK** to save the policy and return to the main **Backup policy** menu.
 
-7. Choose whether to enable SQL Backup Compression. Compression is disabled by default.
+   ![Edit the log backup policy](./media/backup-azure-sql-database/log-backup-policy-editor.png)
 
-    On the backend, Azure Backup uses SQL native backup compression.
+8. On the **Backup policy** menu, choose whether to enable **SQL Backup Compression**. Compression is disabled by default.
 
-8. When you have made all edits to the Backup policy, click **OK**. 
+    On the back end, Azure Backup uses SQL native backup compression.
 
-   ![differential retention range](./media/backup-azure-sql-database/differential-backup-policy.png)
+9. After you complete the edits to the backup policy, select **OK**. 
+
+   ![Accept the new backup policy](./media/backup-azure-sql-database/backup-policy-click-ok.png)
 
 ## Restore a SQL database
+Azure Backup provides functionality to restore individual databases to a specific date or time (to the second) by using transaction log backups. Azure Backup automatically determines the appropriate full differential and the chain of log backups that are required to restore your data based on your restore times.
 
-Azure Backup provides functionality to restore individual databases to a specific date or time, up to a specific second, using transaction log backups. Based on restore times you provide, Azure Backup automatically determines the appropriate Full, Differential and the chain of log backups required to restore your data.
+You can also select a specific full or differential backup to restore to a specific recovery point, rather than a specific time.
 
-Alternatively, you can select a specific Full or Differential backup to restore to a specific recovery point rather than a specific time.
+### Pre-requisite before triggering a restore
 
-To restore a database
+1. You can restore the database to an instance of a SQL Server in the same Azure region. The destination server must be registered to the same Recovery Services vault as the source.  
+2. To restore a TDE encrypted database to another SQL Server, please first restore the certificate to the destination server by following steps documented [here](https://docs.microsoft.com/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server?view=sql-server-2017).
+3. Before you trigger a restore of the "master" database, start the SQL Server instance in single-user mode with startup option `-m AzureWorkloadBackup`. The argument to the `-m` option is the name of the client. Only this client is allowed to open the connection. For all system databases (model, master, msdb), stop the SQL Agent service before you trigger the restore. Close any applications that might try to steal a connection to any of these databases.
 
-1. Open the Recovery Services vault registered with the SQL virtual machine.
+### Steps to restore a database:
 
-2. In the vault dashboard, select **Usage** Backup Items to open the Backup Items menu.
+1. Open the Recovery Services vault that's registered with the SQL virtual machine.
 
-    ![Click + Backup to open the Backup goal menu](./media/backup-azure-sql-database/restore-sql-vault-dashboard.png).
+2. On the **Recovery Services vault** dashboard, under **Usage**, select **Backup Items** to open the **Backup Items** menu.
 
-3. In the **Backup Items** menu, select the backup management type, **SQL in Azure VM**. 
+    ![Open the Backup Items menu](./media/backup-azure-sql-database/restore-sql-vault-dashboard.png).
 
-    ![Click + Backup to open the Backup goal menu](./media/backup-azure-sql-database/sql-restore-backup-items.png)
+3. On the **Backup Items** menu, under **Backup Management Type**, select **SQL in Azure VM**. 
 
-    The Backup Items list adjusts to show the list of SQL databases. 
+    ![Select SQL in Azure VM](./media/backup-azure-sql-database/sql-restore-backup-items.png)
 
-4. From the list of SQL databases, select the database you want to restore.
+    The **Backup Items** menu shows the list of SQL databases. 
 
-    ![select SQL in Azure VM from list](./media/backup-azure-sql-database/sql-restore-sql-in-vm.png)
+4. In the list of SQL databases, select the database to restore.
 
-    When you select the database, its menu opens. This menu provides the backup details for the database including:
+    ![Select the database to restore](./media/backup-azure-sql-database/sql-restore-sql-in-vm.png)
 
-    * the oldest and latest restore points,
-    * log backup status for the last 24 hours (for databases in Full and Bulk logged recovery model, if configured for transactional log backups)
+    When you select the database, its menu opens. The menu provides the backup details for the database, including:
 
-5. In the selected database menu, click **Restore DB** to open the Restore menu.
+    * The oldest and latest restore points.
+    * Log backup status for the last 24 hours (for databases in full and bulk-logged recovery model, if configured for transactional log backups).
 
-    ![select restore database](./media/backup-azure-sql-database/restore-db-button.png)
+5. On the menu for the selected database, select **Restore DB**. The **Restore** menu opens.
 
-    The **Restore** menu opens, and so does the **Restore Configuration** menu. The **Restore Configuration** menu is the first step in configuring the restoration. In this menu, you select where you want to restore the data. The options are:
-    * Alternate Location - use this option if you want to restore the database to an alternate location while still retaining the original source database.
-    * Overwrite DB - restores the data to the same SQL Server instance as the original source. The effect of this is you overwrite the original database.
+    ![Select Restore DB](./media/backup-azure-sql-database/restore-db-button.png)
+
+    When the **Restore** menu opens, the **Restore Configuration** menu also opens. The **Restore Configuration** menu is the first step to configure the restoration. Use this menu to select where to restore the data. The options are:
+    - **Alternate Location**: Restore the database to an alternate location and retain the original source database.
+    - **Overwrite DB**: Restore the data to the same SQL Server instance as the original source. The effect of this option is to overwrite the original database.
 
     > [!Important]
-    > If the selected database belongs to an Always On availability group, SQL does not allow the database to be overwritten. In this case, only the **Alternate Location** option is enabled.
+    > If the selected database belongs to an Always On availability group, SQL Server doesn't allow the database to be overwritten. In this case, only the **Alternate Location** option is enabled.
     >
 
-    ![click Configure to open Restore configuration menu](./media/backup-azure-sql-database/restore-restore-configuration-menu.png)
+    ![Restore Configuration menu](./media/backup-azure-sql-database/restore-restore-configuration-menu.png)
 
 ### Restore to an alternate location
 
-This procedure walks through restoring data to an alternate location. If you want to overwrite the database when restoring, jump to the section, [Restore and overwrite the database](backup-azure-sql-database.md#restore-and-overwrite-the-database). This procedure assumes you have your Recovery Services vault open, and are at the Restore Configuration menu. If you aren't, start with the section, [Restore a SQL database](backup-azure-sql-database.md#restore-a-sql-database).
+This procedure walks you through restoring data to an alternate location. To overwrite the database during the restore, continue to [Restore and overwrite the database](backup-azure-sql-database.md#restore-and-overwrite-the-database). At this stage, your Recovery Services vault is open and the **Restore Configuration** menu is visible. If you're not at this stage, start by [restoring a SQL database](backup-azure-sql-database.md#restore-a-sql-database).
 
 > [!NOTE]
-> You can restore the database to a SQL Server in the same Azure region and the destination server needs to be registerd to the Recovery Services Vault. 
+> You can restore the database to an instance of a SQL Server in the same Azure region. The destination server needs to be registered to the Recovery Services vault. 
 >
 
-The **Server** drop-down menu only shows the SQL servers registered with the Recovery Services vault. If the server you want is not in the **Server** list, see the section, [Discover SQL server databases](backup-azure-sql-database.md#discover-sql-server-databases) to find the server. During the discovery database process, any new servers are registered to the Recovery Services vault.
+On the **Restore Configuration** menu, the **Server** drop-down list box shows only the SQL Server instances that are registered with the Recovery Services vault. If the server that you want isn't in the list, see [Discover SQL Server databases](backup-azure-sql-database.md#discover-sql-server-databases) to find the server. During the discovery process, new servers are registered to the Recovery Services vault.
 
 1. In the **Restore Configuration** menu:
 
-    * select **Alternate Location**,
-    * for **Server**, choose the SQL server where you want to restore the database.
-    * in the **Instance** drop-down menu, choose a SQL instance
-    * in the **Restored DB Name** dialog, provide the name of the target database.
-    * if applicable, select **Overwrite if the DB with the same name already exists on selected SQL instance**.
-    * click **OK** to complete configuring the destination and move to choosing a restore point.
+    * Under **Where to Restore**, select **Alternate Location**.
+    * Open the **Server** drop-down list box and choose the SQL Server instance to restore the database.
+    * Open the **Instance** drop-down list box and choose a SQL Server instance.
+    * In the **Restored DB Name** box, enter the name of the target database.
+    * As applicable, select **Overwrite if the DB with the same name already exists on selected SQL instance**.
+    * Select **OK** to complete the configuration of the destination and continue to choose a restore point.
 
-    ![select alternate location, instance, and name in Restore configuration menu](./media/backup-azure-sql-database/restore-configuration-menu.png)
+    ![Provide values for the Restore Configuration menu](./media/backup-azure-sql-database/restore-configuration-menu.png)
 
-2. In the **Select restore point** menu, you can choose either a Logs (Point in Time) or Full & Differential restore point. If you want to restore to a specific point-in-time log, continue with this step. If you want to restore a Full or Differential restore point, skip ahead to step 3.
+2. On the **Select restore point** menu, choose **Logs (Point in Time)** or **Full & Differential** as the restore point. To restore to a specific point-in-time log, continue with this step. To restore a full and differential restore point, continue to step 3.
 
-    ![select restore point menu](./media/backup-azure-sql-database/recovery-point-menu.png)
+    ![Select restore point menu](./media/backup-azure-sql-database/recovery-point-menu.png)
 
-    The point in time restore is only available for log backups for databases with Full & Bulk logged recovery model. To restore to a specific point-in-time:
+    The point-in-time restore is available only for log backups for databases with a full and bulk-logged recovery model. To restore to a specific point in time:
 
-    1. Select **Logs (Point in Time)** as the restore option.
+    1. Select **Logs (Point in Time)** as the restore type.
 
-        ![choose restore point type](./media/backup-azure-sql-database/recovery-point-logs.png)
+        ![Choose the restore point type](./media/backup-azure-sql-database/recovery-point-logs.png)
 
-    2. Under **Restore Date/time**, click the calendar icon to open the calendar. Dates in bold contain recovery points, and the current date is highlighted. Select a date on the calendar with recovery points. You cannot select dates with no recovery points.
+    2. Under **Restore Date/Time**, select the mini calendar to open the **Calendar**. On the **Calendar**, the bold dates have recovery points and the current date is highlighted. Select a date with recovery points. Dates without recovery points can't be selected.
 
-        ![open calendar](./media/backup-azure-sql-database/recovery-point-logs-calendar.png)
+        ![Open the Calendar](./media/backup-azure-sql-database/recovery-point-logs-calendar.png)
 
-        Once you select a date, the timeline graph displays the available recovery points in a continuous range.
+        After you select a date, the timeline graph displays the available recovery points in a continuous range.
 
-    3. Using either the timeline graph, or the Time dialog, specify a specific time for the recovery point and click **OK** to complete the Restore Point step.
+    3. Use the timeline graph or the **Time** dialog box to specify a specific time for the recovery point. Select **OK** to complete the restore point step.
     
-       ![open calendar](./media/backup-azure-sql-database/recovery-point-logs-graph.png)
+       ![Open the Calendar](./media/backup-azure-sql-database/recovery-point-logs-graph.png)
 
         The **Select restore point** menu closes, and the **Advanced Configuration** menu opens.
 
-       ![advanced configuration menu](./media/backup-azure-sql-database/restore-point-advanced-configuration.png)
+       ![Advanced configuration menu](./media/backup-azure-sql-database/restore-point-advanced-configuration.png)
 
-    4. From the **Advanced Configuration** menu:
+    4. On the **Advanced Configuration** menu:
 
-        * To keep the database non-operational after restore, on the **Restore with NORECOVERY** menu, select **Enabled**.
-        * If you want to change the restore location on the destination server, provide a new path in the **Target** column.
-        * click **OK** to approve the settings, and close **Advanced Configuration**.
+        * To keep the database non-operational after the restore, set **Restore with NORECOVERY** to **Enabled**.
+        * To change the restore location on the destination server, enter a new path in the **Target** column.
+        * Select **OK** to approve the settings. Close the **Advanced Configuration** menu.
 
-    5. On the **Restore** menu, click **Restore** to start the restore job. In the Notifications area, you can track progress. You can also track the progress in the database Restore jobs.
+    5. On the **Restore** menu, select **Restore** to start the restore job. Track the progress of the restore in the **Notifications** area or select **Restore jobs** on the database menu.
 
-       ![advanced configuration menu](./media/backup-azure-sql-database/restore-job-notification.png)
+       ![Restore job progress](./media/backup-azure-sql-database/restore-job-notification.png)
 
-3. In the **Select restore point** menu, choose a recovery point. You can choose either a Logs (Point in Time) or Full & Differential. If you want to restore a point-in-time log, go back to step 2. This step restores a specific full or Differential restore point. With this option, you can see all Full and Differential recovery points for the last 30 days. If you want to see recovery points older than 30 days, click **Filter** to open the **Filter restore points** menu. If you choose a Differential recovery point, Azure Backup first restores the appropriate Full recovery point, and then applies the selected Differential recovery point.
+3. On the **Select restore point** menu, choose **Logs (Point in Time)** or **Full & Differential** as the restore point. To restore a point-in-time log, go back to step 2. This step restores a specific full or differential restore point. You can see all of the full and differential recovery points for the last 30 days. To see recovery points older than 30 days, select **Filter** to open the **Filter restore points** menu. For a differential recovery point, Azure Backup first restores the appropriate full recovery point, and then applies the selected differential recovery point.
 
-    ![select restore point menu](./media/backup-azure-sql-database/recovery-point-menu.png)
+    ![Select restore point menu](./media/backup-azure-sql-database/recovery-point-menu.png)
 
     1. In the **Select restore point** menu, select **Full & Differential**.
 
-       ![select restore point menu](./media/backup-azure-sql-database/recovery-point-logs-fd.png)
+       ![Select full and differential](./media/backup-azure-sql-database/recovery-point-logs-fd.png)
 
-        The list of available recovery points appears.
+        The menu shows the list of available recovery points.
 
-    2. From the list of recovery points, select a recovery point and click **OK** to complete the Restore Point procedure. 
+    2. Select a recovery point from the list, and select **OK** to complete the restore point procedure. 
 
-        ![choose the full recovery point](./media/backup-azure-sql-database/choose-fd-recovery-point.png)
+        ![Choose a full recovery point](./media/backup-azure-sql-database/choose-fd-recovery-point.png)
 
         The **Restore Point** menu closes, and the **Advanced Configuration** menu opens.
 
-        ![advanced configuration menu](./media/backup-azure-sql-database/restore-point-advanced-configuration.png)
+        ![Advanced Configuration menu](./media/backup-azure-sql-database/restore-point-advanced-configuration.png)
 
-    3. From the **Advanced Configuration** menu:
+    3. On the **Advanced Configuration** menu:
 
-        * To keep the database non-operational after restore, on the **Restore with NORECOVERY** menu, select **Enabled**. **Restore with NORECOVERY** is disabled by default.
-        * If you want to change the restore location on the destination server, provide a new path in the **Target** column.
-        * Click **OK** to approve the settings, and close **Advanced Configuration**.
+        * To keep the database non-operational after the restore, set **Restore with NORECOVERY** to **Enabled**. **Restore with NORECOVERY** is disabled by default.
+        * To change the restore location on the destination server, enter a new path in the **Target** column.
+        * Select **OK** to approve the settings. Close the **Advanced Configuration** menu.
 
-    4. On the **Restore** menu, click **Restore** to start the restore job. In the Notifications area, you can track progress. You can also track the progress in the database Restore jobs.
+    4. On the **Restore** menu, select **Restore** to start the restore job. Track the progress of the restore in the **Notifications** area or select **Restore jobs** on the database menu.
 
-       ![advanced configuration menu](./media/backup-azure-sql-database/restore-job-notification.png)
+       ![Restore job progress](./media/backup-azure-sql-database/restore-job-notification.png)
 
 ### Restore and overwrite the database
 
-This procedure walks through restoring data and overwriting the database. If you want to restore to an alternate location, jump to the section, [Restore to an alternate location](backup-azure-sql-database.md#restore-to-an-alternate-location). This procedure assumes you have your Recovery Services vault open, and are at the **Restore Configuration** menu (see the following image). If you aren't, start with the section, [Restore a SQL database](backup-azure-sql-database.md#restore-a-sql-database).
+This procedure walks you through restoring data and overwriting a database. To restore to an alternate location, continue to [Restore to an alternate location](backup-azure-sql-database.md#restore-to-an-alternate-location). At this stage, your Recovery Services vault is open and the **Restore Configuration** menu is visible (see the following image). If you're not at this stage, start by [restoring a SQL database](backup-azure-sql-database.md#restore-a-sql-database).
 
-![click Configure to open Restore configuration menu](./media/backup-azure-sql-database/restore-overwrite-db.png)
+![Restore Configuration menu](./media/backup-azure-sql-database/restore-overwrite-db.png)
 
-The **Server** drop-down menu only shows the SQL servers registered with the Recovery Services vault. If the server you want is not in the **Server** list, see the section, [Discover SQL server databases](backup-azure-sql-database.md#discover-sql-server-databases) to find the server. During the discovery database process, any new servers are registered to the Recovery Services vault.
+On the **Restore Configuration** menu, the **Server** drop-down list box shows only the SQL Server instances that are registered with the Recovery Services vault. If the server that you want isn't in the list, see [Discover SQL Server databases](backup-azure-sql-database.md#discover-sql-server-databases) to find the server. During the discovery process, new servers are registered to the Recovery Services vault.
 
-1. In the **Restore Configuration** menu, select **Overwrite DB** and click **OK** to complete configuring the destination. 
+1. In the **Restore Configuration** menu, select **Overwrite DB**, and then select **OK** to complete the configuration of the destination. 
 
-   ![click Overwrite DB](./media/backup-azure-sql-database/restore-configuration-overwrite-db.png)
+   ![Select Overwrite DB](./media/backup-azure-sql-database/restore-configuration-overwrite-db.png)
 
-    The **Server**, **Instance**, and **Restored DB Name** dialogs are not necessary.
+    The **Server**, **Instance**, and **Restored DB Name** settings aren't necessary.
 
-2. In the **Select restore point** menu, you can choose either a Logs (Point in Time) or Full & Differential restore point. If you want to restore a point-in-time log, continue with this step. If you want to restore a Full & Differential restore point, skip ahead to step 3.
+2. On the **Select restore point** menu, choose **Logs (Point in Time)** or **Full & Differential** as the restore point. To restore to a specific point-in-time log, continue with this step. To restore a full and differential restore point, continue to step 3.
 
     ![select restore point menu](./media/backup-azure-sql-database/recovery-point-menu.png)
 
-    The point in time restore is only available for log backups for databases with Full & Bulk logged recovery model. To choose a point in time restore to a specific second:
+    The point-in-time restore is available only for log backups for databases with a full and bulk-logged recovery model. To restore to a specific second:
 
-    1. Select **Logs (Point in Time)** as the restore option.
+    1. Select **Logs (Point in Time)** as the restore point.
 
-        ![choose restore point type](./media/backup-azure-sql-database/recovery-point-logs.png)
+        ![Choose the restore point type](./media/backup-azure-sql-database/recovery-point-logs.png)
 
-    2. Under **Restore Date/time**, click the calendar icon to open the calendar. Dates in bold contain recovery points, and the current date is highlighted. Select a date on the calendar with recovery points. You cannot select dates with no recovery points.
+    2. Under **Restore Date/Time**, select the mini calendar to open the **Calendar**. On the **Calendar**, the bold dates have recovery points and the current date is highlighted. Select a date with recovery points. Dates without recovery points can't be selected.
 
-        ![open calendar](./media/backup-azure-sql-database/recovery-point-logs-calendar.png)
+        ![Open the Calendar](./media/backup-azure-sql-database/recovery-point-logs-calendar.png)
 
-        Once you select a date, the timeline graph displays the available recovery points.
+        After you select a date, the timeline graph displays the available recovery points.
 
-    3. Using either the timeline graph, or the Time dialog, specify a specific time for the recovery point and click **OK** to complete the Restore Point step.
+    3. Use the timeline graph or the **Time** dialog box to specify a specific time for the recovery point. Select **OK** to complete the restore point step.
     
-       ![open calendar](./media/backup-azure-sql-database/recovery-point-logs-graph.png)
+       ![Open the Calendar](./media/backup-azure-sql-database/recovery-point-logs-graph.png)
 
         The **Select restore point** menu closes, and the **Advanced Configuration** menu opens.
 
-       ![advanced configuration menu](./media/backup-azure-sql-database/restore-point-advanced-configuration.png)
+       ![Advanced configuration menu](./media/backup-azure-sql-database/restore-point-advanced-configuration.png)
 
-    4. From the **Advanced Configuration** menu:
+    4. On the **Advanced Configuration** menu:
 
-        * To keep the database non-operational after restore, on the **Restore with NORECOVERY** menu, select **Enabled**.
-        * If you want to change the restore location on the destination server, provide a new path in the **Target** column.
-        * click **OK** to approve the settings, and close **Advanced Configuration**.
+        * To keep the database non-operational after the restore, set **Restore with NORECOVERY** to **Enabled**.
+        * To change the restore location on the destination server, enter a new path in the **Target** column.
+        * Select **OK** to approve the settings. Close the **Advanced Configuration** menu.
 
-    5. On the **Restore** menu, click **Restore** to start the restore job. In the Notifications area, you can track progress. You can also track the progress in the database Restore jobs.
+    5. On the **Restore** menu, select **Restore** to start the restore job. Track the progress of the restore in the **Notifications** area or select **Restore jobs** on the database menu.
 
-       ![advanced configuration menu](./media/backup-azure-sql-database/restore-job-notification.png)
+       ![Restore job progress](./media/backup-azure-sql-database/restore-job-notification.png)
 
-3. In the **Select restore point** menu, choose a recovery point. You can choose either a Logs (Point in Time) or Full & Differential. If you want to restore a point-in-time log, go back to step 2. This step restores a specific full or Differential restore point. With this option, you can see all Full and Differential recovery points for the last 30 days. If you want to see recovery points older than 30 days, click **Filter** to open the **Filter restore points** menu. If you choose a Differential recovery point, Azure Backup first restores the appropriate Full recovery point, and then applies the selected Differential recovery point.
+3. On the **Select restore point** menu, choose **Logs (Point in Time)** or **Full & Differential** as the restore point. To restore a point-in-time log, go back to step 2. This step restores a specific full or differential restore point. You can see all of the full and differential recovery points for the last 30 days. To see recovery points older than 30 days, select **Filter** to open the **Filter restore points** menu. For a differential recovery point, Azure Backup first restores the appropriate full recovery point, and then applies the selected differential recovery point.
 
-    ![select restore point menu](./media/backup-azure-sql-database/recovery-point-menu.png)
+    ![Select restore point menu](./media/backup-azure-sql-database/recovery-point-menu.png)
 
     1. In the **Select restore point** menu, select **Full & Differential**.
 
-       ![select restore point menu](./media/backup-azure-sql-database/recovery-point-logs-fd.png)
+       ![Select full and differential](./media/backup-azure-sql-database/recovery-point-logs-fd.png)
 
-        The list of available recovery points appears.
+        The menu shows the list of available recovery points.
 
-    2. From the list of recovery points, select a recovery point and click **OK** to complete the Restore Point procedure. 
+    2. Select a recovery point from the list, and select **OK** to complete the restore point procedure. 
 
-        ![choose the full recovery point](./media/backup-azure-sql-database/choose-fd-recovery-point.png)
+        ![Choose a full recovery point](./media/backup-azure-sql-database/choose-fd-recovery-point.png)
 
         The **Restore Point** menu closes, and the **Advanced Configuration** menu opens.
 
-        ![advanced configuration menu](./media/backup-azure-sql-database/restore-point-advanced-configuration.png)
+        ![Advanced Configuration menu](./media/backup-azure-sql-database/restore-point-advanced-configuration.png)
 
-    3. From the **Advanced Configuration** menu:
+    3. On the **Advanced Configuration** menu:
 
-        * To keep the database non-operational after restore, on the **Restore with NORECOVERY** menu, select **Enabled**. **Restore with NORECOVERY** is disabled by default.
-        * If you want to change the restore location on the destination server, provide a new path in the **Target** column.
-        * Click **OK** to approve the settings, and close **Advanced Configuration**.
+        * To keep the database non-operational after the restore, set **Restore with NORECOVERY** to **Enabled**. **Restore with NORECOVERY** is disabled by default.
+        * To change the restore location on the destination server, enter a new path in the **Target** column.
+        * Select **OK** to approve the settings. Close the **Advanced Configuration** menu.
 
-    4. On the **Restore** menu, click **Restore** to start the restore job. In the Notifications area, you can track progress. You can also track the progress in the database Restore jobs.
+    4. On the **Restore** menu, select **Restore** to start the restore job. Track the progress of the restore in the **Notifications** area or by selecting **Restore jobs** on the database menu.
 
-       ![advanced configuration menu](./media/backup-azure-sql-database/restore-job-notification.png)
-
+       ![Restore job progress](./media/backup-azure-sql-database/restore-job-notification.png)
 
 ## Manage Azure Backup operations for SQL on Azure VMs
 
-This section provides information about the various Azure Backup management operations available for SQL on Azure virtual machines. The following high-level operations exist:
+This section provides information about the various Azure Backup management operations that are available for SQL on Azure virtual machines. The following high-level operations exist:
 
-* Monitor Jobs
-* Backup Alerts
+* Monitor jobs
+* Backup alerts
 * Stop protection on a SQL database
 * Resume protection for a SQL database
-* Trigger an adhoc Backup job
-* Unregister a SQL server
+* Trigger an adhoc backup job
+* Unregister a server that's running SQL Server
 
-### Monitor Jobs
-Azure Backup being an Enterprise class solution provides advanced Backup alerts and notification for any failures (refer to Backup Alerts section below). If you still want to monitor specific jobs you can use any of the following options based on your requirement:
+### Monitor backup jobs
+Azure Backup is an enterprise class solution that provides advanced backup alerts and notifications for any failures. (See [View backup alerts](backup-azure-sql-database.md#view-backup-alerts).) To monitor specific jobs, use any of the following options according to your requirements.
 
-#### Using Azure portal -> Recovery Services Vault for all ad-hoc operations
-Azure Backup shows all manually triggered, or adhoc, jobs in the Backup jobs portal. The jobs available in the portal include: all configure backup operations, manually triggered backup operations, restore operations, registration and discover database operations, and stop backup operations. 
-![advanced configuration menu](./media/backup-azure-sql-database/jobs-list.png)
+#### Use the Azure portal for adhoc operations
+Azure Backup shows all manually triggered, or adhoc, jobs in the **Backup jobs** portal. The jobs that are available in the **Backup jobs** portal include:
+- All configure backup operations.
+- Manually triggered backup operations.
+- Restore operations.
+- Registration and discover database operations.
+- Stop backup operations. 
+
+![Backup jobs portal](./media/backup-azure-sql-database/jobs-list.png)
 
 > [!NOTE]
-> All scheduled backup jobs including Full, Differential and Log backup will not be shown in the portal and can be monitored using SQL Server Management Studio as described below.
+> All scheduled backup jobs, including full, differential, and log backup, aren't shown in the **Backup jobs** portal. Use SQL Server Management Studio to monitor scheduled backup jobs, as described in the next section.
 >
 
-#### Using SQL Server Management Studio (SSMS) for backup jobs
-Azure Backup uses SQL native APIs for all backup operations. Using the native APIs, you can fetch all job information from the [SQL backupset table](https://docs.microsoft.com/sql/relational-databases/system-tables/backupset-transact-sql?view=sql-server-2017) in the msdb database. 
+#### Use SQL Server Management Studio for backup jobs
+Azure Backup uses SQL native APIs for all backup operations. Use the native APIs to fetch all job information from the [SQL backupset table](https://docs.microsoft.com/sql/relational-databases/system-tables/backupset-transact-sql?view=sql-server-2017) in the msdb database.
 
-You can use the below query as an example to fetch all backup jobs for a specific database with name "DB1". You can customize the below query for more advanced monitoring.
+The following example is a query that fetches all backup jobs for a database named **DB1**. Customize the query for advanced monitoring.
+
 ```
 select CAST (
 Case type
@@ -642,109 +674,155 @@ backup_size AS BackupSizeInBytes
  
 ```
 
-### Backup Alerts
+### View backup alerts
 
-With log backups occurring every 15 minutes, occasionally monitoring the backup jobs can be tedious. Azure Backup planned for this potentially tedious situation by providing email alerts triggered by any backup failure. Alerts are consolidated at the database level by error code. For example, if a database has multiple backup failures, instead of receiving an alert for each failure, you receive email for the first failure. You can then sign into the Azure portal to monitor subsequent failures for that database. 
+Because log backups occur every 15 minutes, occasionally, monitoring backup jobs can be tedious. Azure Backup provides help in this situation. Email alerts are triggered for all backup failures. Alerts are consolidated at the database level by error code. An email alert is sent only for the first backup failure for a database. Sign in to the Azure portal to monitor all failures for a database. 
 
 To monitor backup alerts:
 
-1. Sign into your Azure subscription in the [Azure portal](https://portal.azure.com).
+1. Sign in to your Azure subscription in the [Azure portal](https://portal.azure.com).
 
-2. Open the Recovery Services vault registered with the SQL virtual machine.
+2. Open the Recovery Services vault that's registered with the SQL virtual machine.
 
-3. In the Recovery Services vault menu, select **Alerts and Events**. 
+3. On the **Recovery Services vault** dashboard, select **Alerts and Events**. 
 
-   ![advanced configuration menu](./media/backup-azure-sql-database/vault-menu-alerts-events.png)
+   ![Select Alerts and Events](./media/backup-azure-sql-database/vault-menu-alerts-events.png)
 
-4. In the **Alerts and Events** menu, select **Backup Alerts** to view the list of alerts.
+4. On the **Alerts and Events** menu, select **Backup Alerts** to view the list of alerts.
 
-   ![advanced configuration menu](./media/backup-azure-sql-database/backup-alerts-dashboard.png)
+   ![Select Backup Alerts](./media/backup-azure-sql-database/backup-alerts-dashboard.png)
 
-### Stop protection on a SQL Server database
+### Stop protection for a SQL Server database
 
-If you stop protecting a SQL Server database, Azure Backup asks if you want to retain the recovery points. There are two ways to stop protecting SQL database:
+When you stop protection for a SQL Server database, Azure Backup requests whether to retain the recovery points. There are two ways to stop protection for a SQL database:
 
-* Stop all future backup jobs and delete all recovery points,
-* Stop all future backup jobs, but leave the recovery points 
+* Stop all future backup jobs and delete all recovery points.
+* Stop all future backup jobs, but leave the recovery points.
 
-Leaving the recovery points carries a cost as the recovery points for SQL carry the SQL protected instance pricing charge, plus the storage consumed. For more information about Azure Backup pricing for SQL, see the [Azure Backup pricing page](https://azure.microsoft.com/pricing/details/backup/). To stop protection for the database:
+There's a cost to leave the recovery points. The recovery points for SQL incur the SQL protected instance pricing charge, plus the storage consumed. For more information about Azure Backup pricing for SQL, see the [Azure Backup pricing page](https://azure.microsoft.com/pricing/details/backup/). 
 
-1. Open the Recovery Services vault registered with the SQL virtual machine.
+To stop protection for a database:
 
-2. In the vault dashboard, select **Usage** Backup Items to open the Backup Items menu.
+1. Open the Recovery Services vault that's registered with the SQL virtual machine.
 
-    ![Click + Backup to open the Backup goal menu](./media/backup-azure-sql-database/restore-sql-vault-dashboard.png).
+2. On the **Recovery Services vault** dashboard, under **Usage**, select **Backup Items** to open the **Backup Items** menu.
 
-3. In the **Backup Items** menu, select the backup management type, **SQL in Azure VM**. 
+    ![Open the Backup Items menu](./media/backup-azure-sql-database/restore-sql-vault-dashboard.png).
 
-    ![Click + Backup to open the Backup goal menu](./media/backup-azure-sql-database/sql-restore-backup-items.png)
+3. On the **Backup Items** menu, under **Backup Management Type**, select **SQL in Azure VM**. 
 
-    The Backup Items list adjusts to show the list of SQL databases. 
+    ![Select SQL in Azure VM](./media/backup-azure-sql-database/sql-restore-backup-items.png)
 
-4. From the list of SQL databases, select the database you want to stop protecting.
+    The **Backup Items** menu shows the list of SQL databases. 
 
-    ![select SQL in Azure VM from list](./media/backup-azure-sql-database/sql-restore-sql-in-vm.png)
+4. In the list of SQL databases, select the database to stop protection.
 
-    When you select the database, its menu opens. 
+    ![Select the database to stop protection](./media/backup-azure-sql-database/sql-restore-sql-in-vm.png)
 
-5. In the selected database menu, click **Stop backup** to stop protecting the database.
+    When you select the database, its menu opens.
 
-    ![select restore database](./media/backup-azure-sql-database/stop-db-button.png)
+5. On the menu for the selected database, select **Stop backup**. 
+
+    ![Select Stop backup](./media/backup-azure-sql-database/stop-db-button.png)
 
     The **Stop Backup** menu opens.
 
-6. In the **Stop Backup** menu, choose to Retain Backup Data, or Delete Backup Data. Optionally, you can provide a reason for stopping protection, and a comment.
+6. On the **Stop Backup** menu, choose to **Retain Backup Data** or **Delete Backup Data**. As an option, provide a reason for stopping the protection and a comment.
 
-    ![select restore database](./media/backup-azure-sql-database/stop-backup-button.png)
+    ![Stop Backup menu](./media/backup-azure-sql-database/stop-backup-button.png)
 
-7. Click **Stop backup** to stop protection on the database. 
+7. Select **Stop backup** to stop protection on the database. 
 
 ### Resume protection for a SQL database
 
-If the **Retain Backup Data** option was selected when stopping protection for the SQL database, it is possible to resume protection. If the backup data was not retained, protection cannot resume. 
+If the **Retain Backup Data** option was selected when protection for the SQL database was stopped, you can resume protection. If the backup data wasn't retained, protection can't resume. 
 
-1. To resume protection for the SQL database, open the backup item and click **Resume Backup**.
+1. To resume protection for the SQL database, open the backup item and select **Resume backup**.
 
-    ![resume database protection](./media/backup-azure-sql-database/resume-backup-button.png)
+    ![Select Resume backup to resume database protection](./media/backup-azure-sql-database/resume-backup-button.png)
 
-   The Backup Policy menu opens.
+   The **Backup policy** menu opens.
 
-2. From the **Backup Policy** menu, select a policy, and click **Save**.
+2. On the **Backup policy** menu, select a policy, and then select **Save**.
 
 ### Trigger an adhoc backup
 
-You can trigger an adhoc backup whenever you want. There are four types of adhoc backups. For details on each type, see the article, [Types of SQL backups](https://docs.microsoft.com/sql/relational-databases/backup-restore/backup-overview-sql-server?view=sql-server-2017#types-of-backups).
+Trigger adhoc backups as needed. There are four types of adhoc backups:
 
 * Full backup
-* Copy Only Full Backup
-* Differential Backup
-* Log Backup
+* Copy-only full backup
+* Differential backup
+* Log backup
 
-### Unregister a SQL Server
+For details on each type, see [Types of SQL backups](https://docs.microsoft.com/sql/relational-databases/backup-restore/backup-overview-sql-server?view=sql-server-2017#types-of-backups).
 
-To unregister a SQL server after removing protection, but before deleting the vault
+### Unregister a SQL Server instance
 
-1. Open the Recovery Services vault registered with the SQL virtual machine.
+To unregister a SQL Server instance after you remove protection, but before you delete the vault:
 
-2. In the **Manage** section of the vault menu, click **Backup Infrastructure**.  
+1. Open the Recovery Services vault that's registered with the SQL virtual machine.
 
-   ![resume database protection](./media/backup-azure-sql-database/backup-infrastructure-button.png)
+2. On the **Recovery Services vault** dashboard, under  **Manage**, select **Backup Infrastructure**.  
 
-3. In the **Management Servers** section, click **Protected Servers**.
+   ![Select Backup Infrastructure](./media/backup-azure-sql-database/backup-infrastructure-button.png)
 
-   ![resume database protection](./media/backup-azure-sql-database/protected-servers.png)
+3. Under **Management Servers**, select **Protected Servers**.
 
-    The Protected Servers menu opens. 
+   ![Select Protected Servers](./media/backup-azure-sql-database/protected-servers.png)
 
-4. In the **Protected Servers** menu, select the server you want to unregister. IF you want to delete the vault, you must unregister all servers.
+    The **Protected Servers** menu opens. 
 
-5. In the Protected Servers menu, right-click the protected server, and select **Delete**. 
+4. On the **Protected Servers** menu, select the server to unregister. To delete the vault, you must unregister all servers.
 
-   ![resume database protection](./media/backup-azure-sql-database/delete-protected-server.png)
+5. On the **Protected Servers** menu, right-click the protected server, and select **Delete**. 
+
+   ![Select Delete](./media/backup-azure-sql-database/delete-protected-server.png)
+
+## FAQ
+
+The following section provides additional information about SQL database backup.
+
+### Can I throttle the speed of the SQL Server backup policy?
+
+Yes. You can throttle the rate at which the backup policy executes to minimize the impact on a SQL Server instance.
+
+To change the setting:
+
+1. On the SQL Server instance, in the C:\Program Files\Azure Workload Backup\bin folder, open the **TaskThrottlerSettings.json** file.
+
+2. In the TaskThrottlerSettings.json file, change the **DefaultBackupTasksThreshold** setting to a lower value (for example, 5).
+
+3. Save your changes. Close the file.
+
+4. On the SQL Server instance, open **Task Manager**. Restart the **Azure Backup Workload Coordinator Service**.
+
+### Can I run a full backup from a secondary replica?
+
+No. This feature isn't supported.
+
+### Do successful backup jobs create alerts?
+
+No. Successful backup jobs don't generate alerts. Alerts are sent only for backup jobs that fail.
+
+### Can I see details for scheduled backup jobs in the Jobs menu?
+
+No. The **Backup Jobs** menu shows adhoc job details, but not scheduled backup jobs. If any scheduled backup jobs fail, the details are available in the failed job alerts. To monitor all scheduled and adhoc backup jobs, use [SQL Server Management Studio](backup-azure-sql-database.md#use-sql-server-management-studio-for-backup-jobs).
+
+### When I select a SQL Server instance are future databases automatically added?
+
+No. When you configure protection for a SQL Server instance, if you select the server level option, all databases are added. If you add databases to a SQL Server instance after you configure protection, you must manually add the new databases to protect them. The databases aren't automatically included in the configured protection.
+
+### If I change the recovery model, how do I restart protection?
+
+Trigger a full backup. Log backups begin as expected.
+
+### Can I protect SQL Always On Availability Groups where the primary replica is on premises
+
+No. Azure Backup protects SQL Servers running in Azure. If an Availability Group (AG) is spread between Azure and on-premises machines, the AG can be protected only if the primary replica is running in Azure. Additionally, Azure Backup only protects the nodes running in the same Azure region as the Recovery Services vault.
 
 ## Next steps
 
-To learn more about Azure Backup, see the PowerShell sample for backing up encrypted virtual machines.
+To learn more about Azure Backup, see the Azure PowerShell sample to back up encrypted virtual machines.
 
 > [!div class="nextstepaction"]
-> [Back up encrypted VM](./scripts/backup-powershell-sample-backup-encrypted-vm.md)
+> [Back up an encrypted VM](./scripts/backup-powershell-sample-backup-encrypted-vm.md)

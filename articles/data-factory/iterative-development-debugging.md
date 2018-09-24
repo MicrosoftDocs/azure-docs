@@ -53,7 +53,7 @@ To set a breakpoint, select an element on the pipeline canvas. A *Debug Until* o
 
 ![Before setting a breakpoint on the selected element](media/iterative-development-debugging/iterative-development-image5.png)
 
-After you select the *Debug Until* option, it changes to a filled red circle to indicate the the breakpoint is enabled.
+After you select the *Debug Until* option, it changes to a filled red circle to indicate the breakpoint is enabled.
 
 ![After setting a breakpoint on the selected element](media/iterative-development-debugging/iterative-development-image6.png)
 

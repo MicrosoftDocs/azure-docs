@@ -7,7 +7,7 @@ manager: rochakm
 
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 07/06/2018
 ms.author: sutalasi
 ---
 

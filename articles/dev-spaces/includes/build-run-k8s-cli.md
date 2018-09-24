@@ -5,11 +5,11 @@ ms.custom: "include file"
 services: azure-dev-spaces
 ms.service: "azure-dev-spaces"
 ms.component: "azds-kubernetes"
-author: "ghogen"
-ms.author: "ghogen"
+author: ghogen
+ms.author: ghogen
 ms.date: "05/11/2018"
 ms.topic: "include"
-manager: "douge"
+manager: douge
 ---
 ## Build and run code in Kubernetes
 Let's run our code! In the terminal window, run this command from the **root code folder**, webfrontend:
@@ -31,7 +31,10 @@ Keep an eye on the command's output, you'll notice several things as it progress
 ### Test the web app
 Scan the console output for information about the public URL that was created by the `up` command. It will be in the form: 
 
-`Service 'webfrontend' port 'http' is available at <url>` 
+```
+(pending registration) Service 'webfrontend' port 'http' will be available at <url>
+Service 'webfrontend' port 80 (TCP) is available at http://localhost:<port>
+```
 
 Open this URL in a browser window, and you should see the web app load. As the container executes, `stdout` and `stderr` output is streamed to the terminal window.
 

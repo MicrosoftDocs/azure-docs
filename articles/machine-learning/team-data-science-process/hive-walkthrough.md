@@ -74,7 +74,7 @@ Determine the kind of predictions you want to make based on data analysis. This 
 
 You can set up an Azure environment for advanced analytics that employs an HDInsight cluster in three steps:
 
-1. [Create a storage account](../../storage/common/storage-create-storage-account.md): This storage account is used for storing data in Azure Blob storage. The data used in HDInsight clusters also resides here.
+1. [Create a storage account](../../storage/common/storage-quickstart-create-account.md): This storage account is used for storing data in Azure Blob storage. The data used in HDInsight clusters also resides here.
 2. [Customize Azure HDInsight Hadoop clusters for the Advanced Analytics Process and Technology](customize-hadoop-cluster.md). This step creates an HDInsight Hadoop cluster with 64-bit Anaconda Python 2.7 installed on all nodes. There are two important steps to remember while customizing your HDInsight cluster.
    
    * Remember to link the storage account created in step 1 with your HDInsight cluster when you are creating it. This storage account accesses data that is processed within the cluster.
@@ -827,7 +827,7 @@ This sample walkthrough and its accompanying scripts are shared by Microsoft und
 ## References
 •    [Andrés Monroy NYC Taxi Trips Download Page](http://www.andresmh.com/nyctaxitrips/)  
 •    [FOILing NYC’s Taxi Trip Data by Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/)   
-•    [NYC Taxi and Limousine Commission Research and Statistics](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
+•    [NYC Taxi and Limousine Commission Research and Statistics](http://www.nyc.gov/html/tlc/html/technology/aggregated_data.shtml)
 
 [2]: ./media/hive-walkthrough/output-hive-results-3.png
 [11]: ./media/hive-walkthrough/hive-reader-properties.png

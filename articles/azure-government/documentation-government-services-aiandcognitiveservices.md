@@ -55,11 +55,11 @@ Emotion API is being deprecated and all of its technology has been incorporated 
  
 ##### Translator Speech API (Speech Translation): 
 The following variations exist for Translator Speech API from Commercial Azure:
-- Endpoint: https://dev.microsofttranslator.us
+- Endpoint: https://docs.microsoft.com/azure/cognitive-services/translator-speech/
 - Auth Token Service: https://virginia.api.cognitive.microsoft.us/sts/v1.0/issueToken
 - Available SKUs: F0, S1, S2, S3, S4
  
-For more information, please see [public documentation](../cognitive-services/Speech/Home.md) and [public API documentation](http://docs.microsofttranslator.com/speech-translate.html) for Bing Speech API.
+For more information, please see [public documentation](../cognitive-services/Speech/Home.md) and [public API documentation](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference) for Bing Speech API.
  
 #### Language
  
@@ -70,7 +70,7 @@ The following variations exist for Translator Text API from Commercial Azure:
 - Available SKUs: F0, S1, S2, S3, S4
 - Translator Hub, Web Widget, and Collaboration Translation Framework (CTF) are not supported.
  
-For more information, please see [public documentation](../cognitive-services/translator/translator-info-overview.md) and [public API documentation](http://docs.microsofttranslator.com/text-translate.html) for Translator Text API.
+For more information, please see [public documentation](../cognitive-services/translator/translator-info-overview.md) and [public API documentation](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference) for Translator Text API.
 
 
 ### Data Considerations

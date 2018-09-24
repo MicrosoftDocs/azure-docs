@@ -3,7 +3,7 @@ title: Get started with the Azure WebJobs SDK
 description: Introduction to the WebJobs SDK for event-driven background processing. Learn how to access data in Azure services and third-party services.
 services: app-service\web, storage
 documentationcenter: .net
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: 
 
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
-ms.author: tdykstra
+ms.author: glenga
 ---
 
 # Get started with the Azure WebJobs SDK for event-driven background processing
@@ -42,10 +42,7 @@ public static void Run(
 
 ### Versions 2.x and 3.x
 
-The instructions tell how to create a WebJobs SDK version 2.x project, with notes about what's different for 3.x (in preview). The main change introduced by 3.x is the use of .NET Core instead of .NET Framework.
-
-> [!NOTE]
-> 3.x is in preview and is under development, and the 3.x instructions in this article are out of date. For the latest information, see the GitHub issues at the bottom of the page.
+The instructions tell how to create a WebJobs SDK version 2.x project. The latest version of the WebJobs SDK is 3.x, but it is currently in preview and this article doesn't have instructions for that version yet. The main change introduced by version 3.x is the use of .NET Core instead of .NET Framework.
 
 ### Azure Functions
 
@@ -62,20 +59,15 @@ This article assumes you have [an Azure account](https://azure.microsoft.com/fre
 
 1. In Visual Studio, select **File > New project**.
 
-2. Select **Windows Classic Desktop > Console App (.NET Framework)**.
+1. Select **Windows Classic Desktop > Console App (.NET Framework)**.
 
-   To create a 3.x project, select **.NET Core > Console App (.NET Core)**.
-   
-   > [!NOTE]
-   > 3.x is in preview and is under development, and the 3.x instructions in this article are out of date. For the latest information, see the GitHub issues at the bottom of the page.
-
-3. Name the project *WebJobsSDKSample*, and then select **OK**.
+1. Name the project *WebJobsSDKSample*, and then select **OK**.
 
    ![New Project dialog](./media/webjobs-sdk-get-started/new-project.png)
 
 ## Add WebJobs NuGet package
 
-1. Install the latest stable 2.x version of the NuGet package `Microsoft.Azure.WebJobs`. (For WebJobs SDK 3.x, you would choose the latest 3.x version.)
+1. Install the latest stable 2.x version of the NuGet package `Microsoft.Azure.WebJobs`.
  
    Here's the **Package Manager Console** command for version 2.2.0:
 
@@ -106,7 +98,7 @@ The `JobHost` object is the runtime container for functions: it listens for trig
 
 ## Enable console logging
 
-There are several options for logging in WebJobs SDK project. The one we recommend is the [logging framework that was developed for ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging). This framework offers better performance and more flexibility in storage media and filtering. 
+There are several options for logging in WebJobs SDK project. The one we recommend is the [logging framework that was developed for ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging). This framework offers better performance and more flexibility in storage media and filtering. 
 
 In this section, you set up console logging that uses the new framework.
 
@@ -125,13 +117,13 @@ In this section, you set up console logging that uses the new framework.
    Install-Package Microsoft.Extensions.Logging.Console -version 2.0.1
    ``` 
 
-2. In *Program.cs*, add a `using` statement:
+1. In *Program.cs*, add a `using` statement:
 
    ```cs
    using Microsoft.Extensions.Logging;
    ```
 
-3. In the `Main` method, add code to update the `JobHostConfiguration` before creating the `JobHost`:
+1. In the `Main` method, add code to update the `JobHostConfiguration` before creating the `JobHost`:
  
    ```
    config.DashboardConnectionString = "";
@@ -194,9 +186,9 @@ The Azure Storage emulator that runs locally doesn't have all of the features th
 
    ![Create Storage account menu](./media/webjobs-sdk-get-started/create-storage-account-menu.png)
 
-2. In the **Create Storage Account** dialog box, enter a unique name for the storage account.
+1. In the **Create Storage Account** dialog box, enter a unique name for the storage account.
 
-3. Choose the same **Region** that you created your App Service app in, or a region close to you.
+1. Choose the same **Region** that you created your App Service app in, or a region close to you.
 
 1. Select **Create**.
 
@@ -206,7 +198,7 @@ The Azure Storage emulator that runs locally doesn't have all of the features th
 
    ![Connection String ellipsis](./media/webjobs-sdk-get-started/conn-string-ellipsis.png)
 
-2. Copy the connection string, and save this value somewhere that you can copy it again readily.
+1. Copy the connection string, and save this value somewhere that you can copy it again readily.
 
    ![Copy connection string](./media/webjobs-sdk-get-started/copy-key.png)
 
@@ -222,7 +214,7 @@ The WebJobs SDK looks for the Storage connection string in the App Settings coll
    </connectionStrings>
    ```
 
-2. Replace *{storage connection string}* with the connection string that you copied earlier.
+1. Replace *{storage connection string}* with the connection string that you copied earlier.
 
    Later you'll use the connection string again, when you configure the App Service app in Azure.
 
@@ -247,27 +239,27 @@ In this section, you build and run the project locally and trigger the function 
 
    You may see a warning message about a `ServicePointManager` setting. For the testing you'll be doing with this project, you can ignore the warning. For more information about the warning, see [How to use the WebJobs SDK](webjobs-sdk-how-to.md#jobhost-servicepointmanager-settings).
 
-2. Close the console window.
+1. Close the console window.
 
 1. In **Server Explorer**, expand the node for your new storage account, and then right-click **Queues**. 
 
-2. Select **Create Queue**. 
+1. Select **Create Queue**. 
 
-3. Enter *queue* as the name for the queue, and then select **OK**.
+1. Enter *queue* as the name for the queue, and then select **OK**.
 
    ![Create queue](./media/webjobs-sdk-get-started/create-queue.png)
 
-4. Right-click the node for the new queue, and then select **View Queue**.
+1. Right-click the node for the new queue, and then select **View Queue**.
 
-5. Select the **Add Message** icon.
+1. Select the **Add Message** icon.
 
    ![Create queue](./media/webjobs-sdk-get-started/create-queue-message.png)
 
-6. In the **Add Message** dialog, enter *Hello World!* as the **Message text**, and then select **OK**.
+1. In the **Add Message** dialog, enter *Hello World!* as the **Message text**, and then select **OK**.
 
    ![Create queue](./media/webjobs-sdk-get-started/hello-world-text.png)
 
-7. Run the project again.
+1. Run the project again.
 
    Because you used the `QueueTrigger` attribute in the `ProcessQueueMessage` function, the WeJobs SDK runtime listens for queue messages when it starts up. It finds a new queue message in the queue named *queue* and calls the function.
 
@@ -292,7 +284,7 @@ In this section, you build and run the project locally and trigger the function 
    Executed 'Functions.ProcessQueueMessage' (Succeeded, Id=ebcb275d-0d7c-4293-a1af-93e0804b9e49)
    ```
 
-8. Close the console window.
+1. Close the console window.
 
 ## Add Application Insights logging
 
@@ -308,9 +300,9 @@ In this section, you do the following tasks to set up Application Insights loggi
 
 1. If you don't already have an App Service app that you can use, [create one](app-service-web-get-started-dotnet-framework.md).
 
-2. If you don't already have an Application Insights resource that you can use, [create one](../application-insights/app-insights-create-new-resource.md). Set **Application type** to **General**, and skip the sections that follow **Copy the instrumentation key**.
+1. If you don't already have an Application Insights resource that you can use, [create one](../application-insights/app-insights-create-new-resource.md). Set **Application type** to **General**, and skip the sections that follow **Copy the instrumentation key**.
 
-3. If you already have an Application Insights resource that you want to use, [copy the instrumentation key](../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key).
+1. If you already have an Application Insights resource that you want to use, [copy the instrumentation key](../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key).
 
 ### Configure app settings 
 
@@ -318,23 +310,23 @@ In this section, you do the following tasks to set up Application Insights loggi
 
 1. Expand the resource group that your App Service app is in, and then right-click your App Service app.
 
-3. Select **View Settings**.
+1. Select **View Settings**.
 
-4. In the **Connection Strings** box, add the following entry.
+1. In the **Connection Strings** box, add the following entry.
 
    |Name  |connection String  |Database Type|
    |---------|---------|------|
    |AzureWebJobsStorage | {the Storage connection string that you copied earlier}|Custom|
    
-6. If the **Application Settings** box doesn't have an Application Insights instrumentation key, add the one that you copied earlier. (The instrumentation key may already be there, depending on how you created the App Service app.)
+1. If the **Application Settings** box doesn't have an Application Insights instrumentation key, add the one that you copied earlier. (The instrumentation key may already be there, depending on how you created the App Service app.)
 
    |Name  |Value  |
    |---------|---------|
    |APPINSIGHTS_INSTRUMENTATIONKEY | {instrumentation key} |
 
-2. Replace *{instrumentation key}* with the instrumentation key from the Application Insights resource that you're using.
+1. Replace *{instrumentation key}* with the instrumentation key from the Application Insights resource that you're using.
 
-2. Select **Save**.
+1. Select **Save**.
 
 1. Add the following XML to the *App.config* file, immediately after the connection strings collection.
 
@@ -344,15 +336,15 @@ In this section, you do the following tasks to set up Application Insights loggi
    </appSettings>
    ```
 
-2. Replace *{instrumentation key}* with the instrumentation key from the Application Insights resource that you're using.
+1. Replace *{instrumentation key}* with the instrumentation key from the Application Insights resource that you're using.
 
    Adding this data to the *App.config* file enables you to test the Application Insights connection when you run the project locally. 
 
-3. Save your changes.
+1. Save your changes.
 
 ### Add Application Insights logging provider
 
-1. Install the latest stable 2.x version of the NuGet package for the Application Insights logging provider:  `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`. (For WebJobs SDK 3.x, choose the latest 3.x version of the package.)
+1. Install the latest stable 2.x version of the NuGet package for the Application Insights logging provider:  `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`.
 
    Here's the **Package Manager Console** command for version 2.2.0:
 
@@ -368,13 +360,13 @@ In this section, you do the following tasks to set up Application Insights loggi
    Install-Package System.Configuration.ConfigurationManager -version 4.4.1
    ``` 
 
-2. Open *Program.cs* and add a `using` statement for the configuration manager:
+1. Open *Program.cs* and add a `using` statement for the configuration manager:
 
    ```csharp
    using System.Configuration;
    ```
 
-2. Replace the code in the `Main` method with the following code:
+1. Replace the code in the `Main` method with the following code:
 
    ```csharp
    using (var loggerFactory = new LoggerFactory())
@@ -410,7 +402,7 @@ In this section you run locally again to verify that logging data is now going t
 
 1. Open the [Azure portal](https://portal.azure.com/), and go to your Application Insights resource.
 
-2. Select **Search**.
+1. Select **Search**.
 
    ![Select Search](./media/webjobs-sdk-get-started/select-search.png)
 
@@ -418,7 +410,7 @@ In this section you run locally again to verify that logging data is now going t
 
    ![Logs in Application Insights](./media/webjobs-sdk-get-started/logs-in-ai.png)
 
-3. Close the console window.
+1. Close the console window.
 
 ## Deploy as a WebJob
 
@@ -448,7 +440,7 @@ In this section you deploy the project as a WebJob. You deploy it to an App Serv
 
 1. Use **Server Explorer** to create a queue message, the same way you did [earlier](#trigger-the-function), except enter *Hello Azure!*.
 
-7. Refresh the **Queue** page in Visual Studio, and the new message has disappeared because the function running in Azure App Service processed it.
+1. Refresh the **Queue** page in Visual Studio, and the new message has disappeared because the function running in Azure App Service processed it.
 
    > [!TIP]
    > When you're testing in Azure, use [development mode](webjobs-sdk-how-to.md#jobhost-development-settings) to ensure that a queue trigger function is invoked right away and avoid delays due to [queue polling exponential backoff](../azure-functions/functions-bindings-storage-queue.md#trigger---polling-algorithm).
@@ -457,7 +449,7 @@ In this section you deploy the project as a WebJob. You deploy it to an App Serv
 
 1. Open the [Azure portal](https://portal.azure.com/), and go to your Application Insights resource.
 
-2. Select **Search**.
+1. Select **Search**.
 
 1. If you don't see the *Hello Azure!* message, select **Refresh** periodically for several minutes.
 
@@ -481,19 +473,19 @@ Input bindings simplify code that reads data. For this example, the queue messag
 
    In this code, `queueTrigger` is a [binding expression](../azure-functions/functions-triggers-bindings.md#binding-expressions-and-patterns), which means it resolves to a different value at runtime.  At runtime it has the contents of the queue message.
 
-2. Add a `using`:
+1. Add a `using`:
 
    ```cs
    using System.IO;
    ```
 
-3. Create a blob container in your storage account.
+1. Create a blob container in your storage account.
 
    a. In **Server Explorer**, expand the node for your storage account, right-click **Blobs**, and then select **Create Blob Container**.
 
    b. In the **Create Blob Container** dialog, enter *container* as the container name, and then click **OK**.
 
-4. Upload the *Program.cs* file to the blob container. (This file is used here as an example; you could upload any text file and create a queue message with the file's name.)
+1. Upload the *Program.cs* file to the blob container. (This file is used here as an example; you could upload any text file and create a queue message with the file's name.)
 
    a. In **Server Explorer**, double-click the node for the container you just created.
 
@@ -503,11 +495,11 @@ Input bindings simplify code that reads data. For this example, the queue messag
 
    c. Find and select *Program.cs*, and then select **OK**.
 
-5. Create a queue message in the queue you created earlier, with *Program.cs* as the text of the message.
+1. Create a queue message in the queue you created earlier, with *Program.cs* as the text of the message.
 
    ![Queue message Program.cs](./media/webjobs-sdk-get-started/queue-msg-program-cs.png)
 
-6. Run the project.
+1. Run the project.
 
    The queue message triggers the function, which then reads the blob and logs its length. The console output looks like this:
 
@@ -539,9 +531,9 @@ Output bindings simplify code that writes data. This example modifies the previo
    }
    ```
 
-5. Create another queue message with *Program.cs* as the text of the message.
+1. Create another queue message with *Program.cs* as the text of the message.
 
-6. Run the project.
+1. Run the project.
 
    The queue message triggers the function, which then reads the blob, logs its length, and creates a new blob. The console output is the same, but when you go to the blob container window and select **Refresh**, you see a new blob named *copy-Program.cs.*
 

@@ -12,7 +12,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 03-20-2018
+  ms.date: 07-27-2018
   ms.author: juliako
 abstract:
   description: Learn how to stream videos on-demand, broadcast live, and analyze your videos with Media Services. Tutorials, API references, and other documentation show you how to securely deliver on-demand and live video or audio streams that scale to millions of users.
@@ -82,10 +82,10 @@ sections:
     style: unordered
     items:
     - html: <a href="https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2018-03-30-preview">OpenAPI Specification (Swagger)</a>
-    - html: <a href="https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest">Azure CLI</a>
-    - html: <a href="https://go.microsoft.com/fwlink/p/?linkid=873030">REST</a>
-    - html: <a href="https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet">.NET</a>
-    - html: <a href="https://docs.microsoft.com/java/api/overview/azure/mediaservices">Java</a>
-    - html: <a href="https://docs.microsoft.com/python/api/overview/azure/media-services?view=azure-python">Python</a>
-    - html: <a href="https://docs.microsoft.com/en-us/javascript/api/azure-arm-mediaservices/index?view=azure-node-latest">Node .js</a>
+    - html: <a href="https://aka.ms/ams-v3-cli-ref">Azure CLI</a>
+    - html: <a href="https://aka.ms/ams-v3-rest-ref">REST</a>
+    - html: <a href="https://aka.ms/ams-v3-dotnet-ref">.NET</a>
+    - html: <a href="https://aka.ms/ams-v3-java-ref">Java</a>
+    - html: <a href="https://aka.ms/ams-v3-python-ref">Python</a>
+    - html: <a href="https://aka.ms/ams-v3-nodejs-ref">Node .js</a>
     

@@ -1,8 +1,8 @@
 ---
 title: Provision a simulated X.509 device to Azure IoT Hub using Java | Microsoft Docs
 description: Azure Quickstart - Create and provision a simulated X.509 device using Java device SDK for IoT Hub Device Provisioning Service
-author: bryanla
-ms.author: bryanla
+author: wesmc7777
+ms.author: wesmc
 ms.date: 04/09/2018
 ms.topic: quickstart
 ms.service: iot-dps
@@ -46,6 +46,14 @@ If you're unfamiliar with the process of auto-provisioning, be sure to also revi
     ```
 
 ## Create a self-signed X.509 device certificate and individual enrollment entry
+
+In this section you, will use a self-signed X.509 certificate, it is important to keep in mind the following:
+
+* Self-signed certificates are for testing only, and should not to be used in production.
+* The default expiration date for a self-signed certificate is 1 year.
+
+You will use sample code from the [Azure IoT SDK for Java](https://github.com/Azure/azure-iot-sdk-java.git) to create the certificate to be used with the individual enrollment entry for the simulated device.
+
 
 1. Using the command prompt from previous steps, navigate to the `target` folder, then execute the jar file created in the previous step.
 

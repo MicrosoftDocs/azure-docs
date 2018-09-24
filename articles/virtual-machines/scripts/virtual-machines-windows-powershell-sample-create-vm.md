@@ -3,7 +3,7 @@ title: Azure PowerShell Script Sample - Create a Windows VM | Microsoft Docs
 description: Azure PowerShell Script Sample - Create a Windows VM
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
@@ -15,7 +15,7 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/02/2017
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
 ---
 

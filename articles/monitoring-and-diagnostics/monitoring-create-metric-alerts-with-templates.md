@@ -12,6 +12,10 @@ ms.component: alerts
 # Create a metric alert with a Resource Manager template
 This article shows how you can use an [Azure Resource Manager template](../azure-resource-manager/resource-group-authoring-templates.md) to configure [newer metric alerts](monitoring-near-real-time-metric-alerts.md) in Azure Monitor. Resource Manager templates enable you to programmatically set up alerts in a consistent and reproducible way across your environments. Newer metric alerts are currently available on [this set of resource types](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported).
 
+> [!IMPORTANT]
+> Resource Manager template specified for metric alert will not work for resource type: Microsoft.OperationalInsights/workspaces; as support for metrics from Log Analytics is in preview. Users interested in using the preview functionality with resource template, can contact [Azure Alerts Feedback](mailto:azurealertsfeedback@microsoft.com)
+
+
 The basic steps are as follows:
 
 1. Use one of the templates below as a JSON file that describes how to create the alert.
@@ -174,7 +178,7 @@ Save the json below as simplemetricalert.json for the purpose of this walk throu
 }
 ```
 
-An explanation of the schema and properties for an alert rule [is available here](https://docs.microsoft.com/en-us/rest/api/monitor/metricalerts/createorupdate).
+An explanation of the schema and properties for an alert rule [is available here](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate).
 
 You can set the values for the parameters either on the command line or through a parameter file. A sample parameter file is provided below. 
 
@@ -399,12 +403,12 @@ Save and modify the json below as advancedmetricalert.parameters.json for the pu
                     "dimensions": [
                         {
                             "name":"ResponseType",
-                            "operator": "Includes",
+                            "operator": "Include",
                             "values": ["Success"]
                         },
                         {
                             "name":"ApiName",
-                            "operator": "Includes",
+                            "operator": "Include",
                             "values": ["GetBlob"]
                         }
                     ],
@@ -420,7 +424,7 @@ Save and modify the json below as advancedmetricalert.parameters.json for the pu
                 "dimensions": [
                     {
                         "name":"ApiName",
-                        "operator": "Includes",
+                        "operator": "Include",
                         "values": ["GetBlob"]
                     }
                 ],

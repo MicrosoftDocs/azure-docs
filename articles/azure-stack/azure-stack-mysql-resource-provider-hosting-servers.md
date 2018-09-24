@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/02/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
 
@@ -28,8 +28,8 @@ MySQL versions 5.6, 5.7 and 8.0 may be used for your hosting servers. The MySQL 
 Make sure you have the credentials for an account with system admin privileges. To add a hosting server, follow these steps:
 
 1. Sign in to the Azure Stack operator portal as a service admin.
-2. Select **More services**.
-3. Select **ADMINISTRATIVE RESOURCES** > **MySQL Hosting Servers** > **+Add**. This opens the **Add a MySQL Hosting Server** dialog, shown in the following screen capture.
+2. Select **All services**.
+3. Under the  **ADMINISTRATIVE RESOURCES** category select **MySQL Hosting Servers** > **+Add**. This opens the **Add a MySQL Hosting Server** dialog, shown in the following screen capture.
 
    ![Configure a hosting server](./media/azure-stack-mysql-rp-deploy/mysql-add-hosting-server-2.png)
 
@@ -48,9 +48,6 @@ Make sure you have the credentials for an account with system admin privileges. 
    ![Create a MySQL SKU](./media/azure-stack-mysql-rp-deploy/mysql-new-sku.png)
 
    The SKU **Name** should reflect the properties of the SKU so users can deploy their databases to the appropriate SKU.
-
-   >[!IMPORTANT]
-   >Special characters, including spaces and periods, aren't supported in **Name** or **Tier** when you create a SKU for the MySQL resource provider.
 
 6. Select **OK** to create the SKU.
 > [!NOTE]

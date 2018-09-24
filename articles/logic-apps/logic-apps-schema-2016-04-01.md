@@ -1,23 +1,17 @@
 ---
 title: Schema updates June-1-2016 - Azure Logic Apps | Microsoft Docs
-description: Create JSON definitions for Azure Logic Apps with schema version 2016-06-01
-author: jeffhollan
-manager: jeconnoc
-editor: ''
+description: Updated schema version 2016-06-01 for logic app definitions in Azure Logic Apps
 services: logic-apps
-documentationcenter: ''
-
-ms.assetid: 349d57e8-f62b-4ec6-a92f-a6e0242d6c0e
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: kevinlam1
+ms.author: klam
+ms.reviewer: estfan, LADocs
+ms.assetid: 349d57e8-f62b-4ec6-a92f-a6e0242d6c0e
 ms.topic: article
-ms.custom: H1Hack27Feb2017
 ms.date: 07/25/2016
-ms.author: LADocs; jehollan
-
 ---
+
 # Schema updates for Azure Logic Apps - June 1, 2016
 
 The [updated schema](https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json) 

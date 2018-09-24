@@ -5,11 +5,11 @@ ms.custom: "include file"
 services: azure-dev-spaces
 ms.service: "azure-dev-spaces"
 ms.component: "azds-kubernetes"
-author: "ghogen"
-ms.author: "ghogen"
+author: ghogen
+ms.author: ghogen
 ms.date: "05/11/2018"
 ms.topic: "include"
-manager: "douge"
+manager: douge
 ---
 So far you've been running your application's code as if you were the only developer working on the app. In this section, you'll learn how Azure Dev Spaces streamlines team development:
 * Enable a team of developers to work in the same environment, by working in a shared dev space or in distinct dev spaces as needed..
@@ -39,16 +39,18 @@ As you develop code for your service, and before you're ready to check it in, co
 > [!Note]
 > Before you proceed, close all VS Code windows for both services, and then run `azds up -d` in each of the service's root folders. (This is a Preview limitation.)
 
-Let's take a closer look at where the services are currently running. Run the `azds list` command, and you'll see output similar to the following:
+Let's take a closer look at where the services are currently running. Run the `azds list-up` command, and you'll see output similar to the following:
 
 ```
-Name         Space     Chart              Ports   Updated     Access Points
------------  --------  -----------------  ------  ----------  -------------------------
-mywebapi     default  mywebapi-0.1.0     80/TCP  2m ago     <not attached>
-webfrontend  default  webfrontend-0.1.0  80/TCP  1m ago     http://webfrontend-contosodev.1234abcdef.eastus.aksapp.io
+Name                          DevSpace  Type     Updated  Status
+----------------------------  --------  -------  -------  -------
+mywebapi                      default   Service  3m ago   Running
+mywebapi-56c8f45d9-zs4mw      default   Pod      3m ago   Running
+webfrontend                   default   Service  1m ago   Running
+webfrontend-6b6ddbb98f-fgvnc  default   Pod      1m ago   Running
 ```
 
-The Space column shows that both services are running in a space named `default`. Anyone who opens the public URL and navigates to the web app will invoke the code path you previously wrote that runs through both services. Now suppose you want to continue developing `mywebapi`. How can you make code changes and test them and not interrupt other developers who are using the dev environment? To do that, you'll set up your own space.
+The DevSpace column shows that both services are running in a space named `default`. Anyone who opens the public URL and navigates to the web app will invoke the code path you previously wrote that runs through both services. Now suppose you want to continue developing `mywebapi`. How can you make code changes and test them and not interrupt other developers who are using the dev environment? To do that, you'll set up your own space.
 
 ### Create a dev space
 To run your own version of `mywebapi` in a space other than `default`, you can create your own space by using the following command:

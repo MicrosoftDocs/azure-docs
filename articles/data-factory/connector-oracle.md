@@ -58,6 +58,15 @@ The following properties are supported for the Oracle linked service.
 | connectionString | Specifies the information needed to connect to the Oracle Database instance. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md).<br><br>**Supported connection type**: You can use **Oracle SID** or **Oracle Service Name** to identify your database:<br>- If you use SID: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- If you use Service Name: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Self-hosted Integration Runtime or Azure Integration Runtime (if your data store is publicly accessible). If not specified, it uses the default Azure Integration Runtime. |No |
 
+>[!TIP]
+>If you hit error saying "ORA-01025: UPI parameter out of range" and your Oracle is of version 8i, add `WireProtocolMode=1` to your connection string and try again.
+
+To enable encryption on Oracle connection, you have two options:
+
+1.	On Oracle server side, go to Oracle Advanced Security (OAS) and configure the encryption settings, which supports Triple-DES Encryption (3DES) and Advanced Encryption Standard (AES), refer to details [here](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759). ADF Oracle connector automatically negotiates the encryption method to use the one you configure in OAS when establishing connection to Oracle.
+
+2.	On client side, you can add `EncryptionMethod=1` in the connection string. This will use SSL/TLS as the encryption method. To use this, you need to disable non-SSL encryption settings in OAS on the Oracle server side to avoid encryption conflict.
+
 **Example:**
 
 ```json

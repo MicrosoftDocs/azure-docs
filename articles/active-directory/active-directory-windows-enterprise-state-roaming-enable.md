@@ -8,13 +8,14 @@ author: tanning
 manager: mtillman
 editor: curtand
 
+ms.component: devices
 ms.assetid: f71d66fd-7f9e-45eb-9cfe-5d989870f8a4
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2018
+ms.date: 07/23/2018
 ms.author: markvi
 
 ---
@@ -28,16 +29,17 @@ When you enable Enterprise State Roaming, your organization is automatically gra
 
 1. Sign in to [Azure AD admin center](https://aad.portal.azure.com/).
 
-2. Select **Azure Active Directory** &gt; **Devices** &gt; **Device settings**.
+2. Select **Azure Active Directory** &gt; **Devices** &gt; **Enterprise State Roaming**.
 
 3. Select **Users may sync settings and app data across devices**. For more information, see [how to configure device settings](https://docs.microsoft.com/azure/active-directory/device-management-azure-portal).
   
   ![image of device setting labeled Users may sync settings and app data across devices](./media/active-directory-windows-enterprise-state-roaming-enable/device-settings.png)
   
-For a Windows 10 device to use the Enterprise State Roaming service, the device must authenticate using an Azure AD identity. For devices that are joined to Azure AD, the user’s primary sign-in identity is their Azure AD identity, so no additional configuration is required. For devices that use on-premises Active Directory, the IT admin must [connect the domain-joined devices to Azure AD for Windows 10 experiences](active-directory-azureadjoin-devices-group-policy.md).
+For a Windows 10 device to use the Enterprise State Roaming service, the device must authenticate using an Azure AD identity. For devices that are joined to Azure AD, the user’s primary sign-in identity is their Azure AD identity, so no additional configuration is required. For devices that use on-premises Active Directory, the IT admin must [Configure hybrid Azure Active Directory joined devices](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-manual-steps). 
 
 ## Data storage
 Enterprise State Roaming data is hosted in one or more [Azure regions](https://azure.microsoft.com/regions/) that best align with the country/region value set in the Azure Active Directory instance. Enterprise State Roaming data is partitioned based on three major geographic regions: North America, EMEA, and APAC. Enterprise State Roaming data for the tenant is locally located with the geographical region, and is not replicated across regions.  For example:
+
 Country/region value | has their data hosted in
 ---------------------|-------------------------
 An EMEA country such as “France” or “Zambia" | one or of the Azure regions within Europe 
@@ -52,7 +54,7 @@ Follow these steps to view a per-user device sync status report.
 
 1. Sign in to [Azure AD admin center](https://aad.portal.azure.com/).
 
-2. Select **Azure Active Directory** &gt; **Users and groups** &gt; **All users**.
+2. Select **Azure Active Directory** &gt; **Users** &gt; **All users**.
 
 3. Select the user, and then select **Devices**.
 
@@ -65,7 +67,7 @@ Follow these steps to view a per-user device sync status report.
   ![image of device sync columnar data](./media/active-directory-windows-enterprise-state-roaming-enable/device-status-row.png)
 
 ## Data retention
-Data synced to Azure using Enterprise State Roaming is retained until it is manually deleted or until the data in question is determined to be stale. 
+Data synced to the Microsoft cloud using Enterprise State Roaming is retained until it is manually deleted or until the data in question is determined to be stale. 
 
 ### Explicit deletion
 Explicit deletion is when an Azure admin deletes a user or a directory or otherwise requests explicitly that data is to be deleted.
@@ -75,14 +77,14 @@ Explicit deletion is when an Azure admin deletes a user or a directory or otherw
 * **On request deletion**: If the Azure AD admin wants to manually delete a specific user’s data or settings data, the admin can file a ticket with [Azure support](https://azure.microsoft.com/support/). 
 
 ### Stale data deletion
-Data that has not been accessed for one year (“the retention period”) will be treated as stale and may be deleted from Azure. The retention period is subject to change but will not be less than 90 days. The stale data may be a specific set of Windows/application settings or all settings for a user. For example:
+Data that has not been accessed for one year (“the retention period”) will be treated as stale and may be deleted from the Microsoft cloud. The retention period is subject to change but will not be less than 90 days. The stale data may be a specific set of Windows/application settings or all settings for a user. For example:
 
 * If no devices access a particular settings collection (for example, an application is removed from the device, or a settings group such as “Theme” is disabled for all of a user’s devices), then that collection becomes stale after the retention period and may be deleted. 
 * If a user has turned off settings sync on all his/her devices, then none of the settings data will be accessed, and all the settings data for that user will become stale and may be deleted after the retention period. 
 * If the Azure AD directory admin turns off Enterprise State Roaming for the entire directory, then all users in that directory will stop syncing settings, and all settings data for all users will become stale and may be deleted after the retention period. 
 
 ### Deleted data recovery
-The data retention policy is not configurable. Once the data is permanently deleted, it is not recoverable. However, The settings data is deleted only from Azure, not from the end-user device. If any device later reconnects to the Enterprise State Roaming service, the settings are again synced and stored in Azure.
+The data retention policy is not configurable. Once the data is permanently deleted, it is not recoverable. However, The settings data is deleted only from the Microsoft cloud, not from the end-user device. If any device later reconnects to the Enterprise State Roaming service, the settings are again synced and stored in the Microsoft cloud.
 
 ## Related topics
 * [Enterprise State Roaming overview](active-directory-windows-enterprise-state-roaming-overview.md)

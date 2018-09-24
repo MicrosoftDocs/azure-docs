@@ -2,12 +2,12 @@
 title: Security features to help protect hybrid backups that use Azure Backup
 description: Learn how to use security features in Azure Backup to make backups more secure
 services: backup
-author: JPallavi
+author: trinadhk
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/08/2017
-ms.author: pajosh
+ms.author: trinadhk
 ---
 # Security features to help protect hybrid backups that use Azure Backup
 Concerns about security issues, like malware, ransomware, and intrusion, are increasing. These security issues can be costly, in terms of both money and data. To guard against such attacks, Azure Backup now provides security features to help protect hybrid backups. This article covers how to enable and use these features, by using an Azure Recovery Services agent and Azure Backup Server. These features include:
@@ -74,6 +74,10 @@ Checks have been added to make sure only valid users can perform various operati
 
 ### Authentication to perform critical operations
 As part of adding an extra layer of authentication for critical operations, you are prompted to enter a security PIN when you perform **Stop Protection with Delete data** and **Change Passphrase** operations.
+
+> [!NOTE]
+
+> Currently, security pin is not supported for **Stop Protection with Delete data** for DPM and MABS. 
 
 To receive this PIN:
 

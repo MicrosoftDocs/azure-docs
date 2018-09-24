@@ -3,9 +3,9 @@ title: Input Validation - Microsoft Threat Modeling Tool - Azure | Microsoft Doc
 description: mitigations for threats exposed in the Threat Modeling Tool 
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 
 ms.assetid: na
 ms.service: security
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
-ms.author: rodsan
+ms.date: 02/07/2017
+ms.author: jegeib
 
 ---
 
@@ -46,7 +46,7 @@ settings.EnableScript = true; // WRONG: THIS SHOULD BE SET TO false
 ```
 
 ### Example
-If you are using using MSXML 6.0, XSLT scripting is disabled by default; however, you must ensure that it has not been explicitly enabled through the XML DOM object property AllowXsltScript. 
+If you are using MSXML 6.0, XSLT scripting is disabled by default; however, you must ensure that it has not been explicitly enabled through the XML DOM object property AllowXsltScript. 
 
 ```csharp
 doc.setProperty("AllowXsltScript", true); // WRONG: THIS SHOULD BE SET TO false
@@ -403,7 +403,7 @@ In the preceding code example, the input value cannot be longer than 11 characte
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | [Encode Unsafe Input](https://msdn.microsoft.com/library/ff647397.aspx#paght000003_step3), [HTML Sanitizer](https://github.com/mganss/HtmlSanitizer) |
-| **Steps** | <p>Identify all static markup tags that you want to use. A common practice is to restrict formatting to safe HTML elements, such as `<b>` (bold) and `<i>` (italic).</p><p>Before writing the data, HTML-encode it. This makes any malicious script safe by causing it to be handled as text, not as executable code.</p><ol><li>Disable ASP.NET request validation by the adding the ValidateRequest="false" attribute to the @ Page directive</li><li>Encode the string input with the HtmlEncode method</li><li>Use a StringBuilder and call its Replace method to selectively remove the encoding on the HTML elements that you want to permit</li></ol><p>The page-in the references disables ASP.NET request validation by setting `ValidateRequest="false"`. It HTML-encodes the input and selectively allows the `<b>` and `<i>` Alternatively, a .NET library for HTML sanitization may also be used.</p><p>HtmlSanitizer is a .NET library for cleaning HTML fragments and documents from constructs that can lead to XSS attacks. It uses AngleSharp to parse, manipulate, and render HTML and CSS. HtmlSanitizer can be installed as a NuGet package, and the user input can be passed through relevant HTML or CSS sanitization methods, as applicable, on the server side. Please note that Sanitization as a security control should be considered only as a last option.</p><p>Input validation and Output Encoding are considered better security controls.</p> |
+| **Steps** | <p>Identify all static markup tags that you want to use. A common practice is to restrict formatting to safe HTML elements, such as `<b>` (bold) and `<i>` (italic).</p><p>Before writing the data, HTML-encode it. This makes any malicious script safe by causing it to be handled as text, not as executable code.</p><ol><li>Disable ASP.NET request validation by the adding the ValidateRequest="false" attribute to the \@ Page directive</li><li>Encode the string input with the HtmlEncode method</li><li>Use a StringBuilder and call its Replace method to selectively remove the encoding on the HTML elements that you want to permit</li></ol><p>The page-in the references disables ASP.NET request validation by setting `ValidateRequest="false"`. It HTML-encodes the input and selectively allows the `<b>` and `<i>` Alternatively, a .NET library for HTML sanitization may also be used.</p><p>HtmlSanitizer is a .NET library for cleaning HTML fragments and documents from constructs that can lead to XSS attacks. It uses AngleSharp to parse, manipulate, and render HTML and CSS. HtmlSanitizer can be installed as a NuGet package, and the user input can be passed through relevant HTML or CSS sanitization methods, as applicable, on the server side. Please note that Sanitization as a security control should be considered only as a last option.</p><p>Input validation and Output Encoding are considered better security controls.</p> |
 
 ## <a id="inbuilt-encode"></a>Do not assign DOM elements to sinks that do not have inbuilt encoding
 

@@ -1,12 +1,24 @@
-| Resource | Default Limit |
-| --- | :--- |
-| Max nodes per cluster | 100 |
-| Max pods per node ([basic networking with Kubenet][basic-networking]) | 110 |
-| Max pods per node ([advanced networking with Azure CNI][advanced-networking]) | 30<sup>1</sup> |
-| Max cluster per subscription | 20<sup>2</sup> |
+---
+title: include file
+description: include file
+services: container-service
+author: mmacy
 
-<sup>1</sup> This value can be customized through ARM template deployment. See examples [here][arm-deployment-example].<br />
-<sup>2</sup> Create an [Azure support request][azure-support] to request a limit increase.<br />
+ms.service: container-service
+ms.topic: include
+ms.date: 08/31/2018
+ms.author: marsma
+ms.custom: include file
+---
+
+| Resource | Default limit |
+| --- | :--- |
+| Max clusters per subscription | 100 |
+| Max nodes per cluster | 100 |
+| Max pods per node: [Basic networking][basic-networking] with Kubenet | 110 |
+| Max pods per node: [Advanced networking][advanced-networking] with Azure CNI | Azure CLI deployment: 110<sup>1</sup><br />Resource Manager template: 110<sup>1</sup><br />Portal deployment: 30 |
+
+<sup>1</sup> This value is configurable at cluster deployment when deploying an AKS cluster with the Azure CLI or a Resource Manager template.<br />
 
 <!-- LINKS - Internal -->
 [basic-networking]: ../articles/aks/networking-overview.md#basic-networking
@@ -14,4 +26,3 @@
 
 <!-- LINKS - External -->
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
-[arm-deployment-example]: https://github.com/Azure/AKS/blob/master/examples/vnet/02-aks-custom-vnet.json#L64-L69

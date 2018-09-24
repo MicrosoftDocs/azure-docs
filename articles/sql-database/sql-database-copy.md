@@ -6,7 +6,7 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
-ms.date: 04/01/2018
+ms.date: 09/14/2018
 ms.author: carlrab
 ms.topic: conceptual
 
@@ -17,7 +17,7 @@ Azure SQL Database provides several methods for creating a transactionally consi
 
 ## Overview
 
-A database copy is a snapshot of the source database as of the time of the copy request. You can select the same server or a different server, its service tier and performance level, or a different performance level within the same service tier (edition). After the copy is complete, it becomes a fully functional, independent database. At this point, you can upgrade or downgrade it to any edition. The logins, users, and permissions can be managed independently.  
+A database copy is a snapshot of the source database as of the time of the copy request. You can select the same server or a different server, its service tier and compute size, or a different compute size within the same service tier (edition). After the copy is complete, it becomes a fully functional, independent database. At this point, you can upgrade or downgrade it to any edition. The logins, users, and permissions can be managed independently.  
 
 ## Logins in the database copy
 
@@ -63,7 +63,7 @@ This command copies Database1 to a new database named Database2 on the same serv
 
     -- Execute on the master database.
     -- Start copying.
-    CREATE DATABASE Database1_copy AS COPY OF Database1;
+    CREATE DATABASE Database2 AS COPY OF Database1;
 
 ### Copy a SQL database to a different server
 
@@ -73,7 +73,7 @@ This command copies Database1 on server1 to a new database named Database2 on se
 
     -- Execute on the master database of the target server (server2)
     -- Start copying from Server1 to Server2
-    CREATE DATABASE Database1_copy AS COPY OF server1.Database1;
+    CREATE DATABASE Database2 AS COPY OF server1.Database1;
 
 
 ### Monitor the progress of the copying operation

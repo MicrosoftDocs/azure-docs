@@ -9,17 +9,17 @@
   - name: Azure logging and auditing
     href: azure-log-audit.md
   - name: Azure network security
-    href: azure-network-security.md
+    href: abstract-azure-network-security.md
   - name: Azure serverless platform security
     href: abstract-serverless-platform-security.md
+  - name: Container security in Azure
+    href: abstract-container-security-microsoft-azure.md
   - name: Enabling operational security
-    href: azure-operational-security.md
-  - name: Governance in Azure
-    href: governance-in-azure.md
+    href: abstract-azure-operational-security.md
   - name: Isolation in the Azure cloud
     href: azure-isolation.md
   - name: Secure hybrid network architecture
-    href: https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2Fazure%2Fsecurity%2Ftoc.json
+    href: https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
   - name: Security technical capabilities
     href: azure-security-technical-capabilities.md
 - name: Data security and encryption
@@ -35,22 +35,48 @@
   - name: Disk encryption
     items:
     - name: Best practices
+      displayName: transit
       href: azure-security-data-encryption-best-practices.md
     - name: Data encryption-at-rest
       href: azure-security-encryption-atrest.md
     - name: Disk encryption for IaaS VMs
-      href: azure-security-disk-encryption.md
       items:
+      - name: About Azure Disk Encryption
+        href: azure-security-disk-encryption-overview.md
+      - name: Quickstarts
+        items:
+        - name: Encrypt VM - Azure PowerShell
+          href: quick-encrypt-vm-powershell.md
+      - name: Azure Disk Encryption
+        items:
+        - name: Disk encryption prerequisites
+          href: azure-security-disk-encryption-prerequisites.md
+        - name: Disk encryption for Windows VMs
+          href: azure-security-disk-encryption-windows.md
+        - name: Disk encryption for Linux VMs
+          href: azure-security-disk-encryption-linux.md
+      - name: Appendix for disk encryption
+        href: azure-security-disk-encryption-appendix.md
       - name: Disk encryption FAQ
         href: azure-security-disk-encryption-faq.md
       - name: Troubleshooting
         href: azure-security-disk-encryption-tsg.md
-    - name: Encrypt an Azure VM
-      href: ../security-center/security-center-disk-encryption.md?toc=%2fazure%2fsecurity%2ftoc.json
+      - name: Azure Disk Encryption with Azure AD app (previous release)
+        displayName: active directory
+        items:
+        - name: Disk encryption with Azure AD app prerequisites 
+          displayName: active directory
+          href: azure-security-disk-encryption-prerequisites-aad.md
+        - name: Disk encryption with Azure AD app for Windows VMs 
+          displayName: active directory
+          href: azure-security-disk-encryption-windows-aad.md
+        - name: Disk encryption with Azure AD app for Linux VMs 
+          displayName: active directory
+          href: azure-security-disk-encryption-linux-aad.md
   - name: Azure Storage security
     href: security-storage-overview.md
   - name: Storage security guide
-    href: ../storage/common/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json
+    href: ../storage/common/storage-security-guide.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
 - name: Platform and infrastructure
   items:
   - name: Infrastructure security
@@ -89,12 +115,16 @@
     href: security-identity-management-overview.md
     items:
     - name: Choose Azure AD authentication
+      displayName: identity, active directory
       href: azure-ad-choose-authn.md
     - name: Security checklist
+      displayName: identity, active directory, password
       href: azure-ad-secure-steps.md
     - name: Best practices
+      displayName: password, identity, active directory
       href: azure-security-identity-management-best-practices.md
     - name: Enforce MFA on subscription administrators
+      displayName: identity
       href: azure-security-global-admin.md
   - name: Network security
     href: security-network-overview.md
@@ -104,7 +134,7 @@
     - name: DDoS Protection
       href: azure-ddos-best-practices.md
     - name: Boundary security
-      href: ../best-practices-network-security.md?toc=%2fazure%2fsecurity%2ftoc.json
+      href: ../best-practices-network-security.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
 - name: Application
   items:
   - name: PaaS
@@ -116,15 +146,15 @@
       href: security-paas-applications-using-storage.md
     - name: DB best practices for PaaS
       href: security-paas-applications-using-sql.md
-    - name: IoT
-      href: security-internet-of-things-overview.md
-      items:
-      - name: IoT security best practices
-        href: ../iot-accelerators/iot-security-best-practices.md
-      - name: IoT security
-        href: ../iot-accelerators/iot-security-architecture.md#security-in-iot
-      - name: Secure your IoT deployment
-        href: ../iot-accelerators/iot-accelerators-security-deployment.md
+  - name: IoT
+    href: security-internet-of-things-overview.md
+    items:
+    - name: IoT security best practices
+      href: ../iot-accelerators/iot-security-best-practices.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - name: IoT security
+      href: ../iot-accelerators/iot-security-architecture.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json#security-in-iot
+    - name: Secure your IoT deployment
+      href: ../iot-accelerators/iot-accelerators-security-deployment.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
   - name: Azure Service Fabric security
     href: azure-service-fabric-security-overview.md
     items:
@@ -138,7 +168,7 @@
   - name: Auditing and logging
     items:
     - name: Security management
-      href: ../security-center/security-center-intro.md?toc=%2fazure%2fsecurity%2ftoc.json
+      href: ../security-center/security-center-intro.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Remote management security
       href: azure-security-management.md
     - name: Azure log integration
@@ -148,10 +178,12 @@
       - name: Get started
         href: security-azure-log-integration-get-started.md
       - name: Integrate Azure AD audit logs
+        displayName: active directory
         href: security-azure-log-integration-ad.md
       - name: Integrate Security Center alerts
         href: security-azure-log-integration-security-center.md
       - name: Integrate logs from Key Vault
+        displayName: keyvault
         href: security-azure-log-integration-keyvault-eventhub.md
       - name: FAQ
         href: security-azure-log-integration-faq.md
@@ -163,20 +195,17 @@
     - name: Security checklist
       href: azure-operational-security-checklist.md
 - name: Governance and compliance
+  displayName: blueprint
   items:
-  - name: Financial services for regulated workloads
-    href: ./blueprints/financial-services-regulated-workloads.md
-  - name: GDPR
+  - name: AU PROTECTED
+    displayName: blueprint
     items:
-    - name: Data analytics
-      href: ./blueprints/gdpr-analytics-overview.md
-    - name: Data warehouse
-      href: ./blueprints/gdpr-datawarehouse-overview.md
     - name: IaaS web application
-      href: ./blueprints/gdpr-iaaswa-overview.md
+      href: ./blueprints/au-protected-iaaswa-overview.md
     - name: PaaS web application
-      href: ./blueprints/gdpr-paaswa-overview.md
+      href: ./blueprints/au-protected-paaswa-overview.md
   - name: FedRAMP
+    displayName: blueprint
     items:
     - name: Data analytics
       href: ./blueprints/fedramp-analytics-overview.md
@@ -186,36 +215,62 @@
       href: ./blueprints/fedramp-iaaswa-overview.md
     - name: PaaS web application
       href: ./blueprints/fedramp-paaswa-overview.md
-  - name: PCI DSS
-    href: ./blueprints/payment-processing-blueprint.md
+  - name: FFIEC
+    displayName: blueprint
     items:
-    - name: Requirements overview
-      href: ./blueprints/pci-dss-requirements-overview.md
-    - name: Requirement 1 - firewalls
-      href: ./blueprints/pci-dss-requirement-1-firewall.md
-    - name: Requirement 2 - passwords
-      href: ./blueprints/pci-dss-requirement-2-password.md
-    - name: Requirement 3 - CHD
-      href: ./blueprints/pci-dss-requirement-3-chd.md
-    - name: Requirement 4 - encryption
-      href: ./blueprints/pci-dss-requirement-4-encryption.md
-    - name: Requirement 5 - malware
-      href: ./blueprints/pci-dss-requirement-5-malware.md
-    - name: Requirement 6 - secure systems
-      href: ./blueprints/pci-dss-requirement-6-secure-system.md
-    - name: Requirement 7 - access
-      href: ./blueprints/pci-dss-requirement-7-access.md
-    - name: Requirement 8 - identity
-      href: ./blueprints/pci-dss-requirement-8-identity.md
-    - name: Requirement 9 - physical access
-      href: ./blueprints/pci-dss-requirement-9-physical-access.md
-    - name: Requirement 10 - monitoring
-      href: ./blueprints/pci-dss-requirement-10-monitoring.md
-    - name: Requirement 11 - testing
-      href: ./blueprints/pci-dss-requirement-11-testing.md
-    - name: Requirement 12 - policy
-      href: ./blueprints/pci-dss-requirement-12-policy.md
+    - name: Data analytics
+      href: ./blueprints/ffiec-analytics-overview.md
+    - name: Data warehouse
+      href: ./blueprints/ffiec-dw-overview.md
+    - name: IaaS web application
+      href: ./blueprints/ffiec-iaaswa-overview.md
+    - name: PaaS web application
+      href: ./blueprints/ffiec-paaswa-overview.md
+  - name: GDPR
+    displayName: blueprint
+    items:
+    - name: Data analytics
+      href: ./blueprints/gdpr-analytics-overview.md
+    - name: Data warehouse
+      href: ./blueprints/gdpr-datawarehouse-overview.md
+    - name: IaaS web application
+      href: ./blueprints/gdpr-iaaswa-overview.md
+    - name: PaaS web application
+      href: ./blueprints/gdpr-paaswa-overview.md
+  - name: HIPAA/HITRUST
+    displayName: blueprint
+    items:
+    - name: Health Data and AI
+      href: ./blueprints/azure-health.md
+  - name: NIST SP 800-171
+    displayName: blueprint
+    items:
+      - name: Data analytics
+        href: ./blueprints/nist171-analytics-overview.md
+      - name: Data warehouse
+        href: ./blueprints/nist171-datawarehouse-overview.md
+      - name: IaaS web application
+        href: ./blueprints/nist171-iaaswa-overview.md
+      - name: PaaS web application
+        href: ./blueprints/nist171-paaswa-overview.md
+  - name: PCI DSS
+    displayName: blueprint
+    items:
+    - name: Data analytics
+      href: ./blueprints/pcidss-analytics-overview.md
+    - name: Data warehouse
+      href: ./blueprints/pcidss-dw-overview.md
+    - name: IaaS web application
+      href: ./blueprints/pcidss-iaaswa-overview.md
+    - name: PaaS web application
+      href: ./blueprints/pcidss-paaswa-overview.md
+  - name: TIC
+    displayName: blueprint
+    items:
+    - name: Trusted Internet Connection with Azure
+      href: ./compliance/compliance-tic.md
   - name: UK NHS
+    displayName: blueprint
     items:
       - name: Data analytics
         href: ./blueprints/uknhs-analytics-overview.md
@@ -225,13 +280,13 @@
         href: ./blueprints/uknhs-iaaswa-overview.md
       - name: PaaS web application
         href: ./blueprints/uknhs-paaswa-overview.md
-  - name: UK-OFFICIAL
-    href: ./blueprints/uk-official-three-tier-applications-overview.md
+  - name: UK OFFICIAL
+    displayName: blueprint
     items:
-    - name: Principles overview
-      href: ./blueprints/uk-official-three-tier-applications-principles-overview.md
-  - name: HIPAA/HITRUST Health Data and AI
-    href: ./blueprints/azure-health.md
+    - name: IaaS web application
+      href: ./blueprints/ukofficial-iaaswa-overview.md
+    - name: PaaS web application
+      href: ./blueprints/ukofficial-paaswa-overview.md
 - name: White papers
   href: security-white-papers.md
 - name: Azure security services

@@ -16,7 +16,7 @@ New versions of the [Elastic Database client library](sql-database-elastic-datab
 
 **For the latest version:** Go to [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
 
-Rebuild your application with the new library, as well as change your existing Shard Map Manager metadata stored in your Azure SQL Databases to support new features.
+Rebuild your application with the new library, as well as change your existing Shard Map Manager metadata stored in your Azure SQL databases to support new features.
 
 Performing these steps in order ensures that old versions of the client library are no longer present in your environment when metadata objects are updated, which means that old-version metadata objects won’t be created after upgrade.   
 

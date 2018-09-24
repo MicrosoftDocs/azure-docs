@@ -3,7 +3,7 @@ title: Resource provider API versions supported by profiles in Azure Stack | Mic
 description: Learn about the Azure Resource Manager version supported by profiles in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 
 ms.service: azure-stack
@@ -11,8 +11,8 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2018
-ms.author: mabrigg
+ms.date: 08/24/2018
+ms.author: sethm
 ms.reviewer: sijuman
 
 ---
@@ -51,9 +51,9 @@ For an explanation of API profiles and version release cadence for Azure Stack, 
 | Resources_Locks | 2016-10-01 |
 | Subscriptions | 2016-10-01 |
 
-For more a list of the versions for each resource type for the providers in the api profile, see [Details for the 2018-03-01-hybrid](#details-for-the-2018-03-01-hybrid) profile.
+For more a list of the versions for each resource type for the providers in the API profile, see [Details for the 2018-03-01-hybrid](#details-for-the-2018-03-01-hybrid) profile.
 
-## Overview of 2017-03-09-profile
+## Overview of 2018-03-01-hybrid
 
 | Resource provider | Api-version |
 |------------------------------------------------|------------------------------|
@@ -73,7 +73,7 @@ For more a list of the versions for each resource type for the providers in the 
 | Resources_Locks | 2016-09-01 |
 | Subscriptions | 2016-06-1 |
 
-For more a list of the versions for each resource type for the providers in the api profile, see [Details for the 2017-03-09-profile](#details-for-the-2017-03-09-profile)
+For more a list of the versions for each resource type for the providers in the api profile, see [Details for the 2018-03-01-hybrid](#details-for-the-2018-03-01-hybrid)
 
 ## Details for the 2018-03-01-hybrid
 
@@ -190,30 +190,30 @@ Azure Resource Manager enables you to deploy and manage the infrastructure for y
 | Resource Types | API Versions |
 |-----------------------------------------|-------------------|
 | Application Registrations | 2015-01-01 |
-| Check Resource Name | 2015-012016-09-01 |
+| Check Resource Name | 2016-09-01 |
 | Delegated Providers | 2015-01-01 |
 | Delegated Providers/offers | 2015-01-01 |
 | DelegatedProviders/offers/estimatePrice | 2015-01-01 |
-| Deployments | 2016-0209-01 |
-| Deployments/operations | 2016-0209-01 |
+| Deployments | 2016-09-01 |
+| Deployments/operations | 2016-09-01 |
 | Extensions Metadata | 2015-01-01 |
-| Links | 2015-012016-09-01 |
+| Links | 2016-09-01 |
 | Locations | 2015-01-01 |
 | Offers | 2015-01-01 |
 | Operations | 2015-01-01 |
-| Providers | 2015-012017-08-01 |
-| Resource Groups | 2015-012016-09-01 |
-| Resources | 2015-012016-09-01 |
-| Subscriptions | 2015-012016-09-01 |
-| Subscriptions/location | 2015-012016-09-01 |
-| Subscriptions/operation results | 2015-012016-09-01 |
-| Subscriptions/providers | 2015-012017-08-01 |
-| Subscriptions/Resource Groups | 2015-012016-09-01 |
-| Subscriptions/resourceGroups/resources | 2015-012016-09-01 |
-| Subscriptions/resources | 2015-012016-09-01 |
-| Subscriptions/tagNames | 2016-0609-01 |
-| Subscriptions/tagNames/tagValues | 2016-0609-01 |
-| Tenants | 2015-012017-08-01 |
+| Providers | 2017-08-01 |
+| Resource Groups | 2016-09-01 |
+| Resources | 2016-09-01 |
+| Subscriptions | 2016-09-01 |
+| Subscriptions/location | 2016-09-01 |
+| Subscriptions/operation results | 2016-09-01 |
+| Subscriptions/providers | 2017-08-01 |
+| Subscriptions/Resource Groups | 2016-09-01 |
+| Subscriptions/resourceGroups/resources | 2016-09-01 |
+| Subscriptions/resources | 2016-09-01 |
+| Subscriptions/tagNames | 2016-09-01 |
+| Subscriptions/tagNames/tagValues | 2016-09-01 |
+| Tenants | 2017-08-01 |
 
 ### Microsoft.Storage 
 
@@ -228,7 +228,7 @@ The Storage Resource Provider (SRP) enables you to manage your storage account a
 | StorageAccounts | 2016-01-01 |
 | Usages | 2016-01-01 |
 
-## Details for the 2017-03-09-profile
+## Details for the 2018-03-01-hybrid
 
 ### Microsoft Authorization
 

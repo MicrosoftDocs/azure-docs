@@ -1,6 +1,6 @@
 ---
-title: Supported countries and languages for Bing News Search API on Azure | Microsoft Docs
-description: Find out which countries and languages are supported by the Bing Image Search API.
+title: Supported countries/regions and languages for Bing News Search API on Azure | Microsoft Docs
+description: Find out which countries/regions and languages are supported by the Bing Image Search API.
 services: cognitive-services
 author: MikeDodaro
 manager: rosh
@@ -10,19 +10,19 @@ ms.topic: article
 ms.date: 12/20/2017
 ms.author: v-gedod
 ---
-# Bing News Search countries and languages
+# Bing News Search countries/regions and languages
 
-The Bing News Search API supports numerous countries, many with more than one language. Specifying a country with a query serves primarily to refine search results based on interests in that country. Additionally, the results may contain links to Bing, and these links may localize the Bing user experience according to the specified country or language.
+The Bing News Search API supports numerous countries/regions, many with more than one language. Specifying a country/region with a query serves primarily to refine search results based on interests in that country/region. Additionally, the results may contain links to Bing, and these links may localize the Bing user experience according to the specified country/region or language.
 
-You can specify a country using the `cc` query parameter. If you specify a country, you must also specify one or more language codes using the `Accept-Language` HTTP header. The supported languages vary by country; they are given for each country in the Markets table.
+You can specify a country/region using the `cc` query parameter. If you specify a country/region, you must also specify one or more language codes using the `Accept-Language` HTTP header. The supported languages vary by countr/region; they are given for each country/region in the Markets table.
 
-Alternatively, you may specify the market using the `mkt` query parameter and a code from the **Markets** table. Specifying a market simultaneously specifies a country and a preferred language. The `setLang` query parameter may be set to a language code in this case; usually this is the same language specified by `mkt` unless the user prefers to see Bing in another language.
+Alternatively, you may specify the market using the `mkt` query parameter and a code from the **Markets** table. Specifying a market simultaneously specifies a country/region and a preferred language. The `setLang` query parameter may be set to a language code in this case; usually this is the same language specified by `mkt` unless the user prefers to see Bing in another language.
 
 ## Supported markets for news search endpoint
 
 For the `/news/search` endpoint, the following table lists the market code values that you may use to specify the `mkt` query parameter. Bing returns content for only these markets. The list is subject to change.  
   
-For a list of country codes that you may specify in the `cc` query parameter, see [Country Codes](#countrycodes).  
+For a list of country/region codes that you may specify in the `cc` query parameter, see [Country Codes](#countrycodes).  
   
 |Country/region|Language|Market code|  
 |---------------------|--------------|-----------------| 
@@ -71,7 +71,7 @@ For a list of country codes that you may specify in the `cc` query parameter, se
 ## Supported markets for news endpoint
 For the `/news` endpoint, the following table lists the market code values that you may use to specify the `mkt` query parameter. Bing returns content for only these markets. The list is subject to change.  
   
-For a list of country codes that you may specify in the `cc` query parameter, see [Country Codes](#countrycodes).  
+For a list of country/region codes that you may specify in the `cc` query parameter, see [Country Codes](#countrycodes).  
   
 |Country/region|Language|Market code|  
 |---------------------|--------------|-----------------| 
@@ -94,7 +94,7 @@ For a list of country codes that you may specify in the `cc` query parameter, se
 ## Supported markets for news trending endpoint
 For the `/news/trendingtopics` endpoint, the following table lists the market code values that you may use to specify the `mkt` query parameter. Bing returns content for only these markets. The list is subject to change.  
   
-For a list of country codes that you may specify in the `cc` query parameter, see [Country Codes](#countrycodes).  
+For a list of country/region codes that you may specify in the `cc` query parameter, see [Country Codes](#countrycodes).  
   
 |Country/region|Language|Market code|  
 |---------------------|--------------|-----------------| 
@@ -113,7 +113,7 @@ For a list of country codes that you may specify in the `cc` query parameter, se
 <a name="countrycodes"></a>   
 ### Country codes  
 
-The following are the country codes that you may specify in the `cc` query parameter. The list is subject to change.  
+The following are the country/region codes that you may specify in the `cc` query parameter. The list is subject to change.  
   
 |Country/region|Country code|  
 |---------------------|------------------|  

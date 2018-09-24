@@ -1,4 +1,4 @@
----
+﻿---
 title: Configure Jenkins for a Java app on Service Fabric in Azure | Microsoft Docs
 description: In this tutorial, learn how to set up continuous integration using Jenkins to deploy a Java Service Fabric application.
 services: service-fabric
@@ -13,7 +13,7 @@ ms.devlang: java
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/26/2018
+ms.date: 08/27/2018
 ms.author: suhuruli
 ms.custom: mvc
 
@@ -49,15 +49,15 @@ You can set up Jenkins either inside or outside a Service Fabric cluster. The fo
 
 1. Pull the Service Fabric Jenkins container image: ``docker pull rapatchi/jenkins:v10``. This image comes with Service Fabric Jenkins plugin pre-installed.
 
-2. Run the container image with the location where your certificates are on your local machine mounted
+1. Run the container image with the location where your Azure certificates are stored on your mounted local machine.
 
     ```bash
-    docker run -itd -p 8080:8080 -v /Users/suhuruli/Documents/Work/Samples/service-fabric-java-quickstart/AzureCluster:/tmp/myCerts rapatchi/jenkins:v10
+    docker run -itd -p 8080:8080 -v /service-fabric-java-quickstart/AzureCluster rapatchi/jenkins:v10
     ```
 
-3. Get the ID of the container image instance. You can list all the Docker containers with the command ``docker ps –a``
+1. Get the ID of the container image instance. You can list all the Docker containers with the command ``docker ps –a``
 
-4. Retrieve the password of your Jenkins instance by running the following command:
+1. Retrieve the password of your Jenkins instance by running the following command:
 
     ```sh
     docker exec [first-four-digits-of-container-ID] cat /var/jenkins_home/secrets/initialAdminPassword
@@ -67,7 +67,7 @@ You can set up Jenkins either inside or outside a Service Fabric cluster. The fo
     * This password is required for signing in to the Jenkins dashboard from portal, which is ``http://<HOST-IP>:8080``
     * After you sign in for the first time, you can create your own user account or use the admin account.
 
-5. Set up GitHub to work with Jenkins by using the steps mentioned in [Generating a new SSH key and adding it to the SSH agent](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/). Since the commands are run from the Docker container, follow the instructions for the Linux environment.
+1. Set up GitHub to work with Jenkins by using the steps mentioned in [Generating a new SSH key and adding it to the SSH agent](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/). Since the commands are run from the Docker container, follow the instructions for the Linux environment.
     * Use the instructions provided by GitHub to generate the SSH key. Next, add the SSH key to the GitHub account that is hosting the repository.
     * Run the commands mentioned in the preceding link in the Jenkins Docker shell (and not on your host).
     * To sign in to the Jenkins shell from your host, use the following commands:
@@ -82,17 +82,17 @@ You can set up Jenkins either inside or outside a Service Fabric cluster. The fo
 
 1. First, if you do not have a repository that you can use to host the Voting project on Github, create one. The repository is called **dev_test** for the remaining of this tutorial.
 
-2. Create a **new item** on your Jenkins dashboard.
+1. Create a **new item** on your Jenkins dashboard at ``http://<HOST-IP>:8080``.
 
-3. Enter an item name (for example, **MyJob**). Select **free-style project**, and click **OK**.
+1. Enter an item name (for example, **MyJob**). Select **free-style project**, and click **OK**.
 
-4. Go the job page, and click **Configure**.
+1. Go the job page, and click **Configure**.
 
    a. In the general section, select the checkbox for **GitHub project**, and specify your GitHub project URL. This URL hosts the Service Fabric Java application that you want to integrate with the Jenkins continuous integration, continuous deployment (CI/CD) flow (for example, ``https://github.com/testaccount/dev_test``).
 
    b. Under the **Source Code Management** section, select **Git**. Specify the repository URL that hosts the Service Fabric Java application that you want to integrate with the Jenkins CI/CD flow (for example, *https://github.com/testaccount/dev_test.git*). Also, you can specify here which branch to build (for example, **/master**).
 
-5. Configure your *GitHub* (which is hosting the repository) so that it is able to talk to Jenkins. Use the following steps:
+1. Configure your *GitHub* (which is hosting the repository) so that it is able to talk to Jenkins. Use the following steps:
 
    a. Go to your GitHub repository page. Go to **Settings** > **Integrations and Services**.
 
@@ -104,13 +104,13 @@ You can set up Jenkins either inside or outside a Service Fabric cluster. The fo
 
    ![Service Fabric Jenkins Configuration](./media/service-fabric-tutorial-java-jenkins/jenkinsconfiguration.png)
 
-6. Under the **Build Triggers** section, select which build option you want. For this example, you want to trigger a build whenever some push to the repository happens. So you select **GitHub hook trigger for GITScm polling**.
+1. Under the **Build Triggers** section, select which build option you want. For this example, you want to trigger a build whenever some push to the repository happens. So you select **GitHub hook trigger for GITScm polling**.
 
-7. Under the **Build section**, from the drop-down **Add build step**, select the option **Invoke Gradle Script**. In the widget that comes open the advanced menu, specify the path to **Root build script** for your application. It picks up build.gradle from the path specified and works accordingly.
+1. Under the **Build section**, from the drop-down **Add build step**, select the option **Invoke Gradle Script**. In the widget that comes open the advanced menu, specify the path to **Root build script** for your application. It picks up build.gradle from the path specified and works accordingly.
 
     ![Service Fabric Jenkins Build action](./media/service-fabric-tutorial-java-jenkins/jenkinsbuildscreenshot.png)
 
-8. From the **Post-Build Actions** drop-down, select **Deploy Service Fabric Project**. Here you need to provide cluster details where the Jenkins compiled Service Fabric application would be deployed. The path to the certificate is where the volume was mounted (/tmp/myCerts).
+1. From the **Post-Build Actions** drop-down, select **Deploy Service Fabric Project**. Here you need to provide cluster details where the Jenkins compiled Service Fabric application would be deployed. The path to the certificate is where the volume was mounted (/tmp/myCerts).
 
     You can also provide additional details used to deploy the application. See the following screenshot for an example for the application details:
 
@@ -119,6 +119,8 @@ You can set up Jenkins either inside or outside a Service Fabric cluster. The fo
     > [!NOTE]
     > The cluster here could be same as the one hosting the Jenkins container application, in case you are using Service Fabric to deploy the Jenkins container image.
     >
+
+1. Click **Save**.
 
 ## Update your existing application
 
@@ -136,7 +138,7 @@ You can set up Jenkins either inside or outside a Service Fabric cluster. The fo
     </div>
     ```
 
-2. Update the **ApplicationTypeVersion** and **ServiceManifestVersion** version to **2.0.0** in the *Voting/VotingApplication/ApplicationManifest.xml* file.
+1. Update the **ApplicationTypeVersion** and **ServiceManifestVersion** version to **2.0.0** in the *Voting/VotingApplication/ApplicationManifest.xml* file.
 
     ```xml
     <?xml version="1.0" encoding="utf-8" standalone="no"?>
@@ -163,7 +165,7 @@ You can set up Jenkins either inside or outside a Service Fabric cluster. The fo
     </ApplicationManifest>
     ```
 
-3. Update the **Version** field in the **ServiceManifest** and the **Version** field in the **CodePackage** tag in the *Voting/VotingApplication/VotingWebPkg/ServiceManifest.xml* file to **2.0.0**.
+1. Update the **Version** field in the **ServiceManifest** and the **Version** field in the **CodePackage** tag in the *Voting/VotingApplication/VotingWebPkg/ServiceManifest.xml* file to **2.0.0**.
 
     ```xml
     <CodePackage Name="Code" Version="2.0.0">
@@ -175,13 +177,13 @@ You can set up Jenkins either inside or outside a Service Fabric cluster. The fo
     </CodePackage>
     ```
 
-4. To initialize a Jenkins job that performs an application upgrade, push your new changes to your Github repository.
+1. To initialize a Jenkins job that performs an application upgrade, push your new changes to your Github repository.
 
-5. In Service Fabric Explorer, click on the **Applications** dropdown. To see the status of your upgrade, click on the **Upgrades in Progress** tab.
+1. In Service Fabric Explorer, click on the **Applications** dropdown. To see the status of your upgrade, click on the **Upgrades in Progress** tab.
 
     ![Upgrade in progress](./media/service-fabric-tutorial-create-java-app/upgradejava.png)
 
-6. If you access **http://\<Host-IP>:8080**  the Voting application with full functionality is now up and running.
+1. If you access **http://\<Host-IP>:8080**  the Voting application with full functionality is now up and running.
 
     ![Voting App Local](./media/service-fabric-tutorial-java-jenkins/votingv2.png)
 

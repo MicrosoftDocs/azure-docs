@@ -43,6 +43,6 @@ Learn how to use direct methods, desired properties, and cloud-to-device message
 [lnk-jobs]: iot-hub-devguide-jobs.md
 [lnk-c2d]: iot-hub-devguide-messages-c2d.md
 [lnk-methods]: iot-hub-devguide-direct-methods.md
-[lnk-methods-tutorial]: iot-hub-node-node-direct-methods.md
-[lnk-twin-properties]: iot-hub-node-node-twin-how-to-configure.md
+[lnk-methods-tutorial]: quickstart-control-device-node.md
+[lnk-twin-properties]: tutorial-device-twins.md
 [lnk-c2d-tutorial]: iot-hub-node-node-c2d.md

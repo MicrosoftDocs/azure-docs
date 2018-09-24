@@ -320,10 +320,7 @@ Azure Batch is built on Azure Cloud Services and Azure Virtual Machines technolo
 If you deploy applications to your Batch nodes using [application packages](batch-application-packages.md), you are also charged for the Azure Storage resources that your application packages consume. In general, the Azure Storage costs are minimal. 
 
 ## Next steps
-### Batch Python tutorial
-For a more in-depth tutorial about how to work with Batch by using Python, check out [Get started with the Azure Batch Python client](batch-python-tutorial.md). Its companion [code sample][github_samples_pyclient] includes a helper function, `get_vm_config_for_distro`, that shows another technique to obtain a virtual machine configuration.
 
-### Batch Python code samples
 The [Python code samples][github_samples_py] in the [azure-batch-samples][github_samples] repository on GitHub contain scripts that show you how to perform common Batch operations, such as pool, job, and task creation. The [README][github_py_readme] that accompanies the Python samples has details about how to install the required packages.
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx

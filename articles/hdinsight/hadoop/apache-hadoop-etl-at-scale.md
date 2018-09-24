@@ -1,18 +1,13 @@
 ---
-title: Extract, transform, and load (ETL) at Scale - Azure HDInsight | Microsoft Docs
+title: Extract, transform, and load (ETL) at Scale - Azure HDInsight 
 description: Learn how ETL is used in HDInsight with Hadoop.
 services: hdinsight
-documentationcenter: ''
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+ms.reviewer: jasonh
 
-ms.assetid: 
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
 ---

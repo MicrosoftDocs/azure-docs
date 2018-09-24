@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 07/25/2018
 ms.author: cephalin
 
 ---
@@ -25,21 +25,19 @@ The new **PremiumV2** pricing tier gives you faster processors, SSD storage, and
 
 ## Prerequisites
 
-To scale-up a web app to **PremiumV2**, you need to have a Web App in Azure App Service that runs in a pricing tier lower than **PremiumV2**.
+To scale-up a web app to **PremiumV2**, you need to have a Web App in Azure App Service that runs in a pricing tier lower than **PremiumV2**, and the Web App must be running in an App Service deployment that supports PremiumV2.
 
 <a name="availability"></a>
 
 ## PremiumV2 availability
 
-The PremiumV2 tier is currently available for App Service on _Windows_ only. Linux containers aren't supported yet.
+The **PremiumV2** tier is available for App Service on both _Windows_ as well as _Linux_.
 
-PremiumV2 is already available in most Azure regions and growing. To see if it's available in your region, run the following Azure CLI command in the [Azure Cloud Shell](../cloud-shell/overview.md):
+**PremiumV2** is available in most Azure regions. To see if it's available in your region, run the following Azure CLI command in the [Azure Cloud Shell](../cloud-shell/overview.md):
 
 ```azurecli-interactive
 az appservice list-locations --sku P1V2
 ```
-
-If you receive an error during app creation or App Service plan creation, then **PremiumV2** is most likely not available for your region of choice.
 
 <a name="create"></a>
 
@@ -54,11 +52,11 @@ Select **Production**, then select **P1V2**, **P2V2**, or **P3V2**, then click *
 ![](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 
 > [!IMPORTANT] 
-> If you don't see **P1V2**, **P2V2**, and **P3V2** as options, either **PremiumV2** isn't available in your region of choice, or you're configuring a Linux App Service plan, which doesn't support **PremiumV2**.
+> If you don't see **P1V2**, **P2V2**, and **P3V2** as options, or if the options are greyed out, then **PremiumV2** likely isn't available in the underlying App Service deployment that contains the App Service plan. See see [Scale up from an unsupported resource group and region combination](#unsupported) for more details.
 
 ## Scale up an existing app to PremiumV2 tier
 
-Before scaling an existing app to **PremiumV2** tier, make sure that **PremiumV2** is available in your region. For information, see [PremiumV2 availability](#availability). If it's not available in your region, see [Scale up from an unsupported region](#unsupported).
+Before scaling an existing app to **PremiumV2** tier, make sure that **PremiumV2** is available. For information, see [PremiumV2 availability](#availability). If it's not available, see [Scale up from an unsupported resource group and region combination](#unsupported).
 
 Depending on your hosting environment, scaling up may require extra steps. 
 
@@ -78,32 +76,20 @@ If your operation finishes successfully, your app's overview page shows that it'
 
 ### If you get an error
 
-Some App Service plans can't scale up to the PremiumV2 tier. If your scale-up operation gives you an error, you need a new App Service plan for your app.
-
-Create a _Windows_ App Service plan in the same region and resource group as your existing App Service app. Follow the steps at [Create an app in PremiumV2 tier](#create) to set it to **PremiumV2** tier. If you want, use the same scale-out configuration as your existing App Service plan (number of instances, autoscale, and so on).
-
-Open your App Service app page again. In the left navigation of your App Service, select **Change App Service plan**.
-
-![](media/app-service-configure-premium-tier/change-plan.png)
-
-Select the App Service plan you created.
-
-![](media/app-service-configure-premium-tier/select-plan.png)
-
-Once the change operation completes, your app is running in **PremiumV2** tier.
+Some App Service plans can't scale up to the PremiumV2 tier if the underlying App Service deployment doesn’t support PremiumV2.  See [Scale up from an unsupported resource group and region combination](#unsupported) for more details.
 
 <a name="unsupported"></a>
 
-## Scale up from an unsupported region
+## Scale up from an unsupported resource group and region combination
 
-If your app runs in a region where **PremiumV2** isn't available yet, you can move your app to a different region to take advantage of **PremiumV2**. You have two options:
+If your app runs in an App Service deployment where **PremiumV2** isn't available, or if your app runs in a region that currently does not support **PremiumV2**, you will need to re-deploy your app to take advantage of **PremiumV2**.  You have two options:
 
-- Create an app in new **PremiumV2** plan, then redeploy your application code. Follow the steps at [Create an app in PremiumV2 tier](#create) to set it to **PremiumV2** tier. If desired, use the same scale-out configuration as your existing App Service plan (number of instances, autoscale, and so on).
-- If your app already runs in an existing **Premium** tier, then you can clone your app with all app settings, connection strings, and deployment configuration.
+- Create a **new** resource group, and then create a **new** web app and app service plan in the **new** resource group, choosing your desired Azure region during the creation process.  You **must** select the **PremiumV2** plan at the time the new app service plan is created.  This ensures the combination of resource group, App Service plan, and Azure region will result in the App Service plan being created in an App Service deployment that supports **PremiumV2**.  Then redeploy your application code into the newly created app and app service plan. If desired you can subsequently scale the App Service plan down from **PremiumV2** to save costs, and you will still be able to successfully scale back up again in the future using **PremiumV2**.
+- If your app already runs in an existing **Premium** tier, then you can clone your app with all app settings, connection strings, and deployment configuration into a new app service plan that uses **PremiumV2**.
 
     ![](media/app-service-configure-premium-tier/clone-app.png)
 
-    In the **Clone app** page, you can create an App Service plan in the region you want, and specify the settings that you want to clone.
+    In the **Clone app** page, you can create an App Service plan using **PremiumV2** in the region you want, and specify the app settings and configuration that you want to clone.
 
 ## Automate with scripts
 

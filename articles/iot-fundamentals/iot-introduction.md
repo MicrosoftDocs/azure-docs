@@ -171,7 +171,7 @@ Explore the following areas of technologies and solutions, or see the Table of C
 [lnk-iot-tsi-land]: /azure/time-series-insights/index.yml
 
 [lnk-iot-hub]: ../iot-hub/about-iot-hub.md
-[lnk-iot-sa]: ../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md
+[lnk-iot-sa]: ../iot-accelerators/about-iot-accelerators.md
 [lnk-machinelearning]: http://azure.microsoft.com/documentation/services/machine-learning/
 [lnk-protocol-gateway]:  ../iot-hub/iot-hub-protocol-gateway.md
 [lnk-refarch]: https://aka.ms/iotrefarchitecture

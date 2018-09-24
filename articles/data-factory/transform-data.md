@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/16/2018
+ms.date: 07/31/2018
 ms.author: douglasl
 
 ---
@@ -20,11 +20,14 @@ ms.author: douglasl
 > * [Hive](transform-data-using-hadoop-hive.md)  
 > * [Pig](transform-data-using-hadoop-pig.md)  
 > * [MapReduce](transform-data-using-hadoop-map-reduce.md)  
-> * [Hadoop Streaming](transform-data-using-hadoop-streaming.md)
-> * [Spark](transform-data-using-spark.md)
+> * [HDInsight Streaming](transform-data-using-hadoop-streaming.md)
+> * [HDInsight Spark](transform-data-using-spark.md)
 > * [Machine Learning](transform-data-using-machine-learning.md) 
 > * [Stored Procedure](transform-data-using-stored-procedure.md)
 > * [Data Lake Analytics U-SQL](transform-data-using-data-lake-analytics.md)
+> * [Databricks notebook](transform-data-databricks-notebook.md)
+> * [Databricks Jar](transform-data-databricks-jar.md)
+> * [Databricks Python](transform-data-databricks-python.md)
 > * [.NET custom](transform-data-using-dotnet-custom-activity.md)
 
 ## Overview
@@ -60,7 +63,19 @@ You can use the SQL Server Stored Procedure activity in a Data Factory pipeline 
 ## Data Lake Analytics U-SQL activity
 Data Lake Analytics U-SQL activity runs a U-SQL script on an Azure Data Lake Analytics cluster. See [Data Analytics U-SQL activity](transform-data-using-data-lake-analytics.md) article for details. 
 
-## .NET custom activity
+## Databricks Notebook activity
+
+The Azure Databricks Notebook Activity in a Data Factory pipeline runs a Databricks notebook in your Azure Databricks workspace.Azure Databricks is a managed platform for running Apache Spark. See [Transform data by running a Databricks notebook](transform-data-databricks-notebook.md).
+
+## Databricks Jar activity
+
+The Azure Databricks Jar Activity in a Data Factory pipeline runs a Spark Jar in your Azure Databricks cluster. Azure Databricks is a managed platform for running Apache Spark. See [Transform data by running a Jar activity in Azure Databricks](transform-data-databricks-jar.md).
+
+## Databricks Python activity
+
+The Azure Databricks Python Activity in a Data Factory pipeline runs a Python file in your Azure Databricks cluster. Azure Databricks is a managed platform for running Apache Spark. See [Transform data by running a Python activity in Azure Databricks](transform-data-databricks-python.md).
+
+## Custom activity
 If you need to transform data in a way that is not supported by Data Factory, you can create a custom activity with your own data processing logic and use the activity in the pipeline. You can configure the custom .NET activity to run using either an Azure Batch service or an Azure HDInsight cluster. See [Use custom activities](transform-data-using-dotnet-custom-activity.md) article for details. 
 
 You can create a custom activity to run R scripts on your HDInsight cluster with R installed. See [Run R Script using Azure Data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample). 

@@ -1,250 +1,337 @@
 ---
-title: Create a composite entity to extract complex data - Azure | Microsoft Docs 
-description: Learn how to create a composite entity in your LUIS app to extract different types of entity data. 
+title: "Tutorial 6: Extract composite data with LUIS composite entity"
+titleSuffix: Azure Cognitive Services
+description: Add a composite entity to bundle extracted data of various types into a single containing entity. By bundling the data, the client application can easily extract related data in different data types.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb 
+author: diberry
+manager: cjgronlund 
 
 ms.service: cognitive-services
-ms.component: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 03/28/2018
-ms.author: v-geberr
+ms.date: 09/09/2018
+ms.author: diberry
 --- 
 
-# Use composite entity to extract complex data
-This simple app has two [intents](luis-concept-intent.md) and several entities. Its purpose is to book flights such as '1 ticket from Seattle to Cairo on Friday` and return all the specifics of the reservation as a single piece of data. 
+# Tutorial 6: Group and extract related data
+In this tutorial, add a composite entity to bundle extracted data of various types into a single containing entity. By bundling the data, the client application can easily extract related data in different data types.
 
-In this tutorial, you learn how to:
+The purpose of the composite entity is to group related entities into a parent category entity. The information exists as separate entities before a composite is created. It is similar to hierarchical entity but can contain different types of entities. 
 
+The composite entity is a good fit for this type of data because the data:
+
+* Are related to each other. 
+* Use a variety of entity types.
+* Need to be grouped and processed by client app as a unit of information.
+
+**In this tutorial, you learn how to:**
+
+<!-- green checkmark -->
 > [!div class="checklist"]
-* Add prebuilt entities datetimeV2 and number
-* Create a composite entity
-* Query LUIS and receive composite entity data
+> * Use existing tutorial app
+> * Add composite entity 
+> * Train
+> * Publish
+> * Get intents and entities from endpoint
 
-## Before you begin
-* Your LUIS app from the **[hierarchical quickstart](luis-tutorial-composite-entity.md)**. 
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-> [!Tip]
-> If you do not already have a subscription, you can register for a [free account](https://azure.microsoft.com/free/).
+## Use existing app
+Continue with the app created in the last tutorial, named **HumanResources**. 
 
-## Composite entity is a logical grouping 
-The purpose of the entity is to find and categorize parts of the text in the utterance. 
-A [composite](luis-concept-entity-types.md) entity is composed of other entity types learned from context. For this travel app that takes flight reservations, there are several pieces of information such as dates, locations, and number of seats. 
+If you do not have the HumanResources app from the previous tutorial, use the following steps:
 
-The information exists as separate entities before a composite is created. Create a composite entity when the separate entities can be logically grouped and this logical grouping is helpful to the chatbot or other LUIS-consuming application. 
+1.  Download and save [app JSON file](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-hier-HumanResources.json).
 
-Simple example utterances from users include:
+2. Import the JSON into a new app.
 
-```
-Book a flight to London for next Monday
-2 tickets from Dallas to Dublin this weekend
-Reserve a seat from New York to Paris on the first of April
-```
+3. From the **Manage** section, on the **Versions** tab, clone the version, and name it `composite`. Cloning is a great way to play with various LUIS features without affecting the original version. Because the version name is used as part of the URL route, the name can't contain any characters that are not valid in a URL.
+
+
+## Composite entity
+Create a composite entity when the separate entities can be logically grouped and this logical grouping is helpful to the client application. 
+
+In this app, the employee name is defined in the **Employee** list entity and includes synonyms of name, email address, company phone extension, mobile phone number, and U.S. Federal tax ID. 
+
+The **MoveEmployee** intent has example utterances to request an employee be moved from one building and office to another. Building names are alphabetic: "A", "B", etc. while offices are numeric: "1234", "13245". 
+
+Example utterances in the **MoveEmployee** intent include:
+
+|Example utterances|
+|--|
+|Move John W . Smith to a-2345|
+|shift x12345 to h-1234 tomorrow|
  
-The composite entity matches seat count, origin location, destination location, and date. 
+The move request should include the employee (using any synonym), and the final building and office location. The request can also include the originating office as well as a date the move should happen. 
 
-## What LUIS does
-When the intent and entities of the utterance are identified, [extracted](luis-concept-data-extraction.md#list-entity-data), and returned in JSON from the [endpoint](https://aka.ms/luis-endpoint-apis), LUIS is done. The calling application or chatbot takes that JSON response and fulfills the request -- in whatever way the app or chatbot is designed to do. 
+The extracted data from the endpoint should contain this information and return it in the `RequestEmployeeMove` composite entity:
 
-## Add prebuilt entities number and datetimeV2
-1. Select the `MyTravelApp` app from the list of apps on the [LUIS][LUIS] website.
-
-2. When the app opens, select the **Entities** left navigation link.
-
-    ![Select entities button](./media/luis-tutorial-composite-entity/intents-page-select-entities.png)    
-
-3. Select **Manage prebuilt entities**.
-
-    ![Select entities button](./media/luis-tutorial-composite-entity/manage-prebuilt-entities-button.png)
-
-4. In the pop-up box, select **number** and **datetimeV2**.
-
-    ![Select entities button](./media/luis-tutorial-composite-entity/prebuilt-entity-ddl.png)
-
-5. In order for the new entities to be extracted, select **Train** in the top navigation bar.
-
-    ![Select train button](./media/luis-tutorial-composite-entity/train.png)
-
-## Use existing intent to create composite entity
-1. Select **Intents** from the left navigation. 
-
-    ![Select Intents page](./media/luis-tutorial-composite-entity/intents-from-entities-page.png)
-
-2. Select `BookFlight` from the **Intents** list.  
-
-    ![Select BookFlight intent from list](./media/luis-tutorial-composite-entity/intent-page-with-prebuilt-entities-labeled.png)
-
-    The number and datetimeV2 prebuilt entities are labeled on the utterances.
-
-3. For the utterance `book 2 flights from seattle to cairo next monday`, select the blue `number` entity, then select **Wrap in composite entity** from the list. A green line, under the words, follows the cursor as it moves to the right, indicating a composite entity. Then move to the right to select the last prebuilt entity `datetimeV2`, then enter `FlightReservation` in the text box of the pop-up window, then select **Create new composite**. 
-
-    ![Create composite entity on intents page](./media/luis-tutorial-composite-entity/create-new-composite.png)
-
-4. A pop-up dialog appears allowing you to verify the composite entity children. Select **Done**.
-
-    ![Create composite entity on intents page](./media/luis-tutorial-composite-entity/validate-composite-entity.png)
-
-## Wrap the entities in the composite entity
-Once the composite entity is created, label the remaining utterances in the composite entity. In order to wrap a phrase as a composite entity, you need to select the left-most word, then select **Wrap in composite entity** from the list that appears, then select the right-most word, then select the named composite entity `FlightReservation`. This is a quick, smooth step of selections, broken down into the following steps:
-
-1. In the utterance `schedule 4 seats from paris to london for april 1`, select the 4 as number prebuilt entity.
-
-    ![Select left-most word](./media/luis-tutorial-composite-entity/wrap-composite-step-1.png)
-
-2. Select **Wrap in composite entity** from the list that appears.
-
-    ![Select wrap from the list](./media/luis-tutorial-composite-entity/wrap-composite-step-2.png)
-
-3. Select the right-most word. A green line appears under the phrase, indicating a composite entity.
-
-    ![Select right-most word](./media/luis-tutorial-composite-entity/wrap-composite-step-3.png)
-
-4. Select composite name `FlightReservation` from the list that appears.
-
-    ![Select named composite entity](./media/luis-tutorial-composite-entity/wrap-composite-step-4.png)
-
-    For the last utterance, wrap `London` and `tomorrow` in the composite entity, using the same instructions. 
-
-## Train the LUIS app
-LUIS doesn't know about the changes to the intents and entities (the model), until it is trained. 
-
-1. In the top right side of the LUIS website, select the **Train** button.
-
-    ![Train the app](./media/luis-tutorial-composite-entity/train-button.png)
-
-2. Training is complete when you see the green status bar at the top of the website confirming success.
-
-    ![Training succeeded](./media/luis-tutorial-composite-entity/trained.png)
-
-## Publish the app to get the endpoint URL
-In order to get a LUIS prediction in a chatbot or other application, you need to publish the app. 
-
-1. In the top right side of the LUIS website, select the **Publish** button. 
-
-2. Select the Production slot and the **Publish** button.
-
-    ![publish app](./media/luis-tutorial-composite-entity/publish-to-production.png)
-
-3. Publishing is complete when you see the green status bar at the top of the website confirming success.
-
-## Query the endpoint with a different utterance
-1. On the **Publish** page, select the **endpoint** link at the bottom of the page. This action opens another browser window with the endpoint URL in the address bar. 
-
-    ![Select endpoint URL](./media/luis-tutorial-composite-entity/publish-select-endpoint.png)
-
-2. Go to the end of the URL in the address and enter `reserve 3 seats from London to Cairo on Sunday`. The last querystring parameter is `q`, the utterance query. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `BookFlight` intent with the hierarchical entity extracted.
-
+```JSON
+"compositeEntities": [
+  {
+    "parentType": "RequestEmployeeMove",
+    "value": "jill jones from a - 1234 to z - 2345 on march 3 2 p . m",
+    "children": [
+      {
+        "type": "builtin.datetimeV2.datetime",
+        "value": "march 3 2 p.m"
+      },
+      {
+        "type": "Locations::Destination",
+        "value": "z - 2345"
+      },
+      {
+        "type": "Employee",
+        "value": "jill jones"
+      },
+      {
+        "type": "Locations::Origin",
+        "value": "a - 1234"
+      }
+    ]
+  }
+]
 ```
-{
-  "query": "reserve 3 seats from London to Cairo on Sunday",
-  "topScoringIntent": {
-    "intent": "BookFlight",
-    "score": 0.999999046
-  },
-  "intents": [
+
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+
+2. On the **Intents** page, select **MoveEmployee** intent. 
+
+3. Select the magnifying glass icon on the tool bar to filter the utterances list. 
+
+    [![](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png "Screenshot of LUIS on 'MoveEmployee' intent with magnifying glass button highlighted")](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png#lightbox)
+
+4. Enter `tomorrow` in the filter textbox to find the utterance `shift x12345 to h-1234 tomorrow`.
+
+    [![](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png "Screenshot of LUIS on 'MoveEmployee' intent with filter of 'tomorrow' highlighted")](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png#lightbox)
+
+    Another method is to filter the entity by datetimeV2, by selecting **Entity filters** then select **datetimeV2** from the list. 
+
+5. Select the first entity, `Employee`, then select **Wrap in composite entity** in the pop-up menu list. 
+
+    [![](media/luis-tutorial-composite-entity/hr-create-entity-1.png "Screenshot of LUIS on 'MoveEmployee' intent selecting first entity in composite highlighted")](media/luis-tutorial-composite-entity/hr-create-entity-1.png#lightbox)
+
+
+6. Then immediately select the last entity, `datetimeV2` in the utterance. A green bar is drawn under the selected words indicating a composite entity. In the pop-up menu, enter the composite name `RequestEmployeeMove` then select enter. 
+
+    [![](media/luis-tutorial-composite-entity/hr-create-entity-2.png "Screenshot of LUIS on 'MoveEmployee' intent selecting last entity in composite and creating entity highlighted")](media/luis-tutorial-composite-entity/hr-create-entity-2.png#lightbox)
+
+7. In **What type of entity do you want to create?**, almost all the fields required are in the list. Only the originating location is missing. Select **Add a child entity**, select **Locations::Origin** from the list of existing entities, then select **Done**. 
+
+    Notice that the prebuilt entity, number, was added to the composite entity. If you could have a prebuilt entity appear between the beginning and ending tokens of a composite entity, the composite entity must contain those prebuilt entities. If the prebuilt entities are not included, the composite entity is not correctly predicted but each individual element is.
+
+    ![Screenshot of LUIS on 'MoveEmployee' intent adding another entity in pop-up window](media/luis-tutorial-composite-entity/hr-create-entity-ddl.png)
+
+8. Select the magnifying glass on the toolbar to remove the filter. 
+
+9. Remove the word `tomorrow` from the filter so you can see all the example utterances again. 
+
+## Label example utterances with composite entity
+
+
+1. In each example utterance, select the left-most entity that should be in the composite. Then select **Wrap in composite entity**.
+
+    [![](media/luis-tutorial-composite-entity/hr-label-entity-1.png "Screenshot of LUIS on 'MoveEmployee' intent selecting first entity in composite highlighted")](media/luis-tutorial-composite-entity/hr-label-entity-1.png#lightbox)
+
+2. Select the last word in the composite entity then select **RequestEmployeeMove** from the pop-up menu. 
+
+    [![](media/luis-tutorial-composite-entity/hr-label-entity-2.png "Screenshot of LUIS on 'MoveEmployee' intent selecting last entity in composite highlighted")](media/luis-tutorial-composite-entity/hr-label-entity-2.png#lightbox)
+
+3. Verify all utterances in the intent are labeled with the composite entity. 
+
+    [![](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png "Screenshot of LUIS on 'MoveEmployee' with all utterances labeled")](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png#lightbox)
+
+## Train
+
+[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+
+## Publish
+
+[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
+
+## Get intent and entities from endpoint 
+
+1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+
+2. Go to the end of the URL in the address and enter `Move Jill Jones from a-1234 to z-2345 on March 3 2 p.m.`. The last querystring parameter is `q`, the utterance query. 
+
+    Since this test is to verify the composite is extracted correctly, a test can either include an existing sample utterance or a new utterance. A good test is to include all the child entities in the composite entity.
+
+    ```JSON
     {
-      "intent": "BookFlight",
-      "score": 0.999999046
-    },
-    {
-      "intent": "None",
-      "score": 0.227036044
-    }
-  ],
-  "entities": [
-    {
-      "entity": "sunday",
-      "type": "builtin.datetimeV2.date",
-      "startIndex": 40,
-      "endIndex": 45,
-      "resolution": {
-        "values": [
-          {
-            "timex": "XXXX-WXX-7",
-            "type": "date",
-            "value": "2018-03-25"
-          },
-          {
-            "timex": "XXXX-WXX-7",
-            "type": "date",
-            "value": "2018-04-01"
+      "query": "Move Jill Jones from a-1234 to z-2345 on March 3  2 p.m",
+      "topScoringIntent": {
+        "intent": "MoveEmployee",
+        "score": 0.9959525
+      },
+      "intents": [
+        {
+          "intent": "MoveEmployee",
+          "score": 0.9959525
+        },
+        {
+          "intent": "GetJobInformation",
+          "score": 0.009858314
+        },
+        {
+          "intent": "ApplyForJob",
+          "score": 0.00728598563
+        },
+        {
+          "intent": "FindForm",
+          "score": 0.0058053555
+        },
+        {
+          "intent": "Utilities.StartOver",
+          "score": 0.005371796
+        },
+        {
+          "intent": "Utilities.Help",
+          "score": 0.00266987388
+        },
+        {
+          "intent": "None",
+          "score": 0.00123299169
+        },
+        {
+          "intent": "Utilities.Cancel",
+          "score": 0.00116407464
+        },
+        {
+          "intent": "Utilities.Confirm",
+          "score": 0.00102653319
+        },
+        {
+          "intent": "Utilities.Stop",
+          "score": 0.0006628214
+        }
+      ],
+      "entities": [
+        {
+          "entity": "march 3 2 p.m",
+          "type": "builtin.datetimeV2.datetime",
+          "startIndex": 41,
+          "endIndex": 54,
+          "resolution": {
+            "values": [
+              {
+                "timex": "XXXX-03-03T14",
+                "type": "datetime",
+                "value": "2018-03-03 14:00:00"
+              },
+              {
+                "timex": "XXXX-03-03T14",
+                "type": "datetime",
+                "value": "2019-03-03 14:00:00"
+              }
+            ]
           }
-        ]
-      }
-    },
-    {
-      "entity": "3 seats from london to cairo on sunday",
-      "type": "flightreservation",
-      "startIndex": 8,
-      "endIndex": 45,
-      "score": 0.6892485
-    },
-    {
-      "entity": "cairo",
-      "type": "Location::Destination",
-      "startIndex": 31,
-      "endIndex": 35,
-      "score": 0.557570755
-    },
-    {
-      "entity": "london",
-      "type": "Location::Origin",
-      "startIndex": 21,
-      "endIndex": 26,
-      "score": 0.8933808
-    },
-    {
-      "entity": "3",
-      "type": "builtin.number",
-      "startIndex": 8,
-      "endIndex": 8,
-      "resolution": {
-        "value": "3"
-      }
-    }
-  ],
-  "compositeEntities": [
-    {
-      "parentType": "flightreservation",
-      "value": "3 seats from london to cairo on sunday",
-      "children": [
-        {
-          "type": "builtin.datetimeV2.date",
-          "value": "sunday"
         },
         {
-          "type": "Location::Destination",
-          "value": "cairo"
+          "entity": "jill jones",
+          "type": "Employee",
+          "startIndex": 5,
+          "endIndex": 14,
+          "resolution": {
+            "values": [
+              "Employee-45612"
+            ]
+          }
         },
         {
+          "entity": "z - 2345",
+          "type": "Locations::Destination",
+          "startIndex": 31,
+          "endIndex": 36,
+          "score": 0.9690751
+        },
+        {
+          "entity": "a - 1234",
+          "type": "Locations::Origin",
+          "startIndex": 21,
+          "endIndex": 26,
+          "score": 0.9713137
+        },
+        {
+          "entity": "-1234",
           "type": "builtin.number",
-          "value": "3"
+          "startIndex": 22,
+          "endIndex": 26,
+          "resolution": {
+            "value": "-1234"
+          }
         },
         {
-          "type": "Location::Origin",
-          "value": "london"
+          "entity": "-2345",
+          "type": "builtin.number",
+          "startIndex": 32,
+          "endIndex": 36,
+          "resolution": {
+            "value": "-2345"
+          }
+        },
+        {
+          "entity": "3",
+          "type": "builtin.number",
+          "startIndex": 47,
+          "endIndex": 47,
+          "resolution": {
+            "value": "3"
+          }
+        },
+        {
+          "entity": "2",
+          "type": "builtin.number",
+          "startIndex": 50,
+          "endIndex": 50,
+          "resolution": {
+            "value": "2"
+          }
+        },
+        {
+          "entity": "jill jones from a - 1234 to z - 2345 on march 3 2 p . m",
+          "type": "RequestEmployeeMove",
+          "startIndex": 5,
+          "endIndex": 54,
+          "score": 0.4027723
+        }
+      ],
+      "compositeEntities": [
+        {
+          "parentType": "RequestEmployeeMove",
+          "value": "jill jones from a - 1234 to z - 2345 on march 3 2 p . m",
+          "children": [
+            {
+              "type": "builtin.datetimeV2.datetime",
+              "value": "march 3 2 p.m"
+            },
+            {
+              "type": "Locations::Destination",
+              "value": "z - 2345"
+            },
+            {
+              "type": "Employee",
+              "value": "jill jones"
+            },
+            {
+              "type": "Locations::Origin",
+              "value": "a - 1234"
+            }
+          ]
         }
       ]
     }
-  ]
-}
-```
+    ```
 
-This utterance returns a composite entities array including the **flightreservation** object with the data extracted.  
+  This utterance returns a composite entities array. Each entity is given a type and value. To find more precision for each child entity, use the combination of type and value from the composite array item to find the corresponding item in the entities array.  
 
-## What has this LUIS app accomplished?
-This app, with just two intents and a composite entity, identified a natural language query intention and returned the extracted data. 
+## Clean up resources
 
-Your chatbot now has enough information to determine the primary action, `BookFlight`, and the reservation information found in the utterance. 
-
-## Where is this LUIS data used? 
-LUIS is done with this request. The calling application, such as a chatbot, can take the topScoringIntent result and the data from the entity to take the next step. LUIS doesn't do that programmatic work for the bot or calling application. LUIS only determines what the user's intention is. 
+[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## Next steps
 
-[Learn more about entities](luis-concept-entity-types.md). 
+This tutorial created a composite entity to encapsulate existing entities. This allows the client application to find a group of related data in different datatypes to continue the conversation. A client application for this Human Resources app could ask what day and time the move needs to begin and end. It could also ask about other logistics of the movesuch as a physical phone. 
 
-<!--References-->
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
-[LUIS-regions]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#publishing-regions
+> [!div class="nextstepaction"] 
+> [Learn how to add a simple entity with a phrase list](luis-quickstart-primary-and-secondary-data.md)  

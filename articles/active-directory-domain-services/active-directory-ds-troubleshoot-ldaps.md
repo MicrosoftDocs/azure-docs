@@ -13,7 +13,7 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: ergreenl
 
@@ -54,7 +54,7 @@ When secure LDAP is enabled, we recommend creating additional rules to allow inb
 
 **Alert message:**
 
-*The secure LDAP certificate for the managed domain will expire on XX.*
+*The secure LDAP certificate for the managed domain will expire on [date]].*
 
 **Resolution:**
 

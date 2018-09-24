@@ -7,8 +7,8 @@ manager: mtillman
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
-ms.date: 04/04/2017
+ms.topic: conceptual
+ms.date: 08/15/2018
 ms.author: davidmu
 ms.component: B2C
 ---
@@ -50,7 +50,7 @@ To enable sign-in for users from a specific Azure AD organization, you need to r
     >The value for "yourtenant" must be all lowercase in the **Sign-on URL**.
 
     ```
-    https://login.microsoftonline.com/te/yourtenant.onmicrosoft.com/oauth2/authresp
+    https://yourtenant.b2clogin.com/te/yourtenant.onmicrosoft.com/oauth2/authresp
     ```
 
 8. Save the application ID.
@@ -109,7 +109,7 @@ You can define Azure AD as a claims provider by adding Azure AD to the `<ClaimsP
                     <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name" />
                     <OutputClaim ClaimTypeReferenceId="surName" PartnerClaimType="family_name" />
                     <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
-                    <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="contosoAuthentication" />
+                    <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
                     <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="AzureADContoso" />
                 </OutputClaims>
                 <OutputClaimsTransformations>

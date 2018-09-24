@@ -7,7 +7,7 @@ manager: mtillman
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/23/2017
 ms.author: davidmu
 ms.component: B2C
@@ -36,7 +36,7 @@ To use LinkedIn as an identity provider in Azure Active Directory B2C (Azure AD 
 
     c. Select an **Application Use**.
 
-    d. In the **Website URL** box, paste **https://login.microsoftonline.com**.
+    d. In the **Website URL** box, paste **https://{tenant}.b2clogin.com**.  Where {*tenant*} is your tenant name (for example contoso.b2clogin.com).
 
     e. Type your **Business Email** address and **Business Phone** number.
 
@@ -46,7 +46,7 @@ To use LinkedIn as an identity provider in Azure Active Directory B2C (Azure AD 
 
 3. Select **Authentication**, and then note the **Client ID** and **Client Secret** values.
 
-4. In the **Authorized Redirect URLs** box, paste **https://login.microsoftonline.com/te/{tenant}.onmicrosoft.com/oauth2/authresp**. Replace {*tenant*} with your tenant name (for example, contosob2c.onmicrosoft.com). Make sure that you are using the HTTPS scheme. 
+4. In the **Authorized Redirect URLs** box, paste **https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp**. Replace {*tenant*} with your tenant name (for example, contosob2c.onmicrosoft.com). Make sure that you are using the HTTPS scheme. 
 
     ![LinkedIn account - Set authorized redirect URLs](media/active-directory-b2c-custom-setup-li-idp/adb2c-ief-setup-li-idp-new-app3.png)
 

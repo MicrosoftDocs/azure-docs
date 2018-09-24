@@ -29,7 +29,7 @@ You need to have already [created a managed VM image](capture-image-resource.md)
 2. In the left menu, select **All resources**. You can sort the resources by **Type** to easily find your images.
 3. Select the image you want to use from the list. The image **Overview** page opens.
 4. Click **+ Create VM** from the menu.
-5. Enter the virtual machine information. The user name and password entered here is used to log in to the virtual machine. When complete, click **OK**. You can create the new VM in an existing Resrouce Group, or choose **Create new** to create a new resource group to store the VM.
+5. Enter the virtual machine information. The user name and password entered here is used to log in to the virtual machine. When complete, click **OK**. You can create the new VM in an existing Resource Group, or choose **Create new** to create a new resource group to store the VM.
 6. Select a size for the VM. To see more sizes, select **View all** or change the **Supported disk type** filter. 
 7. Under **Settings**, make changes as necessary and click **OK**. 
 8. On the summary page, you should see your image name listed for **Private image**. Click **Ok** to start the virtual machine deployment.

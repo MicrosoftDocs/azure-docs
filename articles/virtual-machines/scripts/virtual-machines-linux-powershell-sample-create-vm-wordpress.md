@@ -1,9 +1,9 @@
-﻿---
+---
 title: Azure PowerShell Script Sample - WordPress | Microsoft Docs
 description: Azure PowerShell Script Sample - WordPress
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
@@ -15,7 +15,7 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/01/2017
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
 ---
 

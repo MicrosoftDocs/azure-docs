@@ -1,14 +1,13 @@
 ---
 title: Authorizing access to Azure Storage | Microsoft Docs
-description: Learn about the different ways to authorize access to Azure Storage, including Azure Active Directory, Shared Key authentication, or shared access signatures.  
+description: Learn about the different ways to authorize access to Azure Storage, including Azure Active Directory, Shared Key authentication, or shared access signatures.
 services: storage
 author: tamram
-manager: jeconnoc
-
 ms.service: storage
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: tamram
+ms.component: common
 ---
 
 # Authorizing access to Azure Storage

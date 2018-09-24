@@ -1,5 +1,5 @@
 - name: Virtual Machines Documentation
-  href: index.md
+  href: index.yml
 - name: Linux Virtual Machines in Azure
   href: linux/overview.md
 - name: Windows Virtual Machines in Azure
@@ -20,6 +20,8 @@
     href: windows/overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json
 - name: Resources
   items:
+  - name: Build your skills with Microsoft Learn
+    href: /learn/browse/?products=azure-virtual-machines
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=compute
   - name: Pricing calculator

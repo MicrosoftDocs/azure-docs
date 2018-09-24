@@ -7,8 +7,8 @@ manager: mtillman
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
-ms.date: 06/11/2017
+ms.topic: conceptual
+ms.date: 08/15/2018
 ms.author: davidmu
 ms.component: B2C
 ---
@@ -62,11 +62,11 @@ To help Azure AD B2C communicate with Salesforce, you need to get the Salesforce
 4. Under **Web App Settings**, select the **Enable SAML** check box.
 5. In the **Entity ID** field, enter the following URL. Ensure that you replace the value for `tenantName`.
       ```
-      https://login.microsoftonline.com/te/tenantName.onmicrosoft.com/B2C_1A_TrustFrameworkBase
+      https://tenantName.b2clogin.com/te/tenantName.onmicrosoft.com/B2C_1A_TrustFrameworkBase
       ```
 6. In the **ACS URL** field, enter the following URL. Ensure that you replace the value for `tenantName`.
       ```
-      https://login.microsoftonline.com/te/tenantName.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer
+      https://tenantName.b2clogin.com/te/tenantName.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer
       ```
 7. Leave the default values for all other settings.
 8. Scroll to the bottom of the list, and then click **Save**.
@@ -146,7 +146,7 @@ You need to define Salesforce as a claims provider so users can sign in by using
             <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="family_name"/>
             <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="email"/>
             <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="username"/>
-            <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="externalIdp"/>
+            <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication"/>
             <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="SAMLIdp" />
           </OutputClaims>
           <OutputClaimsTransformations>

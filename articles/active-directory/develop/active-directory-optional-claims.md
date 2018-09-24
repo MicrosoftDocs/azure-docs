@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/24/2018
+ms.date: 07/12/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
@@ -29,7 +29,7 @@ This feature is used by application developers to specify which claims they want
 > [!Note]
 > This capability currently is in public preview. Be prepared to revert or remove any changes. The feature is available in any Azure AD subscription during public preview. However, when the feature becomes generally available, some aspects of the feature might require an Azure AD premium subscription.
 
-For the list of standard claims and how they are used in tokens, see the [basics of tokens issued by Azure AD](active-directory-token-and-claims.md). 
+For the list of standard claims and how they are used in tokens, see the [basics of tokens issued by Azure AD](v1-id-and-access-tokens.md). 
 
 One of the goals of the [v2.0 Azure AD endpoint](active-directory-appmodel-v2-overview.md) is smaller token sizes to ensure optimal performance by clients.  As a result, several claims formerly included in the access and ID tokens are no longer present in v2.0 tokens and must be asked for specifically on a per-application basis.  
 
@@ -37,38 +37,42 @@ One of the goals of the [v2.0 Azure AD endpoint](active-directory-appmodel-v2-ov
 
 | Account Type | V1.0 Endpoint                      | V2.0 Endpoint  |
 |--------------|------------------------------------|----------------|
-| MSA          | N/A - RPS Tickets are used instead | Support coming |
-| AAD          | Supported                          | Supported      |
+| Personal Microsoft account  | N/A - RPS Tickets are used instead | Support coming |
+| Azure AD account          | Supported                          | Supported      |
 
 ## Standard optional claims set
 The set of optional claims available by default for applications to use are listed below.  To add custom optional claims for your application, see [Directory Extensions](active-directory-optional-claims.md#Configuring-custom-claims-via-directory-extensions), below. 
 
 > [!Note]
->The majority of these claims can be included in JWTs, but not SAML tokens, except where noted in the Token Type column.  Additionally, while optional claims are only supported for AAD users currently, MSA support is being added.  When MSA has optional claims support on the v2.0 endpoint, the User Type column will denote if a claim is available for an AAD or MSA user.  
+>The majority of these claims can be included in JWTs for v1.0 and v2.0 tokens, but not SAML tokens, except where noted in the Token Type column.  Additionally, while optional claims are only supported for AAD users currently, MSA support is being added.  When MSA has optional claims support on the v2.0 endpoint, the User Type column will denote if a claim is available for an AAD or MSA user.  
 
 **Table 2: Standard optional claim set**
 
-| Name                     | Description                                                                                                                                                                                     | Token Type | User Type | Notes                                                                                                                                                                                                                                                                                   |
-|--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------|-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `auth_time`                | Time when the user last authenticated.  See OpenID Connect spec.                                                                                                                                | JWT        |           |                                                                                                                                                                                                                                                                                         |
-| `tenant_region_scope`      | Region of the resource tenant                                                                                                                                                                   | JWT        |           |                                                                                                                                                                                                                                                                                         |
-| `signin_state`             | Sign in state claim                                                                                                                                                                             | JWT        |           | 6 return values, as flags:<br> "dvc_mngd": Device is managed<br> "dvc_cmp": Device is compliant<br> "dvc_dmjd": Device is domain joined<br> "dvc_mngd_app": Device is managed via MDM<br> "inknownntwk": Device is inside a known network.<br> "kmsi": Keep Me Signed In was used. <br> |
-| `controls`                 | Multivalue claim containing the session controls enforced by Conditional Access policies.                                                                                                       | JWT        |           | 3 values:<br> "app_res": The app needs to enforce more granular restrictions. <br> "ca_enf": Conditional Access enforcement was deferred and is still required. <br> "no_cookie": This token is insufficient to exchange for a cookie in the browser. <br>                              |
-| `home_oid`                 | For guest users, the object ID of the user in the user’s home tenant.                                                                                                                           | JWT        |           |                                                                                                                                                                                                                                                                                         |
-| `sid`                      | Session ID, used for per-session user signout.                                                                                                                                                  | JWT        |           |                                                                                                                                                                                                                                                                                         |
-| `platf`                    | Device platform                                                                                                                                                                                 | JWT        |           | Restricted to managed devices that can verify device type.                                                                                                                                                                                                                              |
-| `verified_primary_email`   | Sourced from the user’s PrimaryAuthoritativeEmail                                                                                                                                               | JWT        |           |                                                                                                                                                                                                                                                                                         |
-| `verified_secondary_email` | Sourced from the user’s SecondaryAuthoritativeEmail                                                                                                                                             | JWT        |           |                                                                                                                                                                                                                                                                                         |
-| `enfpolids`                | Enforced policy IDs. A list of the policy IDs that were evaluated for the current user.                                                                                                         | JWT        |           |                                                                                                                                                                                                                                                                                         |
-| `vnet`                     | VNET specifier information.                                                                                                                                                                     | JWT        |           |                                                                                                                                                                                                                                                                                         |
-| `fwd`                      | IP address.  Adds the original IPv4 address of the requesting client (when inside a VNET)                                                                                                       | JWT        |           |                                                                                                                                                                                                                                                                                         |
-| `ctry`                     | User’s country                                                                                                                                                                                  | JWT        |           |                                                                                                                                                                                                                                                                                         |
-| `tenant_ctry`              | Resource tenant’s country                                                                                                                                                                       | JWT        |           |                                                                                                                                                                                                                                                                                         |
-| `acct`    | Users account status in tenant.  If the user is a member of the tenant, the value is `0`.  If they are a guest, the value is `1`.  | JWT, SAML | | |
-| `upn`                      | UserPrincipalName claim.  Although this claim is automatically included, you can specify it as an optional claim to attach additional properties to modify its behavior in the guest user case. | JWT, SAML  |           | Additional properties: <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash`                                                                                                                                                                 |
+| Name                        | Description   | Token Type | User Type | Notes  |
+|-----------------------------|----------------|------------|-----------|--------|
+| `auth_time`                | Time when the user last authenticated.  See OpenID Connect spec.| JWT        |           |  |
+| `tenant_region_scope`      | Region of the resource tenant | JWT        |           | |
+| `signin_state`             | Sign in state claim   | JWT        |           | 6 return values, as flags:<br> "dvc_mngd": Device is managed<br> "dvc_cmp": Device is compliant<br> "dvc_dmjd": Device is domain joined<br> "dvc_mngd_app": Device is managed via MDM<br> "inknownntwk": Device is inside a known network.<br> "kmsi": Keep Me Signed In was used. <br> |
+| `controls`                 | Multivalue claim containing the session controls enforced by Conditional Access policies.  | JWT        |           | 3 values:<br> "app_res": The app needs to enforce more granular restrictions. <br> "ca_enf": Conditional Access enforcement was deferred and is still required. <br> "no_cookie": This token is insufficient to exchange for a cookie in the browser. <br>  |
+| `home_oid`                 | For guest users, the object ID of the user in the user’s home tenant.| JWT        |           | |
+| `sid`                      | Session ID, used for per-session user signout. | JWT        |           |         |
+| `platf`                    | Device platform    | JWT        |           | Restricted to managed devices that can verify device type.|
+| `verified_primary_email`   | Sourced from the user’s PrimaryAuthoritativeEmail      | JWT        |           |         |
+| `verified_secondary_email` | Sourced from the user’s SecondaryAuthoritativeEmail   | JWT        |           |        |
+| `enfpolids`                | Enforced policy IDs. A list of the policy IDs that were evaluated for the current user.  | JWT |  |  |
+| `vnet`                     | VNET specifier information.    | JWT        |           |      |
+| `fwd`                      | IP address.| JWT    |   | Adds the original IPv4 address of the requesting client (when inside a VNET) |
+| `ctry`                     | User’s country | JWT |           | Azure AD returns the `ctry` optional claim if it's present and the value of the claim is a standard two-letter country code, such as FR, JP, SZ, and so on. |
+| `tenant_ctry`              | Resource tenant’s country | JWT | | |
+| `xms_pdl`		     | Preferred data location   | JWT | | For Multi-Geo tenants, this is the 3-letter code showing which geographic region the user is in.  For more details, see the [Azure AD Connect documentation about preferred data location](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-preferreddatalocation). <br> For example: `APC` for Asia Pacific. |
+| `xms_pl`                   | User preferred language  | JWT ||The user’s preferred language, if set.  Sourced from their home tenant, in guest access scenarios.  Formatted LL-CC (“en-us”). |
+| `xms_tpl`                  | Tenant preferred language| JWT | | The resource tenant’s preferred language, if set.  Formatted LL (“en”). |
+| `ztdid`                    | Zero-touch Deployment ID | JWT | | The device identity used for [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) |
+| `acct`   		     | Users account status in tenant.   | JWT, SAML | | If the user is a member of the tenant, the value is `0`.  If they are a guest, the value is `1`.  |
+| `upn`                      | UserPrincipalName claim.  | JWT, SAML  |           | Although this claim is automatically included, you can specify it as an optional claim to attach additional properties to modify its behavior in the guest user case.  <br> Additional properties: <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash` |
 
 ### V2.0 optional claims
-These claims are always included in v1.0 tokens, but are removed from v2.0 tokens unless requested.  These claims are only applicable for  JWTs (ID tokens and Access Tokens).  
+These claims are always included in v1.0 tokens, but not included in v2.0 tokens unless requested.  These claims are only applicable for  JWTs (ID tokens and Access Tokens).  
 
 **Table 3: V2.0-only optional claims**
 
@@ -91,7 +95,7 @@ Some optional claims can be configured to change the way the claim is returned. 
 
 | Property name                                     | Additional Property name                                                                                                             | Description |
 |---------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|-------------|
-| `upn`                                                 |                                                                                                                                      |             |
+| `upn`                                                 |                                                                                                                                      |  Can be used for both SAML and JWT responses.            |
 | | `include_externally_authenticated_upn`              | Includes the guest UPN as stored in the resource tenant.  For example, `foo_hometenant.com#EXT#@resourcetenant.com`                            |             
 | | `include_externally_authenticated_upn_without_hash` | Same as above, except that the hashmarks (`#`) are replaced with underscores (`_`) , for example `foo_hometenant.com_EXT_@resourcetenant.com` |             
 
@@ -114,11 +118,11 @@ Some optional claims can be configured to change the way the claim is returned. 
 }
 ```
 
-This OptionalClaims object causes the ID token returned to the client to include another upn with the additional home tenant and resource tenant information.  
+This OptionalClaims object causes the ID token returned to the client to include another upn with the additional home tenant and resource tenant information.  This will only change the `upn` claim in the token if the user is a guest in the tenant (that uses a different IDP for authentication). 
 
 ## Configuring optional claims
 
-You can configure optional claims for your application by modifying the application manifest (See example below). For more information, see the [Understanding the Azure AD application manifest article](active-directory-application-manifest.md).
+You can configure optional claims for your application by modifying the application manifest (See example below). For more information, see the [Understanding the Azure AD application manifest article](reference-app-manifest.md).
 
 **Sample schema:**
 
@@ -127,14 +131,13 @@ You can configure optional claims for your application by modifying the applicat
    {
        "idToken": [
              { 
-                   "name": "upn", 
-                   "essential": false, 
-                   "additionalProperties": [ "include_externally_authenticated_upn"]  
+                   "name": "auth_time", 
+                   "essential": false
               }
         ],
  "accessToken": [ 
              {
-                    "name": "auth_time", 
+                    "name": "ipaddr", 
                     "essential": false
               }
         ],
@@ -208,7 +211,7 @@ In the example below, you will modify an application’s manifest to add claims 
 3.	Select **Azure AD extension** from the left navigation panel and click on **App Registrations**.
 4.	Find the application you want to configure optional claims for in the list and click on it.
 5.	From the application page, click **Manifest** to open the inline manifest editor. 
-6.	You can directly edit the manifest using this editor. The manifest follows the schema for the [Application entity](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity), and auto-formats the manifest once saved. New elemets will be added to the `OptionalClaims` property.
+6.	You can directly edit the manifest using this editor. The manifest follows the schema for the [Application entity](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity), and auto-formats the manifest once saved. New elements will be added to the `OptionalClaims` property.
 
       ```json
       "optionalClaims": 
@@ -241,4 +244,4 @@ In the example below, you will modify an application’s manifest to add claims 
 
 
 ## Related content
-* Learn more about the [standard claims](active-directory-token-and-claims.md) provided by Azure AD. 
+* Learn more about the [standard claims](v1-id-and-access-tokens.md) provided by Azure AD. 

@@ -150,7 +150,7 @@ When it has the build info, the Application Insights web module automatically ad
 However, notice that the build version number is generated only by the Microsoft Build Engine, not by the developer build in Visual Studio.
 
 ### Release annotations
-If you use Visual Studio Team Services, you can [get an annotation marker](app-insights-annotations.md) added to your charts whenever you release a new version. The following image shows how this marker appears.
+If you use Azure DevOps, you can [get an annotation marker](app-insights-annotations.md) added to your charts whenever you release a new version. The following image shows how this marker appears.
 
 ![Screenshot of sample release annotation on a chart](./media/app-insights-asp-net/release-annotation.png)
 ## Next steps

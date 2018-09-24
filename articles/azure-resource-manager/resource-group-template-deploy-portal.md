@@ -4,21 +4,19 @@ description: Use Azure portal and Azure Resource Manage to deploy your resources
 services: azure-resource-manager,azure-portal
 documentationcenter: ''
 author: tfitzmac
-manager: timlt
-editor: tysonn
 
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/08/2017
+ms.date: 08/03/2018
 ms.author: tomfitz
 
 ---
 # Deploy resources with Resource Manager templates and Azure portal
 
-This topic shows how to use the [Azure portal](https://portal.azure.com) with [Azure Resource Manager](resource-group-overview.md) to deploy your Azure resources. To learn about managing your resources, see [Manage Azure resources through portal](resource-group-portal.md).
+This article shows how to use the [Azure portal](https://portal.azure.com) with [Azure Resource Manager](resource-group-overview.md) to deploy your Azure resources. To learn about managing your resources, see [Manage Azure resources through portal](resource-group-portal.md).
 
 ## Create resource group
 
@@ -52,7 +50,7 @@ After you create a resource group, you can deploy resources to it from the Marke
 
    ![Select resource type](./media/resource-group-template-deploy-portal/select-resource-type.png)
 
-1. If you do not see the particular solution you would like to deploy, you can search the Marketplace for it. For example, to find a Wordpress solution, start typing **Wordpress** and select the option you want.
+1. If you don't see the particular solution you would like to deploy, you can search the Marketplace for it. For example, to find a Wordpress solution, start typing **Wordpress** and select the option you want.
 
    ![Search marketplace](./media/resource-group-template-deploy-portal/search-resource.png)
 
@@ -75,6 +73,9 @@ After you create a resource group, you can deploy resources to it from the Marke
 ## Deploy resources from custom template
 
 If you want to execute a deployment but not use any of the templates in the Marketplace, you can create a customized template that defines the infrastructure for your solution. To learn about creating templates, see [Understand the structure and syntax of Azure Resource Manager templates](resource-group-authoring-templates.md).
+
+> [!NOTE]
+> The portal interface doesn't support referencing a [secret from a Key Vault](resource-manager-keyvault-parameter.md). Instead, use [PowerShell](resource-group-template-deploy.md) or [Azure CLI](resource-group-template-deploy-cli.md) to deploy your template locally or from an external URI.
 
 1. To deploy a customized template through the portal, select **Create a resource**, and search for **Template Deployment** until you can select it from the options.
 

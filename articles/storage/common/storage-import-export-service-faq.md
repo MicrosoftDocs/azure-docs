@@ -1,15 +1,13 @@
-﻿---
+---
 title: FAQ for Azure Import/Export service | Microsoft Docs
 description: Read answers to frequently asked questions about Azure Import Export service.
 author: alkohli
-manager: jeconnoc
 services: storage
-
 ms.service: storage
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: alkohli
-
+ms.component: common
 ---
 # Azure Import/Export service: frequently asked questions 
 The following are questions and answers that you may have when you use your Azure Import/Export service to transfer data into Azure storage. Questions and answers are arranged in the following categories:
@@ -116,7 +114,7 @@ When preparing a hard drive for an import job, the destination is specified by t
 Depends. When preparing the drive, you can specify whether the destination files should be overwritten or ignored using the field in dataset CSV file called Disposition:<rename|no-overwrite|overwrite>. By default, the service renames the new files rather than overwrite existing blobs or files.
 
 ### Is the WAImportExport tool compatible with 32-bit operating systems?
-No. The WAImportExport tool is only compatible with 64-bit Windows operating systems. For a complete list of Supported OS, go to [Supported Operating Systems](). 
+No. The WAImportExport tool is only compatible with 64-bit Windows operating systems. For a complete list of Supported OS, go to [Supported Operating Systems](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements). 
 
 
 ### What is the maximum Block Blob and Page Blob Size supported by Azure Import/Export?

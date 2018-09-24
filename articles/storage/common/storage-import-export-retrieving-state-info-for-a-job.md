@@ -2,20 +2,12 @@
 title: Retrieving state information for an Azure Import/Export job | Microsoft Docs
 description: Learn how to obtain state information for Microsoft Azure Import/Export service jobs.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-
-ms.assetid: 22d7e5f0-94da-49b4-a1ac-dd4c14a423c2
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: muralikk
-
+ms.component: common
 ---
 
 # Retrieving state information for an Import/Export job

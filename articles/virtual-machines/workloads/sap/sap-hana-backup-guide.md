@@ -11,7 +11,7 @@ ms.devlang: NA
 ms.topic: article
 ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 3/13/2017
+ms.date: 07/05/2018
 ms.author: rclaus
 
 ---
@@ -29,7 +29,7 @@ The focus of this article is on two major backup possibilities for SAP HANA on A
 
 SAP HANA offers a backup API, which allows third-party backup tools to integrate directly with SAP HANA. (That is not within the scope of this guide.) There is no direct integration of SAP HANA with Azure Backup service available right now based on this API.
 
-SAP HANA is officially supported on Azure VM type GS5 as single instance with an additional restriction to OLAP workloads (see [Find Certified IaaS Platforms](https://global.sap.com/community/ebook/2014-09-02-hana-hardware/enEN/iaas.html) on the SAP website). This article will be updated as new offerings for SAP HANA on Azure become available.
+SAP HANA is officially supported on various Azure VM types, like Azure M-Series. For a complete list of SAP HANA certified Azure VMs, check out [Find Certified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). This article will be updated as new offerings for SAP HANA on Azure become available.
 
 There is also an SAP HANA hybrid solution available on Azure, where SAP HANA runs non-virtualized on physical servers. However, this SAP HANA Azure backup guide covers a pure Azure environment where SAP HANA runs in an Azure VM, not SAP HANA running on &quot;large instances.&quot; See [SAP HANA (large instances) overview and architecture on Azure](hana-overview-architecture.md) for more information about this backup solution on &quot;large instances&quot; based on storage snapshots.
 
@@ -172,7 +172,7 @@ Another option would be to maintain the SAP HANA VM and its disks without encryp
 
 ### Test Virtual Machine on Azure
 
-An SAP HANA installation in an Azure GS5 VM was used for the following backup/restore tests.
+In order to perform our tests, an SAP HANA installation in an Azure GS5 VM was used for the following backup/restore tests. The principles are the same as for M-Series VMs.
 
 ![This figure shows part of the Azure portal overview for the HANA test VM](media/sap-hana-backup-guide/image007.png)
 
