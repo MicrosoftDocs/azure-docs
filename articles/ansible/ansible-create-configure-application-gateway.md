@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
 > [!Note]
-> Ansible 2.7 is required to run the following the sample playbooks in this tutorial. You could install Ansible 2.7 RC version by running `sudo pip install ansible[azure]==2.7.0rc2`. Ansible 2.7 will be released on Oct 4th. After that, you need not specify the version here because the default version will be 2.7. 
+> Ansible 2.7 is required to run the following the sample playbooks in this tutorial. You could install Ansible 2.7 RC version by running `sudo pip install ansible[azure]==2.7.0rc2`. Ansible 2.7 will be released on Oct of 2018. After that, you need not specify the version here because the default version will be 2.7. 
 
 ## Create a resource group
 A resource group is a logical container into which Azure resources are deployed and managed.  
@@ -55,7 +55,7 @@ ansible-playbook rg.yml
 ## Create network resources 
 You need to create a virtual network for the application gateway to be able to communicate with other resources. 
 
-The following example creates a virtual network named **myVNet**, a subnet named **myAGSubnet** and a public IP address named **myAGPublicIPAddress** with domain **mydomain**. 
+The following example creates a virtual network named **myVNet**, a subnet named **myAGSubnet**,  and a public IP address named **myAGPublicIPAddress** with domain named **mydomain**. 
 
 ```yml
 - hosts: localhost
@@ -147,16 +147,16 @@ Save above playbook as *aci_create.yml*. To run the playbook,  use the **ansible
 ansible-playbook aci_create.yml
 ```
 
-## Create and configure an Azure Applicatioin Gateway
+## Create and configure an Azure Application Gateway
 
-Now let us create an applicate gateway. The following example create an applicate gateway named **myAppGateway** with backend, frontend and http configuration.  
+Now let us create an applicate gateway. The following example creates an applicate gateway named **myAppGateway** with backend, frontend, and http configuration.  
 
-**appGatewayIP** - Subnet reference is required for ipconfiguration of the gateway. It is deinfed in **gateway_ip_configurations**.  
-**appGatewayBackendPool** - An application gateway must have at least one backend address pool. It is defined in **backend_address_pools**. 
-**appGatewayBackendHttpSettings** - Specifies that port 80 and an HTTP protocol is used for communication. It is defined in **backend_http_settings_collection**. 
-**appGatewayHttpListener** - The default listener associated with appGatewayBackendPool. It is define in **http_listeners**.
-**appGatewayFrontendIP** - Assigns myAGPublicIPAddress to appGatewayHttpListener. It is defined in **frontend_ip_configurations**. 
-**rule1** - The default routing rule that is associated with appGatewayHttpListener. It is defined in **request_routing_rules**.
+**appGatewayIP** defined in **gateway_ip_configurations** block - Subnet reference is required for ip configuration of the gateway. .  
+**appGatewayBackendPool** defined in **backend_address_pools** block - An application gateway must have at least one backend address pool. 
+**appGatewayBackendHttpSettings** defined in **backend_http_settings_collection** block - Specifies that port 80 and an HTTP protocol is used for communication. 
+**appGatewayHttpListener** defined in **backend_http_settings_collection** block - The default listener associated with appGatewayBackendPool. 
+**appGatewayFrontendIP** defined in **frontend_ip_configurations** block - Assigns myAGPublicIPAddress to appGatewayHttpListener. 
+**rule1** defined in **request_routing_rules** block - The default routing rule that is associated with appGatewayHttpListener. 
 
 ```yml
 - hosts: localhost
@@ -249,7 +249,7 @@ It may take several minutes for the application gateway to be created.
 
 ## Test the Application Gateway
 
-In above sample playbook for network resources, the domain **mydomain** was created in **eastus**. Now you could navigate to the browser, type `http://mydomain.eastus.cloudapp.azure.com`, and you should see following page confirming that the Applicate Gateway is working as expected.
+In above sample playbook for network resources, the domain named **mydomain** was created in **eastus**. Now you could navigate to the browser, type `http://mydomain.eastus.cloudapp.azure.com`, and you should see following page confirming that the Application Gateway is working as expected.
 
 ![Access Application Gateway](media/ansible-create-configure-application-gateway/applicationgateway.PNG)
 
