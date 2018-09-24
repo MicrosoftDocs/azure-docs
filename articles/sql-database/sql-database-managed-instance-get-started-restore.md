@@ -8,7 +8,7 @@ ms.reviewer: carlrab, bonova
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: quickstart
-ms.date: 09/07/2018
+ms.date: 09/20/2018
 ms.author: srbozovi
 manager: craigg
 
@@ -44,14 +44,14 @@ With SSMS, use the following steps to restore the Wide World Importers database 
    CREATE CREDENTIAL [https://mitutorials.blob.core.windows.net/databases] 
    WITH IDENTITY = 'SHARED ACCESS SIGNATURE'
    , SECRET = 'sv=2017-11-09&ss=bfqt&srt=sco&sp=rwdlacup&se=2028-09-06T02:52:55Z&st=2018-09-04T18:52:55Z&spr=https&sig=WOTiM%2FS4GVF%2FEEs9DGQR9Im0W%2BwndxW2CQ7%2B5fHd7Is%3D' 
-    ```
+   ```
 
     ![create credential](./media/sql-database-managed-instance-get-started-restore/credential.png)
 
     > [!NOTE]
     > Always remove the leading **?** from generated SAS key.
-
-3. Use the following script to create check the SAS credential and backup validity - providing the URL for the container with the backup file:
+  
+3. Use the following script to check the SAS credential and backup validity - providing the URL for the container with the backup file:
 
    ```sql
    RESTORE FILELISTONLY FROM URL = 
