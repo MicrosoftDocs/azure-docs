@@ -225,7 +225,7 @@ You can test a query from the query editor and you need sample data to test a qu
 
 3. Set **Minutes** to 3 and select **OK**. Three minutes worth of data is sampled from the input stream and notifies you when the sample data is ready. You can view the status of sampling from the notification bar. 
 
-   The sample data is stored temporarily and is available while you have the query window open. If you close the query window, the sample data is discarded, and you'll have to create a new set of sample data. As an alternative, you can get a .json file that has sample data in it from [GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample Data/telco.json), and then upload that .json file to use as sample data for the CallStream input.  
+   The sample data is stored temporarily and is available while you have the query window open. If you close the query window, the sample data is discarded, and you'll have to create a new set of sample data. As an alternative, you can get a .json file that has sample data in it from [GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json), and then upload that .json file to use as sample data for the CallStream input.  
 
 4. Select **Test** to test the query, you should see output results as shown in this screenshot:  
 
@@ -259,7 +259,7 @@ You can test a query from the query editor and you need sample data to test a qu
 
 For this part of the tutorial, you'll use a sample [ASP.NET](http://asp.net/) web application created by the PowerBI team to embed your dashboard. For more information about embedding dashboards, see [embedding with Power BI](https://docs.microsoft.com/power-bi/developer/embedding) article.
 
-In this tutorial, we'll follow the steps for the user owns data application. To set up the application, go to the [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples)  Github repository and follow the instructions under the **User Owns Data** section (use the redirect and homepage URLs under the **integrate-dashboard-web-app** subsection). Since we are using the Dashboard example, use the integrate-dashboard-web-app sample code located in the [GitHub repository](https://github.com/Microsoft/PowerBI-Developer-Samples/tree/master/User Owns Data/integrate-dashboard-web-app).
+In this tutorial, we'll follow the steps for the user owns data application. To set up the application, go to the [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples)  Github repository and follow the instructions under the **User Owns Data** section (use the redirect and homepage URLs under the **integrate-dashboard-web-app** subsection). Since we are using the Dashboard example, use the integrate-dashboard-web-app sample code located in the [GitHub repository](https://github.com/Microsoft/PowerBI-Developer-Samples/tree/master/User%20Owns%20Data/integrate-dashboard-web-app).
 Once you've got the application running in your browser, follow these steps to embed the dashboard you created earlier into the web page:
 
 1. Select **Sign in to Power BI**, which grants the application access to the dashboards in your PowerBI account.  

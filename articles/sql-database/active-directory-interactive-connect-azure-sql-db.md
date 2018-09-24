@@ -116,13 +116,13 @@ The C# program relies on the namespace **Microsoft.IdentityModel.Clients.ActiveD
 
 One namespaces that the C# example relies on is **System.Data.SqlClient**. Of special interest is the enum **SqlAuthenticationMethod**. This enum has the following values:
 
-- **SqlAuthenticationMethod.ActiveDirectory*Interactive***:&nbsp;  Use this with an Azure AD user name, to achieve multi-factor authentication MFA.
+- **SqlAuthenticationMethod.ActiveDirectory *Interactive***:&nbsp;  Use this with an Azure AD user name, to achieve multi-factor authentication MFA.
     - This value is the focus of the present article. It produces an interactive experience by displaying dialogs for the user password, and then for MFA validation if MFA is imposed on this user.
     - This value is available starting with .NET Framework version 4.7.2.
 
-- **SqlAuthenticationMethod.ActiveDirectory*Integrated***:&nbsp;  Use this for a *federated* account. For a federated account, the user name is known to the Windows domain. This method does not support MFA.
+- **SqlAuthenticationMethod.ActiveDirectory *Integrated***:&nbsp;  Use this for a *federated* account. For a federated account, the user name is known to the Windows domain. This method does not support MFA.
 
-- **SqlAuthenticationMethod.ActiveDirectory*Password***:&nbsp;  Use this for authentication that requires an Azure AD user and the user's password. Azure SQL Database performs the authentication. This method does not support MFA.
+- **SqlAuthenticationMethod.ActiveDirectory *Password***:&nbsp;  Use this for authentication that requires an Azure AD user and the user's password. Azure SQL Database performs the authentication. This method does not support MFA.
 
 
 

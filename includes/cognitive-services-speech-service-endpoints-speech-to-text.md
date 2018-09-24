@@ -13,6 +13,5 @@ East Asia| `https://eastasia.stt.speech.microsoft.com/speech/recognition/convers
 North Europe| `https://northeurope.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1`
 
 > [!NOTE]
-> You must append the required language in the URI to avoid an HTTP 401 error. So for en-US the correct URI would be:
-> https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US
+> You must append the required language in the URI to avoid an HTTP 401 error. So for en-US, the correct URI is https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US.
 
