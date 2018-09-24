@@ -23,14 +23,20 @@ In this article, you learn how to use the Yeoman module generator to create a ba
 - [Visual Studio Code](https://www.bing.com/search?q=visual+studio+code+download&form=EDGSPH&mkt=en-us&httpsmsn=1&refig=dffc817cbc4f4cb4b132a8e702cc19a3&sp=3&ghc=1&qs=LS&pq=visual+studio+code&sk=LS1&sc=8-18&cvid=dffc817cbc4f4cb4b132a8e702cc19a3&cc=US&setlang=en-US).
 - An active Azure subscription. [Activate a free 30-day trial Microsoft Azure account](https://azure.microsoft.com/free/).
 - An installation of the [Terraform](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/terraform-install-configure ) open-source tool on your local machine.
-- An installation of [Docker for Windows](https://docs.docker.com/docker-for-windows/install/), or Docker for Linux, or Docker for macOS.
+- An installation of [Docker](https://www.docker.com/get-started)*.
 - An installation of the [Go programming language](https://golang.org/).
+
+>[!NOTE]
+>*We will be using Docker to run the module created by the Yeoman generator. If you prefer, you may use Ruby in place of Docker to run the sample module.
+
+>[!NOTE]
+>Most of the procedures in this tutorial involve command line entries. The steps described here apply to al operating systems and command line tools. In our examples we have chosen to use PowerShell. However you may use any one of several alternatives, such as Git Bash, Windows command prompts, or Linux or IOS command line commands.
 
 ## Prepare your dev environment
 
 ### Install Node.js
 
-To use Terraform in the Cloud Shell, you need to [install Node.js](https://nodejs.org/) 6.0+.
+To use Terraform in the Cloud Shell, you need to [install Node.js](https://nodejs.org/en/download/) 6.0+.
 
 >[!NOTE]
 >To verify that Node.js is installed, open a terminal window and enter `node --version`.
@@ -109,6 +115,9 @@ From a command prompt:
     ![Visual Studio Code](media/terraform-vscode-module-generator/ymg-open-in-vscode.png)
 
 Let's take a look at some of the files that were created by the Yeoman module generator.
+
+>[!Note]
+>In this article we will be using the main.tf, variables.tf, and outputs.tf files as created by the Yeoman module generator. However, when creating your own modules, you would be editing these files to accommodate the functionality of your Terraform module. For a more in-depth discussion of these files and their usage, see [Terratest in Terraform Modules.](https://mseng.visualstudio.com/VSJava/_git/Terraform?path=%2FTerratest%20Introduction.md&version=GBmaster)
 
 ### main.tf
 
@@ -201,3 +210,5 @@ To confirm that Docker is actually running, enter `docker info`.
 
 > [!div class="nextstepaction"]
 > [Install and use the Azure Terraform Visual Studio Code extenstion.](https://docs.microsoft.com/azure/terraform/terraform-vscode-extension)
+
+> [!div class="nextstepaction"]> [Terratest in Terraform Modules.](https://mseng.visualstudio.com/VSJava/_git/Terraform?path=%2FTerratest%20Introduction.md&version=GBmaster)
