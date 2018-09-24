@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/07/2018
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
 ---
@@ -57,6 +57,51 @@ All communication with the STS and management operations are done at this URL. Y
 The exception to this is any traffic to `https://accounts.accesscontrol.windows.net`. Traffic to this URL is already handled by a different service and **is not** affected by the Access Control deprecation. 
 
 For more information about Access Control, see [Access Control Service 2.0 (archived)](https://msdn.microsoft.com/library/hh147631.aspx).
+
+## Find out which of your apps will be impacted
+
+Follow the steps in this section to find out which of your apps will be impacted by ACS retirement.
+
+### Download and install ACS PowerShell
+
+1. Go to the PowerShell Gallery and download [Acs.Namespaces](https://www.powershellgallery.com/packages/Acs.Namespaces/1.0.2).
+1. Install the module by running
+
+    ```powershell
+    Install-Module -Name Acs.Namespaces
+    ```
+
+1. Get a list of all possible commands by running
+
+    ```powershell
+    Get-Command -Module Acs.Namespaces
+    ```
+
+    To get help on a specific command, run:
+
+    ```
+     Get-Help [Command-Name] -Full
+    ```
+    
+    where `[Command-Name]` is the name of the ACS command.
+
+### List your ACS namespaces
+
+1. Connect to ACS using the **Connect-AcsAccount** cmdlet.
+  
+    You may need to run `Set-ExecutionPolicy -ExecutionPolicy Bypass` before you can execute commands and be the admin of those subscriptions in order to execute the commands.
+
+1. List your available Azure subscriptions using the **Get-AcsSubscription** cmdlet.
+1. List your ACS namespaces using the **Get-AcsNamespace** cmdlet.
+
+### Check which applications will be impacted
+
+1. Use the namespace from the previous step and go to `https://<namespace>.accesscontrol.windows.net`
+
+    For example, if one of the namespaces is contoso-test, go to `https://contoso-test.accesscontrol.windows.net`
+
+1. Under **Trust relationships**, select **Relying party applications** to see the list of apps that will be impacted by ACS retirement.
+1. Repeat steps 1-2 for any other ACS namespace(s) that you have.
 
 ## Retirement schedule
 

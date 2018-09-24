@@ -107,7 +107,7 @@ iotedge list
 
 ## Tips and suggestions
 
-If your network that has a proxy server, follow the steps in [Configure your IoT Edge device to communicate through a proxy server](how-to-configure-proxy-support.md).
+If your network has a proxy server, follow the steps in [Configure your IoT Edge device to communicate through a proxy server](how-to-configure-proxy-support.md) to install and start the IoT Edge runtime.
 
 ## Next steps
 

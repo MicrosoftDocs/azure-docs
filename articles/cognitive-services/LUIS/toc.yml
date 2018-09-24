@@ -293,7 +293,7 @@
     href: https://aka.ms/luis-endpoint-apis
   - name: HTTP codes
     href: luis-reference-response-codes.md
-  - name: Azure CLI 2.0
+  - name: Azure CLI
     href: https://aka.ms/az-cli-cognitiveservices
   - name: Azure RM PowerShell
     href: https://aka.ms/azure-powershell-cognitiveservices
