@@ -1,0 +1,44 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Digital Twins Documentation
+metadata:
+  title: Azure Digital Twins Documentation - Tutorials, API Reference
+  meta.description: Learn how to create an Azure Digital Twin. Documentation helps you configure, deploy, and manage your Azure Digital Twins resources.
+  services: azure-digital-twins
+  author: adamgerard
+  ms.service: azure-digital-twins
+  ms.topic: landing-page
+  ms.date: 9/21/2018
+  ms.author: adgera
+abstract:
+  description: Learn how to configure an Azure Digital Twins instance, a cloud IoT resource for managing and creating IoT apps and data.
+sections:
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: Create a facilities management application
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/digital-twins/tutorial-facilities-app">Deploy and configure an Azure Digital Twin to manage a facility</a>
+- title: Samples
+  items:
+  - type: paragraph
+    text: Occupancy example in C#.
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/digital-twins/quickstart-view-occupancy-dotnet">C# code sample</a>
+# - title: Reference
+#  items:
+#  - type: list
+#    style: cards
+#    className: cardsD
+#    items:
+#    - title: Command-Line
+#      html: <p><a href="/powershell/resourcemanager">Azure PowerShell</a></p>
+#    - title: Languages
+#      html: <p><a href="/dotnet/api">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.network">Java</a></p>
+#    - title: REST
+#      html: <p><a href="https://docs.microsoft.com/rest/api/firewall/">Compute REST API Reference</a></p>

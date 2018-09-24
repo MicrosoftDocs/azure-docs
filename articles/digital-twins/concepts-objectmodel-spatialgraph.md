@@ -6,7 +6,7 @@ manager: bertvanhoof
 ms.service: azure-digital-twins
 services: azure-digital-twins
 ms.topic: conceptual
-ms.date: 09/14/2018
+ms.date: 09/21/2018
 ms.author: alinast
 ---
 
@@ -22,13 +22,15 @@ With the _Object Model_ and _Ontology_ in place, you can now build your _Spatial
 
 ## Digital Twins Object Model
 
-Object Model supports these main categories of objects: 
+Object Model supports these main categories of objects:
+
 - **Spaces** are the virtual or physical locations, examples of space types are `Tenant`, `Customer`, `Region`, `Venue`.
 - **Devices** are the virtual or physical piece of equipment, examples of device types are `Contoso Device`, `Raspberry Pi 3`.
 - **Sensors** are objects that detect events, examples of sensor types are `Contoso Temperature Sensor`, `Contoso Presence Sensor`.
 - **Users** are identifying occupants and their characteristics.
 
-Other categories of objects are: 
+Other categories of objects are:
+
 - **Resources** are attached to a space and typically represent Azure resources to be used by objects in the space graph, for example `IoT Hub`.
 - **Blobs** are attached to objects (such as spaces, devices, sensors, and users) and used as files with mime type and metadata, for example `maps`, `pictures`, `manuals`.
 - **Extended Types** are extensible enumerations that augment entities with specific characteristics, for example `SpaceType`, `SpaceSubtype`.
@@ -53,7 +55,7 @@ Graph _inheritance_ applies to inherited types if a role assignment is granted. 
 
 Graph _filtering_ is advanced, for example Get Spaces API support filtering by list of spaces IDs, name, space types and subtypes, parent space, spaces associated with given user, sensor data types, property keys and values, traverse, minLevel, maxLevel, and other OData filter parameters.
 
-Graph _scalability_ is our promise that we can handle your real-world workloads representing a campus of buildings, each with thousands of devices and sensors. 
+Graph _scalability_ is our promise that we can handle your real-world workloads representing a campus of buildings, each with thousands of devices and sensors.
 
 Graph _extensibility_ allows to extend the model with new types and ontologies, but also to add properties and values to enrich your twins' digital data.
 
