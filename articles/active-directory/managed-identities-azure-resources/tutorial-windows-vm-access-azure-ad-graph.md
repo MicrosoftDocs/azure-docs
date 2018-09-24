@@ -174,4 +174,4 @@ To use the VM's system assigned managed identity for authentication to Azure AD 
 In this tutorial, you learned how to use a Windows VM system-assigned managed identity to access Azure AD Graph.  To learn more about Azure AD Graph see:
 
 >[!div class="nextstepaction"]
->[Azure AD Graph](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-graph-api)
+>[Azure AD Graph](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api)
