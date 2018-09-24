@@ -1,0 +1,69 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure portal customization documentation 
+metadata:
+    description: Learn how to personalize the Azure portal.
+    services: azure portal
+    documentationcenter: ''
+    author: cwatson-cat
+    manager: dougeby
+    editor: ''
+    ms.assetid: 3e12c488-9c8c-4d0d-9b07-e018dec42fc6
+    ms.service: azure-portal
+    ms.devlang: na
+    ms.topic: landing-page
+    ms.tgt_pltfrm: na
+    ms.workload: na
+    ms.date: 09/24/2018
+    ms.author: cwatson
+
+abstract:
+  description: The Azure portal is a web-based application where you can create, manage, and remove Azure resources and services. It includes a customizable dashboard, tools for managing Azure resources, and access to subscription settings and billing information.
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: media/index/video.png
+      width: 250  
+    title: Get Started with Azure Portal (04:44)
+    href: https://channel9.msdn.com/Blogs/Azure/Get-Started-with-Azure-Portal
+    width: 250
+
+sections:
+
+  - items:
+    - type: list
+      style: cards
+      className: cardsM
+      columns: 3
+      items:
+        - href: /azure/azure-preview-portal-supported-browsers-devices
+          html: <p>Run the Azure portal on all modern desktop, tablet devices, and browsers.</p>
+          image:
+            src: media/index/azure-cosmos-db-icon.png
+          title: Supported browsers and devices
+        - href: /azure/azure-portal/azure-portal-dashboards
+          html: <p>Create multiple dashboards and share them with others who have access to your Azure subscriptions.</p>
+          image:
+            src: media/index/sql-api.svg
+          title: Create and share Azure dashboard
+        - href: /azure/azure-portal/azure-portal-dashboard-share-access
+          html: <p>Publish and share a dashboard you created with other users in your organization.</p>
+          image:
+            src: media/index/graph-api.svg
+          title: Share dashboards by using RBAC
+        - href: /azure/azure-portal/azure-portal-change-theme-high-contrast
+          html: <p>Change the contrast or color scheme in the Azure portal.</p>
+          image:
+            src: media/index/mongodb-api.svg
+          title: Turn on high contrast
+        - href: /azure/azure-portal/azure-portal-keyboard-shortcuts
+          html: <p>Learn about the keyboard shortcuts that work throughout the Azure portal.</p>
+          image:
+            src: media/index/cassandra-api.png
+          title: Keyboard shortcuts
+        - href: /azure/azure-portal/azure-portal-export-delete-settings
+          html: <p>Export and delete settings for private dashboards, some user settings, and themes and customizations.</p>
+          image:
+            src: media/index/table-api.svg
+          title: Export or delete Azure portal settings
