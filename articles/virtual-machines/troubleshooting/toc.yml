@@ -27,6 +27,7 @@
 - name: Common error messages
   href: error-messages.md
 - name: Performance issues with Windows VMs
+  href: performance-diagnostics.md  
   items: 
   - name: How to use PerfInsights
     href: how-to-use-perfInsights.md
