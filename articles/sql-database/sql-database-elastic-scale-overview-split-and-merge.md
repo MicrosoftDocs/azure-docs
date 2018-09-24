@@ -2,14 +2,15 @@
 title: Moving data between scaled-out cloud databases | Microsoft Docs
 description: Explains how to manipulate shards and move data via a self-hosted service using elastic database APIs.
 services: sql-database
-manager: craigg
-author: stevestein
-ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: elastic-scale
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-
+ms.reviewer:
+manager: craigg
+ms.date: 04/01/2018
 ---
 # Moving data between scaled-out cloud databases
 If you are a Software as a Service developer, and suddenly your app undergoes tremendous demand, you need to accommodate the growth. So you add more databases (shards). How do you redistribute the data to the new databases without disrupting the data integrity? Use the **split-merge tool** to move data from constrained databases to the new databases.  
