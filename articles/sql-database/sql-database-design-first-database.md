@@ -2,13 +2,16 @@
 title: "Tutorial: Design your first Azure SQL database using SSMS | Microsoft Docs"
 description: Learn to design your first Azure SQL database with SQL Server Management Studio.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: mvc,develop databases
+ms.subservice: development
+ms.custom: 
+ms.devlang: 
 ms.topic: tutorial
-ms.date: 07/16/2018
+author: CarlRabeler
 ms.author: carlrab
+ms.reviewer: 
+manager: craigg
+ms.date: 07/16/2018
 
 ---
 
