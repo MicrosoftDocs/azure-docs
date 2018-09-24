@@ -101,6 +101,8 @@
     href: /azure/templates/microsoft.containerinstance/containergroups
 - name: Resources
   items:
+  - name: Build your skills with Microsoft Learn
+    href: /learn/browse/?products=azure-container-instances
   - name: Region availability
     href: https://azure.microsoft.com/regions/services/
   - name: Pricing
