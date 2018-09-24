@@ -3022,6 +3022,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/automation/automation-unlink-from-log-analytics.md",
+            "redirect_url": "/azure/automation/automation-onboard-solutions-from-browse",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/automation/automation-create-runas-account.md",
             "redirect_url": "/azure/automation/manage-runas-account",
             "redirect_document_id": false
