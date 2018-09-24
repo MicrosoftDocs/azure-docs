@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/21/2018
+ms.date: 09/24/2018
 ms.author: hermannd
 
 ---
@@ -199,7 +199,7 @@ totem {
 }
 </code></pre>
 
-The second section "logging" wasn't changed from the given defaults:
+The second section **logging** wasn't changed from the given defaults:
 
 <pre><code>
 logging {
@@ -217,7 +217,7 @@ logging {
 }
 </code></pre>
 
-The third section shows the "nodelist". All nodes of the cluster have to show up with their node id:
+The third section shows the **nodelist**. All nodes of the cluster have to show up with their node id:
 
 <pre><code>
 nodelist {
@@ -656,7 +656,7 @@ Waiting for 7 replies from the CRMd....... OK
 As mentioned already in the first section with important notes, you should not use a standard graceful shutdown to test the cluster failover or SAP HANA HSR takeover. Instead it's recommended to trigger, for example, a kernel panic or force a resource migration or maybe shut down all networks on OS level of a VM. Another method would be the **crm \<node\> standby** command. Also see the SUSE document, which can be found [here](https://www.suse.com/documentation/sle-ha-12/pdfdoc/book_sleha/book_sleha.pdf). Below you see three sample commands to force a cluster failover:
 
 <pre><code>
-echo c > /proc/sysrq-trigger
+echo c &gt /proc/sysrq-trigger
 
 crm resource migrate msl_SAPHanaCon_HSO_HDB00 hso-hana-vm-s2-0 force
 
@@ -664,7 +664,7 @@ wicked ifdown eth0
 wicked ifdown eth1
 wicked ifdown eth2
 ......
-wicked ifdown eth<n>
+wicked ifdown eth&ltn&gt
 </code></pre>
 
 As also described in the section about planned maintenance, a good way to monitor the cluster activities is to run **SAPHanaSR-showAttr** with the **watch** command:
@@ -937,10 +937,10 @@ listeninterface = .internal
 ## HAWK
 
 The cluster solution also provides a browser interface, which offers a nice GUI for people who prefer menus and graphics compared to all the commands on shell level.
-To use the browser interface, take the URL shown below and replace **node** by an actual SAP HANA node and then enter the credentials of the cluster (user **hacluster**):
+To use the browser interface, take the URL shown below and replace **\<node\>** by an actual SAP HANA node and then enter the credentials of the cluster (user **hacluster**):
 
 <pre><code>
-https://\<node\>:7630
+https://&ltnode&gt:7630
 </code></pre>
 
 The following screenshot shows the cluster dashboard:
