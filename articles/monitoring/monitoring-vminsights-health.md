@@ -95,7 +95,7 @@ The health states defined for a VM are:
 * **Warning** -  one or more issues are detected, which need to be addressed or the health condition could become critical.  
 * **Unknown** – if the service was not able to make a connection with the VM, the status changes to an unknown state.  
 
-Selecting **View health diagnostics** opens a page showing all the components of the VM, associated health criteria, state changes and other significant issues encountered by monitoring components related to the VM. Refer to the [Health diagnostics](#health-diagnostics) for more details. 
+Selecting **View health diagnostics** opens a page showing all the components of the VM, associated health criteria, state changes, and other significant issues encountered by monitoring components related to the VM. For more information, see [Health diagnostics](#health-diagnostics). 
 
 Under the **Component health** section, the table shows a health rollup status of the primary performance categories monitored by health criteria for those areas, specifically **CPU**, **Memory**, **Disk**, and **Network**.  Selecting any one of the components opens a page listing all of the individual health criterion monitoring aspects of that component and the respective health state of each.  
 
