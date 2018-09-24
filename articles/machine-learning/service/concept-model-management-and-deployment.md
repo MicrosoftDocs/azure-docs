@@ -15,21 +15,21 @@ ms.date: 09/24/2018
 
 In this article, you can learn how to use Azure Machine Learning to deploy, manage, and monitor your models to continuously improve them. You can deploy the models you trained with Azure Machine Learning, on your local machine, or from other sources. 
 
-[ !['Azure Machine Learning continuous integration/continuous deployment (CI/CD) cycle'](media/concept-model-management-and-deployment/model-ci-cd.png) ](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
+The following diagram illustrates the complete deployment workflow:
+[ ![Deployment workflow for Azure Machine Learning](media/concept-model-management-and-deployment/deployment-pipeline.png) ](media/concept-model-management-and-deployment/deployment-pipeline.png#lightbox)
 
-## Deployment workflow
-
-The deployment workflow consists in: 
+The deployment workflow includes the following steps:
 1. **Register the model** in a registry hosted in your Azure Machine Learning workspace
 1. **Register an image** that pairs a model with a scoring script and dependencies in a portable container 
 1. **Deploy** the image as a web service in the cloud or to edge devices
-1. **Monitoring and data collection**
+1. **Monitor and collect data**
 
 You can do each step independently or as part of a single deployment command. 
 
-The following diagram illustrates the complete deployment pipeline:
+You can integrate deployment into a CI/CD workflow as well as illustrated in the following graphic.
 
-[ ![Deployment pipeline](media/concept-model-management-and-deployment/deployment-pipeline.png) ](media/concept-model-management-and-deployment/deployment-pipeline.png#lightbox)
+[ !['Azure Machine Learning continuous integration/continuous deployment (CI/CD) cycle'](media/concept-model-management-and-deployment/model-ci-cd.png) ](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
+
 
 ## Step 1: Model registration
 
@@ -62,16 +62,14 @@ Web service deployments are also searchable. For example, you can search for all
 
 [ ![Inferencing targets](media/concept-model-management-and-deployment/inferencing-targets.png) ](media/concept-model-management-and-deployment/inferencing-targets.png#lightbox)
 
-You can deploy your images to the following targets in the cloud:
+You can deploy your images to the following [deployment targets](how-to-deploy-and-where.md) in the cloud:
 
 * Azure Container Instance
 * Azure Kubernetes Service
 * Azure FPGA machines
 * Azure IoT Edge devices
 
-[Learn more about where you can deploy](how-to-deploy-and-where.md).
-
-As your service is deployed, the inferencing request is automatically load-balanced and the cluster is scaled to satisfy any spikes on demand. Telemetry about your service is captured into the Azure Application Insights service associated with your Workspace.
+As your service is deployed, the inferencing request is automatically load-balanced and the cluster is scaled to satisfy any spikes on demand. [Telemetry about your service](https://docs.microsoft.com/python/api/azureml-telemetry/azureml.telemetry?view=azure-ml-py) can be captured into the Azure Application Insights service associated with your Workspace.
 
 ## Step 4: Monitoring models and data collection
 

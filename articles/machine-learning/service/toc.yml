@@ -11,25 +11,25 @@
     href: overview-more-machine-learning.md    
 - name: Quickstarts
   items:
-  - name: Get started - Portal
+  - name: Get started
     href: quickstart-get-started.md
 - name: Tutorials
   items:
-  - name: '1. Train models'
+  - name: 'Train models: Part 1'
     href: tutorial-train-models-with-aml.md
-  - name: '2. Deploy models'
+  - name: 'Deploy models: Part 2'
     href: tutorial-deploy-models-with-aml.md
   - name: Train automated ML models 
     href: tutorial-auto-train-models.md
 - name: Concepts   
   items: 
-  - name: Architecture and terms
+  - name: How the service works
     href: concept-azure-machine-learning-architecture.md    
   - name: Model management
     href: concept-model-management-and-deployment.md
-  - name: FPGA accelerations
+  - name: Accelerate with FPGAs
     href: concept-accelerate-with-fpgas.md  
-  - name: ML pipelines
+  - name: Machine learning pipelines
     href: concept-ml-pipelines.md         
 - name: How-to guides
   items:  
