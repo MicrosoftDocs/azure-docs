@@ -1,7 +1,7 @@
 ---
 title: Save your IoT hub messages to Azure data storage | Microsoft Docs
 description: Use IoT Hub message routing to save your IoT hub messages to your Azure blob storage. The IoT hub messages contain information, such as sensor data, that is sent from your IoT device.
-author: rangv
+author: robinsh
 manager: 
 keywords: iot data storage, iot sensor data storage
 ms.service: iot-hub
@@ -9,7 +9,7 @@ services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
-ms.author: rangv
+ms.author: robinsh
 ---
 
 # Save IoT hub messages that contain sensor data to your Azure blob storage
