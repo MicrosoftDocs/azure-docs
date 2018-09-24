@@ -149,7 +149,7 @@ Selecting **View all health criteria** opens a page showing a list of all the he
 
 * **Category** - Type of health criteria used to group criteria of similar type for reporting purposes.  They are either **Availability** or **Performance**.
 
-You can drill further down to see which instances are unhealthy by clicking on a value under the **Unhealthy Component** column.  On the page, a table lists the components which are in a critical health state.    
+You can drill further down to see which instances are unhealthy by clicking on a value under the **Unhealthy Component** column.  On the page, a table lists the components, which are in a critical health state.    
 
 ## Health diagnostics
 **Health Diagnostics** page allows you to view all the components of the VM, associated health criteria, state changes, and other significant issues encountered by monitoring objects related to the VM. 
@@ -171,7 +171,7 @@ Health diagnostics organizes health information into the following categories:
  
 All health criteria defined for a selected target displays in the appropriate category. 
 
-Health state for health criteria is defined by one of the three states – *Critical*, *Warning* and *Healthy*. There is another state *Unknown*, which is not associated with health state, but represents its known monitoring status by the feature.  
+Health state for health criteria is defined by one of the three states – *Critical*, *Warning*, and *Healthy*. There is another state *Unknown*, which is not associated with health state, but represents its known monitoring status by the feature.  
 
 The following table provides details on the health states represented in Health diagnostics.
 
@@ -198,7 +198,7 @@ In the following example, the discovered components are disk, logical disk, proc
 ![Example component model presented in Health diagnostics](./media/monitoring-vminsights-health/health-diagnostics-page-component.png)
 
 ### Health criteria
-The center column in the Health diagnostics page is the **Health Criteria** column. The health model defined for the VM is displayed in a hierarchical tree. The health model for a VM consists of unit, dependency and aggregate health criteria.  
+The center column in the Health diagnostics page is the **Health Criteria** column. The health model defined for the VM is displayed in a hierarchical tree. The health model for a VM consists of unit, dependency, and aggregate health criteria.  
 
 ![Example health criteria presented in Health diagnostics](./media/monitoring-vminsights-health/health-diagnostics-page-healthcriteria.png)
 
