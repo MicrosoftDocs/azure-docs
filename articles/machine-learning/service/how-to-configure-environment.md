@@ -67,10 +67,10 @@ The workspace configuration file is used by the SDK to communicate with your Azu
         "workspace_name": "<workspace-name>"
         }
         ```
-        You can copy just the file or the `aml_config` directory or just the `config.json` file into any other directory that references the workspace.
+        You can copy the `aml_config` directory or just the `config.json` file into any other directory that references the workspace.
 
 >[!NOTE] 
->Other scripts or notebooks in the same directory will load the workspace with `ws=Workspace.from_config()`
+>Other scripts or notebooks in the same directory or below will load the workspace with `ws=Workspace.from_config()`
 
 ## Azure Notebooks and Data Science Virtual Machine
 
