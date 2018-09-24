@@ -43,34 +43,21 @@ To use this feature, you need:
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 
-2. Select **Azure Active Directory** > **Activity** > **Audit logs**. 
-
-3. Select **Export Settings**.  
+2. Select **Azure Active Directory** > **Diagnostic settings** -> **Add diagnostic setting**. You can also select **Export Settings** from the **Audit Logs** or **Sign-ins** page to get to the diagnostic settings configuration page.  
     
-4. In the **Diagnostics settings** pane, do either of the following:
-    * To change existing settings, select **Edit setting**.
-    * To add new settings, select **Add diagnostics setting**.  
-      You can have up to three settings.
+3. In the **Diagnostic settings** menu, select the **Send to Log Analytics** check box, and then select **Configure**.
 
-      ![Export settings](./media/howto-integrate-activity-logs-with-log-analytics/ExportSettings.png)
+4. Select the Log Analytics workspace you want to send the logs to, or create a new workspace in the provided dialog box.  
 
-5. Select the **Send to Log Analytics** check box, and then select **Configure**.
+5. Do either or both of the following:
+    * To send audit logs to the Log Analytics workspace, select the **AuditLogs** check box. 
+    * To send sign-in logs to the Log Analytics workspace, select the **SignInLogs** check box.
 
-6. Select the Log Analytics workspace you want to send the logs to, or create a new workspace in the provided dialog box.  
+6. Select **Save** to save the setting.
 
-7. Select **OK** to exit the workspace configuration.
+    ![Diagnostics settings](./media/howto-integrate-activity-logs-with-log-analytics/Configure.png)
 
-8. Do either or both of the following:
-    * To send audit logs to the storage account, select the **AuditLogs** check box. 
-    * To send sign-in logs to the storage account, select the **SignInLogs** check box.
-
-9. Select **Save** to save the setting.
-
-    ![Diagnostics settings](./media/howto-integrate-activity-logs-with-log-analytics/DiagnosticSettings.png)
-
-10. After about 15 minutes, verify that events are streamed to your Log Analytics workspace
-
-    ![Audit logs](./media/howto-integrate-activity-logs-with-log-analytics/InsightsLogsAudit.png)
+7. After about 15 minutes, verify that events are streamed to your Log Analytics workspace.
 
 ## Next Steps
 
