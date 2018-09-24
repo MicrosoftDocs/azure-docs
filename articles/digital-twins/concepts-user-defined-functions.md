@@ -31,7 +31,7 @@ _Matchers_ allow for persisting a set of conditions that evaluate on incoming se
 - Having `01` in their port 
 - That belong to devices with the extended property key `Manufacturer` set to `Contoso`
 - That belong to spaces of type `Venue`
-- That are descendents in the hierarchy of parent `SpaceId` DE8F06CA-1138-4AD7-89F4-F782CC6F69FD"
+- That are descendants of parent `SpaceId` DE8F06CA-1138-4AD7-89F4-F782CC6F69FD"
 
 ```{json}
 {
@@ -93,7 +93,7 @@ We need to create a role assignment for the UDF to execute under to ensure it ha
 
 ## Next steps
 
-Learn more on how to create matchers, user-defined functions and role assigments:
+Learn more on how to create matchers, user-defined functions and role assignments:
 
 <!-- > [!div class="nextstepaction"]
 > [How to create User-Defined Functions] (howto-user-defined-functions.md) -->
