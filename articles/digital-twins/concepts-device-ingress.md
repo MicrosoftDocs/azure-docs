@@ -12,54 +12,61 @@ ms.author: alinast
 
 # Device Connectivity and Telemetry Ingress
 
-An IoT solution relies on data from devices and sensors on which to operate. An `IoTHub` ingress resource should be created within the spatial graph to allow devices to send messages to Azure Digital Twins. Once IoTHub resource has been created, and device and sensors have been registered within the service, those devices can start sending data to Digital Twins service via the [Azure IoT Device SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks). 
+An IoT solution's backbone is the telemetry data sent by devices and sensors. An `IoTHub` resource should be created at the root of the the spatial graph, allowing all devices beneath it to send messages. Once the IoTHub resource has been created, and devices with sensors have been registered within the service, the devices can start sending data to Digital Twins service via the [Azure IoT Device SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks). 
 
-Device onboarding process involves the following high-level steps. For step details and end to end scenario-based flow, refer to Facility Management Tutorial.
+A step-by-step guide for on-boarding devices can be found in the [Facility Management Tutorial](tutorial-facilities-app.md). At a glance, the steps are:
 
-* Deploy Azure Digital Twins instance from Azure Portal
-* Provision spaces in the graph
-* Create an IoTHub Ingress resource and assign it to a space in the graph
-* Provision devices, and sensors and assign them to spaces
-* Create a User-Defined Function and assign it to a space in the graph for processing of telemetry messages
-* Get IoT Hub device connection string from Digital Twins Management APIs
+- Deploy Azure Digital Twins instance from [Azure portal](http://portal.azure.com)
+- Create spaces in the graph
+- Create an IoTHub resource and assign it to a space in the graph
+- Create devices and sensors, and assign them to the spaces created
+- Create a matcher to filter telemetry message based on conditions
+- Create a [**User-Defined Function**](concepts-user-defined-functions.md) and assign it to a space in the graph for custom processing of telemetry message
+- Assign a role to the User-Defined Function to be able to access the graph data
+- Get IoT Hub device connection string from Digital Twins Management APIs
+- Configure the device connection string on the device
     >[!NOTE]
-    >This step will get removed once we support integration with [IoT Device Provisioning Service](https://docs.microsoft.com/azure/iot-dps/) 
-* Provision the device connection string to the device
-* Device is ready to send data from multiple sensors to Digital Twins instance
-* Digital Twins is ready for telemetry processing evaluating the User-Defined Function logic
+    >Coming soon: device integration with [IoT Device Provisioning Service](https://docs.microsoft.com/azure/iot-dps/ 
 
-This article focuses on how to get IoT Hub device connection string from Digital Twins Management API and how to change telemetry message to send sensor unique identifier. Digital Twins requires each piece of telemetry it receives is associated with a sensor within the graph. This is how Digital Twins ensures it can process and route the data in the proper way.
 
-# Get IoT Hub device connection string from Management API
+Below you'll learn how to get IoT Hub device connection string from Digital Twins the Management API and how to adapt IoT Hub telemetry message format to send sensor-based telemetry. Digital Twins requires each piece of telemetry it receives is associated with a sensor within the graph. This is how Digital Twins ensures it can process and route the data in the proper way.
 
-Query device management API with `includes=ConnectionString` parameter to get the IoT Hub device connection string
+# Get the IoT Hub device connection string from the Management API
+
+Do a GET call on device API with `includes=ConnectionString` parameter to get the IoT Hub device connection string; filter by `device-guid` or `hardware-id`
+
 ```
-GET https://{{endpoint-management}}/api/v1.0/devices/device-guid?includes=ConnectionString
+https://{{endpoint-management}}/api/v1.0/devices/<device-guid>?includes=ConnectionString or
+
+https://{{endpoint-management}}/api/v1.0/devices?hardwareIds=<hardware-id>&includes=ConnectionString
 ```
     
-In the response payload, get the device `connectionString` property. Example of device connection string:
-```
-"connectionString": "HostName=ih-8324e8f5-91e3-492a-8b8d-b096a970ec0d-2.azure-devices.net;DeviceId=45a0be1a-2bb8-498f-9b39-5725ef4cc4d3;SharedAccessKey=7ZrJDKxaY6m0y0RVwtRACzxIHIrzUNoqh677Clt0Uy4="
-```
+In the response payload, get the device's `connectionString` property.
 
 ## Device-to-Cloud Telemetry Message 
 
-You can customize the message format as well as the payload to your own needs. You can use any data contract that can be serialized into a byte array or stream that is supported by the [Azure IoT Device Client Message class Message(byte[] byteArray)](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.-ctor?view=azure-dotnet#Microsoft_Azure_Devices_Client_Message__ctor_System_Byte___). The message can be a custom binary format of your own choice, as long as you decode the data contract in the User-Defined Function. The only requirement on a Device-to-Cloud message is to maintain a set of properties to ensure your message is routed appropriately to the Data Processor responsible of invoking you user-defined function.
+You can customize the message format as well as the payload to your own needs. You can use any data contract that can be serialized into a byte array or stream that is supported by the [Azure IoT Device Client Message class Message(byte[] byteArray)](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.-ctor?view=azure-dotnet#Microsoft_Azure_Devices_Client_Message__ctor_System_Byte___). The message can be a custom binary format of your choice, as long as you decode the data contract in the User-Defined Function. The only requirement on a Device-to-Cloud message is to maintain a set of properties to ensure your message is routed appropriately to the processing engine.
 
 ### Telemetry Properties
 
-While the payload contents of a `Message` can be arbitrary data, up to 256 kb in size, there are a few requirements on expected [Message.Properties](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.properties?view=azure-dotnet). The following is the list of required and optional properties supported by the system:
+While the payload contents of a `Message` can be arbitrary data up to 256 kb in size, there are few requirements on expected [Message.Properties](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.properties?view=azure-dotnet). The steps outlined below are reflecting the required and optional properties supported by the system:
+
 
 | Property Name | Value | Required | Description |
-|---------------|-------|----------|-------------|
+|---|---|---|---|
 | DigitalTwins-Telemetry | 1.0 | yes | A constant value that identifies a message to the system |
-| DigitalTwins-SensorHardwareId | `string(72)` | yes | A unique identifier pointing to a sensor in the graph for which the `Message` is meant for. This value must match an object's `HardwareId` property for the system to process it. For example `00FF0643BE88-CO2` |
+| DigitalTwins-SensorHardwareId | `string(72)` | yes | A unique identifier of the sensor sending the `Message`. This value must match an object's `HardwareId` property for the system to process it. For example `00FF0643BE88-CO2` |
 | CreationTimeUtc | `string` | no | An [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) formatted date string identifying the sampling time of the payload. For example `2018-09-20T07:35:00.8587882-07:00` |
-| CorrelationId | `string` | no | A `uuid` formatted as a string that can be used to trace events across the system. For example `cec16751-ab27-405d-8fe6-c68e1412ce1f`
+| CorrelationId | `string` | no | A `uuid` that can be used to trace events across the system. For example `cec16751-ab27-405d-8fe6-c68e1412ce1f`
 
 ### Sending your message to Digital Twins
 
-Use the DeviceClient [SendEventAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.sendeventasync?view=azure-dotnet) call to send your message to Digital Twins service.
+Use the DeviceClient [SendEventAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.sendeventasync?view=azure-dotnet) or [SendEventBatchAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.sendeventbatchasync?view=azure-dotnet) call to send your message to Digital Twins service.
 
-Alternatively, you could use [SendEventBatchAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.sendeventbatchasync?view=azure-dotnet) call to send a batch of events to Digital Twins service.
 
+## Next steps
+
+Read more about Azure Digital Twins data processing and user-defined functions:
+
+> [!div class="nextstepaction"]
+> [Azure Digital Twins Data Processing and User-Defined Functions] (https://docs.microsoft.com/azure/azure-stack/azure-stack-telemetry)

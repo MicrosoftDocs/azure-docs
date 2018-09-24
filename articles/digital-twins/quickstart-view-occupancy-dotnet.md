@@ -8,7 +8,7 @@ services: azure-digital-twins
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 08/30/2018
+ms.date: 09/21/2018
 ms.author: alinast
 # As a developer new to Digital Twins, I need to see how to send motion and CO2 telemetry to a space in a Azure Digital Twins and how to find available rooms with fresh air using a back-end application. 
 ---

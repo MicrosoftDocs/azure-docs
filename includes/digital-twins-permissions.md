@@ -63,8 +63,14 @@ Users will authenticate against the middle-tier application and an Oauth [on-beh
 
 1. Create a role assignment in Digital Twins for the Service Principal ID above (Note: This needs to be run by someone with Admin privileges).
 
-    * Make a POST call on `https://{resourceName}.{location}.azuresmartspaces.net/management/api/v1.0/roleassignments`
-    * The JSON body should be:
+    Make a POST call on:
+    ```plaintext
+    https://{resourceName}.{location}
+        .azuresmartspaces.net/management/api/v1.0/roleassignments
+    ```
+
+    The JSON body should be:
+
         ```json
         {
             "RoleId": "98e44ad7-28d4-4007-853b-b9968ad132d1",
