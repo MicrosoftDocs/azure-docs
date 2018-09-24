@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path": "articles/governance/management-groups/overview.md",
+            "redirect_url": "/azure/governance/management-groups/index",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/active-directory/fundamentals/active-directory-groups-restore-azure-portal.md",
             "redirect_url": "/azure/active-directory/users-groups-roles/groups-restore-deleted",
             "redirect_document_id": true
@@ -3002,6 +3007,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/automation/automation-source-control-integration.md",
+            "redirect_url": "/azure/automation/source-control-integration",
+            "redirect_document_id": false
+        },
+        {   
             "source_path": "articles/azure-functions/functions-create-generic-webhook-triggered-function.md",
             "redirect_url": "/azure/azure-functions/functions-bindings-http-webhook",
             "redirect_document_id": false
@@ -3014,6 +3024,11 @@
         {
             "source_path": "articles/automation/automation-sec-configure-azure-runas-account.md",
             "redirect_url": "/azure/automation/manage-runas-account",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/automation/automation-unlink-from-log-analytics.md",
+            "redirect_url": "/azure/automation/automation-onboard-solutions-from-browse",
             "redirect_document_id": false
         },
         {
@@ -28637,7 +28652,7 @@
         },
         {
             "source_path": "articles/dev-spaces/azure-dev-spaces.md",
-            "redirect_url": "/azure/dev-spaces/index",
+            "redirect_url": "/azure/dev-spaces/",
             "redirect_document_id" : true
         },
         {
@@ -29060,7 +29075,17 @@
             "redirect_url": "/azure/application-insights/app-insights-overview",
             "redirect_document_id" : false
         },
-			  {
+        {
+            "source_path": "articles/container-registry/container-registry-build-overview.md",
+            "redirect_url": "/azure/container-registry/container-registry-tasks-overview",
+            "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/container-registry/container-registry-tutorial-quick-build.md",
+            "redirect_url": "/azure/container-registry/container-registry-tutorial-quick-task",
+            "redirect_document_id" : true
+        },
+            {
             "source_path": "articles/application-insights/app-insights-troubleshoot-snapshot-debugger.md",
             "redirect_url": "/azure/application-insights/app-insights-snapshot-debugger",
             "redirect_document_id" : false
