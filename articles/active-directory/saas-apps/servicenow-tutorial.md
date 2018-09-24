@@ -200,7 +200,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 		![Configure single sign-on](./media/servicenow-tutorial/automatic_config.png "Configure single sign-on")
 
-		* In the **Name** textbox, type a name for your configuration (for example, **SAML 2.0**).
+		* In the **Name** textbox, type a name for your configuration (for example, **Microsoft Azure Federated Single Sign-on**).
 
 		* Please remove the populated **Identity Provider's SingleLogoutRequest** value from the textbox.
 
@@ -210,6 +210,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 			> The ServiceNow instance homepage is a concatenation of your **ServieNow tenant URL** and **/navpage.do** (for example:`https://fabrikam.service-now.com/navpage.do`).
 
 		* Copy **Entity ID / Issuer** value, paste it in **Identifier** textbox in **ServiceNow Domain and URLs** section on Azure portal.
+
+		* Please make sure that **NameID Policy** is set to `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified` value. 
 
 	* Scroll down to the **X.509 Certificate** section, select **Edit**.
 
@@ -257,7 +259,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 		![Configure single sign-on](./media/servicenow-tutorial/ic7694982.png "Configure single sign-on")
 
-		* In the **Name** textbox, type a name for your configuration (for example, **SAML 2.0**).
+		* In the **Name** textbox, type a name for your configuration (for example, **Microsoft Azure Federated Single Sign-on**).
 
 		* Please remove the populated **Identity Provider's SingleLogoutRequest** value from the textbox.
 
@@ -267,8 +269,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 			> The ServiceNow instance homepage is a concatenation of your **ServiceNow tenant URL** and **/navpage.do** (for example:`https://fabrikam.service-now.com/navpage.do`).
 
 		* Copy **Entity ID / Issuer** value, paste it in **Identifier** textbox in **ServiceNow Domain and URLs** section on Azure portal.
-		
-		* In the **NameID Policy** textbox, please remove populated value from the textbox and paste `urn:oasis:names:tc:SAML:1.1:nameid-format:transient` value in to the textbox.
+
+		* Please make sure that **NameID Policy** is set to `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified` value.
 
 		* Click **Advanced**. In the **User Field** textbox, type **email** or **user_name**, depending on which field is used to uniquely identify users in your ServiceNow deployment.
 
