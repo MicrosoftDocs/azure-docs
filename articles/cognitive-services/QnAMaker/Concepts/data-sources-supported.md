@@ -105,7 +105,7 @@ QnAs in the form of structured *.txt*, *.tsv* or *.xls* files can also be upload
 
 | Question  | Answer  | Metadata                |
 |-----------|---------|-------------------------|
-| Question1 | Answer1 | <code>Key1:Value1 &#124;Key2:Value2</code> |
+| Question1 | Answer1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
 | Question2 | Answer2 |      `Key:Value`           |
 
 Any additional columns in the source file are ignored.
@@ -120,7 +120,7 @@ Importing a knowledge base replaces the content of the existing knowledge base. 
 
 | Question  | Answer  | Source| Metadata                |
 |-----------|---------|----|---------------------|
-| Question1 | Answer1 | Url1 | <code>Key1:Value1 &#124;Key2:Value2</code> |
+| Question1 | Answer1 | Url1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
 | Question2 | Answer2 | Editorial|    `Key:Value`       |
 
 ## Editorially add to knowledge base
