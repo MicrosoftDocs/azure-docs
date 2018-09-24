@@ -1,3 +1,4 @@
+# [Azure portal customizations](index.yml)
 # Accessibility + settings
 ## [Keyboard shortcuts](azure-portal-keyboard-shortcuts.md)
 ## [Supported browsers and devices](../azure-preview-portal-supported-browsers-devices.md)
