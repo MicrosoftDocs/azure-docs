@@ -84,18 +84,6 @@ To access this feature and for more information, see [Azure Active Directory - W
 
 ---
 
-### Present your organization's Azure AD B2C sign-in page on your own domain 
-
-**Type:** New feature  
-**Service category:** B2C - Consumer Identity Management  
-**Product capability:** B2B/B2C
-
-You can now present your organization's Azure AD B2C experiences on your own domain.
-
-For more information, see ...
-
----
-
 ### New deployment plan available for the My Apps Access panel
 
 **Type:** New feature  
@@ -117,7 +105,7 @@ For more information, see [What is the My Apps portal?](../user-help/active-dire
 
 The new **Troubleshooting and Support** tab on the **Sign-ins** page of the Azure portal, is intended to help admins and support engineers troubleshoot issues related to Azure AD sign-ins. This new tab provides the error code, error message, and remediation recommendations (if any) to help solve the problem. If you're unable to resolve the problem, we also give you a new way to create a support ticket using the **Copy to clipboard** experience, which populates the **Request ID** and **Date (UTC)** fields for the log file in your support ticket.  
 
-For more information, see ...
+![Sign-in logs with the new tab](media/whats-new/troubleshooting-and-support.png)
 
 ---
 
@@ -160,6 +148,54 @@ For more information, see:
 After you set up this new feature, your users will see a link to reset their password from the **Lock** screen of a device running Windows 7, Windows 8, or Windows 8.1. By clicking that link, the user is guided through the same password reset flow as through the web browser.
 
 For more information, see [How to enable password reset from Windows 7, 8, and 8.1](https://aka.ms/ssprforwindows78)
+
+---
+
+### New Federated Apps available in Azure AD app gallery - September 2018
+
+**Type:** New feature  
+**Service category:** Enterprise Apps  
+**Product capability:** 3rd Party Integration
+ 
+In August 2018, we've added these 16 new apps with Federation support to the app gallery:
+
+[Uberflip](https://docs.microsoft.com/azure/active-directory/saas-apps/uberflip-tutorial), [Comeet Recruiting Software] (https://docs.microsoft.com/azure/active-directory/saas-apps/comeetrecruitingsoftware-tutorial), [Workteam](https://docs.microsoft.com/azure/active-directory/saas-apps/workteam-tutorial), [ArcGIS Enterprise](https://docs.microsoft.com/azure/active-directory/saas-apps/arcgisenterprise-tutorial), [Nuclino](https://docs.microsoft.com/azure/active-directory/saas-apps/nuclino-tutorial), [JDA Cloud](https://docs.microsoft.com/azure/active-directory/saas-apps/jdacloud-tutorial), [Snowflake](https://docs.microsoft.com/azure/active-directory/saas-apps/snowflake-tutorial), NavigoCloud, [Figma](https://docs.microsoft.com/azure/active-directory/saas-apps/figma-tutorial), join.me, [ZephyrSSO](https://docs.microsoft.com/azure/active-directory/saas-apps/zephyrsso-tutorial), [Silverback](https://docs.microsoft.com/azure/active-directory/saas-apps/silverback-tutorial), Riverbed Xirrus EasyPass, [Rackspace SSO](https://docs.microsoft.com/azure/active-directory/saas-apps/rackspacesso-tutorial), Enlyft SSO for Azure, SurveyMonkey, [Convene](https://docs.microsoft.com/azure/active-directory/saas-apps/convene-tutorial), [dmarcian](https://docs.microsoft.com/azure/active-directory/saas-apps/dmarcian-tutorial)
+
+For more information about the apps, see [SaaS application integration with Azure Active Directory](https://aka.ms/appstutorial). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](https://aka.ms/azureadapprequest).
+
+---
+
+### Support for additional claims transformations methods
+
+**Type:** New feature  
+**Service category:** Enterprise Apps  
+**Product capability:** SSO
+
+We've introduced new claim transformation methods, ToLower() and ToUpper(), which can be applied to SAML tokens from the SAML-based **Single Sign-On Configuration** page.
+
+For more information, see [How to customize claims issued in the SAML token for enterprise applications in Azure AD](../develop/active-directory-saml-claims-customization.md)
+
+---
+
+### Updated SAML-based app configuration UI (preview)
+
+**Type:** Changed feature  
+**Service category:** Enterprise Apps  
+**Product capability:** SSO
+
+As part of our updated SAML-based app configuration UI, you'll get:
+
+- An updated walkthrough experience for configurating your SAML-based apps
+
+- More visibility about what's missing or incorrect in your configuration
+
+- The ability to add multiple email addresses for expiration certificate notification
+
+- New claim transformation methods, ToLower() and ToUpper(), and more
+
+- A way to upload your own token signing certificate for your enterprise apps
+
+To turn this updated view on, click the **Try out our new experience** link from the top of the **Single Sign-On** page. For more information, see [Tutorial: Configure SAML-based single sign-on for an application with Azure Active Directory](../manage-apps/configure-single-sign-on-portal.md).
 
 ---
 
