@@ -106,7 +106,7 @@ For an example of using Azure Notebooks with the Azure Machine Learning service,
 3. To install Azure Machine Learning SDK with notebook extras, use the following command:
 
      ```shell
-    pip install --upgrade azureml-sdk[notebooks,automl,contrib]
+    pip install --upgrade azureml-sdk[notebooks,automl]
     ```
 
     It can take several minutes to install the SDK.
@@ -163,7 +163,7 @@ For an example of using Azure Notebooks with the Azure Machine Learning service,
 2. To install the Azure Machine Learning SDK, use the following command:
  
     ```shell
-    pip install --upgrade azureml-sdk[automl,contrib]
+    pip install --upgrade azureml-sdk[automl]
     ```
 
 4. To install the Visual Studio code Tools for AI, see the Visual Studio marketplace entry for [Tools for AI](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai). 
