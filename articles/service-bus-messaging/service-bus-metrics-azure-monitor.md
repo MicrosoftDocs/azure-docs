@@ -8,7 +8,7 @@ manager: timlt
 
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 09/24/2018
 ms.author: spelluru
 
 ---
@@ -86,6 +86,8 @@ The following two types of errors are classified as user errors:
 |Connections Closed (preview)|The number of closed connections.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName |
 
 ## Resource usage metrics
+
+> [!NOTE] The following metrics are available only with the **premium** tier. 
 
 | Metric Name | Description |
 | ------------------- | ----------------- |
