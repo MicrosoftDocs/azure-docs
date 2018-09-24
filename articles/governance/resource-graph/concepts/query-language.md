@@ -12,48 +12,43 @@ manager: carmonm
 # Understanding the Azure Resource Graph query language
 
 The query language for the Azure Resource Graph supports a number of operators and functions. Each
-work and operate similar to the Kusto Query Language (KQL). However, it's important to understand
-that while Resource Graph's query language is similar to
-[KQL](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators), it isn't the
-same.
-
-> [!NOTE]
-> Links to KQL documentation may require authentication.
+work and operate based on [Azure Data Explorer](../../../data-explorer/data-explorer-overview.md).
 
 The best way to learn about the query language used by Resource Graph is to start with the
-documentation for KQL to get an understanding about how the language is structured and how the
-various supported operators and functions work together.
+documentation for the Azure Data Explorer [Query Language](../../../kusta/query/index.md). This
+provides an understanding about how the language is structured and how the various supported
+operators and functions work together.
 
 ## Supported tabular operators
 
 Here is the list of supported tabular operators in Resource Graph:
 
-- [distinct](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/distinct-operator)
-- [extend](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/extend-operator)
-- [limit](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/limit-operator)
-- [order by](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/order-operator)
-- [project](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/project-operator)
-- [project-away](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/project-away-operator)
-- [sample](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/sample-operator)
-- [sample-distinct](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/sample-distinct-operator)
-- [sort by](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/sort-operator)
-- [summarize](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator)
-- [take](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/take-operator)
-- [top](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/top-operator)
-- [top-nested](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/top-nested-operator)
-- [top-hitters](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/top-hitters-operator)
-- [where](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator)
+- [count](../../../kusto/query/countoperator.md)
+- [distinct](../../../kusto/query/distinctoperator.md)
+- [extend](../../../kusto/query/extendoperator.md)
+- [limit](../../../kusto/query/limitoperator.md)
+- [order by](../../../kusto/query/orderoperator.md)
+- [project](../../../kusto/query/projectoperator.md)
+- [project-away](../../../kusto/query/projectawayoperator.md)
+- [sample](../../../kusto/query/sampleoperator.md)
+- [sample-distinct](../../../kusto/query/sampledistinctoperator.md)
+- [sort by](../../../kusto/query/sortoperator.md)
+- [summarize](../../../kusto/query/summerizeoperator.md)
+- [take](../../../kusto/query/takeoperator.md)
+- [top](../../../kusto/query/topoperator.md)
+- [top-nested](../../../kusto/query/topnestedoperator.md)
+- [top-hitters](../../../kusto/query/tophittersoperator.md)
+- [where](../../../kusto/query/whereoperator.md)
 
 ## Supported functions
 
 Here is the list of supported functions in Resource Graph:
 
-- [ago()](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/ago%28%29)
-- [buldschema()](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions/buildschema%28%29)
-- [count()](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions/count%28%29)
-- [strcat()](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/strcat%28%29)
-- [isnotempty()](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/isnotempty%28%29_-notempty%28%29)
-- [tostring()](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/tostring%28%29)
+- [ago()](../../../kusto/query/agofunction.md)
+- [buildschema()](../../../kusto/query/buildschema-aggfunction.md)
+- [strcat()](../../../kusto/query/strcatfunction.md)
+- [isnotempty()](../../../kusto/query/isnotemptyfunction.md)
+- [tostring()](../../../kusto/query/tostringfunction.md)
 
 ## Next steps
 
