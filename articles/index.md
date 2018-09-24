@@ -245,6 +245,18 @@ featureFlags:
                                             <div class="cardText">
                                                 <h3>DevOps</h3>
                                                 <ul class="noBullet">
+													<li>
+                                                        <a class="barLink" href="https://docs.microsoft.com/azure/devops">
+                                                            <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt="">
+                                                            Azure DevOps
+                                                        </a>
+                                                    </li>
+													<li>
+                                                        <a class="barLink" href="https://docs.microsoft.com/azure/devops/pipelines/index">
+                                                            <img src="https://docs.microsoft.com/azure/devops/_img/index/devopsiconpipelines96.svg" alt="">
+                                                            Azure Pipelines
+                                                    </a>
+                                                    </li>
                                                     <li>
                                                         <a class="barLink" href="/azure/ansible/">
                                                             <img src="media/index/ansible.svg" alt="">
@@ -270,18 +282,6 @@ featureFlags:
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a class="barLink" href="https://docs.microsoft.com/azure/devops/">
-                                                            <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt="">
-                                                            Azure DevOps
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="barLink" href="https://docs.microsoft.com/azure/devops">
-                                                            <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt="">
-                                                            Learn DevOps with Azure
-                                                        </a>
-                                                    </li>
-													<li>
                                                         <a class="barLink" href="/azure/devops-project/">
                                                             <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt="">
                                                             Azure DevOps Project
