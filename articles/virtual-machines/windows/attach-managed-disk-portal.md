@@ -1,6 +1,6 @@
 ---
 title: Attach a managed data disk to a Windows VM - Azure | Microsoft Docs
-description: How to attach new managed data disk to a Windows VM in the Azure portal using the Resource Manager deployment model.
+description: How to attach a managed data disk to a Windows VM by using the Azure portal.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -14,15 +14,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2018
+ms.date: 09/24/2018
 ms.author: cynthn
 
 ---
-# How to attach a managed data disk to a Windows VM in the Azure portal
+# How to attach a managed data disk to a Windows VM by using the Azure portal
 
-This article shows you how to attach a new managed data disk to a Windows virtual machine (VM) in the Azure portal. Before you do so, review these tips:
+This article shows you how to attach a new managed data disk to a Windows virtual machine (VM) by using the Azure portal. Before you do so, review these tips:
 
-* The size of the VM controls how many data disks you can attach. For details, see [Sizes for virtual machines](sizes.md).
+* The size of the VM determines how many data disks you can attach. For more information, see [Sizes for virtual machines](sizes.md).
 * For a new disk, you don't need to create it first because Azure creates it when you attach it.
 
 
@@ -53,21 +53,21 @@ This article shows you how to attach a new managed data disk to a Windows virtua
 
 ## Use TRIM with standard storage
 
-If you use standard storage (HDD), you should enable TRIM. TRIM discards unused blocks on the disk so that you are billed only for storage that you are actually using. By using TRIM, you can save on costs if you create large files and then later delete them. 
+If you use standard storage (HDD), you should enable the **TRIM** command. The **TRIM** command discards unused blocks on the disk so that you are billed only for storage that you are actually using. By using **TRIM**, you can save on costs if you create large files and then later delete them. 
 
-To check the TRIM setting, open a command prompt on your Windows VM and enter the following command:
+To check the **TRIM** setting, open a command prompt on your Windows VM and enter the following command:
 
 ```
 fsutil behavior query DisableDeleteNotify
 ```
 
-If the command returns 0, TRIM is enabled correctly. Otherwise, if it returns 1, run the following command to enable TRIM:
+If the command returns 0, **TRIM** is enabled correctly. Otherwise, if it returns 1, run the following command to enable **TRIM**:
 
 ```
 fsutil behavior set DisableDeleteNotify 0
 ```
 
-After you delete data from your disk, you can ensure the TRIM operations flush properly by running defrag with TRIM:
+After you delete data from your disk, you can ensure the **TRIM** operations flush properly by running defrag with **TRIM**:
 
 ```
 defrag.exe <volume:> -l
