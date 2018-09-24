@@ -76,5 +76,5 @@ defrag.exe <volume:> -l
 You can also format the volume to ensure the entire volume is trimmed.
 
 ## Next steps
-- You can also [attach a data disk using Powershell](attach-disk-ps.md).
+- You can also [attach a data disk using PowerShell](attach-disk-ps.md).
 - If your application needs to use the D: drive to store data, you can [change the drive letter of the Windows temporary disk](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
