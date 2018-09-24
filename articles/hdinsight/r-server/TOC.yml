@@ -6,6 +6,9 @@
     href: r-server-overview.md
   - name: Hadoop components on HDInsight
     href: ../hdinsight-component-versioning.md
+    maintainContext: true
+  - name: HDInsight 4.0
+    href: ../hdinsight-version-release.md
     maintainContext: true  
 - name: Get started
   items:
@@ -142,7 +145,7 @@
       - name: Use the .NET SDK
         href: ../hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md
         maintainContext: true
-      - name: Use the Azure CLI
+      - name: Use the Azure Classic CLI
         href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
         maintainContext: true
       - name: Use the Azure portal
@@ -164,7 +167,7 @@
       - name: Use Azure PowerShell
         href: ../hdinsight-administer-use-powershell.md
         maintainContext: true
-      - name: Use the Azure CLI
+      - name: Use the Azure Classic CLI
         href: ../hdinsight-administer-use-command-line.md
         maintainContext: true
     - name: Manage clusters using the Ambari web UI
@@ -305,6 +308,8 @@
     href: /rest/api/hdinsightspark/
 - name: Resources
   items:
+  - name: R developer's guide 
+    href: ../../machine-learning/r-developers-guide.md
   - name: Release notes
     href: ../hdinsight-release-notes.md
     maintainContext: true
