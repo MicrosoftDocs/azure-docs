@@ -16,7 +16,7 @@ ms.author: gracez
 
 # Migrate from Bing Speech to the Speech Service
 
-On October 1, 2018, the Bing Speech APIs and client libraries were replaced by the Speech Service. All Bing Speech subscriptions expire one year from that date.
+Use this article to migrate your applications from the Bing Speech API to the Speech Service.
 
 This article outlines the differences between the Bing Speech APIs and the Speech Service, and suggests strategies for migrating your applications. Your Bing Speech API subscription key won't be accepted by the Speech Service; you'll need a new Speech Service subscription.
 

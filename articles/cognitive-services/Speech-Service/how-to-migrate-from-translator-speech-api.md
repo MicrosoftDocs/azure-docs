@@ -14,8 +14,7 @@ ms.author: aahi
 
 # Migrate from the Translator Speech API to the Speech Service
 
-Starting October 1st 2018, the Microsoft Translator Speech API will be replaced by the [Speech Service](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/).
-After the Speech Service is released, you will have one year to migrate your applications before all Translator Speech API subscriptions expire. This guide outlines the differences between the Translator Speech API and Speech Service, and suggests strategies for migrating your applications. 
+Use this article to migrate your applications from the Microsoft Translator Speech API to the [Speech Service](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/). This guide outlines the differences between the Translator Speech API and Speech Service, and suggests strategies for migrating your applications. 
 Note that your Translator Speech API subscription key won't be accepted by the Speech Service, and that you will need a new subscription.
 
 ## Comparison of features

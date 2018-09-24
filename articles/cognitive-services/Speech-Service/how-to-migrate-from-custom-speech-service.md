@@ -13,7 +13,7 @@ ms.author: panosper
 ---
 # Migrate from the Custom Speech service to the Speech service
 
-Learn how to migrate from the Custom Speech service to the **Speech Service**.
+Use this article to migrate your applications from the Custom Speech service to the Speech Service.
 
 Custom Speech Service and its corresponding Client libraries and APIs are being deprecated. Switch to the Speech Service and SDK to benefit from the latest quality and feature updates. 
  
