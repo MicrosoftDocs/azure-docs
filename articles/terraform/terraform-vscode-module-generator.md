@@ -121,7 +121,7 @@ Let's take a look at some of the files that were created by the Yeoman module ge
 
 ### main.tf
 
-This file defines a module called *random-shuffle*. The input is a *string_list*. The output is the count of the permutations.
+Defines a module called *random-shuffle*. The input is a *string_list*. The output is the count of the permutations.
 
 ### variables.tf
 
@@ -129,35 +129,35 @@ Defines the input and output variables used by the module.
 
 ### outputs.tf
 
-Defines what the module outputs. In this case, it is the value returned by **random_shuffle**, which is a built-in, Terraform module.
+Defines what the module outputs. Here, it is the value returned by **random_shuffle**, which is a built-in, Terraform module.
 
 ### Rakefile
 
 Defines the build steps. These steps include:
 
 - **build**: Validates the formatting of the main.tf file.
-- **unit**: The generated module skeleton does not include code for a unit test. If you want to specify a unit test scenario, this is where you add that code.
+- **unit**: The generated module skeleton does not include code for a unit test. If you want to specify a unit test scenario, you would you add that code here.
 - **e2e**: Runs an end-to-end test of the module.
 
 ### test
 
 - Test cases are written in Go.
-- All code in *test* are end-to-end tests.
+- All codes in test are end-to-end tests.
 - End-to-end tests try to use Terraform to provision all of the items defined under **fixture** and then compare the output in the **template_output.go** code with the pre-defined expected values.
 - **Gopkg.lock** and **Gopkg.toml**: Define your dependencies. 
 
 ## Test the module using Docker
 
 >[!NOTE]
->In this example, we are running the module as a local module, and not actually touching Azure.
+>In our example, we are running the module as a local module, and not actually touching Azure.
 
 ### Confirm Docker is installed and running
 
 From a command prompt, enter `docker version`.
 
-![DOcker version](media/terraform-vscode-module-generator/ymg-docker-version.png)
+![Docker version](media/terraform-vscode-module-generator/ymg-docker-version.png)
 
-This will confirm that Docker is installed.
+The resulting output confirms that Docker is installed.
 
 To confirm that Docker is actually running, enter `docker info`.
 
@@ -204,7 +204,7 @@ To confirm that Docker is actually running, enter `docker info`.
 
     ![PASS](media/terraform-vscode-module-generator/ymg-pass.png)
 
-1. Enter `exit`. This completes the end-to-end test.
+1. Enter `exit` to complete the end-to-end test.
 
 ## Next steps
 
