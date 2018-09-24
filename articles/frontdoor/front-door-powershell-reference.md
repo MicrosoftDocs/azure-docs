@@ -9,17 +9,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/10/2018
+ms.date: 09/23/2018
 ms.author: sharadag
 Module Name: AzureRM.FrontDoor
 Module Guid: 91832aaa-dc11-4583-8239-adb7df531604
-Download Help Link: https://docs.microsoft.com/en-us/powershell/module/azurerm.frontdoor
+Download Help Link: https://docs.microsoft.com/powershell/module/azurerm.frontdoor
 Help Version: 0.1.0
 Locale: en-US
 ---
 
 # AzureRM.FrontDoor Module
-## Description
 The topics in this section document the Azure PowerShell cmdlets for Azure Front Door Service that use Azure Resource Manager. The cmdlets exist in the Microsoft.Azure.Commands.FrontDoor namespace.
 
 ## AzureRM.FrontDoor Cmdlets

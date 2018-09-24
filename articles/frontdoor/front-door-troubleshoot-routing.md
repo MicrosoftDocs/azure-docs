@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting - Troubleshoot issues with your Front Door | Microsoft Docs
+title: Troubleshooting - Troubleshoot issues with your Azure Front Door Service configuration | Microsoft Docs
 description: In this tutorial, you learn how to self-troubleshoot some of the common issues that you may face for your Front Door.
 services: frontdoor
 documentationcenter: ''
@@ -14,28 +14,29 @@ ms.date: 09/22/2018
 ms.author: sharadag
 ---
 
-# **Troubleshooting Common Issues**
+# Troubleshooting common routing issues
+This article describes how to troubleshoot some of the common routing issues you may face for your Azure Front Door Service configuration. 
 
-### **Hostname Not Routing to Backend and Returns 400 Status Code**
+## Hostname Not Routing to Backend and Returns 400 Status Code
 
 
-#### Symptom
+### Symptom
 - You have created a Front Door but a request to the Frontend host is returning an HTTP 400 status code.
 
  - You have created a DNS mapping from a custom domain to the frontend host you have configured. However, sending a request to the custom domain hostname returns an HTTP 400 status code and does not appear to route to the backend(s) you have configured.
 
-#### Cause
+### Cause
 - This symptom can happen if you have not configured a routing rule for the custom domain that you added as a frontend host. A routing rule needs to be explicitly added for that frontend host, even if one has already been configured for the frontend host under the Front Door subdomain (*.azurefd.net) that your custom domain has a DNS mapping to.
 
-#### Troubleshooting Steps
+### Troubleshooting Steps
 - Add a routing rule from the custom domain to the desired backend pool.
 
-### **Request to Frontend hostname Returns 404 Status Code**
+## Request to Frontend hostname Returns 404 Status Code
 
-#### Symptom
+### Symptom
 - You have created a Front Door and configured a frontend host, a backend pool with at least one backend in it, and a routing rule that connects the frontend host to the backend pool. Your content does not seem to be available when sending a request to the configured frontend host because an HTTP 404 status code is returned.
 
-#### Cause
+### Cause
 There are several possible causes for this symptom:
  - The backend is not a public facing backend and is not visible to the Front Door service.
 
@@ -43,7 +44,7 @@ There are several possible causes for this symptom:
 - The backend is rejecting the host header that was forwarded with the request to the backend.
 - The configuration for the backend has not yet been fully deployed.
 
-#### Troubleshooting Steps
+### Troubleshooting Steps
 1. Deployment Time
     - Ensure that you have waited ~10 minutes for the configuration to be deployed.
 
@@ -63,7 +64,4 @@ There are several possible causes for this symptom:
                - _Accepted protocols_ are HTTP. _Forwarding protocol_ is either match request or HTTPS.
 
    - Click on the _Advanced_ tab at the top of the routing rule configuration pane. _Url Rewrite_ is disabled by default and you should only use this field if you want to narrow the scope of backend-hosted resources that you want to make available. When disabled, Front Door will forward the same request path it receives. It is possible that this field is misconfigured and Front Door is requesting a resource from the backend that is not available, thus returning an HTTP 404 status code.
-
-
-
 

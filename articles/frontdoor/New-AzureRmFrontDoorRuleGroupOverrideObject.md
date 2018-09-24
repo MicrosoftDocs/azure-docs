@@ -1,13 +1,22 @@
 ---
-external help file: Microsoft.Azure.Commands.FrontDoor.dll-Help.xml
+title: Azure Front Door Service - PowerShell reference | Microsoft Docs
+description: This reference details the different PowerShell cmdlets supported for Azure Front Door Service
+services: frontdoor
+documentationcenter: ''
+author: sharad4u
+ms.service: frontdoor
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 09/23/2018
+ms.author: sharadag
 Module Name: AzureRM.FrontDoor
-online version: https://docs.microsoft.com/en-us/powershell/module/azurerm.frontdoor/new-azurermfrontdoorrulegroupoverrideobject
+online version: https://docs.microsoft.com/powershell/module/azurerm.frontdoor/new-azurermfrontdoorrulegroupoverrideobject
 schema: 2.0.0
 ---
 
 # New-AzureRmFrontDoorRuleGroupOverrideObject
-
-## SYNOPSIS
 Create RuleGroupOverride Object for WAF policy creation
 
 ## SYNTAX
@@ -86,17 +95,3 @@ Accept wildcard characters: False
 
 ### CommonParameters
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
-
-## INPUTS
-
-### None
-
-## OUTPUTS
-
-### Microsoft.Azure.Commands.FrontDoor.Models.PSAzureRuleGroupOverride
-
-## NOTES
-
-## RELATED LINKS
-
-[New-AzureRmFrontDoorManagedRuleObject](./New-AzureRmFrontDoorManagedRuleObject.md)

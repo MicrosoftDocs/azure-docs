@@ -14,7 +14,11 @@ ms.author: sharadag
 ---
 
 # REST API specification for Azure Front Door Service
-Service: Azure Front Door Service
+Azure Front Door Service enables you to define, manage, and monitor the global routing for your web traffic by optimizing for best performance and instant global failover for high availability. With Front Door, you can transform your global (multi-region) consumer and enterprise applications into robust, high-performance personalized modern applications, APIs, and content that reach a global audience with Azure.
+
+
+The following provides a reference for the REST API for Azure Front Door Service.
+
 API Version: 2018-08-01
 
 | Operation Group | Description |

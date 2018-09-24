@@ -1,13 +1,22 @@
 ---
-external help file: Microsoft.Azure.Commands.FrontDoor.dll-Help.xml
+title: Azure Front Door Service - PowerShell reference | Microsoft Docs
+description: This reference details the different PowerShell cmdlets supported for Azure Front Door Service
+services: frontdoor
+documentationcenter: ''
+author: sharad4u
+ms.service: frontdoor
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 09/23/2018
+ms.author: sharadag
 Module Name: AzureRM.FrontDoor
-online version: https://docs.microsoft.com/en-us/powershell/module/azurerm.frontdoor/set-azurermfrontdoor
+online version: https://docs.microsoft.com/powershell/module/azurerm.frontdoor/set-azurermfrontdoor
 schema: 2.0.0
 ---
 
 # Set-AzureRmFrontDoor
-
-## SYNOPSIS
 Update a Front Door load balancer
 
 ## SYNTAX
@@ -328,26 +337,3 @@ Accept wildcard characters: False
 
 ### CommonParameters
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
-
-## INPUTS
-
-### Microsoft.Azure.Commands.FrontDoor.Models.PSFrontDoor
-
-### System.String
-
-## OUTPUTS
-
-### Microsoft.Azure.Commands.FrontDoor.Models.PSFrontDoor
-
-## NOTES
-
-## RELATED LINKS
-
-[New-AzureRmFrontDoor](./New-AzureRmFrontDoor.md)
-[Get-AzureRmFrontDoor](./Get-AzureRmFrontDoor.md)
-[Remove-AzureRmFrontDoor](./Remove-AzureRmFrontDoor.md)
-[New-AzureRmFrontDoorRoutingRuleObject](./New-AzureRmFrontDoorRoutingRuleObject.md)
-[New-AzureRmFrontDoorHealthProbeSettingObject](./New-AzureRmFrontDoorHealthProbeSettingObject.md)
-[New-AzureRmFrontDoorLoadBalancingSettingObject](./New-AzureRmFrontDoorLoadBalancingSettingObject.md)
-[New-AzureRmFrontDoorFrontendEndpointObject](./New-AzureRmFrontDoorFrontendEndpointObject.md)
-[New-AzureRmFrontDoorBackendPoolObject](./New-AzureRmFrontDoorBackendPoolObject.md)

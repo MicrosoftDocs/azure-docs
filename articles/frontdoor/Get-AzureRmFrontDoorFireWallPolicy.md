@@ -1,13 +1,23 @@
 ---
-external help file: Microsoft.Azure.Commands.FrontDoor.dll-Help.xml
+title: Azure Front Door Service - PowerShell reference | Microsoft Docs
+description: This reference details the different PowerShell cmdlets supported for Azure Front Door Service
+services: frontdoor
+documentationcenter: ''
+author: sharad4u
+ms.service: frontdoor
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 09/23/2018
+ms.author: sharadag
 Module Name: AzureRM.FrontDoor
-online version: https://docs.microsoft.com/en-us/powershell/module/azurerm.frontdoor/get-azurermfrontdoorfirewallpolicy
+online version: https://docs.microsoft.com/powershell/module/azurerm.frontdoor/get-azurermfrontdoorfirewallpolicy
 schema: 2.0.0
 ---
 
 # Get-AzureRmFrontDoorFireWallPolicy
 
-## SYNOPSIS
 Get WAF policy
 
 ## SYNTAX
@@ -122,18 +132,3 @@ Accept wildcard characters: False
 ### CommonParameters
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
-## INPUTS
-
-### System.String
-
-## OUTPUTS
-
-### Microsoft.Azure.Commands.FrontDoor.Models.PSPolicy
-
-## NOTES
-
-## RELATED LINKS
-
-[New-AzureRmFrontDoorFireWallPolicy](./New-AzureRmFrontDoorFireWallPolicy.md)
-[Set-AzureRmFrontDoorFireWallPolicy](./Set-AzureRmFrontDoorFireWallPolicy.md)
-[Remove-AzureRmFrontDoorFireWallPolicy](./Remove-AzureRmFrontDoorFireWallPolicy.md)

@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Configure HTTPS on a Front Door custom domain | Microsoft Docs
+title: Tutorial - Configure HTTPS on a custom domain for Azure Front Door Service | Microsoft Docs
 description: In this tutorial, you learn how to enable and disable HTTPS on your Azure Front Door Service configuration for a custom domain.
 services: frontdoor
 documentationcenter: ''
@@ -76,15 +76,15 @@ You can use your own certificate to enable the HTTPS feature. This process is do
 2. Azure Key Vault certificates: If you already have a certificate, you can upload it directly to your Azure Key Vault account or you can create a new certificate directly through Azure Key Vault from one of the partner CAs that Azure Key Vault integrates with.
 
 > [!WARNING]
-> </br> 1. Azure Front Door Service currently only supports Key Vault accounts in the same subscription as the Front Door configuration. Choosing a Key Vault under a different subscription than your Front Door will result in a failure.
-> </br> 2. Azure Front Door Service currently only supports Key Vault certificates stored under the Secrets section. Your certificate import will fail if you store it under Certificates section instead of Secrets section.
-> </br> 3. Azure Front Door Service currently only supports certificates uploaded with a PFX **without** a password.
+> </br> - Azure Front Door Service currently only supports Key Vault accounts in the same subscription as the Front Door configuration. Choosing a Key Vault under a different subscription than your Front Door will result in a failure.
+> </br> - Azure Front Door Service currently only supports Key Vault certificates stored under the Secrets section. Your certificate import will fail if you store it under Certificates section instead of Secrets section.
+> </br> - Azure Front Door Service currently only supports certificates uploaded with a PFX **without** a password.
 
 ### Register Azure Front Door Service
 
 Register the service principal for Azure Front Door Service as an app in your Azure Active Directory via PowerShell.
 
-1. If needed, install [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM/6.0.0) in PowerShell on your local machine. You ca
+1. If needed, install [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM/6.0.0) in PowerShell on your local machine.
 
 2. In PowerShell, run the following command:
 
