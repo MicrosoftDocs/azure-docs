@@ -64,7 +64,7 @@ The below support is applicable for any workload running on the mentioned OS.
 - SUSE Linux Enterprise Server 12 SP1,SP2,SP3 [ (supported kernel versions)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines)
 - SUSE Linux Enterprise Server 11 SP3
 - SUSE Linux Enterprise Server 11 SP4
-- Oracle Enterprise Linux 6.4, 6.5 running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3)
+- Oracle Enterprise Linux 6.4, 6.5, 6.6, 6.7 running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3)
 
 (Upgrade of replicating machines from SLES 11 SP3 to SLES 11 SP4 is not supported. If a replicated machine has been upgraded from SLES 11SP3 to SLES 11 SP4, you need to disable replication and protect the machine again post the upgrade.)
 

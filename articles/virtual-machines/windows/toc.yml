@@ -232,6 +232,14 @@
       href: reserved-vm-instance-size-flexibility.md
   - name: Use Images
     items:
+    - name: Shared images (preview)
+      items: 
+      - name: Overview
+        href: shared-image-galleries.md
+      - name: Create shared images using CLI
+        href: ../linux/shared-images.md
+      - name: Troubleshoot shared images
+        href: troubleshooting-shared-images.md
     - name: Find and use images
       href: cli-ps-findimage.md
     - name: Prepare VM for upload
@@ -485,6 +493,8 @@
   items:
   - name: Author templates
     href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+  - name: Build your skills with Microsoft Learn
+    href: /learn/browse/?products=azure-virtual-machines
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Community templates

@@ -1,21 +1,12 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Build workflows with the IoT Central connector in Microsoft Flow | Microsoft Docs
 description: Use the IoT Central connector in Microsoft Flow to trigger workflows and create, update, and delete devices in workflows.
 services: iot-central
 author: viv-liu
 ms.author: viviali
 ms.date: 09/18/2018
-ms.topic: article
-ms.service: azure-iot-central
-# product-name-from-white-list
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.devlang:devlang-from-white-list
-# ms.suite: 
-# ms.tgt_pltfrm:
-# ms.reviewer:
+ms.topic: conceptual
+ms.service: iot-central
 manager: peterpr
 ---
 

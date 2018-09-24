@@ -37,10 +37,14 @@
     href: write-queries.md
   - name: Ingest sample data
     href: ingest-sample-data.md
+  - name: Delete data
+    href: delete-data.md
   - name: Manage database permissions
     href: manage-database-permissions.md
   - name: Check cluster health
     href: check-cluster-health.md
+  - name: Manage cluster scaling
+    href: manage-cluster-scaling.md
   - name: Troubleshooting
     items:
     - name: Creating a cluster
