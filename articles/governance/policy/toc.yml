@@ -177,7 +177,7 @@
   - name: Understand Policy effects
     href: ./concepts/effects.md
   - name: Audit VMs with Guest Configuration
-    href: ./concepts/guestconfiguration.md
+    href: ./concepts/guest-configuration.md
 - name: How-to guides
   items:
   - name: Programmatically create policies
