@@ -148,7 +148,7 @@ Define the experiment settings and model settings.
 |**max_time_sec**|12,000|Time limit in seconds for each iteration|
 |**iterations**|20|Number of iterations. In each iteration, the model trains with the data with a specific pipeline|
 |**n_cross_validations**|3|Number of cross validation splits|
-|**preprocess**|True| *True/False* Enables experiment to perform preprocessing on the input.  Preprocessing handles *missing data*, and performs some common *feature extraction*|
+|**preprocess**|False| *True/False* Enables experiment to perform preprocessing on the input.  Preprocessing handles *missing data*, and performs some common *feature extraction*|
 |**exit_score**|0.995|*double* value indicating the target for *primary_metric*. Once the target is surpassed the run terminates|
 |**blacklist_algos**|['kNN','LinearSVM']|*Array* of *strings* indicating algorithms to ignore.
 |
@@ -162,7 +162,7 @@ Automl_config = AutoMLConfig(task = 'classification',
                              max_time_sec = 12000,
                              iterations = 20,
                              n_cross_validations = 3,
-                             preprocess = True,
+                             preprocess = False,
                              exit_score = 0.995,
                              blacklist_algos = ['kNN','LinearSVM'],
                              X = X_digits,
