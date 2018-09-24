@@ -1,6 +1,6 @@
 ---
 title: Web application firewall request size limits and exclusion lists in Azure Application Gateway - Azure portal | Microsoft Docs
-description: This article provides information on web application firewall request size limits and exclusion lists in Application Gateway with the Azure portal.
+description: This article provides information on web application firewall request size limits and exclusion lists configuration in Application Gateway with the Azure portal.
 documentationcenter: na
 services: application-gateway
 author: vhorne
@@ -11,14 +11,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.custom:
 ms.workload: infrastructure-services
-ms.date: 09/13/2018
+ms.date: 09/24/2018
 ms.author: victorh
 
 ---
 
-# Web application firewall request size limits and exclusion lists
+# Web application firewall request size limits and exclusion lists (Public Preview)
 
-The Azure Application Gateway web application firewall (WAF) provides protection for web applications. This article describes WAF request size limits and exclusion lists configurations.
+The Azure Application Gateway web application firewall (WAF) provides protection for web applications. This article describes WAF request size limits and exclusion lists configuration.
+
+> [!IMPORTANT]
+> Configuration of WAF request size limits and exclusion lists is currently in public preview. This preview is provided without a service level agreement and is not recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
 
 ## WAF request size limits
 Web Application Firewall allows users to configure request size limits within lower and upper bounds. The following two size limits configurations are available:
