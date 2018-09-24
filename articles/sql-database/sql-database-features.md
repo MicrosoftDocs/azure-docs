@@ -2,13 +2,15 @@
 title: Azure SQL Database feature comparison | Microsoft Docs
 description: This article compares the features of SQL Server that are available in different flavors of Azure SQL Database.
 services: sql-database
-author: jovanpop-msft
-ms.reviewer: bonova, carlrab
-ms.service: sql-database
+ms.subservice: 
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 09/23/2018
+author: jovanpop-msft
 ms.author: jovanpop
 manager: craigg
+ms.reviewer: bonova, carlrab
+ms.date: 09/23/2018
 ---
 
 # Feature comparison: Azure SQL Database versus SQL Server 
