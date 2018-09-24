@@ -7,8 +7,6 @@
     href: overview-what-is-azure-ml.md
   - name: What happened to Workbench?
     href: overview-what-happened-to-workbench.md
-  - name: How to migrate
-    href: how-to-migrate.md             
   - name: Compare ML products at Microsoft
     href: overview-more-machine-learning.md    
 - name: Quickstarts
@@ -121,6 +119,8 @@
     href: support-for-aml-services.md
   - name: Deprecated docs
     items:  
+    - name: How to migrate
+      href: how-to-migrate.md             
     - name: Workbench quickstart
       href: ../desktop-workbench/quickstart-installation.md
     - name: 'Tutorial 1: Prepare data'
