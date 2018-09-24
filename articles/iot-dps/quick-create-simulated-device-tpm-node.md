@@ -127,9 +127,9 @@ If you're unfamiliar with the process of auto-provisioning, be sure to also revi
 
 1. Log in to the Azure portal, click on the **All resources** button on the left-hand menu and open your Device Provisioning service.
 
-1. On the Device Provisioning Service summary blade, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add** button at the top. 
+1. On the Device Provisioning Service summary blade, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add individual enrollment** button at the top. 
 
-1. Under the **Add enrollment list entry**, enter the following information:
+1. Under the **Add Enrollment**, enter the following information:
     - Select **TPM** as the identity attestation *Mechanism*.
     - Enter the *Registration ID* and *Endorsement key* for your TPM device.
     - Optionally, you may provide the following information:

@@ -43,7 +43,7 @@ sections:
     style: unordered
     className: spaced noBullet
     items:
-    - html: <a href="/azure/container-registry/container-registry-tutorial-quick-build">Build container images with ACR Build (preview)</a>
+    - html: <a href="/azure/container-registry/container-registry-tutorial-quick-build">Build container images with ACR Tasks</a>
     - html: <a href="/azure/container-registry/container-registry-tutorial-prepare-registry">Container Registry geo-replication</a>
     - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Container Registry with Azure Container Instances</a>
     - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">Container Registry with Azure Kubernetes Service (AKS)</a>
