@@ -61,7 +61,7 @@ Extract the zip file to a local folder (for example, **C:\Azure-Samples**).
 #### Step 3: Configure your JavaScript app
 
 > [!div renderon="docs"]
-> Edit `index.html` and replace `Enter_the_Application_Id_here` under `applicationConfig` with the Application ID of the app you just registered. You can find the *Application ID* in the *Overview* page.
+> Edit `index.html` and replace `Enter_the_Application_Id_here` under `applicationConfig` with the Application ID of the app you just registered.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > Edit `index.html` and replace `applicationConfig` with:
@@ -132,7 +132,7 @@ myMSALObj.loginPopup(applicationConfig.graphScopes).then(function (idToken) {
 
 > |Where  |  |
 > |---------|---------|
-> | `scopes`   | (Optional) Contains scopes being requested for user consent at login time (Ex: `[ "user.read" ]` for Microsoft Graph or `[ "<Application ID URL>/scope" ]` for custom Web APIs ( i.e. `api://<Application ID>/access_as_user` ). Here `applicationConfig.graphScopes` are passed. |
+> | `scopes`   | (Optional) Contains scopes being requested for user consent at login time (Ex: `[ "user.read" ]` for Microsoft Graph or `[ "<Application ID URL>/scope" ]` for custom Web APIs ( i.e. `api://<Application ID>/access_as_user` ). Here `applicationConfig.graphScopes` is passed. |
 
 > [!TIP]
 > Alternatively, you may want to use the `loginRedirect` method to redirect the current page to the sign-in page instead of a popup window.
@@ -154,7 +154,7 @@ myMSALObj.acquireTokenSilent(applicationConfig.graphScopes).then(function (acces
 
 > |Where  |  |
 > |---------|---------|
-> | `scopes`   | Contains scopes being requested to be returned in the access token for API (Ex: `[ "user.read" ]` for Microsoft Graph or `[ "<Application ID URL>/scope" ]` for custom Web APIs ( i.e. `api://<Application ID>/access_as_user` ). Here `applicationConfig.graphScopes` are passed.|
+> | `scopes`   | Contains scopes being requested to be returned in the access token for API (Ex: `[ "user.read" ]` for Microsoft Graph or `[ "<Application ID URL>/scope" ]` for custom Web APIs ( i.e. `api://<Application ID>/access_as_user` ). Here `applicationConfig.graphScopes` is passed.|
 
 #### Get a user token interactively
 
