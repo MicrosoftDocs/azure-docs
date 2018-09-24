@@ -2,6 +2,7 @@
 title: Reporting across scaled-out cloud databases | Microsoft Docs
 description: how to set up elastic queries over horizontal partitions
 services: sql-database
+ms.service: sql-database
 subservice: elastic-scale
 ms.custom: 
 ms.devlang: 

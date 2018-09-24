@@ -2,6 +2,7 @@
 title: Deploy a split-merge service | Microsoft Docs
 description: Use the split-merge too to move data between sharded databases.
 services: sql-database
+ms.service: sql-database
 subservice: elastic-scale
 ms.custom: 
 ms.devlang: 
