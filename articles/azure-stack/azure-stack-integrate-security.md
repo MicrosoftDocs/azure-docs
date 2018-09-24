@@ -57,7 +57,7 @@ Parameters for *Set-SyslogServer* cmdlet:
 | Parameter | Description | Type | Required |
 |---------|---------|---------|---------|
 |*ServerName* | FQDN or IP address of the syslog server | String | yes|
-|*ServerPort | Port number the syslog server is listening on | String | yes|
+|*ServerPort* | Port number the syslog server is listening on | String | yes|
 |*NoEncryption*| Force the client to send syslog messages in clear text | flag | no|
 |*SkipCertificateCheck*| Skip validation of the certificate provided by the syslog server during initial TLS handshake | flag | no|
 |*SkipCNCheck*| Skip validation of the Common Name value of the certificate provided by the syslog server during initial TLS handshake | flag | no|
