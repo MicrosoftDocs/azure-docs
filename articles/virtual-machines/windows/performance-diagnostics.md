@@ -158,8 +158,8 @@ You can also locate the performance diagnostics report compressed file by using 
 
 ### How do I capture the diagnostics data at the correct time?
 Each performance diagnostics run has two stages: 
-1)	Install or update the performance diagnostics VM extension.
-2)	Run the diagnostics for the specified duration.
+1.	Install or update the performance diagnostics VM extension.
+1.	Run the diagnostics for the specified duration.
 
 Currently there is no easy way to know exactly when the VM extension installation is complete. Generally it takes about 45 seconds to 1 minute to install the VM extension. After the VM extension is installed, you can run your repro steps to have the performance diagnostics capture the correct set of data for troubleshooting. 
 
