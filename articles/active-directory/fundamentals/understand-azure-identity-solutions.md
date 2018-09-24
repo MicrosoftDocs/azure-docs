@@ -1,22 +1,21 @@
 ---
-title: Understand Azure Identity | Microsoft Docs
-description: Get a basic understanding of Microsoft Azure identity solution terms, concepts, and recommendations for you to make the best identity governance decision for your organization.
-keywords:
+title: What is Microsoft Azure Identity? | Microsoft Docs
+description: Learn about Microsoft Azure identity solution terms, concepts, and recommendations for you to make the best identity governance decision for your organization.
+services: active-directory
 author: eross-msft
 manager: mtillman
-ms.reviewer: jsnow
-ms.author: lizross
-ms.date: 7/17/2017
-ms.topic: overview
-ms.prod:
-ms.service: azure-directory
+
+ms.service: active-directory
 ms.component: fundamentals
-ms.technology:
-ms.assetid:
-ms.custom: it-pro
+ms.workload: identity
+ms.topic: conceptual
+ms.date: 7/17/2017
+ms.author: lizross
+ms.reviewer: jsnow
+custom: it-pro
 ---
 
-# Understand Azure identity solutions
+# What is Microsoft Azure identity?
 Microsoft Azure Active Directory (Azure AD) is an identity and access management cloud solution that provides directory services, identity governance, and application access management. Azure AD quickly [enables single sign on (SSO)](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) to 1,000’s of pre-integrated commercial and custom apps in the [Azure AD application gallery](https://azure.microsoft.com/marketplace/active-directory/all/). Many of these apps you probably already use such as Office 365, Salesforce.com, Box, ServiceNow, and Workday.
 
 A single Azure AD directory is automatically associated with an Azure subscription when it is created. As the identity service in Azure, Azure AD then provides all identity management and access control functions for cloud-based resources. These resources can include users, apps, and groups for an individual tenant (organization) as shown in the following diagram:

@@ -35,13 +35,17 @@
 
 - name: How-to guides
   items:
+  - name: Improve your secure score
+    href: security-center-secure-score.md
   - name: Upgrade to advanced security
     href: security-center-onboarding.md
   - name: Server protection with Windows Defender ATP (Preview)
     href: security-center-wdatp.md
-  - name: Set Security policy
+  - name: Set security policy
   - name: Set security policies
     href: security-center-azure-policy.md
+  - name: Customize the information protection policy
+    href: security-center-info-protection-policy.md
   - name: Security policy settings
     href: security-center-policies-overview.md
     items:
@@ -66,30 +70,36 @@
     - name: Compute & apps security
       href: security-center-virtual-machine-protection.md
       items:
-      - name: Virtual machine recommendations
+      - name: VM and computer recommendations
         href: security-center-virtual-machine-recommendations.md
-      - name: Apply disk encryption
-        href: security-center-apply-disk-encryption.md
-      - name: Apply system updates
-        href: security-center-apply-system-updates.md
-      - name: Enable encryption for storage account
-        href: security-center-enable-encryption-for-storage-account.md
-      - name: Enable VM Agent
-        href: security-center-enable-vm-agent.md
-      - name: Install Endpoint Protection
-        href: security-center-install-endpoint-protection.md
-      - name: Reboot after system updates
-        href: security-center-apply-system-updates.md#reboot-after-system-updates
-      - name: Remediate security configurations
-        href: security-center-remediate-os-vulnerabilities.md
-      - name: Update OS version
-        href: security-center-update-os-version.md
-      - name: Vulnerability assessment not installed
-        href: security-center-vulnerability-assessment-recommendations.md
-      - name: Add a web application firewall
+        items:
+        - name: Apply disk encryption
+          href: security-center-apply-disk-encryption.md
+        - name: Apply system updates
+          href: security-center-apply-system-updates.md
+        - name: Enable encryption for storage account
+          href: security-center-enable-encryption-for-storage-account.md
+        - name: Enable VM Agent
+          href: security-center-enable-vm-agent.md
+        - name: Install Endpoint Protection
+          href: security-center-install-endpoint-protection.md
+        - name: Reboot after system updates
+          href: security-center-apply-system-updates.md#reboot-after-system-updates
+        - name: Remediate security configurations
+          href: security-center-remediate-os-vulnerabilities.md
+        - name: Update OS version
+          href: security-center-update-os-version.md
+        - name: Vulnerability assessment not installed
+          href: security-center-vulnerability-assessment-recommendations.md
+      - name: App recommendations
         href: security-center-add-web-application-firewall.md
-      - name: Finalize application protection
-        href: security-center-add-web-application-firewall.md#finalize-application-protection      
+        items:
+        - name: Add a web application firewall
+          href: security-center-add-web-application-firewall.md
+        - name: Finalize application protection
+          href: security-center-add-web-application-firewall.md#finalize-application-protection      
+      - name: Container recommendations
+        href: security-center-container-recommendations.md   
     - name: Network security
       href: security-center-network-recommendations.md
       items:
@@ -101,8 +111,7 @@
         href: security-center-restrict-access-through-internet-facing-endpoints.md
       - name: Route traffic through NGFW only
         href: security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only
-  
-    - name: Storage & data security
+    - name: Data & storage security
       href: security-center-sql-service-recommendations.md
       items:
       - name: Enable auditing and threat detection on SQL databases
@@ -112,13 +121,12 @@
       - name: Enable Transparent Data Encryption
         href: security-center-enable-transparent-data-encryption.md     
  
-    - name: Identity and Access
+    - name: Monitor identity and access
       href: security-center-identity-access.md  
-
+    - name: Manage just in time access
+      href: security-center-just-in-time.md
   - name: Apply cloud defenses
     items:
-    - name: Just in time access
-      href: security-center-just-in-time.md
     - name: Adaptive application controls
       href: security-center-adaptive-application.md
     - name: File integrity monitoring
@@ -181,7 +189,8 @@
       href: security-center-review-policy-compliance.md
     - name: Assess subscriptions (REST)
       href: security-center-compliance-rest-api.md
-
+    - name: Automate onboarding using PowerShell
+      href: security-center-powershell-onboarding.md
  
   - name: Scenarios
     items:

@@ -52,4 +52,4 @@ To use this feature, you need:
 
 * [Interpret audit logs schema in Azure Monitor](reference-azure-monitor-audit-log-schema.md)
 * [Interpret sign-in logs schema in Azure Monitor](reference-azure-monitor-sign-ins-log-schema.md)
-* [Frequently asked questions and known issues](overview-activity-logs-in-azure-monitor.md#frequently-asked-questions)
+* [Frequently asked questions and known issues](concept-activity-logs-in-azure-monitor.md#frequently-asked-questions)
