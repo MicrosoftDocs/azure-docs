@@ -31,7 +31,7 @@ The following list shows the published applications:
 * **[Trifacta](http://www.trifacta.com/)** enables data engineers and analysts to more efficiently explore and prepare the diverse data of today by utilizing machine learning to provide a breakthrough user experience, workflow and architecture.
 * **WANdisco Fusion HDI App** enables continuous consistent connectivity to data as it changes wherever it is located. It provides you with access to your data anytime and anywhere with no downtime and no disruption.
 
-The instructions provided in this article use Azure portal. You can also export the Azure Resource Manager template from the portal or obtain a copy of the Resource Manager template from vendors, and use Azure PowerShell and Azure CLI to deploy the template.  See [Create Hadoop clusters on HDInsight using Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
+The instructions provided in this article use Azure portal. You can also export the Azure Resource Manager template from the portal or obtain a copy of the Resource Manager template from vendors, and use Azure PowerShell and Azure Classic CLI to deploy the template.  See [Create Hadoop clusters on HDInsight using Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
 ## Prerequisites
 If you want to install HDInsight applications on an existing HDInsight cluster, you must have an HDInsight cluster. To create one, see [Create clusters](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster). You can also install HDInsight applications when you create an HDInsight cluster.

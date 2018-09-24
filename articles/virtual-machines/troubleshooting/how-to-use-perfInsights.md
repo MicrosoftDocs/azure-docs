@@ -19,7 +19,7 @@ ms.author: genli
 ---
 # How to use PerfInsights
 
-[PerfInsights](http://aka.ms/perfinsightsdownload) is a self-help diagnostics tool that collects & analyzes the diagnostic data, and provides a report to help troubleshoot Windows virtual machine performance problems in Azure. PerfInsights can be run on virtual machines as a standalone tool, or directly from the portal by installing [Azure Performance Diagnostics VM Extension](performance-diagnostics-vm-extension.md).
+[PerfInsights](http://aka.ms/perfinsightsdownload) is a self-help diagnostics tool that collects and analyzes the diagnostic data, and provides a report to help troubleshoot Windows virtual machine performance problems in Azure. PerfInsights can be run on virtual machines as a standalone tool, directly from the portal by using [Performance Diagnostics for Azure virtual machines](performance-diagnostics.md), or by installing [Azure Performance Diagnostics VM Extension](performance-diagnostics-vm-extension.md).
 
 If you are experiencing performance problems with virtual machines, before contacting support, run this tool.
 
