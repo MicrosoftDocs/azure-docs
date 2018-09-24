@@ -29,11 +29,52 @@ To enable Azure PowerShell to query Azure Resource Graph, the module must be add
 works wherever Azure PowerShell can be used, including [Cloud Shell](https://shell.azure.com) (both standalone and inside the portal), the [Azure PowerShell
 Docker image](https://hub.docker.com/r/azuresdk/azure-powershell/), or locally installed.
 
-1. Ensure Azure PowerShell 6.3.0 or higher is installed. If it is not yet installed, follow [these instructions](/powershell/azure/install-azurerm-ps).
+### Base requirements
 
-1. Ensure PowerShellGet is installed. If it is not installed or updated, follow [these instructions](/powershell/gallery/installing-psget).
+The Azure Resource Graph module requires the following software:
 
-1. From an **administrative** PowerShell prompt, run the following command:
+- Azure PowerShell 6.3.0 or higher. If it is not yet installed, follow [these instructions](/powershell/azure/install-azurerm-ps).
+
+  - For PowerShell Core, use the **Az** version of the Azure PowerShell module.
+
+    > [!NOTE]
+    > PowerShell for [Cloud Shell](https://shell.azure.com) now uses PowerShell Core. Use the PowerShell Core instructions
+    > for configuring Resource Graph when using PowerShell in Cloud Shell.
+
+  - For Windows PowerShell, use the **AzureRm** version of the Azure PowerShell module.
+
+- PowerShellGet. If it is not installed or updated, follow [these instructions](/powershell/gallery/installing-psget).
+
+### PowerShell Core
+
+The Resource Graph module for PowerShell Core is **Az.ResourceGraph**.
+
+1. From an **administrative** PowerShell Core prompt, run the following command:
+
+   ```azurepowershell-interactive
+   # Install the Resource Graph module from PowerShell Gallery
+   Install-Module Az.ResourceGraph
+   ```
+
+1. Validate that the module has been imported and is the correct version (0.1.0):
+
+   ```azurepowershell-interactive
+   # Get a list of commands for the imported Az.ResourceGraph module
+   Get-Command -Module 'Az.ResourceGraph' -CommandType 'Cmdlet'
+   ```
+
+1. Enable backwards aliases for **Az** to **AzureRm** with the following command:
+
+   ```azurepowershell-interactive
+   # Enable backwards alias compatibility
+   Enable-AzureRmAlias
+   ```
+
+### Windows PowerShell
+
+The Resource Graph module for Windows PowerShell is **AzureRm.ResourceGraph**.
+
+1. From an **administrative** Windows PowerShell prompt, run the following command:
 
    ```azurepowershell-interactive
    # Install the Resource Graph module from PowerShell Gallery
@@ -43,7 +84,7 @@ Docker image](https://hub.docker.com/r/azuresdk/azure-powershell/), or locally i
 1. Validate that the module has been imported and is the correct version (0.1.0):
 
    ```azurepowershell-interactive
-   # Get a list of commands for the imported AzureRm.Graph module
+   # Get a list of commands for the imported AzureRm.ResourceGraph module
    Get-Command -Module 'AzureRm.ResourceGraph' -CommandType 'Cmdlet'
    ```
 
@@ -89,7 +130,7 @@ When the final query is run multiple times, assuming that nothing in your enviro
 the results returned will be consistent and as expected -- ordered by the **Name** property, but
 still limited to the top 5 results.
 
-## Clean-up
+## Cleanup
 
 If you wish to remove the Resource Graph module from your Azure PowerShell environment, you can do
 so by using the following command:
@@ -110,3 +151,4 @@ Remove-Module -Name 'AzureRm.ResourceGraph'
 - Run your first query with [Azure CLI](first-query-azurecli.md)
 - See samples of [Starter queries](./samples/starter.md)
 - See samples of [Advanced queries](./samples/advanced.md)
+- Provide feedback on [UserVoice](https://feedback.azure.com/forums/915958-azure-governance)
