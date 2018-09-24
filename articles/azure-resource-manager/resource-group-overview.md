@@ -179,7 +179,7 @@ To retrieve all the resources with a tag value, use the following PowerShell cmd
 Find-AzureRmResource -TagName costCenter -TagValue Finance
 ```
 
-Or, the following Azure CLI 2.0 command:
+Or, the following Azure CLI command:
 
 ```azurecli
 az resource list --tag costCenter=Finance
