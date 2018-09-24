@@ -45,24 +45,20 @@ The workspace configuration file is used by the SDK to communicate with your Azu
     
     1. Create the file with this Python code. Run the code in the same directory as the scripts or notebooks that reference the workspace:
         ```
-        import os
-        
-        subscription_id = os.environ.get("SUBSCRIPTION_ID", "<subscription-id>")
-        resource_group = os.environ.get("RESOURCE_GROUP", "<resource-group>")
-        workspace_name = os.environ.get("WORKSPACE_NAME", "<workspace-name>")
-        workspace_region = os.environ.get("WORKSPACE_REGION", "eastus2")
-        # import the Workspace class
         from azureml.core import Workspace
+
+        subscription_id ='<subscription-id>'
+        resource_group ='<resource-group>'
+        workspace_name = '<workspace-name>'
         
-        ws = Workspace.create(name = workspace_name,
-                            subscription_id = subscription_id,
-                            resource_group = resource_group, 
-                            location = workspace_region,
-                            exist_ok = True)
-        # write the config.json file
-        ws.write_config()
+        try:
+           ws = Workspace(subscription_id = subscription_id, resource_group = resource_group, workspace_name = workspace_name)
+           ws.write_config()
+           print('Library configuration succeeded')
+        except:
+           print('Workspace not found')
         ```
-        This writes the following `config.json` file:
+        This writes the following `aml_config/config.json` file: 
     
         ```json
         {
@@ -71,7 +67,7 @@ The workspace configuration file is used by the SDK to communicate with your Azu
         "workspace_name": "<workspace-name>"
         }
         ```
-
+        You can copy just the file or the `aml_config` directory or just the `config.json` file into any other directory that references the workspace.
 
 >[!NOTE] 
 >Later in your code, you read this file with:  `ws = Workspace.from_config()`
