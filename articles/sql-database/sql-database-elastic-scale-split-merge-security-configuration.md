@@ -2,6 +2,7 @@
 title: Split-merge security configuration | Microsoft Docs
 description: Set up x409 certificates for encryption with the split/merge service for elastic scale.
 services: sql-database
+ms.service: sql-database
 ms.subservice: elastic-scale
 ms.custom: 
 ms.devlang: 

@@ -2,6 +2,7 @@
 title: Using elastic database client library with Dapper | Microsoft Docs
 description: Using elastic database client library with Dapper.
 services: sql-database
+ms.service: sql-database
 ms.subservice: elastic-scale
 ms.custom: 
 ms.devlang: 
