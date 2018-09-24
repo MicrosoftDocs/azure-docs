@@ -1,8 +1,8 @@
 {
     "redirections": [
         {
-            "source_path": "articles/governance/management-groups",
-            "redirect_url": "/azure/governance/management-groups/overview",
+            "source_path": "articles/governance/management-groups/overview.md",
+            "redirect_url": "/azure/governance/management-groups/index",
             "redirect_document_id": true
         },
         {
