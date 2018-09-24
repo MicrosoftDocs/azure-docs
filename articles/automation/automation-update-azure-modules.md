@@ -26,6 +26,9 @@ Because modules are updated regularly by the product group, changes can occur wi
 
 2. Click **Update Azure Modules**, a confirmation notification is shown that asks if you want to continue.<br><br> ![Update Azure Modules notification](media/automation-update-azure-modules/automation-update-azure-modules-popup.png)
 
+   > [!NOTE]
+   > The **Update Azure Modules** button is only available in the public cloud. It is not available in the [sovereign regions](https://azure.microsoft.com/global-infrastructure/).
+
 3. Click **Yes** and the module update process begins. The update process takes about 15-20 minutes to update the following modules:
 
   * Azure
