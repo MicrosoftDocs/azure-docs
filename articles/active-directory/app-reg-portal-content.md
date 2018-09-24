@@ -9,7 +9,7 @@ ms.date: 03/01/2018
 ms.topic: article
 ms.prod:
 ms.service: active-directory
-ms.technology: techgroup-identity
+ms.technology: app-mgmt
 
 # optional metadata
 

@@ -33,8 +33,6 @@
       href: functions-create-scheduled-function.md
   - name: Integrate
     items:
-    - name: Azure Cosmos DB
-      href: functions-integrate-store-unstructured-data-cosmosdb.md
     - name: Storage
       href: functions-integrate-storage-queue-output-binding.md
 - name: Tutorials
@@ -66,7 +64,7 @@
     href: https://docs.microsoft.com/sandbox/functions-recipes/    
 - name: Concepts
   items:
-  - name: Compare 1.x and 2.x
+  - name: Compare versions 1.x and 2.x
     href: functions-versions.md
   - name: Scale and hosting
     href: functions-scale.md

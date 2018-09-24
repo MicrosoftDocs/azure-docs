@@ -163,6 +163,8 @@
     href: /azure/templates/microsoft.containerservice/managedclusters
 - name: Resources
   items:
+  - name: Build your skill with Microsoft Learn
+    href: /learn/browse/?products=azure-container-instances&azure-container-registry
   - name: Region availability
     href: https://azure.microsoft.com/regions/services/
   - name: Pricing
