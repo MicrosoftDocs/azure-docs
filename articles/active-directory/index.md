@@ -178,8 +178,8 @@ ms.author: mtillman
                                                     <div class="cardText">
                                                         <h3><a href="governance/index.yml">Identity governance</a></h3>
                                                         <p>
-                                                            <a href="governance/manage-user-access-with-access-reviews.md">Manage user access with access reviews</a><br>
-                                                            <a href="governance/manage-guest-access-with-access-reviews.md">Manage guest access with access reviews</a><br>
+                                                            <a href="governance/manage-user-access-with-access-reviews.md">Manage user access</a><br>
+                                                            <a href="governance/manage-guest-access-with-access-reviews.md">Manage guest access</a><br>
                                                             <a href="governance/active-directory-tou.md">Terms of use</a><br>
                                                         </p>
 														<br><br>
