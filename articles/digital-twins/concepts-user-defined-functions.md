@@ -93,10 +93,10 @@ We need to create a role assignment for the UDF to execute under to ensure it ha
 
 ## Next steps
 
-Learn more on how to create matchers, user-defined functions, and role assignments:
+Learn more on how to create matchers, user-defined functions and role assignments:
 
-<!-- > [!div class="nextstepaction"]
-> [How to create User-Defined Functions] (howto-user-defined-functions.md) -->
+> [!div class="nextstepaction"]
+> [Facility Management Tutorial](tutorial-facilities-app.md)
 
 <!-- Images -->
 [1]: media/concepts/digital-twins-data-processing-flow.png
