@@ -104,7 +104,7 @@ def get_data():
     return { "X" : X_digits, "y" : y_digits }
 ```
 
-## Configure Automated ML Experiment
+## Configure experiment
 
 Specify the settings for `AutoMLConfig`.  (See a [full list of parameters]() and their possible values.)
 
@@ -135,7 +135,7 @@ automl_config = AutoMLConfig(task='classification',
                             )
 ```
 
-## Submit Automated ML training experiment
+## Submit training experiment
 
 Now submit the configuration to automatically select the algorithm, hyper parameters, and train the model. (Learn [more information about settings]() for the `submit` method.)
 
