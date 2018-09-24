@@ -58,7 +58,7 @@ Use the following procedure to create a computer group from a log search in the 
 
 
 ### Active Directory
-When you configure Log Analytics to import Active Directory group memberships, it analyzes the group membership of any domain joined computers with the OMS agent.  A computer group is created in Log Analytics for each security group in Active Directory, and each computer is added to the computer groups corresponding to the security groups they are members of.  This membership is continuously updated every 4 hours.  
+When you configure Log Analytics to import Active Directory group memberships, it analyzes the group membership of any domain joined computers with the Log Analytics agent.  A computer group is created in Log Analytics for each security group in Active Directory, and each computer is added to the computer groups corresponding to the security groups they are members of.  This membership is continuously updated every 4 hours.  
 
 You configure Log Analytics to import Active Directory security groups from Log Analytics **Advanced settings** in the Azure portal.  Select **Computer Groups**, **Active Directory**, and then **Import Active Directory group memberships from computers**.  There is no further configuration required.
 
@@ -67,7 +67,7 @@ You configure Log Analytics to import Active Directory security groups from Log 
 When groups have been imported, the menu lists the number of computers with group membership detected and the number of groups imported.  You can click on either of these links to return the **ComputerGroup** records with this information.
 
 ### Windows Server Update Service
-When you configure Log Analytics to import WSUS group memberships, it analyzes the targeting group membership of any computers with the OMS agent.  If you are using client-side targeting, any computer that is connected to Log Analytics and is part of any WSUS targeting groups has its group membership imported to Log Analytics. If you are using server-side targeting, the OMS agent should be installed on the WSUS server in order for the group membership information to be imported to Log Analytics.  This membership is continuously updated every 4 hours. 
+When you configure Log Analytics to import WSUS group memberships, it analyzes the targeting group membership of any computers with the Log Analytics agent.  If you are using client-side targeting, any computer that is connected to Log Analytics and is part of any WSUS targeting groups has its group membership imported to Log Analytics. If you are using server-side targeting, the Log Analytics agent should be installed on the WSUS server in order for the group membership information to be imported to Log Analytics.  This membership is continuously updated every 4 hours. 
 
 You configure Log Analytics to import WSUS groups from Log Analytics **Advanced settings** in the Azure portal.  Select **Computer Groups**, **WSUS**, and then **Import WSUS group memberships**.  There is no further configuration required.
 
