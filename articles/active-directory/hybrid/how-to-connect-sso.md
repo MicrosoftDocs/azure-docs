@@ -61,7 +61,7 @@ Seamless SSO can be combined with either the [Password Hash Synchronization](how
 |Windows 8|Yes\*|N/A|Yes|Yes\*\*\*|N/A
 |Windows 7|Yes\*|N/A|Yes|Yes\*\*\*|N/A
 |Windows Server 2012 R2 or above|Yes\*\*|N/A|Yes|Yes\*\*\*|N/A
-|Mac OS X|N/A|N/A|Yes\*\*\*|Yes\*\*\*|Yes\*
+|Mac OS X|N/A|N/A|Yes\*\*\*|Yes\*\*\*|Yes\*\*\*
 
 
 \*Requires Internet Explorer versions 10 or above
