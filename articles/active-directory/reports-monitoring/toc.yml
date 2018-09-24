@@ -78,6 +78,8 @@
     items:
     - name: Integrate activity logs with SumoLogic
       href: howto-integrate-activity-logs-with-sumologic.md
+    - name: Integrate activity logs with Log Analytics
+      href: howto-integrate-activity-logs-with-log-analytics.md
 
   - name: Troubleshoot
     items:
