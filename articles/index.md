@@ -2507,8 +2507,8 @@ featureFlags:
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Data Box</h3>
-                                                    <p>Low cost, secure transfer of large amounts of data when limited by network availability</p>
+                                                    <h3>Data Box family</h3>
+                                                    <p>Family of storage devices that enable offline or network-based data transfer</p>
                                                 </div>
                                             </div>
                                         </div>
