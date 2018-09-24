@@ -639,7 +639,7 @@
     - name: Query log data
       items:
       - name: Language reference
-        href: https://docs.loganalytics.io
+        href: /azure/kusto/query
       - name: Get started
         items:
         - name: Get started with Analytics portal
