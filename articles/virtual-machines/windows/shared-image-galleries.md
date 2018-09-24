@@ -1,5 +1,5 @@
 ---
-title: Share VM images with Shared ImageGallery in Azure | Microsoft Docs
+title: Share VM images with Shared Image Gallery in Azure | Microsoft Docs
 description: Learn how to use shared image galleries to share VM images across your organization.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
