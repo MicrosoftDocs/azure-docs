@@ -29089,6 +29089,11 @@
             "source_path": "articles/application-insights/app-insights-troubleshoot-snapshot-debugger.md",
             "redirect_url": "/azure/application-insights/app-insights-snapshot-debugger",
             "redirect_document_id" : false
+        },
+        {
+            "source_path": "articles/machine-learning/service/quickstart-installation.md",
+            "redirect_url": "/azure/machine-learning/desktop-workbench/quickstart-installation",
+            "redirect_document_id": true
         }
     ]
 }
