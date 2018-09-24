@@ -53,7 +53,6 @@ The Microsoft speech recognition API supports the following languages. Different
  th-TH | Thai (Thailand) | No | No | No
 
 
-
 ## Text to Speech
 
 The speech synthesis API offers the following voices, each of which supports a specific language and dialect, identified by locale.
