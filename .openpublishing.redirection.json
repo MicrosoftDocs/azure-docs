@@ -29091,7 +29091,7 @@
             "redirect_document_id" : false
         },
         {
-            "source_path": "articles//service/quickstart-installation.md",
+            "source_path": "articles/machine-learning/service/quickstart-installation.md",
             "redirect_url": "/azure/machine-learning/desktop-workbench/quickstart-installation",
             "redirect_document_id": true
         }
