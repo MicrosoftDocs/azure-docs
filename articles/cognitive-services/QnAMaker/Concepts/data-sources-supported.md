@@ -29,9 +29,9 @@ The table below summarizes the types of content and file formats that are suppor
 
 QnA Maker can support FAQ web pages in 3 different forms: 
 
-    * Plain FAQ pages
-    * FAQ pages with links
-    * FAQ pages with a Topics Homepage
+* Plain FAQ pages
+* FAQ pages with links
+* FAQ pages with a Topics Homepage
 
 ### Plain FAQ pages
 
@@ -89,13 +89,13 @@ Below is an example of a semi-structured doc, without an index:
 
 The format for structured Question-Answers in DOC files, is in the form of alternating Questions and Answers per line, one question per line followed by its answer in the following line, as shown below: 
 
-	Question1
+Question1
 
-	Answer1
+Answer1
 
-	Question2
+Question2
 
-	Answer2
+Answer2
 
 Below is an example of a structured QnA word document:
 
@@ -107,7 +107,7 @@ QnAs in the form of structured *.txt*, *.tsv* or *.xls* files can also be upload
 
 | Question  | Answer  | Metadata                |
 |-----------|---------|-------------------------|
-| Question1 | Answer1 | `Key1:Value1|Key2:Value2` |
+| Question1 | Answer1 | `Key1:Value1\|Key2:Value2` |
 | Question2 | Answer2 |      `Key:Value`           |
 
 Any additional columns in the source file are ignored.
@@ -122,7 +122,7 @@ Importing a knowledge base replaces the content of the existing knowledge base. 
 
 | Question  | Answer  | Source| Metadata                |
 |-----------|---------|----|---------------------|
-| Question1 | Answer1 | Url1|`Key1:Value1|Key2:Value2` |
+| Question1 | Answer1 | Url1 | `Key1:Value1\|Key2:Value2` |
 | Question2 | Answer2 | Editorial|    `Key:Value`       |
 
 ## Editorially add to knowledge base
