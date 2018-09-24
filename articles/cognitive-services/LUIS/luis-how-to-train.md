@@ -36,7 +36,7 @@ To start the iterative process, you first need to train your LUIS app at least o
 >If you have one or more intents in your app that do not contain example utterances, you cannot train your app. Add utterances for all your intents. For more information, see [Add example utterances](luis-how-to-add-example-utterances.md).
 
 ## Train with all data
-Training uses a small, random percentage of negative sampling. If you want to use all data instead of the small negative sampling, use the [Version settings API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) with the `UseAllTrainingData` set to true to turn this feature off. 
+Training uses a small percentage of negative sampling. If you want to use all data instead of the small negative sampling, use the [Version settings API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) with the `UseAllTrainingData` set to true to turn this feature off. 
 
 ## Next steps
 
