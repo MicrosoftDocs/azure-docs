@@ -1342,6 +1342,31 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/sql-database/sql-database-customer-implementations.md",
+            "redirect_url": "http://customers.microsoft.com",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-implementation-daxko.md",
+            "redirect_url": "http://customers.microsoft.com/story/csi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-implementation-gep.md",
+            "redirect_url": "http://customers.microsoft.com/story/azure-gives-gep-global-reach-and-greater-efficiency",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-implementation-snelstart.md",
+            "redirect_url": "http://customers.microsoft.com/story/with-azure-snelstart-has-rapidly-expanded-its-business-services",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-implementation-umbraco.md",
+            "redirect_url": "http://customers.microsoft.com/story/umbraco-uses-azure-sql-database-to-quickly-provision-and-scale-services-for-thousands-of-tenants",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/sql-database/sql-database-get-started-cli.md",
             "redirect_url": "/azure/sql-database/sql-database-cli-samples",
             "redirect_document_id": false
@@ -3007,6 +3032,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/azure-functions/functions-integrate-store-unstructured-data-cosmosdb.md",
+            "redirect_url": "/azure/azure-functions/functions-bindings-cosmosdb-v2",
+            "redirect_document_id": false
+        },
+       {
             "source_path": "articles/automation/automation-source-control-integration.md",
             "redirect_url": "/azure/automation/source-control-integration",
             "redirect_document_id": false
@@ -12907,6 +12937,11 @@
         {
             "source_path": "articles/iot-hub/iot-hub-python-python-direct-methods.md",
             "redirect_url": "/azure/iot-hub/quickstart-control-device-python",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-store-data-in-azure-table-storage.md",
+            "redirect_url": "/azure/iot-hub/tutorial-routing#routing-to-a-storage-account",
             "redirect_document_id": false
         },
         {
