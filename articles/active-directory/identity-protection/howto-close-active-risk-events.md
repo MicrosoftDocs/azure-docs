@@ -22,13 +22,13 @@ ms.reviewer: raluthra
 
 # How To: Close active risk events
 
-With [risk events](../reports-monitoring/concept-risk-events.md), Azure Active Directory detects indicators for potentially compromised user accounts. As an administrator, you want get all risk events closed, so that the affected users are no longer at risk.
+With [risk events](../reports-monitoring/concept-risk-events.md), Azure Active Directory detects indicators for potentially compromised user accounts. As an administrator, you want to get all risk events closed, so that the affected users are no longer at risk.
 
 This article gives you an overview of the additional options you have to close active risk events.
 
 ## Options to close risk events 
 
-The status of a risk event is either **active** or **closed**. All active risk events contribute to the calculation of an a value called user risk level. The user risk level is an indicator (low, medium, high) for the probability than an account has been compromised. 
+The status of a risk event is either **active** or **closed**. All active risk events contribute to the calculation of a value called user risk level. The user risk level is an indicator (low, medium, high) for the probability that an account has been compromised. 
 
 To close active risk events, you have the following options:
 
@@ -54,7 +54,7 @@ However, using a user risk policy is not always applicable. This applies, for ex
 
 - Users that have not been registered for multi-factor authentication (MFA).
 - Users with active risk events that have been deleted.
-- An investigations that reveals that a reported risk event has been perform by the legitimate user.
+- An investigation that reveals that a reported risk event has been performed by the legitimate user.
 
 
 ## Manual password reset
@@ -81,7 +81,7 @@ If a password reset is not an option for you, you can also dismiss all risk even
 
 ![Reset password](./media/howto-close-active-risk-events/03.png)
 
-When you click **Dismiss all events**, all events are closed and the affected user is no longer at risk. However, because this method doesn't have an impact on the existing password, it doesn't bring the related identity back into a safe state. The preferred use case for this method are deleted users with active risk events. 
+When you click **Dismiss all events**, all events are closed and the affected user is no longer at risk. However, because this method doesn't have an impact on the existing password, it doesn't bring the related identity back into a safe state. The preferred use case for this method is a deleted user with active risk events. 
 
 
 ## Close individual risk events manually
