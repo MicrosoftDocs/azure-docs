@@ -69,7 +69,7 @@ DSVM name restrictions include:
 This code doesn't create a user name or password for the DSVM that is provisioned. You can go to the [Azure portal](https://portal.azure.com) and provision credentials for the VM to gain access if you want remote access to the VM.
 
 
-## Access data using Get Data file
+## Access data using get_data file
 
 Provide the remote resource access to your training data. For automated machine learning experiments running on remote compute, the data needs to be fetched using a `get_data()` function.  
 
