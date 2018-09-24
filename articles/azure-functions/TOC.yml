@@ -176,6 +176,8 @@
       href: set-runtime-version.md
     - name: Disable a function 
       href: disable-function.md
+    - name: Troubleshoot storage
+      href: functions-recover-storage-account.md
   - name: Monitor
     href: functions-monitoring.md
   - name: Integrate
@@ -260,6 +262,8 @@
     href: functions-api-definition.md     
 - name: Resources
   items:
+  - name: Build your skills with Microsoft Learn
+    href: /learn/browse/?products=azure-functions
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=compute
   - name: Pricing

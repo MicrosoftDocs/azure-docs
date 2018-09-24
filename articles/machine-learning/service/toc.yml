@@ -105,6 +105,8 @@
     href: reference-azure-machine-learning-cli.md    
 - name: Resources
   items:  
+  - name: R developer's guide 
+    href: ../r-developers-guide.md
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing
