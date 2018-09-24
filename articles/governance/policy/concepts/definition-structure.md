@@ -256,7 +256,7 @@ Policy supports the following types of effect:
 - **Audit**: generates a warning event in audit log but does not fail the request
 - **Append**: adds the defined set of fields to the request
 - **AuditIfNotExists**: enables auditing if a resource does not exist
-- **DeployIfNotExists**: deploys a resource if it does not already exist. Currently, this effect is only supported through built-in policies.
+- **DeployIfNotExists**: deploys a resource if it does not already exist.
 
 For **append**, you must provide the following details:
 
