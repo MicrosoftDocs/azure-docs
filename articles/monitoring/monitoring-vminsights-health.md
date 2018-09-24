@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
+ms.date: 09/24/2018
 ms.author: magoedte
 ---
 
@@ -224,7 +224,8 @@ In the configuration pane for the selected health criteria, in this example the 
 
 ![Configuring a health criteria of a unit monitor example](./media/monitoring-vminsights-health/health-diagnostics-linuxvm-example-04.png)
 
-
+If you want to learn more about the health indicator, knowledge articles are included which helps you identify problems, causes, and resolutions.  Click on the **View information** link on the page and it opens a new tab in your browser showing the specific knowledge article.  At any time, you can review all of the health criterion knowledge articles included with Azure Monitor for VMs Health feature [here](https://docs.microsoft.com/azure/monitoring/infrastructure-health/).
+  
 ### State changes
 The right-most column in the Health diagnostics page is **State Changes**. It lists all the state changes associated with the health criteria that is selected in the **Health Criteria** section or the state change of the VM if a VM was selected from the **Component Model** or **Health Criteria** column of the table. 
 
