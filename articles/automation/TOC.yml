@@ -187,8 +187,6 @@
       items:
         - name: Forward Azure Automation job data to Log Analytics
           href: automation-manage-send-joblogs-log-analytics.md
-        - name: Unlink Azure Automation account from Log Analytics
-          href: automation-unlink-from-log-analytics.md
     - name: Migrate
       items:
         - name: Migrate from Orchestrator
