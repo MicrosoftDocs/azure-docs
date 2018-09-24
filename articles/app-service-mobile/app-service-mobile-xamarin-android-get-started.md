@@ -70,7 +70,6 @@ If you have problems building the solution, run the NuGet package manager and up
 
 Please note that all the support packages referenced in your project must have the same version. The [Azure Mobile Apps NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) has `Xamarin.Android.Support.CustomTabs` dependency for Android platform, so if your project uses newer support packages you need to install this package with required version directly to avoid conflicts.
 
-
 ## Next steps
 * [Add Offline Sync to your app](app-service-mobile-xamarin-android-get-started-offline-data.md)
 * [Add authentication to your app ](app-service-mobile-xamarin-android-get-started-users.md)
