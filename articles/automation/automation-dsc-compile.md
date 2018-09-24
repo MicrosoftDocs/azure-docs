@@ -4,9 +4,9 @@ description: This article describes how to compile Desired State Configuration (
 services: automation
 ms.service: automation
 ms.component: dsc
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 08/08/2018
+author: bobbytreed
+ms.author: robreed
+ms.date: 09/10/2018
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -169,7 +169,7 @@ Then you can call the **Composite Resource** into your configuration like so:
 ```powershell
 Node ($AllNodes.Where{$_.Role -eq 'WebServer'}).NodeName
 {
-    JoinDomain DomainJoin
+    DomainConfig myCompositeConfig
     {
         DomainName = $DomainName
         Admincreds = $Admincreds
@@ -177,7 +177,7 @@ Node ($AllNodes.Where{$_.Role -eq 'WebServer'}).NodeName
 
     PSWAWebServer InstallPSWAWebServer
     {
-        DependsOn = '[JoinDomain]DomainJoin'
+        DependsOn = '[DomainConfig]myCompositeConfig'
     }
 }
 ```
@@ -255,9 +255,9 @@ following for more information:
 
 ### Credential Assets
 
-DSC configurations in Azure Automation can reference Automation credential assets using
-`Get-AzureRmAutomationCredential`. If a configuration has a parameter that has a **PSCredential**
-type, then you can use the `Get-AutomationRmAutomationCredential` cmdlet by passing the string name
+DSC configurations in Azure Automation can reference Automation credential assets using the 
+`Get-AutomationPSCredential` cmdlet. If a configuration has a parameter that has a **PSCredential**
+type, then you can use the `Get-AutomationPSCredential` cmdlet by passing the string name
 of an Azure Automation credential asset to the cmdlet to retrieve the credential. You can then use
 that object for the parameter requiring the **PSCredential** object. Behind the scenes, the Azure
 Automation credential asset with that name is retrieved and passed to the configuration. The

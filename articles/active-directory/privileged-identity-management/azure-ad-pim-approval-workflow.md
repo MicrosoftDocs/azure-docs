@@ -20,11 +20,11 @@ ms.custom: pim
 
 # Approve or deny requests for Azure AD directory roles in PIM
 
-With Azure AD Privileged Identity Management (PIM), you can configure roles to require approval for activation, and choose one or multiple users or groups as delegated approvers.
+With Azure AD Privileged Identity Management (PIM), you can configure roles to require approval for activation, and choose one or multiple users or groups as delegated approvers. Follow the steps in this article to approve or deny requests for Azure AD directory roles.
 
 ## View pending requests
 
-As a delegated approver, you'll receive email notifications when a request is pending your approval. You can view these pending requests in PIM.
+As a delegated approver, you'll receive an email notification when an Azure AD directory role request is pending your approval. You can view these pending requests in PIM.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -70,5 +70,5 @@ As a delegated approver, you'll receive email notifications when a request is pe
 
 ## Next steps
 
-- [Approve or deny requests for Azure resource roles in PIM](pim-resource-roles-approval-workflow.md)
 - [Email notifications in PIM](pim-email-notifications.md)
+- [Approve or deny requests for Azure resource roles in PIM](pim-resource-roles-approval-workflow.md)

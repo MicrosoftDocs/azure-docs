@@ -21,7 +21,7 @@ ms.date: 04/12/2018
 
 ![Inputs tile](media/stream-analytics-malformed-events/inputs_tile.png)
 
-To see more information, enable the diagnostics logs to view the details of the warning. For malformed input events, the execution logs contain an entry with the message that looks like: “Message: Could not deserialize the input event(s) from resource <blob URI> as json". 
+To see more information, enable the diagnostics logs to view the details of the warning. For malformed input events, the execution logs contain an entry with the message that looks like: "Message: Could not deserialize the input event(s) from resource <blob URI> as json". 
 
 ### Troubleshooting steps
 

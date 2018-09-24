@@ -17,7 +17,7 @@ ms.custom: pim
 ---
 
 # Configure security alerts for Azure resource roles in PIM
-Privileged Identity Management (PIM) for Azure Resources generates alerts when there is suspicious or unsafe activity in your environment. When an alert is triggered, it shows up on the Alerts page. 
+Privileged Identity Management (PIM) for Azure resources generates alerts when there is suspicious or unsafe activity in your environment. When an alert is triggered, it shows up on the Alerts page. 
 
 ![Alerts page](media/azure-pim-resource-rbac/RBAC-alerts-home.png)
 
@@ -48,5 +48,4 @@ Customize settings on the different alerts to work with your environment and sec
 
 ## Next steps
 
-- [Require multi-factor authentication for Azure resource roles in PIM](pim-resource-roles-require-mfa.md)
 - [Configure security alerts for Azure resource roles in PIM](pim-resource-roles-configure-alerts.md)

@@ -3,7 +3,7 @@ title: Quickstart to learn how to use Azure SignalR Service | Microsoft Docs
 description: A quickstart for using Azure SignalR Service to create a chat room with ASP.NET Core MVC apps.
 services: signalr
 documentationcenter: ''
-author: wesmc7777
+author: sffamily
 manager: cfowler
 editor: 
 
@@ -14,12 +14,11 @@ ms.topic: quickstart
 ms.tgt_pltfrm: ASP.NET
 ms.workload: tbd
 ms.date: 06/13/2018
-ms.author: wesmc
+ms.author: zhshang
 #Customer intent: As an ASP.NET Core developer, I want to push real-time data in my ASP.NET Core apps. So that my clients are updated without the need to poll, or request updates.
 ---
 # Quickstart: Create a chat room with SignalR Service
 
-Microsoft Azure SignalR Service is currently in [Public Preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Azure SignalR Service is an Azure service that helps developers easily build web applications with real-time features. This service is based on [SignalR for ASP.NET Core 2.0](https://docs.microsoft.com/aspnet/core/signalr/introduction).
 

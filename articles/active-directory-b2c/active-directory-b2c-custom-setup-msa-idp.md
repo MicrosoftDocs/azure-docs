@@ -54,7 +54,7 @@ To use Microsoft account as an identity provider in Azure Active Directory (Azur
 
     ![Microsoft account - From the platform list choose Web](media/active-directory-b2c-custom-setup-ms-account-idp/msa-web.png)
 
-7.  Enter `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` in the **Redirect URIs** field. Replace **{tenant}** with your tenant's name (for example, contosob2c.onmicrosoft.com).
+7.  Enter `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp` in the **Redirect URIs** field. Replace **{tenant}** with your tenant's name (for example, contosob2c).
 
     ![Microsoft account - Set redirect URLs](media/active-directory-b2c-custom-setup-ms-account-idp/msa-redirect-url.png)
 

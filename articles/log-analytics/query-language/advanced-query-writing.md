@@ -23,10 +23,12 @@ ms.component: na
 > [!NOTE]
 > You should complete [Get started with the Analytics portal](get-started-analytics-portal.md) and [Getting started with queries](get-started-queries.md) before completing this lesson.
 
+[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
+
 ## Reusing code with let
 Use `let` to assign results to a variable, and refer to it later in the query:
 
-```OQL
+```Kusto
 // get all events that have level 2 (indicates warning level)
 let warning_events=
 Event
@@ -38,7 +40,7 @@ warning_events
 
 You can also assign constant values to variables. This supports a method to set up parameters for the fields that you need to change every time you execute the query. Modify those parameters as needed. For example, to calculate the free disk space and free memory (in percentiles), in a given time window:
 
-```OQL
+```Kusto
 let startDate = datetime(2018-08-01T12:55:02);
 let endDate = datetime(2018-08-02T13:21:35);
 let FreeDiskSpace =
@@ -59,7 +61,7 @@ This makes it easy to change the start of end time the next time you run the que
 ### Local functions and parameters
 Use `let` statements to create functions that can be used in the same query. For example, define a function that takes a datetime field (in the UTC format) and converts it to a standard US format. 
 
-```OQL
+```Kusto
 let utc_to_us_date_format = (t:datetime)
 {
   strcat(getmonth(t), "/", dayofmonth(t),"/", getyear(t), " ",
@@ -74,7 +76,7 @@ Event
 ## Functions
 You can save a query with a function alias so it can be referenced by other queries. For example, the following standard query returns all missing security updates reported in the last day:
 
-```OQL
+```Kusto
 Update
 | where TimeGenerated > ago(1d) 
 | where Classification == "Security Updates" 
@@ -83,7 +85,7 @@ Update
 
 You can save this query as a function and give it an alias such as _security_updates_last_day_. Then you can use it in another query to search for SQL-related needed security updates:
 
-```OQL
+```Kusto
 security_updates_last_day | where Title contains "SQL"
 ```
 
@@ -96,7 +98,7 @@ To save a query as a function, select the **Save** button in the portal and chan
 ## Print
 `print` will return a table with a single column and a single row, showing the result of a calculation. This is often used in cases where you need a simple calcuation. For example, to find the current time in PST and add a column with EST:
 
-```OQL
+```Kusto
 print nowPst = now()-8h
 | extend nowEst = nowPst+3h
 ```
@@ -104,7 +106,7 @@ print nowPst = now()-8h
 ## Datatable
 `datatable` allows you to define a set of data. You provide a schema and a set of values and then pipe the table into any other query elements. For example to create a table of RAM usage and calculate their average value per hour:
 
-```OQL
+```Kusto
 datatable (TimeGenerated: datetime, usage_percent: double)
 [
   "2018-06-02T15:15:46.3418323Z", 15.5,
@@ -121,7 +123,7 @@ datatable (TimeGenerated: datetime, usage_percent: double)
 
 Datatable constructs are also very useful when creating a lookup table. For example, to map table data such as event IDs from the _SecurityEvent_ table, to event types listed elsewhere, create a lookup table with the event types using `datatable` and join this datatable with _SecurityEvent_ data:
 
-```OQL
+```Kusto
 let eventCodes = datatable (EventID: int, EventType:string)
 [
 	4625, "Account activity",

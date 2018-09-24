@@ -42,24 +42,24 @@ The following table illustrates the costs for your virtual machine after you pur
 3. For hour 2 and hour 3, both instances ran for 1 hour each. One instance is covered by the reservation and the other is charged at pay-as-you-go rates.
 4. For hour 4, instance 1 runs for 0.5 hours and instance 2 runs for 1 hour. Instance 1 is fully covered by the reservation and 0.5 hours of instance 2 is covered. You’re charged the pay-as-you-go rate for the remaining 0.5 hours.
 
-To understand and view the application of your Azure reservations in billing usage reports, see [Understand reservation usage](https://go.microsoft.com/fwlink/?linkid=862757).
+To understand and view the application of your Azure Reservations in billing usage reports, see [Understand reservation usage](https://go.microsoft.com/fwlink/?linkid=862757).
 
 ## Application of reservation discount to Windows VMs
 
-When you're running Windows VM instances, the reservation is applied to cover the infrastructure costs. The application of the reservation to the VM infrastructure costs for Windows VMs is the same as for non-Windows VMs. You're charged separately for Windows software on a per vCPU basis. See [Windows software costs with reservations](https://go.microsoft.com/fwlink/?linkid=862756). You can cover your Windows licensing costs with [Azure Hybrid Benefit for Windows Server] (https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing).
+When you're running Windows VM instances, the reservation is applied to cover the infrastructure costs. The application of the reservation to the VM infrastructure costs for Windows VMs is the same as for non-Windows VMs. You're charged separately for Windows software on a per vCPU basis. See [Windows software costs with Reservations](https://go.microsoft.com/fwlink/?linkid=862756). You can cover your Windows licensing costs with [Azure Hybrid Benefit for Windows Server] (https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing).
 
 ## Next steps
 
-To learn more about reservations, see the following articles:
+To learn more about Azure Reservations, see the following articles:
 
-- [What are Azure reservations?](billing-save-compute-costs-reservations.md)
+- [What are Azure Reservations?](billing-save-compute-costs-reservations.md)
 - [Prepay for Virtual Machines with Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](../sql-database/sql-database-reserved-capacity.md)
-- [Manage Azure reservations](billing-manage-reserved-vm-instance.md)
+- [Manage Azure Reservations](billing-manage-reserved-vm-instance.md)
 - [Understand reservation usage for your Pay-As-You-Go subscription](billing-understand-reserved-instance-usage.md)
 - [Understand reservation usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)
 - [Understand reservation usage for CSP subscriptions](https://docs.microsoft.com/partner-center/azure-reservations)
-- [Windows software costs not included with reservations](billing-reserved-instance-windows-software-costs.md)
+- [Windows software costs not included with Reservations](billing-reserved-instance-windows-software-costs.md)
 
 ## Need help? Contact support
 
