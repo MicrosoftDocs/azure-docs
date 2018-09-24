@@ -41,6 +41,8 @@
         href: automation-update-management.md
       - name: Manage updates for multiple VMs
         href: manage-update-multi.md
+      - name: Pre and post scripts
+        href: pre-post-scripts.md
       - name: Migrate OMS update deployments to Azure
         href: migrate-oms-update-deployments.md
       - name: Integrate SCCM with Update Management
@@ -115,6 +117,8 @@
           href: automation-pass-json-string.md
         - name: Start/stop VMs during off-hours
           href: automation-solution-vm-management.md
+        - name: Manage Python 2 packages
+          href: python-packages.md
     - name: Hybrid Runbook Worker
       items:
         - name: Hybrid Runbook Worker overview

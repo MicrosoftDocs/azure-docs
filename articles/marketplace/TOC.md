@@ -7,6 +7,7 @@
 #### [Register in Dev Center](./register-dev-center.md) 
 #### [Billing options for Azure Marketplace](./billing-options-azure-marketplace.md)  
 #### [Azure partner customer usage attribution](./azure-partner-customer-usage-attribution.md)
+#### [Lead management for cloud marketplace](./lead-management-for-cloud-marketplace.md)
 
 ### [Storefronts](./comparing-appsource-azure-marketplace.md)  
 
@@ -20,7 +21,7 @@
 #### [Containers](./marketplace-containers.md)
 #### [Consulting Service](./consulting-services.md)  
 #### [Office 365, Dynamics 365 and Power BI publishing guide](./appsource-offer-publishing-guide.md)
-#### [Enable your marketplace trial experience using Azure Active Directory](./enable-trial-using-azure-ad.md)
+#### [Enable a Microsoft AppSource and Azure Marketplace listing by using Azure Active Directory](./enable-appsource-marketplace-using-azure-ad.md)
 
 ### [Grow your business through marketplace](./grow-your-business-with-azure-marketplace.md)  
 #### [Preferred solutions](./preferred-solutions.md) 
