@@ -22,7 +22,6 @@ ms.custom: aaddev
 
 # What's new for authentication? 
 
-|
 >Get notified about when to revisit this page for updates by adding this [URL](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20for%20authentication%22&locale=en-us) to your RSS feed reader.
 
 The authentication system alters and adds features on an ongoing basis in order to improve security and improve standards compliance. To stay up-to-date with the most recent developments, this article provides you with information about:
@@ -43,11 +42,13 @@ The authentication system alters and adds features on an ongoing basis in order 
 **Endpoints impacted**: Both v1.0 and v2.0
 **Protocol impacted**: [Code flow](v2-oauth2-auth-code-flow.md)
 
-Starting on October 10, 2018, Azure AD will stop accepting previously-used authentication codes for new apps. Any app created before October 10, 2018 will still be able to reuse authentication codes. This security change helps to bring Azure AD in line with the OAuth specification and will be enforced on both the v1 and v2 endpoints.
+Starting on October 10, 2018, Azure AD will stop accepting previously-used authentication codes for apps.  This security change helps to bring Azure AD in line with the OAuth specification and will be enforced on both the v1 and v2 endpoints.
 
 If your app reuses authorization codes to get tokens for multiple resources, we recommend that you use the code to get a refresh token, and then use that refresh token to acquire additional tokens for other resources. Authorization codes can only be used once, but refresh tokens can be used multiple times across multiple resources. Any new app that attempts to reuse an authentication code during the OAuth code flow will get an invalid_grant error.
 
 For more information about refresh tokens, see [Refreshing the access tokens](v1-protocols-oauth-code.md#refreshing-the-access-tokens).
+
+Note: in an effort to break as few apps as possible, existing applications that rely on this feature were given an exception to this requirement.  Any app with more than 10 logins a day relying on this pattern was considered to rely on it.  
 
 ## May 2018
 
