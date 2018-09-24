@@ -16,13 +16,12 @@ ms.suite: integration
 tags: connectors
 ---
 
+# Connect to SAP systems from Azure Logic Apps
 
 > [!NOTE]
 > This SAP connector will be deprecated soon. We have released new and more advanced SAP connector and recommend to choose or move to the 
-> [new SAP connector](./logic-apps-using-sap-connector-old.md).
+> [new SAP connector](./logic-apps-using-sap-connector.md).
 >  
-
-# Connect to SAP systems from Azure Logic Apps
 
 This article shows how you can access your SAP resources from inside a logic 
 app by using the SAP Application Server and SAP Message Server connectors. 
