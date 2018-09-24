@@ -210,5 +210,4 @@ To confirm that Docker is actually running, enter `docker info`.
 
 > [!div class="nextstepaction"]
 > [Install and use the Azure Terraform Visual Studio Code extenstion.](https://docs.microsoft.com/azure/terraform/terraform-vscode-extension)
-
-> [!div class="nextstepaction"]> [Terratest in Terraform Modules.](https://mseng.visualstudio.com/VSJava/_git/Terraform?path=%2FTerratest%20Introduction.md&version=GBmaster)
+> [Terratest inTerraform Modules.](https://mseng.visualstudio.com/VSJava/_git/Terraform?path=%2FTerratest%20Introduction.md&version=GBmaster)
