@@ -21,7 +21,7 @@ Once devices are sending telemetry data to Digital Twins, data processing can ta
 1. The compute phase runs any selected User-Defined Function. It could read spatial graph nodes, update it with computed values and dispatching the notifications to next step.
 1. Finally, the dispatch step enqueues notifications and actions to the Dispatcher service.
 
-Any data processing consists of defining three objects: _matchers_, _user-defined function_ and _role assignments_ as outlined below.
+Any data processing consists of defining three objects: _matchers_, _user-defined function_, and _role assignments_ as outlined below.
 
 # Matchers
 
@@ -29,9 +29,9 @@ _Matchers_ allow for persisting a set of conditions that evaluate on incoming se
 
 - All sensors of datatype `Temperature`
 - Having `01` in their port 
-- Belonging to devices with the extended property key `Manufacturer` set to `Contoso`
-- Belonging to spaces of type `Venue`
-- That are descendants of parent `SpaceId` DE8F06CA-1138-4AD7-89F4-F782CC6F69FD"
+- Which belong to devices with the extended property key `Manufacturer` set to `Contoso`
+- which belong to spaces of type `Venue`
+- Which are descendants of parent `SpaceId` DE8F06CA-1138-4AD7-89F4-F782CC6F69FD"
 
 ```{json}
 {
@@ -68,9 +68,9 @@ _Matchers_ allow for persisting a set of conditions that evaluate on incoming se
 ```
 
 >[!NOTE]
-- JSON paths are case sensitive
+- JSON paths are case-sensitive
 - JSON payload is identical to the payload that would be returned by `/sensors/{id}?includes=properties,types` or `/devices/{id}?includes=properties,types,sensors,sensorsproperties,sensorstypes` or `/spaces/{id}?includes=properties,types,location,timezone` for respectively the sensor, the sensor's parent device and the sensor's parent space.
-- The comparisons are case insensitive.
+- The comparisons are case-insensitive.
 
 # User-Defined Function
 
@@ -93,7 +93,7 @@ We need to create a role assignment for the UDF to execute under to ensure it ha
 
 ## Next steps
 
-Learn more on how to create matchers, user-defined functions and role assignments:
+Learn more on how to create matchers, user-defined functions, and role assignments:
 
 <!-- > [!div class="nextstepaction"]
 > [How to create User-Defined Functions] (howto-user-defined-functions.md) -->
