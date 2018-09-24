@@ -83,7 +83,7 @@ To create a Key Vault:
 
 2. Select or enter the following values.  Don't select **Purchase** after you enter the values.
 
-    ![resource manager template Key Vault integration deploy portal](./media/resource-manager-tutorial-use-key-vault/resource-manager-tutorial-create-key-vault-portal.md)
+    ![resource manager template Key Vault integration deploy portal](./media/resource-manager-tutorial-use-key-vault/resource-manager-tutorial-create-key-vault-portal.png)
 
     - **Subscription**: select an Azure subscription.
     - **Resource group**: assign a unique name. Write down this name, you use the same resource group to deploy the virtual machine in the next session. Placing both the Key Vault and the virtual machine in the same resource group makes it easier to clean up the resource at the end of the tutorial.
@@ -100,7 +100,7 @@ To create a Key Vault:
     ```json
     "enabledForTemplateDeployment": true,
     ```
-    `enabledForTemplateDeployment` is a Key Vault property. This property must be true before you can retrieve the secrets from this Key Vault during deployment. To enable the property from the Azure portal, see [Enable template deployment](./managed-applications/key-vault-access#enable-template-deployment.md).
+    `enabledForTemplateDeployment` is a Key Vault property. This property must be true before you can retrieve the secrets from this Key Vault during deployment. To enable the property from the Azure portal, see [Enable template deployment](../managed-applications/key-vault-access#enable-template-deployment.md).
 6. Browse to line 91. This is the Key Vault secret definition.
 7. Select **Discard** from the bottom of the page. You didn't make any changes.
 8. Verify you have provided all the values as shown in the previous screenshot, and then click **Purchase** at the bottom of the page.
@@ -109,7 +109,7 @@ To create a Key Vault:
 9. Select the Key Vault name to open it.
 10. Select **Access policies** from the left pane. You name shall be listed, otherwise you don't have the permission to access the key vault.
 
-    ![resource manager template Key Vault integration access policies](./media/resource-manager-tutorial-use-key-vault/resource-manager-tutorial-key-vault-access-policies.md)    
+    ![resource manager template Key Vault integration access policies](./media/resource-manager-tutorial-use-key-vault/resource-manager-tutorial-key-vault-access-policies.png)    
 11. Select **Click to show advanced access policies**. Notice **Enable access to Azure Resource Manager for template deployment** is selected. This is another condition to make the Key Vault integration to work.
 12. Select **Properties** from the left pane.
 13. Make a copy of **Resource ID**. You need this ID when you deploy the virtual machine.  The Resource ID format is:
