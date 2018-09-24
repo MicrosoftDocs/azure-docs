@@ -41,7 +41,7 @@ Here is the list of supported tabular operators in Resource Graph:
 - [take](/azure/kusto/query/takeoperator)
 - [top](/azure/kusto/query/topoperator)
 - [top-nested](/azure/kusto/query/topnestedoperator)
-- [top-hitters](/azure/kusto/query/top-hittersoperator)
+- [top-hitters](/azure/kusto/query/tophittersoperator)
 - [where](/azure/kusto/query/whereoperator)
 
 ## Supported functions
