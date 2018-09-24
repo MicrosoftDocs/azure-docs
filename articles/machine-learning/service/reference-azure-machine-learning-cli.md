@@ -38,6 +38,8 @@ You can remove the CLI using this command:
 az extension remove -n azure-cli-ml
 ```
 
+You can update the CLI using the **remove** and **add** steps above.
+
 ## Using the CLI vs. the SDK
 The CLI is better suited to automation by a dev-ops persona, or as part of a continuous integration and delivery pipeline. It is optimized to handle infrequent and highly parameterized tasks. 
 
@@ -58,14 +60,14 @@ Here is a sample of common commands:
 ### Workspace creation & compute setup
 
 + Create an Azure Machine Learning Workspace, the top level resource for machine learning.
-  ```AzureCLI
-  az ml workspace create -n myworkspace -g myresourcegroup
-  ```
+   ```AzureCLI
+   az ml workspace create -n myworkspace -g myresourcegroup```
+   ```
 
 + Set the CLI to use this workspace by default.
-```AzureCLI
-az configure --defaults aml_workspace=myworkspace group=myresourcegroup
-```
+   ```AzureCLI
+   az configure --defaults aml_workspace=myworkspace group=myresourcegroup
+   ```
 
 + Create a DSVM (data science VM) for training models. You can also create BatchAI clusters for distributed training.
   ```AzureCLI
@@ -78,9 +80,10 @@ az configure --defaults aml_workspace=myworkspace group=myresourcegroup
   az ml project attach --experiment-name myhistory
   ```
 
-+ Submit an experiment against the Azure Machine Learning service on the compute target of your choice (this example uses a Data Science VM)
++ Submit an experiment against the Azure Machine Learning service on the compute target of your choice. This example executes against your local compute environment. You can find an example train.py script [here](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/train.py).
+
   ```AzureCLI
-  az ml run submit -c mydsvm train.py
+  az ml run submit -c local train.py
   ```
 
 + View a list of submitted experiments.
@@ -97,7 +100,7 @@ az ml history list
 
 + Create an image to contain your machine learning model and dependencies. 
   ```AzureCLI
-  az ml image create -n myimage -r python -m rfmodel.pkl -f score.py -c myenv.yml
+  az ml image create -n myimage -r python -m mymodel.pkl -f score.py -c myenv.yml
   ```
 
 + Deploy your packaged model to targets including ACI and AKS.
