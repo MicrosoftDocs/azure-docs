@@ -37,7 +37,7 @@ The Azure Stack 1809 update build number is **1.1809.x.xx**.
 This update includes the following improvements for Azure Stack:
 
 - <!--  2712869   | IS  ASDK -->  **Azure Stack syslog client (General Availability)**  This client allows the forwarding of audits, alerts, and security logs related to the Azure Stack infrastructure to a syslog server or security information and event management (SIEM) software external to Azure Stack. The syslog client now supports specifying the port on which the syslog server is listening.
-- 
+
 With this release, the syslog client is generally available, and it can be used in production environments.
 
 For more information, see [Azure Stack syslog forwarding](azure-stack-integrate-security.md).
