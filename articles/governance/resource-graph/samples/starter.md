@@ -33,7 +33,7 @@ We'll walk through the following starter queries:
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
 
-## Language Support
+## Language support
 
 Azure CLI (through an extension) and Azure PowerShell (through a module) support Azure Resource
 Graph. Before performing any of the following queries, check that your environment is ready. See
