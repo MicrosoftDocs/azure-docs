@@ -106,10 +106,69 @@ In order to develop the web app bot code, download the code and use on your loca
 
 5. Save the zip file to your local computer and extract the files. Open the project. 
 
-6. Open the bot.cs file and look for ``. This is where the user utterance entered into the bot is sent to LUIS.
+6. Open the bot.cs file and look for `_services.LuisServices`. This is where the user utterance entered into the bot is sent to LUIS.
 
     ```csharp
+    /// <summary>
+    /// Run every turn of the conversation. Handles orchestration of messages.
+    /// </summary>
+    /// <param name="turnContext">Bot Turn Context.</param>
+    /// <param name="cancellationToken">Task CancellationToken.</param>
+    /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+    public async Task OnTurnAsync(ITurnContext turnContext, CancellationToken cancellationToken)
+    {
+        var activity = turnContext.Activity;
 
+        if (activity.Type == ActivityTypes.Message)
+        {
+            // Perform a call to LUIS to retrieve results for the current activity message.
+            var luisResults = await _services.LuisServices[LuisConfiguration].RecognizeAsync(turnContext, cancellationToken).ConfigureAwait(false);
+
+            // If any entities were updated, treat as interruption.
+            // For example, "no my name is tony" will manifest as an update of the name to be "tony".
+            var topScoringIntent = luisResults?.GetTopScoringIntent();
+
+            var topIntent = topScoringIntent.Value.intent;
+            switch (topIntent)
+            {
+                case GreetingIntent:
+                    await turnContext.SendActivityAsync("Hello.");
+                    break;
+                case HelpIntent:
+                    await turnContext.SendActivityAsync("Let me try to provide some help.");
+                    await turnContext.SendActivityAsync("I understand greetings, being asked for help, or being asked to cancel what I am doing.");
+                    break;
+                case CancelIntent:
+                    await turnContext.SendActivityAsync("I have nothing to cancel.");
+                    break;
+                case NoneIntent:
+                default:
+                    // Help or no intent identified, either way, let's provide some help.
+                    // to the user
+                    await turnContext.SendActivityAsync("I didn't understand what you just said to me.");
+                    break;
+            }
+        }
+        else if (activity.Type == ActivityTypes.ConversationUpdate)
+        {
+            if (activity.MembersAdded.Any())
+            {
+                // Iterate over all new members added to the conversation.
+                foreach (var member in activity.MembersAdded)
+                {
+                    // Greet anyone that was not the target (recipient) of this message.
+                    // To learn more about Adaptive Cards, see https://aka.ms/msbot-adaptivecards for more details.
+                    if (member.Id != activity.Recipient.Id)
+                    {
+                        var welcomeCard = CreateAdaptiveCardAttachment();
+                        var response = CreateResponse(activity, welcomeCard);
+                        await turnContext.SendActivityAsync(response).ConfigureAwait(false);
+                    }
+                }
+            }
+        }
+
+    }
     ```
 
     The bot sends the user's utterance to LUIS and gets the results. The top intent determines the conversation flow. 
