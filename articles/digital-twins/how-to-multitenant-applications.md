@@ -6,7 +6,7 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 09/20/2018
+ms.date: 09/24/2018
 ms.author: mavoge
 ---
 
@@ -37,3 +37,4 @@ To solve the scenario above, the following actions are needed to create a Digita
   - Select Resource Providers
   - Search for Microsoft.IoTSpaces
   - Click Register
+- Once Customer C's AAD Tenant has been added to Developer D's application, Developer D should then use [Digital Twins' RBAC APIs](security-create-manage-role-assignments.md) to further secure the application with role assignments.
