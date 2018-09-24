@@ -13,7 +13,7 @@ ms.author: davidmu
 ms.component: B2C
 ---
 
-# Migrating your experience from login.microsoftonline.com to b2clogin.com
+# Using B2Clogin.com
 
 Going forward, we are encouraging all customers to use `<YourDirectoryName>.b2clogin.com` and we will be deprecating `login.microsoftonline.com`. B2Clogin.com gives you additional benefits such as:
 * You no longer share the same cookie with the other Microsoft services.
@@ -26,7 +26,7 @@ Here's what you need to do in order to migrate over to b2clogin.com
 * If you're using MSAL, you need to set `ValidateAuthority=false`.  
 
 ##Redirect URIs for social identity providers
-If you have social account identity providers set up in your directory you will need to make modifications in their applications to handle to redirect back to Azure AD B2C.  Currently, you probably have it set up to redirect back to some `login.microsoftonline.com` site, you will need to change this so that `YourDirectoryName.b2clogin.com` will be an authroized redirect URI.  Make sure to remove the `/te` as well.  There are slight variations to this for each identity provider so check the corresponding page to get the exact URL.  
+If you have social account identity providers set up in your directory you will need to make modifications in their applications to handle to redirect back to Azure AD B2C.  Currently, you probably have it set up to redirect back to some `login.microsoftonline.com` site, you will need to change this URL so that `YourDirectoryName.b2clogin.com` will be an authorized redirect URI.  Make sure to remove the `/te` as well.  There are slight variations to this URL for each identity provider so check the corresponding page to get the exact URL.  
 
 | Identity provider |
 |-------------------|
@@ -43,9 +43,8 @@ If you have social account identity providers set up in your directory you will 
 |[Azure AD](active-directory-b2c-setup-oidc-azure-active-directory.md)|
 |[Custom OIDC](active-directory-b2c-setup-oidc-idp.md)|
 
-##Update your application references
-Your application probably refers to `login.microsoftonline.com` in several places, such as your policy references and token endpoints.  Make sure that your authorization endpoint, token endpoint and issuer have been updated.  
+##Update your application references.
+Your application probably refers to `login.microsoftonline.com` in several places, such as your policy references and token endpoints.  Make sure that your authorization endpoint, token endpoint, and issuer have been updated.  
 
 ##Set `ValidateAuthority=false` in MSAL
-
-If you're using MSAL you will need to set `ValidateAuthority=false`.  Please see [this documentation](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientapplicationbase?view=azure-dotnet) for more details.
+If you're ysung MSAL, you will need to set `ValidateAuthority=false`.  For more information see [this documentation](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientapplicationbase?view=azure-dotnet).
