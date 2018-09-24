@@ -2,6 +2,7 @@
 title: Export an Azure SQL database to a BACPAC file | Microsoft Docs
 description: Export an Azure SQL database to a BACPAC file  using the Azure portal
 services: sql-database
+ms.service: sql-database
 ms.subservice: data-movement
 ms.custom: 
 ms.devlang: 

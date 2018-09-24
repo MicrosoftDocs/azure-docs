@@ -2,6 +2,7 @@
 title: 'Azure portal: Create a SQL Database firwall rule| Microsoft Docs'
 description: Create a SQL Database server-level firewall rule
 services: sql-database
+ms.service: sql-database
 ms.subservice: security
 ms.custom: 
 ms.devlang: 

@@ -2,6 +2,7 @@
 title: Azure SQL Database file space management| Microsoft Docs
 description: This page describes how to manage file space with Azure SQL Database, and provides code samples for how to determine if you need to shrink a database as well as how to perform a database shrink operation.
 services: sql-database
+ms.service: sql-database
 ms.subservice: operations
 ms.custom: 
 ms.devlang: 

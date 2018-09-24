@@ -2,6 +2,7 @@
 title: Set up Azure SQL Data Sync | Microsoft Docs
 description: This tutorial shows you how to set up Azure SQL Data Sync
 services: sql-database
+ms.service: sql-database
 ms.subservice: data-movement
 ms.custom: 
 ms.devlang: 
