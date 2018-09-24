@@ -8,7 +8,7 @@ ms.reviewer: vanto
 ms.service: sql-database
 ms.custom: security
 ms.topic: conceptual
-ms.date: 08/28/2018
+ms.date: 09/20/2018
 ms.author: giladm
 
 ---
@@ -99,7 +99,7 @@ The following section describes the configuration of auditing on your Managed In
     If not specified, `RETENTION_DAYS` default is 0 (unlimited retention).
 
     For additional information:
-    - [Auditing differences between Managed Instance, Azure SQL DB and SQL Server](#subheading-3)
+    - [Auditing differences between Managed Instance, Azure SQL DB and SQL Server](#auditing-differences-between-managed-instance-azure-sql-database-and-sql-server)
     - [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
     - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 

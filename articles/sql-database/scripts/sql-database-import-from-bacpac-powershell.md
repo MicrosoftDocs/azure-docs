@@ -2,23 +2,17 @@
 title: PowerShell example import BACPAC file Azure SQL database | Microsoft Docs
 description: Azure PowerShell example script to import a BACPAC file into a SQL database
 services: sql-database
-documentationcenter: sql-database
-author: CarlRabeler
-manager: craigg
-editor: carlrab
-tags: azure-service-management
-
-ms.assetid:
 ms.service: sql-database
-ms.custom: load & move data, mvc
+ms.subservice: data-movement
+ms.custom: load & move data
 ms.devlang: PowerShell
 ms.topic: sample
-ms.tgt_pltfrm: sql-database
-ms.workload: database
-ms.date: 09/07/2018
+author: CarlRabeler
 ms.author: carlrab
+ms.reviewer:
+manager: craigg
+ms.date: 09/07/2018
 ---
-
 # Use PowerShell to import a BACPAC file into an Azure SQL database
 
 This PowerShell script example imports a database from a BACPAC file into an Azure SQL database.  
