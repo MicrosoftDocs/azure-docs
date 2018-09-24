@@ -1,7 +1,7 @@
 ---
 external help file: Microsoft.Azure.Commands.FrontDoor.dll-Help.xml
 Module Name: AzureRM.FrontDoor
-online version: The corresponding URL should be the following: https://docs.microsoft.com/en-us/powershell/module/azurerm.frontdoor/new-azurermfrontdoor
+online version: https://docs.microsoft.com/en-us/powershell/module/azurerm.frontdoor/new-azurermfrontdoor
 schema: 2.0.0
 ---
 
@@ -252,7 +252,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 [Set-AzureRmFrontDoor](./Set-AzureRmFrontDoor.md)
 [Remove-AzureRmFrontDoor](./Remove-AzureRmFrontDoor.md)
 [New-AzureRmFrontDoorRoutingRuleObject](./New-AzureRmFrontDoorRoutingRuleObject.md)
-[New-AzureRmFrontDoorHealthProbeSettingObject](./New-AzureRmFrontHealthProbeSettingObject.md)
+[New-AzureRmFrontDoorHealthProbeSettingObject](./New-AzureRmFrontDoorHealthProbeSettingObject.md)
 [New-AzureRmFrontDoorLoadBalancingSettingObject](./New-AzureRmFrontDoorLoadBalancingSettingObject.md)
 [New-AzureRmFrontDoorFrontendEndpointObject](./New-AzureRmFrontDoorFrontendEndpointObject.md)
 [New-AzureRmFrontDoorBackendPoolObject](./New-AzureRmFrontDoorBackendPoolObject.md)
