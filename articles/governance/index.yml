@@ -21,7 +21,7 @@ sections:
       className: cardsD
       columns: 2
       items:
-        - href: ./management-groups/
+        - href: ./management-groups/overview
           html: <p>Learn about grouping and organizing your subscriptions in a logical hierarchy that support the deployment of other Governance services in a structured way.<br /></p>
           image:
             src: ./media/management-groups-illustration.svg
