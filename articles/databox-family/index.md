@@ -1,6 +1,6 @@
 ---
 title: Azure Data Box Documentation
-description: Azure Data Box family offers products of differing storage capacities to help send terabytes of data to Azure in a quick, inexpensive, and reliable way. Microsoft accelerates secure data transfer by shipping you proprietary storage devices that enable offline or over the network data transfer.
+description: Family of storage devices that enable offline or network-based data transfer.
 services: databox
 author: alkohli
 manager: twooley
@@ -12,8 +12,8 @@ ms.topic: hub-page
 ms.date: 09/24/2018
 ms.author: alkohli
 ---
-<h1>Azure Data Box</h1>
-<p>The Azure Data Box family offers products of differing storage capacities to help send terabytes (TB) of data to Azure in a quick, inexpensive, and reliable way. Microsoft accelerates secure data transfer by shipping you proprietary storage devices that enable offline or over the network data transfer.</p>
+<h1>Data Box family</h1>
+<p>Family of storage devices that enable offline or network-based data transfer.</p>
 
 <h2>Offline data transfer</h2>
 <p>For limited to no network bandwidth</p>

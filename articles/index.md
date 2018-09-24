@@ -1117,7 +1117,7 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/databox/">
+                                            <a href="/azure/databox-family/">
                                                 <img src="media/index/Service-icon.png" alt="" />
                                                 <p>Data Box</p>
                                             </a>
