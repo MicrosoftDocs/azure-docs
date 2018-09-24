@@ -19,9 +19,9 @@ ms.author: qianw211
 ---
 # IoT Edge modules
 
-The [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) platform is backed by Azure Cloud.  This platform enables users to deploy cloud workloads to run directly on IoT devices.  An IoT Edge module can run offline workloads and do data analysis locally. This offer type helps to save bandwidth, safeguard local and sensitive data, and offers low-latency response time.  You now have the options to take advantage of these pre-built workloads. Previously, only a handful of first-party solutions from Microsoft were available.  You had to invest the time and resources into building your own custom IoT solutionsOptions.
+The [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) platform is backed by Azure Cloud.  This platform enables users to deploy cloud workloads to run directly on IoT devices.  An IoT Edge module can run offline workloads and do data analysis locally. This offer type helps to save bandwidth, safeguard local and sensitive data, and offers low-latency response time.  You now have the options to take advantage of these pre-built workloads. Until now, only a handful of first-party solutions from Microsoft were available.  You had to invest the time and resources into building your own custom IoT solutionsOptions.
 
-By introducing the [IoT Edge modules in the Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1), we now have a single destination for publishers to expose and sell their solutions to the IoT developer communities. IoT developers can ultimately find and purchase capabilities to accelerate their development.  
+By introducing the [IoT Edge modules in the Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1), we now have a single destination for publishers to expose and sell their solutions to the IoT audience. IoT developers can ultimately find and purchase capabilities to accelerate their solution development.  
 
 ## Key benefits of IoT Edge modules in Azure Marketplace:
 
@@ -29,15 +29,15 @@ By introducing the [IoT Edge modules in the Azure Marketplace](https://azuremark
 | :------------------- | :-------------------|
 | Reach millions of developers looking to build and deploy IoT Edge solutions.  | Compose an IoT Edge solution with the confidence of using secure and tested components. |
 | Publish once and run across any IoT Edge hardware that supports containers. | Reduce time to market by finding and deploying 1st and 3rd party IoT Edge modules for specific needs. |
-| Monetize with flexible billing options <ul> <li> Free and Bring Your Own License (BYOL). </li> </ul> | Make purchases with your choice of billing models. <ul> <li> Free and BYOL. </li> </ul> |
+| Monetize with flexible billing options <ul> <li> Free and Bring Your Own License (BYOL). </li> </ul> | Make purchases with your choice of billing models. <ul> <li> Free and Bring Your Own License (BYOL). </li> </ul> |
 
 ## What is an IoT Edge module?
 
-Azure IoT Edge lets you deploy and manage business logic on the edge in the form of modules. Azure IoT Edge modules are the smallest unit of computation managed by IoT Edge, and can contain Microsoft services (such as Azure Stream Analytics), Third Party services or your own solution-specific code. To learn more about IoT Edge modules, see [Understand Azure IoT Edge modules](https://docs.microsoft.com/en-us/azure/iot-edge/iot-edge-modules).
+Azure IoT Edge lets you deploy and manage business logic on the edge in the form of modules. Azure IoT Edge modules are the smallest computation units managed by IoT Edge, and can contain Microsoft services (such as Azure Stream Analytics), 3rd-party services or your own solution-specific code. To learn more about IoT Edge modules, see [Understand Azure IoT Edge modules](https://docs.microsoft.com/en-us/azure/iot-edge/iot-edge-modules).
 
 **What is the difference between a Container offer type and an IoT Edge module offer type?**
 
-The IoT Edge module offer type is a specific type of container running on an IoT Edge device. It comes with default configuration settings to run in the IoT Edge context and optionally use the IoT Edge module SDK to be integrated with the IoT Edge runtime.
+The IoT Edge module offer type is a specific type of container running on an IoT Edge device. It comes with default configuration settings to run in the IoT Edge context, and optionally uses the IoT Edge module SDK to be integrated with the IoT Edge runtime.
 
 ## Publishing your IoT Edge module
 
@@ -47,7 +47,7 @@ IoT Edge Modules are only published to the Azure Marketplace, AppSource does not
  
 **Billing options**
 
-Today, the marketplace supports **Free** and **BYOL** billing options for IoT Edge modules.
+The marketplace currently supports **Free** and **Bring Your Own License (BYOL)** billing options for IoT Edge modules.
  
 **Publishing options**
 
@@ -61,17 +61,16 @@ All the terms of the Microsoft Azure Marketplace agreements and policies apply t
 
 To publish an IoT Edge module to the Azure Marketplace, you need to meet the following prerequisites:
 
-- Access to the Cloud Partner Portal (CPP). Learn more [here](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide).
+- Access to the Cloud Partner Portal (CPP). For more information, see [Azure Marketplace and AppSource publishing guide](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide).
 - Host your IoT Edge module in an Azure Container Registry. 
 - Have your IoT Edge module metadata ready such as (non-exhaustive list): 
     - A title
-    - A description
-    - A logo image
+    - A description (in HTML format)
+    - A logo image (PNG format and fixed image sizes including 40x40px, 90x90px, 115x115px, 255x115px)
     - A term of use and privacy policy
     - Default module configuration (route, twin desired properties, createOptions, environment variables)
     - A documentation
     - Support contacts
-    
 
 **Technical Requirements**
 
@@ -79,10 +78,10 @@ The primary technical requirements for an IoT Edge Module, in order for it to ge
 
 ## Documentation and Resources
 
-You can only review the following articles when you are signed into the [Cloud Publishing Portal](https://cloudpartner.azure.com/):
+The following articles are available when you are signed into the [Cloud Publishing Portal](https://cloudpartner.azure.com/):
 
-- [IoT Edge module certification process](https://cloudpartner.azure.com/#documentation/iot-edge-module-certification-process) – A summary of the steps and the requirements to certify an IoT Edge module.
 - [Create an IoT Edge module offer](https://cloudpartner.azure.com/#documentation/create-iot-edge-module-offer) -– The steps for publishing a new IoT Edge module offer with the Cloud Publishing Portal.
+- [IoT Edge module certification process](https://cloudpartner.azure.com/#documentation/iot-edge-module-certification-process) – A summary of the steps and the requirements to certify an IoT Edge module.
 - [IoT Edge module FAQ](https://cloudpartner.azure.com/#documentation/iot-edge-module-faq) –- A list of frequently asked questions related to IoT Edge modules.
 
 ## Next steps
