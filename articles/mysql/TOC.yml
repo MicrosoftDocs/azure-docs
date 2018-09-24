@@ -75,6 +75,8 @@
       href: concepts-firewall-rules.md
     - name: Configuring SSL
       href: concepts-ssl-connection-security.md
+      name: Advanced Threat Protection
+      href: concepts-data-access-and-security-threat-protection.md
     - name: VNet
       href: concepts-data-access-and-security-vnet.md 
   - name: Business continuity
@@ -161,6 +163,10 @@
       href: howto-troubleshoot-query-performance.md
     - name: How to use views in sys schema
       href: howto-troubleshoot-sys-schema.md
+    name: Advanced Threat Threat Protection
+    items:
+    - name: Azure portal
+      href: howto-database-threat-protection-portal.md
   - name: Virtual Network
     items:
     - name: Azure portal
