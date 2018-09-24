@@ -23,7 +23,7 @@ ms.author: cynthn
 This article shows you how to attach a new managed data disk to a Windows virtual machine (VM) by using the Azure portal. Before you do so, review these tips:
 
 * The size of the VM determines how many data disks you can attach. For more information, see [Sizes for virtual machines](sizes.md).
-* For a new disk, you don't need to create it first because Azure creates it when you attach it.
+* Azure creates a disk automatically when you attach it.
 
 
 ## Add a data disk
@@ -76,5 +76,5 @@ defrag.exe <volume:> -l
 You can also format the volume to ensure the entire volume is trimmed.
 
 ## Next steps
-- You can also [attach a data disk using PowerShell](attach-disk-ps.md).
-- If your application needs to use the D: drive to store data, you can [change the drive letter of the Windows temporary disk](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+- You can also [attach a data disk by using PowerShell](attach-disk-ps.md).
+- If your application needs to use the *D:* drive to store data, you can [change the drive letter of the Windows temporary disk](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
