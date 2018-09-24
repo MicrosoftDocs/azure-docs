@@ -22,7 +22,7 @@ sections:
     - type: list
       style: unordered
       items:
-      - html: <a href="/azure/active-directory/governance/overview">What is identity governance?</a>
+      - html: <a href="/azure/active-directory/governance/identity-governance-overview">What is identity governance?</a>
   - title: Access reviews
     items:
     - type: list
