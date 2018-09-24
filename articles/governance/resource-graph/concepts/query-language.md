@@ -11,23 +11,19 @@ manager: carmonm
 ---
 # Understanding the Azure Resource Graph query language
 
-The query language for the Azure Resource Graph supports a number of operators and functions. Each
-work and operate similar to the Kusto Query Language (KQL). However, it's important to understand
-that while Resource Graph's query language is similar to
-[KQL](/azure/kusto/query/queries), it isn't the
-same.
-
-> [!NOTE]
-> Links to KQL documentation may require authentication.
+The query language for the Azure Resource Graph supports a number of operators and functions. Each 
+work and operate based on [Azure Data Explorer](../../../data-explorer/data-explorer-overview.md).
 
 The best way to learn about the query language used by Resource Graph is to start with the
-documentation for KQL to get an understanding about how the language is structured and how the
-various supported operators and functions work together.
+documentation for the Azure Data Explorer [Query Language](/azure/kusto/query/index). This
+provides an understanding about how the language is structured and how the various supported
+operators and functions work together.
 
 ## Supported tabular operators
 
 Here is the list of supported tabular operators in Resource Graph:
 
+- [count](/azure/kusto/query/countoperator)
 - [distinct](/azure/kusto/query/distinctoperator)
 - [extend](/azure/kusto/query/extendoperator)
 - [limit](/azure/kusto/query/limitoperator)
@@ -37,7 +33,7 @@ Here is the list of supported tabular operators in Resource Graph:
 - [sample](/azure/kusto/query/sampleoperator)
 - [sample-distinct](/azure/kusto/query/sampledistinctoperator)
 - [sort by](/azure/kusto/query/sortoperator)
-- [summarize](/azure/kusto/query/summarizeoperator)
+- [summarize](/azure/kusto/query/summerizeoperator)
 - [take](/azure/kusto/query/takeoperator)
 - [top](/azure/kusto/query/topoperator)
 - [top-nested](/azure/kusto/query/topnestedoperator)
@@ -49,8 +45,7 @@ Here is the list of supported tabular operators in Resource Graph:
 Here is the list of supported functions in Resource Graph:
 
 - [ago()](/azure/kusto/query/agofunction)
-- [buldschema()](/azure/kusto/query/buildschema-aggfunction)
-- [count()](/azure/kusto/query/count-aggfunction)
+- [buildschema()](/azure/kusto/query/buildschema-aggfunction)
 - [strcat()](/azure/kusto/query/strcatfunction)
 - [isnotempty()](/azure/kusto/query/isnotemptyfunction)
 - [tostring()](/azure/kusto/query/tostringfunction)

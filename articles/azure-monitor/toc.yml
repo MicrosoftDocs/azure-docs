@@ -638,8 +638,6 @@
       href: ../monitoring-and-diagnostics/monitoring-service-notifications.md?toc=/azure/azure-monitor/toc.json
     - name: Query log data
       items:
-      - name: Language reference
-        href: https://docs.loganalytics.io
       - name: Get started
         items:
         - name: Get started with Analytics portal
@@ -677,7 +675,7 @@
       - name: Language reference
         items:
         - name: Language reference
-          href: https://aka.ms/LogAnalyticsLanguageReference
+          href: /azure/kusto/query
         - name: app expression
           href: ../log-analytics/query-language/app-expression.md?toc=/azure/azure-monitor/toc.json
         - name: workspace expression
