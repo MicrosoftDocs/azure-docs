@@ -94,7 +94,9 @@
         - name: Runbook output
           href: automation-runbook-output-and-messages.md
         - name: Source control integration
-          href: automation-source-control-integration.md
+          href: source-control-integration.md
+        - name: Source control integration - legacy
+          href: automation-source-control-integration-legacy.md
         - name: Create runbooks with the Graphical runbook SDK
           href: graphical-runbook-sdk.md
     - name: Automate
@@ -185,8 +187,6 @@
       items:
         - name: Forward Azure Automation job data to Log Analytics
           href: automation-manage-send-joblogs-log-analytics.md
-        - name: Unlink Azure Automation account from Log Analytics
-          href: automation-unlink-from-log-analytics.md
     - name: Migrate
       items:
         - name: Migrate from Orchestrator
