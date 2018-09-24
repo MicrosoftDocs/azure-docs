@@ -44,14 +44,14 @@ Instructions in this guide are based on both Node.js and Visual Studio 2017, but
 
 > ### Option 2: Visual Studio
 > If you are using Visual Studio and are creating a new project, follow the steps below to create a new Visual Studio solution:
-> 1.	In Visual Studio:  `File` > `New` > `Project`
-> 2.	Under `Visual C#\Web`, select `ASP.NET Web Application (.NET Framework)`
-> 3.	Name your application and click *OK*
-> 4.	Under `New ASP.NET Web Application`, select `Empty`
+> 1.	In Visual Studio:  **File > New > Project**
+> 2.	Under **Visual C#\Web**, select **ASP.NET Web Application (.NET Framework)**
+> 3.	Enter a name for your application and select **OK**
+> 4.	Under **New ASP.NET Web Application**, select **Empty**
 
 
 ## Create your single page application’s UI
-1.	Create an `index.html` file for your JavaScript SPA. If you are using Visual Studio, select the project (project root folder), right click and select: `Add` > `New Item` > `HTML page` and name it index.html.
+1.	Create an `index.html` file for your JavaScript SPA. If you are using Visual Studio, select the project (project root folder), right click and select: **Add > New Item > HTML page** and name it index.html.
 
 2.	Add the following code to your page:
 ```html
