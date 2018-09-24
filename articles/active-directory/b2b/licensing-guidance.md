@@ -17,7 +17,7 @@ ms.reviewer: sasubram
 
 # Azure Active Directory B2B collaboration licensing guidance
 
-You can use Azure AD B2B collaboration capabilities to invite guest users into your Azure AD tenant to allow them to access Azure AD services and other resources in your organization. If you want to provide access to paid Azure AD features, B2B collaboration guest users must be licensed with appropriate Azure AD licenses. 
+You can use Azure AD B2B collaboration capabilities to invite guest users (also referred to as "external users") into your Azure AD tenant to allow them to access Azure AD services and other resources in your organization. If you want to provide access to paid Azure AD features, B2B collaboration guest users must be licensed with appropriate Azure AD licenses. 
 
 Specifically:
 * Azure AD Free capabilities are available for guest users without additional licensing.
@@ -25,12 +25,12 @@ Specifically:
 * An inviting tenant with an Azure AD paid license has B2B collaboration use rights to an additional five B2B guest users invited to the tenant.
 * The customer who owns the inviting tenant must be the one to determine how many B2B collaboration users need paid Azure AD capabilities. Depending on the paid Azure AD features you want for your guest users, you must have enough Azure AD paid licenses to cover B2B collaboration users in the same 5:1 ratio.
 
-A B2B collaboration guest user is added as a user from a partner company, not an employee of your organization or an employee of a different business in your conglomerate. A B2B guest user can sign in with external credentials or credentials owned by your organization as described in this article. 
+A B2B collaboration guest user is added as a user from a partner company, not an employee of your organization or an employee of an affiliated business in your organization. A B2B guest user can sign in with external credentials or credentials owned by your organization as described in this article. 
 
 In other words, B2B licensing is set not by how the user authenticates but rather by the relationship of the user to your organization. If these users are not partners, they are treated differently in licensing terms. They are not considered to be a B2B collaboration user for licensing purposes even if their UserType is marked as “Guest.” They should be licensed normally, at one license per user. These users include:
 * Your employees
 * Staff signing in using external identities
-* An employee of a different business in your conglomerate
+* An employee of one of your affiliates
 
 
 ## Licensing examples
@@ -47,19 +47,21 @@ The customer who owns the inviting tenant must be the one to determine how many 
 - If no paid Azure AD license exists in the tenant, every invited user gets the rights that the Azure AD Free edition offers.
 - If a B2B collaboration user already has a paid Azure AD license from their organization, they do not consume one of the B2B collaboration licenses of the inviting tenant.
 
-## Advanced discussion: What are the licensing considerations when we add users from a conglomerate organization as “members” using your APIs?
+## Advanced discussion: What are the licensing considerations when we add users from an affiliated organization as “members” using your APIs?
 A B2B guest user is one that is invited from a partner organization to work with the host organization. Typically, any other case does not qualify as B2B even it uses B2B features. Let’s look at two cases in particular:
 
 1. If a host invites an employee using a consumer address
-  * This scenario is not compliant with our licensing policies and is not recommended.
+  - This scenario is not compliant with our licensing policies and is not recommended.
 
-2. If a host organization adds a user from another conglomerate organization
-  1. In this case, the user is invited using B2B APIs, but this case is not traditionally B2B. Ideally, we should have these organizations invite the other orgs users as members (our API allows that). In this case, licenses have to be assigned to these members for them to access resources in the inviting organization.
+2. If a host organization adds a user from an affiliated organization
 
-  2. Some organizations may want to add the other org’s users to be added as “Guest” as a policy. There are two cases here:
-      * The conglomerate organization is already using Azure AD and the invited users are licensed in the other organization: in this case, we don’t expect invited users to need to follow the 1:5 formula laid out earlier in this document. 
+   a. In this case, the user is invited using B2B APIs, but this case is not traditionally B2B. Ideally, these organizations should invite the other organization's users as members (our API allows that). In this case, licenses have to be assigned to these members for them to access resources in the inviting organization.
 
-      * The conglomerate organization is not using Azure AD or doesn’t have adequate licenses: In this case, follow the 1:5 formula laid out earlier in this document.
+   b. Some organizations may want to add the other organization’s users to be added as “Guest” as a policy. There are two cases here:
+       
+      - The affiliated organization is already using Azure AD and the invited users are licensed in the other organization: In this case, we don’t expect invited users to follow the 1:5 formula laid out earlier in this document. 
+
+      - The affiliated organization is not using Azure AD or doesn’t have adequate licenses: In this case, follow the 1:5 formula laid out earlier in this document.
 
 ## Next steps
 
