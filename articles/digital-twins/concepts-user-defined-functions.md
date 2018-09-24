@@ -17,9 +17,9 @@ Once devices are sending telemetry data to Digital Twins, data processing can ta
 ![Digital Twins Data Processing Flow][1]
 
 1. The parse phase involves transforming incoming telemetry message to a commonly understood [`data transfer object`](https://en.wikipedia.org/wiki/Data_transfer_object) format. Device and sensor validation are executed.
-1. The match phase uses the device and sensor information to match the telemetry message with an appropriate User-Defined Function. 
-1. The compute phase runs any selected User-Defined Function. It could read spatial graph nodes, update it with computed values and dispatching the notifications to next step.
-1. Finally, the dispatch step enqueues notifications and actions to the Dispatcher service.
+1. The match phase uses the device, sensor, and space information to match the telemetry message with an appropriate User-Defined Function. 
+1. The compute phase runs previously matched User-Defined Function(s). These function(s) may read and update computed values on spatial graph nodes, and can emit custom notifications.
+1. The dispatch step will ensure any custom notifications are routed to endpoints defined in the graph.
 
 Any data processing consists of defining three objects: _matchers_, _user-defined function_, and _role assignments_ as outlined below.
 
