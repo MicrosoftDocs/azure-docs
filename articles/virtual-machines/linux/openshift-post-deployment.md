@@ -3,7 +3,7 @@ title: OpenShift on Azure post-deployment tasks | Microsoft Docs
 description: Additional tasks for after an OpenShift cluster has been deployed. 
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: haroldw
+author: haroldwongms
 manager: najoshi
 editor: 
 tags: azure-resource-manager
