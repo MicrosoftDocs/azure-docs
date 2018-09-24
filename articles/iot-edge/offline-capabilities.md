@@ -23,19 +23,19 @@ When an IoT Edge device goes into offline mode, the Edge hub takes on three role
 
 The following example shows how an IoT Edge scenario operates in offline mode:
 
-1. Configure an IoT Edge device. 
+1. **Configure an IoT Edge device.**
 
    IoT Edge devices automatically have offline capabilities enabled. To extend that capability to other IoT devices, you need to declare a parent-child relationship between the devices in IoT Hub. 
 
-2. Sync with IoT Hub.
+2. **Sync with IoT Hub.**
 
    At least once after installation of the IoT Edge runtime, the IoT Edge device needs to be online to sync with IoT Hub. In this sync, the IoT Edge device gets details about any child devices assigned to it. The IoT Edge device also securely updates its local cache to enable offline operations and retrieves settings for local storage of telemetry messages. 
 
-3. Go offline. 
+3. **Go offline.**
 
    While disconnected from IoT Hub, the IoT Edge device, its deployed modules, and any children IoT devices can operate indefinitely. Modules and child devices can start and restart by authenticating with the Edge hub while offline. Telemetry bound upstream to IoT Hub is stored locally. Communication between modules or between child IoT devices is maintained through direct methods or messages. 
 
-4. Reconnect and re-sync with IoT Hub.
+4. **Reconnect and re-sync with IoT Hub.**
 
    Once the connection with IoT Hub is restored, the IoT Edge device syncs again. Locally stored messages are delivered in the same order in which they were stored. Any differences between the desired and reported properties of the modules and devices are reconciled. The IoT Edge device updates any changes to its set of assigned child IoT devices.
 
@@ -64,17 +64,19 @@ In the Azure portal, you can access the Edge hub and Edge agent module definitio
 In the deployment template JSON, environment variables are declared as shown in the following example: 
 
 ```json
-"edgeAgent": {
+"edgeHub": {
     "type": "docker",
     "settings": {
-        "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
-        "createOptions": ""
+        "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+        "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}]}}}"
     },
     "env": {
         "UpstreamProtocol": {
             "value": "MQTT"
         }
     },
+    "status": "running",
+    "restartPolicy": "always"
 }
 ```
 

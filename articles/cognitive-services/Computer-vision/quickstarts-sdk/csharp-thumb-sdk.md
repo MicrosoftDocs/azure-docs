@@ -90,7 +90,7 @@ namespace ImageThumbnail
             var t2 = GetLocalThumbnailAsnc(computerVision, localImagePath);
 
             Task.WhenAll(t1, t2).Wait(5000);
-            Console.WriteLine("Press any key to exit");
+            Console.WriteLine("Press ENTER to exit");
             Console.ReadLine();
         }
 
