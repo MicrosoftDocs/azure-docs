@@ -69,4 +69,4 @@ Use the DeviceClient [SendEventAsync](https://docs.microsoft.com/dotnet/api/micr
 Read more about Azure Digital Twins data processing and user-defined functions:
 
 > [!div class="nextstepaction"]
-> [Azure Digital Twins Data Processing and User-Defined Functions] (https://docs.microsoft.com/azure/azure-stack/azure-stack-telemetry)
+> [Azure Digital Twins Data Processing and User-Defined Functions] (concepts-user-defined-functions.md)
