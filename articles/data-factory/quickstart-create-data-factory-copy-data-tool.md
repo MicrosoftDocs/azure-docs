@@ -50,11 +50,7 @@ In this quickstart, you use the Azure portal to create a data factory. Then, you
 
    The list shows only supported locations. The data stores (like Azure Storage and Azure SQL Database) and computes (like Azure HDInsight) that Data Factory uses can be in other locations/regions.
 
-1. Select **Pin to dashboard**.     
 1. Select **Create**.
-1. On the dashboard, you see the following tile with the status **Deploying Data Factory**: 
-
-	!["Deploying Data Factory" tile](media/quickstart-create-data-factory-copy-data-tool/deploying-data-factory.png)
 1. After the creation is complete, you see the **Data Factory** page. Select the **Author & Monitor** tile to start the Azure Data Factory user interface (UI) application on a separate tab.
    
    ![Home page for the data factory, with the "Author & Monitor" tile](./media/quickstart-create-data-factory-copy-data-tool/data-factory-home-page.png)
