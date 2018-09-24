@@ -465,6 +465,8 @@
         href: bulk-executor-java.md
   - name: Resources
     items:
+    - name: Build your skills with Microsoft Learn
+      href: /learn/browse/?products=azure-cosmos-db
     - name: Query cheat sheet
       href: query-cheat-sheet.md
     - name: SQL playground
