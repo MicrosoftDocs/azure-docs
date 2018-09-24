@@ -42,9 +42,11 @@ Next, you create a function in the new function app.
 
     ![Functions quickstart page in the Azure portal](./media/functions-create-storage-queue-triggered-function/add-first-function.png)
 
-1. In the search field, type `queue` and then choose your desired language for the Queue storage trigger template.
+1. In the search field, type `queue` and then choose the Queue storage trigger template.
 
     ![Choose the storage queue trigger template.](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png)
+
+    If this is your first function, you must also choose a language. All subsequent functions added to the function app use the same language templates.
 
 1. Select **Install** to install the Azure Storage extension any any dependencies in the function app. After installation succeeds, select **Continue**.
 

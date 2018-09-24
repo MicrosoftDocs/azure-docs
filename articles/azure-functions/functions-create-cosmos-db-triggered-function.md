@@ -47,9 +47,11 @@ Next, you create a function in the new function app.
 
     ![Functions quickstart page in the Azure portal](./media/functions-create-cosmos-db-triggered-function/add-first-function.png)
 
-1. In the search field, type `cosmos` and then choose your desired language for the Azure Cosmos DB trigger template.
+1. In the search field, type `cosmos` and then choose the Azure Cosmos DB trigger template.
 
     ![Choose the Azure Cosmos DB trigger](./media/functions-create-cosmos-db-triggered-function/select-cosmos-db-trigger-portal.png)
+
+    If this is your first function, you must also choose a language. All subsequent functions added to the function app use the same language templates.
 
 1. Click **Install** to install the Azure Cosmos DB extension any any dependencies in the function app. After installation succeeds, select **Continue**.
 

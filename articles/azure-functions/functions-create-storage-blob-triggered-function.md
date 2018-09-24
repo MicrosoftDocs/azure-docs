@@ -41,9 +41,11 @@ Next, you create a function in the new function app.
 
     ![Functions quickstart page in the Azure portal](./media/functions-create-storage-blob-triggered-function/add-first-function.png)
 
-1. In the search field, type `blob` and then choose your desired language for the Blob storage trigger template.
+1. In the search field, type `blob` and then choose the Blob storage trigger template.
 
     ![Choose the Blob storage trigger template.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
+
+    If this is your first function, you must also choose a language. All subsequent functions added to the function app use the same language templates.
 
 1. Select **Install** to install the Azure Storage extension any any dependencies in the function app. After installation succeeds, select **Continue**.
 
