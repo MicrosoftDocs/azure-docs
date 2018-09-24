@@ -3032,6 +3032,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/azure-functions/functions-integrate-store-unstructured-data-cosmosdb.md",
+            "redirect_url": "/azure/azure-functions/functions-bindings-cosmosdb-v2",
+            "redirect_document_id": false
+        },
+       {
             "source_path": "articles/automation/automation-source-control-integration.md",
             "redirect_url": "/azure/automation/source-control-integration",
             "redirect_document_id": false
