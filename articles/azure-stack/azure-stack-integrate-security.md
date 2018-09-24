@@ -231,6 +231,8 @@ Prefix fields
 * Severity: mapped from PEP Level (details see the PEP Severity table below)
 ```
 
+Table of events for the privileged endpoint:
+
 | Event | PEP event ID | PEP task name | Severity |
 |-------|--------------| --------------|----------|
 |PrivilegedEndpointAccessed|1000|PrivilegedEndpointAccessedEvent|5|
@@ -246,6 +248,7 @@ Prefix fields
 |ResetCloudAdminPassword |1010|ResetCloudAdminPasswordEvent|10|
 
 PEP Severity table:
+
 | Severity | Level | Numerical Value |
 |----------|-------| ----------------|
 |0|Undefined|Value: 0. Indicates logs at all levels|
@@ -263,6 +266,8 @@ Prefix fields
 * Name: <REP Task Name>
 * Severity: mapped from REP Level (details see the REP Severity table below)
 ```
+
+Table of events for the recovery endpoint:
 
 | Event | REP event ID | REP task name | Severity |
 |-------|--------------| --------------|----------|
