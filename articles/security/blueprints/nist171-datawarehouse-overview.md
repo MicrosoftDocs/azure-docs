@@ -22,7 +22,7 @@ This reference architecture, associated implementation guide, and threat model a
 ## Architecture diagram and components
 This solution provides a reference architecture that implements a high-performance and secure cloud data warehouse. There are two separate data tiers in this architecture. One tier is where data is imported, stored, and staged within a clustered SQL environment. Another tier is for the SQL data warehouse. With this tier, the data is loaded by using an extract-transform-load (ETL) tool (for example, [PolyBase](https://docs.microsoft.com/azure/sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase) T-SQL queries) for processing. After data is stored in SQL Data Warehouse, analytics can run at a massive scale.
 
-Azure offers a variety of reporting and analytics services for the customer. This solution includes SQL Server Reporting Services for quick creation of reports from the SQL data warehouse. All SQL traffic is encrypted with SSL through the inclusion of self-signed certificates. As a best practice, Azure recommends the use of a trusted certificate authority for enhanced security.
+Azure offers a variety of reporting and analytics services for the customer. This solution includes SQL Server Reporting Services for quick creation of reports from the SQL data warehouse. All SQL traffic is encrypted with SSL through the inclusion of self-signed certificates. As a best practice, we recommend the use of a trusted certificate authority for enhanced security.
 
 Azure SQL Data Warehouse stores data in relational tables with columnar storage. This format significantly reduces data storage costs while it improves query performance. Depending on usage requirements, SQL Data Warehouse compute resources can be scaled up or down or shut off completely if no active processes require compute resources.
 
@@ -34,7 +34,7 @@ The solution uses Azure Storage accounts, which customers can configure to use S
 
 For enhanced security, all resources in this solution are managed as a resource group through Azure Resource Manager. Azure Active Directory (Azure AD) role-based access control (RBAC) is used to control access to deployed resources. These resources include customer keys in Azure Key Vault. System health is monitored through Azure Security Center and Azure Monitor. Customers configure both monitoring services to capture logs. System health is displayed in a single dashboard that's easy to use.
 
-A VM serves as a management bastion host. It provides a secure connection for administrators to access deployed resources. The data loads into the staging area through this management bastion host. *Microsoft recommends that you configure a VPN or Azure ExpressRoute connection for management and data import into the reference architecture subnet.*
+A VM serves as a management bastion host. It provides a secure connection for administrators to access deployed resources. The data loads into the staging area through this management bastion host. *We recommend that you configure a VPN or Azure ExpressRoute connection for management and data import into the reference architecture subnet.*
 
 ![Data Warehouse for NIST SP 800-171 reference architecture diagram](images/nist171-dw-architecture.png "Data Warehouse for NIST SP 800-171 reference architecture diagram")
 
@@ -57,7 +57,7 @@ This solution uses the following Azure services. For more information, see the [
     - (2) SQL Server cluster node
     - (1) SQL Server witness
 - Azure Virtual Network
-    - (1) /16 networks
+    - (1) /16 network
     - (4) /24 networks
     - (4) Network security groups
 - Recovery Services vault
@@ -120,7 +120,7 @@ The SQL Database instance uses the following database security measures:
 
 ### Identity management
 The following technologies provide capabilities to manage access to data in the Azure environment:
--	[Azure AD](https://azure.microsoft.com/services/active-directory/) is Microsoft's multitenant cloud-based directory and identity management service. All users for this solution are created in Azure AD and include the users who access the SQL database.
+-	[Azure AD](https://azure.microsoft.com/services/active-directory/) is the Microsoft multitenant cloud-based directory and identity management service. All users for this solution are created in Azure AD and include the users who access the SQL database.
 -	Authentication to the application is performed by using Azure AD. For more information, see how to [integrate applications with Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications). The database column encryption also uses Azure AD to authenticate the application to SQL Database. For more information, see how to [protect sensitive data in SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault).
 -	[Azure RBAC](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) can be used by administrators to define fine-grained access permissions. With it, they can grant only the amount of access that users need to perform their jobs. Instead of giving every user unrestricted access for Azure resources, administrators can allow only certain actions for accessing resources and data. Subscription access is limited to the subscription administrator.
 - [Azure Active Directory Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-getting-started) can be used by customers to minimize the number of users who have access to certain information, such as data. Administrators can use Azure AD Privileged Identity Management to discover, restrict, and monitor privileged identities and their access to resources. This functionality also can be used to enforce on-demand, just-in-time administrative access when needed.
@@ -196,10 +196,10 @@ Because traffic within the VPN tunnel traverses the Internet with a site-to-site
 Best practices for implementing a secure hybrid network that extends an on-premises network to Azure are [available](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid).
 
 ### Extract-Transform-Load process
-[PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) can load data into SQL Data Warehouse without the need for a separate ETL or import tool. PolyBase allows access to data through T-SQL queries. Microsoft's business intelligence and analysis stack and third-party tools that are compatible with SQL Server can be used with PolyBase.
+[PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) can load data into SQL Data Warehouse without the need for a separate ETL or import tool. PolyBase allows access to data through T-SQL queries. The Microsoft business intelligence and analysis stack and third-party tools that are compatible with SQL Server can be used with PolyBase.
 
 ### Azure AD setup
-[Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) is essential to managing the deployment and provisioning access to personnel interacting with the environment. An existing Windows Server Active Directory can be integrated with Azure AD in [four clicks](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-get-started-express). Customers also can tie the deployed Active Directory infrastructure (domain controllers) to an existing Azure AD. To do this, make the deployed Active Directory infrastructure a subdomain of an Azure AD forest.
+[Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) is essential to managing the deployment and provisioning access to personnel interacting with the environment. On-premises Active Directory can be integrated with Azure AD in [four clicks](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-get-started-express). Customers also can tie the deployed Active Directory infrastructure (domain controllers) to Azure AD. To do this, make the deployed Active Directory infrastructure a subdomain of an Azure AD forest.
 
 ### Optional services
 Azure offers a variety of services to assist with the storage and staging of formatted and unformatted data. The following services can be added to this reference architecture based on customer requirements:
