@@ -69,7 +69,7 @@ To publish an IoT Edge module to the Azure Marketplace, you need to meet the fol
     - A logo image (PNG format and fixed image sizes including 40x40px, 90x90px, 115x115px, 255x115px)
     - A term of use and privacy policy
     - Default module configuration (route, twin desired properties, createOptions, environment variables)
-    - A documentation
+    - Documentation
     - Support contacts
 
 **Technical Requirements**
