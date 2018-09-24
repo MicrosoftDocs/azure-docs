@@ -1,11 +1,11 @@
 - name: LUIS Documentation
   href: index.yml
 - name: Overview
+  expanded: true
   items: 
   - name: What is Language Understanding?
     href: what-is-luis.md
 - name: Quickstarts
-  expanded: true
   items: 
   - name: Build prebuilt domain app
     href: luis-get-started-create-app.md
@@ -261,7 +261,9 @@
       href: luis-reference-prebuilt-deprecated.md
     - name: Email entity
       href: luis-reference-prebuilt-email.md
-    - name: keyPhrase entity
+    - name: GeographyV2 entity
+      href: luis-reference-prebuilt-geographyV2.md
+    - name: KeyPhrase entity
       href: luis-reference-prebuilt-keyphrase.md
     - name: Number entity
       href: luis-reference-prebuilt-number.md
@@ -269,6 +271,8 @@
       href: luis-reference-prebuilt-ordinal.md
     - name: Percentage entity
       href: luis-reference-prebuilt-percentage.md
+    - name: PersonName entity
+      href: luis-reference-prebuilt-person.md
     - name: Phonenumber entity
       href: luis-reference-prebuilt-phonenumber.md
     - name: Temperature entity
@@ -283,7 +287,7 @@
     href: https://aka.ms/luis-endpoint-apis
   - name: HTTP codes
     href: luis-reference-response-codes.md
-  - name: Azure CLI 2.0
+  - name: Azure CLI
     href: https://aka.ms/az-cli-cognitiveservices
   - name: Azure RM PowerShell
     href: https://aka.ms/azure-powershell-cognitiveservices

@@ -93,7 +93,7 @@ A firewall prevents access to your server from an external entity by allowing on
 You can create firewall rules at the server level or at the database level. Server level firewall rules can either created through the portal or through SSMS. For learning more about how to set a server and database level firewall rule, see: [Create firewall rules in SQL Database](sql-database-security-tutorial.md#create-a-server-level-firewall-rule-in-the-azure-portal).
 
 #### Service endpoints
-By default, your SQL database is configured to “Allow all Azure services” – which means any Virtual Machine in Azure may attempt to connect to your database. These attempts still do have to get authenticated. However, if you would not like your database to be accessible by any Azure IPs, you can disable “Allow all Azure services”. Additionally, you can configure [VNET Service Endpoints](sql-database-vnet-service-endpoint-rule-overview.md).
+By default, your SQL database is configured to “Allow Azure services to access server” – which means any Virtual Machine in Azure may attempt to connect to your database. These attempts still do have to get authenticated. However, if you would not like your database to be accessible by any Azure IPs, you can disable “Allow Azure services to access server”. Additionally, you can configure [VNET Service Endpoints](sql-database-vnet-service-endpoint-rule-overview.md).
 
 Service endpoints (SE) allow you to expose your critical Azure resources only to your own private virtual network in Azure. By doing so, you essentially eliminate public access to your resources. The traffic between your virtual network to Azure stays on the Azure backbone network. Without SE you get forced-tunneling packet routing. Your virtual network forces the internet traffic to your organization and the Azure Service traffic to go over the same route. With Service Endpoints, you can optimize this since the packets flow straight from your virtual network to the service on Azure backbone network.
 
@@ -166,7 +166,7 @@ Express Route also allows you to burst up to 2x the bandwidth limit you purchase
 - [Workflows](../expressroute/expressroute-workflows.md)
 
 ### Is SQL Database compliant with any regulatory requirements, and how does that help with my own organization's compliance?
-SQL Database is compliant with a range of regulatory compliances. To view the latest set of compliances that have been met, visit the [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/compliance/complianceofferings) and drill down on the compliances that are important to your organization to see if SQL Database is included under the compliant Azure services. It is important to note that although SQL Database may be certified as a compliant service, it aids in the compliance of your organization’s service but does not automatically guarantee it.
+SQL Database is compliant with a range of regulatory compliances. To view the latest set of compliances that have been met, visit the [Microsoft Trust Center](https://microsoft.com/trustcenter/compliance/complianceofferings) and drill down on the compliances that are important to your organization to see if SQL Database is included under the compliant Azure services. It is important to note that although SQL Database may be certified as a compliant service, it aids in the compliance of your organization’s service but does not automatically guarantee it.
 
 ## Intelligent database monitoring and maintenance after migration
 

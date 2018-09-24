@@ -17,7 +17,7 @@ Use other Azure services and tools. When you have connected your device to IoT H
 | Scenario                                                   | Azure service or tool              |
 |----------------------------------------------------------- |------------------------------------|
 | [Manage IoT Hub messages][Mg_IoT_Toolkit]                  | VS Code Azure IoT Toolkit extension|
-| [Manage your IoT device][Mg_IoT_Dv]                        | Azure CLI 2.0 and the IoT extension|
+| [Manage your IoT device][Mg_IoT_Dv]                        | Azure CLI and the IoT extension    |
 | [Manage your IoT device][Mg_IoT_Dv_Toolkit]                | VS Code Azure IoT Toolkit extension|
 | [Save IoT Hub messages to Azure storage][Sv_IoT_Msg_Stor]  | Azure table storage                |
 | [Visualize sensor data][Vis_Data_PBI]                      | Microsoft Power BI                 |

@@ -8,7 +8,7 @@ author: fmegen
 ms.service: cognitive-services
 ms.technology: Speech
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 09/24/2018
 ms.author: fmegen
 ---
 
@@ -69,7 +69,7 @@ If you are using Ubuntu 16.04, before starting Eclipse, run the following comman
 
     [!code-xml[POM Repositories](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#repositories)]
 
-  * Also, add a dependencies section with the Speech SDK version 0.6.0.
+  * Also, add afterwards a dependencies section with the Speech SDK version 1.0.0 as a dependency:
 
     [!code-xml[POM Dependencies](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#dependencies)]
 
@@ -106,7 +106,7 @@ Look for this sample in the `quickstart/java-jre` folder.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Recognize intents from speech by using the Speech SDK for C#](how-to-recognize-intents-from-speech-csharp.md)
+> [Recognize intents from speech by using the Speech SDK for Java](how-to-recognize-intents-from-speech-java.md)
 
 ## See also
 
