@@ -14,7 +14,7 @@
   - name: Object Model and Spatial Intelligence Graph
     href: concepts-objectmodel-spatialgraph.md
   - name: Guide to Telemetry Ingress
-    href: concepts-telemetry-ingress.md
+    href: concepts-device-ingress.md
   - name: Data processing and User-Defined Functions
     href: concepts-user-defined-functions.md 
   - name: Event and message routing to service endpoints

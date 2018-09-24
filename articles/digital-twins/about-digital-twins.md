@@ -68,7 +68,7 @@ Devices, sensors, and whole buildings can stream their data directly to your IoT
 Using **Telemetry**, your app can, for example, collect temperature data from multiple sensors or calculate the current room capacity of an entire office building.
 
 > [!div class="nextstepaction"]
-> [Read more](./concepts-telemetry-ingress.md)
+> [Read more](./concepts-device-ingress.md)
 
 ## Next steps
 
