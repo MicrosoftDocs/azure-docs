@@ -102,7 +102,7 @@ az ml history list
 
 + Create an image to contain your machine learning model and dependencies. 
   ```AzureCLI
-  az ml image create container -n myimage -r python -m mymodel -f score.py -c myenv.yml
+  az ml image create container -n myimage -r python -m mymodel:1 -f score.py -c myenv.yml
   ```
 
 + Deploy your packaged model to targets including ACI and AKS.
