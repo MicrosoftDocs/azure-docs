@@ -2497,7 +2497,7 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/en-us/azure/databox/" data-linktype="absolute-path">
+                                <a href="/en-us/azure/databox-family/" data-linktype="absolute-path">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
