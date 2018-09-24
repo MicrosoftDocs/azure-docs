@@ -63,13 +63,13 @@ Add-AzureADGroupMember -ObjectId $AzureADGroup.ObjectID -RefObjectId $ManagedIde
 ```
 ## Grant your VM access to the Azure AD Graph
 
-Using MSI your code can get access tokens to authenticate to resources that support Azure AD authentication. The Microsoft Azure AD Graph API supports Azure AD authentication. In this step, you will grant your VM identity's service principal access to the Azure AD Graph so that it can query group memberships. Service principals are granted access to the MS or Azure AD Graph through **Application Permissions**. The type of application permission you need to grant depends on the entity you want to access in the MS or Azure AD Graph.
+Using managed identities for Azure resources, your code can get access tokens to authenticate to resources that support Azure AD authentication. The Microsoft Azure AD Graph API supports Azure AD authentication. In this step, you will grant your VM identity's service principal access to the Azure AD Graph so that it can query group memberships. Service principals are granted access to the MS or Azure AD Graph through **Application Permissions**. The type of application permission you need to grant depends on the entity you want to access in the MS or Azure AD Graph.
 
-For this tutorial you will grant your VM identity the ability to query group memberships using the ```Directory.Read.All``` application permission. To grant this permission you will need a user account that is assigned the Global Admin role in Azure AD. Normally you would grant an application permission by visiting your application's registration in the Azure portal and adding the permission there. However, MSI does not register application objects in Azure AD, it only registers service principals. To register the application permission you will use a command line tool instead. You can use one of two options: **Azure AD PowerShell** or **curl**.
+For this tutorial you will grant your VM identity the ability to query group memberships using the ```Directory.Read.All``` application permission. To grant this permission you will need a user account that is assigned the Global Admin role in Azure AD. Normally you would grant an application permission by visiting your application's registration in the Azure portal and adding the permission there. However, managed identities for Azure resources does not register application objects in Azure AD, it only registers service principals. To register the application permission you will use a command line tool instead. You can use one of two options: **Azure AD PowerShell** or **curl**.
 
 Azure AD Graph:
 - Service Principal appId (used when granting app permission): 00000002-0000-0000-c000-000000000000
-- Resource ID (used when requesting access token from MSI): https://graph.windows.net
+- Resource ID (used when requesting access token from managed identities for Azure resources): https://graph.windows.net
 - Permission scope reference: [Azure AD Graph Permissions Reference](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes)
 
 ### Grant application permissions using Azure AD PowerShell
@@ -90,26 +90,24 @@ You will need Azure AD PowerShell to use this option. If you don't have it insta
    $GraphServicePrincipal = Get-AzureADServicePrincipal -Filter "appId eq '$GraphAppId'"
    $PermissionName = "Directory.Read.All"
    $AppRole = $GraphServicePrincipal.AppRoles | Where-Object {$_.Value -eq $PermissionName -and $_.AllowedMemberTypes -contains "Application"}
-   New-AzureAdServiceAppRoleAssignment -ObjectId $MSIServicePrincipal.ObjectId -PrincipalId $MSIServicePrincipal.ObjectId -ResourceId $GraphServicePrincipal.ObjectId -Id $AppRole.Id
+   New-AzureAdServiceAppRoleAssignment -ObjectId $ManagedIdentitiesServicePrincipal.ObjectId -PrincipalId $ManagedIdentitiesServicePrincipal.ObjectId -ResourceId $GraphServicePrincipal.ObjectId -Id $AppRole.Id
    ``` 
 
    Output from the final command should look like this, returning the ID of the assignment:
-   
-     
-   |`ObjectId`  |`ResourceDisplayName`  |`PrincipalDisplayName`  |
-   |---------|---------|---------|
-   |  `gzR5KyLAiUOTiqFhNeWZWBtK7ZKqNJxAiWYXYVHlgMs`   |  `Windows Azure Active Directory`       |     `myVM`    |
-      
+        
+   `ObjectId`:`gzR5KyLAiUOTiqFhNeWZWBtK7ZKqNJxAiWYXYVHlgMs`
+   `ResourceDisplayName`:`Windows Azure Active Directory`
+   `PrincipalDisplayName`:`myVM` 
 
    If the call to `New-AzureAdServiceAppRoleAssignment` fails with the error `bad request, one or more properties are invalid` the app permission may already be assigned to the VM identity's service principal. You can use the following PowerShell commands to check if the application permission already exists between your VM's identity and Azure AD Graph:
 
    ```powershell
-   $MSIServicePrincipal = Get-AzureADServicePrincipal -Filter "displayName eq '<VM-NAME>'"
+   $ManagedIdentitiesServicePrincipal = Get-AzureADServicePrincipal -Filter "displayName eq '<VM-NAME>'"
    $GraphAppId = "00000002-0000-0000-c000-000000000000"
    $GraphServicePrincipal = Get-AzureADServicePrincipal -Filter "appId eq '$GraphAppId'"
    $PermissionName = "Directory.Read.All"
    $AppRole = $GraphServicePrincipal.AppRoles | Where-Object {$_.Value -eq $PermissionName -and $_.AllowedMemberTypes -contains "Application"}
-   Get-AzureADServiceAppRoleAssignment -ObjectId $GraphServicePrincipal.ObjectId | Where-Object {$_.Id -eq $AppRole.Id -and $_.PrincipalId -eq $MSIServicePrincipal.ObjectId}
+   Get-AzureADServiceAppRoleAssignment -ObjectId $GraphServicePrincipal.ObjectId | Where-Object {$_.Id -eq $AppRole.Id -and $_.PrincipalId -eq $ManagedIdentitiesServicePrincipal.ObjectId}
    ```
 
    You can use the following PowerShell commands to list all app permissions that have been granted to the Azure AD Graph:
@@ -123,13 +121,13 @@ You will need Azure AD PowerShell to use this option. If you don't have it insta
    You can use the following PowerShell commands to remove app permissions that have been granted to your VM identity for the Azure AD Graph:
 
    ```powershell
-   $MSIServicePrincipal = Get-AzureADServicePrincipal -Filter "displayName eq '<VM-NAME>'"
+   $ManagedIdentitiesServicePrincipal = Get-AzureADServicePrincipal -Filter "displayName eq '<VM-NAME>'"
    $GraphAppId = "00000002-0000-0000-c000-000000000000"
    $GraphServicePrincipal = Get-AzureADServicePrincipal -Filter "appId eq '$GraphAppId'"
    $PermissionName = "Directory.Read.All"
    $AppRole = $GraphServicePrincipal.AppRoles | Where-Object {$_.Value -eq $PermissionName -and $_.AllowedMemberTypes -contains "Application"}   
-   $ServiceAppRoleAssignment = Get-AzureADServiceAppRoleAssignment -ObjectId $GraphServicePrincipal.ObjectId | Where-Object {$_.Id -eq $AppRole.Id -and $_.PrincipalId -eq $MSIServicePrincipal.ObjectId}
-   Remove-AzureADServiceAppRoleAssignment -AppRoleAssignmentId $ServiceAppRoleAssignment.ObjectId -ObjectId $MSIServicePrincipal.ObjectId
+   $ServiceAppRoleAssignment = Get-AzureADServiceAppRoleAssignment -ObjectId $GraphServicePrincipal.ObjectId | Where-Object {$_.Id -eq $AppRole.Id -and $_.PrincipalId -eq $ManagedIdentitiesServicePrincipal.ObjectId}
+   Remove-AzureADServiceAppRoleAssignment -AppRoleAssignmentId $ServiceAppRoleAssignment.ObjectId -ObjectId $ManagedIdentitiesServicePrincipal.ObjectId
    ```
  
 ## Get an access token using the VM's identity and use it to call Azure AD Graph 
@@ -157,9 +155,9 @@ To use the VM's system assigned managed identity for authentication to Azure AD 
    $AccessToken = $content.access_token
    ```
 
-5. Using the Object ID of your VM identity's service principal you can query the Azure AD Graph to retrieve its group memberships. Replace <OBJECT-ID> with the Object ID from the previous step and <ACCESS-TOKEN> with the previously obtained acccess token:
+5. Using the Object ID of your VM identity's service principal (you can retrieve this value from the variable declared in previous step: ``$ManagedIdentitiesServicePrincipal.ObjectId``) you can query the Azure AD Graph to retrieve its group memberships. Replace <OBJECT-ID> with the Object ID from the previous step and <ACCESS-TOKEN> with the previously obtained acccess token:
 
-   ```bash
+   ```powershell
    Invoke-WebRequest -v 'https://graph.windows.net/<Tenant ID>/servicePrincipals/<VM Object ID>/getMemberGroups?api-version=1.6' -Method POST -Body '{"securityEnabledOnly":"false"}' -Headers @{Authorization="Bearer $ArmToken"} -ContentType "application/json"
    ```
    
