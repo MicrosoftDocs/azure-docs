@@ -53,7 +53,7 @@ Connect-AzureAD
 
 ## Add your VM identity to a group in Azure AD
 
-When you enabled system-assigned managed identity on the Windows VM, it created a service principal in Azure AD.  Now you need to add the the VM to a group.  The following example creates a new group in Azure AD and adds your VM's service principal to that group:
+When you enabled system-assigned managed identity on the Windows VM, it created a service principal in Azure AD.  Now you need to add the VM to a group.  The following example creates a new group in Azure AD and adds your VM's service principal to that group:
 
 ```powershell
 New-AzureADGroup -DisplayName "myGroup" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"

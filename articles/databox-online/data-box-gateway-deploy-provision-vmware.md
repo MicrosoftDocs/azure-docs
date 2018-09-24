@@ -70,7 +70,7 @@ Before you deploy a virtual device, make sure that:
 Before you begin:
 
 - Review the networking requirements to deploy a Data Box Gateway and configure the datacenter network as per the requirements. For more information, see [Data Box Gateway networking requirements](data-box-gateway-system-requirements.md#networking-requirements).
-- Make sure that the the minimum Internet bandwidth is 20 Mbps to allow for optimal working of the device.
+- Make sure that the minimum Internet bandwidth is 20 Mbps to allow for optimal working of the device.
 
 ## Check the host system
 
