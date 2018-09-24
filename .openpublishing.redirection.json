@@ -12910,6 +12910,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/iot-hub/iot-hub-store-data-in-azure-table-storage.md",
+            "redirect_url": "/azure/iot-hub/tutorial-routing#routing-to-a-storage-account",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/iot-suite/iot-suite-overview.md",
             "redirect_url": "/azure/iot-accelerators/about-iot-accelerators",
             "redirect_document_id": false
@@ -28737,6 +28742,11 @@
         },
         {
             "source_path": "articles/application-insights/index.md",
+            "redirect_url": "/azure/azure-monitor/overview",
+            "redirect_document_id" : false
+        },
+        {
+            "source_path": "articles/monitoring/index.md",
             "redirect_url": "/azure/azure-monitor/overview",
             "redirect_document_id" : false
         },
