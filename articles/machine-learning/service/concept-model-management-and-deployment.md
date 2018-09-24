@@ -15,7 +15,7 @@ ms.date: 09/24/2018
 
 In this article, you can learn how to use Azure Machine Learning to deploy, manage, and monitor your models to continuously improve them. You can deploy the models you trained with Azure Machine Learning, on your local machine, or from other sources. 
 
-[ !['Azure Machine Learning continuous integration/continuous deployment (CI/CD) cycle'](media/concept-model-management-and-deployment/model-ci-cd.png) ](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
+[!['Azure Machine Learning continuous integration/continuous deployment (CI/CD) cycle'](media/concept-model-management-and-deployment/model-ci-cd.png)](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
 
 ## Deployment workflow
 
@@ -29,7 +29,7 @@ You can do each step independently or as part of a single deployment command.
 
 The following diagram illustrates the complete deployment pipeline:
 
-[ ![Deployment pipeline](media/concept-model-management-and-deployment/deployment-pipeline.png) ](media/concept-model-management-and-deployment/deployment-pipeline.png#lightbox)
+[![Deployment pipeline](media/concept-model-management-and-deployment/deployment-pipeline.png)](media/concept-model-management-and-deployment/deployment-pipeline.png#lightbox)
 
 ## Step 1: Model registration
 
@@ -59,8 +59,6 @@ All the objects used to create the image are stored in the Azure storage account
 You can deploy registered images into the cloud or to edge devices. The deployment process creates all the resources needed to monitor, load-balance, and auto-scale your model. Access to the deployed services can be secured with certificate based authentication by providing the security assets during deployment. You can also upgrade an existing deployment to use a newer image.
 
 Web service deployments are also searchable. For example, you can search for all deployments of a specific model or image.
-
-[ ![Inferencing targets](media/concept-model-management-and-deployment/inferencing-targets.png) ](media/concept-model-management-and-deployment/inferencing-targets.png#lightbox)
 
 You can deploy your images to the following targets in the cloud:
 
