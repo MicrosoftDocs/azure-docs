@@ -10,7 +10,7 @@ ms.assetid: d6bff41c-a624-40c1-bbc7-80590df29ded
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
-ms.date: 03/27/2018
+ms.date: 09/24/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
 ---
@@ -41,11 +41,13 @@ Next, you create a function in the new function app.
 
     ![Functions quickstart page in the Azure portal](./media/functions-create-storage-blob-triggered-function/add-first-function.png)
 
-2. In the search field, type `blob` and then choose your desired language for the Blob storage trigger template.
+1. In the search field, type `blob` and then choose your desired language for the Blob storage trigger template.
 
     ![Choose the Blob storage trigger template.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
- 
-3. Use the settings as specified in the table below the image.
+
+1. Select **Install** to install the Azure Storage extension any any dependencies in the function app. After installation succeeds, select **Continue**.
+
+1. Use the settings as specified in the table below the image.
 
     ![Create the Blob storage triggered function.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal-2.png)
 
@@ -55,7 +57,7 @@ Next, you create a function in the new function app.
     | **Path**   | samples-workitems/{name}    | Location in Blob storage being monitored. The file name of the blob is passed in the binding as the _name_ parameter.  |
     | **Storage account connection** | AzureWebJobsStorage | You can use the storage account connection already being used by your function app, or create a new one.  |
 
-3. Click **Create** to create your function.
+1. Click **Create** to create your function.
 
 Next, you connect to your Azure Storage account and create the **samples-workitems** container.
 
