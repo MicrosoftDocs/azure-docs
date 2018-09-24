@@ -9,7 +9,7 @@ author: kkampf
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 01/09/2018
 ms.author: kakampf
 
 ---
@@ -25,7 +25,7 @@ Azure HDInsight supports multiple Hadoop cluster versions that can be deployed a
 The component versions associated with HDInsight cluster versions are listed in the following table: 
 
 > [!NOTE]
-> The default version for the HDInsight service might change without notice. If you have a version dependency, specify the HDInsight version when you create your clusters with the .NET SDK with Azure PowerShell and Azure CLI.
+> The default version for the HDInsight service might change without notice. If you have a version dependency, specify the HDInsight version when you create your clusters with the .NET SDK with Azure PowerShell and Azure Classic CLI.
 
 | Component | HDInsight 4.0 | HDInsight 3.6 (default) | HDInsight 3.5 | HDInsight 3.4 | HDInsight 3.3 | HDInsight 3.2 | HDInsight 3.1 | HDInsight 3.0 |
 | --- | --- | --- | --- | --- | --- | --- | --- |--- |
@@ -34,7 +34,7 @@ The component versions associated with HDInsight cluster versions are listed in 
 | Apache Tez |0.9.1 |0.7.0 |0.7.0 |0.7.0 |0.7.0 |0.5.2 |0.4.0 |-|
 | Apache Pig |0.16.0 |0.16.0 |0.16.0 |0.15.0 |0.15.0 |0.14.0 |0.12.1 |0.12.0 |
 | Apache Hive and HCatalog |-|1.2.1 |1.2.1 |1.2.1 |1.2.1 |0.14.0 |0.13.1 |0.12.0 |
-| Apache Hive2 |-| 2.1.0 |-|-|-|-|-|-|
+| Apache Hive |3.1.0 | 2.1.0 |-|-|-|-|-|-|
 | Apache Tez Hive2 |-| 0.8.4 |-|-|-|-|-|-|
 | Apache Ranger |1.1.0 |0.7.0 |0.6.0 |-|-|-|-|-|
 | Apache HBase |2.0.1 |1.1.2 |1.1.2 |1.1.2 |1.1.1 |0.98.4 |0.98.0 |-|

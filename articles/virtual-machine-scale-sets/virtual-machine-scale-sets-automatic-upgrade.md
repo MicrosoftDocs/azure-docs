@@ -195,7 +195,7 @@ az policy assignment create --display-name "Enforce automatic OS upgrades with a
 ```
 
 ## Configure auto-updates
-To configure automatic upgrades, ensure that the *automaticOSUpgrade* property is set to *true* in the scale set model definition. You can configure this property with Azure PowerShell or the Azure CLI 2.0.
+To configure automatic upgrades, ensure that the *automaticOSUpgrade* property is set to *true* in the scale set model definition. You can configure this property with Azure PowerShell or the Azure CLI.
 
 ### PowerShell
 The following example uses Azure PowerShell (4.4.1 or later) to configure automatic upgrades for the scale set named *myVMSS* in the resource group named *myResourceGroup*:
@@ -219,7 +219,7 @@ az vmss update --name $vmssname --resource-group $rgname --set upgradePolicy.Aut
 
 
 ## Check the status of an automatic OS upgrade
-You can check the status of the most recent OS upgrade performed on your scale set with Azure PowerShell, Azure CLI 2.0, or the REST APIs.
+You can check the status of the most recent OS upgrade performed on your scale set with Azure PowerShell, Azure CLI, or the REST APIs.
 
 ### PowerShell
 To following example uses Azure PowerShell (4.4.1 or later) to check the status for the scale set named *myVMSS* in the resource group named *myResourceGroup*:
@@ -228,7 +228,8 @@ To following example uses Azure PowerShell (4.4.1 or later) to check the status 
 Get-AzureRmVmssRollingUpgrade -ResourceGroupName myResourceGroup -VMScaleSetName myVMSS
 ```
 
-### CLI 2.0
+### Azure CLI
+
 The following example uses the Azure CLI (2.0.20 or later) to check the status for the scale set named *myVMSS* in the resource group named *myResourceGroup*:
 
 ```azurecli
