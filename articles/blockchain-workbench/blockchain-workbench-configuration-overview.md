@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 9/11/2018
+ms.date: 9/24/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
@@ -96,9 +96,9 @@ Supported data types.
 }
 ```
 
-#### Using array type in Solidity
+#### Using a property of type array
 
-Once an array is defined in configuration, you need to include an explicit get function to return the public property of the array type. For example:
+If you define a property as type array in configuration, you need to include an explicit get function to return the public property of the array type in Solidity. For example:
 
 ```
 function GetQuotes() public constant returns (int[]) {
