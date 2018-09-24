@@ -9,7 +9,7 @@
 ## [Programmatically create Azure Dashboards](azure-portal-dashboards-create-programmatically.md)
 ## [DevOps with the Azure portal](tutorial-azureportal-devops.md)
 # Reference
-## [Azure CLI](cli/azure/?view=azure-cli-latest)
+## [Azure CLI](cli/azure/)
 ## [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 ## [REST](/rest/api/azure/)
 # Resources

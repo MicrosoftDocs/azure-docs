@@ -17,7 +17,7 @@ ms.author: cwatson
 
 ---
 # Azure portal customization documentation
-The Azure portal is a web-based application that you can use to create, manage, and remove Azure resources and services. It includes a customizable dashboard, tools for managing Azure resources, and access to subscription settings and billing information.
+The Azure portal is a web-based application where you can create, manage, and remove Azure resources and services. It includes a customizable dashboard, tools for managing Azure resources, and access to subscription settings and billing information.
 
 <ul class="panelContent cardsz">
     <li>
