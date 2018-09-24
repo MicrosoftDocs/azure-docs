@@ -135,7 +135,8 @@ Before changing any code or settings, verify the bot works.
 3. In Visual Studio, start the bot. A browser window opens with the web app bot's web site at `http://localhost:3978/`.
 
 ## Start the emulator
-1. Begin the Bot Emulator. 
+
+1. Begin the Bot Emulator.
 
 2. In the bot emulator, select the *.bot file in the root of the project. This `.bot` file includes the bot's URL endpoint for messages:
 
