@@ -209,6 +209,8 @@
     href: https://azure.microsoft.com/updates/?product=security-center
 - name: Resources
   items:
+  - name: Build your skills with Microsoft Learn
+    href: /learn/browse/?term=securityS
   - name: Manage user data
     href: security-center-privacy.md
   - name: FAQ

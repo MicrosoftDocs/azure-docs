@@ -30,7 +30,7 @@ To complete this tutorial, you need:
 
 * [Jenkins](https://jenkins.io/) with JDK and Maven tools configured. If you don't have a Jenkins system, create one now in Azure from the [Jenkins solution template](/azure/jenkins/install-jenkins-solution-template).
 * A [GitHub](https://github.com) account.
-* [Azure CLI 2.0](/cli/azure), either from your local command line or in the [Azure Cloud Shell](/azure/cloud-shell/overview)
+* [Azure CLI](/cli/azure), either from your local command line or in the [Azure Cloud Shell](/azure/cloud-shell/overview)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
