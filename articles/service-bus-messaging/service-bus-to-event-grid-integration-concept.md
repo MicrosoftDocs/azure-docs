@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 02/15/2018
+ms.date: 09/15/2018
 ms.author: spelluru
 
 ---
@@ -125,9 +125,9 @@ To create a new Event Grid subscription, do the following:
 2. In the left pane, select the **Event Grid**. 
 3. Select **Event Subscription**.  
 
-   The following image displays a namespace that has a few Event Grid subscriptions:
+   The following image displays a namespace that has an Event Grid subscription:
 
-   ![20][]
+   ![Event grid subscriptions](./media/service-bus-to-event-grid-integration-concept/sbtoeventgridportal.png)
 
    The following image shows how to subscribe to a function or a webhook without any specific filtering:
 

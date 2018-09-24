@@ -167,7 +167,7 @@
       href: devtest-lab-use-arm-and-powershell-for-lab-resources.md
 - name: Reference
   items:
-  - name: CLI 2.0
+  - name: CLI
     href: /cli/azure/lab
   - name: PowerShell
     href: /powershell/module/azurerm.devtestlabs/#devtest_labs

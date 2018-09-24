@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Extract consistently-formatted data from an utterance using the Regular Expression entity. 
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: language-understanding
