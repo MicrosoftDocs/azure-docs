@@ -4,7 +4,9 @@
   items:
   - name: What are Azure AD reports?
     href: overview-reports.md
-
+  - name: What is Azure AD monitoring?
+    href: overview-monitoring.md
+    
 - name: Quickstarts
   expanded: true
   items:

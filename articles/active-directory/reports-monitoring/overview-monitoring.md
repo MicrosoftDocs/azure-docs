@@ -1,0 +1,60 @@
+---
+
+title: What is Azure Active Directory monitoring? (preview) | Microsoft Docs
+description: Provides a general overview of Azure Active Directory monitoring.
+services: active-directory
+documentationcenter: ''
+author: priyamohanram
+manager: mtillman
+editor: ''
+
+ms.assetid: e2b3d8ce-708a-46e4-b474-123792f35526
+ms.service: active-directory
+ms.devlang: na
+ms.topic: overview
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.component: report-monitor
+ms.date: 09/24/2018
+ms.author: priyamo
+ms.reviewer: dhanyahk  
+---
+
+# What is Azure Active Directory monitoring? (preview)
+
+With Azure Active Directory (Azure AD) monitoring, you can now route your Azure AD activity logs to different endpoints to either retain it for long-term use or integrate it with third party Security Information and Event Management (SIEM) tools to gain insights into your environment.
+
+Currently, you can route the logs to:
+
+- An Azure storage account.
+- An Azure event hub, so you can integrate with your Splunk and Sumologic instances.
+- Azure Log Analytics workspace, wherein you can analyze the data, create dashboard and alert on specific events
+
+
+## Diagnostic settings configuration
+
+To configure monitoring settings for Azure AD activity logs, first sign-in to the [Azure portal](https://portal.azure.com), then select **Azure Active Directory**. From here, you can access the diagnostic settings configuration page in two ways:
+
+* Select **Diagnostic settings** from the **Monitoring** section.
+    ![Diagnostics settings](./media/overview-monitoring/diagnostic-settings.png)
+* Select **Audit Logs** or **Sign-ins**, then select **Export settings**. 
+    ![Export settings](./media/overview-monitoring/export-settings.png)
+
+
+## Route logs to storage account
+
+By routing logs to an Azure storage account, you can retain it for longer than the default retention period outlined in our [retention policies](reference-reports-data-retention.md). Learn how to [route data to your storage account](quickstart-azure-monitor-route-logs-to-storage-account.md).
+
+## Stream logs to event hub
+
+You can integrate with third party SIEM tools such as Sumologic and Splunk by first streaming the logs to an event hub, then integrating it with Splunk or Sumologic. This allows you to integrate Azure AD activity log data with other data managed by your SIEM, resulting in richer insights into your environment. Learn how to [stream logs to an event hub](tutorial-azure-monitor-stream-logs-to-event-hub.md).
+
+## Send logs to Log Analytics
+
+[Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) is a solution that consolidates monitoring data from a variety of sources and provides a query language and analytics engine that gives you insights into the operation of your applications and resources. By sending Azure AD activity logs to Log Analytics, you can take advantage of the rich query language and analytics engine to quickly retrieve, consolidate, and analyze collected data. In addition, you can use the pre-packaged management solution for Azure AD activity logs to analyze your data. Learn how to [send data to Log Analytics](howto-integrate-activity-logs-with-log-analytics.md).
+
+## Next steps
+
+* [Activity logs in Azure Monitor](concept-activity-logs-in-azure-monitor.md)
+* [Stream logs to event hub](tutorial-azure-monitor-stream-logs-to-event-hub.md)
+* [Send logs to Log Analytics](howto-integrate-activity-logs-with-log-analytics.md).
