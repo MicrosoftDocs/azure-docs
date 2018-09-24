@@ -128,7 +128,7 @@ Java applications running in App Service for Linux have the same set of [securit
 
 Set up app authentication in the Azure Portal with the  **Authentication and Authorization** option. From there, you can enable authentication using Azure Active Directory or social logins like Facebook, Google, or GitHub. Azure portal configuration only works when configuring a single authentication provider.  For more information, see [Configure your App Service app to use Azure Active Directory login](/azure/app-service/app-service-mobile-how-to-configure-active-directory-authentication) and the related articles for other identity providers.
 
-If you need to enable multiple sign-in providers, follow the instructions in the [customize App Service authentication](https://docs.microsoft.com/en-us/azure/app-service/app-service-authentication-how-to) article.
+If you need to enable multiple sign-in providers, follow the instructions in the [customize App Service authentication](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to) article.
 
  Spring Boot developers can use the [Azure Active Directory Spring Boot starter](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?view=azure-java-stable) to secure applications using familiar Spring Security annotations and APIs.
 
@@ -165,24 +165,25 @@ For application-level data sources:
 
 2. In this file, add a `Context` path entry to link the data source to a JNDI address. The
 
-```xml
-<Context>
-    <Resource
-        name="jdbc/mysqldb" type="javax.sql.DataSource"
-        url="${mysqlURL}"
-        driverClassName="com.mysql.jdbc.Driver"
-        username="${mysqluser}" password="${mysqlpass}"
-    />
-</Context>
-```
+    ```xml
+    <Context>
+        <Resource
+            name="jdbc/mysqldb" type="javax.sql.DataSource"
+            url="${mysqlURL}"
+            driverClassName="com.mysql.jdbc.Driver"
+            username="${mysqluser}" password="${mysqlpass}"
+        />
+    </Context>
+    ```
+
 3. Update your application's `web.xml` to use the data source in your application.
 
-```xml
-<resource-env-ref>
-    <resource-env-ref-name>jdbc/mysqldb</resource-env-ref-name>
-    <resource-env-ref-type>javax.sql.DataSource</resource-env-ref-type>
-</resource-env-ref>
-```
+    ```xml
+    <resource-env-ref>
+        <resource-env-ref-name>jdbc/mysqldb</resource-env-ref-name>
+        <resource-env-ref-type>javax.sql.DataSource</resource-env-ref-type>
+    </resource-env-ref>
+    ```
 
 For shared server-level resources:
 
@@ -190,25 +191,25 @@ For shared server-level resources:
 
 2. Add the context to your `server.xml`
 
-```xml
-<Context>
-    <Resource
-        name="jdbc/mysqldb" type="javax.sql.DataSource"
-        url="${mysqlURL}"
-        driverClassName="com.mysql.jdbc.Driver"
-        username="${mysqluser}" password="${mysqlpass}"
-    />
-</Context>
-```
+    ```xml
+    <Context>
+        <Resource
+            name="jdbc/mysqldb" type="javax.sql.DataSource"
+            url="${mysqlURL}"
+            driverClassName="com.mysql.jdbc.Driver"
+            username="${mysqluser}" password="${mysqlpass}"
+        />
+    </Context>
+    ```
 
 3. Update your application's `web.xml` to use the data source in your application.
 
-```xml
-<resource-env-ref>
-    <resource-env-ref-name>jdbc/mysqldb</resource-env-ref-name>
-    <resource-env-ref-type>javax.sql.DataSource</resource-env-ref-type>
-</resource-env-ref>
-```
+    ```xml
+    <resource-env-ref>
+        <resource-env-ref-name>jdbc/mysqldb</resource-env-ref-name>
+        <resource-env-ref-type>javax.sql.DataSource</resource-env-ref-type>
+    </resource-env-ref>
+    ```
 
 4. Ensure that the JDBC driver files are available to the Tomcat classloader by placing them in the `/home/tomcat/lib` directory. To upload these files to your App Service instance, perform the following steps:  
     1. Install the Azure App Service webpp extension:
@@ -263,3 +264,7 @@ Product support for the Azul Zulu Enterprise JDK is available through when devel
 ### Runtime support
 
 Developers can [open an issue](/azure/azure-supportability/how-to-create-azure-support-request) with the App Service Linux Java runtime through Azure Support if they have a [qualified support plan](https://azure.microsoft.com/support/plans/).
+
+## Next steps
+
+Visit the [Azure for Java Developers](/java/azure/) center to find Azure quickstarts, tutorials, and Java reference documentation.
