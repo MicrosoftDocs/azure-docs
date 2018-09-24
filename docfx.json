@@ -236,7 +236,7 @@
         "articles/event-hubs/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/expressroute/**/*.md": "https://feedback.azure.com/forums/217313-networking?category_id=86745",        
         "articles/genomics/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
-        "articles/governance/**/*/md": "https://feedback.azure.com/forums/915958-azure-governance",
+        "articles/governance/**/*.md": "https://feedback.azure.com/forums/915958-azure-governance",
         "articles/germany/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/guidance/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/guides/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
