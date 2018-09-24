@@ -73,7 +73,7 @@ ms.author: mtillman
                                                                     <h3><a href="">Build your skills with Microsoft Learn</a></h3> 
 																	<p>
 																	    <a href="/learn/modules/secure-azure-resources-with-conditional-access/">Secure your Azure resources with conditional access</a><br>
-                                                                        <a href="/learn/browse/">More interactive learning ...</a><br>
+                                                                        <a href="/learn/browse/?products=azure-active-directory">More interactive learning...</a><br>
 																    </p>
 																</div>
                                                             </div>
