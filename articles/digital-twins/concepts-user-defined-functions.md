@@ -29,8 +29,8 @@ _Matchers_ allow for persisting a set of conditions that evaluate on incoming se
 
 - All sensors of datatype `Temperature`
 - Having `01` in their port 
-- That belong to devices with the extended property key `Manufacturer` set to `Contoso`
-- That belong to spaces of type `Venue`
+- Belonging to devices with the extended property key `Manufacturer` set to `Contoso`
+- Belonging to spaces of type `Venue`
 - That are descendants of parent `SpaceId` DE8F06CA-1138-4AD7-89F4-F782CC6F69FD"
 
 ```{json}
