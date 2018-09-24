@@ -1,5 +1,5 @@
 ---
-title: Chef VM Extension | Microsoft Docs
+title: Chef extension for Azure VMs  | Microsoft Docs
 description: Deploy the Chef Client to a virtual machine using the Chef VM Extension.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -79,7 +79,7 @@ The following JSON shows the schema for the Chef VM Extension. The extension req
 | settings/bootstrap_options/validation_client_name | `myorg-validator` | string | Y |
 | settings/runlist | `recipe[mycookbook::default]` | string | Y |
 
-### Protected Settings
+### Protected settings
 
 | Name | Example | Data Type | Required?
 | ---- | ---- | ---- | ---- |
@@ -121,8 +121,6 @@ az vm extension set \
 
 ## Troubleshooting and support
 
-### Troubleshooting
-
 Data about the state of extension deployments can be retrieved from the Azure portal, and by using the Azure CLI. To see the deployment state of extensions for a given VM, run the following command using the Azure CLI.
 
 ```azurecli
@@ -131,13 +129,13 @@ az vm extension list --resource-group myResourceGroup --vm-name myExistingVM -o 
 
 Extension execution output is logged to the following file:
 
-#### Linux
+### Linux
 
 ```bash
 /var/lib/waagent/Chef.Bootstrap.WindowsAzure.LinuxChefClient
 ```
 
-#### Windows
+### Windows
 
 ```powershell
 C:\Packages\Plugins\Chef.Bootstrap.WindowsAzure.ChefClient\
