@@ -1,16 +1,17 @@
 ---
 title: Monitor performance of a sharded multi-tenant Azure SQL database in a multi-tenant SaaS app  | Microsoft Docs
 description: "Monitor and manage performance of sharded multi-tenant Azure SQL database in a multi-tenant SaaS app"
-keywords: sql database tutorial
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 09/14/2018
+author: stevestein
 ms.author: sstein
-
+ms.reviewer:
+manager: craigg
+ms.date: 09/14/2018
 ---
 # Monitor and manage performance of sharded multi-tenant Azure SQL database in a multi-tenant SaaS app
 

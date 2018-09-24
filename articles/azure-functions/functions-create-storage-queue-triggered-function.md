@@ -42,11 +42,15 @@ Next, you create a function in the new function app.
 
     ![Functions quickstart page in the Azure portal](./media/functions-create-storage-queue-triggered-function/add-first-function.png)
 
-2. In the search field, type `queue` and then choose your desired language for the Queue storage trigger template.
+1. In the search field, type `queue` and then choose the Queue storage trigger template.
 
     ![Choose the storage queue trigger template.](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png)
 
-3. Use the settings as specified in the table below the image.
+    If this is your first function, you must also choose a language. All subsequent functions added to the function app use the same language templates.
+
+1. Select **Install** to install the Azure Storage extension any any dependencies in the function app. After installation succeeds, select **Continue**.
+
+1. Use the settings as specified in the table below the image.
     ![Configure the storage queue triggered function.](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal-2.png)
     
     | Setting | Suggested value | Description |
@@ -55,7 +59,7 @@ Next, you create a function in the new function app.
     | **Queue name**   | myqueue-items    | Name of the queue to connect to in your Storage account. |
     | **Storage account connection** | AzureWebJobStorage | You can use the storage account connection already being used by your function app, or create a new one.  |    
 
-3. Click **Create** to create your function.
+1. Click **Create** to create your function.
 
 Next, you connect to your Azure Storage account and create the **myqueue-items** storage queue.
 
