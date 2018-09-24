@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 5c2d19c6-dd40-4c4b-abd3-5c5ec0abed38
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
@@ -87,7 +87,7 @@ The Preferred Primary Domain specifies the fault domain to place the Primary in.
 ```csharp
 ServicePlacementPreferPrimaryDomainPolicyDescription primaryDomain = new ServicePlacementPreferPrimaryDomainPolicyDescription();
 primaryDomain.DomainName = "fd:/EastUS/";
-serviceDescription.PlacementPolicies.Add(invalidDomain);
+serviceDescription.PlacementPolicies.Add(primaryDomain);
 ```
 
 Powershell:

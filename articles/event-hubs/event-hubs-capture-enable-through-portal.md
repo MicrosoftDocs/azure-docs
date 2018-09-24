@@ -3,7 +3,7 @@ title: Azure Event Hubs Capture enable through portal | Microsoft Docs
 description: Enable the Event Hubs Capture feature using the Azure portal.
 services: event-hubs
 documentationcenter: ''
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/28/2017
-ms.author: sethm
+ms.date: 08/16/2018
+ms.author: shvija
 
 ---
 
@@ -53,7 +53,7 @@ To capture data to Azure Data Lake Store, you create a Data Lake Store account, 
 
 ## Add or configure Capture on an existing event hub
 
-You can configure Capture on existing event hubs that are in Event Hubs namespaces. To enable Capture on an existing event hub, or to change your Capture settings, click the namespace to load the **Essentials** screen, then click the event hub for which you want to enable or change the Capture setting. Finally, click the **Properties** section of the open page and then edit the Capture settings, as shown in the following figures:
+You can configure Capture on existing event hubs that are in Event Hubs namespaces. To enable Capture on an existing event hub, or to change your Capture settings, click the namespace to load the overview screen, then click the event hub for which you want to enable or change the Capture setting. Finally, click the **Capture** option on the left side of the open page and then edit the settings, as shown in the following figures:
 
 ### Azure Blob Storage
 

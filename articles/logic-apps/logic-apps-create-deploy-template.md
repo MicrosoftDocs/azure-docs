@@ -1,27 +1,23 @@
 ---
 title: Create deployment templates for Azure Logic Apps | Microsoft Docs
-description: Create Azure Resource Manager templates for logic apps deployment and release management
+description: Create Azure Resource Manager templates for deploying logic apps
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: jeffhollan
-manager: anneta
-editor: ''
-
-ms.assetid: 85928ec6-d7cb-488e-926e-2e5db89508ee
 ms.service: logic-apps
-ms.devlang: multiple
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
-ms.custom: H1Hack27Feb2017
+ms.assetid: 85928ec6-d7cb-488e-926e-2e5db89508ee
 ms.date: 10/18/2016
-ms.author: LADocs; jehollan
-
 ---
-# Create templates for logic apps deployment and release management
 
-After a logic app has been created, you might want to create it as an Azure Resource Manager template.
-This way, you can easily deploy the logic app to any environment or resource group where you might need it.
+# Create Azure Resource Manager templates for deploying logic apps
+
+After a logic app has been created, you might want 
+to create it as an Azure Resource Manager template.
+This way, you can easily deploy the logic app 
+to any environment or resource group where you might need it.
 For more about Resource Manager templates, see
 [authoring Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md)
 and [deploying resources by using Azure Resource Manager templates](../azure-resource-manager/resource-group-template-deploy.md).
@@ -54,7 +50,7 @@ Or, you might want to deploy within different subscriptions or resource groups.
 ## Create a logic app deployment template
 
 The easiest way to have a valid logic app deployment template is to use the
-[Visual Studio Tools for Logic Apps](logic-apps-deploy-from-vs.md).
+[Visual Studio Tools for Logic Apps](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites).
 The Visual Studio tools generate a valid deployment template that can be used across any subscription or location.
 
 A few other tools can assist you as you create a logic app deployment template.
@@ -91,10 +87,121 @@ After PowerShell is installed, you can generate a template by using the followin
 ## Add parameters to a logic app template
 After you create your logic app template, you can continue to add or modify parameters that you might need. For example, if your definition includes a resource ID to an Azure function or nested workflow that you plan to deploy in a single deployment, you can add more resources to your template and parameterize IDs as needed. The same applies to any references to custom APIs or Swagger endpoints you expect to deploy with each resource group.
 
+### Add references for dependent resources to Visual Studio deployment templates
+
+When you want your logic app to reference dependent resources, you can use 
+[Azure Resource Manager template functions](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions) in your logic app deployment template. 
+For example, you might want your logic app to reference an Azure Function 
+or integration account that you want to deploy alongside your logic app. 
+Follow these guidelines about how to use parameters in your deployment template 
+so that the Logic App Designer renders correctly. 
+
+You can use logic app parameters in these kinds of triggers and actions:
+
+*   Child workflow
+*   Function app
+*   APIM call
+*   API connection runtime URL
+*   API connection path
+
+And you can use template functions such as parameters, variables, resourceId, concat, etc. 
+For example, here's how you can replace the Azure Function resource ID:
+
+```
+"parameters":{
+	"functionName": {
+		"type":"string",
+		"minLength":1,
+		"defaultValue":"<FunctionName>"
+	}
+},
+```
+
+And where you would use parameters:
+
+```
+"MyFunction": {
+	"type": "Function",
+	"inputs": {
+		"body":{},
+		"function":{
+			"id":"[resourceid('Microsoft.Web/sites/functions','functionApp',parameters('functionName'))]"
+		}
+	},
+	"runAfter":{}
+}
+```
+As another example you can parameterize the Service Bus send message operation:
+
+```
+"Send_message": {
+	"type": "ApiConnection",
+		"inputs": {
+			"host": {
+				"connection": {
+					"name": "@parameters('$connections')['servicebus']['connectionId']"
+				}
+			},
+			"method": "post",
+			"path": "[concat('/@{encodeURIComponent(''', parameters('queueuname'), ''')}/messages')]",
+			"body": {
+				"ContentData": "@{base64(triggerBody())}"
+			},
+			"queries": {
+				"systemProperties": "None"
+			}
+		},
+		"runAfter": {}
+	}
+```
+> [!NOTE] 
+> host.runtimeUrl is optional and can be removed from your template if present.
+> 
+
+
+> [!NOTE] 
+> For the Logic App Designer to work when you use parameters, 
+> you must provide default values, for example:
+> 
+> ```
+> "parameters": {
+>     "IntegrationAccount": {
+>     "type":"string",
+>     "minLength":1,
+>     "defaultValue":"/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Logic/integrationAccounts/<integrationAccountName>"
+>     }
+> },
+> ```
+
+## Add your logic app to an existing Resource Group project
+
+If you have an existing Resource Group project, 
+you can add your logic app to that project in 
+the JSON Outline window. You can also add another 
+logic app alongside the app you previously created.
+
+1. Open the `<template>.json` file.
+
+2. To open the JSON Outline window, 
+go to **View** > **Other Windows** > **JSON Outline**.
+
+3. To add a resource to the template file, 
+click **Add Resource** at the top of the JSON Outline window. 
+Or in the JSON Outline window, 
+right-click **resources**, and select **Add New Resource**.
+
+	![JSON Outline window](./media/logic-apps-create-deploy-template/jsonoutline.png)
+    
+4. In the **Add Resource** dialog box, find and select **Logic App**. 
+Name your logic app, and choose **Add**.
+
+	![Add resource](./media/logic-apps-create-deploy-template/addresource.png)
+
+
 ## Deploy a logic app template
 
 You can deploy your template by using any tools like PowerShell,
-REST API, [Visual Studio Team Services Release Management](#team-services),
+REST API, [Azure DevOps Release Management](#team-services),
 and template deployment through the Azure portal.
 Also, to store the values for parameters,
 we recommend that you create a
@@ -113,14 +220,14 @@ There's an example script on GitHub under the
 [LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth) project.
 
 <a name="team-services"></a>
-## Visual Studio Team Services Release Management
+## Azure DevOps Release Management
 
-A common scenario for deploying and managing an environment is to use a tool like Release Management in Visual Studio Team Services,
-with a logic app deployment template. Visual Studio Team Services includes a [Deploy Azure Resource Group](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup) task that you can add to any build or release pipeline. You need to have a [service principal](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/) for authorization to deploy, and then you can generate the release definition.
+A common scenario for deploying and managing an environment is to use a tool like Release Management in Azure DevOps,
+with a logic app deployment template. Azure DevOps includes a [Deploy Azure Resource Group](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup) task that you can add to any build or release pipeline. You need to have a [service principal](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/) for authorization to deploy, and then you can generate the release pipeline.
 
-1. In Release Management, select **Empty** so that you create an empty definition.
+1. In Release Management, select **Empty** so that you create an empty pipeline.
 
-    ![Create empty definition][1]
+    ![Create empty pipeline][1]
 
 2. Choose any resources you need for this, most likely including the logic app template
 that is generated manually or as part of the build process.

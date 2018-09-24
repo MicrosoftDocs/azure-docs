@@ -1,24 +1,15 @@
 ---
-title: Monitor an Azure Kubernetes cluster with CoScale | Microsoft Docs
+title: Monitor an Azure Kubernetes cluster with CoScale
 description: Monitor a Kubernetes cluster in Azure Container Service using CoScale
 services: container-service
-documentationcenter: ''
 author: fryckbos
-manager:
-editor: ''
-tags: acs, azure-container-service, kubernetes
-keywords: ''
+manager: jeconnoc
 
-ms.assetid: 
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 05/22/2017
 ms.author: saudas
 ms.custom: mvc
-
 ---
 
 # Monitor an Azure Container Service Kubernetes cluster with CoScale
@@ -88,5 +79,5 @@ The CoScale agent is automatically deployed on new machines in the cluster. The 
 
 ## Next steps
 
-See the [CoScale documentation](http://docs.coscale.com/) and [blog](https://www.coscale.com/blog) for more more information about CoScale monitoring solutions. 
+See the [CoScale documentation](http://docs.coscale.com/) and [blog](https://www.coscale.com/blog) for more information about CoScale monitoring solutions. 
 

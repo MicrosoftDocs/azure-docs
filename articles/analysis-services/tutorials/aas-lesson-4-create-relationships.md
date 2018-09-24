@@ -1,25 +1,16 @@
 ---
 title: "Azure Analysis Services tutorial lesson 4: Create relationships | Microsoft Docs"
 description: Describes how to create relationships in the Azure Analysis Services tutorial project. 
-services: analysis-services
-documentationcenter: ''
-author: Minewiskan
+author: minewiskan
 manager: kfile
-editor: ''
-tags: ''
-
-ms.assetid: 
-ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 11/01/2017
+ms.service: azure-analysis-services
+ms.topic: conceptual
+ms.date: 07/03/2018
 ms.author: owend
----
-# Lesson 4: Create relationships
+ms.reviewer: minewiskan
 
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+---
+# Create relationships
 
 In this lesson, you verify the relationships that were created automatically when you imported data and add new relationships between different tables. A relationship is a connection between two tables that establishes how the data in those tables should be correlated. For example, the DimProduct table and the DimProductSubcategory table have a relationship based on the fact that each product belongs to a subcategory. To learn more, see [Relationships](https://docs.microsoft.com/sql/analysis-services/tabular-models/relationships-ssas-tabular).
   

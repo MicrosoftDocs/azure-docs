@@ -5,17 +5,18 @@ description: Provides information about group policy and mobile device managemen
 services: active-directory
 keywords: what are group Policy and MDM settings for Enterprise State Roaming, Enterprise State Roaming, windows cloud
 documentationcenter: ''
-author: tanning
-manager: femila
+author: MarkusVi
+manager: mtillman
 editor: curtand
 
+ms.component: devices
 ms.assetid: 6471a9b3-8dd4-4237-89d1-bfbeca9f8252
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 07/23/2018
 ms.author: markvi
 
 ---
@@ -26,7 +27,7 @@ Enterprises that want to manage roaming for personal (unmanaged) devices can use
 The following tables describe the policy settings available.
 
 ## MDM settings
-The MDM policy settings apply to both Windows 10 and Windows 10 Mobile.  Windows 10 Mobile support exists only for Microsoft account based roaming via user’s OneDrive account.  Please refer to “Devices and endpoints” section for details on what devices are supported for Azure AD based syncing.
+The MDM policy settings apply to both Windows 10 and Windows 10 Mobile.  Windows 10 Mobile support exists only for Microsoft account based roaming via user’s OneDrive account.  Please refer to [Devices and endpoints](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md) for details on what devices are supported for Azure AD based syncing.
 
 | Name | Description |
 | --- | --- |

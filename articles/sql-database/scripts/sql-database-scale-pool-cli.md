@@ -3,31 +3,31 @@ title: CLI example scales a SQL elastic pool-Azure SQL Database | Microsoft Docs
 description: Azure CLI example script to scale a SQL elastic pool in Azure SQL Database
 services: sql-database
 documentationcenter: sql-database
-author: janeng
-manager: jstrauss
+author: CarlRabeler
+manager: craigg
 editor: carlrab
 tags: azure-service-management
 
 ms.assetid:
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.custom: monitor & tune, mvc
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 06/23/2017
-ms.author: janeng
+ms.date: 09/14/2018
+ms.author: carlrab
 ---
 
 # Use CLI to scale a SQL elastic pool in Azure SQL Database
 
-This Azure CLI script example creates SQL elastic pools, moves pooled databases, and changes elastic pool performance levels. 
+This Azure CLI script example creates SQL elastic pools, moves pooled databases, and changes elastic pool compute sizes. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli). 
 
 ## Sample script
 
@@ -56,6 +56,6 @@ This script uses the following commands to create a resource group, logical serv
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
+For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
 
 Additional SQL Database CLI script samples can be found in the [Azure SQL Database documentation](../sql-database-cli-samples.md).

@@ -5,7 +5,7 @@ services: application-insights
 keywords:
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 09/14/2017
+ms.date: 06/13/2018
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
@@ -20,7 +20,7 @@ app, you can make informed choices to maintain and improve your application.
 
 This quickstart shows how to add Application Insights to an existing ASP.NET web application and start
 analyzing live statistics, which is just one of the various methods you can use to analyze your application. If you do not have a ASP.NET web application, you can create one following the
-[Create a ASP.NET Web App quickstart](../app-service/app-service-web-get-started-dotnet.md).
+[Create a ASP.NET Web App quickstart](../app-service/app-service-web-get-started-dotnet-framework.md).
 
 ## Prerequisites
 To complete this quickstart:
@@ -36,18 +36,24 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 1. Open your project in Visual Studio 2017.
 2. Select **Configure Application Insights** from the Project menu. Visual Studio adds the Application Insights SDK to your application.
-3. Click **Start Free**, select your preferred billing plan, and click **Register**.
 
-	![Adding Application Insights to Visual Studio](./media/quick-monitor-portal/add-application-insights.png)
+    > [!IMPORTANT]
+    > The process to add Application Insights varies by ASP.NET template type. If you are using the **Empty** or **Azure Mobile App** template select **Project** > **Add Application Insights Telemetry**. For all other ASP.NET templates consult the instructions in the step above. 
 
-4. Run your application by either selecting **Start Debugging** from the **Debug** menu or by pressing the
+3. Click **Get Started** (earlier versions of Visual Studio have a **Start Free** button instead).
+
+    ![Adding Application Insights to Visual Studio](./media/quick-monitor-portal/add-application-insights-b.png)
+
+4. Select your subscription and click **Register**.
+
+5. Run your application by either selecting **Start Debugging** from the **Debug** menu or by pressing the
   F5 key.
 
 ## Confirm app configuration
 
 Application Insights gathers telemetry data for your application regardless of where it's running. Use the following steps to start viewing this data.
 
-1. Open Application Insights by clicking **Project** -> **Application Insights** -> **Search Debug Session Telemetry**.  You see the telemetry from your current session.<BR><br>![Telemetry in Visual Studio](./media/quick-monitor-portal/telemetry-in-vs.png)
+1. Open Application Insights by clicking **View** -> **Other Windows** -> **Application Insights Search**.  You see the telemetry from your current session.<BR><br>![Telemetry in Visual Studio](./media/quick-monitor-portal/telemetry-in-vs.png)
 
 2. Click on the first request in the list (GET Home/Index in this example) to see the request details. Notice that the status code and response time are both included along with other valuable information about the request.<br><br>![Response details in Visual Studio](media/quick-monitor-portal/request-details.png)
 
@@ -57,11 +63,11 @@ You can now open Application Insights in the Azure portal to view various detail
 
 1. Right-click on **Connected Services Application Insights** folder in Solution Explorer and click **Open Application Insights Portal**.  You see some information about your application and a variety of options.
 
-	![Application Map](media/quick-monitor-portal/001.png)
+	![Application Map](media/quick-monitor-portal/overview-001.png)
 
-2. Click on **App map** to get a visual layout of the dependency relationships between your application components.  Each component shows KPIs such as load, performance, failures, and alerts.
+2. Click on **Application map** to get a visual layout of the dependency relationships between your application components.  Each component shows KPIs such as load, performance, failures, and alerts.
 
-	![Application Map](media/quick-monitor-portal/application-map.png)
+	![Application Map](media/quick-monitor-portal/application-map-001.png)
 
 3. Click on the **App Analytics** icon ![Application Map](media/quick-monitor-portal/app-analytics-icon.png) on one of the application components.  This opens **Application Insights Analytics**, which provides a rich query language for analyzing all data collected by Application Insights.  In this case, a query is generated for you that renders the request count as a chart.  You can write your own queries to analyze other data.
 

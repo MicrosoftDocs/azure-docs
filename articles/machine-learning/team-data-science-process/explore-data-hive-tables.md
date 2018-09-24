@@ -3,18 +3,19 @@ title: Explore data in Hive tables with Hive queries | Microsoft Docs
 description: Explore data in Hive tables using Hive queries.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 
 ms.assetid: 0d46cea5-2b4c-4384-9bfa-fa20f6f75148
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: bradsev
+ms.author: deguhath
 
 ---
 # Explore data in Hive tables with Hive queries
@@ -27,7 +28,7 @@ The following **menu** links to topics that describe how to use tools to explore
 ## Prerequisites
 This article assumes that you have:
 
-* Created an Azure storage account. If you need instructions, see [Create an Azure Storage account](../../storage/common/storage-create-storage-account.md#create-a-storage-account)
+* Created an Azure storage account. If you need instructions, see [Create an Azure Storage account](../../storage/common/storage-quickstart-create-account.md)
 * Provisioned a customized Hadoop cluster with the HDInsight service. If you need instructions, see [Customize Azure HDInsight Hadoop Clusters for Advanced Analytics](customize-hadoop-cluster.md).
 * The data has been uploaded to Hive tables in Azure HDInsight Hadoop clusters. If it has not, follow the instructions in [Create and load data to Hive tables](move-hive-tables.md) to upload data to Hive tables first.
 * Enabled remote access to the cluster. If you need instructions, see [Access the Head Node of Hadoop Cluster](customize-hadoop-cluster.md).

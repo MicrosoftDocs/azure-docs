@@ -4,7 +4,7 @@ description: This topic provides general guidance for securing SQL Server runnin
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: ''
 tags: azure-service-management
 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 06/02/2017
+ms.date: 03/23/2018
 ms.author: jroth
 
 ---
@@ -41,9 +41,9 @@ When you create a SQL Server virtual machine with a gallery image, the **SQL Ser
 
 ![SQL Server connectivity](./media/virtual-machines-windows-sql-security/sql-vm-connectivity-option.png)
 
-For the best security, choose the most restrictive option for your scenario. For example, if you are running an application that accesses SQL Server on the same VM, then **Local** is the most secure choice. If you are running an Azure application that requires access to the SQL Server, then **Private** secures communication to SQL Server only within the specified [Azure Virtual Network](../../../virtual-network/virtual-networks-overview.md). If you require **Public** (internest) access to the SQL Server VM, then make sure to follow other best practices in this topic to reduce your attack surface area.
+For the best security, choose the most restrictive option for your scenario. For example, if you are running an application that accesses SQL Server on the same VM, then **Local** is the most secure choice. If you are running an Azure application that requires access to the SQL Server, then **Private** secures communication to SQL Server only within the specified [Azure Virtual Network](../../../virtual-network/virtual-networks-overview.md). If you require **Public** (internet) access to the SQL Server VM, then make sure to follow other best practices in this topic to reduce your attack surface area.
 
-The selected options in the portal use inbound security rules on the VMs [Network Security Group](../../../virtual-network/virtual-networks-nsg.md) (NSG) to allow or deny network traffic to your virtual machine. You can modify or create new inbound NSG rules to allow traffic to the SQL Server port (default 1433). You can also specify specific IP addresses that are allowed to communicate over this port.
+The selected options in the portal use inbound security rules on the VM's [network security group](../../../virtual-network/security-overview.md) (NSG) to allow or deny network traffic to your virtual machine. You can modify or create new inbound NSG rules to allow traffic to the SQL Server port (default 1433). You can also specify specific IP addresses that are allowed to communicate over this port.
 
 ![Network security group rules](./media/virtual-machines-windows-sql-security/sql-vm-network-security-group-rules.png)
 
@@ -95,5 +95,5 @@ In addition to the practices described in this topic, we recommend that you revi
 
 If you are also interested in best practices around performance, see [Performance Best Practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md).
 
-For other topics related to running SQL Server in Azure VMs, see [SQL Server on Azure Virtual Machines overview](virtual-machines-windows-sql-server-iaas-overview.md).
+For other topics related to running SQL Server in Azure VMs, see [SQL Server on Azure Virtual Machines overview](virtual-machines-windows-sql-server-iaas-overview.md). If you have questions about SQL Server virtual machines, see the [Frequently Asked Questions](virtual-machines-windows-sql-server-iaas-faq.md).
 

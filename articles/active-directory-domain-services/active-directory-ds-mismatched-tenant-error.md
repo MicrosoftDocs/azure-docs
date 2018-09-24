@@ -4,21 +4,22 @@ description: Understand and resolve mismatched directory errors for existing Azu
 services: active-directory-ds
 documentationcenter: ''
 author: mahesh-unnikrishnan
-manager: mahesh-unnikrishnan
+manager: mtillman
 editor: curtand
 
 ms.assetid: 40eb75b7-827e-4d30-af6c-ca3c2af915c7
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article 
-ms.date: 10/30/2017
+ms.topic: conceptual
+ms.date: 12/11/2017
 ms.author: maheshu
 
 ---
 # Resolve mismatched directory errors for existing Azure AD Domain Services managed domains
-You have an existing managed domain that was enabled using the Azure classic portal. When you navigate to the new Azure portal and view the managed domain, you see the following error message:
+You have an existing Azure AD Domain Services managed domain. When you navigate to the Azure portal and view the managed domain, you see the following error message:
 
 ![Mismatched directory error](.\media\getting-started\mismatched-tenant-error.png)
 
@@ -30,7 +31,7 @@ This error is caused when your managed domain and the virtual network it is enab
 
 The new Azure portal (and specifically the Azure AD Domain Services extension) is built on Azure Resource Manager. In the modern Azure Resource Manager environment, certain restrictions are enforced to deliver greater security and for roles-based access control (RBAC) to resources. Enabling Azure AD Domain Services for an Azure AD tenant is a sensitive operation since it causes credential hashes to be synchronized to the managed domain. This operation requires you to be a tenant admin for the directory. Additionally, you must have administrative privileges over the virtual network in which you enable the managed domain. For the RBAC checks to work consistently, the managed domain and the virtual network should belong to the same Azure AD tenant.
 
-In short, you cannot enable a managed domain for an Azure AD tenant 'contoso.com' in a virtual network belonging to an Azure subscription owned by another Azure AD tenant 'fabrikam.com'. The Azure classic portal isn't built on top of the Resource Manager platform and does not enforce such restrictions.
+In short, you cannot enable a managed domain for an Azure AD tenant 'contoso.com' in a virtual network belonging to an Azure subscription owned by another Azure AD tenant 'fabrikam.com'. 
 
 **Valid configuration**: In this deployment scenario, the Contoso managed domain is enabled for the Contoso Azure AD tenant. The managed domain is exposed in a virtual network belonging to an Azure subscription owned by the Contoso Azure AD tenant. Therefore, both the managed domain as well as the virtual network belong to the same Azure AD tenant. This configuration is valid and fully supported.
 

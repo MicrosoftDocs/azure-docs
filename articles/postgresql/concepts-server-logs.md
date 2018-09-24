@@ -1,14 +1,14 @@
 ---
-title: Server Logs in Azure Database for PostgreSQL  | Microsoft Docs
-description: Generates query and error logs in Azure Database for PostgreSQL.
+title: Server Logs in Azure Database for PostgreSQL
+description: This article describes how Azure Database for PostgreSQL generates query and error logs, and how log retention is configured.
 services: postgresql
-author: SaloniSonpal
-ms.author: salonis
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 02/28/2018
 ---
 # Server Logs in Azure Database for PostgreSQL 
 Azure Database for PostgreSQL generates query and error logs. However, access to transaction logs is not supported. Query and error logs can be used to identify, troubleshoot, and repair configuration errors and suboptimal performance. For more information, see [Error Reporting and Logging](https://www.postgresql.org/docs/9.6/static/runtime-config-logging.html).
@@ -23,7 +23,7 @@ The log files rotate every one hour or 100 MB size, whichever comes first.
 ## Configure logging for Azure PostgreSQL server
 You can enable query logging and error logging for your server. Error logs can contain auto-vacuum, connection, and checkpoints information.
 
-You can enable query logging for your PostgreSQL DB instance by setting two server parameters: `log\_statement` and `log\_min\_duration\_statement`.
+You can enable query logging for your PostgreSQL DB instance by setting two server parameters: `log_statement` and `log_min_duration_statement`.
 
 The **log\_statement** parameter controls which SQL statements are logged. We recommend setting this parameter to ***all*** to log all statements; the default value is none.
 

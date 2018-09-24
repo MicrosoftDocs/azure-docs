@@ -2,32 +2,17 @@
 title: Geo-replicating an Azure container registry
 description: Get started creating and managing geo-replicated Azure container registries.
 services: container-registry
-documentationcenter: ''
-author: SteveLas
-manager: balans
-editor:
-tags: ''
-keywords: ''
+author: stevelas
+manager: jeconnoc
 
-ms.assetid:
 ms.service: container-registry
-ms.devlang:
 ms.topic: overview-article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/24/2017
+ms.date: 04/10/2018
 ms.author: stevelas
-ms.custom:
 ---
 # Geo-replication in Azure Container Registry
 
-Companies that want a local presence, or a hot backup, choose to run services from multiple Azure regions. As a best practice, placing a container registry in each region where images are run allows network-close operations, enabling fast, reliable image layer transfers.
-
-Geo-replication enables an Azure container registry to function as a single registry, serving multiple regions with multi-master regional registries.
-
-> [!IMPORTANT]
-> The geo-replication feature of Azure Container Registry is currently in **preview**. Previews are made available to you on the condition that you agree to the  [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
->
+Companies that want a local presence, or a hot backup, choose to run services from multiple Azure regions. As a best practice, placing a container registry in each region where images are run allows network-close operations, enabling fast, reliable image layer transfers. Geo-replication enables an Azure container registry to function as a single registry, serving multiple regions with multi-master regional registries.
 
 A geo-replicated registry provides the following benefits:
 
@@ -99,7 +84,7 @@ ACR begins syncing images across the configured replicas. Once complete, the por
 
 ## Geo-replication pricing
 
-Geo-replication is a feature of the [Premium SKU](container-registry-skus.md#premium) of Azure Container Registry. When you replicate a registry to your desired regions, you incur Premium registry fees for each region.
+Geo-replication is a feature of the [Premium SKU](container-registry-skus.md) of Azure Container Registry. When you replicate a registry to your desired regions, you incur Premium registry fees for each region.
 
 In the preceding example, Contoso consolidated two registries down to one, adding replicas to East US, Canada Central, and West Europe. Contoso would pay four times Premium per month, with no additional configuration or management. Each region now pulls their images locally, improving performance, reliability without network egress fees from West US to Canada and East US.
 

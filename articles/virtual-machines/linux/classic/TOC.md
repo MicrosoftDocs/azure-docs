@@ -1,59 +1,39 @@
 # [Overview](../overview.md)
-## [Images](about-images.md)
-## [VM extensions](agents-and-extensions.md)
-## [Availability](configure-availability.md)
-## [FAQ](faq.md)
+## [VM extensions](agents-and-extensions-classic.md)
+## [Availability](configure-availability-classic.md)
+## [FAQ](faq-classic.md)
 
 # Get Started
-## [Create a Linux VM with Azure portal](createportal.md)
-## [Install Azure CLI](../../../cli-install-nodejs.md)
-## [Create SSH keys](../mac-create-ssh-keys.md)
+## [Create a Linux VM](createportal-classic.md)
 
 # How to
 ## Compute
-### [Create a custom VM](create-custom.md)
-### [Capture a VM](capture-image.md)
-### [Use Remote Desktop with a Linux VM](remote-desktop.md)
-### [Manage VM extensions](manage-extensions.md)
-### [Manage VMs with Visual Studio](manage-visual-studio.md)
-### [Monitor VMs using the Diagnostic VM Extension](../diagnostic-extension.md)
+### [Create a custom VM](create-custom-classic.md)
+### [Capture a VM](capture-image-classic.md)
+### [Use Remote Desktop with a Linux VM](remote-desktop-classic.md)
+### [Manage VM extensions](manage-extensions-classic.md)
 ### [Monitor VMs using v2.x of the Diagnostic VM Extension](diagnostic-extension-v2.md)
-### [Inject custom data](inject-custom-data.md)
-### [Reset Linux passwords or keys, fix SSH, and check disks](reset-access.md)
-### [Maintenance](planned-maintenance-schedule.md)
-### [Create a Docker host using the CLI](cli-use-docker.md)
-### [Create a Docker host using Azure portal](portal-use-docker.md)
-### [How to use Docker with Swarm](../../virtual-machines-linux-docker-swarm.md)
+### [Reset Linux passwords or keys, fix SSH, and check disks](reset-access-classic.md)
+### [Maintenance](planned-maintenance-schedule-classic.md)
 
 ## Use Storage
-### [Attach a data disk](attach-disk.md)
-### [Detach and data disk](detach-disk.md)
+### [Attach a data disk](attach-disk-classic.md)
+### [Detach and data disk](detach-disk-classic.md)
 
 ## Network
 ### [Open ports to your VM](setup-endpoints.md)
-### [Connect VMs with a virtual network or cloud service](connect-vms.md)
-
-## Deploy images
-### [Create and upload a VHD](create-upload-vhd.md)
-### [Create and upload a FreeBSD VHD](freebsd-create-upload-vhd.md)
-### [List of Oracle VM images](oracle-images.md)
 
 ## Manage workloads
-### [SAP](sap-get-started.md)
-### MySQL and MariaDB
-#### [MariaDB cluster tutorial](mariadb-mysql-cluster.md)
-#### [Install MySQL on an OpenSUSE VM](mysql-on-opensuse.md)
-#### [Using load-balanced sets to clusterize MySQL](mysql-cluster.md)
-#### [Optimizing MySQL performance](optimize-mysql.md)
+### [MariaDB cluster tutorial](mariadb-mysql-cluster.md)
+### [Install MySQL on an OpenSUSE VM](mysql-on-opensuse.md)
+### [Using load-balanced sets to clusterize MySQL](mysql-cluster.md)
+### [Optimizing MySQL performance](optimize-mysql.md)
 
 ## Run applications
-### [Ruby on Rails web application](virtual-machines-linux-classic-ruby-rails-web-app.md)
+### [Ruby on Rails web application](ruby-rails-web-app.md)
 ### [Cassandra and Node.js client](cassandra-nodejs.md)
-### [LAMP stack](lamp-script.md)
 ### [Tomcat](setup-tomcat.md)
-### [Web application with Visual Studio](web-app-visual-studio.md)
 ### [RDMA cluster to run MPI applications](rdma-cluster.md)
-### [How to use the Azure slave plug-in with Hudson CI](../../virtual-machines-azure-slave-plugin-for-hudson.md)
 ### HPC Pack
 #### [Create a cluster for Linux workloads](hpcpack-cluster-powershell-script.md)
 #### [Manage a cluster with Linux nodes](hpcpack-cluster.md)

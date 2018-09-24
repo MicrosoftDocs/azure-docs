@@ -1,9 +1,9 @@
 
-1. Log on to the [Azure Portal](https://portal.azure.com).
-2. Click on **New**, then **Web + Mobile**, and then **Mobile Engagement**.
+1. Sign in to the [Azure Portal](https://portal.azure.com).
+2. Click **Create a resource**, then **Web + Mobile**, and then **Mobile Engagement**.
    
     ![](./media/mobile-engagement-create-app-in-portal-new/browse-azme-extension.png)
-3. In the **New Mobile Engagement App Collection** blade that appears, you will be creating an App Collection instead of an App like in the Azure classic portal. Enter the following information:
+3. In the **New Mobile Engagement App Collection** blade that appears, you will be creating an App Collection. Enter the following information:
    
     ![](./media/mobile-engagement-create-app-in-portal-new/new-azme-app.png)
    

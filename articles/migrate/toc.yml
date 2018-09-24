@@ -1,0 +1,80 @@
+- name: Azure Migrate Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: About Azure Migrate
+    href: migrate-overview.md
+- name: Tutorials
+  items:
+  - name: Discover and assess VMware VMs
+    href: tutorial-assessment-vmware.md
+- name: Concepts
+  items:
+  - name: About the collector
+    href: concepts-collector.md
+  - name: Assessment calculations
+    href: concepts-assessment-calculation.md
+  - name: About dependency visualization
+    href: concepts-dependency-visualization.md
+- name: How-to guides
+  items:
+  - name: Contoso migration series
+    items:
+    - name: 1. Contoso-Migration overview
+      href: contoso-migration-overview.md
+    - name: 2. Contoso-Deploy an Azure infrastructure
+      href: contoso-migration-infrastructure.md
+    - name: 3. Contoso-Assess on-premises resources for migration to Azure
+      href: contoso-migration-assessment.md
+    - name: 4. Contoso-Rehost an app on Azure VMs and Azure SQL Database Managed Instance
+      href: contoso-migration-rehost-vm-sql-managed-instance.md
+    - name: 5. Contoso-Rehost an app on Azure VMs
+      href: contoso-migration-rehost-vm.md
+    - name: 6. Contoso-Rehost an app on Azure VMs and Azure SQL Server AlwaysOn Availability Groups
+      href: contoso-migration-rehost-vm-sql-ag.md
+    - name: 7. Contoso-Rehost a Linux app on Azure VMs
+      href: contoso-migration-rehost-linux-vm.md
+    - name: 8. Contoso-Rehost a Linux app on Azure VMs and Azure MySQL
+      href: contoso-migration-rehost-linux-vm-mysql.md
+    - name: 9. Contoso-Refactor an app on Azure Web Apps and Azure SQL Database
+      href: contoso-migration-refactor-web-app-sql.md
+    - name: 10. Contoso-Refactor a Linux app on Azure Web Apps and Azure MySQL
+      href: contoso-migration-refactor-linux-app-service-mysql.md
+    - name: 11. Contoso-Migrate TFS to VSTS
+      href: contoso-migration-tfs-vsts.md
+    - name: 12. Contoso-Rearchitect an app on Azure Containers and Azure SQL Database
+      href: contoso-migration-rearchitect-container-sql.md
+    - name: 13. Contoso-Rebuild an app in Azure
+      href: contoso-migration-rebuild.md
+  - name: Discover and assess a large environment
+    href: how-to-scale-assessment.md
+  - name: Group machines
+    href: how-to-create-a-group.md
+  - name: Group machines using machine dependencies
+    href: how-to-create-group-machine-dependencies.md
+  - name: Refine a group using group dependencies
+    href: how-to-create-group-dependencies.md
+  - name: Customize an assessment
+    href: how-to-modify-assessment.md
+  - name: Migrate machines after assessment
+    href: how-to-get-migration-tool.md
+  - name: Troubleshoot Azure Migrate
+    href: troubleshooting-general.md
+- name: Resources
+  items:
+  - name: FAQ
+    href: resources-faq.md
+  - name: REST API
+    href: https://docs.microsoft.com/rest/api/migrate/
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/azure-migrate/
+  - name: UserVoice
+    href: http://aka.ms/AzureMigrateUservoice
+  - name: Forum
+    href: http://aka.ms/AzureMigrateForum
+  - name: Blog
+    href: https://azure.microsoft.com/blog/tag/azure-migrate/
+  - name: Azure Migrate
+    href: https://azure.microsoft.com/migrate
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/

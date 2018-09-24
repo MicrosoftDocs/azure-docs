@@ -1,20 +1,19 @@
 ---
-title: eCommerce catalog classification with machine learning based Azure Content Moderator | Microsoft Docs
-description: Automatically classify eCommerce catalogs with machine learning
+title: eCommerce catalog moderation with machine learning and AI with Azure Content Moderator | Microsoft Docs
+description: Automatically moderate eCommerce catalogs with machine learning and AI
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
-
 ms.service: cognitive-services
-ms.technology: content-moderator
+ms.component: content-moderator
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: sajagtap
 ---
 
-# eCommerce catalog classification with machine learning
+# eCommerce catalog moderation with machine learning
 
-In this tutorial, we learn how to implement machine-learning-based automated ecommerce catalog classification with Content Moderator, Computer Vision and Custom Vision services. The solution combines machine-assisted catalog classification with human moderation capabilities.
+In this tutorial, we learn how to implement machine-learning-based intelligent ecommerce catalog moderation by combining machine-assisted AI technologies with human moderation to provide an intelligent catalog system.
 
 ![Classified product images](images/tutorial-ecommerce-content-moderator.PNG)
 
@@ -47,7 +46,7 @@ Refer to the [Quickstart](quick-start.md) page to sign up for Content Moderator 
 
 ## Define custom tags
 
-Refer to the [Tags](https://docs.microsoft.com/en-us/azure/cognitive-services/content-moderator/review-tool-user-guide/tags) article to add custom tags. In addition to the built-in **adult** and **racy** tags, the new tags allow the review tool to display the descriptive names for the tags.
+Refer to the [Tags](https://docs.microsoft.com/azure/cognitive-services/content-moderator/review-tool-user-guide/tags) article to add custom tags. In addition to the built-in **adult** and **racy** tags, the new tags allow the review tool to display the descriptive names for the tags.
 
 In our case, we define these custom tags (**celebrity**, **flag**, **us**, **toy**, **pen**):
 
@@ -154,7 +153,7 @@ In our case, we define these custom tags (**celebrity**, **flag**, **us**, **toy
 
 ## Classify into flags, toys, and pens
 
-1. [Sign in](https://www.customvision.ai/account/signin) to the [Custom Vision API preview](https://www.customvision.ai/).
+1. [Sign in](https://azure.microsoft.com/en-us/services/cognitive-services/custom-vision-service/) to the [Custom Vision API preview](https://www.customvision.ai/).
 2. Use the [Quickstart](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) to build your custom classifier to detect the potential presence of flags, toys, and pens.
    ![Custom Vision Training Images](images/tutorial-ecommerce-custom-vision.PNG)
 3. [Get the prediction endpoint URL](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api) for your custom classifier.

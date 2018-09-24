@@ -2,18 +2,15 @@
 title: Azure Cosmos DB Table API for Node.js | Microsoft Docs
 description: Learn all about the Azure Cosmos DB Table API including release dates, retirement dates, and changes made between each version.
 services: cosmos-db
-documentationcenter: nodejs
 author: yarong
-manager: jhubbard
+manager: kfile
 editor: ''
 
-ms.assetid: 
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: nodejs
-ms.topic: article
-ms.date: 11/15/2017
+ms.topic: reference
+ms.date: 11/20/2017
 ms.author: yaronyg
 ms.custom: 
 
@@ -31,6 +28,10 @@ ms.custom:
 |**SDK download**|[NPM](https://www.npmjs.com/package/azure-storage)|
 |**API documentation**|[Node.js API reference documentation](http://azure.github.io/azure-storage-node/)|
 |**Contribute to SDK**|[GitHub](https://github.com/Azure/azure-storage-node#contribute)|
+
+> [!IMPORTANT]
+> If you created a Table API account during the preview, please create a [new Table API account](create-table-dotnet.md#create-a-database-account) to work with the generally available Table API SDKs.
+>
 
 ## Release notes
 

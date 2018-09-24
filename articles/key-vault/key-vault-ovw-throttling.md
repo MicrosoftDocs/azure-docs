@@ -1,12 +1,21 @@
 ---
-ms.assetid: 
-title: Azure Key Vault throttling guidance | Microsoft Docs
-ms.service: key-vault
-author: BrucePerlerMS
-ms.author: bruceper
+title: Azure Key Vault throttling guidance
+description: Key Vault throttling limits the number of concurrent calls to prevent overuse of resources.
+services: key-vault
+documentationcenter:
+author: bryanla
 manager: mbaldwin
-ms.date: 06/21/2017
+tags:
+
+ms.assetid: 9b7d065e-1979-4397-8298-eeba3aec4792
+ms.service: key-vault
+ms.workload: identity
+ms.topic: conceptual
+ms.date: 05/10/2018
+ms.author: bryanla
+
 ---
+
 # Azure Key Vault throttling guidance
 
 Throttling is a process you initiate that limits the number of concurrent calls to the Azure service to prevent overuse of resources. Azure Key Vault (AKV) is designed to handle a high volume of requests. If an overwhelming number of requests occurs, throttling your client's requests helps maintain optimal performance and reliability of the AKV service.

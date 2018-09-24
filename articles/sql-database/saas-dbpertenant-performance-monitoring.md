@@ -3,26 +3,19 @@ title: Monitor performance of many Azure SQL databases in a multi-tenant SaaS ap
 description: "Monitor and manage performance of Azure SQL databases and pools in a multi-tenant SaaS app"
 keywords: sql database tutorial
 services: sql-database
-documentationcenter: ''
 author: stevestein
 manager: craigg
-editor: ''
-
-ms.assetid:
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: "Inactive"
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 10/31/2017
+ms.topic: conceptual
+ms.date: 09/14/2018
 ms.author: sstein
 ---
 # Monitor and manage performance of Azure SQL databases and pools in a multi-tenant SaaS app
 
 In this tutorial, several key performance management scenarios used in SaaS applications are explored. Using a load generator to simulate activity across all tenant databases, the built-in monitoring and alerting features of SQL Database and elastic pools are demonstrated.
 
-The Wingtip Tickets SaaS Database Per Tenant app uses a single-tenant data model, where each venue (tenant) has their own database. Like many SaaS applications, the anticipated tenant workload pattern is unpredictable and sporadic. In other words, ticket sales may occur at any time. To take advantage of this typical database usage pattern, tenant databases are deployed into elastic database pools. Elastic pools optimize the cost of a solution by sharing resources across many databases. With this type of pattern, it's important to monitor database and pool resource usage to ensure that loads are reasonably balanced across pools. You also need to ensure that individual databases have adequate resources, and that pools are not hitting their [eDTU](sql-database-what-is-a-dtu.md) limits. This tutorial explores ways to monitor and manage databases and pools, and how to take corrective action in response to variations in workload.
+The Wingtip Tickets SaaS Database Per Tenant app uses a single-tenant data model, where each venue (tenant) has their own database. Like many SaaS applications, the anticipated tenant workload pattern is unpredictable and sporadic. In other words, ticket sales may occur at any time. To take advantage of this typical database usage pattern, tenant databases are deployed into elastic database pools. Elastic pools optimize the cost of a solution by sharing resources across many databases. With this type of pattern, it's important to monitor database and pool resource usage to ensure that loads are reasonably balanced across pools. You also need to ensure that individual databases have adequate resources, and that pools are not hitting their [eDTU](sql-database-service-tiers.md#what-are-database-transaction-units-dtus) limits. This tutorial explores ways to monitor and manage databases and pools, and how to take corrective action in response to variations in workload.
 
 In this tutorial you learn how to:
 
@@ -50,17 +43,17 @@ Pools, and the databases in pools, should be monitored to ensure they stay withi
 ### Performance management strategies
 
 * To avoid having to manually monitor performance, it’s most effective to **set alerts that trigger when databases or pools stray out of normal ranges**.
-* To respond to short-term fluctuations in the aggregate performance level of a pool, the **pool eDTU level can be scaled up or down**. If this fluctuation occurs on a regular or predictable basis, **scaling the pool can be scheduled to occur automatically**. For example, scale down when you know your workload is light, maybe overnight, or during weekends.
+* To respond to short-term fluctuations in the aggregate compute size of a pool, the **pool eDTU level can be scaled up or down**. If this fluctuation occurs on a regular or predictable basis, **scaling the pool can be scheduled to occur automatically**. For example, scale down when you know your workload is light, maybe overnight, or during weekends.
 * To respond to longer-term fluctuations, or changes in the number of databases, **individual databases can be moved into other pools**.
-* To respond to short-term increases in *individual* database load **individual databases can be taken out of a pool and assigned an individual performance level**. Once the load is reduced, the database can then be returned to the pool. When this is known in advance, databases can be moved pre-emptively to ensure the database always has the resources it needs, and to avoid impact on other databases in the pool. If this requirement is predictable, such as a venue experiencing a rush of ticket sales for a popular event, then this management behavior can be integrated into the application.
+* To respond to short-term increases in *individual* database load **individual databases can be taken out of a pool and assigned an individual compute size**. Once the load is reduced, the database can then be returned to the pool. When this is known in advance, databases can be moved pre-emptively to ensure the database always has the resources it needs, and to avoid impact on other databases in the pool. If this requirement is predictable, such as a venue experiencing a rush of ticket sales for a popular event, then this management behavior can be integrated into the application.
 
 The [Azure portal](https://portal.azure.com) provides built-in monitoring and alerting on most resources. For SQL Database, monitoring and alerting is available on databases and pools. This built-in monitoring and alerting is resource-specific, so it's convenient to use for small numbers of resources, but is not very convenient when working with many resources.
 
-For high-volume scenarios, where you're working with many resources, [Log Analytics (OMS)](saas-dbpertenant-log-analytics.md) can be used. This is a separate Azure service that provides analytics over emitted diagnostic logs and telemetry gathered in a log analytics workspace. Log Analytics can collect telemetry from many services and be used to query and set alerts.
+For high-volume scenarios, where you're working with many resources, [Log Analytics](saas-dbpertenant-log-analytics.md) can be used. This is a separate Azure service that provides analytics over emitted diagnostic logs and telemetry gathered in a log analytics workspace. Log Analytics can collect telemetry from many services and be used to query and set alerts.
 
-## Get the Wingtip Tickets SaaS Database Per Tenant application source code and scripts
+## Get the Wingtip Tickets SaaS Database Per Tenant application scripts
 
-The Wingtip Tickets SaaS Database Per Tenant scripts and application source code are available in the [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) github repo. [Steps to download the Wingtip Tickets SaaS Database Per Tenant scripts](saas-dbpertenant-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-saas-scripts).
+The Wingtip Tickets SaaS Multi-tenant Database scripts and application source code are available in the [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub repo. Check out the [general guidance](saas-tenancy-wingtip-app-guidance-tips.md) for steps to download and unblock the Wingtip Tickets SaaS scripts.
 
 ## Provision additional tenants
 
@@ -208,7 +201,7 @@ This exercise simulates the effect of Contoso Concert Hall experiencing a high l
 2. Inspect the **Elastic database monitoring** display, which shows the hottest databases in the past hour. The *contosoconcerthall* database should soon appear as one of the five hottest databases.
 3. **Click on the Elastic database monitoring** **chart** and it opens the **Database Resource Utilization** page where you can monitor any of the databases. This lets you isolate the display for the *contosoconcerthall* database.
 4. From the list of databases, click **contosoconcerthall**.
-5. Click **Pricing Tier (scale DTUs)** to open the **Configure performance** page where you can set a stand-alone performance level for the database.
+5. Click **Pricing Tier (scale DTUs)** to open the **Configure performance** page where you can set a stand-alone compute size for the database.
 6. Click on the **Standard** tab to open the scale options in the Standard tier.
 7. Slide the **DTU slider** to right to select **100** DTUs. Note this corresponds to the service objective, **S3**.
 8. Click **Apply** to move the database out of the pool and make it a *Standard S3* database.
@@ -216,7 +209,7 @@ This exercise simulates the effect of Contoso Concert Hall experiencing a high l
 
 Once the high load on the contosoconcerthall database subsides you should promptly return it to the pool to reduce its cost. If it’s unclear when that will happen you could set an alert on the database that will trigger when its DTU usage drops below the per-database max on the pool. Moving a database into a pool is described in exercise 5.
 
-## Other Performance Management Patterns
+## Other performance management patterns
 
 **Pre-emptive scaling**
 In the exercise above where you explored how to scale an isolated database, you knew which database to look for. If the management of Contoso Concert Hall had informed Wingtips of the impending ticket sale, the database could have been moved out of the pool pre-emptively. Otherwise, it would likely have required an alert on the pool or the database to spot what was happening. You wouldn’t want to learn about this from the other tenants in the pool complaining of degraded performance. And if the tenant can predict how long they will need additional resources you can set up an Azure Automation runbook to move the database out of the pool and then back in again on a defined schedule.

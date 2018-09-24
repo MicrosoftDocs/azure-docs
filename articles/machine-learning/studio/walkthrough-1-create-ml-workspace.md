@@ -3,18 +3,19 @@ title: 'Step 1: Create a Machine Learning workspace | Microsoft Docs'
 description: 'Step 1 of the Develop a predictive solution walkthrough: Learn how to set up a new Azure Machine Learning Studio workspace.'
 services: machine-learning
 documentationcenter: ''
-author: garyericson
-manager: jhubbard
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 
 ms.assetid: b3c97e3d-16ba-4e42-9657-2562854a1e04
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.author: garye
 
 ---
 # Walkthrough Step 1: Create a Machine Learning workspace
@@ -31,15 +32,6 @@ This is the first step of the walkthrough, [Develop a predictive analytics solut
 <!-- This needs to be updated to refer to the new way of creating workspaces in the Ibiza portal -->
 
 To use Machine Learning Studio, you need to have a Microsoft Azure Machine Learning workspace. This workspace contains the tools you need to create, manage, and publish experiments.  
-
-<!--
-## To create a workspace
-1. Sign in to the [Azure classic portal](https://manage.windowsazure.com).
-2. In the  Azure services panel, click **MACHINE LEARNING**.  
-   ![Create workspace][1]
-3. Click **CREATE AN ML WORKSPACE**.
-4. On the **QUICK CREATE** page, enter your workspace information and then click **CREATE AN ML WORKSPACE**.
--->
 
 The administrator for your Azure subscription needs to create the workspace and then add you as an owner or contributor. For details, see [Create and share an Azure Machine Learning workspace](create-workspace.md).
 

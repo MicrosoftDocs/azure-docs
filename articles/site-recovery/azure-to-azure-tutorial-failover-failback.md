@@ -1,20 +1,17 @@
 ---
-title: Fail over and fail back Azure VMs replicated to a secondary Azure region with Azure Site Recovery (Preview)
+title: Fail over and fail back Azure VMs replicated to a secondary Azure region with Azure Site Recovery
 description: Learn how to fail over and fail back Azure VMs replication to a secondary Azure region with Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
-
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/01/2017
+ms.topic: tutorial
+ms.date: 09/12/2018
 ms.author: raynew
 ms.custom: mvc
 ---
-# Fail over and fail back Azure VMs between Azure regions (Preview)
+
+# Fail over and fail back Azure VMs between Azure regions
 
 The [Azure Site Recovery](site-recovery-overview.md) service contributes to your disaster recovery strategy by managing and orchestrating replication, failover, and failback of on-premises machines, and Azure virtual machines (VMs).
 
@@ -26,11 +23,13 @@ This tutorial describes how to fail over a single Azure VM to a secondary Azure 
 > * Fail back the secondary VM
 > * Reprotect the primary VM back to the secondary region
 
+
+
 ## Prerequisites
 
 - Make that you've completed a [disaster recovery drill](azure-to-azure-tutorial-dr-drill.md) to check everything is working as
 expected.
-- Verify the VM properties before you run the test failover. The VM must comply with [Azure requirements](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+- Verify the VM properties before you run the test failover. The VM must comply with [Azure requirements](azure-to-azure-support-matrix.md#support-for-replicated-machine-os-versions).
 
 ## Run a failover to the secondary region
 
@@ -77,4 +76,4 @@ After failover of the VM, you need to reprotect it so that it replicates back to
 
 ## Fail back to the primary region
 
-After VMs are reprotected,  you can fail back to the primary region as you need to. To do this, follow the [failover](#run-a-failover) instructions.
+After VMs are reprotected,  you can fail back to the primary region as you need to. To do this, set up a failover from the secondary to primary region, as described in this article.

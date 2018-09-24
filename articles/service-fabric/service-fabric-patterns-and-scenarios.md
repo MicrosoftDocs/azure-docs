@@ -10,10 +10,10 @@ editor:
 ms.assetid: d5aa75ff-98b9-4573-a2e5-7f5ab288157a
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/04/2017
+ms.date: 01/19/2018
 ms.author: ryanwi
 
 ---
@@ -68,7 +68,7 @@ Look at turn-based games, interactive games, and hosting existing game engines.
 </table>
 
 ## Continuous delivery
-Explore concepts, including continuous integration/continuous delivery with Visual Studio Team Services, build/package/publish workflow, multi-environment setup, and service package/share.
+Explore concepts, including continuous integration/continuous delivery with Azure Pipelines, build/package/publish workflow, multi-environment setup, and service package/share.
 
 <table><tr><th>Video</th><th>PowerPoint deck</th></tr>
 <tr><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=78h5ofSGD_305167344">

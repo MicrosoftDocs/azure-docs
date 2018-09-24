@@ -3,7 +3,7 @@ title: How to use Azure Service Bus topics with Java | Microsoft Docs
 description: Use Service Bus topics and subscriptions in Azure.
 services: service-bus-messaging
 documentationcenter: java
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 10/17/2017
-ms.author: sethm
+ms.author: spelluru
 
 ---
 # How to use Service Bus topics and subscriptions with Java
@@ -350,8 +350,8 @@ Now that you've learned the basics of Service Bus queues, see [Service Bus queue
 [Azure SDK for Java]: http://azure.microsoft.com/develop/java/
 [Azure Toolkit for Eclipse]: ../azure-toolkit-for-eclipse.md
 [Service Bus queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
-[SqlFilter]: /dotnet/api/microsoft.azure.servicebus.filters.sqlfilter
-[SqlFilter.SqlExpression]: /dotnet/api/microsoft.azure.servicebus.filters.sqlfilter.sqlexpression
+[SqlFilter]: /dotnet/api/microsoft.azure.servicebus.sqlfilter
+[SqlFilter.SqlExpression]: /dotnet/api/microsoft.azure.servicebus.sqlfilter.sqlexpression
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 
 [0]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-13.png

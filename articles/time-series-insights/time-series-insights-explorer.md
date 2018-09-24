@@ -1,23 +1,33 @@
 ---
 title: Explore data using the Azure Time Series Insights explorer | Microsoft Docs
 description: This article describes how to use the Azure Time Series Insights explorer in your web browser to quickly see a global view of your big data and validate your IoT environment.
-services: time-series-insights
 ms.service: time-series-insights
-author: kfile
-ms.author: kfile
-manager: jhubbard
-editor: MicrosoftDocs/tsidocs
+services: time-series-insights
+author: ashannon7
+ms.author: anshan
+manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
-ms.topic: article
-ms.date: 11/15/2017
+ms.topic: conceptual
+ms.date: 11/30/2017
 ---
+
 # Azure Time Series Insights explorer
 This article explores the various features and options available within the Time Series Insights explorer web app. 
 You use Time Series Insights explorer in your web browser to create visualizations of your data.
  
 Azure Time Series Insights is a fully managed analytics, storage, and visualization service that makes it simple to explore and analyze billions of IoT events simultaneously. It gives you a global view of your data, which lets you quickly validate your IoT solution and avoid costly downtime to mission-critical devices. You can discover hidden trends, spot anomalies, and conduct root-cause analyses in near real time. The Time Series Insights explorer is currently in public preview.
+
+## Video:
+
+In this video, we cover querying data using the Time Series Insights explorer. 
+
+This video builds on Video Time Series Insights:  
+<span style="color:blue">Getting starts with Time Series Insights using an Azure IoT Solution Accelerator.</span>
+</br>
+
+> [!VIDEO https://www.youtube.com/embed/SHFPZvrR71s]
 
 ## Prerequisites
 
@@ -33,7 +43,7 @@ Within minutes of connecting your event source to your Time Series Insights envi
 
 2. Once you select an environment, either use the **FROM** and **TO** configurations at the top, or click and drag over your desired time span.  Click the magnifying glass at the top right, or right-click over the selected timespan and select **Search**.  
 
-3. You can also refresh availability automatically every minute, by selecting the **Auto On** button.
+3. You can also refresh availability automatically every minute, by selecting the **Auto On** button.  Note, the 'Auto-On' button only applies to the availability chart, not the content of the main visualization.
 
 4. Notice, the Azure cloud icon takes you to your environment in the Azure portal.
 
@@ -46,10 +56,10 @@ Within minutes of connecting your event source to your Time Series Insights envi
       - **Split By**: This drop down shows categorical columns (Strings)
       - You can enable step interpolation, show minimum and maximum, and adjust the Y-axis from the control panel next to measure.  Additionally, you can adjust whether data shown is a count, average, or sum of the data.
       - You can add up to five terms to view on the same X-axis.  Use the **copy-down** button to add an additional term or click the **Add** button to add a fresh term.
+     
+        ![Terms Editor panel](media/time-series-insights-explorer/explorer2.png)
 
-      ![Terms Editor panel](media/time-series-insights-explorer/explorer2.png)
-
-      - **Predicate**:  The predicate enables you to quickly filter your events using the set of operands listed below. If you conduct a search by selecting/clicking, the predicate will automatically update based on that search.  Supported operand types include:
+      - **Predicate**:  The predicate enables you to quickly filter your events using the set of operands listed below. If you conduct a search by selecting/clicking, the predicate will automatically update based on that search.      Supported operand types include:
 
          |Operation  |Supported types  |Notes  |
          |---------|---------|---------|
@@ -70,7 +80,7 @@ Within minutes of connecting your event source to your Time Series Insights envi
 
    ![Queries](media/time-series-insights-explorer/explorer3.png)
 
-9. The **Perspective View** tool provides a simultaneous view of up to four unique queries. You can find the perspective view button in the upper right-hand corner of the chart.  
+9. The **Perspective View** tool provides a simultaneous view of up to four unique queries. You can find the perspective view button in the upper right corner of the chart.  
 
    ![Perspective view](media/time-series-insights-explorer/explorer4.png)
 
@@ -96,11 +106,12 @@ Within minutes of connecting your event source to your Time Series Insights envi
 
    - **Patterns**: this feature proactively surfaces the most statistically significant patterns in a selected data region. This relieves you from having to look at thousands of events to understand what patterns most warrant time and energy. Further, Time Series Insights enables you to jump directly into these statistically significant patterns to continue conducting an analysis. This feature is also helpful for post-mortem investigations into historical data. 
 
-   - **Column stats**:  Column stats provide charting and tables that break down data from each column of the selected data series over the selected time span.  
+   - **Column Stats**:  Column stats provide charting and tables that break down data from each column of the selected data series over the selected time span.  
  
       ![STATS](media/time-series-insights-explorer/explorer8.png) 
 
 Now you have seen the various features and options available within the Time Series Insights explorer web app. 
 
 ## Next steps
-[Diagnose and solve problems in your Time Series Insights environment](time-series-insights-diagnose-and-solve-problems.md)
+> [!div class="nextstepaction"]
+>[Diagnose and solve problems in your Time Series Insights environment](time-series-insights-diagnose-and-solve-problems.md)

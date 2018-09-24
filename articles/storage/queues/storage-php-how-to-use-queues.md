@@ -1,21 +1,15 @@
 ---
 title: How to use Queue storage from PHP | Microsoft Docs
 description: Learn how to use the Azure Queue storage service to create and delete queues, and insert, get, and delete messages. Samples are written in PHP.
-documentationcenter: php
 services: storage
-author: tamram
-manager: timlt
-editor: tysonn
-
-ms.assetid: 7582b208-4851-4489-a74a-bb952569f55b
+author: roygara
 ms.service: storage
-ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: PHP
+ms.devlang: php
 ms.topic: article
-ms.date: 12/08/2016
-ms.author: tamram
-
+ms.date: 01/11/2018
+ms.author: rogarana
+ms.component: queues
 ---
 # How to use Queue storage from PHP
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -35,7 +29,24 @@ The only requirement for creating a PHP application that accesses Azure Queue st
 In this guide, you use the Queue storage service features that can be called within a PHP application locally, or in code running within an Azure web role, worker role, or website.
 
 ## Get the Azure Client Libraries
-[!INCLUDE [get-client-libraries](../../../includes/get-client-libraries.md)]
+### Install via Composer
+1. Create a file named **composer.json** in the root of your project and add the following code to it:
+   
+    ```json
+    {
+      "require": {
+        "microsoft/azure-storage-queue": "*"
+      }
+    }
+    ```
+2. Download **[composer.phar][composer-phar]** in your project root.
+3. Open a command prompt and execute the following command in your project root
+   
+    ```
+    php composer.phar install
+    ```
+
+Alternatively go to the [Azure Storage PHP Client Library][download] on GitHub to clone the source code.
 
 ## Configure your application to access Queue storage
 To use the APIs for Azure Queue storage, you need to:
@@ -43,12 +54,11 @@ To use the APIs for Azure Queue storage, you need to:
 1. Reference the autoloader file by using the [require_once] statement.
 2. Reference any classes that you might use.
 
-The following example shows how to include the autoloader file and reference the **ServicesBuilder** class.
+The following example shows how to include the autoloader file and reference the **QueueRestProxy** class.
 
 ```php
 require_once 'vendor/autoload.php';
-use MicrosoftAzure\Storage\Common\ServicesBuilder;
-
+use MicrosoftAzure\Storage\Queue\QueueRestProxy;
 ```
 
 In the following examples, the `require_once` statement is shown always, but only the classes that are necessary for the example to execute are referenced.
@@ -68,7 +78,7 @@ For accessing the emulator storage:
 UseDevelopmentStorage=true
 ```
 
-To create any Azure service client, you need to use the **ServicesBuilder** class. You can use either of the following techniques:
+To create an Azure Queue service client, you need to use the **QueueRestProxy** class. You can use either of the following techniques:
 
 * Pass the connection string directly to it.
 * Use environment variables in your Web App to store the connection string. See [Azure web app configuration settings](../../app-service/web-sites-configure.md) document for configuring connection strings.
@@ -77,10 +87,10 @@ For the examples outlined here, the connection string is passed directly.
 ```php
 require_once 'vendor/autoload.php';
 
-use MicrosoftAzure\Storage\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Queue\QueueRestProxy;
 
 $connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
-$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
+$queueClient = QueueRestProxy::createQueueService($connectionString);
 ```
 
 ## Create a queue
@@ -89,14 +99,14 @@ A **QueueRestProxy** object lets you create a queue by using the **createQueue**
 ```php
 require_once 'vendor/autoload.php';
 
-use MicrosoftAzure\Storage\Common\ServicesBuilder;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Queue\QueueRestProxy;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 use MicrosoftAzure\Storage\Queue\Models\CreateQueueOptions;
 
 $connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
 // Create queue REST proxy.
-$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
+$queueClient = QueueRestProxy::createQueueService($connectionString);
 
 // OPTIONAL: Set queue metadata.
 $createQueueOptions = new CreateQueueOptions();
@@ -105,7 +115,7 @@ $createQueueOptions->addMetaData("key2", "value2");
 
 try    {
     // Create queue.
-    $queueRestProxy->createQueue("myqueue", $createQueueOptions);
+    $queueClient->createQueue("myqueue", $createQueueOptions);
 }
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
@@ -128,19 +138,18 @@ To add a message to a queue, use **QueueRestProxy->createMessage**. The method t
 ```php
 require_once 'vendor/autoload.php';
 
-use MicrosoftAzure\Storage\Common\ServicesBuilder;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Queue\QueueRestProxy;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 use MicrosoftAzure\Storage\Queue\Models\CreateMessageOptions;
 
 $connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
 // Create queue REST proxy.
-$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
+$queueClient = QueueRestProxy::createQueueService($connectionString);
 
 try    {
     // Create message.
-    $builder = new ServicesBuilder();
-    $queueRestProxy->createMessage("myqueue", "Hello World!");
+    $queueClient->createMessage("myqueue", "Hello World!");
 }
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
@@ -158,21 +167,21 @@ You can peek at a message (or messages) at the front of a queue without removing
 ```php
 require_once 'vendor/autoload.php';
 
-use MicrosoftAzure\Storage\Common\ServicesBuilder;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Queue\QueueRestProxy;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 use MicrosoftAzure\Storage\Queue\Models\PeekMessagesOptions;
 
 $connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
 // Create queue REST proxy.
-$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
+$queueClient = QueueRestProxy::createQueueService($connectionString);
 
 // OPTIONAL: Set peek message options.
 $message_options = new PeekMessagesOptions();
 $message_options->setNumberOfMessages(1); // Default value is 1.
 
 try    {
-    $peekMessagesResult = $queueRestProxy->peekMessages("myqueue", $message_options);
+    $peekMessagesResult = $queueClient->peekMessages("myqueue", $message_options);
 }
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
@@ -206,16 +215,16 @@ Your code removes a message from a queue in two steps. First, you call **QueueRe
 ```php
 require_once 'vendor/autoload.php';
 
-use MicrosoftAzure\Storage\Common\ServicesBuilder;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Queue\QueueRestProxy;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 
 $connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
 // Create queue REST proxy.
-$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
+$queueClient = QueueRestProxy::createQueueService($connectionString);
 
 // Get message.
-$listMessagesResult = $queueRestProxy->listMessages("myqueue");
+$listMessagesResult = $queueClient->listMessages("myqueue");
 $messages = $listMessagesResult->getQueueMessages();
 $message = $messages[0];
 
@@ -229,7 +238,7 @@ $popReceipt = $message->getPopReceipt();
 
 try    {
     // Delete message.
-    $queueRestProxy->deleteMessage("myqueue", $messageId, $popReceipt);
+    $queueClient->deleteMessage("myqueue", $messageId, $popReceipt);
 }
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
@@ -247,16 +256,16 @@ You can change the contents of a message in-place in the queue by calling **Queu
 ```php
 require_once 'vendor/autoload.php';
 
-use MicrosoftAzure\Storage\Common\ServicesBuilder;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Queue\QueueRestProxy;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 
 // Create queue REST proxy.
-$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
+$queueClient = QueueRestProxy::createQueueService($connectionString);
 
 $connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
 // Get message.
-$listMessagesResult = $queueRestProxy->listMessages("myqueue");
+$listMessagesResult = $queueClient->listMessages("myqueue");
 $messages = $listMessagesResult->getQueueMessages();
 $message = $messages[0];
 
@@ -270,7 +279,7 @@ $popReceipt = $message->getPopReceipt();
 
 try    {
     // Update message.
-    $queueRestProxy->updateMessage("myqueue",
+    $queueClient->updateMessage("myqueue",
                                 $messageId,
                                 $popReceipt,
                                 $new_message_text,
@@ -292,14 +301,14 @@ There are two ways that you can customize message retrieval from a queue. First,
 ```php
 require_once 'vendor/autoload.php';
 
-use MicrosoftAzure\Storage\Common\ServicesBuilder;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Queue\QueueRestProxy;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 use MicrosoftAzure\Storage\Queue\Models\ListMessagesOptions;
 
 $connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
 // Create queue REST proxy.
-$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
+$queueClient = QueueRestProxy::createQueueService($connectionString);
 
 // Set list message options.
 $message_options = new ListMessagesOptions();
@@ -308,7 +317,7 @@ $message_options->setNumberOfMessages(16);
 
 // Get messages.
 try{
-    $listMessagesResult = $queueRestProxy->listMessages("myqueue",
+    $listMessagesResult = $queueClient->listMessages("myqueue",
                                                      $message_options);
     $messages = $listMessagesResult->getQueueMessages();
 
@@ -323,7 +332,7 @@ try{
         $popReceipt = $message->getPopReceipt();
 
         // Delete message.
-        $queueRestProxy->deleteMessage("myqueue", $messageId, $popReceipt);
+        $queueClient->deleteMessage("myqueue", $messageId, $popReceipt);
     }
 }
 catch(ServiceException $e){
@@ -342,17 +351,17 @@ You can get an estimate of the number of messages in a queue. The **QueueRestPro
 ```php
 require_once 'vendor/autoload.php';
 
-use MicrosoftAzure\Storage\Common\ServicesBuilder;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Queue\QueueRestProxy;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 
 $connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
 // Create queue REST proxy.
-$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
+$queueClient = QueueRestProxy::createQueueService($connectionString);
 
 try    {
     // Get queue metadata.
-    $queue_metadata = $queueRestProxy->getQueueMetadata("myqueue");
+    $queue_metadata = $queueClient->getQueueMetadata("myqueue");
     $approx_msg_count = $queue_metadata->getApproximateMessageCount();
 }
 catch(ServiceException $e){
@@ -373,17 +382,17 @@ To delete a queue and all the messages in it, call the **QueueRestProxy->deleteQ
 ```php
 require_once 'vendor/autoload.php';
 
-use MicrosoftAzure\Storage\Common\ServicesBuilder;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Queue\QueueRestProxy;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 
 $connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
 // Create queue REST proxy.
-$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
+$queueClient = QueueRestProxy::createQueueService($connectionString);
 
 try    {
     // Delete queue.
-    $queueRestProxy->deleteQueue("myqueue");
+    $queueClient->deleteQueue("myqueue");
 }
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
@@ -401,9 +410,10 @@ Now that you've learned the basics of Azure Queue storage, follow these links to
 * Visit the [API Reference for Azure Storage PHP Client Library](http://azure.github.io/azure-storage-php/)
 * See the [Advanced Queue example](https://github.com/Azure/azure-storage-php/blob/master/samples/QueueSamples.php).
 
-For more information, see also the [PHP Developer Center](/develop/php/).
+For more information, see also the [PHP Developer Center](https://azure.microsoft.com/develop/php/).
 
 [download]: https://github.com/Azure/azure-storage-php
 [require_once]: http://www.php.net/manual/en/function.require-once.php
 [Azure Portal]: https://portal.azure.com
+[composer-phar]: http://getcomposer.org/composer.phar
 

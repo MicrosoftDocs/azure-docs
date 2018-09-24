@@ -4,10 +4,9 @@ description: Shows how to page through all of the webpages that Bing can return.
 services: cognitive-services
 author: brapel
 manager: ehansen
-
 ms.assetid: 26CA595B-0866-43E8-93A2-F2B5E09D1F3B
 ms.service: cognitive-services
-ms.technology: bing-web-search
+ms.component: bing-custom-search
 ms.topic: article
 ms.date: 09/28/2017
 ms.author: v-brapel
@@ -15,7 +14,7 @@ ms.author: v-brapel
 
 # Paging webpages 
 
-When you call the Web Search API, Bing returns a list of results. The list is a subset of the total number of results that may be relevant to the query. To get the estimated total number of available results, access the answer object's [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#totalestimatedmatches) field.  
+When you call the Custom Search API, Bing returns a list of results. The list is a subset of the total number of results that may be relevant to the query. To get the estimated total number of available results, access the answer object's [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#totalestimatedmatches) field.  
   
 The following example shows the `totalEstimatedMatches` field that a Web answer includes.  
   
@@ -41,7 +40,7 @@ If you want to display 15 webpages per page, you would set `count` to 15 and `of
 The following shows an example that requests 15 webpages beginning at offset 45.  
   
 ```  
-GET https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?q=sailing+dinghies&count=15&offset=45&mkt=en-us HTTP/1.1  
+GET https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?q=sailing+dinghies&count=15&offset=45&mkt=en-us&customConfig=123456 HTTP/1.1  
 Ocp-Apim-Subscription-Key: <subscription ID>
 Host: api.cognitive.microsoft.com  
 ```  
@@ -49,11 +48,8 @@ Host: api.cognitive.microsoft.com
 If the default `count` value works for your implementation, you only need to specify the `offset` query parameter.  
   
 ```  
-GET https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?q=sailing+dinghies&offset=45&mkt=en-us HTTP/1.1  
+GET https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?q=sailing+dinghies&offset=45&mkt=en-us&customConfig=123456 HTTP/1.1  
 Ocp-Apim-Subscription-Key: <subscription ID>  
 Host: api.cognitive.microsoft.com  
 ```  
-  
-The Web Search API returns results that include webpages and may include images, videos, and news. When you page the search results, you are paging the [WebAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#webanswer) answer and not the other answers such as images or news. For example, if you set `count` to 50, you get back 50 webpage results, but the response may include results for the other answers as well. For example, the response may include 15 images and 4 news articles. It is also possible that the results may include news on the first page but not the second page, or vice versa.   
-    
-If you specify the `responseFilter` query parameter and do not include Webpages in the filter list, don't use the `count` and `offset` parameters.  
+

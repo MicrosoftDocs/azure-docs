@@ -1,23 +1,15 @@
 ---
-title: Quickstart - Azure Kubernetes cluster for Windows | Microsoft Docs
+title: Quickstart - Azure Kubernetes cluster for Windows
 description: Quickly learn to create a Kubernetes cluster for Windows containers in Azure Container Service with the Azure CLI.
-documentationcenter: ''
+services: container-service
 author: dlepow
-manager: timlt
-editor: ''
-tags: acs, azure-container-service, kubernetes
-keywords: ''
+manager: jeconnoc
 
-ms.assetid: 
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/18/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-
 ---
 
 # Deploy Kubernetes cluster for Windows containers
@@ -30,7 +22,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli). 
 
 > [!NOTE]
 > Support for Windows containers on Kubernetes in Azure Container Service is in preview. 
@@ -38,7 +30,7 @@ If you choose to install and use the CLI locally, this quickstart requires that 
 
 ## Create a resource group
 
-Create a resource group with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical group in which Azure resources are deployed and managed. 
+Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. An Azure resource group is a logical group in which Azure resources are deployed and managed. 
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
@@ -47,7 +39,7 @@ az group create --name myResourceGroup --location eastus
 ```
 
 ## Create Kubernetes cluster
-Create a Kubernetes cluster in Azure Container Service with the [az acs create](/cli/azure/acs#create) command. 
+Create a Kubernetes cluster in Azure Container Service with the [az acs create](/cli/azure/acs#az-acs-create) command. 
 
 The following example creates a cluster named *myK8sCluster* with one Linux master node and two Windows agent nodes. This example creates SSH keys needed to connect to the Linux master. This example uses *azureuser* for an administrative user name and *myPassword12* as the password on the Windows nodes. Update these values to something appropriate to your environment. 
 
@@ -189,7 +181,7 @@ You can use a web browser of your choice to see the default IIS welcome page at 
 
 
 ## Delete cluster
-When the cluster is no longer needed, you can use the [az group delete](/cli/azure/group#delete) command to remove the resource group, container service, and all related resources.
+When the cluster is no longer needed, you can use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, container service, and all related resources.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup

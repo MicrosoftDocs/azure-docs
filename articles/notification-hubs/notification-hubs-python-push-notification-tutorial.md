@@ -3,9 +3,9 @@ title: How to use Notification Hubs with Python
 description: Learn how to use Azure Notification Hubs from a Python back-end.
 services: notification-hubs
 documentationcenter: ''
-author: ysxu
-manager: erikre
-editor: ''
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 
 ms.assetid: 5640dd4a-a91e-4aa0-a833-93615bde49b4
 ms.service: notification-hubs
@@ -13,14 +13,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: python
 ms.devlang: php
 ms.topic: article
-ms.date: 06/29/2016
-ms.author: yuaxu
+ms.date: 04/14/2018
+ms.author: dimazaid
 
 ---
 # How to use Notification Hubs from Python
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
-You can access all Notification Hubs features from a Java/PHP/Python/Ruby back-end using the Notification Hub REST interface as described in the MSDN topic [Notification Hubs REST APIs](http://msdn.microsoft.com/library/dn223264.aspx).
+You can access all Notification Hubs features from a Java/PHP/Python/Ruby back-end using the Notification Hub REST interface as described in the MSDN article [Notification Hubs REST APIs](http://msdn.microsoft.com/library/dn223264.aspx).
 
 > [!NOTE]
 > This is a sample reference implementation for implementing the notification sends in Python and is not the officially supported Notifications Hub Python SDK.
@@ -29,7 +29,7 @@ You can access all Notification Hubs features from a Java/PHP/Python/Ruby back-e
 > 
 > 
 
-In this topic we show how to:
+This article shows you how to:
 
 * Build a REST client for Notification Hubs features in Python.
 * Send notifications using the Python interface to the Notification Hub REST APIs. 
@@ -43,7 +43,7 @@ You can follow the [Get started tutorial](notification-hubs-windows-store-dotnet
 > 
 
 ## Client interface
-The main client interface can provide the same methods that are available in the [.NET Notification Hubs SDK](http://msdn.microsoft.com/library/jj933431.aspx). This will allow you to directly translate all the tutorials and samples currently available on this site, and contributed by the community on the internet.
+The main client interface can provide the same methods that are available in the [.NET Notification Hubs SDK](http://msdn.microsoft.com/library/jj933431.aspx). This interface allows you to directly translate all the tutorials and samples currently available on this site, and contributed by the community on the internet.
 
 You can find all the code available in the [Python REST wrapper sample].
 
@@ -58,9 +58,9 @@ To send a Windows toast notification:
     hub.send_windows_notification(wns_payload)
 
 ## Implementation
-If you did not already, please follow our [Get started tutorial] up to the last section where you have to implement the back-end.
+If you did not already, follow the [Get started tutorial] up to the last section where you have to implement the back-end.
 
-All the details to implement a full REST wrapper can be found on [MSDN](http://msdn.microsoft.com/library/dn530746.aspx). In this section we will describe the Python implementation of the main steps required to access Notification Hubs REST endpoints and send notifications
+All the details to implement a full REST wrapper can be found on [MSDN](http://msdn.microsoft.com/library/dn530746.aspx). This section describes the Python implementation of the main steps required to access Notification Hubs REST endpoints and send notifications
 
 1. Parse the connection string
 2. Generate the authorization token
@@ -93,7 +93,7 @@ Here is the main class implementing the client, whose constructor parses the con
 
 ### Create security token
 The details of the security token creation are available [here](http://msdn.microsoft.com/library/dn495627.aspx).
-The following methods have to be added to the **NotificationHub** class to create the token based on the URI of the current request and the credentials extracted from the connection string.
+Add following methods to the **NotificationHub** class to create the token based on the URI of the current request and the credentials extracted from the connection string.
 
     @staticmethod
     def get_expiry():
@@ -142,11 +142,11 @@ First, let use define a class representing a notification.
             # in W3C DTF, YYYY-MM-DDThh:mmTZD (for example, 1997-07-16T19:20+01:00).
             self.headers = None
 
-This class is a container for a native notification body or a set of properties in case of a template notification, a set of headers which contains format (native platform or template) and platform-specific properties (like Apple expiration property and WNS headers).
+This class is a container for a native notification body or a set of properties of a template notification, a set of headers, which contains format (native platform or template) and platform-specific properties (like Apple expiration property and WNS headers).
 
-Please refer to the [Notification Hubs REST APIs documentation](http://msdn.microsoft.com/library/dn495827.aspx) and the specific notification platforms' formats for all the options available.
+Refer to the [Notification Hubs REST APIs documentation](http://msdn.microsoft.com/library/dn495827.aspx) and the specific notification platforms' formats for all the options available.
 
-Now with this class, we can write the send notification methods inside of the **NotificationHub** class.
+Now with this class, write the send notification methods inside of the **NotificationHub** class.
 
     def make_http_request(self, url, payload, headers):
         parsed_url = urllib.parse.urlparse(url)
@@ -254,13 +254,12 @@ Now with this class, we can write the send notification methods inside of the **
         nh = Notification("template", properties)
         self.send_notification(nh, tags)
 
-The above methods send an HTTP POST request to the /messages endpoint of your notification hub, with the correct body and headers to send the notification.
+These methods send an HTTP POST request to the /messages endpoint of your notification hub, with the correct body and headers to send the notification.
 
 ### Using debug property to enable detailed logging
-Enabling debug property while initializing the Notification Hub will write out detailed logging information about the HTTP request and response dump as well as detailed Notification message send outcome. 
-We recently added this property called [Notification Hubs TestSend property](http://msdn.microsoft.com/library/microsoft.servicebus.notifications.notificationhubclient.enabletestsend.aspx)
-which returns detailed information about the notification send outcome. 
-To use it - initialize using the following:
+Enabling debug property while initializing the Notification Hub writes out detailed logging information about the HTTP request and response dump as well as detailed Notification message send outcome. 
+The [Notification Hubs TestSend property](https://docs.microsoft.com/en-us/previous-versions/azure/reference/dn495827(v=azure.100)) returns detailed information about the notification send outcome. 
+To use it - initialize using the following code:
 
     hub = NotificationHub("myConnectionString", "myNotificationHubName", isDebug)
 
@@ -273,7 +272,7 @@ Initialize your Notification Hubs client (substitute the connection string and h
 
     hub = NotificationHub("myConnectionString", "myNotificationHubName")
 
-Then add the send code depending on your target mobile platform. This sample also adds higher level methods to enable sending notifications based on the platform e.g. send_windows_notification for windows; send_apple_notification (for apple) etc. 
+Then add the send code depending on your target mobile platform. This sample also adds higher-level methods to enable sending notifications based on the platform, for example, send_windows_notification for windows; send_apple_notification (for apple) etc. 
 
 ### Windows Store and Windows Phone 8.1 (non-Silverlight)
     wns_payload = """<toast><visual><binding template=\"ToastText01\"><text id=\"1\">Test</text></binding></visual></toast>"""
@@ -322,15 +321,15 @@ Running your Python code should produce a notification appearing on your target 
 
 ## Examples:
 ### Enabling debug property
-When you enable debug flag while initializing the NotificationHub then you will see detailed HTTP request and response dump as well as NotificationOutcome like the following where you can understand what HTTP headers are passed in the request and what HTTP response was received from the Notification Hub:
+When you enable the debug flag while initializing the NotificationHub, you see detailed HTTP request and response dump as well as NotificationOutcome like the following where you can understand what HTTP headers are passed in the request and what HTTP response was received from the Notification Hub:
        ![][1]
 
-You will see detailed Notification Hub result e.g. 
+You see detailed Notification Hub result for example. 
 
 * when the message is successfully sent to the Push Notification Service. 
   
         <Outcome>The Notification was successfully sent to the Push Notification System</Outcome>
-* If there were no targets found for any push notification then you are likely going to see the following in the response (which indicates that there were no registrations found to deliver the notification probably because the registrations had some mismatched tags)
+* If there were no targets found for any push notification, then you are likely going to see the following output as the response (which indicates that there were no registrations found to deliver the notification probably because the registrations had some mismatched tags)
   
         '<NotificationOutcome xmlns="http://schemas.microsoft.com/netservices/2010/10/servicebus/connect" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><Success>0</Success><Failure>0</Failure><Results i:nil="true"/></NotificationOutcome>'
 
@@ -342,7 +341,7 @@ Notice the headers that get sent out when you are sending a broadcast toast noti
 ![][2]
 
 ### Send notification specifying a tag (or tag expression)
-Notice the Tags HTTP header which gets added to the HTTP request (in the example below, we are sending the notification only to registrations with 'sports' payload)
+Notice the Tags HTTP header, which gets added to the HTTP request (in the example below, the notification is sent only to registrations with 'sports' payload)
 
     hub.send_windows_notification(wns_payload, "sports")
 
@@ -372,9 +371,9 @@ Notice that the Format HTTP header changes and the payload body is sent as part 
 ![][5]
 
 ## Next Steps
-In this topic we showed how to create a simple Python REST client for Notification Hubs. From here you can:
+This article showed how to create a Python REST client for Notification Hubs. From here you can:
 
-* Download the full [Python REST wrapper sample], which contains all the code above.
+* Download the full [Python REST wrapper sample], which contains all the code in this article.
 * Continue learning about Notification Hubs tagging feature in the [Breaking News tutorial]
 * Continue learning about Notification Hubs Templates feature in the [Localizing News tutorial]
 

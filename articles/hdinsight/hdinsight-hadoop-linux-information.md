@@ -1,23 +1,14 @@
 ---
-title: Tips for using Hadoop on Linux-based HDInsight - Azure | Microsoft Docs
+title: Tips for using Hadoop on Linux-based HDInsight - Azure 
 description: Get implementation tips for using Linux-based HDInsight (Hadoop) clusters on a familiar Linux environment running in the Azure cloud.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-
-ms.assetid: c41c611c-5798-4c14-81cc-bed1e26b5609
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 10/04/2017
-ms.author: larryfr
-
+ms.topic: conceptual
+ms.date: 08/09/2018
 ---
 # Information about using HDInsight on Linux
 
@@ -32,7 +23,7 @@ Many of the steps in this document use the following utilities, which may need t
 
 * [cURL](https://curl.haxx.se/) - used to communicate with web-based services
 * [jq](https://stedolan.github.io/jq/) - used to parse JSON documents
-* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) (preview) - used to remotely manage Azure services
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2) - used to remotely manage Azure services
 
 ## Users
 
@@ -88,6 +79,8 @@ This command returns a JSON document describing the service, and then jq pulls o
     > [!NOTE]
     > You can only access the cluster head nodes through SSH from a client machine. Once connected, you can then access the worker nodes by using SSH from a headnode.
 
+For more information, see the [Ports used by Hadoop services on HDInsight](hdinsight-hadoop-port-settings-for-services.md) document.
+
 ## File locations
 
 Hadoop-related files can be found on the cluster nodes at `/usr/hdp`. This directory contains the following subdirectories:
@@ -99,21 +92,21 @@ Example data and JAR files can be found on Hadoop Distributed File System at `/e
 
 ## HDFS, Azure Storage, and Data Lake Store
 
-In most Hadoop distributions, HDFS is backed by local storage on the machines in the cluster. Using local storage can be costly for a cloud-based solution where you are charged hourly or by minute for compute resources.
+In most Hadoop distributions, the data is stored in HDFS, which is backed by local storage on the machines in the cluster. Using local storage can be costly for a cloud-based solution where you are charged hourly or by minute for compute resources.
 
-HDInsight uses either blobs in Azure Storage or Azure Data Lake Store as the default store. These services provide the following benefits:
+When using HDInsight, the data files are stored in a scalable and resilient way in the cloud using Azure Blob Storage and optionally Azure Data Lake Store. These services provide the following benefits:
 
 * Cheap long-term storage
 * Accessibility from external services such as websites, file upload/download utilities, various language SDKs, and web browsers
+* Large file capacity and large scalable storage
 
-> [!WARNING]
-> HDInsight only supports __General-purpose__ Azure Storage accounts. It does not currently support the __Blob storage__ account type.
-
-An Azure Storage account can hold up to 4.75 TB, though individual blobs (or files from an HDInsight perspective) can only go up to 195 GB. Azure Data Lake Store can grow dynamically to hold trillions of files, with individual files greater than a petabyte. For more information, see [Understanding blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) and [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/).
+For more information, see [Understanding blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) and [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/).
 
 When using either Azure Storage or Data Lake Store, you don't have to do anything special from HDInsight to access the data. For example, the following command lists files in the `/example/data` folder regardless of whether it is stored on Azure Storage or Data Lake Store:
 
     hdfs dfs -ls /example/data
+
+In HDInsight, the data storage resources (Azure Blob Storage and Azure Data Lake Store) are decoupled from compute resources. Therefore, you can create HDInsight clusters to do computation as you need, and later delete the cluster when the work is finished, meanwhile keeping your data files persisted safely in cloud storage as long as you need.
 
 ### URI and scheme
 
@@ -177,7 +170,7 @@ There are a various ways to access data from outside the HDInsight cluster. The 
 
 If using __Azure Storage__, see the following links for ways that you can access your data:
 
-* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2): Command-Line interface commands for working with Azure. After installing, use the `az storage` command for help on using storage, or `az storage blob` for blob-specific commands.
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2): Command-Line interface commands for working with Azure. After installing, use the `az storage` command for help on using storage, or `az storage blob` for blob-specific commands.
 * [blobxfer.py](https://github.com/Azure/azure-batch-samples/tree/master/Python/Storage): A python script for working with blobs in Azure Storage.
 * Various SDKs:
 
@@ -193,7 +186,7 @@ If using __Azure Data Lake Store__, see the following links for ways that you ca
 
 * [Web browser](../data-lake-store/data-lake-store-get-started-portal.md)
 * [PowerShell](../data-lake-store/data-lake-store-get-started-powershell.md)
-* [Azure CLI 2.0](../data-lake-store/data-lake-store-get-started-cli-2.0.md)
+* [Azure CLI](../data-lake-store/data-lake-store-get-started-cli-2.0.md)
 * [WebHDFS REST API](../data-lake-store/data-lake-store-get-started-rest-api.md)
 * [Data Lake Tools for Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504)
 * [.NET](../data-lake-store/data-lake-store-get-started-net-sdk.md)
@@ -231,6 +224,8 @@ The different cluster types are affected by scaling as follows:
 
         1. Open **https://CLUSTERNAME.azurehdinsight.net/stormui** in your web browser, where CLUSTERNAME is the name of your Storm cluster. If prompted, enter the HDInsight cluster administrator (admin) name and password you specified when creating the cluster.
         2. Select the topology you wish to rebalance, then select the **Rebalance** button. Enter the delay before the rebalance operation is performed.
+
+* **Kafka**: You should rebalance partition replicas after scaling operations. For more information, see the [High availability of data with Kafka on HDInsight](./kafka/apache-kafka-high-availability.md) document.
 
 For specific information on scaling your HDInsight cluster, see:
 

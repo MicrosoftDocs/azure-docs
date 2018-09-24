@@ -2,7 +2,7 @@
 title: "Azure Cloud Services Def. LoadBalancerProbe Schema | Microsoft Docs"
 ms.custom: ""
 ms.date: "04/14/2015"
-ms.prod: "azure"
+services: cloud-services
 ms.reviewer: ""
 ms.service: "cloud-services"
 ms.suite: ""
@@ -10,8 +10,8 @@ ms.tgt_pltfrm: ""
 ms.topic: "reference"
 ms.assetid: 113374a8-8072-4994-9d99-de391a91e6ea
 caps.latest.revision: 14
-author: "thraka"
-ms.author: "adegeo"
+author: "jpconnock"
+ms.author: "jeconnoc"
 manager: "timlt"
 ---
 # Azure Cloud Services Definition LoadBalancerProbe Schema

@@ -2,8 +2,9 @@
 ms.assetid: 
 title: Azure Key Vault soft delete | Microsoft Docs
 ms.service: key-vault
-author: BrucePerlerMS
-ms.author: bruceper
+ms.topic: conceptual
+author: bryanla
+ms.author: bryanla
 manager: mbaldwin
 ms.date: 09/25/2017
 ---
@@ -31,9 +32,17 @@ Azure Key Vaults are tracked resources, managed by Azure Resource Manager. Azure
 
 ### Soft-delete behavior
 
-With this feature, the DELETE operation on a key vault or key vault object is a soft-delete, effectively holding the resources for a given retention period, while giving the appearance that the object is deleted. The service further provides a mechanism for recovering the deleted object, essentially undoing the deletion. 
+With this feature, the DELETE operation on a key vault or key vault object is a soft-delete, effectively holding the resources for a given retention period (90 days), while giving the appearance that the object is deleted. The service further provides a mechanism for recovering the deleted object, essentially undoing the deletion. 
 
 Soft-delete is an optional Key Vault behavior and is **not enabled by default** in this release. 
+
+### Do not purge flag
+A user who wants to force deletion of the vault or the vault object can do so. That is if a user who has permissions to delete a vault or an object within the vault can force purge even if Soft delete for that vault is turned on. But if the user wants to prevent force deletion of the vault or the vault object they can set --enable-purge-protection flag to be true. When you create a vault you can enable the flag by doing so. 
+The prerequisite to turning on purge protection is you must have soft delete turned on. The command to do so in Azure CLI 2 is
+
+```
+az keyvault create --name "VaultName" --resource-group "ResourceGroupName" --location westus --enable-soft-delete true --enable-purge-protection true
+```
 
 ### Key vault recovery
 
@@ -63,6 +72,13 @@ Unless a key vault or key vault object is recovered, at the end of the retention
 Permanently deleting, purging, a key vault is possible via a POST operation on the proxy resource and requires special privileges. Generally, only the subscription owner will be able to purge a key vault. The POST operation triggers the immediate and irrecoverable deletion of that vault. 
 
 An exception to this is the case when the Azure subscription has been marked as *undeletable*. In this case, only the service may then perform the actual deletion, and does so as a scheduled process. 
+
+### Billing implications
+
+In general, when an object (a key vault or a key or a secret) is in deleted state, there are only two operations possible: 'purge' and 'recover'. All the other operations will fail. Therefore, even though the object exists, no operations can be performed and hence no usage will occur, so no bill. However there are following exceptions:
+
+- 'purge' and 'recover' actions will count towards normal key vault operations and will be billed.
+- If the object is an HSM-key, the 'HSM Protected key' charge per key version per month charge will apply if a key version has been used in last 30 days. After that, since the object is in deleted state no operations can be performed against it, so no charge will apply.
 
 ## Next steps
 

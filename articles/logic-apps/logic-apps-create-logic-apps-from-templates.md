@@ -1,21 +1,15 @@
 ---
 title: Create workflows from templates - Azure Logic Apps | Microsoft Docs
-description: Build workflows faster by using logic app templates
-author: kevinlam1
-manager: anneta
-editor: ''
+description: Build workflows faster by using logic app templates in Azure Logic Apps
 services: logic-apps
-documentationcenter: ''
-
-ms.assetid: 3656acfb-eefd-4e75-b5d2-73da56c424c9
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: kevinlam1
+ms.author: klam
+ms.reviewer: estfan, LADocs
 ms.topic: article
+ms.assetid: 3656acfb-eefd-4e75-b5d2-73da56c424c9
 ms.date: 10/15/2017
-ms.author: LADocs; klam
-ms.custom: H1Hack27Feb2017 
 ---
 
 # Create logic app workflows from prebuilt templates
@@ -37,7 +31,7 @@ Here are some template categories:
 ||| 
 
 If you don't have an Azure subscription, 
-[sign up for a free Azure account](https://azure.microsoft.com/free/) before you begin. For more information about building a logic app, see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
+[sign up for a free Azure account](https://azure.microsoft.com/free/) before you begin. For more information about building a logic app, see [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Create logic apps from templates
 
@@ -45,7 +39,7 @@ If you don't have an Azure subscription,
 [Azure portal](https://portal.azure.com "Azure portal").
 
 2. From the main Azure menu, choose 
-**New** > **Enterprise Integration** > **Logic App**.
+**Create a resource** > **Enterprise Integration** > **Logic App**.
 
    ![Azure portal, New, Enterprise Integration, Logic App](./media/logic-apps-create-logic-apps-from-templates/azure-portal-create-logic-app.png)
 
@@ -59,7 +53,7 @@ If you don't have an Azure subscription,
    | **Subscription** | *your-Azure-subscription-name* | Select the Azure subscription that you want to use. | 
    | **Resource group** | *your-Azure-resource-group-name* | Create or select an [Azure resource group](../azure-resource-manager/resource-group-overview.md) for this logic app and to organize all resources associated with this app. | 
    | **Location** | *your-Azure-datacenter-region* | Select the datacenter region for deploying your logic app, for example, West US. | 
-   | **Log Analytics** | **Off** (default) or **On** | Turn on [diagnostic logging](../logic-apps/logic-apps-monitor-your-logic-apps.md#turn-on-diagnostics-logging-for-your-logic-app) for your logic app through [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Requires that you already have an [Operations Management Suite](../operations-management-suite/operations-management-suite-overview.md) workspace. | 
+   | **Log Analytics** | **Off** (default) or **On** | Turn on [diagnostic logging](../logic-apps/logic-apps-monitor-your-logic-apps.md#turn-on-diagnostics-logging-for-your-logic-app) for your logic app through [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Requires that you already have a Log Analytics workspace. | 
    |||| 
 
 4. When you're ready, select **Pin to dashboard**. 

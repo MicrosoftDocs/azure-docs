@@ -1,21 +1,13 @@
 ---
-title: Create action groups with Resource Manager templates | Microsoft Docs
+title: Create action groups with Resource Manager templates
 description: Learn how to create an action group by using an Azure Resource Manager template.
-author: anirudhcavale
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.assetid:
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/31/2017
-ms.author: ancav
-
+author: dkamstra
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 02/16/2018
+ms.author: dukek
+ms.component: alerts
 ---
 
 # Create an action group with a Resource Manager template
@@ -31,7 +23,7 @@ First, we describe how to create a Resource Manager template for an action group
 
 ## Resource Manager templates for an action group
 
-To create an action group by using a Resource Manager template, you create a resource of the type `Microsoft.Insights/actionGroups`. Then you fill in all related properties. Here are two sample templates that create an action group.
+To create an action group using a Resource Manager template, you create a resource of the type `Microsoft.Insights/actionGroups`. Then you fill in all related properties. Here are two sample templates that create an action group.
 
 ```json
 {
@@ -54,7 +46,7 @@ To create an action group by using a Resource Manager template, you create a res
   "resources": [
     {
       "type": "Microsoft.Insights/actionGroups",
-      "apiVersion": "2017-04-01",
+      "apiVersion": "2018-03-01",
       "name": "[parameters('actionGroupName')]",
       "location": "Global",
       "properties": {
@@ -124,7 +116,7 @@ To create an action group by using a Resource Manager template, you create a res
     "webhookReceiverName": {
       "type": "string",
       "metadata": {
-        "description": "Webhook receiver service URI."
+        "description": "Webhook receiver service Name."
       }
     },    
     "webhookServiceUri": {
@@ -137,7 +129,7 @@ To create an action group by using a Resource Manager template, you create a res
   "resources": [
     {
       "type": "Microsoft.Insights/actionGroups",
-      "apiVersion": "2017-04-01",
+      "apiVersion": "2018-03-01",
       "name": "[parameters('actionGroupName')]",
       "location": "Global",
       "properties": {

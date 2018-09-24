@@ -4,16 +4,16 @@ description: 'Learn about how to push data to Azure Search Index by using Azure 
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.assetid: f8d46e1e-5c37-4408-80fb-c54be532a4ab
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/01/2017
+ms.topic: conceptual
+ms.date: 01/22/2018
 ms.author: jingwang
 
 robots: noindex
@@ -21,11 +21,11 @@ robots: noindex
 
 # Push data to an Azure Search index by using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](data-factory-azure-search-connector.md)
-> * [Version 2 - Preview](../connector-azure-search.md)
+> * [Version 1](data-factory-azure-search-connector.md)
+> * [Version 2 (current version)](../connector-azure-search.md)
 
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [Azure Search connector in V2](../connector-azure-search.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [Azure Search connector in V2](../connector-azure-search.md).
 
 This article describes how to use the Copy Activity to push data from a supported source data store to Azure Search index. Supported source data stores are listed in the Source column of the [supported sources and sinks](data-factory-data-movement-activities.md#supported-data-stores-and-formats) table. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with Copy Activity and supported data store combinations.
 

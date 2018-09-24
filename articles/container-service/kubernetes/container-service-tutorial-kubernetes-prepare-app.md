@@ -1,21 +1,13 @@
 ---
-title: Azure Container Service tutorial - Prepare App | Microsoft Docs
+title: Azure Container Service tutorial - Prepare App
 description: Azure Container Service tutorial - Prepare App 
 services: container-service
-documentationcenter: ''
 author: neilpeterson
-manager: timlt
-editor: ''
-tags: acs, azure-container-service
-keywords: Docker, Containers, Micro-services, Kubernetes, DC/OS, Azure
+manager: jeconnoc
 
-ms.assetid: 
 ms.service: container-service
-ms.devlang: azurecli
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/14/2017
+ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
 ---

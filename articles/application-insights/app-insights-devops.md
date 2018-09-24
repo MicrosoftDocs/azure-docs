@@ -1,4 +1,4 @@
-﻿---
+---
 title: Web application performance monitoring - Azure Application Insights | Microsoft Docs
 description: How Application Insights fits into the devOps cycle
 services: application-insights
@@ -11,7 +11,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
 
@@ -148,7 +148,7 @@ And when Application Insights logs an exception, you can view the data point in 
 During debugging, you have the option to keep the telemetry in your development machine, viewing it in Visual Studio but without sending it to the portal. This local option avoids mixing debugging with production telemetry.
 
 ### Build annotations
-If you use Visual Studio Team Services to build and deploy your app, deployment annotations show up on charts in the portal. If your latest release had any effect on the metrics, it becomes obvious.
+If you use Azure DevOps to build and deploy your app, deployment annotations show up on charts in the portal. If your latest release had any effect on the metrics, it becomes obvious.
 
 ![Build annotations](./media/app-insights-devops/070.png)
 

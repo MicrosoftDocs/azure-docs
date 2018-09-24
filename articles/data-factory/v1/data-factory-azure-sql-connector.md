@@ -4,27 +4,27 @@ description: Learn how to copy data to/from Azure SQL Database using Azure Data 
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.assetid: 484f735b-8464-40ba-a9fc-820e6553159e
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/01/2017
+ms.topic: conceptual
+ms.date: 01/22/2018
 ms.author: jingwang
 
 robots: noindex
 ---
 # Copy data to and from Azure SQL Database using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](data-factory-azure-sql-connector.md)
-> * [Version 2 - Preview](../connector-azure-sql-database.md)
+> * [Version 1](data-factory-azure-sql-connector.md)
+> * [Version 2 (current version)](../connector-azure-sql-database.md)
 
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [Azure SQL Database connector in V2](../connector-azure-sql-database.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [Azure SQL Database connector in V2](../connector-azure-sql-database.md).
 
 This article explains how to use the Copy Activity in Azure Data Factory to move data to and from Azure SQL Database. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.  
 
@@ -149,7 +149,7 @@ GO
 | writeBatchSize |Inserts data into the SQL table when the buffer size reaches writeBatchSize. |Integer (number of rows) |No (default: 10000) |
 | sqlWriterCleanupScript |Specify a query for Copy Activity to execute such that data of a specific slice is cleaned up. For more information, see [repeatable copy](#repeatable-copy). |A query statement. |No |
 | sliceIdentifierColumnName |Specify a column name for Copy Activity to fill with auto generated slice identifier, which is used to clean up data of a specific slice when rerun. For more information, see [repeatable copy](#repeatable-copy). |Column name of a column with data type of binary(32). |No |
-| sqlWriterStoredProcedureName |Name of the stored procedure that upserts (updates/inserts) data into the target table. |Name of the stored procedure. |No |
+| sqlWriterStoredProcedureName |Name of the stored procedure that defines how to apply source data into target table, e.g. to do upserts or transform using your own business logic. <br/><br/>Note this stored procedure will be **invoked per batch**. If you want to do operation that only runs once and has nothing to do with source data e.g. delete/truncate, use `sqlWriterCleanupScript` property. |Name of the stored procedure. |No |
 | storedProcedureParameters |Parameters for the stored procedure. |Name/value pairs. Names and casing of parameters must match the names and casing of the stored procedure parameters. |No |
 | sqlWriterTableType |Specify a table type name to be used in the stored procedure. Copy activity makes the data being moved available in a temp table with this table type. Stored procedure code can then merge the data being copied with existing data. |A table type name. |No |
 

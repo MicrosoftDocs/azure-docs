@@ -1,36 +1,25 @@
 ---
-title: Indexing tables in SQL Data Warehouse | Microsoft Azure
-description: Getting started with table indexing in Azure SQL Data Warehouse.
+title: Indexing tables in Azure SQL Data Warehouse | Microsoft Azure
+description: Recommendations and examples for indexing tables in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: shivaniguptamsft
-manager: barbkess
-editor: ''
-
-ms.assetid: 3e617674-7b62-43ab-9ca2-3f40c41d5a88
+author: ronortloff
+manager: craigg
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: tables
-ms.date: 07/12/2016
-ms.author: shigu;barbkess
-
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
 ---
-# Indexing tables in SQL Data Warehouse
-> [!div class="op_single_selector"]
-> * [Overview][Overview]
-> * [Data Types][Data Types]
-> * [Distribute][Distribute]
-> * [Index][Index]
-> * [Partition][Partition]
-> * [Statistics][Statistics]
-> * [Temporary][Temporary]
-> 
-> 
 
-SQL Data Warehouse offers several indexing options including [clustered columnstore indexes][clustered columnstore indexes], [clustered indexes and nonclustered indexes][clustered indexes and nonclustered indexes].  In addition, it also offers a no index option also known as [heap][heap].  This article covers the benefits of each index type as well as tips to getting the most performance out of your indexes. See [create table syntax][create table syntax] for more detail on how to create a table in SQL Data Warehouse.
+# Indexing tables in SQL Data Warehouse
+Recommendations and examples for indexing tables in Azure SQL Data Warehouse.
+
+## What are index choices?
+
+SQL Data Warehouse offers several indexing options including [clustered columnstore indexes](/sql/relational-databases/indexes/columnstore-indexes-overview), [clustered indexes and nonclustered indexes](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described), and a non-index option also known as [heap](/sql/relational-databases/indexes/heaps-tables-without-clustered-indexes).  
+
+To create a table with an index, see the [CREATE TABLE (Azure SQL Data Warehouse)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse) documentation.
 
 ## Clustered columnstore indexes
 By default, SQL Data Warehouse creates a clustered columnstore index when no index options are specified on a table. Clustered columnstore tables offer both the highest level of data compression as well as the best overall query performance.  Clustered columnstore tables will generally outperform clustered index or heap tables and are usually the best choice for large tables.  For these reasons, clustered columnstore is the best place to start when you are unsure of how to index your table.  
@@ -49,12 +38,12 @@ WITH ( CLUSTERED COLUMNSTORE INDEX );
 
 There are a few scenarios where clustered columnstore may not be a good option:
 
-* Columnstore tables do not support varchar(max), nvarchar(max) and varbinary(max).  Consider heap or clustered index instead.
-* Columnstore tables may be less efficient for transient data.  Consider heap and perhaps even temporary tables.
-* Small tables with less than 100 million rows.  Consider heap tables.
+- Columnstore tables do not support varchar(max), nvarchar(max) and varbinary(max). Consider heap or clustered index instead.
+- Columnstore tables may be less efficient for transient data. Consider heap and perhaps even temporary tables.
+- Small tables with less than 100 million rows. Consider heap tables.
 
 ## Heap tables
-When you are temporarily landing data on SQL Data Warehouse, you may find that using a heap table will make the overall process faster.  This is because loads to heaps are faster than to index tables and in some cases the subsequent read can be done from cache.  If you are loading data only to stage it before running more transformations, loading the table to heap table will be much faster than loading the data to a clustered columnstore table. In addition, loading data to a [temporary table][Temporary] will also load much faster than loading a table to permanent storage.  
+When you are temporarily landing data on SQL Data Warehouse, you may find that using a heap table makes the overall process faster. This is because loads to heaps are faster than to index tables and in some cases the subsequent read can be done from cache.  If you are loading data only to stage it before running more transformations, loading the table to heap table is much faster than loading the data to a clustered columnstore table. In addition, loading data to a [temporary table](sql-data-warehouse-tables-temporary.md) loads faster than loading a table to permanent storage.  
 
 For small lookup tables, less than 100 million rows, often heap tables make sense.  Cluster columnstore tables begin to achieve optimal compression once there is more than 100 million rows.
 
@@ -71,7 +60,7 @@ WITH ( HEAP );
 ```
 
 ## Clustered and nonclustered indexes
-Clustered indexes may outperform clustered columnstore tables when a single row needs to be quickly retrieved.  For queries where a single or very few row lookup is required to performance with extreme speed, consider a cluster index or nonclustered secondary index.  The disadvantage to using a clustered index is that only queries which use a highly selective filter on the clustered index column will benefit.  To improve filter on other columns a nonclustered index can be added to other columns.  However, each index which is added to a table will add both space and processing time to loads.
+Clustered indexes may outperform clustered columnstore tables when a single row needs to be quickly retrieved. For queries where a single or very few row lookup is required to performance with extreme speed, consider a cluster index or nonclustered secondary index. The disadvantage to using a clustered index is that only queries that benefit are the ones that use a highly selective filter on the clustered index column. To improve filter on other columns a nonclustered index can be added to other columns. However, each index which is added to a table adds both space and processing time to loads.
 
 To create a clustered index table, simply specify CLUSTERED INDEX in the WITH clause:
 
@@ -88,13 +77,13 @@ WITH ( CLUSTERED INDEX (id) );
 To add a non-clustered index on a table, simply use the following syntax:
 
 ```SQL
-CREATE INDEX zipCodeIndex ON t1 (zipCode);
+CREATE INDEX zipCodeIndex ON myTable (zipCode);
 ```
 
 ## Optimizing clustered columnstore indexes
 Clustered columnstore tables are organized in data into segments.  Having high segment quality is critical to achieving optimal query performance on a columnstore table.  Segment quality can be measured by the number of rows in a compressed row group.  Segment quality is most optimal where there are at least 100K rows per compressed row group and gain in performance as the number of rows per row group approach 1,048,576 rows, which is the most rows a row group can contain.
 
-The below view can be created and used on your system to compute the average rows per row group and identify any sub-optimal cluster columnstore indexes.  The last column on this view will generate as SQL statement which can be used to rebuild your indexes.
+The below view can be created and used on your system to compute the average rows per row group and identify any sub-optimal cluster columnstore indexes.  The last column on this view generates a SQL statement which can be used to rebuild your indexes.
 
 ```sql
 CREATE VIEW dbo.vColumnstoreDensity
@@ -143,7 +132,7 @@ GROUP BY
 ;
 ```
 
-Now that you have created the view, run this query to identify tables with row groups with less than 100K rows.  Of course, you may want to increase the threshold of 100K if you are looking for more optimal segment quality. 
+Now that you have created the view, run this query to identify tables with row groups with less than 100K rows. Of course, you may want to increase the threshold of 100K if you are looking for more optimal segment quality. 
 
 ```sql
 SELECT    *
@@ -171,33 +160,33 @@ Once you have run the query you can begin to look at the data and analyze your r
 | [OPEN_rowgroup_rows_MAX] |As above |
 | [OPEN_rowgroup_rows_AVG] |As above |
 | [CLOSED_rowgroup_rows] |Look at the closed row group rows as a sanity check. |
-| [CLOSED_rowgroup_count] |The number of closed row groups should be low if any are seen at all. Closed row groups can be converted to compressed rowg roups using the ALTER INDEX ... REORGANISE command. However, this is not normally required. Closed groups are automatically converted to columnstore row groups by the background "tuple mover" process. |
+| [CLOSED_rowgroup_count] |The number of closed row groups should be low if any are seen at all. Closed row groups can be converted to compressed row groups using the ALTER INDEX ... REORGANIZE command. However, this is not normally required. Closed groups are automatically converted to columnstore row groups by the background "tuple mover" process. |
 | [CLOSED_rowgroup_rows_MIN] |Closed row groups should have a very high fill rate. If the fill rate for a closed row group is low, then further analysis of the columnstore is required. |
 | [CLOSED_rowgroup_rows_MAX] |As above |
 | [CLOSED_rowgroup_rows_AVG] |As above |
 | [Rebuild_Index_SQL] |SQL to rebuild columnstore index for a table |
 
 ## Causes of poor columnstore index quality
-If you have identified tables with poor segment quality, you will want to identify the root cause.  Below are some other common causes of poor segment quaility:
+If you have identified tables with poor segment quality, you want to identify the root cause.  Below are some other common causes of poor segment quality:
 
 1. Memory pressure when index was built
 2. High volume of DML operations
 3. Small or trickle load operations
 4. Too many partitions
 
-These factors can cause a columnstore index to have significantly less than the optimal 1 million rows per row group.  They can also cause rows to go to the delta row group instead of a compressed row group. 
+These factors can cause a columnstore index to have significantly less than the optimal 1 million rows per row group. They can also cause rows to go to the delta row group instead of a compressed row group. 
 
 ### Memory pressure when index was built
-The number of rows per compressed row group are directly related to the width of the row and the amount of memory available to process the row group.  When rows are written to columnstore tables under memory pressure, columnstore segment quality may suffer.  Therefore, the best practice is to give the session which is writing to your columnstore index tables access to as much memory as possible.  Since there is a trade-off between memory and concurrency, the guidance on the right memory allocation depends on the data in each row of your table, the amount of DWU you've allocated to your system, and the amount of concurrency slots you can give to the session which is writing data to your table.  As a best practice, we recommend starting with xlargerc if you are using DW300 or less, largerc if you are using DW400 to DW600, and mediumrc if you are using DW1000 and above.
+The number of rows per compressed row group are directly related to the width of the row and the amount of memory available to process the row group.  When rows are written to columnstore tables under memory pressure, columnstore segment quality may suffer.  Therefore, the best practice is to give the session which is writing to your columnstore index tables access to as much memory as possible.  Since there is a trade-off between memory and concurrency, the guidance on the right memory allocation depends on the data in each row of your table, the data warehouse units allocated to your system, and the number of concurrency slots you can give to the session which is writing data to your table.  As a best practice, we recommend starting with xlargerc if you are using DW300 or less, largerc if you are using DW400 to DW600, and mediumrc if you are using DW1000 and above.
 
 ### High volume of DML operations
 A high volume of DML operations that update and delete rows can introduce inefficiency into the columnstore. This is especially true when the majority of the rows in a row group are modified.
 
-* Deleting a row from a compressed row group only logically marks the row as deleted. The row remains in the compressed row group until the partition or table is rebuilt.
-* Inserting a row adds the row to to an internal rowstore table called a delta row group. The inserted row is not converted to columnstore until the delta row group is full and is marked as closed. Row groups are closed once they reach the maximum capacity of 1,048,576 rows. 
-* Updating a row in columnstore format is processed as a logical delete and then an insert. The inserted row may be stored in the delta store.
+- Deleting a row from a compressed row group only logically marks the row as deleted. The row remains in the compressed row group until the partition or table is rebuilt.
+- Inserting a row adds the row to an internal rowstore table called a delta row group. The inserted row is not converted to columnstore until the delta row group is full and is marked as closed. Row groups are closed once they reach the maximum capacity of 1,048,576 rows. 
+- Updating a row in columnstore format is processed as a logical delete and then an insert. The inserted row may be stored in the delta store.
 
-Batched update and insert operations that exceed the bulk threshold of 102,400 rows per partition aligned distribution will be written directly to the columnstore format. However, assuming an even distribution, you would need to be modifying more than 6.144 million rows in a single operation for this to occur. If the number of rows for a given partition aligned distribution is less than 102,400 then the rows will go to the delta store and will stay there until sufficient rows have been inserted or modified to close the row group or the index has been rebuilt.
+Batched update and insert operations that exceed the bulk threshold of 102,400 rows per partition-aligned distribution go directly to the columnstore format. However, assuming an even distribution, you would need to be modifying more than 6.144 million rows in a single operation for this to occur. If the number of rows for a given partition-aligned distribution is less than 102,400 then the rows go to the delta store andstay there until sufficient rows have been inserted or modified to close the row group or the index has been rebuilt.
 
 ### Small or trickle load operations
 Small loads that flow into SQL Data Warehouse are also sometimes known as trickle loads. They typically represent a near constant stream of data being ingested by the system. However, as this stream is near continuous the volume of rows is not particularly large. More often than not the data is significantly under the threshold required for a direct load to columnstore format.
@@ -205,24 +194,24 @@ Small loads that flow into SQL Data Warehouse are also sometimes known as trickl
 In these situations, it is often better to land the data first in Azure blob storage and let it accumulate prior to loading. This technique is often known as *micro-batching*.
 
 ### Too many partitions
-Another thing to consider is the impact of partitioning on your clustered columnstore tables.  Before partitioning, SQL Data Warehouse already divides your data into 60 databases.  Partitioning further divides your data.  If you partition your data, then you will want to consider that **each** partition will need to have at least 1 million rows to benefit from a clustered columnstore index.  If you partition your table into 100 partitions, then your table will need to have at least 6 billion rows to benefit from a clustered columnstore index (60 distributions * 100 partitions * 1 million rows). If your 100 partition table does not have 6 billion rows, either reduce the number of partitions or consider using a heap table instead.
+Another thing to consider is the impact of partitioning on your clustered columnstore tables.  Before partitioning, SQL Data Warehouse already divides your data into 60 databases.  Partitioning further divides your data.  If you partition your data, then consider that **each** partition needs at least 1 million rows to benefit from a clustered columnstore index.  If you partition your table into 100 partitions, then your table needs at least 6 billion rows to benefit from a clustered columnstore index (60 distributions * 100 partitions * 1 million rows). If your 100-partition table does not have 6 billion rows, either reduce the number of partitions or consider using a heap table instead.
 
-Once your tables have been loaded with some data, follow the below steps to identify and rebuild tables with sub-optimal cluster columnstore indexes.
+Once your tables have been loaded with some data, follow the below steps to identify and rebuild tables with sub-optimal clustered columnstore indexes.
 
 ## Rebuilding indexes to improve segment quality
 ### Step 1: Identify or create user which uses the right resource class
-One quick way to immediately improve segment quality is to rebuild the index.  The SQL returned by the above view will return an ALTER INDEX REBUILD statement which can be used to rebuild your indexes.  When rebuilding your indexes, be sure that you allocate enough memory to the session which will rebuild your index.  To do this, increase the resource class of a user which has permissions to rebuild the index on this table to the recommended minimum.  The resource class of the database owner user cannot be changed, so if you have not created a user on the system, you will need to do so first.  The minimum we recommend is xlargerc if you are using DW300 or less, largerc if you are using DW400 to DW600, and mediumrc if you are using DW1000 and above.
+One quick way to immediately improve segment quality is to rebuild the index.  The SQL returned by the above view returns an ALTER INDEX REBUILD statement which can be used to rebuild your indexes. When rebuilding your indexes, be sure that you allocate enough memory to the session that rebuilds your index.  To do this, increase the resource class of a user which has permissions to rebuild the index on this table to the recommended minimum. The resource class of the database owner user cannot be changed, so if you have not created a user on the system, you need to do so first. The minimum recommended resource class is xlargerc if you are using DW300 or less, largerc if you are using DW400 to DW600, and mediumrc if you are using DW1000 and above.
 
-Below is an example of how to allocate more memory to a user by increasing their resource class.  For more information about resource classes and how to create a new user can be found in the [concurrency and workload management][Concurrency] article.
+Below is an example of how to allocate more memory to a user by increasing their resource class. To work with resource classes, see [Resource classes for workload management](resource-classes-for-workload-management.md).
 
 ```sql
 EXEC sp_addrolemember 'xlargerc', 'LoadUser'
 ```
 
 ### Step 2: Rebuild clustered columnstore indexes with higher resource class user
-Logon as the user from step 1 (e.g. LoadUser), which is now using a higher resource class, and execute the ALTER INDEX statements.  Be sure that this user has ALTER permission to the tables where the index is being rebuilt.  These examples show how to rebuild the entire columnstore index or how to rebuild a single partition. On large tables, it is more practical to rebuild indexes a single partition at a time.
+Log in as the user from step 1 (e.g. LoadUser), which is now using a higher resource class, and execute the ALTER INDEX statements. Be sure that this user has ALTER permission to the tables where the index is being rebuilt. These examples show how to rebuild the entire columnstore index or how to rebuild a single partition. On large tables, it is more practical to rebuild indexes a single partition at a time.
 
-Alternatively, instead of rebuilding the index, you could copy the table to a new table using [CTAS][CTAS].  Which way is best? For large volumes of data, [CTAS][CTAS] is usually faster than [ALTER INDEX][ALTER INDEX]. For smaller volumes of data, [ALTER INDEX][ALTER INDEX] is easier to use and won't require you to swap out the table.  See **Rebuilding indexes with CTAS and partition switching** below for more details on how to rebuild indexes with CTAS.
+Alternatively, instead of rebuilding the index, you could copy the table to a new table [using CTAS](sql-data-warehouse-develop-ctas.md). Which way is best? For large volumes of data, CTAS is usually faster than [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql). For smaller volumes of data, ALTER INDEX is easier to use and won't require you to swap out the table. See **Rebuilding indexes with CTAS and partition switching** below for more details on how to rebuild indexes with CTAS.
 
 ```sql
 -- Rebuild the entire clustered index
@@ -244,13 +233,13 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE)
 ```
 
-Rebuilding an index in SQL Data Warehouse is an offline operation.  For more information about rebuilding indexes, see the ALTER INDEX REBUILD section in [Columnstore Indexes Defragmentation][Columnstore Indexes Defragmentation] and the syntax topic [ALTER INDEX][ALTER INDEX].
+Rebuilding an index in SQL Data Warehouse is an offline operation.  For more information about rebuilding indexes, see the ALTER INDEX REBUILD section in [Columnstore Indexes Defragmentation](/sql/relational-databases/indexes/columnstore-indexes-defragmentation), and [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql).
 
 ### Step 3: Verify clustered columnstore segment quality has improved
 Rerun the query which identified table with poor segment quality and verify segment quality has improved.  If segment quality did not improve, it could be that the rows in your table are extra wide.  Consider using a higher resource class or DWU when rebuilding your indexes.
 
 ## Rebuilding indexes with CTAS and partition switching
-This example uses [CTAS][CTAS] and partition switching to rebuild a table partition. 
+This example uses the [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) statement and partition switching to rebuild a table partition. 
 
 ```sql
 -- Step 1: Select the partition of data and write it out to a new table using CTAS
@@ -290,31 +279,8 @@ ALTER TABLE [dbo].[FactInternetSales] SWITCH PARTITION 2 TO  [dbo].[FactInternet
 ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [dbo].[FactInternetSales] PARTITION 2;
 ```
 
-For more details about re-creating partitions using `CTAS`, see the [Partition][Partition] article.
+For more details about re-creating partitions using CTAS, see [Using partitions in SQL Data Warehouse](sql-data-warehouse-tables-partition.md).
 
 ## Next steps
-To learn more, see the articles on [Table Overview][Overview], [Table Data Types][Data Types], [Distributing a Table][Distribute],  [Partitioning a Table][Partition], [Maintaining Table Statistics][Statistics] and [Temporary Tables][Temporary].  To learn more about best practices, see [SQL Data Warehouse Best Practices][SQL Data Warehouse Best Practices].
+For more information about developing tables, see [Developing tables](sql-data-warehouse-tables-overview.md).
 
-<!--Image references-->
-
-<!--Article references-->
-[Overview]: ./sql-data-warehouse-tables-overview.md
-[Data Types]: ./sql-data-warehouse-tables-data-types.md
-[Distribute]: ./sql-data-warehouse-tables-distribute.md
-[Index]: ./sql-data-warehouse-tables-index.md
-[Partition]: ./sql-data-warehouse-tables-partition.md
-[Statistics]: ./sql-data-warehouse-tables-statistics.md
-[Temporary]: ./sql-data-warehouse-tables-temporary.md
-[Concurrency]: ./sql-data-warehouse-develop-concurrency.md
-[CTAS]: ./sql-data-warehouse-develop-ctas.md
-[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
-
-<!--MSDN references-->
-[ALTER INDEX]: https://msdn.microsoft.com/library/ms188388.aspx
-[heap]: https://msdn.microsoft.com/library/hh213609.aspx
-[clustered indexes and nonclustered indexes]: https://msdn.microsoft.com/library/ms190457.aspx
-[create table syntax]: https://msdn.microsoft.com/library/mt203953.aspx
-[Columnstore Indexes Defragmentation]: https://msdn.microsoft.com/library/dn935013.aspx#Anchor_1
-[clustered columnstore indexes]: https://msdn.microsoft.com/library/gg492088.aspx
-
-<!--Other Web references-->

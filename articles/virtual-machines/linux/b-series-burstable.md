@@ -4,7 +4,7 @@ description: Describes the B-series of burstable Azure VM sizes.
 services: virtual-machines-linux
 documentationcenter: ''
 author: jonbeck7
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -19,7 +19,7 @@ ms.author: jonbeck
 
 ---
 
-# B-series burstable virtual machine sizes (preview)
+# B-series burstable virtual machine sizes
 
 [!INCLUDE [virtual-machines-common-b-series-burstable](../../../includes/virtual-machines-common-b-series-burstable.md)]
 

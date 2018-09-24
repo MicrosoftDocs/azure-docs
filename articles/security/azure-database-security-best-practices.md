@@ -1,11 +1,11 @@
----
+﻿---
 
 title: Azure database security best practices| Microsoft Docs
 description: This article provides a set of best practices for Azure database security.
 services: security
 documentationcenter: na
 author: unifycloud
-manager: swadhwa
+manager: mbaldwin
 editor: tomsh
 
 ms.assetid: 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/21/2017
+ms.date: 11/21/2017
 ms.author: tomsh
 
 ---
@@ -111,7 +111,7 @@ It’s important to understand that files related to [buffer pool extension (BPE
 Since an authorized user such as a security administrator or a database administrator can access the data even if the database is encrypted with TDE, you should also follow the recommendations below:
 
 -	Enable SQL authentication at the database level.
--	Use Azure AD authentication using [RBAC roles](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is).
+-	Use Azure AD authentication using [RBAC roles](https://docs.microsoft.com/azure/role-based-access-control/overview).
 -	Users and applications should use separate accounts to authenticate. This way you can limit the permissions granted to users and applications and reduce the risks of malicious activity.
 -	Implement database-level security by using fixed database roles (such as db_datareader or db_datawriter), or you can create custom roles for your application to grant explicit permissions to selected database objects.
 
@@ -136,7 +136,7 @@ If you are interacting with Azure Storage through the Azure Portal, all transact
 
 Organizations that fail to protect data in transit are more susceptible for [man-in-the-middle attacks](https://technet.microsoft.com/library/gg195821.aspx), [eavesdropping](https://technet.microsoft.com/library/gg195641.aspx) and session hijacking. These attacks can be the first step in gaining access to confidential data.
 
-To learn more about Azure VPN option by reading the article [Planning and design for VPN Gateway](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-plan-design).
+To learn more about Azure VPN option by reading the article [Planning and design for VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-plan-design).
 
 ## Enable database auditing
 Auditing an instance of the SQL Server Database Engine or an individual database involves tracking and logging events that occur on the Database Engine. SQL Server audit lets you create server audits, which can contain server audit specifications for server level events, and database audit specifications for database level events. Audited events can be written to the event logs or to audit files.

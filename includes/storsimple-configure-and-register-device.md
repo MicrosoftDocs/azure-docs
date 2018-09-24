@@ -7,7 +7,7 @@
 3. You will be prompted to choose the language that you would like to set for your device. Specify the language, and then press Enter. 
    
     ![StorSimple configure and register device 1](./media/storsimple-configure-and-register-device/HCS_RegisterYourDevice1-include.png)
-4. In the serial console menu that is presented, choose option 1 to log on with full access. 
+4. In the serial console menu that is presented, choose option 1, **Log in with full access**. 
    
     ![StorSimple register device 2](./media/storsimple-configure-and-register-device/HCS_RegisterYourDevice2-include.png)
    
@@ -16,7 +16,7 @@
 6. Type the following command:
    
      `Invoke-HcsSetupWizard` 
-7. A setup wizard will appear to help you configure the network settings for the device. Supply the the following information: 
+7. A setup wizard will appear to help you configure the network settings for the device. Supply the following information: 
    
    * IP address for the DATA 0 network interface
    * Subnet mask

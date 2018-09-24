@@ -1,35 +1,27 @@
 ---
 title: On-premises data gateway | Microsoft Docs
 description: An On-premises gateway is necessary if your Analysis Services server in Azure will connect to on-premises data sources.
-services: analysis-services
-documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: ''
-tags: ''
-
-ms.assetid: cd596155-b608-4a34-935e-e45c95d884a9
-ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 10/30/2017
+ms.service: azure-analysis-services
+ms.topic: conceptual
+ms.date: 10/11/2018
 ms.author: owend
+ms.reviewer: minewiskan
 
 ---
 # Connecting to on-premises data sources with Azure On-premises Data Gateway
-The on-premises data gateway acts as a bridge, providing secure data transfer between on-premises data sources and your Azure Analysis Services servers in the cloud. In addition to working with multiple Azure Analysis Services servers in the same region, the latest version of the gateway also works with Azure Logic Apps, Power BI, Power Apps, and Microsoft Flow. You can associate multiple services in the same region with a single gateway. 
+The on-premises data gateway acts as a bridge, providing secure data transfer between on-premises data sources and your Azure Analysis Services servers in the cloud. In addition to working with multiple Azure Analysis Services servers in the same region, the latest version of the gateway also works with Azure Logic Apps, Power BI, Power Apps, and Microsoft Flow. You can associate multiple services in the same subscription and same region with a single gateway. 
 
 Getting setup with the gateway the first time is a four-part process:
 
 - **Download and run setup** - This step installs a gateway service on a computer in your organization. You also sign in to Azure using an account in your [tenant's](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) Azure AD. Azure B2B (guest) accounts are not supported.
 
-- **Register your gateway** - In this step, you specify a name and recovery key for your gateway, and select a region, registering your gateway with the Gateway Cloud Service. Your gateway resource **must be registered in the same region** as your Analysis Services servers. 
+- **Register your gateway** - In this step, you specify a name and recovery key for your gateway and select a region, registering your gateway with the Gateway Cloud Service. Your gateway resource can be registered in any region, but we recommend it be in the same region as your Analysis Services servers. 
 
 - **Create a gateway resource in Azure** - In this step, you create a gateway resource in your Azure subscription.
 
-- **Connect your servers to your gateway resource** - Once you have a gateway resource in your subscription, you can begin connecting your servers to it. You can connect multiple servers and other resources to it, provided they're in the region.
+- **Connect your servers to your gateway resource** - Once you have a gateway resource in your subscription, you can begin connecting your servers to it. You can connect multiple servers and other resources, provided they are in the same subscription and same region.
 
 To get started right away, see [Install and configure on-premises data gateway](analysis-services-gateway-install.md).
 
@@ -58,7 +50,7 @@ The gateway creates an outbound connection to Azure Service Bus. It communicates
 We recommend you whitelist the IP addresses for your data region in your firewall. You can download the [Microsoft Azure Datacenter IP list](https://www.microsoft.com/download/details.aspx?id=41653). This list is updated weekly.
 
 > [!NOTE]
-> The IP Addresses listed in the Azure Datacenter IP list are in CIDR notation. For example, 10.0.0.0/24 does not mean 10.0.0.0 through 10.0.0.24. Learn more about the [CIDR notation](http://whatismyipaddress.com/cidr).
+> The IP Addresses listed in the Azure Datacenter IP list are in CIDR notation. To learn more, see [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 >
 >
 
@@ -86,6 +78,11 @@ You can force the gateway to communicate with Azure Service Bus by using HTTPS i
     <value>Https</value>
 </setting>
 ```
+
+## Tenant level administration 
+
+There is currently no single place where tenant administrators  can manage all the gateways that other users have installed and configured.  If you’re a tenant administrator, it's recommended you ask users in your organization to add you as an administrator to every gateway they install. This allows you to manage all the gateways in your organization through the Gateway Settings page or through [PowerShell commands](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters#powershell-support-for-gateway-clusters). 
+
 
 ## <a name="faq"></a>Frequently asked questions
 
@@ -138,7 +135,7 @@ This proximity minimizes latency and avoids egress charges on the Azure VM.
 the service runs with the Service SID, NT SERVICE\PBIEgwService.
 
 **Q**: How do I takeover a gateway? <br/>
-**A**: In order to takeover a gateway (by running Setup/Change in Control Panel > Programs) you need to be an Owner for the gateway resource in Azure and have the recovery key. Gateway resource Owners are configurable in Access Control.
+**A**: To takeover a gateway (by running Setup/Change in Control Panel > Programs), you need to be an Owner for the gateway resource in Azure and have the recovery key. Gateway resource Owners are configurable in Access Control.
 
 ### <a name="high-availability"></a>High availability and disaster recovery
 
@@ -152,7 +149,7 @@ When you install the gateway, specify the recovery key.
 ## <a name="troubleshooting"> </a>Troubleshooting
 
 **Q**: Why don't I see my gateway in the list of gateway instances when trying to create the gateway resource in Azure? <br/>
-**A**: There are two possible reasons. First is a resource is already created for the gateway in the current or some other subscription. To eliminate that possibility, enumerate resources of the type **On-premises Data Gateways** from the portal. Make sure to select all the subscriptions when enumerating all the resources. Note that once the resource is created, the gateway will not appear in the list of gateway instances in the Create Gateway Resource portal experience. The second possibility is that the Azure AD identity of the user who installed the gateway is different from the user signed in to Azure Portal. To resolve this, sign in to the portal using the same  account as the user who installed the gateway.
+**A**: There are two possible reasons. First is a resource is already created for the gateway in the current or some other subscription. To eliminate that possibility, enumerate resources of the type **On-premises Data Gateways** from the portal. Make sure to select all the subscriptions when enumerating all the resources. Once the resource is created, the gateway does not appear in the list of gateway instances in the Create Gateway Resource portal experience. The second possibility is that the Azure AD identity of the user who installed the gateway is different from the user signed in to Azure portal. To resolve, sign in to the portal using the same  account as the user who installed the gateway.
 
 **Q**: How can I see what queries are being sent to the on-premises data source? <br/>
 **A**: You can enable query tracing, which includes the queries that are sent. 

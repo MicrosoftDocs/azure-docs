@@ -19,7 +19,7 @@ ms.author: v-deasim
 ---
 # Custom Reports from Verizon
 
-[!INCLUDE[cdn-verizon-only](../../includes/cdn-verizon-only.md)]
+[!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
 By using Verizon Custom Reports via the Manage portal for Verizon profiles, you can define the type of data to be collected for edge CNAMEs reports.
 
@@ -27,7 +27,7 @@ By using Verizon Custom Reports via the Manage portal for Verizon profiles, you 
 ## Accessing Verizon Custom Reports
 1. From the CDN profile blade, click the **Manage** button.
    
-    ![CDN profile blade manage button](./media/cdn-reports/cdn-manage-btn.png)
+    ![CDN profile Manage button](./media/cdn-reports/cdn-manage-btn.png)
    
     The CDN management portal opens.
 2. Hover over the **Analytics** tab, then hover over the **Custom Reports** flyout. Click **Edge CNAMEs**.

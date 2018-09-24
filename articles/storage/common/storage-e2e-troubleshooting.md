@@ -2,21 +2,15 @@
 title: Troubleshooting Azure Storage with diagnostics & Message Analyzer | Microsoft Docs
 description: A tutorial demonstrating end-to-end troubleshooting with Azure Storage Analytics, AzCopy, and Microsoft Message Analyzer
 services: storage
-documentationcenter: dotnet
 author: tamram
-manager: timlt
-
-ms.assetid: 643372a3-1c07-4e88-b4ef-042512a43086
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
-
+ms.component: common
 ---
-# End-to-End Troubleshooting using Azure Storage metrics and logging, AzCopy, and Message Analyzer
+# End-to-end troubleshooting using Azure Storage metrics and logging, AzCopy, and Message Analyzer
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
 
 Diagnosing and troubleshooting is a key skill for building and supporting client applications with Microsoft Azure Storage. Due to the distributed nature of an Azure application, diagnosing and troubleshooting errors and performance issues may be more complex than in traditional environments.
@@ -32,11 +26,6 @@ To troubleshoot client applications using Microsoft Azure Storage, you can use a
   
   * **Storage metrics** tracks transaction metrics and capacity metrics for your storage account. Using metrics, you can determine how your application is performing according to a variety of different measures. See [Storage Analytics Metrics Table Schema](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema) for more information about the types of metrics tracked by Storage Analytics.
   * **Storage logging** logs each request to the Azure Storage services to a server-side log. The log tracks detailed data for each request, including the operation performed, the status of the operation, and latency information. See [Storage Analytics Log Format](/rest/api/storageservices/Storage-Analytics-Log-Format) for more information about the request and response data that is written to the logs by Storage Analytics.
-
-> [!NOTE]
-> Storage accounts with a replication type of Zone-Redundant Storage (ZRS) do not have the metrics or logging capability enabled at this time. 
-> 
-> 
 
 * **Azure portal**. You can configure metrics and logging for your storage account in the [Azure portal](https://portal.azure.com). You can also view charts and graphs that show how your application is performing over time, and configure alerts to notify you if your application performs differently than expected for a specified metric.
   
@@ -101,7 +90,7 @@ To configure logging and metrics for your storage account using the [Azure porta
 
 To get started with PowerShell for Azure, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
 
-1. Use the [Add-AzureAccount](/powershell/module/azure/add-azureaccount?view=azuresmps-3.7.0) cmdlet to add your Azure user account to the PowerShell window:
+1. Use the [Add-AzureAccount](/powershell/module/servicemanagement/azure/add-azureaccount?view=azuresmps-3.7.0) cmdlet to add your Azure user account to the PowerShell window:
    
 	```powershell
 	Add-AzureAccount

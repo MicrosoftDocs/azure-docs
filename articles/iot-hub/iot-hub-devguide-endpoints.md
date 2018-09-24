@@ -1,29 +1,24 @@
 ---
 title: Understand Azure IoT Hub endpoints | Microsoft Docs
 description: Developer guide - reference information about IoT Hub device-facing and service-facing endpoints.
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-
-ms.assetid: 57ba52ae-19c6-43e4-bc6c-d8a5c2476e95
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/19/2017
+services: iot-hub
+ms.topic: conceptual
+ms.date: 07/18/2018
 ms.author: dobett
-
 ---
+
 # Reference - IoT Hub endpoints
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 ## IoT Hub names
 
-You can find the name of the IoT hub that hosts your endpoints in the portal on the **Overview** blade. By default, the DNS name of an IoT hub looks like: `{your iot hub name}.azure-devices.net`.
+You can find the hostname of the IoT hub that hosts your endpoints in the portal on your hub's  **Overview** page. By default, the DNS name of an IoT hub looks like: `{your iot hub name}.azure-devices.net`.
 
-You can use Azure DNS to create a custom DNS name for your IoT hub. For more information, see [Use Azure DNS to provide custom domain settings for an Azure service](../dns/dns-custom-domain.md#azure-iot).
+You can use Azure DNS to create a custom DNS name for your IoT hub. For more information, see [Use Azure DNS to provide custom domain settings for an Azure service](../dns/dns-custom-domain.md).
 
 ## List of built-in IoT Hub endpoints
 
@@ -61,7 +56,7 @@ All IoT Hub endpoints use the [TLS][lnk-tls] protocol, and no endpoint is ever e
 
 ## Custom endpoints
 
-You can link existing Azure services in your subscription to your IoT hub to act as endpoints for message routing. These endpoints act as service endpoints and are used as sinks for message routes. Devices cannot write directly to the additional endpoints. To learn more about message routes, see the developer guide entry on [sending and receiving messages with IoT hub][lnk-devguide-messaging].
+You can link existing Azure services in your subscription to your IoT hub to act as endpoints for message routing. These endpoints act as service endpoints and are used as sinks for message routes. Devices cannot write directly to the additional endpoints. Learn more about [message routing](../iot-hub/iot-hub-devguide-messages-d2c.md).
 
 IoT Hub currently supports the following Azure services as additional endpoints:
 
@@ -70,27 +65,7 @@ IoT Hub currently supports the following Azure services as additional endpoints:
 * Service Bus Queues
 * Service Bus Topics
 
-IoT Hub needs write access to these service endpoints for message routing to work. If you configure your endpoints through the Azure portal, the necessary permissions are added for you. Make sure you configure your services to support the expected throughput. When you first configure your IoT solution, you may need to monitor your additional endpoints and make any necessary adjustments for the actual load.
-
-If a message matches multiple routes that all point to the same endpoint, IoT Hub delivers message to that endpoint only once. Therefore, you do not need to configure deduplication on your Service Bus queue or topic. In partitioned queues, partition affinity guarantees message ordering.
-
 For the limits on the number of endpoints you can add, see [Quotas and throttling][lnk-devguide-quotas].
-
-### When using Azure Storage containers
-
-IoT Hub only supports writing data to Azure Storage containers as blobs in the [Apache Avro](http://avro.apache.org/) format. IoT Hub batches messages and writes data to a blob when it reaches either a certain size or after a certain amount of time has elapsed, whichever happens first. IoT Hub will not write an empty blob if there is no data to write.
-
-IoT Hub defaults to the following file naming convention:
-
-```
-{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}
-```
-
-You may use whatever file naming convention you wish, however you must use all listed tokens.
-
-### When using Service Bus queues and topics
-
-Service Bus queues and topics used as IoT Hub endpoints must not have **Sessions** or **Duplicate Detection** enabled. If either of those options are enabled, the endpoint appears as **Unreachable** in the Azure portal.
 
 ## Field gateways
 

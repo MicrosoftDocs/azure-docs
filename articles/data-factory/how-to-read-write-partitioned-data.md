@@ -1,29 +1,29 @@
 ---
 title: How to read or write partitioned data in Azure Data Factory | Microsoft Docs
-description: Learn how to read or write partitioned data in Azure Data Factory version 2. 
+description: Learn how to read or write partitioned data in Azure Data Factory. 
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
+manager: craigg
 editor: 
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/09/2017
+ms.topic: conceptual
+ms.date: 05/15/2018
 ms.author: shlo
 
 ---
-# How to read or write partitioned data in Azure Data Factory version 2
-In version 1, Azure Data Factory supported reading or writing partitioned data by using SliceStart/SliceEnd/WindowStart/WindowEnd system variables. In version 2, you can achieve this behavior by using a pipeline parameter and trigger's start time/scheduled time as a value of the parameter. 
+# How to read or write partitioned data in Azure Data Factory
+In version 1, Azure Data Factory supported reading or writing partitioned data by using SliceStart/SliceEnd/WindowStart/WindowEnd system variables. In the current version of Data Factory, you can achieve this behavior by using a pipeline parameter and trigger's start time/scheduled time as a value of the parameter. 
 
 ## Use a pipeline parameter 
 In version 1, you could use the partitionedBy property and SliceStart system variable as shown in the following example: 
 
 ```json
-"folderPath": "adfcustomerprofilingsample/logs/marketingcampaigneffectiveness/yearno={Year}/monthno={Month}/dayno={Day}/",
+"folderPath": "adfcustomerprofilingsample/logs/marketingcampaigneffectiveness/{Year}/{Month}/{Day}/",
 "partitionedBy": [
     { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
     { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "%M" } },
@@ -33,27 +33,33 @@ In version 1, you could use the partitionedBy property and SliceStart system var
 
 For more information about the partitonedBy property, see [version 1 Azure Blob connector](v1/data-factory-azure-blob-connector.md#dataset-properties) article. 
 
-In version 2, a way to achieve this behavior is to do the following actions: 
+In the current version of Data Factory, a way to achieve this behavior is to do the following actions: 
 
-1. Define a **pipeline parameter** of type string. In the following example, name of the pipeline parameter is **scheduledRunTime**. 
-2. Set **folderPath** in the dataset definition to the value of pipeline parameter. 
-3. Pass a hardcoded value for the parameter before running the pipeline. Or, pass a trigger's start time or scheduled time dynamically at runtime. 
+1. Define a **pipeline parameter** of type string. In the following example, name of the pipeline parameter is **windowStartTime**. 
+2. Set **folderPath** in the dataset definition to reference the value of pipeline parameter. 
+3. Pass the actual value for the parameter when invoking the pipeline on-demand, or pass a trigger's start time/scheduled time dynamically at runtime. 
 
 ```json
 "folderPath": {
-      "value": "@concat(pipeline().parameters.blobContainer, '/logs/marketingcampaigneffectiveness/yearno=', formatDateTime(pipeline().parameters.scheduledRunTime, 'yyyy'), '/monthno=', formatDateTime(pipeline().parameters.scheduledRunTime, '%M'), '/dayno=', formatDateTime(pipeline().parameters.scheduledRunTime, '%d'), '/')",
+      "value": "adfcustomerprofilingsample/logs/marketingcampaigneffectiveness/@{formatDateTime(pipeline().parameters.windowStartTime, 'yyyy/MM/dd')}/",
       "type": "Expression"
 },
 ```
 
 ## Pass in value from a trigger
-In the following trigger definition, scheduled time of the trigger is passed as a value for the **scheduledRunTime** pipeline parameter: 
+In the following tumbling window trigger definition, window start time of the trigger is passed as a value for the pipeline parameter  **windowStartTime**: 
 
 ```json
 {
     "name": "MyTrigger",
     "properties": {
-       ...
+        "type": "TumblingWindowTrigger",
+		"typeProperties": {
+            "frequency": "Hour",
+            "interval": "1",
+            "startTime": "2018-05-15T00:00:00Z",
+            "delay": "00:10:00",
+            "maxConcurrency": 10
         },
         "pipeline": {
             "pipelineReference": {
@@ -61,7 +67,7 @@ In the following trigger definition, scheduled time of the trigger is passed as 
                 "referenceName": "MyPipeline"
             },
             "parameters": {
-                "scheduledRunTime": "@trigger().scheduledTime"
+                "windowStartTime": "@trigger().outputs.windowStartTime"
             }
         }
     }
@@ -70,14 +76,15 @@ In the following trigger definition, scheduled time of the trigger is passed as 
 
 ## Example
 
-Here is a sample dataset definition (that uses a parameter named: `date`):
+Here is a sample dataset definition:
 
 ```json
 {
+  "name": "SampleBlobDataset",
   "type": "AzureBlob",
   "typeProperties": {
     "folderPath": {
-      "value": "@concat(pipeline().parameters.blobContainer, '/logs/marketingcampaigneffectiveness/yearno=', formatDateTime(pipeline().parameters.scheduledRunTime, 'yyyy'), '/monthno=', formatDateTime(pipeline().parameters.scheduledRunTime, '%M'), '/dayno=', formatDateTime(pipeline().parameters.scheduledRunTime, '%d'), '/')",
+      "value": "adfcustomerprofilingsample/logs/marketingcampaigneffectiveness/@{formatDateTime(pipeline().parameters.windowStartTime, 'yyyy/MM/dd')}/",
       "type": "Expression"
     },
     "format": {
@@ -126,20 +133,16 @@ Pipeline definition:
 						"value": "@concat('wasb://', pipeline().parameters.blobContainer, '@', pipeline().parameters.blobStorageAccount, '.blob.core.windows.net/logs/', pipeline().parameters.inputRawLogsFolder, '/')",
 						"type": "Expression"
 					},
-					"PARTITIONEDOUTPUT": {
-						"value": "@concat('wasb://', pipeline().parameters.blobContainer, '@', pipeline().parameters.blobStorageAccount, '.blob.core.windows.net/logs/partitionedgameevents/')",
-						"type": "Expression"
-					},
 					"Year": {
-						"value": "@formatDateTime(pipeline().parameters.scheduledRunTime, 'yyyy')",
+						"value": "@formatDateTime(pipeline().parameters.windowStartTime, 'yyyy')",
 						"type": "Expression"
 					},
 					"Month": {
-						"value": "@formatDateTime(pipeline().parameters.scheduledRunTime, '%M')",
+						"value": "@formatDateTime(pipeline().parameters.windowStartTime, 'MM')",
 						"type": "Expression"
 					},
 					"Day": {
-						"value": "@formatDateTime(pipeline().parameters.scheduledRunTime, '%d')",
+						"value": "@formatDateTime(pipeline().parameters.windowStartTime, 'dd')",
 						"type": "Expression"
 					}
 				}
@@ -151,7 +154,7 @@ Pipeline definition:
 			"name": "HivePartitionGameLogs"
 		}],
 		"parameters": {
-			"scheduledRunTime": {
+			"windowStartTime": {
 				"type": "String"
 			},
 			"blobStorageAccount": {
@@ -161,9 +164,6 @@ Pipeline definition:
 				"type": "String"
 			},
 			"inputRawLogsFolder": {
-				"type": "String"
-			},
-			"partitionHiveScriptFile": {
 				"type": "String"
 			}
 		}
