@@ -56,7 +56,7 @@ If you or your organization have applications in development or production that 
 
 ## Next steps
 
-* [try out Speech Service for free](https://azure.microsoft.com/cognitive-services/)
+* [try out Speech Service for free](https://azure.microsoft.com/services/cognitive-services/)
 * [Quickstart: Recognize speech in a UWP app using the Speech SDK](quickstart-csharp-uwp.md)
 
 ## See also

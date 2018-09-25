@@ -88,7 +88,7 @@ For Speech Service, SDK, and API support, visit the Speech Service [support page
 
 ## Next steps
 
-* [Try out Speech Service for free](https://azure.microsoft.com/cognitive-services/)
+* [Try out Speech Service for free](https://azure.microsoft.com/en-us/services/cognitive-services/)
 * [Quickstart: Recognize speech in a UWP app using the Speech SDK](quickstart-csharp-uwp.md)
 
 ## See also
