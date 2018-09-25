@@ -43,7 +43,7 @@ Instead of explicitly setting the target number of nodes for a pool in pool crea
 
 - The auto-scale evaluation can fail.
 - The resulting resize operation can fail and timeout.
-- There may be a problem with the auto-scale forumla, leading to incorrect node target values, with the resize working or timing out.
+- There may be a problem with the auto-scale formula, leading to incorrect node target values, with the resize working or timing out.
 
 Information about the last auto-scale evaluation is obtained using the [autoScaleRun](https://docs.microsoft.com/rest/api/batchservice/pool/get#autoscalerun) property, which reports on the time of the evaluation, the values and result of the evaluation, and any errors performing the evaluation.
 
@@ -57,11 +57,11 @@ The [pool state](https://docs.microsoft.com/rest/api/batchservice/pool/get#pools
 
 ## Pool compute node errors
 
-Nodes can be successfully allocated in a pool, but various issues can lead to the nodes being unhealthy and not be usable.  Once nodes are allocated in a pool they incur charges and it is therefore important to detect problems to avoid paying for nodes that cannot be used.
+Nodes can be successfully allocated in a pool, but various issues can lead to the nodes being unhealthy and not be usable.  Once nodes are allocated in a pool, they incur charges and it is therefore important to detect problems to avoid paying for nodes that cannot be used.
 
 ### Start task failure
 
-An optional [start task](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask) can be specified for a pool.  As with any task, a command line and resource files to download from storage can be specified.  The start task is specified for the pool, but actually run on each node - once each node has been started, then the start task is run.  A further property of the [start task](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask), 'waitForSuccess', specifies whether Batch should wait for the start task to complete successfully before scheduling any tasks to a node.
+An optional [start task](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask) can be specified for a pool.  As with any task, a command line and resource files to download from storage can be specified.  The start task is specified for the pool, but run on each node - once each node has been started, then the start task is run.  A further property of the [start task](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask), 'waitForSuccess', specifies whether Batch should wait for the start task to complete successfully before scheduling any tasks to a node.
 
 A start task can fail, plus if a start task fails and the start task configuration specified to wait for successful completion, then the node will be unusable, but still incur charges.
 
