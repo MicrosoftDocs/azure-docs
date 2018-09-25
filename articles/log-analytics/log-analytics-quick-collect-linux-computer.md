@@ -32,9 +32,7 @@ Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.co
 1. In the Azure portal, click **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.<br><br> ![Azure portal](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
 2. Click **Create**, and then select choices for the following items:
 
-  * Provide a name for the new **Log Analytics Workspace**, such as *DefaultLAWorkspace*. 
-    [!NOTE]
-    OMS workspaces are now referred to as Log Analytics workspaces.   
+  * Provide a name for the new **Log Analytics Workspace**, such as *DefaultLAWorkspace*. OMS workspaces are now referred to as Log Analytics workspaces.   
   * Select a **Subscription** to link to by selecting from the drop-down list if the default selected is not appropriate.
   * For **Resource Group**, select an existing resource group that contains one or more Azure virtual machines.  
   * Select the **Location** your VMs are deployed to.  For additional information, see which [regions Log Analytics is available in](https://azure.microsoft.com/regions/services/).  
