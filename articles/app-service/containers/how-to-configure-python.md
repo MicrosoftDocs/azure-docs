@@ -31,7 +31,7 @@ The Python runtime in App Service on Linux uses version `python-3.7.0`.
 
 All versions of Web Server Gateway Interface(WSGI) compliant web frameworks that are compatible with the `python-3.7` runtime are supported.
 
-## Package Management
+## Package management
 
 During Git publishing, the Kudu engine looks for [requirements.txt](https://pip.pypa.io/en/stable/user_guide/#requirements-files) in the repository root and automatically install the packages in Azure using `pip`.
 
@@ -43,19 +43,19 @@ pip freeze > requirements.txt
 
 ## Configure your Python app
 
-The built-in Python image in App Service uses the [Gunicorn](http://gunicorn.org/) server to run your Python application. Gunicorn is a Python WSGI HTTP Server for UNIX. App Service automates configures Gunicorns automatically for Django and Flask projects.
+The built-in Python image in App Service uses the [Gunicorn](http://gunicorn.org/) server to run your Python application. Gunicorn is a Python WSGI HTTP Server for UNIX. App Service automates configures Gunicorn automatically for Django and Flask projects.
 
-### Django App
+### Django app
 
-If you publish a Django project that contains a `wsgi.py` module, Azure automatically invokes Gunicorn using the following command:
+If you publish a Django project that contains a `wsgi.py` module, Azure automatically calls Gunicorn using the following command:
 
 ```bash
 gunicorn <path_to_wsgi>
 ```
 
-### Flask App
+### Flask app
 
-If you're publishing a Flask app for which the entry point is located in an `application.py` or `app.py` module, Azure automatically invokes Gunicorn using one of the following commands, respectively:
+If you're publishing a Flask app, and the entry point is in an `application.py` or `app.py` module, Azure automatically calls Gunicorn using one of the following commands, respectively:
 
 ```bash
 gunicorn application:app
@@ -69,7 +69,7 @@ gunicorn app:app
 
 ### Customize start-up
 
-To define a custom entry point for your app, first create a _.txt_ file at the root of your project with the custom Gunicorn command. For example, if the custom entry point is a module called _helloworld.py_ and the variable name is `app`, you can create a _startup.txt_ with the following content:
+To define a custom entry point for your app, first create a _.txt_ file with a custom Gunicorn command and place it at the root of your project. For example, to start the server with the module _helloworld.py_ and the variable `app`, create a _startup.txt_ with the following content:
 
 ```bash
 gunicorn helloworld:app
