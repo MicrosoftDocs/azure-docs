@@ -12,7 +12,7 @@ ms.author: alinast
 
 # Routing events and messages
 
-IoT solutions often stitch together several services including storage, analytics, and more. Azure Digital Twins provides the capability to stream data from your connected devices and integrate that data into your business applications. This article will describe how to connect your Digital Twins instance to the broad set of Azure Analytics, AI, and Storage services.
+IoT solutions often stitch together several services including storage, analytics, and more. This article will describe how to connect your Azure Digital Twins instance to the broad set of Azure Analytics, AI, and Storage services, to bring deeper insights to your applications.
 
 ## Route types
 
@@ -22,7 +22,7 @@ Digital Twins offers two methods to integrate IoT events into other Azure servic
 
 * **Routing device telemetry**: In addition to event-based routing, Digital Twins can also route raw device telemetry messages to Event Hubs for further insights and analytics. These types of messages aren't processed by Digital Twins, and they are only forwarded to the Event Hub.
 
-Users can specify one or more egress endpoints to send out these events or to forward the messages. Events and messages will be sent to the endpoints according to these predefined routing preferences. In other words, users can specify certain one endpoint to receieve graph operation events, another to receive device telemetry events, and so on.
+Users can specify one or more egress endpoints to send out these events or to forward the messages. Events and messages will be sent to the endpoints according to these predefined routing preferences. In other words, users can specify certain one endpoint to receive graph operation events, another to receive device telemetry events, and so on.
 
 Routing to Event Hubs will maintain the order in which messages are sent, so that they arrive at the endpoint in the same sequence as they were originally received. Event Grid and Service Bus don't guarantee that endpoints will receive events in the same order that they occurred. However, the event schema does include a timestamp that can be used to identify the order after the events arrive at the endpoint.
 
@@ -37,7 +37,7 @@ The Digital Twins service currently supports the following **EndpointTypes**:
 Digital Twins currently supports the following **EventTypes** that will be sent to the chosen endpoint:
 
 - **DeviceMessages**: telemetry messages sent from the users' devices and forwarded by the system
-- **TopologyOperation**: operations that change the graph or metadata of the graph (i.e. adding or deleting an entity, such as a space)
+- **TopologyOperation**: operations that change the graph or metadata of the graph (for example, adding or deleting an entity, such as a space)
 - **SpaceChange**: changes in a space's computed value as a result of a device telemetry message
 - **SensorChange**: changes in a sensor's computed value as a result of a device telemetry message
 - **UdfCustom**: a custom notification from a user-defined function
