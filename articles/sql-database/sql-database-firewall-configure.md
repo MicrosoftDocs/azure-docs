@@ -1,17 +1,17 @@
 ---
 title: Azure SQL Database and Data Warehouse firewall rules | Microsoft Docs
 description: Learn how to configure a SQL database and SQL Data Warehouse firewall with server-level firewall rules to manage access, and configure SQL Database database-level firewall rules.
-keywords: server database firewall 
 services: sql-database
-author: VanMSFT
-manager: craigg
 ms.service: sql-database
-ms.prod_service: sql-database, sql-data-warehouse
-ms.custom: security
+ms.subservice: security
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 09/20/2018
+author: VanMSFT
 ms.author: vanto
-
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/20/2018
 ---
 # Azure SQL Database and SQL Data Warehouse firewall rules 
 

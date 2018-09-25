@@ -1,17 +1,17 @@
 ---
 title: 'Restore a backup to Azure SQL Database Managed Instance | Microsoft Docs'
 description: Restore a database backup to an Azure SQL Database Managed Instance using SSMS.
-keywords: sql database tutorial, sql database managed instance, restore a backup
 services: sql-database
-author: srdan-bozovic-msft
-ms.reviewer: carlrab, bonova
 ms.service: sql-database
-ms.custom: managed instance
+ms.subservice: managed-instance
+ms.custom: 
+ms.devlang: 
 ms.topic: quickstart
-ms.date: 09/20/2018
+author: srdan-bozovic-msft
 ms.author: srbozovi
+ms.reviewer: carlrab, bonova
 manager: craigg
-
+ms.date: 09/20/2018
 ---
 # Restore a database backup to an Azure SQL Database Managed Instance
 
