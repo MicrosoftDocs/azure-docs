@@ -32,7 +32,6 @@ Within a tier, you can [adjust replica and partition resources](search-capacity-
 > Although estimating future needs for indexes and storage can feel like guesswork, it's worth doing. If a tier's capacity turns out to be too low, you will need to provision a new service at the higher tier and then [reload your indexes](search-howto-reindex.md). There is no in-place upgrade of the same service from one SKU to another.
 >
 
-
 <!---
 The purpose of this article is to help you choose a tier. It supplements the [pricing page](https://azure.microsoft.com/pricing/details/search/) and [Service Limits](search-limits-quotas-capacity.md) page with a digest of billing concepts and consumption patterns associated with various tiers. It also recommends an iterative approach for understanding which tier best meets your needs. 
 --->
@@ -48,6 +47,12 @@ At a minimum, every service starts with 1 SU (one replica multiplied by one part
 The billing rate is **hourly per SU**, with each tier having a progressively higher rate. Higher tiers come with larger and speedier partitions, contributing to an overall higher hourly rate for that tier. Rates for each tier can be found on [Pricing Details](https://azure.microsoft.com/pricing/details/search/). 
 
 Although each tier offers progressively higher capacity, you can bring a *portion* of total capacity online, holding the rest in reserve. In terms of billing, it's the number of partitions and replicas that you bring online, calculated using the SU formula, that determines what you actually pay.
+
+### Tips for lowering the bill
+
+You cannot shut down the service to lower the bill. Dedicated resources for partitions and replicas are operational 24-7, held in reserve for your exclusive use, for the lifetime of your service. The only way to lower a bill is to reduce replicas and partitions to the lowest level that still gives you acceptable performance. 
+
+Another lever is choosing a tier with a lower hourly rate. S1 hourly rates are lower than S2 or S3 hourly rates. You could provision a service at the lower end of your projections, and then if you outgrow it, create a second larger tiered service, rebuild your indexes on that second service, and then delete the first one.
 
 ### Capacity drill-down
 
