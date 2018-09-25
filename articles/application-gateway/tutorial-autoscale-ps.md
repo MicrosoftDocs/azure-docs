@@ -10,7 +10,7 @@ ms.author: victorh
 ms.custom: mvc
 #Customer intent: As an IT administrator, I want to use Azure PowerShell to configure an autoscaling, zone redundant application gateway with a reserved IP address so I can ensure my customers can access the web information they need.
 ---
-# Create an autoscaling, zone redundant application gateway with a reserved virtual IP address using Azure PowerShell
+# Tutorial: Create an autoscaling, zone redundant application gateway with a reserved virtual IP address using Azure PowerShell
 
 This tutorial describes how to create an Azure Application Gateway using Azure PowerShell cmdlets and the Azure Resource Manager deployment model. This tutorial focuses on differences in the new Autoscaling SKU compared to the existing Standard SKU. Specifically, the supported features to support autoscaling, zone redundancy, and reserved VIPs (static IP).
 
@@ -111,12 +111,12 @@ Now you can specify autoscale configuration for the application gateway. Two aut
 
 - **Fixed capacity mode**. In this mode, the application gateway does not autoscale and operates at a fixed Scale Unit capacity.
 
-   ```
+   ```azurepowershell
    $sku = New-AzureRmApplicationGatewaySku -Name Standard_v2 -Tier Standard_v2
    ```
 - **Autoscaling mode**. In this mode, the application gateway autoscales based on the application traffic pattern.
 
-   ```
+   ```azurepowershell
    $autoscaleConfig = New-AzureRmApplicationGatewayAutoscaleConfiguration -MinCapacity 2
    $sku = New-AzureRmApplicationGatewaySku -Name Standard_v2 -Tier Standard_v2
    ```
