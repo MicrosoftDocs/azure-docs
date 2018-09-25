@@ -1,5 +1,5 @@
 ---
-title: Administrator roles reference in Azure Active Directory | Microsoft Docs
+title: Administrator role permissions in Azure Active Directory | Microsoft Docs
 description: An admin role can add users, assign administrative roles, reset user passwords, manage user licenses, or manage domains.
 services: active-directory
 documentationcenter: ''
@@ -11,24 +11,22 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 09/19/2018
+ms.date: 09/25/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 
 ---
 
-# Assigning administrator roles in Azure Active Directory
+# Administrator role permissions in Azure Active Directory
 
 Using Azure Active Directory (Azure AD), you can designate separate administrators to serve different functions. Administrators can be designated in the Azure AD portal to perform tasks such as adding or changing users, assigning administrative roles, resetting user passwords, managing user licenses, and managing domain names.
 
-## Details about the global administrator role
-
-The global administrator has access to all administrative features. By default, the person who signs up for an Azure subscription is assigned the global administrator role for the directory. Only global administrators can assign other administrator roles.
+The Global Administrator has access to all administrative features. By default, the person who signs up for an Azure subscription is assigned the Global Administrator role for the directory. Only Global Administrators can delegate administrator roles.
 
 ## Assign or remove administrator roles
 
-To learn how to assign administrative roles to a user in Azure Active Directory, see [Assign a user to administrator roles in Azure Active Directory](../fundamentals/active-directory-users-assign-role-azure-portal.md).
+To learn how to assign administrative roles to a user in Azure Active Directory, see [View and assign administrator roles in Azure Active Directory](directory-manage-roles-portal.md).
 
 ## Available roles
 
@@ -117,7 +115,7 @@ Users in this role can add, remove, and update license assignments on users, gro
 
 * **[SharePoint Service Administrator](#sharepoint-service-administrator)**: Users with this role have global permissions within Microsoft SharePoint Online, when the service is present, as well as the ability to manage support tickets and monitor service health. More information at [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-* **[Skype for Business / Lync Service Administrator](#lync-service-administrator)**: Users with this role have global permissions within Microsoft Skype for Business, when the service is present, as well as manage Skype-specific user attributes in Azure Active Directory. Additionally, this role grants the ability to manage support tickets and monitor service health, and to access the Teams and Skype for Business Admin Center. The account must also be licensed for Teams or it can't run Teams PowerShell cmdlets. More information at [About the Skype for Business admin role](https://support.office.com/article/about-the-skype-for-business-admin-role-aeb35bda-93fc-49b1-ac2c-c74fbeb737b5) and Teams licensing information at [Skype for Business and Microsoft Teams add-on licensing](https://docs.microsoft.com/skypeforbusiness/skype-for-business-and-microsoft-teams-add-on-licensing/skype-for-business-and-microsoft-teams-add-on-licensing)
+* **[Skype for Business / Lync Service Administrator](#skype-for-business-service-administrator)**: Users with this role have global permissions within Microsoft Skype for Business, when the service is present, as well as manage Skype-specific user attributes in Azure Active Directory. Additionally, this role grants the ability to manage support tickets and monitor service health, and to access the Teams and Skype for Business Admin Center. The account must also be licensed for Teams or it can't run Teams PowerShell cmdlets. More information at [About the Skype for Business admin role](https://support.office.com/article/about-the-skype-for-business-admin-role-aeb35bda-93fc-49b1-ac2c-c74fbeb737b5) and Teams licensing information at [Skype for Business and Microsoft Teams add-on licensing](https://docs.microsoft.com/skypeforbusiness/skype-for-business-and-microsoft-teams-add-on-licensing/skype-for-business-and-microsoft-teams-add-on-licensing)
 
   > [!NOTE]
   > In Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell, this role is identified as "Lync Service Administrator". It is "Skype for Business Service Administrator" in the [Azure portal](https://portal.azure.com/).
@@ -256,7 +254,7 @@ Can perform common billing related tasks like updating payment information.
   >
 
   > [!NOTE]
-  > This role has addditonal permissions outside of Azure Active Directory. See role description above for more information.
+  > This role has additional permissions outside of Azure Active Directory. See role description above for more information.
   >
   >
 
@@ -340,7 +338,7 @@ Can manage all aspects of Azure AD and Microsoft services that use Azure AD iden
   >
 
   > [!NOTE]
-  > This role has addditonal permissions outside of Azure Active Directory. See role description above for more information.
+  > This role has additional permissions outside of Azure Active Directory. See role description above for more information.
   >
   >
 
@@ -402,7 +400,7 @@ Can read and manage compliance configuration and reports in Azure AD and Office 
   >
 
   > [!NOTE]
-  > This role has addditonal permissions outside of Azure Active Directory. See role description above for more information.
+  > This role has additional permissions outside of Azure Active Directory. See role description above for more information.
   >
   >
 
@@ -436,8 +434,8 @@ Can manage conditional access capabilities.
 | microsoft.aad.directory/policies/conditionalAccess/owners/update | Update policies.conditionalAccess property in Azure Active Directory. |
 | microsoft.aad.directory/policies/conditionalAccess/policiesAppliedTo/read | Read policies.conditionalAccess property in Azure Active Directory. |
 
-### CRM Service Administrator
-Can manage all aspects of the Dynamics 365 product.
+### Dynamics 365 service administrator
+Can manage all aspects of the Dynamics 365 product. Formerly CRM Service Administrator.
 
   > [!NOTE]
   > This role inherits additional permissions from the Directory Readers role.
@@ -445,7 +443,7 @@ Can manage all aspects of the Dynamics 365 product.
   >
 
   > [!NOTE]
-  > This role has addditonal permissions outside of Azure Active Directory. See role description above for more information.
+  > This role has additional permissions outside of Azure Active Directory. See role description above for more information.
   >
   >
 
@@ -467,7 +465,7 @@ Can approve Microsoft support requests to access customer organizational data.
   >
 
   > [!NOTE]
-  > This role has addditonal permissions outside of Azure Active Directory. See role description above for more information.
+  > This role has additional permissions outside of Azure Active Directory. See role description above for more information.
   >
   >
 
@@ -498,7 +496,7 @@ Can approve Microsoft support requests to access customer organizational data.
   >
 
   > [!NOTE]
-  > This role has addditonal permissions outside of Azure Active Directory. See role description above for more information.
+  > This role has additional permissions outside of Azure Active Directory. See role description above for more information.
   >
   >
 
@@ -640,7 +638,7 @@ Can manage all aspects of the Exchange product.
   >
 
   > [!NOTE]
-  > This role has addditonal permissions outside of Azure Active Directory. See role description above for more information.
+  > This role has additional permissions outside of Azure Active Directory. See role description above for more information.
   >
   >
 
@@ -749,7 +747,7 @@ Can manage all aspects of the Azure Information Protection product.
   >
 
   > [!NOTE]
-  > This role has addditonal permissions outside of Azure Active Directory. See role description above for more information.
+  > This role has additional permissions outside of Azure Active Directory. See role description above for more information.
   >
   >
 
@@ -770,7 +768,7 @@ Can manage all aspects of the Intune product.
   >
 
   > [!NOTE]
-  > This role has addditonal permissions outside of Azure Active Directory. See role description above for more information.
+  > This role has additional permissions outside of Azure Active Directory. See role description above for more information.
   >
   >
 
@@ -817,46 +815,6 @@ Can manage product licenses on users and groups.
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 
-### Lync Service Administrator
-Can manage all aspects of the Skype for Business product.
-
-  > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
-
-  > [!NOTE]
-  > This role has addditonal permissions outside of Azure Active Directory. See role description above for more information.
-  >
-  >
-
-| **Actions** | **Description** |
-| --- | --- |
-| microsoft.azure.accessService/allEntities/allTasks | Manage all aspects of Azure Access service. |
-| microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
-| microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
-| microsoft.office365.skypeForBusiness/allEntities/allTasks | Manage all aspects of Skype for Business Online. |
-| microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
-
-### Message Center Reader
-Can read messages and updates for their organization in Office 365 Message Center only. 
-
-  > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
-
-  > [!NOTE]
-  > This role has addditonal permissions outside of Azure Active Directory. See role description above for more information.
-  >
-  >
-
-| **Actions** | **Description** |
-| --- | --- |
-| microsoft.aad.accessmessagecenter/allEntities/allTasks | Create and delete all resources, and read and update standard properties in Message Center. |
-| microsoft.azure.accessService/allEntities/allTasks | Manage all aspects of Azure Access service. |
-
 ### Partner Tier1 Support
 Do not use - not intended for general use.
 
@@ -866,7 +824,7 @@ Do not use - not intended for general use.
   >
 
   > [!NOTE]
-  > This role has addditonal permissions outside of Azure Active Directory. See role description above for more information.
+  > This role has additional permissions outside of Azure Active Directory. See role description above for more information.
   >
   >
 
@@ -903,7 +861,7 @@ Do not use - not intended for general use.
   >
 
   > [!NOTE]
-  > This role has addditonal permissions outside of Azure Active Directory. See role description above for more information.
+  > This role has additional permissions outside of Azure Active Directory. See role description above for more information.
   >
   >
 
@@ -943,7 +901,7 @@ Can manage all aspects of the Power BI product.
   >
 
   > [!NOTE]
-  > This role has addditonal permissions outside of Azure Active Directory. See role description above for more information.
+  > This role has additional permissions outside of Azure Active Directory. See role description above for more information.
   >
   >
 
@@ -965,7 +923,7 @@ Can manage role assignments in Azure AD
   >
 
   > [!NOTE]
-  > This role has addditonal permissions outside of Azure Active Directory. See role description above for more information.
+  > This role has additional permissions outside of Azure Active Directory. See role description above for more information.
   >
   >
 
@@ -983,7 +941,7 @@ Can read sign-in and audit reports.
   >
 
   > [!NOTE]
-  > This role has addditonal permissions outside of Azure Active Directory. See role description above for more information.
+  > This role has additional permissions outside of Azure Active Directory. See role description above for more information.
   >
   >
 
@@ -1003,7 +961,7 @@ Can read security information and reports
   >
 
   > [!NOTE]
-  > This role has addditonal permissions outside of Azure Active Directory. See role description above for more information.
+  > This role has additional permissions outside of Azure Active Directory. See role description above for more information.
   >
   >
 
@@ -1033,7 +991,7 @@ Can read security information and reports in Azure AD and Office 365.
   >
 
   > [!NOTE]
-  > This role has addditonal permissions outside of Azure Active Directory. See role description above for more information.
+  > This role has additional permissions outside of Azure Active Directory. See role description above for more information.
   >
   >
 
@@ -1055,7 +1013,7 @@ Can read service health information and manage support tickets.
   >
 
   > [!NOTE]
-  > This role has addditonal permissions outside of Azure Active Directory. See role description above for more information.
+  > This role has additional permissions outside of Azure Active Directory. See role description above for more information.
   >
   >
 
@@ -1076,7 +1034,7 @@ Can manage all aspects of the SharePoint service.
   >
 
   > [!NOTE]
-  > This role has addditonal permissions outside of Azure Active Directory. See role description above for more information.
+  > This role has additional permissions outside of Azure Active Directory. See role description above for more information.
   >
   >
 
@@ -1089,6 +1047,46 @@ Can manage all aspects of the SharePoint service.
 | microsoft.office365.sharepoint/allEntities/allTasks | Create and delete all resources, and read and update standard properties in microsoft.office365.sharepoint. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
 
+### Skype for Business Administrator
+Can manage all aspects of the Skype for Business product. Formerly Lync Service Administrator.
+
+  > [!NOTE]
+  > This role inherits additional permissions from the Directory Readers role.
+  >
+  >
+
+  > [!NOTE]
+  > This role has additional permissions outside of Azure Active Directory. See role description above for more information.
+  >
+  >
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.azure.accessService/allEntities/allTasks | Manage all aspects of Azure Access service. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
+| microsoft.office365.skypeForBusiness/allEntities/allTasks | Manage all aspects of Skype for Business Online. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
+
+### Message Center Reader
+Can read messages and updates for their organization in Office 365 Message Center only. 
+
+  > [!NOTE]
+  > This role inherits additional permissions from the Directory Readers role.
+  >
+  >
+
+  > [!NOTE]
+  > This role has additional permissions outside of Azure Active Directory. See role description above for more information.
+  >
+  >
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.aad.accessmessagecenter/allEntities/allTasks | Create and delete all resources, and read and update standard properties in Message Center. |
+| microsoft.azure.accessService/allEntities/allTasks | Manage all aspects of Azure Access service. |
+
 ### Teams Communications Administrator
 Can manage calling and meetings features within the Microsoft Teams service.
 
@@ -1098,7 +1096,7 @@ Can manage calling and meetings features within the Microsoft Teams service.
   >
 
   > [!NOTE]
-  > This role has addditonal permissions outside of Azure Active Directory. See role description above for more information.
+  > This role has additional permissions outside of Azure Active Directory. See role description above for more information.
   >
   >
 
@@ -1121,7 +1119,7 @@ Can troubleshoot communications issues within Teams using advanced tools.
   >
 
   > [!NOTE]
-  > This role has addditonal permissions outside of Azure Active Directory. See role description above for more information.
+  > This role has additional permissions outside of Azure Active Directory. See role description above for more information.
   >
   >
 
@@ -1141,7 +1139,7 @@ Can troubleshoot communications issues within Teams using basic tools.
   >
 
   > [!NOTE]
-  > This role has addditonal permissions outside of Azure Active Directory. See role description above for more information.
+  > This role has additional permissions outside of Azure Active Directory. See role description above for more information.
   >
   >
 
@@ -1161,7 +1159,7 @@ Can manage the Microsoft Teams service.
   >
 
   > [!NOTE]
-  > This role has addditonal permissions outside of Azure Active Directory. See role description above for more information.
+  > This role has additional permissions outside of Azure Active Directory. See role description above for more information.
   >
   >
 
