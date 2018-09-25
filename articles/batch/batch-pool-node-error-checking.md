@@ -10,19 +10,19 @@ ms.topic: conceptual
 
 # Checking for pool and node errors
 
-When creating and managing Batch pools, there are operations that happen immediately and there are asynchronous operations that are not immediate, may take several minutes to complete, and run in the background.
+When creating and managing Batch pools, there are operations that happen immediately and there are asynchronous operations that are not immediate, run in the background, and may take several minutes to complete.
 
 Detecting failures for operations that take place immediately is straightforward, as any failures will be returned immediately by the API, CLI, or UI.
 
-This article covers the background operations that can take place for pools and pool nodes, specifies how failures can be detected, and how the failures can be avoided.
+This article covers the background operations that can take place for pools and pool nodes, it specifies how failures can be detected, and how the failures can be avoided.
 
 ## Pool errors
 
 ### Resize timeout or failure
 
-When creating a new pool or resizing an existing pool, the target numbers of nodes is specified.  The operation will complete immediately, but the actual allocation of new nodes or removal of existing nodes takes place in the background over what may be several minutes.  A resize timeout is specified in the create or resize API - if the target number of nodes can't be obtained in the resize timeout, then the operation will stop with the pool going to a steady state and having resize errors.
+When creating a new pool or resizing an existing pool, the target numbers of nodes is specified.  The operation will complete immediately, but the actual allocation of new nodes or removal of existing nodes takes place in the background over what may be several minutes.  A resize timeout is specified in the [create](https://docs.microsoft.com/rest/api/batchservice/pool/add) or [resize](https://docs.microsoft.com/rest/api/batchservice/pool/resize) API - if the target number of nodes can't be obtained in the resize timeout, then the operation will stop with the pool going to a steady state and having resize errors.
 
-A resize timeout is reported by the [ResizeError](https://docs.microsoft.com/rest/api/batchservice/pool/get#resizeerror) property, which lists one or more errors that occurred.
+A resize timeout is reported by the [ResizeError](https://docs.microsoft.com/rest/api/batchservice/pool/get#resizeerror) property for the last evaluation, which lists one or more errors that occurred.
 
 Common causes for resize timeouts include:
 - Resize timeout is too short
@@ -35,7 +35,7 @@ Common causes for resize timeouts include:
 - Insufficient resources when a [pool is in a virtual network](https://docs.microsoft.com/azure/batch/batch-virtual-network)
   - Resources such as load-balancers, public IPs, and NSGs are created in the subscription used to create the Batch account.  The subscription quotas for these resources must be sufficient.
 - Using a custom VM image for large pools
-  - Large pools using custom images can take longer to allocate and resize timeouts can occur.  Limits and configuration recommendations are provided in the [specific article](https://docs.microsoft.com/azure/batch/batch-custom-images). 
+  - Large pools using custom images can take longer to allocate and resize timeouts can occur.  Limits and configuration recommendations are provided in a [specific article](https://docs.microsoft.com/azure/batch/batch-custom-images). 
 
 ### Auto-scale failures
 
@@ -43,7 +43,7 @@ Instead of explicitly setting the target number of nodes for a pool in pool crea
 
 - The auto-scale evaluation can fail.
 - The resulting resize operation can fail and timeout.
-- There may be a problem with the auto-scale forumla leading to incorrect node target values, with the resize working or timing out.
+- There may be a problem with the auto-scale forumla, leading to incorrect node target values, with the resize working or timing out.
 
 Information about the last auto-scale evaluation is obtained using the [autoScaleRun](https://docs.microsoft.com/rest/api/batchservice/pool/get#autoscalerun) property, which reports on the time of the evaluation, the values and result of the evaluation, and any errors performing the evaluation.
 
@@ -57,19 +57,19 @@ The [pool state](https://docs.microsoft.com/rest/api/batchservice/pool/get#pools
 
 ## Pool compute node errors
 
-Nodes can be successfully allocated in a pool, but various issues can lead to the nodes being unhealthy and not be usable.  Once nodes are allocated in a pool they incur charges and it is therefore important to detect problems to avoid paying for usable compute.
+Nodes can be successfully allocated in a pool, but various issues can lead to the nodes being unhealthy and not be usable.  Once nodes are allocated in a pool they incur charges and it is therefore important to detect problems to avoid paying for nodes that cannot be used.
 
-### Startup task failure
+### Start task failure
 
-An optional [start task](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask) can be specified for a pool.  As with any task, a command line and resource files to download from storage can be specified.  The start task is specified for the pool, but actually run on each node - once each node has been started, then a start task is run.  A further pool property, 'waitForSuccess', specifies whether Batch should wait for the start task to complete successfully before scheduling any tasks to a node.
+An optional [start task](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask) can be specified for a pool.  As with any task, a command line and resource files to download from storage can be specified.  The start task is specified for the pool, but actually run on each node - once each node has been started, then the start task is run.  A further property of the [start task](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask), 'waitForSuccess', specifies whether Batch should wait for the start task to complete successfully before scheduling any tasks to a node.
 
 A start task can fail, plus if a start task fails and the start task configuration specified to wait for successful completion, then the node will be unusable, but still incur charges.
 
 Start task failures can be detected by using the [result](https://docs.microsoft.com/rest/api/batchservice/computenode/get#taskexecutionresult) and [failureInfo](https://docs.microsoft.com/rest/api/batchservice/computenode/get#taskfailureinformation) properties of the top-level [startTaskInfo](https://docs.microsoft.com/rest/api/batchservice/computenode/get#starttaskinformation) node property.
 
-A failed start task also leads to the node [state](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) being set to 'starttaskfailed'.
+A failed start task also leads to the node [state](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) being set to 'starttaskfailed', but only if 'waitForSuccess' was set to 'true'.
 
-As with any task, there can be many causes for the start task failing.  To troubleshoot, the stdout, stdin, and any further task-specific log files should be checked.
+As with any task, there can be many causes for the start task failing.  To troubleshoot, the stdout, stderr, and any further task-specific log files should be checked.
 
 ### Application package download failure
 
@@ -89,6 +89,10 @@ Some other examples of causes for 'unusable' nodes:
 
 - Invalid custom image; not prepared correctly, for example.
 - Infrastructure failure or low-level upgrade leading to the underlying VM being moved; Batch will recover the node.
+
+### Node agent log files
+
+If it is necessary to contact support regarding a pool node issue, then log files from the Batch agent process that runs on each pool node may be requested.  The log files for a node can upload via the Azure Portal, Batch Explorer, or an [API](https://docs.microsoft.com/rest/api/batchservice/computenode/uploadbatchservicelogs).  This can be extremely useful as the logs can be saved, then the node or pool deleted to save the cost of the nodes.
 
 ## Next steps
 
