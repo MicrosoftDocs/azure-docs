@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2018
+ms.date: 09/25/2018
 ms.author: jeedes
 
 ---
@@ -135,21 +135,25 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     ![image](./media/jamfprosamlconnector-tutorial/C2_certificate.png)
 
-7. Using the My Apps Browser extension, you can automate the configuration within Jamf Pro. Clicking on **setup Jamf Pro** will direct you to the Jamf Pro application. From there, provide the admin credentials to sign into Jamf Pro. The browser extension will automatically configure the application for you and automate steps 9-12.
+7. To automate the configuration within Jamf Pro, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
+
+	![image](./media/jamfprosamlconnector-tutorial/install_extension.png)
+ 
+8. After adding extension to the browser, click on **setup Jamf Pro** will direct you to the Jamf Pro application. From there, provide the admin credentials to sign into Jamf Pro. The browser extension will automatically configure the application for you and automate steps 9-12.
 
 	![image](./media/jamfprosamlconnector-tutorial/d1_saml.png)
+<CS>
+9. In a different web browser window, log into your Jamf Pro company site as an administrator.
 
-8. In a different web browser window, log into your Jamf Pro company site as an administrator.
-
-9. Click on the **Settings icon** from the top right corner of the page.
+10. Click on the **Settings icon** from the top right corner of the page.
 
 	![Jamf Pro Configuration](./media/jamfprosamlconnector-tutorial/configure1.png)
 
-10. Click on **Single Sign On**.
+11. Click on **Single Sign On**.
 
 	![Jamf Pro Configuration](./media/jamfprosamlconnector-tutorial/configure2.png)
 
-11. On the **Single Sign-On** page perform the following steps:
+12. On the **Single Sign-On** page perform the following steps:
 
 	![Jamf Pro single](./media/jamfprosamlconnector-tutorial/tutorial_jamfprosamlconnector_single.png)
 
@@ -163,7 +167,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	e. Paste the value `http://schemas.microsoft.com/ws/2008/06/identity/claims/groups` in the **GROUP ATTRIBUTE NAME** textbox.
 
-12. On the same page scroll down upto **IDENTITY PROVIDER** under the **Single Sign-On** section and perform the following steps:
+13. On the same page scroll down upto **IDENTITY PROVIDER** under the **Single Sign-On** section and perform the following steps:
 
 	![Jamf Pro Configuration](./media/jamfprosamlconnector-tutorial/configure3.png)
 
@@ -179,7 +183,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> Here blurred value is the subdomain part .Use this value to complete the Sign-on URL and Reply URL in the **Jamf Pro Domain and URLs** section on Azure portal.
 
 	e. Click **Save**.
-
+<CE>
 ### Create an Azure AD test user 
 
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
