@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # Overview: What is Azure Digital Twins?
 
-Azure Digital Twins is a service in the Azure IoT Platform that allows you to create a comprehensive model of the physical environment. It provides a spatial intelligence graph to model the relationships and interactions between people, space, and devices.
+Azure Digital Twins is a service in the Azure IoT Platform that allows you to create a comprehensive model of the physical environment. It provides a spatial intelligence graph to model the relationships and interactions between people, spaces, and devices.
 
 Azure Digital Twins can be used to query data for a space rather than from many sensors. You can therefore build repeatable, scalable, spatially aware, experiences that are uniquely relevant because of their ability to correlate data across the digital and physical world.
 
