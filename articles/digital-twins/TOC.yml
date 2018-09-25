@@ -13,13 +13,13 @@
   items:
   - name: Object Model and Spatial Intelligence Graph
     href: concepts-objectmodel-spatialgraph.md
-  - name: Guide to Telemetry Ingress
-    href: concepts-telemetry-ingress.md
-  - name: Data processing and User-Defined Functions
+  - name: Device Connectivity and Telemetry Ingress
+    href: concepts-device-ingress.md
+  - name: Data Processing and User-Defined Functions
     href: concepts-user-defined-functions.md 
-  - name: Event and message routing to service endpoints
+  - name: Event and Message Routing to Service Endpoints
     href: concepts-events-routing.md 
-  - name: Management API limitations and throttles
+  - name: Management API Limitations and Throttles
     href: concepts-management-api-limits.md 
   - name: Security
     items:

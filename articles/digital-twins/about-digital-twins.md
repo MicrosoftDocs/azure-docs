@@ -39,6 +39,42 @@ Key capabilities of Azure Digital Twins include:
 
 Azure Digital Twins is applicable to any industry or scenario that can benefit from virtually representing the physical world. Some examples include:
 
+Those models can then be used to interact with an API, represent data, or configure an IoT app.
+
+> [!div class="nextstepaction"]
+> [Read more](./concepts-objectmodel-spatialgraph.md)
+
+### Spatial Intelligence Graphs
+
+IoT apps face unique challenges in bringing together numerous devices, sensors, and places. Azure Digital Twins helps to unite these disparate elements into a unified system.
+
+For example, a smart utility app might involve several electricity usage devices connected across a neighborhood. In order to accurately monitor electricity use and ensure correct billing, the smart utility company must track each device, sensor, and locations.
+
+Azure Digital Twins enables these kinds of complex relationships between people, places, and devices to be defined through its powerful **Ontology** and situated into a contextual IoT space called a **Topology**.
+
+> [!div class="nextstepaction"]
+> [Read more](./concepts-objectmodel-spatialgraph.md)
+
+### User-Defined Functions
+
+Azure Digital Twins leverages the Azure Stream Analytics User-Defined Functions to improve customization and automation of device tasks.
+
+For example, **User-Defined Functions** can be specified for each node an IoT environment allowing custom, repeat, and automatic data processing.
+
+Additionally, **User-Defined Functions** can be assigned for individual or grouped devices and sensors improving reuse and simplifying management.
+
+> [!div class="nextstepaction"]
+> [Read more](./concepts-user-defined-functions.md)
+
+### Telemetry and Insights
+
+Devices, sensors, and whole buildings can stream their data directly to your IoT app through Azure IoT Hub. IoT Hub provides powerful event data processing and a robust telemetry pipeline.
+
+Using **Telemetry**, your app can, for example, collect temperature data from multiple sensors or calculate the current room capacity of an entire office building.
+
+> [!div class="nextstepaction"]
+> [Read more](./concepts-device-ingress.md)
+
 * Showing a property management company the occupancy levels of a space over time to glean insights about the best ways to configure its office building.
 * Triggering work order tickets to a mobile app that drives security guard dispatch, janitorial services scheduling, and any other services in a retail space or sports venue.
 * Showing a building occupant which rooms are occupied in a building in real time. Then, helping the occupant reserve workspaces and find colleagues.
@@ -51,4 +87,3 @@ For full code samples:
 
 > [!div class="nextstepaction"]
 > [C# code samples](https://github.com/Azure-Samples/digital-twins-samples-csharp)
-

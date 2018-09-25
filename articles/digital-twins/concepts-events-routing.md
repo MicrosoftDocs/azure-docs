@@ -24,23 +24,23 @@ Event Grid and Service Bus don't guarantee that endpoints will receive events in
 
 The system currently supports the following **EndpointTypes**:
 
-* **EventHub** is defined as the Event Hub connection string endpoint.
-* **ServiceBus** is defined as the Service Bus connection string endpoint.
-* **EventGrid** is defined as the Event Grid connection string endpoint.
+- **EventHub** is defined as the Event Hub connection string endpoint.
+- **ServiceBus** is defined as the Service Bus connection string endpoint.
+- **EventGrid** is defined as the Event Grid connection string endpoint.
 
 The system currently supports the following **EventTypes** that will be sent to the chosen endpoint:
 
-* **DeviceMessages** is defined as telemetry messages sent from the users' devices and forwarded by the system.
-* **TopologyOperation** is defined as operations, which change the graph or metadata of the graph. For example, adding or deleting an entity, such as space.
-* **SpaceChange** is defined as a change in a space computed value as a result of a device telemetry message.
-* **SensorChange** is defined as a change in a sensor computed value as a result of a device telemetry message.
-* **UdfCustom** is defined as a custom notification from a user-defined function.
+- **DeviceMessages** is defined as telemetry messages sent from the users' devices and forwarded by the system.
+- **TopologyOperation** is defined as operations, which change the graph or metadata of the graph. For example, adding or deleting an entity, such as space.
+- **SpaceChange** is defined as a change in a space computed value as a result of a device telemetry message.
+- **SensorChange** is defined as a change in a sensor computed value as a result of a device telemetry message.
+- **UdfCustom** is defined as a custom notification from a user-defined function.
 
 Furthermore, not all **EndpointTypes** support all **EventTypes**. The **EventTypes** allowed for each **EndpointType** are as follows:
 
-* **EventHub**: DeviceMessages, TopologyOperation, SpaceChange, SensorChange, UdfCustom
-* **ServiceBus**: TopologyOperation, SpaceChange, SensorChange, UdfCustom
-* **EventGrid**: TopologyOperation, SpaceChange, SensorChange, UdfCustom
+- **EventHub**: DeviceMessages, TopologyOperation, SpaceChange, SensorChange, UdfCustom
+- **ServiceBus**: TopologyOperation, SpaceChange, SensorChange, UdfCustom
+- **EventGrid**: TopologyOperation, SpaceChange, SensorChange, UdfCustom
 
 <!-- >[!NOTE]
 >For more details on how to create endpoints and examples of events' schema, please see [Endpoints and Egress]](how-to-create-event-endpoints.md). -->
