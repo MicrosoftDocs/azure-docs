@@ -28,7 +28,7 @@ For each shard, you must select the type of shard map to create. The choice depe
    1. List mapping
    2. Range mapping
 
-For a single-tenant model, create a **list mapping** shard map. The single-tenant model assigns one database per tenant. This is an effective model for SaaS developers as it simplifies management.
+For a single-tenant model, create a **list-mapping** shard map. The single-tenant model assigns one database per tenant. This is an effective model for SaaS developers as it simplifies management.
 
 ![List mapping][1]
 
@@ -57,7 +57,7 @@ Elastic Scale support the following types as sharding keys:
 Shard maps can be constructed using **lists of individual sharding key values**, or they can be constructed using **ranges of sharding key values**. 
 
 ### List shard maps
-**Shards** contain **shardlets** and the mapping of shardlets to shards is maintained by a shard map. A **list shard map** is an association between the individual key values that identify the shardlets and the databases that serve as shards.  **List mappings** are explicit and different key values can be mapped to the same database. For example, key value 1 maps to database A, and key values 3 and 6 both map to database B.
+**Shards** contain **shardlets** and the mapping of shardlets to shards is maintained by a shard map. A **list shard map** is an association between the individual key values that identify the shardlets and the databases that serve as shards.  **List mappings** are explicit and different key values can be mapped to the same database. For example, key value 1 maps to Database A, and key values 3 and 6 both maps to Database B.
 
 | Key | Shard Location |
 | --- | --- |

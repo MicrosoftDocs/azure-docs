@@ -2,13 +2,14 @@
 title: Scale elastic pool resources - Azure SQL Database | Microsoft Docs
 description: This page describes scaling resources for elastic pools in Azure SQL Database.
 services: sql-database
+ms.service: sql-database
 subservice: elastic-pool
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer: 
+author: oslake
+ms.author: moslake
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
 ---
