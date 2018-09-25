@@ -40,9 +40,7 @@ The following features are present in the .Net SDK:
 
 ### Known issues
 
-Known issue:
-
-When submitting a Job with a HTTPS URL (JobInputHttp) pointing to the source content, make sure that the HTTP server supports the ‘HEAD’ request. Otherwise, the Job will be rejected.
+* When submitting a Job with a HTTPS URL (JobInputHttp) pointing to the source content, make sure that the HTTP server supports the 'HEAD' request. Otherwise, the Job will be rejected.
 
 ## Next steps
 
