@@ -49,6 +49,19 @@ sections:
     - html: <a href="/azure/security-center/tutorial-security-policy">Define and assess security policies</a>
     - html: <a href="/azure/security-center/tutorial-protect-resources">Protect your resources</a>
     - html: <a href="/azure/security-center/tutorial-security-incident">Respond to security incidents</a>
+- title: Build your skills with Microsoft Learn
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title:   Introduction to Security in Azure
+      href: /learn/modules/intro-to-security-in-azure/
+      image: 
+        src: /learn/achievements/intro-to-security-in-azure.svg
+        href: /learn/modules/intro-to-security-in-azure/
+  - type: paragraph
+    text: <a href="/learn/browse/?term=security">More interactive learning...</a>
 - title: Free Video Training
   items:
   - type: list

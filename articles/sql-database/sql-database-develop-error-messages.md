@@ -3,14 +3,16 @@ title: SQL error codes - database connection error | Microsoft Docs
 description: 'Learn about SQL error codes for SQL Database client applications, such as common database connection errors, database copy issues, and general errors. '
 keywords: sql error code,access sql,database connection error,sql error codes
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: develop apps
+ms.subservice: development
+ms.custom: 
+ms.devlang:
 ms.topic: conceptual
-ms.date: 09/14/2018
+author: stevestein
 ms.author: sstein
-
+ms.reviewer:
+manager: craigg
+ms.date: 09/14/2018
 ---
 # SQL error codes for SQL Database client applications: Database connection errors and other issues
 
