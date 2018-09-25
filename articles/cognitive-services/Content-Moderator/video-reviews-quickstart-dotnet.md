@@ -125,9 +125,9 @@ Where indicated, replace the example values for these properties.
 	        /// </summary>
 	        /// <remarks>This must be the team name you used to create your 
 	        /// Content Moderator account. You can retrieve your team name from
-	        /// the Conent Moderator web site. Your team name is the Id associated 
+	        /// the Content Moderator web site. Your team name is the Id associated 
 	        /// with your subscription.</remarks>
-	        public static readonly string TeamName = "YOUR CONTENT MODERATOR TEAM ID";
+	        private const string TeamName = "YOUR CONTENT MODERATOR TEAM ID";
 
 	        /// <summary>
 	        /// The base URL fragment for Content Moderator calls.
@@ -401,7 +401,7 @@ Add the **Main** method definition to namespace VideoReviews, class Program. Fin
 
             Console.WriteLine("Open your Content Moderator Dashboard and select Review > Video to see the review.");
             Console.WriteLine("Press any key to close the application.");
-            Console.Read();
+            Console.ReadKey();
         }
 	}
 
