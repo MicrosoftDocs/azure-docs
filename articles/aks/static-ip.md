@@ -16,7 +16,7 @@ By default, the public IP address assigned to a load balancer resource created b
 
 ## Create a static IP address
 
-When you create a static public IP address for use with AKS, the IP address resource must be created in the **node** resource group. Get the resource group name with the [az aks show][az-aks-show] command and add the `--query nodeResourceGroup` query parameter. The following example gets the *nodeResourceGroup* for the AKS cluster name *myAKSCluster* in the resource group name *myResourceGroup*:
+When you create a static public IP address for use with AKS, the IP address resource must be created in the **node** resource group. Get the resource group name with the [az aks show][az-aks-show] command and add the `--query nodeResourceGroup` query parameter. The following example gets the node resource group for the AKS cluster name *myAKSCluster* in the resource group name *myResourceGroup*:
 
 ```azurecli
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
