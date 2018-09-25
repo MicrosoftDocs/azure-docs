@@ -11,7 +11,7 @@ manager: carmonm
 ---
 # Understanding the Azure Resource Graph query language
 
-The query language for the Azure Resource Graph supports a number of operators and functions. Each 
+The query language for the Azure Resource Graph supports a number of operators and functions. Each
 work and operate based on [Azure Data Explorer](../../../data-explorer/data-explorer-overview.md).
 
 The best way to learn about the query language used by Resource Graph is to start with the
