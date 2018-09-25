@@ -71,6 +71,7 @@ This parameter is currently effective in the following regions.  In regions not 
 
 | Region |
 |---|
+| Asia Southeast |
 | US East 2 |
 | US North |
 | US West |
