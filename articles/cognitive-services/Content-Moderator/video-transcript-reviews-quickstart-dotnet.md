@@ -143,7 +143,7 @@ Add the following method definition to namespace VideoTranscriptReviews, class P
     {
     	return new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey))
         {
-        	BaseUrl = AzureBaseURL
+        	Endpoint = AzureBaseURL
         };
     }
 
