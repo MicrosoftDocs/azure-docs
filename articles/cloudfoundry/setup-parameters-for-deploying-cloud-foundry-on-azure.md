@@ -1,4 +1,4 @@
-P---
+---
 title: Provisioning Pivotal Cloud Foundry on Azure
 description: Learn how to set up parameters needed to provision a Pivotal Cloud Foundry PCF cluster on Azure
 services: Cloud Foundry
@@ -114,7 +114,7 @@ Or you can also use…
  
 4. Launch the URL in a web browser and enter the credentials from the previous step to login.
 
-`!Alt image text](media/deploy/pivotal-login6.png "Pivotal Login page")
+!Alt image text](media/deploy/pivotal-login6.png "Pivotal Login page")
          
 > [!NOTE]
 >
@@ -122,5 +122,5 @@ Or you can also use…
 
 5. Your PCF Ops Manager should display the deployed Azure instances. Now you can start deploying and managing your applications here!
                
-`!Alt image text](media/deploy/Ops-Mgr7.png "Deployed Azure imstance in Pivotal")
+!Alt image text](media/deploy/Ops-Mgr7.png "Deployed Azure imstance in Pivotal")
  
