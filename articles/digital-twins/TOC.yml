@@ -4,7 +4,7 @@
   href: index.yml
 - name: Overview
   items:
-  # - name: WHat is IoT Smart Spaces
+  # - name: What is Azure Digital Twins
   - name: About Azure Digital Twins
     href: about-digital-twins.md
   # - name: Smart Spaces in the Azure IoT ecosystem
@@ -41,8 +41,10 @@
   items:
   - name: Create app to manage facilities
     href: tutorial-facilities-app.md
-# - name: How-to guides
-#  items:
+- name: How-to guides
+  items:
+  - name: Enable multitenant applications with Azure Digital Twins
+    href: how-to-multitenant-applications.md
 #- name: Reference
 #  items:
 - name: Related
