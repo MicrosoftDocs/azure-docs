@@ -80,7 +80,7 @@ Or you can also use…
 `az login --service-principal -u {appId} -p {your-passward}  --tenant {tenantId}`
 
 7. Create a .json file in the following format using Use all the above **subscription ID**, **tenantId**, **clientID** and **clientSecret** values you’ve copied above.  Save the file.
-
+{
 ```json
 {
     "subscriptionID": "{enter-your-subscription-Id-here}",
@@ -104,7 +104,7 @@ Or you can also use…
 
 1. Your PCF cluster should show a deployment status.
 
-`![Alt image text](media/deploy/deployment4.png "Azure deployment status")
+`[Alt image text](media/deploy/deployment4.png "Azure deployment status")
 
 
 2. Click on the **Deployments** link on the left-hand navigation to get credentials to your PCF Ops Manager, then click on the **Deployment Name** on the next page.
@@ -114,7 +114,7 @@ Or you can also use…
  
 4. Launch the URL in a web browser and enter the credentials from the previous step to login.
 
-!Alt image text](media/deploy/pivotal-login6.png "Pivotal Login page")
+![Alt image text](media/deploy/pivotal-login6.png "Pivotal Login page")
          
 > [!NOTE]
 >
@@ -122,5 +122,5 @@ Or you can also use…
 
 5. Your PCF Ops Manager should display the deployed Azure instances. Now you can start deploying and managing your applications here!
                
-!Alt image text](media/deploy/Ops-Mgr7.png "Deployed Azure imstance in Pivotal")
+![Alt image text](media/deploy/Ops-Mgr7.png "Deployed Azure imstance in Pivotal")
  
