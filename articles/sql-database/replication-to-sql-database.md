@@ -7,9 +7,9 @@ ms.subservice: data-movement
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer: 
+author: allenwux
+ms.author: xiwu
+ms.reviewer: mathoma
 manager: craigg
 ms.date: 09/25/2018
 ---
@@ -56,9 +56,9 @@ SQL Server replication can be configured to single and pooled databases on a [lo
    
  1.  Create a transactional replication publication on an on-premises SQL Server database.  
    
- 2.  On the on-premises SQL Server use the **New Subscription Wizard** or Transact-SQL statements to create a push to subscription to [!INCLUDE[ssSDS](../../includes/sssds-md.md)].  
+ 2.  On the on-premises SQL Server use the **New Subscription Wizard** or Transact-SQL statements to create a push to subscription to Azure SQL Database.  
    
- 3.  The initial data set is typically a snapshot that is created by the Snapshot Agent and distributed and applied by the Distribution Agent. The initial data set can also be supplied through a backup or other means, such as SQL Server[!INCLUDE[ssISnoversion](../../includes/ssisnoversion-md.md)].  
+ 3.  The initial data set is typically a snapshot that is created by the Snapshot Agent and distributed and applied by the Distribution Agent. The initial data set can also be supplied through a backup or other means, such as SQL Server Integration Services.  
    
  ### Data Migration Scenario  
    

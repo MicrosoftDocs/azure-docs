@@ -7,9 +7,9 @@ ms.subservice: data-movement
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer: 
+author: allenwux
+ms.author: xiwu
+ms.reviewer: mathoma
 manager: craigg
 ms.date: 09/25/2018
 ---

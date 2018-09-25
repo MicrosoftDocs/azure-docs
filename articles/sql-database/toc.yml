@@ -147,7 +147,7 @@
     - name: T-SQL differences
       href: sql-database-managed-instance-transact-sql-information.md
     - name: Transactional replication
-      href: replication-with-sql-database-managed-instance
+      href: replication-with-sql-database-managed-instance.md
   - name: Business continuity
     items:
     - name: Business continuity
