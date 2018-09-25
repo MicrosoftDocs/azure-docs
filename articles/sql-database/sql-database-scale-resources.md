@@ -2,13 +2,16 @@
 title: Azure SQL Database Scale Resources | Microsoft Docs
 description: This article explains how to scale your database by adding or removing allocated resources.
 services: sql-database
-author: jovanpop-msft
-ms.reviewer: carlrab
 ms.service: sql-database
+ms.subservice: performance
+ms.custom:
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 09/20/2018
+author: jovanpop-msft
 ms.author: jovanpop
+ms.reviewer: carlrab
 manager: craigg
+ms.date: 09/20/2018
 ---
 
 # Scale database resources

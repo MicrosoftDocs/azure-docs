@@ -2,16 +2,17 @@
 title: Azure SQL logical servers | Microsoft Docs
 description: Learn about Azure SQL Database logical server and their management.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: DBs & servers
+ms.subservice: 
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 09/20/2018
+author: CarlRabeler
 ms.author: carlrab
-
+ms.reviewer:
+manager: craigg
+ms.date: 09/20/2018
 ---
-
 # Azure SQL Database logical servers and their management
 
 ## What is an Azure SQL logical server?

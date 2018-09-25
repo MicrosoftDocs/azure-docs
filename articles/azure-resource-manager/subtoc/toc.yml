@@ -272,11 +272,11 @@
   - name: Disks
     href: /azure/templates/Microsoft.Compute/disks
     maintainContext: true
-  - name: Galleries
+  - name: Shared Image Gallery
     href: /azure/templates/Microsoft.Compute/galleries
     maintainContext: true
     items:
-    - name: Images
+    - name: Image Definition
       href: /azure/templates/Microsoft.Compute/galleries/images
       maintainContext: true
       items:
@@ -973,22 +973,6 @@
   - name: Search Services
     href: /azure/templates/Microsoft.Search/searchServices
     maintainContext: true
-- name: Server Management
-  items:
-  - name: Gateways
-    href: /azure/templates/Microsoft.ServerManagement/gateways
-    maintainContext: true
-  - name: Nodes
-    href: /azure/templates/Microsoft.ServerManagement/nodes
-    maintainContext: true
-    items:
-    - name: Sessions
-      href: /azure/templates/Microsoft.ServerManagement/nodes/sessions
-      maintainContext: true
-      items:
-      - name: PS Sessions
-        href: /azure/templates/Microsoft.ServerManagement/nodes/sessions/features/pssessions
-        maintainContext: true
 - name: Service Bus
   items:
   - name: Namespaces
@@ -1040,24 +1024,86 @@
     href: /azure/templates/Microsoft.Sql/servers
     maintainContext: true
     items:
+    - name: Administrators
+      href: /azure/templates/Microsoft.Sql/servers/administrators
+      maintainContext: true
+    - name: Advisors
+      href: /azure/templates/Microsoft.Sql/servers/advisors
+      maintainContext: true
+    - name: Auditing Policies
+      href: /azure/templates/Microsoft.Sql/servers/auditingPolicies
+      maintainContext: true
+    - name: Backup Long Term Retention Vaults
+      href: /azure/templates/Microsoft.Sql/servers/backupLongTermRetentionVaults
+      maintainContext: true
+    - name: Communication Links
+      href: /azure/templates/Microsoft.Sql/servers/communicationLinks
+      maintainContext: true
+    - name: Connection Policies
+      href: /azure/templates/Microsoft.Sql/servers/connectionPolicies
+      maintainContext: true
     - name: Databases
       href: /azure/templates/Microsoft.Sql/servers/databases
       maintainContext: true
       items:
-      - name: Audting Settings
+      - name: Advisors
+        href: /azure/templates/Microsoft.Sql/servers/databases/advisors
+        maintainContext: true
+      - name: Auditing Policies
+        href: /azure/templates/Microsoft.Sql/servers/databases/auditingPolicies
+        maintainContext: true
+      - name: Auditing Settings
         href: /azure/templates/Microsoft.Sql/servers/databases/auditingSettings
         maintainContext: true
       - name: Backup Long Term Retention Policies
         href: /azure/templates/Microsoft.Sql/servers/databases/backupLongTermRetentionPolicies
         maintainContext: true
+      - name: Connection Policies
+        href: /azure/templates/Microsoft.Sql/servers/databases/connectionPolicies
+        maintainContext: true
+      - name: Data Masking Policies
+        href: /azure/templates/Microsoft.Sql/servers/databases/dataMaskingPolicies
+        maintainContext: true
+        items:
+        - name: Rules
+          href: /azure/templates/Microsoft.Sql/servers/databases/dataMaskingPolicies/rules
+          maintainContext: true
+      - name: Extended Auditing Settings
+        href: /azure/templates/Microsoft.Sql/servers/databases/extendedAuditingSettings
+        maintainContext: true
+      - name: Extensions
+        href: /azure/templates/Microsoft.Sql/servers/databases/extensions
+        maintainContext: true
+      - name: Geo Backup Policies
+        href: /azure/templates/Microsoft.Sql/servers/databases/geoBackupPolicies
+        maintainContext: true
+      - name: Security Alert Policies
+        href: /azure/templates/Microsoft.Sql/servers/databases/securityAlertPolicies
+        maintainContext: true
+      - name: Sync Groups
+        href: /azure/templates/Microsoft.Sql/servers/databases/syncGroups
+        maintainContext: true
+        items:
+        - name: Sync Members
+          href: /azure/templates/Microsoft.Sql/servers/databases/syncGroups/syncMembers
+          maintainContext: true
       - name: Transparent Data Encryption
         href: /azure/templates/Microsoft.Sql/servers/databases/transparentDataEncryption
         maintainContext: true
+    - name: Disaster Recovery Configuration
+      href: /azure/templates/Microsoft.Sql/servers/disasterRecoveryConfiguration
+      maintainContext: true
+    - name: DNS Aliases
+      href: /azure/templates/Microsoft.Sql/servers/dnsAliases
+      maintainContext: true
     - name: Elastic Pools
       href: /azure/templates/Microsoft.Sql/servers/elasticPools
       maintainContext: true
     - name: Encryption Protector
       href: /azure/templates/Microsoft.Sql/servers/encryptionProtector
+      maintainContext: true
+    - name: Extended Auditing Settings
+      href: /azure/templates/Microsoft.Sql/servers/extendedAuditingSettings
       maintainContext: true
     - name: Failover Groups
       href: /azure/templates/Microsoft.Sql/servers/failoverGroups
@@ -1065,8 +1111,34 @@
     - name: Firewall Rules
       href: /azure/templates/Microsoft.Sql/servers/firewallRules
       maintainContext: true
+    - name: Job Agents
+      href: /azure/templates/Microsoft.Sql/servers/jobAgents
+      maintainContext: true
+      items:
+      - name: Credentials
+        href: /azure/templates/Microsoft.Sql/servers/jobAgents/credentials
+        maintainContext: true
+      - name: Jobs
+        href: /azure/templates/Microsoft.Sql/servers/jobAgents/jobs
+        maintainContext: true
+        items:
+        - name: Executions
+          href: /azure/templates/Microsoft.Sql/servers/jobAgents/jobs/executions
+          maintainContext: true
+        - name: Steps
+          href: /azure/templates/Microsoft.Sql/servers/jobAgents/jobs/steps
+          maintainContext: true
+      - name: Target Groups
+        href: /azure/templates/Microsoft.Sql/servers/jobAgents/targetgroups
+        maintainContext: true
     - name: Keys
       href: /azure/templates/Microsoft.Sql/servers/keys
+      maintainContext: true
+    - name: Security Alert Policies
+      href: /azure/templates/Microsoft.Sql/servers/securityAlertPolicies
+      maintainContext: true
+    - name: Sync Agents
+      href: /azure/templates/Microsoft.Sql/servers/syncAgents
       maintainContext: true
     - name: Virtual Network Rules
       href: /azure/templates/Microsoft.Sql/servers/virtualNetworkRules
