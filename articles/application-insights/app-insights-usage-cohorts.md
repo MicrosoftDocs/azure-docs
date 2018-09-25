@@ -105,7 +105,7 @@ The previous two cohorts were defined by using drop-down boxes. But you can also
 
     * A query section, where you define the cohort by using an analytics query.
 
-    In the query section, you [write an analytics query](https://docs.loganalytics.io/index). The query selects the certain set of rows that describe the cohort you want to define. The Cohorts tool then implicitly adds a “| summarize by user_Id” clause to the query. This data is previewed below the query in a table, so you can make sure your query is returning results.
+    In the query section, you [write an analytics query](/azure/kusto/query). The query selects the certain set of rows that describe the cohort you want to define. The Cohorts tool then implicitly adds a “| summarize by user_Id” clause to the query. This data is previewed below the query in a table, so you can make sure your query is returning results.
 
     > [!NOTE]
     > If you don’t see the query, try resizing the section to make it taller and reveal the query. The animated .gif at the beginning of this section illustrates the resizing behavior.

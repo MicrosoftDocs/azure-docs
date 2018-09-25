@@ -31,15 +31,15 @@ Windows 10, Windows 8, Windows 8 Enterprise, Windows 8 Pro, Windows 8.1, Windows
 
 ## Install and run performance diagnostics on your VM
 Performance diagnostics installs a VM extension that runs a diagnostics tool that is named [PerfInsights](https://aka.ms/perfinsights). To install and run performance diagnostics, follow these steps:
-1)	In the left column of commands, select **Virtual machines**.
-2)	From the list of VM names, select the VM that you want to run diagnostics on.
-3)	In the right column of commands, select **Performance diagnostics**.
+1.	In the left column of commands, select **Virtual machines**.
+1.	From the list of VM names, select the VM that you want to run diagnostics on.
+1.	In the right column of commands, select **Performance diagnostics**.
 
     ![Screenshot of Azure portal, with Install performance diagnostics button highlighted](media/performance-diagnostics/performance-diagnostics-install.png)
 
     > [!NOTE]
     > In this screen shot, the blade of VM names is hidden.
-4) Select a storage account (optional)
+1. Select a storage account (optional)
 
     If you want to use a single storage account to store the performance diagnostics results for multiple VMs, you can select a storage account by clicking the **Settings** button in the toolbar. Click the **OK** button once you select the storage account.
 
@@ -49,8 +49,8 @@ Performance diagnostics installs a VM extension that runs a diagnostics tool tha
 
     ![Screenshot of storage account selection from Performance diagnostics settings blade](media/performance-diagnostics/select-storage-account.png)
 
-5) Select the **Install performance diagnostics** button.
-6) Select the **Run diagnostics** check box if you want to run a diagnostic after the installation is completed. If you make this selection, you will be able to choose the performance analysis scenario and related options.
+1. Select the **Install performance diagnostics** button.
+1. Select the **Run diagnostics** check box if you want to run a diagnostic after the installation is completed. If you make this selection, you will be able to choose the performance analysis scenario and related options.
 
     ![Screenshot of Performance diagnostics install button](media/performance-diagnostics/install-diagnostics-button.png)
 
@@ -144,13 +144,13 @@ When you open a support ticket with Microsoft, it is important to share the perf
 
 **Option 2:** Generate a Shared Access Signature for the diagnostics report compressed file  
 You may share a link to the reports compressed file by using Shared Access Signatures. To do this, follow these steps: 
-1)	In the Azure portal, browse to the storage account in which the diagnostics data is stored.
-2)	Select **Blobs** under the **Blob service** section. 
-3)	Select the **azdiagextnresults** container.
-4)	Select the Performance diagnostics output compressed file that you want to share.
-5)	On the **Generate SAS** tab, select the criteria for sharing. 
-6)	Click **Generate blob SAS token and URL**.
-7)	Copy the **Blob SAS URL**, and share it with the support engineer. 
+1.	In the Azure portal, browse to the storage account in which the diagnostics data is stored.
+1.	Select **Blobs** under the **Blob service** section. 
+1.	Select the **azdiagextnresults** container.
+1.	Select the Performance diagnostics output compressed file that you want to share.
+1.	On the **Generate SAS** tab, select the criteria for sharing. 
+1.	Click **Generate blob SAS token and URL**.
+1.	Copy the **Blob SAS URL**, and share it with the support engineer. 
 
 **Option 3:** Download the report from the storage account
 
@@ -158,8 +158,8 @@ You can also locate the performance diagnostics report compressed file by using 
 
 ### How do I capture the diagnostics data at the correct time?
 Each performance diagnostics run has two stages: 
-1)	Install or update the performance diagnostics VM extension.
-2)	Run the diagnostics for the specified duration.
+1.	Install or update the performance diagnostics VM extension.
+1.	Run the diagnostics for the specified duration.
 
 Currently there is no easy way to know exactly when the VM extension installation is complete. Generally it takes about 45 seconds to 1 minute to install the VM extension. After the VM extension is installed, you can run your repro steps to have the performance diagnostics capture the correct set of data for troubleshooting. 
 

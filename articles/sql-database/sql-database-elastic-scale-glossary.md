@@ -3,7 +3,7 @@ title: Elastic Database tools glossary | Microsoft Docs
 description: Explanation of terms used for elastic database tools
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+subservice: elastic-scale
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
@@ -11,7 +11,6 @@ author: stevestein
 ms.author: sstein
 ms.reviewer:
 manager: craigg
-ms.service: sql-database
 ms.date: 09/14/2018
 ---
 # Elastic Database tools glossary
