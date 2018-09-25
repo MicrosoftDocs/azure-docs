@@ -20,8 +20,8 @@ abstract:
       height: 110
       src: https://docs.microsoft.com/azure/active-directory-b2c/media/index/active-directory-b2c-video.PNG
       width: 250  
-    title: Business-to-Consumer Identity Management with Azure Active Directory B2C (12:56)
-    href: https://azure.microsoft.com/resources/videos/build-2016-business-to-consumer-identity-management-with-azure-active-directory-b2c/
+    title: Customer Identity Management with Azure AD B2C (20:56)
+    href: https://channel9.msdn.com/Shows/On-NET/Customer-Identity-Management-with-Azure-AD-B2C
     width: 250
 sections:
 - items:
