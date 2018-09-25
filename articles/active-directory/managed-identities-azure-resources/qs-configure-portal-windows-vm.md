@@ -49,7 +49,7 @@ To enable system-assigned managed identity during the creation of a VM, under th
 Refer to the following Quickstarts to create a VM: 
 
 - [Create a Windows virtual machine with the Azure portal](../../virtual-machines/windows/quick-create-portal.md#create-virtual-machine) 
-- [Create a Linux virtual machine with the Azure portal](../../virtual-machines/linux/quick-create-portal.md#create-virtual-machine). 
+- [Create a Linux virtual machine with the Azure portal](../../virtual-machines/linux/quick-create-portal.md#create-virtual-machine)
 
 
 ### Enable system-assigned managed identity on an existing VM
