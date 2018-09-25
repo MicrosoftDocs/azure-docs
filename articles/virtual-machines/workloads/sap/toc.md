@@ -108,3 +108,4 @@
 ## [Azure Data Factory offers SAP HANA and Business Warehouse data integration](https://azure.microsoft.com/blog/azure-data-factory-offer-sap-hana-and-business-warehouse-data-integration)
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+
