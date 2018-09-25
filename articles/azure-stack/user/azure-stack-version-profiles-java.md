@@ -146,7 +146,7 @@ Sample JSON file:
 
 ## Existing API Profiles
 
-1.  **com.microsoft.azure.profile\_2018\_03\_01\_hybrid **: Latest profile built for Azure Stack. Use this profile for services to be most compatible with Azure Stack as long as you are on 1808 stamp or further.
+1.  **com.microsoft.azure.profile\_2018\_03\_01\_hybrid**: Latest profile built for Azure Stack. Use this profile for services to be most compatible with Azure Stack as long as you are on 1808 stamp or further.
 
 2.  **com.microsoft.azure.profile\_2017\_03\_09\_profile**: If you are on a stamp lower than the 1808 build, use this profile.
 
