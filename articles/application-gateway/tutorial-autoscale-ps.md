@@ -12,7 +12,7 @@ ms.custom: mvc
 ---
 # Tutorial: Create an autoscaling, zone redundant application gateway with a reserved virtual IP address using Azure PowerShell
 
-This tutorial describes how to create an Azure Application Gateway using Azure PowerShell cmdlets and the Azure Resource Manager deployment model. This tutorial focuses on differences in the new Autoscaling SKU compared to the existing Standard SKU. Specifically, the supported features to support autoscaling, zone redundancy, and reserved VIPs (static IP).
+This tutorial describes how to create an Azure Application Gateway using Azure PowerShell cmdlets and the Azure Resource Manager deployment model. This tutorial focuses on differences in the new Autoscaling SKU compared to the existing Standard SKU. Specifically, the features to support autoscaling, zone redundancy, and reserved VIPs (static IP).
 
 For more information about application gateway autoscaling and zone redundancy, see [Autoscaling and Zone-redundant Application Gateway (Public Preview)](application-gateway-autoscaling-zone-redundant.md).
 
