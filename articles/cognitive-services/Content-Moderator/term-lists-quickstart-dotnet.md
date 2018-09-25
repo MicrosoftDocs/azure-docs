@@ -113,7 +113,7 @@ Add the following code to create a Content Moderator client for your subscriptio
             // Create and initialize an instance of the Content Moderator API wrapper.
             ContentModeratorClient client = new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey));
 
-            client.BaseUrl = AzureBaseURL;
+            client.Endpoint = AzureBaseURL;
             return client;
         }
     }
