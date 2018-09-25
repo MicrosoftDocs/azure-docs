@@ -84,7 +84,7 @@ For SAP HANA scale-out HA verification and certification a setup was used, consi
 
 ## Multiple subnets and vNICs
 
-Following SAP HANA network recommendations, three subnets were created within one Azure virtual network. SAP HANA scale-out on Azure has to be installed in non-shared mode, which means that every node uses local disk volumes for **/hana/data** and **/hana/log**. Becasue of using only local disk volumes it's not necessary to define a separate subnet for storage:
+Following SAP HANA network recommendations, three subnets were created within one Azure virtual network. SAP HANA scale-out on Azure has to be installed in non-shared mode, which means that every node uses local disk volumes for **/hana/data** and **/hana/log**. Because of using only local disk volumes it's not necessary to define a separate subnet for storage:
 
 - 10.0.2.0/24   for SAP HANA inter-node communication
 - 10.0.1.0/24   for SAP HANA System Replication HSR
