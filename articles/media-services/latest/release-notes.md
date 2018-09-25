@@ -40,7 +40,7 @@ The following features are present in the .Net SDK:
 
 ### Known issues
 
-You can submit an encoding job and specify to ingest the source video using HTTP(s) URLs, SAS URLs, or paths to files located in Azure Blob storage. If using HTTP(s) URLs, the following considerations apply: 
+When submitting a job, you can specify to ingest the source video using HTTP(s) URLs, SAS URLs, or paths to files located in Azure Blob storage. If using HTTP(s) URLs, the following considerations apply:  
 
 * Currently, AMS v3 does not support chunked encoding transfer.
 * Make sure that the HTTP server supports the 'HEAD' request. Otherwise, the Job will be rejected.
