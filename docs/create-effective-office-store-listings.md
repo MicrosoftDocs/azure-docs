@@ -140,6 +140,7 @@ Make your store images rich and informative. Help customers understand how your 
 
 <a name="bk_ratings"> </a>
 ## Use ratings and reviews
+Users will recieve an email soon after acquiring your add-in that will provide them a link to leave a review on AppSource.
 
 Good ratings and reviews lead to better store placement and improved customer perception of your product. Customers also use reviews as a forum to offer feedback and suggestions, particularly if feedback and support options are not available within the app or add-in. Be sure to:
 
@@ -149,25 +150,6 @@ Good ratings and reviews lead to better store placement and improved customer pe
 The following figure shows a request to rate within an add-in next to a request to rate following a tutorial.
 
 ![An image that shows a request to rate within an add-in next to a request to rate following a tutorial](images/rate-and-review-do-dont.png)
-
-## Respond to customer reviews in AppSource
-
-You can use the comment feature in AppSource to respond to customer reviews of your solution; for example, customer reviews that indicate that a user had trouble with installation, was confused about features or functionality, or had compatibility issues. If you're signed in to AppSource with the same account that you used to submit your app or add-in via the Seller Dashboard, your response to the customer review will be tagged with an "App provider" label.
-
-The following figure shows a developer response to a comment with the app provider label under the name.
-
-![Image that shows a developer response to a comment with the App provider label under the name](images/comment-field.png)
- 
-If you've responded to a user review and the user responds to your comment, the user has the option to change their rating of the app or add-in if their issue has been resolved. 
-
-Responding directly to your customers increases your customer engagement and enables you to:
-
-- Help users with installation or other issues that can prompt negative reviews.
-- [Troubleshoot](http://msdn.microsoft.com/library/4e3a5129-5bb8-4aed-b122-200c6410d82c%28Office.15%29.aspx) issues and provide technical support to your users.
-- Encourage users to edit their rating when their issue is resolved, improving your global ratings over time.
-- Connect with your customers and discover what features to build, and why.
-- Indicate to users that their feedback is important and is monitored.
-- Reduce future negative reviews and comments.
 
 ## Create effective ad-supported apps and add-ins
 <a name="bk_ads"> </a>
