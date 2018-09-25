@@ -21,7 +21,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-You need a pay-as-you-go subscription or other Azure purchase option to use rendering applications in Batch on a pay-per-use basis. Pay-per-use licensing isn't supported with a free Azure offer that provides a monetary credit.
+You need a pay-as-you-go subscription or other Azure purchase option to use rendering applications in Batch on a pay-per-use basis. Pay-per-use licensing isn't supported if you use a free Azure offer that provides a monetary credit.
 
 You need an Azure Batch account with an associated storage account.  See any of the Batch Quickstarts articles, such as the [CLI article](https://docs.microsoft.com/azure/batch/quick-create-cli) to create a Batch account.
 
