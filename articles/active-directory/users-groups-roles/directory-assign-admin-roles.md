@@ -420,28 +420,6 @@ Can manage conditional access capabilities.
 | microsoft.aad.directory/policies/conditionalAccess/owners/update | Update policies.conditionalAccess property in Azure Active Directory. |
 | microsoft.aad.directory/policies/conditionalAccess/policiesAppliedTo/read | Read policies.conditionalAccess property in Azure Active Directory. |
 
-## Dynamics 365 service administrator
-Can manage all aspects of the Dynamics 365 product. Formerly CRM Service Administrator.
-
-  > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
-
-  > [!NOTE]
-  > This role has additional permissions outside of Azure Active Directory. See role description above for more information.
-  >
-  >
-
-| **Actions** | **Description** |
-| --- | --- |
-| microsoft.azure.accessService/allEntities/allTasks | Manage all aspects of Azure Access service. |
-| microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
-| microsoft.powerApps.dynamics365/allEntities/allTasks | Manage all aspects of Dynamics 365. |
-| microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
-| microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
-
 ## Customer LockBox Access Approver
 Can approve Microsoft support requests to access customer organizational data.
 
@@ -614,6 +592,28 @@ Can read & write basic directory information. For granting access to application
 | microsoft.aad.directory/users/invalidateAllRefreshTokens | Invalidate all user refresh tokens in Azure Active Directory. |
 | microsoft.aad.directory/users/manager/update | Update users.manager property in Azure Active Directory. |
 | microsoft.aad.directory/users/userPrincipalName/update | Update users.userPrincipalName property in Azure Active Directory. |
+
+## Dynamics 365 Administrator
+Can manage all aspects of the Dynamics 365 product. Formerly CRM Service Administrator.
+
+  > [!NOTE]
+  > This role inherits additional permissions from the Directory Readers role.
+  >
+  >
+
+  > [!NOTE]
+  > This role has additional permissions outside of Azure Active Directory. See role description above for more information.
+  >
+  >
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.azure.accessService/allEntities/allTasks | Manage all aspects of Azure Access service. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
+| microsoft.powerApps.dynamics365/allEntities/allTasks | Manage all aspects of Dynamics 365. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
 
 ## Exchange Service Administrator
 Can manage all aspects of the Exchange product.
