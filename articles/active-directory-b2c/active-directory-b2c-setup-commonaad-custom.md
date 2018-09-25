@@ -155,8 +155,6 @@ At this point, the identity provider has been set up, but it’s not available i
 
 ### Display the button
 
-### Display the button
-
 The **ClaimsProviderSelection** element is analogous to an identity provider button on a sign-up/sign-in screen. If you add a **ClaimsProviderSelection** element for Azure AD, a new button shows up when a user lands on the page.
 
 1. Find the **OrchestrationStep** element that includes `Order="1"` in the user journey that you created.
