@@ -67,6 +67,10 @@ Contact us if you require a higher scale.
 
 **A**: You have a choice when you create a deployment to switch off tracing. At that point, no audio or transcriptions will be logged. Otherwise, requests are typically logged in Azure in secure storage. 
 
+**Q: Are my requests throttled?**
+
+**A**: The REST API limits requests to 25 per 5 seconds. Details can be found in our pages for [Speech to text](speech-to-text.md). 
+
 If you have further privacy concerns that prohibit you from using the custom Speech service, contact one of the support channels.
 
 ## Importing data

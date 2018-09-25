@@ -2,22 +2,20 @@
 title: "Transparent data encryption for Azure SQL Database and Data Warehouse | Microsoft Docs"
 description: "An overview of transparent data encryption for SQL Database and Data Warehouse. The document covers its benefits and the options for configuration, which includes service-managed transparent data encryption and Bring Your Own Key."
 services: sql-database
-author: "becczhang"
-manager: craigg
-ms.prod: 
-ms.reviewer: "carlrab"
-ms.prod_service: sql-database, sql-data-warehouse
-ms.service: "sql-database"
-ms.tgt_pltfrm:
+ms.service: sql-database
+ms.subservice: security
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: "07/09/2018"
-ms.author: "aliceku"
-monikerRange: "= azuresqldb-current || = azure-sqldw-latest || = sqlallproducts-allversions"
-
+author: becczhang
+ms.author: aliceku
+ms.reviewer: vanto
+manager: craigg
+ms.date: 07/09/2018
 ---
 # Transparent data encryption for SQL Database and Data Warehouse
 
-Transparent data encryption (TDE) helps protect Azure SQL Database and Azure Data Warehouse against the threat of malicious activity. It performs real-time encryption and decryption of the database, associated backups, and transaction log files at rest without requiring changes to the application. By default, TDE is enabled for all newly deployed Azure SQL Databases. TDE cannot be used to encrypt the logical **master** database in SQL Database.  The **master** database contains objects that are needed to perform the TDE operations on the user databases.
+Transparent data encryption (TDE) helps protect Azure SQL Database and Azure Data Warehouse against the threat of malicious activity. It performs real-time encryption and decryption of the database, associated backups, and transaction log files at rest without requiring changes to the application. By default, TDE is enabled for all newly deployed Azure SQL databases. TDE cannot be used to encrypt the logical **master** database in SQL Database.  The **master** database contains objects that are needed to perform the TDE operations on the user databases.
 
 TDE will need to be manually enabled for older databases or Azure SQL Data Warehouse.  
 

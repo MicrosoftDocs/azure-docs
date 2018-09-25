@@ -84,8 +84,8 @@ Azure Backup has four major phases:
 
 For details on where to copy these scripts and details on how Azure Backup works exactly, check the following articles:
 
-- [Plan your VM backup infrastructure in Azure](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-introduction)
-- [Application-consistent backup of Azure Linux VMs](https://docs.microsoft.com/en-us/azure/backup/backup-azure-linux-app-consistent)
+- [Plan your VM backup infrastructure in Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction)
+- [Application-consistent backup of Azure Linux VMs](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)
 
 
 

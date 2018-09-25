@@ -2,14 +2,16 @@
 title: How to uninstall elastic database jobs tool
 description: Learn how to uninstall the elastic database jobs components using the Azure portal of PowerShell.
 services: sql-database
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: operations
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 06/14/2018
+author: stevestein
 ms.author: sstein
-
+ms.reviewer: 
+manager: craigg
+ms.date: 06/14/2018
 ---
 # Uninstall Elastic Database jobs components
 

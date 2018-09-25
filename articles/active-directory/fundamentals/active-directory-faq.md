@@ -1,18 +1,15 @@
 ---
-title: Azure AD FAQ | Microsoft Docs
-description: Azure Active Directory FAQ answers common questions about Azure and Azure Active Directory, password management, and application access.
+title: Azure Active Directory - FAQ | Microsoft Docs
+description: Learn common questions and answers about Azure and Azure Active Directory, password management, and application access.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
+
 ms.assetid: b8207760-9714-4871-93d5-f9893de31c8f
 ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 12/14/2017
 ms.author: lizross
 ---
@@ -71,7 +68,7 @@ Additionally, Azure AD paid services like Enterprise Mobility + Security complem
 
 **A:** You can connect your on-premises directory to Azure AD by using Azure AD Connect.
 
-For more information, see [Integrating your on-premises identities with Azure Active Directory](../connect/active-directory-aadconnect.md).
+For more information, see [Integrating your on-premises identities with Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
 
 - - -
 **Q: How do I set up SSO between my on-premises directory and my cloud applications?**
@@ -80,7 +77,7 @@ For more information, see [Integrating your on-premises identities with Azure Ac
 
 Implementing SSO from on-premises can be easily achieved with federation solutions such as Active Directory Federation Services (AD FS), or by configuring password hash sync. You can easily deploy both options by using the Azure AD Connect configuration wizard.
 
-For more information, see [Integrating your on-premises identities with Azure Active Directory](../connect/active-directory-aadconnect.md).
+For more information, see [Integrating your on-premises identities with Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
 
 - - -
 **Q: Does Azure AD provide a self-service portal for users in my organization?**
@@ -94,7 +91,7 @@ For more information, see [Introduction to the Access Panel](../user-help/active
 
 **A:** Yes. The Azure AD Premium edition provides you with Azure AD Connect Health. Azure AD Connect Health helps you monitor and gain insight into your on-premises identity infrastructure and the synchronization services.  
 
-For more information, see [Monitor your on-premises identity infrastructure and synchronization services in the cloud](../connect-health/active-directory-aadconnect-health.md).  
+For more information, see [Monitor your on-premises identity infrastructure and synchronization services in the cloud](../hybrid/whatis-hybrid-identity-health.md).  
 
 - - -
 ## Password management

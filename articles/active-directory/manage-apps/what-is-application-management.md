@@ -38,6 +38,3 @@ With Azure AD, you can monitor application sign-ins through reports that leverag
 ## Manage costs
 By migrating to Azure AD, you can save costs and remove the hassle of managing your on-premises infrastructure. Azure AD also provides self-service access to applications, which saves time for both administrators and users. Single sign-on eliminates application-specific passwords, which saves costs related to password reset for applications, and lost productivity while retrieving passwords.
 
-
-
-

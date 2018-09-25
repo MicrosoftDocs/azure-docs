@@ -37,18 +37,6 @@ Both Access ACLs and Default ACLs have the same structure.
 >
 >
 
-## Users and identities
-
-Every file and folder has distinct permissions for these identities:
-
-* The owning user
-* The owning group
-* Named users
-* Named groups
-* All other users
-
-The identities of users and groups are Azure Active Directory (Azure AD) identities. So unless otherwise noted, a "user," in the context of Data Lake Storage Gen1, can either mean an Azure AD user or an Azure AD security group.
-
 ## Permissions
 
 The permissions on a filesystem object are **Read**, **Write**, and **Execute**, and they can be used on files and folders as shown in the following table:
@@ -96,7 +84,19 @@ Following are some common scenarios to help you understand which permissions are
 >
 
 
-## The super-user
+## Users and identities
+
+Every file and folder has distinct permissions for these identities:
+
+* The owning user
+* The owning group
+* Named users
+* Named groups
+* All other users
+
+The identities of users and groups are Azure Active Directory (Azure AD) identities. So unless otherwise noted, a "user," in the context of Data Lake Storage Gen1, can either mean an Azure AD user or an Azure AD security group.
+
+### The super-user
 
 A super-user has the most rights of all the users in the Data Lake Storage Gen1 account. A super-user:
 
@@ -111,7 +111,7 @@ If you want to create a custom role-based-access control (RBAC) role that has su
 - Microsoft.Authorization/roleAssignments/write
 
 
-## The owning user
+### The owning user
 
 The user who created the item is automatically the owning user of the item. An owning user can:
 
@@ -123,13 +123,18 @@ The user who created the item is automatically the owning user of the item. An o
 >
 >
 
-## The owning group
+### The owning group
+
+**Background**
 
 In the POSIX ACLs, every user is associated with a "primary group." For example, user "alice" might belong to the "finance" group. Alice might also belong to multiple groups, but one group is always designated as her primary group. In POSIX, when Alice creates a file, the owning group of that file is set to her primary group, which in this case is "finance." The owning group otherwise behaves similarly to assigned permissions for other users/groups.
 
-Assiging the owning group for a new file or folder:
+**Assiging the owning group for a new file or folder**
+
 * **Case 1**: The root folder "/". This folder is created when a Data Lake Storage Gen1 account is created. In this case, the owning group is set to the user who created the account.
 * **Case 2** (Every other case): When a new item is created, the owning group is copied from the parent folder.
+
+**Changing the owning group**
 
 The owning group can be changed by:
 * Any super-users.
@@ -151,28 +156,30 @@ def access_check( user, desired_perms, path ) :
   # path is the file or folder
   # Note: the "sticky bit" is not illustrated in this algorithm
   
-# Handle super users
-    if (is_superuser(user)) :
-      return True
+# Handle super users.
+  if (is_superuser(user)) :
+    return True
 
-  # Handle the owning user. Note that mask is not used.
-    if (is_owning_user(path, user))
-      perms = get_perms_for_owning_user(path)
-      return ( (desired_perms & perms) == desired_perms )
+  # Handle the owning user. Note that mask IS NOT used.
+  entry = get_acl_entry( path, OWNER )
+  if (user == entry.identity)
+      return ( (desired_perms & e.permissions) == desired_perms )
 
-  # Handle the named user. Note that mask is used.
-  if (user in get_named_users( path )) :
-      perms = get_perms_for_named_user(path, user)
-      mask = get_mask( path )
-      return ( (desired_perms & perms & mask ) == desired_perms)
+  # Handle the named users. Note that mask IS used.
+  entries = get_acl_entries( path, NAMED_USER )
+  for entry in entries:
+      if (user == entry.identity ) :
+          mask = get_mask( path )
+          return ( (desired_perms & entry.permmissions & mask) == desired_perms)
 
-  # Handle groups (named groups and owning group)
+  # Handle named groups and owning group
   member_count = 0
   perms = 0
-  for g in get_groups(path) :
-    if (user_is_member_of_group(user, g)) :
+  entries = get_acl_entries( path, NAMED_GROUP | OWNING_GROUP )
+  for entry in entries:
+    if (user_is_member_of_group(user, entry.identity)) :
       member_count += 1
-      perms | =  get_perms_for_group(path,g)
+      perms | =  entry.permissions
   if (member_count>0) :
     return ((desired_perms & perms & mask ) == desired_perms)
  
@@ -223,7 +230,7 @@ The following pseudocode shows how the umask is applied when creating the ACLs f
 ```
 def set_default_acls_for_new_child(parent, child):
     child.acls = []
-    foreach entry in parent.acls :
+    for entry in parent.acls :
         new_entry = None
         if (entry.type == OWNING_USER) :
             new_entry = entry.clone(perms = entry.perms & (~umask.owning_user))
