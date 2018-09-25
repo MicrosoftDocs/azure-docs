@@ -18,6 +18,8 @@ Data preparation is an important part of a machine learning workflow. Your model
 
 You can prepare your data in Python using the [Azure Machine Learning Data Prep SDK](https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py). 
 
+## Data preparation pipeline
+
 The main data preparation steps are:
 
 1. [Load data](how-to-load-data.md), which can be in various formats
