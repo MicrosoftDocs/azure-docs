@@ -104,17 +104,17 @@ Or you can also use…
 
 1. Your PCF cluster should show a deployment status.
 
-`[Alt image text](media/deploy/deployment4.png "Azure deployment status")
+![Alt image text](media/deploy/deployment4.png "Azure deployment status")
 
 
 2. Click on the **Deployments** link on the left-hand navigation to get credentials to your PCF Ops Manager, then click on the **Deployment Name** on the next page.
 3. On the left-hand navigation, click on the **Outputs** link to display the URL, Username and Password to the PCF Ops Manager.  The “OPSMAN-FQDN” value is the URL.
  
-`!Cloud Foundry deployment output](media/deploy/deploy-outputs5.png)` 
+![Alt image text](media/deploy/deploy-outputs5.png "Cloud Foundry deployment output")
  
 4. Launch the URL in a web browser and enter the credentials from the previous step to login.
 
-![Alt image text](media/deploy/pivotal-login6.png "Pivotal Login page")
+![Alt image text](media/deploy/pivotal-login.png "Pivotal Login page")
          
 > [!NOTE]
 >
