@@ -116,7 +116,7 @@ Expand the **User-Defined Code Configuration** section, and fill out the configu
  |Storage Account  |  Choose your storage account.   |
  |Container  |  Choose the container you created in your storage account.   |
 
-    ![Azure Stream Analytics Edge job configuration in Visual Studio](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-job-config.png)
+![Azure Stream Analytics Edge job configuration in Visual Studio](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-job-config.png)
 
 ## Limitations
 The UDF preview currently has the following limitations:
