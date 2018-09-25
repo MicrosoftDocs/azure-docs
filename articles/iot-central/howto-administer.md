@@ -59,7 +59,7 @@ To copy an application, go to the **Application Settings** page. Then select the
 
 ![Application settings page](media\howto-administer\appCopy1.png)
 
-When you select the **Copy** button, a dialog box opens in which you can select a name, URL, Azure AD directory, subscription, and Azure region for the new application that will be created by copying your application. Select values for each of those fields. Then select the **Copy** button to confirm that you want to proceed. You can learn more about what to enter for those values in this article about [how to create an application](howto-create-application.md).
+Selecting the **Copy** button opens dialog box opens in which you can select a name, URL, Azure AD directory, subscription, and Azure region for the new application that will be created by copying your application. Select values for each of those fields. Then select the **Copy** button to confirm that you want to proceed. You can learn more about what to enter for those values in this article about [how to create an application](howto-create-application.md).
 
 ![Application settings page](media\howto-administer\appCopy2.png)
 
@@ -68,7 +68,7 @@ After the app copy operation succeeds, you  can go to the new application that w
 ![Application settings page](media\howto-administer\appCopy3.png)
 
 > [!Note]
-> When you copy an application, you also copy the definition of rules or actions. However, since users that have access to your original app aren't copied to the copied app, you have to manually add users to actions such as email for which users are a pre-requisite.
+> Copying an application also copies the definition of rules or actions. But because users who have access to your original app aren't copied to the copied app, you have to manually add users to actions such as email for which users are a pre-requisite.
 
 ## Delete an application
 
@@ -77,11 +77,11 @@ To delete your application, use the secondary navigation menu to navigate to the
 Choose **Delete**.
 
 > [!Note]
-> When you delete an application, all data that's associated with that applications is permanently deleted. To delete an application, you must also have permissions to delete resources in the Azure subscription you chose when you created the application. To learn more, see [Use Role-Based Access Control to manage access to your Azure subscription resources](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure).
+> Deleting an application permanently deletes all data that's associated with that application.  To delete an application, you must also have permissions to delete resources in the Azure subscription you chose when you created the application. To learn more, see [Use Role-Based Access Control to manage access to your Azure subscription resources](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure).
 
 ## Roles in Azure IoT Central
 
-Roles enable you to control who within your organization can perform various Azure IoT Central tasks. Azure IoT Central has three roles you can assign to people who use your application. Roles are assigned by each application. The same user can have different roles in different applications. You can assign the same user to multiple roles within an application.
+Roles enable you to control who within your organization can perform various Azure IoT Central tasks. Azure IoT Central has three roles you can assign to users of your application. Roles are assigned by each application. The same user can have different roles in different applications. You can assign the same user to multiple roles within an application.
 
 ### Administrator
 
