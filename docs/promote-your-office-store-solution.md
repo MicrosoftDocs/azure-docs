@@ -52,7 +52,7 @@ Adding these parameters to your AppSource URL enables us to provide more informa
 ## Track your campaign performance and customize your add-in for targeted audiences
 
 > [!NOTE]
-> Campaign tracking is enabled for all O365 listings on AppSource. Activation data is only provided for Word, Excel and PowerPoint add-ins currently.
+> Campaign tracking is enabled for all Office 365 listings on AppSource. Currently, activation data is only provided for Word, Excel, and PowerPoint add-ins currently.
 
 When you link from your promotional campaigns to your free Word, Excel, or PowerPoint add-in page in AppSource, include the following query parameters at the end of the URL: 
 
