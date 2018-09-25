@@ -1,6 +1,6 @@
 ---
-title: Events Routing with Azure Digital Twins | Microsoft Docs
-description: Overview of events and messages routing to service endpoints with Azure Digital Twins
+title: Routing events and messages with Azure Digital Twins | Microsoft Docs
+description: Overview of routing events and messages to service endpoints with Azure Digital Twins
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
@@ -10,31 +10,37 @@ ms.date: 09/21/2018
 ms.author: alinast
 ---
 
-# Events routing
+# Routing events and messages
 
-Azure Digital Twins provides the capability to stream data from your connected devices and integrate that data into your business applications. Digital Twins offers two methods for integrating IoT events into other Azure services or business applications.
+IoT solutions often stitch together several services including storage, analytics, and more. Azure Digital Twins provides the capability to stream data from your connected devices and integrate that data into your business applications. This article will describe how to connect your Digital Twins instance to the broad set of Azure Analytics, AI, and Storage services.
 
-* **Digital Twins events routing**: This feature enables users to send a variety of events to the following services: Event Hubs, Service Bus topics, and Event Grids for further processing. Events could be triggered when an object in the graph changes, or sensor telemetry reading changes as it received. User-defined functions can also create new events based incoming telemetry and graph's nodes, for instance once a certain threshold has been reached for specific type of spaces.
+## Route types
 
-* **Device telemetry message routing to Event Hub**: This feature enables users to route raw telemetry messages to Event Hubs for further insights and analytics. Digital Twins message routing to EventHubs maintains the order in which messages are sent, so that they arrive in the same way. These types of messages are not processed by Digital Twins, they are only forwarded to Event Hub.
+Digital Twins offers two methods to integrate IoT events into other Azure services or business applications:
 
-Users should specify one or more egress endpoints to send out these events or to forward the messages. Events and messages will be sent to the endpoints according to the pre-defined routing preferences. In other words, user can specify which endpoint should receive graph operation, user-defined function, sensor change, space change, or device telemetry events.
+* **Routing Digital Twins events**: Digital Twins events can be triggered when an object in the spatial graph changes, when telemetry data is received, or when a User-Defined Function creates a notification based on predefined conditions. Users can send these events to [Event Hubs](https://azure.microsoft.com/services/event-hubs/), [Service Bus topics](https://azure.microsoft.com/services/service-bus/), or [Event Grids](https://azure.microsoft.com/services/event-grid/) for further processing.
 
-Event Grid and Service Bus don't guarantee that endpoints will receive events in the same order that they occurred. However, the event schema does include a timestamp that can be used to identify the order after the events arrive at the endpoint.
+* **Routing device telemetry**: In addition to event-based routing, Digital Twins can also route raw device telemetry messages to Event Hubs for further insights and analytics. These types of messages aren't processed by Digital Twins, and they are only forwarded to the Event Hub.
 
-The system currently supports the following **EndpointTypes**:
+Users can specify one or more egress endpoints to send out these events or to forward the messages. Events and messages will be sent to the endpoints according to these predefined routing preferences. In other words, users can specify certain one endpoint to receieve graph operation events, another to receive device telemetry events, and so on.
 
-- **EventHub** is defined as the Event Hub connection string endpoint.
-- **ServiceBus** is defined as the Service Bus connection string endpoint.
-- **EventGrid** is defined as the Event Grid connection string endpoint.
+Routing to Event Hubs will maintain the order in which messages are sent, so that they arrive at the endpoint in the same sequence as they were originally received. Event Grid and Service Bus don't guarantee that endpoints will receive events in the same order that they occurred. However, the event schema does include a timestamp that can be used to identify the order after the events arrive at the endpoint.
 
-The system currently supports the following **EventTypes** that will be sent to the chosen endpoint:
+## Route implementation
 
-- **DeviceMessages** is defined as telemetry messages sent from the users' devices and forwarded by the system.
-- **TopologyOperation** is defined as operations, which change the graph or metadata of the graph. For example, adding or deleting an entity, such as space.
-- **SpaceChange** is defined as a change in a space computed value as a result of a device telemetry message.
-- **SensorChange** is defined as a change in a sensor computed value as a result of a device telemetry message.
-- **UdfCustom** is defined as a custom notification from a user-defined function.
+The Digital Twins service currently supports the following **EndpointTypes**:
+
+- **EventHub**: the Event Hub connection string endpoint
+- **ServiceBus**: the Service Bus connection string endpoint
+- **EventGrid**: the Event Grid connection string endpoint
+
+Digital Twins currently supports the following **EventTypes** that will be sent to the chosen endpoint:
+
+- **DeviceMessages**: telemetry messages sent from the users' devices and forwarded by the system
+- **TopologyOperation**: operations that change the graph or metadata of the graph (i.e. adding or deleting an entity, such as a space)
+- **SpaceChange**: changes in a space's computed value as a result of a device telemetry message
+- **SensorChange**: changes in a sensor's computed value as a result of a device telemetry message
+- **UdfCustom**: a custom notification from a user-defined function
 
 Furthermore, not all **EndpointTypes** support all **EventTypes**. The **EventTypes** allowed for each **EndpointType** are as follows:
 
