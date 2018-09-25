@@ -3032,6 +3032,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/azure-functions/functions-integrate-store-unstructured-data-cosmosdb.md",
+            "redirect_url": "/azure/azure-functions/functions-bindings-cosmosdb-v2",
+            "redirect_document_id": false
+        },
+       {
             "source_path": "articles/automation/automation-source-control-integration.md",
             "redirect_url": "/azure/automation/source-control-integration",
             "redirect_document_id": false
@@ -13142,6 +13147,16 @@
         {
             "source_path": "articles/multi-factor-authentication/multi-factor-authentication-microsoft-authenticator.md",
             "redirect_url": "./end-user/microsoft-authenticator-app-how-to",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/service-fabric-mesh/service-fabric-mesh-howto-deploy-app-private-registry.md",
+            "redirect_url": "/azure/service-fabric-mesh/service-fabric-mesh-tutorial-template-deploy-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/service-fabric-mesh/service-fabric-mesh-howto-deploy-app-template.md",
+            "redirect_url": "/azure/service-fabric-mesh/service-fabric-mesh-tutorial-template-deploy-app",
             "redirect_document_id": false
         },
         {
@@ -24171,11 +24186,6 @@
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/active-directory/governance/index.md",
-            "redirect_url": "/azure/active-directory/governance/access-reviews-overview",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/active-directory/active-directory-azure-ad-controls-access-reviews-overview.md",
             "redirect_url": "/azure/active-directory/governance/access-reviews-overview",
             "redirect_document_id": true
@@ -28783,6 +28793,11 @@
         {
             "source_path": "articles/azure-resource-manager/management-groups-create.md",
             "redirect_url": "/azure/governance/management-groups/create",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/application-gateway/application-gateway-web-application-firewall-overview.md",
+            "redirect_url": "/azure/application-gateway/waf-overview",
             "redirect_document_id": false
         },
         {
