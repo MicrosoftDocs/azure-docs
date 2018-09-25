@@ -37,3 +37,15 @@ sections:
     - html: <a href="tutorial-acm-create-budgets">Create and manage budgets</a>
     - html: <a href="tutorial-export-acm-data">Export data</a>
     - html: <a href="tutorial-acm-opt-recommendations">Review and act on optimization recommendations</a>
+- title: Build your skills with Microsoft Learn
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Predict costs and optimize spending for Azure
+      href: /learn/modules/predict-costs-and-optimize-spending/
+      image: 
+        src: /learn/achievements/predict-costs-and-optimize-spending.svg
+  - type: paragraph
+    text: <a href="/learn/browse/?products=azure-cost-management">More interactive learning...</a>

@@ -1,16 +1,18 @@
 - name: Azure Stack Operator Documentation
   href: index.yml
 - name: Overview
-  expanded: true
   items:
   - name: What is Azure Stack?
     href: azure-stack-poc.md
   - name: Release notes
-    href: azure-stack-servicing-policy.md#update-package-release-cadence 
-    expanded: true
     items:
+<<<<<<< HEAD
     - name: 1809 update 
       href: azure-stack-update-1809.md
+=======
+    - name: Recent updates
+      href: azure-stack-servicing-policy.md#update-package-release-cadence 
+>>>>>>> d629cb46ee70a2f0abb9bb0824170d67d8a49ed7
     - name: 1808 update 
       href: azure-stack-update-1808.md 
     - name: 1807 update 

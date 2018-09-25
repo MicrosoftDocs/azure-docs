@@ -1,17 +1,17 @@
 ---
 title: Migrate SQL Server instance to Azure SQL Database Managed Instance | Microsoft Docs
 description: Learn how to migrate a SQL Server instance to Azure SQL Database Managed Instance. 
-keywords: database migration,sql server database migration,database migration tools,migrate database,migrate sql database
 services: sql-database
+ms.service: sql-database
+ms.subservice: data-movement
+ms.custom: 
+ms.devlang: 
+ms.topic: conceptual
 author: bonova
+ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
-ms.service: sql-database
-ms.custom: managed instance
-ms.topic: conceptual
-ms.date: 07/24/2018
-ms.author: bonova
-
+ms.date: 09/20/2018
 ---
 # SQL Server instance migration to Azure SQL Database Managed Instance
 
@@ -21,11 +21,11 @@ At a high level, the database migration process looks like:
 
 ![migration process](./media/sql-database-managed-instance-migration/migration-process.png)
 
-- [Assess Managed Instance compatibility](sql-database-managed-instance-migrate.md#assess-managed-instance-compatibility)
-- [Choose app connectivity option](sql-database-managed-instance-migrate.md#choose-app-connectivity-option)
-- [Deploy to an optimally sized Managed Instance](sql-database-managed-instance-migrate.md#deploy-to-an-optimally-sized-managed-instance)
-- [Select migration method and migrate](sql-database-managed-instance-migrate.md#select-migration-method-and-migrate)
-- [Monitor applications](sql-database-managed-instance-migrate.md#monitor-applications)
+- [Assess Managed Instance compatibility](#assess-managed-instance-compatibility)
+- [Choose app connectivity option](sql-database-managed-instance-connect-app.md)
+- [Deploy to an optimally sized Managed Instance](#deploy-to-an-optimally-sized-managed-instance)
+- [Select migration method and migrate](#select-migration-method-and-migrate)
+- [Monitor applications](#monitor-applications)
 
 > [!NOTE]
 > To migrate a single database into either a single database or elastic pool, see [Migrate a SQL Server database to Azure SQL Database](sql-database-cloud-migrate.md).
