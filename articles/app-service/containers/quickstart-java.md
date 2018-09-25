@@ -20,8 +20,6 @@ ms.custom: mvc
 ---
 # Quickstart: Create a Java web app in App Service on Linux
 
-App Service on Linux currently provides a preview feature to support Java web apps. Please review the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for more information on previews. 
-
 [App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching, web hosting service using the Linux operating system. This quickstart shows how to use the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) with the [Maven Plugin for Azure Web Apps (Preview)](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) to deploy a Java web app web archive (WAR) file.
 
 ![Sample app running in Azure](media/quickstart-java/java-hello-world-in-browser.png)
@@ -72,6 +70,30 @@ Then add the following plugin definition inside the `<build>` element of the `po
     </plugin>
 </plugins>
 ```    
+
+
+> [!NOTE] 
+> In this article we are only working with Java apps packaged in WAR files. The plugin also supports JAR web applications. Use the following alternate plugin definition for these applications. This configuration will deploy a JAR built by Maven at `${project.build.directory}/${project.build.finalName}.jar` on your local filesystem.
+>
+>```xml
+><plugin>
+>            <groupId>com.microsoft.azure</groupId>
+>            <artifactId>azure-webapp-maven-plugin</artifactId>
+>            <version>1.4.0</version>
+>            <configuration>
+>                <deploymentType>jar</deploymentType>
+>
+>           <!-- Web App information -->
+>            <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
+>            <appName>${WEBAPP_NAME}</appName>
+>            <region>${REGION}</region>  
+>
+>                <!-- Java Runtime Stack for Web App on Linux-->
+>                <linuxRuntime>jre8</linuxRuntime>
+>            </configuration>
+>         </plugin>
+>```    
+
 
 Update the following placeholders in the plugin configuration:
 
