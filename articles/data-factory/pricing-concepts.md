@@ -41,7 +41,7 @@ To accomplish the scenario, you need to create a pipeline that has a copy activi
   - Monitoring  = 2\*000005 = $0.00001 [1 Monitoring = $0.25/50000 = 0.000005]
 - Pipeline Orchestration &amp; Execution = **$0.168**
   - Activity Runs = 001\*2 = 0.002 [1 run = $1/1000 = 0.001]
-  - Data Movement Activities = $0.166 (Prorated for 10 minutes execution time. $0.25/hour on Azure Integration Runtime)
+  - Data Movement Activities = $0.166 (Prorated for 10 minutes of execution time. $0.25/hour on Azure Integration Runtime)
 
 ## Copy data and transform with Azure Databricks hourly
 
@@ -73,8 +73,8 @@ To accomplish the scenario, you need to create a pipeline with the following ite
   - Monitoring  = 3\*000005 = $0.00001 [1 Monitoring = $0.25/50000 = 0.000005]
 - Pipeline Orchestration &amp; Execution = **$0.16904**
   - Activity Runs = 001\*3 = 0.003 [1 run = $1/1000 = 0.001]
-  - Data Movement Activities = $0.166 (Prorated for 10 minutes execution time. $0.25/hour on Azure Integration Runtime)
-  - External Pipeline Activity = $0.000041 (Prorated for 10 minutes execution time. $0.00025/hour on Azure Integration Runtime)
+  - Data Movement Activities = $0.166 (Prorated for 10 minutes of execution time. $0.25/hour on Azure Integration Runtime)
+  - External Pipeline Activity = $0.000041 (Prorated for 10 minutes of execution time. $0.00025/hour on Azure Integration Runtime)
 
 ## Scenario #3: Copy data and transform with dynamic parameters hourly
 
@@ -108,9 +108,9 @@ To accomplish the scenario, you need to create a pipeline with the following ite
   - Monitoring  = 4\*000005 = $0.00002 [1 Monitoring = $0.25/50000 = 0.000005]
 - Pipeline Orchestration &amp; Execution = **$0.17007**
   - Activity Runs = 001\*4 = 0.004 [1 run = $1/1000 = 0.001]
-  - Data Movement Activities = $0.166 (Prorated for 10 minutes execution time. $0.25/hour on Azure Integration Runtime)
-  - Pipeline Activity = $0.00003 (Prorated for 1 minute execution time. $0.002/hour on Azure Integration Runtime)
-  - External Pipeline Activity = $0.000041 (Prorated for 10 minutes execution time. $0.00025/hour on Azure Integration Runtime)
+  - Data Movement Activities = $0.166 (Prorated for 10 minutes of execution time. $0.25/hour on Azure Integration Runtime)
+  - Pipeline Activity = $0.00003 (Prorated for 1 minute of execution time. $0.002/hour on Azure Integration Runtime)
+  - External Pipeline Activity = $0.000041 (Prorated for 10 minutes of execution time. $0.00025/hour on Azure Integration Runtime)
 
 ## Next steps
 
