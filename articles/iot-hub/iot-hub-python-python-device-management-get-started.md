@@ -145,7 +145,7 @@ In this section, you will:
 1. Save and close the **dmpatterns_getstarted_device.py** file.
 
 > [!NOTE]
-> To keep things simple, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as an exponential backoff), as suggested in the article, [Transient Fault Handling](https://docs.microsoft.com/en-us/azure/architecture/best-practices/transient-faults).
+> To keep things simple, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as an exponential backoff), as suggested in the article, [Transient Fault Handling](/azure/architecture/best-practices/transient-faults).
 
 
 ## Trigger a remote reboot on the device using a direct method
