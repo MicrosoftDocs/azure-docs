@@ -202,15 +202,17 @@ For more information, see [How to customize claims issued in the SAML token for 
 
 As part of our updated SAML-based app configuration UI, you'll get:
 
-- An updated walkthrough experience for configurating your SAML-based apps
+- An updated walkthrough experience for configuring your SAML-based apps.
 
-- More visibility about what's missing or incorrect in your configuration
+- More visibility about what's missing or incorrect in your configuration.
 
-- The ability to add multiple email addresses for expiration certificate notification
+- The ability to add multiple email addresses for expiration certificate notification.
 
-- New claim transformation methods, ToLower() and ToUpper(), and more
+- New claim transformation methods, ToLower() and ToUpper(), and more.
 
-- A way to upload your own token signing certificate for your enterprise apps
+- A way to upload your own token signing certificate for your enterprise apps.
+
+- A way to set the NameID Format for SAML apps, and a way to set the NameID value as Directory Extensions.
 
 To turn this updated view on, click the **Try out our new experience** link from the top of the **Single Sign-On** page. For more information, see [Tutorial: Configure SAML-based single sign-on for an application with Azure Active Directory](../manage-apps/configure-single-sign-on-portal.md).
 
