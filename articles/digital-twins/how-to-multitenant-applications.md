@@ -1,5 +1,5 @@
 ---
-title: How to enable multitenant applications with Azure Digital Twins
+title: Enable multitenant applications with Azure Digital Twins
 description: Understanding how to register your customers' Azure Active Directory tenants with Azure Digital Twins
 author: mavoge
 manager: bertvanhoof
