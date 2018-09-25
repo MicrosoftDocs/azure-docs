@@ -104,7 +104,7 @@ Or you can also use…
 
 1. Your PCF cluster should show a deployment status.
 
-![Alt image text](media/deploy/deployment4.png "Azure deployment status")
+![Alt image text](media/deploy/deployment.png "Azure deployment status")
 
 
 2. Click on the **Deployments** link on the left-hand navigation to get credentials to your PCF Ops Manager, then click on the **Deployment Name** on the next page.
