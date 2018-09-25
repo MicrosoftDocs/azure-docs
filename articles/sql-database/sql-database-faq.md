@@ -2,14 +2,16 @@
 title: Azure SQL Database FAQ | Microsoft Docs
 description: Answers to common questions customers ask about cloud databases and Azure SQL Database, Microsoft's relational database management system (RDBMS) and database as a service in the cloud.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: reference
+ms.subservice: 
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 09/14/2018
+author: CarlRabeler
 ms.author: carlrab
-
+ms.reviewer:
+manager: craigg
+ms.date: 09/14/2018
 ---
 # SQL Database FAQ
 

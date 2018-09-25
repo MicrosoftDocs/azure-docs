@@ -146,7 +146,7 @@ Use this claims transformation to set a string ClaimType value.
 
 ## CompareClaims
 
-Determine whether one string claim is equal to another. The result is a new boolean ClaimType boolean with a value of `true` or `false`.
+Determine whether one string claim is equal to another. The result is a new boolean ClaimType with a value of `true` or `false`.
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |

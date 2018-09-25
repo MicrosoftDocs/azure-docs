@@ -37,7 +37,7 @@ Most of the artifacts created in the earlier version of the Azure Machine Learni
 
 ## Support timeline
 
-You can continue to use your experimentation and model management accounts as well as the Workbench application for a while longer after September 2018. Support for the following resources will be removed progressively in the 3-4 months after that release. You can still find the documentation for the old features in the Resources section at the bottom of the [table of contents](../desktop-workbench/tutorial-classifying-iris-part-1.md).
+You can continue to use your experimentation and model management accounts as well as the Workbench application for a while longer after September 2018. Support for the following resources will be removed progressively in the 3-4 months after that release. You can still find the documentation for the old features in the [Resources section](../desktop-workbench/tutorial-classifying-iris-part-1.md) at the bottom of the table of contents.
 
 |Phase|Support details for earlier features|
 |:---:|----------------|
@@ -63,9 +63,9 @@ The portal's workspace dashboard is supported on Edge, Chrome and Firefox browse
 
 Your pre-existing data preparation files are not portable to the latest release since we don't have Workbench anymore. However, you can still prepare your data for modeling.  
 
-With smaller data sets, you can use the [Azure Machine Learning Data Prep SDK](https://docs.microsoft.com/python/api/azureml_dataprep/?view=azure-dataprep-py) to quickly prepare your data prior to modeling. 
+With smaller data sets, you can use the  <a href="http://aka.ms/aml-sdk" target="_blank">Azure Machine Learning Data Prep SDK</a> to quickly prepare your data prior to modeling. 
 
-You can use this same SDK for larger data sets or use Azure Databricks to prepare big data sets. [Learn how to get the data prep SDK](how-to-data-prep.md). 
+You can use this same  <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a> for larger data sets or use Azure Databricks to prepare big data sets. 
 
 ## Will projects persist?
 
@@ -73,13 +73,13 @@ You won't lose any code or work. In the older version, projects are cloud entiti
 
 Since much of the project content was already on your local machine, you just need to create a config file in that directory and reference it in your code to connect to your workspace. [Learn how migrate your existing projects.](how-to-migrate.md#projects)
 
-Learn how to get started [in Python with the SDK](quickstart-get-started.md).
+Learn how to get started [in Python with the main SDK](quickstart-get-started.md).
 
 ## What about my registers models and images?
  
 The models that you registered in your old model registry must migrated to your new workspace if you want to continue to use them. You can do this by [downloading the models and re-registering them](how-to-migrate.md) in your new workspace. 
 
-The images that you created in your old image registry must be re-created in the new workspace to continue to use them. You can do this by following the [create docker image](how-to-deploy-to-aci.md) section. 
+The images that you created in your old image registry must be re-created in the new workspace to continue to use them. You can do this by following the [create docker image](how-to-deploy-to-aci.md#configure-an-image) section. 
 
 ## What about deployed web services?
 

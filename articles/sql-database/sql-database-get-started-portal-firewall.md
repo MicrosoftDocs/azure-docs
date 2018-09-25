@@ -2,14 +2,16 @@
 title: 'Azure portal: Create a SQL Database firwall rule| Microsoft Docs'
 description: Create a SQL Database server-level firewall rule
 services: sql-database
-author: sachinpMSFT
-manager: craigg
 ms.service: sql-database
-ms.custom: mvc,DBs & servers
+ms.subservice: security
+ms.custom: 
+ms.devlang: 
 ms.topic: quickstart
-ms.date: 09/06/2018
+author: sachinpMSFT
 ms.author: sachinp
-
+ms.reviewer: vanto, carlrab
+manager: craigg
+ms.date: 09/06/2018
 ---
 # Create a server-level firewall rule for your SQL database using the Azure portal
 

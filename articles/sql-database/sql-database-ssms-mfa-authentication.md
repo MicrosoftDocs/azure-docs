@@ -2,15 +2,16 @@
 title: Multi-Factor authentication - Azure SQL | Microsoft Docs
 description: Azure SQL Database and Azure SQL Data Warehouse support connections from SQL Server Management Studio (SSMS) using Active Directory Universal Authentication.
 services: sql-database
-documentationcenter: ''
-author: GithubMirek
-manager: craigg
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom:
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
+manager: craigg
+ms.date: 04/01/2018
 ---
 
 # Universal Authentication with SQL Database and SQL Data Warehouse (SSMS support for MFA)
