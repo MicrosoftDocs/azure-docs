@@ -66,7 +66,7 @@ DSVM name restrictions include:
 >    1. Exit without actually creating the VM
 >    1. Rerun the creation code
 
-This code doesn't create a user name or password for the DSVM that is provisioned. You can go to the [Azure portal](https://portal.azure.com) and provision credentials for the VM to gain access if you want remote access to the VM.
+This code doesn't create a user name or password for the DSVM that is provisioned. If you want to connect directly to the VM, go to the [Azure portal](https://portal.azure.com) to provision credentials.  
 
 
 ## Access data using get_data file
