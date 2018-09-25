@@ -138,7 +138,7 @@ Template artifacts are used by the service topology template, and binary artifac
 
 ## Create the user-assigned managed identity
 
-Later in the tutorial, you deploy a rollout. A user-assigned managed identity is needed to perform the deployment actions (for example, deploy the web applications and the storage account). This identity must exist in the Azure subscription you're deploying the service to, and have sufficient permission to complete the artifact deployment.
+Later in the tutorial, you deploy a rollout. A user-assigned managed identity is needed to perform the deployment actions (for example, deploy the web applications and the storage account). This identity must be granted access to the Azure subscription you're deploying the service to, and have sufficient permission to complete the artifact deployment.
 
 You need to create a user-assigned managed identity and configure the access control for your subscription.
 
@@ -169,9 +169,9 @@ The template contains the following parameters:
 ![Azure Deployment Manager tutorial topology template parameters](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-topology-template-parameters.png)
 
 - **namePrefix**: This prefix is used to create the names for the Deployment Manager resources. For example, using the "jdoe" prefix, the service topology name is **jdoe**ServiceTopology.  The resource names are defined in the variables section of this template.
-- **azureResourcelocation**: To simplify the tutorial, all resources share this location unless it is specified otherwise. Currently, Azure Deployment Manger resources can only be created in either **Central US** or **East US 2**.
-- **artifactSourceSASLocation**: The SAS URI to the root directory (the Blob container) where service unit template and parameters files are stored for deployment.  See [Prepare the artifacts](#prepare-the-artifacts).
-- **templateArtifactRoot**:  The default value is **templates/1.0.0.0**. Don't change this value unless you want to change the folder structure explained in [Prepare the artifacts](#prepare-the-artifacts). Relative paths are used in this tutorial.  The full path is constructed by concatenating **artifactSourceSASLocation**, **templateArtifactRoot**, and **templateArtifactSourceRelativePath** (or **parametersArtifactSourceRelativePath**).
+- **azureResourcelocation**: To simplify the tutorial, all resources share this location unless it is specified otherwise. Currently, Azure Deployment Manager resources can only be created in either **Central US** or **East US 2**.
+- **artifactSourceSASLocation**: The SAS URI to the Blob container where service unit template and parameters files are stored for deployment.  See [Prepare the artifacts](#prepare-the-artifacts).
+- **templateArtifactRoot**: The offset path from the Blob container where the templates and parameters are stored. The default value is **templates/1.0.0.0**. Don't change this value unless you want to change the folder structure explained in [Prepare the artifacts](#prepare-the-artifacts). Relative paths are used in this tutorial.  The full path is constructed by concatenating **artifactSourceSASLocation**, **templateArtifactRoot**, and **templateArtifactSourceRelativePath** (or **parametersArtifactSourceRelativePath**).
 - **targetSubscriptionID**: The subscription ID to which the Deployment Manager resources are going to be deployed and billed. Use your subscription ID in this tutorial.
 
 ### The variables
@@ -190,8 +190,6 @@ The artifact source definition is:
 
 ![Azure Deployment Manager tutorial topology template resources artifact source](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-topology-template-resources-artifact-source.png)
 
-**templateArtifactRoot** is used to create the absolute paths for the service unit template and parameters files.
-
 The following screenshot only shows some parts of the service topology, services, and service units definitions:
 
 ![Azure Deployment Manager tutorial topology template resources service topology](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-topology-template-resources-service-topology.png)
@@ -200,7 +198,7 @@ The following screenshot only shows some parts of the service topology, services
 - **dependsOn**: All the service topology resources depend on the artifact source resource.
 - **artifacts** point to the template artifacts.  Relative paths are used here. The full path is constructed by concatenating artifactSourceSASLocation (defined in the artifact source), artifactRoot (defined in the artifact source), and templateArtifactSourceRelativePath (or parametersArtifactSourceRelativePath).
 
-### The parameters file <a name="topology-parameters-file />
+### Topology parameters file
 
 You create a parameters file used with the topology template.
 
@@ -227,7 +225,7 @@ The template contains the following parameters:
 ![Azure Deployment Manager tutorial rollout template parameters](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-rollout-template-parameters.png)
 
 - **namePrefix**: This prefix is used to create the names for the Deployment Manager resources. For example, using the "jdoe" prefix, the rollout name is **jdoe**Rollout.  The names are defined in the variables section of the template.
-- **azureResourcelocation**: To simplify the tutorial, all Deployment Manager resources share this location unless it is specified otherwise. Currently, Azure Deployment Manger resources can only be created in either **Central US** or **East US 2**.
+- **azureResourcelocation**: To simplify the tutorial, all Deployment Manager resources share this location unless it is specified otherwise. Currently, Azure Deployment Manager resources can only be created in either **Central US** or **East US 2**.
 - **artifactSourceSASLocation**: The SAS URI to the root directory (the Blob container) where service unit template and parameters files are stored for deployment.  See [Prepare the artifacts](#prepare-the-artifacts).
 - **binaryArtifactRoot**:  The default value is **binaries/1.0.0.0**. Don't change this value unless you want to change the folder structure explained in [Prepare the artifacts](#prepare-the-artifacts). Relative paths are used in this tutorial.  The full path is constructed by concatenating **artifactSourceSASLocation**, **binaryArtifactRoot**, and the **deployPackageUri** specified in the CreateWebApplicationParameters.json.  See [Prepare the artifacts](#prepare-the-artifacts).
 - **managedIdentityID**: The user-assigned managed identity that performs the deployment actions. See [Create the user-assigned managed identity](#create-the-user-assigned-managed-identity).
@@ -261,7 +259,7 @@ The following screenshot only shows some parts of the rollout definition:
 - **preDeploymentSteps** and **postDeploymentSteps**: contains the rollout steps. In the template, a wait step is called.
 - **dependsOnStepGroup**: configure the dependencies between the step groups.
 
-### The parameters file <a name="rollout-parameters-file />
+### Rollout parameters file
 
 You create a parameters file used with the rollout template.
 
@@ -269,7 +267,7 @@ You create a parameters file used with the rollout template.
 2. Fill the parameter values:
 
     - **namePrefix**: Enter a string with 4-5 characters. This prefix is used to create unique azure resource names.
-    - **azureResourceLocation**: Currently, Azure Deployment Manger resources can only be created in either **Central US** or **East US 2**.
+    - **azureResourceLocation**: Currently, Azure Deployment Manager resources can only be created in either **Central US** or **East US 2**.
     - **artifactSourceSASLocation**: Enter the SAS URI to the root directory (the Blob container) where service unit template and parameters files are stored for deployment.  See [Prepare the artifacts](#prepare-the-artifacts).
     - **binaryArtifactRoot**: Unless you change the folder structure of the artifacts, use **binaries/1.0.0.0** in this tutorial.
     - **managedIdentityID**: Enter the user-assigned managed identity. See [Create the user-assigned managed identity](#create-the-user-assigned-managed-identity). The syntax is:
