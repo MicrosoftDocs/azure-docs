@@ -4,7 +4,7 @@ description: Provides an overview of assessment calculations in the Azure Migrat
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/21/2018
+ms.date: 09/25/2018
 ms.author: raynew
 ---
 
@@ -58,4 +58,4 @@ Don't delete the workspace created by Azure Migrate, unless you delete the migra
 
 ## Next steps
 - [Group machines using machine dependencies](how-to-create-group-machine-dependencies.md)
-- [Learn more](https://docs.microsoft.com/en-us/azure/migrate/resources-faq#dependency-visualization) about the FAQs on dependency visualization.
+- [Learn more](https://docs.microsoft.com/azure/migrate/resources-faq#dependency-visualization) about the FAQs on dependency visualization.

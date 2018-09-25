@@ -60,7 +60,7 @@ To install the agent on a Linux machine:
 
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
 
-[Learn more](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems) about the list of Linux operating systems support by MMA.
+[Learn more](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems) about the list of Linux operating systems support by MMA.
 
 ### Install the Dependency agent
 1. To install the Dependency agent on a Windows machine, double-click the setup file and follow the wizard.
@@ -100,6 +100,6 @@ Once the group is created, it is recommended to install agents on all the machin
 
 ## Next steps
 
-- [Learn more](https://docs.microsoft.com/en-us/azure/migrate/resources-faq#dependency-visualization) about the FAQs on dependency visualization.
+- [Learn more](https://docs.microsoft.com/azure/migrate/resources-faq#dependency-visualization) about the FAQs on dependency visualization.
 - [Learn how](how-to-create-group-dependencies.md) to refine the group by visualizing group dependencies.
 - [Learn more](concepts-assessment-calculation.md) about how assessments are calculated.
