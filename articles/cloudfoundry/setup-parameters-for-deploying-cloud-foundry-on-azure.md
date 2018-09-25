@@ -110,7 +110,7 @@ Or you can also use…
 2. Click on the **Deployments** link on the left-hand navigation to get credentials to your PCF Ops Manager, then click on the **Deployment Name** on the next page.
 3. On the left-hand navigation, click on the **Outputs** link to display the URL, Username and Password to the PCF Ops Manager.  The “OPSMAN-FQDN” value is the URL.
  
-![Alt image text](media/deploy/deploy-outputs5.png "Cloud Foundry deployment output")
+![Alt image text](media/deploy/deploy-outputs.png "Cloud Foundry deployment output")
  
 4. Launch the URL in a web browser and enter the credentials from the previous step to login.
 
