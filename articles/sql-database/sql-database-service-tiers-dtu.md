@@ -2,14 +2,16 @@
 title: 'Azure SQL Database service tiers - DTU | Microsoft Docs'
 description: Learn about service tiers for single and pool databases to provide compute sizes and storage sizes.  
 services: sql-database
-author: sachinpMSFT
 ms.service: sql-database
-ms.custom: DBs & servers
+ms.subservice: 
+ms.custom:
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 09/14/2018
+author: sachinpMSFT
+ms.author: sachinp
+ms.reviewer: carlrab
 manager: craigg
-ms.author: carlrab
-
+ms.date: 09/14/2018
 ---
 # Choosing a DTU-based service tier, compute size, and storage resources 
 
