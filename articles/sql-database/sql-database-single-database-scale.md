@@ -2,14 +2,16 @@
 title: Scale single database resources - Azure SQL Database | Microsoft Docs
 description: This article describes how to scale the compute and storage resources available for a single database in Azure SQL Database. 
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: DBs & servers
+ms.subservice: performance
+ms.custom:
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 09/20/2018
+author: CarlRabeler
 ms.author: carlrab
-
+ms.reviewer:
+manager: craigg
+ms.date: 09/20/2018
 ---
 # Scale single database resources in Azure SQL Database
 
