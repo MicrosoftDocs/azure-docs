@@ -10,7 +10,7 @@ ms.date: 09/21/2018
 ms.author: adgera
 ---
 
-# Azure Digital Twins security best practices
+# Security best practices
 
 Azure Digital Twins leverages all security features present on Azure IoT.
 

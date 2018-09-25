@@ -39,7 +39,7 @@
     href: quickstart-view-occupancy-dotnet.md
 - name: Tutorials
   items:
-  - name: Create app to manage facilities
+  - name: Facilities app
     href: tutorial-facilities-app.md
 - name: How-to guides
   items:

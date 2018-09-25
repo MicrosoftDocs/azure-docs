@@ -1,6 +1,6 @@
 ---
-title: Azure Digital Twins facility app tutorial | Microsoft Docs
-description: Learn about Azure Digital Twins using a facility app tutorial
+title: Azure Digital Twins facilities app tutorial | Microsoft Docs
+description: Azure Digital Twins facilities app tutorial
 author: adamgerard
 manager: alinast
 ms.service: azure-digital-twins
@@ -10,7 +10,7 @@ ms.date: 09/21/2018
 ms.author: adgera
 ---
 
-# Azure Digital Twins facility app tutorial
+# Facilities app tutorial
 
 IoT apps often connect buildings, devices, data, and sensors. This tutorial demonstrates a full building management app with smart notification and data processing.
 
