@@ -92,7 +92,7 @@ Some other examples of causes for 'unusable' nodes:
 
 ### Node agent log files
 
-If it is necessary to contact support regarding a pool node issue, then log files from the Batch agent process that runs on each pool node may be obtained.  The log files for a node can be uploaded via the Azure Portal, Batch Explorer, or an [API](https://docs.microsoft.com/rest/api/batchservice/computenode/uploadbatchservicelogs).  Uploading and saving the log files can be extremely useful as the the node or pool can be deleted to save the cost of the running nodes.
+If it is necessary to contact support regarding a pool node issue, then log files from the Batch agent process that runs on each pool node may be obtained.  The log files for a node can be uploaded via the Azure portal, Batch Explorer, or an [API](https://docs.microsoft.com/rest/api/batchservice/computenode/uploadbatchservicelogs).  Uploading and saving the log files can be extremely useful as the node or pool can be deleted to save the cost of the running nodes.
 
 ## Next steps
 
