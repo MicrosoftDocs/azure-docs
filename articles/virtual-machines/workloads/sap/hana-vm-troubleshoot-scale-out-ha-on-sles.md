@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting of SAP HANA 2.0 scale-out HSR-Pacemaker setup on SLES 12 SP3| Microsoft Docs
-description: Guide for checking and troubleshooting a complex SAP HANA scale-out HA configuration based on HSR and Pacemaker on SLES 12 SP3
+title: Troubleshoot SAP HANA 2.0 scale-out HSR-Pacemaker setup with SLES 12 SP3 on Azure virtual machines| Microsoft Docs
+description: Guide to check and troubleshoot a complex SAP HANA scale-out high availability configuration based on SAP HANA System Replication (HSR) and Pacemaker on SLES 12 SP3 running on Azure virtual machines
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermannd
@@ -19,40 +19,43 @@ ms.author: hermannd
 ---
 
 
-# Verification and troubleshooting of SAP HANA scale-out HSR-Pacemaker setup on SLES 12 SP3
+# Verify and troubleshoot SAP HANA scale-out high-availability setup on SLES 12 SP3 
+
+[sles-pacemaker-ha-guide]:high-availability-guide-suse-pacemaker.md
+[sles-hana-scale-out-ha-paper]:https://www.suse.com/documentation/suse-best-practices/singlehtml/SLES4SAP-hana-scaleOut-PerfOpt-12/SLES4SAP-hana-scaleOut-PerfOpt-12.html
+[sap-hana-iaas-list]:https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html
+[suse-pacemaker-support-log-files]:https://www.suse.com/support/kb/doc/?id=7022702
+[azure-linux-multiple-nics]:../../linux/multiple-nics
+[suse-cloud-netconfig]:https://www.suse.com/c/multi-nic-cloud-netconfig-ec2-azure/
+[sap-list-port-numbers]:https://help.sap.com/viewer/ports
+[sles-12-ha-paper]:https://www.suse.com/documentation/sle-ha-12/pdfdoc/book_sleha/book_sleha.pdf
+[sles-zero-downtime-paper]:https://www.suse.com/media/presentation/TUT90846_towards_zero_downtime%20_how_to_maintain_sap_hana_system_replication_clusters.pdf
+[sap-nw-ha-guide-sles]:high-availability-guide-suse.md
+[sles-12-for-sap]:https://www.suse.com/media/white-paper/suse_linux_enterprise_server_for_sap_applications_12_sp1.pdf
 
 
-This article was written to help checking the Pacemaker cluster configuration for SAP HANA scale-out. The cluster setup was accomplished in combination with SAP HANA System Replication (HSR) and the SUSE RPM package SAPHanaSR-ScaleOut. All tests were done on SUSE SLES 12 SP3 only. There are several sections, which cover different areas and include sample commands as well as excerpts from config files. These samples are recommended as a method to verify and check the whole cluster setup.
+This article was written to help check the Pacemaker cluster configuration for SAP HANA scale-out running on Azure virtual machines. The cluster setup was accomplished in combination with SAP HANA System Replication (HSR) and the SUSE RPM package SAPHanaSR-ScaleOut. All tests were done on SUSE SLES 12 SP3 only. There are several sections, which cover different areas and include sample commands as well as excerpts from config files. These samples are recommended as a method to verify and check the whole cluster setup.
 
 
 
 ## Important notes
 
->[!NOTE]
-> All testing for SAP HANA scale-out in combination with SAP HANA System Replication and Pacemaker was done with SAP HANA 2.0 only on SLES 12 SP3 using the SUSE RPM package SAPHanaSR-ScaleOut.
-> SUSE published a detailed description of this performance optimized setup, which can be found [here](https://www.suse.com/documentation/suse-best-practices/singlehtml/SLES4SAP-hana-scaleOut-PerfOpt-12/SLES4SAP-hana-scaleOut-PerfOpt-12.html)
->
-> For certified VM types supported for SAP HANA scale-out check the [SAP HANA certified IaaS directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html)
->
-> There was a technical issue with SAP HANA scale-out in combination with multiple subnets and vNICs and setting up HSR. Therefore it's mandatory to use the latest SAP HANA 2.0 patches where this issue 
-> got fixed. The following SAP HANA versions are supported for the scale-out HA configuration in combination with Pacemaker and SUSE RPM package SAPHanaSR-ScaleOut:
-> **rev2.00.024.04 or higher & rev2.00.032 or higher.**
->
-> In case there should be a situation, which requires support from SUSE follow this [guide](https://www.suse.com/support/kb/doc/?id=7022702) to collect all information about the SAP HANA HA cluster, 
-> which SUSE support needs for further analysis.
->
-> During internal testing it happened that the cluster setup got confused by a normal graceful VM shutdown via the Azure portal. Therefore it's strongly recommended to test a cluster failover
-> by other methods like forcing a kernel panic or shut down the networks or migrate the msl resource (see details in the sections below). The assumption is that a standard shutdown happens 
-> with intention, which would then apply for example to planned maintenance (see details in the section 
-> about planned maintenance).
->
-> It also happened during internal testing that the cluster setup got confused after a manual SAP HANA takeover while the cluster was in maintenance mode. Therefore it's recommended to either switch it 
-> back manually again, before ending the cluster maintenance mode or maybe trigger a failover before putting the cluster into maintenance mode (also see the section about planned maintenance). The 
-> documentation from SUSE describes how you can reset the cluster in this regard using the crm command. But the approach mentioned before seemed to be very robust during internal testing and never
-> showed any unexpected side effects.
->
-> When using the crm migrate command don't miss to clean up the cluster configuration. It adds location constraints which you might not be aware of. These constraints have an impact on the cluster 
-> behavior (see more details in the section about planned maintenance).
+All testing for SAP HANA scale-out in combination with SAP HANA System Replication and Pacemaker was done with SAP HANA 2.0 only on SLES 12 SP3 using the SUSE RPM package SAPHanaSR-ScaleOut.
+SUSE published a detailed description of this performance optimized setup, which can be found [here][sles-hana-scale-out-ha-paper]
+
+For certified VM types supported for SAP HANA scale-out check the [SAP HANA certified IaaS directory][sap-hana-iaas-list]
+
+There was a technical issue with SAP HANA scale-out in combination with multiple subnets and vNICs and setting up HSR. Therefore it's mandatory to use the latest SAP HANA 2.0 patches where this issue got fixed. The following SAP HANA versions are supported for the scale-out HA configuration in combination with Pacemaker and SUSE RPM package SAPHanaSR-ScaleOut:
+
+**rev2.00.024.04 or higher & rev2.00.032 or higher.**
+
+In case there should be a situation, which requires support from SUSE follow this [guide][suse-pacemaker-support-log-files] to collect all information about the SAP HANA HA cluster, which SUSE support needs for further analysis.
+
+During internal testing it happened that the cluster setup got confused by a normal graceful VM shutdown via the Azure portal. Therefore it's strongly recommended to test a cluster failover by other methods like forcing a kernel panic or shut down the networks or migrate the msl resource (see details in the sections below). The assumption is that a standard shutdown happens with intention, which would then apply for example to planned maintenance (see details in the section about planned maintenance).
+
+It also happened during internal testing that the cluster setup got confused after a manual SAP HANA takeover while the cluster was in maintenance mode. Therefore it's recommended to either switch it back manually again, before ending the cluster maintenance mode or maybe trigger a failover before putting the cluster into maintenance mode (also see the section about planned maintenance). The documentation from SUSE describes how you can reset the cluster in this regard using the crm command. But the approach mentioned before seemed to be very robust during internal testing and never showed any unexpected side effects.
+
+When using the crm migrate command don't miss to clean up the cluster configuration. It adds location constraints which you might not be aware of. These constraints have an impact on the cluster behavior (see more details in the section about planned maintenance).
 
 
 
@@ -89,7 +92,7 @@ Following SAP HANA network recommendations, three subnets were created within on
 
 Regarding SAP HANA configuration related to using multiple networks see the section about **global.ini** further down.
 
-Corresponding to the number of subnets every VM in the cluster has three vNICs. There is documentation, which describes a potential routing issue on Azure when deploying a Linux VM. This applies only for usage of multiple vNICs. You can find information about it [here](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/multiple-nics). The problem is solved by SUSE per default in SLES 12 SP3. The article from SUSE about this topic can be found [here](https://www.suse.com/c/multi-nic-cloud-netconfig-ec2-azure/).
+Corresponding to the number of subnets every VM in the cluster has three vNICs. There is documentation, which describes a potential routing issue on Azure when deploying a Linux VM. This applies only for usage of multiple vNICs. You can find information about it [here][azure-linux-multiple-nics]. The problem is solved by SUSE per default in SLES 12 SP3. The article from SUSE about this topic can be found [here][suse-cloud-netconfig].
 
 
 As a basic check to verify if SAP HANA is configured correctly for using multiple networks, just run the commands below. First step is simply to double-check on OS level that all three internal IP addresses for all three subnets are active. In case you defined the subnets with different IP address ranges you have to adapt the commands accordingly:
@@ -121,7 +124,7 @@ Regarding the ports, you can look, for example, in HANA Studio under "**Configur
 select * from M_INIFILE_CONTENTS WHERE KEY LIKE 'listen%'
 </code></pre>
 
-To find every port, which is used in the SAP software stack including SAP HANA, search [here](https://help.sap.com/viewer/ports).
+To find every port, which is used in the SAP software stack including SAP HANA, search [here][sap-list-port-numbers].
 
 Given the instance number **00** in the SAP HANA 2.0 test system, the port number for the nameserver is **30001**. The port number for HSR meta data communication is **40002**. One option is to sign in to a worker node and then check the master node services. Here the check was done on worker node 2 on site 2 trying to connect to the master node on site 2.
 
@@ -168,8 +171,8 @@ The corosync config file has to be correct on every node in the cluster includin
 
 Here is the content of **corosync.conf** from the test system as an example.
 
-First section is **totem** as described in this [documentation](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#cluster-installation) (step 11). You can ignore the value for **mcastaddr**. Just keep the existing entry. Make sure that especially **token** and **consensus** are set
-according to the Microsoft Azure SAP HANA documentation, which you can find [here](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker)
+First section is **totem** as described in this [documentation][sles-pacemaker-ha-guide] (section cluster-installation step 11). You can ignore the value for **mcastaddr**. Just keep the existing entry. Make sure that especially **token** and **consensus** are set
+according to the Microsoft Azure SAP HANA documentation, which you can find [here][sles-pacemaker-ha-guide]
 
 <pre><code>
 totem {
@@ -276,7 +279,7 @@ systemctl restart corosync
 
 ## SBD device
 
-The documentation about how to set up a SBD device on an Azure VM is described [here](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#sbd-fencing).
+The documentation about how to set up a SBD device on an Azure VM is described [here][sles-pacemaker-ha-guide] (section sbd-fencing).
 
 First thing to double-check is to look on the SBD server VM if there are ACL entries for every node in the cluster. Run the following command on the SBD server VM:
 
@@ -419,7 +422,7 @@ On the target VM side - which was **hso-hana-vm-s2-2** in this example - you can
 /dev/disk/by-id/scsi-36001405e614138d4ec64da09e91aea68:   notice: servant: Received command test from hso-hana-vm-s2-1 on disk /dev/disk/by-id/scsi-36001405e614138d4ec64da09e91aea68
 </code></pre>
 
-Double-check if the entries in **/etc/sysconfig/sbd** correspond to the description in our [documentation](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#sbd-fencing). Verify that the startup setting in **/etc/iscsi/iscsid.conf** is set to automatic.
+Double-check if the entries in **/etc/sysconfig/sbd** correspond to the description in our [documentation][sles-pacemaker-ha-guide] (section sbd-fencing). Verify that the startup setting in **/etc/iscsi/iscsid.conf** is set to automatic.
 
 Important entries in **/etc/sysconfig/sbd** (adapt the id value if necessary):
 
@@ -447,17 +450,17 @@ node.startup = automatic
 
 During testing and verification occurrences happened where after the restart of a VM the SBD device wasn't visible anymore. There was a discrepancy between the startup setting and what yast2 showed. To double-check the settings, perform these steps below:
 
-- start yast2
-- select **Network Services** on the left side
-- scroll down on the right side to **iSCSI Initiator** and select it
-- on the next screen under the **Service** tab you should see the unique initiator name for the node
-- above the initiator name make sure that the **Service Start** value is set to **When Booting**
-- if it's not the case then set it to **When Booting** instead of **Manually**
-- next switch the top tab to **Connected Targets**
-- on the Connected Targets screen you should see an entry for the SBD device like this sample: **10.0.0.19:3260 iqn.2006-04.dbhso.local:dbhso**
-- check if the Start-Up value is set to "**onboot**"
-- if not choose **Edit** and change it
-- save the changes and exit yast2
+1. Start yast2
+2. Select **Network Services** on the left side
+3. Scroll down on the right side to **iSCSI Initiator** and select it
+4. On the next screen under the **Service** tab you should see the unique initiator name for the node
+5. Above the initiator name make sure that the **Service Start** value is set to **When Booting**
+6. If it's not the case then set it to **When Booting** instead of **Manually**
+7. Next switch the top tab to **Connected Targets**
+8. On the Connected Targets screen you should see an entry for the SBD device like this sample: **10.0.0.19:3260 iqn.2006-04.dbhso.local:dbhso**
+9. Check if the Start-Up value is set to "**onboot**"
+10. If not choose **Edit** and change it
+11. Save the changes and exit yast2
 
 
 
@@ -472,7 +475,7 @@ systemctl status pacemaker
 The top of the output should look like the sample below. It's important that the status is **loaded** and **active (running)** as well as **enabled**.
 
 <pre><code>
-● pacemaker.service - Pacemaker High Availability Cluster Manager
+  pacemaker.service - Pacemaker High Availability Cluster Manager
    Loaded: loaded (/usr/lib/systemd/system/pacemaker.service; enabled; vendor preset: disabled)
    Active: active (running) since Fri 2018-09-07 05:56:27 UTC; 4 days ago
      Docs: man:pacemakerd
@@ -653,7 +656,7 @@ Waiting for 7 replies from the CRMd....... OK
 
 ## Failover / takeover
 
-As mentioned already in the first section with important notes, you should not use a standard graceful shutdown to test the cluster failover or SAP HANA HSR takeover. Instead it's recommended to trigger, for example, a kernel panic or force a resource migration or maybe shut down all networks on OS level of a VM. Another method would be the **crm \<node\> standby** command. Also see the SUSE document, which can be found [here](https://www.suse.com/documentation/sle-ha-12/pdfdoc/book_sleha/book_sleha.pdf). Below you see three sample commands to force a cluster failover:
+As mentioned already in the first section with important notes, you should not use a standard graceful shutdown to test the cluster failover or SAP HANA HSR takeover. Instead it's recommended to trigger, for example, a kernel panic or force a resource migration or maybe shut down all networks on OS level of a VM. Another method would be the **crm \<node\> standby** command. Also see the SUSE document, which can be found [here][sles-12-ha-paper]. Below you see three sample commands to force a cluster failover:
 
 <pre><code>
 echo c &gt /proc/sysrq-trigger
@@ -718,29 +721,32 @@ Transition Summary:
 ## Planned maintenance 
 
 There are different use cases when it comes to planned maintenance. One question is, for example, if it's just infrastructure maintenance like changes on OS level and disk configuration or an HANA upgrade.
-You can find additional information in documents from SUSE like [here](https://www.suse.com/media/presentation/TUT90846_towards_zero_downtime%20_how_to_maintain_sap_hana_system_replication_clusters.pdf) or [another one here](https://www.suse.com/media/white-paper/suse_linux_enterprise_server_for_sap_applications_12_sp1.pdf). These documents also include samples how to manually migrate a primary.
+You can find additional information in documents from SUSE like [here][sles-zero-downtime-paper] or [another one here][sles-12-for-sap]. These documents also include samples how to manually migrate a primary.
 
 Intense internal testing was done to verify the infrastructure maintenance use case. To avoid any kind of issue related to migrating the primary while the cluster is in maintenance mode, the decision was made to always migrate a primary if necessary before putting a cluster into maintenance mode. This way it's not necessary to make the cluster forget about the former situation (which side was primary and which side was secondary).
 
 There are two different situations in this regard:
 
-- planned maintenance on the current secondary. In this case, you can just put the cluster into maintenance mode and do the work on the secondary without affecting the cluster
-- planned maintenance on the current primary. To allow the users to continue working during the maintenance, it's necessary to force a failover. You have to trigger this failover and SAP HANA takeover by pacemaker and not just on SAP HANA HSR level. In addition, it's necessary to accomplish the failover before putting the cluster into maintenance mode
+1. Planned maintenance on the current secondary. 
+   In this case, you can just put the cluster into maintenance mode and do the work on the secondary without affecting the cluster
+
+2. Planned maintenance on the current primary. 
+   To allow the users to continue working during the maintenance, it's necessary to force a failover. You have to trigger this failover    and SAP HANA takeover by pacemaker and not just on SAP HANA HSR level. In addition, it's necessary to accomplish the failover before    putting the cluster into maintenance mode
 
 The procedure for maintenance on the current secondary site would like the steps below:
 
-- put the cluster into maintenance mode
-- accomplish the work on the secondary site 
-- end the cluster maintenance mode
-- 
+1. Put the cluster into maintenance mode
+2. Accomplish the work on the secondary site 
+3. End the cluster maintenance mode
+
 The procedure for maintenance on the current primary site is more complex:
 
-- manually trigger a failover / SAP HANA takeover via a Pacemaker resource migration (see details below)
-- SAP HANA on the former primary site is getting shut down by the cluster setup
-- put the cluster into maintenance mode
-- after the maintenance work is done register the former primary as the new secondary site
-- clean up cluster configuration (see details below)
-- end the cluster maintenance mode
+1. Manually trigger a failover / SAP HANA takeover via a Pacemaker resource migration (see details below)
+2. SAP HANA on the former primary site is getting shut down by the cluster setup
+3. Put the cluster into maintenance mode
+4. After the maintenance work is done register the former primary as the new secondary site
+5. Clean up cluster configuration (see details below)
+6. End the cluster maintenance mode
 
 
 Migrating a resource (for example to force a failover) adds an entry to the cluster configuration. You have to clean up these entries before ending the maintenance mode. Here is a sample:
@@ -967,3 +973,9 @@ On the last screenshot, you can see the details section of a single transition, 
 (node **hso-hana-vm-s1-0**) and is now promoting the secondary node as the new master (**hso-hana-vm-s2-0**):
 
 ![HAWK look at a single transition](media/hana-vm-scale-out-HA-troubleshooting/hawk-5.png)
+
+
+## Next steps
+
+This troubleshoot guide is about high availability for SAP HANA in a scale-out configuration. Another important component within a SAP landscape besides the database is the SAP NetWeaver stack. Next you should read about high availability for SAP NetWeaver on Azure virtual machines using SUSE Enterprise Linux Server in [this][sap-nw-ha-guide-sles] article.
+
