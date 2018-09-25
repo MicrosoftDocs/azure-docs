@@ -2,6 +2,7 @@
 title: Installing elastic database jobs | Microsoft Docs
 description: Walk through installation of the elastic job feature.
 services: sql-database
+ms.service: sql-database
 subservice: operations
 ms.custom: 
 ms.devlang: 

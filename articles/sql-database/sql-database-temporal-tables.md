@@ -2,14 +2,16 @@
 title: Getting Started with Temporal Tables in Azure SQL Database | Microsoft Docs
 description: Learn how to get started with using Temporal Tables in Azure SQL Database.
 services: sql-database
-author: bonova
-ms.date: 03/21/2018
-manager: craigg
 ms.service: sql-database
-ms.custom: develop databases
+ms.subservice: development
+ms.custom:
+ms.devlang: 
 ms.topic: conceptual
+author: bonova
 ms.author: bonova
-
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 03/21/2018
 ---
 # Getting Started with Temporal Tables in Azure SQL Database
 Temporal Tables are a new programmability feature of Azure SQL Database that allows you to track and analyze the full history of changes in your data, without the need for custom coding. Temporal Tables keep data closely related to time context so that stored facts can be interpreted as valid only within the specific period. This property of Temporal Tables allows for efficient time-based analysis and getting insights from data evolution.

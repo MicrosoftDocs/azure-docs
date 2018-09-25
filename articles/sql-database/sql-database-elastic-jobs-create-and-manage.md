@@ -2,6 +2,7 @@
 title: Manage groups of Azure SQL databases | Microsoft Docs
 description: Walk through creation and management of an elastic job.
 services: sql-database
+ms.service: sql-database
 subservice: operations
 ms.custom: 
 ms.devlang: 
