@@ -19,7 +19,7 @@ ms.topic: article
 
 This tutorial provides quick steps on creating and generated parameters needed to provision a Pivotal Cloud Foundry PCF cluster on Azure.  The Pivotal Cloud Foundry solution can be found by performing a search on Azure [MarketPlace](https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry).
 
-`![Search Azure Marketplace](/media/deploy/pcf-marketplace1.png)` 
+`![Alt image text](/media/deploy/pcf-marketplace1.png)` 
 
 ## Generate an SSH public key
 
