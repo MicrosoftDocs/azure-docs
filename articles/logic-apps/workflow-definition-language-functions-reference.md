@@ -104,7 +104,7 @@ String functions work only on strings.
 | [endsWith](../logic-apps/workflow-definition-language-functions-reference.md#endswith) | Check whether a string ends with the specified substring. | 
 | [guid](../logic-apps/workflow-definition-language-functions-reference.md#guid) | Generate a globally unique identifier (GUID) as a string. | 
 | [indexOf](../logic-apps/workflow-definition-language-functions-reference.md#indexof) | Return the starting position for a substring. | 
-| [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | Return the ending position for a substring. | 
+| [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | Return the starting position for the last occurrence of a substring. | 
 | [replace](../logic-apps/workflow-definition-language-functions-reference.md#replace) | Replace a substring with the specified string, and return the updated string. | 
 | [split](../logic-apps/workflow-definition-language-functions-reference.md#split) | Return an array that has all the characters from a string and separates each character with the specific delimiter character. | 
 | [startsWith](../logic-apps/workflow-definition-language-functions-reference.md#startswith) | Check whether a string starts with a specific substring. | 
@@ -2266,7 +2266,7 @@ indexOf('<text>', '<searchText>')
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| <*index-value*>| Integer | The starting position or index value for the specified substring. <p>If the string is not found, return the number -1. </br>If the string is empty, return the number 0. | 
+| <*index-value*>| Integer | The starting position or index value for the specified substring. <p>If the string is not found, return the number -1. | 
 |||| 
 
 *Example* 
@@ -2543,7 +2543,8 @@ And returns these results:
 
 ### lastIndexOf
 
-Return the ending position or index value for a substring. 
+Return the starting position or index value
+for the last occurrence of a substring. 
 This function is not case-sensitive, 
 and indexes start with the number 0.
 
@@ -2559,19 +2560,20 @@ lastIndexOf('<text>', '<searchText>')
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| <*ending-index-value*> | Integer | The ending position or index value for the specified substring. <p>If the string is not found, return the number -1. </br>If the string is empty, return the number 0. | 
+| <*ending-index-value*> | Integer | The starting position or index value for the last occurrence of the specified substring. <p>If the string is not found, return the number -1. | 
 |||| 
 
 *Example* 
 
-This example finds the ending index value for 
-the "world" substring in the "hello world" string:
+This example finds the starting index value for 
+the last occurrence of the "world" substring in
+the "hello world" string:
 
 ```
 lastIndexOf('hello world', 'world')
 ```
 
-And returns this result: `10`
+And returns this result: `6`
 
 <a name="length"></a>
 

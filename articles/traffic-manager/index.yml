@@ -40,6 +40,7 @@ sections:
     - html: <a href="/azure/traffic-manager/traffic-manager-configure-performance-routing-method">Route traffic for low latency</a>
     - html: <a href="/azure/traffic-manager/traffic-manager-configure-weighted-routing-method">Distribute traffic to a set of endpoints</a>
     - html: <a href="/azure/traffic-manager/traffic-manager-configure-priority-routing-method">Route traffic to a priority endpoint</a>
+    - html: <a href="/azure/traffic-manager/traffic-manager-configure-priority-routing-method">Route traffic based on user's subnet</a>
 - title: Free Pluralsight Video Training
   items:
   - type: list
@@ -78,8 +79,8 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="/powershell/resourcemanager/azurerm.trafficmanager/v2.5.0/azurerm.trafficmanager">PowerShell</a></p><p><a href="/cli/azure/network/traffic-manager">Azure CLI</a></p>
+      html: <p><a href="https://docs.microsoft.com/powershell/module/azurerm.trafficmanager/?view=azurermps-6.8.1#traffic_manager">PowerShell</a></p><p><a href="/cli/azure/network/traffic-manager">Azure CLI</a></p>
     - title: Languages
-      html: <p><a href="/dotnet/api/overview/azure/network">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.trafficmanager">Java</a></p><p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/">Node.js</a></p><p><a href="https://docs.microsoft.com/python/api/overview/azure/traffic-manager">Python</a></p>
+      html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/virtual-network?view=azure-dotnet">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.trafficmanager">Java</a></p><p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/">Node.js</a></p><p><a href="https://docs.microsoft.com/python/api/overview/azure/traffic-manager">Python</a></p>
     - title: REST
       html: <p><a href="/rest/api/trafficmanager/">REST API Reference</a></p>

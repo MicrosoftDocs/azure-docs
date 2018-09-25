@@ -62,11 +62,11 @@ To help Azure AD B2C communicate with Salesforce, you need to get the Salesforce
 4. Under **Web App Settings**, select the **Enable SAML** check box.
 5. In the **Entity ID** field, enter the following URL. Ensure that you replace the value for `tenantName`.
       ```
-      https://login.microsoftonline.com/te/tenantName.onmicrosoft.com/B2C_1A_TrustFrameworkBase
+      https://tenantName.b2clogin.com/te/tenantName.onmicrosoft.com/B2C_1A_TrustFrameworkBase
       ```
 6. In the **ACS URL** field, enter the following URL. Ensure that you replace the value for `tenantName`.
       ```
-      https://login.microsoftonline.com/te/tenantName.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer
+      https://tenantName.b2clogin.com/te/tenantName.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer
       ```
 7. Leave the default values for all other settings.
 8. Scroll to the bottom of the list, and then click **Save**.

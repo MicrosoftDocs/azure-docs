@@ -1,14 +1,14 @@
 ---
-title: Language Understanding (LUIS) boundaries | Microsoft Docs
-titleSuffix: Azure
-description: This article contains known limits of LUIS.
+title: Boundaries and limits for Language Understanding (LUIS)
+titleSuffix: Azure Cognitive Services
+description: This article contains the known limits of Azure Cognitive Services Language Understanding (LUIS). LUIS has several boundary areas. Model boundary controls intents, entities, and features in LUIS. Quota limits based on key type. Keyboard combination controls the LUIS website. 
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 07/31/2018
+ms.date: 09/10/2018
 ms.author: diberry
 ---
 # LUIS boundaries
@@ -24,7 +24,7 @@ LUIS has several boundary areas. The first is the [model boundary](#model-bounda
 | **[Composite](./luis-concept-entity-types.md)|100 with up to 10 children |
 | Explicit list | 50 per application|
 | **[Hierarchical](./luis-concept-entity-types.md) |100 with up to 10 children |
-| [Intents][intents]|500 per application<br>[Dispatch-based](https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch) application has corresponding 500 dispatch sources|
+| [Intents][intents]|500 per application<br>[Dispatch-based](https://aka.ms/dispatch-tool) application has corresponding 500 dispatch sources|
 | [List entities](./luis-concept-entity-types.md) | Parent: 50, child: 20,000 items. Canonical name is *default character max. Synonym values have no length restriction. |
 | [Patterns](luis-concept-patterns.md)|500 patterns per application.<br>Maximum length of pattern is 400 characters.<br>3 Pattern.any entities per pattern<br>Maximum of 2 nested optional texts in pattern|
 | [Pattern.any](./luis-concept-entity-types.md)|100 per application, 3 pattern.any entities per pattern |

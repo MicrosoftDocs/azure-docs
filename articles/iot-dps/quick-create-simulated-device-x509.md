@@ -125,13 +125,13 @@ You will use sample code from the Azure IoT C SDK to create the certificate to b
 
 2. Select the **Manage enrollments** tab, and then click the **Add individual enrollment** button at the top. 
 
-3. On **Add enrollment**, enter the following information, and click the **Save** button.
+3. On **Add Enrollment**, enter the following information, and click the **Save** button.
 
     - **Mechanism:** Select **X.509** as the identity attestation *Mechanism*.
     - **Primary certificate .pem or .cer file:** Click **Select a file** to select the certificate file, X509testcert.pem, you created earlier.
     - **IoT Hub Device ID:** Enter **test-docs-cert-device** to give the device an ID.
 
-    [![Add individual enrollment for X.509 attestation in the portal](./media/quick-create-simulated-device-x509/individual-enrollment.png)](./media/quick-create-simulated-device-x509/individual-enrollment.png#lightbox)
+    [![Add individual enrollment for X.509 attestation in the portal](./media/quick-create-simulated-device-x509/device-enrollment.png)](./media/quick-create-simulated-device-x509/device-enrollment.png#lightbox)
 
     On successful enrollment, your X.509 device appears as **riot-device-cert** under the *Registration ID* column in the *Individual Enrollments* tab. 
 

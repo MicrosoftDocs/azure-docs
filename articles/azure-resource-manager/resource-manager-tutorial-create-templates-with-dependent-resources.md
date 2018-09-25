@@ -11,7 +11,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 08/27/2018
+ms.date: 09/07/2018
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -22,11 +22,12 @@ Learn how to create an Azure Resource Manager template to deploy multiple resour
 
 Some of the resources cannot be deployed until another resource exists. For example, you can't create the virtual machine until its storage account and network interface exist. You define this relationship by making one resource as dependent on the other resources. Resource Manager evaluates the dependencies between resources, and deploys them in their dependent order. When resources aren't dependent on each other, Resource Manager deploys them in parallel. For more information, see [Define the order for deploying resources in Azure Resource Manager Templates](./resource-group-define-dependencies.md).
 
+This tutorial covers the following tasks:
+
 > [!div class="checklist"]
 > * Open a quickstart template
 > * Explore the template
 > * Deploy the template
-> * Clean up resources
 
 The instructions in this tutorial create a virtual machine, a virtual network, and some other dependent resources. 
 

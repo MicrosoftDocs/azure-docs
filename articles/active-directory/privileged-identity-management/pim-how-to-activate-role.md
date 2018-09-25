@@ -21,11 +21,11 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM) simplifie
 
 If you have been made eligible for an administrative role, that means you can activate that role when you need to perform privileged actions. For example, if you occasionally manage Office 365 features, your organization's privileged role administrators may not make you a permanent Global Administrator, since that role impacts other services, too. Instead, they make you eligible for Azure AD roles such as Exchange Online Administrator. You can request to activate that role when you need its privileges, and then you'll have administrator control for a predetermined time period.
 
-This article is for administrators who need to activate their role in PIM.
+This article is for administrators who need to activate their Azure AD directory role in PIM.
 
 ## Activate a role
 
-When you need to take on a role, you can request activation by using the **My roles** navigation option in PIM.
+When you need to take on an Azure AD directory role, you can request activation by using the **My roles** navigation option in PIM.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 

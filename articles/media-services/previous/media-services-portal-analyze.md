@@ -31,7 +31,7 @@ This topic discusses how to process your media with Media Analytics media proces
 ## Choose an asset that you want to analyze
 1. In the [Azure portal](https://portal.azure.com/), select your Azure Media Services account.
 2. In the **Settings** window, select **Assets**.  
-   .
+   
     ![Analyze videos](./media/media-services-portal-analyze/media-services-portal-analyze001.png)
 3. Select the asset that you would like to analyze and press the **Analyze** button.
    

@@ -7,13 +7,12 @@ author: mattbriggs
 manager: femila
 editor: ''
 
-ms.assetid: 
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 09/10/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
 ---
@@ -41,7 +40,7 @@ Use these steps to prepare and validate the Azure Stack PKI certificates:
 
     ![Configure the certificate store](.\media\prepare-pki-certs\3.png)
 
-    a. If you are importing a PFX you will be presented with an additional dialog. On the **Private key protection** page, enter the password for your certificate files and then enable the **Mark this key as exportable. This allows you to back up or transport your keys at a later time** option. Select **Next**.
+    a. If you are importing a PFX, you will be presented with an additional dialog. On the **Private key protection** page, enter the password for your certificate files and then enable the **Mark this key as exportable. This allows you to back up or transport your keys at a later time** option. Select **Next**.
 
     ![Mark key as exportable](.\media\prepare-pki-certs\2.png)
 

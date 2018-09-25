@@ -76,7 +76,7 @@ Before you can create an offer, you must choose an offer type. The offer type wi
 
 A single offer type can be configured differently in the Cloud Partner Portal to enable different publishing options, calls-to-action, provisioning, or pricing. The publishing option and configuration of the offer type also align to the offer eligibility and technical requirements. 
 
-Be sure to review the storefront and offer type eligibility requirements in this [Publisher Guide](https://docs.microsoft.com/en-us/azure/marketplace/marketplace-publishers-guide) and the technical publishing requirements before creating your offer.
+Be sure to review the storefront and offer type eligibility requirements in this [Publisher Guide](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) and the technical publishing requirements before creating your offer.
 
 ## Next Steps
 

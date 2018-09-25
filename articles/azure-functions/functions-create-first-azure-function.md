@@ -4,16 +4,12 @@ description: Learn how to create your first Azure Function for serverless execut
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: '' 
+manager: jeconnoc
 
 ms.assetid: 96cf87b9-8db6-41a8-863a-abb828e3d06d
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: mvc, devcenter, cc996988-fb4f-47
@@ -51,7 +47,7 @@ Next, you create a function in the new function app.
    
     ![Functions quickstart in the Azure portal.](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
 
-A function is created in your chosen language using the template for an HTTP triggered function. This topic shows a C# script function in the portal, but you can create a function in any [supported language](supported-languages.md). 
+A function is created in your chosen language using the template for an HTTP triggered function. This topic shows a C# script function in the portal, but you can create a function in any [supported language](supported-languages.md). All subsequent functions added to the function app use the same language templates.
 
 Now, you can run the new function by sending an HTTP request.
 
@@ -83,7 +79,7 @@ You have created a function app with a simple HTTP triggered function.
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
-For more information, see [Azure Functions HTTP and webhook bindings](functions-bindings-http-webhook.md).
+For more information, see [Azure Functions HTTP bindings](functions-bindings-http-webhook.md).
 
 
 

@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: pim
-ms.date: 07/24/2018
+ms.date: 09/07/2018
 ms.author: rolyon
 ms.reviewer: hanki
 ms.custom: pim
@@ -19,15 +19,25 @@ ms.custom: pim
 
 # Email notifications in PIM
 
-When key events occur in Azure AD Privileged Identity Management (PIM), email notifications are sent to the relevant administrator or user. For example, PIM sends emails for the following events:
+When key events occur in Azure AD Privileged Identity Management (PIM), email notifications are sent. For example, PIM sends emails for the following events:
 
 - When a privileged role activation is pending approval
-- When a privileged role activation request is approved
+- When a privileged role activation request is completed
 - When a privileged role is activated
 - When a privileged role is assigned
 - When Azure AD PIM is enabled
 
-Starting at the end of July 2018, email notifications sent through PIM will have a new sender email address and a new visual design. This update will impact both PIM for Azure AD and PIM for Azure resources. All events that previously triggered an email notification will continue to send out an email. Some emails will have updated content providing more targeted information.
+Email notifications are sent to the following administrators:
+
+- Privileged Role Administrator
+- Security Administrator
+
+Email notifications are also sent to the end user who has the privileged role for the following events:
+
+- When a privileged role activation request is completed
+- When a privileged role is assigned
+
+Starting at the end of July 2018, email notifications sent through PIM have a new sender email address and a new visual design. This update will impact both PIM for Azure AD and PIM for Azure resources. All events that previously triggered an email notification will continue to send out an email. Some emails will have updated content providing more targeted information.
 
 ## Sender email address
 

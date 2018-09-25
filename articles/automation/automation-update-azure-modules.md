@@ -6,7 +6,7 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 09/19/2018
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -26,6 +26,9 @@ Because modules are updated regularly by the product group, changes can occur wi
 
 2. Click **Update Azure Modules**, a confirmation notification is shown that asks if you want to continue.<br><br> ![Update Azure Modules notification](media/automation-update-azure-modules/automation-update-azure-modules-popup.png)
 
+   > [!NOTE]
+   > The **Update Azure Modules** button is only available in the public cloud. It is not available in the [sovereign regions](https://azure.microsoft.com/global-infrastructure/).
+
 3. Click **Yes** and the module update process begins. The update process takes about 15-20 minutes to update the following modules:
 
   * Azure
@@ -39,8 +42,10 @@ Because modules are updated regularly by the product group, changes can occur wi
 
     If the modules are already up-to-date, then the process completes in a few seconds. When the update process completes, you are notified.<br><br> ![Update Azure Modules update status](media/automation-update-azure-modules/automation-update-azure-modules-updatestatus.png)
 
+    The .NET core AzureRm modules (AzureRm.*.Core) are not supported in Azure Automation and can not be imported.
+
 > [!NOTE]
-> Azure Automation uses the latest modules in your Automation account when a new scheduled job is run.    
+> Azure Automation uses the latest modules in your Automation account when a new scheduled job is run.  
 
 If you use cmdlets from these Azure PowerShell modules in your runbooks, you want to run this update process every month or so to make sure that you have the latest modules. Azure Automation uses the AzureRunAsConnection connection to authenticate when updating the modules, if the service principal is expired or no longer exists on the subscription level, the module update will fail.
 
@@ -48,4 +53,4 @@ If you use cmdlets from these Azure PowerShell modules in your runbooks, you wan
 
 * To learn more about Integration Modules and how to create custom modules to further integrate Automation with other systems, services, or solutions, see [Integration Modules](automation-integration-modules.md).
 
-* Consider source control integration using [GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md) or [Visual Studio Team Services](automation-scenario-source-control-integration-with-vsts.md) to centrally manage and control releases of your Automation runbook and configuration portfolio.  
+* Consider source control integration using [GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md) or [Azure DevOps](automation-scenario-source-control-integration-with-vsts.md) to centrally manage and control releases of your Automation runbook and configuration portfolio.  

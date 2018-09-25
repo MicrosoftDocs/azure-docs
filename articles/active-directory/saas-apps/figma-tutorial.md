@@ -34,10 +34,11 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with Figma, you need the following items:
 
 - An Azure AD subscription
-- A Figma single sign-on enabled subscription
+- A Figma [single sign-on enabled subscription](https://www.figma.com/pricing/)
 
 > [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
+> To test the steps in this tutorial, we do not recommend using a production environment. New customers and active subscribers of Figma Professional Team
+may contact Figma to [upgrade their subscription](https://www.figma.com/pricing/) to the Figma Organization Tier.
 
 To test the steps in this tutorial, you should follow these recommendations:
 
@@ -78,15 +79,14 @@ To configure the integration of Figma into Azure AD, you need to add Figma from 
 
 In this section, you configure and test Azure AD single sign-on with Figma based on a test user called "Britta Simon".
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in Figma is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Figma needs to be established.
+For single sign-on to work, Azure AD needs to be linked to Figma.  To configure and test Azure AD single sign-on with Figma, complete the following steps:
 
-To configure and test Azure AD single sign-on with Figma, you need to complete the following building blocks:
-
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Create a Figma test user](#create-a-figma-test-user)** - to have a counterpart of Britta Simon in Figma that is linked to the Azure AD representation of user.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+1. [**Contact Figma support team**](mailto:support@figma.com?subject=SAML+Config) to initiate a SAML configuration for your organization and get an ORG_SAML_CONFIG_ID.
+2. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
+3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+4. **[Create a Figma test user](#create-a-figma-test-user)** - to have a counterpart of Britta Simon in Figma that is linked to the Azure AD representation of user.
+5. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
@@ -117,7 +117,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     In the **Sign-on URL** textbox, type a URL using the following pattern: `https://www.figma.com/saml/<ORG_SAML_CONFIG_ID>/start`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [Figma Client support team]( mailto:services-404040@figma.com) to get these values.
+	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [Figma support team](mailto:support@figma.com?subject=SAML+Config) to get these values.
 
 5. On the **SAML Signing Certificate** section, click the copy button to copy **App Federation Metadata Url** and paste it into notepad.
 
@@ -127,7 +127,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On Save button](./media/figma-tutorial/tutorial_general_400.png)
 
-7. To configure single sign-on on **Figma** side, you need to send the **App Federation Metadata Url** to [Figma support team]( mailto:services-404040@figma.com). They set this setting to have the SAML SSO connection set properly on both sides.
+7. To configure single sign-on on Figma side, please fill out this form: [https://goo.gl/forms/XkRB1z5ed4eVUzXn2](https://goo.gl/forms/XkRB1z5ed4eVUzXn2). It will accept your **App Federation Metadata Url** from Step #5.
 
 ### Create an Azure AD test user
 
@@ -164,9 +164,6 @@ The objective of this section is to create a test user in the Azure portal calle
 ### Create a Figma test user
 
 The objective of this section is to create a user called Britta Simon in Figma. Figma supports just-in-time provisioning, which is by default enabled. There is no action item for you in this section. A new user is created during an attempt to access Figma if it doesn't exist yet.
-
-> [!Note]
-> If you need to create a user manually, contact [Figma support team]( mailto:services-404040@figma.com).
 
 ### Assign the Azure AD test user
 

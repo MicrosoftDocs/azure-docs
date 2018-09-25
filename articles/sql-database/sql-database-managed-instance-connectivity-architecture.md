@@ -1,17 +1,17 @@
 ---
 title: Azure SQL Database Managed Instance Connectivity Architecture | Microsoft Docs
 description: This article provides the Azure SQL Database Managed Instance communication overview and explains connectivity architecture as well as how the different components function to direct traffic to the Managed Instance.
-keywords: 
 services: sql-database
-author: srdan-bozovic-msft
-manager: craigg
 ms.service: sql-database
-ms.subservice: managed instance
+ms.subservice: managed-instance
 ms.custom: 
-ms.date: 08/16/2018
+ms.devlang: 
+ms.topic: conceptual
+author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.topic: conceptual
+manager: craigg
+ms.date: 08/16/2018
 ---
 
 # Azure SQL Database Managed Instance Connectivity Architecture 
@@ -68,8 +68,8 @@ Management and deployment services connect to Managed Instance using public endp
 - For an overview, see [What is a Managed Instance](sql-database-managed-instance.md) 
 - For more information about VNet configuration, see [Managed Instance VNet Configuration](sql-database-managed-instance-vnet-configuration.md). 
 - For a quickstart see how to create Managed Instance: 
-  - from the [Azure Portal](sql-database-managed-instance-create-tutorial-portal.md) 
-  - using [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) 
+  - From the [Azure portal](sql-database-managed-instance-get-started.md) 
+  - Using [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) 
   - using [Azure Resource Manager template](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/) 
   - using [Azure Resource Manager template (jumpbox with SSMS included)](https://portal.azure.com/) 
 

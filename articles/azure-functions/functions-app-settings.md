@@ -4,15 +4,11 @@ description: Reference documentation for the Azure Functions app settings or env
 services: functions
 author: ggailey777
 manager: jeconnoc
-editor: ''
-tags: ''
 keywords:
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 08/22/2018
+ms.topic: conceptual
+ms.date: 09/22/2018
 ms.author: glenga
 ---
 
@@ -20,7 +16,7 @@ ms.author: glenga
 
 App settings in a function app contain global configuration options that affect all functions for that function app. When you run locally, these settings are in environment variables. This article lists the app settings that are available in function apps.
 
-[!INCLUDE [Function app settings](../../includes/functions-app-settings.md]
+[!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
 There are other global configuration options in the [host.json](functions-host-json.md) file and in the [local.settings.json](functions-run-local.md#local-settings-file) file.
 
@@ -39,6 +35,9 @@ Optional storage account connection string for storing logs and displaying them 
 |Key|Sample value|
 |---|------------|
 |AzureWebJobsDashboard|DefaultEndpointsProtocol=https;AccountName=[name];AccountKey=[key]|
+
+> [!TIP]
+> For performance and experience, it is recommended to use APPINSIGHTS_INSTRUMENTATIONKEY and App Insights for monitoring instead of AzureWebJobsDashboard
 
 ## AzureWebJobsDisableHomepage
 
@@ -110,11 +109,19 @@ Valid values are "readwrite" and "readonly".
 
 ## FUNCTIONS\_EXTENSION\_VERSION
 
-The version of the Azure Functions runtime to use in this function app. A tilde with major version means use the latest version of that major version (for example, "~1"). When new versions for the same major version are available, they are automatically installed in the function app. To pin the app to a specific version, use the full version number (for example, "1.0.12345"). Default is "~1".
+The version of the Azure Functions runtime to use in this function app. A tilde with major version means use the latest version of that major version (for example, "~2"). When new versions for the same major version are available, they are automatically installed in the function app. To pin the app to a specific version, use the full version number (for example, "2.0.12345"). Default is "~2".
 
 |Key|Sample value|
 |---|------------|
-|FUNCTIONS\_EXTENSION\_VERSION|~1|
+|FUNCTIONS\_EXTENSION\_VERSION|~2|
+
+## FUNCTIONS\_WORKER\_RUNTIME
+
+The language worker runtime to load in the function app.  This will correspond to the language being used in your application (for example, "dotnet"). For functions in multiple languages you will need to publish them to multiple apps, each with a corresponding worker runtime value.  Valid values are `dotnet`, `node`, and `java`.
+
+|Key|Sample value|
+|---|------------|
+|FUNCTIONS\_WORKER\_RUNTIME|dotnet|
 
 ## WEBSITE_CONTENTAZUREFILECONNECTIONSTRING
 
@@ -137,32 +144,29 @@ For consumption plans only. The file path to the function app code and configura
 The maximum number of instances that the function app can scale out to. Default is no limit.
 
 > [!NOTE]
-> This setting is for a preview feature.
+> This setting is a preview feature - and only reliable if set to a value <= 5
 
 |Key|Sample value|
 |---|------------|
-|WEBSITE\_MAX\_DYNAMIC\_APPLICATION\_SCALE\_OUT|10|
+|WEBSITE\_MAX\_DYNAMIC\_APPLICATION\_SCALE\_OUT|5|
 
 ## WEBSITE\_NODE\_DEFAULT_VERSION
 
-Default is "6.5.0".
+Default is "8.11.1".
 
 |Key|Sample value|
 |---|------------|
-|WEBSITE\_NODE\_DEFAULT_VERSION|6.5.0|
+|WEBSITE\_NODE\_DEFAULT_VERSION|8.11.1|
 
-## WEBSITE\_RUN\_FROM\_ZIP
+## WEBSITE\_RUN\_FROM\_PACKAGE
 
 Enables your function app to run from a mounted package file.
 
-> [!NOTE]
-> This setting is for a preview feature.
-
 |Key|Sample value|
 |---|------------|
-|WEBSITE\_RUN\_FROM\_ZIP|1|
+|WEBSITE\_RUN\_FROM\_PACKAGE|1|
 
-Valid values are either a URL that resolves to the location of a deployment package file, or `1`. When set to `1`, the package must be in the `d:\home\data\SitePackages` folder. When using zip deployment with this setting, the package is automatically uploaded to this location.  For more information, see [Run your functions from a package file](run-functions-from-deployment-package.md).
+Valid values are either a URL that resolves to the location of a deployment package file, or `1`. When set to `1`, the package must be in the `d:\home\data\SitePackages` folder. When using zip deployment with this setting, the package is automatically uploaded to this location. In preview, this setting was named `WEBSITE_RUN_FROM_ZIP`. For more information, see [Run your functions from a package file](run-functions-from-deployment-package.md).
 
 ## Next steps
 

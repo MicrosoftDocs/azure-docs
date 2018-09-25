@@ -10,7 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 08/27/2018
+ms.date: 08/31/2018
 ---
 
 # Migrate MySQL to Azure Database for MySQL online using DMS
@@ -23,6 +23,9 @@ In this tutorial, you learn how to:
 > * Create a migration project by using the Azure Database Migration Service.
 > * Run the migration.
 > * Monitor the migration.
+
+> [!IMPORTANT]
+> For an optimal migration experience, Microsoft recommends creating an instance of the Azure Database Migration Service in the same Azure region as the target database. Moving data across regions or geographies can slow down the migration process and introduce errors.
 
 ## Prerequisites
 To complete this tutorial, you need to:
@@ -85,7 +88,7 @@ SET group_concat_max_len = 8192;
 	WHERE
 	  KCU.CONSTRAINT_NAME = RC.CONSTRAINT_NAME
 	  AND KCU.REFERENCED_TABLE_SCHEMA = RC.UNIQUE_CONSTRAINT_SCHEMA
-  AND KCU.REFERENCED_TABLE_SCHEMA = ['SchemaName') Queries
+  AND KCU.REFERENCED_TABLE_SCHEMA = 'SchemaName') Queries
   GROUP BY SchemaName;
  ```
 		

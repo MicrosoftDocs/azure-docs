@@ -1,4 +1,4 @@
----
+﻿---
 title: Test parameters for validation as a service Azure Stack | Microsoft Docs
 description: Reference topic about the configuration file and test pass parameters for validation as a service Azure Stack.
 services: azure-stack
@@ -19,7 +19,7 @@ ms.reviewer: johnhas
 
 # Test parameters for validation as a service Azure Stack
 
-[!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
+[!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 Before executing any Test Suite from validations as a service (VaaS), select a Solution and create a test pass.
 

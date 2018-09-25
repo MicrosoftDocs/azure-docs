@@ -23,6 +23,10 @@ ms.reviewer: dhanyahk
 
 # Troubleshooting Azure Active Directory Activity logs content pack errors 
 
+|  |
+|--|
+|Currently, the Azure AD Power BI content pack uses the Azure AD Graph APIs to retrieve data from your Azure AD tenant. As a result, you may see some disparity between the data available in the content pack and the data retrieved using the [Microsoft Graph APIs for reporting](concept-reporting-api.md). |
+|  |
 
 When working with the Power BI Content Pack for Azure Active Directory Preview, it is possible that you run into the following errors: 
 

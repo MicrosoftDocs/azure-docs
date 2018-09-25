@@ -52,7 +52,7 @@ sections:
     items: 
     - image:
         src: https://docs.microsoft.com/azure/media/index/logo_vs-team-services.svg
-      text: VSTS
+      text: Azure DevOps Services
       href: https://docs.microsoft.com/vsts/build-release/apps/cd/deploy-webdeploy-iis-deploygroups?toc=/vsts/deploy-azure/toc.json&bc=/vsts/deploy-azure/breadcrumb/toc.json
 - title: Step-by-Step Tutorials
   items:
@@ -76,6 +76,19 @@ sections:
     - html: <a href="/azure/virtual-machines/windows/tutorial-vsts-iis-cicd">Create a continuous integration pipeline with Visual Studio</a>
     - html: <a href="/azure/virtual-machines/windows/tutorial-iis-sql">Install a SQL/IIS/.NET stack</a>
     - html: <a href="/azure/virtual-machines/windows/tutorial-secure-web-server">Secure a web server with SSL</a>
+- title: Build your skills with Microsoft Learn
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title:  Create a Windows virtual machine in Azure
+      href: /learn/modules/create-windows-virtual-machine-in-azure/
+      image: 
+        src: /learn/achievements/create-windows-virtual-machine-in-azure.svg
+        href: /learn/modules/create-windows-virtual-machine-in-azure/
+  - type: paragraph
+    text: <a href="/learn/browse/?products=azure-virtual-machines">More interactive learning...</a>
 - title: Free Pluralsight Video Training
   items:
   - type: list

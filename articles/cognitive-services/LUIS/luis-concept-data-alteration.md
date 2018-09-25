@@ -1,18 +1,19 @@
 ---
-title: Understand data alteration concepts in LUIS - Azure | Microsoft Docs
+title: Data alteration concepts in LUIS - Language Understanding
+titleSuffix: Azure Cognitive Services
 description: Learn how data can be changed before predictions in Language Understanding (LUIS)
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/26/2018
+ms.date: 09/10/2018
 ms.author: diberry
 ---
 
 # Data alterations
-LUIS provides ways to manipulate the utterance before or during the prediction. 
+LUIS provides ways to manipulate the utterance before or during the prediction. These include fixing spelling, and fixing timezone issues for prebuild datetimeV2. 
 
 ## Correct spelling errors in utterance
 LUIS uses [Bing Spell Check API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) to correct spelling errors in the utterance. LUIS needs the key associated with that service. Create the key, then add the key as a querystring parameter at the [endpoint](https://aka.ms/luis-endpoint-apis). 
@@ -42,6 +43,9 @@ When [Bing Spell Check API V7](https://azure.microsoft.com/services/cognitive-se
 }
 ```
  
+### Whitelist words
+The Bing spell check API used in LUIS does not support a white-list of words to ignore during the spell check alterations. If you need to white-list words or acronyms, process the utterance in the client application with a white list before sending the utterance to LUIS for intent prediction.
+
 ## Change time zone of prebuilt datetimeV2 entity
 When a LUIS app uses the prebuilt datetimeV2 entity, a datetime value can be returned in the prediction response. The timezone of the request is used to determine the correct datetime to return. If the request is coming from a bot or another centralized application before getting to LUIS, correct the timezone LUIS uses. 
 
