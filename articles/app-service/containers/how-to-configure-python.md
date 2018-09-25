@@ -75,4 +75,4 @@ To define a custom entry point for your app, first create a _.txt_ file with a c
 gunicorn helloworld:app
 ```
 
-In the [Application settings](https://docs.microsoft.com/en-us/azure/app-service/web-sites-configure?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) page, pick **Python|3.7** as the **Runtime Stack** and provide the name of your **Startup File** from the previous step. For example, _startup.txt_.
+In the [Application settings](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) page, pick **Python|3.7** as the **Runtime Stack** and provide the name of your **Startup File** from the previous step. For example, _startup.txt_.
