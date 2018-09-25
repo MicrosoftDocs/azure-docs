@@ -26,7 +26,7 @@ A single Speech Service subscription key grants access to the following features
 * [Custom speech-to-text](https://cris.ai/CustomSpeech)
 * [Text-to-speech](text-to-speech.md)
 * [Custom text-to-speech voices](https://cris.ai/CustomVoice)
-* [Speech translation](speech-translation.md) (does not include [Text translation](../translator/translator-info-overview))
+* [Speech translation](speech-translation.md) (does not include [Text translation](../translator/translator-info-overview.md))
 
 The [Speech SDK](speech-sdk.md) is a functional replacement for Bing Search client libraries, but uses a different API.
 
