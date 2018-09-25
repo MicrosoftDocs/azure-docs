@@ -11,7 +11,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.custom:
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 09/26/2018
 ms.author: victorh
 
 ---
@@ -50,6 +50,7 @@ During preview, there is no charge. You will be billed for resources other than 
 |Web application firewall autoscaling|WAF does not support autoscaling mode. Fixed capacity mode is supported.|
 
 ## Next steps
+- [Create an autoscaling, zone redundant application gateway with a reserved virtual IP address using Azure PowerShell](tutorial-autoscale-ps.md)
 - Learn more about [Application Gateway](overview.md).
 - Learn more about [Azure Firewall](../firewall/overview.md). 
 

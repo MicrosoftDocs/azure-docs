@@ -40,7 +40,7 @@ Files outside of `$Home` and machine state are not persisted across sessions. Us
 
 ### Azure drive (Azure:)
 
-PowerShell in Cloud Shell (Preview) starts you in Azure drive (`Azure:`).
+PowerShell in Cloud Shell starts you in Azure drive (`Azure:`).
 The Azure drive enables easy discovery and navigation of Azure resources such as Compute, Network, Storage etc. similar to filesystem navigation.
 You can continue to use the familiar [Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure) to manage these resources regardless of the drive you are in.
 Any changes made to the Azure resources, either made directly in Azure portal or through Azure PowerShell cmdlets, are reflected in the Azure drive.  You can run `dir -Force` to refresh your resources.
@@ -77,6 +77,6 @@ Cloud Shell includes pre-configured authentication for open-source tools such as
 
 ## Next steps
 [Bash in Cloud Shell Quickstart](quickstart.md) <br>
-[PowerShell in Cloud Shell (Preview) Quickstart](quickstart-powershell.md) <br>
-[Learn about Azure CLI](https://docs.microsoft.com/cli/azure/) <br>
+[PowerShell in Cloud Shell Quickstart](quickstart-powershell.md) <br>
+[Learn about Azure CLI 2.0](https://docs.microsoft.com/cli/azure/) <br>
 [Learn about Azure PowerShell](https://docs.microsoft.com/powershell/azure/) <br>

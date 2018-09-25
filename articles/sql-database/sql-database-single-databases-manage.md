@@ -2,17 +2,17 @@
 title: Create, manage Azure SQL servers and single databases | Microsoft Docs
 description: Learn about creating and managing logical servers and single databases.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
 ms.subservice: single-database
-ms.custom: DBs & servers
+ms.custom:
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 09/20/2018
+author: CarlRabeler
 ms.author: carlrab
-
+ms.reviewer:
+manager: craigg
+ms.date: 09/20/2018
 ---
-
 # Create and manage logical servers and single databases in Azure SQL Database 
 
 You can create and manage Azure SQL database logical servers and single databases using the Azure portal, PowerShell, Azure CLI, REST API, and Transact-SQL.
