@@ -3,7 +3,7 @@ title: Automatic OS image upgrades with Azure virtual machine scale sets | Micro
 description: Learn how to automatically upgrade the OS image on VM instances in an scale set
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil, rajsqr
+author: rajsqr
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
-ms.author: negat, rajraj
+ms.author: rajraj
 
 ---
 # Azure virtual machine scale set automatic OS image upgrades
@@ -68,7 +68,7 @@ The following SKUs are currently supported (more will be added in the future):
 
 - The *version* property of the platform image must be set to *latest*.
 - Use application health probes for non Service Fabric scale sets.
-- Ensure that the resources that the scale set model is referring to is avialable and kept up to date. Exa.SAS URI for bootstrapping payload in VM extension properties, payload in storage account, reference to secrets in the model. 
+- Ensure that the resources that the scale set model is referring to is available and kept up to date. Exa.SAS URI for bootstrapping payload in VM extension properties, payload in storage account, reference to secrets in the model. 
 
 ## Configure automatic OS image upgrade
 To configure automatic OS image upgrade, ensure that the *automaticOSUpgradePolicy.enableAutomaticOSUpgrade* property is set to *true* in the scale set model definition. You can configure this property with Azure PowerShell or the Azure CLI 2.0.
