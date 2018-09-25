@@ -30,17 +30,19 @@ Below you'll learn how to get IoT Hub device connection string from Digital Twin
 
 ## Get the IoT Hub device connection string from the Management API
 
-Do a GET call on device API with `includes=ConnectionString` parameter to get the IoT Hub device connection string; filter by `device-guid` or `hardware-id`
+Do a GET call on device API with `includes=ConnectionString` parameter to get the IoT Hub device connection string; filter by `device-guid` or `hardware-id`. You can use either of the following endpoints:
 
+```plaintext
+https://{{endpoint-management}}/api/v1.0/devices/<device-guid>?includes=ConnectionString
 ```
-https://{{endpoint-management}}/api/v1.0/devices/<device-guid>?includes=ConnectionString or
 
+```plaintext
 https://{{endpoint-management}}/api/v1.0/devices?hardwareIds=<hardware-id>&includes=ConnectionString
 ```
-    
+
 In the response payload, get the device's `connectionString` property.
 
-## Device-to-Cloud Telemetry Message 
+## Device-to-Cloud Telemetry Message
 
 You can customize the message format as well as the payload to your own needs. You can use any data contract that can be serialized into a byte array or stream that is supported by the [Azure IoT Device Client Message class Message(byte[] byteArray)](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.-ctor?view=azure-dotnet#Microsoft_Azure_Devices_Client_Message__ctor_System_Byte___). The message can be a custom binary format of your choice, as long as you decode the data contract in the User-Defined Function. The only requirement on a Device-to-Cloud message is to maintain a set of properties to ensure your message is routed appropriately to the processing engine.
 
