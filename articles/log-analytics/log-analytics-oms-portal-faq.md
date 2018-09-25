@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/17/2018
 ms.author: bwren
-ms.component: na
+ms.component: 
 ---
 
 # Common questions for transition from OMS portal to Azure portal for Log Analytics users
