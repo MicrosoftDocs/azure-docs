@@ -40,22 +40,22 @@ This article was written to help check the Pacemaker cluster configuration for S
 
 ## Important notes
 
-All testing for SAP HANA scale-out in combination with SAP HANA System Replication and Pacemaker was done with SAP HANA 2.0 only on SLES 12 SP3 using the SUSE RPM package SAPHanaSR-ScaleOut.
+All testing for SAP HANA scale-out in combination with SAP HANA System Replication and Pacemaker was done with SAP HANA 2.0 only. The operating system version was SUSE Linux Enterprise Server 12 SP3 for SAP Applications. In addition the latest RPM package SAPHanaSR-ScaleOut from SUSE was used to set up the pacemaker cluster.
 SUSE published a detailed description of this performance optimized setup, which can be found [here][sles-hana-scale-out-ha-paper]
 
-For certified VM types supported for SAP HANA scale-out check the [SAP HANA certified IaaS directory][sap-hana-iaas-list]
+For certified VM types supported for SAP HANA scale-out, check the [SAP HANA certified IaaS directory][sap-hana-iaas-list]
 
 There was a technical issue with SAP HANA scale-out in combination with multiple subnets and vNICs and setting up HSR. Therefore it's mandatory to use the latest SAP HANA 2.0 patches where this issue got fixed. The following SAP HANA versions are supported for the scale-out HA configuration in combination with Pacemaker and SUSE RPM package SAPHanaSR-ScaleOut:
 
 **rev2.00.024.04 or higher & rev2.00.032 or higher.**
 
-In case there should be a situation, which requires support from SUSE follow this [guide][suse-pacemaker-support-log-files] to collect all information about the SAP HANA HA cluster, which SUSE support needs for further analysis.
+In case there should be a situation, which requires support from SUSE follow this [guide][suse-pacemaker-support-log-files]. Collect all information about the SAP HANA HA cluster as described in the article. SUSE support needs this information for further analysis.
 
-During internal testing it happened that the cluster setup got confused by a normal graceful VM shutdown via the Azure portal. Therefore it's strongly recommended to test a cluster failover by other methods like forcing a kernel panic or shut down the networks or migrate the msl resource (see details in the sections below). The assumption is that a standard shutdown happens with intention, which would then apply for example to planned maintenance (see details in the section about planned maintenance).
+During internal testing, it happened that the cluster setup got confused by a normal graceful VM shutdown via the Azure portal. Therefore it's recommended to test a cluster failover by other methods like forcing a kernel panic or shut down the networks or migrate the msl resource (see details in the sections below). The assumption is that a standard shutdown happens with intention. The best example for an intenional shutdown is maintenance (see details in the section about planned maintenance).
 
-It also happened during internal testing that the cluster setup got confused after a manual SAP HANA takeover while the cluster was in maintenance mode. Therefore it's recommended to either switch it back manually again, before ending the cluster maintenance mode or maybe trigger a failover before putting the cluster into maintenance mode (also see the section about planned maintenance). The documentation from SUSE describes how you can reset the cluster in this regard using the crm command. But the approach mentioned before seemed to be very robust during internal testing and never showed any unexpected side effects.
+It also happened during internal testing that the cluster setup got confused after a manual SAP HANA takeover while the cluster was in maintenance mode. Therefore it's recommended to either switch it back manually again, before ending the cluster maintenance mode or maybe trigger a failover before putting the cluster into maintenance mode (also see the section about planned maintenance). The documentation from SUSE describes how you can reset the cluster in this regard using the crm command. But the approach mentioned before seemed to be robust during internal testing and never showed any unexpected side effects.
 
-When using the crm migrate command don't miss to clean up the cluster configuration. It adds location constraints which you might not be aware of. These constraints have an impact on the cluster behavior (see more details in the section about planned maintenance).
+When using the crm migrate command don't miss cleaning up the cluster configuration. It adds location constraints, which you might not be aware of. These constraints have an impact on the cluster behavior (see more details in the section about planned maintenance).
 
 
 
@@ -92,7 +92,7 @@ Following SAP HANA network recommendations, three subnets were created within on
 
 Regarding SAP HANA configuration related to using multiple networks see the section about **global.ini** further down.
 
-Corresponding to the number of subnets every VM in the cluster has three vNICs. There is documentation, which describes a potential routing issue on Azure when deploying a Linux VM. This applies only for usage of multiple vNICs. You can find information about it [here][azure-linux-multiple-nics]. The problem is solved by SUSE per default in SLES 12 SP3. The article from SUSE about this topic can be found [here][suse-cloud-netconfig].
+Corresponding to the number of subnets every VM in the cluster has three vNICs. There is documentation, which describes a potential routing issue on Azure when deploying a Linux VM. This specific routing topic applies only for usage of multiple vNICs. You can find information about it [here][azure-linux-multiple-nics]. The problem is solved by SUSE per default in SLES 12 SP3. The article from SUSE about this topic can be found [here][suse-cloud-netconfig].
 
 
 As a basic check to verify if SAP HANA is configured correctly for using multiple networks, just run the commands below. First step is simply to double-check on OS level that all three internal IP addresses for all three subnets are active. In case you defined the subnets with different IP address ranges you have to adapt the commands accordingly:
@@ -279,7 +279,7 @@ systemctl restart corosync
 
 ## SBD device
 
-The documentation about how to set up a SBD device on an Azure VM is described [here][sles-pacemaker-ha-guide] (section sbd-fencing).
+The documentation about how to set up an SBD device on an Azure VM is described [here][sles-pacemaker-ha-guide] (section sbd-fencing).
 
 First thing to double-check is to look on the SBD server VM if there are ACL entries for every node in the cluster. Run the following command on the SBD server VM:
 
@@ -289,7 +289,7 @@ targetcli ls
 </code></pre>
 
 
-On the test system, the output of the command looked like the sample below. The ACL names like **iqn.2006-04.hso-db-0.local:hso-db-0** have to be entered as the corresponding initiator name on the VMs. Every VM needs a different one.
+On the test system, the output of the command looked like the sample below. The ACL names like **iqn.2006-04.hso-db-0.local:hso-db-0** must be entered as the corresponding initiator name on the VMs. Every VM needs a different one.
 
 <pre><code>
  | | o- sbddbhso ................................................................... [/sbd/sbddbhso (50.0MiB) write-thru activated]
@@ -453,13 +453,13 @@ During testing and verification occurrences happened where after the restart of 
 1. Start yast2
 2. Select **Network Services** on the left side
 3. Scroll down on the right side to **iSCSI Initiator** and select it
-4. On the next screen under the **Service** tab you should see the unique initiator name for the node
-5. Above the initiator name make sure that the **Service Start** value is set to **When Booting**
-6. If it's not the case then set it to **When Booting** instead of **Manually**
+4. On the next screen under the **Service** tab, you should see the unique initiator name for the node
+5. Above the initiator name, make sure that the **Service Start** value is set to **When Booting**
+6. If it's not the case, then set it to **When Booting** instead of **Manually**
 7. Next switch the top tab to **Connected Targets**
 8. On the Connected Targets screen you should see an entry for the SBD device like this sample: **10.0.0.19:3260 iqn.2006-04.dbhso.local:dbhso**
 9. Check if the Start-Up value is set to "**onboot**"
-10. If not choose **Edit** and change it
+10. If not, choose **Edit** and change it
 11. Save the changes and exit yast2
 
 
@@ -731,7 +731,7 @@ There are two different situations in this regard:
    In this case, you can just put the cluster into maintenance mode and do the work on the secondary without affecting the cluster
 
 2. Planned maintenance on the current primary. 
-   To allow the users to continue working during the maintenance, it's necessary to force a failover. You have to trigger this failover    and SAP HANA takeover by pacemaker and not just on SAP HANA HSR level. In addition, it's necessary to accomplish the failover before    putting the cluster into maintenance mode
+   To allow the users to continue working during the maintenance, it's necessary to force a failover. With this approach you must trigger the cluster failover by pacemaker and not just on SAP HANA HSR level. The pacemaker setup autoamtically triggers the SAP HANA takeover. In addition, it's necessary to accomplish the failover before putting the cluster into maintenance mode.
 
 The procedure for maintenance on the current secondary site would like the steps below:
 
@@ -744,7 +744,7 @@ The procedure for maintenance on the current primary site is more complex:
 1. Manually trigger a failover / SAP HANA takeover via a Pacemaker resource migration (see details below)
 2. SAP HANA on the former primary site is getting shut down by the cluster setup
 3. Put the cluster into maintenance mode
-4. After the maintenance work is done register the former primary as the new secondary site
+4. After the maintenance work is done, register the former primary as the new secondary site
 5. Clean up cluster configuration (see details below)
 6. End the cluster maintenance mode
 
@@ -820,7 +820,7 @@ At the end of the maintenance work, you stop the cluster maintenance mode as sho
 
 ## hb_report to collect log files
 
-To analyze pacemaker cluster issues, it's helpful and also requested by SUSE support to run the **hb_report** utility. It collects all important logfiles, which allow the analysis of what happened. Here is a sample call using a start and end time where a specific incident occured (also see first section about important notes):
+To analyze pacemaker cluster issues, it's helpful and also requested by SUSE support to run the **hb_report** utility. It collects all important logfiles, which allow the analysis of what happened. Here is a sample call using a start and end time where a specific incident occurred (also see first section about important notes):
 
 <pre><code>
 hb_report -f "2018/09/13 07:36" -t "2018/09/13 08:00" /tmp/hb_report_log
