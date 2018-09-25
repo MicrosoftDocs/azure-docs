@@ -5,16 +5,20 @@
   expanded: false
   items:
   - name: Advanced threat detection
+    displayName: vulnerability, virus, ids, incident
     href: azure-threat-detection.md
   - name: Azure logging and auditing
+    displayName: incident
     href: azure-log-audit.md
   - name: Azure network security
+    displayName: firewall, ssl, vpn, ids
     href: abstract-azure-network-security.md
   - name: Azure serverless platform security
     href: abstract-serverless-platform-security.md
   - name: Container security in Azure
     href: abstract-container-security-microsoft-azure.md
   - name: Enabling operational security
+    displayName: policy, policies
     href: abstract-azure-operational-security.md
   - name: Isolation in the Azure cloud
     href: azure-isolation.md
@@ -42,6 +46,7 @@
     - name: Disk encryption for IaaS VMs
       items:
       - name: About Azure Disk Encryption
+        displayName: bitlocker
         href: azure-security-disk-encryption-overview.md
       - name: Quickstarts
         items:
@@ -89,6 +94,7 @@
     - name: Components and boundaries
       href: azure-infrastructure-components.md
     - name: Network architecture
+      displayName: ssl
       href: azure-infrastructure-network.md
     - name: Production network
       href: azure-production-network.md
@@ -103,11 +109,13 @@
     - name: Data protection
       href: azure-protection-of-customer-data.md
   - name: Microsoft Antimalware
+    displayName: virus
     href: azure-security-antimalware.md
   - name: IaaS security
     href: security-virtual-machines-overview.md
     items:
     - name: Best practices - IaaS workloads
+      displayName: patch
       href: azure-security-iaas.md
     - name: Azure marketplace images
       href: security-recommendations-azure-marketplace-images.md
@@ -127,6 +135,7 @@
       displayName: identity
       href: azure-security-global-admin.md
   - name: Network security
+    displayName: firewall, ssl, vpn, ids
     href: security-network-overview.md
     items:
     - name: Best practices
@@ -168,6 +177,7 @@
   - name: Auditing and logging
     items:
     - name: Security management
+      displayName: vulnerability, incident, virus, 
       href: ../security-center/security-center-intro.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Remote management security
       href: azure-security-management.md
@@ -195,17 +205,17 @@
     - name: Security checklist
       href: azure-operational-security-checklist.md
 - name: Governance and compliance
-  displayName: blueprint
+  displayName: blueprint, privacy
   items:
   - name: AU PROTECTED
-    displayName: blueprint
+    displayName: blueprint, privacy
     items:
     - name: IaaS web application
       href: ./blueprints/au-protected-iaaswa-overview.md
     - name: PaaS web application
       href: ./blueprints/au-protected-paaswa-overview.md
   - name: FedRAMP
-    displayName: blueprint
+    displayName: blueprint, privacy
     items:
     - name: Data analytics
       href: ./blueprints/fedramp-analytics-overview.md
@@ -216,7 +226,7 @@
     - name: PaaS web application
       href: ./blueprints/fedramp-paaswa-overview.md
   - name: FFIEC
-    displayName: blueprint
+    displayName: blueprint, privacy
     items:
     - name: Data analytics
       href: ./blueprints/ffiec-analytics-overview.md
@@ -227,7 +237,7 @@
     - name: PaaS web application
       href: ./blueprints/ffiec-paaswa-overview.md
   - name: GDPR
-    displayName: blueprint
+    displayName: blueprint, privacy
     items:
     - name: Data analytics
       href: ./blueprints/gdpr-analytics-overview.md
@@ -238,12 +248,12 @@
     - name: PaaS web application
       href: ./blueprints/gdpr-paaswa-overview.md
   - name: HIPAA/HITRUST
-    displayName: blueprint
+    displayName: blueprint, privacy
     items:
     - name: Health Data and AI
       href: ./blueprints/azure-health.md
   - name: NIST SP 800-171
-    displayName: blueprint
+    displayName: blueprint, privacy
     items:
       - name: Data analytics
         href: ./blueprints/nist171-analytics-overview.md
@@ -254,7 +264,7 @@
       - name: PaaS web application
         href: ./blueprints/nist171-paaswa-overview.md
   - name: PCI DSS
-    displayName: blueprint
+    displayName: blueprint, privacy
     items:
     - name: Data analytics
       href: ./blueprints/pcidss-analytics-overview.md
@@ -265,12 +275,12 @@
     - name: PaaS web application
       href: ./blueprints/pcidss-paaswa-overview.md
   - name: TIC
-    displayName: blueprint
+    displayName: blueprint, privacy
     items:
     - name: Trusted Internet Connection with Azure
       href: ./compliance/compliance-tic.md
   - name: UK NHS
-    displayName: blueprint
+    displayName: blueprint, privacy
     items:
       - name: Data analytics
         href: ./blueprints/uknhs-analytics-overview.md
@@ -281,7 +291,7 @@
       - name: PaaS web application
         href: ./blueprints/uknhs-paaswa-overview.md
   - name: UK OFFICIAL
-    displayName: blueprint
+    displayName: blueprint, privacy
     items:
     - name: IaaS web application
       href: ./blueprints/ukofficial-iaaswa-overview.md
@@ -306,6 +316,7 @@
   - name: Pen testing
     href: azure-security-pen-testing.md
   - name: Microsoft Threat Modeling tool
+    displayName: stride
     href: azure-security-threat-modeling-tool.md
     items:
     - name: Getting started
