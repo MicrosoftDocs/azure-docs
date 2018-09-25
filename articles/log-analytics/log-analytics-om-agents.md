@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/02/2018
 ms.author: magoedte
-ms.component: na
+ms.component: 
 ---
 
 # Connect Operations Manager to Log Analytics
