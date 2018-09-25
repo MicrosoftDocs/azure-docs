@@ -16,22 +16,30 @@ ms.author: shlo
 ---
 # Understanding Data Factory Pricing through examples
 
+This article explains and demonstrates the Azure Data Factory pricing model with detailed examples.
+
 ## Copy data from AWS S3 to Azure Blob storage hourly
 
 In this scenario, you want to copy data from AWS S3 to Azure Blob storage on an hourly schedule.
 
-To accomplish the scenario, you need to create a pipeline that has a copy activity with an input dataset for the data to be copied from AWS S3, an output dataset for the data on Azure storage and a schedule trigger to execute the pipeline every hour.
+To accomplish the scenario, you need to create a pipeline with the following items:
+
+1. A copy activity with an input dataset for the data to be copied from AWS S3.
+
+2. An output dataset for the data on Azure Storage.
+
+3. A schedule trigger to execute the pipeline every hour.
 
  ![Scenario1](media/pricing-concepts/scenario1.png)
 
 | **Operations** | **Types and Units** |
 | --- | --- |
 | Create Linked Service | 2 Read/Write entity  |
-| Create Datasets | 4 Read/Write entities (2 for datasets create, 2 for linked service references) |
-| Create Pipeline | 3 Read/Write entities (1 for pipeline create, 2 for datasets references) |
+| Create Datasets | 4 Read/Write entities (2 for dataset creation, 2 for linked service references) |
+| Create Pipeline | 3 Read/Write entities (1 for pipeline creation, 2 for dataset references) |
 | Get Pipeline | 1 Read/Write entity |
 | Run Pipeline | 2 Activity runs (1 for trigger run, 1 for activity runs) |
-| Copy Data Assumption: execution time = 10 min | 10 \* 4 Azure Integration Runtime (default DIU setting = 4) For more information on data integration units and optimizing copy performance, click [here](copy-activity-performance.md) |
+| Copy Data Assumption: execution time = 10 min | 10 \* 4 Azure Integration Runtime (default DIU setting = 4) For more information on data integration units and optimizing copy performance, see [this article](copy-activity-performance.md) |
 | Monitor Pipeline Assumption: Only 1 run occurred | 2 Monitoring run records retried (1 for pipeline run, 1 for activity run) |
 
 **Total Scenario pricing: $0.16811**
@@ -49,20 +57,20 @@ In this scenario, you want to copy data from AWS S3 to Azure Blob storage and tr
 
 To accomplish the scenario, you need to create a pipeline with the following items:
 
-1. One copy activity with an input dataset for the data to be copied from AWS S3, an output dataset for the data on Azure storage
-2. One Azure Databricks activity for the data transformation
-3. One schedule trigger to execute the pipeline every hour
+1. One copy activity with an input dataset for the data to be copied from AWS S3, and an output dataset for the data on Azure storage.
+2. One Azure Databricks activity for the data transformation.
+3. One schedule trigger to execute the pipeline every hour.
 
 ![Scenario2](media/pricing-concepts/scenario2.png)
 
 | **Operations** | **Types and Units** |
 | --- | --- |
 | Create Linked Service | 3 Read/Write entity  |
-| Create Datasets | 4 Read/Write entities (2 for datasets create, 2 for linked service references) |
-| Create Pipeline | 3 Read/Write entities (1 for pipeline create, 2 for datasets references) |
+| Create Datasets | 4 Read/Write entities (2 for dataset creation, 2 for linked service references) |
+| Create Pipeline | 3 Read/Write entities (1 for pipeline creation, 2 for dataset references) |
 | Get Pipeline | 1 Read/Write entity |
 | Run Pipeline | 3 Activity runs (1 for trigger run, 2 for activity runs) |
-| Copy Data Assumption: execution time = 10 min | 10 \* 4 Azure Integration Runtime (default DIU setting = 4) For more information on data integration units and optimizing copy performance, click [here](https://docs.microsoft.com/azure/data-factory/copy-activity-performance) |
+| Copy Data Assumption: execution time = 10 min | 10 \* 4 Azure Integration Runtime (default DIU setting = 4) For more information on data integration units and optimizing copy performance, see [this article](copy-activity-performance.md) |
 | Monitor Pipeline Assumption: Only 1 run occurred | 3 Monitoring run records retried (1 for pipeline run, 2 for activity run) |
 | Execute Databricks activity Assumption: execution time = 10 min | 10 min External Pipeline Activity Execution |
 
@@ -76,27 +84,27 @@ To accomplish the scenario, you need to create a pipeline with the following ite
   - Data Movement Activities = $0.166 (Prorated for 10 minutes of execution time. $0.25/hour on Azure Integration Runtime)
   - External Pipeline Activity = $0.000041 (Prorated for 10 minutes of execution time. $0.00025/hour on Azure Integration Runtime)
 
-## Scenario #3: Copy data and transform with dynamic parameters hourly
+## Copy data and transform with dynamic parameters hourly
 
 In this scenario, you want to copy data from AWS S3 to Azure Blob storage and transform with Azure Databricks (with dynamic parameters in the script) on an hourly schedule.
 
 To accomplish the scenario, you need to create a pipeline with the following items:
 
-1. One copy activity with an input dataset for the data to be copied from AWS S3, an output dataset for the data on Azure storage
-2. One Lookup activity for passing parameters dynamically to the transformation script
-3. One Azure Databricks activity for the data transformation
-4. One schedule trigger to execute the pipeline every hour
+1. One copy activity with an input dataset for the data to be copied from AWS S3, an output dataset for the data on Azure storage.
+2. One Lookup activity for passing parameters dynamically to the transformation script.
+3. One Azure Databricks activity for the data transformation.
+4. One schedule trigger to execute the pipeline every hour.
 
 ![Scenario3](media/pricing-concepts/scenario3.png)
 
 | **Operations** | **Types and Units** |
 | --- | --- |
 | Create Linked Service | 3 Read/Write entity  |
-| Create Datasets | 4 Read/Write entities (2 for datasets create, 2 for linked service references) |
-| Create Pipeline | 3 Read/Write entities (1 for pipeline create, 2 for datasets references) |
+| Create Datasets | 4 Read/Write entities (2 for dataset creation, 2 for linked service references) |
+| Create Pipeline | 3 Read/Write entities (1 for pipeline creation, 2 for dataset references) |
 | Get Pipeline | 1 Read/Write entity |
 | Run Pipeline | 4 Activity runs (1 for trigger run, 3 for activity runs) |
-| Copy Data Assumption: execution time = 10 min | 10 \* 4 Azure Integration Runtime (default DIU setting = 4) For more information on data integration units and optimizing copy performance, click [here](https://docs.microsoft.com/azure/data-factory/copy-activity-performance) |
+| Copy Data Assumption: execution time = 10 min | 10 \* 4 Azure Integration Runtime (default DIU setting = 4) For more information on data integration units and optimizing copy performance, see [this article](copy-activity-performance.md) |
 | Monitor Pipeline Assumption: Only 1 run occurred | 4 Monitoring run records retried (1 for pipeline run, 3 for activity run) |
 | Execute Lookup activity Assumption: execution time = 1 min | 1 min Pipeline Activity execution |
 | Execute Databricks activity Assumption: execution time = 10 min | 10 min External Pipeline Activity execution |
