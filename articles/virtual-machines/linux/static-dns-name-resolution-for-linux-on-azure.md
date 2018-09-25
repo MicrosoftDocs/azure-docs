@@ -1,10 +1,10 @@
 ---
-title: Use internal DNS for VM name resolution with the Azure CLI 2.0 | Microsoft Docs
-description: How to create virtual network interface cards and use internal DNS for VM name resolution on Azure with the Azure CLI 2.0
+title: Use internal DNS for VM name resolution with the Azure CLI | Microsoft Docs
+description: How to create virtual network interface cards and use internal DNS for VM name resolution on Azure with the Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
 author: vlivech
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -20,7 +20,8 @@ ms.author: v-livech
 ---
 
 # Create virtual network interface cards and use internal DNS for VM name resolution on Azure
-This article shows you how to set static internal DNS names for Linux VMs using virtual network interface cards (vNics) and DNS label names with the Azure CLI 2.0. You can also perform these steps with the [Azure CLI 1.0](static-dns-name-resolution-for-linux-on-azure-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Static DNS names are used for permanent infrastructure services like a Jenkins build server, which is used for this document, or a Git server.
+
+This article shows you how to set static internal DNS names for Linux VMs using virtual network interface cards (vNics) and DNS label names with the Azure CLI. Static DNS names are used for permanent infrastructure services like a Jenkins build server, which is used for this document, or a Git server.
 
 The requirements are:
 
@@ -28,7 +29,7 @@ The requirements are:
 * [SSH public and private key files](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Quick commands
-If you need to quickly accomplish the task, the following section details the commands needed. More detailed information and context for each step can be found in the rest of the document, [starting here](#detailed-walkthrough). To perform these steps, you need the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/reference-index#az_login).
+If you need to quickly accomplish the task, the following section details the commands needed. More detailed information and context for each step can be found in the rest of the document, [starting here](#detailed-walkthrough). To perform these steps, you need the latest [Azure CLI](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/reference-index#az_login).
 
 Pre-Requirements: Resource Group, virtual network and subnet, Network Security Group with SSH inbound.
 
@@ -88,7 +89,7 @@ az network vnet create \
 ```
 
 ## Create the Network Security Group
-Azure Network Security Groups are equivalent to a firewall at the network layer. For more information about Network Security Groups, see [How to create NSGs in the Azure CLI](../../virtual-network/virtual-networks-create-nsg-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+Azure Network Security Groups are equivalent to a firewall at the network layer. For more information about Network Security Groups, see [How to create NSGs in the Azure CLI](../../virtual-network/tutorial-filter-network-traffic-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 
 Create the network security group with [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create). The following example creates a network security group named `myNetworkSecurityGroup`:
 

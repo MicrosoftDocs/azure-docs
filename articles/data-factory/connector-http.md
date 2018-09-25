@@ -4,27 +4,24 @@ description: Learn how to copy data from a cloud or on-premises HTTP source to s
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/07/2018
+ms.topic: conceptual
+ms.date: 08/24/2018
 ms.author: jingwang
 
 ---
 # Copy data from HTTP endpoint using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-http-connector.md)
-> * [Version 2 - Preview](connector-http.md)
+> * [Version 1](v1/data-factory-http-connector.md)
+> * [Current version](connector-http.md)
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from an HTTP endpoint. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [HTTP connector in V1](v1/data-factory-http-connector.md).
 
 ## Supported capabilities
 
@@ -37,6 +34,9 @@ Specifically, this HTTP connector supports:
 - Copying the HTTP response as-is or parsing it with the [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
 
 The difference between this connector and the [Web table connector](connector-web-table.md) is that the latter is used to extract table content from web HTML page.
+
+>[!TIP]
+>To test HTTP request for data retrieving before configuring HTTP connector in ADF, you can learn from the API spec on header and body requirements, and use tools like Postman or web browser to validate.
 
 ## Getting started
 
@@ -52,7 +52,7 @@ The following properties are supported for HTTP linked service:
 |:--- |:--- |:--- |
 | type | The type property must be set to: **HttpServer**. | Yes |
 | url | Base URL to the Web Server | Yes |
-| enableServerCertificateValidation | Specify whether to enable server SSL certificate validation when connecting to HTTP endpoint. | No, default is true |
+| enableServerCertificateValidation | Specify whether to enable server SSL certificate validation when connecting to HTTP endpoint. When your HTTPS server is using self-signed certificate, set this to false. | No, default is true |
 | authenticationType | Specifies the authentication type. Allowed values are: **Anonymous**, **Basic**, **Digest**, **Windows**, **ClientCertificate**. <br><br> Refer to sections below this table on more properties and JSON samples for those authentication types respectively. | Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. |No |
 
@@ -165,6 +165,9 @@ To copy data from HTTP, set the type property of the dataset to **HttpFile**. Th
 | requestBody | Body for HTTP request. | No |
 | format | If you want to **retrieve data from HTTP endpoint as-is** without parsing it and copy to a file-based store, skip the format section in both input and output dataset definitions.<br/><br/>If you want to parse the HTTP response content during copy, the following file format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Set the **type** property under format to one of these values. For more information, see [Json Format](supported-file-formats-and-compression-codecs.md#json-format), [Text Format](supported-file-formats-and-compression-codecs.md#text-format), [Avro Format](supported-file-formats-and-compression-codecs.md#avro-format), [Orc Format](supported-file-formats-and-compression-codecs.md#orc-format), and [Parquet Format](supported-file-formats-and-compression-codecs.md#parquet-format) sections. |No |
 | compression | Specify the type and level of compression for the data. For more information, see [Supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Supported types are: **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**.<br/>Supported levels are: **Optimal** and **Fastest**. |No |
+
+>[!NOTE]
+>The supported HTTP request payload size is around 500KB. If the payload size you want to pass to your web endpoint is larger than this, consider to batch into smaller chunks.
 
 **Example 1: using Get method (default)**
 

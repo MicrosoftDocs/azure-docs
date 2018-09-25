@@ -3,16 +3,12 @@ title: Diagnostics in Durable Functions - Azure
 description: Learn how to diagnose problems with the Durable Functions extension for Azure Functions.
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords:
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 09/29/2017
+ms.topic: conceptual
+ms.date: 04/30/2018
 ms.author: azfuncdf
 ---
 
@@ -24,7 +20,7 @@ There are several options for diagnosing issues with [Durable Functions](durable
 
 [Application Insights](../application-insights/app-insights-overview.md) is the recommended way to do diagnostics and monitoring in Azure Functions. The same applies to Durable Functions. For an overview of how to leverage Application Insights in your function app, see [Monitor Azure Functions](functions-monitoring.md).
 
-The Azure Functions Durable Extension also emits *tracking events* which allow you to trace the end-to-end execution of an orchestration. These can be found and queried using the [Application Insights Analytics](../application-insights/app-insights-analytics.md) tool in the Azure portal.
+The Azure Functions Durable Extension also emits *tracking events* that allow you to trace the end-to-end execution of an orchestration. These can be found and queried using the [Application Insights Analytics](../application-insights/app-insights-analytics.md) tool in the Azure portal.
 
 ### Tracking data
 
@@ -46,6 +42,7 @@ Each lifecycle event of an orchestration instance causes a tracking event to be 
 * **reason**: Additional data associated with the tracking event. For example, if an instance is waiting for an external event notification, this field indicates the name of the event it is waiting for. If a function has failed, this will contain the error details.
 * **isReplay**: Boolean value indicating whether the tracking event is for replayed execution.
 * **extensionVersion**: The version of the Durable Task extension. This is especially important data when reporting possible bugs in the extension. Long-running instances may report multiple versions if an update occurs while it is running. 
+* **sequenceNumber**: Execution sequence number for an event. Combined with the timestamp helps to order the events by execution time. *Note that this number will be reset to zero if the host restarts while the instance is running, so it's important to always sort by timestamp first, then sequenceNumber.*
 
 The verbosity of tracking data emitted to Application Insights can be configured in the `logger` section of the `host.json` file.
 
@@ -61,18 +58,28 @@ The verbosity of tracking data emitted to Application Insights can be configured
 }
 ```
 
-By default, all tracking events are emitted. The volume of data can be reduced by setting `Host.Triggers.DurableTask` to `"Warning"` or `"Error"` in which case tracking events will only be emitted for exceptional situations.
+By default, all non-replay tracking events are emitted. The volume of data can be reduced by setting `Host.Triggers.DurableTask` to `"Warning"` or `"Error"` in which case tracking events will only be emitted for exceptional situations.
 
-> [!WARNING]
+To enable emitting the verbose orchestration replay events, the `LogReplayEvents` can be set to `true` in the `host.json` file under `durableTask` as shown:
+
+```json
+{
+    "durableTask": {
+        "logReplayEvents": true
+    }
+}
+```
+
+> [!NOTE]
 > By default, Application Insights telemetry is sampled by the Azure Functions runtime to avoid emitting data too frequently. This can cause tracking information to be lost when many lifecycle events occur in a short period of time. The [Azure Functions Monitoring article](functions-monitoring.md#configure-sampling) explains how to configure this behavior.
 
 ### Single instance query
 
-The following query shows historical tracking data for a single instance of the [Hello Sequence](durable-functions-sequence.md) function orchestration. It's written using the [Application Insights Query Language (AIQL)](https://docs.loganalytics.io/docs/Language-Reference). It filters out replay execution so that only the *logical* execution path is shown.
+The following query shows historical tracking data for a single instance of the [Hello Sequence](durable-functions-sequence.md) function orchestration. It's written using the [Application Insights Query Language (AIQL)](https://aka.ms/LogAnalyticsLanguageReference). It filters out replay execution so that only the *logical* execution path is shown. Events can be ordered by sorting by `timestamp` and `sequenceNumber` as shown in the query below: 
 
 ```AIQL
-let targetInstanceId = "bf71335b26564016a93860491aa50c7f";
-let start = datetime(2017-09-29T00:00:00);
+let targetInstanceId = "ddd1aaa685034059b545eb004b15d4eb";
+let start = datetime(2018-03-25T09:20:00);
 traces
 | where timestamp > start and timestamp < start + 30m
 | where customDimensions.Category == "Host.Triggers.DurableTask"
@@ -80,16 +87,17 @@ traces
 | extend instanceId = customDimensions["prop__instanceId"]
 | extend state = customDimensions["prop__state"]
 | extend isReplay = tobool(tolower(customDimensions["prop__isReplay"]))
-| where isReplay == false
+| extend sequenceNumber = tolong(customDimensions["prop__sequenceNumber"]) 
+| where isReplay != true
 | where instanceId == targetInstanceId
-| project timestamp, functionName, state, instanceId, appName = cloud_RoleName
+| sort by timestamp asc, sequenceNumber asc
+| project timestamp, functionName, state, instanceId, sequenceNumber, appName = cloud_RoleName
 ```
-The result is a list of tracking events that show the execution path of the orchestration, including any activity functions.
 
-![Application Insights query](media/durable-functions-diagnostics/app-insights-single-instance-query.png)
+The result is a list of tracking events that shows the execution path of the orchestration, including any activity functions ordered by the execution time in ascending order.
 
-> [!NOTE]
-> Some of these tracking events may be out of order due to the lack of precision in the `timestamp` column. This is being tracked in GitHub as [issue #71](https://github.com/Azure/azure-functions-durable-extension/issues/71).
+![Application Insights query](media/durable-functions-diagnostics/app-insights-single-instance-ordered-query.png)
+
 
 ### Instance summary query
 
@@ -105,7 +113,7 @@ traces
 | extend state = tostring(customDimensions["prop__state"])
 | extend isReplay = tobool(tolower(customDimensions["prop__isReplay"]))
 | extend output = tostring(customDimensions["prop__output"])
-| where isReplay == false
+| where isReplay != true
 | summarize arg_max(timestamp, *) by instanceId
 | project timestamp, instanceId, functionName, state, output, appName = cloud_RoleName
 | order by timestamp asc
@@ -117,6 +125,8 @@ The result is a list of instance IDs and their current runtime status.
 ## Logging
 
 It's important to keep the orchestrator replay behavior in mind when writing logs directly from an orchestrator function. For example, consider the following orchestrator function:
+
+#### C#
 
 ```cs
 public static async Task Run(
@@ -131,6 +141,22 @@ public static async Task Run(
     await ctx.CallActivityAsync("F3");
     log.Info("Done!");
 }
+```
+
+#### JavaScript (Functions v2 only)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df(function*(context){
+    context.log("Calling F1.");
+    yield context.df.callActivityAsync("F1");
+    context.log("Calling F2.");
+    yield context.df.callActivityAsync("F2");
+    context.log("Calling F3.");
+    yield context.df.callActivityAsync("F3");
+    context.log("Done!");
+});
 ```
 
 The resulting log data is going to look something like the following:
@@ -175,6 +201,49 @@ Calling F2.
 Calling F3.
 Done!
 ```
+
+> [!NOTE]
+> The `IsReplaying` property is not yet available in JavaScript.
+
+## Custom Status
+
+Custom orchestration status lets you set a custom status value for your orchestrator function. This status is provided via the HTTP status query API or the `DurableOrchestrationClient.GetStatusAsync` API. The custom orchestration status enables richer monitoring for orchestrator functions. For example, the orchestrator function code can include `DurableOrchestrationContext.SetCustomStatus` calls to update the progress for a long-running operation. A client, such as a web page or other external system, could then periodically query the HTTP status query APIs for richer progress information. A sample using `DurableOrchestrationContext.SetCustomStatus` is provided below:
+
+```csharp
+public static async Task SetStatusTest([OrchestrationTrigger] DurableOrchestrationContext ctx)
+{
+    // ...do work...
+
+    // update the status of the orchestration with some arbitrary data
+    var customStatus = new { completionPercentage = 90.0, status = "Updating database records" };
+    ctx.SetCustomStatus(customStatus);
+
+    // ...do more work...
+}
+```
+
+While the orchestration is running, external clients can fetch this custom status:
+
+```http
+GET /admin/extensions/DurableTaskExtension/instances/instance123
+
+```
+
+Clients will get the following response: 
+
+```http
+{
+  "runtimeStatus": "Running",
+  "input": null,
+  "customStatus": { "completionPercentage": 90.0, "status": "Updating database records" },
+  "output": null,
+  "createdTime": "2017-10-06T18:30:24Z",
+  "lastUpdatedTime": "2017-10-06T19:40:30Z"
+}
+```
+
+> [!WARNING]
+>  The custom status payload is limited to 16 KB of UTF-16 JSON text because it needs to be able to fit in an Azure Table Storage column. You can use external storage if you need larger payload.
 
 ## Debugging
 

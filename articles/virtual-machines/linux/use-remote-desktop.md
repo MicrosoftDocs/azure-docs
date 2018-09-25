@@ -3,7 +3,7 @@ title: Use Remote Desktop to a Linux VM in Azure | Microsoft Docs
 description: Learn how to install and configure Remote Desktop (xrdp) to connect to a Linux VM in Azure using graphical tools
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
-ms.author: iainfou
+ms.date: 05/30/2018
+ms.author: cynthn
 
 ---
 # Install and configure Remote Desktop to connect to a Linux VM in Azure
@@ -24,7 +24,7 @@ Linux virtual machines (VMs) in Azure are usually managed from the command line 
 ## Prerequisites
 This article requires an existing Ubuntu 16.04 LTS VM in Azure. If you need to create a VM, use one of the following methods:
 
-- The [Azure CLI 2.0](quick-create-cli.md)
+- The [Azure CLI](quick-create-cli.md)
 - The [Azure portal](quick-create-portal.md)
 
 
@@ -33,7 +33,7 @@ Most Linux VMs in Azure do not have a desktop environment installed by default. 
 
 The following example installs the lightweight [xfce4](https://www.xfce.org/) desktop environment on an Ubuntu 16.04 LTS VM. Commands for other distributions vary slightly (use `yum` to install on Red Hat Enterprise Linux and configure appropriate `selinux` rules, or use `zypper` to install on SUSE, for example).
 
-First, SSH to your VM. The following example connects to the VM named *myvm.westus.cloudapp.azure.com* with the username of *azureuser*:
+First, SSH to your VM. The following example connects to the VM named *myvm.westus.cloudapp.azure.com* with the username of *azureuser*. Use your own values:
 
 ```bash
 ssh azureuser@myvm.westus.cloudapp.azure.com
@@ -80,9 +80,9 @@ sudo passwd azureuser
 
 
 ## Create a Network Security Group rule for Remote Desktop traffic
-To allow Remote Desktop traffic to reach your Linux VM, a network security group rule needs to be created that allows TCP on port 3389 to reach your VM. For more information about network security group rules, see [What is a Network Security Group?](../../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) You can also [use the Azure portal to create a network security group rule](../windows/nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+To allow Remote Desktop traffic to reach your Linux VM, a network security group rule needs to be created that allows TCP on port 3389 to reach your VM. For more information about network security group rules, see [What is a network security group?](../../virtual-network/security-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) You can also [use the Azure portal to create a network security group rule](../windows/nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-The following example creates a network security group rule with [az vm open-port](/cli/azure/vm#az_vm_open_port) on port *3389*.
+The following example creates a network security group rule with [az vm open-port](/cli/azure/vm#az-vm-open-port) on port *3389*. From the Azure CLI, not the SSH session to your VM, open the following network security group rule:
 
 ```azurecli
 az vm open-port --resource-group myResourceGroup --name myVM --port 3389
@@ -97,6 +97,8 @@ Open your local remote desktop client and connect to the IP address or DNS name 
 After authenticating, the xfce desktop environment will load and look similar to the following example:
 
 ![xfce desktop environment through xrdp](./media/use-remote-desktop/xfce-desktop-environment.png)
+
+If your local RDP client uses network level authentication (NLA), you may need to disable that connection setting. XRDP does not currently support NLA. You can also look at alternative RDP solutions that do support NLA, such as [FreeRDP](http://www.freerdp.com).
 
 
 ## Troubleshoot

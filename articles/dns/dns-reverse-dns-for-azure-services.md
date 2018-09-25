@@ -3,7 +3,7 @@ title: Reverse DNS for Azure services | Microsoft Docs
 description: Learn how to configure reverse DNS lookups for services hosted in Azure
 services: dns
 documentationcenter: na
-author: KumudD
+author: vhorne
 manager: timlt
 
 ms.service: dns
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
-ms.author: kumud
+ms.author: victorh
 ---
 
 # Configure reverse DNS for services hosted in Azure
@@ -47,7 +47,7 @@ The same constraints apply to reverse DNS for Cloud Services.
 
 ## Reverse DNS for PublicIpAddress resources
 
-This section provides detailed instructions for how to configure reverse DNS for PublicIpAddress resources in the Resource Manager deployment model, using either Azure PowerShell, Azure CLI 1.0, or Azure CLI 2.0. Configuring reverse DNS for PublicIpAddress resources is not currently supported via the Azure portal.
+This section provides detailed instructions for how to configure reverse DNS for PublicIpAddress resources in the Resource Manager deployment model, using either Azure PowerShell, Azure classic CLI, or Azure CLI. Configuring reverse DNS for PublicIpAddress resources is not currently supported via the Azure portal.
 
 Azure currently supports reverse DNS only for IPv4 PublicIpAddress resources. It is not supported for IPv6.
 
@@ -73,7 +73,7 @@ $pip.DnsSettings.ReverseFqdn = "contosoapp1.westus.cloudapp.azure.com."
 Set-AzureRmPublicIpAddress -PublicIpAddress $pip
 ```
 
-#### Azure CLI 1.0
+#### Azure classic CLI
 
 To add reverse DNS to an existing PublicIpAddress:
 
@@ -87,7 +87,7 @@ To add reverse DNS to an existing PublicIpAddress that doesn't already have a DN
 azure network public-ip set -n PublicIp -g MyResourceGroup -d contosoapp1 -f contosoapp1.westus.cloudapp.azure.com.
 ```
 
-#### Azure CLI 2.0
+#### Azure CLI
 
 To add reverse DNS to an existing PublicIpAddress:
 
@@ -111,13 +111,13 @@ To create a new PublicIpAddress with the reverse DNS property already specified:
 New-AzureRmPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup" -Location "WestUS" -AllocationMethod Dynamic -DomainNameLabel "contosoapp2" -ReverseFqdn "contosoapp2.westus.cloudapp.azure.com."
 ```
 
-#### Azure CLI 1.0
+#### Azure classic CLI
 
 ```azurecli
 azure network public-ip create -n PublicIp -g MyResourceGroup -l westus -d contosoapp3 -f contosoapp3.westus.cloudapp.azure.com.
 ```
 
-#### Azure CLI 2.0
+#### Azure CLI
 
 ```azurecli
 az network public-ip create --name PublicIp --resource-group MyResourceGroup --location westcentralus --dns-name contosoapp1 --reverse-fqdn contosoapp1.westcentralus.cloudapp.azure.com
@@ -133,13 +133,13 @@ To view the configured value for an existing PublicIpAddress:
 Get-AzureRmPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup"
 ```
 
-#### Azure CLI 1.0
+#### Azure classic CLI
 
 ```azurecli
 azure network public-ip show -n PublicIp -g MyResourceGroup
 ```
 
-#### Azure CLI 2.0
+#### Azure CLI
 
 ```azurecli
 az network public-ip show --name PublicIp --resource-group MyResourceGroup
@@ -157,13 +157,13 @@ $pip.DnsSettings.ReverseFqdn = ""
 Set-AzureRmPublicIpAddress -PublicIpAddress $pip
 ```
 
-#### Azure CLI 1.0
+#### Azure classic CLI
 
 ```azurecli
 azure network public-ip set -n PublicIp -g MyResourceGroup –f ""
 ```
 
-#### Azure CLI 2.0
+#### Azure CLI
 
 ```azurecli
 az network public-ip update --resource-group MyResourceGroup --name PublicIp --reverse-fqdn ""
@@ -172,7 +172,7 @@ az network public-ip update --resource-group MyResourceGroup --name PublicIp --r
 
 ## Configure reverse DNS for Cloud Services
 
-This section provides detailed instructions for how to configure reverse DNS for Cloud Services in the Classic deployment model, using Azure PowerShell. Configuring reverse DNS for Cloud Services is not supported via the Azure portal, Azure CLI 1.0, or Azure CLI 2.0.
+This section provides detailed instructions for how to configure reverse DNS for Cloud Services in the Classic deployment model, using Azure PowerShell. Configuring reverse DNS for Cloud Services is not supported via the Azure portal, Azure classic CLI, or Azure CLI.
 
 ### Add reverse DNS to existing Cloud Services
 
@@ -242,7 +242,7 @@ No. Azure currently supports reverse DNS only for IPv4 PublicIpAddress resources
 
 ### Can I send emails to external domains from my Azure Compute services?
 
-No. [Azure Compute services do not support sending emails to external domains](https://blogs.msdn.microsoft.com/mast/2016/04/04/sending-e-mail-from-azure-compute-resource-to-external-domains/)
+The technical ability to send email directly from an Azure deployment depends on the subscription type. Regardless of subscription type, Microsoft recommends using trusted mail relay services to send outgoing mail. For further details, see [Enhanced Azure Security for sending Emails – November 2017 Update](https://blogs.msdn.microsoft.com/mast/2017/11/15/enhanced-azure-security-for-sending-emails-november-2017-update/).
 
 ## Next steps
 

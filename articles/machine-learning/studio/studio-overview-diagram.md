@@ -5,17 +5,18 @@ keywords: machine learning studio,overview diagram,download
 services: machine-learning
 documentationcenter: ''
 author: hning86
-manager: jhubbard
+ms.author: haining
+manager: mwinkle
 editor: cgronlun
 
 ms.assetid: 5b302c6c-41fd-4551-a4ae-0f5b450e1e6b
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 ms.date: 04/04/2017
-ms.author: haining;garye
 
 ---
 # Overview diagram of Azure Machine Learning Studio capabilities

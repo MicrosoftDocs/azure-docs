@@ -1,10 +1,10 @@
 ---
 title: Azure CLI Examples - Batch | Microsoft Docs
 description: Azure CLI Examples for Batch service
-services: virtual-machines-linux
+services: batch
 documentationcenter: batch
 author: dlepow
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: 
 

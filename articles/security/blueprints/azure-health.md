@@ -4,18 +4,13 @@ title: Azure Health Analytics Blueprint
 description: Guidance for deploying a HIPAA/HITRUST Health Analytics Blueprint 
 services: security
 documentationcenter: na
-author: simorjay
-manager: mbaldwin
-editor: tomsh
+author: RajeevRangappa
 
 ms.assetid: 26566e0a-0a54-49f4-a91d-48e20b7cef71
 ms.service: security
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/27/2018
-ms.author: simorjay
+ms.date: 07/23/2018
+ms.author: rarangap
 
 ---
 
@@ -44,10 +39,10 @@ cloud-based approach to reducing the burden and cost of deployment.
 The solution is designed to consume a sample data set formatted using
 Fast Healthcare Interoperability Resources (FHIR), a worldwide standard
 for exchanging healthcare information electronically, and store it in a
-secure manner. Customers can then use Azure Machine Learning to take
+secure manner. Customers can then use Azure Machine Learning Studio to take
 advantage of powerful business intelligence tools and analytics to
 review predictions made on the sample data. As an example of the kind of
-experiment Azure Machine Learning can facilitate, the blueprint includes
+experiment Azure Machine Learning Studio can facilitate, the blueprint includes
 a sample dataset, scripts, and tools for predicting the length of a 
 patient's stay in a hospital facility. 
 
@@ -112,7 +107,7 @@ The foundational architecture is composed of the following components:
     showing the components of the solution, the data flows between them,
     and the trust boundaries. The model can help customers understand
     the points of potential risk in the system infrastructure when
-    developing machine learning components or other modifications.
+    developing Machine Learning Studio components or other modifications.
 
 -   **[Customer implementation matrix](https://aka.ms/healthcrmblueprint)** A Microsoft Excel workbook lists
     the relevant HITRUST requirements and explains how Microsoft and the
@@ -137,9 +132,9 @@ sixth role is defined for an auditor to evaluate compliance with HIPAA
 and other regulations. Azure Role-based Access Control (RBAC) enables
 precisely focused access management for each user of the solution
 through built-in and custom roles. See [Get started with Role-Based
-Access Control in the Azure portal](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is)
+Access Control in the Azure portal](https://docs.microsoft.com/azure/role-based-access-control/overview)
 and [Built-in roles for Azure role-based access
-control](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles)
+control](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)
 for detailed information about RBAC, roles, and permissions.
 
 ### Site Administrator
@@ -150,7 +145,7 @@ subscription. They control the overall deployment, but have no access to
 patient records.
 
 -   Default role assignments:
-    [Owner](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#owner)
+    [Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)
 
 -   Custom role assignments: N/A
 
@@ -162,9 +157,9 @@ The database analyst administers the SQL Server instance and database.
 They have no access to patient records.
 
 -   Built-in role assignments: [SQL DB
-    Contributor](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#sql-db-contributor),
+    Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-db-contributor),
     [SQL Server
-    Contributor](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#sql-server-contributor)
+    Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-server-contributor)
 
 -   Custom role assignments: N/A
 
@@ -173,12 +168,12 @@ They have no access to patient records.
  ### Data Scientist
 
 
-The data scientist operates the Azure Machine Learning service. They can
+The data scientist operates the Azure Machine Learning Studio. They can
 import, export, and manage data, and run reports. The data scientist has
 access to patient data, but does not have administrative privileges.
 
 -   Built-in role assignments: [Storage Account
-    Contributor](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#storage-account-contributor)
+    Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor)
 
 -   Custom role assignments: N/A
 
@@ -217,7 +212,7 @@ The auditor evaluates the solution for compliance. They have no direct
 access to the network.
 
 -   Built-in role assignments:
-    [Reader](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#reader)
+    [Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader)
 
 -   Custom role assignments: N/A
 
@@ -230,7 +225,7 @@ The example use case included with this blueprint illustrates how the
  Blueprint can be used to enable machine learning and
 analytics on health data in the cloud. Contosoclinic is a small
 hospital located in the United States. The hospital network
-administrators want to use Azure Machine Learning to better predict the
+administrators want to use Azure Machine Learning Studio to better predict the
 length of a patient's stay at the time of admittance, in order to
 increase operational workload efficiency, and enhance the quality of care
 it can provide.
@@ -238,7 +233,7 @@ it can provide.
 ### Predicting length of stay
 
 
-The example use case scenario uses Azure Machine Learning to predict a newly
+The example use case scenario uses Azure Machine Learning Studio to predict a newly
 admitted patient's length of stay by comparing the medical details taken
 at patient intake to aggregated historical data from previous patients.
 The blueprint includes a large set of anonymized medical records to
@@ -255,7 +250,7 @@ of their environment, facilities, and patients.
 *Email: Alex\_SiteAdmin*
 
 Alex's job is to evaluate technologies that can reduce the burden of
-managing an on-premise network and reduce costs for management. Alex has
+managing an on-premises network and reduce costs for management. Alex has
 been evaluating Azure for some time but has struggled to configure the
 services that he needs to meet the HiTrust compliance requirements to
 store Patient Data in the cloud. Alex has selected the Azure
@@ -319,7 +314,7 @@ built into the Blueprint outlined to:
 - **INGEST** data raw sources including FHIR data source
 - **STORE**  sensitive information
 - **ANALYZE** and predict outcomes
-- **INTERACT** with the results and perditions
+- **INTERACT** with the results and predictions
 - **IDENTITY** management of solution
 - **SECURITY** enabled features
 
@@ -351,7 +346,7 @@ built into the Blueprint outlined to:
     suspicious incidents and takes appropriate action to resolve them.
 
 -   [Azure Role-based Access Control
-    (RBAC)](/azure/active-directory/role-based-access-control-configure)
+    (RBAC)](/azure/role-based-access-control/role-assignments-portal)
     enables precisely focused access management for Azure. Subscription
     access is limited to the subscription administrator, and Azure Key
     Vault access is limited to the site administrator. Strong passwords
@@ -367,7 +362,7 @@ built into the Blueprint outlined to:
 **Roles:**
 
 -   The solution makes use of [built-in
-    roles](/azure/active-directory/role-based-access-built-in-roles)
+    roles](/azure/role-based-access-control/built-in-roles)
     to manage access to resources.
 
 -   All users are assigned specific built-in roles by default.
@@ -528,8 +523,8 @@ routing of all events from any source to any destination, providing:
 
 -   [Logging is
     enabled](/azure/machine-learning/studio/web-services-logging)
-    for Machine Learning web services.
-- using [Machine Learning](/azure/machine-learning/preview/experimentation-service-configuration) workbench requires the development of experiments, that provides the ability to predict to a solution set. [Integrating the workbench](/azure/machine-learning/preview/using-git-ml-project) can help streamline management of experiments.
+    for Machine Learning Studio web services.
+- using [Machine Learning Studio](/azure/machine-learning/desktop-workbench/experimentation-service-configuration) workbench requires the development of experiments, that provides the ability to predict to a solution set. [Integrating the workbench](/azure/machine-learning/desktop-workbench/using-git-ml-project) can help streamline management of experiments.
 
 ## SECURITY
 

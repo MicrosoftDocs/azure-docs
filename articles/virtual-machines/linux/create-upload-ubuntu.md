@@ -4,7 +4,7 @@ description: Learn to create and upload an Azure virtual hard disk (VHD) that co
 services: virtual-machines-linux
 documentationcenter: ''
 author: szarkos
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager,azure-service-management
 
@@ -127,12 +127,12 @@ This article assumes that you have already installed an Ubuntu Linux operating s
 
 9. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
 
+## References
+[Ubuntu hardware enablement (HWE) kernel](https://wiki.ubuntu.com/Kernel/LTSEnablementStack)
+
 ## Next steps
 You're now ready to use your Ubuntu Linux virtual hard disk to create new virtual machines in Azure. If this is the first time that you're uploading the .vhd file to Azure, see [Create a Linux VM from a custom disk](upload-vhd.md#option-1-upload-a-vhd).
 
-## References
-Ubuntu hardware enablement (HWE) kernel:
 
-* [http://blog.utlemming.org/2015/01/ubuntu-1404-azure-images-now-tracking.html](http://blog.utlemming.org/2015/01/ubuntu-1404-azure-images-now-tracking.html)
-* [http://blog.utlemming.org/2015/02/1204-azure-cloud-images-now-using-hwe.html](http://blog.utlemming.org/2015/02/1204-azure-cloud-images-now-using-hwe.html)
+
 

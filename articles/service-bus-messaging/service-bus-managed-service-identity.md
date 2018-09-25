@@ -3,7 +3,7 @@ title: Managed Service Identity with Azure Service Bus preview | Microsoft Docs
 description: Use Managed Service Identities with Azure Service Bus
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2017
-ms.author: sethm
+ms.date: 08/01/2018
+ms.author: spelluru
 
 ---
 
@@ -60,7 +60,7 @@ The web application's managed service identity now has access to the Service Bus
 
 ### Run the app
 
-Now modify the default page of the ASP.NET application you created. You can also use the web application code from [this GitHub repository](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/ManagedServiceIdentity).
+Now, modify the default page of the ASP.NET application you created. You can use the web application code from [this GitHub repository](https://github.com/Azure-Samples/app-service-msi-servicebus-dotnet).  
 
 The Default.aspx page is your landing page. The code can be found in the Default.aspx.cs file. The result is a minimal web application with a few entry fields, and with **send** and **receive** buttons that connect to Service Bus to either send or receive messages.
 
@@ -71,8 +71,12 @@ Once you have made these changes, publish and run the application. An easy way t
 ![](./media/service-bus-managed-service-identity/msi3.png)
  
 To send or receive messages, enter the name of the namespace and the name of the entity you created, then click either **send** or **receive**.
- 
-Note that the managed service identity only works inside the Azure environment, and only in the App Service deployment in which you configured it. Also note that managed service identities do not work with App Service deployment slots at this time.
+
+
+> [!NOTE]
+> - The managed service identity works only inside the Azure environment, on App services, Azure VMs, and scale sets. For .NET applications, the Microsoft.Azure.Services.AppAuthentication library, which is used by the Service Bus NuGet package, provides an abstraction over this protocol and supports a local development experience. This library also allows you to test your code locally on your development machine, using your user account from Visual Studio, Azure CLI 2.0 or Active Directory Integrated Authentication. For more on local development options with this library, see [Service-to-service authentication to Azure Key Vault using .NET](../key-vault/service-to-service-authentication.md).  
+> 
+> - Currently, managed service identities do not work with App Service deployment slots.
 
 ## Next steps
 

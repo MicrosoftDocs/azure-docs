@@ -2,13 +2,16 @@
 title: Azure SQL Database In-Memory technologies | Microsoft Docs
 description: Azure SQL Database In-Memory technologies greatly improve the performance of transactional and analytics workloads. 
 services: sql-database
-author: jodebrui
-manager: craigg
 ms.service: sql-database
-ms.custom: develop databases
-ms.topic: article
-ms.date: 11/16/2017
+ms.subservice: development
+ms.custom: 
+ms.devlang: 
+ms.topic: conceptual
+author: jodebrui
 ms.author: jodebrui
+ms.reviewer:
+manager: craigg
+ms.date: 07/16/2018
 ---
 # Optimize performance by using In-Memory technologies in SQL Database
 
@@ -17,7 +20,7 @@ By using In-Memory technologies in Azure SQL Database, you can achieve performan
 Here are two examples of how In-Memory OLTP helped to significantly improve performance:
 
 - By using In-Memory OLTP, [Quorum Business Solutions was able to double their workload while improving DTUs by 70%](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database).
-    - DTU means *database throughput unit*, and it includes a mesurement of resource consumption.
+    - DTU means *database transaction unit*, and it includes a measurement of resource consumption.
 - The following video demonstrates significant improvement in resource consumption with a sample workload: [In-Memory OLTP in Azure SQL Database Video](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB).
     - For more information, see the blog post: [In-Memory OLTP in Azure SQL Database Blog Post](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
 
@@ -31,14 +34,14 @@ The following video explains potential performance gains with In-Memory technolo
 
 Azure SQL Database has the following In-Memory technologies:
 
-- *In-Memory OLTP* increases throughput and reduces latency for transaction processing. Scenarios that benefit from In-Memory OLTP are: high-throughput transaction processing such as trading and gaming, data ingestion from events or IoT devices, caching, data load, and temporary table and table variable scenarios.
+- *In-Memory OLTP* increases transaction and reduces latency for transaction processing. Scenarios that benefit from In-Memory OLTP are: high-throughput transaction processing such as trading and gaming, data ingestion from events or IoT devices, caching, data load, and temporary table and table variable scenarios.
 - *Clustered columnstore indexes* reduce your storage footprint (up to 10 times) and improve performance for reporting and analytics queries. You can use it with fact tables in your data marts to fit more data in your database and improve performance. Also, you can use it with historical data in your operational database to archive and be able to query up to 10 times more data.
 - *Nonclustered columnstore indexes* for HTAP help you to gain real-time insights into your business through querying the operational database directly, without the need to run an expensive extract, transform, and load (ETL) process and wait for the data warehouse to be populated. Nonclustered columnstore indexes allow very fast execution of analytics queries on the OLTP database, while reducing the impact on the operational workload.
 - You can also have the combination of a memory-optimized table with a columnstore index. This combination enables you to perform very fast transaction processing, and to *concurrently* run analytics queries very quickly on the same data.
 
 Both columnstore indexes and In-Memory OLTP have been part of the SQL Server product since 2012 and 2014, respectively. Azure SQL Database and SQL Server share the same implementation of In-Memory technologies. Going forward, new capabilities for these technologies are released in Azure SQL Database first, before they are released in SQL Server.
 
-This topic describes aspects of In-Memory OLTP and columnstore indexes that are specific to Azure SQL Database and also includes samples:
+This article describes aspects of In-Memory OLTP and columnstore indexes that are specific to Azure SQL Database and also includes samples:
 - You'll see the impact of these technologies on storage and data size limits.
 - You'll see how to manage the movement of databases that use these technologies between the different pricing tiers.
 - You'll see two samples that illustrate the use of In-Memory OLTP, as well as columnstore indexes in Azure SQL Database.
@@ -66,7 +69,7 @@ In-depth videos about the technologies:
 
 In-Memory OLTP includes memory-optimized tables, which are used for storing user data. These tables are required to fit in memory. Because you manage memory directly in the SQL Database service, we have the  concept of a quota for user data. This idea is referred to as *In-Memory OLTP storage*.
 
-Each supported standalone database pricing tier and each elastic pool pricing tier includes a certain amount of In-Memory OLTP storage. At the time of writing, you get a gigabyte of storage for every 125 database transaction units (DTUs) or elastic database transaction units (eDTUs). For more information, see [Resource limits](sql-database-resource-limits.md).
+Each supported single database pricing tier and each elastic pool pricing tier includes a certain amount of In-Memory OLTP storage. See [DTU-based resource limits - single database](sql-database-dtu-resource-limits-single-databases.md), [DTU-based resource limits - elastic pools](sql-database-dtu-resource-limits-elastic-pools.md),[vCore-based resource limits - single databases](sql-database-vcore-resource-limits-single-databases.md) and [vCore-based resource limits - elastic pools](sql-database-vcore-resource-limits-elastic-pools.md).
 
 The following items count toward your In-Memory OLTP storage cap:
 
@@ -82,12 +85,12 @@ For details about monitoring In-Memory OLTP storage utilization and configuring 
 
 With elastic pools, the In-Memory OLTP storage is shared across all databases in the pool. Therefore, the usage in one database can potentially affect other databases. Two mitigations for this are:
 
-- Configure a Max-eDTU for databases that is lower than the eDTU count for the pool as a whole. This maximum caps the In-Memory OLTP storage utilization, in any database in the pool, to the size that corresponds to the eDTU count.
-- Configure a Min-eDTU that is greater than 0. This minimum guarantees that each database in the pool has the amount of available In-Memory OLTP storage that corresponds to the configured Min-eDTU.
+- Configure a `Max-eDTU` or `MaxvCore` for databases that is lower than the eDTU or vCore count for the pool as a whole. This maximum caps the In-Memory OLTP storage utilization, in any database in the pool, to the size that corresponds to the eDTU count.
+- Configure a `Min-eDTU` or `MinvCore` that is greater than 0. This minimum guarantees that each database in the pool has the amount of available In-Memory OLTP storage that corresponds to the configured `Min-eDTU` or `vCore`.
 
 ### Data size and storage for columnstore indexes
 
-Columnstore indexes aren't required to fit in memory. Therefore, the only cap on the size of the indexes is the maximum overall database size, which is documented in the [SQL Database service tiers](sql-database-service-tiers.md) article.
+Columnstore indexes aren't required to fit in memory. Therefore, the only cap on the size of the indexes is the maximum overall database size, which is documented in the [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and [vCore-based purchasing model](sql-database-service-tiers-vcore.md) articles.
 
 When you use clustered columnstore indexes, columnar compression is used for the base table storage. This compression can significantly reduce the storage footprint of your user data, which means that you can fit more data in the database. And the compression can be further increased with [columnar archival compression](https://msdn.microsoft.com/library/cc280449.aspx#Using Columnstore and Columnstore Archive Compression). The amount of compression that you can achieve depends on the nature of the data, but 10 times the compression is not uncommon.
 
@@ -99,7 +102,7 @@ When you use nonclustered columnstore indexes, the base table is still stored in
 
 There are never any incompatibilities or other problems when you upgrade to a higher pricing tier, such as from Standard to Premium. The available functionality and resources only increase.
 
-But downgrading the pricing tier can negatively impact your database. The impact is especially apparent when you downgrade from Premium to Standard or Basic when your database contains In-Memory OLTP objects. Memory-optimized tables, and columnstore indexes, are unavailable after the downgrade (even if they remain visible). The same considerations apply when you're lowering the pricing tier of an elastic pool, or moving a database with In-Memory technologies, into a Standard or Basic elastic pool.
+But downgrading the pricing tier can negatively impact your database. The impact is especially apparent when you downgrade from Premium to Standard or Basic when your database contains In-Memory OLTP objects. Memory-optimized tables are unavailable after the downgrade (even if they remain visible). The same considerations apply when you're lowering the pricing tier of an elastic pool, or moving a database with In-Memory technologies, into a Standard or Basic elastic pool.
 
 ### In-Memory OLTP
 
@@ -125,11 +128,11 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 
 ### Columnstore indexes
 
-*Downgrading to Basic or Standard*: Columnstore indexes are supported only on the Premium pricing tier, and not on the Standard or Basic tiers. When you downgrade your database to Standard or Basic, your columnstore index becomes unavailable. The system maintains your columnstore index, but it never leverages the index. If you later upgrade back to Premium, your columnstore index is immediately ready to be leveraged again.
+*Downgrading to Basic or Standard*: Columnstore indexes are supported only on the Premium pricing tier and on the Standard tier, S3 and above, and not on the Basic tier. When you downgrade your database to an unsupported tier or level, your columnstore index becomes unavailable. The system maintains your columnstore index, but it never leverages the index. If you later upgrade back to a supported tier or level, your columnstore index is immediately ready to be leveraged again.
 
-If you have a **clustered** columnstore index, the whole table becomes unavailable after tier downgrade. Therefore we recommend that you drop all *clustered* columnstore indexes before you downgrade your database below the Premium tier.
+If you have a **clustered** columnstore index, the whole table becomes unavailable after the downgrade. Therefore we recommend that you drop all *clustered* columnstore indexes before you downgrade your database to an unsupported tier or level.
 
-*Downgrading to a lower Premium tier*: This downgrade succeeds if the whole database fits within the maximum database size for the target pricing tier, or within the available storage in the elastic pool. There is no specific impact from the columnstore indexes.
+*Downgrading to a lower supported tier or level*: This downgrade succeeds if the whole database fits within the maximum database size for the target pricing tier, or within the available storage in the elastic pool. There is no specific impact from the columnstore indexes.
 
 
 <a id="install_oltp_manuallink" name="install_oltp_manuallink"></a>
@@ -147,7 +150,7 @@ For a more simplistic, but more visually appealing performance demo for In-Memor
 
 #### Installation steps
 
-1. In the [Azure portal](https://portal.azure.com/), create a Premium database on a server. Set the **Source** to the AdventureWorksLT sample database. For detailed instructions, see [Create your first Azure SQL database](sql-database-get-started-portal.md).
+1. In the [Azure portal](https://portal.azure.com/), create a Premium or Business Critical database on a server. Set the **Source** to the AdventureWorksLT sample database. For detailed instructions, see [Create your first Azure SQL database](sql-database-get-started-portal.md).
 
 2. Connect to the database with SQL Server Management Studio [(SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx).
 

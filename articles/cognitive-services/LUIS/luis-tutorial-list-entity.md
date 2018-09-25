@@ -1,16 +1,15 @@
 ---
-title: Label entities automatically with a list entity using Nodejs | Microsoft Docs 
+title: Label entities automatically with a list entity using Nodejs | Microsoft Docs
 description: Learn how to add a list entity to help LUIS label variations of a word or phrase.
 services: cognitive-services
-author: v-geberr
+author: diberry
 titleSuffix: Azure
-manager: kamran.iqbal
-
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 02/21/2018
-ms.author: v-geberr
+ms.author: diberry
 ---
 
 # Use a list entity to increase entity detection 
@@ -28,7 +27,7 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Latest [Node.js](https://nodejs.org)
 > * [HomeAutomation LUIS app](luis-get-started-create-app.md). If you do not have the Home Automation app created, create a new app, and add the Prebuilt Domain **HomeAutomation**. Train and publish the app. 
-> * [AuthoringKey](manage-keys.md##programmatic-key), [EndpointKey](manage-keys.md#endpoint-key) (if querying many times), app ID, version ID, and [region](luis-reference-regions.md) for the LUIS app.
+> * [AuthoringKey](luis-concept-keys.md#authoring-key), [EndpointKey](luis-concept-keys.md#endpoint-key) (if querying many times), app ID, version ID, and [region](luis-reference-regions.md) for the LUIS app.
 
 > [!Tip]
 > If you do not already have a subscription, you can register for a [free account](https://azure.microsoft.com/free/).

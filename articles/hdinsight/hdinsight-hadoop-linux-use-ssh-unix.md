@@ -1,22 +1,15 @@
 ---
-title: Use SSH with Hadoop - Azure HDInsight | Microsoft Docs
+title: Use SSH with Hadoop - Azure HDInsight 
 description: "You can access HDInsight using Secure Shell (SSH). This document provides information on connecting to HDInsight using the ssh and scp commands from Windows, Linux, Unix, or macOS clients."
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+ms.reviewer: jasonh
 keywords: hadoop commands in linux,hadoop linux commands,hadoop macos,ssh hadoop,ssh hadoop cluster
 
-ms.assetid: a6a16405-a4a7-4151-9bbf-ab26972216c5
 ms.service: hdinsight
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 02/07/2018
-ms.author: larryfr
+ms.topic: conceptual
+ms.date: 04/26/2018
+ms.author: jasonh
 
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
 
@@ -29,7 +22,7 @@ HDInsight can use Linux (Ubuntu) as the operating system for nodes within the Ha
 
 | Address | Port | Connects to... |
 | ----- | ----- | ----- |
-| `<clustername>-ed-ssh.azurehdinsight.net` | 22 | Edge node (R Server on HDInsight) |
+| `<clustername>-ed-ssh.azurehdinsight.net` | 22 | Edge node (ML Services on HDInsight) |
 | `<edgenodename>.<clustername>-ssh.azurehdinsight.net` | 22 | Edge node (any other cluster type, if an edge node exists) |
 | `<clustername>-ssh.azurehdinsight.net` | 22 | Primary headnode |
 | `<clustername>-ssh.azurehdinsight.net` | 23 | Secondary headnode |
@@ -106,7 +99,7 @@ You are prompted for information during the key creation process. For example, w
 | ------- | ------- |
 | **Azure portal** | Uncheck __Use same password as cluster login__, and then select __Public Key__ as the SSH authentication type. Finally, select the public key file or paste the text contents of the file in the __SSH public key__ field.</br>![SSH public key dialog in HDInsight cluster creation](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-public-key.png) |
 | **Azure PowerShell** | Use the `-SshPublicKey` parameter of the `New-AzureRmHdinsightCluster` cmdlet and pass the contents of the public key as a string.|
-| **Azure CLI 1.0** | Use the `--sshPublicKey` parameter of the `azure hdinsight cluster create` command and pass the contents of the public key as a string. |
+| **Azure Classic CLI** | Use the `--sshPublicKey` parameter of the `azure hdinsight cluster create` command and pass the contents of the public key as a string. |
 | **Resource Manager Template** | For an example of using SSH keys with a template, see [Deploy HDInsight on Linux with SSH key](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-publickey/). The `publicKeys` element in the [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-publickey/azuredeploy.json) file is used to pass the keys to Azure when creating the cluster. |
 
 ## <a id="sshpassword"></a>Authentication: Password
@@ -116,13 +109,16 @@ SSH accounts can be secured using a password. When you connect to HDInsight usin
 > [!WARNING]
 > Microsoft does not recommend using password authentication for SSH. Passwords can be guessed and are vulnerable to brute force attacks. Instead, we recommend that you use [SSH keys for authentication](#sshkey).
 
+> [!IMPORTANT]
+> The SSH account password expires 70 days after the HDInsight cluster is created. If your password expires, you can change it using the information in the [Manage HDInsight](hdinsight-administer-use-portal-linux.md#change-passwords) document.
+
 ### Create HDInsight using a password
 
 | Creation method | How to specify the password |
 | --------------- | ---------------- |
 | **Azure portal** | By default, the SSH user account has the same password as the cluster login account. To use a different password, uncheck __Use same password as cluster login__, and then enter the password in the __SSH password__ field.</br>![SSH password dialog in HDInsight cluster creation](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-password.png)|
 | **Azure PowerShell** | Use the `--SshCredential` parameter of the `New-AzureRmHdinsightCluster` cmdlet and pass a `PSCredential` object that contains the SSH user account name and password. |
-| **Azure CLI 1.0** | Use the `--sshPassword` parameter of the `azure hdinsight cluster create` command and provide the password value. |
+| **Azure Classic CLI** | Use the `--sshPassword` parameter of the `azure hdinsight cluster create` command and provide the password value. |
 | **Resource Manager Template** | For an example of using a password with a template, see [Deploy HDInsight on Linux with SSH password](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/). The `linuxOperatingSystemProfile` element in the [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-password/azuredeploy.json) file is used to pass the SSH account name and password to Azure when creating the cluster.|
 
 ### Change the SSH password
@@ -131,7 +127,19 @@ For information on changing the SSH user account password, see the __Change pass
 
 ## <a id="domainjoined"></a>Authentication: Domain-joined HDInsight
 
-If you are using a __domain-joined HDInsight cluster__, you must use the `kinit` command after connecting with SSH. This command prompts you for a domain user and password, and authenticates your session with the Azure Active Directory domain associated with the cluster.
+If you are using a __domain-joined HDInsight cluster__, you must use the `kinit` command after connecting with SSH local user. This command prompts you for a domain user and password, and authenticates your session with the Azure Active Directory domain associated with the cluster.
+
+You can also enable Kerberos Authentication on each domain joined node (e.g. head node, edge node) in order to ssh using the domain account. To do this edit sshd config file:
+```bash
+sudo vi /etc/ssh/sshd_config
+```
+uncomment and change `KerberosAuthentication` to `yes`
+
+```bash
+sudo service sshd restart
+```
+
+At any time, in order to verify whether the Kerberos authentication was successful or not, use `klist` command.
 
 For more information, see [Configure domain-joined HDInsight](./domain-joined/apache-domain-joined-configure.md).
 

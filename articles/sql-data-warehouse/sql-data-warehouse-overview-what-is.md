@@ -2,22 +2,16 @@
 title: What is Azure SQL Data Warehouse? | Microsoft Docs
 description: Enterprise-class distributed database capable of processing petabyte volumes of relational and non-relational data. It is the industry's first cloud data warehouse with grow, shrink, and pause in seconds.
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jenniehubbard
-editor: ''
-
-ms.assetid: 4006c201-ec71-4982-b8ba-24bba879d7bb
+author: igorstanko
+manager: craigg
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: hero-article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: overview
-ms.date: 10/23/2017
-ms.author: jrj
-
+ms.topic: overview
+ms.component: design
+ms.date: 04/17/2018
+ms.author: igorstan
+ms.reviewer: igorstan
 ---
+
 # What is Azure SQL Data Warehouse?
 
 SQL Data Warehouse is a cloud-based Enterprise Data Warehouse (EDW) that leverages Massively Parallel Processing (MPP) to quickly run complex queries across petabytes of data. Use SQL Data Warehouse as a key component of a big data solution. Import big data into SQL Data Warehouse with simple PolyBase T-SQL queries, and then use the power of MPP to run high-performance analytics. As you integrate and analyze, the data warehouse will become the single version of truth your business can count on for insights.  
@@ -34,13 +28,6 @@ SQL Data Warehouse stores data into relational tables with columnar storage. Thi
 
 The analysis results can go to worldwide reporting databases or applications. Business analysts can then gain insights to make well-informed business decisions.
 
-## Optimization choices
-
-SQL Data Warehouse offers [performance tiers](performance-tiers.md) designed for flexibility to meet your data needs, whether big or small. You can choose a data warehouse that is optimized for elasticity or for compute. 
-
-- The **Optimized for Elasticity performance tier** separates the compute and storage layers in the architecture. This option excels on workloads that can take full advantage of the separation between compute and storage by scaling frequently to support short periods of peak activity. This compute tier has the lowest entry price point and scales to support the majority of customer workloads.
-
-- The **Optimized for Compute performance tier** uses the latest Azure hardware to introduce a new NVMe Solid State Disk cache that keeps the most frequently accessed data close to the CPUs, which is exactly where you want it. By automatically tiering the storage, this performance tier excels with complex queries since all IO is kept local to the compute layer. Furthermore, the columnstore is enhanced to store an unlimited amount of data in your SQL Data Warehouse. The Optimized for Compute performance tier provides the greatest level of scalability, enabling you to scale up to 30,000 compute Data Warehouse Units (cDWU). Choose this tier for workloads that requires continuous, blazing fast, performance.
 
 ## Next steps
 Now that you know a bit about SQL Data Warehouse, learn how to quickly [create a SQL Data Warehouse][create a SQL Data Warehouse] and [load sample data][load sample data]. If you are new to Azure, you may find the [Azure glossary][Azure glossary] helpful as you encounter new terminology. Or look at some of these other SQL Data Warehouse Resources.  
@@ -79,6 +66,6 @@ Now that you know a bit about SQL Data Warehouse, learn how to quickly [create a
 [Stack Overflow forum]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Videos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
-[SLA for SQL Data Warehouse]: https://azure.microsoft.com/en-us/support/legal/sla/sql-data-warehouse/v1_0/
+[SLA for SQL Data Warehouse]: https://azure.microsoft.com/support/legal/sla/sql-data-warehouse/v1_0/
 [Volume Licensing]: http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
-[Service Level Agreements]: https://azure.microsoft.com/en-us/support/legal/sla/
+[Service Level Agreements]: https://azure.microsoft.com/support/legal/sla/

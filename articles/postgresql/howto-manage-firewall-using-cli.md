@@ -9,14 +9,14 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 05/4/2018
 ---
 # Create and manage Azure Database for PostgreSQL firewall rules using Azure CLI
 Server-level firewall rules enable administrators to manage access to an Azure Database for PostgreSQL Server from a specific IP address or range of IP addresses. Using convenient Azure CLI commands, you can create, update, delete, list, and show firewall rules to manage your server. For an overview of Azure Database for PostgreSQL firewall rules, see [Azure Database for PostgreSQL Server firewall rules](concepts-firewall-rules.md)
 
 ## Prerequisites
 To step through this how-to guide, you need:
-- Install [Azure CLI 2.0](/cli/azure/install-azure-cli) command-line utility or use the Azure Cloud Shell in the browser.
+- Install [Azure CLI](/cli/azure/install-azure-cli) command-line utility or use the Azure Cloud Shell in the browser.
 - An [Azure Database for PostgreSQL server and database](quickstart-create-server-database-azure-cli.md).
 
 ## Configure firewall rules for Azure Database for PostgreSQL
@@ -44,7 +44,7 @@ az postgres server firewall-rule create --resource-group myresourcegroup --serve
 ```
 To allow applications from Azure IP addresses to connect to your Azure Database for PostgreSQL server, provide the IP address 0.0.0.0 as the Start IP and End IP, as in this example.
 ```azurecli-interactive
-az postgres server firewall-rule create --resource-group myresourcegroup --server-name mydemoserver--name AllowAllAzureIps --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
+az postgres server firewall-rule create --resource-group myresourcegroup --server-name mydemoserver --name AllowAllAzureIps --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
 
 > [!IMPORTANT]

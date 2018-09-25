@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/22/2017
+ms.date: 09/10/2018
 ms.author: mabrigg
 
 ---
@@ -59,7 +59,7 @@ Set-ExecutionPolicy RemoteSigned
 # Import the Connect module
 Import-Module .\Connect\AzureStack.Connect.psm1 
 
-# Add the development kit computer’s host IP address & certificate authority (CA) to the list of trusted hosts. Make sure to update the the IP address and password values for your environment. 
+# Add the development kit computer’s host IP address & certificate authority (CA) to the list of trusted hosts. Make sure to update the IP address and password values for your environment. 
 
 $hostIP = "<Azure Stack host IP address>"
 

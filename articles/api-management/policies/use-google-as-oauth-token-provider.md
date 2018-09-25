@@ -3,7 +3,7 @@ title: Azure API managment policy sample - Authorize access using Google OAuth t
 description: Azure API managment policy sample - Demonstrates how to authorize access to your endpoints using Google as an OAuth token provider.
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 
@@ -24,7 +24,7 @@ This article shows an Azure API management policy sample that demonstrates how t
 
 Paste the code into the **inbound** block.
 
-[!code-xml[Main](../../../api-management-policy-samples/Snippets/Simple Google OAuth validate-jwt.policy.xml)]
+[!code-xml[Main](../../../api-management-policy-samples/examples/Simple Google OAuth validate-jwt.policy.xml)]
 
 ## Next steps
 

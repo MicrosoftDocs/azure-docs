@@ -13,46 +13,33 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 03/13/2017
+ms.date: 07/25/2018
 ms.author: juliako
 
 ---
 # Azure Government Media Services 
  
-For details on this service and how to use it, see the [Azure Media Services documentation](../media-services/index.md).
+For details about Media Services v2 and how to use it, see the [Azure Media Services documentation](../media-services/previous/index.md).
 
-Azure Media Services (AMS) is currently generally available in Azure Government.
+Azure Media Services (AMS) v2 is currently generally available in Azure Government.
 
 ## Connecting  
 
-For information on how to connect to AMS, see [connecting with .NET](../media-services/media-services-dotnet-connect-programmatically.md) or [connecting with REST](../media-services/media-services-rest-connect-programmatically.md) topic.
+For information on how to connect to AMS v2, see [connecting to AMS](../media-services/previous/media-services-use-aad-auth-to-access-ams-api.md)
 
-When connecting to Media Services in Azure Government, use the following values:
+## Variations
 
-### ACS scope
+The following features are not currently available in Azure Government:
 
-The context scope should be set to "urn:WindowsAzureMediaServices".
-
-### ACS
-
-The ACS base address should be set to "https://ams-usge-0-acs-global-1-1.accesscontrol.usgovcloudapi.net"
-
-### REST endpoints
-
-The API server address depends on what region you are deployed to:
-
-- US Gov Virginia: "https://ams-usge-1-hos-rest-1-1.usgovcloudapp.net/API/"
-- US Gov Iowa: "https://ams-usgc-1-hos-rest-1-1.usgovcloudapp.net/API/"
-
-## Analyzing
+### Analyzing
 
 The "Azure Media Indexer 2 Preview" Azure Media Analytics media processor is not available in Azure Government.
  
-## CDN integration
+### CDN integration
 
 There is no CDN integration with streaming endpoints in Azure Government DCs.
 
-## Next Steps
+## Next steps
 For supplemental information and updates, subscribe to the
 <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
 

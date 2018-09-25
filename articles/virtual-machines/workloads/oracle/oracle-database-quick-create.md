@@ -3,8 +3,8 @@ title: Create an Oracle database in an Azure VM | Microsoft Docs
 description: Quickly get an Oracle Database 12c database up and running in your Azure environment.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: rickstercdn
-manager: timlt
+author: romitgirdhar
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 
@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/17/2017
-ms.author: rclaus
+ms.date: 08/02/2018
+ms.author: rogirdh
 ---
 
 # Create an Oracle Database in an Azure VM
@@ -26,7 +26,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Create a resource group
 

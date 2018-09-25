@@ -1,10 +1,10 @@
 ---
-title: Azure Virtual Networks and Linux Virtual Machines | Microsoft Docs
-description: Tutorial - Manage Azure Virtual Networks and Linux Virtual Machines with the Azure CLI 
+title: Tutorial - Create and manage Azure virtual networks for Linux VMs | Microsoft Docs
+description: In this tutorial, you learn how to use the Azure CLI to create and manage Azure virtual networks for Linux virtual machines
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
-manager: timlt
+author: cynthn
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 
@@ -15,11 +15,13 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/10/2017
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
+
+#Customer intent: As an IT administrator, I want to learn about Azure virtual networks so that I can securely deploy Linux virtual machines and restrict traffic between them.
 ---
 
-# Manage Azure Virtual Networks and Linux Virtual Machines with the Azure CLI
+# Tutorial: Create and manage Azure virtual networks for Linux virtual machines with the Azure CLI
 
 Azure virtual machines use Azure networking for internal and external network communication. This tutorial walks through deploying two virtual machines and configuring Azure networking for these VMs. The examples in this tutorial assume that the VMs are hosting a web application with a database back-end, however an application is not deployed in the tutorial. In this tutorial, you learn how to:
 
@@ -30,7 +32,15 @@ Azure virtual machines use Azure networking for internal and external network co
 > * Secure network traffic
 > * Create a back-end VM
 
-While completing this tutorial, you can see these resources created:
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
+
+## VM networking overview
+
+Azure virtual networks enable secure network connections between virtual machines, the internet, and other Azure services such as Azure SQL database. Virtual networks are broken down into logical segments called subnets. Subnets are used to control network flow, and as a security boundary. When deploying a VM, it generally includes a virtual network interface, which is attached to a subnet.
+
+As you complete the tutorial, the following virtual network resources are created:
 
 ![Virtual network with two subnets](./media/tutorial-virtual-network/networktutorial.png)
 
@@ -43,15 +53,6 @@ While completing this tutorial, you can see these resources created:
 - *myBackendSubnet* - The subnet associated with *myBackendNSG* and used by the back-end resources.
 - *myBackendNic* - The network interface used by *myBackendVM* to communicate with *myFrontendVM*.
 - *myBackendVM* - The VM that uses port 22 and 3306 to communicate with *myFrontendVM*.
-
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
-
-## VM networking overview
-
-Azure virtual networks enable secure network connections between virtual machines, the internet, and other Azure services such as Azure SQL database. Virtual networks are broken down into logical segments called subnets. Subnets are used to control network flow, and as a security boundary. When deploying a VM, it generally includes a virtual network interface, which is attached to a subnet.
 
 ## Create a virtual network and subnet
 

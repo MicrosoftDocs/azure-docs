@@ -9,7 +9,7 @@ manager: vipulm
 ms.assetid:
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 08/08/2017
@@ -21,7 +21,7 @@ ms.author: kavyako
 Starting with the 5.7 release of Service Fabric, reverse proxy events are available for collection. 
 The events are available in two channels, one with only error events related to request processing failure at the reverse proxy and second channel containing verbose events with entries for both successful and failed requests.
 
-Refer to [Collect reverse proxy events](service-fabric-diagnostics-event-aggregation-wad.md#collect-reverse-proxy-events) to enable collecting events from these channels in local and Azure Service Fabric clusters.
+Refer to [Collect reverse proxy events](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations) to enable collecting events from these channels in local and Azure Service Fabric clusters.
 
 ## Troubleshoot using diagnostics logs
 Here are some examples on how to interpret the common failure logs that one can encounter:

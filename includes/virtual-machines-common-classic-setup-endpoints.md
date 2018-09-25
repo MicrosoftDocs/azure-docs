@@ -1,3 +1,15 @@
+---
+ title: include file
+ description: include file
+ services: virtual-machines-windows
+ author: cynthn
+ ms.service: virtual-machines-windows
+ ms.topic: include
+ ms.date: 05/17/2018
+ ms.author: cynthn
+ ms.custom: include file
+
+---
 
 Each endpoint has a *public port* and a *private port*:
 
@@ -6,7 +18,7 @@ Each endpoint has a *public port* and a *private port*:
 
 Default values for the IP protocol and TCP or UDP ports for well-known network protocols are provided when you create endpoints with the Azure portal. For custom endpoints, you'll need to specify the correct IP protocol (TCP or UDP) and the public and private ports. To distribute incoming traffic randomly across multiple virtual machines, you'll need to create a load-balanced set consisting of multiple endpoints.
 
-After you create an endpoint, you can use an access control list (ACL) to define rules that permit or deny the incoming traffic to the public port of the endpoint based on its source IP address. However, if the virtual machine is in an Azure virtual network, you should use network security groups instead. For details, see [About network security groups](../articles/virtual-network/virtual-networks-nsg.md).
+After you create an endpoint, you can use an access control list (ACL) to define rules that permit or deny the incoming traffic to the public port of the endpoint based on its source IP address. However, if the virtual machine is in an Azure virtual network, you should use network security groups instead. For details, see [About network security groups](../articles/virtual-network/security-overview.md).
 
 > [!NOTE]
 > Firewall configuration for Azure virtual machines is done automatically for ports associated with remote connectivity endpoints that Azure sets up automatically. For ports specified for all other endpoints, no configuration is done automatically to the firewall of the virtual machine. When you create an endpoint for the virtual machine, you'll need to ensure that the firewall of the virtual machine also allows the traffic for the protocol and private port corresponding to the endpoint configuration. To configure the firewall, see the documentation or on-line help for the operating system running on the virtual machine.
@@ -39,7 +51,7 @@ To define the set of computers that can send traffic, the ACL on an endpoint can
 >
 >
 
-If the virtual machine is in an Azure virtual network, we recommend network security groups instead of ACLs. For details, see [About network security groups](../articles/virtual-network/virtual-networks-nsg.md).
+If the virtual machine is in an Azure virtual network, we recommend network security groups instead of ACLs. For details, see [About network security groups](../articles/virtual-network/security-overview.md).
 
 1. If you haven't already done so, sign in to the Azure portal.
 2. Click **Virtual Machines**, and then click the name of the virtual machine that you want to configure.

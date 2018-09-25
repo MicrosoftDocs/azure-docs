@@ -1,23 +1,17 @@
 ---
 title: Real-time data visualization of sensor data from your Azure IoT hub – Web Apps | Microsoft Docs
 description: Use the Web Apps feature of Microsoft Azure App Service to visualize temperature and humidity data that is collected from the sensor and sent to your Iot hub.
-services: iot-hub
-documentationcenter: ''
-author: shizn
-manager: timlt
-tags: ''
-keywords: 'real time data visualization, live data visualization, sensor data visualization'
-
-ms.assetid: e42b07a8-ddd4-476e-9bfb-903d6b033e91
+author: rangv
+manager: 
+keywords: real time data visualization, live data visualization, sensor data visualization
 ms.service: iot-hub
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/16/2017
-ms.author: xshi
-
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
+ms.date: 04/11/2018
+ms.author: rangv
 ---
+
 # Visualize real-time sensor data from your Azure IoT hub by using the Web Apps feature of Azure App Service
 
 ![End-to-end diagram](media/iot-hub-get-started-e2e-diagram/5.png)
@@ -62,7 +56,7 @@ In this tutorial, you learn how to visualize real-time sensor data that your IoT
 
    | Key                                   | Value                                                        |
    |---------------------------------------|--------------------------------------------------------------|
-   | Azure.IoT.IoTHub.ConnectionString     | Obtained from iothub-explorer                                |
+   | Azure.IoT.IoTHub.ConnectionString     | Obtained from Azure CLI                                      |
    | Azure.IoT.IoTHub.ConsumerGroup        | The name of the consumer group that you add to your IoT hub  |
 
    ![Add settings to your web app with key/value pairs](media/iot-hub-live-data-visualization-in-web-apps/4_web-app-settings-key-value-azure.png)

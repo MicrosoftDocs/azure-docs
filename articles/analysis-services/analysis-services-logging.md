@@ -1,21 +1,13 @@
----
+﻿---
 title: Diganostic logging for Azure Analysis Services | Microsoft Docs
 description: Learn about setting up diagnostic logging for Azure Analysis Services.
-services: analysis-services
-documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: ''
-tags: ''
-
-ms.assetid:
-ms.service: analysis-services
-ms.devlang: NA
-ms.topic:
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/14/2018
+ms.service: azure-analysis-services
+ms.topic: conceptual
+ms.date: 07/03/2018
 ms.author: owend
+ms.reviewer: minewiskan
 
 ---
 # Setup diagnostic logging
@@ -60,7 +52,6 @@ Selecting **Engine** logs all [xEvents](https://docs.microsoft.com/sql/analysis-
 
 |Operation name  |Occurs when  |
 |---------|---------|
-|CreateGateway     |   User configures a gateway on server      |
 |ResumeServer     |    Resume a server     |
 |SuspendServer    |   Pause a server      |
 |DeleteServer     |    Delete a server     |
@@ -207,7 +198,7 @@ To complete this tutorial, you must have the following resources:
 Start an Azure PowerShell session and sign in to your Azure account with the following command:  
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 In the pop-up browser window, enter your Azure account user name and password. Azure PowerShell gets all the subscriptions that are associated with this account and by default, uses the first one.

@@ -5,20 +5,17 @@ services: event-grid
 keywords: 
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 01/30/2018
-ms.topic: hero-article
+ms.date: 08/23/2018
+ms.topic: quickstart
 ms.service: event-grid
 ---
 # Create and route custom events with Azure PowerShell and Event Grid
 
-Azure Event Grid is an eventing service for the cloud. In this article, you use the Azure PowerShell to create a custom topic, subscribe to the topic, and trigger the event to view the result. Typically, you send events to an endpoint that responds to the event, such as, a webhook or Azure Function. However, to simplify this article, you send the events to a URL that merely collects the messages. You create this URL by using third-party tools from either [RequestBin](https://requestb.in/) or [Hookbin](https://hookbin.com/).
+Azure Event Grid is an eventing service for the cloud. In this article, you use the Azure PowerShell to create a custom topic, subscribe to the topic, and trigger the event to view the result. Typically, you send events to an endpoint that processes the event data and takes actions. However, to simplify this article, you send the events to a web app that collects and displays the messages.
 
->[!NOTE]
->**RequestBin** and **Hookbin** are not intended for high throughput usage. The use of these tools is purely demonstrative. If you push more than one event at a time, you might not see all of your events in the tool.
+When you're finished, you see that the event data has been sent to the web app.
 
-When you are finished, you see that the event data has been sent to an endpoint.
-
-![Event data](./media/custom-event-quickstart-powershell/request-result.png)
+![View results](./media/custom-event-quickstart-powershell/view-result.png)
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
@@ -32,42 +29,74 @@ Create a resource group with the [New-AzureRmResourceGroup](/powershell/module/a
 
 The following example creates a resource group named *gridResourceGroup* in the *westus2* location.
 
-```powershell
+```powershell-interactive
 New-AzureRmResourceGroup -Name gridResourceGroup -Location westus2
 ```
 
+[!INCLUDE [event-grid-register-provider-powershell.md](../../includes/event-grid-register-provider-powershell.md)]
+
 ## Create a custom topic
 
-A topic provides a user-defined endpoint that you post your events to. The following example creates the topic in your resource group. Replace `<topic_name>` with a unique name for your topic. The topic name must be unique because it is represented by a DNS entry.
+An event grid topic provides a user-defined endpoint that you post your events to. The following example creates the custom topic in your resource group. Replace `<your-topic-name>` with a unique name for your topic. The topic name must be unique because it's part of the DNS entry.
 
-```powershell
-New-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Location westus2 -Name <topic_name>
+```powershell-interactive
+$topicname="<your-topic-name>"
+
+New-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Location westus2 -Name $topicname
 ```
 
 ## Create a message endpoint
 
-Before subscribing to the topic, let's create the endpoint for the event message. Rather than write code to respond to the event, let's create an endpoint that collects the messages so you can view them. RequestBin and Hookbin are third-party tools that enable you to create an endpoint, and view requests that are sent to it. Go to [RequestBin](https://requestb.in/), and click **Create a RequestBin**, or go to [Hookbin](https://hookbin.com/) and click **Create New Endpoint**.  Copy the bin URL, because you need it when subscribing to the topic.
+Before subscribing to the topic, let's create the endpoint for the event message. Typically, the endpoint takes actions based on the event data. To simplify this quickstart, you deploy a [pre-built web app](https://github.com/Azure-Samples/azure-event-grid-viewer) that displays the event messages. The deployed solution includes an App Service plan, an App Service web app, and source code from GitHub.
+
+Replace `<your-site-name>` with a unique name for your web app. The web app name must be unique because it's part of the DNS entry.
+
+```powershell-interactive
+$sitename="<your-site-name>"
+
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName gridResourceGroup `
+  -TemplateUri "https://raw.githubusercontent.com/Azure-Samples/azure-event-grid-viewer/master/azuredeploy.json" `
+  -siteName $sitename `
+  -hostingPlanName viewerhost
+```
+
+The deployment may take a few minutes to complete. After the deployment has succeeded, view your web app to make sure it's running. In a web browser, navigate to: `https://<your-site-name>.azurewebsites.net`
+
+You should see the site with no messages currently displayed.
 
 ## Subscribe to a topic
 
-You subscribe to a topic to tell Event Grid which events you want to track. The following example subscribes to the topic you created, and passes the URL from RequestBin or Hookbin as the endpoint for event notification. Replace `<event_subscription_name>` with a unique name for your subscription, and `<endpoint_URL>` with the value from the preceding section. By specifying an endpoint when subscribing, Event Grid handles the routing of events to that endpoint. For `<topic_name>`, use the value you created earlier.
+You subscribe to a topic to tell Event Grid which events you want to track and where to send those events. The following example subscribes to the topic you created, and passes the URL from your web app as the endpoint for event notification.
 
-```powershell
-New-AzureRmEventGridSubscription -EventSubscriptionName <event_subscription_name> -Endpoint <endpoint_URL> -ResourceGroupName gridResourceGroup -TopicName <topic_name>
+The endpoint for your web app must include the suffix `/api/updates/`.
+
+```powershell-interactive
+$endpoint="https://$sitename.azurewebsites.net/api/updates"
+
+New-AzureRmEventGridSubscription `
+  -EventSubscriptionName demoViewerSub `
+  -Endpoint $endpoint `
+  -ResourceGroupName gridResourceGroup `
+  -TopicName $topicname
 ```
+
+View your web app again, and notice that a subscription validation event has been sent to it. Select the eye icon to expand the event data. Event Grid sends the validation event so the endpoint can verify that it wants to receive event data. The web app includes code to validate the subscription.
+
+![View subscription event](./media/custom-event-quickstart-powershell/view-subscription-event.png)
 
 ## Send an event to your topic
 
-Now, let's trigger an event to see how Event Grid distributes the message to your endpoint. First, let's get the URL and key for the topic. Again, use your topic name for `<topic_name>`.
+Let's trigger an event to see how Event Grid distributes the message to your endpoint. First, let's get the URL and key for the topic.
 
-```powershell
-$endpoint = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name <topic-name>).Endpoint
-$keys = Get-AzureRmEventGridTopicKey -ResourceGroupName gridResourceGroup -Name <topic-name>
+```powershell-interactive
+$endpoint = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name $topicname).Endpoint
+$keys = Get-AzureRmEventGridTopicKey -ResourceGroupName gridResourceGroup -Name $topicname
 ```
 
-To simplify this article, let's set up sample event data to send to the topic. Typically, an application or Azure service would send the event data. The following example uses Hashtable to construct the event's data `htbody` and then coverts it to well-formed JSON payload object `$body`:
+To simplify this article, let's set up sample event data to send to the custom topic. Typically, an application or Azure service would send the event data. The following example uses Hashtable to construct the event's data `htbody` and then coverts it to well-formed JSON payload object `$body`:
 
-```powershell
+```powershell-interactive
 $eventID = Get-Random 99999
 
 #Date format should be SortableDateTimePattern (ISO 8601)
@@ -95,11 +124,11 @@ If you view `$body`, you see the full event. The `data` element of the JSON is t
 
 Now, send the event to your topic.
 
-```powershell
+```powershell-interactive
 Invoke-WebRequest -Uri $endpoint -Method POST -Body $body -Headers @{"aeg-sas-key" = $keys.Key1}
 ```
 
-You have triggered the event, and Event Grid sent the message to the endpoint you configured when subscribing. Browse to the endpoint URL that you created earlier. Or, click refresh in your open browser. You see the event you just sent.
+You've triggered the event, and Event Grid sent the message to the endpoint you configured when subscribing. View your web app to see the event you just sent.
 
 ```json
 [{
@@ -119,7 +148,7 @@ You have triggered the event, and Event Grid sent the message to the endpoint yo
 
 ## Clean up resources
 
-If you plan to continue working with this event, do not clean up the resources created in this article. If you do not plan to continue, use the following command to delete the resources you created in this article.
+If you plan to continue working with this event or the event viewer app, don't clean up the resources created in this article. Otherwise, use the following command to delete the resources you created in this article.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name gridResourceGroup

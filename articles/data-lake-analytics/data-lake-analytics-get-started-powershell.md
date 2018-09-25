@@ -1,21 +1,15 @@
 ---
-title: Get started with Azure Data Lake Analytics using Azure PowerShell | Microsoft Docs
-description: 'Use Azure PowerShell to create a Data Lake Analytics account, create a Data Lake Analytics job using U-SQL, and submit the job. '
+title: Get started with Azure Data Lake Analytics using Azure PowerShell
+description: Use Azure PowerShell to create an Azure Data Lake Analytics account and submit a U-SQL job.
 services: data-lake-analytics
-documentationcenter: ''
-author: saveenr
-manager: saveenr
-editor: cgronlun
-
-ms.assetid: 8a4e901e-9656-4a60-90d0-d78ff2f00656
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 05/04/2017
+author: saveenr
 ms.author: saveenr
 
+ms.reviewer: jasonwhowell
+ms.assetid: 8a4e901e-9656-4a60-90d0-d78ff2f00656
+ms.topic: conceptual
+ms.date: 05/04/2017
 ---
 # Get started with Azure Data Lake Analytics using Azure PowerShell
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -36,13 +30,13 @@ This tutorial assumes you are already familiar with using Azure PowerShell. In p
 To log in with a subscription name:
 
 ```
-Login-AzureRmAccount -SubscriptionName "ContosoSubscription"
+Connect-AzureRmAccount -SubscriptionName "ContosoSubscription"
 ```
 
 Instead of the subscription name, you can also use a subscription id to log in:
 
 ```
-Login-AzureRmAccount -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+Connect-AzureRmAccount -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 ```
 
 If  successful, the output of this command looks like the following text:
@@ -93,34 +87,33 @@ OUTPUT @a
 "@
 ```
 
-Submit the script.
+Submit the script text with the `Submit-AdlJob` cmdlet and the `-Script` parameter.
 
 ```
-$job = Submit-AdlJob -Account $adla -Name "My Job" –Script $script
+$job = Submit-AdlJob -Account $adla -Name "My Job" �Script $script
 ```
 
-Alternatively, you could save the script as a file and submit with the following command:
+As an alternative, you can submit a script file using the `-ScriptPath` parameter:
 
 ```
 $filename = "d:\test.usql"
 $script | out-File $filename
-$job = Submit-AdlJob -Account $adla -Name "My Job" –ScriptPath $filename
+$job = Submit-AdlJob -Account $adla -Name "My Job" �ScriptPath $filename
 ```
 
-
-Get the status of a specific job. Keep using this cmdlet until you see the job is done.
+Get the status of a job with `Get-AdlJob`. 
 
 ```
 $job = Get-AdlJob -Account $adla -JobId $job.JobId
 ```
 
-Instead of calling Get-AdlAnalyticsJob over and over until a job finishes, you can use the Wait-AdlJob cmdlet.
+Instead of calling Get-AdlJob over and over until a job finishes, use the `Wait-AdlJob` cmdlet.
 
 ```
 Wait-AdlJob -Account $adla -JobId $job.JobId
 ```
 
-Download the output file.
+Download the output file using `Export-AdlStoreItem`.
 
 ```
 Export-AdlStoreItem -Account $adls -Path "/data.csv" -Destination "C:\data.csv"

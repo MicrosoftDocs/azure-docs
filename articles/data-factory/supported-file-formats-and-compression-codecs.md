@@ -2,20 +2,20 @@
 title: Supported file formats in Azure Data Factory | Microsoft Docs
 description: 'This topic describes the file formats and compression codes that are supported by file-based connectors in Azure Data Factory.'
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
-ms.topic: article
-ms.date: 03/07/2018
+ms.topic: conceptual
+ms.date: 08/21/2018
 ms.author: jingwang
 
 ---
 
 # Supported file formats and compression codecs in Azure Data Factory
 
-*This topic applies to the following connectors: [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Store](connector-azure-data-lake-store.md), [Azure File Storage](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), and [SFTP](connector-sftp.md).*
+*This topic applies to the following connectors: [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), and [SFTP](connector-sftp.md).*
 
 If you want to **copy files as-is** between file-based stores (binary copy), skip the format section in both input and output dataset definitions. If you want to **parse or generate files with a specific format**, Azure Data Factory supports the following file format types:
 
@@ -24,9 +24,6 @@ If you want to **copy files as-is** between file-based stores (binary copy), ski
 * [Avro format](#avro-format)
 * [ORC format](#orc-format)
 * [Parquet format](#parquet-format)
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [supported file and compression formats in Data Factory version1](v1//data-factory-supported-file-and-compression-formats.md).
 
 > [!TIP]
 > Learn how copy activity maps your source data to sink from [Schema mapping in copy activity](copy-activity-schema-and-type-mapping.md), including how the metadata is determined based on your file format settings and tips on when to specify the [dataset `structure`](concepts-datasets-linked-services.md#dataset-structure) section.
@@ -442,6 +439,30 @@ Note the following points:
 * Complex data types are not supported (STRUCT, MAP, LIST, UNION)
 * ORC file has three [compression-related options](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB, SNAPPY. Data Factory supports reading data from ORC file in any of these compressed formats. It uses the compression codec is in the metadata to read the data. However, when writing to an ORC file, Data Factory chooses ZLIB, which is the default for ORC. Currently, there is no option to override this behavior.
 
+### Data type mapping for ORC files
+
+| Data factory interim data type | ORC types |
+|:--- |:--- |
+| Boolean | Boolean |
+| SByte | Byte |
+| Byte | Short |
+| Int16 | Short |
+| UInt16 | Int |
+| Int32 | Int |
+| UInt32 | Long |
+| Int64 | Long |
+| UInt64 | String |
+| Single | Float |
+| Double | Double |
+| Decimal | Decimal |
+| String | String |
+| DateTime | Timestamp |
+| DateTimeOffset | Timestamp |
+| TimeSpan | Timestamp |
+| ByteArray | Binary |
+| Guid | String |
+| Char | Char(1) |
+
 ## Parquet format
 
 If you want to parse the Parquet files or write the data in Parquet format, set the `format` `type` property to **ParquetFormat**. You do not need to specify any properties in the Format section within the typeProperties section. Example:
@@ -460,7 +481,32 @@ If you want to parse the Parquet files or write the data in Parquet format, set 
 Note the following points:
 
 * Complex data types are not supported (MAP, LIST)
-* Parquet file has the following compression-related options: NONE, SNAPPY, GZIP, and LZO. Data Factory supports reading data from ORC file in any of these compressed formats. It uses the compression codec in the metadata to read the data. However, when writing to a Parquet file, Data Factory chooses SNAPPY, which is the default for Parquet format. Currently, there is no option to override this behavior.
+* Parquet file has the following compression-related options: NONE, SNAPPY, GZIP, and LZO. Data Factory supports reading data from Parquet file in any of these compressed formats. It uses the compression codec in the metadata to read the data. However, when writing to a Parquet file, Data Factory chooses SNAPPY, which is the default for Parquet format. Currently, there is no option to override this behavior.
+
+### Data type mapping for Parquet files
+
+| Data factory interim data type | Parquet Primitive Type | Parquet Original Type (Deserialize) | Parquet Original Type (Serialize) |
+|:--- |:--- |:--- |:--- |
+| Boolean | Boolean | N/A | N/A |
+| SByte | Int32 | Int8 | Int8 |
+| Byte | Int32 | UInt8 | Int16 |
+| Int16 | Int32 | Int16 | Int16 |
+| UInt16 | Int32 | UInt16 | Int32 |
+| Int32 | Int32 | Int32 | Int32 |
+| UInt32 | Int64 | UInt32 | Int64 |
+| Int64 | Int64 | Int64 | Int64 |
+| UInt64 | Int64/Binary | UInt64 | Decimal |
+| Single | Float | N/A | N/A |
+| Double | Double | N/A | N/A |
+| Decimal | Binary | Decimal | Decimal |
+| String | Binary | Utf8 | Utf8 |
+| DateTime | Int96 | N/A | N/A |
+| TimeSpan | Int96 | N/A | N/A |
+| DateTimeOffset | Int96 | N/A | N/A |
+| ByteArray | Binary | N/A | N/A |
+| Guid | Binary | Utf8 | Utf8 |
+| Char | Binary | Utf8 | Utf8 |
+| CharArray | Not supported | N/A | N/A |
 
 ## Compression support
 

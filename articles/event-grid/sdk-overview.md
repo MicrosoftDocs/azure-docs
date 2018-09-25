@@ -6,8 +6,8 @@ author: tfitzmac
 manager: timlt
 
 ms.service: event-grid
-ms.topic: article
-ms.date: 01/30/2018
+ms.topic: reference
+ms.date: 06/29/2018
 ms.author: tomfitz
 ---
 
@@ -21,22 +21,25 @@ The management SDKs enable you to create, update, and delete event grid topics a
 
 * [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.EventGrid)
 * [Go](https://github.com/Azure/azure-sdk-for-go)
+* [Java](https://search.maven.org/#search%7Cga%7C1%7Cazure-mgmt-eventgrid)
 * [Node](https://www.npmjs.com/package/azure-arm-eventgrid)
 * [Python](https://pypi.python.org/pypi/azure-mgmt-eventgrid)
 * [Ruby](https://rubygems.org/gems/azure_mgmt_event_grid)
 
-## Publish SDKs
+## Data plane SDKs
 
-The publish SDKs enable you to post events to topics by taking care of authenticating, forming the event, and asynchronously posting to the specified endpoint. Currently, the following SDKs are available:
+The data plane SDKs enable you to post events to topics by taking care of authenticating, forming the event, and asynchronously posting to the specified endpoint. They also enable you to consume first party events. Currently, the following SDKs are available:
 
 * [.NET](https://www.nuget.org/packages/Microsoft.Azure.EventGrid)
 * [Go](https://github.com/Azure/azure-sdk-for-go)
+* [Java](https://mvnrepository.com/artifact/com.microsoft.azure/azure-eventgrid)
 * [Node](https://www.npmjs.com/package/azure-eventgrid)
 * [Python](https://pypi.python.org/pypi/azure-eventgrid)
 * [Ruby](https://rubygems.org/gems/azure_event_grid)
 
 ## Next steps
 
+* For example applications, see [Event Grid code samples](https://azure.microsoft.com/resources/samples/?sort=0&service=event-grid).
 * For an introduction to Event Grid, see [What is Event Grid?](overview.md)
 * For Event Grid commands in Azure CLI, see [Azure CLI](/cli/azure/eventgrid).
 * For Event Grid commands in PowerShell, see [PowerShell](/powershell/module/azurerm.eventgrid).

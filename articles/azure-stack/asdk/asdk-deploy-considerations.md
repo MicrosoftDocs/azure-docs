@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 09/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
 ---
@@ -31,7 +31,7 @@ Before you deploy the Azure Stack Development Kit (ASDK), make sure your develop
 | Compute: Memory |96 GB RAM |128 GB RAM (This is the minimum to support PaaS resource providers.)|
 | Compute: BIOS |Hyper-V Enabled (with SLAT support) |Hyper-V Enabled (with SLAT support) |
 | Network: NIC |Windows Server 2012 R2 Certification required for NIC; no specialized features required |Windows Server 2012 R2 Certification required for NIC; no specialized features required |
-| HW logo certification |[Certified for Windows Server 2012 R2](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |[Certified for Windows Server 2012 R2](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |
+| HW logo certification |[Certified for Windows Server 2012 R2](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |[Certified for Windows Server 2016](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |
 
 <sup>*</sup> You need more than this recommended capacity if you plan on adding many of the [marketplace items](asdk-marketplace-item.md) from Azure.
 
@@ -62,7 +62,7 @@ Sample OEM configurations are available.
 ## Operating system
 |  | **Requirements** |
 | --- | --- |
-| **OS Version** |Windows Server 2012 R2 or later. The operating system version isn’t critical before the deployment starts, as you'll boot the host computer into the VHD that's included in the Azure Stack installation. The OS and all required patches are already integrated into the image. Don’t use any keys to activate any Windows Server instances used in the development kit. |
+| **OS Version** |Windows Server 2016 or later. The operating system version isn’t critical before the deployment starts, as you'll boot the host computer into the VHD that's included in the Azure Stack installation. The operating system and all required patches are already integrated into the image. Don’t use any keys to activate any Windows Server instances used in the development kit. |
 
 > [!TIP]
 > After installing the operating system, you can use the [Deployment Checker for Azure Stack](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b) to confirm that your hardware meets all the requirements.
@@ -89,6 +89,8 @@ To deploy Azure Stack by using an Azure AD account, you must prepare an Azure AD
    | Microsoft Account with valid Public Azure Subscription |Yes |
    | Work or school account with valid China Azure Subscription |Yes |
    | Work or school account with valid US Government Azure Subscription |Yes |
+
+After deployment, Azure Active Directory global administrator permission is not required. However, some operations may require the global administrator credential. For example, a resource provider installer script or a new feature requiring a permission to be granted. You can either temporarily re-instate the account’s global administrator permissions or use a separate global administrator account that is an owner of the *default provider subscription*.
 
 ## Network
 ### Switch

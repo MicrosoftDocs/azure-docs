@@ -4,7 +4,7 @@ description: Learn how to maximize your Windows Software Assurance benefits to b
 services: virtual-machines-windows
 documentationcenter: ''
 author: xujing
-manager: timlt
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 
@@ -106,7 +106,7 @@ LicenseType              :
 
 ## Additional Information about joining Azure AD
 >[!NOTE]
->Azure provisions all Windows VMs with built-in administrator account, which cannot be used to join AAD. For example, *Settings > Account > Access Work or School > +Connect* will not work. You must create and log on as a second administrator account to join Azure AD mannually. You can also configure Azure AD using a provisioning package, use the link is the *Next Steps* section to learn more.
+>Azure provisions all Windows VMs with built-in administrator account, which cannot be used to join AAD. For example, *Settings > Account > Access Work or School > +Connect* will not work. You must create and log on as a second administrator account to join Azure AD manually. You can also configure Azure AD using a provisioning package, use the link is the *Next Steps* section to learn more.
 >
 >
 

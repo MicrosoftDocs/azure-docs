@@ -1,19 +1,12 @@
 ---
-title: Workflows for configuring an ExpressRoute circuit | Microsoft Docs
+title: "Workflows for configuring an Azure ExpressRoute circuit | Microsoft Docs"
 description: This page walks you through the workflows for configuring ExpressRoute circuit and peerings
-documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: carmonm
-editor: ''
 
-ms.assetid: 55e0418c-e0bf-44a7-9aa1-720076df9297
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/12/2017
+ms.topic: conceptual
+ms.date: 08/29/2018
 ms.author: cherylmc
 
 ---
@@ -29,9 +22,9 @@ The following figure and corresponding steps show the tasks you must follow in o
 3. Ensure that the circuit has been provisioned successfully by verifying the ExpressRoute circuit provisioning state through PowerShell. 
 4. Configure routing domains. If your connectivity provider manages Layer 3 for you, they will configure routing for your circuit. If your connectivity provider only offers Layer 2 services, you must configure routing per guidelines described in the [routing requirements](expressroute-routing.md) and [routing configuration](expressroute-howto-routing-classic.md) pages.
    
-   * Enable Azure private peering - You must enable this peering to connect to VMs / cloud services deployed within virtual networks.
-   * Enable Azure public peering - You must enable Azure public peering if you wish to connect to Azure services hosted on public IP addresses. This is a requirement to access Azure resources if you have chosen to enable default routing for Azure private peering.
-   * Enable Microsoft peering - You must enable this to access Office 365 and Dynamics 365. 
+   * Enable Azure private peering - Enable this peering to connect to VMs / cloud services deployed within virtual networks.
+
+   * Enable Microsoft peering - Enable this to access Office 365 and Dynamics 365. Additionally, all Azure PaaS services are accessible through Microsoft peering.
      
      > [!IMPORTANT]
      > You must ensure that you use a separate proxy / edge to connect to Microsoft than the one you use for the Internet. Using the same edge for both ExpressRoute and the Internet will cause asymmetric routing and cause connectivity outages for your network.

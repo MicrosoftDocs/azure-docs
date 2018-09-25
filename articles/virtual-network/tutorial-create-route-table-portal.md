@@ -1,27 +1,28 @@
 ---
-title: Route network traffic - Azure portal | Microsoft Docs
-description: Learn how to route network traffic with a route table using the Azure portal.
+title: Route network traffic - tutorial - Azure portal | Microsoft Docs
+description: In this tutorial, learn how to route network traffic with a route table using the Azure portal.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
 
 ms.assetid: 
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
-ms.custom: 
+ms.custom: mvc
 ---
 
-# Route network traffic with a route table using the Azure portal
+# Tutorial: Route network traffic with a route table using the Azure portal
 
-Azure automatically routes traffic between all subnets within a virtual network, by default. You can create your own routes to override Azure's default routing. The ability to create custom routes is helpful if, for example, you want to route traffic between subnets through a network virtual appliance (NVA). In this article you learn how to:
+Azure automatically routes traffic between all subnets within a virtual network, by default. You can create your own routes to override Azure's default routing. The ability to create custom routes is helpful if, for example, you want to route traffic between subnets through a network virtual appliance (NVA). In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a route table
@@ -31,6 +32,8 @@ Azure automatically routes traffic between all subnets within a virtual network,
 > * Create an NVA that routes traffic
 > * Deploy virtual machines (VM) into different subnets
 > * Route traffic from one subnet to another through an NVA
+
+If you prefer, you can complete this tutorial using the [Azure CLI](tutorial-create-route-table-cli.md) or [Azure PowerShell](tutorial-create-route-table-powershell.md).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -133,7 +136,7 @@ An NVA is a VM that performs a network function, such as routing, firewalling, o
     |---|---|
     |Virtual network|myVirtualNetwork - If it's not selected, select **Virtual network**, then select **myVirtualNetwork** under **Choose virtual network**.|
     |Subnet|Select **Subnet** and then select **DMZ** under **Choose subnet**. |
-    |Public IP address| Select **Public IP address** and select **None** under **Choose public IP address**. No public IP address is assigned to this VM since it won't be connected to from the Internet.
+    |Public IP address| Select **Public IP address** and select **None** under **Choose public IP address**. No public IP address is assigned to this VM since it won't be connected to from the internet.
 6. Under **Create** in the **Summary**, select **Create** to start the VM deployment.
 
     The VM takes a few minutes to create. Do not continue to the next step until Azure finishes creating the VM and opens a box with information about the VM.
@@ -167,41 +170,41 @@ You can create the *myVmPrivate* VM while Azure creates the *myVmPublic* VM. Do 
 3. To connect to the VM, open the downloaded RDP file. If prompted, select **Connect**.
 4. Enter the user name and password you specified when creating the VM (you may need to select **More choices**, then **Use a different account**, to specify the credentials you entered when you created the VM), then select **OK**.
 5. You may receive a certificate warning during the sign-in process. Select **Yes** to proceed with the connection.
-6. In a later step, the tracert.exe command is used to test routing. Tracert uses the Internet Control Message Protocol (ICMP), which is denied through the Windows Firewall. Enable ICMP through the Windows firewall by entering the following command from PowerShell:
+6. In a later step, the trace route tool is used to test routing. Trace route uses the Internet Control Message Protocol (ICMP), which is denied through the Windows Firewall. Enable ICMP through the Windows firewall by entering the following command from PowerShell on the *myVmPrivate* VM:
 
     ```powershell
     New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
     ```
 
-    Though tracert is used to test routing in this article, allowing ICMP through the Windows Firewall for production deployments is not recommended.
-7. You enabled IP forwarding within Azure for the VM's network interface in [Enable IP fowarding](#enable-ip-forwarding). Within the VM, the operating system, or an application running within the VM, must also be able to forward network traffic. Enable IP forwarding within the operating system of the *myVmNva* VM by completing the following steps from the *myVmPrivate* VM:
+    Though trace route is used to test routing in this tutorial, allowing ICMP through the Windows Firewall for production deployments is not recommended.
+7. You enabled IP forwarding within Azure for the VM's network interface in [Enable IP forwarding](#enable-ip-forwarding). Within the VM, the operating system, or an application running within the VM, must also be able to forward network traffic. Enable IP forwarding within the operating system of the *myVmNva* VM:
 
-    Remote desktop to the *myVmNva*  with the following command from a command prompt:
+    From a command prompt on the *myVmPrivate* VM, remote desktop to the *myVmNva* VM:
 
     ``` 
     mstsc /v:myvmnva
     ```
     
-    To enable IP forwarding within the operating system, enter the following command in PowerShell:
+    To enable IP forwarding within the operating system, enter the following command in PowerShell from the *myVmNva* VM:
 
     ```powershell
     Set-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters -Name IpEnableRouter -Value 1
     ```
     
-    Restart the VM, which also disconnects the remote desktop session.
-8. While still connected to the *myVmPrivate* VM, create a remote desktop session to the *myVmPublic* VM with the following command, after the *myVmNva* VM restarts:
+    Restart the *myVmNva* VM, which also disconnects the remote desktop session.
+8. While still connected to the *myVmPrivate* VM, create a remote desktop session to the *myVmPublic* VM, after the *myVmNva* VM restarts:
 
     ``` 
     mstsc /v:myVmPublic
     ```
     
-    Enable ICMP through the Windows firewall by entering the following command from PowerShell:
+    Enable ICMP through the Windows firewall by entering the following command from PowerShell on the *myVmPublic* VM:
 
     ```powershell
     New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
     ```
 
-9. To test routing of network traffic to the *myVmPrivate* VM  from the *myVmPublic* VM, enter the following command from PowerShell:
+9. To test routing of network traffic to the *myVmPrivate* VM  from the *myVmPublic* VM, enter the following command from PowerShell on the *myVmPublic* VM:
 
     ```
     tracert myVmPrivate
@@ -221,7 +224,7 @@ You can create the *myVmPrivate* VM while Azure creates the *myVmPublic* VM. Do 
       
     You can see that the first hop is 10.0.2.4, which is the NVA's private IP address. The second hop is 10.0.1.4, the private IP address of the *myVmPrivate* VM. The route added to the *myRouteTablePublic* route table and associated to the *Public* subnet caused Azure to route the traffic through the NVA, rather than directly to the *Private* subnet.
 10.  Close the remote desktop session to the *myVmPublic* VM, which leaves you still connected to the *myVmPrivate* VM.
-11. To test routing of network traffic to the *myVmPublic* VM from the *myVmPrivate* VM, enter the following command from a command prompt:
+11. To test routing of network traffic to the *myVmPublic* VM from the *myVmPrivate* VM, enter the following command from a command prompt on the *myVmPrivate* VM:
 
     ```
     tracert myVmPublic
@@ -251,10 +254,10 @@ When no longer needed, delete the resource group and all resources it contains:
 
 ## Next steps
 
-In this article, you created a route table and associated it to a subnet. You created a simple NVA that routed traffic from a public subnet to a private subnet. Deploy a variety of pre-configured NVAs that perform network functions such as firewall and WAN optimization from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). Before deploying route tables for production use, it's recommended that you thoroughly familiarize yourself with [Routing in Azure](virtual-networks-udr-overview.md), [Manage route tables](manage-route-table.md), and [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+In this tutorial, you created a route table and associated it to a subnet. You created a simple NVA that routed traffic from a public subnet to a private subnet. Deploy a variety of pre-configured NVAs that perform network functions such as firewall and WAN optimization from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). To learn more about routing, see [Routing overview](virtual-networks-udr-overview.md) and [Manage a route table](manage-route-table.md).
 
 
-While you can deploy many Azure resources within a virtual network, resources for some Azure PaaS services cannot be deployed into a virtual network. You can still restrict access to the resources of some Azure PaaS services to traffic only from a virtual network subnet though. Advance to the next tutorial to learn how to restrict network access to Azure PaaS resources.
+While you can deploy many Azure resources within a virtual network, resources for some Azure PaaS services cannot be deployed into a virtual network. You can still restrict access to the resources of some Azure PaaS services to traffic only from a virtual network subnet though. To learn how to restrict network access to Azure PaaS resources, advance to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Restrict network access to PaaS resources](virtual-network-service-endpoints-configure.md#azure-portal)
+> [Restrict network access to PaaS resources](tutorial-restrict-network-access-to-resources.md)

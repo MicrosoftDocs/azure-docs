@@ -2,20 +2,12 @@
 title: Azure Storage migration FAQ | Microsoft Docs
 description: Answers to common questions about migrating Azure Storage
 services: storage
-documentationcenter: na
 author: genlin
-manager: timlt
-editor: tysonn
-
-
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage
-ms.date: 11/16/2017
+ms.date: 05/11/2018
 ms.author: genli
-
+ms.component: common
 ---
 # Frequently asked questions about Azure Storage migration
 
@@ -87,7 +79,7 @@ Follow these steps:
 
 1.  Create the container (folder) in the destination blob.
 
-2.  Use [AzCopy](https://azure.microsoft.com/en-us/blog/azcopy-5-1-release/) to copy the contents from the original blob container to a different blob container.
+2.  Use [AzCopy](https://azure.microsoft.com/blog/azcopy-5-1-release/) to copy the contents from the original blob container to a different blob container.
 
 **How do I create a PowerShell script to move data from one Azure file share to another in Azure Storage?**
 
@@ -145,7 +137,7 @@ Follow these steps:
     following Azure PowerShell script:
 
     ```
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
     Select-AzureRmSubscription -SubscriptionId <ID>
 
@@ -186,7 +178,7 @@ with AzCopy on Windows](storage-use-azcopy.md) and [Transfer data with AzCopy on
 **How do I change the secondary location to the Europe region for a storage account?**
 
 When you create a storage account, you select the primary region for the
-account. The selection of the secondary region is based on the primary region, and it cannot be changed. For more information, see [Azure Storage replication](storage-redundancy.md).
+account. The selection of the secondary region is based on the primary region, and it cannot be changed. For more information, see [Geo-redundant storage (GRS): Cross-regional replication for Azure Storage](storage-redundancy.md).
 
 **Where can I get more information about Azure Storage Service Encryption (SSE)?**  
   
@@ -288,7 +280,7 @@ To give other people access to the storage resources:
 
 -   Provide a user with the primary or secondary key for the
     storage account. For more information, see [Manage your storage
-    account](storage-create-storage-account.md#manage-your-storage-account).
+    account](storage-account-manage.md#access-keys).
 
 -   Change the access policy to allow anonymous access. For more
     information, see [Grant anonymous users permissions to containers

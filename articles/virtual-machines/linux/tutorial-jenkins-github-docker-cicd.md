@@ -1,9 +1,9 @@
 ---
-title: Create a development pipeline in Azure with Jenkins | Microsoft Docs
-description: Learn how to create a Jenkins virtual machine in Azure that pulls from GitHub on each code commit and builds a new Docker container to run your app
+title: Tutorial - Create a development pipeline in Azure with Jenkins | Microsoft Docs
+description: Tutorial - In this tutorial, you learn how to create a Jenkins virtual machine in Azure that pulls from GitHub on each code commit and builds a new Docker container to run your app.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,12 +14,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/15/2017
-ms.author: iainfou
+ms.date: 03/27/2017
+ms.author: cynthn
 ms.custom: mvc
+
+#Customer intent: As an IT administrator or developer, I want to learn about CI/CD options in Azure so that I can automatically deploy my apps based on code commits to GitHub.
 ---
 
-# How to create a development infrastructure on a Linux VM in Azure with Jenkins, GitHub, and Docker
+# Tutorial: Create a development infrastructure on a Linux VM in Azure with Jenkins, GitHub, and Docker
+
 To automate the build and test phase of application development, you can use a continuous integration and deployment (CI/CD) pipeline. In this tutorial, you create a CI/CD pipeline on an Azure VM including how to:
 
 > [!div class="checklist"]
@@ -30,13 +33,12 @@ To automate the build and test phase of application development, you can use a c
 > * Create a Docker image for your app
 > * Verify GitHub commits build new Docker image and updates running app
 
-
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.22 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Create Jenkins instance
-In a previous tutorial on [How to customize a Linux virtual machine on first boot](tutorial-automate-vm-deployment.md), you learned how to automate VM customization with cloud-init. This tutorial uses a cloud-init file to install Jenkins and Docker on a VM. Jenkins is a popular open source automation server that integrates seamlessly with Azure to enable continuous integration (CI) and continuous delivery (CD). For more tutorials on how to use Jenkins, see the [Jenkins in Azure hub](https://docs.microsoft.com/azure/jenkins/).
+In a previous tutorial on [How to customize a Linux virtual machine on first boot](tutorial-automate-vm-deployment.md), you learned how to automate VM customization with cloud-init. This tutorial uses a cloud-init file to install Jenkins and Docker on a VM. Jenkins is a popular open-source automation server that integrates seamlessly with Azure to enable continuous integration (CI) and continuous delivery (CD). For more tutorials on how to use Jenkins, see the [Jenkins in Azure hub](https://docs.microsoft.com/azure/jenkins/).
 
 In your current shell, create a file named *cloud-init-jenkins.txt* and paste the following configuration. For example, create the file in the Cloud Shell not on your local machine. Enter `sensible-editor cloud-init-jenkins.txt` to create the file and see a list of available editors. Make sure that the whole cloud-init file is copied correctly, especially the first line:
 
@@ -55,13 +57,13 @@ write_files:
         "hosts": ["fd://","tcp://127.0.0.1:2375"]
       }
 runcmd:
-  - wget -q -O - https://jenkins-ci.org/debian/jenkins-ci.org.key | apt-key add -
-  - sh -c 'echo deb http://pkg.jenkins-ci.org/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+  - apt install default-jre -y
+  - wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -
+  - sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
   - apt-get update && apt-get install jenkins -y
   - curl -sSL https://get.docker.com/ | sh
   - usermod -aG docker azureuser
   - usermod -aG docker jenkins
-  - touch /var/lib/jenkins/jenkins.install.InstallUtil.lastExecVersion
   - service jenkins restart
 ```
 
@@ -115,10 +117,13 @@ If the file isn't available yet, wait a couple more minutes for cloud-init to co
 
 Now open a web browser and go to `http://<publicIps>:8080`. Complete the initial Jenkins setup as follows:
 
-- Enter the username **admin**, then provide the *initialAdminPassword* obtained from the VM in the previous step.
-- Select **Manage Jenkins**, then **Manage plugins**.
-- Choose **Available**, then search for *GitHub* in the text box across the top. Check the box for *GitHub plugin*, then select **Download now and install after restart**.
-- Check the box for **Restart Jenkins when installation is complete and no jobs are running**, then wait until the plugin install process is finished.
+- Choose **Select plugins to install**
+- Search for *GitHub* in the text box across the top. Check the box for *GitHub*, then select **Install**
+- Create the first admin user. Enter a username, such as **admin**, then provide your own secure password. Finally, type a full name and e-mail address.
+- Select **Save and Finish**
+- Once Jenkins is ready, select **Start using Jenkins**
+  - If your web browser displays a blank page when you start using Jenkins, restart the Jenkins service. From your SSH session, type `sudo service jenkins restart`, then refresh you web browser.
+- Log in to Jenkins with the username and password you created.
 
 
 ## Create GitHub webhook
@@ -136,15 +141,15 @@ Create a webhook inside the fork you created:
 
 
 ## Create Jenkins job
-To have Jenkins respond to an event in GitHub such as committing code, create a Jenkins job. 
+To have Jenkins respond to an event in GitHub such as committing code, create a Jenkins job. Use the URLs for your own GitHub fork.
 
 In your Jenkins website, select **Create new jobs** from the home page:
 
 - Enter *HelloWorld* as job name. Choose **Freestyle project**, then select **OK**.
-- Under the **General** section, select **GitHub** project and enter your forked repo URL, such as *https://github.com/iainfoulds/nodejs-docs-hello-world*
-- Under the **Source code management** section, select **Git**, enter your forked repo *.git* URL, such as *https://github.com/iainfoulds/nodejs-docs-hello-world.git*
+- Under the **General** section, select **GitHub project** and enter your forked repo URL, such as *https://github.com/cynthn/nodejs-docs-hello-world*
+- Under the **Source code management** section, select **Git**, enter your forked repo *.git* URL, such as *https://github.com/cynthn/nodejs-docs-hello-world.git*
 - Under the **Build Triggers** section, select **GitHub hook trigger for GITscm polling**.
-- Under the **Build** section, choose **Add build step**. Select **Execute shell**, then enter `echo "Testing"` in the command window.
+- Under the **Build** section, choose **Add build step**. Select **Execute shell**, then enter `echo "Test"` in the command window.
 - Select **Save** at the bottom of the jobs window.
 
 
@@ -234,7 +239,7 @@ In this tutorial, you configured GitHub to run a Jenkins build job on each code 
 > * Create a Docker image for your app
 > * Verify GitHub commits build new Docker image and updates running app
 
-Advance to the next tutorial to learn more about how to integrate Jenkins with Visual Studio Team Services.
+Advance to the next tutorial to learn more about how to integrate Jenkins with Azure DevOps Services.
 
 > [!div class="nextstepaction"]
-> [Deploy apps with Jenkins and Team Services](tutorial-build-deploy-jenkins.md)
+> [Deploy apps with Jenkins and Azure DevOps Services](tutorial-build-deploy-jenkins.md)

@@ -10,8 +10,7 @@ To create and manage Azure virtual machines (VMs) in a consistent manner at scal
     - [Azure Automation](#azure-automation) can perform actions across your Azure and on-premises infrastructure.
 
 - Automate application deployment and delivery
-    - Examples include [Visual Studio Team Services](#visual-studio-team-services) and [Jenkins](#jenkins).
-
+    - Examples include [Azure DevOps Services](#visual-studio-team-services) and [Jenkins](#jenkins).
 
 ## Ansible
 [Ansible](https://www.ansible.com/) is an automation engine for configuration management, VM creation, or application deployment. Ansible uses an agent-less model, typically with SSH keys, to authenticate and manage target machines. Configuration tasks are defined in playbooks, with a number of Ansible modules available to carry out specific tasks. For more information, see [How Ansible works](https://www.ansible.com/how-ansible-works).
@@ -19,8 +18,8 @@ To create and manage Azure virtual machines (VMs) in a consistent manner at scal
 Learn how to:
 
 - [Install and configure Ansible on Linux for use with Azure](../articles/virtual-machines/linux/ansible-install-configure.md).
-- [Create a basic VM](../articles/virtual-machines/linux/ansible-create-vm.md).
-- [Create a complete VM environment including supporting resources](../articles/virtual-machines/linux/ansible-create-complete-vm.md).
+- [Create a Linux virtual machine](../articles/virtual-machines/linux/ansible-create-vm.md).
+- [Manage a Linux virtual machine](../articles/virtual-machines/linux/ansible-manage-linux-vm.md).
 
 
 ## Chef
@@ -37,7 +36,7 @@ Learn how to:
 
 Learn how to:
 
-- [Deploy Puppet from the Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2016-1?tab=Overview).
+- [Deploy Puppet from the Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2?tab=Overview).
 
 
 ## Cloud-init
@@ -62,7 +61,7 @@ Learn more details about cloud-init on Azure:
 
 
 ## PowerShell DSC
-[PowerShell Desired State Configuration (DSC)](https://msdn.microsoft.com/en-us/powershell/dsc/overview) is a management platform to define the configuration of target machines. DSC can also be used on Linux through the [Open Management Infrastructure (OMI) server](https://collaboration.opengroup.org/omi/).
+[PowerShell Desired State Configuration (DSC)](https://msdn.microsoft.com/powershell/dsc/overview) is a management platform to define the configuration of target machines. DSC can also be used on Linux through the [Open Management Infrastructure (OMI) server](https://collaboration.opengroup.org/omi/).
 
 DSC configurations define what to install on a machine and how to configure the host. A Local Configuration Manager (LCM) engine runs on each target node that processes requested actions based on pushed configurations. A pull server is a web service that runs on a central host to store the DSC configurations and associated resources. The pull server communicates with the LCM engine on each target host to provide the required configurations and report on compliance.
 
@@ -114,12 +113,12 @@ Learn how to:
 - [Use Azure Automation DSC](../articles/automation/automation-dsc-getting-started.md).
 
 
-## Visual Studio Team Services
-[Team Services](https://www.visualstudio.com/team-services/) is a suite of tools that help you share and track code, use automated builds, and create a complete continuous integration and development (CI/CD) pipeline. Team Services integrates with Visual Studio and other editors to simplify usage. Team Services can also create and configure Azure VMs and then deploy code to them.
+## Azure DevOps Services
+[Azure DevOps Services](https://www.visualstudio.com/team-services/) is a suite of tools that help you share and track code, use automated builds, and create a complete continuous integration and development (CI/CD) pipeline. Azure DevOps Services integrates with Visual Studio and other editors to simplify usage. Azure DevOps Services can also create and configure Azure VMs and then deploy code to them.
 
 Learn how to:
 
-- [Create a continuous integration pipeline with Team Services](../articles/virtual-machines/windows/tutorial-vsts-iis-cicd.md).
+- [Create a continuous integration pipeline with Azure DevOps Services](../articles/virtual-machines/windows/tutorial-vsts-iis-cicd.md).
 
 
 ## Jenkins

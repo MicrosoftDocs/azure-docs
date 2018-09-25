@@ -102,4 +102,4 @@ For more information about the Azure App Service platform, see [Azure App Servic
 [virtual networks]: ../app-service/web-sites-integrate-with-vnet.md
 [ExpressRoute]: ../app-service/environment/app-service-app-service-environment-network-configuration-expressroute.md
 [App Service environments]: ../app-service/environment/intro.md
-[learning map]: https://azure.microsoft.com/en-us/documentation/learning-paths/appservice-mobileapps/
+[learning map]: https://azure.microsoft.com/documentation/learning-paths/appservice-mobileapps/

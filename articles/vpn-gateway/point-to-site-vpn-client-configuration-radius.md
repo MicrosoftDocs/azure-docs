@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/12/2018
+ms.date: 06/07/2018
 ms.author: cherylmc
 
 ---
@@ -23,6 +23,10 @@ ms.author: cherylmc
 To connect to a virtual network over point-to-site (P2S), you need to configure the client device that you'll connect from. You can create P2S VPN connections from Windows, Mac OS X, and Linux client devices. 
 
 When you're using RADIUS authentication, there are multiple authentication options: username/password authentication, certificate authentication, and other authentication types. The VPN client configuration is different for each type of authentication. To configure the VPN client, you use client configuration files that contain the required settings. This article helps you create and install the VPN client configuration for the RADIUS authentication type that you want to use.
+
+>[!IMPORTANT]
+>[!INCLUDE [TLS](../../includes/vpn-gateway-tls-change.md)]
+>
 
 The configuration workflow for P2S RADIUS authentication is as follows:
 
@@ -149,6 +153,10 @@ The following instructions were created through strongSwan 5.5.1 on Ubuntu 17.0.
 ## <a name="certeap"></a>Certificate authentication
  
 You can create VPN client configuration files for RADIUS certificate authentication that uses the EAP-TLS protocol. Typically, an enterprise-issued certificate is used to authenticate a user for VPN. Make sure that all connecting users have a certificate installed on their devices, and that your RADIUS server can validate the certificate.
+
+>[!NOTE]
+>[!INCLUDE [TLS](../../includes/vpn-gateway-tls-change.md)]
+>
 
 In the commands, `-AuthenticationMethod` is `EapTls`. During certificate authentication, the client validates the RADIUS server by validating its certificate. `-RadiusRootCert` is the .cer file that contains the root certificate that's used to validate the RADIUS server.
 

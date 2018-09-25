@@ -1,0 +1,52 @@
+- name: Device Management Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is device management in Azure AD?
+    href: overview.md
+- name: Tutorials
+  expanded: false
+  items:
+  - name: Configure hybrid Azure AD join for managed domains
+    href: hybrid-azuread-join-managed-domains.md
+  - name: Configure hybrid Azure AD join for federated domains
+    href: hybrid-azuread-join-federated-domains.md
+  - name: Configure hybrid Azure AD join manually
+    href: hybrid-azuread-join-manual-steps.md
+  - name: Configure Azure AD join during Windows 10 first-run experience
+    href: azuread-joined-devices-frx.md
+- name: How-to guides
+  expanded: true
+  items:
+  - name: Manage devices using the Azure portal
+    href: device-management-azure-portal.md
+  - name: Manage stale devices
+    href: manage-stale-devices.md
+  - name: Plan Azure AD join
+    href: azureadjoin-plan.md
+  - name: Plan your hybrid Azure AD join implementation
+    href: hybrid-azuread-join-plan.md
+  - name: Control the hybrid Azure AD join of your devices
+    href: hybrid-azuread-join-control.md
+  - name: Assign local admins to Azure AD joined devices
+    href: assign-local-admin.md
+  - name: Troubleshoot hybrid Azure AD joined Windows current devices
+    href: troubleshoot-hybrid-join-windows-current.md
+  - name: Troubleshoot hybrid Azure AD joined legacy Windows devices
+    href: troubleshoot-hybrid-join-windows-legacy.md
+  - name: FAQs
+    href: faq.md
+- name: Resources
+  items:
+  - name: Azure feedback forum
+    href: https://feedback.azure.com/forums/169401-azure-active-directory
+  - name: MSDN forum
+    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/active-directory/
+  - name: Service updates
+    href: ../fundamentals/whats-new.md
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-active-directory
+  - name: Videos
+    href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory

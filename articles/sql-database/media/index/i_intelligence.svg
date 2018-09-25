@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW X7 -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="32px" height="32px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 32 32"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .fil0 {fill:none}
+    .fil7 {fill:black}
+    .fil5 {fill:#00BCF2}
+    .fil2 {fill:#66D7F7}
+    .fil6 {fill:#777777}
+    .fil4 {fill:#7FBA00}
+    .fil3 {fill:#B8D432}
+    .fil1 {fill:white}
+    .fil9 {fill:#00188F;fill-rule:nonzero}
+    .fil8 {fill:#4668C5;fill-rule:nonzero}
+    .fil11 {fill:#FCD116;fill-rule:nonzero}
+    .fil12 {fill:#FFB900;fill-rule:nonzero}
+    .fil10 {fill:#FFF100;fill-rule:nonzero}
+   ]]>
+  </style>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <rect class="fil0" width="32" height="32"/>
+  <g id="_2418311069920">
+   <g>
+    <path class="fil1" d="M18 11c0,3 -4,4 -9,4 -5,0 -9,-1 -9,-4 0,-2 4,-3 9,-3 5,0 9,1 9,3z"/>
+    <path class="fil2" d="M0 28l0 -17c0,3 4,4 9,4 5,0 9,-1 9,-4l0 17c0,3 -4,4 -9,4 -5,0 -9,-1 -9,-4z"/>
+    <ellipse class="fil3" cx="9" cy="11" rx="7" ry="2"/>
+    <path class="fil4" d="M4 12c1,0 3,0 5,0 2,0 4,0 6,0 -2,1 -4,1 -6,1 -2,0 -4,0 -5,-1z"/>
+    <path class="fil5" d="M9 32c-5,0 -9,-1 -9,-4l0 -17c0,3 4,4 9,4l0 17z"/>
+   </g>
+   <g>
+    <path class="fil6" d="M12 22l13 0c1,0 2,-1 2,-2l0 -18c0,-1 -1,-2 -2,-2l-13 0c-1,0 -2,1 -2,2l0 18c0,1 1,2 2,2z"/>
+    <g>
+     <path class="fil7" d="M14 3c-1,0 -2,1 -2,2 0,1 1,2 2,2l9 0c1,0 2,-1 2,-2 0,-1 -1,-2 -2,-2l-9 0z"/>
+     <circle class="fil3" cx="14" cy="5" r="1"/>
+    </g>
+    <g>
+     <path class="fil7" d="M14 9c-1,0 -2,1 -2,2 0,1 1,2 2,2l9 0c1,0 2,-1 2,-2 0,-1 -1,-2 -2,-2l-9 0z"/>
+     <circle class="fil3" cx="14" cy="11" r="1"/>
+    </g>
+   </g>
+   <g>
+    <polygon class="fil8" points="27,31 21,31 21,27 27,27 "/>
+    <polygon class="fil9" points="22,31 23,32 25,32 26,31 "/>
+    <path class="fil10" d="M21 27l6 0c0,-2 0,-3 1,-4 3,-2 4,-4 4,-7 0,-4 -4,-8 -8,-8 -4,0 -8,4 -8,8 0,3 1,5 4,7 1,1 1,2 1,4z"/>
+    <path class="fil11" d="M21 27l6 0c0,-2 0,-3 1,-4 3,-2 4,-4 4,-7 0,-1 0,-1 0,-2l-11 11c0,1 0,1 0,2z"/>
+   </g>
+   <polygon class="fil12" points="22,27 22,22 20,20 20,14 22,17 24,15 25,17 28,14 28,20 26,22 26,27 25,27 25,22 27,20 27,17 25,18 24,17 22,18 21,17 21,20 23,22 23,27 "/>
+  </g>
+ </g>
+</svg>

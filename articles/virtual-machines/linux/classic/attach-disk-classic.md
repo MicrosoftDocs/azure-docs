@@ -3,8 +3,8 @@ title: Attach a disk to a Linux VM in Azure | Microsoft Docs
 description: Learn how to attach a data disk to a Linux VM using the Classic deployment model and initialize the disk so it's ready for use
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
-manager: timlt
+author: cynthn
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 ROBOTS: NOINDEX
@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
-ms.author: iainfou
+ms.author: cynthn
 
 ---
 # How to Attach a Data Disk to a Linux Virtual Machine
@@ -230,5 +230,5 @@ You can read more about using your Linux VM in the following articles:
 * [Configure LVM on a Linux VM in Azure](../configure-lvm.md)
 
 <!--Link references-->
-[Agent]:../agent-user-guide.md
+[Agent]:../../extensions/agent-linux.md
 [Logon]:../mac-create-ssh-keys.md

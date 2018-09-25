@@ -1,7 +1,7 @@
 In this example, I will show you how to use the **SharePoint Online - When a new item is created** trigger to initiate a logic app workflow when a new item is created in a SharePoint Online list.
 
 > [!NOTE]
-> You will get prompted to sign into your SharePoint account if you have not already created a *connection* to SharePoint Online.  
+> You will get prompted to sign in to your SharePoint account if you have not already created a *connection* to SharePoint Online.  
 > 
 > 
 

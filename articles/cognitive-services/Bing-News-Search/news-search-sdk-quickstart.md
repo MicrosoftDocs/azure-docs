@@ -6,7 +6,7 @@ services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.technology: bing-news-search
+ms.component: bing-news-search
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: v-gedod
@@ -16,11 +16,13 @@ ms.author: v-gedod
 
 The Bing News Search SDK contains the functionality of the REST API for news queries and parsing results. 
 
+The [source code for C# Bing News Search SDK samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingNewsSearch) is available on Git Hub.
+
 ## Application dependencies
 
 To set up a console application using the Bing News Search SDK, browse to the `Manage NuGet Packages` option from the Solution Explorer in Visual Studio.  Add the `Microsoft.Azure.CognitiveServices.Search.NewsSearch` package.
 
-Installing the [NuGet News Search SDK package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.NewsSearch/1.1.0-preview) also installs dependencies, including:
+Installing the [NuGet News Search SDK package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.NewsSearch/1.2.0) also installs dependencies, including:
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.Azure
 * Newtonsoft.Json

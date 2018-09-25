@@ -1,15 +1,15 @@
 ---
-title: Batch test your LUIS app - Azure | Microsoft Docs
+title: Batch test your LUIS app - Language Understanding
+titleSuffix: Azure Cognitive Services
 description: Use batch testing to continuously work on your application to refine it and improve its language understanding.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
-
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 03/14/2018
-ms.author: v-geberr;
+ms.date: 09/10/2018
+ms.author: diberry
 ---
 
 # Batch testing in LUIS
@@ -30,14 +30,99 @@ Submit a batch file of utterances, known as a *dataset*, for batch testing. The 
 
 *Duplicates are considered exact string matches, not matches that are tokenized first. 
 
+## Entities allowed in batch tests
+Entities include simple, hierarchical parents, and composite. All entities of these types appear in the batch test entities filter even if there are no corresponding entities in the batch file.
+
+
 <a name="json-file-with-no-duplicates"></a>
 <a name="example-batch-file"></a>
 ## Batch file format
 The batch file consists of utterances. Each utterance must have an expected intent prediction along with any [machine-learned entities](luis-concept-entity-types.md#types-of-entities) you expect to be detected. 
 
-An example batch file follows:
+The  following is an example of a batch file with proper syntax:
 
-   [!code-json[Valid batch test](~/samples-luis/documentation-samples/batch-testing/travel-agent-1.json)]
+```JSON
+[
+  {
+    "text": "Are there any janitorial jobs currently open?",
+    "intent": "GetJobInformation",
+    "entities": 
+    [
+        {
+            "entity": "Job",
+            "startPos": 14,
+            "endPos": 23
+        }
+    ]
+  },
+  {
+    "text": "I would like a fullstack typescript programming with azure job",
+    "intent": "GetJobInformation",
+    "entities": 
+    [
+        {
+            "entity": "Job",
+            "startPos": 15,
+            "endPos": 46
+        }
+    ]
+  },
+  {
+    "text": "Is there a database position open in Los Colinas?",
+    "intent": "GetJobInformation",
+    "entities": 
+    [
+        {
+            "entity": "Job",
+            "startPos": 11,
+            "endPos": 18
+        }
+    ]
+  },
+  {
+    "text": "Please find database jobs open today in Seattle",
+    "intent": "GetJobInformation",
+    "entities": 
+    [
+        {
+            "entity": "Job",
+            "startPos": 12,
+            "endPos": 19
+        }
+    ]
+  }
+]
+```
+
+## Batch syntax template
+
+Use the following template to start your batch file:
+
+```JSON
+[
+  {
+    "text": "example utterance goes here",
+    "intent": "intent name goes here",
+    "entities": 
+    [
+        {
+            "entity": "entity name 1 goes here",
+            "startPos": 14,
+            "endPos": 23
+        },
+        {
+            "entity": "entity name 2 goes here",
+            "startPos": 14,
+            "endPos": 23
+        }
+    ]
+  }
+]
+```
+
+The batch file uses the **startPos** and **endPos** properties to note the beginning and end of an entity. The values are zero-based and should not begin or end on a space. 
+
+This is different from the query logs, which use startIndex and endIndex properties. 
 
 
 ## Common errors importing a batch
@@ -45,6 +130,7 @@ Common errors include:
 
 > * More than 1,000 utterances
 > * An utterance JSON object that doesn't have an entities property
+> * Word(s) labeled in multiple entities
 
 ## Batch test state
 LUIS tracks the state of each dataset's last test. This includes the size (number of utterances in the batch), last run date, and last result (number of successfully predicted utterances).
@@ -68,9 +154,6 @@ The false positive section indicates that an utterance matched an intent or enti
 
 ## Fixing batch errors
 If there are errors in the batch testing, you can either add more utterances to an intent, and/or label more utterances with the entity to help LUIS make the discrimination between intents. If you have added utterances, and labeled them, and still get prediction errors in batch testing, consider adding a [phrase list](luis-concept-feature.md) feature with domain-specific vocabulary to help LUIS learn faster. 
-
-## Best practice - three sets of data
-Developers should have three sets of test data. The first is for building the model, the second is for testing the model at the endpoint. The third is used in [batch testing](luis-how-to-batch-test.md). The first set is not used in training the application nor sent on the endpoint. 
 
 ## Next steps
 

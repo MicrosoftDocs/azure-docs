@@ -3,18 +3,18 @@ title: Connecting Microsoft Azure Application Gateway to Azure Security Center |
 description: Learn how to integrate Application Gateway and Azure Security Center to enhance the overall security of your resources.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: mbaldwin
 editor: ''
 
 ms.assetid: 6af354da-f27a-467a-8b7e-6cbcf70fdbcb
 ms.service: security-center
-ms.topic: article
+ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/07/2018
-ms.author: terrylan
+ms.date: 08/30/2018
+ms.author: rkarlin
 
 ---
 # Connecting Microsoft Azure Application Gateway to Azure Security Center
@@ -33,9 +33,9 @@ Security Center discovers previously deployed WAF instances in the subscription.
 
 1. Sign into the [Azure portal](https://azure.microsoft.com/features/azure-portal/).
 
-2. On the **Microsoft Azure menu**, select **Security Center**. **Security Center - Overview** opens.
+2. On the **Microsoft Azure menu**, select **Security Center**.
 
-3. Under **Overview**, select **Security solutions**.
+3. Under **RESOURCE SECURITY HYGIENE**, select **Security solutions**.
 
   ![Security Center Overview](./media/security-center-connect-application-gateway/overview.png)
 

@@ -1,25 +1,15 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Use Azure IoT Edge devices as gateways | Microsoft Docs 
 description: Use Azure IoT Edge to create a transparent, opaque or proxy gateway device that sends data from multiple downstream devices to the cloud or processes it locally.
-services: iot-edge
-keywords: 
 author: kgremban
 manager: timlt
-
 ms.author: kgremban
 ms.date: 11/27/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.devlang:devlang-from-white-list
-# ms.suite: 
-# ms.tgt_pltfrm:
-# ms.reviewer:
+services: iot-edge
 ---
-# How an IoT Edge device can be used as a gateway - preview
+# How an IoT Edge device can be used as a gateway
 
 The purpose of gateways in IoT solutions is specific to the solution and combine device connectivity with edge analytics. Azure IoT Edge can be used to satisfy all needs for an IoT gateway regardless of whether they are related to connectivity, identity, or edge analytics. Gateway patterns in this article only refer to characteristics of downstream device connectivity and device identity, not how device data is processed on the gateway.
 
@@ -58,7 +48,7 @@ When using an opaque gateway (protocol translation) pattern, all devices connect
 ## Next steps
 Use an IoT Edge device as a [transparent gateway][lnk-iot-edge-as-transparent-gateway] 
 
-[lnk-iot-edge-as-transparent-gateway]: ./how-to-create-transparent-gateway.md
+[lnk-iot-edge-as-transparent-gateway]: ./how-to-create-transparent-gateway-linux.md
 [lnk-iothub-throttles-quotas]: ../iot-hub/iot-hub-devguide-quotas-throttling.md
 
 [1]: ./media/iot-edge-as-gateway/edge-as-gateway.png

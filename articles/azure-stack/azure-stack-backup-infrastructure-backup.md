@@ -13,8 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 9/10/2018
 ms.author: mabrigg
+ms.reviewer: hectorl
 
 ---
 # Backup and data recovery for Azure Stack with the Infrastructure Backup Service
@@ -32,7 +33,7 @@ Before you enable your backup service, make sure you have [requirements in place
 
 ## The Infrastructure Backup Service
 
-The services contains the following features.
+The services contain the following features.
 
 | Feature                                            | Description                                                                                                                                                |
 |----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -49,7 +50,7 @@ The services contains the following features.
 - **Credentials**  
   You need a domain user account and credentials, for example, you may use the Azure Stack administrator credentials.
 - **Encryption key**  
-  Backup files are encrypted using this key. Make sure to store this key in a secure location. Once you set this key for the first time or rotate the key in the future, you cannot view this key from this interface. For more instructions to generate a pre-shared key, follow the scripts at [Enable Backup for Azure Stack with PowerShell](http://azure-stack-backup-enable-backup-powershell.md).
+  Backup files are encrypted using this key. Make sure to store this key in a secure location. Once you set this key for the first time or rotate the key in the future, you cannot view this key from this interface. For more instructions to generate a pre-shared key, follow the scripts at [Enable Backup for Azure Stack with PowerShell](azure-stack-backup-enable-backup-powershell.md).
 
 ## Next steps
 

@@ -1,39 +1,34 @@
----
+﻿---
 title: 'Quickstart: Pause and resume compute in Azure SQL Data Warehouse - PowerShell | Microsoft Docs'
-description: PowerShell tasks that pause compute for an Azure SQL Data Warehouse to save costs. Resume compute when you are ready to use the data warehouse.
+description: Use PowerShell to pause compute in Azure SQL Data Warehouse to save costs. Resume compute when you are ready to use the data warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jhubbard
-editor: ''
-
+author: kevinvngo
+manager: craigg
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: manage
-ms.date: 01/25/2018
-ms.author: barbkess
-
+ms.topic: conceptual
+ms.component: manage
+ms.date: 04/17/2018
+ms.author: kevin
+ms.reviewer: igorstan
 ---
-# Quickstart: Pause and resume compute for an Azure SQL Data Warehouse in PowerShell
-Use PowerShell to pause compute for an Azure SQL Data Warehouse to save costs. [Resume compute](sql-data-warehouse-manage-compute-overview.md) when you are ready to use the data warehouse.
+
+# Quickstart: Pause and resume compute in Azure SQL Data Warehouse with PowerShell
+Use PowerShell to pause compute in Azure SQL Data Warehouse to save costs. [Resume compute](sql-data-warehouse-manage-compute-overview.md) when you are ready to use the data warehouse.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
-This tutorial requires Azure PowerShell module version 5.1.1 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version you have currently. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps.md). 
+This tutorial requires Azure PowerShell module version 5.1.1 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version you have currently. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
 ## Before you begin
 
-This quickstart assumes you already have a SQL data warehouse that you can pause and resume. If you need to create one, you can use [Create and Connect - portal](create-data-warehouse-portal.md) to create a data warehouse called **mySampleDataWarehouse**. 
+This quickstart assumes you already have a SQL data warehouse that you can pause and resume. If you need to create one, you can use [Create and Connect - portal](create-data-warehouse-portal.md) to create a data warehouse called **mySampleDataWarehouse**.
 
 ## Log in to Azure
 
-Log in to your Azure subscription using the [Add-AzureRmAccount](/powershell/module/azurerm.profile/add-azurermaccount) command and follow the on-screen directions.
+Log in to your Azure subscription using the [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) command and follow the on-screen directions.
 
 ```powershell
-Add-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 To see which subscription you are using, run [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription).
@@ -50,7 +45,7 @@ Select-AzureRmSubscription -SubscriptionName "MySubscription"
 
 ## Look up data warehouse information
 
-Locate the database name, server name, and resource group for the data warehouse you plan to pause and resume. 
+Locate the database name, server name, and resource group for the data warehouse you plan to pause and resume.
 
 Follow these steps to find location information for your data warehouse.
 
@@ -60,14 +55,14 @@ Follow these steps to find location information for your data warehouse.
 
     ![Server name and resource group](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
-4. Write down the data warehouse name, which is the database name. Also write down the server name, and the resource group. You 
+4. Write down the data warehouse name, which is the database name. Also write down the server name, and the resource group. You
 5.  these in the pause and resume commands.
 6. If your server is foo.database.windows.net, use only the first part as the server name in the PowerShell cmdlets. In the preceding image, the full server name is newserver-20171113.database.windows.net. Drop the suffix and use **newserver-20171113** as the server name in the PowerShell cmdlet.
 
 ## Pause compute
-To save costs, you can pause and resume compute resources on-demand. For example, if you are not using the database during the night and on weekends, you can pause it during those times, and resume it during the day. There is no charge for compute resources while the database is paused. However, you continue to be charged for storage. 
+To save costs, you can pause and resume compute resources on-demand. For example, if you are not using the database during the night and on weekends, you can pause it during those times, and resume it during the day. There is no charge for compute resources while the database is paused. However, you continue to be charged for storage.
 
-To pause a database, use the [Suspend-AzureRmSqlDatabase](/powershell/module/azurerm.sql/suspend-azurermsqldatabase.md) cmdlet. The following example pauses a data warehouse named **mySampleDataWarehouse** hosted on a server named **newserver-20171113**. The server is in an Azure resource group named **myResourceGroup**.
+To pause a database, use the [Suspend-AzureRmSqlDatabase](/powershell/module/azurerm.sql/suspend-azurermsqldatabase) cmdlet. The following example pauses a data warehouse named **mySampleDataWarehouse** hosted on a server named **newserver-20171113**. The server is in an Azure resource group named **myResourceGroup**.
 
 
 ```Powershell
@@ -93,7 +88,7 @@ Resume-AzureRmSqlDatabase –ResourceGroupName "myResourceGroup" `
 –ServerName "newserver-20171113" -DatabaseName "mySampleDataWarehouse"
 ```
 
-A variation, this next example retrieves the database into the $database object. It then pipes the object to [Resume-AzureRmSqlDatabase](/powershell/module/azurerm.sql/resume-azurermsqldatabase.md) and stores the results in $resultDatabase. The final command shows the results.
+A variation, this next example retrieves the database into the $database object. It then pipes the object to [Resume-AzureRmSqlDatabase](/powershell/module/azurerm.sql/resume-azurermsqldatabase) and stores the results in $resultDatabase. The final command shows the results.
 
 ```Powershell
 $database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" `
@@ -104,10 +99,10 @@ $resultDatabase
 
 ## Clean up resources
 
-You are being charged for data warehouse units and data stored your data warehouse. These compute and storage resources are billed separately. 
+You are being charged for data warehouse units and data stored your data warehouse. These compute and storage resources are billed separately.
 
 - If you want to keep the data in storage, pause compute.
-- If you want to remove future charges, you can delete the data warehouse. 
+- If you want to remove future charges, you can delete the data warehouse.
 
 Follow these steps to clean up resources as you desire.
 

@@ -8,11 +8,12 @@ manager:
 editor:
 
 ms.assetid: f168870c-b43a-4dd6-a13f-5cfadc5edf2c
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ergreenl
 
@@ -25,7 +26,7 @@ This article helps you troubleshoot and resolve service principal-related config
 
 **Alert message:** *A Service Principal required for Azure AD Domain Services to function properly has been deleted from your Azure AD directory. This configuration impacts Microsoft's ability to monitor, manage, patch, and synchronize your managed domain.*
 
-[Service principals](../active-directory/develop/active-directory-application-objects.md) are applications that Microsoft uses to manage, update, and maintain your managed domain. If they are deleted, it breaks Microsoft's ability to service your domain.
+[Service principals](../active-directory/develop/app-objects-and-service-principals.md) are applications that Microsoft uses to manage, update, and maintain your managed domain. If they are deleted, it breaks Microsoft's ability to service your domain.
 
 
 ## Check for missing service principals
@@ -93,7 +94,7 @@ Azure AD Domain Services can detect when this specific service principal is miss
 
 ## Alert AADDS105: Password synchronization application is out of date
 
-**Alert message:** The service principal with the application ID “d87dcbc6-a371-462e-88e3-28ad15ec4e64” was deleted, and Microsoft was able to recreate it. This service principal manages another service principal and an application that are used for password synchronization. The managed service principal and application are not authorized under the newly created service principal, and will become outdated when the synchronization certificate expires. This means that the newly created service principal will be unable to update the old managed applications and synchronization of objects from AAD will be affected.
+**Alert message:** The service principal with the application ID “d87dcbc6-a371-462e-88e3-28ad15ec4e64” was deleted and then recreated. The recreation leaves behind inconsistent permissions on Azure AD Domain Services resources needed to service your managed domain. Synchronization of passwords on your managed domain could be affected.
 
 
 **Resolution:**
@@ -109,8 +110,8 @@ To address this issue, type the following commands in a PowerShell window:
 2. Delete the old application and object using the following PowerShell commands
 
     ```powershell
-    $app = Get-AzureADApplication -Filter "DisplayName eq 'Azure AD Domain Services Sync'"
-    Remove-AzureADApplication -ObjectId $app.ObjectId
+    $app = Get-AzureADApplication -Filter "IdentifierUris eq 'https://sync.aaddc.activedirectory.windowsazure.com'"
+    Remove-AzureADApplication -ObjectId $app.ObjectId
     $spObject = Get-AzureADServicePrincipal -Filter "DisplayName eq 'Azure AD Domain Services Sync'"
     Remove-AzureADServicePrincipal -ObjectId $app.ObjectId
     ```

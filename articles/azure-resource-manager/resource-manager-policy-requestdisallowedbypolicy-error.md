@@ -1,7 +1,7 @@
 ---
 title: RequestDisallowedByPolicy error with Azure resource policy | Microsoft Docs
 description: Describes the cause of the RequestDisallowedByPolicy error.
-services: azure-resource-manager,azure-portal
+services: azure-resource-manager
 documentationcenter: ''
 author: genlin
 manager: cshepard
@@ -11,7 +11,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: support-article
+ms.topic: troubleshooting
 ms.date: 03/09/2018
 ms.author: genli
 
@@ -47,7 +47,7 @@ In PowerShell, provide that policy identifier as the `Id` parameter to retrieve 
 
 ### Azure CLI
 
-In Azure CLI 2.0, provide the name of the policy definition:
+In Azure CLI, provide the name of the policy definition:
 
 ```azurecli
 az policy definition show --name regionPolicyAssignment

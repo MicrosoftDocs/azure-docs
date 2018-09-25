@@ -1,12 +1,11 @@
 ---
 title: "Security filters for trimming Azure Search results using Active Directory identities | Microsoft Docs"
 description: Access control on Azure Search content using security filters and Active Directory identities.
-services: search
 author: "revitalbarletz"
 manager: "jlembicz"
-
+services: search
 ms.service: search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/07/2017
 ms.author: revitalb
 ---
@@ -58,7 +57,7 @@ However, if you don't have existing users, you can use Microsoft Graph APIs to c
 
 User and group membership might be very fluid, especially in large organizations. Code that builds user and group identities should run often enough to pick up changes in organization membership. Likewise, your Azure Search index requires a similar update schedule to reflect the current status of permitted users and resources.
 
-### Step 1: Create [AAD Group](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/group_post_groups) 
+### Step 1: Create [AAD Group](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/group_post_groups) 
 ```csharp
 // Instantiate graph client 
 GraphServiceClient graph = new GraphServiceClient(new DelegateAuthenticationProvider(...));
@@ -72,7 +71,7 @@ Group group = new Group()
 Group newGroup = await graph.Groups.Request().AddAsync(group);
 ```
    
-### Step 2: Create [AAD User](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_post_users) 
+### Step 2: Create [AAD User](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_post_users) 
 ```csharp
 User user = new User()
 {
@@ -133,7 +132,7 @@ To filter documents returned in search results based on groups of the user issui
 
 ### Step 1: Retrieve user's group identifiers
 
-If the user's groups were not already cached, or the cache has expired, issue the [groups](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/directoryobject_getmembergroups) request
+If the user's groups were not already cached, or the cache has expired, issue the [groups](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/directoryobject_getmembergroups) request
 ```csharp
 private static void RefreshCacheIfRequired(string user)
 {
