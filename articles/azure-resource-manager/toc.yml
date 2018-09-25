@@ -23,6 +23,8 @@
     href: resource-manager-tutorial-create-templates-with-dependent-resources.md
   - name: Create linked templates
     href: resource-manager-tutorial-create-linked-templates.md
+  - name: Use safe deployment practices
+    href: deployment-manager-tutorial.md
 - name: Concepts
   items:
   - name: Resource providers and types

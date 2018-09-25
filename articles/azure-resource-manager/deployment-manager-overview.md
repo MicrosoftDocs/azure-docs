@@ -327,3 +327,8 @@ Then, use that parameter in your template:
 You manage versioned deployments by creating new folders and passing in that root during rollout. The path flows through to the template that deploys the resources.
 
 ## Next steps
+
+In this article, you learned about Deployment Manager. Proceed to the next article to learn how to deploy with Deployment Manager.
+
+> [!div class="nextstepaction"]
+> [Tutorial: Use Azure Deployment Manager with Resource Manager templates](./deployment-manager-tutorial.md)
