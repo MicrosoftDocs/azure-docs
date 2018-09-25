@@ -28796,6 +28796,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/application-gateway/application-gateway-web-application-firewall-overview.md",
+            "redirect_url": "/azure/application-gateway/waf-overview",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/azure-resource-manager/management-groups-manage.md",
             "redirect_url": "/azure/governance/management-groups/manage",
             "redirect_document_id": false
