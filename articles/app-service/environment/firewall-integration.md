@@ -1,5 +1,5 @@
 ---
-title: Locking down App Service Environment outbound traffic
+title: Locking down Azure App Service Environment outbound traffic
 description: Describes how to integrate with Azure Firewall to secure outbound traffic
 services: app-service
 documentationcenter: na
@@ -16,7 +16,7 @@ ms.author: ccompy
 
 ---
 
-## Overview ##
+# App Service Environment certificates overview 
 
 The App Service Environment (ASE) has a number of external dependencies that it requires access to in order to function properly. The ASE lives in the customer Azure Virtual Network (VNet). Customers must allow the ASE dependency traffic, which is a problem for customers that want to lock down all egress from their VNet.
 
@@ -26,7 +26,7 @@ The ASE outbound dependencies are almost entirely defined with FQDNs, which do n
 
 The solution to securing outbound addresses lies in use of a firewall device that can control outbound traffic based on domain names. The Azure Networking team has put a new network appliance into Preview called Azure Firewall. The Azure Firewall is capable of restricting egress HTTP and HTTPS traffic based on the DNS name of the destination.  
 
-## Configuring Azure Firewall with your ASE ##
+## Configuring Azure Firewall with your ASE 
 
 The steps to lock down egress from your ASE with Azure Firewall are:
 
@@ -38,7 +38,7 @@ The steps to lock down egress from your ASE with Azure Firewall are:
 6. Create Service Endpoints for your ASE subnet to Azure SQL and Azure Storage
 7. Assign the route table you created to your ASE subnet  
 
-## Application traffic ##
+## Application traffic 
 
 The above steps will allow your ASE to operate without problems. You still need to configure things to accommodate your application needs. There are two problems for applications in an ASE that is configured with Azure Firewall.  
 
@@ -61,7 +61,7 @@ The Azure App Service has a number of external dependencies. They can be categor
 - Linux dependencies are only a concern if you are deploying Linux apps into your ASE. If you are not deploying Linux apps into your ASE, then these addresses do not need to be added to your firewall. 
 
 
-#### Service Endpoint capable dependencies ####
+#### Service Endpoint capable dependencies 
 
 | Endpoint |
 |----------|
@@ -70,7 +70,7 @@ The Azure App Service has a number of external dependencies. They can be categor
 | Azure KeyVault |
 
 
-#### IP address dependencies ####
+#### IP address dependencies 
 
 | Endpoint |
 |----------|
@@ -83,7 +83,7 @@ The Azure App Service has a number of external dependencies. They can be categor
 | 168.62.226.198:12000 |
 
 
-#### FQDN HTTP/HTTPS dependencies ####
+#### FQDN HTTP/HTTPS dependencies 
 
 | Endpoint |
 |----------|
@@ -139,7 +139,7 @@ The Azure App Service has a number of external dependencies. They can be categor
 |azureprofileruploads4.blob.core.windows.net:443 |
 |azureprofileruploads5.blob.core.windows.net:443 |
 
-#### Wildcard HTTP/HTTPS dependencies ####
+#### Wildcard HTTP/HTTPS dependencies 
 
 | Endpoint |
 |----------|
@@ -154,7 +154,7 @@ The Azure App Service has a number of external dependencies. They can be categor
 |graudprod\*mini\*.servicebus.windows.net:443 |
 |graudprod\*lini\*.servicebus.windows.net:443 |
 
-#### Linux dependencies ####
+#### Linux dependencies 
 
 | Endpoint |
 |----------|
