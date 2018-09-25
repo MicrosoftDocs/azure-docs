@@ -7,14 +7,14 @@ manager: mikemcca
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 09/14/2018
 ms.author: sajagtap
 ---
 
 # Moderate with custom image lists in .NET
 
 This article provides information and code samples to help you get started using 
-the Content Moderator SDK for .NET to:
+the [Content Moderator SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) to:
 - Create a custom image list
 - Add and remove images from the list
 - Get the IDs of all images in the list
@@ -46,9 +46,6 @@ Refer to the [Quickstart](quick-start.md) to learn how you can obtain the key.
 
 1. Select this project as the single startup project for the solution.
 
-1. Add a reference to the **ModeratorHelper** project assembly that you created 
-   in the [Content Moderator client helper quickstart](content-moderator-helper-quickstart-dotnet.md).
-
 ### Install required packages
 
 Install the following NuGet packages:
@@ -61,14 +58,65 @@ Install the following NuGet packages:
 
 Modify the program's using statements.
 
+	using Microsoft.Azure.CognitiveServices.ContentModerator;
 	using Microsoft.CognitiveServices.ContentModerator;
 	using Microsoft.CognitiveServices.ContentModerator.Models;
-	using ModeratorHelper;
 	using Newtonsoft.Json;
 	using System;
 	using System.Collections.Generic;
 	using System.IO;
 	using System.Threading;
+
+### Create the Content Moderator client
+
+Add the following code to create a Content Moderator client for your subscription.
+
+> [!IMPORTANT]
+> Update the **AzureRegion** and **CMSubscriptionKey** fields with 
+> the values of your region identifier and subscription key.
+
+
+    /// <summary>
+    /// Wraps the creation and configuration of a Content Moderator client.
+    /// </summary>
+    /// <remarks>This class library contains insecure code. If you adapt this 
+    /// code for use in production, use a secure method of storing and using
+    /// your Content Moderator subscription key.</remarks>
+    public static class Clients
+    {
+        /// <summary>
+        /// The region/location for your Content Moderator account, 
+        /// for example, westus.
+        /// </summary>
+        private static readonly string AzureRegion = "YOUR API REGION";
+
+        /// <summary>
+        /// The base URL fragment for Content Moderator calls.
+        /// </summary>
+        private static readonly string AzureBaseURL =
+            $"https://{AzureRegion}.api.cognitive.microsoft.com";
+
+        /// <summary>
+        /// Your Content Moderator subscription key.
+        /// </summary>
+        private static readonly string CMSubscriptionKey = "YOUR API KEY";
+
+        /// <summary>
+        /// Returns a new Content Moderator client for your subscription.
+        /// </summary>
+        /// <returns>The new client.</returns>
+        /// <remarks>The <see cref="ContentModeratorClient"/> is disposable.
+        /// When you have finished using the client,
+        /// you should dispose of it either directly or indirectly. </remarks>
+        public static ContentModeratorClient NewClient()
+        {
+            // Create and initialize an instance of the Content Moderator API wrapper.
+            ContentModeratorClient client = new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey));
+
+            client.BaseUrl = AzureBaseURL;
+            return client;
+        }
+    }
 
 
 ### Initialize application-specific settings
@@ -1024,4 +1072,4 @@ The log file written by the program has the following output:
 
 ## Next steps
 
-[Download the Visual Studio solution](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) for this and other Content Moderator quickstarts for .NET, and get started on your integration.
+Get the [Content Moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) and the [Visual Studio solution](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) for this and other Content Moderator quickstarts for .NET, and get started on your integration.

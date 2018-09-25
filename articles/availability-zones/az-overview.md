@@ -3,7 +3,7 @@ title: What are Azure Availability Zones? | Microsoft Docs
 description: To create highly available and resilient applications in Azure, Availability Zones provide physically separate locations you can use to run your resources.
 services: 
 documentationcenter:
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor:
 tags:
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/27/2018
-ms.author: iainfou
+ms.date: 08/31/2018
+ms.author: cynthn
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications). 
 ---
 
@@ -35,10 +35,13 @@ To achieve comprehensive business continuity on Azure, build your application ar
 ## Regions that support Availability Zones
 
 - Central US
-- France Central
 - East US 2 (Preview)
-- West Europe
+- France Central
+- North Europe
 - Southeast Asia (Preview)
+- West Europe
+- West US 2
+
 
 
 ## Services that support Availability Zones
@@ -69,7 +72,7 @@ There is no additional cost for virtual machines deployed in an Availability Zon
 - [Load balance VMs across zones using a Standard Load Balancer with a zone-redundant frontend](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
 - [Load balance VMs within a zone using a Standard Load Balancer with a zonal frontend](../load-balancer/load-balancer-standard-public-zonal-cli.md)
 - [Zone-redundant storage](../storage/common/storage-redundancy-zrs.md)
-- [SQL Database](../sql-database/sql-database-high-availability.md#zone-redundant-configuration)
+- [SQL Database](../sql-database/sql-database-high-availability.md#zone-redundant-configuration-preview)
 - [Event Hubs geo-disaster recovery](../event-hubs/event-hubs-geo-dr.md#availability-zones-preview)
 - [Service Bus geo-disaster recovery](../service-bus-messaging/service-bus-geo-dr.md#availability-zones-preview)
 - [Create a zone-redundant virtual network gateway](../vpn-gateway/create-zone-redundant-vnet-gateway.md)

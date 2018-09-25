@@ -1,12 +1,14 @@
 ---
 title: Create a Kubernetes cluster with Azure Kubernetes Service (AKS) and Terraform
 description: Tutorial illustrating how to create a Kubernetes Cluster with Azure Kubernetes Service and Terraform
+services: terraform
+ms.service: terraform
 keywords: terraform, devops, virtual machine, azure, kubernetes
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 06/11/2018
-ms.topic: article
+ms.topic: tutorial
+ms.date: 09/08/2018
 ---
 
 # Create a Kubernetes cluster with Azure Kubernetes Service and Terraform
@@ -25,7 +27,7 @@ In this tutorial, you learn how to perform the following tasks in creating a [Ku
 
 - **Configure Terraform**: Follow the directions in the article, [Terraform and configure access to Azure](/azure/virtual-machines/linux/terraform-install-configure)
 
-- **Azure service principal**: Follow the directions in the section of the **Create the service principal** section in the article, [Create an Azure service principal with Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal). Take note of the values for the appId, displayName, password, and tenant.
+- **Azure service principal**: Follow the directions in the section of the **Create the service principal** section in the article, [Create an Azure service principal with Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal). Take note of the values for the appId, displayName, password, and tenant.
 
 ## Create the directory structure
 The first step is to create the directory that holds your Terraform configuration files for the exercise.
@@ -69,7 +71,7 @@ Create the Terraform configuration file that declares the Azure provider.
 
     ```JSON
     provider "azurerm" {
-        version = "=1.5.0"
+        version = "~>1.5"
     }
 
     terraform {
@@ -122,7 +124,7 @@ Create the Terraform configuration file that declares the resources for the Kube
         agent_pool_profile {
             name            = "default"
             count           = "${var.agent_count}"
-            vm_size         = "Standard_D2"
+            vm_size         = "Standard_DS2_v2"
             os_type         = "Linux"
             os_disk_size_gb = 30
         }
@@ -288,7 +290,14 @@ In this section, you see how to use the `terraform init` command to create the r
 
     ![Example of "terraform init" results](./media/terraform-create-k8s-cluster-with-tf-and-aks/terraform-init-complete.png)
 
-1. Run the `terraform plan` command to create the Terraform plan that defines the infrastructure elements. The command will request two values: **var.client_id** and **var.client_secret**. For the **var.client_id** variable, enter the **appId** value associated with your service principal. For the **var.client_secret** variable, enter the **password** value associated with your service principal.
+1. Export your service principal credentials. Replace the &lt;your-client-id> and &lt;your-client-secret> placeholders with the **appId** and **password** values associated with your service principal, respectively.
+
+    ```bash
+    export TF_VAR_client_id=<your-client-id>
+    export TF_VAR_client_secret=<your-client-secret>
+    ```
+
+1. Run the `terraform plan` command to create the Terraform plan that defines the infrastructure elements. 
 
     ```bash
     terraform plan -out out.plan

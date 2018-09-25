@@ -77,7 +77,7 @@ There is a known issue, where you might have to reference services differently i
 
 For other known DNS issues with running a Service Fabric development cluster on Windows 10, see here: [Debug Windows containers](/azure/service-fabric/service-fabric-how-to-debug-windows-containers).
 
-**I get this error when using the CLI module _ImportError: cannot import name 'sdk_no_wait'**
+**I get this error when using the CLI module, ImportError: cannot import name 'sdk_no_wait'**
 
 If you are using older CLI version than 2.0.30, you may get this error -
 

@@ -13,58 +13,48 @@ ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/31/2018
+ms.topic: tutorial
+ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
 
+#Customer intent: As a IT admin, I want to setup hybrid Azure AD joined devices so that I can automatically bring AD domain-joined devices under control
 ---
 # Tutorial: Configure hybrid Azure Active Directory joined devices manually 
 
-With device management in Azure Active Directory (Azure AD), you can ensure that your users are accessing your resources from devices that meet your standards for security and compliance. For more details, see [../Introduction to device management in Azure Active Directory](../device-management-introduction.md).
-
-If you have an on-premises Active Directory environment and you want to join your domain-joined devices to Azure AD, you can accomplish this by configuring hybrid Azure AD joined devices. This article provides you with the related steps. 
-
+With device management in Azure Active Directory (Azure AD), you can ensure that your users are accessing your resources from devices that meet your standards for security and compliance. For more details, see the [Introduction to device management in Azure Active Directory](overview.md).
 
 
 > [!TIP]
 > If using Azure AD Connect is an option for you, see [Select your scenario](hybrid-azuread-join-plan.md#select-your-scenario). By using Azure AD Connect, you can simplify the configuration of hybrid Azure AD join significantly.
 
 
-## Before you begin
 
-Before you start configuring hybrid Azure AD joined devices in your environment, you should familiarize yourself with the supported scenarios and the constraints.  
+If you have an on-premises Active Directory environment and you want to join your domain-joined devices to Azure AD, you can accomplish this by configuring hybrid Azure AD joined devices. In this tutorial, you learn how to manually configure hybrid Azure AD join for your devices.
 
-If you are relying on the [System Preparation Tool (Sysprep)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc721940(v=ws.10)), please make sure you create images from an installation of Windows that has not been yet registered with Azure AD.
+> [!div class="checklist"]
+> * Prerequisites
+> * Configuration steps
+> * Configure service connection point
+> * Setup issuance of claims
+> * Enable Windows down-level devices
+> * Verify joined devices
+> * Troubleshoot your implementation
+ 
 
-All domain-joined devices running Windows 10 Anniversary Update and Windows Server 2016 automatically register with Azure AD at device restart or user sign-in once the configuration steps mentioned below are complete. **If this automatic register behavior is not preferred or if a controlled rollout is desired**, please follow instructions in the "Step 4: Control Deployment and Rollout" section below first to selectively enable or disable automatic rollout before following the other configuration steps.  
-
-To improve the readability of the descriptions, this article uses the following term: 
-
-- **Windows current devices** - This term refers to domain-joined devices running Windows 10 or Windows Server 2016.
-- **Windows down-level devices** - This term refers to all **supported** domain-joined Windows devices that are neither running Windows 10 nor Windows Server 2016.  
-
-### Windows current devices
-
-- For devices running the Windows desktop operating system, the supported version is the Windows 10 Anniversary Update (version 1607) or later. 
-- The registration of Windows current devices **is** supported in non-federated environments such as password hash sync configurations.  
-
-
-### Windows down-level devices
-
-- The following Windows down-level devices are supported:
-    - Windows 8.1
-    - Windows 7
-    - Windows Server 2012 R2
-    - Windows Server 2012
-    - Windows Server 2008 R2
-- The registration of Windows down-level devices **is** supported in non-federated environments through Seamless Single Sign On [Azure Active Directory Seamless Single Sign-On](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start). 
-- The registration of Windows down-level devices **is not** supported when using Azure AD Pass-through Authentication without Seamless Single Sign On.
-- The registration of Windows down-level devices **is not** supported for devices using roaming profiles. If you are relying on roaming of profiles or settings, use Windows 10.
 
 
 
 ## Prerequisites
+
+This tutorial assumes that you are familiar with:
+    
+-  [Introduction to device management in Azure Active Directory](../device-management-introduction.md)
+    
+-  [How to plan your hybrid Azure Active Directory join implementation](hybrid-azuread-join-plan.md)
+
+-  [How to control the hybrid Azure AD join of your devices](hybrid-azuread-join-control.md)
+
 
 Before you start enabling hybrid Azure AD joined devices in your organization, you need to make sure that:
 
@@ -111,15 +101,14 @@ Use the following table to get an overview of the steps that are required for yo
 
 | Steps                                      | Windows current and password hash sync | Windows current and federation | Windows down-level |
 | :--                                        | :-:                                    | :-:                            | :-:                |
-| Step 1: Configure service connection point | ![Check][1]                            | ![Check][1]                    | ![Check][1]        |
-| Step 2: Setup issuance of claims           |                                        | ![Check][1]                    | ![Check][1]        |
-| Step 3: Enable non-Windows 10 devices      |                                        |                                | ![Check][1]        |
-| Step 4: Control deployment and rollout     | ![Check][1]                            | ![Check][1]                    | ![Check][1]        |
-| Step 5: Verify joined devices          | ![Check][1]                            | ![Check][1]                    | ![Check][1]        |
+| Configure service connection point | ![Check][1]                            | ![Check][1]                    | ![Check][1]        |
+| Setup issuance of claims           |                                        | ![Check][1]                    | ![Check][1]        |
+| Enable non-Windows 10 devices      |                                        |                                | ![Check][1]        |
+| Verify joined devices          | ![Check][1]                            | ![Check][1]                    | ![Check][1]        |
 
 
 
-## Step 1: Configure service connection point
+## Configure service connection point
 
 The service connection point (SCP) object is used by your devices during the registration to discover Azure AD tenant information. In your on-premises Active Directory (AD), the SCP object for the hybrid Azure AD joined devices must exist in the configuration naming context partition of the computer's forest. There is only one configuration naming context per forest. In a multi-forest Active Directory configuration, the service connection point must exist in all forests containing domain-joined computers.
 
@@ -197,7 +186,7 @@ To get a list of your verified company domains, you can use the [Get-AzureADDoma
 
 ![Get-AzureADDomain](./media/hybrid-azuread-join-manual-steps/01.png)
 
-## Step 2: Setup issuance of claims
+## Setup issuance of claims
 
 In a federated Azure AD configuration, devices rely on Active Directory Federation Services (AD FS) or a 3rd party on-premises federation service to authenticate to Azure AD. Devices authenticate to get an access token to register against the Azure Active Directory Device Registration Service (Azure DRS).
 
@@ -501,7 +490,7 @@ The following script helps you with the creation of the issuance transform rules
 
 - If you have already issued an **ImmutableID** claim  for user accounts, set the value of **$immutableIDAlreadyIssuedforUsers** in the script to **$true**.
 
-## Step 3: Enable Windows down-level devices
+## Enable Windows down-level devices
 
 If some of your domain-joined devices are Windows down-level devices, you need to:
 
@@ -559,64 +548,25 @@ To avoid certificate prompts when users in register devices authenticate to Azur
 
 `https://device.login.microsoftonline.com`
 
-## Step 4: Control deployment and rollout
 
-When you have completed the required steps, domain-joined devices are ready to automatically join Azure AD:
-
-- All domain-joined devices running Windows 10 Anniversary Update and Windows Server 2016 automatically register with Azure AD at device restart or user sign-in. 
-
-- New devices register with Azure AD when the device restarts after the domain join operation is completed.
-
-- Devices that were previously Azure AD registered (for example, for Intune) transition to “*Domain Joined, AAD Registered*”; however it takes some time for this process to complete across all devices due to the normal flow of domain and user activity.
-
-### Remarks
-
-- You can use a Group Policy object or System Center Configuration Manager client setting to control the rollout of automatic registration of Windows 10 and Windows Server 2016 domain-joined computers. **If you do not want these devices to automatically register with Azure AD or you want to control the registration**, then you must roll out group policy disabling the automatic registration to all these devices first or if you are using Configuration Manager you must configure the client setting under Cloud Services -> Automatically register new Windows 10 domain joined devices with Azure Active Directory to "No", before starting with any of the configuration steps. After you are done configuring, and when you are ready to test, you must roll out group policy enabling the automatic registration only to the test devices and then to all other devices as you choose.
-
-- To rollout of Windows down-level computers, you can deploy a [Windows Installer package](#windows-installer-packages-for-non-windows-10-computers) to computers that you select.
-
-- If you push the Group Policy object to Windows 8.1 domain-joined devices, a join is attempted; however it is recommended that you use the [Windows Installer package](#windows-installer-packages-for-non-windows-10-computers) to join all your Windows down-level devices. 
-
-### Create a Group Policy object 
-
-To control the rollout of Windows current computers, you should deploy the **Register domain-joined computers as devices** Group Policy object to the devices you want to register. For example, you can deploy the policy to an organizational unit or to a security group.
-
-**To set the policy:**
-
-1. Open **Server Manager**, and then go to `Tools > Group Policy Management`.
-2. Go to the domain node that corresponds to the domain where you want to activate auto-registration of Windows current computers.
-3. Right-click **Group Policy Objects**, and then select **New**.
-4. Type a name for your Group Policy object. For example, *Hybrid Azure AD join. 
-5. Click **OK**.
-6. Right-click your new Group Policy object, and then select **Edit**.
-7. Go to **Computer Configuration** > **Policies** > **Administrative Templates** > **Windows Components** > **Device Registration**. 
-8. Right-click **Register domain-joined computers as devices**, and then select **Edit**.
-   
-   > [!NOTE]
-   > This Group Policy template has been renamed from earlier versions of the Group Policy Management console. If you are using an earlier version of the console, go to `Computer Configuration > Policies > Administrative Templates > Windows Components > Workplace Join > Automatically workplace join client computers`. 
-
-7. Select **Enabled**, and then click **Apply**. You must select **Disabled** if you want the policy to block the devices controlled by this group policy from automatically registering with Azure AD.
-
-8. Click **OK**.
-9. Link the Group Policy object to a location of your choice. For example, you can link it to a specific organizational unit. You also could link it to a specific security group of computers that automatically join with Azure AD. To set this policy for all domain-joined Windows 10 and Windows Server 2016 computers in your organization, link the Group Policy object to the domain.
-
-### Windows Installer packages for non-Windows 10 computers
-
-To join domain-joined Windows down-level computers in a federated environment, you can download and install these Windows Installer package (.msi) from Download Center at the [Microsoft Workplace Join for non-Windows 10 computers](https://www.microsoft.com/en-us/download/details.aspx?id=53554) page.
-
-You can deploy the package by using a software distribution system like System Center Configuration Manager. The package supports the standard silent install options with the *quiet* parameter. System Center Configuration Manager Current Branch offers additional benefits from earlier versions, like the ability to track completed registrations. For more information, see [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager).
-
-The installer creates a scheduled task on the system that runs in the user’s context. The task is triggered when the user signs in to Windows. The task silently joins the device with Azure AD with the user credentials after authenticating using Integrated Windows Authentication. To see the scheduled task, in the device, go to **Microsoft** > **Workplace Join**, and then go to the Task Scheduler library.
-
-## Step 5: Verify joined devices
+## Verify joined devices
 
 You can check successful joined devices in your organization by using the [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) cmdlet in the [Azure Active Directory PowerShell module](/powershell/azure/install-msonlinev1?view=azureadps-2.0).
 
 The output of this cmdlet shows devices that are registered and joined with Azure AD. To get all devices, use the **-All** parameter, and then filter them using the **deviceTrustType** property. Domain joined devices have a value of **Domain Joined**.
 
+
+
+## Troubleshoot your implementation
+
+If you are experiencing issues with completing hybrid Azure AD join for domain joined Windows devices, see:
+
+- [Troubleshooting Hybrid Azure AD join for Windows current devices](troubleshoot-hybrid-join-windows-current.md)
+- [Troubleshooting Hybrid Azure AD join for Windows down-level devices](troubleshoot-hybrid-join-windows-legacy.md)
+
 ## Next steps
 
-* [Introduction to device management in Azure Active Directory](../device-management-introduction.md)
+* [Introduction to device management in Azure Active Directory](overview.md)
 
 
 

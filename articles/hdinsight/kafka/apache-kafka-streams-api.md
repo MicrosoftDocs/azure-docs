@@ -1,19 +1,14 @@
 ---
-title: 'Tutorial: Use the Apache Kafka Streams API - Azure HDInsight | Microsoft Docs'
+title: 'Tutorial: Use the Apache Kafka Streams API - Azure HDInsight '
 description: Learn how to use the Apache Kafka Streams API with Kafka on HDInsight. This API enables you to perform stream processing between topics in Kafka.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
-
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/17/2018
-ms.author: larryfr
 #Customer intent: As a developer, I need to create an application that uses the Kafka streams API with Kafka on HDInsight
 ---
 
@@ -222,7 +217,7 @@ To build and deploy the project to your Kafka on HDInsight cluster, use the foll
 2. To send records to the `test` topic, use the following command to start the producer application:
 
     ```bash
-    java -jar kafka-producer-consumer.jar producer $KAFKABROKERS
+    java -jar kafka-producer-consumer.jar producer test $KAFKABROKERS
     ```
 
 3. Once the producer completes, use the following command to view the information stored in the `wordcounts` topic:

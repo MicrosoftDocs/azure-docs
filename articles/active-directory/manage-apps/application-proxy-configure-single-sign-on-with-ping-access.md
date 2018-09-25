@@ -137,7 +137,7 @@ select **Assign a user for testing**, and add at least one user to the applicati
 
 ### Optional - Update GraphAPI to send custom fields
 
-For a list of security tokens that Azure AD sends for authentication, see [Azure AD token reference](./../develop/active-directory-token-and-claims.md). If you need a custom claim that sends other tokens, use Graph Explorer or the manifest for the application in the Azure Portal to set the app field *acceptMappedClaims* to **True**.    
+For a list of security tokens that Azure AD sends for authentication, see [Azure AD token reference](../develop/v1-id-and-access-tokens.md). If you need a custom claim that sends other tokens, use Graph Explorer or the manifest for the application in the Azure Portal to set the app field *acceptMappedClaims* to **True**.    
 
 This example uses Graph Explorer:
 

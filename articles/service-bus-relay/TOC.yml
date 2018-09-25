@@ -1,0 +1,80 @@
+- name: Service Bus Relay Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Relay?
+    href: relay-what-is-it.md
+  - name: FAQ
+    href: relay-faq.md
+- name: Quickstarts
+  items:
+  - name: Create a hybrid on-premises/cloud application
+    href: service-bus-dotnet-hybrid-app-using-service-bus-relay.md
+  - name: Hybrid Connections
+    items:
+    - name: .NET Websockets
+      href: relay-hybrid-connections-dotnet-get-started.md
+    - name: .NET HTTP
+      href: relay-hybrid-connections-http-requests-dotnet-get-started.md
+    - name: Node Websockets
+      href: relay-hybrid-connections-node-get-started.md
+    - name: Node HTTP
+      href: relay-hybrid-connections-http-requests-node-get-started.md
+  - name: WCF Relay tutorial
+    href: service-bus-relay-tutorial.md
+  - name: WCF Relay REST tutorial
+    href: service-bus-relay-rest-tutorial.md
+- name: How To
+  items:
+  - name: Plan and design
+    items:
+    - name: Authentication and security
+      href: relay-authentication-and-authorization.md
+      items:
+      - name: Migrate from ACS to SAS
+        href: relay-migrate-acs-sas.md
+    - name: Hybrid Connections protocol
+      href: relay-hybrid-connections-protocol.md
+  - name: Develop
+    items:
+    - name: Create a namespace
+      href: relay-create-namespace-portal.md
+    - name: Use WCF Relay to expose WCF services to external clients
+      href: relay-wcf-dotnet-get-started.md
+    - name: Available APIs
+      href: relay-api-overview.md
+      items:
+      - name: .NET
+        href: relay-hybrid-connections-dotnet-api-overview.md
+      - name: Node
+        href: relay-hybrid-connections-node-ws-api-overview.md
+  - name: Manage
+    items:
+    - name: Monitor Azure Relay with Azure Monitoring
+      href: relay-metrics-azure-monitor.md
+- name: Reference
+  items:
+  - name: .NET
+    items:
+    - name: Microsoft.Azure.Relay
+      href: /dotnet/api/microsoft.azure.relay
+    - name: Microsoft.ServiceBus
+      href: /dotnet/api/Microsoft.ServiceBus
+  - name: Exceptions
+    href: relay-exceptions.md
+  - name: Port settings
+    href: relay-port-settings.md
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=enterprise-integration
+  - name: Blog
+    href: https://blogs.msdn.microsoft.com/servicebus/
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/service-bus/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Samples
+    href: https://github.com/azure/azure-relay/tree/master/samples
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-servicebusrelay

@@ -1,11 +1,11 @@
-﻿---
+---
 title: Plan the scale of your Azure Time Series Insights environment | Microsoft Docs
 description: This article describes how to follow best practices when planning an Azure Time Series Insights environment, including storage capacity, data retention, ingress capacity, monitoring, and business disaster recovery (BCDR). 
 services: time-series-insights
 ms.service: time-series-insights
 author: ashannon7
-ms.author: jasonh
-manager: jhubbard
+ms.author: anshan
+manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
@@ -16,6 +16,12 @@ ms.date: 11/15/2017
 # Plan your Azure Time Series Insights environment
 
 This article describes how to plan your Azure Time Series Insights environment based on your expected ingress rate and your data retention requirements.
+
+## Video: 
+
+### In this video, we cover Time Series Insights data retention and how to plan for it.</br>
+
+> [!VIDEO https://www.youtube.com/embed/03x6zKDQ6DU]
 
 ## Best practices
 
@@ -58,8 +64,8 @@ The following table summarizes the ingress capacity for each SKU:
 
 |SKU  |Events Count Per Month, Per Unit  |Events size Per Month, Per Unit  |Events Count Per Minute, Per Unit  | Size Per Minute, Per Unit   |
 |---------|---------|---------|---------|---------|
-|S1     |   30 million     |  30 GB     |  700    |  700 KB   |
-|S2     |   300 million    |   300 GB   | 7,000   | 7,000 KB  |
+|S1     |   30 million     |  30 GB     |  720    |  720 KB   |
+|S2     |   300 million    |   300 GB   | 7,200   | 7,200 KB  |
 
 You can increase the capacity of an S1 or S2 SKU to 10 units in a single environment. You cannot migrate from an S1 environment to an S2, or from an S2 environment to an S1. 
 
@@ -67,7 +73,7 @@ For ingress capacity, you should first determine the total ingress you require o
 
 If you have a spike in your data ingress lasting less than 24 hours, Time Series Insights can "catch-up" at an ingress rate of 2x the listed rates above. 
 
-For example, if you have a single S1 SKU and ingress data at a rate of 700 events per minute, and spike for less than 1 hour at a rate of 1400 events or less, there would be no noticeable latency to your environment. However, if you exceed 1400 events per minute for more than one hour, you would likely experience latency to data that is visualized and available for query in your environment. 
+For example, if you have a single S1 SKU and ingress data at a rate of 720 events per minute, and spike for less than 1 hour at a rate of 1440 events or less, there would be no noticeable latency to your environment. However, if you exceed 1440 events per minute for more than one hour, you would likely experience latency to data that is visualized and available for query in your environment. 
 
 You may not know in advance how much data you expect to push. In this case, you can find data telemetry for [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-metrics) and [Azure Event Hubs](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/05/25/using-the-azure-rest-apis-to-retrieve-event-hub-metrics/) in your Azure portal. This telemetry can help you determine how to provision your environment. Use the **Metrics** page in the Azure portal for the respective event source to view its telemetry. If you understand your event source metrics, you can more effectively plan and provision your Time Series Insights environment.
 
@@ -92,15 +98,21 @@ Note, reference data is not joined retroactively. This means that only current a
 To learn more about how to create, upload, and manage your reference data in TSI, head to our *reference data* documentation [documentation](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set).
 
 ## Business disaster recovery
-As an Azure service, Time Series Insights provides high availability (HA) using redundancies at the Azure region level, without any additional work required by the solution. The Microsoft Azure platform also includes features to help you build solutions with disaster recovery (DR) capabilities or cross-region availability. If you want to provide global, cross-region high availability for devices or users, take advantage of these Azure DR features. The article [Azure Business Continuity Technical Guidance](../resiliency/resiliency-technical-guidance.md) describes the built-in features in Azure for business continuity and DR. The [Disaster recovery and high availability for Azure applications][Disaster recovery and high availability for Azure applications] paper provides architecture guidance on strategies for Azure applications to achieve HA and DR.
+As an Azure service, Time Series Insights provides high availability (HA) using redundancies at the Azure region level, without any additional work required by the solution. The Microsoft Azure platform also includes features to help you build solutions with disaster recovery (DR) capabilities or cross-region availability. If you want to provide global, cross-region high availability for devices or users, take advantage of these Azure DR features. The article [Azure Business Continuity Technical Guidance](../resiliency/resiliency-technical-guidance.md) describes the built-in features in Azure for business continuity and DR. The [Disaster recovery and high availability for Azure applications][https://docs.microsoft.com/en-us/azure/architecture/resiliency/index] paper provides architecture guidance on strategies for Azure applications to achieve HA and DR.
 
-Time Series Insights does not have built-in business disaster recovery (BCDR).  However, customers that require BCDR can still implement a recovery strategy. Create a second Time Series Insights environment in a backup Azure region and send events to this secondary environment from the primary event source, leveraging a second dedicated consumer group and that event source's BCDR guidelines.  
+Azure Time Series Insights does not have built-in business disaster recovery (BCDR). Customers that require BCDR can still implement a recovery strategy using the following method: 
 
-1.  Create environment in second region.  More on creating a Time Series Insights environment [here](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-get-started).
-2.  Create a second dedicated consumer group for your event source and connect that event source to the new environment.  Be sure to designate the second, dedicated consumer group.  You can learn more about this by following either [IoT Hub documentation](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub) or [Event hub documentation](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-data-access).
+Create a second Time Series Insights environment in a backup Azure region and send events to this secondary environment from the primary event source, leveraging a second dedicated consumer group and that event source's BCDR guidelines.  
+
+1.  Create environment in second region.  More on creating a Time Series Insights environment [here](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started).
+2.  Create a second dedicated consumer group for your event source and connect that event source to the new environment.  Be sure to designate the second, dedicated consumer group.  You can learn more about this by following either [IoT Hub documentation](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub) or [Event hub documentation](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-data-access).
 3.  If your primary region were to go down during a disaster incident, switch over operations to the backup Time Series Insights environment.  
 
-To learn more about IoT Hub's BCDR policies, head [here](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-ha-dr).  To learn more about Event hub's BCDR policies, head [here](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-geo-dr).  
+By default both the Azure Iot Hub and Event Hubs have recovery built in. 
+To learn more about IoT Hub's BCDR policies, head [here](https://docs.microsoft.com/azure/iot-hub/iot-hub-ha-dr).  To learn more about Event hub's BCDR policies, head [here](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr).  
+
+It is **important to note** during any Failover scenario there may be a delay before TSI can start processing messages again. This can cause a spike in message processing for more information please take a look at
+[Time Series Insights Managing Throttling](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-environment-mitigate-latency)
 
 ## Next steps
 - [How to add an Event Hub event source](time-series-insights-how-to-add-an-event-source-eventhub.md)

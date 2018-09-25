@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory integration with Work.com | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Work.com.
 services: active-directory
@@ -50,7 +50,7 @@ In this tutorial, you test Azure AD single sign-on in a test environment.
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Add Work.com from the gallery
-2. Configure and test Azure AD single sign-on
+1. Configure and test Azure AD single sign-on
 
 ## Add Work.com from the gallery
 To configure the integration of Work.com into Azure AD, you need to add Work.com from the gallery to your list of managed SaaS apps.
@@ -61,15 +61,15 @@ To configure the integration of Work.com into Azure AD, you need to add Work.com
 
 	![Active Directory][1]
 
-2. Navigate to **Enterprise applications**. Then go to **All applications**.
+1. Navigate to **Enterprise applications**. Then go to **All applications**.
 
 	![Applications][2]
 	
-3. To add new application, click **New application** button on the top of dialog.
+1. To add new application, click **New application** button on the top of dialog.
 
 	![Applications][3]
 
-4. In the search box, type **Work.com**, select **Work.com** from results panel then click **Add** button to add the application.
+1. In the search box, type **Work.com**, select **Work.com** from results panel then click **Add** button to add the application.
 
 	![Add from gallery](./media/work-com-tutorial/tutorial_work-com_addfromgallery.png)
 
@@ -83,10 +83,10 @@ In Work.com, assign the value of the **user name** in Azure AD as the value of t
 To configure and test Azure AD single sign-on with Work.com, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Create a Work.com test user](#create-a-workcom-test-user)** - to have a counterpart of Britta Simon in Work.com that is linked to the Azure AD representation of user.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Test Single Sign-On](#test-single-sign-on)** - to verify whether the configuration works.
+1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+1. **[Create a Work.com test user](#create-a-workcom-test-user)** - to have a counterpart of Britta Simon in Work.com that is linked to the Azure AD representation of user.
+1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+1. **[Test Single Sign-On](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
@@ -101,11 +101,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
  
 	![SAML-based Sign-on](./media/work-com-tutorial/tutorial_work-com_samlbase.png)
 
-3. On the **Work.com Domain and URLs** section, perform the following:
+1. On the **Work.com Domain and URLs** section, perform the following:
 
 	![Work.com Domain and URLs section](./media/work-com-tutorial/tutorial_work-com_url.png)
 
@@ -114,42 +114,42 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE] 
 	> This value is not real. Update this value with the actual Sign-On URL. Contact [Work.com Client support team](https://help.salesforce.com/articleView?id=000159855&type=3) to get this value. 
 
-4. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
+1. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
 	![SAML Signing Certificate section](./media/work-com-tutorial/tutorial_work-com_certificate.png) 
 
-5. Click **Save** button.
+1. Click **Save** button.
 
 	![Save Button](./media/work-com-tutorial/tutorial_general_400.png)
 
-6. On the **Work.com Configuration** section, click **Configure Work.com** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+1. On the **Work.com Configuration** section, click **Configure Work.com** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Work.com Configuration section](./media/work-com-tutorial/tutorial_work-com_configure.png) 
-7. Log in to your Work.com tenant as administrator.
+1. Log in to your Work.com tenant as administrator.
 
-8. Go to **Setup**.
+1. Go to **Setup**.
    
     ![Setup](./media/work-com-tutorial/ic794108.png "Setup")
 
-9. On the left navigation pane, in the **Administer** section, click **Domain Management** to expand the related section, and then click **My Domain** to open the **My Domain** page. 
+1. On the left navigation pane, in the **Administer** section, click **Domain Management** to expand the related section, and then click **My Domain** to open the **My Domain** page. 
    
     ![My Domain](./media/work-com-tutorial/ic767825.png "My Domain")
 
-10. To verify that your domain has been set up correctly, make sure that it is in “**Step 4 Deployed to Users**” and review your “**My Domain Settings**”.
+1. To verify that your domain has been set up correctly, make sure that it is in “**Step 4 Deployed to Users**” and review your “**My Domain Settings**”.
    
     ![Domain Deployed to User](./media/work-com-tutorial/ic784377.png "Domain Deployed to User")
 
-11. Log in to your Work.com tenant.
+1. Log in to your Work.com tenant.
 
-12. Go to **Setup**.
+1. Go to **Setup**.
     
     ![Setup](./media/work-com-tutorial/ic794108.png "Setup")
 
-13. Expand the **Security Controls** menu, and then click **Single Sign-On Settings**.
+1. Expand the **Security Controls** menu, and then click **Single Sign-On Settings**.
     
     ![Single Sign-On Settings](./media/work-com-tutorial/ic794113.png "Single Sign-On Settings")
 
-14. On the **Single Sign-On Settings** dialog page, perform the following steps:
+1. On the **Single Sign-On Settings** dialog page, perform the following steps:
     
     ![SAML Enabled](./media/work-com-tutorial/ic781026.png "SAML Enabled")
     
@@ -157,7 +157,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     
     b. Click **New**.
 
-15. In the **SAML Single Sign-On Settings** section, perform the following steps:
+1. In the **SAML Single Sign-On Settings** section, perform the following steps:
     
     ![SAML Single Sign-On Setting](./media/work-com-tutorial/ic794114.png "SAML Single Sign-On Setting")
     
@@ -184,15 +184,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     
     j. Click **Save**.
 
-16. In your Work.com classic portal, on the left navigation pane, click **Domain Management** to expand the related section, and then click **My Domain** to open the **My Domain** page. 
+1. In your Work.com classic portal, on the left navigation pane, click **Domain Management** to expand the related section, and then click **My Domain** to open the **My Domain** page. 
     
     ![My Domain](./media/work-com-tutorial/ic794115.png "My Domain")
 
-17. On the **My Domain** page, in the **Login Page Branding** section, click **Edit**.
+1. On the **My Domain** page, in the **Login Page Branding** section, click **Edit**.
     
     ![Login Page Branding](./media/work-com-tutorial/ic767826.png "Login Page Branding")
 
-14. On the **Login Page Branding** page, in the **Authentication Service** section, the name of your **SAML SSO Settings** is displayed. Select it, and then click **Save**.
+1. On the **Login Page Branding** page, in the **Authentication Service** section, the name of your **SAML SSO Settings** is displayed. Select it, and then click **Save**.
     
     ![Login Page Branding](./media/work-com-tutorial/ic784366.png "Login Page Branding")
 
@@ -211,15 +211,15 @@ The objective of this section is to create a test user in the Azure portal calle
 
 	![Creating an Azure AD test user](./media/work-com-tutorial/create_aaduser_01.png) 
 
-2. To display the list of users, go to **Users and groups** and click **All users**.
+1. To display the list of users, go to **Users and groups** and click **All users**.
 	
 	![Users and groups -> All users](./media/work-com-tutorial/create_aaduser_02.png) 
 
-3. To open the **User** dialog, click **Add** on the top of the dialog.
+1. To open the **User** dialog, click **Add** on the top of the dialog.
  
 	![Add](./media/work-com-tutorial/create_aaduser_03.png) 
 
-4. On the **User** dialog page, perform the following steps:
+1. On the **User** dialog page, perform the following steps:
  
 	![User dialog page](./media/work-com-tutorial/create_aaduser_04.png) 
 
@@ -237,18 +237,18 @@ For Azure Active Directory users to be able to sign in, they must be provisioned
 ### To configure user provisioning, perform the following steps:
 1. Sign on to your Work.com company site as an administrator.
 
-2. Go to **Setup**.
+1. Go to **Setup**.
    
     ![Setup](./media/work-com-tutorial/IC794108.png "Setup")
-3. Go to **Manage Users \> Users**.
+1. Go to **Manage Users \> Users**.
    
     ![Manage Users](./media/work-com-tutorial/IC784369.png "Manage Users")
 
-4. Click **New User**.
+1. Click **New User**.
    
     ![All Users](./media/work-com-tutorial/IC794117.png "All Users")
 
-5. In the User Edit section, perform the following steps, in attributes of a valid Azure AD account you want to provision into the related textboxes:
+1. In the User Edit section, perform the following steps, in attributes of a valid Azure AD account you want to provision into the related textboxes:
    
     ![User Edit](./media/work-com-tutorial/ic794118.png "User Edit")
    
@@ -285,23 +285,23 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 	![Assign User][201] 
 
-2. In the applications list, select **Work.com**.
+1. In the applications list, select **Work.com**.
 
 	![Work.com in app's list](./media/work-com-tutorial/tutorial_work-com_app.png) 
 
-3. In the menu on the left, click **Users and groups**.
+1. In the menu on the left, click **Users and groups**.
 
 	![Assign User][202] 
 
-4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
 	![Assign User][203]
 
-5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
-6. Click **Select** button on **Users and groups** dialog.
+1. Click **Select** button on **Users and groups** dialog.
 
-7. Click **Assign** button on **Add Assignment** dialog.
+1. Click **Assign** button on **Add Assignment** dialog.
 	
 ### Test single sign-on
 

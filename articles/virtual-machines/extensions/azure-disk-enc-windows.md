@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
-ms.author: danis
+ms.author: ejarvi
 
 ---
 # Azure Disk Encryption for Windows (Microsoft.Azure.Security.AzureDiskEncryption)

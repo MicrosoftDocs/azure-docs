@@ -19,11 +19,9 @@ ms.author: sngun
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
-> * [Node.js for MongoDB](mongodb-samples.md)
-> * [Node.js](sql-api-nodejs-get-started.md)
 > * [Java](sql-api-java-get-started.md)
-> * [Asyn Java](sql-api-async-java-get-started.md)
->  
+> * [Async Java](sql-api-async-java-get-started.md)
+> * [Node.js](sql-api-nodejs-get-started.md)
 > 
 
 Azure Cosmos DB is a globally distributed multi-model database. This tutorial shows you how to use Azure Cosmos DB SQL API accounts to store and access data by using an Async Java application. 
@@ -98,7 +96,7 @@ public class AccountSettings
 ![Screen shot of the Azure Portal used by the NoSQL tutorial to create a Java console application. Shows an Azure Cosmos DB account, with the ACTIVE hub highlighted, the KEYS button highlighted on the Azure Cosmos DB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade][keys]
 
 ## Step 4: Initialize the client object
-Initialize the client object by using the host URI and primary key values defined in the “AccountSettings.java” file
+Initialize the client object by using the host URI and primary key values defined in the "AccountSettings.java" file
 
 ```java
 client = new AsyncDocumentClient.Builder()
@@ -198,7 +196,7 @@ private void createDocumentCollectionIfNotExists() throws Exception
 
 ## <a id="CreateDoc"></a>Step 7: Create JSON documents
 
-A [document](sql-api-resources.md#documents) can be created by using the createDocument method of the DocumentClient class. Documents are user-defined (arbitrary) JSON content. We can now insert one or more documents. The “src/main/java/com/microsoft/azure/cosmosdb/sample/Families.java” file defines the family JSON documents 
+A [document](sql-api-resources.md#documents) can be created by using the createDocument method of the DocumentClient class. Documents are user-defined (arbitrary) JSON content. We can now insert one or more documents. The "src/main/java/com/microsoft/azure/cosmosdb/sample/Families.java" file defines the family JSON documents 
 
 ```java
 public static Family getJohnsonFamilyDocument() {

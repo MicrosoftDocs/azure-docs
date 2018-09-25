@@ -2,20 +2,13 @@
 title: How to use Hudson with Blob storage | Microsoft Docs
 description: Describes how to use Hudson with Azure Blob storage as a repository for build artifacts.
 services: storage
-documentationcenter: java
 author: seguler
-manager: jahogg
-editor: tysonn
-
-ms.assetid: 119becdd-72c4-4ade-a439-070233c1e1ac
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 02/28/2017
 ms.author: seguler
-
+ms.component: common
 ---
 # Using Azure Storage with a Hudson Continuous Integration solution
 ## Overview
@@ -54,7 +47,7 @@ You will need the following to use the Blob service with your Hudson CI solution
      
       While a typical Hudson CI solution would be set up to run as a service, running the Hudson war at the command line will be sufficient for this tutorial.
 * An Azure account. You can sign up for an Azure account at <http://www.azure.com>.
-* An Azure storage account. If you don't already have a storage account, you can create one using the steps at [Create a Storage Account](../common/storage-create-storage-account.md#create-a-storage-account).
+* An Azure storage account. If you don't already have a storage account, you can create one using the steps at [Create a Storage Account](../common/storage-quickstart-create-account.md).
 * Familiarity with the Hudson CI solution is recommended but not required, as the following content will use a basic example to show you the steps needed when using the Blob service as a repository for Hudson CI build artifacts.
 
 ## How to use the Blob service with Hudson CI

@@ -17,11 +17,11 @@ ms.author: lizross
 # Manage my devices overview
 
 >[!Important]
->This content is intended for users. If you're an administrator, you can find more information about how to set up and manage your Azure Active Directory (Azure AD) environment in the [Azure Active Directory Documentation](https://docs.microsoft.com/en-us/azure/active-directory).
+>This content is intended for users. If you're an administrator, you can find more information about how to set up and manage your Azure Active Directory (Azure AD) environment in the [Azure Active Directory Documentation](https://docs.microsoft.com/azure/active-directory).
 
-Make sure you're accessing your organization's resources from devices that meet your organization's standards for security and compliance.
+Make sure you're able to access all of your organization's potentially restricted resources from both your work-owned and personal devices.
 
 |Article |Description |
 |------|------------|
-|[Join your devices](device-management-azuread-joined-devices-setup.md)|Describes how to join your work-owned device to your organization's network.|
-|[Register your Windows 10 devices](device-management-azuread-registered-devices-windows10-setup.md)|Describes how to register your Windows 10 device to your organization's network.| 
+|[Join your work device](user-help-join-device-on-network.md)|Learn how to join your work-owned device to your organization's network.|
+|[Register your personal device](user-help-register-device-on-network.md)|Learn how to register your personal device on your organization's network.|

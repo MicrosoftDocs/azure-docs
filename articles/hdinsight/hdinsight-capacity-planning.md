@@ -1,18 +1,13 @@
 ---
-title: Cluster capacity planning in Azure HDInsight | Microsoft Docs
+title: Cluster capacity planning in Azure HDInsight 
 description: 'How to specify an HDInsight cluster for capacity and performance.'
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
 author: maxluk
-manager: jhubbard
-editor: cgronlun
+ms.reviewer: jasonh
 
-ms.assetid: 
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/22/2017
 ms.author: maxluk
 ---

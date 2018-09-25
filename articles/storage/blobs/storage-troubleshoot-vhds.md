@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot disks attached to Azure VMs | Microsoft Docs
-description: Azure Blob storage is designed to store massive amounts of unstructured object data, such as text or binary data. Your applications can access objects in Blob storage from PowerShell or the Azure CLI, from code via Azure Storage client libraries, or over REST.  
+description: Provides links to troubleshooting resources for Azure virtual machine virtual hard disks (VHDs).  
 services: storage
 author: genlin
 
@@ -8,7 +8,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: genli
-ms.component: disks
+
 ---
 
 # Troubleshoot disks attached to Azure VMs 

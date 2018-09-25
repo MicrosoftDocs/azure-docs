@@ -3,8 +3,6 @@ title: Create an Azure Data Lake Storage Gen2 Preview storage account | Microsof
 description: Quickly learn to create a new storage account with access to Data Lake Storage Gen2 Preview using the Azure portal, Azure PowerShell, or the Azure CLI
 services: storage
 author: jamesbak
-manager: twooley
-
 ms.component: data-lake-storage-gen2
 ms.custom: mvc
 ms.service: storage
@@ -46,7 +44,7 @@ The button launches an interactive shell that you can use to run the steps in th
 
 ### Install the CLI locally
 
-You can also install and use the Azure CLI locally. This quickstart requires that you are running the Azure CLI version 2.0.38 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
+You can also install and use the Azure CLI locally. This quickstart requires that you are running the Azure CLI version 2.0.38 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 ## Overview of creating an Azure Data Lake Storage Gen2 account
 
@@ -55,7 +53,7 @@ Before you create an account, you first create a resource group that acts as a l
 > [!NOTE]
 > You must create new storage accounts as type **StorageV2 (general-purpose V2)** to take advantage of Data Lake Storage Gen2 features.  
 
-For more information about storage account types, see [Azure Storage account options](../common/storage-account-options.md).
+For more information about storage accounts, see [Azure Storage account overview](../common/storage-account-overview.md).
 
 When naming your storage account, keep these rules in mind:
 
@@ -84,7 +82,7 @@ To create a resource group in the Azure portal, follow these steps:
 To create a general-purpose v2 storage account in the Azure portal, follow these steps:
 
 > [!NOTE]
-> The hierarchical namespace is only enabled in West US 2 and West Central US. Make sure you specify either one of these locations when creating the storage account.
+> The hierarchical namespace is only enabled in US East, US East 2, West US, West US 2, West Central US, Europe North, Europe West, Asia Southeast, and Australia East. Make sure you specify either one of these locations when creating the storage account.
 
 1. In the Azure portal, expand the menu on the left side to open the menu of services, and choose **All services**. Then, scroll down to **Storage**, and choose **Storage accounts**. On the **Storage Accounts** window that appears, choose **Add**.
 2. Enter a name for your storage account.
@@ -111,15 +109,6 @@ To remove a resource group using the Azure portal:
 2. Locate the resource group to delete, and right-click the **More** button (**...**) on the right side of the listing.
 3. Select **Delete resource group**, and confirm.
 
-
-## Upgrade your powershell module
-
-In order to interact with Data Lake Storage Gen2 through PowerShell, you will have to upgrade your module to the preview version.
-
-To do that, open an elevated PowerShell and enter the following command: `Install-Module AzureRM.Storage –Repository PSGallery -RequiredVersion 5.0.4-preview –AllowPrerelease –AllowClobber –Force `
-
-Then restart your shell.
-
 ## Create an account using PowerShell
 
 Log in to your Azure subscription with the `Login-AzureRmAccount` command and follow the on-screen directions to authenticate.
@@ -128,12 +117,20 @@ Log in to your Azure subscription with the `Login-AzureRmAccount` command and fo
 Login-AzureRmAccount
 ```
 
+### Upgrade your powershell module
+
+In order to interact with Data Lake Storage Gen2 through PowerShell, you will have to upgrade your module to the preview version.
+
+To do that, open an elevated PowerShell and enter the following command: `Install-Module AzureRM.Storage –Repository PSGallery -RequiredVersion 5.0.4-preview –AllowPrerelease –AllowClobber –Force `
+
+Then restart your shell.
+
 ### Create a resource group
 
 To create a new resource group with PowerShell, use the [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) command: 
 
 > [!NOTE]
-> The hierarchical namespace is only enabled in West US 2 and West Central US. Make sure you specify either one of these locations when creating the storage account.
+> The hierarchical namespace is only enabled in US East, US East 2, West US, West US 2, West Central US, Europe North, Europe West, Asia Southeast, and Australia East. Make sure you specify either one of these locations when creating the storage account.
 
 ```powershell
 # put resource group in a variable so you can use the same group name going forward,
@@ -167,13 +164,7 @@ To remove the resource group and its associated resources, including the new sto
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
 
-## Upgrade your CLI module
-
-In order to interact with Data Lake Storage Gen2 through CLI, you will have to add the extension to your shell.
-
-To do that: using the Cloud Shell or a local shell, enter the following command to do that: `az extension add --name storage-preview`
-
-## Create an account using Azure CLI 
+## Create an account using Azure CLI
 
 To launch Azure Cloud Shell, log in to the [Azure portal](https://portal.azure.com).
 
@@ -183,9 +174,15 @@ To log into your local installation of the CLI, run the login command:
 az login
 ```
 
+### Upgrade your CLI module
+
+In order to interact with Data Lake Storage Gen2 through CLI, you will have to add the extension to your shell.
+
+To do that: enter the following command using either the Cloud Shell or a local shell: `az extension add --name storage-preview`
+
 ### Create a resource group
 
-To create a new resource group with Azure CLI, use the [az group create](/cli/azure/group#az_group_create) command. 
+To create a new resource group with Azure CLI, use the [az group create](/cli/azure/group#az_group_create) command.
 
 ```azurecli-interactive
 az group create \
@@ -194,7 +191,7 @@ az group create \
 ```
 
 > [!NOTE]
-> The hierarchical namespace is only enabled in West US 2 and West Central US. Make sure you specify either one of these locations when creating the storage account.
+> The hierarchical namespace is only enabled in US East, US East 2, West US, West US 2, West Central US, Europe North, Europe West, Asia Southeast, and Australia East. Make sure you specify either one of these locations when creating the storage account.
 
 ### Create a general-purpose v2 storage account
 
@@ -207,7 +204,7 @@ az storage account create \
     --location westus2 \
     --sku Standard_LRS \
     --kind StorageV2 \
-    --Enable-hierarchical-namespace true
+    --hierarchical-namespace true
 ```
 
 ### Clean up resources

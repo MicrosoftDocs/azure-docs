@@ -2,17 +2,12 @@
 title: Azure Files scalability and performance targets | Microsoft Docs
 description: Learn about the scalability and performance targets for Azure Files, including the capacity, request rate, and inbound and outbound bandwidth limits.
 services: storage
-documentationcenter: na
 author: wmgries
-manager: aungoo
-editor: tamram
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage
 ms.date: 7/19/2018
 ms.author: wgries
+ms.component: files
 ---
 
 # Azure Files scalability and performance targets

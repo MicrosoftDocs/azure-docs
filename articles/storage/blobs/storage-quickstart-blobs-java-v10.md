@@ -25,7 +25,7 @@ Install and configure these applications:
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
+[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 ## Download the sample application
 
@@ -287,5 +287,5 @@ In this quickstart, you learned how to transfer files between a local disk and A
 
 > [!div class="nextstepaction"]
 > [Storage SDK V10 for Java source code](https://github.com/Azure/azure-storage-java/tree/New-Storage-SDK-V10-Preview)
-> [API Reference](https://docs.microsoft.com/en-us/java/api/storage/client?view=azure-java-preview)
+> [API Reference](https://docs.microsoft.com/en-us/java/api/overview/azure/storage/client?view=azure-java-preview)
 > [Learn more about RxJava](https://github.com/ReactiveX/RxJava)

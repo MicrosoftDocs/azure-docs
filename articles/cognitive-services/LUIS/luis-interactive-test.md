@@ -1,19 +1,20 @@
 ---
-title: Train and test your LUIS app - Azure | Microsoft Docs
+title: Test your LUIS app inside the LUIS portal
+titleSuffix: Azure Cognitive Services
 description: Use Language Understanding (LUIS) to continuously work on your application to refine it and improve its language understanding.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/06/2018
 ms.author: diberry
 ---
 
 # Test your LUIS app
 <a name="train-your-app"></a>
-[Training](luis-how-to-train.md) and [testing](luis-concept-test.md) an app is an iterative process. After training your LUIS app, test it with sample utterances to see if the intents and entities are recognized correctly. If they're not, make updates to the LUIS app, train, and test again. 
+[Testing](luis-concept-test.md) an app is an iterative process. After training your LUIS app, test it with sample utterances to see if the intents and entities are recognized correctly. If they're not, make updates to the LUIS app, train, and test again. 
 
 <!-- anchors for H2 name changes -->
 <a name="test-your-app"></a>

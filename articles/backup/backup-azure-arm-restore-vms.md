@@ -2,13 +2,13 @@
 title: 'Azure Backup: Restore virtual machines by using the Azure portal'
 description: Restore an Azure virtual machine from a recovery point by using the Azure portal
 services: backup
-author: markgalioto
-manager: carmonm
+author: geethalakshmig
+manager: vijayts
 keywords: restore backup; how to restore; recovery point;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 09/04/2017
-ms.author: markgal
+ms.author: geg
 ---
 # Use the Azure portal to restore virtual machines
 Protect your data by taking snapshots of your data at defined intervals. These snapshots are known as recovery points, and they're stored in Recovery Services vaults. If it's necessary to repair or rebuild a virtual machine (VM), you can restore the VM from any of the saved recovery points. When you restore a recovery point, you can:
@@ -33,34 +33,34 @@ Restoring a VM or all disks from VM backup involves two steps:
 ## Select a restore point for restore
 1. Sign in to the [Azure portal](http://portal.azure.com/).
 
-2. On the Azure menu, select **Browse**. In the list of services, type **Recovery Services**. The list of services adjusts to what you type. When you see **Recovery Services vaults**, select it.
+1. On the Azure menu, select **Browse**. In the list of services, type **Recovery Services**. The list of services adjusts to what you type. When you see **Recovery Services vaults**, select it.
 
     ![Recovery Services vault](./media/backup-azure-arm-restore-vms/open-recovery-services-vault.png)
 
     The list of vaults in the subscription is displayed.
 
     ![List of Recovery Services vaults](./media/backup-azure-arm-restore-vms/list-of-rs-vaults.png)
-3. From the list, select the vault associated with the VM you want to restore. When you select the vault, its dashboard opens.
+1. From the list, select the vault associated with the VM you want to restore. When you select the vault, its dashboard opens.
 
     ![Selected Recovery Services vault](./media/backup-azure-arm-restore-vms/select-vault-open-vault-blade.png)
-4. In the vault dashboard, on the **Backup Items** tile, select **Azure Virtual Machines**.
+1. In the vault dashboard, on the **Backup Items** tile, select **Azure Virtual Machines**.
 
     ![Vault dashboard](./media/backup-azure-arm-restore-vms/vault-dashboard.png)
 
     The **Backup Items** blade opens and displays the list of Azure VMs.
 
     ![List of VMs in vault](./media/backup-azure-arm-restore-vms/list-of-vms-in-vault.png)
-5. From the list, select a VM to open the dashboard. The VM dashboard opens to the monitoring area, which contains the **Restore points** tile.
+1. From the list, select a VM to open the dashboard. The VM dashboard opens to the monitoring area, which contains the **Restore points** tile.
 
     ![Restore points](./media/backup-azure-arm-restore-vms/vm-blade.png)
-6. On the VM dashboard menu, select **Restore**.
+1. On the VM dashboard menu, select **Restore**.
 
     ![Restore button](./media/backup-azure-arm-restore-vms/vm-blade-menu-restore.png)
 
     The **Restore** blade opens.
 
     ![Restore blade](./media/backup-azure-arm-restore-vms/restore-blade.png)
-7. On the **Restore** blade, select **Restore point**. The **Select restore point** blade opens.
+1. On the **Restore** blade, select **Restore point**. The **Select restore point** blade opens.
 
     ![Select restore point](./media/backup-azure-arm-restore-vms/recovery-point-selector.png)
 
@@ -73,13 +73,13 @@ Restoring a VM or all disks from VM backup involves two steps:
      * File-system consistent restore points
      * All restore points
 
-8. Choose a restore point, and select **OK**.
+1. Choose a restore point, and select **OK**.
 
     ![Restore point options](./media/backup-azure-arm-restore-vms/select-recovery-point.png)
 
     The **Restore** blade shows that the restore point is set.
 
-9. If you're not already there, go to the **Restore** blade. Ensure that a [restore point is selected](#select-a-restore-point-for-restore), and select **Restore configuration**. The **Restore configuration** blade opens.
+1. If you're not already there, go to the **Restore** blade. Ensure that a [restore point is selected](#select-a-restore-point-for-restore), and select **Restore configuration**. The **Restore configuration** blade opens.
 
 ## Choose a VM restore configuration
 After you select the restore point, choose a VM restore configuration. To configure the restored VM, you can use the Azure portal or PowerShell.
@@ -87,7 +87,7 @@ After you select the restore point, choose a VM restore configuration. To config
 1. If you're not already there, go to the **Restore** blade. Ensure that a [restore point is selected](#select-a-restore-point-for-restore), and select **Restore configuration**. The **Restore configuration** blade opens.
 
     ![Restore configuration wizard](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard-recovery-type.png)
-2. On the **Restore configuration** blade, you have two choices:
+1. On the **Restore configuration** blade, you have two choices:
 
    * **Create virtual machine**
 
@@ -121,7 +121,7 @@ The portal provides a **Quick Create** option for a restored VM. To customize th
     >
     >
 
-2. On the **Restore configuration** blade, select **OK** to finalize the restore configuration. On the **Restore** blade, select **Restore** to trigger the restore operation.
+1. On the **Restore configuration** blade, select **OK** to finalize the restore configuration. On the **Restore** blade, select **Restore** to trigger the restore operation.
 
 ## Restore backed-up disks
 To customize the VM you want to create from backed-up disks different from what is present in the **Restore configuration** blade, select **Restore disks** as the value for **Restore Type**. This choice asks for a storage account where disks from backups are to be copied. When you choose a storage account, select an account that shares the same location as the Recovery Services vault. Storage accounts that are zone redundant aren't supported. If there are no storage accounts with the same location as the Recovery Services vault, you must create one before you start the restore operation. The storage account's replication type is displayed in parentheses.
@@ -150,9 +150,9 @@ To view the operation while it's processing, or to view it when it's finished, o
     The list of vaults in the subscription is displayed.
 
     ![List of Recovery Services vaults](./media/backup-azure-arm-restore-vms/list-of-rs-vaults.png)
-2. From the list, select the vault associated with the VM you restored. When you select the vault, its dashboard opens.
+1. From the list, select the vault associated with the VM you restored. When you select the vault, its dashboard opens.
 
-3. In the vault dashboard on the **Backup Jobs** tile, select **Azure virtual machines** to display the jobs associated with the vault.
+1. In the vault dashboard on the **Backup Jobs** tile, select **Azure virtual machines** to display the jobs associated with the vault.
 
     ![Vault dashboard](./media/backup-azure-arm-restore-vms/vault-dashboard-jobs.png)
 
@@ -172,15 +172,15 @@ To get the template that was generated as part of the restore disks option:
 
 1. Go to the restore job details corresponding to the job.
 
-2. On the **Restore Job Details** screen, select **Deploy Template** to initiate template deployment. 
+1. On the **Restore Job Details** screen, select **Deploy Template** to initiate template deployment. 
 
      ![Restore job drill-down](./media/backup-azure-arm-restore-vms/restore-job-drill-down.png)
    
-3. On the **Deploy template** blade for custom deployment, use template deployment to [edit and deploy the template](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template) or append more customizations by [authoring a template](../azure-resource-manager/resource-group-authoring-templates.md) before you deploy. 
+1. On the **Deploy template** blade for custom deployment, use template deployment to [edit and deploy the template](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template) or append more customizations by [authoring a template](../azure-resource-manager/resource-group-authoring-templates.md) before you deploy. 
 
    ![Load template deployment](./media/backup-azure-arm-restore-vms/loading-template.png)
    
-4. After you enter the required values, accept the **Terms and Conditions** and select **Purchase**.
+1. After you enter the required values, accept the **Terms and Conditions** and select **Purchase**.
 
    ![Submit template deployment](./media/backup-azure-arm-restore-vms/submitting-template.png)
 
@@ -227,7 +227,7 @@ To fully re-create the VMs after restoring to disk, follow these steps:
 
 1. Restore the disks from a Recovery Services vault by using [PowerShell](backup-azure-vms-automation.md#restore-an-azure-vm).
 
-2. Create the VM configuration required for load balancer/multiple NIC/multiple reserved IP by using the PowerShell cmdlets. Use it to create the VM with the configuration you want:
+1. Create the VM configuration required for load balancer/multiple NIC/multiple reserved IP by using the PowerShell cmdlets. Use it to create the VM with the configuration you want:
 
    a. Create a VM in the cloud service with an [internal load balancer](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/).
 

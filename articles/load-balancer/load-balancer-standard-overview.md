@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/20/2018
+ms.date: 09/24/2018
 ms.author: kumud
 ---
 
@@ -60,7 +60,15 @@ The backend pool can contain standalone virtual machines, availability sets, or 
 
 When considering how to design your backend pool, you can design for the least number of individual backend pool resources to further optimize the duration of management operations.  There is no difference in data plane performance or scale.
 
-## <a name="az"></a>Availability Zones
+### <a name="probes"></a>Health probes
+  
+Standard Load Balancer adds support for [HTTPS health probes](load-balancer-custom-probe-overview.md#httpprobe) (HTTP probe with Transport Layer Security (TLS) wrapper) to accurately monitor your HTTPS applications.  
+
+In addition, when the entire backend pool [probes down](load-balancer-custom-probe-overview.md#probedown), Standard Load Balancer allows all established TCP connections to continue. (Basic Load Balancer will terminate all TCP connections to all instances).
+
+Review [Load Balancer health probes](load-balancer-custom-probe-overview.md) for details.
+
+### <a name="az"></a>Availability Zones
 
 Standard Load Balancer supports additional abilities in regions where Availability Zones are available.  These features are incremental to all Standard Load Balancer provides.  Availability Zones configurations are available for public and internal Standard Load Balancer.
 
@@ -163,7 +171,7 @@ SKUs are not mutable. Follow the steps in this section to move from one resource
 
 ### Migrate from Basic to Standard SKU
 
-1. Create a new Standard resource (Load Balancer and Public IPs, as needed). Recreate your rules and probe definitions.
+1. Create a new Standard resource (Load Balancer and Public IPs, as needed). Recreate your rules and probe definitions.  If you were using a TCP probe to 443/tcp previously, consider changing this probe protocol to an HTTPS probe and add a path.
 
 2. Create new or update existing NSG on NIC or subnet to whitelist load balanced traffic, probe, as well as any other traffic you wish to permit.
 
@@ -173,7 +181,7 @@ SKUs are not mutable. Follow the steps in this section to move from one resource
 
 ### Migrate from Standard to Basic SKU
 
-1. Create a new Basic resource (Load Balancer and Public IPs, as needed). Recreate your rules and probe definitions. 
+1. Create a new Basic resource (Load Balancer and Public IPs, as needed). Recreate your rules and probe definitions.  Change an HTTPS probe to a TCP probe to 443/tcp. 
 
 2. Remove the Standard SKU resources (Load Balancer and Public IPs, as applicable) from all VM instances. Be sure to also remove all VM instances of an availability set.
 
@@ -214,15 +222,18 @@ Standard Load Balancer is a charged product based on number of load balancing ru
 
 ## Next steps
 
-- Learn about using [Standard Load Balancer and Availability Zones](load-balancer-standard-availability-zones.md)
+- Learn about using [Standard Load Balancer and Availability Zones](load-balancer-standard-availability-zones.md).
+- Learn about [Health Probes](load-balancer-custom-probe-overview.md).
 - Learn more about [Availability Zones](../availability-zones/az-overview.md).
 - Learn about [Standard Load Balancer Diagnostics](load-balancer-standard-diagnostics.md).
 - Learn about [supported multi-dimensional metrics](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers) for diagnostics  in [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).
-- Learn about using [Load Balancer for outbound connections](load-balancer-outbound-connections.md)
-- Learn about [Standard Load Balancer with HA Ports load balancing rules](load-balancer-ha-ports-overview.md)
-- Learn about using [Load Balancer with Multiple Frontends](load-balancer-multivip-overview.md)
+- Learn about using [Load Balancer for outbound connections](load-balancer-outbound-connections.md).
+- Learn about [Outbound Rules](load-balancer-outbound-rules-overview.md).
+- Learn about [TCP Reset on Idle](load-balancer-tcp-reset.md).
+- Learn about [Standard Load Balancer with HA Ports load balancing rules](load-balancer-ha-ports-overview.md).
+- Learn about using [Load Balancer with Multiple Frontends](load-balancer-multivip-overview.md).
 - Learn about [Virtual Networks](../virtual-network/virtual-networks-overview.md).
 - Learn more about [Network Security Groups](../virtual-network/security-overview.md).
-- Learn about [VNet Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md)
+- Learn about [VNet Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).
 - Learn about some of the other key [networking capabilities](../networking/networking-overview.md) in Azure.
 - Learn more about [Load Balancer](load-balancer-overview.md).

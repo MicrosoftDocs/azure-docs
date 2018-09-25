@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 06/21/2018
+ms.date: 08/27/2018
 ms.author: owend
 ms.reviewer: minewiskan
 #Customer intent: As a BI developer, I want to determine if Azure Analysis Services is the best data modeling platform for our organization.
@@ -35,7 +35,7 @@ Azure Analysis Services is available in **Developer**, **Basic**, and **Standard
 
 ### Developer tier
 
-This tier is recommended for evaluation, development, and test scenarios. A single plan includes the same functionality of the standard tier, but is limited in processing power, QPUs, and memory size. Query replica scale out isn't available for this tier. This tier doesn't offer an SLA.
+This tier is recommended for evaluation, development, and test scenarios. A single plan includes the same functionality of the standard tier, but is limited in processing power, QPUs, and memory size. Query replica scale out *is not available* for this tier. This tier does not offer an SLA.
 
 |Plan  |QPUs  |Memory (GB)  |
 |---------|---------|---------|
@@ -77,13 +77,13 @@ Azure Analysis Services is supported in regions throughout the world. Supported 
 |Brazil South     |    B1, B2, S0, S1, S2, S4, D1     |     1    |
 |Canada Central    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
 |East US     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
-|East US 2     |     B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |    7     |
+|East US 2     |     B1, B2, S0, S1, S2, S4, D1  <br>S8, S9   |    7<br>1    |
 |North Central US     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
 |Central US     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |South Central US     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |West Central US   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
-|West US     |    B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |    7     |
-|West US2    |    B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |    3     |
+|West US     |    B1, B2, S0, S1, S2, S4, D1  <br>S8, S9   |    7<br>2  |
+|West US2    |    B1, B2, S0, S1, S2, S4, D1   <br>S8, S9  |    3<br>1     |
 
 ### Europe
 
@@ -91,7 +91,7 @@ Azure Analysis Services is supported in regions throughout the world. Supported 
 |---------|---------|:---------:|
 |North Europe     |    B1, B2, S0, S1, S2, S4, D1      |    7     |
 |UK South   |    B1, B2, S0, S1, S2, S4, D1      |     1    |
-|West Europe     |    B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1      |    7     |
+|West Europe     |    B1, B2, S0, S1, S2, S4, D1   <br>S8, S9    |    7<br>1     |
 
 ### Asia Pacific 
 
@@ -99,10 +99,8 @@ Azure Analysis Services is supported in regions throughout the world. Supported 
 |---------|---------|:---------:|
 |Australia Southeast     | B1, B2, S0, S1, S2, S4, D1       |    1     |
 |Japan East  |   B1, B2, S0, S1, S2, S4, D1       |    1     |
-|Southeast Asia     |     B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |   1      |
+|Southeast Asia     |     B1, B2, S0, S1, S2, S4, S8, S9, D1     |   1      |
 |West India     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
-
-\* S8, S9 plans in the Standard tier support one query replica.
 
 ## Scale to your needs
 

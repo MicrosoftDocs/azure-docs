@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 07/31/2018
+ms.date: 09/24/2018
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017, mvc, devcenter
 ---
@@ -22,7 +22,7 @@ This quickstart assumes a basic understanding of Kubernetes concepts, for detail
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.43 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.46 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
 ## Create a resource group
 
@@ -51,7 +51,7 @@ Output:
 
 ## Create AKS cluster
 
-Use the [az aks create][az-aks-create] command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node. Container health monitoring is also enabled using the *--enable-addons monitoring* parameter. For more information on enabling the container health monitoring solution, see [Monitor Azure Kubernetes Service health][aks-monitor].
+Use the [az aks create][az-aks-create] command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node. Azure Monitor for containers is also enabled using the *--enable-addons monitoring* parameter. For more information on enabling the container health monitoring solution, see [Monitor Azure Kubernetes Service health][aks-monitor].
 
 ```azurecli-interactive
 az aks create --resource-group myAKSCluster --name myAKSCluster --node-count 1 --enable-addons monitoring --generate-ssh-keys
@@ -205,16 +205,19 @@ When the AKS cluster was created, monitoring was enabled to capture health metri
 To see current status, uptime, and resource usage for the Azure Vote pods, complete the following steps:
 
 1. Open a web browser to the Azure portal [https://portal.azure.com][azure-portal].
-1. Select your resource group, such as *myResourceGroup*, then select your AKS cluster, such as *myAKSCluster*. 
-1. Choose **Monitor container health** > select the **default** namespace > then select **Containers**.
+1. Select your resource group, such as *myResourceGroup*, then select your AKS cluster, such as *myAKSCluster*.
+1. Under **Monitoring** on the left-hand side, choose **Insights (preview)**
+1. Across the top, choose to **+ Add Filter**
+1. Select *Namespace* as the property, then choose *\<All but kube-system\>*
+1. Choose to view the **Containers**.
 
-It may take a few minutes for this data to populate in the Azure portal, as shown in the following example:
+The *azure-vote-back* and *azure-vote-front* containers are displayed, as shown in the following example:
 
-![Create AKS cluster one](media/kubernetes-walkthrough/view-container-health.png)
+![View the health of running containers in AKS](media/kubernetes-walkthrough-portal/monitor-containers.png)
 
-To see logs for the `azure-vote-front` pod, select the **View Logs** link on the right-hand side of the list of containers. These logs include the *stdout* and *stderr* streams from the container.
+To see logs for the `azure-vote-front` pod, select the **View container logs** link on the right-hand side of the containers list. These logs include the *stdout* and *stderr* streams from the container.
 
-![Create AKS cluster one](media/kubernetes-walkthrough/view-container-logs.png)
+![View the containers logs in AKS](media/kubernetes-walkthrough-portal/monitor-container-logs.png)
 
 ## Delete cluster
 
@@ -254,12 +257,12 @@ To learn more about AKS, and walk through a complete code to deployment example,
 <!-- LINKS - internal -->
 [aks-monitor]: https://aka.ms/coingfonboarding
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
-[az-aks-browse]: /cli/azure/aks?view=azure-cli-latest#az_aks_browse
-[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az_aks_create
-[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az_aks_get_credentials
-[az-aks-install-cli]: /cli/azure/aks?view=azure-cli-latest#az_aks_install_cli
-[az-group-create]: /cli/azure/group#az_group_create
-[az-group-delete]: /cli/azure/group#az_group_delete
+[az-aks-browse]: /cli/azure/aks?view=azure-cli-latest#az-aks-browse
+[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
+[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
+[az-aks-install-cli]: /cli/azure/aks?view=azure-cli-latest#az-aks-install-cli
+[az-group-create]: /cli/azure/group#az-group-create
+[az-group-delete]: /cli/azure/group#az-group-delete
 [azure-cli-install]: /cli/azure/install-azure-cli
 [sp-delete]: kubernetes-service-principal.md#additional-considerations
 [azure-portal]: https://portal.azure.com

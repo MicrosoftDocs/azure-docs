@@ -80,7 +80,7 @@ Mentioned several times in this article is the **container group**. Every contai
 <!-- LINKS - External -->
 
 <!-- LINKS - Internal -->
-[az-container-create]: /cli/azure/container?view=azure-cli-latest#az_container_create
-[az-container-logs]: /cli/azure/container?view=azure-cli-latest#az_container_logs
-[az-container-show]: /cli/azure/container?view=azure-cli-latest#az_container_show
+[az-container-create]: /cli/azure/container?view=azure-cli-latest#az-container-create
+[az-container-logs]: /cli/azure/container?view=azure-cli-latest#az-container-logs
+[az-container-show]: /cli/azure/container?view=azure-cli-latest#az-container-show
 [azure-cli-install]: /cli/azure/install-azure-cli

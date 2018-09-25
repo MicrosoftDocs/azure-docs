@@ -1,16 +1,14 @@
 ---
 title: Business continuity - Microsoft Genomics | Microsoft Docs
 titleSuffix: Azure
-description: Learn how Microsoft Genomics supports business continuity
+description: This overview describes the capabilities that Microsoft Genomics provides for business continuity and disaster recovery. Learn about options for recovering from disruptive events, such as an Azure region outage, that could cause data loss. 
 keywords: business continuity, disaster recovery
 
-services: microsoft-genomics
+services: genomics
 author: grhuynh
-manager: jhubbard
-editor: jasonwhowell
+manager: cgronlun
 ms.author: grhuynh
-ms.service: microsoft-genomics
-ms.workload: genomics
+ms.service: genomics
 ms.topic: article
 ms.date: 04/06/2018
 

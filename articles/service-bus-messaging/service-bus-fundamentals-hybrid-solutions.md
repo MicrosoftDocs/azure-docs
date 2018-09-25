@@ -3,13 +3,13 @@ title: Overview of Azure Service Bus fundamentals | Microsoft Docs
 description: An introduction to using Service Bus to connect Azure applications to other software.
 services: service-bus-messaging
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 
 ms.service: service-bus-messaging
 ms.topic: get-started-article
 ms.date: 05/23/2018
-ms.author: sethm
+ms.author: spelluru
 
 ---
 
@@ -33,7 +33,12 @@ Within a namespace, you can use one or more instances of three different communi
 * *Topics*, which provide one-directional communication using *subscriptions*. A single topic can have multiple subscriptions. Like a queue, a topic acts as a broker, but each subscription can optionally use a filter to receive only messages that match specific criteria.
 * *Relays*, which provide bi-directional communication. Unlike queues and topics, a relay doesn't store in-flight messages; it's not a broker. Instead, it just passes them on to the destination application.
 
-When you create a queue, topic, or relay, you give it a name. Combined with whatever you called your namespace, this name creates a unique identifier for the object. Applications can provide this name to Service Bus, then use that queue, topic, or relay to communicate with each other. 
+When you create a queue, topic, or relay, you give it a name. Combined with whatever you called your namespace, this name creates a unique identifier for the object. Applications can provide this name to Service Bus, then use that queue, topic, or relay to communicate with each other.
+
+ >**Example:**   
+     *https://&lt;servicebus-namespace-name&gt;.servicebus.windows.net/&lt;queue-name&gt;*  
+     *https://&lt;servicebus-namespace-name&gt;.servicebus.windows.net/&lt;topic-name&gt;*  
+     *https://&lt;servicebus-namespace-name&gt;.servicebus.windows.net/&lt;relay-name&gt;*  
 
 To use any of these objects in the relay scenario, Windows applications can use Windows Communication Foundation (WCF). This service is known as [WCF Relay](../service-bus-relay/relay-what-is-it.md). For queues and topics, Windows applications can use Service Bus-defined messaging APIs. To make these objects easier to use from non-Windows applications, Microsoft provides SDKs for Java, Node.js, and other languages. You can also access queues and topics using [REST APIs](/rest/api/servicebus/) over HTTP(s). 
 

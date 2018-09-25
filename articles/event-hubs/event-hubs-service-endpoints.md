@@ -3,14 +3,14 @@ title: Virtual Network service endpoints and rules for Azure Event Hubs | Micros
 description: Add a Microsoft.EventHub service endpoint to a virtual network. 
 services: event-hubs
 documentationcenter: ''
-author: clemensv
+author: ShubhaVijayasarathy
 manager: timlt
 
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-ms.date: 06/26/2018
-ms.author: clemensv
+ms.date: 08/16/2018
+ms.author: shvija
 
 ---
 
