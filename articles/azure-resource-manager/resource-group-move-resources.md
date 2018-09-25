@@ -263,7 +263,7 @@ The following list provides a general summary of Azure services that can't be mo
 
 ## Virtual Machines limitations
 
-Managed disks are supported for move as of September 24th, 2018. You'll have to register to enable this feature.
+Managed disks are supported for move as of September 24, 2018. You'll have to register to enable this feature.
 
 ```azurepowershell-interactive
 Register-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute
@@ -273,21 +273,20 @@ Register-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNames
 az feature register Microsoft.Compute ManagedResourcesMove
 ```
 
-
-This means you can also move:
+This support means you can also move:
 
 * Virtual machines with the managed disks
 * Managed Images
 * Managed Snapshots
 * Availability sets with virtual machines with managed disks
 
-Here are the constraints that are not yet supported
+Here are the constraints that are not yet supported:
 
 * Virtual Machines with certificate stored in Key Vault can be moved to a new resource group in the same subscription, but not across subscriptions.
 * Virtual Machines configured with Azure Backup. Use the below workaround to move these Virtual Machines
   * Locate the location of your Virtual Machine.
-  * Locate a resource group with the following naming pattern: "AzureBackupRG_<location of your VM>_1" e.g. AzureBackupRG_westus2_1
-  * If in Azure Portal, then check "Show hidden types"
+  * Locate a resource group with the following naming pattern: `AzureBackupRG_<location of your VM>_1` e.g. AzureBackupRG_westus2_1
+  * If in Azure portal, then check "Show hidden types"
   * If in PowerShell, use the `Get-AzureRmResource -ResourceGroupName AzureBackupRG_<location of your VM>_1` cmdlet
   * If in CLI, use the `az resource list -g AzureBackupRG_<location of your VM>_1`
   * Now locate the resource with type `Microsoft.Compute/restorePointCollections` that has the naming pattern `AzureBackup_<name of your VM that you're trying to move>_###########`
