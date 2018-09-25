@@ -4,7 +4,7 @@ description: Errors to check for and how to avoid when creating pools and nodes
 services: batch
 author: mscurrell
 ms.author: markscu
-ms.date: 0/20/2018
+ms.date: 9/25/2018
 ms.topic: conceptual
 ---
 
@@ -20,7 +20,7 @@ This article covers the background operations that can take place for pools and 
 
 ### Resize timeout or failure
 
-When creating a new pool or resizing an existing pool, the target numbers of nodes is specified.  The operation will complete immediately, but the actual allocation of new nodes or removal of existing nodes takes place in the background over what may be several minutes.  A resize timeout is specified in the [create](https://docs.microsoft.com/rest/api/batchservice/pool/add) or [resize](https://docs.microsoft.com/rest/api/batchservice/pool/resize) API - if the target number of nodes can't be obtained in the resize timeout, then the operation will stop with the pool going to a steady state and having resize errors.
+When creating a new pool or resizing an existing pool, the target numbers of nodes is specified.  The operation will complete immediately, but the actual allocation of new nodes or removal of existing nodes takes place in the background over what may be several minutes.  A resize timeout is specified in the [create](https://docs.microsoft.com/rest/api/batchservice/pool/add) or [resize](https://docs.microsoft.com/rest/api/batchservice/pool/resize) API - if the target number of nodes can't be obtained in the resize timeout period, then the operation will stop with the pool going to a steady state and having resize errors.
 
 A resize timeout is reported by the [ResizeError](https://docs.microsoft.com/rest/api/batchservice/pool/get#resizeerror) property for the last evaluation, which lists one or more errors that occurred.
 
