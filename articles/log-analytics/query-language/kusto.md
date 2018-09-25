@@ -18,7 +18,7 @@ ms.component: na
 ---
 
 # Log Analytics and Kusto language differences
-[Log Analytics queries](../log-analytics/log-analytics-queries.md) are written with the [Kusto language](/azure/kusto/query). There are some differences from the standard language and the Log Analytics implementation though as described in this article.
+[Log Analytics queries](../log-analytics-queries.md) are written with the [Kusto language](/azure/kusto/query). There are some differences from the standard language and the Log Analytics implementation though as described in this article.
 
 
 ## Statements not supported in Log Analytics
@@ -51,11 +51,11 @@ The following plugins are not supported in Log Analytics.
 
 
 ## Log Analytics specific operators
-* [app()](../log-analytics/query-language/app-expression.md)
-* [workspace()](../log-analytics/query-language/workspace-expression.md)
+* [app()](app-expression.md)
+* [workspace()](workspace-expression.md)
 
 ## Next steps
 
-- Read about queries in [Log Analytics](../log-analytics/log-analytics-queries.md).
+- Read about queries in [Log Analytics](../log-analytics-queries.md).
 - Walk through a lesson on writing on a [Log Analytics query](/log-analytics/query-language/get-started-queries.md).
 - Access the complete [reference documentation for Kusto](/azure/kusto/query/).
