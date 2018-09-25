@@ -10,7 +10,7 @@ ms.date: 09/24/2018
 ms.author: alinast
 ---
 
-# Data processing and User-Defined Functions
+# Data Processing and User-Defined Functions
 
 Once devices are sending telemetry data to Digital Twins, data processing can take place. This processing takes place in four phases: _parse_, _match_, _compute_, and _dispatch_: 
 
@@ -23,7 +23,7 @@ Once devices are sending telemetry data to Digital Twins, data processing can ta
 
 Any data processing consists of defining three objects: _matchers_, _user-defined function_, and _role assignments_ as outlined below.
 
-# Matchers
+## Matchers
 
 _Matchers_ allow for persisting a set of conditions that evaluate on incoming sensor telemetry. Properties from the sensor, the sensor's device, and the sensor's space are used to determine the match. The conditions are expressed as comparisons against a [JSON path](http://jsonpath.com/) as outlined in below example of matcher:
 
@@ -72,7 +72,7 @@ _Matchers_ allow for persisting a set of conditions that evaluate on incoming se
 - JSON payload is identical to the payload that would be returned by `/sensors/{id}?includes=properties,types` or `/devices/{id}?includes=properties,types,sensors,sensorsproperties,sensorstypes` or `/spaces/{id}?includes=properties,types,location,timezone` for respectively the sensor, the sensor's parent device and the sensor's parent space.
 - The comparisons are case-insensitive.
 
-# User-Defined Function
+## User-Defined Function
 
 A `User-Defined Function` or _UDF_ is a custom function that runs within an isolated environment and has access both to the sensor telemetry message as it was received, as well as to the graph and dispatcher service. When new telemetry from a sensor is received, a UDF may choose to calculate a moving average of the last few sensor readings, for example. Once the UDF is registered within the graph, a matcher must be created to specify when to run the UDF. A matcher specifies a condition on which to run a specific UDF.
  
@@ -87,7 +87,7 @@ UDFs allow for executing custom snippets of code against sensor telemetry messag
 - Notify when certain conditions are met for an incoming sensor reading.
 - Attach graph metadata to the sensor reading before sending out a notification.
 
-# Role Assignment
+## Role Assignment
 
 We need to create a role assignment for the UDF to execute under to ensure it has the proper permissions to interact with the Digital Twins Management APIs to perform actions on graph objects. The actions that the UDF performs are not exempt from the role-based access control within the Digital Twins Management APIs. They can be limited in scope by specifying certain roles, or certain access control paths. See [Role-Based Access Control](security-create-manage-role-assignments.md) documentation for further information.
 

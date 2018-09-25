@@ -25,13 +25,10 @@ A step-by-step guide for on-boarding devices can be found in the [Facility Manag
 - Assign a role to the User-Defined Function to be able to access the graph data
 - Get IoT Hub device connection string from Digital Twins Management APIs
 - Configure the device connection string on the device
-    >[!NOTE]
-    >Coming soon: device integration with [IoT Device Provisioning Service](https://docs.microsoft.com/azure/iot-dps/ 
-
 
 Below you'll learn how to get IoT Hub device connection string from Digital Twins the Management API and how to adapt IoT Hub telemetry message format to send sensor-based telemetry. Digital Twins requires each piece of telemetry it receives is associated with a sensor within the graph. This is how Digital Twins ensures it can process and route the data in the proper way.
 
-# Get the IoT Hub device connection string from the Management API
+## Get the IoT Hub device connection string from the Management API
 
 Do a GET call on device API with `includes=ConnectionString` parameter to get the IoT Hub device connection string; filter by `device-guid` or `hardware-id`
 
