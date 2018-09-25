@@ -2,15 +2,16 @@
 title: Troubleshoot Azure SQL Database performance issues with Intelligent Insights | Microsoft Docs
 description: Intelligent Insights helps you troubleshoot Azure SQL Database performance issues.
 services: sql-database
-author: danimir
-manager: craigg
-ms.reviewer: carlrab
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: performance
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 09/20/2018
+author: danimir
 ms.author: v-daljep
-
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/20/2018
 ---
 # Troubleshoot Azure SQL Database performance issues with Intelligent Insights
 

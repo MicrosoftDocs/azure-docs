@@ -272,6 +272,12 @@ Note: *.loganalytics.io domain is owned by the Log Analytics team.
 | Application Insights JS SDK CDN | az416426.vo.msecnd.net | dynamic | 80,443 |
 | Application Insights Java SDK | aijavasdk.blob.core.windows.net | dynamic | 80,443 |
 
+## Alert webhooks
+
+| Purpose | IP | Ports
+| --- | --- | --- | --- |
+| Alerting | 23.96.11.4 | 443 |
+
 ## Profiler
 
 | Purpose | URI | IP | Ports |

@@ -2,16 +2,16 @@
 title: Azure SQL Database Data Discovery & Classification | Microsoft Docs
 description: Azure SQL Database Data Discovery & Classification
 services: sql-database
-author: giladmit
-manager: craigg
-ms.reviewer: vanto
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 09/10/2018
+author: giladmit
 ms.author: giladm
-
-
+ms.reviewer: vanto
+manager: craigg
+ms.date: 09/10/2018
 ---
 # Azure SQL Database Data Discovery and Classification
 Data Discovery & Classification (currently in preview) provides advanced capabilities built into Azure SQL Database for **discovering**, **classifying**, **labeling** & **protecting** the sensitive data in your databases.

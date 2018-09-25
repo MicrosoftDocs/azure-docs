@@ -42,6 +42,8 @@
     items:
     - name: Output to Cosmos DB
       href: stream-analytics-documentdb-output.md
+    - name: Output to Azure SQL DB
+      href: stream-analytics-sql-output-perf.md
   - name: Window functions
     href: stream-analytics-window-functions.md
   - name: Geospatial functions
