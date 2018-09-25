@@ -29,6 +29,8 @@
     href: resource-manager-supported-services.md
   - name: Management groups
     href: management-groups-overview.md
+  - name: Deployment Manager
+    href: deployment-manager-overview.md
   - name: Subscription governance
     href: /azure/architecture/cloud-adoption-guide/subscription-governance
     maintainContext: true
