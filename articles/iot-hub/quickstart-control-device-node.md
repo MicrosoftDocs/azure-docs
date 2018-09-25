@@ -108,7 +108,7 @@ The back-end application connects to a service-side endpoint on your IoT Hub. Th
 
 1. Open the **BackEndApplication.js** file in a text editor of your choice.
 
-    Replace the value of the `connectionString` variable with the service connection string you made a note of previously. Then save your changes to the **BackEndApplication.js** file.
+    Replace the value of the `connectionString` variable with the service connection string you made a note of previously. Make sure to modify the `deviceId` variable to match the deviceId of your device. Then save your changes to the **BackEndApplication.js** file.
 
 1. In the terminal window, run the following commands to install the required libraries and run the back-end application:
 
