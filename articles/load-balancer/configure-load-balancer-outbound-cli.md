@@ -150,6 +150,9 @@ az network lb outbound-rule create \
  --outbound-ports 10000 \
  --address-pool bepool
 ```
+
+At this point, you can proceed with adding your VM's to the backend pool *bepool* by updating the IP configuration of the respective NIC resources.
+
 ## Clean up resources
 
 When no longer needed, you can use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, load balancer, and all related resources.
