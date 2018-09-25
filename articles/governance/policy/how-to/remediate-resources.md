@@ -4,7 +4,7 @@ description: This how-to walks you through the remediation of resources that are
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 09/25/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
@@ -59,6 +59,54 @@ az role definition list --name 'Contributor'
 
 ```azurepowershell-interactive
 Get-AzureRmRoleDefinition -Name 'Contributor'
+```
+
+## Programmatically grant managed identity required roles
+
+When creating an assignment using the portal, Policy both generates the necessary managed identity
+and grants it the roles defined in **roleDefinitionIds**. When using SDK (such as Azure
+PowerShell), this step must be done manually.
+
+> [!NOTE]
+> Azure PowerShell is the only SDK that currently supports this capability.
+
+To configure a managed identity during the creation of the assignment, the **Location** and
+**AssignIdentity** must be defined. The following example gets the definition of the built-in
+policy **Deploy SQL DB transparent data encryption**, sets the target resource group, and then
+creates the assignment.
+
+```azurepowershell-interactive
+# Login first with Connect-AzureRmAccount if not using Cloud Shell
+
+# Get the built-in "Deploy SQL DB transparent data encryption" policy definition
+$policyDef = Get-AzureRmPolicyDefinition -Id '/providers/Microsoft.Authorization/policyDefinitions/86a912f6-9a06-4e26-b447-11b16ba8659f'
+
+# Get the reference to the resource group
+$resourceGroup = Get-AzureRmResourceGroup -Name 'MyResourceGroup'
+
+# Create the assignment using the -Location and -AssignIdentity properties
+$assignment = New-AzureRmPolicyAssignment -Name 'sqlDbTDE' -DisplayName 'Deploy SQL DB transparent data encryption' -Scope $resourceGroup.ResourceId -PolicyDefinition $policyDef -Location 'westus' -AssignIdentity
+```
+
+The `$assignment` variable now contains the principal ID of the managed identity along with the
+standard values returned when creating a policy assignment. It can be accessed through
+`$assignment.Identity.PrincipalId`. The new managed identity must complete replication through
+Azure Active Directory before it can be granted the needed roles. Once replication is complete, the
+following example iterates the policy definition in `$policyDef` for the **roleDefinitionIds** and
+uses [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) to
+grant the new managed identity the roles.
+
+```azurepowershell-interactive
+# Use the $policyDef to get to the roleDefinitionIds array
+$roleDefinitionIds = $policyDef.Properties.policyRule.then.details.roleDefinitionIds
+
+if ($roleDefinitionIds.Count -gt 0)
+{
+    $roleDefinitionIds | ForEach-Object {
+        $roleDefId = $_.Split("/") | Select-Object -Last 1
+        New-AzureRmRoleAssignment -Scope $resourceGroup.ResourceId -ObjectId $assignment.Identity.PrincipalId -RoleDefinitionId $roleDefId
+    }
+}
 ```
 
 ## Create a remediation task
