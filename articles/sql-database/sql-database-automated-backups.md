@@ -78,6 +78,10 @@ For more information, see [Long-term backup retention](sql-database-long-term-re
 
 If your database is encrypted with TDE, the backups are automatically encrypted at rest, including LTR backups. When TDE is enabled for an Azure SQL database, backups are also encrypted. All new Azure SQL databases are configured with TDE enabled by default. For more information on TDE, see  [Transparent Data Encryption with Azure SQL Database](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
 
+## How does Microsoft ensure backup integrity
+
+On an ongoing basis, the Azure SQL Database engineering team automatically tests the restore of automated database backups of databases across the service. Upon restore, databases also receive integrity checks using DBCC CHECKDB. Any issues found during the integrity check will result in an alert to the engineering team. For more information about data integrity in Azure SQL Database, see [Data Integrity in Azure SQL Database](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/).
+
 ## How do automated backups impact my compliance?
 
 When you migrate your database from a DTU-based service tier with the default PITR retention of 35 days, to a vCore-based service tier, the PITR retention is preserved to ensure that your application's data recovery policy is not compromised. If the default retention doesn't meet your compliance requirements, you can change the PITR retention period using PowerShell or REST API. See [Change Backup Retention Period](#how-to-change-backup-retention-period) for more details.
