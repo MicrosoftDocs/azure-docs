@@ -59,16 +59,16 @@ The following SKUs are currently supported (more will be added in the future):
 | CoreOS                  | CoreOS        | Stable             | 
 | Microsoft Corporation   | WindowsServer | 2012-R2-Datacenter | 
 | Microsoft Corporation   | WindowsServer | 2016-Datacenter    | 
-| Microsoft Corportaion   | WindowsServer | 2016-Datacenter-Smalldisk |
-| Microsoft Corportaion   | WindowsServer | 2016-Datacenter-with-Containers |
+| Microsoft Corporation   | WindowsServer | 2016-Datacenter-Smalldisk |
+| Microsoft Corporation   | WindowsServer | 2016-Datacenter-with-Containers |
 
-* Support for these images are currently rolling out and will be available in all the Azure regions shortly. 
+* Support for these images is currently rolling out and will be available in all the Azure regions shortly. 
 
 ## Requirements for configuring automatic OS image upgrade
 
 - The *version* property of the platform image must be set to *latest*.
 - Use application health probes for non Service Fabric scale sets.
-- Ensure that the resources that the scale set model is referring to is avialble and kept up to date. Exa. SAS URI for bootstrapping payload in VM extension properties, payload in storage account, reference to secrets in the model. 
+- Ensure that the resources that the scale set model is referring to is avialable and kept up to date. Exa.SAS URI for bootstrapping payload in VM extension properties, payload in storage account, reference to secrets in the model. 
 
 ## Configure automatic OS image upgrade
 To configure automatic OS image upgrade, ensure that the *automaticOSUpgradePolicy.enableAutomaticOSUpgrade* property is set to *true* in the scale set model definition. You can configure this property with Azure PowerShell or the Azure CLI 2.0.
@@ -115,17 +115,17 @@ The load-balancer probe can be referenced in the *networkProfile* of the scale s
 > [!NOTE]
 > This section only applies for scale sets without Service Fabric. Service Fabric has its own notion of application health. When using Automatic OS Upgrades with Service Fabric, the new OS image is rolled out Update Domain by Update Domain to maintain high availability of the services running in Service Fabric. For more information on the durability characteristics of Service Fabric clusters, please see [this documentation](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
 
-### Keep credentials up to date
-If your scale set uses any credentials to access external resources, for example if a VM extension is configured which uses a SAS token for storage account, you will need to make sure the credentials are kept up to date. If any credentials, including certificates and tokens have expired, the upgrade will fail, and the first batch of VMs will be left in a failed state.
+### Keep credentials up-to-date
+If your scale set uses any credentials to access external resources, for example if a VM extension is configured which uses a SAS token for storage account, you will need to make sure the credentials are kept up-to-date. If any credentials, including certificates and tokens have expired, the upgrade will fail, and the first batch of VMs will be left in a failed state.
 
 The recommended steps to recover VMs and re-enable automatic OS upgrade if there is a resource authentication failure are:
 
 * Regenerate the token (or any other credentials) passed into your extension(s).
-* Ensure that any credential used from inside the VM to talk to external entities is up to date.
+* Ensure that any credential used from inside the VM to talk to external entities is up-to-date.
 * Update extension(s) in the scale set model with any new tokens.
 * Deploy the updated scale set, which will update all VM instances including the failed ones. 
 
-## Get the history of automatic OS image updgrades 
+## Get the history of automatic OS image upgrades 
 You can check the history of the most recent OS upgrade performed on your scale set with Azure PowerShell, Azure CLI 2.0, or the REST APIs. You can get history for the last 5 OS upgrade attempts within the past 2 months.
 
 ### Azure PowerShell
@@ -148,7 +148,7 @@ The following example uses the REST API to check the status for the scale set na
 ```
 GET on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/osUpgradeHistory?api-version=2018-10-01`
 ```
-Please refer to the documentation for this API here: https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/getosupgradehistory .
+Please refer to the documentation for this API here: https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/getosupgradehistory.
 
 The GET call returns properties similar to the following example output:
 
