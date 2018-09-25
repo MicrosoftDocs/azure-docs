@@ -96,7 +96,9 @@ You will need Azure AD PowerShell to use this option. If you don't have it insta
    Output from the final command should look like this, returning the ID of the assignment:
         
    `ObjectId`:`gzR5KyLAiUOTiqFhNeWZWBtK7ZKqNJxAiWYXYVHlgMs`
+
    `ResourceDisplayName`:`Windows Azure Active Directory`
+
    `PrincipalDisplayName`:`myVM` 
 
    If the call to `New-AzureAdServiceAppRoleAssignment` fails with the error `bad request, one or more properties are invalid` the app permission may already be assigned to the VM identity's service principal. You can use the following PowerShell commands to check if the application permission already exists between your VM's identity and Azure AD Graph:
@@ -158,7 +160,7 @@ To use the VM's system assigned managed identity for authentication to Azure AD 
 5. Using the Object ID of your VM identity's service principal (you can retrieve this value from the variable declared in previous steps: ``$ManagedIdentitiesServicePrincipal.ObjectId``), you can query the Azure AD Graph API to retrieve its group memberships. Replace <OBJECT ID> with the Object ID from the previous step and <ACCESS-TOKEN> with the previously obtained access token:
 
    ```powershell
-   Invoke-WebRequest -v 'https://graph.windows.net/<Tenant ID>/servicePrincipals/<VM Object ID>/getMemberGroups?api-version=1.6' -Method POST -Body '{"securityEnabledOnly":"false"}' -Headers @{Authorization="Bearer $AccessToken"} -ContentType "application/json"
+   Invoke-WebRequest 'https://graph.windows.net/<Tenant ID>/servicePrincipals/<VM Object ID>/getMemberGroups?api-version=1.6' -Method POST -Body '{"securityEnabledOnly":"false"}' -Headers @{Authorization="Bearer $AccessToken"} -ContentType "application/json"
    ```
    
    The response contains the `Object ID` of the group that you added your VM's service principal to in earlier steps.
