@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 09/25/2018
 ms.author: jonbeck
 ---
 
@@ -29,7 +29,8 @@ This article describes the available sizes and options for the Azure virtual mac
 | [Memory optimized](sizes-memory.md)         | Esv3, Ev3, M, GS, G, DSv2, Dv2  | High memory-to-CPU ratio. Great for relational database servers, medium to large caches, and in-memory analytics.                 |
 | [Storage optimized](sizes-storage.md)        | Ls                | High disk throughput and IO. Ideal for Big Data, SQL, and NoSQL databases.                                                         |
 | [GPU](sizes-gpu.md)            | NV, NVv2, NC, NCv2, NCv3, ND            | Specialized virtual machines targeted for heavy graphic rendering and video editing, as well as model training and inferencing (ND) with deep learning. Available with single or multiple GPUs.       |
-| [High performance compute](sizes-hpc.md) | H       | Our fastest and most powerful CPU virtual machines with optional high-throughput network interfaces (RDMA). 
+| [High performance compute](sizes-hpc.md) | H       | Our fastest and most powerful CPU virtual machines with optional high-throughput network interfaces (RDMA). |
+| [Confidential compute](sizes-hpc.md) | DC       | For confidential computing. 
 
 <br>
 
@@ -64,6 +65,7 @@ Learn more about the different VM sizes that are available:
 - [Storage optimized](sizes-storage.md)
 - [GPU](sizes-gpu.md)
 - [High performance compute](sizes-hpc.md)
+- [Confidential computing](sizes-confidential-compute.md)
 - Check the [Previous generation](sizes-previous-gen.md) page for A Standard, Dv1 (D1-4 and D11-14 v1), and A8-A11 series
 
 
