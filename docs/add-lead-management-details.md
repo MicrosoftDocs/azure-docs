@@ -17,7 +17,7 @@ For customers who acquire your add-in via AppSource, the following details are s
 - Email Address
 
 > [!NOTE]
-> Leads support for acquisitions made via the AppSource and in-client experiences are coming soon.
+> Leads are currently supported for acquisitions made via AppSource, as well as Word, Excel, and PowerPoint stores.
 
 ## Add lead management information to the Seller Dashboard
 
