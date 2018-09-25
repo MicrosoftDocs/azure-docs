@@ -44,7 +44,7 @@ Make sure the server roles running on the machine are supported by Sysprep. For 
 
 1. Sign in to the Windows virtual machine.
 2. Open the Command Prompt window as an administrator. Change the directory to %windir%\system32\sysprep, and then run `sysprep.exe`.
-3. In the **System Preparation Tool** dialog box, select **Enter System Out-of-Box Experience (OOBE)**, and make sure that the **Generalize** check box is selected.
+3. In the **System Preparation Tool** dialog box, select **Enter System Out-of-Box Experience (OOBE)**, and make sure that the **Generalize** check box is enabled.
 4. For **Shutdown Options**, select **Shutdown**.
 5. Select **OK**.
    
