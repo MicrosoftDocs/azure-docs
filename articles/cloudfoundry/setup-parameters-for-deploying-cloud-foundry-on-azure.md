@@ -41,7 +41,7 @@ ssh-keygen -t rsa -b 2048
 
 `az login`
 
-![Alt image text](media/deploy/az-login-output2.png "Azure CLI login")
+![Alt image text](media/deploy/az-login-output.png "Azure CLI login")
  
 Copy the “id” value as your **subscription ID** and the **tenantId** value to be used later.
 
