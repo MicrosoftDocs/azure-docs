@@ -86,4 +86,4 @@ This table will be updated as the preview is expanded to other regions.
 ## Next steps
 
 - Learn about [Standard Load Balancer](load-balancer-standard-overview.md).
-- Learn about [outbound rules](https://aka.ms/lboutboundrules).
+- Learn about [outbound rules](load-balancer-outbound-rules-overview.md).
