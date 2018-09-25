@@ -23,9 +23,9 @@ ms.reviewer: sijuman
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-## Java and API version profiles
-
 The Java SDK for the Azure Stack Resource Manager provides tools to help you build and manage your infrastructure. Resource providers in the SDK include compute, networking, storage, app services, and [KeyVault](../../key-vault/key-vault-whatis.md). The Java SDK incorporates API profiles by including dependencies in the Pom.xml file that loads the correct modules in the .java file. However, you can add multiple profiles as dependencies, such as the **2018-03-01-hybrid**, or **latest** as the Azure profile. Using these dependencies loads the correct module so that when you create your resource type, you are able to select which API version from those profiles you want to use. This enables you to use the latest versions in Azure, while developing against the most current API versions for Azure Stack. Using the Java SDK enables a true hybrid cloud developer experience. API profiles in the Java SDK enable hybrid cloud development by helping you switch between global Azure resources and resources in Azure Stack.
+
+## Java and API version profiles
 
 An API profile is a combination of resource providers and API versions. You can use an API profile to get the latest, most stable version of each resource type in a resource provider package.
 
