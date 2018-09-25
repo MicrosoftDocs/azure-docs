@@ -143,6 +143,8 @@ The following are post-installation known issues for this build version.
 
 ### Portal
 
+- The Azure Stack technical documentation focuses on the latest release. Due to portal changes from release to release, what you see when using the Azure Stack portals might vary from what you see in the documentation. 
+
 - <!-- TBD - IS ASDK --> You might see a blank dashboard in the portal. To recover the dashboard, click **Edit Dashboard**, then right click and select **Reset to default state**.
 
 - <!-- 2930718 - IS ASDK --> In the administrator portal, when accessing the details of any user subscription, after closing the blade and clicking on **Recent**, the user subscription name does not appear.
