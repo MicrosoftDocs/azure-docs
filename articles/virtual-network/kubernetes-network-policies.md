@@ -74,8 +74,8 @@ The below JSON example configuration creates a new virtual network and subnet, a
       }
     },
     "servicePrincipalProfile": {
-      "clientId": "<put the client ID of your service principal here >",
-      "secret": "<put the passwd of your service principal here>"
+      "clientId": "<enter the client ID of your service principal here >",
+      "secret": "<enter the password of your service principal here>"
     }
   }
 }
