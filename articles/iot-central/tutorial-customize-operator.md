@@ -72,6 +72,8 @@ As a builder, you can define what information displays on a device dashboard. In
 
     ![Edit dashboard layout](media/tutorial-customize-operator/dashboardlayout.png)
 
+7. Click **Done** when you are finished making changes.
+
 ## Configure your settings layout
 
 As a builder, you can also configure the operator's view of the device settings. An operator uses the device settings page to configure a device. For example, an operator uses the settings page to set the target temperature for the refrigerator.
@@ -83,6 +85,8 @@ As a builder, you can also configure the operator's view of the device settings.
 2. You can move and resize the settings tiles:
 
     ![Edit the settings layout](media/tutorial-customize-operator/settingslayout.png)
+
+3. Click **Done** when you are finished making changes.
 
 > [!NOTE]
 > In **Edit Template** mode, you can't edit the values of the settings.
@@ -99,6 +103,8 @@ In addition to the dashboard and settings, you can also configure the operator's
 
     ![Edit the properties layout](media/tutorial-customize-operator/propertieslayout.png)
 
+3. Click **Done** when you are finished making changes.
+
 > [!NOTE]
 > In **Edit Template** mode, you can't edit the values of the properties.
 
@@ -108,7 +114,7 @@ In **Edit Template** mode, you can customize the dashboard, settings, and proper
 
 1. To view your connected air conditioner device as an operator, you need to click **Done** in order to stop editing the template. This will return you to an operator view of the device.
 
-2. To update the serial number of this device, edit the value  in the serial number tile and choose **Save**:
+2. To update the Location of this device, edit the value  in the Location tile and choose **Save**:
 
     ![Edit a property value](media/tutorial-customize-operator/editproperty.png)
 

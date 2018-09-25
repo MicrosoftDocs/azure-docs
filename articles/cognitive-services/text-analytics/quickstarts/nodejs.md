@@ -1,14 +1,15 @@
 ---
-title: 'Quickstart: Using Node.js to call the Text Analytics API | Microsoft Docs'
+title: 'Quickstart: Using Node.js to call the Text Analytics API'
 titleSuffix: Azure Cognitive Services
 description: Get information and code samples to help you quickly get started using the Text Analytics API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
-documentationcenter: ''
 author: ashmaka
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: text-analytics
-ms.topic: article
-ms.date: 08/30/2018
+ms.topic: quickstart
+ms.date: 09/12/2018
 ms.author: ashmaka
 ---
 

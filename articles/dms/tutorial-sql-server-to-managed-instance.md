@@ -10,14 +10,11 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 08/24/2018
+ms.date: 09/22/2018
 ---
 
 # Migrate SQL Server to Azure SQL Database Managed Instance offline using DMS
 You can use the Azure Database Migration Service to migrate the databases from an on-premises SQL Server instance to an [Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance.md). For additional methods that may require some manual effort, see the article [SQL Server instance migration to Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance-migrate.md).
-
-> [!IMPORTANT]
-> Migration projects from SQL Server to Azure SQL Database Managed Instance are in preview and subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 In this tutorial, you migrate the **Adventureworks2012** database from an on-premises instance of SQL Server to an Azure SQL Database Managed Instance by using the Azure Database Migration Service.
 
@@ -130,9 +127,9 @@ After an instance of the service is created, locate it within the Azure portal, 
 
 ## Specify target details
 
-1.  On the **Migration target details** screen, specify the connection details for the target, which is the pre-provisioned Azure SQL Database Managed Instance to which you are migrating the **AdventureWorks2012** database.
+1.  On the **Migration target details** screen, specify the connection details for the target, which is the pre-provisioned Azure SQL Database Managed Instance to which you're migrating the **AdventureWorks2012** database.
 
-    If you have not already provisioned the Azure SQL Database Managed Instance, select **No** for a link to help you provision the instance. You can still proceed with project creation and then, when the Azure SQL Database Managed Instance is ready, return to this specific project to execute the migration.   
+    If you haven't already provisioned the Azure SQL Database Managed Instance, select **No** for a link to help you provision the instance. You can still proceed with project creation and then, when the Azure SQL Database Managed Instance is ready, return to this specific project to execute the migration.   
  
        ![Select Target](media\tutorial-sql-server-to-managed-instance\dms-target-details2.png)
 
@@ -163,12 +160,12 @@ After an instance of the service is created, locate it within the Azure portal, 
 
     | | |
     |--------|---------|
-    |**Choose source backup option** | Choose the option **I will provide latest backup files** when you already have a full backup files available for DMS to use for database migration. Choose the option **I will let Azure Database Migration Service create backup files** when you want DMS to take the source database full backup at first and use it for migration. |
+    |**Choose source backup option** | Choose the option **I will provide latest backup files** when you already have full backup files available for DMS to use for database migration. Choose the option **I will let Azure Database Migration Service create backup files** when you want DMS to take the source database full backup at first and use it for migration. |
     |**Network location share** | The local SMB network share that the Azure Database Migration Service can take the source database backups to. The service account running source SQL Server instance must have write privileges on this network share. Provide an FQDN or IP addresses of the server in the network share, for example, '\\\servername.domainname.com\backupfolder' or '\\\IP address\backupfolder'.|
     |**User name** | Make sure that the Windows user has full control privilege on the network share that you provided above. The Azure Database Migration Service will impersonate the user credential to upload the backup files to Azure storage container for restore operation. If TDE-enabled databases are selected for migration, the above windows user must be the built-in administrator account and [User Account Control](https://docs.microsoft.com/windows/security/identity-protection/user-account-control/user-account-control-overview) must be disabled for Azure Database Migration Service to upload and delete the certificates files.) |
     |**Password** | Password for the user. |
     |**Storage account settings** | The SAS URI that provides the Azure Database Migration Service with access to your storage account container to which the service uploads the back-up files and that is used for migrating databases to Azure SQL Database Managed Instance. [Learn how to get the SAS URI for blob container](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container).|
-    |**TDE Settings** | If you are migrating the source databases with Transparent Data Encryption (TDE) enabled, you need to have write privileges on the target Azure SQL DB Managed Instance.  Select the subscription in which the Azure SQL DB Managed Instance provisioned from the drop-down menu.  Select the target Azure SQL DB Managed Instance in the drop-down menu. |
+    |**TDE Settings** | If you are migrating the source databases with Transparent Data Encryption (TDE) enabled, you need to have write privileges on the target Azure SQL Database Managed Instance.  Select the subscription in which the Azure SQL DB Managed Instance provisioned from the drop-down menu.  Select the target **Azure SQL Database Managed Instance** in the drop-down menu. |
     
     ![Configure Migration Settings](media\tutorial-sql-server-to-managed-instance\dms-configure-migration-settings3.png)
 

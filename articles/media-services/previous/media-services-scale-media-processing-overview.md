@@ -26,12 +26,12 @@ A Media Services account is associated with a Reserved Unit Type, which determin
 In addition to specifying the reserved unit type, you can specify to provision your account with reserved units. The number of provisioned reserved units determines the number of media tasks that can be processed concurrently in a given account. For example, if your account has five reserved units, then five media tasks will be running concurrently as long as there are tasks to be processed. The remaining tasks will wait in the queue and will get picked up for processing sequentially when a running task finishes. If an account does not have any reserved units provisioned, then tasks will be picked up sequentially. In this case, the wait time between one task finishing and the next one starting will depend on the availability of resources in the system.
 
 ## Choosing between different reserved unit types
-The following table helps you make decision when choosing between different encoding speeds. It also provides a few benchmark cases and provides SAS URLs that you can use to download videos on which you can perform your own tests:
+The following table helps you make a decision when choosing between different encoding speeds. It also provides a few benchmark cases on [a video that you can download](https://nimbuspmteam.blob.core.windows.net/asset-46f1f723-5d76-477e-a153-3fd0f9f90f73/SeattlePikePlaceMarket_7min.ts?sv=2015-07-08&sr=c&si=013ab6a6-5ebf-431e-8243-9983a6b5b01c&sig=YCgEB8DxYKK%2B8W9LnBykzm1ZRUTwQAAH9QFUGw%2BIWuc%3D&se=2118-09-21T19%3A28%3A57Z) to perform your own tests:
 
 | Scenarios | **S1** | **S2** | **S3** |
 | --- | --- | --- | --- |
 | Intended use case |Single bitrate encoding. <br/>Files at SD or below resolutions, not time sensitive, low cost. |Single bitrate and multiple bitrate encoding.<br/>Normal usage for both SD and HD encoding. |Single bitrate and multiple bitrate encoding.<br/>Full HD and 4K resolution videos. Time sensitive, faster turnaround encoding. |
-| Benchmark |Encoding to a single bitrate MP4 file, at the same resolution, takes approximately 11 minutes. |Encoding with "H264 Single Bitrate 720p" preset takes approximately 5 minutes.<br/><br/>Encoding with "H264 Multiple Bitrate 720p" preset takes approximately 11.5 minutes. |Encoding with "H264 Single Bitrate 1080p" preset takes approximately 2.7 minutes.<br/><br/>Encoding with "H264 Multiple Bitrate 1080p" preset takes approximately 5.7 minutes. |
+| Benchmark for 7 minute video |Encoding to a single bitrate MP4 file, at the same resolution, takes approximately 5 minutes. |Encoding with "H264 Single Bitrate 720p" preset takes approximately 8 minutes.<br/><br/>Encoding with "H264 Multiple Bitrate 720p" preset takes approximately 16.8 minutes. |Encoding with "H264 Single Bitrate 1080p" preset takes approximately 4 minutes.<br/><br/>Encoding with "H264 Multiple Bitrate 1080p" preset takes approximately 8 minutes. |
 
 
 ## Considerations

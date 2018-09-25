@@ -115,6 +115,8 @@
         href: vs-key-vault-aspnet-core-what-happened.md
 - name: Resources
   items:
+  - name: Build your skills with Microsoft Learn
+    href: /learn/browse/?products=azure-key-vault
   - name: Service overview
     href: https://azure.microsoft.com/services/key-vault/
   - name: Authentication, requests and responses
@@ -127,8 +129,8 @@
     href: http://blogs.technet.com/b/kv/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/key-vault/
-  - name: Product Feedback
-    href: https://feedback.azure.com/forums/906355-azure-key-vault
 - name: Release Notes
   href: key-vault-versions.md
+- name: Product Feedback
+  href: https://feedback.azure.com/forums/906355-azure-key-vault
 

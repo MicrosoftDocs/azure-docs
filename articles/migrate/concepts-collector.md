@@ -4,7 +4,7 @@ description: Provides an overview of the Collector appliance and how to configur
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 09/14/2018
 ms.author: ruturajd
 services: azure-migrate
 ---
@@ -25,12 +25,17 @@ You can create the Collector by following the steps here - [How to create the Co
 
 There are two methods in which you discover your on-premises environment:
 
-a. **One-time discovery:** The collector for this model, communicates with vCenter Server to gather metadata about the VMs. For performance data collection of the VMs, it relies on the historical performance data stored in vCenter Server and collects the performance history of last one month. In this model, Azure Migrate collects average counter (vs. peak counter) for each metric, [learn more] (https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected) about the performance counters collected by Azure Migrate. Since it is a one-time discovery, the appliance in this case is not continuously connected to the project. Hence, changes in the on-premises environment are not reflected in Azure Migrate once the discovery is complete. If you want the changes to reflect, you have to do a rediscovery of the same environment to the same project.
+a. **One-time discovery:** The collector for this model, communicates with vCenter Server to gather metadata about the VMs. For performance data collection of the VMs, it relies on the historical performance data stored in vCenter Server and collects the performance history of last one month. In this model, Azure Migrate collects average counter (vs. peak counter) for each metric. Since it is a one-time discovery, the appliance in this case is not continuously connected to the project. Hence, changes in the on-premises environment are not reflected in Azure Migrate once the discovery is complete. If you want the changes to reflect, you have to do a rediscovery of the same environment to the same project.
+
+> [!NOTE]
+> This method requires you to set the statistics settings in vCenter Server to level 3 and wait for at least a day before you kick off the discovery to collect the required performance metrics.
 
 b. **Continuous discovery:** The collector appliance for this model is continuously connected to the Azure Migrate project. It continuously profiles the on-premises environment to gather real-time utilization data at every 20 seconds. The appliance then rolls-up the 20-second samples and creates a single data point for every 15 minutes by picking the maximum value, which is sent to Azure. This model does not depend on the statistics settings of vCenter Server for performance data collection. You can stop the continuous profiling anytime from the appliance.
 
 > [!NOTE]
-> The continuous discovery functionality is in preview.
+> The continuous discovery functionality is in preview. If you do not have the vCenter Server statistics settings set to level 3, we recommend you to use this method.
+
+[Learn more] (https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected) about the performance counters collected by Azure Migrate.
 
 ## Collector communication diagram
 
