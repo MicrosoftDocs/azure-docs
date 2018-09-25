@@ -124,8 +124,6 @@ When updating the Kubernetes item, you will need to remove the item that is in t
 
 To remove the Kubernetes item:
 
-1. Note name of the current item, such as `Microsoft.AzureStackKubernetesCluster.0.2.0`
-
 1. Connect to Azure Stack with PowerShell as an operator. For instruction, see [Connect to Azure Stack with PowerShell as an operator](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-configure-admin).
 
 2. Find the current Kubernetes Cluster item in the gallery.
@@ -133,8 +131,10 @@ To remove the Kubernetes item:
     ```PowerShell  
     Get-AzsGalleryItem | Select Name
     ```
+    
+3. Note name of the current item, such as `Microsoft.AzureStackKubernetesCluster.0.2.0`
 
-1. Use the following PowerShell cmdlet to remove the item:
+4. Use the following PowerShell cmdlet to remove the item:
 
     ```PowerShell  
     $Itemname="Microsoft.AzureStackKubernetesCluster.0.3.0"

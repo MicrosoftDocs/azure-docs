@@ -25,7 +25,7 @@ ms.reviewer: waltero
 > [!Note]  
 > Kubernetes on Azure Stack is in preview. Your Azure Stack operator will need to request access to the Kubernetes Cluster Marketplace item needed to perform the instructions in this article.
 
-The following article looks at using an Azure Resource Manager solution template to deploy and provision the resources for Kubernetes in a single, coordinated operation. You will need to collect the required information about your Azure Stack installation, generate the template, and then deploy to your cloud. Note the template is not the same managed AKS service offered in global Azure, but closer to the ACS service.
+The following article looks at using an Azure Resource Manager solution template to deploy and provision the resources for Kubernetes in a single, coordinated operation. You will need to collect the required information about your Azure Stack installation, generate the template, and then deploy to your cloud. Note the template is not the same managed AKS service offered in global Azure.
 
 ## Kubernetes and containers
 
@@ -51,7 +51,7 @@ To get started, make sure you have the right permissions and that your Azure Sta
 
 1. Check that you have a valid subscription in your Azure Stack tenant portal, and that you have enough public IP addresses available to add new applications.
 
-    The cluster cannot be deployed to an Azure Stack **Administrator** subscription. You must use a User** subscription. 
+    The cluster cannot be deployed to an Azure Stack **Administrator** subscription. You must use a **User** subscription. 
 
 ## Create a service principal in Azure AD
 
@@ -122,7 +122,7 @@ Give the service principal access to your subscription so that the principal can
 
 1. Select the **Location** of the resource group. This is the region you choose for your Azure Stack installation.
 
-### Kubernetes Cluster Settings
+### 2. Kubernetes Cluster Settings
 
 1. Select **Kubernetes Cluster Settings** in Create Kubernetes Cluster.
 
@@ -151,7 +151,7 @@ Give the service principal access to your subscription so that the principal can
 
 1. Enter the **Kubernetes Azure Cloud Provider Version**. This is the version for the Kubernetes Azure provider. Azure Stack releases a custom Kubernetes build for each Azure Stack version.
 
-### Summary
+### 3. Summary
 
 1. Select Summary. The blade displays a validation message for your Kubernetes Cluster configurations settings.
 
