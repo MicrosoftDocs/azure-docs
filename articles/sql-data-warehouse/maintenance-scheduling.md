@@ -1,5 +1,5 @@
 ---
-title: Maintenance schedules (Preview) | Microsoft Docs
+title: Azure Maintenance schedules (Preview) | Microsoft Docs
 description: Maintenance scheduling allows customers to plan around the necessary scheduled maintenance events the Azure SQL Data warehouse service uses to roll out new features, upgrades and patches.  
 services: sql-data-warehouse
 author: antvgski
@@ -12,7 +12,7 @@ ms.author: anvang
 ms.reviewer: igorstan
 ---
 
-# Using Maintenance schedules to manage service updates and maintenance
+# Using maintenance schedules to manage service updates and maintenance
 
 Azure SQL Data Warehouse Maintenance Scheduling is now in preview. This new feature seamlessly integrates the Service Health Planned Maintenance Notifications, Resource Health Check Monitor, and the Azure SQL Data Warehouse maintenance scheduling service.
 
@@ -22,15 +22,11 @@ All newly created Azure SQL Data Warehouse instances will have a system-defined 
 
 Each maintenance window can be between 3 and 8 hours each, with 3hrs currently being the shortest available option. Maintenance can occur at any time within the window and you should expect a brief loss of connectivity as the service deploys new code to your data warehouse. 
 
-
-
-### Note:
-
 During the feature preview, we are asking customers to identify their Primary and Secondary windows within separate day ranges.   
 All maintenance operations should be completed within the scheduled maintenance windows and no maintenance will take place outside of the specified maintenance windows without prior notification. If your data warehouse is paused during a scheduled maintenance, it will be updated during the resume operation.  
 
 
-# Alerts and Monitoring
+## Alerts and monitoring
 
 Seamless integration with Service health notifications and the Resource health check monitor allows customers to stay informed of impending maintenance activity. The new automation takes advantage of the Azure Monitor and allows customers to determine how they wish to be notified of impending maintenance events and which automated flows should be triggered to manage downtime and minimize the impact to their operations.
 
@@ -40,17 +36,18 @@ If you received an advance notification that maintenance will take place, but we
  
 All active maintenance events will be displayed in the 'Service Health - Planned Maintenance' section. A full record of past events will be retained as part of Service Health history. Maintenance can be monitored via the Azure Service Health check portal dashboard during an active event.
 
-### Note
+### Maintenance Schedule availability
 
 Even if Maintenance Scheduling is not yet available in your selected region, you can still view and edit your maintenance schedule at any time. When Maintenance Scheduling becomes available in your region, the Schedule identified will immediately become active on your data warehouse.
 
 
 ## Next steps
 
-Viewing and updating a Maintenance Schedule 
-[Learn more](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitor-alerts-unified-usage) about Creating, viewing, and managing alerts using Azure Monitor.
-[Learn more](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook) Webhook actions for log alert rules.
-[Learn more](https://docs.microsoft.com/en-us/azure/service-health/service-health-overview) about Azure Service Health
+- [Learn more](viewing-maintenance-schedule.md) about viewing a maintenance Schedule 
+- [Learn more](changing-maintenance-schedule.md) about changing a maintenance schedule
+- [Learn more](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-usage) about creating, viewing, and managing alerts using Azure Monitor
+- [Learn more](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook) about Webhook actions for log alert rules
+- [Learn more](https://docs.microsoft.com/azure/service-health/service-health-overview) about Azure Service Health
 
 
 

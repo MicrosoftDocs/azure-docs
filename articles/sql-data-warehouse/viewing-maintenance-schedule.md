@@ -1,5 +1,5 @@
 ---
-title: Maintenance schedules (Preview) | Microsoft Docs
+title: Azure Maintenance schedules (Preview) | Microsoft Docs
 description: Maintenance scheduling allows customers to plan around the necessary scheduled maintenance events the Azure SQL Data warehouse service uses to roll out new features, upgrades and patches.  
 services: sql-data-warehouse
 author: antvgski
@@ -12,7 +12,7 @@ ms.author: anvang
 ms.reviewer: igorstan
 ---
 
-# Viewing a Maintenance schedule 
+# Viewing a maintenance schedule 
 
 ## Portal
 
@@ -21,14 +21,14 @@ Complete the following steps to view the maintenance schedule that has been appl
 
 Complete the following steps to view the maintenance schedule that has been applied to your data warehouse in portal.
 1.	Sign in to the [Azure portal](https://portal.azure.com/).
-2.	2.	Select the data warehouse that you would like to view. 
+2.	Select the data warehouse that you would like to view. 
 3.	The selected Azure SQL Data Warehouse will open on the overview blade. The Maintenance schedule applied to the selected data warehouse will be shown below the Maintenance schedule (preview).
 
 ![Overview blade](media/sql-data-warehouse-maintenance-scheduling/clear-overview-blade.PNG)
 
 ## Next steps
-[Learn more](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitor-alerts-unified-usage) about Creating, viewing, and managing alerts using Azure Monitor.
-[Learn more](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook) Webhook actions for log alert rules.
-[Learn more](https://docs.microsoft.com/en-us/azure/service-health/service-health-overview) about Azure Service Health
+[Learn more](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-usage) about creating, viewing, and managing alerts using Azure Monitor.
+[Learn more](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook) about Webhook actions for log alert rules.
+[Learn more](https://docs.microsoft.com/azure/service-health/service-health-overview) about Azure Service Health
 
 
