@@ -1,11 +1,11 @@
 ---
 title: Upgrade the Collector appliance in Azure Migrate | Microsoft Docs
 description: Provides information about upgrades for the Azure Migrate Collector appliance.
-author: snehaamicrosoft
+author: musa-57
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/25/2018
-ms.author: snehaa
+ms.author: hamusa
 services: azure-migrate
 ---
 
