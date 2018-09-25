@@ -20,7 +20,7 @@ ms.author: cynthn
 
 # Upload a generalized VHD and use it to create new VMs in Azure
 
-This topic walks you through using PowerShell to upload a VHD of a generalized VM to Azure, create an image from the VHD, and create a new VM from that image. You can upload a VHD exported from an on-premises virtualization tool or from another cloud. Using [Managed Disks](managed-disks-overview.md) for the new VM simplifies the VM managment and provides better availability when the VM is placed in an availability set. 
+This article walks you through using PowerShell to upload a VHD of a generalized VM to Azure, create an image from the VHD, and create a new VM from that image. You can upload a VHD exported from an on-premises virtualization tool or from another cloud. Using [Managed Disks](managed-disks-overview.md) for the new VM simplifies the VM management and provides better availability when the VM is placed in an availability set. 
 
 For a sample script, see [Sample script to upload a VHD to Azure and create a new VM](../scripts/virtual-machines-windows-powershell-upload-generalized-script.md)
 
@@ -56,7 +56,7 @@ Make sure the server roles running on the machine are supported by Sysprep. For 
 
 You'll need a storage account in Azure to store the uploaded VM image. You can either use an existing storage account or create a new one. 
 
-If you'll be using the VHD to create a managed disk for a VM, the storage account location must be the same location where you will be creating the VM.
+If you'll be using the VHD to create a managed disk for a VM, the storage account location must be the same location where you'll be creating the VM.
 
 To show the available storage accounts, enter:
 
@@ -100,8 +100,8 @@ You can also upload a VHD to your storage account using one of the following:
 - [Azure Storage Copy Blob API](https://msdn.microsoft.com/library/azure/dd894037.aspx)
 - [Azure Storage Explorer Uploading Blobs](https://azurestorageexplorer.codeplex.com/)
 - [Storage Import/Export Service REST API Reference](https://msdn.microsoft.com/library/dn529096.aspx)
--	We recommend using the Import/Export Service if estimated uploading time is longer than 7 days. You can use [DataTransferSpeedCalculator](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/blob/master/DataTransferSpeedCalculator.html) to estimate the time from data size and transfer unit. 
-	Import/Export can be used to copy to a standard storage account. You will need to copy from standard storage to premium storage account using a tool like AzCopy.
+-	We recommend using the Import/Export Service if estimated uploading time is longer than seven days. You can use [DataTransferSpeedCalculator](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/blob/master/DataTransferSpeedCalculator.html) to estimate the time from data size and transfer unit. 
+	Import/Export can be used to copy to a standard storage account. You'll need to copy from standard storage to premium storage account using a tool like AzCopy.
 
 > [!IMPORTANT]
 > If you are using AzCopy to upload your VHD to Azure, make sure you have set [**/BlobType:page**](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy#blobtypeblock--page--append) before running your upload script. 
