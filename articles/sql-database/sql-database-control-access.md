@@ -2,14 +2,16 @@
 title: Granting access to Azure SQL Database and SQL Data Warehouse | Microsoft Docs
 description: Learn about granting access to Microsoft Azure SQL Database and SQL Data Warehouse.
 services: sql-database
-author: VanMSFT
-manager: craigg
 ms.service: sql-database
-ms.prod_service: sql-database, sql-data-warehouse
-ms.custom: security
+ms.subservice: security
+ms.custom: sql-data-warehouse
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 06/13/2018
+author: VanMSFT
 ms.author: vanto
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 06/13/2018
 ---
 # Azure SQL Database and SQL Data Warehouse access control
 To provide security, Azure [SQL Database](sql-database-technical-overview.md) and [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) control access with firewall rules limiting connectivity by IP address, authentication mechanisms requiring users to prove their identity, and authorization mechanisms limiting users to specific actions and data. 
