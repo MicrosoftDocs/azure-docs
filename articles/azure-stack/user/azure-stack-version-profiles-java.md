@@ -187,7 +187,7 @@ AzureEnvironment AZURE_STACK = new AzureEnvironment(new HashMap<String, String>(
             });
 ```
 
-The `getactivedirectorysettings` call in the following code retrieves the endpoints from the metadata endpoints. It states the environment variables from the call that is made:
+The `getActiveDirectorySettings` call in the following code retrieves the endpoints from the metadata endpoints. It states the environment variables from the call that is made:
 
 ```java
 public static HashMap<String, String>
