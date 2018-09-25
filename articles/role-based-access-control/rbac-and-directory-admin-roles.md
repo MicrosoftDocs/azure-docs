@@ -57,6 +57,18 @@ An Azure account represents a billing relationship. An Azure account is a user i
 Azure subscriptions help you organize access to Azure resources. They also help you control how resource usage is reported, billed, and paid for. Each subscription can have a different billing and payment setup, so you can have different subscriptions and different plans by office, department, project, and so on. Every service belongs to a subscription, and the subscription ID may be required for programmatic operations.
 
 Accounts and subscriptions are managed in the [Azure Account Center](https://account.azure.com/Subscriptions).
+
+### How Microsoft accounts with the Co-Administrator role are different
+
+Users with a Microsoft account that have been assigned the Co-Administrator role might see some differences than users with an Azure AD account and the Co-Administrator role. Consider the following scenario:
+
+- User A with a Microsoft account (not an Azure AD work or school account) is a Global Administrator for an Azure subscription.
+- User B also has a Microsoft account.
+- User A grants user B the Co-Administrator role.
+- User B can do almost everything, but is unable to register applications or look up users in the Azure AD directory.
+
+You would expect that user B could manage everything. The reason for this difference is most likely that the Microsoft account with the Co-Administrator role is added to the subscription as a guest instead of a user. There are a couple of ways to handle this scenario. The first way is to assign user B the specific role they need, such as the [Application Developer](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-developer) role. A second way is to create an Azure AD account for user B with the necessary roles and have them use this other account instead.
+
 ## Azure RBAC roles
 
 Azure RBAC is an authorization system built on [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) that provides fine-grained access management to Azure resources, such as compute and storage. Azure RBAC includes over 70 built-in roles. There are four fundamental RBAC roles. The first three apply to all resource types:
