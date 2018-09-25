@@ -58,7 +58,7 @@ The Speech Service uses a time-based pricing model (rather than a transaction-ba
 
 ## Migration strategies
 
-If you or your organization have applications in development or production that use a Bing Speech API, you should update them to use the Speech Service as soon as possible. See the [Speech Service documentation](index.yml) for available SDKs, code samples, and tutorials. Applications already in production must be migrated to use the Speech Service by October 1, 2019.
+If you or your organization have applications in development or production that use a Bing Speech API, you should update them to use the Speech Service as soon as possible. See the [Speech Service documentation](index.yml) for available SDKs, code samples, and tutorials.
 
 The Speech Service [REST APIs](rest-apis.md) are compatible with the Bing Speech APIs. If you're currently using the Bing Speech REST APIs, you need only change the REST endpoint and switch to a Speech Service subscription key.
 
@@ -66,7 +66,7 @@ The Speech Service WebSockets protocols are also compatible with those used by B
 
 If you're using a Bing Speech client library for a specific programming language, migrating to the [Speech SDK](speech-sdk.md) will require changes to your application because the API is different. The Speech SDK can make your code simpler while also giving you access to new features now and in the future.
 
-At this writing, the Speech SDK supports C# (Windows 10, UWP, .NET Standard), Java (Android and custom devices), and C++ (Windows and Linux). APIs on all platforms are similar to ease multi-platform development. Support for additional platforms may be added from time to time.
+Currently, the Speech SDK supports C# (Windows 10, UWP, .NET Standard), Java (Android and custom devices), Objective C (iOS), C++ (Windows and Linux), and JavaScript. APIs on all platforms are similar, easing multi-platform development. Support for additional platforms may be added in future releases.
 
 The Speech Service doesn't currently offer a global endpoint. You will need to determine if your application will function efficiently using a single regional endpoint for all of its traffic. If not, use geolocation to determine the most efficient endpoint. You will need a separate Speech Service subscription in each region you use.
 

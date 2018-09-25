@@ -15,7 +15,7 @@ ms.author: panosper
 
 Use this article to migrate your applications from the Custom Speech service to the Speech Service.
 
-Custom Speech Service and its corresponding Client libraries and APIs are being deprecated. Switch to the Speech Service and SDK to benefit from the latest quality and feature updates. 
+The Custom Speech Service is now part of the Speech Service. Switch to the Speech Service to benefit from the latest quality and feature updates.
  
 ## Migration for new customers
 

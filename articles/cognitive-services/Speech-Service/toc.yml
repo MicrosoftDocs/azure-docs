@@ -106,12 +106,12 @@
     href: how-to-use-audio-input-streams.md
   - name: Migrate
     items:
-    - name: From the Translator Speech API
-      href: how-to-migrate-from-translator-speech-api.md
-    - name: From the Custom Speech service
-      href: how-to-migrate-from-custom-speech-service.md
     - name: From Bing Speech
       href: how-to-migrate-from-bing-speech.md
+    - name: From the Custom Speech service
+      href: how-to-migrate-from-custom-speech-service.md
+    - name: From the Translator Speech API
+      href: how-to-migrate-from-translator-speech-api.md   
 - name: Concepts
   items:
   - name: Speech-to-Text
