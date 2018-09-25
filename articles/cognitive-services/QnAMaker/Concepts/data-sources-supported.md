@@ -8,7 +8,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 09/25/2018
 ms.author: tulasim
 ---
 
@@ -20,7 +20,7 @@ The table below summarizes the types of content and file formats that are suppor
 
 |Source Type|Content Type| Examples|
 |--|--|--|
-|URL|FAQs (Flat, with sections or with a topics homepage)|[Plain FAQ](https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/faqs), [FAQ with links](https://www.microsoft.com/en-in/software-download/faq), [FAQ with topics homepage](https://support.microsoft.com/en-us/products/windows?os=windows-10)|
+|URL|FAQs (Flat, with sections or with a topics homepage)|[Plain FAQ](https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs), [FAQ with links](https://www.microsoft.com/software-download/faq), [FAQ with topics homepage](https://support.microsoft.com/products/windows?os=windows-10)|
 |PDF / DOC|FAQs, Product Manual, Brochures, Paper, Flyer Policy, Support guide, Structured QnA, etc.|[Structured QnA.doc](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Bot%20Service%20Sample%20FAQ.docx), [Sample Product Manual.pdf](http://download.microsoft.com/download/2/9/B/29B20383-302C-4517-A006-B0186F04BE28/surface-pro-4-user-guide-EN.pdf), [Sample semi-structured.doc](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Manage%20Azure%20Blob%20Storage.docx), [Sample white paper.pdf](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-stack-wortmann-bring-the-power-of-the-public-cloud-into-your-data-center/Azure_Stack_Wortmann_Bring_the_Power_of_the_Public_Cloud_into_Your_Data_Center.pdf)|
 |Excel|Structured QnA file (including RTF, HTML support)|[Sample QnA FAQ.xls](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/QnA%20Maker%20Sample%20FAQ.xlsx)|
 |TXT/TSV|Structured QnA file|[Sample chit-chat.tsv](https://raw.githubusercontent.com/Microsoft/BotBuilder-PersonalityChat/master/CSharp/Datasets/Queries_Responses_Friendly_QnAMaker.tsv)|
