@@ -69,11 +69,11 @@ To use the .NET Azure SDK with Azure Stack, you must supply the following values
 
 | Value                     | Environment variables   | Description                                                                                                             |
 |---------------------------|-------------------------|-------------------------------------------------------------------------------------------------------------------------|
-| Tenant ID                 | AZURE\_TENANT\_ID       | The value of your Azure Stack [*tenant ID*][].                                                                          |
-| Client ID                 | AZURE\_CLIENT\_ID       | The service principal application ID saved when the service principal was created in the previous section of this article. |
-| Subscription ID           | AZURE\_SUBSCRIPTION\_ID | The [*subscription ID*][] is how you access offers in Azure Stack.                                                      |
-| Client Secret             | AZURE\_CLIENT\_SECRET   | The service principal application secret saved when the service principal was created.                                      |
-| Resource Manager Endpoint | ARM\_ENDPOINT           | See [*the Azure Stack resource manager endpoint*][].                                                                    |
+| Tenant ID                 | AZURE_TENANT_ID       | The value of your Azure Stack [*tenant ID*][].                                                                          |
+| Client ID                 | AZURE_CLIENT_ID       | The service principal application ID saved when the service principal was created in the previous section of this article. |
+| Subscription ID           | AZURE_SUBSCRIPTION_ID | The [*subscription ID*][] is how you access offers in Azure Stack.                                                      |
+| Client Secret             | AZURE_CLIENT_SECRET   | The service principal application secret saved when the service principal was created.                                      |
+| Resource Manager Endpoint | ARM_ENDPOINT           | See [*the Azure Stack resource manager endpoint*][].                                                                    |
 
 To find the Tenant ID for your Azure Stack, follow the instructions found [here](../azure-stack-csp-ref-operations.md). To set your environment variables, do the following:
 
@@ -82,7 +82,7 @@ To find the Tenant ID for your Azure Stack, follow the instructions found [here]
 To set the environment variables in a Windows command prompt, use the following format:
 
 ```shell
-Set Azure\_Tenant\_ID=\Your_Tenant_ID\
+Set Azure_Tenant_ID=Your_Tenant_ID
 ```
 
 ### MacOS, Linux, and Unix-based systems
@@ -90,7 +90,7 @@ Set Azure\_Tenant\_ID=\Your_Tenant_ID\
 In Unix based systems, you can use the following command:
 
 ```shell
-Export Azure\_Tenant\_ID=\Your_Tenant_ID\
+Export Azure_Tenant_ID=Your_Tenant_ID
 ```
 
 ### The Azure Stack resource manager endpoint
@@ -103,8 +103,8 @@ Note the following considerations:
 
 - The **ResourceManagerUrl** in the Azure Stack Development Kit (ASDK) is: https://management.local.azurestack.external/
 
-- The **ResourceManagerUrl** in integrated systems is: `https://management.\<location\>.ext-\<machine-name\>.masd.stbtest.microsoft.com/`
-To retrieve the metadata required: `\<ResourceManagerUrl\>/metadata/endpoints?api-version=1.0`
+- The **ResourceManagerUrl** in integrated systems is: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`
+To retrieve the metadata required: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
 
 Sample JSON file:
 
@@ -116,7 +116,7 @@ Sample JSON file:
    "authentication": 
       {
       "loginEndpoint": "https://login.windows.net/",
-      "audiences": ["https://management.\yourtenant.onmicrosoft.com/3cc5febd-e4b7-4a85-a2ed-1d730e2f5928"]
+      "audiences": ["https://management.yourtenant.onmicrosoft.com/3cc5febd-e4b7-4a85-a2ed-1d730e2f5928"]
       }
 }
 ```
@@ -205,11 +205,11 @@ You can use the following samples found in GitHub repositories as a reference fo
 
 4.  Set the following environment variables using the information you retrieved from the service principal you created using the command prompt:
 
-    1.  export AZURE\_TENANT\_ID={your tenant id}
-    2.  export AZURE\_CLIENT\_ID={your client id}
-    3.  export AZURE\_CLIENT\_SECRET={your client secret}
-    4.  export AZURE\_SUBSCRIPTION\_ID={your subscription id}
-    5.  export ARM\_ENDPOINT={your Azure Stack Resource manager URL}
+    1.  export AZURE_TENANT_ID={your tenant id}
+    2.  export AZURE_CLIENT_ID={your client id}
+    3.  export AZURE_CLIENT_SECRET={your client secret}
+    4.  export AZURE_SUBSCRIPTION_ID={your subscription id}
+    5.  export ARM_ENDPOINT={your Azure Stack Resource manager URL}
 
    In Windows, use **set** instead of **export**.
 
@@ -257,14 +257,14 @@ You can use the following samples found in GitHub repositories as a reference fo
 2.  Inside of each task in the .cs file, set the parameters that are required to work with Azure Stack. An example is shown as follows for the Task `CreateResourceGroupTest`:
 
    ```csharp
-   var location = Environment.GetEnvironmentVariable("AZURE\_LOCATION");
-   var baseUriString = Environment.GetEnvironmentVariable("AZURE\_BASE\_URL");
-   var resourceGroupName = Environment.GetEnvironmentVariable("AZURE\_RESOURCEGROUP");
-   var servicePrincipalId = Environment.GetEnvironmentVariable("AZURE\_CLIENT\_ID");
-   var servicePrincipalSecret = Environment.GetEnvironmentVariable("AZURE\_CLIENT\_SECRET");
-   var azureResourceId = Environment.GetEnvironmentVariable("AZURE\_RESOURCE\_ID");
-   var tenantId = Environment.GetEnvironmentVariable("AZURE\_TENANT\_ID");
-   var subscriptionId = Environment.GetEnvironmentVariable("AZURE\_SUBSCRIPTION\_ID");
+   var location = Environment.GetEnvironmentVariable("AZURE_LOCATION");
+   var baseUriString = Environment.GetEnvironmentVariable("AZURE_BASE_URL");
+   var resourceGroupName = Environment.GetEnvironmentVariable("AZURE_RESOURCEGROUP");
+   var servicePrincipalId = Environment.GetEnvironmentVariable("AZURE_CLIENT_ID");
+   var servicePrincipalSecret = Environment.GetEnvironmentVariable("AZURE_CLIENT_SECRET");
+   var azureResourceId = Environment.GetEnvironmentVariable("AZURE_RESOURCE_ID");
+   var tenantId = Environment.GetEnvironmentVariable("AZURE_TENANT_ID");
+   var subscriptionId = Environment.GetEnvironmentVariable("AZURE_SUBSCRIPTION_ID");
    var credentials = new CustomLoginCredentials(servicePrincipalId, servicePrincipalSecret, azureResourceId, tenantId);
    ```
 
