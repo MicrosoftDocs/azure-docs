@@ -52,11 +52,11 @@ sections:
       className: cardsD
       items:
       - title: ASP.NET
-        html: <p>1. <a href="/azure/active-directory-b2c/tutorial-register-applications">Register application</a></p><p>2. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-web-app">Authenticate users</a></p><p>3. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-web-api">Grant API access</a></p>
+        html: <p>1. <a href="/azure/active-directory-b2c/tutorial-create-tenant">Create a tenant</a></p><p>2. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-web-app">Authenticate users</a></p><p>3. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-web-api">Grant API access</a></p>
       - title: Desktop
-        html: <p>1. <a href="/azure/active-directory-b2c/tutorial-register-applications">Register application</a></p><p>2. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-desktop-app">Authenticate users</a></p><p>3. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-desktop-app-webapi">Grant API access</a></p>
+        html: <p>1. <a href="/azure/active-directory-b2c/tutorial-create-tenant">Create a tenant</a></p><p>2. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-desktop-app">Authenticate users</a></p><p>3. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-desktop-app-webapi">Grant API access</a></p>
       - title: Single-page
-        html: <p>1. <a href="/azure/active-directory-b2c/tutorial-register-applications">Register application</a></p><p>2. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-spa">Authenticate users</a></p><p>3. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-spa-webapi">Grant API access</a></p>
+        html: <p>1. <a href="/azure/active-directory-b2c/tutorial-create-tenant">Create a tenant</a></p><p>2. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-spa">Authenticate users</a></p><p>3. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-spa-webapi">Grant API access</a></p>
 - title: Samples
   items:
   - type: paragraph
