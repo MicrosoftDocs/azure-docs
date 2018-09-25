@@ -1,6 +1,6 @@
 ---
 title: Provision Cloud Foundry on Azure
-description: Learn how to set up parameters needed to provision a Pivotal Cloud Foundry PCF cluster on Azure
+description: Learn how to set up parameters needed to provision a Cloud Foundry PCF cluster on Azure
 services: Cloud Foundry
 documentationcenter: CloudFoundry
 author: ruyakubu
