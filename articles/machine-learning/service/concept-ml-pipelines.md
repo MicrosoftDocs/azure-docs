@@ -30,7 +30,7 @@ The following diagram shows an example pipeline:
 
 ## Why build pipelines with Azure Machine Learning?
 
-The Azure Machine Learning SDK for Python can be used to create ML pipelines as well as to submit and track individual pipeline runs.
+The [Azure Machine Learning SDK for Python](#the-python-sdk-for-pipelines) can be used to create ML pipelines as well as to submit and track individual pipeline runs.
 
 With pipelines, you can optimize your workflow with simplicity, speed, portability, and reuse. When building pipelines with Azure Machine Learning, you can focus on what you know best &mdash; machine learning &mdash; rather than infrastructure.
 
@@ -38,7 +38,7 @@ Using distinct steps makes it possible to rerun only the steps you need as you t
 
 Once the pipeline is designed, there is often more fine-tuning around the training loop of the pipeline. When you rerun a pipeline, the run jumps to the steps that need to be rerun, such as an updated training script, and skips what hasn't changed. The same paradigm applies to unchanged scripts used for the execution of the step. 
 
-With Azure Machine Learning, you can use distinct toolkits and frameworks such as Microsoft Cognitive Toolkit or TensorFlow for each step in your pipeline. Azure coordinates between the various [compute targets](concept-azure-machine-learning-architecture.md) you use so that your intermediate data can be shared with the downstream compute targets easily. 
+With Azure Machine Learning, you can use various toolkits and frameworks such as Microsoft Cognitive Toolkit or TensorFlow for each step in your pipeline. Azure coordinates between the various [compute targets](concept-azure-machine-learning-architecture.md) you use so that your intermediate data can be shared with the downstream compute targets easily. 
 
 ## Key advantages
 
@@ -59,7 +59,7 @@ Using declarative data dependencies, you can optimize your tasks. The SDK includ
 
 Pipelines can be saved as templates and can be deployed to a REST endpoint so you can schedule batch-scoring or retraining jobs.
 
-Check out the [Python SDK reference docs for pipelines](http://aka.ms/aml-sdk).
+Check out the [Python SDK reference docs for pipelines](http://aka.ms/aml-sdk) and the notebook in the next section to see how to build your own.
 
 ## Example notebooks
  
