@@ -19,7 +19,7 @@ This quickstart demonstrates how to restore a backup of a database stored in Azu
 
 > [!VIDEO https://www.youtube.com/embed/RxWYojo_Y3Q]
 
-For a tutorial using the Azure Database Migration Service (DMS) for migration, see [Managed Instance migration using DMS](../dms/tutorial-sql-server-to-managed-instance.md). For a discussion of the varous migration methods, see [SQL Server instance migration to Azure SQL Database Managed Instance](sql-database-managed-instance-migrate.md).
+For a tutorial using the Azure Database Migration Service (DMS) for migration, see [Managed Instance migration using DMS](../dms/tutorial-sql-server-to-managed-instance.md). For a discussion of the various migration methods, see [SQL Server instance migration to Azure SQL Database Managed Instance](sql-database-managed-instance-migrate.md).
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ This quickstart:
 - Requires connectivity to your Managed Instance using SQL Server Management Studio. See these quickstarts for connectivity options:
   - [Connect to an Azure SQL Database Managed Instance from an Azure VM](sql-database-managed-instance-configure-vm.md)
   - [Connect to an Azure SQL Database Managed Instance from on-premises using a Point-to-Site connection](sql-database-managed-instance-configure-p2s.md).
-- Uses a preconfigured Azure blob storage account containing the the Wide World Importers - Standard backup file (downloaded from https://github.com/Microsoft/sql-server-samples/releases/download/wide-world-importers-v1.0/WideWorldImporters-Standard.bak).
+- Uses a preconfigured Azure blob storage account containing the Wide World Importers - Standard backup file (downloaded from https://github.com/Microsoft/sql-server-samples/releases/download/wide-world-importers-v1.0/WideWorldImporters-Standard.bak).
 
 > [!NOTE]
 > For more information about backing up and rsstoring a SQL Server database using Azure blob storage and a Shared Access Signature (SAS), see [SQL Server Backup to URL](sql-database-managed-instance-get-started-restore.md).
@@ -53,7 +53,7 @@ With SSMS, use the following steps to restore the Wide World Importers database 
     > [!NOTE]
     > Always remove the leading **?** from generated SAS key.
 
-3. Use the following script to create check the SAS credential and backup validity - providing the URL for the container with the backup file:
+3. Use the following script to create the SAS credential and check the backup validity - providing the URL for the container with the backup file:
 
    ```sql
    RESTORE FILELISTONLY FROM URL = 
