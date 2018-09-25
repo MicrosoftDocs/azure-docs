@@ -84,10 +84,12 @@ The below JSON example configuration creates a new virtual network and subnet, a
 ### Creating your own Kubernetes cluster in Azure
 The implementation can be used to provide Network Policies for Pods in Kubernetes clusters that you deploy yourself, without relying on tools like the ACS-Engine. In this case, you first install the CNI plug-in and enable it on every virtual machine in a cluster. For detailed instructions, see [Deploy the plug-in for a Kubernetes cluster that you deploy yourself](deploy-container-networking.md#deploy-plug-in-for-a-kubernetes-cluster).
 
-Once the cluster is deployed run the following `kubectl` command to download and apply the Azure network policy **daemonset** to the cluster
+Once the cluster is deployed run the following `kubectl` command to download and apply the Azure network policy *daemonset* to the cluster.
 
-kubectl apply -f https://raw.githubusercontent.com/Azure/acs-engine/master/parts/k8s/addons/kubernetesmasteraddons-azure-npm-daemonset.yaml
+  ```
+  kubectl apply -f https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-waf-configuration
 
+  ```
 The solution is also open source and the code is available on the [Azure Container Networking repository](https://github.com/Azure/azure-container-networking/tree/master/npm).
 AKS
 
