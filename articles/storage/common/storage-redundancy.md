@@ -35,6 +35,7 @@ The following table provides a quick overview of the scope of durability and ava
 | Read access to your data (in a remote, geo-replicated region) in the event of region-wide unavailability | No                              | No                               | No                                   | Yes                                  |
 | Designed to provide ___ durability of objects over a given year                                          | at least 99.999999999% (11 9's) | at least 99.9999999999% (12 9's) | at least 99.99999999999999% (16 9's) | at least 99.99999999999999% (16 9's) |
 | Supported storage account types                                                                   | GPv1, GPv2, Blob                | GPv2                             | GPv1, GPv2, Blob                     | GPv1, GPv2, Blob                     |
+Supported SLA                  | at least 99.9% (99% for Cool Access Tier)                 |at least 99.9% (99% for Cool Access Tier)  | at least 99.9% (99% for Cool Access Tier)    |
 
 See [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/) for pricing information on the different redundancy options.
 
