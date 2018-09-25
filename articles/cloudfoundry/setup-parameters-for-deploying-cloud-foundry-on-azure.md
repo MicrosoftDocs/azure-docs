@@ -1,6 +1,6 @@
 ---
 title: Provisioning Pivotal Cloud Foundry on Azure
-description: Learn how to setup parameters needed to provision a Pivotal Cloud Foundry PCF cluster on Azure
+description: Learn how to set up parameters needed to provision a Pivotal Cloud Foundry PCF cluster on Azure
 services: Cloud Foundry
 documentationcenter: CloudFoundry
 author: ruyakubu
@@ -9,8 +9,7 @@ editor: ruyakubu
 
 ms.assetid:
 ms.author: ruyakubu
-ms.date: 09/13/2018
-ms.devlangms.service: Cloud Foundry
+ms.date: 09/13/2018ms.devlangms.service: Cloud Foundry
 ms.tgt_pltfrm: multiple
 ms.topic: article
 .ms.workload: web
@@ -18,34 +17,34 @@ ms.topic: article
 
 # Provisioning Pivotal Cloud Foundry on Azure
 
-This tutorial provides quick steps on creating and generated parameters needed to provision a Pivotal Cloud Foundry PCF cluster on Azure.  The Pivotal Cloud Foundry solution can be found by performing a search on Azure [MarketPlace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/pivotal.pivotal-cloud-foundry)
+This tutorial provides quick steps on creating and generated parameters needed to provision a Pivotal Cloud Foundry PCF cluster on Azure.  The Pivotal Cloud Foundry solution can be found by performing a search on Azure [MarketPlace](https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry).
 
 <img src="media/deploy/pcf-marketplace1.png"> 
 
 ## Generate an SSH public key
 
-There are several ways to generate a public SSH key using Windows, Mac or Linux
+There are several ways to generate a public SSH key using Windows, Mac or Linux.
 
 ```Bash
 ssh-keygen -t rsa -b 2048
 ```
-- Click here to see [instructions]( https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ssh-from-windows) for your environment
+- Click here to see [instructions]( https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) for your environment.
 
-## Create Service Principal
+## Create a Service Principal
 
 > [!NOTE]
 >
-> Creating a service principal requires an owner account permission.  In addition, you can write a script to automate creating the Service Principal. For example, using Azure CLI [az ad sp create-for-rbac](https://docs.microsoft.com/en-us/cli/azure/ad/sp?view=azure-cli-latest)
+> Creating a service principal requires an owner account permission.  In addition, you can write a script to automate creating the Service Principal. For example, using Azure CLI [az ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest).
 
-1. Log into your azure
+1. Log into your Azure account.
 
 `az login`
 
 <img src="media/deploy/az-logion-output2.png"> 
  
-Copy the “id” value as your **subscription ID** and the **tenantId** value to be used later
+Copy the “id” value as your **subscription ID** and the **tenantId** value to be used later.
 
-2. Set your default subscription for this configuration
+2. Set your default subscription for this configuration.
 
 `az account set -s {id}`
 
@@ -58,10 +57,10 @@ The copy “appId” value in the output as your **ClientID** to be used later.
 
 > [!NOTE]
 >
-> Choose your own application homepage and identifier URI.  e.g. http://www.contoso.com
+> Choose your own application homepage and identifier URI.  e.g. http://www.contoso.com.
 
 
-4. Create a service principal with your new “appId”
+4. Create a service principal with your new “appId”.
 
 `az ad sp create --id {appId}`
 
@@ -75,7 +74,7 @@ Or you can also use…
 
 <img src="media/deploy/svc-princ3.png"> 
 
-6. Verify that you can successfully log into your Service Principal using the appId, password & tenantId
+6. Verify that you can successfully log into your Service Principal using the appId, password & tenantId.
 
 `az login --service-principal -u {appId} -p {your-passward}  --tenant {tenantId}`
 
@@ -92,32 +91,32 @@ Or you can also use…
 
 ## Get the Pivotal Network Token
 
-1. Register or log into your [Pivotal Network](https://network.pivotal.io) account
-2. Click on your profile name on the top upper right-hand side of the page, the select **Edit Profile”
+1. Register or log into your [Pivotal Network](https://network.pivotal.io) account.
+2. Click on your profile name on the top upper right-hand side of the page, the select **Edit Profile”.
 3. Scroll to the bottom of the page and copy the **LEGACY API TOKEN** value.  This is your **Pivotal Network Token** value that will be used later.
 
 ## Provision your PCF cluster
-1. Now you have all the parameters needed to provision your [Pivotal Cloud Foundry on Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/pivotal.pivotal-cloud-foundry) cluster
-2. Enter the parameters and create your PCF cluster
+1. Now you have all the parameters needed to provision your [Pivotal Cloud Foundry on Azure](https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry) cluster.
+2. Enter the parameters and create your PCF cluster.
 
-## Verify Deployment and Log into the Pivotal Ops Manager
+## Verify the deployment and log into the Pivotal Ops Manager
 
-1. Your PCF cluster should show a deployment status
+1. Your PCF cluster should show a deployment status.
 
 <img src="media/deploy/deployment4.png">  
 
-2. Click on the **Deployments** link on the left-hand navigation to get credentials to your PCF Ops Manager, then click on the **Deployment Name** on the next page
+2. Click on the **Deployments** link on the left-hand navigation to get credentials to your PCF Ops Manager, then click on the **Deployment Name** on the next page.
 3. On the left-hand navigation, click on the **Outputs** link to display the URL, Username and Password to the PCF Ops Manager.  The “OPSMAN-FQDN” value is the URL.
  
 <img src="media/deploy/deploy-outputs5.png">  
  
-4. Launch the URL in a web browser and enter the credentials from the previous step to login
+4. Launch the URL in a web browser and enter the credentials from the previous step to login.
 
 <img src="media/deploy/pivotal-login6.png">  
          
 > [!NOTE]
 >
-> If Internet Explorer browser fails due to site not secure warning message, click on “More information” and “Go on to the webpage.  For Firefox, click on Advance and add the certification to proceed
+> If Internet Explorer browser fails due to site not secure warning message, click on “More information” and “Go on to the webpage.  For Firefox, click on Advance and add the certification to proceed.
 
 5. Your PCF Ops Manager should display the deployed Azure instances. Now you can start deploying and managing your applications here!
                
