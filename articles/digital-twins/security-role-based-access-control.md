@@ -27,17 +27,7 @@ Role-Based Access Control is unique in that permissions are inherited down the t
 
 ## Role-Based Access Control best practices
 
-The **principle of least privilege** grants an identity only the amount of access needed to perform its job.
-
->[!NOTE]
-> **Always follow the principle of least privilege**.
-
-Permissions and roles in Role-Based Access Control are inherited from parent roles.
-
-Two other important practices to follow:
-
-* Periodically audit role assignments.
-* Roles and assignments should be cleaned-up as individuals change roles or assignments.
+[!INCLUDE [digital-twins-permissions](../../includes/digital-twins-rbac-best-practices.md)]
 
 ## Role-Based Access Control components
 
