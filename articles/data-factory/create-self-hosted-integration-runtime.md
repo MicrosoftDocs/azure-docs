@@ -184,14 +184,14 @@ In the Data Factory to which the permissions were granted,
 
 1. Default number of linked IR that can be created under single self-hosted IR is **20**. If you require more then contact Support. 
 
-2. The data factory in which linked IR is to be created must have an MSI ([managed service identity](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)). By default, the data factories created in Ibiza portal or PowerShell cmdlets will have MSI 
+2. The data factory in which linked IR is to be created must have an MSI ([managed service identity](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)). By default, the data factories created in Azure portal or PowerShell cmdlets will have MSI 
   created implicitly. However, in some cases when data factory is created using an Azure Resorce Manager template or SDK, the “**Identity**” **property must be set** explicitly to ensure Azure Resorce Manager creates a data factory containing an MSI. 
 
 3. The self-hosted IR version must be equal or greater than 3.8.xxxx.xx. Please [download the latest version](https://www.microsoft.com/download/details.aspx?id=39717) of self-hosted IR
 
 4. The data factory in which linked IR is to be created must have an MSI ([managed service identity](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)). By default,
-  the data factories created in Ibiza portal or PowerShell cmdlets will have MSI ([managed service identity](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)).
-  created implicitly, however, data factories created with Azure Resource Manager (ARM) template or SDK requires “**Identity**” property to be set to ensure an MSI is created.
+  the data factories created in Azure portal or PowerShell cmdlets will have MSI ([managed service identity](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)).
+  created implicitly, however, data factories created with Azure Resource Manager template or SDK requires “**Identity**” property to be set to ensure an MSI is created.
 
 5. The ADF .Net SDK which support this feature is version >= 1.1.0
 
