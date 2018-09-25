@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 09/25/2018
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
 ---
@@ -41,7 +41,7 @@ Before you begin, make sure that:
 ## Connect to Data Box
 
 Based on the storage account selected, Data Box creates upto:
-- Three shares for each associated storage account for (GPv1 and GPv2).
+- Three shares for each associated storage account for GPv1 and GPv2.
 - One share for premium or blob storage account. 
 
 Under block blob and page blob shares, first-level entities are containers, and second-level entities are blobs. Under shares for Azure Files, first-level entities are shares, second-level entities are files.
@@ -229,7 +229,7 @@ To ensure data integrity, checksum is computed inline as the data is copied. Onc
 
 If you're using a Linux host computer, use a copy utility similar to Robocopy. Some of the alternatives available in Linux are [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/), or [Ultracopier](https://ultracopier.first-world.info/).  
 
-The cp command is one of best options to copy a directory. For more information on the usage, go to [cp man pages](http://man7.org/linux/man-pages/man1/cp.1.html).
+The `cp` command is one of best options to copy a directory. For more information on the usage, go to [cp man pages](http://man7.org/linux/man-pages/man1/cp.1.html).
 
 If using rsync option for a multi-threaded copy, follow these guidelines:
 
@@ -270,7 +270,7 @@ Final step is to prepare the device to ship. In this step, all the device shares
    
     ![Prepare to ship 1](media/data-box-deploy-copy-data/prepare-to-ship1.png)
 
-2. If the checksum was not enabled, then you are presented the option to enable checksum. We recommend that for the integrity of your data, you perform the checksum validation. Selecting **Enable checksum** will then trigger checksum computation and may take some time depending upon the size of your data. Click **Start preparation**.
+2. By default, checksums are computed inline during the prepare to ship. The checksum computation may take some time depending upon the size of your data. Click **Start preparation**.
     1. The device shares go offline and the device is locked when we prepare to ship.
         
         ![Prepare to ship 1](media/data-box-deploy-copy-data/prepare-to-ship2.png) 
