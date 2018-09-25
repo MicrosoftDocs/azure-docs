@@ -59,7 +59,7 @@ To copy an application, go to the **Application Settings** page. Then select the
 
 ![Application settings page](media\howto-administer\appCopy1.png)
 
-Selecting the **Copy** button opens dialog box opens in which you can select a name, URL, Azure AD directory, subscription, and Azure region for the new application that will be created by copying your application. Select values for each of those fields. Then select the **Copy** button to confirm that you want to proceed. You can learn more about what to enter for those values in this article about [how to create an application](howto-create-application.md).
+Selecting the **Copy** button opens a dialog box in which you can select a name, URL, Azure AD directory, subscription, and Azure region for the new application that will be created by copying your application. Select values for each of those fields. Then select the **Copy** button to confirm that you want to proceed. You can learn more about what to enter for those values in this article about [how to create an application](howto-create-application.md).
 
 ![Application settings page](media\howto-administer\appCopy2.png)
 
@@ -77,7 +77,7 @@ To delete your application, use the secondary navigation menu to navigate to the
 Choose **Delete**.
 
 > [!Note]
-> Deleting an application permanently deletes all data that's associated with that application.  To delete an application, you must also have permissions to delete resources in the Azure subscription you chose when you created the application. To learn more, see [Use Role-Based Access Control to manage access to your Azure subscription resources](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure).
+> Deleting an application permanently deletes all data that's associated with that application.  To delete an application, you must also have permissions to delete resources in the Azure subscription you chose when you created the application. To learn more, see [Use role-based access control to manage access to your Azure subscription resources](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure).
 
 ## Roles in Azure IoT Central
 
@@ -107,7 +107,7 @@ Every user must have a user account before they can sign in and access an Azure 
 
 For more information, see [Microsoft account help](https://support.microsoft.com/products/microsoft-account?category=manage-account) and  [Quickstart: Add new users to Azure Active Directory](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory).
 
-1. To add a user account to an Azure IoT Central application, use the secondary navigation menu to navigate to the **Users** page in the **Administration** section.
+1. To add a user account to an Azure IoT Central application, use the secondary navigation menu to go to the **Users** page in the **Administration** section.
 
     ![List of users](media\howto-administer\image1.png)
 
@@ -115,7 +115,7 @@ For more information, see [Microsoft account help](https://support.microsoft.com
 
     ![Add user](media\howto-administer\image2.png)
 
-1. When you add a user to your Azure IoT Central application, choose a role for the user from the **Role** drop-down menu. Learn more about roles in the *Roles in Azure IoT Central* section of this article.
+1. Choose a role for the user from the **Role** drop-down menu. Learn more about roles in the *Roles in Azure IoT Central* section of this article.
 
     ![Role selection](media\howto-administer\image3.png)
 
@@ -160,7 +160,7 @@ By default, all free trials are available for seven days. If you'd like to incre
 
 1. Use the secondary navigation menu to go to the **Billing** page in the **Administration** section:
 
-1. Select **Extend Trial**. In the pop-up window, select the appropriate Azure Active Directory tenant and then the Azure subscription to use for your IoT Central application:
+1. Select **Extend Trial**. In the pop-up window, select the appropriate Azure Active Directory tenant and then the Azure subscription to use for your IoT Central application.
 
 1. Then select **Extend**. Your trial is now valid for 30 days.
 
