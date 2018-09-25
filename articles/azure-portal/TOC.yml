@@ -1,7 +1,7 @@
-- name: Azure portal customizations
+- name: Azure portal customization documentation
   href: index.yml
 - name: Accessibility + settings
-- expanded: true
+  expanded: true
   items:
   - name: Keyboard shortcuts
     href: azure-portal-keyboard-shortcuts.md
