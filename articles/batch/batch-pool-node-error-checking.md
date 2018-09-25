@@ -14,7 +14,7 @@ When creating and managing Batch pools, there are operations that happen immedia
 
 Detecting failures for operations that take place immediately is straightforward, as any failures will be returned immediately by the API, CLI, or UI.
 
-This article covers the background operations that can take place for pools and pool nodes, it specifies how failures can be detected, and how the failures can be avoided.
+This article covers the background operations that can take place for pools and pool nodes - it specifies how failures can be detected, and how the failures can be avoided.
 
 ## Pool errors
 
@@ -27,7 +27,7 @@ A resize timeout is reported by the [ResizeError](https://docs.microsoft.com/res
 Common causes for resize timeouts include:
 - Resize timeout is too short
   - The default timeout is 15 minutes, which is normally ample time for pool nodes to be allocated or removed.
-  - When creating pools with a large number of nodes (over 1000 nodes or over 300 nodes when a custom image is used) or adding a large number of nodes to an existing pool, then a 30 minute timeout is recommended.
+  - When allocating a large number of nodes (over 1000 nodes from a Marketplace image or over 300 nodes from a custom image), during pool creation or resize, then a 30 minute timeout is recommended.
 - Insufficient core quota
   - A batch account has a quota for the number of cores that be allocated across all pools.  Batch will not allocate nodes once that quota has been reached.  The core quota [can be increased](https://docs.microsoft.com/azure/batch/batch-quota-limit) to enable more nodes to be allocated.
 - Insufficient subnet IPs when a [pool is in a virtual network](https://docs.microsoft.com/azure/batch/batch-virtual-network)
@@ -63,7 +63,7 @@ Nodes can be successfully allocated in a pool, but various issues can lead to th
 
 An optional [start task](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask) can be specified for a pool.  As with any task, a command line and resource files to download from storage can be specified.  The start task is specified for the pool, but run on each node - once each node has been started, then the start task is run.  A further property of the [start task](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask), 'waitForSuccess', specifies whether Batch should wait for the start task to complete successfully before scheduling any tasks to a node.
 
-A start task can fail, plus if a start task fails and the start task configuration specified to wait for successful completion, then the node will be unusable, but still incur charges.
+If a start task fails and the start task configuration specified to wait for successful completion, then the node will be unusable and will still incur charges.
 
 Start task failures can be detected by using the [result](https://docs.microsoft.com/rest/api/batchservice/computenode/get#taskexecutionresult) and [failureInfo](https://docs.microsoft.com/rest/api/batchservice/computenode/get#taskfailureinformation) properties of the top-level [startTaskInfo](https://docs.microsoft.com/rest/api/batchservice/computenode/get#starttaskinformation) node property.
 
@@ -92,7 +92,7 @@ Some other examples of causes for 'unusable' nodes:
 
 ### Node agent log files
 
-If it is necessary to contact support regarding a pool node issue, then log files from the Batch agent process that runs on each pool node may be requested.  The log files for a node can upload via the Azure Portal, Batch Explorer, or an [API](https://docs.microsoft.com/rest/api/batchservice/computenode/uploadbatchservicelogs).  This can be extremely useful as the logs can be saved, then the node or pool deleted to save the cost of the nodes.
+If it is necessary to contact support regarding a pool node issue, then log files from the Batch agent process that runs on each pool node may be obtained.  The log files for a node can be uploaded via the Azure Portal, Batch Explorer, or an [API](https://docs.microsoft.com/rest/api/batchservice/computenode/uploadbatchservicelogs).  Uploading and saving the log files can be extremely useful as the the node or pool can be deleted to save the cost of the running nodes.
 
 ## Next steps
 
