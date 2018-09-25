@@ -144,7 +144,7 @@ Use [Get-AzureRmPublicIPAddress](https://docs.microsoft.com/powershell/module/az
 
 `Get-AzureRmPublicIPAddress -ResourceGroupName $rg -Name AppGwVIP`
 
-## Cleanup resources
+## Clean up resources
 First explore the resources that were created with the application gateway, and then when no longer needed, you can use the `Remove-AzureRmResourceGroup` command to remove the resource group, application gateway, and all related resources.
 
 `Remove-AzureRmResourceGroup -Name $rg`
