@@ -52,7 +52,7 @@ Adding these parameters to your AppSource URL enables us to provide more informa
 ## Track your campaign performance and customize your add-in for targeted audiences
 
 > [!NOTE]
-> This currently applies to Word, Excel, and PowerPoint add-ins that are free in AppSource.
+> Campaign tracking is enabled for all O365 listings on AppSource. Activation data is only provided for Word, Excel and PowerPoint add-ins currently.
 
 When you link from your promotional campaigns to your free Word, Excel, or PowerPoint add-in page in AppSource, include the following query parameters at the end of the URL: 
 
@@ -65,7 +65,7 @@ The following example shows a URL that includes the two query parameters:
 https://appsource.microsoft.com/product/office/WA102957661?src=website&mktcmpid=blogpost_12
 ``` 
 
-Adding these parameters to your campaign URL enables us to provide more information about your campaign's user funnel.
+Adding these parameters to your campaign URL enables us to provide more information about your campaign's user funnel. The [Acquisitions report](https://partner.microsoft.com/en-us/dashboard/analytics/office/acquisitions) in Partner Center will provide you a breakdown of your AppSource campaign results. 
 
 The  _mktcmpid_ parameter is passed all the way to the launch document. This allows you to customize the first user experience of your free Word, Excel, or PowerPoint add-in to, for example, display a specific splash screen or welcome message to your targeted audience.
 
