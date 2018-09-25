@@ -2,15 +2,16 @@
 title: Azure SQL Database Managed Instance Auditing | Microsoft Docs
 description: Learn how to get started with Azure SQL Database Managed Instance Auditing using T-SQL
 services: sql-database
-author: giladm
-manager: craigg
-ms.reviewer: vanto
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 09/20/2018
+author: giladm
 ms.author: giladm
-
+ms.reviewer: vanto
+manager: craigg
+ms.date: 09/20/2018
 ---
 # Get started with Azure SQL Database Managed Instance Auditing
 
