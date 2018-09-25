@@ -110,7 +110,7 @@ In this section, you create a Node.js console app that responds to a direct meth
 8. Save and close the **simDevice.js** file.
 
 > [!NOTE]
-> To keep things simple, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as an exponential backoff), as suggested in the article, [Transient Fault Handling](../architecture/best-practices/transient-faults).
+> To keep things simple, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as an exponential backoff), as suggested in the article, [Transient Fault Handling](https://docs.microsoft.com/en-us/azure/architecture/best-practices/transient-faults).
 > 
 > 
 

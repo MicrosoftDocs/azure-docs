@@ -144,7 +144,7 @@ In this section, you create a Python console app that responds to a direct metho
 1. Save and close the **simDevice.py** file.
 
 > [!NOTE]
-> To keep things simple, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as an exponential backoff), as suggested in the article, [Transient Fault Handling](../architecture/best-practices/transient-faults).
+> To keep things simple, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as an exponential backoff), as suggested in the article, [Transient Fault Handling](https://docs.microsoft.com/en-us/azure/architecture/best-practices/transient-faults).
 > 
 > 
 

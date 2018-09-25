@@ -156,7 +156,7 @@ In this section, you create a Java console app that sends cloud-to-device messag
     ```
 
     > [!NOTE]
-    > For simplicity's sake, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as exponential backoff), as suggested in the article, [Transient Fault Handling](../architecture/best-practices/transient-faults).
+    > For simplicity's sake, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as exponential backoff), as suggested in the article, [Transient Fault Handling](https://docs.microsoft.com/en-us/azure/architecture/best-practices/transient-faults).
 
 
 9. To build the **simulated-device** app using Maven, execute the following command at the command prompt in the simulated-device folder:

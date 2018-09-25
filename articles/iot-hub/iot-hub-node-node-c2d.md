@@ -165,7 +165,7 @@ You are now ready to run the applications.
     ![Run the app to send the cloud-to-device command][img-send-command]
    
    > [!NOTE]
-   > For simplicity's sake, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as exponential backoff), as suggested in the article, [Transient Fault Handling](../architecture/best-practices/transient-faults).
+   > For simplicity's sake, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as exponential backoff), as suggested in the article, [Transient Fault Handling](https://docs.microsoft.com/en-us/azure/architecture/best-practices/transient-faults).
    > 
    > 
 
