@@ -26,9 +26,9 @@ The **Administration** section enables you to:
 
 - Offer a free trial
 
-In the **Administration** section, there is a secondary navigation menu with links to the various administration tasks.
+In the **Administration** section, a secondary navigation menu has links to the various administration tasks.
 
-To access and use the **Administration** section, you must be in the **Administrator** role for an Azure IoT Central application. If you create an Azure IoT Central application, you are automatically assigned to the **Administrator** role for that application. The *Managing Users* section in this article explains more about how to assign the **Administrator** role to other users.
+To access and use the **Administration** section, you must be in the **Administrator** role for an Azure IoT Central application. If you create an Azure IoT Central application, you're automatically assigned to the **Administrator** role for that application. The *Managing Users* section in this article explains more about how to assign the **Administrator** role to other users.
 
 ## Change application name
 
@@ -53,7 +53,7 @@ For more information about using images in an Azure IoT Central application, see
 
 ## Copy an application
 
-You can create a copy of any application, minus any device instances, device data history, and user data. The copy will be a paid application that you're charged for. You cannot create a trial application by copying another application.
+You can create a copy of any application, minus any device instances, device data history, and user data. The copy will be a paid application that you're charged for. You can't create a trial application by copying another application.
 
 To copy an application, go to the **Application Settings** page. Then select the **Copy** button.
 
@@ -103,7 +103,7 @@ Application administrators can assign users to the roles in the application.
 
 ### Add users
 
-Every user must have a user account before they can sign in and access an Azure IoT Central application. Microsoft Accounts (MSAs) and Azure Active Directory (Azure AD) accounts are supported in Azure IoT Central. Azure Active Directory groups are not currently supported in Azure IoT Central.
+Every user must have a user account before they can sign in and access an Azure IoT Central application. Microsoft Accounts (MSAs) and Azure Active Directory (Azure AD) accounts are supported in Azure IoT Central. Azure Active Directory groups aren't currently supported in Azure IoT Central.
 
 For more information, see [Microsoft account help](https://support.microsoft.com/products/microsoft-account?category=manage-account) and  [Quickstart: Add new users to Azure Active Directory](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory).
 
@@ -128,7 +128,7 @@ For more information, see [Microsoft account help](https://support.microsoft.com
 
 ### Edit the roles that are assigned to users
 
-Roles cannot be changed after they are assigned. To change the role that's assigned to a user, delete the user, and then add the user again with a different role.
+Roles can't be changed after they are assigned. To change the role that's assigned to a user, delete the user, and then add the user again with a different role.
 
 ### Delete users
 
@@ -164,9 +164,9 @@ By default, all free trials are available for seven days. If you'd like to incre
 
 1. Then select **Extend**. Your trial is now valid for 30 days.
 
-## Utilize the Azure SDKs to do control plane operations
+## Use the Azure SDKs for control plane operations
 
-IoT Central Azure Resource Manager SDK packages are available for Node, Python, C#, Ruby, Java, and Go. These libraries support control plane operations for IoT Central, which enables you to create, list, update, or delete IoT Central applications. They also provide helpers for dealing with authentication and error handling that is specific to each language. 
+IoT Central Azure Resource Manager SDK packages are available for Node, Python, C#, Ruby, Java, and Go. These libraries support control plane operations for IoT Central, which enable you to create, list, update, or delete IoT Central applications. They also provide helpers for dealing with authentication and error handling that is specific to each language. 
 
 You can find examples of how to use the Azure Resource Manager SDKs at [https://github.com/emgarten/iotcentral-arm-sdk-examples](https://github.com/emgarten/iotcentral-arm-sdk-examples).
 
