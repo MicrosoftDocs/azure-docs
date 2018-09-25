@@ -50,7 +50,7 @@ The roles are:
 
 - User Account Administrator
 
-For more information, see [Create a dynamic group and check status](../users-groups-roles/groups-create-rule.md)
+For more information, see [Create a dynamic group and check status](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule)
 
 ---
 
@@ -68,7 +68,7 @@ We realize that setting up Single Sign-On (SSO) for Software as a Service (SaaS)
 
 - Jamf Pro
 
-To start using this 1-click experience, go to the **Azure portal** > **SSO configuration** page for the app. For more information, see [SaaS application integration with Azure Active Directory](../saas-apps/tutorial-list.md)
+To start using this 1-click experience, go to the **Azure portal** > **SSO configuration** page for the app. For more information, see [SaaS application integration with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)
 
 ---
 
@@ -93,7 +93,7 @@ To access this feature and for more information, see [Azure Active Directory - W
 Check out the new deployment plan that's available for the My Apps Access panel (http://aka.ms/deploymentplans).
 The My Apps Access panel provides users with a single place to find and access their apps. This portal also provides users with self-service opportunities, such as requesting access to apps and groups, or managing access to these resources on behalf of others.
 
-For more information, see [What is the My Apps portal?](../user-help/active-directory-saas-access-panel-introduction.md)
+For more information, see [What is the My Apps portal?](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction)
 
 ---
 
@@ -117,7 +117,7 @@ The new **Troubleshooting and Support** tab on the **Sign-ins** page of the Azur
 
 With this update, you can now click the **Get custom extension properties** link from the dynamic user group rule builder, enter your unique app ID, and receive the full list of custom extension properties to use when creating a dynamic membership rule for users. This list can also be refreshed to get any new custom extension properties for that app.
 
-For more information about using custom extension properties for dynamic membership rules, see [Extension properties and custom extension properties](../users-groups-roles/groups-dynamic-membership.md#extension-properties-and-custom-extension-properties)
+For more information about using custom extension properties for dynamic membership rules, see [Extension properties and custom extension properties](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-dynamic-membership#extension-properties-and-custom-extension-properties)
 
 ---
 
@@ -127,7 +127,7 @@ For more information about using custom extension properties for dynamic members
 **Service category:** Conditional access  
 **Product capability:** Identity security and protection
 
-The following apps are on the list of [approved client apps](../conditional-access/technical-reference.md#approved-client-app-requirement):
+The following apps are on the list of [approved client apps](https://docs.microsoft.com/azure/active-directory/conditional-access/technical-reference.md#approved-client-app-requirement):
 
 - Microsoft To-Do
 
@@ -135,7 +135,7 @@ The following apps are on the list of [approved client apps](../conditional-acce
 
 For more information, see:
 
-- [Azure AD app-based conditional access](../conditional-access/app-based-conditional-access.md)
+- [Azure AD app-based conditional access](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 ---
 
@@ -190,7 +190,7 @@ For more information about the apps, see [SaaS application integration with Azur
 
 We've introduced new claim transformation methods, ToLower() and ToUpper(), which can be applied to SAML tokens from the SAML-based **Single Sign-On Configuration** page.
 
-For more information, see [How to customize claims issued in the SAML token for enterprise applications in Azure AD](../develop/active-directory-saml-claims-customization.md)
+For more information, see [How to customize claims issued in the SAML token for enterprise applications in Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization)
 
 ---
 
@@ -214,7 +214,7 @@ As part of our updated SAML-based app configuration UI, you'll get:
 
 - A way to set the NameID Format for SAML apps, and a way to set the NameID value as Directory Extensions.
 
-To turn this updated view on, click the **Try out our new experience** link from the top of the **Single Sign-On** page. For more information, see [Tutorial: Configure SAML-based single sign-on for an application with Azure Active Directory](../manage-apps/configure-single-sign-on-portal.md).
+To turn this updated view on, click the **Try out our new experience** link from the top of the **Single Sign-On** page. For more information, see [Tutorial: Configure SAML-based single sign-on for an application with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-portal).
 
 ---
 
