@@ -70,13 +70,19 @@ If you've not yet created the required Azure resources, follow these steps:
 
     The script creates resource group in Azure with your solution name. This resource group contains the Azure resources the solution accelerator uses.
 
-3. When the script completes, it displays a list of environment variables. Follow the instructions to save these variables to the **azure-iot-pcs-remote-monitoring-dotnet\services\scripts\local\.env** file.
+3. When the script completes, it displays a list of environment variables. Follow the instructions in the output from the command to save these variables to the **azure-iot-pcs-remote-monitoring-dotnet\\services\\scripts\\local\\.env** file.
 
 ### Use existing Azure resources
 
-If you've already created the required Azure resources edit the environment variable definitions in the **azure-iot-pcs-remote-monitoring-dotnet\services\scripts\local\.env** file with the required values. The **.env** file contains detailed information about where to find the required values.
+If you've already created the required Azure resources edit the environment variable definitions in the **azure-iot-pcs-remote-monitoring-dotnet\\services\\scripts\\local\\.env** file with the required values. The **.env** file contains detailed information about where to find the required values.
 
 ## Run the microservices in Docker
+
+The microservices running in the local Docker containers need to access the services running in Azure. You can test the internet connectivity of your Docker environment using the following command that starts a small container and tries to ping an internet address:
+
+```cmd/sh
+docker run --rm -ti library/alpine ping google.com
+```
 
 To run the solution accelerator, navigate to the **azure-iot-pcs-remote-monitoring-dotnet\services\scripts\local** folder in your command-line environment and run the following command:
 
@@ -92,7 +98,7 @@ To access the Remote Monitoring solution dashboard, navigate to [http://localhos
 
 ## Clean up
 
-To avoid unnecessary charges, when you have finished your testing, remove the cloud services from your Azure subscription. The easiest way to remove the services is to navigate to the [Azure portal](https://ms.portal.azure.com) and delete the resource group that was created when you ran the **start.cmd** script.
+To avoid unnecessary charges, when you have finished your testing remove the cloud services from your Azure subscription. The easiest way to remove the services is to navigate to the [Azure portal](https://ms.portal.azure.com) and delete the resource group that was created when you ran the **start.cmd** script.
 
 Use the `docker-compose down --rmi all` command to remove the Docker images and free up space on your local machine. You can also delete the local copy of the Remote Monitoring repository created when you cloned the source code from GitHub.
 
