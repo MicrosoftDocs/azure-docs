@@ -1,18 +1,18 @@
 ---
-title: Create a support request for Azure Cost Management | Microsoft Docs
-description: This article walks you through the steps needed to create a support request for Cost Management.
+title: Create a support request for Cloudyn in Azure | Microsoft Docs
+description: This article walks you through the steps needed to create a support request for Cloudyn.
 services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 06/07/2018
+ms.date: 09/18/2018
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: dougeby
 ms.custom:
 ---
 
-# Create a support request for Cost Management
+# Create a support request for Cloudyn
 
 You can open a support request if you can't find the information you're looking for. Or, if you suspect a problem is a service disruption or bug. When you open a support ticket, make sure that open it for a single problem. Do so helps to quickly route the reported issue.
 
@@ -43,4 +43,4 @@ To check the status of an incident that you've filed, see [All support requests]
 
 ## Next steps
 
-- To learn more about Azure Cost Management, continue to the [Review usage and costs](tutorial-review-usage.md) tutorial for Cost Management.
+- To learn more about Cloudyn, continue to the [Review usage and costs](tutorial-review-usage.md) tutorial for Cloudyn.

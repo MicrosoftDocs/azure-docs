@@ -1,15 +1,17 @@
 ---
 title: Azure SQL Database Managed Instance connect application | Microsoft Docs
 description: This article discusses how to connect your application to Azure SQL Database Managed Instance.
+services: sql-database
 ms.service: sql-database
-author: srdan-bozovic-msft
-manager: craigg
-ms.service: sql-database
-ms.custom: managed instance
+ms.subservice: managed-instance
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 09/14/2018
+author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
+manager: craigg
+ms.date: 09/14/2018
 ---
 
 # Connect your application to Azure SQL Database Managed Instance
@@ -18,7 +20,7 @@ Today you have multiple choices when deciding how and where you host your applic
  
 You may choose to host application in the cloud either by using Azure App Service or some of Azure's virtual network (VNet) integrated options like Azure App Service Environment, Virtual Machine, Virtual Machine Scale Set. You could also take hybrid cloud approach and keep your applications on-premises. 
  
-Whatever choice you made, you can connect it to a Managed Instance (preview).  
+Whatever choice you made, you can connect it to a Managed Instance.  
 
 ![high availability](./media/sql-database-managed-instance/application-deployment-topologies.png)  
 ## Connect an application inside the same VNet 
@@ -133,7 +135,7 @@ The following minimal versions of the tools and drivers are recommended if you w
 |JDBC driver	| 6.4.0 |
 |Node.js driver	| 2.1.1 |
 |OLEDB driver	| 18.0.2.0 |
-|SSMS	| 17.8.1 or [higher](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) |
+|SSMS	| 17.8.1 or [higher](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) |
 
 ## Next steps
 

@@ -2,13 +2,16 @@
 title: "Monitor Azure SQL Data Sync with Log Analytics | Microsoft Docs"
 description: "Learn how to monitor Azure SQL Data Sync by using Log Analytics"
 services: sql-database
-ms.date: "04/01/2018"
+ms.service: sql-database
+ms.subservice: data-movement
+ms.custom: data sync
+ms.devlang: 
 ms.topic: conceptual
-ms.service: "sql-database"
-author: "allenwux"
-ms.author: "xiwu"
-manager: "craigg"
-ms.custom: data-sync
+author: allenwux
+ms.author: xiwu
+ms.reviewer: douglasl
+manager: craigg
+ms.date: 04/01/2018
 ---
 # Monitor SQL Data Sync with Log Analytics 
 
