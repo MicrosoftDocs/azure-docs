@@ -8,7 +8,7 @@ manager: craigg
 ms.service: sql-database
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/18/2018
+ms.date: 09/20/2018
 ms.author: carlrab
 
 ---
@@ -23,7 +23,7 @@ You can buy Azure SQL Database reserved capacity in the [Azure portal](https://p
 - For Enterprise subscriptions, Azure reservation purchases must be enabled in the [EA portal](https://ea.azure.com).
 -  For Cloud Solution Provider (CSP) program, only the admin agents or sales agents can purchase SQL Database reserved capacity.
 
-The details on how enterprise customers and Pay-As-You-Go customers are charged for reservation purchases is covered in [Frequently asked questions](#frequently-asked-questions).
+The details on how enterprise customers and Pay-As-You-Go customers are charged for reservation purchases, see [Understand Azure reservation usage for your Enterprise enrollment](../billing/billing-understand-reserved-instance-usage-ea.md) and [Understand Azure reservation usage for your Pay-As-You-Go subscription](../billing/billing-understand-reserved-instance-usage.md).
 
 ## Determine the right SQL size before purchase
 
