@@ -34,7 +34,7 @@ ms.author: hermannd
 [sles-12-for-sap]:https://www.suse.com/media/white-paper/suse_linux_enterprise_server_for_sap_applications_12_sp1.pdf
 
 
-This article was written to help check the Pacemaker cluster configuration for SAP HANA scale-out running on Azure virtual machines. The cluster setup was accomplished in combination with SAP HANA System Replication (HSR) and the SUSE RPM package SAPHanaSR-ScaleOut. All tests were done on SUSE SLES 12 SP3 only. There are several sections, which cover different areas and include sample commands as well as excerpts from config files. These samples are recommended as a method to verify and check the whole cluster setup.
+This article was written to help check the Pacemaker cluster configuration for SAP HANA scale-out running on Azure virtual machines. The cluster setup was accomplished in combination with SAP HANA System Replication (HSR) and the SUSE RPM package SAPHanaSR-ScaleOut. All tests were done on SUSE SLES 12 SP3 only. There are several sections, which cover different areas and include sample commands and excerpts from config files. These samples are recommended as a method to verify and check the whole cluster setup.
 
 
 
@@ -43,9 +43,9 @@ This article was written to help check the Pacemaker cluster configuration for S
 All testing for SAP HANA scale-out in combination with SAP HANA System Replication and Pacemaker was done with SAP HANA 2.0 only. The operating system version was SUSE Linux Enterprise Server 12 SP3 for SAP Applications. In addition the latest RPM package SAPHanaSR-ScaleOut from SUSE was used to set up the pacemaker cluster.
 SUSE published a detailed description of this performance optimized setup, which can be found [here][sles-hana-scale-out-ha-paper]
 
-For certified VM types supported for SAP HANA scale-out, check the [SAP HANA certified IaaS directory][sap-hana-iaas-list]
+For virtual machine types, which are supported for SAP HANA scale-out check the [SAP HANA certified IaaS directory][sap-hana-iaas-list]
 
-There was a technical issue with SAP HANA scale-out in combination with multiple subnets and vNICs and setting up HSR. Therefore it's mandatory to use the latest SAP HANA 2.0 patches where this issue got fixed. The following SAP HANA versions are supported: 
+There was a technical issue with SAP HANA scale-out in combination with multiple subnets and vNICs and setting up HSR. It's mandatory to use the latest SAP HANA 2.0 patches where this issue got fixed. The following SAP HANA versions are supported: 
 
 **rev2.00.024.04 or higher & rev2.00.032 or higher.**
 
@@ -53,7 +53,7 @@ In case there should be a situation, which requires support from SUSE follow thi
 
 During internal testing, it happened that the cluster setup got confused by a normal graceful VM shutdown via the Azure portal. Therefore it's recommended to test a cluster failover by other methods. Use methods like forcing a kernel panic or shut down the networks or migrate the **msl** resource (see details in the sections below). The assumption is that a standard shutdown happens with intention. The best example for an intentional shutdown is maintenance (see details in the section about planned maintenance).
 
-During internal testing it happened that the cluster setup got confused after a manual SAP HANA takeover while the cluster was in maintenance mode. Therefore it's recommended to switch it back manually again, before ending the cluster maintenance mode. Another option is to trigger a failover before putting the cluster into maintenance mode (see the section about planned maintenance for more details). The documentation from SUSE describes how you can reset the cluster in this regard using the crm command. But the approach mentioned before seemed to be robust during internal testing and never showed any unexpected side effects.
+During internal testing it happened that the cluster setup got confused after a manual SAP HANA takeover while the cluster was in maintenance mode. It's recommended to switch it back manually again, before ending the cluster maintenance mode. Another option is to trigger a failover before putting the cluster into maintenance mode (see the section about planned maintenance for more details). The documentation from SUSE describes how you can reset the cluster in this regard using the crm command. But the approach mentioned before seemed to be robust during internal testing and never showed any unexpected side effects.
 
 When using the crm migrate command don't miss cleaning up the cluster configuration. It adds location constraints, which you might not be aware of. These constraints have an impact on the cluster behavior (see more details in the section about planned maintenance).
 
@@ -84,18 +84,18 @@ For SAP HANA scale-out HA verification and certification a setup was used, consi
 
 ## Multiple subnets and vNICs
 
-Following SAP HANA network recommendations, three subnets were created within one Azure virtual network. SAP HANA scale-out on Azure has to be installed in non-shared mode, which means that every node uses local disk volumes for **/hana/data** and **/hana/log**. Therefore it's not necessary to define a separate subnet for storage:
+Following SAP HANA network recommendations, three subnets were created within one Azure virtual network. SAP HANA scale-out on Azure has to be installed in non-shared mode, which means that every node uses local disk volumes for **/hana/data** and **/hana/log**. Becasue of using only local disk volumes it's not necessary to define a separate subnet for storage:
 
 - 10.0.2.0/24   for SAP HANA inter-node communication
 - 10.0.1.0/24   for SAP HANA System Replication HSR
 - 10.0.0.0/24   for everything else
 
-Regarding SAP HANA configuration related to using multiple networks see the section about **global.ini** further down.
+For information about SAP HANA configuration related to using multiple networks see the section **global.ini** further down.
 
-Corresponding to the number of subnets every VM in the cluster has three vNICs. There is documentation, which describes a potential routing issue on Azure when deploying a Linux VM. This specific routing topic applies only for usage of multiple vNICs. You can find information about it [here][azure-linux-multiple-nics]. The problem is solved by SUSE per default in SLES 12 SP3. The article from SUSE about this topic can be found [here][suse-cloud-netconfig].
+Corresponding to the number of subnets every VM in the cluster has three vNICs. [This][azure-linux-multiple-nics] article describes a potential routing issue on Azure when deploying a Linux VM. This specific routing topic applies only for usage of multiple vNICs. The problem is solved by SUSE per default in SLES 12 SP3. The article from SUSE about this topic can be found [here][suse-cloud-netconfig].
 
 
-As a basic check to verify if SAP HANA is configured correctly for using multiple networks, just run the commands below. First step is simply to double-check on OS level that all three internal IP addresses for all three subnets are active. In case you defined the subnets with different IP address ranges you have to adapt the commands accordingly:
+As a basic check to verify if SAP HANA is configured correctly for using multiple networks, just run the commands below. First step is simply to double-check on OS level that all three internal IP addresses for all three subnets are active. In case you defined the subnets with different IP address ranges you have to adapt the commands:
 
 <pre><code>
 ifconfig | grep "inet addr:10\."
@@ -118,7 +118,7 @@ Below you see a SQL statement, which returns instance ID and instance number amo
 select * from "SYS"."M_SYSTEM_OVERVIEW"
 </code></pre>
 
-Regarding the ports, you can look, for example, in HANA Studio under "**Configuration**" or via a SQL statement:
+To find the correct port numbers, you can look, for example, in HANA Studio under "**Configuration**" or via a SQL statement:
 
 <pre><code>
 select * from M_INIFILE_CONTENTS WHERE KEY LIKE 'listen%'
@@ -433,7 +433,7 @@ SBD_WATCHDOG=yes
 </code></pre>
 
 
-Another item to check is the startup setting in **/etc/iscsi/iscsid.conf**. The required setting should have happened by the **iscsiadm** command shown below, which is described in the documentation. Nevertheless it makes sense to verify and maybe adapt it manually with **vi** in case it's different.
+Another item to check is the startup setting in **/etc/iscsi/iscsid.conf**. The required setting should have happened by the **iscsiadm** command shown below, which is described in the documentation. It makes sense to verify and maybe adapt it manually with **vi** in case it's different.
 
 Command to set startup behavior:
 
@@ -471,7 +471,7 @@ Once everything is set up correctly, you can run the following command on every 
 systemctl status pacemaker
 </code></pre>
 
-The top of the output should look like the sample below. It's important that the status is **loaded** and **active (running)** as well as **enabled**.
+The top of the output should look like the sample below. It's important that the status after **Active** is shown as **loaded** and **active (running)**. The status after "Loaded" must be shown as **enabled**.
 
 <pre><code>
   pacemaker.service - Pacemaker High Availability Cluster Manager
