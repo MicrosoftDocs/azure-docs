@@ -94,7 +94,7 @@ results = session.run(["output1", "output2"], {"input1": indata1, "input2": inda
 results = session.run([], {"input1": indata1, "input2": indata2})
 ```
 
-For complete API reference, see the [documentation](https://docs.microsoft.com/en-us/python/api/overview/azure/main?view=azure-onnx-py).
+For the complete API reference, see the [ONNX-runtime reference docs](https://aka.ms/onnxruntime-python).
 
 ### Example deployment steps
 
