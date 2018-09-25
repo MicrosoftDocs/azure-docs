@@ -7095,7 +7095,12 @@
         },
         {
             "source_path": "articles/app-service-web/web-sites-python-configure.md",
-            "redirect_url": "/azure/app-service/web-sites-python-configure",
+            "redirect_url": "/azure/app-service/containers/how-to-configure-python",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/web-sites-python-configure.md",
+            "redirect_url": "/azure/app-service/containers/how-to-configure-python",
             "redirect_document_id": false
         },
         {
