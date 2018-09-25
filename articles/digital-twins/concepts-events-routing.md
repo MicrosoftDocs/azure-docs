@@ -1,5 +1,5 @@
 ---
-title: Routing events and messages with Azure Digital Twins | Microsoft Docs
+title: Routing Events and Messages with Azure Digital Twins | Microsoft Docs
 description: Overview of routing events and messages to service endpoints with Azure Digital Twins
 author: alinamstanciu
 manager: bertvanhoof
@@ -37,7 +37,7 @@ The Digital Twins service currently supports the following **EndpointTypes**:
 Digital Twins currently supports the following **EventTypes** that will be sent to the chosen endpoint:
 
 - **DeviceMessages**: telemetry messages sent from the users' devices and forwarded by the system
-- **TopologyOperation**: operations that change the graph or metadata of the graph (for example, adding or deleting an entity, such as a space)
+- **TopologyOperation**: operations that change the graph or metadata of the graph. For example, adding or deleting an entity, such as a space
 - **SpaceChange**: changes in a space's computed value as a result of a device telemetry message
 - **SensorChange**: changes in a sensor's computed value as a result of a device telemetry message
 - **UdfCustom**: a custom notification from a user-defined function
