@@ -49,3 +49,7 @@ See a quick sample:
 
 > [!div class="nextstepaction"]
 > [C# code samples](https://github.com/Azure-Samples/digital-twins-samples-csharp)
+
+<!-- Images -->
+[1]: media/quickstart-view-occupancy-dotnet/create-digital-twins-portal.png
+[2]: media/quickstart-view-occupancy-dotnet/create-digital-twins-param.png
