@@ -12,7 +12,7 @@ ms.date: 09/24/2018
 ms.author: tulasim
 ---
 
-# Data sources 
+# QnA Maker data sources types
 
 QnA Maker automatically extracts question-answer pairs from  semi-structured content such as FAQs, product manuals, guidelines, support documents, and policies stored as web pages, PDF files, or MS Word doc files. Content can also be added to the knowledge base from structured QnA content files. 
 
