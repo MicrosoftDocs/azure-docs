@@ -13150,6 +13150,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/service-fabric-mesh/service-fabric-mesh-howto-deploy-app-private-registry.md",
+            "redirect_url": "/azure/service-fabric-mesh/service-fabric-mesh-tutorial-template-deploy-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/service-fabric-mesh/service-fabric-mesh-howto-deploy-app-template.md",
+            "redirect_url": "/azure/service-fabric-mesh/service-fabric-mesh-tutorial-template-deploy-app",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/service-fabric/service-fabric-get-started-standalone-cluster.md",
             "redirect_url": "/azure/service-fabric/service-fabric-cluster-creation-for-windows-server",
             "redirect_document_id": false
@@ -28783,6 +28793,11 @@
         {
             "source_path": "articles/azure-resource-manager/management-groups-create.md",
             "redirect_url": "/azure/governance/management-groups/create",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/application-gateway/application-gateway-web-application-firewall-overview.md",
+            "redirect_url": "/azure/application-gateway/waf-overview",
             "redirect_document_id": false
         },
         {
