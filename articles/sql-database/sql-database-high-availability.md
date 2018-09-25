@@ -2,13 +2,16 @@
 title: High availability - Azure SQL Database service | Microsoft Docs
 description: Learn about the Azure SQL Database service high availability capabilities and features
 services: sql-database
-author: jovanpop-msft
-manager: craigg
 ms.service: sql-database
+ms.subservice: 
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 09/14/2018
+author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, sashan
+manager: craigg
+ms.date: 09/14/2018
 ---
 # High-availability and Azure SQL Database
 

@@ -13,9 +13,9 @@ ms.custom: mvc
 # Advanced Resource Graph queries
 
 The first step to understanding queries with Azure Resource Graph is a basic understanding of the
-[Query Language](../concepts/query-language.md). If you aren't already familiar with Kusto Query
-Language (KQL), it's recommended to review the basics to understand how to compose requests for the
-resources you're looking for.
+[Query Language](../concepts/query-language.md). If you are not already familiar with [Azure Data
+Explorer](../../../data-explorer/data-explorer-overview.md), it is recommended to review the basics
+to understand how to compose requests for the resources you are looking for.
 
 We'll walk through the following advanced queries:
 
