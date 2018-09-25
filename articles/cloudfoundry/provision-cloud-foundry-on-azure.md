@@ -9,10 +9,12 @@ editor: ruyakubu
 
 ms.assetid:
 ms.author: ruyakubu
-ms.date: 09/13/2018ms.devlangms.service: Cloud Foundry
+ms.date: 09/13/2018
+ms.devlang: 
+ms.service: Cloud Foundry
 ms.tgt_pltfrm: multiple
-ms.topic: article
-.ms.workload: web
+ms.topic: tutorial
+ms.workload: web
 ---
 
 # Provision Cloud Foundry on Azure
