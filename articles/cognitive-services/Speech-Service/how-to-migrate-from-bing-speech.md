@@ -26,7 +26,7 @@ A single Speech Service subscription key grants access to the following features
 * [Custom speech-to-text](https://cris.ai/CustomSpeech)
 * [Text-to-speech](text-to-speech.md)
 * [Custom text-to-speech voices](https://cris.ai/CustomVoice)
-* [Speech translation](speech-translation.md) (does not include [Text translation](https://docs.microsoft.com/azure/cognitive-services/translator/translator-info-overview))
+* [Speech translation](speech-translation.md) (does not include [Text translation](../translator/translator-info-overview))
 
 The [Speech SDK](speech-sdk.md) is a functional replacement for Bing Search client libraries, but uses a different API.
 
@@ -88,10 +88,10 @@ For Speech Service, SDK, and API support, visit the Speech Service [support page
 
 ## Next steps
 
-* [Get a Speech Service trial subscription](https://azure.microsoft.com/cognitive-services/)
-* [Quickstart: Recognize speech in a UWP app using the Speech SDK](https://docs.microsoft.com//azure/cognitive-services/speech-service/quickstart-csharp-uwp?branch=pr-en-us-51685)
+* [Try out Speech Service for free](https://azure.microsoft.com/cognitive-services/)
+* [Quickstart: Recognize speech in a UWP app using the Speech SDK](quickstart-csharp-uwp.md)
 
 ## See also
 
-* [What is the Speech service](https://docs.microsoft.com/azure/cognitive-services/speech-service/overview)
-* [Speech Service and SDK documentation](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-qsg)
+* [What is the Speech service](overview.md)
+* [Speech Service and SDK documentation](speech-sdk.md#get-the-sdk)
