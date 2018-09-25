@@ -21,6 +21,7 @@ ms.custom: aaddev
 ---
 
 # v2.0 Protocols - SPAs using the implicit flow
+[!INCLUDE active-directory-develop-applies-v2]
 
 With the v2.0 endpoint, you can sign users into your single-page apps with both personal and work or school accounts from Microsoft. Single page and other JavaScript apps that run primarily in a browser face a few interesting challenges when it comes to authentication:
 
