@@ -104,7 +104,7 @@ You can author .NET Standard UDFs in any IDE of your choice and invoke them from
 
 Once assembly zip packages have been uploaded to your Azure storage account, you can use the functions in Azure Stream Analytics queries. All you need to do is include the storage information in the Stream Analytics Edge job configuration. You can't test the function locally with this option because Visual Studio tools will not download your package. The package path is parsed directly to the service. 
 
-To configure the assembly path in the job configuration file, `EdgeJobConfig.json':
+To configure the assembly path in the job configuration file, `EdgeJobConfig.json`:
 
 Expand the **User-Defined Code Configuration** section, and fill out the configuration with the following suggested values:
 
