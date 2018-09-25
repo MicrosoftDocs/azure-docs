@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2018
+ms.date: 09/25/2018
 ms.author: sethm
 ms.reviewer: sijuman
 
@@ -29,7 +29,7 @@ The .NET SDK for the Azure Stack Resource Manager provides tools to help you bui
 
 An API profile is a combination of resource providers and API versions. You can use an API profile to get the latest, most stable version of each resource type in a resource provider package.
 
--   To make use of the latest versions of all the services, use the **latest** profile of the packages.
+-   To make use of the latest versions of all the services, use the **latest** profile of the packages. This profile is part of the **Microsoft.Azure.Management** NuGet package.
 
 -   To use the services compatible with Azure Stack, use the **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01.*ResourceProvider*.0.9.0-preview.nupkg** or **Microsoft.Azure.Management.Profiles.hybrid\_2017\_03\_09.*ResourceProvider*.0.9.0-preview.nupkg** packages.
 
@@ -37,7 +37,7 @@ An API profile is a combination of resource providers and API versions. You can 
 
     -   Ensure that the **ResourceProvider** portion of the above NuGet package is changed to the correct provider.
 
--   To use the latest API-version of a service, use the **Latest** profile of the specific NuGet package. For example, if you want to use the **latest-API** version of the compute service alone, use the **latest** profile of the **compute** package.
+-   To use the latest API-version of a service, use the **Latest** profile of the specific NuGet package. For example, if you want to use the **latest-API** version of the compute service alone, use the **latest** profile of the **compute** package. The **latest** profile is part of the **Microsoft.Azure.Management** NuGet package.
 
 -   To use specific API-versions for a resource type in a specific resource provider, use the specific API versions defined inside the package.
 
@@ -82,7 +82,7 @@ To find the Tenant ID for your Azure Stack, follow the instructions found [here]
 To set the environment variables in a Windows command prompt, use the following format:
 
 ```shell
-Set Azure\_Tenant\_ID=\<Your\_Tenant\_ID\>
+Set Azure\_Tenant\_ID=\Your_Tenant_ID\
 ```
 
 ### MacOS, Linux, and Unix-based systems
@@ -90,7 +90,7 @@ Set Azure\_Tenant\_ID=\<Your\_Tenant\_ID\>
 In Unix based systems, you can use the following command:
 
 ```shell
-Export Azure\_Tenant\_ID=\<Your\_Tenant\_ID\>
+Export Azure\_Tenant\_ID=\Your_Tenant_ID\
 ```
 
 ### The Azure Stack resource manager endpoint
@@ -116,7 +116,7 @@ Sample JSON file:
    "authentication": 
       {
       "loginEndpoint": "https://login.windows.net/",
-      "audiences": ["https://management.\<yourtenant\>.onmicrosoft.com/3cc5febd-e4b7-4a85-a2ed-1d730e2f5928"]
+      "audiences": ["https://management.\yourtenant.onmicrosoft.com/3cc5febd-e4b7-4a85-a2ed-1d730e2f5928"]
       }
 }
 ```
@@ -127,7 +127,7 @@ Sample JSON file:
 
 2.  **Microsoft.Azure.Management.Profiles.hybrid\_2017\_03\_09.*ResourceProvider*.0.9.0-preview.nupkg**: If you are on a stamp lower than the 1808 build, use this profile.
 
-3.  **Latest**: Profile consisting of the latest versions of all services. Use the latest versions of all the services.
+3.  **Latest**: Profile consisting of the latest versions of all services. Use the latest versions of all the services. This profile is part of the **Microsoft.Azure.Management** NuGet package.
 
 For more information about Azure Stack and API profiles, see a [Summary of API profiles][].
 
