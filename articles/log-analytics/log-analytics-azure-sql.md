@@ -66,7 +66,7 @@ Once you have created Azure SQL Analytics solution in your workspace, in order t
 - Enable Azure Diagnostics for your Azure SQL Database, Managed Instance databases and elastic pools to [stream diagnostics telemetry to Azure SQL Analytics](../sql-database/sql-database-metrics-diag-logging.md).
 
 ### To configure multiple Azure subscriptions
-
+ 
 To support multiple subscriptions, use the PowerShell script from [Enable Azure resource metrics logging using PowerShell](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell/). Provide the workspace resource ID as a parameter when executing the script to send diagnostic data from resources in one Azure subscription to a workspace in another Azure subscription.
 
 **Example**
