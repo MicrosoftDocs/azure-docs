@@ -45,15 +45,15 @@ SUSE published a detailed description of this performance optimized setup, which
 
 For certified VM types supported for SAP HANA scale-out, check the [SAP HANA certified IaaS directory][sap-hana-iaas-list]
 
-There was a technical issue with SAP HANA scale-out in combination with multiple subnets and vNICs and setting up HSR. Therefore it's mandatory to use the latest SAP HANA 2.0 patches where this issue got fixed. The following SAP HANA versions are supported for the scale-out HA configuration in combination with Pacemaker and SUSE RPM package SAPHanaSR-ScaleOut:
+There was a technical issue with SAP HANA scale-out in combination with multiple subnets and vNICs and setting up HSR. Therefore it's mandatory to use the latest SAP HANA 2.0 patches where this issue got fixed. The following SAP HANA versions are supported: 
 
 **rev2.00.024.04 or higher & rev2.00.032 or higher.**
 
 In case there should be a situation, which requires support from SUSE follow this [guide][suse-pacemaker-support-log-files]. Collect all information about the SAP HANA HA cluster as described in the article. SUSE support needs this information for further analysis.
 
-During internal testing, it happened that the cluster setup got confused by a normal graceful VM shutdown via the Azure portal. Therefore it's recommended to test a cluster failover by other methods like forcing a kernel panic or shut down the networks or migrate the msl resource (see details in the sections below). The assumption is that a standard shutdown happens with intention. The best example for an intenional shutdown is maintenance (see details in the section about planned maintenance).
+During internal testing, it happened that the cluster setup got confused by a normal graceful VM shutdown via the Azure portal. Therefore it's recommended to test a cluster failover by other methods. Use methods like forcing a kernel panic or shut down the networks or migrate the **msl** resource (see details in the sections below) to trigger a cluster failover. The assumption is that a standard shutdown happens with intention. The best example for an intentional shutdown is maintenance (see details in the section about planned maintenance).
 
-It also happened during internal testing that the cluster setup got confused after a manual SAP HANA takeover while the cluster was in maintenance mode. Therefore it's recommended to either switch it back manually again, before ending the cluster maintenance mode or maybe trigger a failover before putting the cluster into maintenance mode (also see the section about planned maintenance). The documentation from SUSE describes how you can reset the cluster in this regard using the crm command. But the approach mentioned before seemed to be robust during internal testing and never showed any unexpected side effects.
+During internal testing it happened that the cluster setup got confused after a manual SAP HANA takeover while the cluster was in maintenance mode. Therefore it's recommended to either switch it back manually again, before ending the cluster maintenance mode or maybe trigger a failover before putting the cluster into maintenance mode (also see the section about planned maintenance). The documentation from SUSE describes how you can reset the cluster in this regard using the crm command. But the approach mentioned before seemed to be robust during internal testing and never showed any unexpected side effects.
 
 When using the crm migrate command don't miss cleaning up the cluster configuration. It adds location constraints, which you might not be aware of. These constraints have an impact on the cluster behavior (see more details in the section about planned maintenance).
 
@@ -731,7 +731,7 @@ There are two different situations in this regard:
    In this case, you can just put the cluster into maintenance mode and do the work on the secondary without affecting the cluster
 
 2. Planned maintenance on the current primary. 
-   To allow the users to continue working during the maintenance, it's necessary to force a failover. With this approach you must trigger the cluster failover by pacemaker and not just on SAP HANA HSR level. The pacemaker setup autoamtically triggers the SAP HANA takeover. In addition, it's necessary to accomplish the failover before putting the cluster into maintenance mode.
+   To allow the users to continue working during the maintenance, it's necessary to force a failover. With this approach you must trigger the cluster failover by pacemaker and not just on SAP HANA HSR level. The pacemaker setup automatically triggers the SAP HANA takeover. In addition, it's necessary to accomplish the failover before putting the cluster into maintenance mode.
 
 The procedure for maintenance on the current secondary site would like the steps below:
 
