@@ -41,6 +41,8 @@
         href: automation-update-management.md
       - name: Manage updates for multiple VMs
         href: manage-update-multi.md
+      - name: Pre and post scripts
+        href: pre-post-scripts.md
       - name: Migrate OMS update deployments to Azure
         href: migrate-oms-update-deployments.md
       - name: Integrate SCCM with Update Management
@@ -92,7 +94,9 @@
         - name: Runbook output
           href: automation-runbook-output-and-messages.md
         - name: Source control integration
-          href: automation-source-control-integration.md
+          href: source-control-integration.md
+        - name: Source control integration - legacy
+          href: automation-source-control-integration-legacy.md
         - name: Create runbooks with the Graphical runbook SDK
           href: graphical-runbook-sdk.md
     - name: Automate
@@ -183,8 +187,6 @@
       items:
         - name: Forward Azure Automation job data to Log Analytics
           href: automation-manage-send-joblogs-log-analytics.md
-        - name: Unlink Azure Automation account from Log Analytics
-          href: automation-unlink-from-log-analytics.md
     - name: Migrate
       items:
         - name: Migrate from Orchestrator

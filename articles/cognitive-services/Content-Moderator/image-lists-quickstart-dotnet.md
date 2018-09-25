@@ -131,7 +131,7 @@ Add the following classes and static fields to the **Program** class in Program.
 
     /// <summary>
     /// The number of minutes to delay after updating the search index before
-    /// performing image match operations against a the list.
+    /// performing image match operations against the list.
     /// </summary>
     private const double latencyDelay = 0.5;
 
@@ -226,7 +226,7 @@ Add the following classes and static fields to the **Program** class in Program.
     /// <summary>
     /// The name of the file to contain the output from the list management operations.
     /// </summary>
-    /// <remarks>Relative paths are ralative the execution directory.</remarks>
+    /// <remarks>Relative paths are relative to the execution directory.</remarks>
     private static string OutputFile = "ListOutput.log";
 
     /// <summary>

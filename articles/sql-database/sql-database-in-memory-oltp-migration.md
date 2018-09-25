@@ -2,15 +2,17 @@
 title: In-Memory OLTP improves SQL txn perf | Microsoft Docs
 description: Adopt In-Memory OLTP to improve transactional performance in an existing SQL database.
 services: sql-database
+ms.service: sql-database
+ms.subservice: development
+ms.custom: 
+ms.devlang: 
+ms.topic: conceptual
 author: jodebrui
+ms.author: jodebrui
+ms.reviewer:
 manager: craigg
 ms.reviewer: MightyPen
-ms.service: sql-database
-ms.custom: develop databases
-ms.topic: conceptual
 ms.date: 04/01/2018
-ms.author: jodebrui
-
 ---
 # Use In-Memory OLTP to improve your application performance in SQL Database
 [In-Memory OLTP](sql-database-in-memory.md) can be used to improve the performance of transaction processing, data ingestion, and transient data scenarios, in [Premium and Business Critical tier](sql-database-service-tiers-vcore.md) databases without increasing the pricing tier. 

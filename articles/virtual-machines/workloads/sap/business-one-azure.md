@@ -36,7 +36,7 @@ To use this guide, you need basic knowledge of the following Azure components:
 - [Azure virtual machines on Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
 - [Azure networking and virtual networks management with PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-virtual-network)
 - [Azure networking and virtual networks with CLI ](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
-- [Manage Azure disks with the Azure CLI 2.0](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-disks)
+- [Manage Azure disks with the Azure CLI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-disks)
 
 Even if you are interested in business One only, the document [Azure Virtual Machines planning and implementation for SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide) can be a good source of information.
 
