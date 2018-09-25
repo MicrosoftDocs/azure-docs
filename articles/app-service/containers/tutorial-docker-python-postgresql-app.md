@@ -1,5 +1,5 @@
 ---
-title: Build a Python and PostgreSQL web app in Azure App Service | Microsoft Docs 
+title: Build a Python and PostgreSQL web app in Azure App Service | Microsoft Docs
 description: Learn how to run a data-driven Python app in Azure, with connection to a PostgreSQL database.
 services: app-service\web
 documentationcenter: python
@@ -29,7 +29,7 @@ In this tutorial, you learn how to:
 > * Manage the app in the Azure portal
 
 You can follow the steps in this article on macOS. Linux and Windows instructions are the same in most cases, but the differences are not detailed in this tutorial.
- 
+
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
@@ -39,17 +39,23 @@ To complete this tutorial:
 1. [Install Git](https://git-scm.com/)
 1. [Install Python](https://www.python.org/downloads/)
 1. [Install and run PostgreSQL](https://www.postgresql.org/download/)
-1. [Install Docker Community Edition](https://www.docker.com/community-edition)
+1. [Install Docker Community Edition](https://www.docker.com/get-started)
 
 ## Test local PostgreSQL installation and create a database
 
 In a local terminal window, run `psql` to connect to your local PostgreSQL server.
 
 ```bash
-sudo -u postgres psql
+sudo -u postgres psql postgres
 ```
 
-If your connection is successful, your PostgreSQL database is running. If not, make sure that your local PostgresQL database is started by following the steps at [Downloads - PostgreSQL Core Distribution](https://www.postgresql.org/download/).
+If you get an error message about `unknown user: postgres`, it's possible your postgres configuration was set up with your logged in username. Try the following command instead.
+
+```bash
+psql postgres
+```
+
+If your connection is successful, your PostgreSQL database is running. If not, make sure that your local PostgresQL database is started by following the instructions for your operating system at [Downloads - PostgreSQL Core Distribution](https://www.postgresql.org/download/).
 
 Create a database called *eventregistration* and set up a separate database user named *manager* with password *supersecretpass*.
 
@@ -59,7 +65,7 @@ CREATE USER manager WITH PASSWORD 'supersecretpass';
 GRANT ALL PRIVILEGES ON DATABASE eventregistration TO manager;
 ```
 
-Type `\q` to exit the PostgreSQL client. 
+Type `\q` to exit the PostgreSQL client.
 
 <a name="step2"></a>
 
@@ -79,7 +85,7 @@ cd docker-flask-postgres
 git checkout tags/0.1-initialapp
 ```
 
-This sample repository contains a [Flask](http://flask.pocoo.org/) application. 
+This sample repository contains a [Flask](http://flask.pocoo.org/) application.
 
 ### Run the app locally
 
@@ -111,9 +117,7 @@ Navigate to `http://localhost:5000` in a browser. Click **Register!** and create
 
 The Flask sample application stores user data in the database. If you are successful at registering a user, your app is writing data to the local PostgreSQL database.
 
-To stop the Flask server at anytime, type Ctrl+C in the terminal. 
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+To stop the Flask server at anytime, type Ctrl+C in the terminal.
 
 ## Create a production PostgreSQL database
 
@@ -123,17 +127,23 @@ In this step, you create a PostgreSQL database in Azure. When your app is deploy
 
 ### Create a resource group
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux-no-h.md)] 
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux-no-h.md)]
 
 ### Create an Azure Database for PostgreSQL server
 
 Create a PostgreSQL server with the [`az postgres server create`](/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-create) command in the Cloud Shell.
 
-In the following example command, replace *\<postgresql_name>* with a unique server name, and replace *\<admin_username>* and *\<admin_password>* with the desired user credentials. The server name is used as part of your PostgreSQL endpoint (`https://<postgresql_name>.postgres.database.azure.com`), so the name needs to be unique across all servers in Azure. The user credentials are for the database admin user account. 
+In the following example command, replace *\<postgresql_name>* with a unique server name, and replace *\<admin_username>* and *\<admin_password>* with the desired user credentials. The user credentials are for the database admin user account. The server name is used as part of your PostgreSQL endpoint (`https://<postgresql_name>.postgres.database.azure.com`), so the name needs to be unique across all servers in Azure.
+
+> [!IMPORTANT]
+> The server admin login and password that you specify here are required to log in to the server and its databases later in this quickstart. Remember or record this information for later use.
 
 ```azurecli-interactive
-az postgres server create --resource-group myResourceGroup --name <postgresql_name> --location "West Europe" --admin-user <admin_username> --admin-password <admin_password> --sku-name GP_Gen4_2
+az postgres server create --resource-group myResourceGroup --name <postgresql_name> --location "West Europe" --admin-user <admin_username> --admin-password <admin_password> --sku-name B_Gen4_1
 ```
+
+> [!Note]
+> The sku-name parameter specifies the configuration of the database server, including processor type, number of cores, and amount of memory available. For our sample application, we've selected a Basic Server with 1 core. For real world applications, see the [pricing tiers documentation]( ../../postgresql/concepts-pricing-tiers.md) to determine the type of server best suited for your needs.
 
 When the Azure Database for PostgreSQL server is created, the Azure CLI shows information similar to the following example:
 
@@ -146,40 +156,43 @@ When the Azure Database for PostgreSQL server is created, the Azure CLI shows in
   "name": "<postgresql_name>",
   "resourceGroup": "myResourceGroup",
   "sku": {
-    "capacity": 100,
-    "family": null,
-    "name": "PGSQLS3M100",
+    "capacity": 1,
+    "family": "Gen4",
+    "name": "B_Gen4_1",
     "size": null,
     "tier": "Basic"
   },
-  "sslEnforcement": null,
-  "storageMb": 2048,
+  "sslEnforcement": "Enabled",
+  "storageProfile": {
+    "backupRetentionDays": 7,
+    "geoRedundantBackup": "Disabled",
+    "storageMb": 5120
+  },
   "tags": null,
   "type": "Microsoft.DBforPostgreSQL/servers",
   "userVisibleState": "Ready",
-  "version": null
+  "version": "9.6"
 }
 ```
 
-### Create a firewall rule for the PostgreSQL server
+### Create firewall rules for the PostgreSQL server
 
-In the Cloud Shell, run the following Azure CLI command to allow access to the database from all IP addresses. 
-> [!Note]
-> It is not advised to leave all ports open to your database, or to make your database internet-facing.  See other [Azure security articles](https://docs.microsoft.com/azure/security/) to properly secure your new database for production use.  
+By default, the newly created database doesn't allow external connections. In order to connect to it, we'll need to create some firewall rules.
 
-```azurecli-interactive
-az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql_name> --start-ip-address=0.0.0.0 --end-ip-address=0.0.0.0 --name AllowAzureIPs
-```
-
-> [!TIP] 
-> You can be even more restrictive in your firewall rule by [using only the outbound IP addresses your app uses](../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
->
-
-In the Cloud Shell, run the command again to allow access to the database from your local computer by replacing *\<you_ip_address>* with [your local IPv4 IP address](https://whatismyipaddress.com/). 
+For local testing purposes, we want to restrict connections to our local IP address. In the Cloud Shell, run this command to allow access to the database from your local computer by replacing *\<your_ip_address>* with [your local IPv4 IP address](http://www.whatsmyip.org/).
 
 ```azurecli-interactive
-az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql_name> --start-ip-address=<you_ip_address> --end-ip-address=<you_ip_address> --name AllowLocalClient
+az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql_name> --start-ip-address=<your_ip_address> --end-ip-address=<your_ip_address> --name AllowLocalClient
 ```
+
+Next, let's open the range of IP addresses belonging to resources on the Azure network, so that we can connect from our web app after we deploy it.
+
+```azurecli-interactive
+az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql_name> --start-ip-address=0.0.0.0 --end-ip-address=0.0.0.0 --name AllowAllAzureIPs
+```
+
+> [!IMPORTANT]
+> This option configures the firewall to allow network connections from IPs within the Azure network, not limited to your subscription. For production use, aim to configure the most restrictive firewall rules possible by [using only the outbound IP addresses your app uses](../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
 
 ## Connect Python app to production database
 
@@ -187,13 +200,13 @@ In this step, you connect your Flask sample app to the Azure Database for Postgr
 
 ### Create empty database and user access
 
-In the Cloud Shell, connect to the database by running `psql`. When prompted for your admin password, use the same password you specified in [Create an Azure Database for PostgreSQL server](#create-an-azure-database-for-postgresql-server).
+In the Cloud Shell, connect to the database by running the command below. When prompted for your admin password, use the same password you specified in [Create an Azure Database for PostgreSQL server](#create-an-azure-database-for-postgresql-server).
 
 ```bash
 psql -h <postgresql_name>.postgres.database.azure.com -U <my_admin_username>@<postgresql_name> postgres
 ```
 
-Create the database and user from the PostgreSQL CLI.
+Just like on our local database, let's create the database and user for our web app from the PostgreSQL CLI.
 
 ```bash
 CREATE DATABASE eventregistration;
@@ -202,6 +215,9 @@ GRANT ALL PRIVILEGES ON DATABASE eventregistration TO manager;
 ```
 
 Type `\q` to exit the PostgreSQL client.
+
+> [!NOTE]
+> It's best practice to create database users with restricted permissions for specific applications, instead of using the admin user. In this example, the `manager` user has full privileges to _only_ the `eventregistration` database.
 
 ### Test app connectivity to production database
 
@@ -239,7 +255,7 @@ cd ..
 docker build -t flask-postgresql-sample .
 ```
 
-Docker displays a confirmation that it successfully created the image.
+Docker should display a confirmation that it successfully created the image. If you get an error, make sure you have docker installed, and that the docker daemon is running before trying again.
 
 ```bash
 Successfully built 7548f983a36b
@@ -273,7 +289,7 @@ The database already contains the registration you created previously.
 
 ![Docker container-based Python Flask application running locally](./media/tutorial-docker-python-postgresql-app/local-docker.png)
 
-Now that you verified that the container works locally, delete _db.env_. In Azure App Service, you will use app settings to define the environment variables.  
+Now that you verified that the container works locally, delete `db.env`. In Azure App Service, you will use app settings to define the environment variables.
 
 ### Create an Azure Container Registry
 
@@ -386,16 +402,16 @@ In the Cloud Shell, restart the app. Restarting ensures that all settings are ap
 az webapp restart --resource-group myResourceGroup --name <app_name>
 ```
 
-### Browse to the Azure web app 
+### Browse to the Azure web app
 
-Browse to the deployed web app. 
-
-```bash 
-http://<app_name>.azurewebsites.net 
-```
+Browse to the deployed web app.
 
 > [!NOTE]
-> The web app takes some time to start because the container has to be downloaded and run when the app is requested the first time. If at first you see an error after a long time, just refresh the page.
+> The web app takes some time to start because the container has to be downloaded and run when the app is requested for the first time. If loading the page times out, or if you see an error message, just wait a few minutes and refresh the page.
+
+```bash
+http://<app_name>.azurewebsites.net
+```
 
 You see previously registered guests that were saved to the Azure production database in the previous step.
 
@@ -403,9 +419,9 @@ You see previously registered guests that were saved to the Azure production dat
 
 **Congratulations!** You're running a Python app in Web App for Containers.
 
-## Update data model and redeploy
+## Making changes and redeploying
 
-In this step, you add the number of attendees to each event registration by updating the `Guest` model.
+As we work on our app, we're going to make changes that will require a redeploy. In this step, you'll add the number of attendees to each event registration by updating the `Guest` model.
 
 In the local terminal window, check out the *0.2-migration* release with the following git command:
 
@@ -451,15 +467,19 @@ In the Cloud Shell, restart the app to make sure the latest container is pulled 
 az webapp restart --resource-group myResourceGroup --name <app_name>
 ```
 
-Navigate to your Azure web app and try out the new functionality again. Create another event registration.
+Navigate to your Azure web app and try out the new functionality again.
 
-```bash 
-http://<app_name>.azurewebsites.net 
+```bash
+http://<app_name>.azurewebsites.net
 ```
+
+Make sure you refresh the page and see the newly added attendees column. Then create another event registration.
 
 ![Docker Python Flask app in Azure App Service](./media/tutorial-docker-python-postgresql-app/docker-flask-in-azure.png)
 
-## Manage your Azure web app
+## Manage your web app in the Azure Portal
+
+We've been using the Azure CLI command line interface, but there's also a portal with a rich interface available to help you manage your application.
 
 Go to the [Azure portal](https://portal.azure.com) to see the web app you created.
 
@@ -477,3 +497,19 @@ Advance to the next tutorial to learn how to map a custom DNS name to your web a
 
 > [!div class="nextstepaction"]
 > [Map an existing custom DNS name to Azure Web Apps](../app-service-web-tutorial-custom-domain.md)
+
+## Clean up resources
+
+If you're done with your app and database, clean up the resources created in this tutorial.
+
+You can clean up all the resources at once by deleting the resource group. First, verify the contents of the resource group. The group you created at the start of the tutorial should contain a PostgreSQL server, a container registry, an app service plan, and an app.
+
+```bash
+az resource list --resource-group myResourceGroup
+```
+
+Next, delete the resource group. Enter `y` at the prompt to confirm. This operation may take a few minutes to complete.
+
+```bash
+az group delete --name myResourceGroup
+```
