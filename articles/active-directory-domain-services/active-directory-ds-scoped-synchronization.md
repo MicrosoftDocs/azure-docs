@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2018
+ms.date: 09/24/2018
 ms.author: maheshu
 
 ---
@@ -25,8 +25,17 @@ This article shows you how to configure only specific user accounts to be synchr
 ## Group-based scoped synchronization
 By default, all users and groups within your Azure AD directory are synchronized to your managed domain. If the managed domain is being used only by a few users, you may prefer to synchronize only those user accounts to the managed domain. Group-based scoped synchronization enables you to do so. When configured, only user accounts belonging to the groups you've specified are synchronized to the managed domain.
 
+> [!WARNING]
+> **Changing the scope of synchronization causes your managed domain to go through re-synchronization.**
+>
+ * When you change the synchronization scope for a managed domain, a full re-synchronization operation is performed.
+ * Objects which are no longer required in the managed domain are deleted. New objects are provisioned in the managed domain.
+ * Re-synchronization may take a long time to complete, depending on the number of objects (users, groups and group memberships) in your managed domain and your Azure AD directory. For large directories with many hundreds of thousands of objects, resynchronization may take a few days.
+>
+>
 
-## Get started: Install the required PowerShell modules
+
+## Install the required PowerShell modules
 
 ### Install and configure Azure AD PowerShell
 Follow the instructions in the article to [install the Azure AD PowerShell module and connect to Azure AD](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
@@ -41,7 +50,7 @@ Complete the following steps to configure group-based scoped synchronization to 
 
 1. Select the groups you want to sync and provide the display name of the groups you want synchronized to your managed domain.
 
-2. Save the script in the following section to a file called ```Select-GroupsToSync.ps1```. Execute the script like below:
+2. Save the [script in the following section](active-directory-ds-scoped-synchronization.md#script-to-select-groups-to-synchronize-to-the-managed-domain-select-groupstosyncps1) to a file called ```Select-GroupsToSync.ps1```. Execute the script like below:
 
   ```powershell
   .\Select-GroupsToSync.ps1 -groupsToAdd @(“GroupName1”, “GroupName2”)
