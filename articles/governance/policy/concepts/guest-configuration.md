@@ -18,6 +18,9 @@ Guest Configuration extension and client. The extension, through the client, val
 such as the configuration of the operating system, application configuration or presence,
 environment settings, and more.
 
+> [!IMPORTANT]
+> Currently, only **built-in** policies are supported with Guest Configuration.
+
 ## Extension and client
 
 To audit settings inside a virtual machine, a [virtual machine
