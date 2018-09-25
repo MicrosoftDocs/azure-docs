@@ -11,7 +11,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/07/2018
+ms.date: 09/25/2018
 ms.author: tomfitz
 
 ---
@@ -223,7 +223,7 @@ The following list provides a general summary of Azure services that can be move
 * SQL Database server - database and server must reside in the same resource group. When you move a SQL server, all its databases are also moved. This behavior applies to Azure SQL Database and Azure SQL Data Warehouse databases.
 * Time Series Insights
 * Traffic Manager
-* Virtual Machines - VMs with managed disks can't be moved. See [Virtual Machines limitations](#virtual-machines-limitations)
+* Virtual Machines - for VMs with managed disks, see [Virtual Machines limitations](#virtual-machines-limitations)
 * Virtual Machines (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
 * Virtual Machine Scale Sets - see [Virtual Machines limitations](#virtual-machines-limitations)
 * Virtual Networks - see [Virtual Networks limitations](#virtual-networks-limitations)
@@ -263,12 +263,15 @@ The following list provides a general summary of Azure services that can't be mo
 
 ## Virtual Machines limitations
 
-Managed disks are supported for move as of September 24th, 2018. You'll have to register to enable this feature
+Managed disks are supported for move as of September 24th, 2018. You'll have to register to enable this feature.
 
-#### PowerShell
-`Register-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute`
-#### CLI
-`az feature register Microsoft.Compute ManagedResourcesMove`
+```azurepowershell-interactive
+Register-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute
+```
+
+```azurecli-interactive
+az feature register Microsoft.Compute ManagedResourcesMove
+```
 
 
 This means you can also move:
