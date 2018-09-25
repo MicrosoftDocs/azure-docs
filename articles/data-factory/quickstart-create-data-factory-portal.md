@@ -54,7 +54,7 @@ Watching this video helps you understand the Data Factory UI:
 1. For **Version**, select **V2**.
 1. For **Location**, select the location for the data factory.
 
-   The list shows only locations that Data Factory supports, and where your Azure Data Factory meta data will be stored. Please note that the associated data stores (like Azure Storage and Azure SQL Database) and computes (like Azure HDInsight) that Data Factory uses can run in other locations.
+   The list shows only locations that Data Factory supports, and where your Azure Data Factory meta data will be stored. Please note that the associated data stores (like Azure Storage and Azure SQL Database) and computes (like Azure HDInsight) that Data Factory uses can run in other regions.
 
 1. Select **Create**.
 
