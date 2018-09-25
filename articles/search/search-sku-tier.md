@@ -15,7 +15,12 @@ ms.author: heidist
 
 In Azure Search, a [service is provisioned](search-create-service-portal.md) at a fixed pricing tier or SKU: **Free**, **Basic**, or **Standard**, where **Standard** is available in multiple configurations and capacities. Most customers start with the **Free** tier for evaluation and then graduate to **Standard** for development. You can complete all quickstarts and tutorials on the **Free** tier, including those for resource-intensive cognitive search. 
 
-Tiers determine capacity, not features, with differentiation by the number of indexes you can create, and by size of individual partitions (physical storage). Although all tiers, including the **Free** tier, generally offer feature parity, larger workloads can dictate requirements for higher tiers. For example, [cognitive search](cognitive-search-concept-intro.md) indexing has long-running skills that time out on a free service unless the data set happens to be very small.
+Tiers determine capacity, not features, with differentiation by:
+
++ Number of indexes you can create
++ Size and speed of partitions (physical storage)
+
+Although all tiers, including the **Free** tier, generally offer feature parity, larger workloads can dictate requirements for higher tiers. For example, [cognitive search](cognitive-search-concept-intro.md) indexing has long-running skills that time out on a free service unless the data set happens to be very small.
 
 > [!NOTE] 
 > Feature parity exists across tiers with the exception of [indexers](search-indexer-overview.md), which is not available on S3HD.
@@ -38,11 +43,11 @@ In Azure Search, the most important billing concept to understand is a *search u
 
 Formulaically, an SU is the product of *replica* and *partitions* used by a service: **`(R X P = SU)`**
 
-At a minimum, every service starts with 1 SU (one replica multiplied by one partition), but a more realistic model might be a 3-replica, 3-partition service billed as 9 SUs. 
+At a minimum, every service starts with 1 SU (one replica multiplied by one partition), but for larger workloads, a more realistic model might be a 3-replica, 3-partition service billed as 9 SUs. 
 
-The billing rate is hourly per SU, with each tier having a progressively higher rate. Higher tiers come with larger partitions, contributing to a higher hourly rate for that tier. Rates for each tier can be found on [Pricing Details](https://azure.microsoft.com/pricing/details/search/). 
+The billing rate is **hourly per SU**, with each tier having a progressively higher rate. Higher tiers come with larger and speedier partitions, contributing to an overall higher hourly rate for that tier. Rates for each tier can be found on [Pricing Details](https://azure.microsoft.com/pricing/details/search/). 
 
-Although each tier offers progressively higher capacity, you can bring a portion of total capacity online, holding the rest in reserve. In terms of billing, it's the number of partitions and replicas that you bring online, calculated using the SU formula, that determines what you actually pay.
+Although each tier offers progressively higher capacity, you can bring a *portion* of total capacity online, holding the rest in reserve. In terms of billing, it's the number of partitions and replicas that you bring online, calculated using the SU formula, that determines what you actually pay.
 
 ### Capacity drill-down
 
