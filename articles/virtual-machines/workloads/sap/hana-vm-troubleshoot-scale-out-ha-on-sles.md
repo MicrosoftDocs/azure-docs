@@ -51,9 +51,9 @@ There was a technical issue with SAP HANA scale-out in combination with multiple
 
 In case there should be a situation, which requires support from SUSE follow this [guide][suse-pacemaker-support-log-files]. Collect all information about the SAP HANA HA cluster as described in the article. SUSE support needs this information for further analysis.
 
-During internal testing, it happened that the cluster setup got confused by a normal graceful VM shutdown via the Azure portal. Therefore it's recommended to test a cluster failover by other methods. Use methods like forcing a kernel panic or shut down the networks or migrate the **msl** resource (see details in the sections below) to trigger a cluster failover. The assumption is that a standard shutdown happens with intention. The best example for an intentional shutdown is maintenance (see details in the section about planned maintenance).
+During internal testing, it happened that the cluster setup got confused by a normal graceful VM shutdown via the Azure portal. Therefore it's recommended to test a cluster failover by other methods. Use methods like forcing a kernel panic or shut down the networks or migrate the **msl** resource (see details in the sections below). The assumption is that a standard shutdown happens with intention. The best example for an intentional shutdown is maintenance (see details in the section about planned maintenance).
 
-During internal testing it happened that the cluster setup got confused after a manual SAP HANA takeover while the cluster was in maintenance mode. Therefore it's recommended to either switch it back manually again, before ending the cluster maintenance mode or maybe trigger a failover before putting the cluster into maintenance mode (also see the section about planned maintenance). The documentation from SUSE describes how you can reset the cluster in this regard using the crm command. But the approach mentioned before seemed to be robust during internal testing and never showed any unexpected side effects.
+During internal testing it happened that the cluster setup got confused after a manual SAP HANA takeover while the cluster was in maintenance mode. Therefore it's recommended to switch it back manually again, before ending the cluster maintenance mode. Another option is to trigger a failover before putting the cluster into maintenance mode (see the section about planned maintenance for more details). The documentation from SUSE describes how you can reset the cluster in this regard using the crm command. But the approach mentioned before seemed to be robust during internal testing and never showed any unexpected side effects.
 
 When using the crm migrate command don't miss cleaning up the cluster configuration. It adds location constraints, which you might not be aware of. These constraints have an impact on the cluster behavior (see more details in the section about planned maintenance).
 
@@ -171,8 +171,7 @@ The corosync config file has to be correct on every node in the cluster includin
 
 Here is the content of **corosync.conf** from the test system as an example.
 
-First section is **totem** as described in this [documentation][sles-pacemaker-ha-guide] (section cluster-installation step 11). You can ignore the value for **mcastaddr**. Just keep the existing entry. Make sure that especially **token** and **consensus** are set
-according to the Microsoft Azure SAP HANA documentation, which you can find [here][sles-pacemaker-ha-guide]
+First section is **totem** as described in this [documentation][sles-pacemaker-ha-guide] (section cluster-installation step 11). You can ignore the value for **mcastaddr**. Just keep the existing entry. The entries for **token** and **consensus** must be set according to the Microsoft Azure SAP HANA documentation, which you can find [here][sles-pacemaker-ha-guide]
 
 <pre><code>
 totem {
@@ -255,7 +254,7 @@ nodelist {
 }
 </code></pre>
 
-In the last section **quorum**, it's important to set the value for **expected_votes** to the number of nodes including the majority maker node. And the value for **two_node** has to be **0**. Don't remove the entry completely. Just set the value to **0**.
+In the last section **quorum**, it's important to set the value for **expected_votes** correctly. It must be the number of nodes including the majority maker node. And the value for **two_node** has to be **0**. Don't remove the entry completely. Just set the value to **0**.
 
 <pre><code>
 quorum {
@@ -504,7 +503,7 @@ To see all configured resources in pacemaker, run the following command:
 crm status
 </code></pre>
 
-The output should look like the sample below. It's ok that the cln and msl resources are shown as stopped on the majority maker VM (**hso-hana-dm**). There is no SAP HANA installation on the majority maker node. Therefore the **cln** and **msl** resources are shown as stopped. It's important that it shows the correct total number of VMs (**7**), that all VMs, which are part of the cluster are listed with status **Online** and that it recognizes correctly the current primary master node (in this example it is **hso-hana-vm-s1-0**).
+The output should look like the sample below. It's ok that the cln and msl resources are shown as stopped on the majority maker VM (**hso-hana-dm**). There is no SAP HANA installation on the majority maker node. Therefore the **cln** and **msl** resources are shown as stopped. It's important that it shows the correct total number of VMs (**7**). All VMs, which are part of the cluster must be listed with status **Online**. The current primary master node must be recognized correctly (in this example it is **hso-hana-vm-s1-0**).
 
 <pre><code>
 Stack: corosync
@@ -676,7 +675,7 @@ As also described in the section about planned maintenance, a good way to monito
 watch SAPHanaSR-showAttr
 </code></pre>
 
-In addition, it helps to look at the SAP HANA landscape status coming from an SAP python script. This status value is the one, which the cluster setup is looking for. It becomes clear when thinking about a worker node failure. If a worker node goes down, SAP HANA does not immediately return an error for the health of the whole scale-out system. There are some retries to avoid unnecessary failovers. Only if the status changes from Ok (return value 4) to error (return value 1) the cluster reacts. Therefore it's correct, if the output from **SAPHanaSR-showAttr** shows a VM with state **offline** but there is no activity yet to switch primary and secondary as long as SAP HANA doesn't return an error.
+In addition, it helps to look at the SAP HANA landscape status coming from an SAP python script. This status value is the one, which the cluster setup is looking for. It becomes clear when thinking about a worker node failure. If a worker node goes down, SAP HANA does not immediately return an error for the health of the whole scale-out system. There are some retries to avoid unnecessary failovers. Only if the status changes from Ok (return value 4) to error (return value 1) the cluster reacts. Therefore it's correct, if the output from **SAPHanaSR-showAttr** shows a VM with state **offline** but there is no activity yet to switch primary and secondary. No cluster activity gets triggered as long as SAP HANA doesn't return an error.
 
 You can monitor the SAP HANA landscape health status as user \<HANA SID\>adm by calling the SAP python script the following way (you might have to adapt the path):
 
@@ -723,7 +722,7 @@ Transition Summary:
 There are different use cases when it comes to planned maintenance. One question is, for example, if it's just infrastructure maintenance like changes on OS level and disk configuration or an HANA upgrade.
 You can find additional information in documents from SUSE like [here][sles-zero-downtime-paper] or [another one here][sles-12-for-sap]. These documents also include samples how to manually migrate a primary.
 
-Intense internal testing was done to verify the infrastructure maintenance use case. To avoid any kind of issue related to migrating the primary while the cluster is in maintenance mode, the decision was made to always migrate a primary if necessary before putting a cluster into maintenance mode. This way it's not necessary to make the cluster forget about the former situation (which side was primary and which side was secondary).
+Intense internal testing was done to verify the infrastructure maintenance use case. To avoid any kind of issue related to migrating the primary, the decision was made to always migrate a primary before putting a cluster into maintenance mode. This way it's not necessary to make the cluster forget about the former situation (which side was primary and which side was secondary).
 
 There are two different situations in this regard:
 
@@ -766,7 +765,7 @@ Check the failover process via command **SAPHanaSR-showAttr**. What helps to mon
 watch SAPHanaSR-showAttr
 </code></pre>
 
-The output should reflect the manual failover by showing that the former secondary master node got **promoted** (in this sample **hso-hana-vm-s2-0**) and the former primary site stopped (**lss** value **1** for former primary master node **hso-hana-vm-s1-0**): 
+The output should reflect the manual failover. The former secondary master node got **promoted** (in this sample **hso-hana-vm-s2-0**) and the former primary site was stopped (**lss** value **1** for former primary master node **hso-hana-vm-s1-0**): 
 
 <pre><code>
 Global cib-time                 prim  sec srHook sync_state
