@@ -7,29 +7,54 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 06/19/2018
+ms.date: 09/25/2018
 ms.author: heidist
 ---
 
 # Choose a pricing tier for Azure Search
 
-In Azure Search, a [service is provisioned](search-create-service-portal.md) at a specific pricing tier or SKU. Options include **Free**, **Basic**, or **Standard**, where **Standard** is available in multiple configurations and capacities. 
+In Azure Search, a [service is provisioned](search-create-service-portal.md) at a fixed pricing tier or SKU: **Free**, **Basic**, or **Standard**, where **Standard** is available in multiple configurations and capacities. Most customers start with the **Free** tier for evaluation and then graduate to **Standard** for development. You can complete all quickstarts and tutorials on the **Free** tier, including those for resource-intensive cognitive search. 
 
-The purpose of this article is to help you choose a tier. It supplements the [pricing page](https://azure.microsoft.com/pricing/details/search/) and [Service Limits](search-limits-quotas-capacity.md) page with a digest of billing concepts and consumption patterns associated with various tiers. It also recommends an iterative approach for understanding which tier best meets your needs. 
+Tiers determine capacity, not features, with differentiation by:
 
-Tiers determine capacity, not features. If a tier's capacity turns out to be too low, you will need to provision a new service at the higher tier and then [reload your indexes](search-howto-reindex.md). There is no in-place upgrade of the same service from one SKU to another.
++ Number of indexes you can create
++ Size and speed of partitions (physical storage)
 
-Feature availability is not a primary tier consideration. All tiers, including the **Free** tier, offer feature parity, with the exception of indexer support for S3HD. However, indexing and resource constraints effectively can limit the extent of feature usage. For example, [cognitive search](cognitive-search-concept-intro.md) indexing has long-running skills that time out on a free service unless the data set happens to be very small.
+Although all tiers, including the **Free** tier, generally offer feature parity, larger workloads can dictate requirements for higher tiers. For example, [cognitive search](cognitive-search-concept-intro.md) indexing has long-running skills that time out on a free service unless the data set happens to be very small.
 
-> [!TIP]
-> Most customers start with the **Free** tier for evaluation and then graduate to **Standard** for development. After you choose a tier and [provision a search service](search-create-service-portal.md), you can [increase replica and partition counts](search-capacity-planning.md) for performance tuning. For more information about when and why you would adjust capacity, see [Performance and optimization considerations](search-performance-optimization.md).
+> [!NOTE] 
+> Feature parity exists across tiers with the exception of [indexers](search-indexer-overview.md), which is not available on S3HD.
 >
 
-## Billing concepts
+Within a tier, you can [adjust replica and partition resources](search-capacity-planning.md) for performance tuning. Whereas you might start with two or three of each, you could temporarily increase the resource level for a heavy indexing workload. The ability to tune resource levels within a tier adds flexibility, but also slightly complicates your analysis. You might have to experiment to see whether a lower tier with higher resources/replicas offers better value and performance than a higher tier with lower resourcing. To learn more about when and why you would adjust capacity, see [Performance and optimization considerations](search-performance-optimization.md).
 
-Concepts you need to understand for tier selection include capacity definitions, service limits, and service units. 
+> [!Important] 
+> Although estimating future needs for indexes and storage can feel like guesswork, it's worth doing. If a tier's capacity turns out to be too low, you will need to provision a new service at the higher tier and then [reload your indexes](search-howto-reindex.md). There is no in-place upgrade of the same service from one SKU to another.
+>
 
-### Capacity
+<!---
+The purpose of this article is to help you choose a tier. It supplements the [pricing page](https://azure.microsoft.com/pricing/details/search/) and [Service Limits](search-limits-quotas-capacity.md) page with a digest of billing concepts and consumption patterns associated with various tiers. It also recommends an iterative approach for understanding which tier best meets your needs. 
+--->
+
+## How billing works
+
+In Azure Search, the most important billing concept to understand is a *search unit* (SU). Because Azure Search depends on both replicas and partitions to function, it doesn't make sense to bill by just one or the other. Instead, billing is based on a composite of both. 
+
+Formulaically, an SU is the product of *replica* and *partitions* used by a service: **`(R X P = SU)`**
+
+At a minimum, every service starts with 1 SU (one replica multiplied by one partition), but for larger workloads, a more realistic model might be a 3-replica, 3-partition service billed as 9 SUs. 
+
+The billing rate is **hourly per SU**, with each tier having a progressively higher rate. Higher tiers come with larger and speedier partitions, contributing to an overall higher hourly rate for that tier. Rates for each tier can be found on [Pricing Details](https://azure.microsoft.com/pricing/details/search/). 
+
+Although each tier offers progressively higher capacity, you can bring a *portion* of total capacity online, holding the rest in reserve. In terms of billing, it's the number of partitions and replicas that you bring online, calculated using the SU formula, that determines what you actually pay.
+
+### Tips for lowering the bill
+
+You cannot shut down the service to lower the bill. Dedicated resources for partitions and replicas are operational 24-7, held in reserve for your exclusive use, for the lifetime of your service. The only way to lower a bill is to reduce replicas and partitions to the lowest level that still gives you acceptable performance. 
+
+Another lever is choosing a tier with a lower hourly rate. S1 hourly rates are lower than S2 or S3 hourly rates. You could provision a service at the lower end of your projections, and then if you outgrow it, create a second larger tiered service, rebuild your indexes on that second service, and then delete the first one.
+
+### Capacity drill-down
 
 Capacity is structured as *replicas* and *partitions*. 
 
@@ -40,15 +65,7 @@ Capacity is structured as *replicas* and *partitions*.
 > [!NOTE]
 > All **Standard** tiers support [flexible combinations replica and partitions](search-capacity-planning.md#chart) so that you can [weight your system for speed or storage](search-performance-optimization.md) by changing the balance. **Basic** offers up three replicas for high availability but has only one partition. **Free** tiers do not provide dedicated resources: computing resources are shared by multiple free services.
 
-### Search units
-
-The most important billing concept to understand is a *search unit* (SU), which is the billing unit for Azure Search. Because Azure Search depends on both replicas and partitions to function, it doesn't make sense to bill by one or the other. Instead, billing is based on a composite of both. Formulaically, an SU is the product of replica and partitions used by a service: (R X P = SU). At a minimum, every service starts with 1 SU (one replica multiplied by one partition), but a more realistic model might be a 3-replica, 3-partition service billed as 9 SUs. 
-
-Although each tier offers progressively higher capacity, you can bring a portion of total capacity online, holding the rest in reserve. In terms of billing, it's the number of partitions and replicas that you bring online, calculated using the SU formula, that determines what you actually pay.
-
-Billing rate is hourly per SU, with each tier having a different rate. Rates for each tier can be found on [Pricing Details](https://azure.microsoft.com/pricing/details/search/).
-
-### Limits
+### More about service limits
 
 Services host resources, such as indexes, indexers, and so forth. Each tier imposes [service limits](search-limits-quotas-capacity.md) on the quantity of resources you can create. As such, a cap on the number of indexes (and other objects) is the second differentiating feature across tiers. As you review each option in the portal, note the limits on number of indexes. Other resources, such as indexers, data sources, and skillsets, are pegged to index limits.
 

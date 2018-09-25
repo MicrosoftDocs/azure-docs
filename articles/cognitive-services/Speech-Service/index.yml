@@ -69,6 +69,10 @@ sections:
       - image:
           src: media/index/logo_java.jpg
       - image:
+          src: media/index/logo_objc.jpg
+      - image:
+          src: media/index/logo_js.svg
+      - image:
           src: media/index/logo_rest_sr.svg
       - image:
           src: media/index/logo_rest_tts.svg
@@ -82,12 +86,16 @@ sections:
         - href: quickstart-java-jre
         - href:
         - href:
+        - href:
+        - href:
       - title: Windows 10 (x86)
         values:
         - href: quickstart-csharp-uwp
         - href: quickstart-csharp-windows
         - href: quickstart-cpp-windows
         - href: quickstart-csharp-dotnetcore-windows
+        - href:
+        - href:
         - href:
         - href:
         - href:
@@ -100,11 +108,15 @@ sections:
         - href: quickstart-java-jre
         - href:
         - href:
+        - href:
+        - href:
       - title: Linux (x86)
         values:
         - href:
         - href:
         - href: quickstart-cpp-linux
+        - href:
+        - href:
         - href:
         - href:
         - href:
@@ -118,6 +130,8 @@ sections:
         - href: quickstart-java-android
         - href:
         - href:
+        - href:
+        - href:
       - title: Devices SDK (ARM64)
         values:
         - href:
@@ -127,6 +141,19 @@ sections:
         - href: speech-devices-sdk
         - href:
         - href:
+        - href:
+        - href:
+      - title: iOS (ARM64)
+        values:
+        - href:
+        - href:
+        - href:
+        - href:
+        - href:
+        - href: quickstart-objectivec-ios
+        - href:
+        - href:
+        - href:
       - title: Web
         values:
         - href:
@@ -134,6 +161,8 @@ sections:
         - href:
         - href:
         - href:
+        - href:
+        - href: quickstart-js-browser
         - href: rest-apis
         - href: rest-apis
 - title: Step-by-Step Tutorials
@@ -166,6 +195,8 @@ sections:
         <p><a href="https://aka.ms/csspeech/csharpref">C# API (UWP and .NET)</a></p>
         <p><a href="https://aka.ms/csspeech/cppref">C++ API</a></p>
         <p><a href="https://aka.ms/csspeech/javaref">Java API</a></p>
+        <p><a href="https://aka.ms/csspeech/objectivecref">Objective-C API</a></p>
+        <p><a href="https://aka.ms/csspeech/javascriptref">JavaScript API</a></p>
     - title: REST API 
       html: |
         <p><a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis">REST API</a></p>
