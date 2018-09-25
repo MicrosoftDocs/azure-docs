@@ -210,3 +210,4 @@ When using an internal Standard Load Balancer, outbound NAT is not available unt
 - Learn about using [Load Balancer for outbound connections](load-balancer-outbound-connections.md).
 - Learn about [Standard Load Balancer](load-balancer-standard-overview.md).
 - Learn about [bidirectional TCP Reset on idle timeout](https://aka.ms/lbtcpreset).
+- [Configure outbound rules with Azure CLI 2.0](configure-load-balancer-outbound-cli.md).
