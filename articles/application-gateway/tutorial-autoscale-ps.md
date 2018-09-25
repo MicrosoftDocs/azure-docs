@@ -14,6 +14,8 @@ ms.custom: mvc
 
 This tutorial describes how to create an Azure Application Gateway using Azure PowerShell cmdlets and the Azure Resource Manager deployment model. This tutorial focuses on differences in the new Autoscaling SKU compared to the existing Standard SKU. Specifically, the supported features to support autoscaling, zone redundancy, and reserved VIPs (static IP).
 
+For more information about application gateway autoscaling and zone redundancy, see [Autoscaling and Zone-redundant Application Gateway (Public Preview)](application-gateway-autoscaling-zone-redundant.md).
+
 > [!IMPORTANT]
 > The autoscaling and zone-redundant application gateway SKU is currently in public preview. This preview is provided without a service level agreement and is not recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
 
@@ -28,7 +30,7 @@ In this tutorial, you learn how to:
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-This tutorial requires that you run PowerShell locally. You must have Azure PowerShell module version 6.9.0 or later installed. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). After you verify the PowerShell version, run `Login-AzureRmAccount` to create a connection with Azure.
+This tutorial requires that you run Azure PowerShell locally. You must have Azure PowerShell module version 6.9.0 or later installed. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). After you verify the PowerShell version, run `Login-AzureRmAccount` to create a connection with Azure.
 
 ## Sign in to your Azure account
 
