@@ -22,12 +22,12 @@ ms.custom:
 
 # Azure Kubernetes network policies overview
 
-Network Policies provide micro-segmentation for pods just like Network Security Groups (NSGs) provide micro-segmentation for VMs. The Azure Network Policy implementation supports the standard Kubernetes Network Policy specification. You can use labels to select a group of pods and define a list of ingress and egress rules that specify the kind of traffic that is allowed to and from these pods. More information about the capabilities offered by Kubernetes Network Policies can be found in the [Kubernetes documentation](https://kubernetes.io/docs/concepts/services-networking/network-policies/).
+Network Policies provide micro-segmentation for pods just like Network Security Groups (NSGs) provide micro-segmentation for VMs. The Azure Network Policy implementation supports the standard Kubernetes Network Policy specification. You can use labels to select a group of pods and define a list of ingress and egress rules that specify the kind of traffic that is allowed to and from these pods. Learn more about the Kubernetes network policies in the [Kubernetes documentation](https://kubernetes.io/docs/concepts/services-networking/network-policies/).
 
 ![Kubernetes network policies overview](./media/kubernetes-network-policies/kubernetes-network-policies-overview.png)
 
 ## Planning security for your Kubernetes cluster
-When implementing security for your cluster, use network security groups (NSGs) to filter North-South traffic, i.e. traffic entering and leaving your cluster subnet, and use Kubernetes network policies for East-West traffic, i.e. traffic between pods in your cluster.
+When implementing security for your cluster, use network security groups (NSGs) to filter North-South traffic, that is, traffic entering and leaving your cluster subnet, and use Kubernetes network policies for East-West traffic, that is. traffic between pods in your cluster.
 
 ## Using Azure Kubernetes network policies
 Azure Network Policies can be used in the following ways to provide micro-segmentation for pods.
@@ -35,7 +35,7 @@ Azure Network Policies can be used in the following ways to provide micro-segmen
 ### ACS-engine
 ACS-Engine is a tool that generates an Azure Resource Manager template for the deployment of a Kubernetes cluster in Azure. The cluster configuration is specified in a JSON file that is passed to the tool when generating the template. To learn more about the entire list of supported cluster settings and their descriptions, see Microsoft Azure Container Service Engine - Cluster Definition.
 
-To enable policies on clusters deployed using acs-engine specify the value of the networkPolicy setting in the cluster definition file to be "azure".
+To enable policies on clusters deployed using acs-engine, specify the value of the networkPolicy setting in the cluster definition file to be "azure".
 
 #### Example configuration
 
