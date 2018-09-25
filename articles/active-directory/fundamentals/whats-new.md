@@ -68,7 +68,7 @@ We realize that setting up Single Sign-On (SSO) for Software as a Service (SaaS)
 
 - Jamf Pro
 
-To start using this 1-click experience, go to the **Azure portal** > **SSO configuration** page for the app. For more information, see [SaaS application integration with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)
+To start using this one-click experience, go to the **Azure portal** > **SSO configuration** page for the app. For more information, see [SaaS application integration with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)
 
 ---
 
@@ -97,7 +97,7 @@ For more information, see [What is the My Apps portal?](https://docs.microsoft.c
 
 ---
 
-### New Troubleshooting and Support tab on the Sign-ins Logs page of the Azure Portal
+### New Troubleshooting and Support tab on the Sign-ins Logs page of the Azure portal
 
 **Type:** New feature  
 **Service category:** Reporting  
@@ -157,7 +157,7 @@ For more information, see [How to enable password reset from Windows 7, 8, and 8
 **Service category:** Authentications (Logins)  
 **Product capability:** User Authentication
 
-Starting on October 10, 2018, Azure AD will stop accepting previously-used authentication codes for apps. This security change helps to bring Azure AD in line with the OAuth specification and will be enforced on both the v1 and v2 endpoints.
+Starting on October 10, 2018, Azure AD will stop accepting previously used authentication codes for apps. This security change helps to bring Azure AD in line with the OAuth specification and will be enforced on both the v1 and v2 endpoints.
 
 If your app reuses authorization codes to get tokens for multiple resources, we recommend that you use the code to get a refresh token, and then use that refresh token to acquire additional tokens for other resources. Authorization codes can only be used once, but refresh tokens can be used multiple times across multiple resources. Any app that attempts to reuse an authentication code during the OAuth code flow will get an invalid_grant error.
 
@@ -214,7 +214,7 @@ As part of our updated SAML-based app configuration UI, you'll get:
 
 - A way to set the NameID Format for SAML apps, and a way to set the NameID value as Directory Extensions.
 
-To turn this updated view on, click the **Try out our new experience** link from the top of the **Single Sign-On** page. For more information, see [Tutorial: Configure SAML-based single sign-on for an application with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-portal).
+To turn on this updated view, click the **Try out our new experience** link from the top of the **Single Sign-On** page. For more information, see [Tutorial: Configure SAML-based single sign-on for an application with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-portal).
 
 ---
 
@@ -244,7 +244,7 @@ We strongly recommend not removing the old IP Address ranges until all of your n
 **Service category:** Authentications (Logins)  
 **Product capability:** User Authentication
 
-Starting on October 10, 2018, Azure AD will stop accepting previously-used authentication codes for apps. This security change helps to bring Azure AD in line with the OAuth specification and will be enforced on both the v1 and v2 endpoints.
+Starting on October 10, 2018, Azure AD will stop accepting previously used authentication codes for apps. This security change helps to bring Azure AD in line with the OAuth specification and will be enforced on both the v1 and v2 endpoints.
 
 If your app reuses authorization codes to get tokens for multiple resources, we recommend that you use the code to get a refresh token, and then use that refresh token to acquire additional tokens for other resources. Authorization codes can only be used once, but refresh tokens can be used multiple times across multiple resources. Any app that attempts to reuse an authentication code during the OAuth code flow will get an invalid_grant error.
 
@@ -275,9 +275,9 @@ This is an opt-in public preview. Administrators can turn on the new experience 
 **Service category:** App Proxy  
 **Product capability:** Access Control
 
-There's a new setting called, **HTTP-Only Cookies** in your Application Proxy apps. This setting helps provide extra security by including the HTTPOnly flag in the HTTP response header for both Application Proxy access and session cookies, stopping access to the cookie from a client-side script and further preventing actions like copying or modifying the cookie. Although this flag hasn't been used previously, your cookies have always been encrypted and transmitted using a SSL connection to help protect against improper modifications.
+There's a new setting called, **HTTP-Only Cookies** in your Application Proxy apps. This setting helps provide extra security by including the HTTPOnly flag in the HTTP response header for both Application Proxy access and session cookies, stopping access to the cookie from a client-side script and further preventing actions like copying or modifying the cookie. Although this flag hasn't been used previously, your cookies have always been encrypted and transmitted using an SSL connection to help protect against improper modifications.
 
-This setting isn't compatible with apps using ActiveX controls, such as Remote Desktop. If you're in this situation, we recommend that you turn this setting off.
+This setting isn't compatible with apps using ActiveX controls, such as Remote Desktop. If you're in this situation, we recommend that you turn off this setting.
 
 For more information about the HTTP-Only Cookies setting, see [Publish applications using Azure AD Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-publish-azure-portal).
 
@@ -339,7 +339,7 @@ For more information about our native support for Tableau, see [Azure AD Applica
 **Service category:** B2B  
 **Product capability:** B2B/B2C
 
-By setting up federation with Google in your organization, you can let invited Gmail users sign-in to your shared apps and resources using their existing Google account, without having to create a personal Microsoft Account (MSAs) or an Azure AD account.
+By setting up federation with Google in your organization, you can let invited Gmail users sign in to your shared apps and resources using their existing Google account, without having to create a personal Microsoft Account (MSAs) or an Azure AD account.
 
 This is an opt-in public preview. For more information about Google federation, see [Add Google as an identity provider for B2B guest users](https://docs.microsoft.com/azure/active-directory/b2b/google-federation).
 
@@ -479,7 +479,7 @@ The latest release of Azure AD Connect includes:
 
 - Bug fixes and supportability updates 
 
-- General Availability of the Ping Federate integration
+- General Availability of the Ping-Federate integration
 
 - Updates to the latest SQL 2012 client 
 
@@ -541,7 +541,7 @@ This is an opt-in public preview. Admins can turn on the new experience (if desi
 **Service category:** SSPR  
 **Product capability:** User Authentication
 
-This feature lets non-admins verify their identity while resetting a password using a notification or code from Microsoft Authenticator (or any other authenticator app). After admins turn this self-service password reset method on, users who have registered a mobile app through aka.ms/mfasetup or aka.ms/setupsecurityinfo can use their mobile app as a verification method while resetting their password.
+This feature lets non-admins verify their identity while resetting a password using a notification or code from Microsoft Authenticator (or any other authenticator app). After admins turn on this self-service password reset method, users who have registered a mobile app through aka.ms/mfasetup or aka.ms/setupsecurityinfo can use their mobile app as a verification method while resetting their password.
 
 Mobile app notification can only be turned on as part of a policy that requires two methods to reset your password.
 
@@ -1823,7 +1823,7 @@ For more information, see [Azure AD app-based conditional access](https://docs.m
  
 ---
 
-### Manage Azure AD devices in the Azure Portal
+### Manage Azure AD devices in the Azure portal
 
 **Type:** New feature  
 **Service category:** Device registration and management  
