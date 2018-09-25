@@ -1,5 +1,5 @@
 ---
-title: View Azure Reservation | Microsoft Docs
+title: View Azure Reservations | Microsoft Docs
 description: Learn how to view Azure Reservations in the Azure portal. 
 services: 'billing'
 documentationcenter: ''
