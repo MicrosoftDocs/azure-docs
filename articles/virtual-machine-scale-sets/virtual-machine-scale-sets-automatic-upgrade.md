@@ -71,25 +71,25 @@ The following SKUs are currently supported (more will be added in the future):
 - Ensure that the resources that the scale set model is referring to is available and kept up to date. Exa.SAS URI for bootstrapping payload in VM extension properties, payload in storage account, reference to secrets in the model. 
 
 ## Configure automatic OS image upgrade
-To configure automatic OS image upgrade, ensure that the *automaticOSUpgradePolicy.enableAutomaticOSUpgrade* property is set to *true* in the scale set model definition. You can configure this property with Azure PowerShell or the Azure CLI 2.0.
+To configure automatic OS image upgrade, ensure that the *automaticOSUpgradePolicy.enableAutomaticOSUpgrade* property is set to *true* in the scale set model definition. 
 
-The following example uses Azure PowerShell (4.4.1 or later) to configure automatic upgrades for the scale set named *myVMSS* in the resource group named *myResourceGroup*:
-
-```powershell
-$rgname = myResourceGroup
-$vmssname = myVMSS
-$vmss = Get-AzureRmVMss -ResourceGroupName $rgname -VmScaleSetName $vmssname
-$vmss.UpgradePolicy.AutomaticOSUpgradePolicy.EnableAutomaticOSUpgrade = $true
-Update-AzureRmVmss -ResourceGroupName $rgname -VMScaleSetName $vmssname -VirtualMachineScaleSet $vmss
+```
+PUT or PATCH on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet?api-version=2018-10-01`
 ```
 
-The following example uses the Azure CLI (2.0.20 or later) to configure automatic upgrades for the scale set named *myVMSS* in the resource group named *myResourceGroup*:
-
-```azurecli
-rgname="myResourceGroup"
-vmssname="myVMSS"
-az vmss update --name $vmssname --resource-group $rgname --set UpgradePolicy.AutomaticOSUpgradePolicy.EnableAutomaticOSUpgrade=true
+```json
+{ 
+  "properties": { 
+    "upgradePolicy": { 
+      "automaticOSUpgradePolicy": { 
+        "enableAutomaticOSUpgrade":  true 
+      } 
+    } 
+  } 
+} 
 ```
+
+Support for configuring this property via Azure PowerShell and CLI 2.0 will be rolled out on 10/09.
 
 ## Using Application Health Probes 
 
