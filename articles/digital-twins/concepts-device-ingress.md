@@ -12,7 +12,7 @@ ms.author: alinast
 
 # Device Connectivity and Telemetry Ingress
 
-An IoT solution's backbone is the telemetry data sent by devices and sensors. Azure Digital Twins simplifies the development of your IoT solution by connecting these devices and sensors to the context of a space. Azure Digital Twins wraps IoT Hub resources to help connect these devices and sensors to your spatial graph. To do so, an `IoTHub` resource should be created at the root of the the spatial graph, allowing all devices beneath the root space to send messages. Once the IoT Hub has been created, and devices with sensors have been registered within the Digital Twins instance, the devices can start sending data your Digital Twins service via the [Azure IoT Device SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks). 
+An IoT solution's backbone is the telemetry data sent by devices and sensors. Azure Digital Twins simplifies the development of your IoT solution by connecting these devices and sensors to the context of a space. Azure Digital Twins wraps IoT Hub resources to help connect these devices and sensors to your spatial graph. To do so, an `IoTHub` resource should be created at the root of the spatial graph, allowing all devices beneath the root space to send messages. Once the IoT Hub has been created, and devices with sensors have been registered within the Digital Twins instance, the devices can start sending data your Digital Twins service via the [Azure IoT Device SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks). 
 
 A step-by-step guide for onboarding devices can be found in the [Facility Management Tutorial](tutorial-facilities-app.md). At a glance, the steps are:
 
@@ -22,9 +22,9 @@ A step-by-step guide for onboarding devices can be found in the [Facility Manage
 - Create devices and sensors in your graph, and assign them to the spaces created in the steps above
 - Create a matcher to filter telemetry messages based on conditions
 - Create a [**User-Defined Function**](concepts-user-defined-functions.md) and assign it to a space in the graph for custom processing of your telemetry messages
-- Assign a role to the User-Defined Function to be able to access the graph data
+- Assign a role to allow the User-Defined Function to access the graph data
 - Get the IoT Hub device connection string from the Digital Twins Management APIs
-- Configure the device connection string on the device with the Azure IoT Device SDK.
+- Configure the device connection string on the device with the Azure IoT Device SDK
 
 Below you'll learn how to get the IoT Hub device connection string from the Digital Twins Management API and how to use the IoT Hub telemetry message format to send sensor-based telemetry. Digital Twins requires each piece of telemetry it receives to be associated with a sensor within the spatial graph to ensure the data is processed and routed with the appropriate spatial context.
 
@@ -52,9 +52,9 @@ While the payload contents of a `Message` can be arbitrary data up to 256 kb in 
 | Property Name | Value | Required | Description |
 |---|---|---|---|
 | DigitalTwins-Telemetry | 1.0 | yes | A constant value that identifies a message to the system |
-| DigitalTwins-SensorHardwareId | `string(72)` | yes | A unique identifier of the sensor sending the `Message`. This value must match an object's `HardwareId` property for the system to process it. For example `00FF0643BE88-CO2` |
-| CreationTimeUtc | `string` | no | An [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) formatted date string identifying the sampling time of the payload. For example `2018-09-20T07:35:00.8587882-07:00` |
-| CorrelationId | `string` | no | A `uuid` that can be used to trace events across the system. For example `cec16751-ab27-405d-8fe6-c68e1412ce1f`
+| DigitalTwins-SensorHardwareId | `string(72)` | yes | A unique identifier of the sensor sending the `Message`. This value must match an object's `HardwareId` property for the system to process it. For example, `00FF0643BE88-CO2` |
+| CreationTimeUtc | `string` | no | An [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) formatted date string identifying the sampling time of the payload. For example, `2018-09-20T07:35:00.8587882-07:00` |
+| CorrelationId | `string` | no | A `uuid` that can be used to trace events across the system. For example, `cec16751-ab27-405d-8fe6-c68e1412ce1f`
 
 ### Sending your message to Digital Twins
 
