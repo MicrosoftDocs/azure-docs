@@ -41,7 +41,7 @@ ssh-keygen -t rsa -b 2048
 
 `az login`
 
-![Alt image text](media/deploy/az-logion-output2.png "Azure CLI login")
+![Alt image text](media/deploy/az-login-output2.png "Azure CLI login")
  
 Copy the “id” value as your **subscription ID** and the **tenantId** value to be used later.
 
@@ -60,7 +60,6 @@ The copy “appId” value in the output as your **ClientID** to be used later.
 >
 > Choose your own application homepage and identifier URI.  e.g. http://www.contoso.com.
 
-
 4. Create a service principal with your new “appId”.
 
 `az ad sp create --id {appId}`
@@ -73,7 +72,7 @@ Or you can also use…
 
 `az role assignment create --assignee {service-princ-name} --role “Contributor” `
 
-`![Alt image text](media/deploy/svc-princ3.png "Service Principal role assignment")
+![Alt image text](media/deploy/svc-princ3.png "Service Principal role assignment")
 
 6. Verify that you can successfully log into your Service Principal using the appId, password & tenantId.
 
