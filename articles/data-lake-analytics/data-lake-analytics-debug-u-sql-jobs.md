@@ -1,23 +1,15 @@
 ---
-title: Debug user-defined C# code for failed Azure Data Lake U-SQL jobs | Microsoft Docs
-description: 'Learn how to debug a U-SQL failed vertex using Azure Data Lake Tools for Visual Studio.'
+title: Debug user-defined C# code for failed Azure Data Lake U-SQL jobs
+description: This article describes how to debug a U-SQL failed vertex using Azure Data Lake Tools for Visual Studio.
 services: data-lake-analytics
-documentationcenter: ''
-author: yanancai
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: bcd0b01e-1755-4112-8e8a-a5cabdca4df2
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 11/31/2017
+author: yanancai
 ms.author: yanacai
-
+ms.reviewer: jasonwhowell
+ms.assetid: bcd0b01e-1755-4112-8e8a-a5cabdca4df2
+ms.topic: conceptual
+ms.date: 11/30/2017
 ---
-
 # Debug user-defined C# code for failed U-SQL jobs
 
 U-SQL provides an extensibility model using C#. In U-SQL scripts, it is easy to call C# functions and perform analytic functions that SQL-like declarative language does not support. To learn more for U-SQL extensibility, see [U-SQL programmability guide](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#use-user-defined-functions-udf). 
@@ -39,7 +31,7 @@ When you open a failed job in Azure Data Lake Tools for Visual Studio, you see a
 
 1. Click **Download** to download all the required resources and input streams. If the download doesn't complete, click **Retry**.
 
-2. Click **Open** after the download completes to generate a local debugging environment. A new Visual Studio instance with a debugging solution is automatically created and opened.
+2. Click **Open** after the download completes to generate a local debugging environment. A new debugging solution will be opened, and if you have existing solution opened in Visual Studio, please make sure to save and close it before debugging.
 
 ![Azure Data Lake Analytics U-SQL debug visual studio download vertex](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-download-vertex.png)
 

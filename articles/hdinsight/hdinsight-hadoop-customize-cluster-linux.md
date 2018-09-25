@@ -1,34 +1,27 @@
 ---
-title: Customize HDInsight clusters using script actions - Azure | Microsoft Docs
+title: Customize HDInsight clusters using script actions - Azure 
 description: Add custom components to Linux-based HDInsight clusters using script actions. Script actions are Bash scripts  that can be used to customize the cluster configuration or add additional services and utilities like Hue, Solr, or R.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+ms.reviewer: jasonh
 
-ms.assetid: 48e85f53-87c1-474f-b767-ca772238cc13
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/29/2018
-ms.author: larryfr
+ms.topic: conceptual
+ms.date: 05/01/2018
+ms.author: jasonh
 
 ---
 # Customize Linux-based HDInsight clusters using script actions
 
-HDInsight provides a configuration option called **Script Action** that invokes custom scripts that customize the cluster. These scripts are used to install additional components and change configuration settings. Script actions can be used during or after cluster creation.
+HDInsight provides a configuration method called **script actions** that invokes custom scripts to customize the cluster. These scripts are used to install additional components and change configuration settings. Script actions can be used during or after cluster creation.
 
 > [!IMPORTANT]
 > The ability to use script actions on an already running cluster is only available for Linux-based HDInsight clusters.
 >
 > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-Script actions can also be published to the Azure Marketplace as an HDInsight application. Some of the examples in this document show how you can install an HDInsight application using script action commands from PowerShell and the .NET SDK. For more information on HDInsight applications, see [Publish HDInsight applications into the Azure Marketplace](hdinsight-apps-publish-applications.md).
+Script actions can also be published to the Azure Marketplace as an HDInsight application. For more information on HDInsight applications, see [Publish HDInsight applications into the Azure Marketplace](hdinsight-apps-publish-applications.md).
 
 ## Permissions
 
@@ -47,8 +40,8 @@ Additionally, if you are creating an HDInsight cluster, someone with at least **
 
 For more information on working with access management, see the following documents:
 
-* [Get started with access management in the Azure portal](../active-directory/role-based-access-control-what-is.md)
-* [Use role assignments to manage access to your Azure subscription resources](../active-directory/role-based-access-control-configure.md)
+* [Get started with access management in the Azure portal](../role-based-access-control/overview.md)
+* [Use role assignments to manage access to your Azure subscription resources](../role-based-access-control/role-assignments-portal.md)
 
 ## Understanding script actions
 
@@ -56,7 +49,7 @@ A script action is Bash script that runs on the nodes in an HDInsight cluster. T
 
 * Must be stored on a URI that is accessible from the HDInsight cluster. The following are possible storage locations:
 
-    * An **Azure Data Lake Store** account that is accessible by the HDInsight cluster. For information on using Azure Data Lake Store with HDInsight, see [Create an HDInsight cluster with Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+    * An **Azure Data Lake Store** account that is accessible by the HDInsight cluster. For information on using Azure Data Lake Store with HDInsight, see [Quickstart: Set up clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
         When using a script stored in Data Lake Store, the URI format is `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`.
 
@@ -92,7 +85,7 @@ A script action is Bash script that runs on the nodes in an HDInsight cluster. T
 
 * Run with **root level privileges** on the cluster nodes.
 
-* Can be used through the **Azure portal**, **Azure PowerShell**, **Azure CLI v1.0**, or **HDInsight .NET SDK**
+* Can be used through the **Azure portal**, **Azure PowerShell**, **Azure Classic CLI**, or **HDInsight .NET SDK**
 
 The cluster keeps a history of all scripts that have been ran. The history is useful when you need to find the ID of a script for promotion or demotion operations.
 
@@ -150,7 +143,7 @@ Script action scripts can be used through the following utilities:
 
 * Azure portal
 * Azure PowerShell
-* Azure CLI v1.0
+* Azure Classic CLI
 * HDInsight .NET SDK
 
 HDInsight provides scripts to install the following components on HDInsight clusters:
@@ -171,9 +164,7 @@ This section provides examples on the different ways you can use script actions 
 
 ### Use a script action during cluster creation from the Azure portal
 
-1. Start creating a cluster as described at [Create Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Stop when you reach the __Cluster summary__ section.
-
-2. From the __Cluster summary__ section, select the __edit__ link for __Advanced settings__.
+1. Start creating a cluster as described at [Create Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md). During cluster creation, you will arrive at a __Cluster summary__ page. From the __Cluster summary__ page, select the __edit__ link for __Advanced settings__.
 
     ![Advanced settings link](./media/hdinsight-hadoop-customize-cluster-linux/advanced-settings-link.png)
 
@@ -207,17 +198,19 @@ This section provides examples on the different ways you can use script actions 
 
 ### Use a script action from Azure Resource Manager templates
 
-Script actions can be used with Azure Resource Manager templates. For an example, see [https://azure.microsoft.com/resources/templates/hdinsight-linux-run-script-action/](https://azure.microsoft.com/en-us/resources/templates/hdinsight-linux-run-script-action/).
+Script actions can be used with Azure Resource Manager templates. For an example, see [https://azure.microsoft.com/resources/templates/hdinsight-linux-run-script-action/](https://azure.microsoft.com/resources/templates/hdinsight-linux-run-script-action/).
 
 In this example, the script action is added using the following code:
 
-    "scriptActions": [
-        {
-            "name": "setenvironmentvariable",
-            "uri": "[parameters('scriptActionUri')]",
-            "parameters": "headnode"
-        }
-    ]
+```json
+"scriptActions": [
+    {
+        "name": "setenvironmentvariable",
+        "uri": "[parameters('scriptActionUri')]",
+        "parameters": "headnode"
+    }
+]
+```
 
 For information on how to deploy a template, see the following documents:
 
@@ -227,7 +220,7 @@ For information on how to deploy a template, see the following documents:
 
 ### Use a script action during cluster creation from Azure PowerShell
 
-In this section, you use the [Add-AzureRmHDInsightScriptAction](https://msdn.microsoft.com/library/mt603527.aspx) cmdlet to invoke scripts to customize a cluster. Before proceeding, make sure you have installed and configured Azure PowerShell. For information about configuring a workstation to run HDInsight PowerShell cmdlets, see [Install and configure Azure PowerShell](/powershell/azure/overview).
+In this section, you use the [Add-AzureRmHDInsightScriptAction](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/add-azurermhdinsightscriptaction) cmdlet to invoke scripts to customize a cluster. Before proceeding, make sure you have installed and configured Azure PowerShell. For information about configuring a workstation to run HDInsight PowerShell cmdlets, see [Install and configure Azure PowerShell](/powershell/azure/overview).
 
 The following script demonstrates how to apply a script action when creating a cluster using PowerShell:
 
@@ -295,22 +288,27 @@ Once the operation completes, you receive information similar to the following t
 
 ### Apply a script action to a running cluster from the Azure CLI
 
-Before proceeding, make sure you have installed and configured the Azure CLI. For more information, see [Install the Azure CLI 1.0](../cli-install-nodejs.md).
+Before proceeding, make sure you have installed and configured the Azure CLI. For more information, see [Install the Azure Classic CLI](../cli-install-nodejs.md).
 
-> [!IMPORTANT]
-> HDInsight requires Azure CLI 1.0. Currently Azure CLI 2.0 does not provide commands for working with HDInsight.
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
 1. To switch to Azure Resource Manager mode, use the following command at the command line:
 
-        azure config mode arm
+    ```bash
+    azure config mode arm
+    ```
 
 2. Use the following to authenticate to your Azure subscription.
 
-        azure login
+    ```bash
+    azure login
+    ```
 
 3. Use the following command to apply a script action to a running cluster
 
-        azure hdinsight script-action create <clustername> -g <resourcegroupname> -n <scriptname> -u <scriptURI> -t <nodetypes>
+    ```bash
+    azure hdinsight script-action create <clustername> -g <resourcegroupname> -n <scriptname> -u <scriptURI> -t <nodetypes>
+    ```
 
     If you omit parameters for this command, you are prompted for them. If the script you specify with `-u` accepts parameters, you can specify them using the `-p` parameter.
 
@@ -377,7 +375,7 @@ The following example script demonstrates using the cmdlets to promote, then dem
 
 [!code-powershell[main](../../powershell_scripts/hdinsight/use-script-action/use-script-action.ps1?range=123-140)]
 
-### Using the Azure CLI
+### Using the Azure Classic CLI
 
 | Use the following... | To ... |
 | --- | --- |
@@ -491,7 +489,7 @@ __Cause__: This error occurs if you upgrade the Python Azure Storage client that
 
 __Resolution__: To resolve this error, manually connect to each cluster node using `ssh` and use the following command to reinstall the correct storage client version:
 
-```
+```bash
 sudo pip install azure-storage==0.20.0
 ```
 

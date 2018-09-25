@@ -25,12 +25,16 @@
     href: sample-projects.md
 - name: How-to guides
   items:
-  - name: Define user interface
+  - name: Create portal interface
     href: create-uidefinition-overview.md
+  - name: Test portal interface
+    href: test-createuidefinition.md
   - name: Update managed resources
     href: update-managed-resources.md
   - name: Use portal to publish
     href: publish-portal.md
+  - name: Use secret from Key Vault
+    href: key-vault-access.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -50,12 +54,16 @@
         href: microsoft-common-dropdown.md
       - name: FileUpload
         href: microsoft-common-fileupload.md
+      - name: InfoBox
+        href: microsoft-common-infobox.md
       - name: OptionsGroup
         href: microsoft-common-optionsgroup.md
       - name: PasswordBox
         href: microsoft-common-passwordbox.md
       - name: Section
         href: microsoft-common-section.md
+      - name: TextBlock
+        href: microsoft-common-textblock.md
       - name: TextBox
         href: microsoft-common-textbox.md
     - name: Compute

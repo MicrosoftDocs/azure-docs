@@ -1,23 +1,22 @@
-﻿---
-title: 'Azure Active Directory B2C: Integrate REST API claim exchanges in your Azure AD B2C user journey as validation of user input'
+---
+title: Integrate REST API claim exchanges in your Azure Active Directory B2C user journey | Microsoft Docs
 description: Integrate REST API claim exchanges in your Azure AD B2C user journey as validation of user input.
 services: active-directory-b2c
-documentationcenter: ''
-author: yoelhor
+author: davidmu1
 manager: mtillman
-editor: 
 
-ms.assetid: 
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.devlang: na
+ms.topic: conceptual
 ms.date: 09/30/2017
-ms.author: yoelh
+ms.author: davidmu
+ms.component: B2C
 ---
 
 # Integrate REST API claims exchanges in your Azure AD B2C user journey as validation of user input
+
+[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
+
 With the Identity Experience Framework, which underlies Azure Active Directory B2C (Azure AD B2C), you can integrate with a RESTful API in a user journey. In this walkthrough, you'll learn how Azure AD B2C interacts with .NET Framework RESTful services (web API).
 
 ## Introduction
@@ -363,7 +362,7 @@ After you add the new claim, the relying party code looks like this:
   "exp": 1507125903,
   "nbf": 1507122303,
   "ver": "1.0",
-  "iss": "https://login.microsoftonline.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
+  "iss": "https://contoso.b2clogin.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
   "aud": "e1d2612f-c2bc-4599-8e7b-d874eaca1ee1",
   "acr": "b2c_1a_signup_signin",
   "nonce": "defaultNonce",

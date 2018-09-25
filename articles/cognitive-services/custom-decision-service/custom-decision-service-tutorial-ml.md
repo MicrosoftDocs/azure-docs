@@ -1,21 +1,23 @@
 ---
-title: Machine learning in Azure Custom Decision Service (tutorial) | Microsoft Docs
-description: A tutorial for machine learning in Azure Custom Decision Service, a cloud-based API for contextual decision-making.
+title: "Tutorial: Featurization and feature specification - Custom Decision Service"
+titlesuffix: Azure Cognitive Services
+description: A tutorial for machine learning featurization and feature specification in Custom Decision Service.
 services: cognitive-services
 author: slivkins
-manager: slivkins
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.topic: article
-ms.date: 07/13/2017
+ms.component: custom-decision-service
+ms.topic: tutorial
+ms.date: 05/08/2018
 ms.author: slivkins;marcozo;alekh
 ---
 
-# Machine learning in Custom Decision Service
+# Tutorial: Featurization and feature specification
 
 This tutorial addresses the advanced machine learning functionality in Custom Decision Service. The tutorial consists of two parts: [featurization](#featurization-concepts-and-implementation) and [feature specification](#feature-specification-format-and-apis). Featurization refers to representing your data as "features" for machine learning. Feature specification covers the JSON format and the ancillary APIs for specifying features.
 
-By default, machine learning in Custom Decision Service is transparent to the customer. Features are automatically extracted from your content, and a standard reinforcement learning algorithm is used. Feature extraction leverages several other Microsoft Cognitive Services:
+By default, machine learning in Custom Decision Service is transparent to the customer. Features are automatically extracted from your content, and a standard reinforcement learning algorithm is used. Feature extraction leverages several other Azure Cognitive Services:
 [Entity Linking](../entitylinking/home.md),
 [Text Analytics](../text-analytics/overview.md),
 [Emotion](../emotion/home.md), and
@@ -25,7 +27,7 @@ By default, machine learning in Custom Decision Service is transparent to the cu
 
 Custom Decision Service makes decisions one by one. Each decision involves choosing among several alternatives, a.k.a., actions. Depending on the application, the decision may choose a single action or a (short) ranked list of actions.
 
-As a running example, we use personalizing the selection of articles on the front page of a website. Here, actions correspond to articles, and each decision is which articles to show to a given user.
+For instance, personalizing the selection of articles on the front page of a website. Here, actions correspond to articles, and each decision is which articles to show to a given user.
 
 Each action is represented by a vector of properties, henceforth called *features*. You can specify new features, in addition to the features extracted automatically. You can also instruct Custom Decision Service to log some features, but ignore them for machine learning.
 
@@ -45,7 +47,7 @@ The translation into internal features is as follows:
 
 Some features refer to the entire decision, and are the same for all actions. We call them *shared features*. Some other features are specific to a particular action. We call them *action-dependent features* (ADFs).
 
-In the running example, shared features could describe the user and/or the state of the world. For example, geolocation, age and gender of the user, and which major events are happening right now. Action-dependent features could describe the properties of a given article, such as the topics covered by this article.
+In the running example, shared features could describe the user and/or the state of the world. Features like geolocation, age and gender of the user, and which major events are happening right now. Action-dependent features could describe the properties of a given article, such as the topics covered by this article.
 
 ### Interacting features
 
@@ -54,9 +56,9 @@ Features often "interact": the effect of one depends on others. For example, fea
 To account for interaction between features X and Y, create a *quadratic* feature whose value is X\*Y. (We also say, "cross" X and Y.) You can choose which pairs of features are crossed.
 
 > [!TIP]
-> A shared feature should be crossed with some action-dependent features in order to influence the ranking of actions. An action-dependent feature should be crossed with some shared features in order to contribute to personalization.
+> A shared feature should be crossed with action-dependent features in order to influence their rank. An action-dependent feature should be crossed with shared features in order to contribute to personalization.
 
-In other words, a shared feature not crossed with any ADFs influences each action in the same way. An ADF not crossed with any shared feature influences each decision in the same way. However, such features may reduce the variance of reward estimates.
+In other words, a shared feature not crossed with any ADFs influences each action in the same way. An ADF not crossed with any shared feature influences each decision too. These types of features may reduce the variance of reward estimates.
 
 ### Implementation via namespaces
 
@@ -77,7 +79,7 @@ If the namespace is not provided, the feature is automatically assigned to the d
 Multiple internal features that came from the same string-valued native feature are grouped into the same namespace. Any two native features that lie in different namespaces are treated as distinct, even if they have the same feature name.
 
 > [!IMPORTANT]
-> While long, descriptive namespace ids are common, the VW command line does not distinguish between namespaces whose id starts with the same letter. In what follows, namespace ids are single letters, such as `x` and `y`.
+> While long, descriptive namespace IDs are common, the VW command line does not distinguish between namespaces whose id starts with the same letter. In what follows, namespace IDs are single letters, such as `x` and `y`.
 
 The implementation details are as follows:
 
@@ -101,7 +103,7 @@ To add marginal features, write `--marginal <namespace>` in the VW command line.
 
 Insert this namespace along with other action-dependent features of a given action. Provide this definition for each decision, using the same `mf_name` and `action_id` for all decisions.
 
-The marginal feature is added for each action with `<namespace>`. The `action_id` can be any feature name that uniquely identifies the action. The feature name is set to `mf_name`. In particular, marginal features with different `mf_name` are treated as different features. In other words, a different weight is learned for each `mf_name`.
+The marginal feature is added for each action with `<namespace>`. The `action_id` can be any feature name that uniquely identifies the action. The feature name is set to `mf_name`. In particular, marginal features with different `mf_name` are treated as different features — a different weight is learned for each `mf_name`.
 
 The default usage is that `mf_name` is the same for all actions. Then one weight is learned for all marginal features.
 
@@ -117,14 +119,14 @@ You can choose to represent some features as bit vectors, where each bit corresp
 
 The 1-hot encoding is typical for categorical features such as "geographical region" that do not have an inherently meaningful numerical representation. It is also advisable for numerical features whose influence on the reward is likely to be non-linear. For example, a given article could be relevant to a particular age group, and irrelevant to anyone older or younger.
 
-Any string-valued feature is 1-hot encoded by default: a distinct internal feature is created for every possible value. We do not currently provide automatic 1-hot encoding for numerical features and/or with customized ranges.
+Any string-valued feature is 1-hot encoded by default: a distinct internal feature is created for every possible value. Automatic 1-hot encoding for numerical features and/or with customized ranges are not currently provided.
 
 > [!TIP]
-> Our machine learning algorithms treat all possible values of a given internal feature in a uniform way: via a common "weight." The 1-hot encoding allows a separate "weight" for each range of values. Making the ranges smaller leads to better rewards once enough data is collected, but may increase the amount of data needed to converge to better rewards.
+> The machine learning algorithms treat all possible values of a given internal feature in a uniform way: via a common "weight." The 1-hot encoding allows a separate "weight" for each range of values. Making the ranges smaller leads to better rewards once enough data is collected, but may increase the amount of data needed to converge to better rewards.
 
 ## Feature specification: format and APIs
 
-You can specify features via several ancillary APIs. All APIs use a common JSON format. Below we explain the APIs and the format on a conceptual level. The specification is complemented by a Swagger schema.
+You can specify features via several ancillary APIs. All APIs use a common JSON format. Below are the APIs and the format on a conceptual level. The specification is complemented by a Swagger schema.
 
 The basic JSON template for feature specification is as follows:
 
@@ -158,9 +160,9 @@ Here `<features>` refers to the basic feature specification defined previously. 
 
 #### Feature Set API
 
-Feature Set API returns a list of features in the JSON format described previously. You can use several Feature Set API endpoints. Each endpoint is identified by feature set id and a URL. The mapping between feature set ids and URLs is set on the Portal.
+Feature Set API returns a list of features in the JSON format described previously. You can use several Feature Set API endpoints. Each endpoint is identified by feature set id and a URL. The mapping between feature set IDs and URLs is set on the Portal.
 
-Call Feature Set API by inserting the corresponding feature set id in the appropriate place in JSON. For action-dependent features, the call is automatically parameterized by the action id. You can specify several feature set ids for the same action.
+Call Feature Set API by inserting the corresponding feature set id in the appropriate place in JSON. For action-dependent features, the call is automatically parameterized by the action id. You can specify several feature set IDs for the same action.
 
 #### Action Set API (JSON version)
 
@@ -170,6 +172,6 @@ Action Set API has a version in which actions and features are specified in JSON
 
 Ranking API has a version that uses HTTP POST call. The body of this call specifies actions and features via a flexible JSON syntax.
 
-Actions can be specified explicitly and/or via action set ids. Whenever an action set id is encountered, a call to the corresponding Action Set API endpoint is executed.
+Actions can be specified explicitly and/or via action set IDs. Whenever an action set id is encountered, a call to the corresponding Action Set API endpoint is executed.
 
 As for Action Set API, features can be specified explicitly and/or via Feature Set APIs. Shared features can be specified once for all actions.

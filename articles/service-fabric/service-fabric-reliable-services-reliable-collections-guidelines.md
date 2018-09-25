@@ -10,7 +10,7 @@ editor: masnider,rajak,zhol
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 12/10/2017
@@ -45,11 +45,11 @@ Here are some things to keep in mind:
 * Read operations on the secondary may read versions that are not quorum committed.
   This means that a version of data that is read from a single secondary might be false progressed.
   Reads from Primary are always stable: can never be false progressed.
+* Security/Privacy of the data persisted by your application in a reliable collection is your decision and subject to the protections provided by your storage management; I.E. Operating System disk encryption could be used to protect your data at rest.  
 
 ### Next steps
 * [Working with Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Transactions and Locks](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
-* [Reliable State Manager and Collection Internals](service-fabric-reliable-services-reliable-collections-internals.md)
 * Managing Data
   * [Backup and Restore](service-fabric-reliable-services-backup-restore.md)
   * [Notifications](service-fabric-reliable-services-notifications.md)

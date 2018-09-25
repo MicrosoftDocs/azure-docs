@@ -1,27 +1,39 @@
 - name: Azure HDInsight Documentation
   href: /azure/hdinsight
-- name: Spark on HDInsight
+- name: Overview
   items:
-  - name: Overview
+  - name: About Spark on HDInsight
     href: apache-spark-overview.md
   - name: Hadoop components on HDInsight
     href: ../hdinsight-component-versioning.md
     maintainContext: true
-- name: Get started
+  - name: HDInsight 4.0
+    href: ../hdinsight-version-release.md
+    maintainContext: true
+- name: Quickstarts
   items:
-    - name: Create a Spark cluster
+    - name: Create a Spark cluster - Portal
+      href: apache-spark-jupyter-spark-sql-use-portal.md
+    - name: Create a Spark cluster - PowerShell
+      href: apache-spark-jupyter-spark-sql-use-powershell.md
+    - name: Create a Spark cluster - Template
       href: apache-spark-jupyter-spark-sql.md
+- name: Tutorials
+  items:
     - name: Run queries on a Spark cluster
       href: apache-spark-load-data-run-query.md
+    - name: Use VSCode to run Spark queries
+      href: ../hdinsight-for-vscode.md
+    - name: Use IntelliJ to run Spark queries
+      href: apache-spark-intellij-tool-plugin.md
     - name: Analyze data using BI tools
       href: apache-spark-use-bi-tools.md
-    - name: Manage cluster resources
-      href: apache-spark-resource-manager.md
-    - name: Debug Spark jobs
-      href: apache-spark-job-debugging.md
-    - name: Install HDInsight apps
-      href: ../hdinsight-apps-install-applications.md
-      maintainContext: true
+    - name: Run a streaming job
+      href: apache-spark-eventhub-streaming.md
+    - name: Create a machine learning app
+      href: apache-spark-ipython-notebook-machine-learning.md
+    - name: Create a spark app in IntelliJ
+      href: apache-spark-create-standalone-application.md
 - name: How to
   items:
     - name: Use cluster storage
@@ -34,8 +46,6 @@
           maintainContext: true
     - name: Develop
       items:
-        - name: Create standalone app
-          href: apache-spark-create-standalone-application.md
         - name: Use an interactive Spark Shell
           href: apache-spark-shell.md
         - name: Remote jobs with Livy
@@ -44,17 +54,17 @@
           href: apache-spark-eclipse-tool-plugin.md
         - name: Create apps using IntelliJ
           href: apache-spark-intellij-tool-plugin.md
-        - name: Debug Spark jobs remotely with IntelliJ through VPN
-          href: apache-spark-intellij-tool-plugin-debug-jobs-remotely.md
         - name: Debug Spark jobs remotely with IntelliJ through SSH
           href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
+        - name: Debug Spark jobs remotely with IntelliJ through VPN
+          href: apache-spark-intellij-tool-plugin-debug-jobs-remotely.md
         - name: Create non-interactive authentication .NET HDInsight applications
           href: ../hdinsight-create-non-interactive-authentication-dotnet-applications.md
           maintainContext: true
     - name: Use HDInsight tools
       items:
         - name: Tools for Visual Studio
-          href: ../hdinsight-hadoop-visual-studio-tools-get-started.md
+          href: ../hadoop/apache-hadoop-visual-studio-tools-get-started.md
           maintainContext: true
         - name: Tools for VSCode
           href: ../hdinsight-for-vscode.md
@@ -97,8 +107,6 @@
           href: apache-spark-structured-streaming-overview.md
         - name: Create highly available Spark streaming jobs in YARN
           href: apache-spark-streaming-high-availability.md
-        - name: Structured streaming using Event Hubs
-          href: apache-spark-eventhub-structured-streaming.md
         - name: Structured streaming with Kafka
           href: ../hdinsight-apache-kafka-spark-structured-streaming.md
           maintainContext: true
@@ -112,8 +120,6 @@
           href: apache-spark-streaming-exactly-once.md
     - name: Spark and Machine Learning
       items:
-        - name: Predict HVAC performance
-          href: apache-spark-ipython-notebook-machine-learning.md
         - name: Predict food inspection results
           href: apache-spark-machine-learning-mllib-ipython.md
         - name: Analyze website logs
@@ -156,9 +162,6 @@
         maintainContext: true
       - name: Use Hue
         href: ../hdinsight-hadoop-hue-linux.md
-        maintainContext: true
-      - name: Use R
-        href: ../hdinsight-hadoop-r-scripts-linux.md
         maintainContext: true
       - name: Use Solr
         href: ../hdinsight-hadoop-solr-install-linux.md
@@ -207,6 +210,10 @@
         maintainContext: true
     - name: Manage
       items:
+      - name: Manage cluster resources
+        href: apache-spark-resource-manager.md
+      - name: Manage spark applications using extended History Server
+        href: apache-azure-spark-history-server.md
       - name: Configure Spark settings
         href: apache-spark-settings.md
       - name: Optimize Spark jobs
@@ -227,7 +234,7 @@
         - name: Use the .NET SDK
           href: ../hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md
           maintainContext: true
-        - name: Use the Azure CLI
+        - name: Use the Azure Classic CLI
           href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
           maintainContext: true
         - name: Use the Azure portal
@@ -249,7 +256,7 @@
         - name: Use Azure PowerShell
           href: ../hdinsight-administer-use-powershell.md
           maintainContext: true
-        - name: Use the Azure CLI
+        - name: Use the Azure Classic CLI
           href: ../hdinsight-administer-use-command-line.md
           maintainContext: true
       - name: Manage clusters using the Ambari web UI
@@ -313,6 +320,12 @@
         maintainContext: true
     - name: Troubleshoot
       items:
+      - name: Debug Spark jobs
+        href: apache-spark-job-debugging.md
+      - name: Debug Spark Jobs through Job Graph
+        href: apache-azure-spark-history-server.md
+      - name: Use IntelliJ to debug Spark job
+        href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
       - name: Troubleshoot a slow or failing HDInsight cluster
         href: ../hdinsight-troubleshoot-failed-cluster.md
         maintainContext: true
@@ -385,13 +398,10 @@
     - name: Connect HDInsight with on-premises network
       href: ../connect-on-premises-network.md
       maintainContext: true
-  - name: Monitoring using OMS
+  - name: Monitoring using Log Analytics
     items:
     - name: Use Azure Log Analytics
       href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-      maintainContext: true
-    - name: Cluster-specific dashboards
-      href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
       maintainContext: true
     - name: Use queries with Log Analytics
       href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
@@ -405,8 +415,14 @@
     href: https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight
   - name: Azure PowerShell
     href: /powershell/module/azurerm.hdinsight
-  - name: .NET (Hadoop)
-    href: https://docs.microsoft.com/dotnet/api/overview/azure/hd-insight?view=azure-dotnet
+  - name: .NET SDK
+    href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet
+  - name: Python SDK
+    href: https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python
+  - name: Java SDK
+    href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-preview
+  - name: Go SDK
+    href: ../hdinsight-go-sdk-overview.md
   - name: .NET (HBase)
     href: https://www.nuget.org/packages/Microsoft.HBase.Client/
   - name: .NET (Avro)
@@ -420,6 +436,10 @@
     - name: Release notes
       href: ../hdinsight-release-notes.md
       maintainContext: true
+      items:
+      - name: Archived release notes
+        href: ../hdinsight-release-notes-archive.md
+        maintainContext: true
     - name: Azure Roadmap
       href: https://azure.microsoft.com/roadmap/?category=intelligence-analytics
     - name: Get help on the forum

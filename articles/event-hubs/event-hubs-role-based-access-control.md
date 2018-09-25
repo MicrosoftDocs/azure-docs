@@ -3,24 +3,20 @@ title: Azure Event Hubs Role-Based Access Control (RBAC) preview | Microsoft Doc
 description: Azure Event Hubs Role-Based Access Control
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
-editor: ''
 
-ms.assetid:
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/19/2017
-ms.author: sethm
+ms.date: 07/05/2018
+ms.author: shvija
 
 ---
 
 # Active Directory Role-Based Access Control (preview)
 
-Microsoft Azure provides integrated access control management for resources and applications based on Azure Active Directory (Azure AD). With Azure AD, you can either manage user accounts and applications specifically for your Azure based applications, or you can federate your existing Active Directory infrastructure with Azure AD for company-wide single-sign-on that also spans Azure resources and Azure hosted applications. You can then assign those Azure AD user and application identities to global and service-specific roles in order to grant access to Azure resources.
+Microsoft Azure provides integrated access control management for resources and applications based on Azure Active Directory (Azure AD). With Azure AD, you can either manage user accounts and applications specifically for your Azure-based applications, or you can federate your existing Active Directory infrastructure with Azure AD for company-wide single-sign-on that also spans Azure resources and Azure hosted applications. You can then assign those Azure AD user and application identities to global and service-specific roles in order to grant access to Azure resources.
 
 For Azure Event Hubs, the management of namespaces and all related resources through the Azure portal and the Azure resource management API is already protected using the *role-based access control* (RBAC) model. RBAC for runtime operations is a feature now in public preview. 
 
@@ -32,7 +28,7 @@ For the initial public preview, you can only add Azure AD accounts and service p
 
 ## Use Event Hubs with an Azure AD domain user account
 
-The following section describes the steps required to create and run a sample application that prompts for an interactive Azure AD user to log on, how to grant Event Hubs access to that user account, and how to use that identity to access Event Hubs. 
+The following section describes the steps required to create and run a sample application that prompts for an interactive Azure AD user to sign on, how to grant Event Hubs access to that user account, and how to use that identity to access Event Hubs. 
 
 This introduction describes a simple console application, the [code for which is on Github](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Rbac/EventHubsSenderReceiverRbac/)
 
@@ -56,9 +52,9 @@ The user account now has access to the Event Hubs namespace, and to the event hu
 
 Before you can run the sample application, register it in Azure AD and approve the consent prompt that permits the application to access Event Hubs on its behalf. 
 
-Because the sample application is a console application, you must register a native application and add API permissions for **Microsoft.EventHub** to the "required permissions" set. Native applications also need a **redirect-URI** in Azure AD which serves as an identifier; the URI does not need to be a network destination. Use `http://eventhubs.microsoft.com` for this example, because the sample code already uses that URI.
+Because the sample application is a console application, you must register a native application and add API permissions for **Microsoft.EventHub** to the "required permissions" set. Native applications also need a **redirect-URI** in Azure AD that serves as an identifier; the URI does not need to be a network destination. Use `http://eventhubs.microsoft.com` for this example, because the sample code already uses that URI.
 
-The detailed registration steps are explained in [this tutorial](../active-directory/develop/active-directory-integrating-applications.md). Follow the steps to register a **Native** app, and then follow the update instructions to add the **Microsoft.EventHub** API to the required permissions. As you follow the steps, make note of the **TenantId** and the **ApplicationId**, as you will need these values to run the application.
+The detailed registration steps are explained in [this tutorial](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md). Follow the steps to register a **Native** app, and then follow the update instructions to add the **Microsoft.EventHub** API to the required permissions. As you follow the steps, make note of the **TenantId** and the **ApplicationId**, as you will need these values to run the application.
 
 ### Run the app
 
@@ -66,12 +62,12 @@ Before you can run the sample, edit the App.config file and, depending on your s
 
 - `tenantId`: Set to **TenantId** value.
 - `clientId`: Set to **ApplicationId** value. 
-- `clientSecret`: If you want to log on using the client secret, create it in Azure AD. Also, use a web app or API instead of a native app. Also, add the app under **Access Control (IAM)** in the namespace you previously created.
-- `eventHubNamespaceFQDN`: Set to the full DNS name of your newly created Event Hubs namespace; for example, `example.servicebus.windows.net`.
+- `clientSecret`: If you want to sign in using the client secret, create it in Azure AD. Also, use a web app or API instead of a native app. Also, add the app under **Access Control (IAM)** in the namespace you previously created.
+- `eventHubNamespaceFQDN`: Set to the fully qualified DNS name of your newly created Event Hubs namespace; for example, `example.servicebus.windows.net`.
 - `eventHubName`: Set to the name of the event hub you created.
 - The redirect URI you specified in your app in the previous steps.
  
-When you run the console application, you are prompted to select a scenario; click **Interactive User Login** by typing its number and pressing ENTER. The application displays a login window, asks for your consent to access Event Hubs, and then uses the service to run through the send/receive scenario using the login identity.
+When you run the console application, you are prompted to select a scenario; click **Interactive User Login** by typing its number and pressing ENTER. The application displays a sign-in window, asks for your consent to access Event Hubs, and then uses the service to run through the send/receive scenario using the sign-in identity.
 
 ## Next steps
 

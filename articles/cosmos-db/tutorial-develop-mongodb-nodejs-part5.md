@@ -2,19 +2,16 @@
 title: "MongoDB, Angular, and Node tutorial for Azure - Part 5 | Microsoft Docs"
 description: Part 5 of the tutorial series on creating a MongoDB app with Angular and Node on Azure Cosmos DB using the exact same APIs you use for MongoDB
 services: cosmos-db
-documentationcenter: ''
-author: mimig1
-manager: jhubbard
+author: johnpapa
+manager: kfile
 editor: ''
 
-ms.assetid: 
 ms.service: cosmos-db
-ms.workload: 
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/05/2017
-ms.author: mimig
+ms.author: jopapa
 ms.custom: mvc
 
 ---
@@ -122,7 +119,7 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 
 ## Create a Hero model
 
-1.  In the Explorer pane, create the file file **hero.model.js** under the **server** folder.
+1.  In the Explorer pane, create the file **hero.model.js** under the **server** folder.
 
 2. Copy the following code into **hero.model.js**. This code:
    * Requires Mongoose.
@@ -154,7 +151,7 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 
 ## Create a Hero service
 
-1.  In the Explorer pane, create the file file **hero.service.js** under the **server** folder.
+1.  In the Explorer pane, create the file **hero.service.js** under the **server** folder.
 
 2. Copy the following code into **hero.service.js**. This code:
    * Gets the model you just created

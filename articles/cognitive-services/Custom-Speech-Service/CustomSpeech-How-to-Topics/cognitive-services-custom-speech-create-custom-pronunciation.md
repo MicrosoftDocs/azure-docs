@@ -4,12 +4,12 @@ description: Learn how to create a language model with the Custom Speech Service
 services: cognitive-services
 author: PanosPeriorellis
 manager: onano
-
 ms.service: cognitive-services
-ms.technology: custom-speech-service
+ms.component: custom-speech
 ms.topic: article
-ms.date: 23/11/2017
+ms.date: 11/23/2017
 ms.author: panosper
+ROBOTS: NOINDEX
 ---
 
 # Enable custom pronunciation

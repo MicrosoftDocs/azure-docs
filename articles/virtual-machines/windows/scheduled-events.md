@@ -4,7 +4,7 @@ description: Scheduled events using the Azure Metadata service for on your Windo
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
 documentationcenter: ''
 author: ericrad
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: ''
 
@@ -116,7 +116,7 @@ In the case where there are scheduled events, the response contains an array of 
 | ResourceType | Type of resource this event impacts. <br><br> Values: <ul><li>`VirtualMachine`|
 | Resources| List of resources this event impacts. This is guaranteed to contain machines from at most one [Update Domain](manage-availability.md), but may not contain all machines in the UD. <br><br> Example: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | Event Status | Status of this event. <br><br> Values: <ul><li>`Scheduled`: This event is scheduled to start after the time specified in the `NotBefore` property.<li>`Started`: This event has started.</ul> No `Completed` or similar status is ever provided; the event will no longer be returned when the event is completed.
-| NotBefore| Time after which this event may start. <br><br> Example: <br><ul><li> 2016-09-19T18:29:47Z  |
+| NotBefore| Time after which this event may start. <br><br> Example: <br><ul><li> Mon, 19 Sep 2016 18:29:47 GMT  |
 
 ### Event Scheduling
 Each event is scheduled a minimum amount of time in the future based on event type. This time is reflected in an event's `NotBefore` property. 
@@ -152,7 +152,7 @@ The following is the json expected in the `POST` request body. The request shoul
 
 #### Powershell
 ```
-curl -H @{"Metadata"="true"} -Method POST -Body '{"DocumentIncarnation":"5", "StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' -Uri http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01
+curl -H @{"Metadata"="true"} -Method POST -Body '{"StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' -Uri http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01
 ```
 
 > [!NOTE] 
@@ -174,11 +174,11 @@ function Get-ScheduledEvents($uri)
 }
 
 # How to approve a scheduled event
-function Approve-ScheduledEvent($eventId, $docIncarnation, $uri)
+function Approve-ScheduledEvent($eventId, $uri)
 {    
     # Create the Scheduled Events Approval Document
     $startRequests = [array]@{"EventId" = $eventId}
-    $scheduledEventsApproval = @{"StartRequests" = $startRequests; "DocumentIncarnation" = $docIncarnation} 
+    $scheduledEventsApproval = @{"StartRequests" = $startRequests} 
     
     # Convert to JSON string
     $approvalString = ConvertTo-Json $scheduledEventsApproval
@@ -198,7 +198,7 @@ function Handle-ScheduledEvents($scheduledEvents)
 
 # Set up the scheduled events URI for a VNET-enabled VM
 $localHostIP = "169.254.169.254"
-$scheduledEventURI = 'http://{0}/metadata/scheduledevents?api-version=2017-03-01' -f $localHostIP 
+$scheduledEventURI = 'http://{0}/metadata/scheduledevents?api-version=2017-08-01' -f $localHostIP 
 
 # Get events
 $scheduledEvents = Get-ScheduledEvents $scheduledEventURI
@@ -213,7 +213,7 @@ foreach($event in $scheduledEvents.Events)
     $entry = Read-Host "`nApprove event? Y/N"
     if($entry -eq "Y" -or $entry -eq "y")
     {
-        Approve-ScheduledEvent $event.EventId $scheduledEvents.DocumentIncarnation $scheduledEventURI 
+        Approve-ScheduledEvent $event.EventId $scheduledEventURI 
     }
 }
 ``` 

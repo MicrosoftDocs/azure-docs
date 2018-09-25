@@ -2,19 +2,16 @@
 title: Add Azure Storage by using Connected Services in Visual Studio | Microsoft Docs
 description: Add Azure Storage to your app by using the Visual Studio Add Connected Services dialog box
 services: visual-studio-online
-documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: ''
-
-ms.assetid: 521ec044-ad4b-4828-8864-01decde2e758
-ms.service: storage
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+author: ghogen
+manager: douge
+assetId: 521ec044-ad4b-4828-8864-01decde2e758
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.custom: vs-azure
+ms.workload: azure-vs
+ms.topic: conceptual
 ms.date: 03/26/2017
-ms.author: kraigb
+ms.author: ghogen
 
 ---
 # Adding Azure storage by using Visual Studio Connected Services

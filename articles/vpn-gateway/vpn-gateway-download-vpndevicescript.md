@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/21/2018
+ms.date: 03/29/2018
 ms.author: yushwang
 
 ---
@@ -23,6 +23,10 @@ ms.author: yushwang
 This article walks you through downloading VPN device configuration scripts for S2S VPN connections with Azure VPN Gateways using Azure Resource Manager. The following diagram shows the high-level workflow.
 
 ![download-script](./media/vpn-gateway-download-vpndevicescript/downloaddevicescript.png)
+
+The following devices have available scripts:
+
+[!INCLUDE [scripts](../../includes/vpn-gateway-device-configuration-scripts.md)]
 
 ## <a name="about"></a>About VPN device configuration scripts
 
@@ -78,14 +82,10 @@ Once the connection resource is created, follow the instructions below to downlo
 
 You can also download the configuration script using Azure PowerShell, as shown in the following example:
 
-```powershell
-$Sub         = "<YourSubscriptionName>"
+```azurepowershell-interactive
 $RG          = "TestRG1"
 $GWName      = "VNet1GW"
-$Connection  = "VNet1toSite5"
-
-Login-AzureRmAccount
-Set-AzureRmContext -Subscription $Sub
+$Connection  = "VNet1toSite1"
 
 # List the available VPN device models and versions
 Get-AzureRmVirtualNetworkGatewaySupportedVpnDevice -Name $GWName -ResourceGroupName $RG

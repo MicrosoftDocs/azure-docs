@@ -1,22 +1,18 @@
----
-title: Authentication, sign-up, password reset ASP.NET Azure Active Directory B2C
+﻿---
+title: Authentication, sign-up, password reset in Azure Active Directory B2C | Microsoft Docs
 description: How to build a web application that has sign-up/sign-in, profile edit, and password reset using Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: .net
-author: parakhj
+author: davidmu1
 manager: mtillman
-editor: barbaraselden
 
-ms.assetid: 30261336-d7a5-4a6d-8c1a-7943ad76ed25
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/17/2017
-ms.author: parakhj
-ms.custom: seohack1
+ms.author: davidmu
+ms.component: B2C
 ---
+
 # Create an ASP.NET web app with Azure Active Directory B2C sign-up, sign-in, profile edit, and password reset
 
 This tutorial shows you how to:
@@ -28,22 +24,24 @@ This tutorial shows you how to:
 
 ## Prerequisites
 
-- You must connect your B2C Tenant to an Azure account. You can create a free Azure account [here](https://azure.microsoft.com/en-us/).
+- You must connect your B2C Tenant to an Azure account. You can create a free Azure account [here](https://azure.microsoft.com/).
 - You need [Microsoft Visual Studio](https://www.visualstudio.com/) or a similar program to view and modify the sample code.
 
-## Create an Azure AD B2C directory
+## Create an Azure AD B2C tenant
 
-Before you can use Azure AD B2C, you must create a directory, or tenant. A directory is a container for all your users, apps, groups, and more. If you don't have one already, create a B2C directory before you continue in this guide.
+Before you can use Azure AD B2C, you must create a tenant. A tenant is a container for all your users, apps, groups, and more. If you don't have one already, create a B2C tenant before you continue in this guide.
 
 [!INCLUDE [active-directory-b2c-create-tenant](../../includes/active-directory-b2c-create-tenant.md)]
 
 > [!NOTE]
 > 
-> You need to connect the B2C Tenant to your Azure subscription. After selecting **Create**, select the **Link an existing Azure AD B2C Tenant to my Azure subscription** option, and then in the **Azure AD B2C Tenant** drop down, select the tenant you want to associate.
+> You need to connect the Azure AD B2C tenant to your Azure subscription. After selecting **Create**, select the **Link an existing Azure AD B2C Tenant to my Azure subscription** option, and then in the **Azure AD B2C Tenant** drop down, select the tenant you want to associate.
 
 ## Create and register an application
 
-Next, you need to create and register the app in your B2C directory. This provides information that Azure AD B2C needs to securely communicate with your app. 
+Next, you need to create and register the app in your Azure AD B2C tenant. This provides information that Azure AD B2C needs to securely communicate with your app. 
+
+Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**. You should now be using the tenant that you previously created.
 
 [!INCLUDE [active-directory-b2c-register-web-api](../../includes/active-directory-b2c-register-web-api.md)]
 
@@ -94,7 +92,7 @@ Our sample is configured to use the policies and client ID of our demo tenant. T
 
 ## Launch the app
 From within Visual Studio, launch the app. Navigate to the To-Do List tab, and note the URl is:
-https://login.microsoftonline.com/*YourTenantName*/oauth2/v2.0/authorize?p=*YourSignUpPolicyName*&client_id=*YourclientID*.....
+https://*YourTenantName*.b2clogin.com/*YourTenantName*/oauth2/v2.0/authorize?p=*YourSignUpPolicyName*&client_id=*YourclientID*.....
 
 Sign up for the app by using your email address or user name. Sign out, then sign in again and edit the profile or reset the password. Sign out and sign in as a different user. 
 
@@ -195,7 +193,7 @@ public partial class Startup
                 },
 
                 // Specify the scope by appending all of the scopes requested into one string (seperated by a blank space)
-                Scope = $"{OpenIdConnectScopes.OpenId} {ReadTasksScope} {WriteTasksScope}"
+                Scope = $"openid profile offline_access {ReadTasksScope} {WriteTasksScope}"
             }
         );
     }

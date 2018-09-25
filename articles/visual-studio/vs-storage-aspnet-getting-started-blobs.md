@@ -2,20 +2,16 @@
 title: Get started with Azure Blob storage and Visual Studio connected services (ASP.NET) | Microsoft Docs
 description: How to get started using Azure Blob storage in an ASP.NET project in Visual Studio, after connecting to a storage account by using Visual Studio connected services
 services: storage
-documentationcenter: ''
-author: kraigb
-manager: ghogen
-editor: ''
-
+author: ghogen
+manager: douge
 ms.assetid: b3497055-bef8-4c95-8567-181556b50d95
-ms.service: storage
-ms.workload: web
-ms.tgt_pltfrm: vs-getting-started
-ms.devlang: na
-ms.topic: article
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.custom: vs-azure
+ms.workload: azure-vs
+ms.topic: conceptual
 ms.date: 12/07/2017
-ms.author: kraig
-
+ms.author: ghogen
 ---
 # Get started with Azure Blob storage and Visual Studio connected services (ASP.NET)
 
@@ -135,11 +131,11 @@ The following steps illustrate how to create a blob container:
 
 1. In **Solution Explorer**, right-click the **Views** folder.
 
-2. From the context menu, select **Add** > **New Folder**. Name the new folder *Blobs*. 
+1. If there isn't a **Blobs** folder, create one. From the context menu, select **Add** > **New Folder**. Name the new folder *Blobs*. 
  
 1. In **Solution Explorer**, expand the **Views** folder, and right-click **Blobs**.
 
-4. From the context menu, select **Add** > **View**.
+1. From the context menu, select **Add** > **View**.
 
 1. In the **Add View** dialog box, enter **CreateBlobContainer** for the view name, and select **Add**.
 

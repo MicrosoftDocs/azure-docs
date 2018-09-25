@@ -1,22 +1,24 @@
 ---
-title: Tutorial - Manage costs with Azure Cost Management | Microsoft Docs
+title: Tutorial - Manage costs with Cloudyn in Azure | Microsoft Docs
 description: In this tutorial you learn to manage costs by using cost allocation and showback and chargeback reports.
 services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 02/27/2018
+ms.date: 09/18/2018
 ms.topic: tutorial
 ms.service: cost-management
-ms.custom: mvc
-manager: carmonm
+ms.custom:
+manager: dougeby
 ---
 
-# Tutorial: Manage costs by using Azure Cost Management
+# Tutorial: Manage costs by using Cloudyn
 
-You manage costs and produce showback reports in Azure Cost Management by allocating costs based on tags. The process of cost allocation assigns costs to your consumed cloud resources. Costs are fully allocated when all your resources are categorized with tags. After costs are allocated, you can provide showback or chargeback to your users with dashboards and reports. However, many resources might be untagged or untaggable when you start to use Cost Management.
+You manage costs and produce showback reports in Cloudyn by allocating costs based on tags. The process of cost allocation assigns costs to your consumed cloud resources. Costs are fully allocated when all your resources are categorized with tags. After costs are allocated, you can provide showback or chargeback to your users with dashboards and reports. However, many resources might be untagged or untaggable when you start to use Cloudyn.
 
 For example, you might want to get reimbursed for engineering costs. You need to be able to show your engineering team that you need a specific amount, based on resource costs. You can show them a report for all the consumed resources that are tagged *engineering*.
+
+In this article, tags and categories are sometimes synonymous. Categories are broad collections and can be many things. They might include business units, cost centers, web services, or anything that is tagged. Tags are name/value pairs that enable you to categorize resources and to view and mange consolidated billing information by applying the same tag to multiple resources and resource groups. In earlier versions of the Azure portal, a *tag name* was referred to as a *key*. Tags are created for and stored by a single Azure subscription. Tags in AWS consist of key/value pairs. Because both Azure and AWS have used the term *key*, Cloudyn uses that term. Category Manager uses keys (tag names) to merge tags.
 
 In this tutorial, you learn how to:
 
@@ -29,13 +31,22 @@ If you don't have an Azure subscription, create a  [free account](https://azure.
 ## Prerequisites
 
 - You must have an Azure account.
-- You must have either a trial registration or paid subscription for Azure Cost Management.
+- You must have either a trial registration or paid subscription for Cloudyn.
+- [Unactivated accounts must be activated](activate-subs-accounts.md) in the Cloudyn portal.
+- [Guest-level monitoring](azure-vm-extended-metrics.md) must be enabled on your virtual machines.
+
 
 ## Use custom tags to allocate costs
 
+Cloudyn gets resource group tag data from Azure and automatically propagates tag information to resources. In cost allocation, you can see cost by resource tags.
+
+Using the Cost Allocation model, you define categories (tags) that get applied internally to uncategorized (untagged) resources to group your costs and define rules to handle the untagged costs. Cost allocation rules are your saved instructions where a service's costs are distributed to some other service. Afterward, those resources then show tags/categories in *cost allocation* reports by selecting the model that you created.
+
+Keep in mind that tag information doesn’t appear for those resources in *cost analysis* reports. Also, tags applied in Cloudyn using cost allocation aren’t sent to Azure, so you won’t see them in the Azure portal.
+
 When you start cost allocation, the first thing you do is define the scope by using a cost model. The cost model does not change costs, it distributes them. When you create a cost model, you segment your data by cost entity, account, or subscription, and by multiple tags. Common example tags might include a billing code, cost center, or group name. Tags also help you perform showback or chargeback to other parts of your organization.
 
-To create a custom cost allocation model, select **Cost** &gt; **Cost Management** &gt; **Cost Allocation 360°** on the report's menu.
+To create a custom cost allocation model, select **Costs** &gt; **Cost Management** &gt; **Cost Allocation 360°** on the report's menu.
 
 ![Cost Allocation 360 selection](./media/tutorial-manage-costs/cost-allocation-360.png)
 
@@ -55,7 +66,7 @@ For example, you might want to take your Azure storage costs and distribute the 
 
 
 
-In a different example, you might want to allocate all your Azure network costs to a specific business unit in your organization. To do so, select the **Azure/Network** service and then select **Explicit Distribution**. Then, set the distribution percentage to 100 and select the business unit—**G&amp;A** in the following image:
+In a different example, you might want to allocate all your Azure network costs to a specific business unit in your organization. To do so, select the **Azure/Network** service and then under **Define Allocation Rule**, select **Explicit Distribution**. Then, set the distribution percentage to 100 and select the business unit—**G&amp;A** in the following image:
 
 ![Example cost model allocation rule for a specific business unit](./media/tutorial-manage-costs/cost-model03.png)
 
@@ -93,9 +104,9 @@ Tag data that you see in Cloudyn reports originates in three places:
     - Cloudyn entity tags - user-defined meta data applied to Cloudyn entities
     - Category Manager - a data cleansing tool that creates new tags based on rules that are applied to existing tags
 
-To view cloud provider tags in Cloudyn cost reports you must create a custom cost allocation model using Cost Allocation 360. To do so, go to **Cost** > **Cost Management** > **Cost Allocation 360**, select the desired tags, and then define rules to handle untagged costs. Then, create a new cost model. Afterward, you can view reports in Cost Allocation Analysis to view, filter, and sort on your Azure resource tags.
+To view cloud provider tags in Cloudyn cost reports you must create a custom cost allocation model using Cost Allocation 360. To do so, go to **Costs** > **Cost Management** > **Cost Allocation 360**, select the desired tags, and then define rules to handle untagged costs. Then, create a new cost model. Afterward, you can view reports in Cost Allocation Analysis to view, filter, and sort on your Azure resource tags.
 
-Azure resource tags only appear in **Cost Allocation Analysis** reports.
+Azure resource tags only appear in **Costs** > **Cost Allocation Analysis** reports.
 
 Cloud provider billing tags appear in all cost reports.
 

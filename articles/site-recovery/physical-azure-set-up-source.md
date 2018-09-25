@@ -2,13 +2,11 @@
 title: 'Set up the source environment (physical servers to Azure) | Microsoft Docs'
 description: This article describes how to set up your on-premises environment to start replicating physical servers running Windows or Linux into Azure.
 services: site-recovery
-documentationcenter: ''
-author: AnoopVasudavan
-manager: gauravd
+author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
-ms.author: anoopkv
+ms.date: 07/21/2018
+ms.author: raynew
 ---
 
 # Set up the source environment (physical server to Azure)
@@ -18,8 +16,9 @@ This article describes how to set up your on-premises environment to start repli
 ## Prerequisites
 
 The article assumes that you already have:
-1. A Recovery Services vault in the [Azure portal](http://portal.azure.com "Azure portal").
-3. A physical computer on which to install the configuration server.
+- A Recovery Services vault in the [Azure portal](http://portal.azure.com "Azure portal").
+- A physical computer on which to install the configuration server.
+- If you've disabled TLS 1.0 on the machine on which you're installing the configuration server, make sure that TLs 1.2 is enabled, and that the .NET Framework version 4.6 or later is installed on the machine (with strong cryptography disabled). [Learn more](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1).
 
 ### Configuration server minimum requirements
 The following table lists the minimum hardware, software, and network requirements for a configuration server.
@@ -58,7 +57,7 @@ The following table lists the minimum hardware, software, and network requiremen
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
 > [!NOTE]
-> The configuration server can be installed via a command line. For more information, see [Installing configuration server using command-line tools](http://aka.ms/installconfigsrv).
+> The configuration server can be installed via a command line. [Learn more](physical-manage-configuration-server.md#install-from-the-command-line).
 
 
 ## Common issues

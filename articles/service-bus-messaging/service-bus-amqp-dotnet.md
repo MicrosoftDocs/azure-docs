@@ -1,9 +1,9 @@
 ---
-title: Service Bus with .NET and AMQP 1.0 | Microsoft Docs
+title: Azure Service Bus with .NET and AMQP 1.0 | Microsoft Docs
 description: Using Azure Service Bus from .NET with AMQP
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/21/2017
-ms.author: sethm
+ms.date: 08/16/2018
+ms.author: spelluru
 
 ---
 # Use Service Bus from .NET with AMQP 1.0
@@ -25,7 +25,7 @@ AMQP 1.0 support is available in the Service Bus package version 2.1 or later. Y
 
 By default, the Service Bus .NET client library communicates with the Service Bus service using a dedicated SOAP-based protocol. To use AMQP 1.0 instead of the default protocol requires explicit configuration on the Service Bus connection string, as described in the next section. Other than this change, application code remains unchanged when using AMQP 1.0.
 
-In the current release, there are a few API features that are not supported when using AMQP. These unsupported features are listed later in the section [Unsupported features, restrictions, and behavioral differences](#unsupported-features-restrictions-and-behavioral-differences). Some of the advanced configuration settings also have a different meaning when using AMQP.
+In the current release, there are a few API features that are not supported when using AMQP. These unsupported features are listed in the section [Behavioral differences](#behavioral-differences). Some of the advanced configuration settings also have a different meaning when using AMQP.
 
 ### Configuration using App.config
 
@@ -91,14 +91,9 @@ To facilitate interoperability with non-.NET clients, use only .NET types that c
 | DateTimeOffset |`<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type>` |DateTimeOffset.UtcTicks |
 | TimeSpan |`<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> ` |TimeSpan.Ticks |
 
-## Unsupported features, restrictions, and behavioral differences
+## Behavioral differences
 
-The following features of the Service Bus .NET API are not currently supported when using AMQP:
-
-* Transactions
-* Send via transfer destination
-
-There are also some small differences in the behavior of the Service Bus .NET API when using AMQP, compared to the default protocol:
+There are some small differences in the behavior of the Service Bus .NET API when using AMQP, compared to the default protocol:
 
 * The [OperationTimeout][OperationTimeout] property is ignored.
 * `MessageReceiver.Receive(TimeSpan.Zero)` is implemented as `MessageReceiver.Receive(TimeSpan.FromSeconds(10))`.

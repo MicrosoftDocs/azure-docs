@@ -4,18 +4,19 @@ description: Data Science Virtual machine overview of tools.
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: gopitk
 manager: cgronlun
-editor: cgronlun
+
 
 ms.assetid: 
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/16/2018
-ms.author: gokuma;bradsev
+ms.author: gokuma
 
 ---
 # Get to know your Data Science Virtual Machine

@@ -1,20 +1,13 @@
 ---
-title: Install published application - Dataiku DDS - Azure HDInsight | Microsoft Docs
+title: Install published application - Dataiku DDS - Azure HDInsight 
 description: Install and use the Dataiku DDS third-party Hadoop application.
 services: hdinsight
-documentationcenter: ''
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+ms.reviewer: jasonh
 
-ms.assetid: 
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
 

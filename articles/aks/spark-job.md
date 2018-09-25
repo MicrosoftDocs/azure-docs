@@ -1,9 +1,9 @@
 ---
-title: Run an Apache Spark job with Azure Container Service (AKS)
-description: Use Azure Container Service (AKS) to run an Apache Spark job
+title: Run an Apache Spark job with Azure Kubernetes Service (AKS)
+description: Use Azure Kubernetes Service (AKS) to run an Apache Spark job
 services: container-service
 author: lenadroid
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # Running Apache Spark jobs on AKS
 
-[Apache Spark][apache-spark] is a fast engine for large-scale data processing. As of the [Spark 2.3.0 release][spark-latest-release], Apache Spark supports native integration with Kubernetes clusters. Azure Container Service (AKS) is a managed Kubernetes environment running in Azure. This document details preparing and running Apache Spark jobs on an Azure Container Service (AKS) cluster.
+[Apache Spark][apache-spark] is a fast engine for large-scale data processing. As of the [Spark 2.3.0 release][spark-latest-release], Apache Spark supports native integration with Kubernetes clusters. Azure Kubernetes Service (AKS) is a managed Kubernetes environment running in Azure. This document details preparing and running Apache Spark jobs on an Azure Kubernetes Service (AKS) cluster.
 
 ## Prerequisites
 
@@ -29,8 +29,8 @@ In order to complete the steps within this article, you need the following.
 
 ## Create an AKS cluster
 
-Spark is used for large-scale data processing and requires that Kubernetes nodes are sized to meet the Spark resources requirements. We recommend a minimum size of `Standard_D3_v2` for your Azure Container Service (AKS) nodes.
- 
+Spark is used for large-scale data processing and requires that Kubernetes nodes are sized to meet the Spark resources requirements. We recommend a minimum size of `Standard_D3_v2` for your Azure Kubernetes Service (AKS) nodes.
+
 If you need an AKS cluster that meets this minimum recommendation, run the following commands.
 
 Create a resource group for the cluster.
@@ -55,12 +55,12 @@ If you are using Azure Container Registry (ACR) to store container images, confi
 
 ## Build the Spark source
 
-Before running Spark jobs on an AKS cluster, you need to build the Spark source code and package it into a container image. The Spark source includes scripts that can be used to complete this process. 
+Before running Spark jobs on an AKS cluster, you need to build the Spark source code and package it into a container image. The Spark source includes scripts that can be used to complete this process.
 
 Clone the Spark project repository to your development system.
 
 ```bash
-git clone https://github.com/apache/spark
+git clone -b branch-2.3 https://github.com/apache/spark
 ```
 
 Change into the directory of the cloned repository and save the path of the Spark source to a variable.
@@ -70,7 +70,7 @@ cd spark
 sparkdir=$(pwd)
 ```
 
-If you have multiple JDK versions installed, set `JAVA_HOME` to use version 8 for the current session. 
+If you have multiple JDK versions installed, set `JAVA_HOME` to use version 8 for the current session.
 
 ```bash
 export JAVA_HOME=`/usr/libexec/java_home -d 64 -v "1.8*"`
@@ -82,16 +82,21 @@ Run the following command to build the Spark source code with Kubernetes support
 ./build/mvn -Pkubernetes -DskipTests clean package
 ```
 
-The following command creates the Spark container images and pushes it to a container image registry. Replace `registry.example.com` with the name of your container registry. If using Docker Hub, this value is the registry name. If using Azure Container Registry (ACR), this value is the ACR login server name.
+The following commands create the Spark container image and push it to a container image registry. Replace `registry.example.com` with the name of your container registry and `v1` with the tag you prefer to use. If using Docker Hub, this value is the registry name. If using Azure Container Registry (ACR), this value is the ACR login server name.
 
 ```bash
-./bin/docker-image-tool.sh -r registry.example.com -t v1 build
+REGISTRY_NAME=registry.example.com
+REGISTRY_TAG=v1
+```
+
+```bash
+./bin/docker-image-tool.sh -r $REGISTRY_NAME -t $REGISTRY_TAG build
 ```
 
 Push the container image to your container image registry.
 
 ```bash
-./bin/docker-image-tool.sh -r registry.example.com -t v1 push
+./bin/docker-image-tool.sh -r $REGISTRY_NAME -t $REGISTRY_TAG push
 ```
 
 ## Prepare a Spark job
@@ -193,18 +198,10 @@ Variable `jarUrl` now contains the publicly accessible path to the jar file.
 
 ## Submit a Spark job
 
-Before submitting the Spark job, you need Kubernetes API server address. Use the `kubectl cluster-info` command to get this address.
-
-Discover the URL where Kubernetes API server is running at.
+Start kube-proxy in a separate command-line with the following code.
 
 ```bash
-kubectl cluster-info
-```
-
-Take note of the address and port.
-
-```bash
-Kubernetes master is running at https://<your api server>:443
+kubectl proxy
 ```
 
 Navigate back to the root of Spark repository.
@@ -213,18 +210,16 @@ Navigate back to the root of Spark repository.
 cd $sparkdir
 ```
 
-Submit the job using `spark-submit`. 
-
-Replace the value `<kubernetes-api-server>` with your API server address and port. Replace `<spark-image>` with the name of your container image in format of `<your container registry name>/spark:<tag>`.
+Submit the job using `spark-submit`.
 
 ```bash
 ./bin/spark-submit \
-  --master k8s://https://<k8s-apiserver-host>:<k8s-apiserver-port> \
+  --master k8s://http://127.0.0.1:8001 \
   --deploy-mode cluster \
   --name spark-pi \
   --class org.apache.spark.examples.SparkPi \
   --conf spark.executor.instances=3 \
-  --conf spark.kubernetes.container.image=<spark-image> \
+  --conf spark.kubernetes.container.image=$REGISTRY_NAME/spark:$REGISTRY_TAG \
   $jarUrl
 ```
 
@@ -313,6 +308,9 @@ When running the job, instead of indicating a remote jar URL, the `local://` sch
     local:///opt/spark/work-dir/<your-jar-name>.jar
 ```
 
+> [!WARNING]
+> From Spark [documentation][spark-docs]: "The Kubernetes scheduler is currently experimental. In future versions, there may be behavioral changes around configuration, container images and entrypoints".
+
 ## Next steps
 
 Check out Spark documentation for more details.
@@ -331,8 +329,8 @@ Check out Spark documentation for more details.
 
 
 <!-- LINKS - internal -->
-[acr-aks]: https://docs.microsoft.com/en-us/azure/container-registry/container-registry-auth-aks
-[acr-create]: https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-azure-cli
-[aks-quickstart]: https://docs.microsoft.com/en-us/azure/aks/
-[azure-cli]: https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest
-[storage-account]: https://docs.microsoft.com/en-us/azure/storage/common/storage-azure-cli
+[acr-aks]: https://docs.microsoft.com/azure/container-registry/container-registry-auth-aks
+[acr-create]: https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli
+[aks-quickstart]: https://docs.microsoft.com/azure/aks/
+[azure-cli]: https://docs.microsoft.com/cli/azure/?view=azure-cli-latest
+[storage-account]: https://docs.microsoft.com/azure/storage/common/storage-azure-cli

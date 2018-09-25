@@ -3,7 +3,7 @@ title: Application or user-specific Marathon service
 description: Create an application or user-specific Marathon service
 services: container-service
 author: rgardler
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article

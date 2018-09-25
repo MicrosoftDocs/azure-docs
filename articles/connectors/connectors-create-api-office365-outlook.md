@@ -1,23 +1,21 @@
 ---
-title: Add the Office 365 Outlook connector in your Logic Apps | Microsoft Docs
-description: 'Create logic apps with Office 365 connector to enable interaction with Office 365. For example: creating, editing, and updating contacts and calendar items.'
-services: ''
-documentationcenter: ''
+# required metadata
+title: Connect to Office 365 Outlook - Azure Logic Apps | Microsoft Docs
+description: Manage email, contacts, and calendars with Office 365 REST APIs and Azure Logic Apps 
 author: ecfan
-manager: anneta
-editor: ''
-tags: connectors
-
-ms.assetid: b2f6cc2c-bba2-493a-b0ba-841785462a80
-ms.service: logic-apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
+manager: jeconnoc
+ms.author: estfan
 ms.date: 10/18/2016
-ms.author: estfan; ladocs
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
 
+# optional metadata
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
 ---
+
 # Get started with the Office 365 Outlook connector
 The Office 365 Outlook connector enables interaction with Outlook in Office 365. Use this connector to create, edit, and update contacts and calendar items, and also get, send, and reply to email.
 
@@ -82,7 +80,7 @@ An action is an operation carried out by the workflow defined in a logic app. [L
     If you are prompted for the connection information, then enter the details to create the connection. [Create the connection](connectors-create-api-office365-outlook.md#create-the-connection) in this topic describes these properties. 
    
    > [!NOTE]
-   > In this example, we create a new contact in Office 365 Outlook. You can use output from another trigger to create the contact. For example, add the SalesForce *When an object is created* trigger. Then add the Office 365 Outlook *Create contact* action that uses the SalesForce fields to create the new new contact in Office 365. 
+   > In this example, we create a new contact in Office 365 Outlook. You can use output from another trigger to create the contact. For example, add the SalesForce *When an object is created* trigger. Then add the Office 365 Outlook *Create contact* action that uses the SalesForce fields to create the new contact in Office 365. 
    > 
    > 
 5. **Save** your changes (top left corner of the toolbar). Your logic app is saved and may be automatically enabled.

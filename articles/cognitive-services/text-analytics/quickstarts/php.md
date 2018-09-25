@@ -1,21 +1,22 @@
 ---
-title: PHP Quickstart for Azure Cognitive Services, Text Analytics API | Microsoft Docs
+title: 'Quickstart: Using PHP to call the Text Analytics API'
+titleSuffix: Azure Cognitive Services
 description: Get information and code samples to help you quickly get started using the Text Analytics API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
-documentationcenter: ''
-author: luiscabrer
+author: ashmaka
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: text-analytics
-ms.topic: article
-ms.date: 08/24/2017
-ms.author: luisca
-
+ms.component: text-analytics
+ms.topic: quickstart
+ms.date: 09/12/2018
+ms.author: ashmaka
 ---
-# Quickstart for Text Analytics API with PHP 
+
+# Quickstart: Using PHP to call the Text Analytics Cognitive Service
 <a name="HOLTop"></a>
 
-This article shows you how to [detect language](#Detect), [analyze sentiment](#SentimentAnalysis), and [extract key phrases](#KeyPhraseExtraction) using the [Text Analytics APIs](//go.microsoft.com/fwlink/?LinkID=759711) with PHP.
+This article shows you how to [detect language](#Detect), [analyze sentiment](#SentimentAnalysis), [extract key phrases](#KeyPhraseExtraction), and [identify linked entities](#Entities) using the [Text Analytics APIs](//go.microsoft.com/fwlink/?LinkID=759711) with PHP.
 
 Refer to the [API definitions](//go.microsoft.com/fwlink/?LinkID=759346) for technical documentation for the APIs.
 
@@ -48,7 +49,7 @@ The Language Detection API detects the language of a text document, using the [D
 // **********************************************
 
 // Replace the accessKey string value with your valid access key.
-$accessKey = 'enter key here';
+$accessKey = 'ENTER KEY HERE';
 
 // Replace or verify the region.
 
@@ -59,7 +60,7 @@ $accessKey = 'enter key here';
 // NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
 // a free trial access key, you should not need to change this region.
 $host = 'https://westus.api.cognitive.microsoft.com';
-$path = '/text/analytics/v2.0/languages';
+$path = '/text/analytics/v2.0/';
 
 function DetectLanguage ($host, $path, $key, $data) {
 
@@ -78,7 +79,7 @@ function DetectLanguage ($host, $path, $key, $data) {
 		)
 	);
 	$context  = stream_context_create ($options);
-	$result = file_get_contents ($host . $path, false, $context);
+	$result = file_get_contents ($host . $path . 'languages', false, $context);
 	return $result;
 }
 
@@ -90,12 +91,11 @@ $data = array (
 	)
 );
 
-print "Please wait a moment for the results to appear.";
+print "Please wait a moment for the results to appear.\n\n";
 
 $result = DetectLanguage ($host, $path, $accessKey, $data);
 
-echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
-?>
+echo json_encode (json_decode ($result), JSON_PRETTY_PRINT) . "\n\n";
 ```
 
 **Language detection response**
@@ -103,7 +103,6 @@ echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 A successful response is returned in JSON, as shown in the following example: 
 
 ```json
-
 {
    "documents": [
       {
@@ -141,8 +140,6 @@ A successful response is returned in JSON, as shown in the following example:
 
    ]
 }
-
-
 ```
 <a name="SentimentAnalysis"></a>
 
@@ -150,36 +147,9 @@ A successful response is returned in JSON, as shown in the following example:
 
 The Sentiment Analysis API detexts the sentiment of a set of text records, using the [Sentiment method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). The following example scores two documents, one in English and another in Spanish.
 
-1. Create a new PHP project in your favorite IDE.
-2. Add the code provided below.
-3. Replace the `accessKey` value with an access key valid for your subscription.
-4. Replace the location in `host` (currently `westus`) to the region you signed up for.
-5. Run the program.
+Add the following code to the code from the [previous section](#Detect).
 
 ```php
-<?php
-
-// NOTE: Be sure to uncomment the following line in your php.ini file.
-// ;extension=php_openssl.dll
-
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
-
-// Replace the accessKey string value with your valid access key.
-$accessKey = 'enter key here';
-
-// Replace or verify the region.
-
-// You must use the same region in your REST API call as you used to obtain your access keys.
-// For example, if you obtained your access keys from the westus region, replace 
-// "westcentralus" in the URI below with "westus".
-
-// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-// a free trial access key, you should not need to change this region.
-$host = 'https://westus.api.cognitive.microsoft.com';
-$path = '/text/analytics/v2.0/sentiment';
-
 function GetSentiment ($host, $path, $key, $data) {
 
 	$headers = "Content-type: text/json\r\n" .
@@ -197,7 +167,7 @@ function GetSentiment ($host, $path, $key, $data) {
 		)
 	);
 	$context  = stream_context_create ($options);
-	$result = file_get_contents ($host . $path, false, $context);
+	$result = file_get_contents ($host . $path . 'sentiment', false, $context);
 	return $result;
 }
 
@@ -208,12 +178,11 @@ $data = array (
 	)
 );
 
-print "Please wait a moment for the results to appear.";
+print "Please wait a moment for the results to appear.\n\n";
 
 $result = GetSentiment ($host, $path, $accessKey, $data);
 
-echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
-?>
+echo json_encode (json_decode ($result), JSON_PRETTY_PRINT) . "\n\n";
 ```
 
 **Sentiment analysis response**
@@ -242,36 +211,9 @@ A successful response is returned in JSON, as shown in the following example:
 
 The Key Phrase Extraction API extracts key-phrases from a text document, using the [Key Phrases method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). The following example extracts key phrases for both English and Spanish documents.
 
-1. Create a new PHP project in your favorite IDE.
-2. Add the code provided below.
-3. Replace the `accessKey` value with an access key valid for your subscription.
-4. Replace the location in `host` (currently `westus`) to the region you signed up for.
-5. Run the program.
+Add the following code to the code from the [previous section](#SentimentAnalysis).
 
 ```php
-<?php
-
-// NOTE: Be sure to uncomment the following line in your php.ini file.
-// ;extension=php_openssl.dll
-
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
-
-// Replace the accessKey string value with your valid access key.
-$accessKey = 'enter key here';
-
-// Replace or verify the region.
-
-// You must use the same region in your REST API call as you used to obtain your access keys.
-// For example, if you obtained your access keys from the westus region, replace 
-// "westcentralus" in the URI below with "westus".
-
-// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-// a free trial access key, you should not need to change this region.
-$host = 'https://westus.api.cognitive.microsoft.com';
-$path = '/text/analytics/v2.0/keyPhrases';
-
 function GetKeyPhrases ($host, $path, $key, $data) {
 
 	$headers = "Content-type: text/json\r\n" .
@@ -289,7 +231,7 @@ function GetKeyPhrases ($host, $path, $key, $data) {
 		)
 	);
 	$context  = stream_context_create ($options);
-	$result = file_get_contents ($host . $path, false, $context);
+	$result = file_get_contents ($host . $path . 'keyPhrases', false, $context);
 	return $result;
 }
 
@@ -301,13 +243,11 @@ $data = array (
 	)
 );
 
-print "Please wait a moment for the results to appear.";
+print "Please wait a moment for the results to appear.\n\n";
 
 $result = GetKeyPhrases ($host, $path, $accessKey, $data);
 
-echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
-?>
-
+echo json_encode (json_decode ($result), JSON_PRETTY_PRINT) . "\n\n";
 ```
 
 **Key phrase extraction response**
@@ -350,6 +290,114 @@ A successful response is returned in JSON, as shown in the following example:
 }
 ```
 
+<a name="Entities"></a>
+
+## Identify linked entities
+
+The Entity Linking API identifies well-known entities in a text document, using the [Entity Linking method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634). The following example identifies entities for English documents.
+
+Add the following code to the code from the [previous section](#KeyPhraseExtraction).
+
+```php
+function GetEntities ($host, $path, $key, $data) {
+
+	$headers = "Content-type: text/json\r\n" .
+		"Ocp-Apim-Subscription-Key: $key\r\n";
+
+	$data = json_encode ($data);
+
+	// NOTE: Use the key 'http' even if you are making an HTTPS request. See:
+	// http://php.net/manual/en/function.stream-context-create.php
+	$options = array (
+		'http' => array (
+			'header' => $headers,
+			'method' => 'POST',
+			'content' => $data
+		)
+	);
+	$context  = stream_context_create ($options);
+	$result = file_get_contents ($host . $path . 'entities', false, $context);
+	return $result;
+}
+
+$data = array (
+	'documents' => array (
+		array ( 'id' => '1', 'language' => 'en', 'text' => 'I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.' ),
+		array ( 'id' => '2', 'language' => 'en', 'text' => 'The Seattle Seahawks won the Super Bowl in 2014.' )
+	)
+);
+
+print "Please wait a moment for the results to appear.\n\n";
+
+$result = GetEntities ($host, $path, $accessKey, $data);
+
+echo json_encode (json_decode ($result), JSON_PRETTY_PRINT) . "\n\n";
+?>
+```
+
+**Entity linking response**
+
+A successful response is returned in JSON, as shown in the following example: 
+
+```json
+{
+    "documents": [
+        {
+            "id": "1",
+            "entities": [
+                {
+                    "name": "Xbox One",
+                    "matches": [
+                        {
+                            "text": "XBox One",
+                            "offset": 23,
+                            "length": 8
+                        }
+                    ],
+                    "wikipediaLanguage": "en",
+                    "wikipediaId": "Xbox One",
+                    "wikipediaUrl": "https://en.wikipedia.org/wiki/Xbox_One",
+                    "bingId": "446bb4df-4999-4243-84c0-74e0f6c60e75"
+                },
+                {
+                    "name": "Ultra-high-definition television",
+                    "matches": [
+                        {
+                            "text": "4K",
+                            "offset": 63,
+                            "length": 2
+                        }
+                    ],
+                    "wikipediaLanguage": "en",
+                    "wikipediaId": "Ultra-high-definition television",
+                    "wikipediaUrl": "https://en.wikipedia.org/wiki/Ultra-high-definition_television",
+                    "bingId": "7ee02026-b6ec-878b-f4de-f0bc7b0ab8c4"
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "entities": [
+                {
+                    "name": "2013 Seattle Seahawks season",
+                    "matches": [
+                        {
+                            "text": "Seattle Seahawks",
+                            "offset": 4,
+                            "length": 16
+                        }
+                    ],
+                    "wikipediaLanguage": "en",
+                    "wikipediaId": "2013 Seattle Seahawks season",
+                    "wikipediaUrl": "https://en.wikipedia.org/wiki/2013_Seattle_Seahawks_season",
+                    "bingId": "eb637865-4722-4eca-be9e-0ac0c376d361"
+                }
+            ]
+        }
+    ],
+    "errors": []
+}
+```
 
 ## Next steps
 

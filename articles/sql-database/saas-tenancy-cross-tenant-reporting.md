@@ -1,17 +1,17 @@
 ---
 title: Run reporting queries across multiple Azure SQL databases | Microsoft Docs
 description: "Cross-tenant reporting using distributed queries."
-keywords: sql database tutorial
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
-ms.topic: articles
-ms.date: 11/13/2017
-ms.author: billgib
-ms.reviewer: sstein; AyoOlubeko
-
+ms.subservice: scenario
+ms.custom: 
+ms.devlang: 
+ms.topic: conceptual
+author: stevestein
+ms.author: sstein
+ms.reviewers: billgib,AyoOlubeko
+manager: craigg
+ms.date: 04/01/2018
 ---
 # Cross-tenant reporting using distributed queries
 

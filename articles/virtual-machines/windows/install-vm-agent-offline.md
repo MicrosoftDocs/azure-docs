@@ -4,7 +4,7 @@ description: Learn how to install the Azure VM Agent in offline mode.
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 05/18/2018
 ms.author: genli
 
 ---
@@ -56,10 +56,7 @@ Use the following steps to install the VM Agent in offline mode.
 
 6.  Browse to the \windows\system32\config\SOFTWARE folder on the OS disk that you attached. For the name of the hive software, enter **BROKENSOFTWARE**.
 
-7.  If the VM Agent isn't working, back up the current configuration.
-
-    >[!NOTE]
-    >If the VM doesn't have the agent installed, proceed to step 8. 
+7. If the Attached OS disk has the VM agent installed, perform a backup of the current configuration. If it does not have VM agent installed, move to the next step.
       
     1. Rename the \windowsazure folder to \windowsazure.old.
 
@@ -77,7 +74,7 @@ Use the following steps to install the VM Agent in offline mode.
 
         ![Export the registry subkeys](./media/install-vm-agent-offline/backup-reg.png)
 
-    2. Edit the registry files. In each file, change the entry value **SYSTEM** to **BROKENSYSTEM** (as shown in the following images) and save the file.
+    2. Edit the registry files. In each file, change the entry value **SYSTEM** to **BROKENSYSTEM** (as shown in the following images) and save the file. Remember the **ImagePath** of the current VM agent. We will need to copy the corresponding folder to the attached OS disk. 
 
         ![Change the registry subkey values](./media/install-vm-agent-offline/change-reg.png)
 
@@ -88,27 +85,27 @@ Use the following steps to install the VM Agent in offline mode.
         - WindowsAzureTelemetryService
         - RdAgent
 
-9.  Copy the VM Agent folder from C:\windowsazure\packages to the &lt;OS disk that you attached&gt;:\windowsazure\packages.
+    5. Copy the installation folder of the current VM Agent to the attached OS disk: 
 
-    ![Copy the VM Agent files to the OS disk](./media/install-vm-agent-offline/copy-package.png)
-      
-    >[!NOTE]
-    >Don’t copy the **logs** folder. After the service starts, new logs are generated.
+        1.	On the OS disk that you attached, create a folder named WindowsAzure in the root path.
 
-10.  Select **BROKENSYSTEM**. From the menu, select **File** > **Unload Hive**​.
+        2.	Go to C:\WindowsAzure on the troubleshooter VM, look for any folder with the name C:\WindowsAzure\GuestAgent_X.X.XXXX.XXX. Copy the GuestAgent folder that has latest version number from C:\WindowsAzure to the WindowsAzure folder in the attached OS disk. If you are not sure which folder should be copied, copy all GuestAgent folders. The following image shows an example of the GuestAgent folder that is copied to the attached OS disk.
 
-11.  Select **BROKENSOFTWARE**. From the menu, select **File** > **Unload Hive**​.
+             ![Copy GuestAgent folder](./media/install-vm-agent-offline/copy-files.png)
 
-12.  Detach the OS disk, and then recreate the VM by using the OS disk.
+9.  Select **BROKENSYSTEM**. From the menu, select **File** > **Unload Hive**​.
 
-13.  Access the VM. Notice that the RdAgent is running and the logs are being generated.
+10.  Select **BROKENSOFTWARE**. From the menu, select **File** > **Unload Hive**​.
 
-If you created the VM by using the classic deployment model, you're done.
+11.  Detach the OS disk, and then recreate the VM by using the OS disk.
 
+12.  Access the VM. Notice that the RdAgent is running and the logs are being generated.
 
-### Use the ProvisionGuestAgent property for VMs created with Azure Resource Manager
+If you created the VM by using the Resource Manager deployment model, you're done.
 
-If you created the VM by using the Resource Manager deployment model, use the Azure PowerShell module to update the **ProvisionGuestAgent** property. The property informs Azure that the VM has the VM Agent installed.
+### Use the ProvisionGuestAgent property for classic VMs
+
+If you created the VM by using the classic model, use the Azure PowerShell module to update the **ProvisionGuestAgent** property. The property informs Azure that the VM has the VM Agent installed.
 
 To set the **ProvisionGuestAgent** property, run the following commands in Azure PowerShell:
 
@@ -127,5 +124,5 @@ Then run the `Get-AzureVM` command. Notice that the **GuestAgentStatus** propert
 
 ## Next steps
 
-- [Azure Virtual Machine Agent overview](agent-user-guide.md)
+- [Azure Virtual Machine Agent overview](../extensions/agent-windows.md)
 - [Virtual machine extensions and features for Windows](extensions-features.md)

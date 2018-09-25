@@ -3,7 +3,7 @@ title: Back up Azure Stack | Microsoft Docs
 description: Perform an on-demand backup on Azure Stack with backup in place.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: jeffgilb
 manager: femila
 editor: ''
 
@@ -13,42 +13,74 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
-ms.author: mabrigg
+ms.date: 09/05/2018
+ms.author: jeffgilb
+ms.reviewer: hectorl
 
 ---
 # Back up Azure Stack
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-Perform an on-demand backup on Azure Stack with backup in place. If you need to enable the Infrastructure Backup Service, see [Enable Backup for Azure Stack from the administration portal](azure-stack-backup-enable-backup-console.md).
-
-> [!Note]  
->  Azure Stack Tools contain the **Start-AzSBackup** cmdlet. For instructions on installing the tools, see [Get up and running with PowerShell in Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-configure-quickstart).
+Perform an on-demand backup on Azure Stack with backup in place. For instructions on configuring the PowerShell environment, see [Install PowerShell for Azure Stack ](azure-stack-powershell-install.md). To sign in to Azure Stack, see [Using the administrator portal in Azure Stack](azure-stack-manage-portals.md).
 
 ## Start Azure Stack backup
 
-Open Windows PowerShell with an elevated prompt in the operator management environment, and run the following commands:
+### Start a new backup without job progress tracking
+Use Start-AzSBackup to start a new backup immediately with no job progress tracking.
 
 ```powershell
-    cd C:\tools\AzureStack-Tools-master\Connect
-    Import-Module .\AzureStack.Connect.psm1
-
-    cd C:\tools\AzureStack-Tools-master\Infrastructure
-    Import-Module .\AzureStack.Infra.psm1 
-    
-    Start-AzSBackup -Location $location.Name
+   Start-AzsBackup -Force
 ```
 
-## Confirm backup completed in the administration portal
+### Start Azure Stack backup with job progress tracking
+Use Start-AzSBackup to start a new backup with the -AsJob variable to track backup job progress.
 
-1. Open the Azure Stack administration portal at [https://adminportal.local.azurestack.external](https://adminportal.local.azurestack.external).
-2. Select **More services** > **Infrastructure backup**. Choose **Configuration** in the **Infrastructure backup** blade.
+```powershell
+    $backupjob = Start-AzsBackup -Force -AsJob 
+    "Start time: " + $backupjob.PSBeginTime;While($backupjob.State -eq "Running"){("Job is currently: " `
+    + $backupjob.State+" ;Duration: " + (New-TimeSpan -Start ($backupjob.PSBeginTime) `
+    -End (Get-Date)).Minutes);Start-Sleep -Seconds 30};$backupjob.Output
+
+    if($backupjob.State -eq "Completed"){Get-AzsBackup | where {$_.BackupId -eq $backupjob.Output.BackupId}}
+```
+
+## Confirm backup has completed
+
+### Confirm backup has completed using PowerShell
+Use the following PowerShell commands to ensure that backup has completed successfully:
+
+```powershell
+   Get-AzsBackup
+```
+
+The result should look like the following output:
+
+```powershell
+    BackupDataVersion : 1.0.1
+    BackupId          : <backup ID>
+    RoleStatus        : {NRP, SRP, CRP, KeyVaultInternalControlPlane...}
+    Status            : Succeeded
+    CreatedDateTime   : 7/6/2018 6:46:24 AM
+    TimeTakenToCreate : PT20M32.364138S
+    DeploymentID      : <deployment ID>
+    StampVersion      : 1.1807.0.41
+    OemVersion        : 
+    Id                : /subscriptions/<subscription ID>/resourceGroups/System.local/providers/Microsoft.Backup.Admin/backupLocations/local/backups/<backup ID>
+    Name              : local/<local name>
+    Type              : Microsoft.Backup.Admin/backupLocations/backups
+    Location          : local
+    Tags              : {}
+```
+
+### Confirm backup has completed in the administration portal
+Use the Azure Stack administration portal to verify that backup has completed successfully by following these steps:
+
+1. Open the [Azure Stack administration portal](azure-stack-manage-portals.md).
+2. Select **All services**, and then under the **ADMINISTRATION** category select > **Infrastructure backup**. Choose **Configuration** in the **Infrastructure backup** blade.
 3. Find the **Name** and **Date Completed** of the backup in **Available backups** list.
 4. Verify the **State** is **Succeeded**.
 
-You can also confirm the backup completed from the administration portal. Navigate to `\MASBackup\<datetime>\<backupid>\BackupInfo.xml`
-
 ## Next steps
 
-- Learn more about the workflow for recovering from a data loss event. See [Recover from catastrophic data loss](azure-stack-backup-recover-data.md).
+Learn more about the workflow for recovering from a data loss event. See [Recover from catastrophic data loss](azure-stack-backup-recover-data.md).

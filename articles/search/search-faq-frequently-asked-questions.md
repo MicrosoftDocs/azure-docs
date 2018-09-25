@@ -1,13 +1,11 @@
 ---
 title: Frequently asked questions (FAQ) about Azure Search | Microsoft Docs
 description: Get answers to common questions about Microsoft Azure Search Service
-services: search
 author: HeidiSteen
-manager: jhubbard
-
+manager: cgronlun
+services: search
 ms.service: search
-ms.technology: search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/03/2017
 ms.author: heidist
 ---
@@ -43,6 +41,12 @@ You cannot pause the service. Computational and storage resources are allocated 
 Although you can [get an index definition](https://docs.microsoft.com/rest/api/searchservice/get-index) at any time, there is no index extraction, snapshot, or backup-restore feature for downloading a *populated* index running in the cloud to a local system, or moving it to another Azure Search service.
 
 Indexes are built and populated from code that you write, and run only on Azure Search in the cloud. Typically, customers who want to move an index to another service do so by editing their code to use a new endpoint, and then rerun indexing. If you want the ability to take a snapshot or backup an index, cast a vote on [User Voice](https://feedback.azure.com/forums/263029-azure-search/suggestions/8021610-backup-snapshot-of-index).
+
+### Can I restore my index or service once it is deleted?
+
+No, you cannot restore indexes or services. If you delete an Azure Search index, the operation is final and the index cannot be recovered. When you delete an Azure Search service, all indexes in the service are deleted permanently. Also, if you delete an Azure resource group that contains one or more Azure Search services, all services are deleted permanently.  
+
+Restoring resources such as indexes, indexers, data sources, and skillsets requires that you recreate them from code. In the case of indexes, you must reindex data from external sources. For this reason, it is strongly recommended that you retain a master copy or backup of the original data in another data store, such as Azure SQL Database or Cosmos DB.
 
 ### Can I index from SQL database replicas (Applies to [Azure SQL Database indexers](https://docs.microsoft.com/azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers))
 

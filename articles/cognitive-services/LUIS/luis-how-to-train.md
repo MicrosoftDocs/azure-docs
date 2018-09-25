@@ -1,15 +1,15 @@
 ---
-title: Train your LUIS app - Azure | Microsoft Docs
-description: Use Language Understanding (LUIS) to train your model.
+title: Train your LUIS app 
+titleSuffix: Azure Cognitive Services
+description: Training is the process of teaching your Language Understanding (LUIS) app to improve its natural language understanding. Train your LUIS app after updates to the model such as adding, editing, labeling, or deleting entities, intents, or utterances.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
-
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 03/14/2018
-ms.author: v-geberr;
+ms.date: 09/06/2018
+ms.author: diberry
 ---
 
 # Train your LUIS app
@@ -28,18 +28,14 @@ To start the iterative process, you first need to train your LUIS app at least o
 
 2. In your app, select **Train** in the top panel. 
 
-    ![Train button](./media/luis-how-to-train/train-button.png)
-
 3. When training is complete, a green notification bar appears at the top of the browser.
-
-    ![Train & Test App page](./media/luis-how-to-train/train-success.png)
 
 <!-- The following note refers to what might cause the error message "Training failed: FewLabels for model: <ModelName>" -->
 
 >[!NOTE]
->If you have one or more intents in your app that do not contain example utterances, you cannot train your app. Add utterances for all your intents. For more information, see [Add example utterances](Add-example-utterances.md).
+>If you have one or more intents in your app that do not contain example utterances, you cannot train your app. Add utterances for all your intents. For more information, see [Add example utterances](luis-how-to-add-example-utterances.md).
 
 ## Next steps
 
-* [Label suggested utterances with LUIS](Label-Suggested-Utterances.md) 
-* [Use features to improve your LUIS app's performance](Add-Features.md) 
+* [Label suggested utterances with LUIS](luis-how-to-review-endoint-utt.md) 
+* [Use features to improve your LUIS app's performance](luis-how-to-add-features.md) 

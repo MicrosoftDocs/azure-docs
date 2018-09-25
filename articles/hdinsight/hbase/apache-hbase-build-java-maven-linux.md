@@ -1,21 +1,15 @@
 ---
-title: Java HBase client - Azure HDInsight | Microsoft Docs
+title: Java HBase client - Azure HDInsight 
 description: Learn how to use Apache Maven to build a Java-based Apache HBase application, then deploy it to HBase on Azure HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: ''
+author: jasonwhowell
+ms.reviewer: jasonh
 
-ms.assetid: 1d1ed180-e0f4-4d1c-b5ea-72e0eda643bc
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/25/2018
-ms.author: larryfr
+ms.topic: conceptual
+ms.date: 04/30/2018
+ms.author: jasonh
 
 ---
 # Build Java applications for Apache HBase
@@ -40,9 +34,6 @@ The steps in this document use [Maven](http://maven.apache.org/) to create and b
 * [Maven](http://maven.apache.org/)
 
 * [A Linux-based Azure HDInsight cluster with HBase](apache-hbase-tutorial-get-started-linux.md#create-hbase-cluster)
-
-  > [!NOTE]
-  > The steps in this document have been tested with HDInsight cluster versions 3.4 and 3.5. The default values provided in examples are for a HDInsight 3.5 cluster.
 
 ## Create the project
 
@@ -573,7 +564,7 @@ The following steps use Azure PowerShell to upload the JAR to the default storag
         $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
         if(-not($sub))
         {
-            throw "No active Azure subscription found! If you have a subscription, use the Login-AzureRmAccount cmdlet to login to your subscription."
+            throw "No active Azure subscription found! If you have a subscription, use the Connect-AzureRmAccount cmdlet to login to your subscription."
         }
     }
 

@@ -1,6 +1,6 @@
 ---
-title: Create VMs running an SQL&#92;IIS&#92;.NET stack in Azure| Microsoft Docs
-description: Tutorial - install a Azure SQL, IIS, .NET stack on a Windows virtual machines. 
+title: Tutorial - Create VMs running an SQL&#47;IIS&#47;.NET stack in Azure| Microsoft Docs
+description: In this tutorial, you learn how to install the Azure SQL, IIS, .NET stack on a Windows virtual machine in Azure.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,11 +16,13 @@ ms.workload: infrastructure
 ms.date: 02/27/2018
 ms.author: cynthn
 ms.custom: mvc
+
+#Customer intent: As an IT administrator, I want to learn how to install the LAMP stack so that I can quickly prepare a Windows VM to run web applications.
 ---
 
-# Install a SQL&#92;IIS&#92;.NET stack in Azure
+# Tutorial: Install the SQL&#47;IIS&#47;.NET stack in a Windows VM with Azure PowerShell
 
-In this tutorial, we install a SQL&#92;IIS&#92;.NET stack using Azure PowerShell. This stack consists of two VMs running Windows Server 2016, one with IIS and .NET and the other with SQL Server.
+In this tutorial, we install a SQL&#47;IIS&#47;.NET stack using Azure PowerShell. This stack consists of two VMs running Windows Server 2016, one with IIS and .NET and the other with SQL Server.
 
 > [!div class="checklist"]
 > * Create a VM 
@@ -30,7 +32,7 @@ In this tutorial, we install a SQL&#92;IIS&#92;.NET stack using Azure PowerShell
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-If you choose to install and use the PowerShell locally, this tutorial requires the AzureRM.Compute module version 4.3.1 or later. Run `Get-Module -ListAvailable AzureRM.Compute` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
+If you choose to install and use the PowerShell locally, this tutorial requires the AzureRM.Compute module version 5.7.0 or later. Run `Get-Module -ListAvailable AzureRM.Compute` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
 ## Create a IIS VM 
 
@@ -77,7 +79,7 @@ $vNet = Get-AzureRmVirtualNetwork `
    -ResourceGroupName $resourceGroup
 ```
 
-Create a configuration for the subNet using [Add-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig).
+Create a configuration for the subnet using [Add-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig).
 
 
 ```azurepowershell-interactive
@@ -112,7 +114,7 @@ New-AzureRmVm `
     -OpenPorts 3389,1401 
 ```
 
-Use [Set-AzureRmVMSqlServerExtension](/powershell/module/azurerm.compute/set-azurermvmsqlserverextension) to add the [SQL Server extension](/sql/virtual-machines-windows-sql-server-agent-extension.md) to the SQL VM.
+Use [Set-AzureRmVMSqlServerExtension](/powershell/module/azurerm.compute/set-azurermvmsqlserverextension) to add the [SQL Server extension](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension) to the SQL VM.
 
 ```azurepowershell-interactive
 Set-AzureRmVMSqlServerExtension `

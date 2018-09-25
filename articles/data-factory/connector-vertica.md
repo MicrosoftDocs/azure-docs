@@ -1,30 +1,24 @@
 ---
-title: Copy data from Vertica using Azure Data Factory (Beta) | Microsoft Docs
+title: Copy data from Vertica using Azure Data Factory | Microsoft Docs
 description: Learn how to copy data from Vertica to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/26/2018
+ms.topic: conceptual
+ms.date: 06/15/2018
 ms.author: jingwang
 
 ---
-# Copy data from Vertica using Azure Data Factory (Beta)
+# Copy data from Vertica using Azure Data Factory 
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Vertica. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Copy Activity in V1](v1/data-factory-data-movement-activities.md).
-
-> [!IMPORTANT]
-> This connector is currently in Beta. You can try it out and give us feedback. Do not use it in production environments.
 
 ## Supported capabilities
 

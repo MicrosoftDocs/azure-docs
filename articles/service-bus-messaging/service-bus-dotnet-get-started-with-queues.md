@@ -3,7 +3,7 @@ title: Get started with Azure Service Bus queues | Microsoft Docs
 description: Write a C# console application that uses Service Bus messaging queues.
 services: service-bus-messaging
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 12/7/2017
-ms.author: sethm
+ms.author: spelluru
 
 ---
 # Get started with Service Bus queues

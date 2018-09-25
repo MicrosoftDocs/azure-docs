@@ -1,27 +1,22 @@
----
+﻿---
 title: Understand Azure IoT Hub device twins | Microsoft Docs
 description: Developer guide - use device twins to synchronize state and configuration data between IoT Hub and your devices
-services: iot-hub
-documentationcenter: .net
 author: fsautomata
-manager: timlt
-editor: ''
-
-ms.assetid: 8a3da072-a5bf-46e5-8de4-24cdbb2a03fa
+manager: 
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: elioda
-ms.custom: H1Hack27Feb2017
-
 ---
+
 # Understand and use device twins in IoT Hub
 
-*Device twins* are JSON documents that store device state information including metadata, configurations, and conditions. Azure IoT Hub maintains a device twin for each device that you connect to IoT Hub. This article describes:
+*Device twins* are JSON documents that store device state information including metadata, configurations, and conditions. Azure IoT Hub maintains a device twin for each device that you connect to IoT Hub. 
 
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
+
+This article describes:
 
 * The structure of the device twin: *tags*, *desired* and *reported properties*.
 * The operations that device apps and back ends can perform on device twins.
@@ -90,7 +85,7 @@ The following example shows a device twin JSON document:
             "telemetryConfig": {
                 "sendFrequency": "5m",
                 "status": "success"
-            }
+            },
             "batteryLevel": 55,
             "$metadata" : {...},
             "$version": 4
@@ -254,7 +249,7 @@ Tags, desired properties, and reported properties are JSON objects with the foll
     }
     ```
 
-* All string values can be at most 4 KB in length.
+* All string values can be at most 512 bytes in length.
 
 ## Device twin size
 IoT Hub enforces an 8KB size limitation on each of the respective total values of `tags`, `properties/desired`, and `properties/reported`, excluding read-only elements.
@@ -346,6 +341,7 @@ Other reference topics in the IoT Hub developer guide include:
 ## Next steps
 Now you have learned about device twins, you may be interested in the following IoT Hub developer guide topics:
 
+* [Understand and use module twins in IoT Hub][lnk-module-twins]
 * [Invoke a direct method on a device][lnk-methods]
 * [Schedule jobs on multiple devices][lnk-jobs]
 
@@ -353,6 +349,7 @@ To try out some of the concepts described in this article, see the following IoT
 
 * [How to use the device twin][lnk-twin-tutorial]
 * [How to use device twin properties][lnk-twin-properties]
+* [Device management with Azure IoT Toolkit for VS Code][lnk-twin-vscode]
 
 <!-- links and images -->
 
@@ -375,9 +372,11 @@ To try out some of the concepts described in this article, see the following IoT
 [lnk-devguide-directmethods]: iot-hub-devguide-direct-methods.md
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
 [lnk-twin-tutorial]: iot-hub-node-node-twin-getstarted.md
-[lnk-twin-properties]: iot-hub-node-node-twin-how-to-configure.md
+[lnk-twin-properties]: tutorial-device-twins.md
+[lnk-twin-vscode]: iot-hub-device-management-iot-toolkit.md
 [lnk-twin-metadata]: iot-hub-devguide-device-twins.md#device-twin-metadata
 [lnk-concurrency]: iot-hub-devguide-device-twins.md#optimistic-concurrency
 [lnk-reconnection]: iot-hub-devguide-device-twins.md#device-reconnection-flow
+[lnk-module-twins]:iot-hub-devguide-module-twins.md
 
 [img-twin]: media/iot-hub-devguide-device-twins/twin.png

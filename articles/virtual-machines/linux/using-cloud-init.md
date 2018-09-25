@@ -28,8 +28,10 @@ Cloud-init also works across distributions. For example, you don't use **apt-get
 
  We are actively working with our endorsed Linux distro partners in order to have cloud-init enabled images available in the Azure marketplace. These images will make your cloud-init deployments and configurations work seamlessly with VMs and VM Scale Sets (VMSS). The following table outlines the current cloud-init enabled images availability on the Azure platform:
 
-| Publisher | Offer | SKU | Version | cloud-init ready
-|:--- |:--- |:--- |:--- |:--- |:--- |
+| Publisher | Offer | SKU | Version | cloud-init ready |
+|:--- |:--- |:--- |:--- |:--- |
+|Canonical |UbuntuServer |18.04-LTS |latest |yes | 
+|Canonical |UbuntuServer |17.10 |latest |yes | 
 |Canonical |UbuntuServer |16.04-LTS |latest |yes | 
 |Canonical |UbuntuServer |14.04.5-LTS |latest |yes |
 |CoreOS |CoreOS |Stable |latest |yes |

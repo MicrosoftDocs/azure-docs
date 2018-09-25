@@ -7,7 +7,7 @@ manager: rochakm
 
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 07/06/2018
 ms.author: sutalasi
 ---
 
@@ -55,7 +55,7 @@ Make sure you have Azure PowerShell ready to go:
         $Password = "<password>"
         $SecurePassword = ConvertTo-SecureString -AsPlainText $Password -Force
         $Cred = New-Object System.Management.Automation.PSCredential -ArgumentList $UserName, $SecurePassword
-        Login-AzureRmAccount #-Credential $Cred
+        Connect-AzureRmAccount #-Credential $Cred
 2. Retrieve a list of your subscriptions, with the subscription IDs. Note the ID of the subscription in which you want to create the Recovery Services vault. 
 
         Get-AzureRmSubscription

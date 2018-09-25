@@ -1,21 +1,20 @@
 ---
-title: Test drive an Azure AD B2C enabled desktop app
-description: Quickstart to try a sample ASP.NET desktop app that uses Azure Active Directory B2C to provide user login.
+title: Quickstart - Set up sign-in for a desktop app using Azure Active Directory B2C | Microsoft Docs
+description: Run a sample ASP.NET desktop application that uses Azure Active Directory B2C to provide account sign-in.
 services: active-directory-b2c
-author: PatAltimore
+author: davidmu1
 manager: mtillman
 
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 2/13/2018
-ms.author: patricka
-
+ms.author: davidmu
+ms.component: B2C
 ---
-# Quickstart: Test drive an Azure AD B2C enabled desktop app
+
+# Quickstart: Set up sign-in for a desktop app using Azure Active Directory B2C 
 
 Azure Active Directory (Azure AD) B2C provides cloud identity management to keep your application, business, and customers protected. Azure AD B2C enables your apps to authenticate to social accounts, and enterprise accounts using open standard protocols.
 
@@ -88,7 +87,7 @@ Azure Active Directory B2C provides functionality to allow users to update their
 
 ## Access a protected web API resource
 
-Click **Call API** to make a request to the Azure AD B2C protected resource https://fabrikamb2chello.azurewebsites.net/hello. 
+Click **Call API** to make a request to the Azure AD B2C protected resource. 
 
 ![Call API](media/active-directory-b2c-quickstarts-desktop-app/call-api-wpf.png)
 
@@ -105,4 +104,4 @@ You can use your Azure AD B2C tenant if you plan to try other Azure AD B2C quick
 The next step is to create your own Azure AD B2C tenant and configure the sample to run using your tenant. 
 
 > [!div class="nextstepaction"]
-> [Create an Azure Active Directory B2C tenant in the Azure portal](active-directory-b2c-get-started.md)
+> [Create an Azure Active Directory B2C tenant in the Azure portal](tutorial-create-tenant.md)
