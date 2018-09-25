@@ -87,7 +87,8 @@ The following two types of errors are classified as user errors:
 
 ## Resource usage metrics
 
-> [!NOTE] The following metrics are available only with the **premium** tier. 
+> [!NOTE] 
+> The following metrics are available only with the **premium** tier. 
 
 | Metric Name | Description |
 | ------------------- | ----------------- |
