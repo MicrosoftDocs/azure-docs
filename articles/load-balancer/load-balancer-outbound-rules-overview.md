@@ -18,7 +18,7 @@ ms.author: kumud
 
 # Load Balancer outbound rules
 
-Azure Load Balancer provides outbound connectivity from a virtual network in addition to inbound.  Outbound rules make it simple to configure public [Standard Load Balancer](load-balancer-standard-overview.md)'s outbound network address translation (NAT).  You have full declarative control over outbound connectivity to scale and tune this ability to your specific needs.
+Azure Load Balancer provides outbound connectivity from a virtual network in addition to inbound.  Outbound rules make it simple to configure public [Standard Load Balancer](load-balancer-standard-overview.md)'s outbound network address translation.  You have full declarative control over outbound connectivity to scale and tune this ability to your specific needs.
 
 ![Load Balancer outbound rules](media/load-balancer-outbound-rules-overview/load-balancer-outbound-rules.png)
 
