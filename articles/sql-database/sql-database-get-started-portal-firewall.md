@@ -2,14 +2,16 @@
 title: 'Azure portal: Create a SQL Database firwall rule| Microsoft Docs'
 description: Create a SQL Database server-level firewall rule
 services: sql-database
-author: sachinpMSFT
-manager: craigg
 ms.service: sql-database
-ms.custom: mvc,DBs & servers
+ms.subservice: security
+ms.custom: 
+ms.devlang: 
 ms.topic: quickstart
-ms.date: 09/06/2018
+author: sachinpMSFT
 ms.author: sachinp
-
+ms.reviewer: vanto, carlrab
+manager: craigg
+ms.date: 09/06/2018
 ---
 # Create a server-level firewall rule for your SQL database using the Azure portal
 
@@ -65,7 +67,7 @@ Save these resources if you want to go to [Next steps](#next-steps) and learn ho
 
 - Now that you have a database, you can [connect and query](sql-database-connect-query.md) using one of your favorite tools or languages, including
   - [Connect and query using SQL Server Management Studio](sql-database-connect-query-ssms.md)
-  - [Connect and query using SQL Server Operations Studio](https://docs.microsoft.com/sql/sql-operations-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
+  - [Connect and query using Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
 - To learn how to design your first database, create tables, and insert data, see one of these tutorials:
  - [Design your first Azure SQL database using SSMS](sql-database-design-first-database.md)
  - [Design an Azure SQL database and connect with C# and ADO.NET](sql-database-design-first-database-csharp.md)

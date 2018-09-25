@@ -2,14 +2,16 @@
 title: Automate the replication of schema changes in Azure SQL Data Sync | Microsoft Docs
 description: Learn how to automate the replication of schema changes in Azure SQL Data Sync.
 services: sql-database
-ms.date: 06/19/2018
-ms.topic: conceptual
 ms.service: sql-database
+ms.subservice: data-movement
+ms.custom: data sync
+ms.devlang: 
+ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.custom: data-sync
+ms.date: 09/20/2018
 ---
 # Automate the replication of schema changes in Azure SQL Data Sync
 
@@ -24,7 +26,7 @@ This article introduces a solution to automatically replicate schema changes to 
 This article uses ALTER TABLE as an example of a schema change, but this solution also works for other types of schema changes.
 
 > [!IMPORTANT]
-> We recommend that you read this article carefully, especially the sections about [Troubleshooting](#troubleshooting) and [Other considerations](#other), before you start to implement automated schema change replication in your sync environment. We also recommend that you read [Sync data across multiple cloud and on-premises databases with SQL Data Sync](sql-database-sync-data.md). Some database operations may break the solution described in this article. Additional domain knowledge of SQL Server and Transact-SQL may be required to troubleshoot those issues.
+> We recommend that you read this article carefully, especially the sections about [Troubleshooting](#troubleshoot) and [Other considerations](#other), before you start to implement automated schema change replication in your sync environment. We also recommend that you read [Sync data across multiple cloud and on-premises databases with SQL Data Sync](sql-database-sync-data.md). Some database operations may break the solution described in this article. Additional domain knowledge of SQL Server and Transact-SQL may be required to troubleshoot those issues.
 
 ![Automating the replication of schema changes](media/sql-database-update-sync-schema/automate-schema-changes.png)
 
