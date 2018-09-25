@@ -29,9 +29,10 @@ is initiated.
 ![Managed identity - missing role](../media/remediate-resources/missing-role.png)
 
 > [!IMPORTANT]
-> If a resource modified by **deployIfNotExists** is outside the scope of the policy assignment, the
-> assignment's managed identity must be programmatically granted access or the remediation deployment
-> will fail.
+> If a resource modified by **deployIfNotExists** is outside the scope of the policy assignment or
+> the template accesses properties on resources outside the scope of the policy assignment, the
+> assignment's managed identity must be [manually granted access](#manually-configure-the-managed-identity)
+> or the remediation deployment will fail.
 
 ## Configure policy definition
 
@@ -61,19 +62,25 @@ az role definition list --name 'Contributor'
 Get-AzureRmRoleDefinition -Name 'Contributor'
 ```
 
-## Programmatically grant managed identity required roles
+## Manually configure the managed identity
 
-When creating an assignment using the portal, Policy both generates the necessary managed identity
-and grants it the roles defined in **roleDefinitionIds**. When using SDK (such as Azure
-PowerShell), this step must be done manually.
+When creating an assignment using the portal, Policy both generates the managed identity and grants
+it the roles defined in **roleDefinitionIds**. In the following conditions, steps to create the
+managed identity and assign it permissions must be performed manually:
+
+- While using the SDK (such as Azure PowerShell)
+- When a resource outside the assignment scope is modified by the template
+- When a resource outside the assignment scope is read by the template
 
 > [!NOTE]
-> Azure PowerShell is the only SDK that currently supports this capability.
+> Azure PowerShell and .NET are the only SDKs that currently support this capability.
 
-To configure a managed identity during the creation of the assignment, the **Location** and
-**AssignIdentity** must be defined. The following example gets the definition of the built-in
-policy **Deploy SQL DB transparent data encryption**, sets the target resource group, and then
-creates the assignment.
+### Create managed identity with PowerShell
+
+To create a managed identity during the assignment of the policy, **Location** must be defined and
+**AssignIdentity** used. The following example gets the definition of the built-in policy **Deploy
+SQL DB transparent data encryption**, sets the target resource group, and then creates the
+assignment.
 
 ```azurepowershell-interactive
 # Login first with Connect-AzureRmAccount if not using Cloud Shell
@@ -90,10 +97,14 @@ $assignment = New-AzureRmPolicyAssignment -Name 'sqlDbTDE' -DisplayName 'Deploy 
 
 The `$assignment` variable now contains the principal ID of the managed identity along with the
 standard values returned when creating a policy assignment. It can be accessed through
-`$assignment.Identity.PrincipalId`. The new managed identity must complete replication through
-Azure Active Directory before it can be granted the needed roles. Once replication is complete, the
-following example iterates the policy definition in `$policyDef` for the **roleDefinitionIds** and
-uses [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) to
+`$assignment.Identity.PrincipalId`.
+
+### Grant defined roles with PowerShell
+
+The new managed identity must complete replication through Azure Active Directory before it can be
+granted the needed roles. Once replication is complete, the following example iterates the policy
+definition in `$policyDef` for the **roleDefinitionIds** and uses
+[New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) to
 grant the new managed identity the roles.
 
 ```azurepowershell-interactive
@@ -108,6 +119,28 @@ if ($roleDefinitionIds.Count -gt 0)
     }
 }
 ```
+
+### Grant defined roles through portal
+
+There are two ways to grant an assignment's managed identity the defined roles using the portal, by
+using **Access control (IAM)** or by editing the policy or initiative assignment and clicking
+**Save**.
+
+To add a role to the assignment's managed identity, follow these steps:
+
+1. Launch the Azure Policy service in the Azure portal by clicking **All services**, then searching for and selecting **Policy**.
+
+1. Select **Assignments** on the left side of the Azure Policy page.
+
+1. Locate the assignment that has a managed identity and click on the name.
+
+1. Find the **Assignment ID** property on the edit page. The assignment ID will be something like `/subscriptions/{subscriptionId}/resourceGroups/PolicyTarget/providers/Microsoft.Authorization/policyAssignments/2802056bfc094dfb95d4d7a5`. The name of the managed identity is the last portion of the assignment resource ID, which is `2802056bfc094dfb95d4d7a5` in this example. Copy this portion of the assignment resource ID.
+
+1. Navigate to the resource or the resources parent container (resource group, subscription, management group) that needs the role definition manually added.
+
+1. Click the **Access control (IAM)** link in the resources page and click **+ Add** at the top of the access control page.
+
+1. Select the appropriate role that matches a **roleDefinitionIds** from the policy definition. Leave **Assign access to** set to the default of 'Azure AD user, group, or application'. In the **Select** box, paste or type the portion of the assignment resource ID located earlier. Once the search completes, click the object with the same name to select id and click **Save**.
 
 ## Create a remediation task
 
