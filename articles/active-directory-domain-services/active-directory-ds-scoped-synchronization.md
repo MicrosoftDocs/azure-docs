@@ -23,22 +23,22 @@ This article shows you how to configure only specific user accounts to be synchr
 
 
 ## Group-based scoped synchronization
-By default, all users and groups within your Azure AD directory are synchronized to your managed domain. If the managed domain is being used only by a few users, you may prefer to synchronize only those user accounts to the managed domain. Group-based scoped synchronization enables you to do so. When configured, only user accounts belonging to the groups you've specified are synchronized to the managed domain.
+By default, all users and groups within your Azure AD directory are synchronized to your managed domain. If only a few users use the managed domain, you may synchronize only those user accounts. Group-based scoped synchronization enables you to do so. When configured, only user accounts belonging to the groups you've specified are synchronized to the managed domain.
 
-The following table helps you use scoped synchronization based on the current state and desired state of your managed domain:
+The following table helps you determine how to use scoped synchronization:
 
 | **Current state** | **Desired state** | **Required configuration** |
 | --- | --- | --- |
 | Your existing managed domain is configured to synchronize all user accounts and groups. | You want to synchronize only user accounts belonging to specific groups to your managed domain. | [Delete the existing managed domain](active-directory-ds-disable-aadds.md). Then, follow instructions in this article to re-create it with scoped synchronization configured. |
-| You do not have an existing managed domain. | You want to create a new managed domain and synchronize only user accounts belonging to specific groups. | Follow instructions in this article to create a new managed domain with scoped synchronization configured. |
+| You don't have an existing managed domain. | You want to create a new managed domain and synchronize only user accounts belonging to specific groups. | Follow instructions in this article to create a new managed domain with scoped synchronization configured. |
 | Your existing managed domain is configured to synchronize only accounts belonging to specific groups. | You want to modify the list of groups whose users should be synchronized to the manage domain. | Follow the instructions in this article to modify scoped synchronization. |
 
 > [!WARNING]
-> **Changing the scope of synchronization causes your managed domain to go through re-synchronization.**
+> **Changing the scope of synchronization causes your managed domain to go through resynchronization.**
 >
- * When you change the synchronization scope for a managed domain, a full re-synchronization operation is performed.
- * Objects which are no longer required in the managed domain are deleted. New objects are provisioned in the managed domain.
- * Re-synchronization may take a long time to complete, depending on the number of objects (users, groups and group memberships) in your managed domain and your Azure AD directory. For large directories with many hundreds of thousands of objects, resynchronization may take a few days.
+ * When you change the synchronization scope for a managed domain, a full resynchronization occurs.
+ * Objects which are no longer required in the managed domain are deleted. New objects are created in the managed domain.
+ * Resynchronization may take a long time to complete, depending on the number of objects (users, groups, and group memberships) in your managed domain and your Azure AD directory. For large directories with many hundreds of thousands of objects, resynchronization may take a few days.
 >
 >
 
@@ -70,7 +70,7 @@ Complete the following steps to configure group-based scoped synchronization to 
   > You must include the 'AAD DC Administrators' group in the list of groups configured for scoped synchronization. If you do not include this group, the managed domain will be unusable.
   >
 
-4. Now, provision the managed domain and enable group-based scoped synchronization for the managed domain. Include the property ```"filteredSync" = "Enabled"``` in the ```Properties``` parameter. For instance, see the following script fragment, copied from [Task 7: Provision the Azure AD Domain Services managed domain](active-directory-ds-enable-using-powershell.md#task-7-provision-the-azure-ad-domain-services-managed-domain).
+4. Now, create the managed domain and enable group-based scoped synchronization for the managed domain. Include the property ```"filteredSync" = "Enabled"``` in the ```Properties``` parameter. For instance, see the following script fragment, copied from [Task 7: Provision the Azure AD Domain Services managed domain](active-directory-ds-enable-using-powershell.md#task-7-provision-the-azure-ad-domain-services-managed-domain).
 
   ```powershell
   $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
