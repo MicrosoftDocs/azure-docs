@@ -19,7 +19,7 @@ ms.topic: article
 
 This tutorial provides quick steps on creating and generated parameters needed to provision a Pivotal Cloud Foundry PCF cluster on Azure.  The Pivotal Cloud Foundry solution can be found by performing a search on Azure [MarketPlace](https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry).
 
-<img src="media/deploy/pcf-marketplace1.png"> 
+`![Search Azure Marketplace](media/deploy/pcf-marketplace1.png)` 
 
 ## Generate an SSH public key
 
@@ -40,7 +40,7 @@ ssh-keygen -t rsa -b 2048
 
 `az login`
 
-<img src="media/deploy/az-logion-output2.png"> 
+`![Azure CLI login](media/deploy/az-logion-output2.png)` 
  
 Copy the “id” value as your **subscription ID** and the **tenantId** value to be used later.
 
@@ -72,7 +72,7 @@ Or you can also use…
 
 `az role assignment create --assignee {service-princ-name} --role “Contributor” `
 
-<img src="media/deploy/svc-princ3.png"> 
+`![Service principal roles assignment](media/deploy/svc-princ3.png)` 
 
 6. Verify that you can successfully log into your Service Principal using the appId, password & tenantId.
 
@@ -103,16 +103,17 @@ Or you can also use…
 
 1. Your PCF cluster should show a deployment status.
 
-<img src="media/deploy/deployment4.png">  
+`![Azure deployment status](media/deploy/deployment4.png)` 
+
 
 2. Click on the **Deployments** link on the left-hand navigation to get credentials to your PCF Ops Manager, then click on the **Deployment Name** on the next page.
 3. On the left-hand navigation, click on the **Outputs** link to display the URL, Username and Password to the PCF Ops Manager.  The “OPSMAN-FQDN” value is the URL.
  
-<img src="media/deploy/deploy-outputs5.png">  
+`!Cloud Foundry deployment output](media/deploy/deploy-outputs5.png)` 
  
 4. Launch the URL in a web browser and enter the credentials from the previous step to login.
 
-<img src="media/deploy/pivotal-login6.png">  
+`!Pivotal Login page](media/deploy/pivotal-login6.png)` 
          
 > [!NOTE]
 >
@@ -120,4 +121,5 @@ Or you can also use…
 
 5. Your PCF Ops Manager should display the deployed Azure instances. Now you can start deploying and managing your applications here!
                
-<img src="media/deploy/Ops-Mgr7.png">  
+`!Deployment Azure instance in Pivotal](media/deploy/Ops-Mgr7.png)`
+ 
