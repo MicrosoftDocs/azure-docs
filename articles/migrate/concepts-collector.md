@@ -18,7 +18,8 @@ The Azure Migrate Collector is a lightweight appliance that can be used to disco
 
 ## Deploying the Collector
 
-- You deploy the Collector appliance using an OVF template.
+You deploy the Collector appliance using an OVF template:
+
 - You download the OVF template from an Azure Migrate project in the Azure portal. You import the downloaded file to vCenter Server, to set up the Collector appliance VM.
 - From the OVF, VMware sets up a VM with 4 cores, 8 GB RAM, and one disk of 80 GB. The operating system is Windows Server 2012 R2 (64 bit).
 - When you run the Collector, a number of prerequisite checks run to make sure that the Collector can connect to Azure Migrate.
@@ -65,10 +66,12 @@ The Collector must pass a few prerequisite checks to ensure it can connect to th
     ![Certificate store location](./media/concepts-intercepting-proxy/certificate-store-location.png)
 
     6. Select **Place all certificates in the following store** > **Browse** > **Trusted Publishers**. Click **Finish** to import the certificate.
-
+    
     ![Certificates store](./media/concepts-intercepting-proxy/certificate-store.png)
 
-7. Check that the certificate is imported as expected, and check that the internet connectivity prerequisite check works as expected.
+    7. Check that the certificate is imported as expected, and check that the internet connectivity prerequisite check works as expected.
+
+    
 
 
 ### Connect to URLs
