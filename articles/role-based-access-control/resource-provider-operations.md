@@ -3829,9 +3829,9 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.OperationsManagement/managementConfigurations/read | Get Existing Management Configuration |
 > | Action | Microsoft.OperationsManagement/managementConfigurations/write | Create a new Management Configuration |
 > | Action | Microsoft.OperationsManagement/register/action | Register a subscription to a resource provider. |
-> | Action | Microsoft.OperationsManagement/solutions/delete | Delete existing OMS solution |
-> | Action | Microsoft.OperationsManagement/solutions/read | Get exiting OMS solution |
-> | Action | Microsoft.OperationsManagement/solutions/write | Create new OMS solution |
+> | Action | Microsoft.OperationsManagement/solutions/delete | Delete existing Log Analytics solution |
+> | Action | Microsoft.OperationsManagement/solutions/read | Get exiting Log Analytics solution |
+> | Action | Microsoft.OperationsManagement/solutions/write | Create new Log Analytics solution |
 
 ## Microsoft.PolicyInsights
 
