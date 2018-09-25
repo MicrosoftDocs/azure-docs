@@ -64,29 +64,25 @@ Azure AD Connect Health for AD FS supports AD FS 2.0 on Windows Server 2008 R2, 
 
 #### Key benefits and best practices
 
-Enhanced security
-*	[Extranet lockout trends](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)
-*	[Failed sign-ins report](how-to-connect-health-adfs.md#risky-ip-report-public-preview) 
-*	In [privacy compliant](reference-connect-health-user-privacy.md)    
-
-Get alerted on all [critical ADFS system issues](how-to-connect-health-alert-catalog.md#alerts-for-active-directory-federation-services)
-*	Server configuration and availability 
-*	[Performance and connectivity](how-to-connect-health-adfs.md#performance-monitoring-for-ad-fs) 
-*	Regular maintenance    
-
-Easy to deploy and manage
-*	Quick [agent installation](how-to-connect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs) 
-*	Agent auto upgrade to the latest 
-*	Data available in portal within minutes    
-
-Rich [usage metrics](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs) 
-*	Top applications usage
-*	Network locations and TCP connection
-*	Token requests per server    
-
-Great user experience
-*	Dashboard fashion from Azure portal
-*	[Alerts through emails](how-to-connect-health-adfs.md#alerts-for-ad-fs)    
+- *Enhanced security*
+  -	[Extranet lockout trends](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)
+  -	[Failed sign-ins report](how-to-connect-health-adfs.md#risky-ip-report-public-preview) 
+  -	In [privacy compliant](reference-connect-health-user-privacy.md)    
+- *Get alerted on all [critical ADFS system issues](how-to-connect-health-alert-catalog.md#alerts-for-active-directory-federation-services)*
+ 	- Server configuration and availability 
+ 	- [Performance and connectivity](how-to-connect-health-adfs.md#performance-monitoring-for-ad-fs) 
+  - Regular maintenance    
+- *Easy to deploy and manage*
+  -	Quick [agent installation](how-to-connect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs) 
+  -	Agent auto upgrade to the latest 
+  -	Data available in portal within minutes    
+- *Rich [usage metrics](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)* 
+  -	Top applications usage
+  -	Network locations and TCP connection
+  -	Token requests per server    
+- *Great user experience* 
+  -	Dashboard fashion from Azure portal
+  -	[Alerts through emails](how-to-connect-health-adfs.md#alerts-for-ad-fs)    
 
 #### Feature highlight
 
