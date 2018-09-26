@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 09/26/2018
 ms.author: sethm
 ms.reviewer: justini
 
@@ -126,6 +126,8 @@ For more information about these vulnerabilities, click on the preceding links, 
 The following are post-installation known issues for this build version.
 
 ### Portal
+
+- The Azure Stack technical documentation focuses on the latest release. Due to portal changes between releases, what you see when using the Azure Stack portals might vary from what you see in the documentation.
 
 - <!-- 2930718 - IS ASDK --> In the administrator portal, when accessing the details of any user subscription, after closing the blade and clicking on **Recent**, the user subscription name does not appear.
 
