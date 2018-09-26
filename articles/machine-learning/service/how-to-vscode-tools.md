@@ -1,31 +1,28 @@
 ---
 title: Using Visual Studio Code Tools for AI extension with Azure Machine Learning
-description: Learn how to accelerate models and deep neural networks with FPGAs on Azure. This article provides an introduction to field-programmable gate arrays (FPGA) and how Azure Machine Learning provides real-time artificial intelligence (AI) when you deploy your model to an Azure FPGA.
+description: Learn about Visual Studio Code Tools for AI and how to start training and deploy machine learning and deep learning models with Azure Machine Learning service in VS Code.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
-ms.author: tedway
-author: tedway
+ms.author: jmartens
+author: j-martens
 ms.reviewer: jmartens
-ms.date: 9/24/2018
+ms.date: 10/1/2018
 ---
 # Getting started with Azure Machine Learning in Visual Studio Code
 
-In this article, you'll learn about Visual Studio Code (VS Code) extension, **Tools for AI**, and how to get set up to start using it to work with Azure Machine Learning service.
+In this article, you'll learn about Visual Studio Code (VS Code) extension, **Tools for AI**, and how to start training and deploy machine learning and deep learning models with Azure Machine Learning service in VS Code.
 
-VS Code Tools for AI is an extension used to build, test, and deploy machine learning and deep learning models. It seamlessly integrates with Azure Machine Learning for robust experimentation capabilities, including but not limited to running data preparation and model training experiments both locally and on remote compute targets.
-
-Additionally, it provides support for tracking custom metrics and experiment runs, enabling data science reproducibility and auditability.
-
-1. Install the 'VS Code Tools for AI' extension.
-2. Authenticate with Azure.
-3. Install the Azure Machine Learning Python SDK.
-4. Start working with Azure Machine Learning using VS Code.
+Use the Tools for AI extension in Visual Studio code to use the Azure Machine Learning service to:
++ Prepare data
++ Train and test machine learning and deep learning models on local and remote compute targets
++ Deploy models as web services
++ Track custom metrics and experiments
 
 ## Prerequisite
 
-+ Visual Studio Code must be installed. VS Code is a lightweight but powerful source code editor which runs on your desktop. It comes with built-in support for Python and more.  [Learn how to install VS Code](https://code.visualstudio.com/docs/setup/setup-overview).
++ Visual Studio Code must be installed. VS Code is a lightweight but powerful source code editor that runs on your desktop. It comes with built-in support for Python and more.  [Learn how to install VS Code](https://code.visualstudio.com/docs/setup/setup-overview).
 
 + If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -57,12 +54,12 @@ Sign in with the `Azure: Sign In` command.
 
 1. Open the command palette `Ctrl+Shift+P`.
 
-1. Type Install Azure ML SDK to find the command to install the Azure Machine Learning SDK. This will be installed via a pip install command. It will create a local private Python environment which has the Visual Studio Code prerequisites for working with Azure Machine Learning.
+1. Type 'Install Azure ML SDK' to find the pip install command for the SDK. A local private Python environment is created that has the Visual Studio Code prerequisites for working with Azure Machine Learning.
 
 1. In the integrated terminal window, specify the Python interpreter to use or you can hit **Enter** to use your default Python interpreter.
 
-SLOW THIS DOWN so we can see what you've typed and add a pause at the end.
-![install](./media/vscode-tools-for-ai/install.gif)
+   SLOW THIS DOWN so we can see what you've typed and add a pause at the end.
+   ![install](./media/vscode-tools-for-ai/install.gif)
 
 ## Get started with Azure Machine Learning
 
@@ -106,5 +103,5 @@ Like most of VS Code, the Azure Machine Learning features in VS Code are accessi
 You can now use Visual Studio Code to work with Azure Machine Learning.
 
 - To learn how to create and use Azure Virtual Machines, Azure Batch AI clusters and Azure Kubernetes clusters from Visual Studio Code to train and deploy your models, see [Create and manage compute targets in Visual Studio Code](manage-compute-aml-vscode.md)
-- To learn how to train models and manage your experiments from Visual Studio Code , see [Training models and managing experiments in Visual Studio Code](train-models-aml-vscode.md)
-- To learn how to deploy and manage models from Visual Studio Code , see [Deploying and managing models in Visual Studio Code](deploy-models-aml-vscode.md)
+- To learn how to train models and manage your experiments from Visual Studio Code, see [Training models and managing experiments in Visual Studio Code](train-models-aml-vscode.md)
+- To learn how to deploy and manage models from Visual Studio Code, see [Deploying and managing models in Visual Studio Code](deploy-models-aml-vscode.md)
