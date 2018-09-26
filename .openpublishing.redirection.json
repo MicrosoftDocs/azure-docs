@@ -29186,7 +29186,7 @@
             "redirect_document_id": true
         },
         {
-            "source_path": "/articles/billing/billing-set-up-alerts.md",
+            "source_path": "articles/billing/billing-set-up-alerts.md",
             "redirect_url": "/azure/billing/billing-getting-started",
             "redirect_document_id": false
         }
