@@ -78,7 +78,7 @@ To fix this, you'll add a `viewport` meta tag:
 1. Save the file.
 1. Refresh your device's browser. You should now see the web app rendered correctly. 
 
-This is an example of how some problems just aren't found until you test on the devices where an app is meant to be used. With Azure Dev Spaces, you can rapidly iterate on your code and validate any changes on target devices.
+This example shows that some problems just aren't found until you test on the devices where an app is meant to be used. With Azure Dev Spaces, you can rapidly iterate on your code and validate any changes on target devices.
 
 ### Update a code file
 Updating server-side code files requires a little more work, because a Node.js app needs to restart.
@@ -93,7 +93,7 @@ Updating server-side code files requires a little more work, because a Node.js a
 3. Save the file.
 1. Run  `azds up` in the terminal window. 
 
-This rebuilds the container image and redeploys the Helm chart. Reload the browser page to see your code changes take effect.
+This command rebuilds the container image and redeploys the Helm chart. Reload the browser page to see your code changes take effect.
 
 But there is an even *faster method* for developing code, which you'll explore in the next section. 
 
@@ -143,7 +143,7 @@ Refresh the web app in the browser, or press the *Say It Again* button. You shou
 ### Use NodeMon to develop even faster
 *Nodemon* is a popular tool that Node.js developers use for rapid development. Instead of manually restarting the Node process each time a server-side code edit is made, developers will often configure their Node project to have *nodemon* monitor file changes and automatically restart the server process. In this style of working, the developer just refreshes their browser after making a code edit.
 
-With Azure Dev Spaces, you can use many of the same development workflows you use when developing locally. To illustrate this, the sample `webfrontend` project was configured to use *nodemon* (it is configured as a dev dependency in `package.json`).
+With Azure Dev Spaces, you can use many of the same development workflows you use when developing locally. To illustrate this point, the sample `webfrontend` project was configured to use *nodemon* (it is configured as a dev dependency in `package.json`).
 
 Try the following steps:
 1. Stop the VS Code debugger.
