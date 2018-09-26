@@ -1,5 +1,5 @@
 ---
-title: Azure Maintenance schedules (Preview) | Microsoft Docs
+title: Azure maintenance schedules (preview) | Microsoft Docs
 description: Maintenance scheduling allows customers to plan around the necessary scheduled maintenance events the Azure SQL Data warehouse service uses to roll out new features, upgrades and patches.  
 services: sql-data-warehouse
 author: antvgski
@@ -12,7 +12,7 @@ ms.author: anvang
 ms.reviewer: igorstan
 ---
 
-# Changing a mMaintenance schedule 
+# Change a maintenance schedule 
 
 ## Portal
 A Maintenance schedule can be updated or changed at any time. However, if the selected instance is currently going through active maintenance cycle the settings will be saved and only become active during the next identified maintenance period. [Learn more](https://docs.microsoft.com/azure/service-health/resource-health-overview) about monitoring your data warehouse during an active maintenance event. 
@@ -35,14 +35,14 @@ During preview some regions may not yet support the full set of available Day op
 
    ![Maintenance settings blade](media/sql-data-warehouse-maintenance-scheduling/maintenance-settings-page.png)
 
-5. Choose your preferred Primary and Secondary maintenance windows using the Day, Start time and Time window dropdowns below. The Schedule summary at the bottom of the blade will update based on the dropdown values selected
+5. Choose your preferred Primary and Secondary maintenance windows using the Day, Start time and Time window dropdowns below. The Schedule summary at the bottom of the blade will update based on the dropdown values selected.
 
 #### Dropdown options
 - Day: Preferred day to perform maintenance during the selected window.
 - Start time: Preferred maintenance window start time.
 - Time window: Preferred duration of your time window.
 
-6. Click Save after you have selected your preferred maintenance windows. A confirmation message will appear confirming your new schedule is not active. If you are saving a schedule in a region that does not yet support Maintenance scheduling, then the following message will appear. Your settings will be saved and become active when the feature becomes available in your selected region.    
+  Click Save after you have selected your preferred maintenance windows. A confirmation message will appear confirming your new schedule is not active. If you are saving a schedule in a region that does not yet support Maintenance scheduling, then the following message will appear. Your settings will be saved and become active when the feature becomes available in your selected region.    
 
     ![Not active in region toast](media/sql-data-warehouse-maintenance-scheduling/maintenance-notactive-toast.png)
 
