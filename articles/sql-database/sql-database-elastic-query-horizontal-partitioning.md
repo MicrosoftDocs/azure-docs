@@ -2,15 +2,16 @@
 title: Reporting across scaled-out cloud databases | Microsoft Docs
 description: how to set up elastic queries over horizontal partitions
 services: sql-database
-documentationcenter: ''
-manager: craigg
-author: MladjoA
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: elastic-scale
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: MladjoA
 ms.author: mlandzic
-
+ms.reviewer:
+manager: craigg
+ms.date: 04/01/2018
 ---
 # Reporting across scaled-out cloud databases (preview)
 ![Query across shards][1]
