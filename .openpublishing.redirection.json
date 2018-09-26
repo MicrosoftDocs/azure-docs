@@ -2942,6 +2942,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/application-gateway/create-zone-redundant.md",
+            "redirect_url": "/azure/application-gateway/tutorial-autoscale-ps",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/application-insights/app-insights-azure-diagnostics.md",
             "redirect_url": "/azure/monitoring-and-diagnostics/azure-diagnostics-configure-application-insights",
             "redirect_document_id": false
