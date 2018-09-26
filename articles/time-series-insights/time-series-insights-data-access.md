@@ -117,7 +117,7 @@ Follow these steps to grant guest access to a Time Series Insights environment t
 
     ![Manage the Time Series Insights source - invite user](media/data-access/getstarted-grant-data-access12.png)
 
-12. Next, the guest user will need to accept the permissions associated with the admin's organization. 
+12. Next, the guest user will need to accept the permissions associated with the admin's organization.
 
     ![Manage the Time Series Insights source - accept permissions](media/data-access/getstarted-grant-data-access13.png)
 
