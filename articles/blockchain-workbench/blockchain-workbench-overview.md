@@ -46,4 +46,4 @@ Azure Blockchain Workbench makes it easier to analyze blockchain events and data
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Azure Blockchain Workbench architecture](blockchain-workbench-architecture.md)
+> [Azure Blockchain Workbench architecture](../blockchain/workbench/architecture.md)

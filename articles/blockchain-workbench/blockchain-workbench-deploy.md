@@ -16,7 +16,7 @@ manager: femila
 
 Azure Blockchain Workbench is deployed using a solution template in the Azure Marketplace. The template simplifies the deployment of components needed to create blockchain applications. Once deployed, Blockchain Workbench provides access to client apps to create and manage users and blockchain applications.
 
-For more information about the components of Blockchain Workbench, see [Azure Blockchain Workbench architecture](blockchain-workbench-architecture.md).
+For more information about the components of Blockchain Workbench, see [Azure Blockchain Workbench architecture](../blockchain/workbench/architecture.md).
 
 ## Prepare for deployment
 
@@ -306,4 +306,4 @@ When a deployment is no longer needed, you can remove a deployment by deleting t
 In this how-to article, you deployed Azure Blockchain Workbench. To learn how to create a blockchain application, continue to the next how-to article.
 
 > [!div class="nextstepaction"]
-> [Create a blockchain application in Azure Blockchain Workbench](blockchain-workbench-create-app.md)
+> [Create a blockchain application in Azure Blockchain Workbench](../blockchain/workbench/create-app.md)

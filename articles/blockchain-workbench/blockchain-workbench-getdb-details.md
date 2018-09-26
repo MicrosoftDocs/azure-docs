@@ -46,4 +46,4 @@ The database server name and database name let you connect to the Blockchain Wor
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Database views in Azure Blockchain Workbench](blockchain-workbench-database-views.md)
+> [Database views in Azure Blockchain Workbench](../blockchain/workbench/database-views.md)

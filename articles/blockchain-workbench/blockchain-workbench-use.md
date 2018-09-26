@@ -20,7 +20,7 @@ You can use Blockchain Workbench to create and take actions on contracts. You ca
 ## Prerequisites
 
 * A Blockchain Workbench deployment. For more information, see [Azure Blockchain Workbench deployment](blockchain-workbench-deploy.md) for details on deployment
-* A deployed blockchain application in Blockchain Workbench. See [Create a blockchain application in Azure Blockchain Workbench](blockchain-workbench-create-app.md)
+* A deployed blockchain application in Blockchain Workbench. See [Create a blockchain application in Azure Blockchain Workbench](../blockchain/workbench/create-app.md)
 
 [Open the Blockchain Workbench](blockchain-workbench-deploy.md#blockchain-workbench-web-url) in your browser.
 
@@ -30,7 +30,7 @@ You need to sign in as a member of the Blockchain Workbench. If there are no app
 
 ## Create new contract 
 
-To create a new contract, you need to be a member specified as an contract **initiator**. For information defining application roles and initiators for the contract, see [workflows in the configuration overview](blockchain-workbench-configuration-overview.md#workflows). For information on assigning members to application roles, see [add a member to application](blockchain-workbench-manage-users.md#add-member-to-application).
+To create a new contract, you need to be a member specified as an contract **initiator**. For information defining application roles and initiators for the contract, see [workflows in the configuration overview](../blockchain/workbench/configuration.md#workflows). For information on assigning members to application roles, see [add a member to application](blockchain-workbench-manage-users.md#add-member-to-application).
 
 1. In Blockchain Workbench application section, select the application tile that contains the contract you want to create. A list of active contracts are displayed.
 
@@ -48,7 +48,7 @@ To create a new contract, you need to be a member specified as an contract **ini
 
 ## Take action on contract
 
-Depending on the state the contract is in, members can take actions to transition to the next state of the contract. Actions are defined as [transitions](blockchain-workbench-configuration-overview.md#transitions) within a [state](blockchain-workbench-configuration-overview.md#states). Members belonging to an allowed application or instance role for the transition can take the action. 
+Depending on the state the contract is in, members can take actions to transition to the next state of the contract. Actions are defined as [transitions](../blockchain/workbench/configuration.md#transitions) within a [state](../blockchain/workbench/configuration.md#states). Members belonging to an allowed application or instance role for the transition can take the action. 
 
 1. In Blockchain Workbench application section, select the application tile that contains the contract to take the action.
 2. Select the contract in the list. Details about the contract are displayed in different sections. 

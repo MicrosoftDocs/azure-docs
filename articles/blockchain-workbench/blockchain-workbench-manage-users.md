@@ -113,4 +113,4 @@ Use the Blockchain Workbench application to manage users and organizations that 
 In this how-to article, you have learned how to manage users for Azure Blockchain Workbench. To learn how to create a blockchain application, continue to the next how-to article.
 
 > [!div class="nextstepaction"]
-> [Create a blockchain application in Azure Blockchain Workbench](blockchain-workbench-create-app.md)
+> [Create a blockchain application in Azure Blockchain Workbench](../blockchain/workbench/create-app.md)
