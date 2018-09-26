@@ -36,7 +36,7 @@ The following is a quick check list for optimal performance of SQL Server on Azu
 | --- | --- |
 | [VM size](#vm-size-guidance) |[DS3_v2](../sizes-general.md) or higher for SQL Enterprise edition.<br/><br/>[DS2_v2](../sizes-general.md) or higher for SQL Standard and Web editions. |
 | [Storage](#storage-guidance) |Use [Premium Storage](../premium-storage.md). Standard storage is only recommended for dev/test.<br/><br/>Keep the [storage account](../../../storage/common/storage-create-storage-account.md) and SQL Server VM in the same region.<br/><br/>Disable Azure [geo-redundant storage](../../../storage/common/storage-redundancy.md) (geo-replication) on the storage account. |
-| [Disks](#disks-guidance) |Use a minimum of 2 [P30 disks](../premium-storage.md#scalability-and-performance-targets) (1 for log files and 1 for data files and TempDB; or stripe two or more disks and store all files in a single volume).<br/><br/>Avoid using operating system or temporary disks for database storage or logging.<br/><br/>Enable read caching on the disk(s) hosting the data files and TempDB data files.<br/><br/>Do not enable caching on disk(s) hosting the log file.<br/><br/>Important: Stop the SQL Server service when changing the cache settings for an Azure VM disk.<br/><br/>Stripe multiple Azure data disks to get increased IO throughput.<br/><br/>Format with documented allocation sizes. |
+| [Disks](#disks-guidance) |Use a minimum of 2 [P30 disks](../premium-storage.md#scalability-and-performance-targets) (1 for log files and 1 for data files including TempDB).<br/><br/>Avoid using operating system or temporary disks for database storage or logging.<br/><br/>Enable read caching on the disk(s) hosting the data files and TempDB data files.<br/><br/>Do not enable caching on disk(s) hosting the log file.<br/><br/>Important: Stop the SQL Server service when changing the cache settings for an Azure VM disk.<br/><br/>Stripe multiple Azure data disks to get increased IO throughput.<br/><br/>Format with documented allocation sizes. |
 | [I/O](#io-guidance) |Enable database page compression.<br/><br/>Enable instant file initialization for data files.<br/><br/>Limit autogrowing on the database.<br/><br/>Disable autoshrink on the database.<br/><br/>Move all databases to data disks, including system databases.<br/><br/>Move SQL Server error log and trace file directories to data disks.<br/><br/>Setup default backup and database file locations.<br/><br/>Enable locked pages.<br/><br/>Apply SQL Server performance fixes. |
 | [Feature-specific](#feature-specific-guidance) |Back up directly to blob storage. |
 
@@ -49,14 +49,14 @@ For performance sensitive applications, it’s recommended that you use the foll
 * **SQL Server Enterprise Edition**: DS3_v2 or higher
 * **SQL Server Standard and Web Editions**: DS2_v2 or higher
 
-[DSv2-series](../sizes-general.md#dsv2-series) VMs support premium storage, which is recommended for the best performance. The sizes recommended here are baselines, but the actual machine size you select depends on your workload demands. DSv2-series VMs are general purpose VMs that are good for a variety of workloads, whereas other machines sizes are optimized for specific workload types. For example, the [M-series](../sizes-memory.md#m-series) offers the highest vCPU count and memory for the largest SQL Server workloads. The [GS-series](../sizes-memory.md#gs-series) and [DSv2-series 11-15](../sizes-memory.md#dsv2-series-11-15) are optimized for large memory requirements. Both of those series are also available in [constrained core sizes](../../windows/constrained-vcpu.md), which saves money for workloads with lower compute demands. The [Ls-series](../sizes-storage.md) machines are optimized for high disk throughput and IO. It is important to consider your specific SQL Server workload and apply this to your selection of a VM series and size.
+[DSv2-series](../sizes-general.md#dsv2-series) VMs support premium storage, which is recommended for the best performance. The sizes recommended here are baselines, but the actual machine size you select depends on your workload demands. DSv2-series VMs are general-purpose VMs that are good for a variety of workloads, whereas other machines sizes are optimized for specific workload types. For example, the [M-series](../sizes-memory.md#m-series) offers the highest vCPU count and memory for the largest SQL Server workloads. The [GS-series](../sizes-memory.md#gs-series) and [DSv2-series 11-15](../sizes-memory.md#dsv2-series-11-15) are optimized for large memory requirements. Both of those series are also available in [constrained core sizes](../../windows/constrained-vcpu.md), which saves money for workloads with lower compute demands. The [Ls-series](../sizes-storage.md) machines are optimized for high disk throughput and IO. It is important to consider your specific SQL Server workload and apply this to your selection of a VM series and size.
 
 ## Storage guidance
 
 DS-series (along with DSv2-series and GS-series) VMs support [Premium Storage](../premium-storage.md). Premium Storage is recommended for all production workloads.
 
 > [!WARNING]
-> Standard Storage has varying latencies and bandwidth and is only recommended for dev/test workloads. Production workloads should use Premium Storage.
+> Standard Storage has varying latencies and bandwidth and is only recommended for dev/test workloads. This includes the new Standard SSD storage. Production workloads should use Premium Storage.
 
 In addition, we recommend that you create your Azure storage account in the same data center as your SQL Server virtual machines to reduce transfer delays. When creating a storage account, disable geo-replication as consistent write order across multiple disks is not guaranteed. Instead, consider configuring a SQL Server disaster recovery technology between two Azure data centers. For more information, see [High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md).
 
@@ -86,7 +86,7 @@ For VMs that support Premium Storage (DS-series, DSv2-series, and GS-series), we
 
 ### Data disks
 
-* **Use data disks for data and log files**: If you are not using disk striping, use two Premium Storage [P30 disks](../premium-storage.md#scalability-and-performance-targets) where one disk contains the log file(s) and the other contains the data and TempDB file(s). Each Premium Storage disk provides a number of IOPs and bandwidth (MB/s) depending on its size, as described in the article, [Using Premium Storage for Disks](../premium-storage.md). If you are using a disk striping technique, such as Storage Spaces, we recommend to place all data and log files on the same drive.
+* **Use data disks for data and log files**: If you are not using disk striping, use two Premium Storage [P30 disks](../premium-storage.md#scalability-and-performance-targets) where one disk contains the log file(s) and the other contains the data and TempDB file(s). Each Premium Storage disk provides a number of IOPs and bandwidth (MB/s) depending on its size, as described in the article, [Using Premium Storage for Disks](../premium-storage.md). If you are using a disk striping technique, such as Storage Spaces, you achieve optimal performance by having two pools, one for the log file(s) and the other for the data files. However, if you plan to use SQL Server Failover Cluster Instances (FCI), you must configure one pool.
 
    > [!NOTE]
    > When you provision a SQL Server VM in the portal, you have the option of editing your storage configuration. Depending on your configuration, Azure configures one or more disks. Multiple disks are combined into a single storage pool with striping. Both the data and log files reside together in this configuration. For more information, see [Storage configuration for SQL Server VMs](virtual-machines-windows-sql-server-storage-configuration.md).
@@ -96,7 +96,7 @@ For VMs that support Premium Storage (DS-series, DSv2-series, and GS-series), we
   * For Windows 8/Windows Server 2012 or later, use [Storage Spaces](https://technet.microsoft.com/library/hh831739.aspx) with the following guidelines:
 
       1. Set the interleave (stripe size) to 64 KB (65536 bytes) for OLTP workloads and 256 KB (262144 bytes) for data warehousing workloads to avoid performance impact due to partition misalignment. This must be set with PowerShell.
-      1. Set column count = number of physical disks. Use PowerShell when configuring more than 8 disks (not Server Manager UI). 
+      2. Set column count = number of physical disks. Use PowerShell when configuring more than 8 disks (not Server Manager UI). 
 
     For example, the following PowerShell creates a new storage pool with the interleave size to 64 KB and the number of columns to 2:
 
@@ -109,7 +109,7 @@ For VMs that support Premium Storage (DS-series, DSv2-series, and GS-series), we
 
   * For Windows 2008 R2 or earlier, you can use dynamic disks (OS striped volumes) and the stripe size is always 64 KB. Note that this option is deprecated as of Windows 8/Windows Server 2012. For information, see the support statement at [Virtual Disk Service is transitioning to Windows Storage Management API](https://msdn.microsoft.com/library/windows/desktop/hh848071.aspx).
 
-  * If you are using [Storage Spaces Direct (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-in-vm) with a scenario like [SQL Server Failover Cluster Instances](virtual-machines-windows-portal-sql-create-failover-cluster.md), you must configure a single pool. Note that although different volumes can be created on that single pool, they will all share the same characteristics, such as the same caching policy.
+  * If you are using [Storage Spaces Direct (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-in-vm) with [SQL Server Failover Cluster Instances](virtual-machines-windows-portal-sql-create-failover-cluster.md), you must configure a single pool. Note that although different volumes can be created on that single pool, they will all share the same characteristics, such as the same caching policy.
 
   * Determine the number of disks associated with your storage pool based on your load expectations. Keep in mind that different VM sizes allow different numbers of attached data disks. For more information, see [Sizes for Virtual Machines](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
@@ -119,7 +119,7 @@ For VMs that support Premium Storage (DS-series, DSv2-series, and GS-series), we
 
   * If you are using separate disks for data and log files, enable read caching on the data disks hosting your data files and TempDB data files. This can result in a significant performance benefit. Do not enable caching on the disk holding the log file as this causes a minor decrease in performance.
 
-  * If you are using disk striping, most workloads will benefit from read caching. Because of the performance gain with disk striping, this recommendation applies even when the log file is on the same drive. In certain heavy write workloads, better performance might be achieved with no caching. This can only be determined through testing.
+  * If you are using disk striping in a single storage pool, most workloads will benefit from read caching. If you have separate storage pools for the log and data files, enable read caching only on the storage pool for the data files. In certain heavy write workloads, better performance might be achieved with no caching. This can only be determined through testing.
 
   * The previous recommendations apply to Premium Storage disks. If you are not using Premium Storage, do not enable any caching on any data disks.
 
