@@ -6,7 +6,7 @@ ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
 author: "stepro"
 ms.author: "stephpr"
-ms.date: "08/01/2018"
+ms.date: "09/26/2018"
 ms.topic: "tutorial"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
