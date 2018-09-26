@@ -22,7 +22,7 @@ ms.author: cynthn
 
 This article walks you through using PowerShell to upload a VHD of a generalized VM to Azure, create an image from the VHD, and create a new VM from that image. You can upload a VHD exported from an on-premises virtualization tool or from another cloud. Using [Managed Disks](managed-disks-overview.md) for the new VM simplifies the VM management and provides better availability when the VM is placed in an availability set. 
 
-For a sample script, see [Sample script to upload a VHD to Azure and create a new VM](../scripts/virtual-machines-windows-powershell-upload-generalized-script.md)
+For a sample script, see [Sample script to upload a VHD to Azure and create a new VM](../scripts/virtual-machines-windows-powershell-upload-generalized-script.md).
 
 ## Before you begin
 
@@ -31,14 +31,14 @@ For a sample script, see [Sample script to upload a VHD to Azure and create a ne
 - This article requires the AzureRM module, version 5.6 or later. Run ` Get-Module -ListAvailable AzureRM.Compute` to find your version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
 
-## Generalize the source VM using Sysprep
+## Generalize the source VM by using Sysprep
 
 Sysprep removes all your personal account information, among other things, and prepares the machine to be used as an image. For details about Sysprep, see the [Sysprep Overview](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
 
 Make sure the server roles running on the machine are supported by Sysprep. For more information, see [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
 
 > [!IMPORTANT]
-> If you are running Sysprep before uploading your VHD to Azure for the first time, first make sure you have [prepared your VM](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) before running Sysprep. 
+> If you plan to run Sysprep before uploading your VHD to Azure for the first time, make sure you have [prepared your VM](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 > 
 > 
 
@@ -49,7 +49,7 @@ Make sure the server roles running on the machine are supported by Sysprep. For 
 5. Select **OK**.
    
     ![Start Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
-6. When Sysprep completes, it shuts down the virtual machine. Do not restart the VM.
+6. When Sysprep finishes, it shuts down the virtual machine. Do not restart the VM.
 
 
 ## Get a storage account
@@ -66,7 +66,7 @@ Get-AzureRmStorageAccount | Format-Table
 
 ## Upload the VHD to your storage account
 
-Use the [Add-AzureRmVhd](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd) cmdlet to upload the VHD to a container in your storage account. This example uploads the file *myVHD.vhd* from *"C:\Users\Public\Documents\Virtual hard disks\"* to a storage account named *mystorageaccount* in the *myResourceGroup* resource group. The file will be placed into the container named *mycontainer* and the new file name will be *myUploadedVHD.vhd*.
+Use the [Add-AzureRmVhd](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd) cmdlet to upload the VHD to a container in your storage account. This example uploads the file *myVHD.vhd* from *C:\Users\Public\Documents\Virtual hard disks\\* to a storage account named *mystorageaccount* in the *myResourceGroup* resource group. The file will be placed into the container named *mycontainer* and the new file name will be *myUploadedVHD.vhd*.
 
 ```powershell
 $rgName = "myResourceGroup"
@@ -101,7 +101,7 @@ You can also upload a VHD to your storage account using one of the following:
 - [Azure Storage Explorer Uploading Blobs](https://azurestorageexplorer.codeplex.com/)
 - [Storage Import/Export Service REST API Reference](https://msdn.microsoft.com/library/dn529096.aspx)
 -	We recommend using the Import/Export Service if estimated uploading time is longer than seven days. You can use [DataTransferSpeedCalculator](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/blob/master/DataTransferSpeedCalculator.html) to estimate the time from data size and transfer unit. 
-	Import/Export can be used to copy to a standard storage account. You'll need to copy from standard storage to premium storage account using a tool like AzCopy.
+	Import/Export can be used to copy to a standard storage account. You'll need to copy from standard storage to premium storage account by using a tool like AzCopy.
 
 > [!IMPORTANT]
 > If you are using AzCopy to upload your VHD to Azure, make sure you have set [**/BlobType:page**](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy#blobtypeblock--page--append) before running your upload script. 
