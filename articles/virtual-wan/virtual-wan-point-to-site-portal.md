@@ -35,6 +35,19 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
 
+## Register this feature
+
+Click the "TryIt in this article to register this feature. If you skip this step, you will not be able to use this feature or see the portal properly. Or, you can use the latest version of the PowerShell cmdlets locally on your computer.
+
+```azurepowershell-interactive
+Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowP2SCortexAccess
+```
+
+```azurepowershell-interactive
+Get-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowP2SCortexAccess
+```
+
+Once the feature shows as registered, reregister the subscription to Microsoft.Network namespace using **-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network**.
 
 ## <a name="vnet"></a>1. Create a virtual network
 
