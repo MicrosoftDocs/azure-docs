@@ -28,15 +28,19 @@ Complete the following steps to change the maintenance schedule that has been ap
 2.	Select the data warehouse that you would like to update. The page will open on the overview blade. 
 3.	The Maintenance schedule settings page can be accessed by either clicking on the Maintenance schedule (preview) summary link in the overview blade or via the Maintenance schedule option in the left-hand Resource Menu.  
 
-![Overview blade options](media/sql-data-warehouse-maintenance-scheduling/maintenance-change-option.png)
 
-4. You can identify the preferred day range for your Primary maintenance window using the radio buttons at the top of the page. This selection determines if your primary window will occur on a weekday or over the weekend. Your selection will update the dropdown values below accordingly. 
+    ![Overview blade options](media/sql-data-warehouse-maintenance-scheduling/maintenance-change-option.png)
 
-![Maintenance settings blade](media/sql-data-warehouse-maintenance-scheduling/maintenance-settings-page.png)
 
-5. Choose your preferred Primary and Secondary maintenance windows using the Day, Start time and Time window dropdowns below. The Schedule summary at the bottom of the blade will update based on the dropdown values selected 
+4. You can identify the preferred day range for your Primary maintenance window using the radio buttons at the top of the page. This selection determines if your primary window will occur on a weekday or over the weekend. Your selection will update the dropdown values below accordingly.
 
-#### Dropdown options
+
+    ![Maintenance settings blade](media/sql-data-warehouse-maintenance-scheduling/maintenance-settings-page.png)
+
+
+5. Choose your preferred Primary and Secondary maintenance windows using the Day, Start time and Time window dropdowns below. The Schedule summary at the bottom of the blade will update based on the dropdown values selected
+
+## Dropdown options
 - Day: Preferred day to perform maintenance during the selected window.
 - Start time: Preferred maintenance window start time.
 - Time window: Preferred duration of your time window.
@@ -46,7 +50,7 @@ During preview some regions may not yet support the full set of available Day op
 
 6. Click Save after you have selected your preferred maintenance windows. A confirmation message will appear confirming your new schedule is not active. If you are saving a schedule in a region that does not yet support Maintenance scheduling, then the following message will appear. Your settings will be saved and become active when the feature becomes available in your selected region.    
 
-![Not active in region toast](media/sql-data-warehouse-maintenance-scheduling/maintenance-notactive-toast.png)
+    ![Not active in region toast](media/sql-data-warehouse-maintenance-scheduling/maintenance-notactive-toast.png)
 
 
 ## Next steps
