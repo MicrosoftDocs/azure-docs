@@ -112,8 +112,8 @@ For more information about the role permissions required for peering, see the
 
 ## Set permissions on VNETs with ExpressRoute or VPNs
 
-To give your integration service environment (ISE) 
-access to a VNET that's connected either through 
+After you finish the previous steps, if you want to give your integration 
+service environment (ISE) access to a VNET that's connected either through 
 [Azure ExpressRoute](../expressroute/expressroute-introduction.md), 
 a [Point-to-Site VPN](../vpn-gateway/point-to-site-about.md) in Azure, or a 
 [Site-to-Site VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) in Azure, 
