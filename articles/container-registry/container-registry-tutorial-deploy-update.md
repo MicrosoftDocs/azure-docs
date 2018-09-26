@@ -134,7 +134,7 @@ In this tutorial, you updated and pushed a new version of the web application co
 
 In addition to geo-replication, ACR Build is another feature of Azure Container Registry that can help optimize your container deployment pipeline. Start with the ACR Build overview to get an idea of its capabilities:
 
-[Automate OS and framework patching with ACR Build](container-registry-build-overview.md)
+[Automate OS and framework patching with ACR Build](container-registry-tasks-overview.md)
 
 <!-- IMAGES -->
 [deployed-app-eastus-modified]: ./media/container-registry-tutorial-deploy-update/deployed-app-eastus-modified.png

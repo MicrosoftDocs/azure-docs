@@ -2,13 +2,16 @@
 title: "Migrate to the new Elastic Database Jobs | Microsoft Docs"
 description: Migrate to the new Elastic Database Jobs.
 services: sql-database
-author: johnpaulkee
-manager: craigg
 ms.service: sql-database
-ms.topic: article
-ms.date: 06/14/2018
+ms.subservice: operations
+ms.custom: 
+ms.devlang: 
+ms.topic: conceptual
+author: johnpaulkee
 ms.author: johnpaulkee
-
+ms.reviewer:
+manager: craigg
+ms.date: 06/14/2018
 ---
 # Migrate to the new Elastic Database jobs
 

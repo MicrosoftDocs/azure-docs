@@ -66,6 +66,7 @@ In the limits below, a new table has been added to reflect any differences in li
 * [DNS](#dns-limits)
 * [Event Hubs](#event-hubs-limits)
 * [Azure Firewall](#azure-firewall-limits)
+* [Front Door](#azure-front-door-service-limits)
 * [IoT Hub](#iot-hub-limits)
 * [IoT Hub Device Provisioning Service](#iot-hub-device-provisioning-service-limits)
 * [Key Vault](#key-vault-limits)
@@ -83,6 +84,7 @@ In the limits below, a new table has been added to reflect any differences in li
 * [Scheduler](#scheduler-limits)
 * [Search](#search-limits)
 * [Service Bus](#service-bus-limits)
+* [SignalR Service](#signalr-service-limits)
 * [Site Recovery](#site-recovery-limits)
 * [SQL Database](#sql-database-limits)
 * [SQL Data Warehouse](#sql-data-warehouse-limits)
@@ -151,6 +153,9 @@ The following table details the features and limits of the Basic, Standard, and 
 
 #### Azure Firewall limits
 [!INCLUDE [azure-firewall-limits](../includes/firewall-limits.md)]
+
+#### Azure Front Door Service limits
+[!INCLUDE [azure-front-door-service-limits](../includes/front-door-limits.md)]
 
 ### Storage limits
 <!--like # storage accts -->
@@ -227,9 +232,6 @@ For Azure Database for MySQL limits, see [Limitations in Azure Database for MySQ
 
 ### Azure Database for PostgreSQL
 For Azure Database for PostgreSQL limits, see [Limitations in Azure Database for PostgreSQL](postgresql/concepts-limits.md).
-
-### Mobile Engagement limits
-[!INCLUDE [azure-mobile-engagement-limits](../includes/azure-mobile-engagement-limits.md)]
 
 ### Search limits
 Pricing tiers determine the capacity and limits of your search service. Tiers include:
@@ -310,6 +312,9 @@ To learn more about limits on a more granular level, such as document size, quer
 
 ### Backup limits
 [!INCLUDE [azure-backup-limits](../includes/azure-backup-limits.md)]
+
+### SignalR Service limits
+[!INCLUDE [signalr-service-limits](../includes/signalr-service-limits.md)]
 
 ### Site Recovery limits
 [!INCLUDE [site-recovery-limits](../includes/site-recovery-limits.md)]

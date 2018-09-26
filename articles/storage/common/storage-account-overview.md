@@ -90,8 +90,8 @@ When naming your storage account, keep these rules in mind:
 
 General-purpose storage accounts may be configured for either of the following performance tiers:
 
-* A standard storage performance tier for storing blobs, files, tables, queues, and Azure virtual machine disks.
-* A premium storage performance tier for storing Azure virtual machine disks only. See [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../../virtual-machines/windows/premium-storage.md) for an in-depth overview of Premium storage.
+* A standard performance tier for storing blobs, files, tables, queues, and Azure virtual machine disks.
+* A premium performance tier for storing Azure virtual machine disks only. See [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../../virtual-machines/windows/premium-storage.md) for an in-depth overview of Premium storage.
 
 ## Access tiers for block blob data
 
@@ -103,12 +103,15 @@ The available access tiers are:
 * The **cool** access tier, which is optimized for storing large amounts of data that is infrequently accessed and stored for at least 30 days. Storing data in the cool tier is more cost-effective, but accessing that data may be somewhat more expensive than accessing data in the hot tier.
 * The **archive** tier, which is available only for individual block blobs. The archive tier is optimized for data that can tolerate several hours of retrieval latency and will remain in the archive tier for at least 180 days. The archive tier is the most cost-effective option for storing data, but accessing that data is more expensive than accessing data in the hot or cool tiers. 
 
+> [!NOTE]
+> The [Premium access tier](../blobs/storage-blob-storage-tiers.md#premium-access-tier) is available in limited preview as a locally redundant storage (LRS) account in the North Europe, US East 2, US Central and US West regions. To learn how to register for the preview, see [Introducing Azure Premium Blob Storage](http://aka.ms/premiumblob).
+
 If there is a change in the usage pattern of your data, you can switch between these access tiers at any time. 
 
 > [!IMPORTANT]
 > Changing the access tier for an existing storage account or blob may result in additional charges.
 
-For more information about access tiers, see [Azure Blob storage: Hot, cool, and archive storage tiers](../blobs/storage-blob-storage-tiers.md).
+For more information about access tiers, see [Azure Blob storage: Premium (preview), hot, cool, and archive storage tiers](../blobs/storage-blob-storage-tiers.md).
 
 ## Replication
 

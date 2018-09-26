@@ -19,8 +19,6 @@ ms.author: zhshang
 ---
 # Tutorial: Azure SignalR Service authentication
 
-Microsoft Azure SignalR Service is currently in [Public Preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 This tutorial builds on the chat room application introduced in the quickstart. If you have not completed [Create a chat room with SignalR Service](signalr-quickstart-dotnet-core.md), complete that exercise first. 
 
 In this tutorial, you'll learn how to implement your own authentication and integrate it with the Microsoft Azure SignalR Service. 
@@ -392,7 +390,7 @@ In this section, you will turn on real authentication by adding the `Authorize` 
 
 In this section, you will use the Azure command-line interface (CLI) from the Azure Cloud Shell to create a new [Azure Web App](https://docs.microsoft.com/azure/app-service/) to host your ASP.NET application in Azure. The web app will be configured to use local Git deployment. The web app will also be configured with your SignalR connection string, GitHub OAuth app secrets, and a deployment user.
 
-The steps in this section use the *signalr* extension for the Azure CLI. Execute the following command to install the *signalr* extension for the Azure CLI 2.0:
+The steps in this section use the *signalr* extension for the Azure CLI. Execute the following command to install the *signalr* extension for the Azure CLI:
 
 ```azurecli-interactive
 az extension add -n signalr
