@@ -1,5 +1,5 @@
 ---
-title: Access to Azure virtual Network from Azure Logic Apps
+title: Access to Azure virtual networks from Azure Logic Apps
 description: This overview shows how isolated logic apps can connect to Azure virtual networks from integration service environments (ISEs) that use private and dedicated resources
 services: logic-apps
 ms.service: logic-apps
@@ -19,15 +19,15 @@ ms.date: 09/24/2018
 
 Sometimes, your logic apps and integration accounts need access to secured 
 resources such as virtual machines (VMs) and other systems or services inside an 
-[Azure Virtual Network](../virtual-network/virtual-networks-overview.md). 
+[Azure virtual network](../virtual-network/virtual-networks-overview.md). 
 To provide this access, you can [create an *integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) 
 as the location for creating your logic apps and integration accounts. 
 
 ![Select integration service environment](./media/connect-virtual-network-vnet-isolated-environment-overview/select-logic-app-integration-service-environment.png)
 
 Creating an ISE deploys a private and isolated Logic Apps 
-instance into your virtual network. The private instance 
-uses dedicated resources such as storage, and runs 
+instance into your Azure virtual network. The private 
+instance uses dedicated resources such as storage, and runs 
 separately from the public "global" Logic Apps service. 
 This separation also helps reduce the impact that other 
 Azure tenants might have on your apps' performance, or the 

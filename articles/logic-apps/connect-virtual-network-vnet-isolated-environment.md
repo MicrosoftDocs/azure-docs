@@ -1,6 +1,6 @@
 ---
-title: Connect to Azure Virtual Network from Azure Logic Apps
-description: To access your Azure virtual network from Azure Logic Apps, you can create private, dedicated, and isolated integration service environments that keep logic apps and other resources separate from public or "global" Azure
+title: Connect to Azure virtual networks from Azure Logic Apps
+description: To access Azure virtual networks from Azure Logic Apps, you can create private, dedicated, and isolated integration service environments that keep logic apps and other resources separate from public or "global" Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
