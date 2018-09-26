@@ -37,7 +37,7 @@ In this tutorial, you learn how to:
 
 ## <a name="register"></a>Register this feature
 
-Click the **TryIt** in this article to register this feature easily using Azure Cloud Shell.
+Click the **TryIt** to register this feature easily using Azure Cloud Shell.
 
 >[!NOTE]
 >If you don't register this feature, you will not be able to use it, or to see it in the portal.
@@ -74,7 +74,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 
 ## <a name="openvwan"></a>2. Create a virtual WAN
 
-From a browser, navigate to the [Azure portal](http://aka.ms/azurevirtualwanpreviewfeatures) and sign in with your Azure account.
+From a browser, navigate to the [Azure portal (Preview)](http://aka.ms/azurevirtualwanpreviewfeatures) and sign in with your Azure account.
 
 [!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-vwan-include.md)]
 
