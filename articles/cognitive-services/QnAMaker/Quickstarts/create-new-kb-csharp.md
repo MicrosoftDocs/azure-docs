@@ -15,20 +15,18 @@ ms.author: diberry
 
 # Quickstart: Create a new knowledge base in C#
 
-This quickstart walks you through creating a sample QnA maker knowledge base, programmatically, that will appear in your Azure Dashboard of your Cognitive Services API account.
+This quickstart walks you through creating a sample QnA maker knowledge base, programmatically, that will appear in your Azure Dashboard of your Cognitive Services API account.  QnA Maker automatically extracts questions and answers from semi-structured content, like FAQs, from [data sources](../Concepts/data-sources-supported.md).
 
-This quickstart calls two Qna Maker APIs:
+This quickstart calls Qna Maker APIs:
 * [Create KB](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
 * [Get Operation Details](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails)
 
 [!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-csharp-repo-note.md)]
 
- QnA Maker automatically extracts questions and answers from semi-structured content, like FAQs, from [data sources](../Concepts/data-sources-supported.md). 
-
 ## Prerequisites
 
 * Latest [**Visual Studio Community edition**](https://www.visualstudio.com/downloads/).
-* You must have a [Qna Maker service](set-up-qnamaker-service-azure). To retrieve your key, select **Keys** under **Resource Management** in your dashboard. 
+* You must have a [Qna Maker service](../How-To/set-up-qnamaker-service-azure). To retrieve your key, select **Keys** under **Resource Management** in your dashboard. 
 
 ## Create knowledge base project
 
@@ -113,7 +111,7 @@ static string kb = @"
 
 ## Add supporting functions and structures
 
-Add the following code blocks inside the Program class:
+Add the following code block inside the Program class:
 
 ```csharp
 public struct Response
@@ -305,7 +303,7 @@ Change the Main method to call the CreateKB method:
 ```csharp
 static void Main(string[] args)
 {
-    // Invoke the CreateKB() method to create a knowledge base, periodically 
+    // Call the CreateKB() method to create a knowledge base, periodically 
     // checking the status of the QnA Maker operation until the 
     // knowledge base is created.
     CreateKB();
@@ -314,6 +312,10 @@ static void Main(string[] args)
     Console.ReadLine();
 }
 ```
+
+## Build and run the program
+
+Build and run the program. It will automatically send the request to the Qna Maker API to create the KB, then it will poll for the results every 30 seconds. Each response is printed to the console window.
 
 Once your knowledge base is created, you can view it in your QnA Maker Portal, [My knowledge bases](https://www.qnamaker.ai/Home/MyServices) page. To view, select **QnA Maker FAQ from quickstart**.
 
