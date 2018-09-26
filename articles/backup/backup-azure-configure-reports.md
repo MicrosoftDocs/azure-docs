@@ -11,7 +11,7 @@ ms.author: adigan
 ms.custom: H1Hack27Feb2017
 ---
 # Configure Azure Backup reports
-This article shows steps to follow to configure reports for Azure Backup by using a Recovery Services vault. It also shows how to access reports by using Power BI. After you perform these steps, you can go directly to Power BI to view, customize, and create reports.
+This article shows steps to follow to configure reports for Azure Backup by using a Recovery Services vault. It also shows how to access reports by using Power BI. After you finish these steps, you can go directly to Power BI to view, customize, and create reports.
 
 ## Supported scenarios
 - Azure Backup reports are supported for Azure virtual machine backup and file and folder backup to the cloud by using the Azure Recovery Services Agent.
@@ -26,14 +26,14 @@ This article shows steps to follow to configure reports for Azure Backup by usin
 
 ## Configure storage account for reports
 Follow these steps to configure the storage account for a Recovery Services vault by using the Azure portal. This is a one-time configuration. After the storage account is configured, you can go directly to Power BI to view the content pack and use reports.
-1. If you already have a Recovery Services vault open, proceed to the next step. If you don't have a Recovery Services vault open, in the Azure portal, select **All services**.
+1. If you already have a Recovery Services vault open, go to the next step. If you don't have a Recovery Services vault open, in the Azure portal, select **All services**.
 
    * In the list of resources, enter **Recovery Services**.
    * As you begin typing, the list filters based on your input. When you see **Recovery Services vaults**, select it.
 
       ![Create Recovery Services Vault step 1](./media/backup-azure-vms-encryption/browse-to-rs-vaults.png) <br/>
 
-     The list of Recovery Services vaults appears. From the list of Recovery Services vaults, select a vault.
+    * The list of Recovery Services vaults appears. From the list of Recovery Services vaults, select a vault.
 
      The selected vault dashboard opens.
 2. From the list of items that appears under the vault, under the **Monitoring and Reports** section, select **Backup Reports** to configure the storage account for reports.
@@ -120,7 +120,7 @@ After you configure a storage account for reports by using a Recovery Services v
    
    ![Azure Backup Reports data push frequency](./media/backup-azure-configure-reports/reports-data-refresh-cycle.png)
 
-  Power BI has a [scheduled refresh once a day](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/#what-can-be-refreshed). You can perform a manual refresh of the data in Power BI for the content pack.
+* Power BI has a [scheduled refresh once a day](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/#what-can-be-refreshed). You can perform a manual refresh of the data in Power BI for the content pack.
 
 **How long can I retain reports?**
 
@@ -136,7 +136,7 @@ After you configure a storage account for reports by using a Recovery Services v
 
 **Can I view reports across vaults and subscriptions?**
 
-   Yes, you can configure the same storage account across various vaults to view cross-vault reports. Also, you can configure the same storage account for vaults across subscriptions. You can then use this storage account while you connect to the Azure Backup content pack in Power BI to view the reports. The storage account selected must be in the same region as the Recovery Services vault.
+   Yes, you can configure the same storage account across various vaults to view cross-vault reports. Also, you can configure the same storage account for vaults across subscriptions. Then you can use this storage account while you connect to the Azure Backup content pack in Power BI to view the reports. The storage account selected must be in the same region as the Recovery Services vault.
    
 ## Troubleshooting errors
 | Error details | Resolution |
