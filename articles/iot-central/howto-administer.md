@@ -158,7 +158,7 @@ After you've evaluated IoT Central, you can convert your trial to a paid applica
 
 By default, all free trials are available for seven days. If you'd like to increase your trial to 30 days, follow these steps:
 
-1. Use the secondary navigation menu to go to the **Billing** page in the **Administration** section:
+1. Use the secondary navigation menu to go to the **Billing** page in the **Administration** section.
 
 1. Select **Extend Trial**. In the pop-up window, select the appropriate Azure Active Directory tenant and then the Azure subscription to use for your IoT Central application.
 
