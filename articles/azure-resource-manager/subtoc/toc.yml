@@ -320,6 +320,9 @@
     - name: Replications
       href: /azure/templates/Microsoft.ContainerRegistry/registries/replications
       maintainContext: true
+    - name: Tasks
+      href: /azure/templates/Microsoft.ContainerRegistry/registries/tasks
+      maintainContext: true
     - name: WebHooks
       href: /azure/templates/Microsoft.ContainerRegistry/registries/webhooks
       maintainContext: true
@@ -432,6 +435,28 @@
     - name: TrustedID Providers
       href: /azure/templates/Microsoft.DataLakeStore/accounts/trustedIdProviders
       maintainContext: true
+- name: Deployment Manager
+  items:
+  - name: Artifact Sources
+    href: /azure/templates/Microsoft.DeploymentManager/artifactSources
+    maintainContext: true
+  - name: Rollouts
+    href: /azure/templates/Microsoft.DeploymentManager/rollouts
+    maintainContext: true
+  - name: Service Topologies
+    href: /azure/templates/Microsoft.DeploymentManager/serviceTopologies
+    maintainContext: true
+    items:
+    - name: Services
+      href: /azure/templates/Microsoft.DeploymentManager/serviceTopologies/services
+      maintainContext: true
+      items:
+      - name: Service Units
+        href: /azure/templates/Microsoft.DeploymentManager/serviceTopologies/services/serviceUnits
+        maintainContext: true
+  - name: Steps
+    href: /azure/templates/Microsoft.DeploymentManager/steps
+    maintainContext: true
 - name: Devices
   items:
   - name: Iot Hubs

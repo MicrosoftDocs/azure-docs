@@ -51,7 +51,7 @@ Perform the following steps in the [Azure portal](https://portal.azure.com/) to 
 
 1. Return to the Azure portal. Go to **All resources**, and search for your Data Box Gateway resource.
     
-2. In the filtered list of resources, select your Data Box Gateway resource and and then navigate to **Overview**. Click **+ Add share** on the device command bar.
+2. In the filtered list of resources, select your Data Box Gateway resource and then navigate to **Overview**. Click **+ Add share** on the device command bar.
    
    ![Add a share](./media/data-box-gateway-deploy-add-shares/click-add-share.png)
 

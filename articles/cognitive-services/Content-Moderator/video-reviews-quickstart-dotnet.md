@@ -1,12 +1,14 @@
 ---
-title: Azure Content Moderator - Create video reviews using .NET | Microsoft Docs
-description: How to create video reviews using Azure Content Moderator SDK for .NET
+title: Create video reviews using .NET - Content Moderator
+titlesuffix: Azure Cognitive Services
+description: How to create video reviews using the Content Moderator SDK for .NET
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/18/2018
 ms.author: sajagtap
 ---
@@ -157,7 +159,7 @@ Add the following method definition to namespace VideoReviews, class Program.
     {
     	return new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey))
         {
-        	BaseUrl = AzureBaseURL
+        	Endpoint = AzureBaseURL
         };
     }
 
