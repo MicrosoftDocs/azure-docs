@@ -49,21 +49,21 @@ The Resource Graph module for PowerShell Core is **Az.ResourceGraph**.
 
 1. From an **administrative** PowerShell Core prompt, run the following command:
 
-   ```azurepowershell-interactive
+   ```powershell
    # Install the Resource Graph module from PowerShell Gallery
    Install-Module -Name Az.ResourceGraph
    ```
 
 1. Validate that the module has been imported and is the correct version (0.2.0):
 
-   ```azurepowershell-interactive
+   ```powershell
    # Get a list of commands for the imported Az.ResourceGraph module
    Get-Command -Module 'Az.ResourceGraph' -CommandType 'Cmdlet'
    ```
 
 1. Enable backwards aliases for **Az** to **AzureRm** with the following command:
 
-   ```azurepowershell-interactive
+   ```powershell
    # Enable backwards alias compatibility
    Enable-AzureRmAlias
    ```
@@ -74,14 +74,14 @@ The Resource Graph module for Windows PowerShell is **AzureRm.ResourceGraph**.
 
 1. From an **administrative** Windows PowerShell prompt, run the following command:
 
-   ```azurepowershell-interactive
+   ```powershell
    # Install the Resource Graph (prerelease) module from PowerShell Gallery
    Install-Module -Name AzureRm.ResourceGraph -AllowPrerelease
    ```
 
 1. Validate that the module has been imported and is the correct version (0.1.0-preview):
 
-   ```azurepowershell-interactive
+   ```powershell
    # Get a list of commands for the imported AzureRm.ResourceGraph module
    Get-Command -Module 'AzureRm.ResourceGraph' -CommandType 'Cmdlet'
    ```
@@ -94,7 +94,7 @@ the **Name** and **Resource Type** of each resource.
 
 1. Run your first Azure Resource Graph query using the `Search-AzureRmGraph` cmdlet:
 
-   ```azurepowershell-interactive
+   ```powershell
    # Login first with Connect-AzureRmAccount
 
    # Run Azure Resource Graph query
@@ -107,7 +107,7 @@ the **Name** and **Resource Type** of each resource.
 
 1. Update the query to `order by` the **Name** property:
 
-   ```azurepowershell-interactive
+   ```powershell
    # Run Azure Resource Graph query with 'order by'
    Search-AzureRmGraph -Query 'project name, type | limit 5 | order by name asc'
    ```
@@ -119,7 +119,7 @@ the **Name** and **Resource Type** of each resource.
 
 1. Update the query to first `order by` the **Name** property and then `limit` to the top 5 results:
 
-   ```azurepowershell-interactive
+   ```powershell
    # Run Azure Resource Graph query with `order by` first, then with `limit`
    Search-AzureRmGraph -Query 'project name, type | order by name asc | limit 5'
    ```
@@ -133,7 +133,7 @@ still limited to the top 5 results.
 If you wish to remove the Resource Graph module from your Azure PowerShell environment, you can do
 so by using the following command:
 
-```azurepowershell-interactive
+```powershell
 # Remove the Resource Graph module from the Azure PowerShell environment
 Remove-Module -Name 'AzureRm.ResourceGraph'
 ```
