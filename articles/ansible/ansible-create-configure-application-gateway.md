@@ -151,11 +151,16 @@ ansible-playbook aci_create.yml
 
 Now let us create an applicate gateway. The following example creates an applicate gateway named **myAppGateway** with backend, frontend, and http configuration.  
 
-**appGatewayIP** defined in **gateway_ip_configurations** block - Subnet reference is required for ip configuration of the gateway. .  
+**appGatewayIP** defined in **gateway_ip_configurations** block - Subnet reference is required for ip configuration of the gateway. 
+
 **appGatewayBackendPool** defined in **backend_address_pools** block - An application gateway must have at least one backend address pool. 
+
 **appGatewayBackendHttpSettings** defined in **backend_http_settings_collection** block - Specifies that port 80 and an HTTP protocol is used for communication. 
+
 **appGatewayHttpListener** defined in **backend_http_settings_collection** block - The default listener associated with appGatewayBackendPool. 
+
 **appGatewayFrontendIP** defined in **frontend_ip_configurations** block - Assigns myAGPublicIPAddress to appGatewayHttpListener. 
+
 **rule1** defined in **request_routing_rules** block - The default routing rule that is associated with appGatewayHttpListener. 
 
 ```yml
