@@ -14,7 +14,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/02/2018
-ms.author: adamab
+ms.author: cwatson
 ms.custom: accessibility
 ---
 # Supported browsers and devices for the Azure portal
