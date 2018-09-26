@@ -19,7 +19,7 @@ ms.author: barclayn
 ---
 # Manage Key Vault using the Azure CLI 
 
-This article covers how to get started working with Azure Key Vault using the the Azure CLI.  You can see information on:
+This article covers how to get started working with Azure Key Vault using the Azure CLI.  You can see information on:
 
 - How to create a hardened container (a vault) in Azure
 - Adding a key, secret, or certificate to the key vault
