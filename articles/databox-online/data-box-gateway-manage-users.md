@@ -45,8 +45,6 @@ Perform the following steps in the Azure portal to create a share.
 1. In the Azure portal go to your Data Box Gateway resource and then navigate to **Overview**. Click **+ Add share** on the command bar.
 2. In **Add Share**, specify the share settings. Provide a unique name for your share.
 
-    ![Click add share](media/data-box-gateway-manage-shares/add-share-1.png)
-
     Share names can only contain numbers, lowercase letters, and hyphens. The share name must be between 3 and 63 characters long and begin with a letter or a number. Each hyphen must be preceded and followed by a non-hyphen character.
 
 3. Select a **Type** for the share. The type can be **SMB** or **NFS**, with SMB being the default. SMB is the standard for Windows clients, and NFS is used for Linux clients. Depending upon whether you choose SMB or NFS shares, options presented are slightly different.
@@ -57,13 +55,8 @@ Perform the following steps in the Azure portal to create a share.
 
 6. This step depends on whether you are creating an SMB or an NFS share.
     - **If creating an SMB share** - In the **All privilege local user** field, choose from **Create new** or **Use existing**. If creating a new local user, provide the **username**, **password**, and then confirm password. This assigns the permissions to the local user. After you have assigned the permissions here, you can then use File Explorer to modify these permissions.
-
-        ![Add SMB share](media/data-box-gateway-manage-shares/add-share-2.png)
-
         If you check allow only read operations for this share data, then you will have the option to specify read-only users.
     - **If creating an NFS share** - You need to supply the **IP addresses of the allowed clients** that can access the share.
-
-        ![Add NFS share](media/data-box-gateway-manage-shares/add-share-3.png)
 
 7. Click **Create** to create the share. You are notified that the share creation is in progress. After the share is created with the specified settings, the **Shares** blade updates to reflect the new share.
  
