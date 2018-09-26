@@ -134,7 +134,7 @@ Template artifacts are used by the service topology template, and binary artifac
     2. Right-click the blob container from the left pane, and then select **Get Shared Access Signature**.
     3. Configure **Start time** and **Expiry time**.
     4. Select **Create**.
-    5. Make a copy of the URL. This URL is needed to populate a field in the two parameter files, [topology parameters file](#topology-parameters-file) and [#rollout parameters file](#rollout-parameters-file).
+    5. Make a copy of the URL. This URL is needed to populate a field in the two parameter files, [topology parameters file](#topology-parameters-file) and [rollout parameters file](#rollout-parameters-file).
 
 ## Create the user-assigned managed identity
 
@@ -315,7 +315,7 @@ Azure PowerShell can be used to deploy the templates.
     New-AzureRmResourceGroupDeployment `
         -Name $deploymentName `
         -ResourceGroupName $resourceGroupName `
-        -TemplateFile "$filePath\CreateADMRollout.json" `
+        -TemplateFile "$filePath\ADMTemplates\CreateADMRollout.json" `
         -TemplateParameterFile "$filePath\ADMTemplates\CreateADMRollout.Parameters.json"
     ```
 
