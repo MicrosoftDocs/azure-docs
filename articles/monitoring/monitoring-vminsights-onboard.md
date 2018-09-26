@@ -136,7 +136,7 @@ The Performance feature of Azure Monitor for VMs is only available from Azure Mo
 |12 SP3 | 4.4.* |
 
 ### Hybrid environment connected sources
-Azure Monitor for VMs Map gets its data from the Microsoft Dependency agent. The Dependency agent relies on the Log Analytics agent for its connection to Log Analytics. This means that a system must have the Log Analytics agent installed and configured with the Dependency agent.  The following table describes the connected sources that the Map feature supports in a hybrid environment.
+Azure Monitor for VMs Map gets its data from the Microsoft Dependency agent. The Dependency agent relies on the Log Analytics agent for its connection to Log Analytics and therefore, a system must have the Log Analytics agent installed and configured with the Dependency agent. The following table describes the connected sources that the Map feature supports in a hybrid environment.
 
 | Connected source | Supported | Description |
 |:--|:--|:--|
@@ -299,7 +299,7 @@ It is possible that some VMs in the initiative scope are logging to a LA workspa
     - [Preview]: Audit Log Analytics Workspace for VM - Report Mismatch  
 
 ## Enable with PowerShell
-To enable Azure Monitor for VMs for multiple VMs or VM scale sets, you can use a provided PowerShell script - [Install-VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights/1.0) available from the Azure PowerShell Gallery to complete this task.  This script will iterate through every virtual machine and VM scale set in your subscription, in the scoped resource group specified by *ResourceGroup*, or to a single VM or scale set specified by *Name*.  For each VM or VM scale set the script verifies if the VM extension is already installed, and if not attempt to reinstall it.  Otherwise, it proceeds to install the Log Analytics and Dependency Agent VM extensions.   
+To enable Azure Monitor for VMs for multiple VMs or virtual machine scale sets, you can use a provided PowerShell script - [Install-VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights/1.0) available from the Azure PowerShell Gallery to complete this task.  This script will iterate through every virtual machine and virtual machine scale set in your subscription, in the scoped resource group specified by *ResourceGroup*, or to a single VM or virtual machine scale set specified by *Name*.  For each VM or virtual machine scale set, the script verifies if the VM extension is already installed, and if not attempt to reinstall it.  Otherwise, it proceeds to install the Log Analytics and Dependency Agent VM extensions.   
 
 This script requires Azure PowerShell module version 5.7.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure.
 
