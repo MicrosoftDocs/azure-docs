@@ -105,8 +105,7 @@ There could be several reasons that you don't see an invoice:
 - The invoice isn't generated yet. Wait until the end of the billing period.
 
 - If you're not the Account Administrator, older invoices may not be available to you.
-## Enterprise 
-If you're an Enterprise customer
+
 ## Need help? Contact support.
 If you still have further questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
 

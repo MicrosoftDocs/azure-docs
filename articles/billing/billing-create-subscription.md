@@ -1,0 +1,42 @@
+---
+title: Create Azure subscription | Microsoft Docs
+description: Learn how to add a new Azure subscription in the Azure portal.
+services: 'billing'
+documentationcenter: ''
+author: jrosson
+manager: jrosson
+editor: ''
+
+
+ms.service: billing
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: conceptual
+ms.date: 09/26/2018
+ms.author: cwatson
+
+---
+# Create a subscription in the Azure portal 
+
+To create an Azure subscription, you need to be an account owner.
+
+## Create an Azure subscription
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Search for **Subscriptions**.
+1. Select **Add**.
+1. Select an offer.
+1. Fill in required information.
+1. Complete the subscription sign up.
+
+## Next steps
+
+- [Add or change Azure subscription administrators](billing-add-change-azure-subscription-administrator.md)
+- [Move resources to new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md?toc=/azure/billing/TOC.json)
+- [Create management groups for resource organization and management](../governance/management-groups/create.md?toc=/azure/billing/TOC.json)
+- [Azure enterprise scaffold: Prescriptive subscription governance](/azure/architecture/cloud-adoption-guide/subscription-governance.md)
+
+## Need help? Contact support.
+
+If you still have further questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
