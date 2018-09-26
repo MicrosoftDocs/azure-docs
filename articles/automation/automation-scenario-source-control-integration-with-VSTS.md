@@ -8,7 +8,7 @@ keywords: azure powershell, Azure DevOps Services, source control, automation
 ms.service: automation
 ms.component: process-automation
 ms.topic: conceptual
-ms.date: 03/19/2017
+ms.date: 09/25/2018
 ---
 # Azure Automation scenario - Automation source control integration with Azure DevOps
 
