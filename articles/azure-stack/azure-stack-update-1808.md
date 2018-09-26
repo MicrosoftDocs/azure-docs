@@ -215,6 +215,8 @@ The following are post-installation known issues for this build version.
 
 - <!-- TBD - IS ASDK --> When you create virtual machines on the Azure Stack user portal, the portal displays an incorrect number of data disks that can attach to a DS series VM. DS series VMs can accommodate as many data disks as the Azure configuration.
 
+- <!-- TBD - IS ASDK --> If you're using a multi-tenant environment, provisioning a VM with managed disk in a subscription not belonging to the default tenant fails with the following error: *The resource operation completed with terminal provisioning state 'Failed'.*
+
 - <!-- TBD - IS ASDK --> If provisioning an extension on a VM deployment takes too long, users should let the provisioning time-out instead of trying to stop the process to deallocate or delete the VM.  
 
 - <!-- 1662991 IS ASDK --> Linux VM diagnostics is not supported in Azure Stack. When you deploy a Linux VM with VM diagnostics enabled, the deployment fails. The deployment also fails if you enable the Linux VM basic metrics through diagnostic settings.  
