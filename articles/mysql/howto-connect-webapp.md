@@ -32,11 +32,7 @@ To ensure the availability of your Azure App Service, we recommend using this so
    ![Azure portal - click Connection Security](./media/howto-manage-firewall-using-portal/1-connection-security.png)
 
 2. Enter **RULE NAME**, **START IP**, and **END IP**, and then click **Save**.
-   - Rule name: Allow-All-IPs
-   - Start IP: 0.0.0.0
-   - End IP: 255.255.255.255
-
-   ![Azure portal - Add all IPs](./media/howto-connect-webapp/1_2-add-all-ips.png)
+   ![Azure portal - Add all IPs](./media/howto-connect-webapp/5-firewall-2.png)
 
 ## Solution 2 - Create a firewall rule to explicitly allow outbound IPs
 You can explicitly add all the outbound IPs of your Azure App Service.
