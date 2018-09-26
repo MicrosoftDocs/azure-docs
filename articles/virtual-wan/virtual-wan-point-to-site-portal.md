@@ -35,7 +35,7 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
 
-## Register the feature
+## Register this feature
 
 Click the "TryIt in this article to register this feature easily using Azure Cloud Shell. If you don't register the feature, you will not be able to use this feature, or see the portal properly.
 
@@ -49,9 +49,19 @@ After clicking TryIt, copy and paste the following commands:
 2.
   
   ```azurepowershell-interactive
+  Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
+  ```
+3.
+
+  ```azurepowershell-interactive
   Get-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowP2SCortexAccess
   ```
-3. Once the feature shows as registered, reregister the subscription to Microsoft.Network namespace.
+4.
+
+  ```azurepowershell-interactive
+  Get-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
+  ```
+5. Once the feature shows as registered, reregister the subscription to Microsoft.Network namespace.
 
   ```azurepowershell-interactive
   -Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
