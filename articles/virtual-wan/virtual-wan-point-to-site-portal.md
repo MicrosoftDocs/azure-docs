@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 09/25/2018
+ms.date: 09/26/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect remote users to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
 ---
@@ -35,19 +35,27 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
 
-## Register this feature
+## Register the feature
 
-Click the "TryIt in this article to register this feature. If you skip this step, you will not be able to use this feature or see the portal properly. Or, you can use the latest version of the PowerShell cmdlets locally on your computer.
+Click the "TryIt in this article to register this feature easily using Azure Cloud Shell. If you don't register the feature, you will not be able to use this feature, or see the portal properly.
 
-```azurepowershell-interactive
-Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowP2SCortexAccess
-```
+After clicking TryIt, copy and paste the following commands:
 
-```azurepowershell-interactive
-Get-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowP2SCortexAccess
-```
+1.
 
-Once the feature shows as registered, reregister the subscription to Microsoft.Network namespace using **-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network**.
+  ```azurepowershell-interactive
+  Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowP2SCortexAccess
+  ```
+2.
+  
+  ```azurepowershell-interactive
+  Get-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowP2SCortexAccess
+  ```
+3. Once the feature shows as registered, reregister the subscription to Microsoft.Network namespace.
+
+  ```azurepowershell-interactive
+  -Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+  ```
 
 ## <a name="vnet"></a>1. Create a virtual network
 
