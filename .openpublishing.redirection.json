@@ -2942,6 +2942,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/application-gateway/create-zone-redundant.md",
+            "redirect_url": "/azure/application-gateway/tutorial-autoscale-ps",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/application-insights/app-insights-azure-diagnostics.md",
             "redirect_url": "/azure/monitoring-and-diagnostics/azure-diagnostics-configure-application-insights",
             "redirect_document_id": false
@@ -3024,6 +3029,21 @@
         {
             "source_path": "articles/azure-functions/functions-create-first-azure-function-azure-portal.md",
             "redirect_url": "/azure/azure-functions/functions-create-first-azure-function",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-functions/functions-create-cosmos-db-triggered-function.md",
+            "redirect_url": "/azure/azure-functions/functions-bindings-cosmosdb-v2",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-functions/functions-create-storage-blob-triggered-function.md",
+            "redirect_url": "/azure/azure-functions/functions-bindings-storage-blob",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-functions/functions-create-storage-queue-triggered-function.md",
+            "redirect_url": "/azure/azure-functions/functions-bindings-storage-queue",
             "redirect_document_id": false
         },
         {
@@ -7095,7 +7115,12 @@
         },
         {
             "source_path": "articles/app-service-web/web-sites-python-configure.md",
-            "redirect_url": "/azure/app-service/web-sites-python-configure",
+            "redirect_url": "/azure/app-service/containers/how-to-configure-python",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/web-sites-python-configure.md",
+            "redirect_url": "/azure/app-service/containers/how-to-configure-python",
             "redirect_document_id": false
         },
         {
@@ -13147,6 +13172,16 @@
         {
             "source_path": "articles/multi-factor-authentication/multi-factor-authentication-microsoft-authenticator.md",
             "redirect_url": "./end-user/microsoft-authenticator-app-how-to",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/service-fabric-mesh/service-fabric-mesh-howto-deploy-app-private-registry.md",
+            "redirect_url": "/azure/service-fabric-mesh/service-fabric-mesh-tutorial-template-deploy-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/service-fabric-mesh/service-fabric-mesh-howto-deploy-app-template.md",
+            "redirect_url": "/azure/service-fabric-mesh/service-fabric-mesh-tutorial-template-deploy-app",
             "redirect_document_id": false
         },
         {
@@ -28786,6 +28821,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/application-gateway/application-gateway-web-application-firewall-overview.md",
+            "redirect_url": "/azure/application-gateway/waf-overview",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/azure-resource-manager/management-groups-manage.md",
             "redirect_url": "/azure/governance/management-groups/manage",
             "redirect_document_id": false
@@ -28793,6 +28833,16 @@
         {
             "source_path": "articles/security/governance-in-azure.md",
             "redirect_url": "/azure/governance/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-policy/index.md",
+            "redirect_url": "/azure/governance/policy/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-policy/scripts/index.md",
+            "redirect_url": "/azure/governance/policy/samples/",
             "redirect_document_id": false
         },
         {
@@ -29120,7 +29170,7 @@
             "redirect_url": "/azure/container-registry/container-registry-tutorial-quick-task",
             "redirect_document_id" : true
         },
-            {
+        {
             "source_path": "articles/application-insights/app-insights-troubleshoot-snapshot-debugger.md",
             "redirect_url": "/azure/application-insights/app-insights-snapshot-debugger",
             "redirect_document_id" : false
@@ -29128,6 +29178,36 @@
         {
             "source_path": "articles/machine-learning/service/quickstart-installation.md",
             "redirect_url": "/azure/machine-learning/desktop-workbench/quickstart-installation",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-raspberry-pi-kit-python-get-started.md",
+            "redirect_url": "/azure/iot-hub/iot-hub-get-started-physical",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-intel-edison-kit-c-get-started.md",
+            "redirect_url": "/azure/iot-hub/iot-hub-get-started-physical",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-intel-edison-kit-node-get-started.md",
+            "redirect_url": "/azure/iot-hub/iot-hub-get-started-physical",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-sparkfun-esp8266-thing-dev-get-started.md",
+            "redirect_url": "/azure/iot-hub/iot-hub-get-started-physical",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md",
+            "redirect_url": "/azure/iot-hub/iot-hub-get-started-physical",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-preview-portal-supported-browsers-devices.md",
+            "redirect_url": "/azure/azure-portal/azure-portal-supported-browsers-devices",
             "redirect_document_id": true
         }
     ]

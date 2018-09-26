@@ -25,16 +25,17 @@ Azure SQL Analytics is a cloud monitoring solution for monitoring performance of
 
 By using metrics that you collect with the solution, you can create custom monitoring rules and alerts. The solution helps you to identify issues at each layer of your application stack. It uses Azure Diagnostic metrics along with Log Analytics views to present data about all your Azure SQL databases, elastic pools, and databases in Managed Instances in a single Log Analytics workspace. Log Analytics helps you to collect, correlate, and visualize structured and unstructured data.
 
-Currently, this preview solution supports up to 200,000 Azure SQL databases and 5,000 SQL elastic pools per workspace.
-
 For a hands-on overview on using Azure SQL Analytics solution and for typical usage scenarios, see the embedded video:
+
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player]
 >
 
 ## Connected sources
 
-Azure SQL Analytics is a cloud only monitoring solution supporting streaming of diagnostics telemetry for Azure SQL databases, elastic pools, and Managed Instances. As it doesn't use agents to connect to the Log Analytics service, the solution doesn't support monitoring of on-premises SQL Servers or VMs, see the compatibility table below.
+Azure SQL Analytics is a cloud only monitoring solution supporting streaming of diagnostics telemetry for Azure SQL Database, Managed Instance databases and elastic pools.
+
+As the solution does not use agents to connect to the Log Analytics service, the solution does not support monitoring of SQL Server hosted on-premises or in VMs, see the compatibility table below.
 
 | Connected Source | Supported | Description |
 | --- | --- | --- |
@@ -46,7 +47,7 @@ Azure SQL Analytics is a cloud only monitoring solution supporting streaming of 
 
 ## Configuration
 
-Perform the following steps to add the Azure SQL Analytics solution to your workspace.
+Perform the following steps to add the Azure SQL Analytics solution to your Azure dashboard.
 
 1. Add the Azure SQL Analytics solution to your workspace from [Azure marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureSQLAnalyticsOMS?tab=Overview).
 2. In the Azure portal, click **+ Create a resource**, then search for **Azure SQL Analytics**.  
@@ -54,17 +55,18 @@ Perform the following steps to add the Azure SQL Analytics solution to your work
 3. Select **Azure SQL Analytics (Preview)** from the list
 4. In the **Azure SQL Analytics (Preview)** area, click **Create**.  
     ![Create](./media/log-analytics-azure-sql/portal-create.png)
-5. In the **Create new solution** area, create new, or select an existing workspace that you want to add the solution to, and then click **Create**.  
+5. In the **Create new solution** area, create new, or select an existing workspace that you want to add the solution to, and then click **Create**.
+
     ![add to workspace](./media/log-analytics-azure-sql/add-to-workspace.png)
 
-### Configure Azure SQL databases and elastic pools to stream diagnostics telemetry
+### Configure Azure SQL Databases, elastic pools and Managed Instances to stream diagnostics telemetry
 
-Once you've created Azure SQL Analytics solution in your workspace, in order to monitor performance of Azure SQL databases and/or elastic pools, you will need to **configure each** of Azure SQL Database and elastic pool resource you wish to monitor to stream its diagnostics telemetry to the solution.
+Once you have created Azure SQL Analytics solution in your workspace, in order to monitor performance of Azure SQL databases, Managed Instance databases and elastic pools, you will need to **configure each** of these resources you wish to monitor to stream its diagnostics telemetry to the solution.
 
-- Enable Azure Diagnostics for your Azure SQL databases and elastic pools and [configure them to send their data to Log Analytics](../sql-database/sql-database-metrics-diag-logging.md).
+- Enable Azure Diagnostics for your Azure SQL Database, Managed Instance databases and elastic pools to [stream diagnostics telemetry to Azure SQL Analytics](../sql-database/sql-database-metrics-diag-logging.md).
 
 ### To configure multiple Azure subscriptions
-
+ 
 To support multiple subscriptions, use the PowerShell script from [Enable Azure resource metrics logging using PowerShell](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell/). Provide the workspace resource ID as a parameter when executing the script to send diagnostic data from resources in one Azure subscription to a workspace in another Azure subscription.
 
 **Example**
@@ -79,13 +81,23 @@ PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
 
 ## Using the solution
 
-When you add the solution to your workspace, the Azure SQL Analytics tile is added to your workspace, and it appears in Overview. The tile shows the number of Azure SQL databases and Azure SQL elastic pools that the solution is connected to.
+When you add the solution to your workspace, the Azure SQL Analytics tile is added to your workspace, and it appears in Overview. The tile shows the number of Azure SQL databases, elastic pools, Managed Instances, and databases in Managed instances that the solution is receiving diagnostics telemetry from.
 
 ![Azure SQL Analytics tile](./media/log-analytics-azure-sql/azure-sql-sol-tile.png)
 
+The solution provides two separate views -- one for monitoring Azure SQL Databases and elastic pools, and the other view for monitoring Managed Instance, and databases in Managed Instances.
+
+To view Azure SQL Analytics monitoring dashboard for Azure SQL Databases and elastic pools, click on the upper part of the tile. To view Azure SQL Analytics monitoring dashboard for Managed Instance, and databases in Managed Instance, click on the lower part of the tile.
+
 ### Viewing Azure SQL Analytics data
 
-Click on the **Azure SQL Analytics** tile to open the Azure SQL Analytics dashboard. The dashboard includes the overview of all databases that are monitored through different perspectives. For different perspectives to work, you must enable proper metrics or logs on your SQL resources to be streamed to Azure Log Analytics workspace.
+The dashboard includes the overview of all databases that are monitored through different perspectives. For different perspectives to work, you must enable proper metrics or logs on your SQL resources to be streamed to Azure Log Analytics workspace.
+
+Please note that if some metrics or logs are not streamed into Azure Log Analytics, the tiles in the solution will not be populated with monitoring information.
+
+### Azure SQL Database and elastic pool view
+
+Once the Azure SQL Analytics tile for Azure SQL Database and elastic pools is selected, the monitoring dashboard is shown.
 
 ![Azure SQL Analytics Overview](./media/log-analytics-azure-sql/azure-sql-sol-overview.png)
 
@@ -93,28 +105,44 @@ Selecting any of the tiles, opens a drill-down report into the specific perspect
 
 ![Azure SQL Analytics Timeouts](./media/log-analytics-azure-sql/azure-sql-sol-metrics.png)
 
-Each perspective provides summaries on subscription, server, elastic pool, and database level. In addition, each perspective shows a perspective specific to the report on the right. Selecting subscription, server, pool, or database from the list continues the drill-down.
+Each perspective in this view provides summaries on subscription, server, elastic pool, and database level. In addition, each perspective shows a perspective specific to the report on the right. Selecting subscription, server, pool, or database from the list continues the drill-down.
 
-| Perspective | Description |
-| --- | --- |
-| Resource by type | Perspective that counts all the resources monitored. Drill-down provides the summary of DTU and GB metrics. |
-| Insights | Provides hierarchical drill-down into Intelligent Insights. Learn more about intelligent insights. |
-| Errors | Provides hierarchical drill-down into SQL errors that happened on the databases. |
-| Timeouts | Provides hierarchical drill-down into SQL timeouts that happened on the databases. |
-| Blockings | Provides hierarchical drill-down into SQL blockings that happened on the databases. |
-| Database waits | Provides hierarchical drill-down into SQL wait statistics on the database level. Includes summaries of total waiting time and the waiting time per wait type. |
-| Query duration | Provides hierarchical drill-down into the query execution statistics such as query duration, CPU usage, Data IO usage, Log IO usage. |
-| Query waits | Provides hierarchical drill-down into the query wait statistics by wait category. |
+### Managed Instance and databases in Managed Instance view
+
+Once the Azure SQL Analytics tile for Managed Instances and Managed Instnace databases is selected, the monitoring dashboard is shown.
+
+![Azure SQL Analytics Overview](./media/log-analytics-azure-sql/azure-sql-sol-overview-mi.png)
+
+Selecting any of the tiles, opens a drill-down report into the specific perspective. Once the perspective is selected, the drill-down report is opened.
+
+Selecting Managed Instance view, shows details on the Managed Instance utilization, databases it contains, and telemetry on the queries executed across the instance.
+
+![Azure SQL Analytics Timeouts](./media/log-analytics-azure-sql/azure-sql-sol-metrics-mi.png)
+
+### Perspectives
+
+The below table outlines perspectives supported for two versions of the dashboard, one for Azure SQL database and elastic pools, and the other one for Managed Instance.
+
+| Perspective | Description | SQL Database and elastic pools support | Managed Instance support |
+| --- | ------- | ----- | ----- |
+| Resource by type | Perspective that counts all the resources monitored. | Yes | Yes | 
+| Insights | Provides hierarchical drill-down into Intelligent Insights into performance. | Yes | Yes |
+| Errors | Provides hierarchical drill-down into SQL errors that happened on the databases. | Yes | Yes |
+| Timeouts | Provides hierarchical drill-down into SQL timeouts that happened on the databases. | Yes | No |
+| Blockings | Provides hierarchical drill-down into SQL blockings that happened on the databases. | Yes | No |
+| Database waits | Provides hierarchical drill-down into SQL wait statistics on the database level. Includes summaries of total waiting time and the waiting time per wait type. |Yes | Yes |
+| Query duration | Provides hierarchical drill-down into the query execution statistics such as query duration, CPU usage, Data IO usage, Log IO usage. | Yes | Yes |
+| Query waits | Provides hierarchical drill-down into the query wait statistics by wait category. | Yes | Yes |
 
 ### Intelligent Insights report
 
-Azure SQL Database [Intelligent Insights](../sql-database/sql-database-intelligent-insights.md) lets you know what is happening with your database performance. All Intelligent Insights collected can be visualized and accessed through the Insights perspective.
+Azure SQL Database [Intelligent Insights](../sql-database/sql-database-intelligent-insights.md) lets you know what is happening with performance of Azure SQL Databases and Managed Instance databases. All Intelligent Insights collected can be visualized and accessed through the Insights perspective.
 
 ![Azure SQL Analytics Insights](./media/log-analytics-azure-sql/azure-sql-sol-insights.png)
 
 ### Elastic pool and Database reports
 
-Both elastic pools and Databases have their own specific reports that show all the data that is collected for the resource in the specified time.
+Both elastic pools and SQL Databases have their own specific reports that show all the data that is collected for the resource in the specified time.
 
 ![Azure SQL Analytics Database](./media/log-analytics-azure-sql/azure-sql-sol-database.png)
 
@@ -127,6 +155,8 @@ Through the Query duration and query waits perspectives, you can correlate the p
 ![Azure SQL Analytics Queries](./media/log-analytics-azure-sql/azure-sql-sol-queries.png)
 
 ### Analyze data and create alerts
+
+### Creating alerts for Azure SQL Database
 
 You can easily [create alerts](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) with the data coming from Azure SQL Database resources. Here are some useful [log search](log-analytics-log-searches.md) queries that you can use with a log alert:
 
@@ -201,6 +231,23 @@ AzureDiagnostics
 | where Category == "SQLInsights" and status_s == "Active" 
 | distinct rootCauseAnalysis_s
 ```
+
+### Creating alerts for Managed Instance
+
+*Managed Instance storage is above 90%
+
+```
+let storage_percentage_treshold = 90;
+AzureDiagnostics
+| where Category =="ResourceUsageStats"
+| summarize (TimeGenerated, calculated_storage_percentage) = arg_max(TimeGenerated, todouble(storage_space_used_mb_s) *100 / todouble (reserved_storage_mb_s))
+   by ResourceId
+| where calculated_storage_percentage > storage_percentage_treshold
+```
+
+> [!NOTE]
+> - Pre-requirement of setting up this alert is that monitored Managed Instance has the the streaming of ResourceUsageStats log enabled to the solution.
+> - This query requires an alert rule to be set up to fire off an alert when there exist results (> 0 results) from the query, denoting that the condition exists on the Managed Instance. The output is storage percentage consumption on the Managed Instance.
 
 ## Next steps
 

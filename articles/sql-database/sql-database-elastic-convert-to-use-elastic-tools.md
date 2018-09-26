@@ -8,12 +8,10 @@ ms.custom:
 ms.devlang:
 ms.topic: conceptual
 author: stevestein
-manager: craigg
-ms.service: sql-database
-ms.custom: scale out apps
-ms.topic: conceptual
-ms.date: 04/01/2018
 ms.author: sstein
+ms.reviewer:
+manager: craigg
+ms.date: 04/01/2018
 
 ---
 # Migrate existing databases to scale out

@@ -41,7 +41,7 @@ There could be multiple reasons as why you would get a stop error. The most comm
 - Corrupted system file or memory
 - An application accesses to a forbidden sector of the memory
 
-## Solution
+## Collect memory dump file
 
 To resolve this problem, you would need first to gather dump file for the crash and contact support with the dump file. To collect the Dump file, follow these steps:
 
@@ -51,7 +51,7 @@ To resolve this problem, you would need first to gather dump file for the crash 
 2. [Attach the OS disk to a recovery VM](troubleshoot-recovery-disks-portal.md). 
 3. Remote desktop to the recovery VM.
 
-### Collect dump file and submit a support ticket
+### Locate dump file and submit a support ticket
 
 1. On the recovery VM, go to windows folder in the attached OS disk. If the driver letter that is assigned to the attached OS disk is F, you need to go to F:\Windows.
 2. Locate th memory.dmp file, and then [submit a support ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) with the dump file. 

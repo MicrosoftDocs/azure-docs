@@ -15,7 +15,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/14/2018
-ms.author: tonguyen
+ms.author: cwatson
 
 ---
 # Understand your bill for Microsoft Azure
