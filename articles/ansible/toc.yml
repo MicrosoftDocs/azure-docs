@@ -30,7 +30,7 @@
     href: ./ansible-deploy-app-vmss.md
   - name: Create and configure AKS clusters
     href: ./ansible-create-configure-aks.md
-  - name: Create and configure Azure application gateway
+  - name: Create and configure Azure Application Gateway
     href: ./ansible-create-configure-application-gateway.md
 - name: Reference
   items:
