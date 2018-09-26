@@ -1,20 +1,14 @@
 ---
-<<<<<<< HEAD
 title: Language support - Speech API
 titleSuffix: Azure Cognitive Services
 description: A list of natural languages that are supported by the Speech API.
-=======
-title: Bing Speech Supported Languages | Microsoft Docs
-titlesuffix: Azure Cognitive Services
-description: A list of spoken languages that are supported by Bing Speech.
->>>>>>> c8955e1a4fed02862813b4f99fb387cc15ac7621
 services: cognitive-services
 author: zhouwangzw
-manager: wolfma
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 09/25/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX
 ---
