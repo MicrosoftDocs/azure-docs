@@ -30,7 +30,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Ensure host meets minimum device requirements
-> * Provision a virtual device in hypervisor
+> * Provision a virtual device in VMware
 > * Start the virtual device and get the IP address
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -70,7 +70,7 @@ Before you deploy a virtual device, make sure that:
 Before you begin:
 
 - Review the networking requirements to deploy a Data Box Gateway and configure the datacenter network as per the requirements. For more information, see [Data Box Gateway networking requirements](data-box-gateway-system-requirements.md#networking-requirements).
-- Make sure that the the minimum Internet bandwidth is 20 Mbps to allow for optimal working of the device.
+- Make sure that the minimum Internet bandwidth is 20 Mbps to allow for optimal working of the device.
 
 ## Check the host system
 
