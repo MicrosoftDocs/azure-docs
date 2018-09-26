@@ -47,11 +47,11 @@ Follow these steps to grant data access for a user principal:
 3. Select your Time Series Insights environment from the list.
    
 4. Select **Data Access Policies**, then select **+ Add**.
-  ![Manage the Time Series Insights source - environment](media/data-access/tsi-data-access-1.png)
+  ![Manage the Time Series Insights source - environment](media/data-access/getstarted-grant-data-access1.png)
 
 5. Select **Select user**.  Search for the user name or email address to locate the user you want to add. Click **Select** to confirm the selection. 
 
-   ![Manage the Time Series Insights source - add](media/data-access/tsi-data-access-2.png)
+   ![Manage the Time Series Insights source - add](media/data-access/getstarted-grant-data-access2.png)
 
 6. Select **Select role**. Choose the appropriate access role for the user:
    - Select **Contributor** if you want to allow user to change reference data and share saved queries and perspectives with other users of the environment. 
@@ -59,15 +59,15 @@ Follow these steps to grant data access for a user principal:
 
    Select **Ok** to confirm the role choice.
 
-   ![Manage the Time Series Insights source - select user](media/data-access/tsi-data-access-3.png)
+   ![Manage the Time Series Insights source - select user](media/data-access/getstarted-grant-data-access3.png)
 
 8. Select **Ok** in the **Select User Role** page.
 
-   ![Manage the Time Series Insights source - select role](media/data-access/tsi-data-access-4.png)
+   ![Manage the Time Series Insights source - select role](media/data-access/getstarted-grant-data-access4.png)
 
 9. The **Data Access Policies** page lists the users and the role(s) for each user.
 
-   ![Manage the Time Series Insights source - results](media/data-access/tsi-data-access-5.png)
+   ![Manage the Time Series Insights source - results](media/data-access/getstarted-grant-data-access5.png)
 
 ## Provide guest access to a user from another AAD tenant
 
@@ -83,19 +83,19 @@ Follow these steps to grant guest access to a Time Series Insights environment t
 
 4. Select **Data Access Policies**, then select + **Invite**.
 
-    ![Manage the Time Series Insights source - invite user](media/data-access/tsi-data-access-6.png)
+    ![Manage the Time Series Insights source - invite user](media/data-access/getstarted-grant-data-access6.png)
 
 5. Provide the user's email that you wish to invite. Note this should be an email associated with AAD. You can optionally include a personal message with the invitation.
 
-    ![Manage the Time Series Insights source - select user](media/data-access/tsi-data-access-7.png)
+    ![Manage the Time Series Insights source - select user](media/data-access/getstarted-grant-data-access7.png)
 
 6. You should see a confirmation bubble appear on the screen.
 
-    ![Manage the Time Series Insights source - confirm user](media/data-access/tsi-data-access-8.png)
+    ![Manage the Time Series Insights source - confirm user](media/data-access/getstarted-grant-data-access8.png)
 
 7. Select **Select user**. Search for the email address of the guest user you just invited to locate the user you want to add. Click **Select** to confirm the selection.
   
-    ![Manage the Time Series Insights source - confirm user](media/data-access/tsi-data-access-9.png)
+    ![Manage the Time Series Insights source - confirm user](media/data-access/getstarted-grant-data-access9.png)
 
 8. Select **Select role**. Choose the appropriate access role for the guest user:
 
@@ -105,13 +105,13 @@ Follow these steps to grant guest access to a Time Series Insights environment t
 
     Select **Ok** to confirm the role choice.
 
-    ![Manage the Time Series Insights source - select role](media/data-access/tsi-data-access-10.png)
+    ![Manage the Time Series Insights source - select role](media/data-access/getstarted-grant-data-access10.png)
 
 9. Select **Ok** in the **Select User Role** page.
 
 10. The **Data Access Policies** page now lists the guest user and the role(s) for each guest user.
 
-    ![Manage the Time Series Insights source - confirm role](media/data-access/tsi-data-access-11.png)
+    ![Manage the Time Series Insights source - confirm role](media/data-access/getstarted-grant-data-access11.png)
 
 11. Now the guest user will need to take certain steps to access the environment located in the Azure tenant you just invited them to. First, they need to accept the invitation you just sent them. This invite is sent via email to the email address you invited in step 5. They should click 'Get Started,' to accept.
 
