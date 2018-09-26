@@ -112,7 +112,7 @@ Perform the following steps in the Azure portal to refresh a share.
  
 If there is a failure, an alert is raised. The alert details the cause and the recommendation to fix the issue. The alert also links to a file that contains the complete summary of the failures including the files which failed to update or delete.
 
-> ![IMPORTANT]
+>[!IMPORTANT]
 > In this preview release, do not refresh more than a single share at a time.
 
 ## Sync storage keys
@@ -130,7 +130,7 @@ Perform the following steps in the Azure portal to sync your storage access key.
 
      ![Sync storage key 1](media/data-box-gateway-manage-shares/sync-storage-key-2.png)
 
-> ![NOTE]
+>[!NOTE]
 > You only have to perform this action once for a given storage account. You do not need to repeat this action for all the shares associated with the same storage account.
 
 
