@@ -1,6 +1,6 @@
 ---
-title: Use a Windows VM system-assigned managed identity to access Azure AD Graph API
-description: A tutorial that walks you through the process of using a Windows VM system-assigned managed identity to access Azure AD Graph API.
+title: Use a Linux VM system-assigned managed identity to access Azure AD Graph API
+description: A tutorial that walks you through the process of using a Linux VM system-assigned managed identity to access Azure AD Graph API.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -17,11 +17,11 @@ ms.date: 08/20/2018
 ms.author: daveba
 ---
 
-# Tutorial: Use a Windows VM system-assigned managed identity to access Azure AD Graph API
+# Tutorial: Use a Linux VM system-assigned managed identity to access Azure AD Graph API
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice.md)]
 
-This tutorial shows you how to to use a system-assigned managed identity for a Windows virtual machine (VM) to access the Microsoft Graph API to retrieve its group memberships. Managed identities for Azure resources are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication without needing to insert credentials into your code.  For this tutorial you will query your VM identity's membership in Azure AD groups. Group information is often used in authorization decisions, for example. Under the covers, your VM's managed identity is represented by a **Service Principal** in Azure AD. Before you do the group query, add the service principal representing the VM's identity to a group in Azure AD. You can do this using Azure PowerShell, Azure AD PowerShell, or the Azure CLI.
+This tutorial shows you how to to use a system-assigned managed identity for a Linux virtual machine (VM) to access the Microsoft Graph API to retrieve its group memberships. Managed identities for Azure resources are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication without needing to insert credentials into your code.  For this tutorial you will query your VM identity's membership in Azure AD groups. Group information is often used in authorization decisions, for example. Under the covers, your VM's managed identity is represented by a **Service Principal** in Azure AD. Before you do the group query, add the service principal representing the VM's identity to a group in Azure AD. You can do this using Azure PowerShell, Azure AD PowerShell, or the Azure CLI.
 
 > [!div class="checklist"]
 > * Connect to Azure AD
@@ -37,7 +37,7 @@ This tutorial shows you how to to use a system-assigned managed identity for a W
 
 - [Sign in to Azure portal](https://portal.azure.com)
 
-- [Create a Windows virtual machine](/azure/virtual-machines/windows/quick-create-portal)
+- [Create a Linux virtual machine](/azure/virtual-machines/linux/quick-create-portal)
 
 - [Enable system-assigned managed identity on your virtual machine](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
@@ -47,20 +47,16 @@ This tutorial shows you how to to use a system-assigned managed identity for a W
 
 You need to connect to Azure AD to assign the VM to a group as well as grant the VM permission to retrieve its group memberships.
 
-```powershell
-Connect-AzureAD
+```cli
+az login
 ```
 
 ## Add your VM identity to a group in Azure AD
 
-When you enabled system-assigned managed identity on the Windows VM, it created a service principal in Azure AD.  Now you need to add the the VM to a group.  The following example creates a new group in Azure AD and adds your VM's service principal to that group:
+When you enabled system-assigned managed identity on the Linux VM, it created a service principal in Azure AD.  Now you need to add the the VM to a group. Refer to the following article for instructions on how to add your VM to a group in Azure AD:
 
-```powershell
-New-AzureADGroup -DisplayName "myGroup" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
-$AzureADGroup = Get-AzureADGroup -Filter "displayName eq 'myGroup'"
-$ManagedIdentitiesServicePrincipal = Get-AzureADServicePrincipal -Filter "displayName eq 'myVM'"
-Add-AzureADGroupMember -ObjectId $AzureADGroup.ObjectID -RefObjectId $ManagedIdentitiesServicePrincipal.ObjectId
-```
+- [Add group members](/cli/azure/ad/group/member?view=azure-cli-latest#az-ad-group-member-add)
+
 ## Grant your VM access to the Azure AD Graph API
 
 Using managed identities for Azure resources, your code can get access tokens to authenticate to resources that support Azure AD authentication. The Microsoft Azure AD Graph API supports Azure AD authentication. In this step, you will grant your VM identity's service principal access to the Azure AD Graph so that it can query group memberships. Service principals are granted access to the Microsoft or Azure AD Graph through **Application Permissions**. The type of application permission you need to grant depends on the entity you want to access in the MS or Azure AD Graph.
@@ -72,17 +68,32 @@ Azure AD Graph:
 - Resource ID (used when requesting access token from managed identities for Azure resources): https://graph.windows.net
 - Permission scope reference: [Azure AD Graph Permissions Reference](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes)
 
-### Grant application permissions using Azure AD PowerShell
+### Grant application permissions using CURL
 
 You will need Azure AD PowerShell to use this option. If you don't have it installed, [download the latest version](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) before continuing.
 
-1. Open a PowerShell window and connect to Azure AD:
+1. Retrieve a token to make CURL requests:
 
-   ```powershell
-   Connect-AzureAD
+   ```cli
+   az account get-access-token --resource "https://graph.windows.net/"
    ```
 
-2. Run the following PowerShell commands to assign the ``Directory.Read.All`` application permission to the service principal that represents your VM's identity.
+2. You will need to retrieve and note the `objectId` of your VM to grant it permissions to read its group membership. Replace `<TENANT ID>` with the tenant id for your subscription and `<ACCESS TOKEN>` with the access token you retrieved in the preceding step.
+
+   ```bash
+   curl 'https://graph.windows.net/<TENANT ID>/servicePrincipals?$filter=startswith%28displayName%2C%27myVM%27%29&api-version=1.6' -H "Authorization: Bearer <ACCESS TOKEN>"
+   ```
+
+3. Next, you will need to retrieve and note the `objectId` for Windows Azure Active Directory as well as the id for the Directory.Read.All permission.  Replace `<TENANT ID>` with the tenant id for your subscription and `<ACCESS TOKEN>` with the access token you retrieved earlier.
+
+   ```bash
+   curl "https://graph.windows.net/<TENANT ID>/servicePrincipals?api-version=1.6&%24filter=appId%20eq%20'00000002-0000-0000-c000-000000000000'" -H "Authorization: Bearer <ACCESS TOKEN>"
+   ```
+
+4. Now, you will grant the VM's service principal to read Azure AD directory objects using the Azure AD Graph API.
+
+   ```bash 
+
 
    ```powershell
    $ManagedIdentitiesServicePrincipal = Get-AzureADServicePrincipal -Filter "displayName eq 'myVM'"
@@ -134,8 +145,8 @@ You will need Azure AD PowerShell to use this option. If you don't have it insta
 
 To use the VM's system assigned managed identity for authentication to Azure AD Graph, you need to make requests from the VM.
 
-1. In the portal, navigate to **Virtual Machines**, go to your Windows VM, and in the **Overview** blade, click **Connect**.  
-2. Enter in your **Username** and **Password** you used when you created the Windows VM.
+1. In the portal, navigate to **Virtual Machines**, go to your Linux VM, and in the **Overview** blade, click **Connect**. 
+2. Enter in your **Username** and **Password** you used when you created the Linux VM.
 3. Now that you have created a Remote Desktop Connection with the virtual machine, open PowerShell in the remote session.  
 4. Using PowerShell’s Invoke-WebRequest, make a request to the local managed identities for Azure resources endpoint to get an access token for Azure AD Graph.
 
