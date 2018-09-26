@@ -8,7 +8,7 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 09/25/2018
 ---
 
 # Create isolated environments to access Azure Virtual Networks (VNETs) from Azure Logic Apps
@@ -68,7 +68,7 @@ so the Logic Apps service has the permissions for accessing your VNET.
 
 <a name="vnet-access"></a>
 
-## Set up VNET permissions
+## Set VNET permissions
 
 When you create your integration service environment, 
 you can select an Azure virtual network (VNET) as a *peer* 
@@ -107,8 +107,70 @@ table for the Azure Logic Apps service. Make sure you choose
 
    ![Add permissions](./media/connect-virtual-network-vnet-isolated-environment/add-contributor-roles.png)
 
-For more information about the role permissions required for peering, see the 
-[Permissions section in Create, change, or delete a virtual network peering](../virtual-network/virtual-network-manage-peering.md#permissions).
+   For more information about the role permissions required for peering, see the 
+   [Permissions section in Create, change, or delete a virtual network peering](../virtual-network/virtual-network-manage-peering.md#permissions). 
+
+If your VNET is connected through Azure ExpressRoute, a point-to-site VPN, 
+or a site-to-site VPN, continue with the next section so you can add the necessary gateway subnet. 
+Otherwise, continue with [Create integration service environment](#create-environment).
+
+<a name="add-gateway-subnet"></a>
+
+## Add gateway subnet for VNETs with ExpressRoute or VPNs
+
+After you finish the previous steps, if you want to give your integration 
+service environment (ISE) access to a VNET that's connected either through 
+[Azure ExpressRoute](../expressroute/expressroute-introduction.md), 
+a [Point-to-Site VPN](../vpn-gateway/point-to-site-about.md) in Azure, or a 
+[Site-to-Site VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) in Azure, 
+you must also add a [*gateway subnet*](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsub) to your VNET:
+
+1. In the [Azure portal](https://portal.azure.com), 
+find and select your VNET. On your VNET's menu, 
+select **Subnets**, and then choose **Gateway subnet** > **OK**.
+
+   ![Add gateway subnet](./media/connect-virtual-network-vnet-isolated-environment/add-gateway-subnet.png)
+
+1. Now, create a [*route table*](../virtual-network/manage-route-table.md), 
+which you'll associate with the gateway subnet you just created.
+
+   1. On the main Azure menu, select **Create a resource** > 
+   **Networking** > **Route table**.
+
+      ![Create route table](./media/connect-virtual-network-vnet-isolated-environment/create-route-table.png)
+
+   1. Provide information about the route table, 
+   such as the name, your Azure subscription to use, 
+   Azure resource group, and location. Make sure the 
+   **BGP route propagation** property is set to **Enabled**, 
+   and then choose **Create**.
+
+      ![Provide route table details](./media/connect-virtual-network-vnet-isolated-environment/enter-route-table-information.png)
+
+   1. On the route table menu, select **Subnets**, 
+   and then choose **Associate**. 
+
+      ![Connect route table to subnet](./media/connect-virtual-network-vnet-isolated-environment/associate-route-table.png)
+
+   1. Select **Virtual network**, and then select your VNET.
+   
+   1. Select **Subnet**, and then select your previously created gateway subnet.
+
+   1. When you're done, choose **OK**.
+
+1. If you have a point-to-site VPN, complete these steps too:
+
+   1. In Azure, find and select your virtual network gateway resource.
+
+   1. On the gateway's menu, select **Point-to-site configuration**. 
+   and then choose **Download VPN client** so you have the most 
+   current VPN client configuration.
+
+      ![Download latest VPN client](./media/connect-virtual-network-vnet-isolated-environment/download-vpn-client.png)
+
+You're now done with setting up a gateway subnet for VNETs that use ExpressRoute, 
+point-to-site VPNs, or site-to-site VPNs. To continue creating your 
+integration service environment, follow the next steps.
 
 <a name="create-environment"></a>
 

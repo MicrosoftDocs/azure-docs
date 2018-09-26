@@ -2,7 +2,7 @@
 title: Create a zone redundant Azure application gateway
 description: Learn how to create a zone redundant application gateway that does not require a seperarte gateway in each zone.
 services: application-gateway
-author: amsriva
+author: vhorne
 manager: jpconnock
 
 ms.service: application-gateway

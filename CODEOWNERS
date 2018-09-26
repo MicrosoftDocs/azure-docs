@@ -5,6 +5,8 @@
 # articles/virtual-machines/windows/  @iainfoulds @cynthn
 # articles/application-insights/  @SergeyKanzhelev
 # articles/cosmos-db/ @mimig1
+
+articles/ @apex-docs-pr-reviewers
 articles/cognitive-services/ @nitinme @tchristiani @cjgronlund
 articles/ansible/ @TomArcher
 articles/chef/ @TomArcher

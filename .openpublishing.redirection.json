@@ -7095,7 +7095,12 @@
         },
         {
             "source_path": "articles/app-service-web/web-sites-python-configure.md",
-            "redirect_url": "/azure/app-service/web-sites-python-configure",
+            "redirect_url": "/azure/app-service/containers/how-to-configure-python",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/web-sites-python-configure.md",
+            "redirect_url": "/azure/app-service/containers/how-to-configure-python",
             "redirect_document_id": false
         },
         {
@@ -29143,6 +29148,11 @@
         {
             "source_path": "articles/machine-learning/service/quickstart-installation.md",
             "redirect_url": "/azure/machine-learning/desktop-workbench/quickstart-installation",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/azure-preview-portal-supported-browsers-devices.md",
+            "redirect_url": "/azure/azure-portal/azure-portal-supported-browsers-devices",
             "redirect_document_id": true
         }
     ]
