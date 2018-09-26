@@ -39,7 +39,7 @@ The Azure Resource Graph module requires the following software:
   - For Windows PowerShell, use the **AzureRm** version of the Azure PowerShell module.
 
   > [!NOTE]
-  > PowerShell for [Cloud Shell](https://shell.azure.com) support is coming soon. It is currently not recommended to install the module in Cloud Shell.
+  > It is currently not recommended to install the module in Cloud Shell.
 
 - PowerShellGet. If it is not installed or updated, follow [these instructions](/powershell/gallery/installing-psget).
 
