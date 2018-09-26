@@ -34,7 +34,6 @@ This tutorial covers the following tasks:
 > * Create the service topology template
 > * Create the rollout template
 > * Deploy the templates
-> * Deploy the templates using PowerShell
 > * Verify the deployment
 > * Deploy the newer version
 > * Clean up resources
