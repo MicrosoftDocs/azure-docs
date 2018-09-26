@@ -73,7 +73,7 @@ If you are using Azure DevOps with GIT (Sync-VSTSGit.ps1) it will take the follo
 
 Parameter | Description|
 --------|------------|
-WebhookData | This will contain the checkin information sent from the Azure DevOps service hook. You should leave this parameter blank.| 
+WebhookData | This will contain the checkin information sent from the Azure DevOps service hook. You should leave this parameter blank.|
 ResourceGroup | This the name of the resource group that the automation account is in.|
 AutomationAccountName | The name of the automation account that syncs with Azure DevOps.|
 VSAccount | The name of the Azure DevOps organization.|
