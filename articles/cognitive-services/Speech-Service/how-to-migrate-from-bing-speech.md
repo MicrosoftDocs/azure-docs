@@ -37,14 +37,14 @@ The Speech Service is largely at feature, platform, and programming language par
 Feature | Speech Service | Bing Speech | Details
 -|-|-|-
 C++ SDK | :heavy_check_mark: | :heavy_minus_sign: | Supports Windows and Linux
-Java SDK | :heavy_check_mark: | :heavy_minus_sign: | Supports Android and Speech Devices
-C# SDK | :heavy_check_mark: | :heavy_minus_sign: | For Windows 10, UWP, and .NET Standard 2.0
+Java SDK | :heavy_check_mark: | :heavy_check_mark: | Supports Android and Speech Devices
+C# SDK | :heavy_check_mark: | :heavy_check_mark: | For Windows 10, UWP, and .NET Standard 2.0
 Continuous speech recognition | Unlimited (with SDK) | 10 minutes | Both Bing Speech and Speech Service WebSockets protocols support up to 10 minutes per call. However, the Speech SDK automatically reconnects on timeout or disconnect.
 Partial or interim results | :heavy_check_mark: | :heavy_check_mark: | With WebSockets protocol or SDK
-Custom speech models | :heavy_check_mark: | :heavy_minus_sign: | Bing Speech required separate Custom Speech subscription
-Custom voice fonts | :heavy_check_mark: | :heavy_minus_sign: | Bing Speech required separate Custom Voice subscription
+Custom speech models | :heavy_check_mark: | :heavy_check_mark: | Bing Speech requires a separate Custom Speech subscription
+Custom voice fonts | :heavy_check_mark: | :heavy_check_mark: | Bing Speech requires a separate Custom Voice subscription
 24-KHz voices | :heavy_check_mark: | :heavy_minus_sign:
-Speech intent recognition | Integrated (with SDK) | Requires separate LUIS API call | LUIS key may be used with the Speech Service.
+Speech intent recognition | Integrated (with SDK) | Requires separate LUIS API call | A LUIS key may be used with the Speech Service.
 Simple intent recognition | :heavy_check_mark: | :heavy_minus_sign: 
 Batch transcription of long audio files | :heavy_check_mark: | :heavy_minus_sign:
 Recognition mode | Automatic | Manual via endpoint URI
@@ -88,7 +88,7 @@ For Speech Service, SDK, and API support, visit the Speech Service [support page
 
 ## Next steps
 
-* [Try out Speech Service for free](https://azure.microsoft.com/en-us/services/cognitive-services/)
+* [Try out Speech Service for free](get-started.md)
 * [Quickstart: Recognize speech in a UWP app using the Speech SDK](quickstart-csharp-uwp.md)
 
 ## See also

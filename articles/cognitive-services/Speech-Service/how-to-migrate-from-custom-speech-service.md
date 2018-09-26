@@ -56,7 +56,8 @@ Existing customers are required to migrate their existing resource keys to the n
 
 ## Next steps
 
-Learn [speech to text](./speech-to-text.md) concepts
+* [try out Speech Service for free](get-started.md)
+* Learn [speech to text](./speech-to-text.md) concepts
 
 ## See also
 
