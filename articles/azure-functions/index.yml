@@ -41,8 +41,6 @@ sections:
         src: media/index/stopwatch.svg
       text: Timer
       href: /azure/azure-functions/functions-create-scheduled-function
-    - image: 
-        src: media/index/cosmosdb.svg
   - type: paragraph
     text: 'Learn how to develop and debug locally:'
   - type: list
