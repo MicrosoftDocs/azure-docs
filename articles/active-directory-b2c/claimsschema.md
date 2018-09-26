@@ -109,7 +109,7 @@ The follwing example configures a **PhoneNumber** claim with the `Simple` mask:
 
 ```XML
 <ClaimType Id="PhoneNumber">
-  <DisplayName>Phone</DisplayName>
+  <DisplayName>Phone Number</DisplayName>
   <DataType>string</DataType>
   <Mask Type="Simple">XXX-XXX-</Mask>  
   <UserHelpText>Your telephone number.</UserHelpText>
