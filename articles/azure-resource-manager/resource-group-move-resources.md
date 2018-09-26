@@ -273,6 +273,28 @@ Register-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNames
 az feature register --namespace Microsoft.Compute --name ManagedResourcesMove
 ```
 
+The registration request initially returns a state of `Registering`. You can check the current status with:
+
+```azurepowershell-interactive
+Get-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute
+```
+
+```azurecli-interactive
+az feature show --namespace Microsoft.Compute --name ManagedResourcesMove
+```
+
+Wait several minutes for the status to change to `Registered`.
+
+After the feature is registered, register the `Microsoft.Compute` resource provider. Perform this step even if the resource provider was previously registered.
+
+```azurepowershell-interactive
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
+```
+
+```azurecli-interactive
+az provider register --namespace Microsoft.Compute
+```
+
 This support means you can also move:
 
 * Virtual machines with the managed disks
@@ -285,7 +307,7 @@ Here are the constraints that are not yet supported:
 * Virtual Machines with certificate stored in Key Vault can be moved to a new resource group in the same subscription, but not across subscriptions.
 * Virtual Machines configured with Azure Backup. Use the below workaround to move these Virtual Machines
   * Locate the location of your Virtual Machine.
-  * Locate a resource group with the following naming pattern: `AzureBackupRG_<location of your VM>_1` e.g. AzureBackupRG_westus2_1
+  * Locate a resource group with the following naming pattern: `AzureBackupRG_<location of your VM>_1` for example, AzureBackupRG_westus2_1
   * If in Azure portal, then check "Show hidden types"
   * If in PowerShell, use the `Get-AzureRmResource -ResourceGroupName AzureBackupRG_<location of your VM>_1` cmdlet
   * If in CLI, use the `az resource list -g AzureBackupRG_<location of your VM>_1`
