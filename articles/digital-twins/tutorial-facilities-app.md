@@ -153,5 +153,5 @@ Once you are done exploring this tutorial, you may delete resources created in t
 
 Proceed to the <!-- Link to the concepts ontology/topology here --> to learn the basic concepts behind the Azure Digital Twins. 
 > [!div class="nextstepaction"]
-> [Next steps button](quickstart-view-occupancy.md)
+> [Next steps button](quickstart-view-occupancy-dotnet.md)
 
