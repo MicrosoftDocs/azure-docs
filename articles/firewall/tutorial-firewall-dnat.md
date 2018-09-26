@@ -220,7 +220,6 @@ In this tutorial, you learned how to:
 > * Deploy a firewall
 > * Create a default route
 > * Configure a DNAT rule
-> * Configure a network rule
 > * Test the firewall
 
 Next, you can monitor the Azure Firewall logs.
