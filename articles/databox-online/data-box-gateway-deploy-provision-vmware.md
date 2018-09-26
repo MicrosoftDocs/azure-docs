@@ -30,7 +30,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Ensure host meets minimum device requirements
-> * Provision a virtual device in hypervisor
+> * Provision a virtual device in VMware
 > * Start the virtual device and get the IP address
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
