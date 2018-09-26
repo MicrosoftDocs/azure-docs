@@ -134,7 +134,13 @@ To add a role to the assignment's managed identity, follow these steps:
 
 1. Locate the assignment that has a managed identity and click on the name.
 
-1. Find the **Assignment ID** property on the edit page. The assignment ID will be something like `/subscriptions/{subscriptionId}/resourceGroups/PolicyTarget/providers/Microsoft.Authorization/policyAssignments/2802056bfc094dfb95d4d7a5`. The name of the managed identity is the last portion of the assignment resource ID, which is `2802056bfc094dfb95d4d7a5` in this example. Copy this portion of the assignment resource ID.
+1. Find the **Assignment ID** property on the edit page. The assignment ID will be something like:
+
+   ```
+   /subscriptions/{subscriptionId}/resourceGroups/PolicyTarget/providers/Microsoft.Authorization/policyAssignments/2802056bfc094dfb95d4d7a5
+   ```
+
+   The name of the managed identity is the last portion of the assignment resource ID, which is `2802056bfc094dfb95d4d7a5` in this example. Copy this portion of the assignment resource ID.
 
 1. Navigate to the resource or the resources parent container (resource group, subscription, management group) that needs the role definition manually added.
 
