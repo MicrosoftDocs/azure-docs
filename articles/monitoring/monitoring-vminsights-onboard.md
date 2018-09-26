@@ -236,7 +236,7 @@ To enable Azure Monitor for VMs at scale that ensures consistent compliance and 
 Enable Azure Monitor for VMs via policy to your tenant requires: 
 
 - Configuring a Log Analytics Workspace you can you can create it through [Azure CLI](../log-analytics/log-analytics-log-analytics-quick-create-workspace-cli.md), through [PowerShell](../log-analytics/log-analytics-quick-create-workspace-posh.md), or in the [Azure portal](../log-analytics/log-analytics-quick-create-workspace.md).  
-- Assign the initiative to scope – management group, subscription or resource group 
+- Assign the initiative to scope – management group, subscription, or resource group 
 - Review and remediate the compliance results  
 
 For more information on Azure Policy, see [Azure Policy Introduction](../azure-policy/azure-policy-introduction.md)
@@ -245,7 +245,7 @@ The following table lists the policy definitions provided.
 
 |Name |Description |Type |  
 |-----|------------|-----|  
-|[Preview]: Enable Azure Monitor for VMs |Enable Azure Monitor for the Virtual Machines (VMs) in the specified scope (Management group, Subscription or resource group). Takes Log Analytics workspace as parameter. |Initiative |  
+|[Preview]: Enable Azure Monitor for VMs |Enable Azure Monitor for the Virtual Machines (VMs) in the specified scope (Management group, subscription, or resource group). Takes Log Analytics workspace as parameter. |Initiative |  
 |[Preview]: Audit Dependency Agent Deployment – VM Image (OS) unlisted |Reports VMs as non-compliant if the VM Image (OS) is not in the list defined and the agent is not installed. |Policy |  
 |[Preview]: Audit Log Analytics Agent Deployment – VM Image (OS) unlisted |Reports VMs as non-compliant if the VM Image (OS) is not in the list defined and the agent is not installed. |Policy |  
 |[Preview]: Deploy Dependency Agent for Linux VMs |Deploy Dependency Agent for Linux VMs if the VM Image (OS) is in the list defined and the agent is not installed. |Policy |  
