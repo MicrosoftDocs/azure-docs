@@ -14,7 +14,7 @@ Metric alerts in Azure Monitor provide a way to get notified when one of your me
 
 You can learn more about how metric alerts work from [metric alerts overview](alert-metric-overview.md).
 
-## With Azure portal
+## Create with Azure portal
 
 The following procedure describes how to create a metric alert rule in Azure portal:
 
@@ -52,7 +52,7 @@ The following procedure describes how to create a metric alert rule in Azure por
 > [!NOTE]
 > Metric alert rules created through portal are created in the same resource group as the target resource.
 
-## View and manage metric alert rules using Azure portal
+## View and manage with Azure portal
 
 You can view and manage metric alert rules using the Manage Rules blade under Alerts. The procedure below shows you how to view your metric alert rules and edit one of them.
 
