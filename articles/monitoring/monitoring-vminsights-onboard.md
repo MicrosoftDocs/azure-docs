@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 09/26/2018
 ms.author: magoedte
 ---
 
@@ -204,6 +204,9 @@ Azure Monitor for VMs configures a Log Analytics Workspace to collect performanc
 |Network |Total Bytes Transmitted |  
 |Processor |% Processor Time |  
 
+## Sign in to Azure portal
+Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com). 
+
 ## Enable from the Azure portal
 To enable monitoring of your Azure VM in the Azure portal, do the following:
 
@@ -224,72 +227,76 @@ After you've enabled monitoring, it might take about 10 minutes before you can v
 ![Enable Azure Monitor for VMs monitoring deployment processing](./media/monitoring-vminsights-onboard/onboard-vminsights-vm-portal-status.png)
 
 ## Enable using Azure Policy
-To enable the solution for multiple Azure VMs that ensures consistent compliance and automatic enablement for new VMs provisioned, [Azure Policy](../azure-policy/azure-policy-introduction.md) is recommended.  Using Azure Policy with the policies provided delivers the following benefits for new VMs:
+To enable Azure Monitor for VMs at scale that ensures consistent compliance and automatic enablement for new VMs provisioned, [Azure Policy](../azure-policy/azure-policy-introduction.md) is recommended.  These policies:
 
-* Enabling Azure Monitor for VMs for each VM in the defined scope
-* Deploy Log Analytics Agent 
-* Deploy Dependency Agent to discover application dependencies and show in the Map
-* Audit if your Azure VM OS image is in a pre-defined list in policy definition  
-* Audit if your Azure VM  is logging to workspace other than one specified
+* Deploy Log Analytics Agent and Dependency Agent to discover application dependencies and show in the Map
 * Report on compliance results 
-* Support remediation for non-compliant VMs
+* Remediate for non-compliant VMs
 
-To activate it for your tenant, this process requires:
+Enable Azure Monitor for VMs via policy to your tenant requires: 
 
-- Configure a Log Analytics Workspace using the steps listed here
-- Import the initiative defintion to your tenant (at the Management Group or Subscription level)
-- Assign the policy to the desired scope
-- Review the compliance results
+- Configuring a Log Analytics Workspace you can you can create it through [Azure CLI](../log-analytics/log-analytics-log-analytics-quick-create-workspace-cli.md), through [PowerShell](../log-analytics/log-analytics-quick-create-workspace-posh.md), or in the [Azure portal](../log-analytics/log-analytics-quick-create-workspace.md).  
+- Assign the initiative to scope – management group, subscription or resource group 
+- Review and remediate the compliance results  
 
-### Add the policies and initiative to your subscription
-To use the policies, you can use a provided PowerShell script - [Add-VMInsightsPolicy.ps1](https://www.powershellgallery.com/packages/Add-VMInsightsPolicy/1.2) available from the Azure PowerShell Gallery to complete this task. The script adds the policies and an initiative to your subscription.  Perform the following steps to configure Azure Policy in your subscription. 
+For more information on Azure Policy, see [Azure Policy Introduction](../azure-policy/azure-policy-introduction.md)
 
-1. Download the PowerShell script to your local file system.
+The following table lists the policy definitions provided.  
 
-2. Use the following PowerShell command in the folder to add policies. The script supports the following optional parameters: 
+|Name |Description |Type |  
+|-----|------------|-----|  
+|[Preview]: Enable Azure Monitor for VMs |Enable Azure Monitor for the Virtual Machines (VMs) in the specified scope (Management group, Subscription or resource group). Takes Log Analytics workspace as parameter. |Initiative |  
+|[Preview]: Audit Dependency Agent Deployment – VM Image (OS) unlisted |Reports VMs as non-compliant if the VM Image (OS) is not in the list defined and the agent is not installed. |Policy |  
+|[Preview]: Audit Log Analytics Agent Deployment – VM Image (OS) unlisted |Reports VMs as non-compliant if the VM Image (OS) is not in the list defined and the agent is not installed. |Policy |  
+|[Preview]: Deploy Dependency Agent for Linux VMs |Deploy Dependency Agent for Linux VMs if the VM Image (OS) is in the list defined and the agent is not installed. |Policy |  
+|[Preview]: Deploy Dependency Agent for Windows VMs |Deploy Dependency Agent for Windows VMs if the VM Image (OS) is in the list defined and the agent is not installed. |Policy |  
+|[Preview]: Deploy Log Analytics Agent for Linux VMs |Deploy Log Analytics Agent for Linux VMs if the VM Image (OS) is in the list defined and the agent is not installed. |Policy |  
+|[Preview]: Deploy Log Analytics Agent for Windows VMs |Deploy Log Analytics Agent for Windows VMs if the VM Image (OS) is in the list defined and the agent is not installed. |Policy |  
 
-    ```powershell
-    -UseLocalPolicies [<SwitchParameter>]
-      <Optional> Load the policies from a local folder instead of https://raw.githubusercontent.com/dougbrad/OnBoardVMInsights/Policy/Policy/
+Stand-alone policy (Not included with the initiative) 
 
-    -SubscriptionId <String>
-      <Optional> SubscriptionId to add the Policies/Initiatives to
-    -ManagementGroupId <String>
-      <Optional> Management Group Id to add the Policies/Initiatives to
+|Name |Description |Type |  
+|-----|------------|-----|  
+|[Preview]: Audit Log Analytics Workspace for VM - Report Mismatch |Report VMs as non-compliant if they are not logging to the LA workspace specified in the policy/initiative assignment. |Policy |
 
-    -Approve [<SwitchParameter>]
-      <Optional> Gives the approval to add the Policies/Initiatives without any prompt
-    ```  
+### Assign Azure Monitor initiative
+With this initial release, you can only create the policy assignment from the Azure portal. To understand how to complete these steps, see [Create a policy assignment from the Azure portal](../governance/policy/assign-policy-portal.md). 
 
+1. Launch the Azure Policy service in the Azure portal by clicking **All services**, then searching for and selecting **Policy**. 
+2. Select **Assignments** on the left side of the Azure Policy page. An assignment is a policy that has been assigned to take place within a specific scope.
+3. Select **Assign Initiative** from the top of the **Policy - Assignments** page.
+4. On the **Assign Initiative** page, select the **Scope** by clicking the ellipsis and select either a management group or subscription. Optionally, select a resource group. A scope determines what resources or grouping of resources the policy assignment gets enforced on. Then click **Select** at the bottom of the **Scope** page.
+5. Resources can be excluded based on the **Scope**. **Exclusions** start at one level lower than the level of the **Scope**. **Exclusions** are optional, so leave it blank for now.
+6. Select the **Initiative definition** ellipsis to open the list of available definitions and select **[Preview] Azure Monitor for VMs** from the list, and then click **Select**.
+7. The **Assignment name** is automatically populated with the initiative name you selected, but you can change it. You can also add an optional **Description**. **Assigned by* is automatically populated based on who is logged in, and this field is optional.
+8. Select a **Log Analytics workspace** from the dropdown list that is available in the supported region that you want to integrated with this solution.
     >[!NOTE]
-    >Note: If you plan to assign the initiative/policy to multiple subscriptions, the definitions must be stored in the management group that contains the subscriptions you will assign the policy to. Therefore you must use the -ManagementGroupID parameter.
-    >
-   
-    Example without parameters:  `.\Add-VMInsightsPolicy.ps1`
+    >If the workspace is outside of the scope of the assignment, you must grant **Log Analytics Contributor** permissions to the policy assignment's Principal ID.  
+9. Notice the **Managed Identity** option is checked. This is checked when the initiative being assigned includes a policy with the deployIfNotExists effect. From the **Manage Identity location** dropdown list, select the appropriate region hosting the workspace and VMs.  
+10. Click **Assign**.
 
-### Create a policy assignment
-After you run the `Add-VMInsightsPolicy.ps1` PowerShell script, the following initiative and policies are added:
+### Review and remediate the compliance results 
 
-* **Deploy Log Analytics Agent for Windows VMs - Preview**
-* **Deploy Log Analytics Agent for Linux VMs - Preview**
-* **Deploy Dependency Agent for Windows VMs - Preview**
-* **Deploy Dependency Agent for Linux VMs - Preview**
-* **Audit Log Analytics Agent Deployment - VM Image (OS) unlisted - Preview**
-* **Audit Dependency Agent Deployment - VM Image (OS) unlisted - Preview**
+VMs are reported as non-compliant in following scenarios:  
+  
+1. Log Analytics or Dependency Agent is not deployed.  
+   This is typical for a scope with existing VMs. To mitigate it, [create remediation tasks](../governance/policy/how-to/remediate-resources.md) on non-compliant policy to deploy the required agents.    
+ 
+    - [Preview]: Deploy Dependency Agent for Linux VMs   
+    - [Preview]: Deploy Dependency Agent for Windows VMs  
+    - [Preview]: Deploy Log Analytics Agent for Linux VMs  
+    - [Preview]: Deploy Log Analytics Agent for Windows VMs  
 
-The following initiative parameter is added:
+2. VM Image (OS) is not in the list identified in Policy definition.  
+   Criteria of the deployment policy only includes VMs that are deployed from well-known Azure VM images. Check the documentation if the VM OS is supported or not. If it is not, then you need to duplicate the deployment policy and update/modify it to make the image in scope. 
+  
+    - [Preview]: Audit Dependency Agent Deployment – VM Image (OS) unlisted  
+    - [Preview]: Audit Log Analytics Agent Deployment – VM Image (OS) unlisted
 
-- **Log Analytice Workspace** (You have to provide the ResourceID of the workspace if applying an assignment using PowerShell or CLI)
-
-    For VMs found as not-compliant from the audit policies **VMs not in OS scope...** the criteria of the deployment policy only includes VMs that are deployed from well-known Azure VM images. Check the documentation if the VM OS is supported or not.  If it is not, then you will need to duplicate the deployment policy and update/modify it to make the image in scope.
-
-The following standalone optional policy is added:
-
-- **VM is configured for mismatched Log Analytics Workspace - Preview**
-
-    This can be used to identify VMs already configured with the [Log Analytics VM Extension](../virtual-machines/extensions/oms-windows.md), but are configured with a different Workspace than intended (as indicated by the policy assignment). This takes a parameter for the WorkspaceID.
-
-With this initial release, you can only create the policy assignment from the Azure portal. To understand how to complete these steps, see [Create a policy assignment from the Azure portal](../azure-policy/assign-policy-definition.md).
+3. VMs are not logging to the specified LA workspace.  
+It is possible that some VMs in the initiative scope are logging to a LA workspace different from the once specified in policy assignment. This policy is a tool to identify which VMs   
+ 
+    - [Preview]: Audit Log Analytics Workspace for VM - Report Mismatch  
 
 ## Enable with PowerShell
 To enable Azure Monitor for VMs for multiple VMs or VM scale sets, you can use a provided PowerShell script - [Install-VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights/1.0) available from the Azure PowerShell Gallery to complete this task.  This script will iterate through every virtual machine and VM scale set in your subscription, in the scoped resource group specified by *ResourceGroup*, or to a single VM or scale set specified by *Name*.  For each VM or VM scale set the script verifies if the VM extension is already installed, and if not attempt to reinstall it.  Otherwise, it proceeds to install the Log Analytics and Dependency Agent VM extensions.   
