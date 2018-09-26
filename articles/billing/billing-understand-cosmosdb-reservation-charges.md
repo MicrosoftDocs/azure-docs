@@ -8,7 +8,7 @@ manager: kfile
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: rimman
+ms.author: cwatson
 ms.reviewer: sngun
 ---
 

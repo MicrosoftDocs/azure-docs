@@ -14,7 +14,7 @@ manager: douge
 
 ### Configure your AKS cluster to use Azure Dev Spaces
 
-Open a command window and enter the following Azure CLI command, using the resource group that contains your AKS cluster, and your AKS cluster name. The command configures your cluster with support for Azure Dev Spaces.
+Enter the following Azure CLI command, using the resource group that contains your AKS cluster, and your AKS cluster name. The command configures your cluster with support for Azure Dev Spaces.
 
    ```cmd
    az aks use-dev-spaces -g MyResourceGroup -n MyAKS
