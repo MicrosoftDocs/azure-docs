@@ -72,7 +72,9 @@
     - name: 2- Scale the cluster
       href: service-fabric-tutorial-scale-cluster.md
     - name: 3- Upgrade the cluster runtime
-      href: service-fabric-tutorial-upgrade-cluster.md    
+      href: service-fabric-tutorial-upgrade-cluster.md
+    - name: 4- Delete a cluster
+      href: service-fabric-tutorial-delete-cluster.md
   - name: Create a standalone cluster on AWS
     items:
     - name: 1- Create the infrastructure on AWS

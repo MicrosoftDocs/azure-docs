@@ -37,6 +37,7 @@ In this tutorial series you learn how to:
 > * Create a secure [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) or [Linux cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) on Azure using a template
 > * [Scale a cluster in or out](service-fabric-tutorial-scale-cluster.md)
 > * Upgrade the runtime of a cluster
+> * [Delete a cluster](service-fabric-tutorial-delete-cluster.md)
 
 ## Prerequisites
 
