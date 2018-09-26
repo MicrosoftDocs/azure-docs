@@ -29163,22 +29163,22 @@
         {
             "source_path": "articles/iot-hub/iot-hub-intel-edison-kit-c-get-started.md",
             "redirect_url": "/azure/iot-hub/iot-hub-get-started-physical",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-hub/iot-hub-intel-edison-kit-node-get-started.md",
             "redirect_url": "/azure/iot-hub/iot-hub-get-started-physical",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-hub/iot-hub-sparkfun-esp8266-thing-dev-get-started.md",
             "redirect_url": "/azure/iot-hub/iot-hub-get-started-physical",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md",
             "redirect_url": "/azure/iot-hub/iot-hub-get-started-physical",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/azure-preview-portal-supported-browsers-devices.md",
