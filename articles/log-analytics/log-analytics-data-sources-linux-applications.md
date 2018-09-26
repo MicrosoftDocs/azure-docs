@@ -1,6 +1,6 @@
 ---
-title: Collect Linux application performance in OMS Log Analytics | Microsoft Docs
-description: This article provides details for configuring the OMS Agent for Linux to collect performance counters for MySQL and Apache HTTP Server. 
+title: Collect Linux application performance in Log Analytics | Microsoft Docs
+description: This article provides details for configuring the Log Analytics agent for Linux to collect performance counters for MySQL and Apache HTTP Server. 
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -19,18 +19,19 @@ ms.component: na
 ---
 
 # Collect performance counters for Linux applications in Log Analytics 
-This article provides details for configuring the [OMS Agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) to collect performance counters for specific applications.  The applications included in this article are:  
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
+This article provides details for configuring the [Log Analytics agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) to collect performance counters for specific applications.  The applications included in this article are:  
 
 - [MySQL](#MySQL)
 - [Apache HTTP Server](#apache-http-server)
 
 ## MySQL
-If MySQL Server or MariaDB Server is detected on the computer when the OMS agent is installed, a performance monitoring provider for MySQL Server will be automatically installed. This provider connects to the local MySQL/MariaDB server to expose performance statistics. MySQL user credentials must be configured so that the provider can access the MySQL Server.
+If MySQL Server or MariaDB Server is detected on the computer when the Log Analytics agent is installed, a performance monitoring provider for MySQL Server will be automatically installed. This provider connects to the local MySQL/MariaDB server to expose performance statistics. MySQL user credentials must be configured so that the provider can access the MySQL Server.
 
 ### Configure MySQL credentials
 The MySQL OMI provider requires a preconfigured MySQL user and installed MySQL client libraries in order to query the performance and health information from the MySQL instance.  These credentials are stored in an authentication file that's stored on the Linux agent.  The authentication file specifies what bind-address and port the MySQL instance is listening on and what credentials to use to gather metrics.  
 
-During installation of the OMS Agent for Linux the MySQL OMI provider will scan MySQL my.cnf configuration files (default locations) for bind-address and port and partially set the MySQL OMI authentication file.
+During installation of the Log Analytics agent for Linux the MySQL OMI provider will scan MySQL my.cnf configuration files (default locations) for bind-address and port and partially set the MySQL OMI authentication file.
 
 The MySQL authentication file is stored at `/var/opt/microsoft/mysql-cimprov/auth/omsagent/mysql-auth`.
 
@@ -111,7 +112,7 @@ These privileges can be granted by running the following grant commands.
 
 ### Define performance counters
 
-Once you configure the OMS Agent for Linux to send data to Log Analytics, you must configure the performance counters to collect.  Use the procedure in [Windows and Linux performance data sources in Log Analytics](log-analytics-data-sources-windows-events.md) with the counters in the following table.
+Once you configure the Log Analytics agent for Linux to send data to Log Analytics, you must configure the performance counters to collect.  Use the procedure in [Windows and Linux performance data sources in Log Analytics](log-analytics-data-sources-windows-events.md) with the counters in the following table.
 
 | Object Name | Counter Name |
 |:--|:--|
@@ -147,7 +148,7 @@ sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -u
 
 ### Define performance counters
 
-Once you configure the OMS Agent for Linux to send data to Log Analytics, you must configure the performance counters to collect.  Use the procedure in [Windows and Linux performance data sources in Log Analytics](log-analytics-data-sources-windows-events.md) with the counters in the following table.
+Once you configure the Log Analytics agent for Linux to send data to Log Analytics, you must configure the performance counters to collect.  Use the procedure in [Windows and Linux performance data sources in Log Analytics](log-analytics-data-sources-windows-events.md) with the counters in the following table.
 
 | Object Name | Counter Name |
 |:--|:--|
