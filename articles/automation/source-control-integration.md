@@ -23,7 +23,9 @@ Azure Automation supports 3 types of source control:
 ## Pre-requisites
 
 * A source control repository (GitHub or Visual Studio Team Services)
+* The correct [permissions](#personal-access-token-permissions) to the source control repository
 * A [Run-As Account and connection](manage-runas-account.md)
+  
 
 > [!NOTE]
 > Source control sync jobs run under the users Automation Account and are billed at the same rate as other Automation jobs.
@@ -95,6 +97,35 @@ Source Control Sync Summary:
 
 ========================================================================================================
 ```
+
+## Personal access token permissions
+
+The following sections describe the necessary personal access token permissions needed for source control for GitHub and Azure DevOps
+
+### GitHub
+
+|Scope  |Description  |
+|---------|---------|
+|**repo**     |         |
+|repo:status     | Access commit status         |
+|repo_deployment      | Access deployment status         |
+|public_repo     | Access public repositories         |
+|**admin:repo_hook**     |         |
+|write:repo_hook     | Write repository hooks         |
+|read:repo_hook|Read repository hooks|
+
+### Azure DevOps
+
+|Scope  |
+|---------|
+|Code (read)     |
+|Project and team (read)|
+|Identity (read)      |
+|User profile (read)     |
+|Work items (read)    |
+|Service Connections (read, query, and manage)<sup>1</sup>    |
+
+<sup>1</sup>the Service Connections permission is only required if you have enabled auto-sync.
 
 ## Disconnecting source control
 
