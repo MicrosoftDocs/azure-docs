@@ -41,7 +41,7 @@ A Log Analytics workspace in the following regions is currently supported:
 <sup>1</sup> 
 This region does not currently support the Health feature of Azure Monitor for VMs   
 
-If you do not have a workspace, you can create it through [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), through [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../log-analytics/log-analytics-quick-create-workspace.md).  
+If you do not have a workspace, you can create it through [Azure CLI](../log-analytics/log-analytics-quick-create-workspace-cli.md), through [PowerShell](../log-analytics/log-analytics-quick-create-workspace-posh.md), in the [Azure portal](../log-analytics/log-analytics-quick-create-workspace.md), or with [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md).
 
 To enable the solution, you need to be a member of the Log Analytics contributor role. For more information about how to control access to a Log Analytics workspace, see [Manage workspaces](../log-analytics/log-analytics-manage-access.md).
 
@@ -235,8 +235,8 @@ To enable Azure Monitor for VMs at scale that ensures consistent compliance and 
 
 Enable Azure Monitor for VMs via policy to your tenant requires: 
 
-- Configuring a Log Analytics Workspace you can you can create it through [Azure CLI](../log-analytics/log-analytics-log-analytics-quick-create-workspace-cli.md), through [PowerShell](../log-analytics/log-analytics-quick-create-workspace-posh.md), or in the [Azure portal](../log-analytics/log-analytics-quick-create-workspace.md).  
-- Assign the initiative to scope – management group, subscription, or resource group 
+- Configuring a Log Analytics Workspace.   
+- Assign the initiative to a scope – management group, subscription, or resource group 
 - Review and remediate the compliance results  
 
 For more information on Azure Policy, see [Azure Policy Introduction](../azure-policy/azure-policy-introduction.md)
