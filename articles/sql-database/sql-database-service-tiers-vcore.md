@@ -2,14 +2,16 @@
 title: 'Azure SQL Database service - vCore | Microsoft Docs'
 description: The vCore-based purchasing model enables you to independently scale compute and storage resources, match on-premises performance, and optimize price.  
 services: sql-database
-author: CarlRabeler
 ms.service: sql-database
-ms.custom: DBs & servers
+ms.subservice: 
+ms.custom:
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 09/14/2018
-manager: craigg
+author: CarlRabeler
 ms.author: carlrab
-
+ms.reviewer: sashan, moslake
+manager: craigg
+ms.date: 09/14/2018
 ---
 # Choosing a vCore service tier, compute, memory, storage, and IO resources
 
