@@ -10,7 +10,7 @@ ms.author: victorh
 ---
 
 # Azure Firewall rule processing logic
-Azure Firewall has NAT rules, network rules and applications rules. The rules are processed according to the rule type.
+Azure Firewall has NAT rules, network rules, and applications rules. The rules are processed according to the rule type.
 
 
 ## Network rules and applications rules 
