@@ -14,9 +14,9 @@ manager: "mmontwil"
 ---
 # Get Started on Azure Dev Spaces with Java
 
-[!INCLUDE[](../../includes/learning-objectives.md)]
+[!INCLUDE[](includes/learning-objectives.md)]
 
-[!INCLUDE[](../../includes/see-troubleshooting.md)]
+[!INCLUDE[](includes/see-troubleshooting.md)]
 
 You're now ready to create a Kubernetes-based dev space in Azure.
 
@@ -26,13 +26,13 @@ Azure Dev Spaces requires minimal local machine setup. Most of your dev space's 
 > [!IMPORTANT]
 > If you already have the Azure CLI installed, make sure you are using version 2.0.43 or higher.
 
-[!INCLUDE[](../../includes/sign-into-azure.md)]
+[!INCLUDE[](includes/sign-into-azure.md)]
 
-[!INCLUDE[](../../includes/cli-create-cluster.md)]
+[!INCLUDE[](includes/cli-create-cluster.md)]
 
-[!INCLUDE[](../../includes/use-dev-spaces.md)]
+[!INCLUDE[](includes/use-dev-spaces.md)]
 
-[!INCLUDE[](../../includes/install-vscode-extension.md)]
+[!INCLUDE[](includes/install-vscode-extension.md)]
 
 In order to debug Java applications with Azure Dev Spaces, download and install the [Java Debugger for Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debugger-azds) extension for VS Code. Click Install once on the extension's Marketplace page, and again in VS Code.
 
@@ -43,9 +43,9 @@ In this section, you'll create a Java web application and get it running in a co
 ### Create a Java web app
 Download code from GitHub by navigating to https://github.com/Azure/dev-spaces and select **Clone or Download** to download the GitHub repository to your local environment. The code for this guide is in `samples/java/getting-started/webfrontend`.
 
-[!INCLUDE[](../../includes/azds-prep.md)]
+[!INCLUDE[](includes/azds-prep.md)]
 
-[!INCLUDE[](../../includes/build-run-k8s-cli.md)]
+[!INCLUDE[](includes/build-run-k8s-cli.md)]
 
 ### Update a content file
 Azure Dev Spaces isn't just about getting code running in Kubernetes - it's about enabling you to quickly and iteratively see your code changes take effect in a Kubernetes environment in the cloud.
@@ -61,9 +61,9 @@ But there is an even *faster method* for developing code, which you'll explore i
 
 ## Debug a container in Kubernetes
 
-[!INCLUDE[](../../includes/debug-intro.md)]
+[!INCLUDE[](includes/debug-intro.md)]
 
-[!INCLUDE[](../../includes/init-debug-assets-vscode.md)]
+[!INCLUDE[](includes/init-debug-assets-vscode.md)]
 
 ### Select the AZDS debug configuration
 1. To open the Debug view, click on the Debug icon in the **Activity Bar** on the side of VS Code.
@@ -79,7 +79,7 @@ Hit **F5** to debug your code in Kubernetes.
 
 As with the `up` command, code is synced to the dev space, and a container is built and deployed to Kubernetes. This time, of course, the debugger is attached to the remote container.
 
-[!INCLUDE[](../../includes/tip-vscode-status-bar-url.md)]
+[!INCLUDE[](includes/tip-vscode-status-bar-url.md)]
 
 Set a breakpoint in a server-side code file, for example within the `greeting()` function in the `src/main/java/com/ms/sample/webfrontend/Application.java` source file. Refreshing the browser page causes the breakpoint to hit.
 
