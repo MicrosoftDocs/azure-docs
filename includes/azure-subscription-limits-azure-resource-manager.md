@@ -16,7 +16,7 @@
 | VM total cores per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per Region | Contact support |
 | VM per series (Dv2, F, etc.) cores per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per Region | Contact support |
 | [Co-administrators](../articles/billing-add-change-azure-subscription-administrator.md) per subscription |Unlimited |Unlimited |
-| [Storage accounts](../articles/storage/common/storage-create-storage-account.md) per region per subscription |200 |200<sup>2</sup> |
+| [Storage accounts](../articles/storage/common/storage-quickstart-create-account.md) per region per subscription |200 |200<sup>2</sup> |
 | [Resource Groups](../articles/azure-resource-manager/resource-group-overview.md) per subscription |980 |980 |
 | [Availability Sets](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) per subscription |2,000 per Region |2,000 per Region |
 | Resource Manager API Reads |15,000 per hour |15,000 per hour |

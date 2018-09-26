@@ -111,8 +111,7 @@ The follwing example configures a **PhoneNumber** claim with the `Simple` mask:
 <ClaimType Id="PhoneNumber">
   <DisplayName>Phone</DisplayName>
   <DataType>string</DataType>
-  <Mask Type="Simple">XXX-XXX-</Mask>
-  <AdminHelpText/>
+  <Mask Type="Simple">XXX-XXX-</Mask>  
   <UserHelpText>Your telephone number.</UserHelpText>
 </ClaimType>
 ```
@@ -273,7 +272,6 @@ The **DateTimeDropdown** user input type is used to provide a set of drop-downs 
 <ClaimType Id="dateOfBirth">
   <DisplayName>Date Of Birth</DisplayName>
   <DataType>date</DataType>
-  <AdminHelpText/>
   <UserHelpText>The date on which you were born.</UserHelpText>
   <UserInputType>DateTimeDropdown</UserInputType>
 </ClaimType>

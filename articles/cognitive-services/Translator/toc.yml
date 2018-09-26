@@ -1,7 +1,7 @@
 - name: Translator Text API Documentation
   href: index.yml
 - name: Overview
-  items: 
+  items:
   - name: What is the Translator Text API?
     href: translator-info-overview.md
 - name: Quickstarts
@@ -111,8 +111,6 @@
     href: tutorial-wpf-translation-csharp.md
 - name: Concepts
   items:
-  - name: Supported languages
-    href: languages.md
   - name: Customize and improve text translation
     href: customization.md
   - name: How the API counts characters
@@ -130,7 +128,7 @@
   - name: Use the dynamic dictionary feature
     href: dynamic-dictionary.md
 - name: Reference
-  items: 
+  items:
   - name: v3 Translator Text API reference
     href: reference/v3-0-reference.md
     items:
@@ -162,11 +160,13 @@
   - name: Code samples on GitHub
     href: https://aka.ms/TranslatorGitHub
   - name: FAQ
-    href: https://www.microsoft.com/translator/faq.aspx 
+    href: https://www.microsoft.com/translator/faq.aspx
   - name: Knowledge Base
     href: https://cognitive.uservoice.com/knowledgebase/topics/132647-translator
+  - name: Language and region support
+    href: language-support.md
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/ 
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Stack Overflow

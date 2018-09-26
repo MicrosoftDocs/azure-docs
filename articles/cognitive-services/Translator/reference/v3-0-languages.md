@@ -1,20 +1,21 @@
 ---
-title: Microsoft Translator Text API Languages Method | Microsoft Docs
-description: Use the Microsoft Translator Text API Languages method.
+title: Translator Text API Languages Method
+titlesuffix: Azure Cognitive Services
+description: Use the Translator Text API Languages method.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
 ---
 
-# Text API 3.0: Languages
+# Translator Text API 3.0: Languages
 
-Gets the set of languages currently supported by other operations of the Text API. 
+Gets the set of languages currently supported by other operations of the Translator Text API. 
 
 ## Request URL
 

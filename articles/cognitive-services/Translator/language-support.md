@@ -4,16 +4,16 @@ titleSuffix: Azure Cognitive Services
 description: A list of natural languages supported by the Translator Text API.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
-ms.topic: conceptual
-ms.date: 06/27/2018
+ms.topic: article
+ms.date: 09/25/2018
 ms.author: v-jansko
 ---
-# Language and regions support for the Translator Text API
+# Language and region support for the Translator Text API
 
-The Microsoft Translator Text API supports the following languages for text to text translation. Neural Machine Translation (NMT) is the new standard for high-quality AI-powered machine translations and is available as the default using V3 of the Translator Text API when a neural system is available. Neural machine translation is available in V2 by using the "generalnn" category.
+The Translator Text API supports the following languages for text to text translation. Neural Machine Translation (NMT) is the new standard for high-quality AI-powered machine translations and is available as the default using V3 of the Translator Text API when a neural system is available. Neural machine translation is available in V2 by using the "generalnn" category.
 
 [Learn more about how machine translation works](https://www.microsoft.com/translator/mt.aspx)
 

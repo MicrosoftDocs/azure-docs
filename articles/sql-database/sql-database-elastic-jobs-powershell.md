@@ -2,14 +2,16 @@
 title: Create and manage elastic jobs using PowerShell | Microsoft Docs
 description: PowerShell used to manage Azure SQL Database pools
 services: sql-database
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: operations
+ms.custom: 
+ms.devlang: pwershell
 ms.topic: conceptual
-ms.date: 06/14/2018
+author: stevestein
 ms.author: sstein
-
+ms.reviewer: 
+manager: craigg
+ms.date: 06/14/2018
 ---
 # Create and manage SQL Database elastic jobs using PowerShell (preview)
 
@@ -208,7 +210,7 @@ Security best practices for Elastic Database jobs include:
 * Credentials should have the least privileges necessary to perform the job task.  More information can be seen within this [Authorization and Permissions](https://msdn.microsoft.com/library/bb669084.aspx) SQL Server MSDN article.
 
 ### To create an encrypted credential for job execution across databases
-To create a new encrypted credential, the [**Get-Credential cmdlet**](https://technet.microsoft.com/library/hh849815.aspx) prompts for a user name and password that can be passed to the [**New-AzureSqlJobCredential cmdlet**](/powershell/module/elasticdatabasejobs/new-azuresqljobcredential).
+To create a new encrypted credential, the [**Get-Credential cmdlet**](/powershell/module/microsoft.powershell.security/get-credential) prompts for a user name and password that can be passed to the [**New-AzureSqlJobCredential cmdlet**](/powershell/module/elasticdatabasejobs/new-azuresqljobcredential).
 
     $credentialName = "{Credential Name}"
     $databaseCredential = Get-Credential

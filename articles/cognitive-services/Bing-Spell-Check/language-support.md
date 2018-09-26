@@ -1,14 +1,14 @@
 ---
 title: Language support - Bing Spell Check API
 titleSuffix: Azure Cognitive Services
-description: A list of natural languages supported by Bing Spell Check.
+description: A list of natural languages supported by the Bing Spell Check API.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-spell-check
-ms.topic: conceptual
-ms.date: 05/08/2018
+ms.topic: article
+ms.date: 09/25/2018
 ms.author: nolachar
 ---
 
@@ -16,7 +16,7 @@ ms.author: nolachar
 
 These languages are supported by the Bing Spell Check API (only in `spell` mode).
 
-Please note that to work with any other language than `en-US`, the `mkt` should be set and either `Accept-Language` or `setLang` should be set as it has been described in [Spell Check API v7 reference](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)
+Please note that to work with any other language than `en-US`, the `mkt` should be set and either `Accept-Language` or `setLang` should be set as it has been described in [Spell Check API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)
 
 | Language    | Language code |
 |:----------- |:-------------:|

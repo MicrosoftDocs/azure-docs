@@ -2,19 +2,20 @@
 title: Azure SQL Database Managed Instance VNet Configuration | Microsoft Docs
 description: This topic describes configuration options for a virtual network (VNet) with an Azure SQL Database Managed Instance.
 services: sql-database
-author: srdan-bozovic-msft
-manager: craigg
 ms.service: sql-database
-ms.custom: managed instance
+ms.subservice: managed-instance
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 09/12/2018
+author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
+manager: craigg
+ms.date: 09/20/2018
 ---
-
 # Configure a VNet for Azure SQL Database Managed Instance
 
-Azure SQL Database Managed Instance (preview) must be deployed within an Azure [virtual network (VNet)](../virtual-network/virtual-networks-overview.md). This deployment enables the following scenarios: 
+Azure SQL Database Managed Instance must be deployed within an Azure [virtual network (VNet)](../virtual-network/virtual-networks-overview.md). This deployment enables the following scenarios: 
 - Connecting to a Managed Instance directly from an on-premises network 
 - Connecting a Managed Instance to linked server or another on-premises data store 
 - Connecting a Managed Instance to Azure resources  
@@ -29,7 +30,7 @@ Plan how you deploy a Managed Instance in virtual network using your answers to 
 
    If you plan to use an existing virtual network, you need to modify that network configuration to accommodate your Managed Instance. For more information, see [Modify existing virtual network for Managed Instance](#modify-an-existing-virtual-network-for-managed-instances). 
 
-   If you plan to create new virtual network, see [Create new virtual network for Managed Instance](#create-a-new-virtual-network-for-managed-instances).
+   If you plan to create new virtual network, see [Create new virtual network for Managed Instance](#create-a-new-virtual-network-for-a-managed-instance).
 
 ## Requirements
 
@@ -37,7 +38,7 @@ To create a Managed Instance, create a dedicated subnet (the Managed Instance su
 - **Dedicated subnet**: The Managed Instance subnet must not contain any other cloud service associated with it, and it must not be a Gateway subnet. You won’t be able to create a Managed Instance in a subnet that contains resources other than Managed Instance, and you can not later add other resources in the subnet.
 - **Compatible Network Security Group (NSG)**: An NSG associated with a Managed Instance subnet must contain rules shown in the following tables (Mandatory inbound security rules and Mandatory outbound security rules) in front of any other rules. You can use an NSG to fully control access to the Managed Instance data endpoint by filtering traffic on port 1433. 
 - **Compatible user-defined route table (UDR)**: The Managed Instance subnet must have a user route table with **0.0.0.0/0 Next Hop Internet** as the mandatory UDR assigned to it. In addition, you can add a UDR that routes traffic that has on-premises private IP ranges as a destination through virtual network gateway or virtual network appliance (NVA). 
-- **Optional custom DNS**: If a custom DNS is specified on thevirtual netword, Azure's recursive resolver IP address (such as 168.63.129.16) must be added to the list. For more information, see [Configuring Custom DNS](sql-database-managed-instance-custom-dns.md). The custom DNS server must be able to resolve host names in the following domains and their subdomains: *microsoft.com*, *windows.net*, *windows.com*, *msocsp.com*, *digicert.com*, *live.com*, *microsoftonline.com*, and *microsoftonline-p.com*. 
+- **Optional custom DNS**: If a custom DNS is specified on the virtual network, Azure's recursive resolver IP address (such as 168.63.129.16) must be added to the list. For more information, see [Configuring Custom DNS](sql-database-managed-instance-custom-dns.md). The custom DNS server must be able to resolve host names in the following domains and their subdomains: *microsoft.com*, *windows.net*, *windows.com*, *msocsp.com*, *digicert.com*, *live.com*, *microsoftonline.com*, and *microsoftonline-p.com*. 
 - **No service endpoints**: The Managed Instance subnet must not have a service endpoint associated to it. Make sure that service endpoints option is disabled when creating the virtual network.
 - **Sufficient IP addresses**: The Managed Instance subnet must have the bare minimum of 16 IP addresses (recommended minimum is 32 IP addresses). For more information, see [Determine the size of subnet for Managed Instances](#determine-the-size-of-subnet-for-managed-instances)
 
@@ -79,7 +80,7 @@ If you plan to deploy multiple Managed Instances inside the subnet and need to o
 > [!IMPORTANT]
 > Calculation displayed above will become obsolete with further improvements. 
 
-## Create a new virtual network for Managed Instance using Azure Resource Manager deployment
+## Create a new virtual network for a Managed Instance
 
 The easiest way to create and configure virtual network is to use Azure Resource Manager deployment template.
 
@@ -96,7 +97,7 @@ The easiest way to create and configure virtual network is to use Azure Resource
 
 3. Configure network environment. On the following form you can configure parameters of your network environment:
 
-![Configure azure network](./media/sql-database-managed-instance-get-started/create-mi-network-arm.png)
+![Configure azure network](./media/sql-database-managed-instance-vnet-configuration/create-mi-network-arm.png)
 
 You might change the names of VNet and subnets and adjust IP ranges associated to your networking resources. Once you press "Purchase" button, this form will create and configure your environment. If you don't need two subnets you can delete the default one. 
 
@@ -138,8 +139,6 @@ Subnet preparation is done in three simple steps:
 **Do you have custom DNS server configured?** 
 
 If yes, see [Configuring a Custom DNS](sql-database-managed-instance-custom-dns.md). 
-
-- Create the required route table and associate it: see [Create the required route table and associate it](#create-the-required-route-table-and-associate-it)
 
 ## Next steps
 

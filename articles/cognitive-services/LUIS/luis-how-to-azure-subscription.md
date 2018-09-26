@@ -1,13 +1,14 @@
 ---
-title: Manage Azure endpoint subscription | Microsoft Docs
+title: Endpoint subscription management in LUIS
+titleSuffix: Azure Cognitive Services
 description: In this article, you create a metered endpoint key for your LUIS account to provide unlimited traffic to your endpoint following a payment plan.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 09/10/2018
 ms.author: diberry
 ---
 
@@ -21,7 +22,7 @@ For testing and prototype only, use the free (F0) tier. For production systems, 
 <a name="create-luis-service"></a>
 ## Create LUIS endpoint key
 
-1. Sign in to **[Microsoft Azure](https://ms.portal.azure.com/)** 
+1. Sign in to **[Microsoft Azure](https://ms.portal.azure.com/)**. 
 2. Click the green **+** sign in the upper left-hand panel and search for “LUIS” in the marketplace, then click on **Language Understanding** and follow the **create experience** to create a LUIS subscription account. 
 
     ![Azure Search](./media/luis-azure-subscription/azure-search.png) 
@@ -35,8 +36,7 @@ For testing and prototype only, use the free (F0) tier. For production systems, 
     ![Azure Keys](./media/luis-azure-subscription/azure-keys.png)
 
     > [!Note] 
-    > * Log into your region's [LUIS](luis-reference-regions.md) website and [add the new LUIS endpoint key](luis-how-to-manage-keys.md#assign-endpoint-key). 
-    > * You need to remember the name of the Azure service you created in order to select it on the region's [LUIS](luis-reference-regions.md) publish page.  
+    > Sign in to your region's [LUIS](luis-reference-regions.md) website and [assign the new LUIS endpoint key](luis-how-to-manage-keys.md#assign-endpoint-key). You need the name of the LUIS subscription from step 3.
 
 ## Change LUIS pricing tier
 

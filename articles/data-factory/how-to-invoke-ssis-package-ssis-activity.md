@@ -19,7 +19,7 @@ This article describes how to run an SSIS package in an Azure Data Factory pipel
 
 ## Prerequisites
 
-**Azure SQL Database**. The walkthrough in this article uses an Azure SQL database that hosts the SSIS catalog. You can also use an Azure SQL Managed Instance (Preview).
+**Azure SQL Database**. The walkthrough in this article uses an Azure SQL database that hosts the SSIS catalog. You can also use an Azure SQL Database Managed Instance.
 
 ## Create an Azure-SSIS integration runtime
 Create an Azure-SSIS integration runtime if you don't have one by following the step-by-step instruction in the [Tutorial: Deploy SSIS packages](tutorial-create-azure-ssis-runtime-portal.md).

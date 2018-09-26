@@ -4,11 +4,11 @@ titleSuffix: Azure Cognitive Services
 description: A list of natural languages, countries and regions that are supported by the Bing News Search API.
 services: cognitive-services
 author: MikeDodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: article
-ms.date: 12/20/2017
+ms.date: 09/25/2018
 ms.author: v-gedod
 ---
 
