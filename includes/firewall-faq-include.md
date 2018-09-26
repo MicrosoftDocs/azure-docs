@@ -97,6 +97,9 @@ $azfw.Allocate($vnet,$publicip)
 Set-AzureRmFirewall -AzureFirewall $azfw
 ```
 
+> [!NOTE]
+> You must reallocate a firewall and public IP to the original resource group and subscription.
+
 ### What are the known service limits?
 
 * Azure Firewall has a soft limit of 1000 TB per firewall per month. 

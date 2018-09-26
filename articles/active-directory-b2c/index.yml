@@ -18,12 +18,33 @@ abstract:
     image:
       alt: 
       height: 110
-      src: https://docs.microsoft.com/azure/active-directory-b2c/media/index/active-directory-b2c-video.PNG
+      src: ./media/index/active-directory-b2c-video.PNG
       width: 250  
-    title: Business-to-Consumer Identity Management with Azure Active Directory B2C (12:56)
-    href: https://azure.microsoft.com/resources/videos/build-2016-business-to-consumer-identity-management-with-azure-active-directory-b2c/
+    title: Customer Identity Management with Azure AD B2C (20:56)
+    href: https://channel9.msdn.com/Shows/On-NET/Customer-Identity-Management-with-Azure-AD-B2C
     width: 250
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/active-directory-b2c/active-directory-b2c-overview
+      html: <p>Learn more about Azure AD B2C and its features and capabilities.</p>
+      image:
+        src: ./media/index/i_get-started.svg
+      title: About Azure AD B2C
+    - href: /azure/active-directory-b2c/solution-articles
+      html: <p>Investigate solution and training opportunities using Azure AD B2C.</p>
+      image:
+        src: ./media/index/i_advanced.svg
+      title: Solutions and training
+    - href: /azure/active-directory-b2c/trustframeworkpolicy
+      html: <p>Create advanced sign-up and sign-in scenarios using custom policies in Azure AD B2C.</p>
+      image: 
+        src: ./media/index/i_investigate.svg
+      title: Identity Experience Framework
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
@@ -52,11 +73,11 @@ sections:
       className: cardsD
       items:
       - title: ASP.NET
-        html: <p>1. <a href="/azure/active-directory-b2c/tutorial-register-applications">Register application</a></p><p>2. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-web-app">Authenticate users</a></p><p>3. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-web-api">Grant API access</a></p>
+        html: <p>1. <a href="/azure/active-directory-b2c/tutorial-create-tenant">Create a tenant</a></p><p>2. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-web-app">Authenticate users</a></p><p>3. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-web-api">Grant API access</a></p>
       - title: Desktop
-        html: <p>1. <a href="/azure/active-directory-b2c/tutorial-register-applications">Register application</a></p><p>2. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-desktop-app">Authenticate users</a></p><p>3. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-desktop-app-webapi">Grant API access</a></p>
+        html: <p>1. <a href="/azure/active-directory-b2c/tutorial-create-tenant">Create a tenant</a></p><p>2. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-desktop-app">Authenticate users</a></p><p>3. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-desktop-app-webapi">Grant API access</a></p>
       - title: Single-page
-        html: <p>1. <a href="/azure/active-directory-b2c/tutorial-register-applications">Register application</a></p><p>2. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-spa">Authenticate users</a></p><p>3. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-spa-webapi">Grant API access</a></p>
+        html: <p>1. <a href="/azure/active-directory-b2c/tutorial-create-tenant">Create a tenant</a></p><p>2. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-spa">Authenticate users</a></p><p>3. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-spa-webapi">Grant API access</a></p>
 - title: Samples
   items:
   - type: paragraph
