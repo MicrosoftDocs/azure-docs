@@ -28836,6 +28836,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/azure-policy/index.md",
+            "redirect_url": "/azure/governance/policy/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-policy/scripts/index.md",
+            "redirect_url": "/azure/governance/policy/samples/",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/azure-policy/azure-policy-introduction.md",
             "redirect_url": "/azure/governance/policy/overview",
             "redirect_document_id": false
