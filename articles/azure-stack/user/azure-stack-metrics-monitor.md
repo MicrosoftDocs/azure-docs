@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/14/2018
 ms.author: mabrigg
 
 ---
@@ -32,7 +32,7 @@ You can find monitoring data in a single place with the Azure Monitor pipeline, 
 | Storage metrics | Metrics | Azure Storage | Storage table:<br>Storage Analytics |
 | Activity log | Events | All Azure Services | REST API:<br>Azure Monitor Event API |
 | Compute guest OS logs (for example,  IIS, ETW, syslogs) | Events | Windows and Linux Virtual Machines | Storage table or blob:<br>Windows or Linux Azure Diagnostics <br>Event Hub:<br>Windows Azure Diagnostics |
-| Storage logs | Events | Azure Storage | Storage table:<br>Storage Analytics<br>`Vita: how about hybrid OMS/AppInsights, shall we mention?` |
+| Storage logs | Events | Azure Storage | Storage table:<br>Storage Analytics |
 
 ## Next steps
 
