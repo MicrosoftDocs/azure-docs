@@ -33,7 +33,7 @@ Follow these steps to configure the storage account for a Recovery Services vaul
 
       ![Create Recovery Services Vault step 1](./media/backup-azure-vms-encryption/browse-to-rs-vaults.png) <br/>
 
-    * The list of Recovery Services vaults appears. From the list of Recovery Services vaults, select a vault.
+   * The list of Recovery Services vaults appears. From the list of Recovery Services vaults, select a vault.
 
      The selected vault dashboard opens.
 2. From the list of items that appears under the vault, under the **Monitoring and Reports** section, select **Backup Reports** to configure the storage account for reports.
