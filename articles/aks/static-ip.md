@@ -6,13 +6,21 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 09/26/2018
 ms.author: iainfou
 ---
 
 # Use a static public IP address with the Azure Kubernetes Service (AKS) load balancer
 
-By default, the public IP address assigned to a load balancer resource created by an AKS cluster is only valid for the lifespan of that resource. If you delete the Kubernetes service, the associated load balancer and IP address are also deleted. If you want to assign a specific IP address or retain an IP address for redeployed Kubernetes services, you can create and use a static public IP address. This article shows you how to create a static public IP address and assign it to your Kubernetes service.
+By default, the public IP address assigned to a load balancer resource created by an AKS cluster is only valid for the lifespan of that resource. If you delete the Kubernetes service, the associated load balancer and IP address are also deleted. If you want to assign a specific IP address or retain an IP address for redeployed Kubernetes services, you can create and use a static public IP address.
+
+This article shows you how to create a static public IP address and assign it to your Kubernetes service.
+
+## Before you begin
+
+This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
+
+You also need the Azure CLI version 2.0.46 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 ## Create a static IP address
 
@@ -75,7 +83,7 @@ spec:
 
 ## Troubleshoot
 
-If the static IP address defined in the *loadBalancerIP* property of the Kubernetes service manifest has not created, or has not been created in the node resource group, the load balancer service creation fails. To troubleshoot, review the service creation events with the [kubectl describe][kubectl-describe] command. Provide the name of the service as specified in the YAML manifest, as shown in the following example:
+If the static IP address defined in the *loadBalancerIP* property of the Kubernetes service manifest does not exist, or has not been created in the node resource group, the load balancer service creation fails. To troubleshoot, review the service creation events with the [kubectl describe][kubectl-describe] command. Provide the name of the service as specified in the YAML manifest, as shown in the following example:
 
 ```console
 kubectl describe service azure-vote-front
@@ -107,7 +115,7 @@ Events:
 
 ## Next steps
 
-For additional control over the network traffic to your applications, you may want to instead create an ingress controller. You can also [create an ingress controller with a static public IP address][aks-static-ingress].
+For additional control over the network traffic to your applications, you may want to instead [create an ingress controller][aks-ingress-basic]. You can also [create an ingress controller with a static public IP address][aks-static-ingress].
 
 <!-- LINKS - External -->
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
@@ -117,4 +125,7 @@ For additional control over the network traffic to your applications, you may wa
 [az-network-public-ip-create]: /cli/azure/network/public-ip#az-network-public-ip-create
 [az-network-public-ip-list]: /cli/azure/network/public-ip#az-network-public-ip-list
 [az-aks-show]: /cli/azure/aks#az-aks-show
+[aks-ingress-basic]: ingress-basic.md
 [aks-static-ingress]: ingress-static-ip.md
+[aks-quickstart-cli]: kubernetes-walkthrough.md
+[aks-quickstart-portal]: kubernetes-walkthrough-portal.md

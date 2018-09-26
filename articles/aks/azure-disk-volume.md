@@ -6,7 +6,7 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 09/26/2018
 ms.author: iainfou
 ---
 
@@ -16,11 +16,17 @@ Container-based applications often need to access and persist data in an externa
 
 For more information on Kubernetes volumes, see [Kubernetes volumes][kubernetes-volumes].
 
+## Before you begin
+
+This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
+
+You also need the Azure CLI version 2.0.46 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+
 ## Create an Azure disk
 
 When you create an Azure disk for use with AKS, you can create the disk resource in the **node** resource group. This approach allows the AKS cluster to access and manage the disk resource. If you instead create the disk in a separate resource group, you must grant the Azure Kubernetes Service (AKS) service principal for your cluster the `Contributor` role to the disk's resource group.
 
-In this article, create the disk in the node resource group. First, get the resource group name with the [az aks show][az-aks-show] command and add the `--query nodeResourceGroup` query parameter. The following example gets the node resource group for the AKS cluster name *myAKSCluster* in the resource group name *myResourceGroup*:
+For this article, create the disk in the node resource group. First, get the resource group name with the [az aks show][az-aks-show] command and add the `--query nodeResourceGroup` query parameter. The following example gets the node resource group for the AKS cluster name *myAKSCluster* in the resource group name *myResourceGroup*:
 
 ```azurecli
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
@@ -28,10 +34,7 @@ $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeR
 MC_myResourceGroup_myAKSCluster_eastus
 ```
 
-Now create a disk using the [az disk create][az-disk-create] command. Specify the node resource group name obtained in the previous command, and then a name for the disk resource, such as *myAKSDisk*. The following creates a *20*GiB disk, and outputs the ID of the disk once created:
-
-> [!NOTE]
-> Azure disks are billed by SKU for a specific size. These SKUs range from 32GiB for S4 or P4 disks to 8TiB for S60 or P60 disks. The throughput and IOPS performance of a Premium managed disk depends on both the SKU and the instance size of the nodes in the AKS cluster. See [Pricing and Performance of Managed Disks][managed-disk-pricing-performance].
+Now create a disk using the [az disk create][az-disk-create] command. Specify the node resource group name obtained in the previous command, and then a name for the disk resource, such as *myAKSDisk*. The following example creates a *20*GiB disk, and outputs the ID of the disk once created:
 
 ```azurecli-interactive
 az disk create \
@@ -41,7 +44,10 @@ az disk create \
   --query id --output tsv
 ```
 
-Once the disk has been created, disk resource ID is displayed, as shown in the following example output. This disk ID is used to mount the disk in the next step.
+> [!NOTE]
+> Azure disks are billed by SKU for a specific size. These SKUs range from 32GiB for S4 or P4 disks to 8TiB for S60 or P60 disks. The throughput and IOPS performance of a Premium managed disk depends on both the SKU and the instance size of the nodes in the AKS cluster. See [Pricing and Performance of Managed Disks][managed-disk-pricing-performance].
+
+The disk resource ID is displayed once the command has successfully completed, as shown in the following example output. This disk ID is used to mount the disk in the next step.
 
 ```console
 /subscriptions/<subscriptionID>/resourceGroups/MC_myAKSCluster_myAKSCluster_eastus/providers/Microsoft.Compute/disks/myAKSDisk
@@ -93,3 +99,6 @@ For more information about AKS clusters interact with Azure disks, see the [Kube
 [az-disk-create]: /cli/azure/disk#az-disk-create
 [az-group-list]: /cli/azure/group#az-group-list
 [az-resource-show]: /cli/azure/resource#az-resource-show
+[aks-quickstart-cli]: kubernetes-walkthrough.md
+[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[az-aks-show]: /cli/azure/aks#az-aks-show

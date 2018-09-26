@@ -6,13 +6,13 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: get-started-article
-ms.date: 09/25/2018
+ms.date: 09/26/2018
 ms.author: iainfou
 ---
 
 # Service principals with Azure Kubernetes Service (AKS)
 
-To interact with Azure APIs, an AKS cluster requires an [Azure Active Directory (AD) service principal][aad-service-principal]. A service principal is needed to dynamically create and manage other Azure resources such as an Azure load balancer or container registry (ACR).
+To interact with Azure APIs, an AKS cluster requires an [Azure Active Directory (AD) service principal][aad-service-principal]. The service principal is needed to dynamically create and manage other Azure resources such as an Azure load balancer or container registry (ACR).
 
 This article shows how to create and use a service principal for your AKS clusters.
 
@@ -24,9 +24,9 @@ You also need the Azure CLI version 2.0.46 or later installed and configured. Ru
 
 ## Automatically create and use a service principal
 
-When you create an AKS cluster with the [az aks create][az-aks-create] command, the CLI can automatically generate a service principal.
+When you create an AKS cluster in the Azure portal or using the [az aks create][az-aks-create] command, Azure can automatically generate a service principal.
 
-In the following example, a service principal is not specified. In this scenario, the Azure CLI creates a service principal is created for the AKS cluster. To successfully complete the operation, your Azure account must have the proper rights to create a service principal.
+In the following Azure CLI example, a service principal is not specified. In this scenario, the Azure CLI creates a service principal for the AKS cluster. To successfully complete the operation, your Azure account must have the proper rights to create a service principal.
 
 ```azurecli
 az aks create --name myAKSCluster --resource-group myResourceGroup --generate-ssh-keys
@@ -54,7 +54,7 @@ The output is similar to the following example. Make a note of your own `appId` 
 
 ## Specify a service principal for an AKS cluster
 
-To use an existing service principal when you create an AKS cluster with the [az aks create][az-aks-create] command, use the `--service-principal` and `--client-secret` parameters to specify the `appId` and `password` from the output of the [az ad sp create-for-rbac][az-ad-sp-create] command:
+To use an existing service principal when you create an AKS cluster using the [az aks create][az-aks-create] command, use the `--service-principal` and `--client-secret` parameters to specify the `appId` and `password` from the output of the [az ad sp create-for-rbac][az-ad-sp-create] command:
 
 ```azurecli-interactive
 az aks create \
@@ -73,10 +73,10 @@ If you deploy an AKS cluster using the Azure portal, on the *Authentication* pag
 
 ## Additional considerations
 
-When work with with AKS and Azure AD service principals, keep the following in mind.
+When using AKS and Azure AD service principals, keep the following considerations in mind.
 
 - The service principal for Kubernetes is a part of the cluster configuration. However, don't use the identity to deploy the cluster.
-- Every service principal is associated with an Azure AD application. The service principal for a Kubernetes cluster can be associated with any valid Azure AD application name (for example: `https://www.contoso.org/example`). The URL for the application doesn't have to be a real endpoint.
+- Every service principal is associated with an Azure AD application. The service principal for a Kubernetes cluster can be associated with any valid Azure AD application name (for example: *https://www.contoso.org/example*). The URL for the application doesn't have to be a real endpoint.
 - When you specify the service principal **Client ID**, use the value of the `appId`.
 - On the master and node VMs in the Kubernetes cluster, the service principal credentials are stored in the file `/etc/kubernetes/azure.json`
 - When you use the [az aks create][az-aks-create] command to generate the service principal automatically, the service principal credentials are written to the file `~/.azure/aksServicePrincipal.json` on the machine used to run the command.

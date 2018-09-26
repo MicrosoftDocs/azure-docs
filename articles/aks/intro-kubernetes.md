@@ -6,14 +6,14 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: overview
-ms.date: 09/24/2018
+ms.date: 09/26/2018
 ms.author: iainfou
 ms.custom: mvc
 ---
 
 # Azure Kubernetes Service (AKS)
 
-Azure Kubernetes Service (AKS) makes it simple to deploy a managed Kubernetes cluster in Azure. AKS reduces the complexity and operational overhead of managing Kubernetes by offloading much of that responsibility to Azure. As a hosted Kubernetes service, Azure handles critical tasks like health monitoring and maintenance for you. In addition, the service is free, you only pay for the agent nodes within your clusters, not for the masters.
+Azure Kubernetes Service (AKS) makes it simple to deploy a managed Kubernetes cluster in Azure. AKS reduces the complexity and operational overhead of managing Kubernetes by offloading much of that responsibility to Azure. As a hosted Kubernetes service, Azure handles critical tasks like health monitoring and maintenance for you. The Kubernetes masters are managed by Azure. You only manage and maintain the agent nodes. As a managed Kubernetes service, AKS is free - you only pay for the agent nodes within your clusters, not for the masters.
 
 You can create an AKS cluster in the Azure portal, with the Azure CLI, or template driven deployment options such as Resource Manager templates and Terraform. When you deploy an AKS cluster, the Kubernetes master and all nodes are deployed and configured for you. Additional features such as advanced networking, Azure Active Directory integration, and monitoring can also be configured during the deployment process.
 
@@ -21,23 +21,23 @@ To get started, complete the AKS quickstart [in the Azure portal][aks-portal] or
 
 ## Access, security, and monitoring
 
-For improved security and management, AKS lets you integrate with Azure AD. You can also the monitor the health of your cluster and resources.
+For improved security and management, AKS lets you integrate with Azure Active Directory and use Kubernetes role-based access controls. You can also the monitor the health of your cluster and resources.
 
 ### Identity and security management
 
-To limit access to cluster resources, AKS supports [Kubernetes role-based access control (RBAC)][kubernetes-rbac]. You can also configure an AKS cluster to integrate with Azure Active Directory (AD). With Azure AD integration, Kubernetes access can be configured based on identity and group membership. Your existing Azure AD users and groups can be provided access to AKS resources and with an integrated sign-on experience.
+To limit access to cluster resources, AKS supports [Kubernetes role-based access control (RBAC)][kubernetes-rbac]. RBAC lets you control how can access Kubernetes resources and namespaces, and what permissions that have on those resources. You can also configure an AKS cluster to integrate with Azure Active Directory (AD). With Azure AD integration, Kubernetes access can be configured based on existing identity and group membership. Your existing Azure AD users and groups can be provided access to AKS resources and with an integrated sign-on experience.
 
 To secure your AKS clusters, see [Integrate Azure Active Directory with AKS][aks-aad].
 
 ### Integrated logging and monitoring
 
-To understand how your AKS cluster and deployed applications perform, Azure Monitor for container health collects memory and processor metrics from containers, nodes, and controllers. Container logs are available, and you can also [enable and review the Kubernetes master logs][aks-master-logs]. This data is stored in an Azure Log Analytics workspace, and is available through the Azure portal, Azure CLI, or a REST endpoint.
+To understand how your AKS cluster and deployed applications are performing, Azure Monitor for container health collects memory and processor metrics from containers, nodes, and controllers. Container logs are available, and you can also [review the Kubernetes master logs][aks-master-logs]. This monitoring data is stored in an Azure Log Analytics workspace, and is available through the Azure portal, Azure CLI, or a REST endpoint.
 
 For more information, see [Monitor Azure Kubernetes Service container health][container-health].
 
 ## Cluster and node
 
-AKS nodes run on Azure virtual machines. You can presents storage to nodes and pods, upgrade cluster components, and use GPUs.
+AKS nodes run on Azure virtual machines. You can connect storage to nodes and pods, upgrade cluster components, and use GPUs.
 
 ### Cluster node and pod scaling
 
@@ -65,7 +65,7 @@ Get started with dynamic persistent volumes with [Azure Disks][azure-disk] or [A
 
 ## Virtual networks and ingress
 
-An AKS cluster can be deployed into an existing VNet. In this configuration, every pod in the cluster is assigned an IP address in the VNet, and can directly communicate with other pods in the cluster, and other nodes in the VNet. Pods can connect also to other services in a peered VNet, and to on-premises networks over ExpressRoute and site-to-site (S2S) VPN connections.
+An AKS cluster can be deployed into an existing virtual network. In this configuration, every pod in the cluster is assigned an IP address in the virtual network, and can directly communicate with other pods in the cluster, and other nodes in the virtual network. Pods can connect also to other services in a peered virtual network, and to on-premises networks over ExpressRoute or site-to-site (S2S) VPN connections.
 
 For more information, see the [AKS networking overview][aks-networking].
 
@@ -77,9 +77,9 @@ To get started with ingress traffic, see [HTTP application routing][aks-http-rou
 
 ## Development tooling integration
 
-Kubernetes has a rich ecosystem of development and management tools such as Helm, Draft, and the Kubernetes extension for Visual Studio Code. These tools work seamlessly with Azure Kubernetes Service.
+Kubernetes has a rich ecosystem of development and management tools such as Helm, Draft, and the Kubernetes extension for Visual Studio Code. These tools work seamlessly with AKS.
 
-Additionally, Azure Dev Spaces provides a rapid, iterative Kubernetes development experience for teams. With minimal configuration, you can run and debug containers directly in Azure Kubernetes Service (AKS). To get started, see [Azure Dev Spaces][azure-dev-spaces].
+Additionally, Azure Dev Spaces provides a rapid, iterative Kubernetes development experience for teams. With minimal configuration, you can run and debug containers directly in AKS. To get started, see [Azure Dev Spaces][azure-dev-spaces].
 
 The Azure DevOps project provides a simple solution for bringing existing code and Git repository into Azure. The DevOps project automatically creates Azure resources such as AKS, a release pipeline in Azure DevOps Services that includes a build pipeline for CI, sets up a release pipeline for CD, and then creates an Azure Application Insights resource for monitoring.
 
@@ -89,7 +89,7 @@ For more information, see [Azure DevOps project][azure-devops].
 
 AKS supports the Docker image format. For private storage of your Docker images, you can integrate AKS with Azure Container Registry (ACR).
 
-To create private image store, see [Azure Container Registry (ACR)][acr-docs].
+To create private image store, see [Azure Container Registry][acr-docs].
 
 ## Kubernetes certification
 
@@ -101,7 +101,7 @@ Azure Kubernetes Service (AKS) is compliant with SOC, ISO, and PCI DSS.
 
 ## Next steps
 
-Learn more about deploying and managing AKS with the AKS quickstart.
+Learn more about deploying and managing AKS with the Azure CLI quickstart.
 
 > [!div class="nextstepaction"]
 > [AKS quickstart][aks-cli]
