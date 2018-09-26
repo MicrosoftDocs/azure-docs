@@ -6,13 +6,13 @@ manager: timlt
 ms.author: asdonald
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 09/17/2018
+ms.date: 09/26/2018
 ms.topic: conceptual
 ---
 
 # Deploy the Remote Monitoring solution accelerator locally
 
-This article shows you how to deploy the Remote Monitoring solution accelerator to your local machine for testing and development. This approach deploys the microservices to a local Docker container and uses IoT Hub, Cosmos DB, and Azure Time Series Insights services in the cloud.
+This article shows you how to deploy the Remote Monitoring solution accelerator to your local machine for testing and development. The approach described in this article deploys the microservices to a local Docker container and uses IoT Hub, Cosmos DB, and Azure Time Series Insights services in the cloud. To learn how to run the Remote Monitoring solution accelerator in an IDE on your local machine, see [Starting Microservices on local environment](https://github.com/Azure/remote-monitoring-services-java/blob/master/docs/LOCAL_DEPLOYMENT.md) on GitHub.
 
 ## Prerequisites
 
