@@ -111,7 +111,7 @@ For more information, see [Microsoft account help](https://support.microsoft.com
 
     ![List of users](media\howto-administer\image1.png)
 
-1. To add a user, on the **Users** page, choose **+ Add user** .
+1. To add a user, on the **Users** page, choose **+ Add user**.
 
     ![Add user](media\howto-administer\image2.png)
 
