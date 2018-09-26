@@ -1,16 +1,16 @@
 ---
-title: Bing Search SDK | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
+title: Bing Video Search SDK
+titleSuffix: Azure Cognitive Services
 description: Bing Search SDK for applications that search the web.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
-ms.assetid: 
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 1/25/2018
-ms.author: v-gedod
+ms.author: rosh
 ---
 # Bing Search SDK
 The Bing Video Search API samples include scenarios that:
