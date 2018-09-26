@@ -360,7 +360,7 @@
 - name: Reference
   items:
   - name: Azure Stack PowerShell
-    href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.9
+    href: /powershell/azure/azure-stack/overview
 - name: Related
   items:
   - name: Azure Stack User Documentation
