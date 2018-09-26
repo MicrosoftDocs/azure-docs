@@ -139,7 +139,7 @@ This section shows you how to create notifications for the simulated telemetry d
     1. Click **Add** and search for *Event grid* in the search box. Select **Event Grid Topic**. 
     1. Enter a name for the Event Grid topic, and select your subscription, the resource group and the location that you used for the Digital Twins. Click **Create**.
 6. Create an endpoint in your Digital Twins instance to interact with the Event Grid topic created above.
-    1. 
+
 
 ## Clean up resources
 
