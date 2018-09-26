@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 09/26/2018
 ms.author: sethm
 ms.reviewer: jeffgo
 
@@ -139,6 +139,7 @@ Microsoft Azure Stack supports the following Azure Marketplace virtual machines 
 | ![Kafka](media/azure-stack-marketplace-azure-items/kafka.png) | [Kafka](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.kafka) | Powerful distributed publish-subscribe messaging system. | Bitnami |
 | ![Kafka Cluster](media/azure-stack-marketplace-azure-items/kafka.png) | [Kafka Cluster](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.kafka-cluster) | Apache Kafka is publish-subscribe messaging rethought as a distributed commit log. This solution improves the reliability of a Kafka cluster by provisioning multiple Kafka brokers and Zookeeper instances. **This solution template also requires Debian 8 and Custom Script for Linux 2.0 Extension.** | Bitnami |
 | ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [Kaspersky Hybrid Cloud Security](https://azuremarketplace.microsoft.com/marketplace/apps/kaspersky_lab.kaspersky_hybrid_cloud_security?tab=Overview) | The Kaspersky Hybrid Cloud Security enables a seamlessly orchestrated and adaptive cybersecurity ecosystem. | Kaspersky Lab |
+| ![Kubernetes](media/azure-stack-marketplace-azure-items/kubernetes.png) | [Kubernetes](azure-stack-solution-template-kubernetes-cluster-add.md) | This solution deploys a Kubernetes cluster running as a standalone cluster with templates generated using ACS-Engine.<br>**This solution template also requires Ubuntu Server 16.04 LTS and Custom Script for Linux 2.0.**| Microsoft |
 | ![LAMP](media/azure-stack-marketplace-azure-items/lamp.png) | [LAMP](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.lampstack) | Fully integrated and ready to run development environment. | Bitnami |
 | ![LAPP](media/azure-stack-marketplace-azure-items/lapp.png) | [LAPP](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.lappstack) | Complete PHP, PostgreSQL, and Apache development environment. | Bitnami |
 | ![Let's Chat](media/azure-stack-marketplace-azure-items/letschat.png) | [Let's Chat](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.letschat) | Open-source persistent messaging application. | Bitnami |
@@ -203,6 +204,7 @@ Microsoft Azure Stack supports the following Azure Marketplace virtual machines 
 | ![ResourceSpace](media/azure-stack-marketplace-azure-items/resourcespace.png) | [ResourceSpace](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.resourcespace) | Digital asset management system for improved collaboration. | Bitnami |
 | ![Roundcube](media/azure-stack-marketplace-azure-items/roundcube.png) | [Roundcube](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.roundcube) | Browser-based IMAP client with functionality such as MIME support. | Bitnami |
 | ![Ruby](media/azure-stack-marketplace-azure-items/ruby.png) | [Ruby](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.rubystack) | Easy-to-use development environment for Ruby on Rails. | Bitnami |
+| ![Service Fabric Cluster](media/azure-stack-marketplace-azure-items/servicefrabric.png) | [Service Fabric Cluster](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceFabricCluster?tab=Overview) | This solution deploys Service Fabric running as an standalone cluster on a Virtual Machine Scale Set. <br>**This solution template requires you to also download the Windows Server 2016 Datacenter**| Microsoft |
 | ![SEO Panel](media/azure-stack-marketplace-azure-items/seopanel.png) | [SEO Panel](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.seopanel) | Open-source SEO management application for tracking multiple websites. | Bitnami |
 | ![Shopware](media/azure-stack-marketplace-azure-items/shopware.png) | [Shopware](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.shopware) | Open-source eCommerce Platform. | Bitnami |
 | ![Simple Machines Forum](media/azure-stack-marketplace-azure-items/simplemachinesforum.png) | [Simple Machines Forum](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.simplemachinesforum) | Simple forum software to build your own online community. | Bitnami |
