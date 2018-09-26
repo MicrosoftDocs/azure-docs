@@ -147,21 +147,17 @@ Save above playbook as *aci_create.yml*. To run the playbook,  use the **ansible
 ansible-playbook aci_create.yml
 ```
 
-## Create and configure an Azure Application Gateway
+## Create the application gateway
 
 Now let us create an applicate gateway. The following example creates an applicate gateway named **myAppGateway** with backend, frontend, and http configuration.  
 
-**appGatewayIP** defined in **gateway_ip_configurations** block - Subnet reference is required for ip configuration of the gateway. 
-
-**appGatewayBackendPool** defined in **backend_address_pools** block - An application gateway must have at least one backend address pool. 
-
-**appGatewayBackendHttpSettings** defined in **backend_http_settings_collection** block - Specifies that port 80 and an HTTP protocol is used for communication. 
-
-**appGatewayHttpListener** defined in **backend_http_settings_collection** block - The default listener associated with appGatewayBackendPool. 
-
-**appGatewayFrontendIP** defined in **frontend_ip_configurations** block - Assigns myAGPublicIPAddress to appGatewayHttpListener. 
-
-**rule1** defined in **request_routing_rules** block - The default routing rule that is associated with appGatewayHttpListener. 
+> [!div class="checklist"]
+> * **appGatewayIP** defined in **gateway_ip_configurations** block - Subnet reference is required for ip configuration of the gateway. 
+> * **appGatewayBackendPool** defined in **backend_address_pools** block - An application gateway must have at least one backend address pool. 
+> * **appGatewayBackendHttpSettings** defined in **backend_http_settings_collection** block - Specifies that port 80 and an HTTP protocol is used for communication. 
+> * **appGatewayHttpListener** defined in **backend_http_settings_collection** block - The default listener associated with appGatewayBackendPool. 
+> * **appGatewayFrontendIP** defined in **frontend_ip_configurations** block - Assigns myAGPublicIPAddress to appGatewayHttpListener. 
+> * **rule1** defined in **request_routing_rules** block - The default routing rule that is associated with appGatewayHttpListener. 
 
 ```yml
 - hosts: localhost
@@ -252,7 +248,7 @@ ansible-playbook appgw_create.yml
 
 It may take several minutes for the application gateway to be created. 
 
-## Test the Application Gateway
+## Test the application gateway
 
 In above sample playbook for network resources, the domain named **mydomain** was created in **eastus**. Now you could navigate to the browser, type `http://mydomain.eastus.cloudapp.azure.com`, and you should see following page confirming that the Application Gateway is working as expected.
 
