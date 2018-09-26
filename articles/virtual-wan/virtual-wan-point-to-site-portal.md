@@ -35,37 +35,33 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
 
-## Register this feature
+## <a name="register"></a>Register this feature
 
 Click the "TryIt in this article to register this feature easily using Azure Cloud Shell. If you don't register the feature, you will not be able to use this feature, or see the portal properly.
 
-After clicking TryIt, copy and paste the following commands:
+After clicking **TryIt** to open the Azure Cloud Shell, copy and paste the following commands:
 
-1.
+```azurepowershell-interactive
+Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowP2SCortexAccess
+```
+ 
+```azurepowershell-interactive
+Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
+```
 
-  ```azurepowershell-interactive
-  Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowP2SCortexAccess
-  ```
-2.
-  
-  ```azurepowershell-interactive
-  Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
-  ```
-3.
+```azurepowershell-interactive
+Get-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowP2SCortexAccess
+```
 
-  ```azurepowershell-interactive
-  Get-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowP2SCortexAccess
-  ```
-4.
+```azurepowershell-interactive
+Get-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
+```
 
-  ```azurepowershell-interactive
-  Get-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
-  ```
-5. Once the feature shows as registered, reregister the subscription to Microsoft.Network namespace.
+Once the feature shows as registered, reregister the subscription to Microsoft.Network namespace.
 
-  ```azurepowershell-interactive
-  -Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-  ```
+```azurepowershell-interactive
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+```
 
 ## <a name="vnet"></a>1. Create a virtual network
 
