@@ -14,8 +14,7 @@ manager: carmonm
 
 The first step to using Azure Resource Graph is to ensure the module for Azure PowerShell is
 installed. This quickstart walks you through the process of adding the module to your Azure PowerShell
-installation. You can use the module with Azure PowerShell installed locally or through the [Azure
-Cloud Shell](https://shell.azure.com).
+installation.
 
 At the end of this process, you will have added the module to your Azure PowerShell installation of
 choice and run your very first Resource Graph query.
@@ -25,9 +24,9 @@ before you begin.
 
 ## Add the Resource Graph module
 
-To enable Azure PowerShell to query Azure Resource Graph, the module must be added. This module
-works wherever Azure PowerShell can be used, including [Cloud Shell](https://shell.azure.com) (both standalone and inside the portal), the [Azure PowerShell
-Docker image](https://hub.docker.com/r/azuresdk/azure-powershell/), or locally installed.
+To enable Azure PowerShell to query Azure Resource Graph, the module must be added. This module can
+be used with locally installed Windows PowerShell and PowerShell Core, as well as the [Azure
+PowerShell Docker image](https://hub.docker.com/r/azuresdk/azure-powershell/).
 
 ### Base requirements
 
@@ -37,11 +36,10 @@ The Azure Resource Graph module requires the following software:
 
   - For PowerShell Core, use the **Az** version of the Azure PowerShell module.
 
-    > [!NOTE]
-    > PowerShell for [Cloud Shell](https://shell.azure.com) now uses PowerShell Core. Use the PowerShell Core instructions
-    > for configuring Resource Graph when using PowerShell in Cloud Shell.
-
   - For Windows PowerShell, use the **AzureRm** version of the Azure PowerShell module.
+
+  > [!NOTE]
+  > PowerShell for [Cloud Shell](https://shell.azure.com) support is coming soon. It is currently not recommended to install the module in Cloud Shell.
 
 - PowerShellGet. If it is not installed or updated, follow [these instructions](/powershell/gallery/installing-psget).
 
@@ -97,7 +95,7 @@ the **Name** and **Resource Type** of each resource.
 1. Run your first Azure Resource Graph query using the `Search-AzureRmGraph` cmdlet:
 
    ```azurepowershell-interactive
-   # Login first with Connect-AzureRmAccount if not using Cloud Shell
+   # Login first with Connect-AzureRmAccount
 
    # Run Azure Resource Graph query
    Search-AzureRmGraph -Query 'project name, type | limit 5'
