@@ -150,7 +150,7 @@ Enterprise cost views are currently in Public Preview. Items to note:
     - You are a Department Administrator and your Enrollment Administrator has disabled the "DA view charges" setting.  Contact your Enrollment Administrator to gain access. 
     - You purchased Azure through a channel partner, and the partner has not released pricing information.  
 - When settings related to cost access are updated within the Enterprise portal, there is a delay of a few minutes before the changes are reflected in the Azure portal.
-- Spending limit, billing alerts, and invoice guidance do not pertain to EA Subscriptions.
+- Spending limit, and invoice guidance don't apply to EA Subscriptions.
 
 ### Check your subscription and access
 
