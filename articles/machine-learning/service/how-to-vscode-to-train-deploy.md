@@ -20,11 +20,11 @@ And you can deploy these models for your testing and production needs.
 
 ## Prerequisites
 
-[Have VS Code Tools for AI set up for Azure Machine Learning](how-to-vscode-tools.md).
+[Have VS Code Tools for AI](how-to-vscode-tools.md)  set up for Azure Machine Learning.
 
-[Be authenticated with Azure through VS Code](how-to-vscode-tools.md).
+[Signed in to Azure](how-to-vscode-tools.md) through VS Code.
 
-[Have the Azure Machine Learning SDK for Python installed with VS Code](how-to-vscode-tools.md).
+Have the [Azure Machine Learning SDK for Python installed](how-to-vscode-tools.md)  with VS Code.
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 

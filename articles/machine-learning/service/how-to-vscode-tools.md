@@ -35,7 +35,7 @@ When you install the **Tools for AI** extension, two more extensions are automat
 
 To work with Azure Machine Learning, we need to turn VS Code into a Python IDE. Working with [Python in Visual Studio Code](https://code.visualstudio.com/docs/languages/python), requires the Microsoft Python extension, which gets installed with Tools for AI automatically. The extension makes VS Code an excellent IDE, and works on any operating system with a variety of Python interpreters. It leverages all of VS Code's power to provide auto complete and IntelliSense, linting, debugging, and unit testing, along with the ability to easily switch between Python environments, including virtual and conda environments. Check out this walk-through of editing, running, and debugging Python code, see the [Python Hello World Tutorial](https://code.visualstudio.com/docs/languages/python/docs/python/python-tutorial)
 
-To install the Tools for AI extension:
+**To install the Tools for AI extension:**
 
 1. Launch VS Code.
 
@@ -72,7 +72,7 @@ Before you start training and deploying ML models using VS Code, you need to cre
 
    ![install](./media/vscode-tools-for-ai/createworkspace.gif)
 
-   TOO FAST AND DOESNT MATCH EXACTLY - WHAT IS OPEN MIND STUDIO? CAN YOU CONTINUE UNTIL 
+   TOO FAST AND DOESNT MATCH EXACTLY - showthe opening of activity bar too. WHAT IS OPEN MIND STUDIO? CAN YOU CONTINUE UNTIL 
 
 1. Open the Azure Machine Learning view.
 
