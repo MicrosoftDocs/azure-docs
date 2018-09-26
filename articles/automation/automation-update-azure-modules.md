@@ -56,7 +56,7 @@ If you use cmdlets from these Azure PowerShell modules in your runbooks, you wan
 
 As mentioned, the **Update Azure Modules** button is not available in the sovereign clouds, it is only available in the public Azure cloud. This is due to the fact that the latest version of the Azure PowerShell modules from the PowerShell Gallery may not work with the Resource Manager services currently deployed in these clouds.
 
-Updating the modules can still be done by importing the [Update-AzureModule.ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AzureModule.ps1) runbook into your Automation Account and run it.
+Updating the modules can still be done by importing the [Update-AzureModule.ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AzureModule.ps1) runbook into your Automation Account and running it.
 
 If you want to use a specific Azure PowerShell module version instead of the latest available on the PowerShell Gallery, pass these versions to the optional `ModuleVersionOverrides` parameter of the **Update-AzureModule** runbook. For examples see the  [Update-AzureModule.ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AzureModule.ps1) runbook. Azure PowerShell modules that are not mentioned in the `ModuleVersionOverrides` parameter are updated with the latest module versions on the PowerShell Gallery. If nothing is passed to the `ModuleVersionOverrides` parameter, all modules are updated with the latest module versions on the PowerShell Gallery, which is the behavior of the **Update Azure Modules** button.
 
