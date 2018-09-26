@@ -19,8 +19,6 @@ ms.reviewer:
 
 ---
 
-
-
 # Start-AzsReadinessChecker cmdlet reference
 
 Module: Microsoft.AzureStack.ReadinessChecker
@@ -176,7 +174,7 @@ The **Start-AzsReadinessChecker** cmdlet validates certificates, Azure accounts,
 $regionName = 'east'
 $externalFQDN = 'azurestack.contoso.com'
 $subjectHash = [ordered]@{"OU"="AzureStack";"O"="Microsoft";"L"="Redmond";"ST"="Washington";"C"="US"}
-Start-AzsReadinessChecker -regionName $regionName -externalFQDN $externalFQDN -subjectName $subjectHash -IdentitySystem ADFS -requestType MultipleCSR
+Start-AzsReadinessChecker -regionName $regionName -externalFQDN $externalFQDN -subject $subjectHash -IdentitySystem ADFS -requestType MultipleCSR
 ```
 
 In this example, Start-AzsReadinessChecker generates multiple Certificate Signing Requests (CSR) for certificates suitable for an ADFS Azure Stack deployment with a region name of “east” and an external FQDN of “azurestack.contoso.com”
