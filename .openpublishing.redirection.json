@@ -29145,7 +29145,7 @@
             "redirect_url": "/azure/container-registry/container-registry-tutorial-quick-task",
             "redirect_document_id" : true
         },
-            {
+        {
             "source_path": "articles/application-insights/app-insights-troubleshoot-snapshot-debugger.md",
             "redirect_url": "/azure/application-insights/app-insights-snapshot-debugger",
             "redirect_document_id" : false
@@ -29154,6 +29154,31 @@
             "source_path": "articles/machine-learning/service/quickstart-installation.md",
             "redirect_url": "/azure/machine-learning/desktop-workbench/quickstart-installation",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-raspberry-pi-kit-python-get-started.md",
+            "redirect_url": "/azure/iot-hub/iot-hub-get-started-physical",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-intel-edison-kit-c-get-started.md",
+            "redirect_url": "/azure/iot-hub/iot-hub-get-started-physical",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-intel-edison-kit-node-get-started.md",
+            "redirect_url": "/azure/iot-hub/iot-hub-get-started-physical",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-sparkfun-esp8266-thing-dev-get-started.md",
+            "redirect_url": "/azure/iot-hub/iot-hub-get-started-physical",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md",
+            "redirect_url": "/azure/iot-hub/iot-hub-get-started-physical",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/azure-preview-portal-supported-browsers-devices.md",
