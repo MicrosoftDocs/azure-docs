@@ -24,7 +24,7 @@ With Azure Dev Spaces, you can share your dev space with others on your team. Ea
      * **Command line or VS Code**: To see existing Azure Dev Spaces you have access to: `azds space list`. To select a dev space: `azds space select`.
      * **Visual Studio IDE**: Open a project in Visual Studio, select **Azure Dev Spaces** from the launch settings drop-down. In the dialog that opens, select an existing cluster.
 
-    ![Visual Studio launch settings drop-down](../media/get-started-netcore-visualstudio/LaunchSettings.png)
+    ![Visual Studio launch settings drop-down](media/get-started-netcore-visualstudio/LaunchSettings.png)
 
 ## Next steps
 
