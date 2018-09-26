@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2018
+ms.date: 09/26/2018
 ms.author: sethm
 ms.reviewer: justini
 
@@ -143,6 +143,8 @@ The following are post-installation known issues for this build version.
 
 ### Portal
 
+- The Azure Stack technical documentation focuses on the latest release. Due to portal changes between releases, what you see when using the Azure Stack portals might vary from what you see in the documentation. 
+
 - <!-- TBD - IS ASDK --> You might see a blank dashboard in the portal. To recover the dashboard, click **Edit Dashboard**, then right click and select **Reset to default state**.
 
 - <!-- 2930718 - IS ASDK --> In the administrator portal, when accessing the details of any user subscription, after closing the blade and clicking on **Recent**, the user subscription name does not appear.
@@ -214,6 +216,8 @@ The following are post-installation known issues for this build version.
 - <!-- 2724873 - IS --> When using the PowerShell cmdlets **Start-AzsScaleUnitNode** or  **Stop-AzsScaleunitNode** to manage scale units, the first attempt to start or stop the scale unit might fail. If the cmdlet fails on the first run, run the cmdlet a second time. The second run should succeed to complete the operation. 
 
 - <!-- TBD - IS ASDK --> When you create virtual machines on the Azure Stack user portal, the portal displays an incorrect number of data disks that can attach to a DS series VM. DS series VMs can accommodate as many data disks as the Azure configuration.
+
+- <!-- TBD - IS ASDK --> If you're using a multi-tenant environment, provisioning a VM with managed disk in a subscription not belonging to the default tenant fails with the following error: *The resource operation completed with terminal provisioning state 'Failed'.*
 
 - <!-- TBD - IS ASDK --> If provisioning an extension on a VM deployment takes too long, users should let the provisioning time-out instead of trying to stop the process to deallocate or delete the VM.  
 

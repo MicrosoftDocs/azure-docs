@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 09/26/2018
 ms.author: sethm
 ms.reviewer: justini
 
@@ -165,6 +165,8 @@ After the installation of this update, install any applicable Hotfixes. For more
 The following are post-installation known issues for this build version.
 
 ### Portal
+
+- The Azure Stack technical documentation focuses on the latest release. Due to portal changes between releases, what you see when using the Azure Stack portals might vary from what you see in the documentation. 
 
 - The ability to [open a new support request from the dropdown](azure-stack-manage-portals.md#quick-access-to-help-and-support) within the administrator portal is not available. Instead, for Azure Stack integrated systems, use the following link: [https://aka.ms/newsupportrequest](https://aka.ms/newsupportrequest).
 

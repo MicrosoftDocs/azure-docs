@@ -23,12 +23,16 @@
     href: resource-manager-tutorial-create-templates-with-dependent-resources.md
   - name: Create linked templates
     href: resource-manager-tutorial-create-linked-templates.md
+  - name: Use safe deployment practices
+    href: deployment-manager-tutorial.md
 - name: Concepts
   items:
   - name: Resource providers and types
     href: resource-manager-supported-services.md
   - name: Management groups
     href: management-groups-overview.md
+  - name: Deployment Manager
+    href: deployment-manager-overview.md
   - name: Subscription governance
     href: /azure/architecture/cloud-adoption-guide/subscription-governance
     maintainContext: true
