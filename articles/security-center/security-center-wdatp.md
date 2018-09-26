@@ -1,6 +1,6 @@
 ﻿---
 title: Windows Defender Advanced Threat Protection (ATP) with Azure Security Center  | Microsoft Docs
-description: This document introduces the integration between Azure Security Center and Windows Defender ATP.
+description: This document introduces the integration between Azure Security Center and Windows Defender Advanced Threat Protection.
 services: security-center
 documentationcenter: na
 author: barclayn
@@ -16,9 +16,9 @@ ms.date: 09/20/2018
 ms.author: barclayn
 
 ---
-# Windows Defender Advanced Threat Protection (ATP) with Azure Security Center
+# Windows Defender Advanced Threat Protection with Azure Security Center
 
-Azure Security Center is extending its Cloud Workload Protection Platforms (CWPP) offering by integrating with [Windows Defender ATP](https://www.microsoft.com/WindowsForBusiness/windows-atp).
+Azure Security Center is extending its Cloud Workload Protection Platforms offering by integrating with [Windows Defender ATP](https://www.microsoft.com/WindowsForBusiness/windows-atp).
 This change brings comprehensive Endpoint Detection and Response (EDR) capabilities. It enables you to spot abnormalities, detect, and respond to advanced attacks on server endpoints monitored by ASC.
 
 Azure Security Center customers can now use Windows Defender ATP's features:
