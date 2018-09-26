@@ -11,13 +11,13 @@ ms.component: metrics
 ---
 # Custom Metrics in Azure Monitor
 
-As you deploy resources and applications in Azure, you'll want to start collecting telemetry to gain insights into their performance and health. Azure makes some metric available to you out-of-the-box as you deploy resources. These are called standard or platform metrics. However, these metrics are limited in nature. You may wish to collect some custom performance indicators or business-specific metrics to provide deeper insights.
-These "custom" metrics can be collected via your application telemetry, an agent running on your Azure resources, or even outside-in monitoring system and submitted directly to Azure Monitor. Once published to Azure Monitor, you can browse, query, and alert on custom metrics for your Azure resources and applications side by side the standard metrics emitted by Azure.
+As you deploy resources and applications in Azure, you'll want to start collecting telemetry to gain insights into their performance and health. Azure makes some metrics available to you out of the box. These are called standard or platform metrics. However, these metrics are limited in nature. You might want to collect some custom performance indicators or business-specific metrics to provide deeper insights.
+These **custom** metrics can be collected via your application telemetry, an agent running on your Azure resources, or even an outside-in monitoring system and submitted directly to Azure Monitor. After they're published to Azure Monitor, you can browse, query, and alert on custom metrics for your Azure resources and applications side by side with the standard metrics emitted by Azure.
 
 ## Send custom metrics
-Custom Metrics can be sent to Azure Monitor via a variety of methods.
-- Instrument your application using the Application Insights SDK and send custom telemetry to Azure Monitor 
-- Install the Windows Diagnostics Extension on your [Azure VM](metrics-store-custom-guestos-resource-manager-vm.md), [Virtual Machine Scale set](metrics-store-custom-guestos-resource-manager-vmss.md), [classic VM](metrics-store-custom-guestos-classic-vm.md), or [Classic Cloud Service](metrics-store-custom-guestos-classic-cloud-service.md) and send performance counters to Azure Monitor 
+Custom metrics can be sent to Azure Monitor by a variety of methods:
+- Instrument your application by using the Application Insights SDK and send custom telemetry to Azure Monitor. 
+- Install the Windows Diagnostics Extension on your [Azure VM](metrics-store-custom-guestos-resource-manager-vm.md), [Virtual Machine Scale set](metrics-store-custom-guestos-resource-manager-vmss.md), [classic VM](metrics-store-custom-guestos-classic-vm.md), or [Classic Cloud Service](metrics-store-custom-guestos-classic-cloud-service.md) and send performance counters to Azure Monitor. 
 - Install the [InfluxDB Telegraf agent](metrics-store-custom-linux-telegraf.md) on your Azure Linux VM and send metrics using the Azure Monitor Output Plugin
 - Send custom metrics [directly to Azure Monitor REST API](metrics-store-custom-rest-api.md) https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics
 
