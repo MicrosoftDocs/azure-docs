@@ -1,7 +1,7 @@
 ---
 title: Raspberry Pi to cloud (Python) - Connect Raspberry Pi to Azure IoT Hub | Microsoft Docs
 description: Learn how to setup and connect Raspberry Pi to Azure IoT Hub for Raspberry Pi to send data to the Azure cloud platform in this tutorial.
-author: rangv
+author: wesmc7777
 manager: 
 keywords: azure iot raspberry pi, raspberry pi iot hub, raspberry pi send data to cloud, raspberry pi to cloud
 ms.service: iot-hub
@@ -9,7 +9,8 @@ services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
 ms.date: 04/11/2018
-ms.author: rangv
+ms.author: wesmc
+ROBOTS: NOINDEX
 ---
 
 # Connect Raspberry Pi to Azure IoT Hub (Python)
