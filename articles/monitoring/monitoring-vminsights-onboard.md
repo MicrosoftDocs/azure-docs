@@ -148,7 +148,7 @@ On Windows, the Microsoft Monitoring Agent (MMA) is used by both System Center O
 
 On Linux, the Log Analytics agent for Linux gathers and sends monitoring data to Log Analytics.   
 
-If your Windows or Linux computers cannot directly connect to the service, you need to configure the Log Analytics agent to connect to Log Analytics using the OMS Gateway. For further information on how to deploy and configure the OMS Gateway, see [Connect computers without Internet access using the OMS Gateway](../log-analytics/log-analytics-oms-gateway.md).  
+If your Windows or Linux computers cannot directly connect to the service, you need to configure the Log Analytics agent to connect to Log Analytics using the OMS Gateway. For more information on how to deploy and configure the OMS Gateway, see [Connect computers without Internet access using the OMS Gateway](../log-analytics/log-analytics-oms-gateway.md).  
 
 The Dependency agent can be downloaded from the following location.
 
