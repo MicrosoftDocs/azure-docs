@@ -34,25 +34,25 @@ The [Speech SDK](speech-sdk.md) is a functional replacement for Bing Search clie
 
 The Speech Service is largely at feature, platform, and programming language parity with Bing Speech with the following differences.
 
-Feature | Speech Service | Bing Speech | Details
+Feature | Bing Speech | Speech Service | Details
 -|-|-|-
-C++ SDK | :heavy_check_mark: | :heavy_minus_sign: | Supports Windows and Linux
+C++ SDK | :heavy_minus_sign: | :heavy_check_mark: | Supports Windows and Linux
 Java SDK | :heavy_check_mark: | :heavy_check_mark: | Supports Android and Speech Devices
 C# SDK | :heavy_check_mark: | :heavy_check_mark: | For Windows 10, UWP, and .NET Standard 2.0
-Continuous speech recognition | Unlimited (with SDK) | 10 minutes | Both Bing Speech and Speech Service WebSockets protocols support up to 10 minutes per call. However, the Speech SDK automatically reconnects on timeout or disconnect.
+Continuous speech recognition | 10 minutes | Unlimited (with SDK) | Both Bing Speech and Speech Service WebSockets protocols support up to 10 minutes per call. However, the Speech SDK automatically reconnects on timeout or disconnect.
 Partial or interim results | :heavy_check_mark: | :heavy_check_mark: | With WebSockets protocol or SDK
 Custom speech models | :heavy_check_mark: | :heavy_check_mark: | Bing Speech requires a separate Custom Speech subscription
 Custom voice fonts | :heavy_check_mark: | :heavy_check_mark: | Bing Speech requires a separate Custom Voice subscription
-24-KHz voices | :heavy_check_mark: | :heavy_minus_sign:
-Speech intent recognition | Integrated (with SDK) | Requires separate LUIS API call | A LUIS key may be used with the Speech Service.
-Simple intent recognition | :heavy_check_mark: | :heavy_minus_sign: 
-Batch transcription of long audio files | :heavy_check_mark: | :heavy_minus_sign:
-Recognition mode | Automatic | Manual via endpoint URI
-Endpoint locality | Regional | Global | Regional endpoints improve latency. A global endpoint is under consideration for the Speech Service.
+24-KHz voices | :heavy_minus_sign: | :heavy_check_mark: 
+Speech intent recognition | Requires separate LUIS API call | Integrated (with SDK) |  A LUIS key may be used with the Speech Service.
+Simple intent recognition | :heavy_minus_sign: | :heavy_check_mark: 
+Batch transcription of long audio files | :heavy_minus_sign: | :heavy_check_mark:
+Recognition mode | Manual via endpoint URI | Automatic 
+Endpoint locality | Global | Regional | Regional endpoints improve latency. A global endpoint is under consideration for the Speech Service.
 REST APIs | :heavy_check_mark: | :heavy_check_mark: | Speech Service REST API is compatible with Bing Speech (different endpoint). REST APIs support text-to-speech and limited speech-to-text functionality.
 WebSockets protocols | :heavy_check_mark: | :heavy_check_mark: | Speech Service WebSockets API is compatible with Bing Speech (different endpoint). Migrate to the Speech SDK if possible to simplify your code.
-Service-to-service API calls | :heavy_minus_sign: | :heavy_check_mark: | Provided in Bing Speech via the C# Service Library. Speech Service may offer this feature in the future.
-Open source SDK | :heavy_minus_sign: | :heavy_check_mark: | An open-source Speech SDK is under consideration for the future.
+Service-to-service API calls | :heavy_check_mark: | :heavy_minus_sign: | Provided in Bing Speech via the C# Service Library. Speech Service may offer this feature in the future.
+Open source SDK | :heavy_check_mark: | :heavy_minus_sign: | An open-source Speech SDK is under consideration for the future.
 
 The Speech Service uses a time-based pricing model (rather than a transaction-based model). See [Speech Service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) for details.
 
