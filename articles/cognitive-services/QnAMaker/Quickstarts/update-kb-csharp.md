@@ -15,9 +15,17 @@ ms.author: diberry
 
 # Quickstart: Update a knowledge base in C#
 
-The following code updates an existing knowledge base, using the [Update](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) method.
+This quickstart walks you through updating your sample QnA maker knowledge base, programmatically. 
+
+This quickstart calls Qna Maker APIs:
+* [Update](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600)
 
 [!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-csharp-repo-note.md)]
+
+## Prerequisites
+
+* Latest [**Visual Studio Community edition**](https://www.visualstudio.com/downloads/).
+* You must have a [Qna Maker service](../How-To/set-up-qnamaker-service-azure). To retrieve your key, select **Keys** under **Resource Management** in your dashboard.
 
 If you don't have a knowledge base yet, you can create a sample one to use for this quickstart: [Create a new knowledge base](create-new-kb-csharp.md).
 

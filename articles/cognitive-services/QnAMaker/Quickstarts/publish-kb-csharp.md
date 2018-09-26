@@ -15,7 +15,7 @@ ms.author: diberry
 
 # Quickstart: Publish a knowledge base in C#
 
-This quickstart walks you through publishing your KB, which pushes the latest version of the tested knowledge base to a dedicated Azure Search index representing the published knowledge base. It also creates an endpoint that can be called in your application or chat bot.
+This quickstart walks you through publishing your knowledge base (KB), which pushes the latest version of the tested knowledge base to a dedicated Azure Search index representing the published knowledge base. It also creates an endpoint that can be called in your application or chat bot.
 
 This quickstart calls Qna Maker APIs:
 * [Publish]
@@ -25,7 +25,11 @@ This quickstart calls Qna Maker APIs:
 ## Prerequisites
 
 * Latest [**Visual Studio Community edition**](https://www.visualstudio.com/downloads/).
-* You must have a [Qna Maker service](set-up-qnamaker-service-azure). To retrieve your key, select **Keys** under **Resource Management** in your dashboard. 
+* You must have a [Qna Maker service](../how-to/set-up-qnamaker-service-azure). To retrieve your key, select **Keys** under **Resource Management** in your dashboard. 
+* Qna Maker knowledge base (KB) ID found on the Qna Maker portal's **Settings** page in the **Deployment details**:
+
+![Qna Maker deployment details](../media/qnamaker-quickstart-kb/deployment-details.png)
+
 
 ## Create knowledge base project
 

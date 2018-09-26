@@ -26,7 +26,7 @@ This quickstart calls Qna Maker APIs:
 ## Prerequisites
 
 * Latest [**Visual Studio Community edition**](https://www.visualstudio.com/downloads/).
-* You must have a [Qna Maker service](../How-To/set-up-qnamaker-service-azure). To retrieve your key, select **Keys** under **Resource Management** in your dashboard. 
+* You must have a [Qna Maker service](../how-to/set-up-qnamaker-service-azure). To retrieve your key, select **Keys** under **Resource Management** in your dashboard. 
 
 ## Create knowledge base project
 
