@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: batch
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/25/2018
 ms.author: danlep
 ---
 
@@ -29,11 +29,36 @@ An Azure Batch pool has settings to allow compute nodes to communicate with each
 
 * **Authentication**. To use an Azure VNet, the Batch client API must use Azure Active Directory (AD) authentication. Azure Batch support for Azure AD is documented in [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md). 
 
-* **An Azure VNet**. To prepare a VNet with one or more subnets in advance, you can use the Azure portal, Azure PowerShell, the Azure Command-Line Interface (CLI), or other methods. To create an Azure Resource Manager-based VNet, see [Create a virtual network](../virtual-network/manage-virtual-network.md#create-a-virtual-network). To create a classic VNet, see [Create a virtual network (classic) with multiple subnets](../virtual-network/create-virtual-network-classic.md).
+* **An Azure VNet**. See the following section for requirements for new or existing VNets. To prepare a VNet with one or more subnets in advance, you can use the Azure portal, Azure PowerShell, the Azure Command-Line Interface (CLI), or other methods. The VNet must be in the same subscription and region as the Batch account you use to create your pool. 
+  * To create an Azure Resource Manager-based VNet, see [Create a virtual network](../virtual-network/manage-virtual-network.md#create-a-virtual-network). 
+  * To create a classic VNet, see [Create a virtual network (classic) with multiple subnets](../virtual-network/create-virtual-network-classic.md).
 
-### VNet requirements
+## VNet requirements
+
+### Pools in the Virtual machine configuration
+
+**Supported VNets** - Azure Resource Manager-based VNets only
+
+**Permissions** - The user creating the pool must have at least the Contributor role on the specified VNet, in order to access the VNet and deploy VMs in the subnet.
+
+**Additional networking resources** - Pools in the Virtual Machine configuration deployed in an Azure VNet automatically allocate additional Azure networking resources. The following resources are needed for each 50 pool nodes in a VNet: 1 network security group, 1 public IP address, and 1 load balancer. These resources are limited by [quotas](../articles/batch/batch-quota-limit.md) in the subscription that contains the virtual network supplied when creating the Batch pool.
+
+**Network security groups** - 
+
+### Pools in the Cloud Services configuration
+
+**Supported VNets** - Classic VNets only
+
+**Permissions** - The `MicrosoftAzureBatch` service principal must have the `Classic Virtual Machine Contributor` Role-Based Access Control (RBAC) role for the specified VNet.
+
+### Additional requirements
+
+* The subnet specified for the pool must have enough unassigned IP addresses to accommodate the number of VMs targeted for the pool; that is, the sum of the `targetDedicatedNodes` and `targetLowPriorityNodes` properties of the pool. If the subnet doesn't have enough unassigned IP addresses, the pool partially allocates the compute nodes, and a resize error occurs. 
+
+* Your Azure Storage endpoint needs to be resolved by any custom DNS servers that serve your VNet. Specifically, URLs of the form `<account>.table.core.windows.net`, `<account>.queue.core.windows.net`, and `<account>.blob.core.windows.net` should be resolvable. 
+
 [!INCLUDE [batch-virtual-network-ports](../../includes/batch-virtual-network-ports.md)]
-    
+
 ## Create a pool with a VNet in the portal
 
 Once you have created your VNet and assigned a subnet to it, you can create a Batch pool with that VNet. Follow these steps to create a pool from the Azure portal: 
