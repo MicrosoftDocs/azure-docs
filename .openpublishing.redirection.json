@@ -28816,12 +28816,12 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/azure-policy/",
+            "source_path": "articles/azure-policy/index.md",
             "redirect_url": "/azure/governance/policy/",
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/azure-policy/scripts/",
+            "source_path": "articles/azure-policy/scripts/index.md",
             "redirect_url": "/azure/governance/policy/samples/",
             "redirect_document_id": false
         },
