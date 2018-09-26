@@ -78,4 +78,4 @@ Depending on the state the contract is in, members can take actions to transitio
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [How to troubleshoot Azure Blockchain Workbench](../blockchain/workbench/troubleshooting.md)
+> [How to troubleshoot Azure Blockchain Workbench](troubleshooting.md)
