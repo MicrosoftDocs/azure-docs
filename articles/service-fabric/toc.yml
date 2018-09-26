@@ -588,9 +588,7 @@
       - name: Manually rollover cluster certs
         href: service-fabric-cluster-rollover-cert-cn.md
       - name: Manage cluster certificates
-        href: service-fabric-cluster-security-update-certs-azure.md
-      - name: Delete
-        href: service-fabric-cluster-delete.md
+        href: service-fabric-cluster-security-update-certs-azure.md      
       - name: Remote connect to cluster node VM
         href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md      
     - name: Standalone clusters
