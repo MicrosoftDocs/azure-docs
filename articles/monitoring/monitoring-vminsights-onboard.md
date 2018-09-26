@@ -27,11 +27,11 @@ Enabling Azure Monitor for VMs is accomplished by using one of the following met
 * Multiple Azure VMs or virtual machine scale sets across a specified subscription or resource group using PowerShell.
 
 ## Prerequisites
-Before you start, make sure that you have the following as described in the sub-sections below.
+Before you start, make sure that you have the following as described in the subsections below.
 
 ### Log Analytics 
 
-A Log Analytics workspace in the following regions are currently supported:
+A Log Analytics workspace in the following regions is currently supported:
 
   - West Central US  
   - East US  
@@ -41,7 +41,7 @@ A Log Analytics workspace in the following regions are currently supported:
 <sup>1</sup> 
 This region does not currently support the Health feature of Azure Monitor for VMs   
 
-If you do not have a workspace, you can you can create it through [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), through [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../log-analytics/log-analytics-quick-create-workspace.md).  
+If you do not have a workspace, you can create it through [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), through [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../log-analytics/log-analytics-quick-create-workspace.md).  
 
 To enable the solution, you need to be a member of the Log Analytics contributor role. For more information about how to control access to a Log Analytics workspace, see [Manage workspaces](../log-analytics/log-analytics-manage-access.md).
 
@@ -269,7 +269,7 @@ With this initial release, you can only create the policy assignment from the Az
 5. Resources can be excluded based on the **Scope**. **Exclusions** start at one level lower than the level of the **Scope**. **Exclusions** are optional, so leave it blank for now.
 6. Select the **Initiative definition** ellipsis to open the list of available definitions and select **[Preview] Azure Monitor for VMs** from the list, and then click **Select**.
 7. The **Assignment name** is automatically populated with the initiative name you selected, but you can change it. You can also add an optional **Description**. **Assigned by* is automatically populated based on who is logged in, and this field is optional.
-8. Select a **Log Analytics workspace** from the dropdown list that is available in the supported region that you want to integrated with this solution.
+8. Select a **Log Analytics workspace** from the dropdown list that is available in the supported region.
     >[!NOTE]
     >If the workspace is outside of the scope of the assignment, you must grant **Log Analytics Contributor** permissions to the policy assignment's Principal ID.  
 9. Notice the **Managed Identity** option is checked. This is checked when the initiative being assigned includes a policy with the deployIfNotExists effect. From the **Manage Identity location** dropdown list, select the appropriate region hosting the workspace and VMs.  
@@ -593,7 +593,7 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
     ```
 
 2. Save this file as **installsolutionsforvminsights.json** to a local folder.
-3. Edit the values for **WorkspaceName**, **ResourceGroupName**, and **WorkspaceLocation**.  The value for **WorkspaceName** is the is the full resource ID of your Log Analytics workspace, which includes the workspace name, and the value for **WorkspaceLocation** is the region the workspace is defined in.
+3. Edit the values for **WorkspaceName**, **ResourceGroupName**, and **WorkspaceLocation**.  The value for **WorkspaceName** is the full resource ID of your Log Analytics workspace, which includes the workspace name, and the value for **WorkspaceLocation** is the region the workspace is defined in.
 4. You are ready to deploy this template using the following PowerShell command:
 
     ```powershell
