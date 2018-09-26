@@ -37,7 +37,7 @@ In this tutorial, you learn how to:
 
 ## <a name="register"></a>Register this feature
 
-Click the **TryIt** in this article to register this feature easily using Azure Cloud Shell.
+Click the **TryIt** to register this feature easily using Azure Cloud Shell.
 
 >[!NOTE]
 >If you don't register this feature, you will not be able to use it, or to see it in the portal.
