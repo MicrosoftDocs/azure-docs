@@ -31,8 +31,8 @@ In this guide, you will learn how to:
 - A Kubernetes cluster running Kubernetes 1.9.6 or later, in the EastUS, CentralUS, WestUS2, WestEurope, CanadaCentral, or CanadaEast region, with **Http Application Routing** enabled.
 
     ```cmd
-    az group create --name myResourceGroup --region <region>
-    az aks create -g myResourceGroup -n myAKSCluster --location <region> --kubernetes-version 1.11.2
+    az group create --name MyResourceGroup --region <region>
+    az aks create -g MyResourceGroup -n MyAKS --location <region> --kubernetes-version 1.11.2
     ```
 
 ## Set up Azure Dev Spaces
