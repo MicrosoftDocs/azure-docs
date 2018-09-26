@@ -42,7 +42,7 @@ independently.
 A subscription to a topic resembles a virtual queue that receives copies of
 the messages that were sent to the topic. You can optionally register
 filter rules for a topic on a per-subscription basis, which allows you
-to filter/restrict which messages to a topic are received by which topic
+to filter or restrict which messages to a topic are received by which topic
 subscriptions.
 
 Service Bus topics and subscriptions enable you to scale to process a
@@ -342,7 +342,7 @@ service.deleteTopic("TestTopic");
 ```
 
 ## Next Steps
-For more information on Service Bus queues, see [Service Bus queues, topics, and subscriptions][Service Bus queues, topics, and subscriptions] for more information.
+For more information, see [Service Bus queues, topics, and subscriptions][Service Bus queues, topics, and subscriptions] for more information.
 
 [Azure SDK for Java]: http://azure.microsoft.com/develop/java/
 [Azure Toolkit for Eclipse]: ../azure-toolkit-for-eclipse.md
