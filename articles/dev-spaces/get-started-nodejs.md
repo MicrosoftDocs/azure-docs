@@ -64,7 +64,7 @@ What happened? Edits to content files, like HTML and CSS, don't require the Node
 ### Test from a mobile device
 Open the web app on a mobile device using the public URL for webfrontend. You may want to copy and send the URL from your desktop to your device to save you from entering the long address. When the web app loads in your mobile device, you will notice that the UI does not display properly on a small device.
 
-To fix this, you'll add a `viewport` meta tag:
+To fix this issue, you'll add a `viewport` meta tag:
 1. Open the file `./public/index.html`
 1. Add a `viewport` meta tag in the existing `head` element:
 
