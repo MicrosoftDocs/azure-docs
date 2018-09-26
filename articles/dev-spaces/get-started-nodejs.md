@@ -20,8 +20,6 @@ manager: douge
 
 You're now ready to create a Kubernetes-based development environment in Azure.
 
-[!INCLUDE [](includes/portal-aks-cluster.md)]
-
 ## Install the Azure CLI
 Azure Dev Spaces requires minimal local machine setup. Most of your dev space's configuration gets stored in the cloud, and is shareable with other users. Your local machine can run Windows, Mac, or Linux. For Linux, the following distributions are supported: Ubuntu (18.04, 16.04, and 14.04), Debian 8 and 9, RHEL 7, Fedora 26+, CentOS 7, openSUSE 42.2, and SLES 12.
 
@@ -32,11 +30,11 @@ Start by downloading and running the [Azure CLI](/cli/azure/install-azure-cli?vi
 
 [!INCLUDE [](includes/sign-into-azure.md)]
 
+[!INCLUDE [](includes/cli-create-cluster.md)]
+
 [!INCLUDE [](includes/use-dev-spaces.md)]
 
 [!INCLUDE [](includes/install-vscode-extension.md)]
-
-While you're waiting for the cluster to be create, you can start writing code.
 
 ## Create a Node.js container in Kubernetes
 
