@@ -68,7 +68,7 @@ so the Logic Apps service has the permissions for accessing your VNET.
 
 <a name="vnet-access"></a>
 
-## Set up VNET permissions
+## Set VNET permissions
 
 When you create your integration service environment, 
 you can select an Azure virtual network (VNET) as a *peer* 
@@ -107,10 +107,14 @@ table for the Azure Logic Apps service. Make sure you choose
 
    ![Add permissions](./media/connect-virtual-network-vnet-isolated-environment/add-contributor-roles.png)
 
-For more information about the role permissions required for peering, see the 
-[Permissions section in Create, change, or delete a virtual network peering](../virtual-network/virtual-network-manage-peering.md#permissions).
+   For more information about the role permissions required for peering, see the 
+   [Permissions section in Create, change, or delete a virtual network peering](../virtual-network/virtual-network-manage-peering.md#permissions). 
 
-## Set permissions on VNETs with ExpressRoute or VPNs
+If your VNET is connected through Azure ExpressRoute, a point-to-site VPN, 
+or a site-to-site VPN, continue with the next section so you can add the necessary gateway subnet. 
+Otherwise, continue with [Create integration service environment](#create-environment).
+
+## Add gateway subnet for VNETs with ExpressRoute or VPNs
 
 After you finish the previous steps, if you want to give your integration 
 service environment (ISE) access to a VNET that's connected either through 
@@ -162,8 +166,9 @@ which you'll associate with the gateway subnet you just created.
 
       ![Download latest VPN client](./media/connect-virtual-network-vnet-isolated-environment/download-vpn-client.png)
 
-You're now done setting up access for VNETs that either use ExpressRoute, 
-point-to-site VPNs, or site-to-site VPNs.
+You're now done with setting up a gateway subnet for VNETs that use ExpressRoute, 
+point-to-site VPNs, or site-to-site VPNs. To continue creating your 
+integration service environment, follow the next steps.
 
 <a name="create-environment"></a>
 
