@@ -18,7 +18,7 @@ ms.author: diberry
 This quickstart walks you through publishing your knowledge base (KB), which pushes the latest version of the tested knowledge base to a dedicated Azure Search index representing the published knowledge base. It also creates an endpoint that can be called in your application or chat bot.
 
 This quickstart calls Qna Maker APIs:
-* [Publish]
+* [Publish](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe)
 
 [!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-csharp-repo-note.md)]
 
@@ -26,16 +26,17 @@ This quickstart calls Qna Maker APIs:
 
 * Latest [**Visual Studio Community edition**](https://www.visualstudio.com/downloads/).
 * You must have a [Qna Maker service](../how-to/set-up-qnamaker-service-azure). To retrieve your key, select **Keys** under **Resource Management** in your dashboard. 
-* Qna Maker knowledge base (KB) ID found on the Qna Maker portal's **Settings** page in the **Deployment details**:
+* Qna Maker knowledge base (KB) ID found in the URL in the kbid query string parameter as shown below.
 
-![Qna Maker deployment details](../media/qnamaker-quickstart-kb/deployment-details.png)
+    ![QnA Maker knowledge base ID](../media/qnamaker-quickstart-kb/qna-maker-id.png)
 
+If you don't have a knowledge base yet, you can create a sample one to use for this quickstart: [Create a new knowledge base](create-new-kb-csharp.md).
 
 ## Create knowledge base project
 
 1. Open Visual Studio 2017 Community edition.
 1. Create a new **Console App (.Net Core)** project and name the project `QnaMakerQuickstartPublishKB`. Accept the defaults for the remaining settings.
-1. In the Solution Explorer, right-click on the project name, **QnaMakerQuickstartCreateKB**, then select **Manage NuGet Packages...**.
+1. In the Solution Explorer, right-click on the project name, **QnaMakerQuickstartPublishKB**, then select **Manage NuGet Packages...**.
 1. In the NuGet window, select **Browser**, then search for **Newtonsoft.JSON** and install the package. This package is used to parse the JSON returned from the QnaMaker HTTP response.
 
 ## Add required dependencies
@@ -143,7 +144,9 @@ static void Main(string[] args)
 
 ## Build and run the program
 
-Build and run the program. It will automatically send the request to the Qna Maker API to create the KB, then the response is printed to the console window.
+Build and run the program. It will automatically send the request to the Qna Maker API to publish the KB, then the response is printed to the console window.
+
+Once your knowledge base is published, you can query it from the endpoint with a client application or chat bot. 
 
 ## Next steps
 

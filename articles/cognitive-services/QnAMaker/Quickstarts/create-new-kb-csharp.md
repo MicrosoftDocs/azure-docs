@@ -69,12 +69,6 @@ The first three constants are used to create the full URL for the API. The last 
 After the constants, add the following KB definition:
 
 ```csharp
-/// <summary>
-/// Defines the data source used to create the knowledge base.
-/// The data source includes a QnA pair, with metadata, 
-/// the URL for the QnA Maker FAQ article, and 
-/// the URL for the Azure Bot Service FAQ article.
-/// </summary>
 static string kb = @"
 {
   'name': 'QnA Maker FAQ from quickstart',
@@ -221,7 +215,8 @@ Repeat the call until success or failure:
   "operationId": "177e12ff-5d04-4b73-b594-8575f9787963"
 }
 ```
-## Add main method to create KB
+
+## Add CreateKB method
 
 The following method controls the preceding methods:
 
@@ -311,7 +306,7 @@ static void Main(string[] args)
 
 Build and run the program. It will automatically send the request to the Qna Maker API to create the KB, then it will poll for the results every 30 seconds. Each response is printed to the console window.
 
-Once your knowledge base is created, you can view it in your QnA Maker Portal, [My knowledge bases](https://www.qnamaker.ai/Home/MyServices) page. To view, select **QnA Maker FAQ from quickstart**.
+Once your knowledge base is created, you can view it in your QnA Maker Portal, [My knowledge bases](https://www.qnamaker.ai/Home/MyServices) page. 
 
 ## Next steps
 
