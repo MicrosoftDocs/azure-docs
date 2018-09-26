@@ -114,6 +114,8 @@ If your VNET is connected through Azure ExpressRoute, a point-to-site VPN,
 or a site-to-site VPN, continue with the next section so you can add the necessary gateway subnet. 
 Otherwise, continue with [Create integration service environment](#create-environment).
 
+<a name="add-gateway-subnet"></a>
+
 ## Add gateway subnet for VNETs with ExpressRoute or VPNs
 
 After you finish the previous steps, if you want to give your integration 
