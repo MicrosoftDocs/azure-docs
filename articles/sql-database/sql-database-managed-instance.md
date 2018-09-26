@@ -11,7 +11,7 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/14/2018
+ms.date: 09/25/2018
 ---
 # What is a Managed Instance?
 
@@ -228,7 +228,7 @@ Managed Instance benefits from being always-up-to-date in the cloud, which means
 
 ### Managed Instance administration features  
 
-Managed Instance enable system administrator to focus on what matters the most for business. Many system administrator/DBA activities are not required, or they are simple. For example, OS / RDBMS installation and patching, dynamic instance resizing and configuration, backups, database replication (including system databases), high availability configuration, and configuration of health and performance monitoring data streams. 
+Managed Instance enable system administrator to focus on what matters the most for business. Many system administrator/DBA activities are not required, or they are simple. For example, OS / RDBMS installation and patching, dynamic instance resizing and configuration, backups, [database replication](replication-with-sql-database-managed-instance.md) (including system databases), high availability configuration, and configuration of health and performance monitoring data streams. 
 
 > [!IMPORTANT]
 > For a list of supported, partially supported, and unsupported features, see [SQL Database features](sql-database-features.md). For a list of T-SQL differences in Managed Instances versus SQL Server, see [Managed Instance T-SQL Differences from SQL Server](sql-database-managed-instance-transact-sql-information.md)
