@@ -44,11 +44,11 @@ The billing rate is **hourly per SU**, with each tier having a progressively hig
 
 Although each tier offers progressively higher capacity, you can bring a *portion* of total capacity online, holding the rest in reserve. In terms of billing, it's the number of partitions and replicas that you bring online, calculated using the SU formula, that determines what you actually pay.
 
-### Tips for lowering the bill
+### Tips for reducing costs
 
-You cannot shut down the service to lower the bill. Dedicated resources for partitions and replicas are operational 24-7, held in reserve for your exclusive use, for the lifetime of your service. The only way to lower a bill is to reduce replicas and partitions to the lowest level that still gives you acceptable performance and stays within [SLA compliance](https://azure.microsoft.com/support/legal/sla/search/v1_0/) boundaries. 
+You cannot shut down the service to lower the bill. Dedicated resources for partitions and replicas are operational 24-7, allocated for your exclusive use, for the lifetime of your service. The only way to lower a bill is by reducing replicas and partitions to a low level that still provides acceptable performance and [SLA compliance](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
 
-Another lever to reducing costs is choosing a tier with a lower hourly rate. S1 hourly rates are lower than S2 or S3 rates. You could provision a service aimed at the lower end of your load projections. If you outgrow the service, create a second larger-tiered service, rebuild your indexes on that second service, and then delete the first one. For on premises servers, it's common to "buy up" so that you can handle projected growth. But with a cloud service, you can be more aggressive on cost savings, knowing that you can always switch to a higher-tiered service if the current one is insufficient.
+Another lever for reducing costs is choosing a tier with a lower hourly rate. S1 hourly rates are lower than S2 or S3 rates. You could provision a service aimed at the lower end of your load projections. If you outgrow the service, create a second larger-tiered service, rebuild your indexes on that second service, and then delete the first one. For on premises servers, it's common to "buy up" so that you can handle projected growth. But with a cloud service, you can pursue cost savings most aggressively, knowing that you can always switch to a higher-tiered service if the current one is insufficient.
 
 ### Capacity drill-down
 
