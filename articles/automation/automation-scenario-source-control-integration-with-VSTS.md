@@ -16,6 +16,7 @@ ms.date: 09/26/2018
 > There is a new experience for source control. To learn more about the new experience, see [Source Control (Preview)](source-control-integration.md).
 
 In this scenario, you have an Azure DevOps project that you are using to manage Azure Automation runbooks or DSC configurations under source control.
+
 This article describes how to integrate Azure DevOps with your Azure Automation environment so that continuous integration happens for each check-in.
 
 ## Getting the scenario
