@@ -1,5 +1,5 @@
 ---
-title: Custom Date Time Path Patterns for Blob Storage Output for Azure Stream Analytics (Preview)
+title: Custom DateTime path patterns for Azure Stream Analytics blob storage output (Preview)
 description: 
 services: stream-analytics
 author: mamccrea
@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ---
 
-# Custom Date Time Path Patterns for Blob Storage Output for Azure Stream Analytics (Preview)
+# Custom DateTime path patterns for Azure Stream Analytics blob storage output (Preview)
 
-Azure Stream Analytics supports the use of custom date and time format specifiers in the file path for blob storage outputs. Custom DateTime path patterns allow you to specify an output format that aligns with Hive Streaming conventions, allowing Azure Stream Analytics to leverage Azure HDInsight and Azure Databricks for downstream processing. Custom DateTime path patterns is easily implemented by using the `datetime` keyword in the Path Prefix field of your Blob output, along with the desired format specifier. For example, `{datetime:yyyy}`.
+Azure Stream Analytics supports custom date and time format specifiers in the file path for blob storage outputs. Custom DateTime path patterns allow you to specify an output format that aligns with Hive Streaming conventions, giving Azure Stream Analytics the ability to send data to Azure HDInsight and Azure Databricks for downstream processing. Custom DateTime path patterns are easily implemented using the `datetime` keyword in the Path Prefix field of your blob output, along with the format specifier. For example, `{datetime:yyyy}`.
 
-Visit [Azure Portal](https://ms.portal.azure.com/?Microsoft_Azure_StreamAnalytics_bloboutputcustomdatetimeformats=true) to toggle to feature flag to enabled to use the custom DateTime path patterns for blob storage output preview.
+Visit [Azure Portal](https://ms.portal.azure.com/?Microsoft_Azure_StreamAnalytics_bloboutputcustomdatetimeformats=true) and toggle the feature flag to enable the custom DateTime path patterns for blob storage output preview.
 
 ## Supported tokens
 
-The following format specifier tokens can be used alone or in combination to achieve custom DateTime formats not previously supported:
+The following format specifier tokens can be used alone or in combination to achieve custom DateTime formats:
 
 |Format specifier   |Description   |Results on example time 2018-01-02T10:06:08|
 |----------|-----------|------------|
@@ -32,40 +32,39 @@ The following format specifier tokens can be used alone or in combination to ach
 |{datetime:m}|Minutes from 0 to 24|6|
 |{datetime:ss}|Seconds from 00 to 60|08|
 
-All old DateTime formats continue to be enabled via the {date} and/or {time} token in the Path Prefix, which enable dropdowns with these options shown below: 
+If you do not wish to use custom DateTime patterns, you can add the {date} and/or {time} token to the Path Prefix to generate a dropdown with built-in DateTime formats.
 
-![Stream Analytics old  DateTime formats](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-old-date-time-formats.png)
+![Stream Analytics old DateTime formats](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-old-date-time-formats.png)
 
 ## Extensibility and restrictions
 
-You can use as many tokens, `{datetime:<specifier>}`, in the path pattern up to the Path Prefix character limit. Format specifiers can't be combined within a single token beyond the combinations already enabled by the Date and Time dropdowns supported by the tokens listed above. 
+You can use as many tokens, `{datetime:<specifier>}`, as you like in the path pattern until you reach the Path Prefix character limit. Format specifiers can't be combined within a single token beyond the combinations already listed by the date and time dropdowns. 
 
-For a desired path partition of ‘logs/MM/dd’:
+For a path partition of `logs/MM/dd`:
 
-|logs/{datetime:MM}/{datetime:dd}|Valid expression|
-|logs/{datetime:MM/dd}|Invalid expression|
+|Valid expression   |Invalid expression   |
+|----------|-----------|
+|`logs/{datetime:MM}/{datetime:dd}`|`logs/{datetime:MM/dd}`|
 
 You may use the same format specifier multiple times in the Path Prefix. The token must be repeated each time.
 
-## Alignment with Hive Streaming Conventions
+## Hive Streaming conventions
 
-Custom path patterns for blob storage aligns with the Hive Streaming convention which expects folders to be labelled with `column=` in the folder name.
+Custom path patterns for blob storage can be used with the Hive Streaming convention, which expects folders to be labeled with `column=` in the folder name.
 
 For example, `year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}/hour={datetime:HH}`.
 
-Azure Stream Analytics support for this custom output eliminates the hassle of altering tables and manually adding partitions to port data between Azure Stream Analytics and Hive. Instead, now many folders can be added automatically using:
+Custom output eliminates the hassle of altering tables and manually adding partitions to port data between Azure Stream Analytics and Hive. Instead, many folders can be added automatically using:
 
-```bash
+```
 MSCK REPAIR TABLE while hive.exec.dynamic.partition true
 ```
 
-## Example
+### Example
 
-A storage account, resource group, Stream Analytics job, and input source were created according to the [Azure Stream Analytics Azure Portal](stream-analytics-quick-create-portal.md) quickstart guide. Sample data used was the same sample data used in the quickstart guide, also available on [Github](https://raw.githubusercontent.com/Azure/azure-stream-analytics/master/Samples/GettingStarted/HelloWorldASA-InputStream.json).
+Create a storage account, a resource group, a Stream Analytics job, and an input source according to the [Azure Stream Analytics Azure Portal](stream-analytics-quick-create-portal.md) quickstart guide. Use the same sample data used in the quickstart guide, also available on [GitHub](https://raw.githubusercontent.com/Azure/azure-stream-analytics/master/Samples/GettingStarted/HelloWorldASA-InputStream.json).
 
-Be sure to set a Custom Start Time for your Azure Stream Analytics job to **2018-01-01**, as specified in the quickstart.
-
-An output sink was created accordingly:
+Create a blob output sink with the following configuration:
 
 ![Stream Analytics create blob output sink](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-create-output-sink.png)
 
@@ -75,8 +74,10 @@ The full path pattern is as follows:
 year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}
 ```
 
-Once the job starts running, the desired folder structure is created. Digging down to the day level, we see:
+When you start the job, a folder structure based on the path pattern is created in your blob container. You can drill down to the day level.
 
 ![Stream Analytics blob output with custom path pattern](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-blob-output-folder-structure.png)
 
 ## Next steps
+
+* [Understand outputs from Azure Stream Analytics](stream-analytics-define-outputs.md)
