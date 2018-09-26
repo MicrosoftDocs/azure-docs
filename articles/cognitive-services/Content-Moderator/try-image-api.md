@@ -1,12 +1,14 @@
 ---
-title: Moderate images with Azure Content Moderator | Microsoft Docs
+title: Moderate images with the API Console - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: Test-drive image moderation in the Content Moderator API console.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/05/2017
 ms.author: sajagtap
 ---

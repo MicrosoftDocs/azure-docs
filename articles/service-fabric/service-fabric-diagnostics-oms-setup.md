@@ -77,7 +77,7 @@ You can use and modify [this sample template](https://github.com/Azure-Samples/s
 
 * Creates a 5 node Service Fabric cluster
 * Creates a Log Analytics workspace and Service Fabric solution
-* Configures the OMS Agent to collect and send 2 sample performance counters to to the workspace
+* Configures the OMS Agent to collect and send 2 sample performance counters to the workspace
 * Configures WAD to collect Service Fabric and sends them to Azure storage tables (WADServiceFabric*EventTable)
 * Configures the Log Analytics workspace to read the events from these tables
 

@@ -140,6 +140,9 @@ Standard SSD disks are standard disks backed by solid-state media, optimized as 
 <a id="standard-ssds-azure-regions"></a>**What are the regions currently supported for Standard SSD disks?**
 All Azure regions now support Standard SSD disks.
 
+**Is Azure Backup available when using Standard SSDs?**
+No, Azure Backup is not yet available.
+
 **How do I create Standard SSD disks?**
 You can create Standard SSD disks using Azure Resource Manager templates, SDK, PowerShell or CLI. Below are the parameters needed in the Resource Manager template to create Standard SSD Disks:
 
