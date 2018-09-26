@@ -1,5 +1,5 @@
 ---
-title: Manage web traffic with an application gateway using Ansible (Preview)
+title: Manage web traffic with an Azure application gateway using Ansible (Preview)
 description: Learn how to use Ansible create and configure an Azure Application Gateway to manage web traffic
 ms.service: ansible
 keywords: ansible, azure, devops, bash, playbook, azure application gateway, load balancer, web traffic
@@ -10,7 +10,7 @@ ms.topic: tutorial
 ms.date: 09/20/2018
 ---
 
-# Manage web traffic with an application gateway using Ansible (Preview)
+# Manage web traffic with an Azure application gateway using Ansible (Preview)
 [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/) is a web traffic load balancer that enables you to manage traffic to your web applications. 
 
 Ansible allows you to automate the deployment and configuration of resources in your environment. This article shows you how to use Ansible to create an Azure Application Gateway and use it manage traffic of two web servers running in Azure container instances. 
@@ -60,7 +60,7 @@ The following example creates a virtual network named **myVNet**, a subnet named
 ```yml
 - hosts: localhost
   vars:
-    resource_group: myResouceGroup
+    resource_group: myResourceGroup
     location: eastus 
     vnet_name: myVNet 
     subnet_name: myAGSubnet 
@@ -90,7 +90,7 @@ The following example creates a virtual network named **myVNet**, a subnet named
         resource_group: "{{ resource_group }}" 
         allocation_method: Dynamic
         name: "{{ publicip_name }}"
-        domain_name_label: "{{ pubicip_domain }}"
+        domain_name_label: "{{ publicip_domain }}"
 ```
 
 Save above playbook as *vnet_create.yml*. To run the playbook,  use the **ansible-playbook** command as follows:
