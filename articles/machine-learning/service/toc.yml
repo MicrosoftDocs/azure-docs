@@ -41,6 +41,12 @@
       href: how-to-choose-a-dev-environment.md 
     - name: Configure an environment
       href: how-to-configure-environment.md
+    - name: Use VS Code Tools for AI
+      items:
+      - name: Get started
+        href: how-to-vscode-tools.md
+      - name: Train and deploy with VS Code        
+        href: how-to-vscode-to-train-deploy.md
   - name: Set up training environments	
     href: how-to-set-up-training-targets.md
   - name: Prepare data
