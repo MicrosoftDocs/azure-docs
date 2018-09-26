@@ -134,7 +134,7 @@ select **Subnets**, and then choose **Gateway subnet** > **OK**.
    ![Add gateway subnet](./media/connect-virtual-network-vnet-isolated-environment/add-gateway-subnet.png)
 
 1. Now, create a [*route table*](../virtual-network/manage-route-table.md), 
-which you'll associate with the gateway subnet you just created.
+which you'll associate with the gateway subnet you created earlier.
 
    1. On the main Azure menu, select **Create a resource** > 
    **Networking** > **Route table**.
