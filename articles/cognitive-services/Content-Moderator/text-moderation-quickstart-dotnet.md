@@ -1,20 +1,22 @@
 ---
-title: Azure Content Moderator - Moderate text using .NET | Microsoft Docs
-description: How to moderate text using Azure Content Moderator SDK for .NET
+title: Moderate text - Content Moderator, .NET
+titlesuffix: Azure Cognitive Services
+description: How to moderate text using the Content Moderator SDK for .NET
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: sajagtap
 ---
 
 # Moderate text using .NET
 
-This article provides information and code samples to help you get started using 
-the [Content Moderator SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) to:
+This article provides information and code samples to help you get started using the [Content Moderator SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) to:
+
 - Detect potential profanity in text with term-based filtering
 - Use machine-learning-based models to [classify the text](text-moderation-api.md#classification) into three categories.
 - Detect personally identifiable information (PII) such as US and UK phone numbers, email addresses, and US mailing addresses.
@@ -102,7 +104,7 @@ Add the following code to create a Content Moderator client for your subscriptio
             // Create and initialize an instance of the Content Moderator API wrapper.
             ContentModeratorClient client = new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey));
 
-            client.BaseUrl = AzureBaseURL;
+            client.Endpoint = AzureBaseURL;
             return client;
         }
     }
