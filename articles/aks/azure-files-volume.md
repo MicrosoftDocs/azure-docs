@@ -97,7 +97,7 @@ Use the `kubectl` command to create the pod.
 kubectl apply -f azure-files-pod.yaml
 ```
 
-You now have a running pod with an Azure Files share mounted at `/mnt/azure`. You can use `kubectl describe pod azure-files-pod` to verify the share is mounted successfully.
+You now have a running pod with an Azure Files share mounted at */mnt/azure*. You can use `kubectl describe pod azure-files-pod` to verify the share is mounted successfully.
 
 ## Next steps
 
@@ -117,3 +117,4 @@ For more information about AKS clusters interact with Azure Files, see the [Kube
 [az-storage-share-create]: /cli/azure/storage/share#az-storage-share-create
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[install-azure-cli]: /cli/azure/install-azure-cli

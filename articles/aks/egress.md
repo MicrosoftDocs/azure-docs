@@ -131,3 +131,4 @@ To avoid maintaining multiple public IP addresses on the Azure Load Balancer, yo
 [public-ip-create]: /cli/azure/network/public-ip#az-network-public-ip-create
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[install-azure-cli]: /cli/azure/install-azure-cli
