@@ -402,4 +402,4 @@ For more information about managing users in Blockchain Workbench, see [managing
 In this how-to article, you've created a basic request and response application. To learn how to use the application, continue to the next how-to article.
 
 > [!div class="nextstepaction"]
-> [Using a blockchain application](../../blockchain-workbench/blockchain-workbench-use.md)
+> [Using a blockchain application](use.md)
