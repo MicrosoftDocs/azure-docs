@@ -52,7 +52,7 @@ where type=~ 'microsoft.compute/virtualmachinescalesets'
 az graph query -q "where type=~ 'microsoft.compute/virtualmachinescalesets' | where name contains 'contoso' | project subscriptionId, name, location, resourceGroup, Capacity = toint(sku.capacity), Tier = sku.name | order by Capacity desc"
 ```
 
-```azurepowershell-interactive
+```powershell
 Search-AzureRmGraph -Query "where type=~ 'microsoft.compute/virtualmachinescalesets' | where name contains 'contoso' | project subscriptionId, name, location, resourceGroup, Capacity = toint(sku.capacity), Tier = sku.name | order by Capacity desc"
 ```
 
@@ -70,7 +70,7 @@ project tags
 az graph query -q "project tags | summarize buildschema(tags)"
 ```
 
-```azurepowershell-interactive
+```powershell
 Search-AzureRmGraph -Query "project tags | summarize buildschema(tags)"
 ```
 
@@ -100,7 +100,7 @@ where type =~ 'microsoft.compute/virtualmachines' and name matches regex @'^Cont
 az graph query -q "where type =~ 'microsoft.compute/virtualmachines' and name matches regex @'^Contoso(.*)[0-9]+$' | project name | order by name asc"
 ```
 
-```azurepowershell-interactive
+```powershell
 Search-AzureRmGraph -Query "where type =~ 'microsoft.compute/virtualmachines' and name matches regex @'^Contoso(.*)[0-9]+$' | project name | order by name asc"
 ```
 
