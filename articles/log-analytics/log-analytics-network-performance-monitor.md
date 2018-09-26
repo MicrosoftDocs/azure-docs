@@ -254,7 +254,7 @@ Network Performance Monitor uses the alerting capabilities of [Azure Monitor](ht
 
 This means that all alerting is managed using [action groups](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#overview).  
 
-If you are an NPM user creating an alert via OMS: 
+If you are an NPM user creating an alert via Log Analytics: 
 1. You will see a link that will redirect you to Azure Portal. Click it to access the portal.
 2. Click the Network Performance Monitor solution tile. 
 3. Navigate to Configure.  
