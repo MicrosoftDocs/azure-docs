@@ -217,11 +217,9 @@ Output claim:
 
 ```JSON
 {
-  {
-    "user": {
-      "name":"Someone",
-      "email":"someone@example.com"
-    }
+  "user": {
+    "name":"Someone",
+    "email":"someone@example.com"
   }
 }
 ```
