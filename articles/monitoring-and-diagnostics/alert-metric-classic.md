@@ -40,8 +40,6 @@ Classic metric alerts in Azure Monitor provide a way to get notified when one of
 
 Within a few minutes, the alert is active and triggers as previously described.
 
-## Manage your classic metric alert rules using Azure portal
-
 After you create an alert, you can select it and do one of the following tasks:
 
 * View a graph that shows the metric threshold and the actual values from the previous day.
