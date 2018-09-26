@@ -181,17 +181,15 @@ You can reuse an existing self-hosted integration runtime infrastructure that yo
 
 ### Known limitations of self-hosted IR sharing
 
-* The default number of linked IRs that can be created under single self-hosted IR is **20**. If you need more, contact Support. 
-
-* The data factory in which a linked IR will be created must have an [MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview). By default, the data factories created in the Azure portal or PowerShell cmdlets will have an MSI created implicitly. However, in some cases when a data factory is created through an Azure Resource Manager template or an SDK, the **Identity** property must be set explicitly to ensure that Azure Resource Manager creates a data factory that contains an MSI. 
-
-* The self-hosted IR version must be 3.8.xxxx.xx or later. [Download the latest version](https://www.microsoft.com/download/details.aspx?id=39717) of the self-hosted IR.
+* The data factory in which a linked IR will be created must have an [MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview). By default, the data factories created in the Azure portal or PowerShell cmdlets have an MSI created implicitly. But when a data factory is created through an Azure Resource Manager template or SDK, the **Identity** property must be set explicitly to ensure that Azure Resource Manager creates a data factory that contains an MSI. 
 
 * The Azure Data Factory .NET SDK that supports this feature is version 1.1.0 or later.
 
-* The Azure PowerShell instance that supports this feature is version 6.6.0 or later (for AzureRM.DataFactoryV2, version 0.5.7 or later).
+* The Azure PowerShell version that supports this feature is 6.6.0 or later (AzureRM.DataFactoryV2, 0.5.7 or later).
 
-* To grant permission, the user will need the Owner role or the inherited Owner role in the data factory where the shared IR exists. 
+* To grant permission, the user needs the Owner role or the inherited Owner role in the data factory where the shared IR exists. 
+
+* For Active Directory [guest users](https://docs.microsoft.com/azure/active-directory/governance/manage-guest-access-with-access-reviews), the search functionality (listing all data factories by using a search keyword) in the UI [does not work](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#SearchLimits). But as long as the guest user is the Owner of the data factory, they can share the IR without the search functionality, by directly typing the MSI of the data factory with which the IR needs to be shared in the **Assign Permission** text box and selecting **Add** in the Azure Data Factory UI. 
 
   > [!NOTE]
   > This feature is available only in Azure Data Factory V2. 

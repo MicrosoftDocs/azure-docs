@@ -101,8 +101,8 @@ from sklearn import datasets
 digits = datasets.load_digits()
 
 # only take the first 100 rows if you want the training steps to run faster
-X_digits = digits.data[100:,:]
-y_digits = digits.target[100:]
+X_digits = digits.data[:100,:]
+y_digits = digits.target[:100]
 
 # use full dataset
 #X_digits = digits.data
