@@ -82,7 +82,7 @@ New-SelfSignedCertificate -Subject contoso100.com `
   -Type SSLServerAuthentication -DnsName *.contoso100.com
 ```
 
-In the preceding sample, replace '*.contoso100.com' with the DNS domain name of your managed domain. For example, if you created a managed domain called 'contoso100.onmicrosoft.com', replace '*.contoso100.com' in the preceding script with '*.contoso100.onmicrosoft.com').
+In the preceding sample, replace 'contoso100.com' with the DNS domain name of your managed domain. For example, if you created a managed domain called 'contoso100.onmicrosoft.com', replace 'contoso100.com' in the Subject attribute with 'contoso100.onmicrosoft.com' and '*.contoso100.com' in the DnsName attribute with '*.contoso100.onmicrosoft.com').
 
 ![Select Azure AD Directory](./media/active-directory-domain-services-admin-guide/secure-ldap-powershell-create-self-signed-cert.png)
 
