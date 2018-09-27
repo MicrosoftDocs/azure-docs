@@ -88,7 +88,7 @@ serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessage
 5. Next run `:remote console` to redirect all console commands to the remote server.
 
    > [!NOTE]
-   > If you don't run the `:remote console` command but would like to redirect all console commands to the remote server,  you should add the symbol `:>` before the command, for example you should run the command as `:> g.V().count()`. This symbol is a part of the command and it is important when using the Gremlin console with Azure Cosmos DB. Omitting this symbol `:>` prefix instructs the console to execute the command locally, often against an in-memory graph. Using this symbol `:>` tells the console to execute a remote command, in this case against Azure Cosmos DB (either the localhost emulator, or an Azure instance).
+   > If you don't run the `:remote console` command but would like to redirect all console commands to the remote server, you should prefix the command with `:>`, for example you should run the command as `:> g.V().count()`. This prefix is a part of the command and it is important when using the Gremlin console with Azure Cosmos DB. Omitting this prefix instructs the console to execute the command locally, often against an in-memory graph. Using this prefix `:>` tells the console to execute a remote command, in this case against Azure Cosmos DB (either the localhost emulator, or an Azure instance).
 
 Great! Now that we finished the setup, let's start running some console commands.
 
