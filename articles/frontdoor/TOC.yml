@@ -1,0 +1,73 @@
+- name: Front Door Service Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Azure Front Door Service?
+    href: front-door-overview.md    
+- name: Quickstarts
+  items:
+  - name: Create a Front Door
+    href: quickstart-create-front-door.md
+- name: Tutorials
+  items:
+  - name: Add a custom domain to your Front Door
+    href: front-door-custom-domain.md
+  - name: Enable HTTPS for a custom domain
+    href: front-door-custom-domain-https.md
+- name: Samples
+  items:
+  - name: Resource Manager Templates
+    href: front-door-quickstart-template-samples.md
+- name: Concepts
+  items:
+  - name: Backends and backend pools
+    href: front-door-backend-pool.md
+  - name: Application layer security
+    href: front-door-application-security.md
+  - name: Load-balancing with Azure’s application delivery suite
+    href: front-door-lb-with-azure-app-delivery-suite.md
+  - name: Routing architecture
+    href: front-door-routing-architecture.md
+  - name: Traffic routing methods
+    href: front-door-routing-methods.md
+  - name: How Front Door matches routing for a request
+    href: front-door-route-matching.md
+  - name: Health probes
+    href: front-door-health-probes.md
+  - name: URL rewrite
+    href: front-door-url-rewrite.md
+  - name: Caching with Front Door
+    href: front-door-caching.md
+  - name: HTTP/2 support
+    href: front-door-http2.md
+  - name: HTTP headers protocol support
+    href: front-door-http-headers-protocol.md
+  - name: Monitoring
+    href: front-door-diagnostics.md
+- name: How-to guides
+  items:
+  - name: Troubleshoot
+    items:
+    - name: Troubleshoot routing issues
+      href: front-door-troubleshoot-routing.md
+    - name: Allowed certificate authorities
+      href: front-door-troubleshoot-allowed-ca.md
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/ext/front-door/
+  - name: Azure PowerShell
+    href: front-door-powershell-reference.md
+  - name: REST API
+    href: /rest/api/frontdoor
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/frontdoor/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?product=frontdoor
+

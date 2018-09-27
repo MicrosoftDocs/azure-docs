@@ -1,14 +1,17 @@
 ---
-title: Transcription guidelines in Custom Speech Service on Azure  | Microsoft Docs
-description: Learn how to prepare your data for Custom Speech Service in Cognitive Services.
+title: Transcription guidelines - Custom Speech Service
+titlesuffix: Azure Cognitive Services
+description: Learn how to prepare your data for Custom Speech Service.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/08/2017
 ms.author: panosper
+ROBOTS: NOINDEX
 ---
 
 # Transcription guidelines

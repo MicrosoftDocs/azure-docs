@@ -73,7 +73,7 @@
     href: customize-encoder-presets-how-to.md
   - name: Upload content 
     items:
-    - name: From HTTP(s) - .NET
+    - name: From HTTPS - .NET
       href: job-input-from-http-how-to.md
     - name: From a local file - .NET
       href: job-input-from-local-file-how-to.md  
@@ -134,8 +134,7 @@
     - name: Python
       href: https://aka.ms/ams-v3-python-sdk
     - name: Node .js
-      href: https://aka.ms/ams-v3-nodejs-sdk
-  - name: Release notes    
+      href: https://aka.ms/ams-v3-nodejs-sdk   
   - name: Release notes
     href: release-notes.md
   - name: Quotas and limitations

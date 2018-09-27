@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/14/2018
-ms.author: genli
+ms.author: cwatson
 
 ---
 # Add or change Azure subscription administrators
