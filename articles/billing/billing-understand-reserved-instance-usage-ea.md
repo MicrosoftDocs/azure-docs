@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
-ms.author: manshuk
+ms.author: cwatson
 
 ---
 # Understand Azure reservation usage for your Enterprise enrollment
