@@ -20,7 +20,7 @@ Azure Digital Twins allows querying data from a space rather than from many disp
 
 Azure Digital Twins applies to environments of all kinds. For example: warehouses, offices, schools, hospitals, banks, stadiums, factories, parking lots, parks, smart grids, and cities. Use cases include tracking daily temperature across several states, monitoring busy drone paths, identifying autonomous vehicles, analyzing occupancy levels for a building, or finding the busiest cash register in your store. Whatever your real-world business scenario is, a corresponding digital instance can be provisioned through Azure Digital Twins.
 
-A deeper-dive into Digital Twins is provided by the following video:
+The following video takes a deeper dive into Digital Twins:
 
 > [!VIDEO https://microsoft.sharepoint.com/teams/Azure_IoT/Smart%20Buildings/07.%20Videos/Bert%20and%20Dan%20-%20Intro%20Video/10508_Azure_Digital_Twins_Intro_Video_Short_FINAL.mp4]
 
@@ -32,7 +32,7 @@ Key capabilities of Azure Digital Twins include:
 
 The [spatial intelligence graph](./concepts-objectmodel-spatialgraph.md) is a virtual representation of the physical environment that enables you to model the relationships between people, places, and devices.
 
-For example, a smart utility app might involve several electricity usage devices connected across a neighborhood. To accurately monitor and predict electricity usage and billing, the smart utility company must model each each device and sensor with context about the location and the customer that will be billed. The spatial intelligence graph enables you to model these kinds of complex relationships.
+For example, a smart utility app might involve several electricity usage meters connected across a neighborhood. To accurately monitor and predict electricity usage and billing, the smart utility company must model each each device and sensor with context about the location and the customer that will be billed. The spatial intelligence graph enables you to model these kinds of complex relationships.
 
 ### Digital twin object models
 
@@ -40,9 +40,9 @@ For example, a smart utility app might involve several electricity usage devices
 
 For example, a room occupancy application could use pre-defined space types such as campus, building, floor, room, etc.
 
-### Multi and nested tenancy
+### Multi- and nested- tenancy
 
-You can build solutions that scale and securely replicate across multiple tenants or create multiple subtenants that can be accessed and used in an isolated and secure manner.
+You can build solutions that scale securely and which can be reused for multiple tenants. You can also create multiple subtenants that can be accessed and used in an isolated and secure manner.
 
 For example, a space utilization application could be configured to isolate data from different tenants in a single building, or to combine data for a single tenant with multiple buildings.
 
@@ -50,7 +50,7 @@ For example, a space utilization application could be configured to isolate data
 
 Advanced compute capabilities called [user-defined functions](./concepts-user-defined-functions.md) let you define and run custom functions against incoming [telemetry messages](./concepts-device-ingress.md) to send signals to pre-defined endpoints. This capability improves customization and automation of device tasks.
 
-For example, a smart agriculture application could include a user-defined function that rungs logic based on soil moisture sensor readings and the weather forecast and sends signals to an irrigation system.
+For example, a smart agriculture application could include a user-defined function that runs logic based on soil moisture sensor readings and the weather forecast, then sends signals.
 
 ### Built-in access control
 
