@@ -29206,6 +29206,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/aks/create-cluster.md",
+            "redirect_url": "/cli/azure/aks#az-aks-create",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/aks/delete-cluster.md",
+            "redirect_url": "/cli/azure/aks#az-aks-delete",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/azure-preview-portal-supported-browsers-devices.md",
             "redirect_url": "/azure/azure-portal/azure-portal-supported-browsers-devices",
             "redirect_document_id": true
