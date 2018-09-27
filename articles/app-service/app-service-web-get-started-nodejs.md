@@ -99,9 +99,9 @@ When the web app has been created, the Azure CLI shows output similar to the fol
 }
 ```
 
-### Set Node runtime
+### Set Node.js runtime
 
-Set the Node runtime to 8.11.1. To see all supported runtimes, run [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes). 
+Set the Node runtime to 8.11.1. <!-- To see all supported runtimes, run [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes). -->
 
 ```azurecli-interactive
 # Bash
