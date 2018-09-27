@@ -43,7 +43,7 @@ To generalize your Windows VM, follow these steps:
    
 3. In the **System Preparation Tool** dialog box, select **Enter System Out-of-Box Experience (OOBE)** and select the **Generalize** check box.
    
-4. In **Shutdown Options**, select **Shutdown**.
+4. For **Shutdown Options**, select **Shutdown**.
    
 5. Select **OK**.
    
@@ -62,13 +62,13 @@ To generalize your Windows VM, follow these steps:
 
    The **Create image** page appears.
 
-4. In **Name**, either accept the pre-populated name or enter a name that you would like to use for the image.
+4. For **Name**, either accept the pre-populated name or enter a name that you would like to use for the image.
 
-5. In **Resource group**, either select **Create new** and type in a name, or select **Use existing** and select a resource group to use from the drop-down list.
+5. For **Resource group**, either select **Create new** and enter a name, or select **Use existing** and select a resource group to use from the drop-down list.
 
 6. If you want to delete the source VM after the image has been created, select **Automatically delete this virtual machine after creating the image**.
 
-7. If you want the ability to use the image in any [availability zone](../../availability-zones/az-overview.md), select **On** in **Zone resiliency**.
+7. If you want the ability to use the image in any [availability zone](../../availability-zones/az-overview.md), select **On** for **Zone resiliency**.
 
 8. Select **Create** to create the image.
 
