@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Create an Azure Machine Learning workspace - Python SDK"
+title: "Quickstart: Use the Python SDK to create a machine learning workspace - Azure Machine Learning"
 description: Get started with Azure Machine Learning.  Install the Python SDK and use it to create a workspace. This workspace is the foundational block in the cloud for experimenting, training, and deploying machine learning models with Azure Machine Learning service.  
 services: machine-learning
 ms.service: machine-learning
@@ -11,26 +11,28 @@ ms.author: haining
 ms.date: 09/24/2018
 ---
 
-# Quickstart: Get started with Azure Machine Learning using Python SDK
+# Quickstart: Use Python to get started with Azure Machine Learning
 
-In this quickstart, you'll use the Azure Machine Learning Python SDK to create and then use a workspace. This workspace is the foundational block in the cloud for experimenting, training, and deploying machine learning models with Azure Machine Learning service.
+In this quickstart, you'll use the Azure Machine Learning SDK for Python to create and then use a Machine Learning service [workspace](concept-azure-machine-learning-architecture.md).
+
+This workspace is the foundational block in the cloud for experimenting, training, and deploying machine learning models with Azure Machine Learning service.
 
 In this tutorial, you will:
 
 * Install the Python SDK and use it to create a workspace in your Azure subscription
-* Learn how to save a configuration file to use for other notebooks and scripts in the same directory
+* Create a workspace configuration file you can reference later in other notebooks and scripts
 * Write some code that logs values inside the workspace
 * View the logged values in your workspace
 
 For your convenience, the following Azure resources are added automatically to your workspace when regionally available:  [container registry](https://azure.microsoft.com/services/container-registry/), [storage](https://azure.microsoft.com/services/storage/), [application insights](https://azure.microsoft.com/services/application-insights/), and [key vault](https://azure.microsoft.com/services/key-vault/).
 
-The resources you create can be used as prerequisites to other Azure Machine Learning tutorials and how-to articles. As with other Azure services, there are limits on certain resources (for eg. BatchAI cluster size) associated with the Azure Machine Learning service. Read [this](how-to-manage-quotas.md) article on the default limits and how to request more quota.
+The workspace and its configuration file you create in this quickstart can be used as prerequisites to other Azure Machine Learning tutorials and how-to articles. As with other Azure services, there are limits on certain resources (for eg. BatchAI cluster size) associated with the Azure Machine Learning service. Read [this](how-to-manage-quotas.md) article on the default limits and how to request more quota.
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 
 ##  Install the SDK
-Skip this section if you are using a Data Science Virtual Machine (DSVM) created after September 27, 2019.  The VM comes with the Python SDK pre-installed.
+Skip this section if you are using a Data Science Virtual Machine (DSVM) created after September 27, 2018.  The VM comes with the Python SDK pre-installed.
 
 ### Miniconda
 
@@ -91,12 +93,12 @@ Find a value for `<azure-subscription-id>` in the [subscriptions list in the Azu
 ws = Workspace.create(name='myworkspace',
                       subscription_id='<azure-subscription-id>'
                       resource_group='myresourcegroup',
-                      resource_group_create=True,
+                      create_resource_group=True,
                       location='eastus2' # or other supported Azure region
                      )
 ```
 
-Executing the above code may trigger an interactive window in the browser to sign into your Azure account. Once you sign in, the authentication token will be cached locally.
+Executing the above code may trigger a new browser window for you to sign into your Azure account. Once you sign in, the authentication token will be cached locally.
 
 To see the details of the workspace, including the associated storage, container registry, and key vault, type:
 
@@ -106,10 +108,14 @@ ws.get_details()
 
 ## Write a configuration file
 
-Persist the workspace configuration in a local file:
+Save the details of your workspace in a configuration file.  
 
 ```python
+# write the configuration file
 ws.write_config()
+
+# in other code in this directory or its sub-directories, you can load this workspace with
+# ws = Workspace.from_config()
 ```
 
 This `write_config()` API call creates the `aml_config\config.json` file in the current directory. The `config.json` file looks like this:
@@ -120,19 +126,12 @@ This `write_config()` API call creates the `aml_config\config.json` file in the 
     "resource_group": "<resource-group-name>",
     "workspace_name": "<workspace-name>"
 }
+This workspace configuration file makes it easy to share the workspace later with other notebooks and scripts in the same directory or below.  Use `ws = Workspace.from_config()`  to read the configuration file and load the workspace.
 ```
 
-## Why write a configuration file?
+## Use the workspace
 
-When you create the `config.json` file, all other scripts and notebooks in that directory and below can read from it with the `from_config()` API.  This makes it easy to use the same workspace with scripts and notebooks in a directory.
-
-```python
-ws = Workspace.from_config()
-```
-
-## Track run metrics
-
-Let's now write some simple code to show you how to use the basic APIs of the SDK to track experiment runs.
+Write some simple code that uses the basic APIs of the SDK to track experiment runs.
 
 ```python
 from azureml.core import Experiment
@@ -153,12 +152,16 @@ run.log_list('my list', [1, 1, 2, 3, 5, 8, 13, 21, 34, 55])
 run.complete()
 ```
 
-## View the run details
+## View logged results
 Now view the experiment run in the Azure portal by printing out its URL, then go to it.
 
 ```python
 print(run.get_portal_url())
 ```
+
+Click on the link to view the logged values.
+
+![logged values in portal](./media/quickstart-create-workspace-with-python/logged-values.png)
 
 ## Clean up resources 
 >[!IMPORTANT]
