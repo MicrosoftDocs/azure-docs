@@ -7,7 +7,7 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart
-ms.date: 08/22/2018
+ms.date: 09/27/2018
 ---
 
 # Use Ansible to manage a Linux virtual machine in Azure
@@ -36,17 +36,17 @@ This section illustrates how to use Ansible to deallocate (stop) an Azure virtua
 
 1. Paste the following sample code into the editor:
 
-    ```yaml
-    - name: Stop Azure VM
+  ```yaml
+  - name: Stop Azure VM
     hosts: localhost
     connection: local
     tasks:
     - name: Deallocate the virtual machine
       azure_rm_virtualmachine:
-        resource_group: myResourceGroup
-        name: myVM
-        allocated: no
-    ```
+      resource_group: myResourceGroup
+      name: myVM
+      allocated: no
+  ```
 
 1. Exit insert mode by selecting the **Esc** key.
 
@@ -94,16 +94,16 @@ This section illustrates how to use Ansible to start a deallocated (stopped) Azu
 
 1. Paste the following sample code into the editor:
 
-    ```yaml
-    - name: Start Azure VM
+  ```yaml
+  - name: Start Azure VM
     hosts: localhost
     connection: local
     tasks:
     - name: Start the virtual machine
       azure_rm_virtualmachine:
-        resource_group: myResourceGroup
-        name: myVM
-    ```
+      resource_group: myResourceGroup
+      name: myVM
+  ```
 
 1. Exit insert mode by selecting the **Esc** key.
 
@@ -124,7 +124,7 @@ This section illustrates how to use Ansible to start a deallocated (stopped) Azu
     The output looks similar to the following example that shows the virtual machine has been successfully started:
 
     ```bash
-    PLAY [Stop Azure VM] ********************************************************
+    PLAY [Start Azure VM] ********************************************************
 
     TASK [Gathering Facts] ******************************************************
     ok: [localhost]
@@ -138,4 +138,4 @@ This section illustrates how to use Ansible to start a deallocated (stopped) Azu
 
 ## Next steps
 > [!div class="nextstepaction"] 
-> [Use Ansible to manage your Azure dynamic inventories](../../ansible/ansible-manage-azure-dynamic-inventories.md)
+> [Use Ansible to manage your Azure dynamic inventories](/articles/ansible/ansible-manage-azure-dynamic-inventories)
