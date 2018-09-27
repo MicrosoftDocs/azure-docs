@@ -21,7 +21,9 @@ Once devices are sending telemetry data to Digital Twins, data processing can ta
 1. The compute phase runs previously matched User-Defined Function(s). These function(s) may read and update computed values on spatial graph nodes, and can emit custom notifications.
 1. The dispatch step will ensure any custom notifications are routed to endpoints defined in the graph.
 
-Any data processing consists of defining three objects: _matchers_, _user-defined function_, and _role assignments_ as outlined below.
+Any data processing consists of defining three objects: _matchers_, _user-defined function_, and _role assignments_ as outlined below:
+
+![Digital Twins Data Processing Flow][2] 
 
 ## Matchers
 
@@ -100,3 +102,4 @@ Learn more on how to create matchers, user-defined functions and role assignment
 
 <!-- Images -->
 [1]: media/concepts/digital-twins-data-processing-flow.png
+[2]: media/concepts/digital-twins-user-defined-functions.png

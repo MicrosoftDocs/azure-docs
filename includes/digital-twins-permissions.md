@@ -16,76 +16,33 @@ Users will authenticate against the middle-tier application and an Oauth [on-beh
 
 ### Azure Active Directory app registration
 
-1. Follow the following steps to [integrate applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) and register an application in Azure:
+1. Follow the steps to [integrate applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) and register an application in Azure. Choose **Application type**=`Native` and **Redirect URI**=`https://microsoft.com` as outlined in below images:
 
-    ![Azure Active Directory app registration first step][1]
-     ![Azure Active Directory app registration second step][2]
+    ![Azure Active Directory app registration new][1]
+
+    ![Azure Active Directory app registration create][2]
 
 1. After app registration is complete, click **Settings** > **Required permissions**:
-    * Click **Add** on the top left.
-    * Click **Select an API** to use to get external data into Digital Twins.
-    * Search for **Azure Smart Spaces Service** API and click **Select**.
-    * Click **Select permissions** that your app needs to have to access the correct information.
-    * Check the **Read/Write Access** delegated permissions box and click **Select**.
-    * Click **Done** and select **Grant permissions**.
+    - Click **Add** on the top left.
+    - Click **Select an API** to use to get external data into Digital Twins.
+    - Search for **Azure Smart Spaces Service** API and click **Select**.
 
-    ![Azure Active Directory app registration third step][5]
+    ![Azure Active Directory app registration add api][3]
 
-1. Generate a secret key by creating a `Password` for your Azure Active Directory app. A `Password` can be obtained under the **Settings > Keys > Password** menu. Use that value to configure `appSettings.json` as `ClientSecret`:
+    - Click **Select permissions** that your app needs to have to access the correct information.
+    - Check the **Read/Write Access** delegated permissions box and click **Select**.
+    - Click **Done** and select **Grant permissions**
+    - Get the `Application ID` of your Azure Active Directory app and use it to configure `appSettings.json` as `ClientId`:
 
-    ![Azure Active Directory app registration fourth step][6]
+    ![Azure Active Directory app registration grant permissions][4]
 
-1. Get the `Application ID` of your Azure Active Directory app and use it to configure `appSettings.json` as `ClientId`:
+    - To configure `Tenant` in your `appSettings.json` file, supply your `Directory ID` located under **Microsoft Properties > Properties**:
 
-    ![Azure Active Directory app registration fifth step][4]
-
-1. To configure `Tenant` in your `appSettings.json` file, supply your `Directory ID` located under **Microsoft Properties > Properties**:
-
-    ![Azure Active Directory app registration sixth step][7]
-
-### Add permissions for Azure Active Directory registered app to Digital Twins Management API
-
-1. Open a PowerShell command window.
-
-1. Run the following commands (using the Application ID from Azure Active Directory app registration):
-
-    ```bash
-    Login-AzureRmAccount
-    ```
-    ```bash
-    Connect-AzureAD
-    ```
-    ```bash
-    Get-AzureRmADServicePrincipal -ApplicationId <Application ID>
-    ```
-
-1. Get the Service Principal ID from return payload and use it in next step payload as `objectId` to create a role assignment on this object.
-
-1. Create a role assignment in Digital Twins for the Service Principal ID above (Note: This needs to be run by someone with Admin privileges).
-
-    Make a POST call on:
-    ```plaintext
-    https://{resourceName}.{location}
-        .azuresmartspaces.net/management/api/v1.0/roleassignments
-    ```
-
-    The JSON body should be:
-
-        ```json
-        {
-            "RoleId": "98e44ad7-28d4-4007-853b-b9968ad132d1",
-            "objectId": "Service Principal Id above",
-            "objectIdType": "ServicePrincipalId",
-            "Path": "/",
-            "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47"
-        }
-        ```
+    ![Azure Active Directory app registration sixth step][5]
 
 <!-- Images -->
 [1]: ./media/digital-twins-permissions/aad-app-registration1.png
-[2]: ./media/digital-twins-permissions/aad-app-registration2.png
-[3]: ./media/digital-twins-permissions/aad-app-registration3.png
-[4]: ./media/digital-twins-permissions/aad-app-registration.v2.clientid.png
-[5]: ./media/digital-twins-permissions/aad-app-registration.v2.permission.png
-[6]: ./media/digital-twins-permissions/aad-app-registration.v2.secret.png
-[7]: ./media/digital-twins-permissions/aad-app-registration.v2.tenant.png
+[2]: ./media/digital-twins-permissions/aad-app-registration3.png
+[3]: ./media/digital-twins-permissions/aad-app-registration2.png
+[4]: ./media/digital-twins-permissions/aad-app-registration.v2.permission.png
+[5]: ./media/digital-twins-permissions/aad-app-registration.v2.tenant.png
