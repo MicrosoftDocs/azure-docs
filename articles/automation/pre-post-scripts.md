@@ -8,7 +8,7 @@ author: georgewallace
 ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
-manager: carmonm
+manager: carmonm 
 ---
 # Manage pre and post scripts (Preview)
 
