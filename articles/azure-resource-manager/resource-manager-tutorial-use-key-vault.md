@@ -1,6 +1,6 @@
 ﻿---
 title: Integrate Azure Key Vault in Resource Manager template deployment | Microsoft Docs
-description: Learn how to use Azure Key Vault to pass secure parameter values during resource manager template deployment
+description: Learn how to use Azure Key Vault to pass secure parameter values during Resource Manager template deployment
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
@@ -16,7 +16,7 @@ ms.topic: tutorial
 ms.author: jgao
 ---
 
-# Tutorial: integrate Azure Key Vault in Resource Manager Template deployment
+# Tutorial: Integrate Azure Key Vault in Resource Manager Template deployment
 
 Learn how to retrieve secure values from Azure Key Vault and pass the secret values as parameters during Resource Manager deployment. The value is never exposed because you only reference its Key Vault ID. For more information, see:
 
@@ -56,22 +56,16 @@ Your Azure AD user object ID is needed by the template to configure permissions.
 
 1. Sign in to the [Azure Cloud Shell](https://shell.azure.com).
 2. Switch to your favorite environment, either **PowerShell** or **Bash** from the upper left corner.
-3. Run the following Azure PowerShell or Azure CLI command.  Select the tab selector to switch.
+3. Run the following Azure PowerShell or Azure CLI command.  
 
-    # [CLI](#tab/CLI)
     ```cli
     az ad user show --upn-or-object-id "<YourEmailAddressAssociatedWithYourSubscription>" --query "objectId"
     ```
-   
-    # [PowerShell](#tab/PowerShell)
-    
     ```powershell
     (Get-AzureADUser -ObjectId "<YourEmailAddressAssociatedWithYourSubscription>").ObjectId
     ```
-    
-    ---
 
-    The output is a GUID number. 
+    The output is a GUID number.
 
 To create a Key Vault:
 

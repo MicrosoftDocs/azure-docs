@@ -16,7 +16,7 @@ ms.topic: tutorial
 ms.author: jgao
 ---
 
-# Tutorial: create Azure Resource Manager templates with dependent resources
+# Tutorial: Create Azure Resource Manager templates with dependent resources
 
 Learn how to create an Azure Resource Manager template to deploy multiple resources.  After you create the template, you deploy the template using the Cloud shell from the Azure portal.
 

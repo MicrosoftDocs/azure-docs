@@ -17,7 +17,7 @@ ms.author: jgao
 
 ---
 
-# Tutorial: create an Azure Resource Manager template for deploying an encrypted storage account
+# Tutorial: Create an Azure Resource Manager template for deploying an encrypted storage account
 
 Learn how to find information to complete an Azure Resource Manager template.
 
