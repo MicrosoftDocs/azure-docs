@@ -5,7 +5,7 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/03/2018
+ms.date: 09/20/2018
 ms.author: raynew
 ---
 
@@ -52,7 +52,7 @@ The Contoso cloud team has pinned down goals for this migration. These goals wer
 **App** | The app in Azure will remain as critical as it is today.<br/><br/> It should have the same performance capabilities as it currently does in VMWare.<br/><br/> The team doesn't want to invest in the app. For now, admins will simply move the app safely to the cloud.<br/><br/> The team want to stop supporting Windows Server 2008 R2, on which the app currently runs.<br/><br/> The team also wants to move away from SQL Server 2008 R2 to a modern PaaS Database platform, which will minimize the need for management.<br/><br/> Contoso want to leverage its investment in SQL Server licensing and Software Assurance where possible.<br/><br/> In addition, Contoso wants to mitigate the single point of failure on the web tier.
 **Limitations** | The app consists of an ASP.NET app and a WCF service running on the same VM. They want to split this across two web apps using the Azure App Service. 
 **Azure** | Contoso wants to move the app to Azure, but doesn't want to run it on VMs. Contoso wants to leverage Azure PaaS services for both the web and data tiers. 
-**DevOps** | Contoso wants to move to a DevOps model, using Visual Studio Team Services (VSTS) for their builds and release pipelines.
+**DevOps** | Contoso wants to move to a DevOps model, using Azure DevOps for their builds and release pipelines.
 
 ## Solution design
 
@@ -75,7 +75,7 @@ After pinning down goals and requirements, Contoso designs and review a deployme
     - With Software Assurance, Contoso can exchange existing licenses for discounted rates on a SQL Database, using the Azure Hybrid Benefit for SQL Server. This could provide savings of up to 30%.
     - SQL Database provides a number of security features including always encrypted, dynamic data masking, and row-level security/threat detection.
 - For the app web tier, Contoso has decided to use Azure App Service. This PaaS service enables that to deploy the app with just a few configuration changes. Contoso will use Visual Studio to make the change, and deploy two web apps. One for the website, and one for the WCF service.
-- To meet requirements for a DevOps pipeline, Contoso has selected to use VSTS. They'll deploy VSTS for Source Code Management (SCM) with Git repos. Automated builds and release will be used to build the code, and deploy it to the Azure Web Apps.
+- To meet requirements for a DevOps pipeline, Contoso has selected to use Azure DevOps for Source Code Management (SCM) with Git repos. Automated builds and release will be used to build the code, and deploy it to the Azure Web Apps.
   
 ### Solution review
 Contoso evaluates their proposed design by putting together a pros and cons list.
@@ -104,6 +104,7 @@ Contoso evaluates their proposed design by putting together a pros and cons list
 [Database Migration Assistant (DMA)](https://docs.microsoft.com/sql/dma/dma-overview?view=ssdt-18vs2017) | Contoso will use DMA to assess and detect compatibility issues that might impact their database functionality in Azure. DMA assesses feature parity between SQL sources and targets, and recommends performance and reliability improvements. | It's a downloadable tool free of charge.
 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) | An intelligent, fully managed relational cloud database service. | Cost based on features, throughput, and size. [Learn more](https://azure.microsoft.com/pricing/details/sql-database/managed/).
 [Azure App Services - Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview) | Create powerful cloud apps using a fully managed platform | Cost based on size, location, and usage duration. [Learn more](https://azure.microsoft.com/pricing/details/app-service/windows/).
+[Azure DevOps](https://docs.microsoft.com/azure/azure-portal/tutorial-azureportal-devops) | Provides a continuous integration and continuous deployment (CI/CD) pipeline for app development. The pipeline starts with a Git repository for managing app code, a build system for producing packages and other build artifacts, and a Release Management system to deploy changes in dev, test, and production environments. 
 
 ## Prerequisites
 
@@ -123,9 +124,9 @@ Here's how Contoso will run the migration:
 > * **Step 1: Provision a SQL Database instance in Azure**: Contoso provisions a SQL instance in Azure. After the app website is migrate to Azure, the WCF service web app will point to this instance.
 > * **Step 2: Migrate the database with DMA**: Contoso migrates the app database with the Database Migration Assistant.
 > * **Step 3: Provision Web Apps**: Contoso provisions the two web apps.
-> * **Step 4: Set up VSTS**: Contoso creates a new VSTS project, and imports the Git repo.
+> * **Step 4: Set up Azure DevOps**: Contoso creates a new Azure DevOps project, and imports the Git repo.
 > * **Step 5: Configure connection strings**: Contoso configures connection strings so that the web tier web app, the WCF service web app, and the SQL instance can communicate.
-> * **Step 6: Set up build and release pipelines in VSTS**: As a final step, Contoso sets up build and release pipelines to create the app, and deploys them to two separate Azure Web Apps.
+> * **Step 6: Set up build and release pipelines**: As a final step, Contoso sets up build and release pipelines to create the app, and deploys them to two separate Azure Web Apps.
 
 
 ## Step 1: Provision an Azure SQL Database
@@ -231,26 +232,26 @@ With the database migrated, Contoso admins can now provision the two web apps.
 4. After they're done, they browse to the address of the apps to check they've been created successfully.
 
 
-## Step 4: Set up VSTS
+## Step 4: Set up Azure DevOps
 
 
-Contoso needs to build the DevOps infrastructure and pipelines for the application.  To do this, Contoso admins create a new VSTS project, import the code, and then set up build and release pipelines.
+Contoso needs to build the DevOps infrastructure and pipelines for the application.  To do this, Contoso admins create a new DevOps project, import the code, and then set up build and release pipelines.
 
-1.	 In the Contoso VSTS account, they create a new project (**ContosoSmartHotelRefactor**), and select **Git** for version control.
+1.	 In the Contoso Azure DevOps account, they create a new project (**ContosoSmartHotelRefactor**), and select **Git** for version control.
 
     ![New project](./media/contoso-migration-refactor-web-app-sql/vsts1.png)
-
 2. They import the Git Repo that currently holds their app code. It's in a [public repo](https://github.com/Microsoft/SmartHotel360-internal-booking-apps) and you can download it.
 
     ![Download app code](./media/contoso-migration-refactor-web-app-sql/vsts2.png)
-
+    
 3. After the code is imported, they connect Visual Studio to the repo, and clone the code using Team Explorer.
 
-    ![Connect to repo](./media/contoso-migration-refactor-web-app-sql/vsts3.png)
+    ![Connect to project](./media/contoso-migration-refactor-web-app-sql/devops1.png)
 
 4. After the repo is cloned to the developer machine, they open the Solution file for the app. The web app and wcf service each have separate project within the file.
 
     ![Solution file](./media/contoso-migration-refactor-web-app-sql/vsts4.png)
+    
 
 ## Step 5: Configure connection strings
 
@@ -272,15 +273,15 @@ Contoso admins need to make sure the web apps and database can all communicate. 
 5. After the changes are in the code, admins need to commit the changes. Using Team Explorer in Visual Studio, they commmit and sync.
 
 
-## Step 6: Set up build and release pipelines in VSTS
+## Step 6: Set up build and release pipelines in Azure DevOps
 
-Contoso admins now configure VSTS to perform build and release process to action the DevOps practices.
+Contoso admins now configure Azure DevOps to perform build and release process.
 
-1. In VSTS, they click **Build and release** > **New pipeline**.
+1. In Azure DevOps, they click **Build and release** > **New pipeline**.
 
     ![New pipeline](./media/contoso-migration-refactor-web-app-sql/pipeline1.png)
 
-2. They select **VSTS Git** and the relevant repo.
+2. They select **Azure Repos Git** and the relevant repo.
 
     ![Git and repo](./media/contoso-migration-refactor-web-app-sql/pipeline2.png)
 
@@ -288,15 +289,15 @@ Contoso admins now configure VSTS to perform build and release process to action
 
      ![ASP.NET template](./media/contoso-migration-refactor-web-app-sql/pipeline3.png)
     
-4. They specify the name ContosoSmartHotelRefactor-ASP.NET-CI for the build, and click **Save & Queue**.
+4. The name **ContosoSmartHotelRefactor-ASP.NET-CI** is used for the build. They click **Save & Queue**.
 
      ![Save and queue](./media/contoso-migration-refactor-web-app-sql/pipeline4.png)
 
-5. This kicks off their first build. They click on the build number to watch the process. After it's finished they can see the process feedback.
+5. This kicks off the first build. They click on the build number to watch the process. After it's finished they can see the process feedback, and click **Artifacts** to review the build results.
 
-    ![Feedback](./media/contoso-migration-refactor-web-app-sql/pipeline5.png)
+    ![Review](./media/contoso-migration-refactor-web-app-sql/pipeline5.png)
 
-6. After a successful build, then open the build, and click They click **Artifacts**. This folder contains the build results
+6. The folder **Drop** contains the build results.
 
     - The two zip files are the packages that contain the apps.
     - These files are used in the release pipeline for deployment to Azure Web Apps
@@ -311,11 +312,11 @@ Contoso admins now configure VSTS to perform build and release process to action
 
     ![Azure App Service template](./media/contoso-migration-refactor-web-app-sql/pipeline8.png)
 
-9. They name the release pipeline **ContosoSmartHotelRefactor**, and specify the name of the WCF web app (SHWCF-EUS2) for the environment name.
+9. They name the release pipeline **ContosoSmartHotel360Refactor**, and specify the name of the WCF web app (SHWCF-EUS2) for the **Stage** name.
 
     ![Environment](./media/contoso-migration-refactor-web-app-sql/pipeline9.png)
 
-10. Under the environment, they click **1 phase, 1 task** to configure deployment of the WCF service.
+10. Under the stages, they click **1 job, 1 task** to configure deployment of the WCF service.
 
     ![Deploy WCF](./media/contoso-migration-refactor-web-app-sql/pipeline10.png)
 
@@ -323,7 +324,7 @@ Contoso admins now configure VSTS to perform build and release process to action
 
      ![Select app service](./media/contoso-migration-refactor-web-app-sql/pipeline11.png)
 
-12. In **Artifacts**, they select **+Add an artifact**, and select to build with the **ContosoSmarthotelRefactor-ASP.NET-CI** pipeline.
+12. On the pipeline > **Artifacts**, they select **+Add an artifact**, and select to build with the **ContosoSmarthotel360Refactor** pipeline.
 
      ![Build](./media/contoso-migration-refactor-web-app-sql/pipeline12.png)
 
@@ -331,11 +332,11 @@ Contoso admins now configure VSTS to perform build and release process to action
 
      ![Lightning bolt](./media/contoso-migration-refactor-web-app-sql/pipeline13.png)
 
-16. In addition, note that the continuous deployment trigger should be set to **Enabled**.
+16. The continuous deployment trigger should be set to **Enabled**.
 
    ![Continuous deployment enabled](./media/contoso-migration-refactor-web-app-sql/pipeline14.png) 
 
-17. Now, they click to **Deploy Azure App Service**.
+17. Now, they move back to the Stage 1 job, I tasks, and click **Deploy Azure App Service**.
 
     ![Deploy app service](./media/contoso-migration-refactor-web-app-sql/pipeline15.png)
 
@@ -343,7 +344,7 @@ Contoso admins now configure VSTS to perform build and release process to action
 
     ![Save WCF](./media/contoso-migration-refactor-web-app-sql/pipeline16.png)
 
-19. They click **Pipeline** >**+Add**, to add an environment for **SHWEB-EUS2**, selecting another Azure App Service deployment.
+19. They click **Pipeline** > **Stages** **+Add**, to add an environment for **SHWEB-EUS2**. They select another Azure App Service deployment.
 
     ![Add environment](./media/contoso-migration-refactor-web-app-sql/pipeline17.png)
 
@@ -363,7 +364,7 @@ Contoso admins now configure VSTS to perform build and release process to action
 
     ![Save pipeline](./media/contoso-migration-refactor-web-app-sql/pipeline21.png)
 
-24. Contoso admins can follow the build and release pipeline process from VSTS. After the build completes, the release will start.
+24. Contoso admins can follow the build and release pipeline process from Azure DevOps. After the build completes, the release will start.
 
     ![Build and release app](./media/contoso-migration-refactor-web-app-sql/pipeline22.png)
 

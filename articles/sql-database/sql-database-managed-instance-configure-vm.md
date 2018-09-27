@@ -1,17 +1,17 @@
 ---
 title: 'Connect client VM - Azure SQL Database Managed Instance | Microsoft Docs'
 description: Connect to an Azure SQL Database Managed Instance using SQL Server Management Studio from an Azure virtual machine.
-keywords: 
 services: sql-database
-author: jovanpop-msft
-ms.reviewer: carlrab, srbozovi, bonova
 ms.service: sql-database
-ms.custom: managed instance
-ms.topic: quickstart
-ms.date: 09/13/2018
+ms.subservice: managed-instance
+ms.custom: 
+ms.devlang: 
+ms.topic: conceptual
+author: jovanpop-msft
 ms.author: jovanpop
+ms.reviewer: carlrab, srbozovi, bonova
 manager: craigg
-
+ms.date: 09/13/2018
 ---
 # Configure Azure VM to connect to an Azure SQL Database Managed Instance
 
@@ -58,7 +58,7 @@ The following steps show you how to create a virtual machine in the new subnet t
 
 ## Prepare the Azure virtual machine
 
-Since SQL Managed Instance is placed in your private Virtual Network, you need to create an Azure VM with some installed SQL client tool like SQL Server Management Studio or SQL Operations Studio to connect to the Managed Instance and execute queries. This quickstart uses SQL Server Management Studio.
+Since SQL Managed Instance is placed in your private Virtual Network, you need to create an Azure VM with some installed SQL client tool like SQL Server Management Studio or Azure Data Studio to connect to the Managed Instance and execute queries. This quickstart uses SQL Server Management Studio.
 
 The easiest way to create a client virtual machine with all necessary tools is to use the Azure Resource Manager templates.
 
