@@ -164,7 +164,7 @@
       href: releasenotes.md
     - name: License
       href: https://aka.ms/csspeech/license201809
-    - name: Third party notices
+    - name: Third-party notices
       href: https://csspeechstorage.blob.core.windows.net/drop/1.0.0/ThirdPartyNotices.html
   - name: Speech Devices SDK
     href: speech-devices-sdk.md
