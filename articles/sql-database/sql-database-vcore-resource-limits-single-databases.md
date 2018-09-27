@@ -17,7 +17,7 @@ ms.date: 09/14/2018
 
 This article provides the detailed resource limits for Azure SQL Database single databases using the vCore-based purchasing model.
 
-For DTU-based purchasing model limits, see [SQL Database DTU-based resource limits](sql-database-dtu-resource-limits.md).
+For DTU-based purchasing model limits for single databases on a logical server, see [Overview of resource limits on a logical server](sql-database-resource-limits-logical-server.md).
 
 > [!IMPORTANT]
 > Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](sql-database-file-space-management.md).
