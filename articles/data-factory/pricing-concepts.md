@@ -14,7 +14,7 @@ ms.date: 09/25/2018
 ms.author: shlo
 
 ---
-# Understanding Data Factory Pricing through examples
+# Understanding Data Factory pricing through examples
 
 This article explains and demonstrates the Azure Data Factory pricing model with detailed examples.
 

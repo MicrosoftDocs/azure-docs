@@ -27,9 +27,7 @@ Network traffic is subjected to the configured firewall rules when you route you
 
 Application and network rules are stored in *rule collections*. A rule collection is a list of rules that share the same action and priority.  A network rule collection is a list of network rules and an application rule collection is a list of application rules.
 
-Azure Firewall does not have a concept of inbound rules and outbound rules. There are application rules and network rules, and they are applied to any traffic that comes into the firewall. Network rules are applied first, then application rules,and the rules are terminating.
-
-For example, if a network rule is matched, the packet will not be evaluated by application rules. If there is no network rule match, and the packet protocol is HTTP/HTTPS, the packet is then evaluated by the application rules. If still no match is found, then the packet is evaluated agains the infrastructure rule collection. If there is still no match, then the packet is denied by default.
+Azure Firewall has NAT rules, network rules and application rules. To learn more about Azure Firewall rule processing logic, see [Azure Firewall rule processing logic](rule-processing.md).
 
 In this tutorial, you learn how to:
 
@@ -211,9 +209,6 @@ For the **Workload-SN** subnet, you configure the outbound default route to go t
 11. Click **Add**.
 
 Azure Firewall includes a built-in rule collection for infrastructure FQDNs that are allowed by default. These FQDNs are specific for the platform and can't be used for other purposes. For more information, see [Infrastructure FQDNs](infrastructure-fqdns.md).
-
-> [!Note]
-> FQDN Tags can currently be configured with Azure PowerShell and REST only. Click [here](https://aka.ms/firewallapplicationrule) to learn more. 
 
 ## Configure network rules
 

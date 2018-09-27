@@ -13,7 +13,7 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 06/29/2018
+ms.date: 09/26/2018
 ms.author: spelluru
 
 ---
