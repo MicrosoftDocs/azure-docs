@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 08/30/2018
 ms.author: spelluru
 
 ---

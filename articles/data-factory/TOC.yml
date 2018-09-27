@@ -126,7 +126,7 @@
     items:
     - name: Visually author data factories
       href: author-visually.md
-    - name: Continuous integration and deployment
+    - name: Continuous integration and delivery
       href: continuous-integration-deployment.md
     - name: Iterative development and debugging
       href: iterative-development-debugging.md

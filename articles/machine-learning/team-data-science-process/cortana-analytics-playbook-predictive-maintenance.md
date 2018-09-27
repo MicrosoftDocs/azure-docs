@@ -446,19 +446,19 @@ The final section of this guide provides a list of PdM solution templates, tutor
 
 ## Training resources for predictive maintenance
 
-The [Azure AI learning path for predictive maintenance](https://github.com/Azure/AI-PredictiveMaintenance/blob/master/docs/azure-ai-learning-path-for-predictive-maintenance.md) provides the training material for a deeper understanding of the concepts and math behind the algorithms and techniques used in PdM problems. 
-
-Microsoft Azure offers free content and training on general AI concepts and practice.
+Microsoft Azure offers learning paths for the foundational concepts behind PdM techniques, besides  content and training on general AI concepts and practice.
 
 | Training resource  | Availability |
 |:-------------------|--------------|
+| [Learning Path for PdM using Trees and Random Forest](https://aischool.microsoft.com/learning-paths/1H5vH5wAYcAy88CoQWQcA8) | Public | 
+| [Learning Path for PdM using Deep Learning](https://aischool.microsoft.com/learning-paths/FSIXxYkOGcauo0eUO8qAS) | Public |
 | [AI Developer on Azure](http://azure.microsoft.com/training/learning-paths/azure-ai-developer) | Public |
 | [Microsoft AI School](http://aischool.microsoft.com/learning-paths) | Public |
 | [Azure AI Learning from GitHub](https://github.com/Azure/connectthedots/blob/master/readme.md) | Public |
 | [LinkedIn Learning](http://www.linkedin.com/learning) | Public |
 | [Microsoft AI Youtube Webinars](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Public |
 | [Microsoft AI Show](http://channel9.msdn.com/Shows/AI-Show) | Public |
-| [LearnAI@MS](http://learnanalytics.microsoft.com) | For Microsoft Partners |
-| [Microsoft Partner Network](http://learningportal.microsoft.com) | For Microsoft Partners |
+| [LearnAI@MS](http://learnanalytics.microsoft.com) | Partners |
+| [Microsoft Partner Network](http://learningportal.microsoft.com) | Partners |
 
 In addition, free MOOCS (massive open online courses) on AI are offered online by academic  institutions like Stanford and MIT, and other educational companies.

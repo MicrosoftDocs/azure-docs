@@ -1,14 +1,14 @@
 ---
-title: Supported countries/regions and languages for Bing Visual Search API | Microsoft Docs
-titleSuffix: Bing Web Search APIs - Cognitive Services
+title: Supported countries/regions and languages - Bing Visual Search 
+titleSuffix: Azure Cognitive Services
 description: Find out which countries/regions and languages are supported by Bing Visual Search API.
 services: cognitive-services
 author: swhite-msft
-manager: rosh
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.technology: bing-visual-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: scottwhi
 ---
