@@ -46,7 +46,7 @@
       - name: Get started
         href: how-to-vscode-tools.md
       - name: Train and deploy        
-        href: how-to-vscode-to-train-deploy.md
+        href: how-to-vscode-train-deploy.md
   - name: Set up training environments	
     href: how-to-set-up-training-targets.md
   - name: Prepare data

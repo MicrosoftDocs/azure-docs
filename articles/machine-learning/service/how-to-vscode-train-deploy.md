@@ -50,8 +50,7 @@ This extension supports several different remote compute targets for Azure Machi
 7. When you are done configuring your compute target, click **Finish** in the lower right.
 
 Here is an example for Azure Batch AI:
-[![Create Azure Batch AI compute in VS Code](./media/vscode-tools-for-ai/createcompute.gif](./media/vscode-tools-for-ai/createcompute.gif#lightbox)
-)
+[![Create Azure Batch AI compute in VS Code](./media/vscode-tools-for-ai/createcompute.gif)](./media/vscode-tools-for-ai/createcompute.gif#lightbox)
 
 ### Use remote computes for experiments in VS Code
 
@@ -111,10 +110,6 @@ dependencies:
 
 Use Azure Machine Learning from VS Code to rapidly iterate on your code, step through and debug, and use your source code control solution of choice. 
 
-For a walk-through of editing, running, and debugging code locally, see the [Python Hello World Tutorial](https://code.visualstudio.com/docs/languages/python/docs/python/python-tutorial)
-
-For a walk-through of training with Machine Learning outside of VS Code, read [Tutorial: Train models with Azure Machine Learning](tutorial-train-models-with-aml.md).
-
 **To run your experiment with Azure Machine Learning:**
 
 1. Click the Azure icon in the Visual Studio Code activity bar. The Azure: Machine Learning sidebar appears.
@@ -151,7 +146,8 @@ Registered models can be tracked and deployed.
 
    [![compute](./media/vscode-tools-for-ai/registermodel.gif)](./media/vscode-tools-for-ai/registermodel.gif#lightbox)
 
-> **Note**: For now, please remove the Tags from the generated json file
+> [!Warning]
+> For now, please remove the Tags from the generated json file.
 
 ### Deploy your service from VS Code
 
@@ -191,3 +187,9 @@ The web service is now deployed.
 
 Here is an example for Azure Container Instance:
 [![Azure Container Instance from VS Code](./media/vscode-tools-for-ai/deploy.gif)](./media/vscode-tools-for-ai/deploy.gif#lightbox)
+
+## Next steps
+
+For a walk-through of training with Machine Learning outside of VS Code, read [Tutorial: Train models with Azure Machine Learning](tutorial-train-models-with-aml.md).
+
+For a walk-through of editing, running, and debugging code locally, see the [Python Hello World Tutorial](https://code.visualstudio.com/docs/languages/python/docs/python/python-tutorial)
