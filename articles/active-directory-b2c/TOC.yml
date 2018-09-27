@@ -70,6 +70,8 @@
     href: active-directory-b2c-troubleshoot-custom.md
   - name: Configure tokens
     href: active-directory-b2c-token-session-sso.md
+  - name: Customize language
+    href: active-directory-b2c-reference-language-customization.md
   - name: Customize password
     href: active-directory-b2c-reference-password-complexity.md
   - name: Customize user interface

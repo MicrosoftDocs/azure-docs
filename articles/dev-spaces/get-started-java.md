@@ -6,7 +6,7 @@ ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
 author: "stepro"
 ms.author: "stephpr"
-ms.date: "08/01/2018"
+ms.date: "09/26/2018"
 ms.topic: "tutorial"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
@@ -20,8 +20,6 @@ manager: "mmontwil"
 
 You're now ready to create a Kubernetes-based dev space in Azure.
 
-[!INCLUDE[](includes/portal-aks-cluster.md)]
-
 ## Install the Azure CLI
 Azure Dev Spaces requires minimal local machine setup. Most of your dev space's configuration gets stored in the cloud, and is shareable with other users. Start by downloading and running the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
@@ -30,13 +28,13 @@ Azure Dev Spaces requires minimal local machine setup. Most of your dev space's 
 
 [!INCLUDE[](includes/sign-into-azure.md)]
 
+[!INCLUDE[](includes/cli-create-cluster.md)]
+
 [!INCLUDE[](includes/use-dev-spaces.md)]
 
 [!INCLUDE[](includes/install-vscode-extension.md)]
 
 In order to debug Java applications with Azure Dev Spaces, download and install the [Java Debugger for Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debugger-azds) extension for VS Code. Click Install once on the extension's Marketplace page, and again in VS Code.
-
-While you're waiting for the cluster to be created, you can start developing code.
 
 ## Create a web app running in a container
 
