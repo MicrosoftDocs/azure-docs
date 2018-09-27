@@ -200,7 +200,7 @@ A.  Once the order status for **Data Copy** shows as **Complete**, you should be
 
 ### Q. Where is my data located in Azure after the upload?
 A.  When you copy the data to Data Box, depending on whether the data is block blob or page blob or Azure files, the data is uploaded to one of the following path in your Azure Storage account.
- - `https://<storage_account_name>.blob.core.windows.net/<containername> 
+ - `https://<storage_account_name>.blob.core.windows.net/<containername>` 
  -	`https://<storage_account_name>.file.core.windows.net/<sharename>`
  
  Alternatively, you could go to your Azure storage account in Azure portal and navigate from there.
