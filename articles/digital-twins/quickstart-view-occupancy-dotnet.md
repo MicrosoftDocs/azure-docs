@@ -95,8 +95,6 @@ You can build and run the sensor simulator application using the outlined steps:
 1. Go to the occupancy-quickstart command prompt
 1. Run `dotnet run GetOccupancy`
 1. You should see available spaces with carbon dioxide within normal range as outlined in below image.
-    >[!NOTE]
-    >Add image
 
 ## Clean up resources
 
