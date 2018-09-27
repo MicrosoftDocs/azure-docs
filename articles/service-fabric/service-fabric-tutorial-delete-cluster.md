@@ -105,4 +105,10 @@ az resource delete --name "<name of the Resource>" --resource-type "Microsoft.Se
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]
-> * Delete a cluster and it's resources
+> * Delete a resource group and all it's resources
+> * Selectively delete resources from a resource group
+
+Now that you've completed this tutorial, try the following:
+* Learn how to inspect and manage a Service Fabric cluster using [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
+* Learn how to [patch the Windows operating system](service-fabric-patch-orchestration-application.md) or [patch the Linux operating system](service-fabric-patch-orchestration-application-linux.md) of the cluster nodes.
+* Learn how to aggregate and collect events for [Windows clusters](service-fabric-diagnostics-event-aggregation-wad.md) or [Linux clusters](service-fabric-diagnostics-event-aggregation-lad.md) and [setup Log Analytics](service-fabric-diagnostics-oms-setup.md) to monitor cluster events.
