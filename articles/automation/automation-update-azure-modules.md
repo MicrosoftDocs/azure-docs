@@ -58,6 +58,8 @@ As mentioned, the **Update Azure Modules** button is not available in the sovere
 
 Updating the modules can still be done by importing the [Update-AzureModule.ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AzureModule.ps1) runbook into your Automation Account and running it.
 
+Use the `AzureRmEnvironment` parameter to pass the correct environment to the runbook.  Acceptable values are **AzureCloud**,**AzureChinaCloud**, **AzureGermanCloud**, and **AzureUSGovernmentCloud**. If you do not pass a value to this parameter the runbook will default to the Azure public cloud **AzureCloud**.
+
 If you want to use a specific Azure PowerShell module version instead of the latest available on the PowerShell Gallery, pass these versions to the optional `ModuleVersionOverrides` parameter of the **Update-AzureModule** runbook. For examples see the  [Update-AzureModule.ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AzureModule.ps1) runbook. Azure PowerShell modules that are not mentioned in the `ModuleVersionOverrides` parameter are updated with the latest module versions on the PowerShell Gallery. If nothing is passed to the `ModuleVersionOverrides` parameter, all modules are updated with the latest module versions on the PowerShell Gallery, which is the behavior of the **Update Azure Modules** button.
 
 ## Next steps
