@@ -3,7 +3,7 @@ title: Comparing the Azure AD v2.0 endpoint with the v1.0 endpoint | Microsoft D
 description: Know the differences between Azure AD v2.0 endpoint and the v1.0 endpoint
 services: active-directory
 documentationcenter: ''
-author: celested
+author: CelesteDG
 manager: mtillman
 editor: ''
 
