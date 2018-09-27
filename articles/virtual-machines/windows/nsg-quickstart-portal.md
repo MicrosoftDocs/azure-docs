@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 09/12/2018
+ms.date: 09/27/2018
 ms.author: cynthn
 
 ---
@@ -26,7 +26,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 ## Create a network security group
 
-1. Select a resource group in the portal, choose **Add**, then search for and select **Network security group**.
+1. Search for and select the resource group for the VM, choose **Add**, then search for and select **Network security group**.
 
 2. Select **Create**.
 
@@ -50,7 +50,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 3. Select **Advanced**. 
 
-4. Choose a common **Service** from the drop-down menu, such as *HTTP*. You can also select *Custom* if you want to provide a specific port to use. 
+4. Choose a common **Service** from the drop-down menu, such as **HTTP**. You can also select **Custom** if you want to provide a specific port to use. 
 
 5. Optionally, change the **Priority** or **Name**. The priority affects the order in which rules are applied: the lower the numerical value, the earlier the rule is applied.
 
