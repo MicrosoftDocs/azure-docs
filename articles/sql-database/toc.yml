@@ -106,6 +106,8 @@
       href: sql-database-connectivity-architecture.md 
     - name: T-SQL differences
       href: sql-database-transact-sql-information.md
+    - name: Transactional replication - single DBs and elastic pools
+      href: replication-to-sql-database.md  
   - name: Single databases
     items:
     - name: Create and manage
@@ -145,7 +147,7 @@
     - name: T-SQL differences
       href: sql-database-managed-instance-transact-sql-information.md
     - name: Transactional replication
-      href: https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance?toc=/azure/sql-database/toc.json
+      href: replication-with-sql-database-managed-instance.md
   - name: Business continuity
     items:
     - name: Business continuity
@@ -554,7 +556,7 @@
   items:
   - name: Azure PowerShell
     href: /powershell/module/azurerm.sql/#sql
-  - name: Azure CLI 2.0
+  - name: Azure CLI
     href: /cli/azure/sql
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.sql.models
@@ -597,6 +599,8 @@
       href: /sql/connect/odbc/microsoft-odbc-driver-for-sql-server
 - name: Resources
   items:
+  - name: Build your skills with Microsoft Learn
+    href: /learn/browse/?products=azure-sql-database
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: FAQ

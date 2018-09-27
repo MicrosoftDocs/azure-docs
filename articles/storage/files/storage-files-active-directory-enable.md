@@ -100,8 +100,6 @@ Set-AzureRmStorageAccount -ResourceGroupName "<resource-group-name>" `
 
 **CLI**
 
-"You need to first add the storage-preview extension, then follow the example blow. Remember to replace the placeholder values with your own values. Refer to this article for more information on adding Azure CLI extensions."
-
 To enable Azure AD authentication over SMB from Azure CLI 2.0, first install the *storage-preview* extension:
 
 ```azurecli-interactive
@@ -270,7 +268,7 @@ Next, use the following command to mount the Azure file share. Remember to repla
 net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name>
 ```
 
-You have now successfully enabled Azure AD authentication over SMB and assigned a custom role that provides access to a file share to an Azure AD identity. To grant access to your file share to additional users, follow the instructions provided in step 2.
+You have now successfully enabled Azure AD authentication over SMB and assigned a custom role that provides access to a file share to an Azure AD identity. To grant access to your file share to additional users, follow the instructions provided in step 2 and 3.
 
 ## Next steps
 

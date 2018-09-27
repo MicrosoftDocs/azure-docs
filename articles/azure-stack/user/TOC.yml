@@ -145,9 +145,13 @@
       - name: Using API version profiles
         href: azure-stack-version-profiles.md
         items:
+        - name: .NET
+          href: azure-stack-version-profiles-net.md
+        - name: Java
+          href: azure-stack-version-profiles-java.md
         - name: PowerShell
           href: azure-stack-version-profiles-powershell.md
-        - name: Azure CLI 2.0
+        - name: Azure CLI
           href: azure-stack-version-profiles-azurecli2.md
         - name: GO
           href: azure-stack-version-profiles-go.md

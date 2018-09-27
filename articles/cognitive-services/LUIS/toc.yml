@@ -81,6 +81,12 @@
       href: luis-tutorial-pattern-roles.md
     - name: 5. Extract free-form data
       href: luis-tutorial-pattern-any.md
+  - name: Use bot
+    items:
+    - name: With C#
+      href: luis-csharp-tutorial-bf-v4.md
+    - name: With Node.js
+      href: luis-nodejs-tutorial-bf-v4.md
 - name: Samples
   items:
   - name: Code samples
@@ -287,7 +293,7 @@
     href: https://aka.ms/luis-endpoint-apis
   - name: HTTP codes
     href: luis-reference-response-codes.md
-  - name: Azure CLI 2.0
+  - name: Azure CLI
     href: https://aka.ms/az-cli-cognitiveservices
   - name: Azure RM PowerShell
     href: https://aka.ms/azure-powershell-cognitiveservices

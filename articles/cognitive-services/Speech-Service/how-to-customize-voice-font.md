@@ -29,7 +29,7 @@ You also need an Azure account and a subscription to the Speech service. [Create
 
     ![Subscriptions](media/custom-voice/subscriptions.png)
 
-3. On the Subscriptions page, select **Connect existing subscription.**
+3. On the Subscriptions page, choose **Connect existing subscription.** Note that Speech Services supports different regions. Check the region where your subscription key was created, and make sure that you connect your key to the correct sub-portal.  
 
      
 4. Paste your subscription key into the table, as shown in the following example. Each subscription has two keys, and you can use either of them.
@@ -37,9 +37,6 @@ You also need an Azure account and a subscription to the Speech service. [Create
      ![Add Subscription](media/custom-voice/add-subscription.png)
 
 You're ready to go!
-
-> [!IMPORTANT]
-> During the private preview stage, subscriptions must be whitelisted to use the Custom Voice feature. Follow the steps on the page to get your subscription whitelisted.
 
 ## Prepare recordings and transcripts
 
@@ -229,4 +226,4 @@ Voice customization is available for US English (en-US), mainland Chinese (zh-CN
 ## Next steps
 
 - [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
-- [Recognize speech in C#](quickstart-csharp-dotnet-windows.md)
+- [Record your voice samples](record-custom-voice-samples.md)
