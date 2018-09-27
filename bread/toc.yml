@@ -48,7 +48,7 @@
       - name: Users, groups, and roles
         tocHref: /azure/active-directory/users-groups-roles/
         topicHref: /azure/active-directory/users-groups-roles/
-      - name: Access reviews
+      - name: Identity governance
         tocHref: /azure/active-directory/governance/
         topicHref: /azure/active-directory/governance/
       - name: Application management
@@ -291,7 +291,7 @@
       topicHref: /azure/cognitive-services/project-personality-chat/overview    
     - name: Project Acoustics
       tocHref: /azure/cognitive-services/acoustics/
-      topicHref: /azure/cognitive-services/acoustics/What-Is-Acoustics.md
+      topicHref: /azure/cognitive-services/acoustics/what-is-acoustics
   - name: Connectors
     tocHref: /azure/connectors/
     topicHref: /azure/connectors/

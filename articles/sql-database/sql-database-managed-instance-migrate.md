@@ -1,17 +1,17 @@
 ---
 title: Migrate SQL Server instance to Azure SQL Database Managed Instance | Microsoft Docs
 description: Learn how to migrate a SQL Server instance to Azure SQL Database Managed Instance. 
-keywords: database migration,sql server database migration,database migration tools,migrate database,migrate sql database
 services: sql-database
+ms.service: sql-database
+ms.subservice: data-movement
+ms.custom: 
+ms.devlang: 
+ms.topic: conceptual
 author: bonova
+ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
-ms.service: sql-database
-ms.custom: managed instance
-ms.topic: conceptual
-ms.date: 09/20/2018
-ms.author: bonova
-
+ms.date: 09/26/2018
 ---
 # SQL Server instance migration to Azure SQL Database Managed Instance
 
@@ -102,6 +102,8 @@ The following table provides more information regarding the methods you can use 
 > - Restore of system databases is not supported. To migrate instance level objects (stored in master or msdb databases), we recommend to script them out and run T-SQL scripts on the destination instance.
 
 For a quickstart showing how to restore a database backup to a Managed Instance using a SAS credential, see [Restore from backup to a Managed Instance](sql-database-managed-instance-get-started-restore.md).
+
+> [!VIDEO https://www.youtube.com/embed/RxWYojo_Y3Q]
 
 ## Monitor applications
 
