@@ -22,7 +22,7 @@ Azure Digital Twins applies to environments of all types. Example environments i
 
 Take a look at the introductory video:
 
-> [!VIDEO https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fmicrosoft.sharepoint.com%2F%3Av%3A%2Ft%2FAzure_IoT%2FEcQnpZjDjDZPoHaAdg3mBYgBZyVusQUXbO07jcLERbCjzQ%3Fe%3DVg31r0&data=02%7C01%7Cv-adgera%40microsoft.com%7C45031a5be8834580333208d624b9a5b1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636736777091275429&sdata=gWgsywiDxp0hpbegoU76Dl7SWZ%2BY7ncEOk0GojgJwpQ%3D&reserved=0] 
+> [!VIDEO https://microsoft.sharepoint.com/:v:/t/Azure_IoT/EcQnpZjDjDZPoHaAdg3mBYgBZyVusQUXbO07jcLERbCjzQ?e=Vg31r0] 
 
 ## Key Capabilities
 
