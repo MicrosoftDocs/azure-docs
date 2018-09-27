@@ -1,6 +1,6 @@
 ---
 title: Find available rooms with fresh air with Azure Digital Twins quickstart (C#) | Microsoft Docs
-description: In this quickstart, you run two .NET Core sample applications to send simulated motion telemetry to a space in Azure Digital Twins. The goal is to find available rooms with fresh air from Management APIs after computed processing in the cloud.
+description: In this quickstart, you run two .NET Core sample applications to send simulated motion and carbon dioxide telemetry to a space in Azure Digital Twins. The goal is to find available rooms with fresh air from Management APIs after computed processing in the cloud.
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: azure-digital-twins
@@ -10,19 +10,17 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/21/2018
 ms.author: alinast
-# As a developer new to Digital Twins, I need to see how to send motion telemetry to a space in a Azure Digital Twins and how to find available rooms with fresh air using a back-end application. 
+# As a developer new to Digital Twins, I need to see how to send motion and carbon dioxide telemetry to a space in a Azure Digital Twins and how to find available rooms with fresh air using a back-end application. 
 ---
 
 # Use Azure Digital Twins to find available rooms with fresh air (C#)
 
-In a busy office scenario, it's important to find out available rooms and preferably those with fresh air. This article shows how you can do that using Azure Digital Twins.
+In a busy office scenario, it's important to find out available rooms and preferably those with fresh air. This article shows how you can do that using Azure Digital Twins. The [quickstart](https://github.com/Azure-Samples/digital-twins-samples-csharp) uses two sample .NET Core console applications that use the Digital Twins APIs. The first one will send motion and carbon dioxide telemetry to your service, and the second one will provision the graph. The goal is to find available rooms with fresh air after computed logic in the cloud.
 
-The [quickstart](https://github.com/Azure-Samples/digital-twins-samples-csharp) uses two sample .NET Core console applications that use the Digital Twins APIs. The first one will send motion and CO2 telemetry to your service, and the second one will provision graph as well as find available rooms with fresh air.
-
-Before you run these two applications, you create an Azure Digital Twins service and grant permissions to the applications to read from its Management APIs.
+Before you run these two applications, you create an Azure Digital Twins service and grant permissions to one of the applications to read from Digital Twins Management APIs.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
+ 
 ## Prerequisites
 
 1. The two console applications you run in this quickstart are written using C#. You need to install [.NET Core SDK](https://www.microsoft.com/net/download) on your development machine.
@@ -88,6 +86,7 @@ You can build and run the sensor simulator application using the outlined steps:
 1. Run `dotnet restore`
 1. Edit _appsettings.json_ to update the following variables to match your Digital Twins instance:
     - `DeviceConnectionString` with the `ConnectionString` above.
+    - `HardwareId` of the sensors
 1. Run `dotnet run` to start sending telemetry, you should see telemetry being sent to Digital Twins service as in image below
 
  ![Device Connectivity][4]
@@ -95,9 +94,9 @@ You can build and run the sensor simulator application using the outlined steps:
 ## Observe and read unoccupied spaces with good air quality
 1. Go to the occupancy-quickstart command prompt
 1. Run `dotnet run GetOccupancy`
-1. You should see available spaces as outlined in image.
+1. You should see available spaces with carbon dioxide within normal range as outlined in below image.
     >[!NOTE]
-    >Add image when this is working
+    >Add image
 
 ## Clean up resources
 
@@ -114,6 +113,9 @@ See full code samples:
 
 > [!div class="nextstepaction"]
 > [C# code samples](https://github.com/Azure-Samples/digital-twins-samples-csharp)
+
+> [!div class="nextstepaction"]
+> [Facility Management Tutorial](tutorial-facilities-app.md)
 
 <!-- Images -->
 [1]: media/quickstart-view-occupancy-dotnet/create-digital-twins-portal.png

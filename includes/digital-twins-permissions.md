@@ -16,7 +16,7 @@ Users will authenticate against the middle-tier application and an Oauth [on-beh
 
 ### Azure Active Directory app registration
 
-1. Follow the following steps to [integrate applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) and register an application in Azure. Choose **Application type**=`Native` and **Redirect URI**=`https://microsoft.com` as outlined in below images:
+1. Follow the steps to [integrate applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) and register an application in Azure. Choose **Application type**=`Native` and **Redirect URI**=`https://microsoft.com` as outlined in below images:
 
     ![Azure Active Directory app registration new][1]
 
@@ -26,27 +26,23 @@ Users will authenticate against the middle-tier application and an Oauth [on-beh
     - Click **Add** on the top left.
     - Click **Select an API** to use to get external data into Digital Twins.
     - Search for **Azure Smart Spaces Service** API and click **Select**.
+
+    ![Azure Active Directory app registration add api][3]
+
     - Click **Select permissions** that your app needs to have to access the correct information.
     - Check the **Read/Write Access** delegated permissions box and click **Select**.
-    - Click **Done** and select **Grant permissions**.
-
-    ![Azure Active Directory app registration require permissions][3]
+    - Click **Done** and select **Grant permissions**
+    - Get the `Application ID` of your Azure Active Directory app and use it to configure `appSettings.json` as `ClientId`:
 
     ![Azure Active Directory app registration grant permissions][4]
 
-1. Get the `Application ID` of your Azure Active Directory app and use it to configure `appSettings.json` as `ClientId`:
+    - To configure `Tenant` in your `appSettings.json` file, supply your `Directory ID` located under **Microsoft Properties > Properties**:
 
-    ![Azure Active Directory app registration get application id][5]
-
-1. To configure `Tenant` in your `appSettings.json` file, supply your `Directory ID` located under **Microsoft Properties > Properties**:
-
-    ![Azure Active Directory app registration sixth step][6]
-
+    ![Azure Active Directory app registration sixth step][5]
 
 <!-- Images -->
 [1]: ./media/digital-twins-permissions/aad-app-registration1.png
 [2]: ./media/digital-twins-permissions/aad-app-registration3.png
 [3]: ./media/digital-twins-permissions/aad-app-registration2.png
 [4]: ./media/digital-twins-permissions/aad-app-registration.v2.permission.png
-[5]: ./media/digital-twins-permissions/aad-app-registration.v2.clientid.png
-[6]: ./media/digital-twins-permissions/aad-app-registration.v2.tenant.png
+[5]: ./media/digital-twins-permissions/aad-app-registration.v2.tenant.png
