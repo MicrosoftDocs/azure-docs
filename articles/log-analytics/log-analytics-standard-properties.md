@@ -38,7 +38,7 @@ Event
 ```
 
 ## Type
-The **Type** property holds the name of the table that the record was retrieved from which can also be thought of as the record type. This property is useful in queries that combine records from multiple table, such as those that use the `search` operator, to distinguish between records of different types.
+The **Type** property holds the name of the table that the record was retrieved from which can also be thought of as the record type. This property is useful in queries that combine records from multiple table, such as those that use the `search` operator, to distinguish between records of different types. **$table** can be used in place of **Type** in some places.
 
 ### Examples
 The following query returns the count of records by type collected over the past hour.
