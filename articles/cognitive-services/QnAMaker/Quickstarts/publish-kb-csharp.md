@@ -35,19 +35,19 @@ If you don't have a knowledge base yet, you can create a sample one to use for t
 
 ## Create knowledge base project
 
-[!INCLUDE [Create Visual Studio Project](../../../../includes/cognitive-services-qnamaker-qs-cs-create-project.md)] 
+[!INCLUDE [Create Visual Studio Project](../../../../includes/cognitive-services-qnamaker-quickstart-csharp-create-project.md)] 
 
 ## Add required dependencies
 
-[!INCLUDE [Create Visual Studio Project](../../../../includes/cognitive-services-qnamaker-qs-cs-create-project.md)] 
+[!INCLUDE [Add required dependencies to code file](../../../../includes/cognitive-services-qnamaker-quickstart-csharp-create-project.md)] 
 
 ## Add required constants
 
-[!INCLUDE [Create Visual Studio Project](../../../../includes/cognitive-services-qnamaker-qs-cs-required-constants.md)]  
+[!INCLUDE [Add required constants to code file](../../../../includes/cognitive-services-qnamaker-quickstart-csharp-required-constants.md)]  
 
 ## Add knowledge base ID
 
-[!INCLUDE [Create Visual Studio Project](../../../../includes/cognitive-services-qnamaker-qs-cs-kbid.md)] 
+[!INCLUDE [Add knowledge base ID as constant](../../../../includes/cognitive-services-qnamaker-quickstart-csharp-kbid.md)] 
 
 ## Add supporting functions and structures
 

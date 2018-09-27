@@ -39,19 +39,19 @@ If you don't have a knowledge base yet, you can create a sample one to use for t
 
 ## Create knowledge base project
 
-[!INCLUDE [Create Visual Studio Project](../../../../includes/cognitive-services-qnamaker-qs-cs-create-project.md)] 
+[!INCLUDE [Create Visual Studio Project](../../../../includes/cognitive-services-qnamaker-quickstart-csharp-create-project.md)] 
 
 ## Add required dependencies
 
-[!INCLUDE [Create Visual Studio Project](../../../../includes/cognitive-services-qnamaker-qs-cs-create-project.md)] 
+[!INCLUDE [Add required dependencies to code file](../../../../includes/cognitive-services-qnamaker-quickstart-csharp-create-project.md)] 
 
 ## Add required constants
 
-[!INCLUDE [Create Visual Studio Project](../../../../includes/cognitive-services-qnamaker-qs-cs-required-constants.md)] 
+[!INCLUDE [Add required constants to code file](../../../../includes/cognitive-services-qnamaker-quickstart-csharp-required-constants.md)] 
 
 ## Add knowledge base ID
 
-[!INCLUDE [Create Visual Studio Project](../../../../includes/cognitive-services-qnamaker-qs-cs-kbid.md)] 
+[!INCLUDE [Add knowledge base ID as constant](../../../../includes/cognitive-services-qnamaker-quickstart-csharp-kbid.md)] 
 
 ## Add the KB update definition
 
@@ -94,7 +94,7 @@ static string new_kb = @"
 
 ## Add supporting functions and structures
 
-[!INCLUDE [Create Visual Studio Project](../../../../includes/cognitive-services-qnamaker-qs-cs-supporting-fns.md)] 
+[!INCLUDE [Add supporting functions and structures](../../../../includes/cognitive-services-qnamaker-quickstart-csharp-supporting-fns.md)] 
 
 ## Add PATCH request to update KB
 
@@ -259,7 +259,7 @@ static void Main(string[] args)
 
 ## Build and run the program
 
-[!INCLUDE [Create Visual Studio Project](../../../../includes/cognitive-services-qnamaker-qs-cs-build-and-run.md)] 
+[!INCLUDE [Build and run Visual Studio Project](../../../../includes/cognitive-services-qnamaker-quickstart-csharp-build-and-run.md)] 
 
 ## Next steps
 
