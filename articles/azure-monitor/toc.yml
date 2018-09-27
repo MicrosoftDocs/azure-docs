@@ -182,60 +182,62 @@
         href: ../log-analytics/log-analytics-manage-del-workspace.md?toc=/azure/azure-monitor/toc.json
       - name: Design for service providers
         href: ../log-analytics/log-analytics-service-providers.md?toc=/azure/azure-monitor/toc.json
-    - name: Install and configure agents
-      items:
-      - name: Agent comparison
-        href: ../monitoring/monitoring-overview-azure-agents.md?toc=/azure/azure-monitor/toc.json
-      - name: Windows agents
-        href: ../log-analytics/log-analytics-agent-windows.md?toc=/azure/azure-monitor/toc.json
-      - name: VM Extension for Windows
-        href: ../virtual-machines/windows/extensions-oms.md?toc=/azure/azure-monitor/toc.json
-      - name: VM Extension for Linux
-        href: ../virtual-machines/linux/extensions-oms.md?toc=/azure/azure-monitor/toc.json
-      - name: Monitor hybrid environments
-        href: ../log-analytics/log-analytics-concept-hybrid.md?toc=/azure/azure-monitor/toc.json
-      - name: Operations Manager
-        href: ../log-analytics/log-analytics-om-agents.md?toc=/azure/azure-monitor/toc.json
-      - name: OMS Gateway
-        href: ../log-analytics/log-analytics-oms-gateway.md?toc=/azure/azure-monitor/toc.json
-      - name: Agent management
-        href: ../log-analytics/log-analytics-agent-manage.md?toc=/azure/azure-monitor/toc.json
-      - name: Azure Diagnostics extension
-        href: ../monitoring-and-diagnostics/azure-diagnostics.md?toc=/azure/azure-monitor/toc.json
-        items:
-        - name: Send to Azure Storage
-          href: ../monitoring-and-diagnostics/azure-diagnostics-storage.md?toc=/azure/azure-monitor/toc.json
-        - name: Send to Application Insights
-          href: ../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md?toc=/azure/azure-monitor/toc.json
-        - name: Send to Event Hubs
-          href: ../monitoring-and-diagnostics/azure-diagnostics-streaming-event-hubs.md?toc=/azure/azure-monitor/toc.json
-        - name: Troubleshooting
-          href: ../monitoring-and-diagnostics/azure-diagnostics-troubleshooting.md?toc=/azure/azure-monitor/toc.json
-        - name: Enable diagnostic settings with Resource Manager templates
-          href: ../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md?toc=/azure/azure-monitor/toc.json
-        - name: Prepare for JSON Lines diagnostic logs format
-          href: ../monitoring-and-diagnostics/monitor-diagnostic-logs-append-blobs.md?toc=/azure/azure-monitor/toc.json
-        - name: Custom metrics to metrics store REST API
-          href: ../monitoring-and-diagnostics/metrics-store-custom-rest-api.md?toc=/azure/azure-monitor/toc.json
-        - name: GuestOS to metrics store Linux VM (Telegraf)
-          href: ../monitoring-and-diagnostics/metrics-store-custom-linux-telegraf.md?toc=/azure/azure-monitor/toc.json  
-        - name: GuestOS to metrics store VM
-          href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-resource-manager-vm.md?toc=/azure/azure-monitor/toc.json  
-        - name: GuestOS to metrics store VM scale set 
-          href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-resource-manager-vmss.md?toc=/azure/azure-monitor/toc.json  
-        - name: GuestOS to metrics store classic VM
-          href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-classic-vm.md?toc=/azure/azure-monitor/toc.json  
-        - name: GuestOS to metrics store cloud service
-          href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-classic-cloud-service.md?toc=/azure/azure-monitor/toc.json  
-      - name: Troubleshoot
-        items:
-        - name: Troubleshoot Logs VM Extension
-          href: ../log-analytics/log-analytics-azure-vmext-troubleshoot.md?toc=/azure/azure-monitor/toc.json
-        - name: Troubleshoot Logs Linux agent
-          href: ../log-analytics/log-analytics-agent-linux-support.md?toc=/azure/azure-monitor/toc.json
   - name: Collect data
     items:
-    - name: Configure applications
+      - name: Install and configure agents
+       items:
+       - name: Agent comparison
+         href: ../monitoring/monitoring-overview-azure-agents.md?toc=/azure/azure-monitor/toc.json
+       - name: Log store agents  
+         items:
+         - name: Windows agents
+           href: ../log-analytics/log-analytics-agent-windows.md?toc=/azure/azure-monitor/toc.json
+         - name: VM Extension for Windows
+           href: ../virtual-machines/windows/extensions-oms.md?toc=/azure/azure-monitor/toc.json
+         - name: VM Extension for Linux
+           href: ../virtual-machines/linux/extensions-oms.md?toc=/azure/azure-monitor/toc.json
+         - name: Monitor hybrid environments
+           href: ../log-analytics/log-analytics-concept-hybrid.md?toc=/azure/azure-monitor/toc.json
+         - name: Operations Manager
+           href: ../log-analytics/log-analytics-om-agents.md?toc=/azure/azure-monitor/toc.json
+         - name: OMS Gateway
+           href: ../log-analytics/log-analytics-oms-gateway.md?toc=/azure/azure-monitor/toc.json
+         - name: Agent management
+           href: ../log-analytics/log-analytics-agent-manage.md?toc=/azure/azure-monitor/toc.json
+       - name: Azure Diagnostics extension
+         href: ../monitoring-and-diagnostics/azure-diagnostics.md?toc=/azure/azure-monitor/toc.json
+         items:
+         - name: Send to Azure Storage
+           href: ../monitoring-and-diagnostics/azure-diagnostics-storage.md?toc=/azure/azure-monitor/toc.json
+         - name: Send to Application Insights
+           href: ../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md?toc=/azure/azure-monitor/toc.json
+         - name: Send to Event Hubs
+           href: ../monitoring-and-diagnostics/azure-diagnostics-streaming-event-hubs.md?toc=/azure/azure-monitor/toc.json
+         - name: Troubleshooting
+           href: ../monitoring-and-diagnostics/azure-diagnostics-troubleshooting.md?toc=/azure/azure-monitor/toc.json
+         - name: Enable diagnostic settings with Resource Manager templates
+           href: ../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md?toc=/azure/azure-monitor/toc.json
+         - name: Prepare for JSON Lines diagnostic logs format
+           href: ../monitoring-and-diagnostics/monitor-diagnostic-logs-append-blobs.md?toc=/azure/azure-monitor/toc.json
+         - name: Custom metrics to metrics store REST API
+           href: ../monitoring-and-diagnostics/metrics-store-custom-rest-api.md?toc=/azure/azure-monitor/toc.json
+         - name: GuestOS to metrics store Linux VM (Telegraf)
+           href: ../monitoring-and-diagnostics/metrics-store-custom-linux-telegraf.md?toc=/azure/azure-monitor/toc.json  
+         - name: GuestOS to metrics store VM
+           href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-resource-manager-vm.md?toc=/azure/azure-monitor/toc.json  
+         - name: GuestOS to metrics store VM scale set 
+           href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-resource-manager-vmss.md?toc=/azure/azure-monitor/toc.json  
+         - name: GuestOS to metrics store classic VM
+           href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-classic-vm.md?toc=/azure/azure-monitor/toc.json  
+         - name: GuestOS to metrics store cloud service
+           href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-classic-cloud-service.md?toc=/azure/azure-monitor/toc.json  
+       - name: Troubleshoot
+         items:
+         - name: Troubleshoot Logs VM Extension
+           href: ../log-analytics/log-analytics-azure-vmext-troubleshoot.md?toc=/azure/azure-monitor/toc.json
+         - name: Troubleshoot Logs Linux agent
+           href: ../log-analytics/log-analytics-agent-linux-support.md?toc=/azure/azure-monitor/toc.json
+      - name: Configure applications
       items:
       - name: Azure apps
         items:
