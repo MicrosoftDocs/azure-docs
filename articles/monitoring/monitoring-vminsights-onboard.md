@@ -47,7 +47,7 @@ To enable the solution, you need to be a member of the Log Analytics contributor
 
 [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
 
-Enabling the solution for the at-scale scenario first requires configuring the following in your Log Analytics workspace:
+Enabling the solution for the at scale scenario first requires configuring the following in your Log Analytics workspace:
 
 * Install the **ServiceMap** and **InfrastructureInsights** solutions
 * Configure the Log Analytics workspace to collect performance counters
@@ -235,7 +235,7 @@ After you've enabled monitoring, it might take about 10 minutes before you can v
 
 
 ## On-boarding at scale
-In this section instructions on how to perform the at-scale deployment of Azure Monitor for VMs using either Azure Policy or with Azure PowerShell.  The first step required is to configure your Log Analytics workspace.  
+In this section instructions on how to perform the at scale deployment of Azure Monitor for VMs using either Azure Policy or with Azure PowerShell.  The first step required is to configure your Log Analytics workspace.  
 
 ### Setup Log Analytics workspace
 If you do not have a Log Analytics workspace, review the available methods suggested under the [Prerequisites](#log-analytics) section to create one.  
