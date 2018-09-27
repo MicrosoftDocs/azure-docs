@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/26/2018
+ms.date: 09/27/2018
 ms.author: magoedte
 ---
 
@@ -339,9 +339,6 @@ To enable Azure Monitor for VMs at scale that ensures consistent compliance and 
 
 Enable Azure Monitor for VMs via policy to your tenant requires: 
 
-- Configuring a Log Analytics Workspace
-- Install the **ServiceMap** and **InfrastructureInsights** solutions
-- Configure the Log Analytrics workspace to collect performance counters
 - Assign the initiative to a scope – management group, subscription, or resource group 
 - Review and remediate the compliance results  
 
@@ -378,8 +375,10 @@ With this initial release, you can only create the policy assignment from the Az
 8. Select a **Log Analytics workspace** from the dropdown list that is available in the supported region.
 
     >[!NOTE]
-    >If the workspace is outside of the scope of the assignment, you must grant **Log Analytics Contributor** permissions to the policy assignment's Principal ID.  
+    >If the workspace is outside of the scope of the assignment, you must grant **Log Analytics Contributor** permissions to the policy assignment's Principal ID. If you don't do this you may see a deployment failure such as: `The client '343de0fe-e724-46b8-b1fb-97090f7054ed' with object id '343de0fe-e724-46b8-b1fb-97090f7054ed' does not have authorization to perform action 'microsoft.operationalinsights/workspaces/read' over scope ... ` 
+    >You can find the Principal Id from clicking on the Assignment to bring up the **Edit Assignment** option. It is listed at bottom under the **Managed Identity** section. For example if the workspace is in a Resource Group 'contoso-wcus', run following PowerShell command: `New-AzureRmRoleAssignment -ObjectId <GUID of Principal Id> -RoleDefinitionName "Log Analytics Contributor" -ResourceGroupName contoso-wcus`
     >
+
 9. Notice the **Managed Identity** option is checked. This is checked when the initiative being assigned includes a policy with the deployIfNotExists effect. From the **Manage Identity location** dropdown list, select the appropriate region.  
 10. Click **Assign**.
 
