@@ -54,7 +54,7 @@ The reservation is charged to the payment method tied to the subscription. If yo
 
 ## How is the reservation discount applied?
 
-The reservation discount applies to the resource usage that matches the attributes you select when you buy the reservation. The attributes include the scope where the matching VMs, SQL databases, Azure Cosmos DB or other resources run. For example, if you want a reservation discount for four Standard D2 virtual machines in the West US region, select the subscription where the VMs are running. If the virtual machines are running in different subscriptions within your enrollment/account, then select the scope as shared. Shared scope allows the reservation discount to be applied across subscriptions. You can change the scope after you buy a reservation. For more information, see [Manage Azure Reservations](billing-manage-reserved-vm-instance.md).
+The reservation discount applies to the resource usage that matches the attributes you select when you buy the reservation. The attributes include the scope where the matching VMs, SQL databases, Azure Cosmos DB, or other resources run. For example, if you want a reservation discount for four Standard D2 virtual machines in the West US region, select the subscription where the VMs are running. If the virtual machines are running in different subscriptions within your enrollment/account, then select the scope as shared. Shared scope allows the reservation discount to be applied across subscriptions. You can change the scope after you buy a reservation. For more information, see [Manage Azure Reservations](billing-manage-reserved-vm-instance.md).
 
 A reservation discount only applies to resources associated with Enterprise, Pay-As-You-Go, or CSP subscription types. Resources that run in a subscription with other offer types don't receive the reservation discount. For enterprise enrollments, enterprise Dev/Test subscriptions aren’t eligible for the reservation benefits.
 
@@ -67,7 +67,7 @@ To better understand how Reservations affects your billing, see the following to
 
 ## What happens when the reservation term expires?
 
-At the end of the reservation term, the billing discount expires, and the virtual machine, SQL database, Azure Cosmos DB or other resource is billed at the pay-as-you go price. Azure Reservations don't auto-renew. To continue getting the billing discount, you must buy a new reservation for eligible services and software.
+At the end of the reservation term, the billing discount expires, and the virtual machine, SQL database, Azure Cosmos DB, or other resource is billed at the pay-as-you go price. Azure Reservations don't auto-renew. To continue getting the billing discount, you must buy a new reservation for eligible services and software.
 
 ## Discount applies to different sizes with instance size flexibility
 
