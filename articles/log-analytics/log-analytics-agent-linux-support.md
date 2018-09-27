@@ -28,13 +28,13 @@ This article provides help troubleshooting errors you might experience with the 
 * The Log Analytics and Azure Automation Service Endpoints are not whitelisted in your datacenter 
 
 ### Resolutions
-1. Reonboard to the Log Analytics service with the Log Analytics agent for Linux by using the following command with the option `-v` enabled. This allows verbose output of the agent connecting through the proxy to the Log Analytics Service. 
+1. Reonboard to Log Analytics with the Log Analytics agent for Linux by using the following command with the option `-v` enabled. This allows verbose output of the agent connecting through the proxy to Log Analytics. 
 `/opt/microsoft/omsagent/bin/omsadmin.sh -w <Log Analytics Workspace ID> -s <Log Analytics Workspace Key> -p <Proxy Conf> -v`
 
   [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
 
 2. Review the section [Update proxy settings](log-analytics-agent-manage.md#update-proxy-settings) to verify you have properly configured the agent to communicate through a proxy server.    
-* Double check that the following Log Analytics service endpoints are whitelisted:
+* Double check that the following Log Analytics endpoints are whitelisted:
 
     |Agent Resource| Ports | Direction |
     |------|---------|----------|  
@@ -62,12 +62,12 @@ This is a known issue that occurs on first upload of Linux data into a Log Analy
 
 ### Probable causes
 
-- Onboarding to the Log Analytics service failed
-- Connection to the Log Analytics service is blocked
+- Onboarding to Log Analytics failed
+- Connection to Log Analytics is blocked
 - Log Analytics agent for Linux data is backed up
 
 ### Resolutions
-1. Check if onboarding the Log Analytics service was successful by checking if the following file exists: `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`
+1. Check if onboarding Log Analytics was successful by checking if the following file exists: `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`
 2. Reonboard using the `omsadmin.sh` command-line instructions
 3. If using a proxy, refer to the proxy resolution steps provided earlier.
 4. In some cases, when the Log Analytics agent for Linux cannot communicate with the service, data on the agent is queued to the full buffer size, which is 50 MB. The Log Analytics agent for Linux should be restarted by running the following command: `/opt/microsoft/omsagent/bin/service_control restart [<workspace id>]`. 
