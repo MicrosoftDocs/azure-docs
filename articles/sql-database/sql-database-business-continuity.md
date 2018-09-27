@@ -3,16 +3,16 @@ title: Cloud business continuity - database recovery - SQL Database | Microsoft 
 description: Learn how Azure SQL Database supports cloud business continuity and database recovery and helps keep mission-critical cloud applications running.
 keywords: business continuity,cloud business continuity,database disaster recovery,database recovery
 services: sql-database
-author: anosov1960
-manager: craigg
 ms.service: sql-database
-ms.custom: business continuity
+ms.subservice: operations
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.workload: "On Demand"
-ms.date: 07/25/2018
+author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
-
+manager: craigg
+ms.date: 09/19/2018
 ---
 # Overview of business continuity with Azure SQL Database
 
@@ -117,12 +117,10 @@ If you are using active geo-replication and auto-failover groups as your recover
 > 
 
 ### Perform a geo-restore
-If you are using automated backups with geo-redundant storage replication as your recovery mechanism, [initiate a database recovery using geo-restore](sql-database-disaster-recovery.md#recover-using-geo-restore). Recovery usually takes place within 12 hours - with data loss of up to one hour determined by when the last log backup was taken and geo-replicated to other region. Until the recovery completes, the database is unable to record any transactions or respond to any queries. While this restores a database to the last available point in time, restoring the geo-secondary to any point in time is not currently supported.
+If you are using the automated backups with geo-redundant storage (enabled by default), you can recover the database using [geo-restore](sql-database-disaster-recovery.md#recover-using-geo-restore). Recovery usually takes place within 12 hours - with data loss of up to one hour determined by when the last log backup was taken and replicated. Until the recovery completes, the database is unable to record any transactions or respond to any queries. Note, geo-restore only restores the database to the last available point in time.
 
 > [!NOTE]
 > If the data center comes back online before you switch your application over to the recovered database, you can cancel the recovery.  
->
->
 
 ### Perform post failover / recovery tasks
 After recovery from either recovery mechanism, you must perform the following additional tasks before your users and applications are back up and running:

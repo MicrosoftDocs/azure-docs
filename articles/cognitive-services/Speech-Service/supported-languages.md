@@ -8,7 +8,7 @@ author: v-jerkin
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 04/28/2018
+ms.date: 09/08/2018
 ms.author: v-jerkin
 ---
 # Supported languages for Speech service
@@ -17,29 +17,41 @@ Different languages are supported for different Speech service functions. The fo
 
 ## Speech to Text
 
-The Microsoft speech recognition API supports the following languages. 
+The Microsoft speech recognition API supports the following languages. Different levels of customization are available for each language.  
 
-  Code | Language | Acoustic adaptation | Language adaptation | Pronunciation adaptation
+  Code | Language | [Acoustic adaptation](how-to-customize-acoustic-models.md) | [Language adaptation](how-to-customize-language-model.md) | [Pronunciation adaptation](how-to-customize-pronunciation.md)
  ------|----------|---------------------|---------------------|-------------------------
  ar-EG | Arabic (Egypt), modern standard | No | Yes | No
- It-IT | Italian (Italy) | No | Yes | No 
- de-DE | German (Germany) | No | Yes | Yes
- fr-FR | French (France) | No | Yes | No
+ ca-ES | Catalan (Spain) | No | No | No
+ da-DK | Danish (Denmark) | No | No | No
+ de-DE | German (Germany) | Yes | Yes | No
+ en-AU | English (Australia) | Yes | Yes | Yes
+ en-CA | English (Canada) | Yes | Yes | Yes
+ en-GB | English (United Kingdom) | Yes | Yes | Yes
+ en-IN | English (India) | No | Yes | Yes
+ en-NZ | English (New Zealand) | Yes | Yes | Yes  
  en-US | English (United States) | Yes | Yes | Yes
- en-GB | English (British) | No | Yes | No
- en-CA | English (Canadian) | No | Yes | No
- en-AU | English (Australian) | No | Yes | No
- es-ES | Spanish (Spain) | No | Yes | No
- nl-NL | Dutch (Netherlands) | No | Yes | No
- pt-PT | Portoguese (Portogal) | No | Yes | No
- tr-TR | Turkish (Turkey) | No | Yes | No
- pt-BR | Portuguese (Brazil) | No | Yes | No
- ru-RU | Russian (Russia) | No | Yes | No
- zh-CN | Chinese (Mandarin, simplified) | No | Yes | No
- zh-HK | Chinese (Mandarin, Traditional) | No | Yes | No
- zh-TW | Chinese (Taiwanese Mandarin) | No | Yes | No
+ es-ES | Spanish (Spain) | Yes | Yes | No
+ es-MX | Spanish (Mexico) | Yes | Yes | No 
+ fi-FI | Finnish (Finland) | No | No | No 
+ fr-CA | French (Canada) | Yes | Yes | No 
+ fr-FR | French (France) | Yes | Yes | No
+ hi-IN | Hindi (India) | No | Yes | No 
+ it-IT | Italian (Italy) | Yes | Yes | No
  ja-JP | Japanese (Japan) | No | Yes | No
  ko-KR | Korean (Korea) | No | Yes | No
+ nb-NO | Norwegian (Bokmål) (Norway) | No | No | No 
+ nl-NL | Dutch (Netherlands) | No | Yes | No
+ pl-PL | Polish (Poland) | No | No | No
+ pt-BR | Portuguese (Brazil) | No | Yes | No
+ pt-PT | Portuguese (Portugal) | No | Yes | No
+ ru-RU | Russian (Russia) | No | Yes | No
+ sv-SE | Swedish (Sweden) | No | No | No 
+ zh-CN | Chinese (Mandarin, simplified) | Yes | Yes | No
+ zh-HK | Chinese (Mandarin, Traditional) | No | Yes | No
+ zh-TW | Chinese (Taiwanese Mandarin) | No | Yes | No
+ th-TH | Thai (Thailand) | No | No | No
+
 
 ## Text to Speech
 
@@ -47,11 +59,12 @@ The speech synthesis API offers the following voices, each of which supports a s
 
 Locale | Language | Gender | Service name mapping
 -------|----------|---------|--------------------
-ar-EG* | Arabic (Egypt) | Female | "Microsoft Server Speech Text to Speech Voice (ar-EG, Hoda)"
+ar-EG\* | Arabic (Egypt) | Female | "Microsoft Server Speech Text to Speech Voice (ar-EG, Hoda)"
 ar-SA | Arabic (Saudi Arabia) | Male | "Microsoft Server Speech Text to Speech Voice (ar-SA, Naayf)"
 bg-BG | Bulgarian | Male | "Microsoft Server Speech Text to Speech Voice (bg-BG, Ivan)"
 ca-ES | Catalan (Spain) | Female | "Microsoft Server Speech Text to Speech Voice (ca-ES, HerenaRUS)"
 cs-CZ | Czech | Male | "Microsoft Server Speech Text to Speech Voice (cs-CZ, Jakub)"
+cs-CZ | Czech | Male | "Microsoft Server Speech Text to Speech Voice (cs-CZ, Vit)"
 da-DK | Danish | Female | "Microsoft Server Speech Text to Speech Voice (da-DK, HelleRUS)"
 de-AT | German (Austria) | Male | "Microsoft Server Speech Text to Speech Voice (de-AT, Michael)"
 de-CH | German (Switzerland) | Male | "Microsoft Server Speech Text to Speech Voice (de-CH, Karsten)"
@@ -67,6 +80,7 @@ en-GB | English (UK) | Female | "Microsoft Server Speech Text to Speech Voice (e
 | | |Female | "Microsoft Server Speech Text to Speech Voice (en-GB, HazelRUS)"
 | | |Male | "Microsoft Server Speech Text to Speech Voice (en-GB, George, Apollo)"
 en-IE | English (Ireland) |Male | "Microsoft Server Speech Text to Speech Voice (en-IE, Sean)"
+en-IE | English (Ireland) |Male | "Microsoft Server Speech Text to Speech Voice (en-IE, Shaun)"
 en-IN | English (India) | Female | "Microsoft Server Speech Text to Speech Voice (en-IN, Heera, Apollo)"
 | | |Female | "Microsoft Server Speech Text to Speech Voice (en-IN, PriyaRUS)"
 | | |Male | "Microsoft Server Speech Text to Speech Voice (en-IN, Ravi, Apollo)"
@@ -111,13 +125,14 @@ ro-RO | Romanian | Male | "Microsoft Server Speech Text to Speech Voice (ro-RO, 
 ru-RU |Russian| Female | "Microsoft Server Speech Text to Speech Voice (ru-RU, Irina, Apollo)"
 | | |Male | "Microsoft Server Speech Text to Speech Voice (ru-RU, Pavel, Apollo)"
 | | |Female | "Microsoft Server Speech Text to Speech Voice (ru-RU, EkaterinaRUS)"
-sk-SK | Slovak | Male | "Microsoft Server Speech Text to Speech Voice (sk-SK, Filip)"
-sl-SI | Slovenian | Male | "Microsoft Server Speech Text to Speech Voice (sl-SI, Lado)"
-sv-SE | Swedish | Female | "Microsoft Server Speech Text to Speech Voice (sv-SE, HedvigRUS)"
-ta-IN | Tamil (India) | Male | "Microsoft Server Speech Text to Speech Voice (ta-IN, Valluvar)"
-th-TH | Thai | Male | "Microsoft Server Speech Text to Speech Voice (th-TH, Pattara)"
-tr-TR |Turkish | Female | "Microsoft Server Speech Text to Speech Voice (tr-TR, SedaRUS)"
-vi-VN | Vietnamese | Male | "Microsoft Server Speech Text to Speech Voice (vi-VN, An)"
+sk-SK | Slovak|Male | "Microsoft Server Speech Text to Speech Voice (sk-SK, Filip)"
+sl-SI | Slovenian|Male | "Microsoft Server Speech Text to Speech Voice (sl-SI, Lado)"
+sv-SE | Swedish|Female | "Microsoft Server Speech Text to Speech Voice (sv-SE, HedvigRUS)"
+ta-IN | Tamil (India) |Male | "Microsoft Server Speech Text to Speech Voice (ta-IN, Valluvar)"
+te-IN | Telugu (India) |Female | "Microsoft Server Speech Text to Speech Voice (te-IN, Chitra)"
+th-TH | Thai|Male | "Microsoft Server Speech Text to Speech Voice (th-TH, Pattara)"
+tr-TR |Turkish| Female | "Microsoft Server Speech Text to Speech Voice (tr-TR, SedaRUS)"
+vi-VN | Vietnamese|Male | "Microsoft Server Speech Text to Speech Voice (vi-VN, An)"
 zh-CN | Chinese (Mainland)|Female | "Microsoft Server Speech Text to Speech Voice (zh-CN, HuihuiRUS)"
 | | |Female | "Microsoft Server Speech Text to Speech Voice (zh-CN, Yaoyao, Apollo)"
 | | |Male | "Microsoft Server Speech Text to Speech Voice (zh-CN, Kangkang, Apollo)"

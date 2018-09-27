@@ -1,3 +1,4 @@
+<!-- Linguist question: Please confirm that the following are API names and should be left as is: "Person Management, LargePersonGroup/PersonGroup Management, LargeFaceList/FaceList Management, and Face Algorithms" -->
 ---
 title: API Reference - Face API
 titleSuffix: Azure Cognitive Services

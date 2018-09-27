@@ -4,7 +4,7 @@ description: Describes how you can set up alerts on your Azure bill so you can a
 keywords: credit alert,billing alert
 services: 'billing'
 documentationcenter: ''
-author: adpick
+author: cwatson-cat
 manager: adpick
 editor: ''
 tags: billing
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.author: adpick
+ms.author: cwatson
 ---
 # Set up billing or credit alerts for your Microsoft Azure subscriptions
 If you’re the Account Admin for an Azure subscription, you can use the Azure Billing Alert Service to create customized billing alerts that help you monitor and manage billing activity for your Azure accounts.

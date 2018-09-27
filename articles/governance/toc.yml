@@ -1,0 +1,52 @@
+- name: Azure Governance Documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: Azure Management
+    href: azure-management.md
+- name: Components and Services
+  expanded: true
+  items:
+  - name: Management Groups
+    href: management-groups/overview.md
+    items:
+    - name: Create
+      href: management-groups/create.md
+    - name: Manage
+      href: management-groups/manage.md
+  - name: Resource Graph
+    href: resource-graph/overview.md
+  - name: Policy
+    href: policy/overview.md
+  - name: Blueprints
+    href: blueprints/overview.md
+- name: Implementations
+  expanded: true
+  items:
+  - name: Enterprise Cloud Adoption
+    items:
+    - name: What is cloud resource governance?
+      href: /azure/architecture/cloud-adoption/getting-started/what-is-governance?toc=/azure/governance/toc.json
+    - name: Resource access governance in Azure
+      href: /azure/architecture/cloud-adoption/getting-started/azure-resource-access?toc=/azure/governance/toc.json
+    - name: Governance design for a single team
+      href: /azure/architecture/cloud-adoption/governance/governance-single-team?toc=/azure/governance/toc.json
+    - name: Governance design for multiple teams
+      href: /azure/architecture/cloud-adoption/governance/governance-multiple-teams?toc=/azure/governance/toc.json
+  - name: Azure Enterprise Scaffold
+    items:
+    - name: Prescriptive Subscription Governance
+      href: /azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=/azure/governance/toc.json
+    - name: Implement Azure Enterprise Scaffold
+      href: /azure/architecture/cloud-adoption/appendix/azure-scaffold-examples?toc=/azure/governance/toc.json
+- name: Resources
+  items:
+  - name: Azure roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: User Voice
+    href: https://feedback.azure.com/forums/915958-azure-governance
+  - name: Governance Video
+    href: https://www.youtube.com/watch?v=MhGbKjlmuRs
