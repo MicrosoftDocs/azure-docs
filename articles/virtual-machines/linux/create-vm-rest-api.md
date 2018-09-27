@@ -23,7 +23,7 @@ ms.author: cynthn
 
 A Linux virtual machine (VM) in Azure consists of various resources such as disks and network interfaces and defines parameters such as location, size and operating system image and authentication settings.
 
-You can create a Linux VM via the Azure Portal, Azure CLI 2.0, many Azure SDKs, Azure Resource Manager (ARM) templates and many 3rd party tools such as Ansible or Terraform. All these tools ultimately use the REST API to create the Linux VM.
+You can create a Linux VM via the Azure portal, Azure CLI 2.0, many Azure SDKs, Azure Resource Manager templates and many third-party tools such as Ansible or Terraform. All these tools ultimately use the REST API to create the Linux VM.
 
 This article shows you how to use the REST API to create a Linux VM running Ubuntu 18.04-LTS with managed disks and SSH authentication.
 
@@ -128,7 +128,7 @@ For a complete list of the available definitions in the request body, see [Virtu
 
 ## Sending the request
 
-You may use the client of your preference for sending this HTTP request. You may also use an [in-browser tool](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachines/createorupdate) by clicking the **Try it** button.
+You may use the client of your preference for sending this HTTP request. You may also use an [in-browser tool](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate) by clicking the **Try it** button.
 
 ### Responses
 
