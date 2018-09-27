@@ -19,7 +19,7 @@ ms.date: 09/18/2018
 
 The Time Series Insights JavaScript Client (TSI JS Client) exposes methods for accessing the TSI API via the server member of the TSIClient
 
-* [aggregateExpression](https://review.docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-v2-sdk-aggregateexpression?branch=pr-en-us-53512)
+* [aggregateExpression](https://review.docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-v2-sdk-aggregateexpression?branch=pr-en-us-3512)
 
 * [getAggregates (token: string, uri: string, tsxArray: Array<any>, options: any)](https://review.docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-v2-sdk-getaggregates?branch=pr-en-us-53512)
 
