@@ -6,16 +6,16 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/26/2018
+ms.date: 09/27/2018
 ---
 
 # Use Managed Identities to Authenticate Azure Stream Analytics Jobs to Azure Data Lake Storage Gen1 Output (Preview)
 
-Azure Stream Analytics supports managed identity authentication with Azure Data Lake Storage (ADLS) Gen1 output. The identity is a managed application registered in Azure Active Directory that represents a given Stream Analytics job, and can be used to authenticate to a targeted resource. Managed identities eliminate the limitations of user-based authentication methods, like needing to re-authenticate due to password changes or user token expirations that occur every 90 days. Additionally, managed identities help with the automation of Stream Analytics job deployments that output to Azure Data Lake Storage Gen1.
+Azure Stream Analytics supports managed identity authentication with Azure Data Lake Storage (ADLS) Gen1 output. The identity is a managed application registered in Azure Active Directory that represents a given Stream Analytics job, and can be used to authenticate to a targeted resource. Managed identities eliminate the limitations of user-based authentication methods, like needing to reauthenticate due to password changes or user token expirations that occur every 90 days. Additionally, managed identities help with the automation of Stream Analytics job deployments that output to Azure Data Lake Storage Gen1.
 
-Visit the [Azure portal](https://ms.portal.azure.com/?feature.canmodifyextensions=true&Microsoft_Azure_StreamAnalytics_msiSettings=true#blade/HubsExtension/ArtBrowseBlade/resourceType/Microsoft.Resources%2Fresources) to preview the Azure Stream Analytics managed identity for Azure Data Lake Storage feature.
+Visit the [Eight new features in Azure Stream Analytics](https://azure.microsoft.com/en-us/blog/eight-new-features-in-azure-stream-analytics/) blog post to sign up for this preview and read more about new features.
 
-This article shows you two ways to enable managed identity for an Azure Stream Analytics job that outputs to an Azure Data Lake Storage Gen1: through the Azure portal and through Azure Resource Manager (ARM) template deployment.
+This article shows you two ways to enable managed identity for an Azure Stream Analytics job that outputs to an Azure Data Lake Storage Gen1: through the Azure portal and through Azure Resource Manager template deployment.
 
 ## Enable Managed Identity with Azure portal
 
@@ -23,7 +23,7 @@ This article shows you two ways to enable managed identity for an Azure Stream A
 
    ![Configure Stream Analytics managed identity preview](./media/stream-analytics-managed-identities-adls/stream-analytics-managed-identity-preview.png)
 
-2. Select **Use System-assigned Managed Identity (preview)** from the window that appears on the right and click **Save** to create a service principal for the identity of the Stream Analytics job in Azure Active Directory. The life cycle of the newly created identity will be managed by Azure. When the Stream Analytics job is deleted, the associated identity (i.e., the service principal) is automatically deleted by Azure.
+2. Select **Use System-assigned Managed Identity (preview)** from the window that appears on the right. Click **Save** to create a service principal for the identity of the Stream Analytics job in Azure Active Directory. The life cycle of the newly created identity will be managed by Azure. When the Stream Analytics job is deleted, the associated identity (that is, the service principal) is automatically deleted by Azure.
 
    When the configuration is saved, the Object ID (OID) of the service principal is listed as the Principal ID as shown below:
 
@@ -51,17 +51,17 @@ This article shows you two ways to enable managed identity for an Azure Stream A
  
 8. In the **Permissions** pane, check the **Write** and **Execute** permissions and assign it to **This Folder and all children**. Then click **Ok**.
 
-   ![Select a permissions](./media/stream-analytics-managed-identities-adls/stream-analytics-select-permissions.png)
+   ![Select a permission](./media/stream-analytics-managed-identities-adls/stream-analytics-select-permissions.png)
  
 9. The service principal is listed under **Assigned Permissions** on the **Access** pane as shown below. You can now go back and start your Stream Analytics job.
 
    ![Access list](./media/stream-analytics-managed-identities-adls/stream-analytics-access-list.png)
 
-   To learn more about Data Lake Storage Gen1 file system permissions, please see [Access Control in Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md).
+   To learn more about Data Lake Storage Gen1 file system permissions, see [Access Control in Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md).
 
-## ARM template deployment
+## Resource Manager template deployment
 
-1. You can create a *Microsoft.StreamAnalytics/streamingjobs* resource with a managed identity by including the following property in the resource section of your ARM template:
+1. You can create a *Microsoft.StreamAnalytics/streamingjobs* resource with a managed identity by including the following property in the resource section of your Resource Manager template:
 
    ```json
    "Identity": {
@@ -69,7 +69,7 @@ This article shows you two ways to enable managed identity for an Azure Stream A
    },
    ```
 
-   This property tells ARM to create and manage the identity for your Azure Stream Analytics job.
+   This property tells Azure Resource Manager to create and manage the identity for your Azure Stream Analytics job.
 
    **Sample job**
 
@@ -133,7 +133,7 @@ This article shows you two ways to enable managed identity for an Azure Stream A
    Set-AzureRmDataLakeStoreItemAclEntry -AccountName <accountName> -Path <Path> -AceType User -Id <PrinicpalId> -Permissions <Permissions>
    ```
 
-   The **PrincipalId** is the Object ID of the service principal and is listed on the portal screen once the service principal is created. If you created the job using an ARM template deployment, the Object ID is listed in the Identity property of the job response.
+   The **PrincipalId** is the Object ID of the service principal and is listed on the portal screen once the service principal is created. If you created the job using a Resource Manager template deployment, the Object ID is listed in the Identity property of the job response.
 
    **Example**
 
@@ -142,7 +142,7 @@ This article shows you two ways to enable managed identity for an Azure Stream A
    User -Id 14c6fd67-d9f5-4680-a394-cd7df1f9bacf -Permissions WriteExecute
    ```
 
-   To learn more about the above PowerShell command, please refer to the [Set-AzureRmDataLakeStoreItemAclEntry](https://docs.microsoft.com/powershell/module/azurerm.datalakestore/set-azurermdatalakestoreitemaclentry?view=azurermps-6.8.1&viewFallbackFrom=azurermps-4.2.0#optional-parameters) documentation.
+   To learn more about the above PowerShell command, refer to the [Set-AzureRmDataLakeStoreItemAclEntry](https://docs.microsoft.com/powershell/module/azurerm.datalakestore/set-azurermdatalakestoreitemaclentry?view=azurermps-6.8.1&viewFallbackFrom=azurermps-4.2.0#optional-parameters) documentation.
 
 ## Next steps
 
