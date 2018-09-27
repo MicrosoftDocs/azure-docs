@@ -94,6 +94,11 @@ always stay the same, however their values change based on the individual fillin
 Parameters work the same way when building policies. By including parameters in a policy
 definition, you can reuse that policy for different scenarios by using different values.
 
+> [!NOTE]
+> Once parameters are defined on a policy or initiative definition, the parameters definition can't
+> be changed. This prevents existing assignments of the policy or initiative from indirectly being
+> made invalid.
+
 For example, you could define a policy for a resource property to limit the locations where
 resources can be deployed. In this case, you would declare the following parameters when you create
 your policy:
