@@ -14,7 +14,7 @@ ms.author: adgera
 
 Physical devices can be manufactured with the information needed to connect to the Azure Digital Twins service on (first) power up.
 
-Physical devices should have a SAS Token installed. The SAS Token is an authorization token which allows a physical device to access its Device Twin in the Digital Twins spatial graph. This device twin will contain configuration information, including its IoT Hub connection string.
+Physical devices should have a SAS Token installed. The SAS Token is an authorization token, which allows a physical device to access its Device Twin in the Digital Twins spatial graph. This device twin contains configuration information, including its IoT Hub connection string.
 
 It is possible to create and install the SAS Token before a Device is created in the spatial graph and associated with a Space object.
 
