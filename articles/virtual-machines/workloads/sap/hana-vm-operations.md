@@ -203,7 +203,7 @@ More detailed instructions on how to enable Azure Write Accelerator can be found
 Details and restrictions for Azure Write Accelerator can be found in the same documentation.
 
 > [!NOTE]
-> The disk configuration recommendations stated are targeting to pass minimum requirements SAP expresses towards infrastructure providers. In real customer deployments and workload scenarios, situations were encountered where these recommendations still did not provide sufficient capabilities. These could be situations where a customer wanted to have a faster load of the data after a HANA restart or where backup configurations required higher bandwidth to the storage. Other cases included **/hana/log** where 5000 IOPS was not sufficient for the specific workload. So take these recommendations as a starting point and adapt based on the requirements of the workload
+> The disk configuration recommendations stated are targeting to pass minimum requirements SAP expresses towards infrastructure providers. In real customer deployments and workload scenarios, situations were encountered where these recommendations still did not provide sufficient capabilities. These could be situations where a customer wanted to have a faster load of the data after a HANA restart or where backup configurations required higher bandwidth to the storage. Other cases included **/hana/log** where 5000 IOPS was not sufficient for the specific workload. So take these recommendations as a starting point and adapt based on the requirements of the workload.
 >  
 
 ### Set up Azure virtual networks
