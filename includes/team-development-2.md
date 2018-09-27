@@ -32,7 +32,7 @@ http://localhost:53831 => mywebapi.scott:80                    Tunneled
 http://webfrontend.6364744826e042319629.canadaeast.aksapp.io/  Available
 ```
 
-![](../media/common/space-routing.png)
+![](../articles/dev-spaces/media/common/space-routing.png)
 
 This built-in feature of Azure Dev Spaces lets you test code in a shared space without requiring each developer to re-create the full stack of services in their space. This routing requires your app code to forward propagation headers, as illustrated in the previous step of this guide.
 
