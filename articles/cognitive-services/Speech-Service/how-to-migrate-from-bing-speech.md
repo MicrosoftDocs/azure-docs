@@ -23,12 +23,12 @@ This article outlines the differences between the Bing Speech APIs and the Speec
 A single Speech Service subscription key grants access to the following features. Each is metered separately, so you're charged only for the features you use.
 
 * [Speech-to-text](speech-to-text.md)
-* [Custom speech-to-text](https://cris.ai/CustomSpeech)
+* [Custom speech-to-text](https://cris.ai)
 * [Text-to-speech](text-to-speech.md)
-* [Custom text-to-speech voices](https://cris.ai/CustomVoice)
+* [Custom text-to-speech voices](how-to-customize-voice-font.md)
 * [Speech translation](speech-translation.md) (does not include [Text translation](../translator/translator-info-overview.md))
 
-The [Speech SDK](speech-sdk.md) is a functional replacement for Bing Search client libraries, but uses a different API.
+The [Speech SDK](speech-sdk.md) is a functional replacement for the Bing Speech client libraries, but uses a different API.
 
 ## Comparison of features
 
@@ -72,7 +72,7 @@ The Speech Service doesn't currently offer a global endpoint. You will need to d
 
 If your application uses long-lived connections and can't use an available SDK, you can use a WebsSockets connection and manage the 10-minute timeout limit by reconnecting at the appropriate times.
 
-A global endpoint, service-to-service functionality, and additional SDKs are being considered for future Speech Service releases. Check the [Speech Service documentation](index.yml) often for updates.
+A global endpoint, service-to-service functionality, and additional SDKs are being considered for future Speech Service releases. Check the [Speech Service release notes](releasenotes.yml) often for updates.
 
 To get started with the new Speech SDK:
 
