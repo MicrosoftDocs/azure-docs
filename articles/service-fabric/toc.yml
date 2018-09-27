@@ -73,8 +73,8 @@
       href: service-fabric-tutorial-scale-cluster.md
     - name: 3- Upgrade the cluster runtime
       href: service-fabric-tutorial-upgrade-cluster.md
-    - name: 4- Deploy API Management with Service Fabric
-      href: service-fabric-tutorial-deploy-api-management.md
+    - name: 4- Delete a cluster
+      href: service-fabric-tutorial-delete-cluster.md
   - name: Create a standalone cluster on AWS
     items:
     - name: 1- Create the infrastructure on AWS
@@ -429,6 +429,8 @@
       href: service-fabric-get-started-tomcat.md
     - name: Configure security
       items:
+      - name: Integrate with API Management
+        href: service-fabric-tutorial-deploy-api-management.md
       - name: Manage application secrets
         href: service-fabric-application-secret-management.md
       - name: Configure reverse proxy for secure communication
@@ -586,9 +588,7 @@
       - name: Manually rollover cluster certs
         href: service-fabric-cluster-rollover-cert-cn.md
       - name: Manage cluster certificates
-        href: service-fabric-cluster-security-update-certs-azure.md
-      - name: Delete
-        href: service-fabric-cluster-delete.md
+        href: service-fabric-cluster-security-update-certs-azure.md      
       - name: Remote connect to cluster node VM
         href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md      
     - name: Standalone clusters

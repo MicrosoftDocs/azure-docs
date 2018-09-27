@@ -1,4 +1,4 @@
-- name: Computer Vision Documentation
+- name: Computer Vision API Documentation
   href: index.yml
 - name: Overview
   expanded: true

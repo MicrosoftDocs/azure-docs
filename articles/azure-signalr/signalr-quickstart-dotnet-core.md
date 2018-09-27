@@ -19,7 +19,6 @@ ms.author: zhshang
 ---
 # Quickstart: Create a chat room with SignalR Service
 
-Microsoft Azure SignalR Service is currently in [Public Preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Azure SignalR Service is an Azure service that helps developers easily build web applications with real-time features. This service is based on [SignalR for ASP.NET Core 2.0](https://docs.microsoft.com/aspnet/core/signalr/introduction).
 

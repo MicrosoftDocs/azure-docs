@@ -12,8 +12,8 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.author: glenga
-
 ---
+
 # Work with Azure Functions Core Tools
 
 Azure Functions Core Tools lets you develop and test your functions on your local computer from the command prompt or terminal. Your local functions can connect to live Azure services, and you can debug your functions on your local computer using the full Functions runtime. You can even deploy a function app to your Azure subscription.
@@ -28,16 +28,13 @@ There are two versions of Azure Functions Core Tools. The version you use depend
 
 + [Version 2.x](#v2): supports [version 2.x of the runtime](functions-versions.md). This version supports [Windows](#windows-npm), [macOS](#brew), and [Linux](#linux). Uses platform-specific package managers or npm for installation.
 
-Unless otherwise noted, the examples in this article are for version 2.x. 
+Unless otherwise noted, the examples in this article are for version 2.x.
 
 ## Install the Azure Functions Core Tools
 
 [Azure Functions Core Tools] includes a version of the same runtime that powers Azure Functions runtime that you can run on your local development computer. It also provides commands to create functions, connect to Azure, and deploy function projects.
 
 ### <a name="v2"></a>Version 2.x
-
->[!NOTE]
-> Azure Functions runtime 2.0 is in preview, and currently not all features of Azure Functions are supported. For more information, see [Azure Functions versions](functions-versions.md) 
 
 Version 2.x of the tools uses the Azure Functions runtime 2.x that is built on .NET Core. This version is supported on all platforms .NET Core 2.x supports, including [Windows](#windows-npm), [macOS](#brew), and [Linux](#linux).
 
@@ -52,7 +49,7 @@ The following steps use npm to install Core Tools on Windows. You can also use [
 3. Install the Core Tools package:
 
     ```bash
-    npm install -g azure-functions-core-tools@core
+    npm install -g azure-functions-core-tools
     ```
 
 #### <a name="brew"></a>MacOS with Homebrew
@@ -156,7 +153,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 | **`--worker-runtime`** | Sets the language runtime for the project. Supported values are `dotnet`, `node` (JavaScript), `java`, and `python`. When not set, you are prompted to choose your runtime during initialization. |
 
 > [!IMPORTANT]
-> By default, version 2.x of the Core Tools creates function app projects for the .NET runtime as [C# class projects](functions-dotnet-class-library.md) (.csproj). These C# projects, which can be used with Visual Studio 2017 or Visual Studio Code, are compiled during testing and when publishing to Azure. If you instead want to create and work with the same C# script (.csx) files created in version 1.x and in the portal, you must include the `--csx` parameter when you create and deploy functions.
+> By default, version 2.x of the Core Tools creates function app projects for the .NET runtime as [C# class projects](functions-dotnet-class-library.md) (.csproj). These C# projects, which can be used with Visual Studio or Visual Studio Code, are compiled during testing and when publishing to Azure. If you instead want to create and work with the same C# script (.csx) files created in version 1.x and in the portal, you must include the `--csx` parameter when you create and deploy functions.
 
 ## Register extensions
 
@@ -174,6 +171,7 @@ The file local.settings.json stores app settings, connection strings, and settin
 {
   "IsEncrypted": false,
   "Values": {
+    "FUNCTIONS\_WORKER\_RUNTIME": "<language worker>",
     "AzureWebJobsStorage": "<connection-string>",
     "AzureWebJobsDashboard": "<connection-string>",
     "MyBindingConnection": "<binding-connection-string>"
@@ -209,7 +207,7 @@ Settings in the local.settings.json file are only used by Functions tools when r
 
 When no valid storage connection string is set for **AzureWebJobsStorage** and the emulator isn't being used, the following error message is shown:  
 
->Missing value for AzureWebJobsStorage in local.settings.json. This is required for all triggers other than HTTP. You can run 'func azure functionapp fetch-app-settings <functionAppName>' or specify a connection string in local.settings.json.
+> Missing value for AzureWebJobsStorage in local.settings.json. This is required for all triggers other than HTTP. You can run 'func azure functionapp fetch-app-settings <functionAppName>' or specify a connection string in local.settings.json.
 
 ### Get your storage connection strings
 
@@ -431,7 +429,7 @@ This command publishes to an existing function app in Azure. An error occurs whe
 The `publish` command uploads the contents of the Functions project directory. If you delete files locally, the `publish` command does not delete them from Azure. You can delete files in Azure by using the [Kudu tool](functions-how-to-use-azure-function-app-settings.md#kudu) in the [Azure portal].  
 
 >[!IMPORTANT]  
-> When you create a function app in Azure, it uses version 1.x of the Function runtime by default. To make the function app use version 2.x of the runtime, add the application setting `FUNCTIONS_EXTENSION_VERSION=beta`.  
+> When you create a function app in Azure, it uses version 2.x of the Function runtime by default. To make the function app use version 1.x of the runtime, add the application setting `FUNCTIONS_EXTENSION_VERSION=~1`.  
 Use the following Azure CLI code to add this setting to your function app:
 
 ```azurecli-interactive
@@ -461,7 +459,7 @@ The following project publish options are only supported in version 2.x:
 | **`--no-build`** | Skip building dotnet functions. |
 | **`--dotnet-cli-params`** | When publishing compiled C# (.csproj) functions, the core tools calls 'dotnet build --output bin/publish'. Any parameters passed to this will be appended to the command line. |
 
-## Custom container deployment
+### Custom container deployment
 
 Functions lets you deploy your function project in a custom Linux container. For more information, see [Create a function on Linux using a custom image](functions-create-function-linux-custom-image.md). Version 2.x of Core Tools supports deploying a custom container. Custom containers must have a Dockerfile. Use the --dockerfile option on `func init`.
 
@@ -469,11 +467,11 @@ Functions lets you deploy your function project in a custom Linux container. For
 func deploy
 ```
 
-The following custom container deployment options are available:
+The following custom container deployment options are available: 
 
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
-| **`--registry`** | The name of a Docker Registry the the current user signed-in to. |
+| **`--registry`** | The name of a Docker Registry the current user signed-in to. |
 | **`--platform`** | Hosting platform for the function app. Valid options are `kubernetes` |
 | **`--name`** | Function app name. |
 | **`--max`**  | Optionally, sets the maximum number of function app instances to deploy to. |

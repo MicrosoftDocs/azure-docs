@@ -5,32 +5,30 @@
  author: vhorne
  ms.service: 
  ms.topic: include
- ms.date: 8/13/2018
+ ms.date: 9/14/2018
  ms.author: victorh
  ms.custom: include file
 ---
 
 ### What is Azure Firewall?
 
-Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources. It's a fully stateful firewall-as-a-service with built-in high availability and unrestricted cloud scalability. You can centrally create, enforce, and log application and network connectivity policies across subscriptions and virtual networks. Azure Firewall is currently in public preview.
+Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources. It is a fully stateful firewall-as-a-service with built-in high availability and unrestricted cloud scalability. You can centrally create, enforce, and log application and network connectivity policies across subscriptions and virtual networks.
 
-### Which capabilities are supported in the Azure Firewall public preview release?  
+### What capabilities are supported in Azure Firewall?  
 
 * Stateful firewall as a service
 * Built-in high availability with unrestricted cloud scalability
-* FQDN filtering 
+* FQDN filtering
+* FQDN tags
 * Network traffic filtering rules
 * Outbound SNAT support
-* The ability to centrally create, enforce, and log application and network connectivity policies across Azure subscriptions and virtual networks
-* Full integration with Azure Monitor for logging and analytics 
-
-### How can I join the Azure Firewall Public Preview?
-
-Azure Firewall is currently a managed public preview that you can join by  using the Register-AzureRmProviderFeature PowerShell command. This command is explained in the Azure Firewall public preview documentation.
+* Inbound DNAT support
+* Centrally create, enforce, and log application and network connectivity policies across Azure subscriptions and VNETs
+* Fully integrated with Azure Monitor for logging and analytics 
 
 ### What is the pricing for Azure Firewall?
 
-Azure Firewall has a fixed and variable cost. The prices are as follows, and are further discounted by 50% during public preview.
+Azure Firewall has a fixed cost + variable cost:
 
 * Fixed fee: $1.25/firewall/hour
 * Variable fee: $0.03/GB processed by the firewall (ingress or egress)
@@ -54,7 +52,7 @@ There are two types of rule collections:
 
 ### Does Azure Firewall support inbound traffic filtering?
 
-Azure Firewall public preview supports outbound filtering only. Inbound protection for non-HTTP/S protocols (for example, RDP, SSH, or FTP) is tentatively planned for Azure Firewall GA.  
+Azure Firewall supports inbound and outbound filtering. Inbound protection is for non-HTTP/S protocols. For example RDP, SSH, and FTP protocols.
  
 ### Which logging and analytics services are supported by the Azure Firewall?
 
@@ -99,9 +97,20 @@ $azfw.Allocate($vnet,$publicip)
 Set-AzureRmFirewall -AzureFirewall $azfw
 ```
 
+> [!NOTE]
+> You must reallocate a firewall and public IP to the original resource group and subscription.
+
 ### What are the known service limits?
 
 * Azure Firewall has a soft limit of 1000 TB per firewall per month. 
 * An instance of Azure Firewall that is running in a central virtual network has virtual network peering limitations, with a maximum of 50 spoke virtual networks.  
 * Azure Firewall does not work with global peering, so you should have at least one firewall deployment per region.
 * Azure Firewall supports 10k application rules and 10k network rules.
+
+### Can Azure Firewall in a hub virtual network forward and filter network traffic between two spoke virtual networks?
+
+Yes, you can use Azure Firewall in a hub virtual network to route and filter traffic between two spoke virtual network. Subnets in each of the spoke virtual networks must have UDR pointing to the Azure Firewall as a default gateway for this scenario to work properly.
+
+### Can Azure Firewall forward and filter network traffic between subnets in the same virtual network?
+
+Traffic between subnets in the same virtual network or in a directly peered virtual network is routed directly even if UDR points to the Azure Firewall as the default gateway. The recommended method for internal network segmentation is to use Network Security Groups. To send subnet to subnet traffic to the firewall in this scenario, UDR must contain the target subnet network prefix explicitly on both subnets.

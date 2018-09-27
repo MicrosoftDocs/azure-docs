@@ -2,8 +2,8 @@
 title: What's New in Azure Data Catalog
 description: This article provides an overview of new capabilities added to Azure Data Catalog.
 services: data-catalog
-author: steelanddata
-ms.author: maroche
+author: markingmyname
+ms.author: maghan
 ms.assetid: 1201f8d4-6f26-4182-af3f-91e758a12303
 ms.service: data-catalog
 ms.topic: conceptual

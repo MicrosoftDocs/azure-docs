@@ -85,7 +85,7 @@ Here is a list of all the events available in the platform, sorted by the entity
 
 | EventId | Name | Description |Source (Task) | Level | Version |
 | --- | --- | ---| --- | --- | --- |
-| 18602 | ServiceCreated | A new service was created | FM | Informational | 1 |
+| 18657 | ServiceCreated | A new service was created | FM | Informational | 1 |
 | 18658 | ServiceDeleted | An existing service was deleted | FM | Informational | 1 |
 
 ## Partition events

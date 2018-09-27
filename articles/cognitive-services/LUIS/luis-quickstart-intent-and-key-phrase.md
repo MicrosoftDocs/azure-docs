@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Use keyPhrase prebuilt entity to extract key subject matter from utterances. You do not need to label any utterances with prebuilt entities. The entity is detected automatically.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: language-understanding
@@ -15,7 +15,7 @@ ms.author: diberry
 
 --- 
 
-# Tutoria: 8: Extract key phrases of utterance
+# Tutorial 8: Extract key phrases of utterance
 In this tutorial, use the prebuilt keyPhrase entity to extract key subject matter from utterances. You do not need to label any utterances with prebuilt entities. The entity is detected automatically.
 
 The following utterances show examples of key phrases:

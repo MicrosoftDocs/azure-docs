@@ -13,8 +13,14 @@ ms.custom:
 ms.devlang: 
 ms.topic: article 
 ms.date: 02/01/2018
+
+ROBOTS: NOINDEX
 ---
 # Execute Data Sources and Data Preparations packages from Python
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 To use an Azure Machine Learning Data Sources or Azure Machine Learning Data Preparations package within Python:
 
