@@ -52,7 +52,7 @@ Enabling the solution for the at-scale scenario first requires configuring the f
 * Install the **ServiceMap** and **InfrastructureInsights** solutions
 * Configure the Log Analytics workspace to collect performance counters
 
-To configure your workspace, see [Setup Log Analytics workspace](#setup-log-analytics-workspace).
+To configure your workspace for this scenario, see [Setup Log Analytics workspace](#setup-log-analytics-workspace).
 
 ### Supported operating systems
 
