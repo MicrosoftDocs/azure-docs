@@ -54,10 +54,12 @@
       href: front-door-troubleshoot-allowed-ca.md
 - name: Reference
   items:
+  - name: Azure CLI
+    href: /cli/azure/ext/front-door/
   - name: Azure PowerShell
     href: front-door-powershell-reference.md
   - name: REST API
-    href: front-door-rest-api.md
+    href: /rest/api/frontdoor
 - name: Resources
   items:
   - name: Azure Roadmap
