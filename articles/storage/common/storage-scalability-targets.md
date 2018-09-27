@@ -29,6 +29,8 @@ If the needs of your application exceed the scalability targets of a single stor
 ## Scalability targets for a storage account
 [!INCLUDE [azure-storage-limits](../../../includes/azure-storage-limits.md)]
 
+### Storage resource provider limits 
+
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
 
 ## Azure Blob storage scale targets

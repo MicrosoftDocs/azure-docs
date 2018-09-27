@@ -47,12 +47,16 @@
         href: howto-connect-raspberry-pi-csharp.md
       - name: Prepare and connect a Windows IoT Core device
         href: howto-connect-windowsiotcore.md
+      - name: Monitor device connectivity using command line
+        href: howto-use-iotc-explorer.md
   - name: Manage devices
     items:
       - name: Set up a device template
         href: howto-set-up-template.md
       - name: Manage your devices
         href: howto-manage-devices.md
+      - name: Run a job
+        href: howto-run-a-job.md
       - name: Use device sets
         href: howto-use-device-sets.md
       - name: Version device template
@@ -63,7 +67,7 @@
         href: howto-create-telemetry-rules.md
       - name: Create an event rule
         href: howto-create-event-rules.md
-      - name: Create custom analytics
+      - name: Analyze your device data
         href: howto-create-analytics.md 
   - name: Actions and extensibility
     items:
@@ -81,12 +85,12 @@
     items:
       - name: Administer your application
         href: howto-administer.md  
+      - name: Manage IoT Central from the Azure Management Portal
+        href: howto-manage-iot-central-from-portal.md
       - name: As a CSP create and manage an application
         href: howto-create-and-manage-applications-as-CSP.md
       - name: Configure homepage
-        href: howto-configure-homepage.md
-      - name: Prepare and upload images
-        href: howto-prepare-images.md         
+        href: howto-configure-homepage.md         
 - name: Related
   items:
   - name: Solutions
@@ -117,5 +121,3 @@
   items:
   - name: Customer data requests
     href: iot-central-customer-data-requests.md
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-iot-central

@@ -17,7 +17,7 @@ You can list, show, and update configuration parameters for an Azure Database fo
 ## Prerequisites
 To step through this how-to guide, you need:
 - [An Azure Database for MySQL server](quickstart-create-mysql-server-database-using-azure-cli.md)
-- [Azure CLI 2.0](/cli/azure/install-azure-cli) command-line utility or use the Azure Cloud Shell in the browser.
+- [Azure CLI](/cli/azure/install-azure-cli) command-line utility or use the Azure Cloud Shell in the browser.
 
 ## List server configuration parameters for Azure Database for MySQL server
 To list all modifiable parameters in a server and their values, run the [az mysql server configuration list](/cli/azure/mysql/server/configuration#az-mysql-server-configuration-list) command.

@@ -1,14 +1,17 @@
 ---
-title: Get started with the Custom Speech Service on Azure | Microsoft Docs
+title: Get started with the Custom Speech Service
+titlesuffix: Azure Cognitive Services
 description: Subscribe to the Custom Speech service and link the service activities to an Azure subscription to train a model and do a deployment.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/08/2017
 ms.author: panosper
+ROBOTS: NOINDEX
 ---
 
 # Get Started with Custom Speech Service
@@ -46,7 +49,7 @@ When you have created custom acoustic models and/or language models, they can be
 You can find a detailed description on how to create a custom speech-text endpoint [here](CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-endpoint.md).
 
 ## Using a custom speech endpoint
-Requests can be sent to a CRIS speech-to-text endpoint in a very similar manner as the default Microsoft Cognitive Services speech endpoint. Note that these endpoints are functionally identical to the default endpoints of the Speech API. Thus, the same functionality available via the client library or REST API for the Speech API is also the available for your custom endpoint.
+Requests can be sent to a CRIS speech-to-text endpoint in a very similar manner as the default Azure Cognitive Services speech endpoint. Note that these endpoints are functionally identical to the default endpoints of the Speech API. Thus, the same functionality available via the client library or REST API for the Speech API is also the available for your custom endpoint.
 
 You can find a detailed description on how to use a custom speech-to-text endpoint [here](CustomSpeech-How-to-Topics/cognitive-services-custom-speech-use-endpoint.md).
 
