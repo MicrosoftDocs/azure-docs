@@ -1,18 +1,14 @@
 ---
-# required metadata
 title: Connect to Azure blob storage - Azure Logic Apps | Microsoft Docs
 description: Create and manage blobs in Azure storage with Azure Logic Apps
-author: ecfan
-manager: jeconnoc
-ms.author: estfan
-ms.date: 05/21/2018
-ms.topic: article
-ms.service: logic-apps
 services: logic-apps
-
-# optional metadata
-ms.reviewer: klam, LADocs
+ms.service: logic-apps
 ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.topic: article
+ms.date: 05/21/2018
 tags: connectors
 ---
 
@@ -30,12 +26,17 @@ you can have your logic app update some file in your blob storage container,
 which is an action in your logic app. 
 
 > [!NOTE]
-> To connect to Azure Storage accounts that have firewalls, try creating an 
-> [integration service environment](../logic-apps/connect-virtual-network-vnet-isolated-environment.overview.md), 
+> Logic Apps doesn't support directly connecting to Azure Storage 
+> accounts through firewalls, even when you set up your firewall 
+> with the specified IP addresses. To access these storage accounts, 
+> use either option here: 
+>
+> * Create an [integration service environment](../logic-apps/connect-virtual-network-vnet-isolated-environment.overview.md), 
 > which can connect to resources in an Azure virtual network. 
-> Logic Apps doesn't currently support direct connections 
-> to Azure Storage accounts that use firewalls, even when 
-> you set up your firewall with the specified IP addresses. 
+> 
+> * If you already use API Management, you can use 
+> this service for this scenario. For more info, see 
+> [Simple enterprise integration architecture](http://aka.ms/aisarch).
 
 If you're new to logic apps, review 
 [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) 

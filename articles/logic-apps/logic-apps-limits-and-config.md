@@ -326,18 +326,22 @@ set up your firewall configurations so they include these outbound IP addresses,
 based on the regions where your logic apps exist.
 
 > [!IMPORTANT]
->
 > If you have existing configurations, please update them 
 > **as soon as possible before September 1, 2018** so they 
 > include and match the IP addresses in this list for the 
 > regions where your logic apps exist. 
 > 
-> To connect to Azure Storage accounts that have firewalls, try creating an 
-> [integration service environment](../logic-apps/connect-virtual-network-vnet-isolated-environment.overview.md), 
+> Logic Apps doesn't support directly connecting to Azure Storage 
+> accounts through firewalls, even when you set up your firewall 
+> with the specified IP addresses. To access these storage accounts, 
+> use either option here: 
+>
+> * Create an [integration service environment](../logic-apps/connect-virtual-network-vnet-isolated-environment.overview.md), 
 > which can connect to resources in an Azure virtual network. 
-> Logic Apps doesn't currently support direct connections 
-> to Azure Storage accounts that use firewalls, even when 
-> you set up your firewall with the specified IP addresses. 
+> 
+> * If you already use API Management, you can use 
+> this service for this scenario. For more info, see 
+> [Simple enterprise integration architecture](http://aka.ms/aisarch).
 
 | Logic Apps region | Outbound IP | 
 |-------------------|-------------|  
