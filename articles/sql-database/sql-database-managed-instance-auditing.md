@@ -2,15 +2,16 @@
 title: Azure SQL Database Managed Instance Auditing | Microsoft Docs
 description: Learn how to get started with Azure SQL Database Managed Instance Auditing using T-SQL
 services: sql-database
-author: giladm
-manager: craigg
-ms.reviewer: carlrab
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 08/28/2018
+author: giladm
 ms.author: giladm
-
+ms.reviewer: vanto
+manager: craigg
+ms.date: 09/20/2018
 ---
 # Get started with Azure SQL Database Managed Instance Auditing
 
@@ -99,7 +100,7 @@ The following section describes the configuration of auditing on your Managed In
     If not specified, `RETENTION_DAYS` default is 0 (unlimited retention).
 
     For additional information:
-    - [Auditing differences between Managed Instance, Azure SQL DB and SQL Server](#subheading-3)
+    - [Auditing differences between Managed Instance, Azure SQL DB and SQL Server](#auditing-differences-between-managed-instance-azure-sql-database-and-sql-server)
     - [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
     - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 

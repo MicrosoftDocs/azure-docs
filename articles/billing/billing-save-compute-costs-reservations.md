@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
-ms.author: yashar
+ms.author: cwatson
 
 ---
 # What are Azure Reservations?
@@ -65,6 +65,14 @@ To better understand how Reservations affects your billing, see the following to
 ## What happens when the reservation term expires?
 
 At the end of the reservation term, the billing discount expires, and the virtual machine, SQL database, or other resource is billed at the pay-as-you go price. Azure Reservations don't auto-renew. To continue getting the billing discount, you must buy a new reservation for eligible services and software.
+
+## Discount applies to different sizes with instance size flexibility
+
+When you buy a reservation, the discount can apply to other instances with attributes that are within the same size  group. The flexibility of the discount coverage depends on the type of reservation and the attributes you pick when you buy the reservation.
+
+- Reserved VM Instances: When you buy the reservation, if you select **Optimized for**: **instance size flexibility**, the discount coverage depends on the VM size you select. The reservation can apply to the virtual machines (VMs) sizes in the same size series group. For more information, see [Virtual machine size flexibility with Reserved VM Instances](../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+- SUSE Linux Enterprise software plan: The discount coverage depends on the vCPUs of the VMs where you run the SUSE software. For more information, see [Understand how the SUSE Linux Enterprise software plan discount is applied](billing-understand-suse-reservation-charges.md).
+- SQL Database reserved capacity: The discount coverage depends on the performance tier you pick. For more information, see [Understand how an Azure reservation discount is applied](billing-understand-reservation-charges.md).
 
 ## Next steps
 

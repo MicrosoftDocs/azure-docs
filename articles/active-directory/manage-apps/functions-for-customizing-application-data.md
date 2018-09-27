@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/09/2018
+ms.date: 09/11/2018
 ms.author: barbkess
 
 ---
@@ -279,7 +279,6 @@ If the state code doesn't match any of the predefined options, use default value
 * **OUTPUT**: "Australia/Brisbane"
 
 ## Related Articles
-* [Article Index for Application Management in Azure Active Directory](../active-directory-apps-index.md)
 * [Automate User Provisioning/Deprovisioning to SaaS Apps](user-provisioning.md)
 * [Customizing Attribute Mappings for User Provisioning](customize-application-attributes.md)
 * [Scoping Filters for User Provisioning](define-conditional-rules-for-provisioning-user-accounts.md)

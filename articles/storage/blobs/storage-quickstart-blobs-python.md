@@ -24,7 +24,7 @@ To complete this quickstart:
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
+[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 ## Download the sample application
 The [sample application](https://github.com/Azure-Samples/storage-blobs-python-quickstart.git) used in this quickstart is a basic Python application.  

@@ -310,7 +310,7 @@ To change the number of collections available to the Azure Cosmos DB Emulator, d
 2. Delete all emulator data in this folder C:\Users\user_name\AppData\Local\CosmosDBEmulator.
 3. Exit all open instances by right-clicking the **Azure Cosmos DB Emulator** icon on the system tray, and then clicking **Exit**. It may take a minute for all instances to exit.
 4. Install the latest version of the [Azure Cosmos DB Emulator](https://aka.ms/cosmosdb-emulator).
-5. Launch the emulator with the PartitionCount flag by setting a value <= 250. For example: `C:\Program Files\Azure CosmosDB Emulator>CosmosDB.Emulator.exe /PartitionCount=100`.
+5. Launch the emulator with the PartitionCount flag by setting a value <= 250. For example: `C:\Program Files\Azure Cosmos DB Emulator> CosmosDB.Emulator.exe /PartitionCount=100`.
 
 ## Controlling the Emulator
 
@@ -444,6 +444,8 @@ Use the following tips to help troubleshoot issues you encounter with the Azure 
 - If you encounter a connectivity issue, [collect trace files](#trace-files), compress them, and attach them to an email to [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
 
 - If you receive a **Service Unavailable** message, the emulator might be failing to initialize the network stack. Check to see if you have the Pulse secure client or Juniper networks client installed, as their network filter drivers may cause the problem. Uninstalling third-party network filter drivers typically fixes the issue.
+
+- While the Emulator is running, if your computer goes to sleep mode or runs any OS updates, you might see a **Service is currently unavailable** message. Reset the Emulator, by right clicking on the icon that appears on the windows notification tray and select **Reset Data**.
 
 ### <a id="trace-files"></a>Collect trace files
 

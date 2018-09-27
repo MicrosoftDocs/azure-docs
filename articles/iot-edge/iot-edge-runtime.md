@@ -26,9 +26,9 @@ The IoT Edge runtime performs the following functions on IoT Edge devices:
 
 ![IoT Edge runtime communicates insights and module health to IoT Hub][1]
 
-The responsibilities of the IoT Edge runtime fall into two categories: module management and communication. These two roles are performed by two components that make up the IoT Edge runtime. The IoT Edge hub is responsible for communication, while the IoT Edge agent manages deploying and monitoring the modules. 
+The responsibilities of the IoT Edge runtime fall into two categories: communication and module management. These two roles are performed by two components that make up the IoT Edge runtime. The IoT Edge hub is responsible for communication, while the IoT Edge agent manages deploying and monitoring the modules. 
 
-Both the Edge agent and the Edge hub are modules, just like any other module running on an IoT Edge device. 
+Both the Edge hub and the Edge agent are modules, just like any other module running on an IoT Edge device. 
 
 ## IoT Edge hub
 
@@ -112,7 +112,7 @@ For more information about the Azure IoT Edge security framework, read about the
 
 ## Next steps
 
-[Understand Azure IoT Edge modules][lnk-modules]
+[Understand Azure IoT Edge Certificates][lnk-certs]
 
 <!-- Images -->
 [1]: ./media/iot-edge-runtime/Pipeline.png
@@ -121,4 +121,4 @@ For more information about the Azure IoT Edge security framework, read about the
 [4]: ./media/iot-edge-runtime/ModuleEndpointsWithRoutes.png
 
 <!-- Links -->
-[lnk-modules]: iot-edge-modules.md
+[lnk-certs]: iot-edge-certs.md

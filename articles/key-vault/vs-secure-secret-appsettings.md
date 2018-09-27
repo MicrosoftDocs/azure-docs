@@ -103,14 +103,13 @@ If you are writing a quick prototype and don't want to provision Azure resources
 2. Create a file that's similar to the follow. Save it under a location outside of your project folder.
 
     ```xml
-
-	   <root>
-	          <secrets ver="1.0">
-	                 <secret name="secret1" value="foo_one" />
-	                    <secret name="secret2" value="foo_two" />
-	                   </secrets>
-	  </root>
-      ```
+    <root>
+        <secrets ver="1.0">
+            <secret name="secret1" value="foo_one" />
+            <secret name="secret2" value="foo_two" />
+        </secrets>
+    </root>
+    ```
 
 3. Define the secret file to be a configuration builder in your Web.config file. Put this section before *appSettings* section.
 

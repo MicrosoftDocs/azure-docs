@@ -16,6 +16,9 @@ ms.author: luisca
 
 The **Text Split** skill breaks text into chunks of text. You can specify whether you want to break the text into sentences or into pages of a particular length. This skill is especially useful if there are maximum text length requirements in other skills downstream. 
 
+> [!NOTE]
+> Cognitive Search is in public preview. Skillset execution, and image extraction and normalization are currently offered for free. At a later time, the pricing for these capabilities will be announced. 
+
 ## @odata.type  
 Microsoft.Skills.Text.SplitSkill 
 

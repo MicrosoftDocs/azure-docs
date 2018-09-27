@@ -1,13 +1,14 @@
 ---
-title: Understand versioning in LUIS - Azure | Microsoft Docs
+title: Understand versioning in LUIS
+titleSuffix: Azure Cognitive Services
 description: Learn how to use versions to manage changes in Language Understanding (LUIS)
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/13/2018
+ms.date: 09/10/2018
 ms.author: diberry
 ---
 
