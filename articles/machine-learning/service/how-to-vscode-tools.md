@@ -10,7 +10,7 @@ author: j-martens
 ms.reviewer: jmartens
 ms.date: 10/1/2018
 ---
-# Getting started with Azure Machine Learning in Visual Studio Code
+# VS Code Tools for AI: Get started with Azure Machine Learning from Visual Studio Code
 
 In this article, you'll learn about Visual Studio Code (VS Code) extension, **Tools for AI**, and how to start training and deploy machine learning and deep learning models with Azure Machine Learning service in VS Code.
 
