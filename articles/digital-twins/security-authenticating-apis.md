@@ -33,20 +33,20 @@ For detailed instructions about how to orchestrate the on-behalf-of flow visit [
 
 1. Follow the initial steps above to create (or modify) an Azure Active Directory application. Then, set oauth2AllowImplicitFlow to true in the app manifest and grant permissions to “Azure Smart Spaces Service.”
 1. Set a reply url to [https://www.getpostman.com/oauth2/callback](https://www.getpostman.com/oauth2/callback).
-1. In Postman, select the Authorization Tab, click on OAuth 2.0 and select Get New Access Token.
+1. In Postman, select the Authorization Tab, click on OAuth 2.0, and select Get New Access Token.
 
     |**Field**  |**Value** |
     |---------|---------|
     | Grant Type | Implicit |
     | Callback URL | [https://www.getpostman.com/oauth2/callback](https://www.getpostman.com/oauth2/callback) |
     | Auth URL | [https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?resource=0b07f429-9f4b-4714-9392-cc5e8e80c8b0](https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?resource=0b07f429-9f4b-4714-9392-cc5e8e80c8b0)
-    | Client Id | Use the Application Id for the AAD App that was created or re-purposed from Step 1 |
+    | Client ID | Use the Application ID for the AAD App that was created or repurposed from Step 1 |
     | Scope | leave blank |
     | State | leave blank |
     | Client Authentication | Send as Basic Auth header |
 
 1. Click Request Token.
-  - If you receive error message OAuth 2 couldn’t be completed Try one of the following:
+  - If you receive error message OAuth 2 couldn’t be completed, try one of the following steps:
     - Close Postman and reopen it and try again.
     - Delete the secret key in your App, recreate a new one and renter the value in the above form.
 1. Scroll down and click Use Token.
