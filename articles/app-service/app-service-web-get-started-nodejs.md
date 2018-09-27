@@ -74,13 +74,13 @@ In your terminal window, press **Ctrl+C** to exit the web server.
 
 In the Cloud Shell, create a web app in the `myAppServicePlan` App Service plan with the [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) command. 
 
-In the following example, replace `<app_name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`). The runtime is set to `NODE|6.9`. To see all supported runtimes, run [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes). 
+In the following example, replace `<app_name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`).
 
 ```azurecli-interactive
 # Bash
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "NODE|6.9"
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name>"
 # PowerShell
-az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "NODE|6.9"
+az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name>"
 ```
 
 When the web app has been created, the Azure CLI shows output similar to the following example:
@@ -97,6 +97,18 @@ When the web app has been created, the Azure CLI shows output similar to the fol
   "enabled": true,
   < JSON data removed for brevity. >
 }
+```
+
+### Set Node runtime
+
+Set the Node runtime to 8.11.1. To see all supported runtimes, run [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes). 
+
+```azurecli-interactive
+# Bash
+az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITE_NODE_DEFAULT_VERSION=8.11.1
+
+# PowerShell
+az --% webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITE_NODE_DEFAULT_VERSION=8.11.1
 ```
 
 Browse to your newly created web app. Replace _&lt;app name>_ with a unique app name.
