@@ -8,10 +8,10 @@ editor: tysonn
 
 ms.service: monitoring
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/11/2018
+ms.date: 09/27/2018
 ms.author: bwren
 
 ---
@@ -172,8 +172,8 @@ You can get guidance for collecting metrics from Azure resources at [Collect Azu
 ### Logs to metrics
 As described above, metrics are more responsive than logs, so you can create alerts with lower latency and at a lower cost. Log Analytics collects a significant amount of numeric data that would be suitable for metrics but isn't stored in the Azure metrics store.  A common example is performance data collected from agents and management solutions. Some of these values can be copied into the metrics store, where they are available for alerting and for analysis with Metrics explorer.
 
-The explanation of this feature is available at [Create Metric Alerts for Logs in Azure Monitor](../monitoring-and-diagnostics/monitoring-metric-alerts-logs). The list of values support is available at 
-[Supported metrics with Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics#microsoftoperationalinsightsworkspaces).
+The explanation of this feature is available at [Create Metric Alerts for Logs in Azure Monitor](../monitoring-and-diagnostics/monitoring-metric-alerts-logs.md). The list of values support is available at 
+[Supported metrics with Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces).
 
 ## Stream data to external systems
 In addition to using the tools in Azure to analyze monitoring data, you may have a requirement to forward it to an external tool such as a security information and event management (SIEM) product. This forwarding is typically done directly from monitored resources through [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/). 
