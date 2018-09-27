@@ -102,4 +102,4 @@ Like most of VS Code, the Azure Machine Learning features in VS Code are accessi
 
 You can now use Visual Studio Code to work with Azure Machine Learning.
 
-Learn how to [create compute targets, train, and deploy models in Visual Studio Code](how-to-vscode-to-train-deploy.md).
+Learn how to [create compute targets, train, and deploy models in Visual Studio Code](how-to-vscode-train-deploy.md).
