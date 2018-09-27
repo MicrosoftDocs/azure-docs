@@ -44,7 +44,7 @@ For example, a room occupancy application could use pre-defined space types such
 
 You can build solutions that scale securely and which can be reused for multiple tenants. You can also create multiple subtenants that can be accessed and used in an isolated and secure manner.
 
-For example, a space utilization application could be configured to isolate data from different tenants in a single building, or to combine data for a single tenant with multiple buildings.
+For example, a space utilization application could be configured to isolate a tenant's data from other tenant data within a single building, or to combine data for a single tenant with multiple buildings.
 
 ### Advanced compute capabilities
 
@@ -62,7 +62,7 @@ For example, a facilities management app could be configured to allow occupants 
 
 You can connect an Azure Digital Twins instance to many powerful Azure services including: Azure Analytics, AI, and Storage services, as well as Azure Maps, Microsoft Mixed Reality, Dynamics 365, or Office 365.
 
-For example, a smart office building application could use Azure Digital Twins.
+For example, a smart office building application could use Azure Digital Twins to represent teams and devices located on many floors. As devices stream live data into the provisioned Digital Twin instance, Azure Analytics can process that data to provide key insights. Then, the data can be stored in Azure Storage and converted into a shareable file format to be distributed across the whole organization in Office 365.
 
 ## Solutions that benefit from Azure Digital Twins
 
