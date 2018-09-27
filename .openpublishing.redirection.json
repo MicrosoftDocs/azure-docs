@@ -1763,7 +1763,7 @@
         },
         {
             "source_path": "articles/billing-set-up-alerts.md",
-            "redirect_url": "/azure/billing/billing-set-up-alerts",
+            "redirect_url": "/azure/billing/billing-getting-started",
             "redirect_document_id": false
         },
         {
@@ -29474,6 +29474,11 @@
             "source_path": "articles/azure-preview-portal-supported-browsers-devices.md",
             "redirect_url": "/azure/azure-portal/azure-portal-supported-browsers-devices",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/billing/billing-set-up-alerts.md",
+            "redirect_url": "/azure/billing/billing-getting-started",
+            "redirect_document_id": false
         }
     ]
 }
