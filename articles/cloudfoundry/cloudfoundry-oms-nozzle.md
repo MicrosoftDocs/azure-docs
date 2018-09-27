@@ -133,8 +133,8 @@ cd oms-log-analytics-firehose-nozzle
 Now you can set environment variables in the manifest.yml file in your current directory. The following shows the app manifest for the Nozzle. Replace values with your specific Log Analytics workspace information.
 
 ```
-OMS_WORKSPACE             : Log Analytics workspace ID: open Azure portal from your Log Analytics workspace, select Settings, and select connected sources.
-OMS_KEY                   : OMS key: open Azure portal from your Log Analytics workspace, select Settings, and select connected sources.
+OMS_WORKSPACE             : Log Analytics workspace ID: Open your Log Analytics workspace in the Azure portal, select **Advanced settings**, select **Connected Sources**, and select **Windows Servers**.
+OMS_KEY                   : OMS key: Open your Log Analytics workspace in the Azure portal, select **Advanced settings**, select **Connected Sources**, and select **Windows Servers**.
 OMS_POST_TIMEOUT          : HTTP post timeout for sending events to Log Analytics. The default is 10 seconds.
 OMS_BATCH_TIME            : Interval for posting a batch to Log Analytics. The default is 10 seconds.
 OMS_MAX_MSG_NUM_PER_BATCH : The maximum number of messages in a batch to Log Analytics. The default is 1000.
