@@ -43,7 +43,7 @@ You can [investigate the alert](security-center-investigation.md) in Azure Secur
 
 ![Screen shot of Azure Security Center, showing the alert investigation dashboard.](media/security-center-wdatp/image2.png)
 
-You can further investigate the alert by pivoting to Windows Defender ATP. There you can see additional information such as the alert process tree, the incident graph, and a detailed machine timeline showing all of the behaviors for a historical period of up to six months.
+You can further investigate the alert by pivoting to Windows Defender ATP. There you can see additional information such as the alert process tree, the incident graph, and a detailed machine timeline showing every behavior for a historical period of up to six months.
 
 ![Screen shot of Windows Defender ATP, showing detailed information about an alert.](media/security-center-wdatp/image3.png)
 
