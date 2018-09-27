@@ -65,7 +65,6 @@ One way to migrate your existing PostgreSQL database to Azure Database for Postg
     ```
 
 ### For the restore
-- Copy the backup files in an Azure /store and do the restore from there. It should be faster than doing the restore across the Internet. 
 - It should be already done by default, but open the dump file to verify that the create index statements are after the insert of the data. If it isn't the case, move the create index statements after the data is inserted.
 - Restore with the switches -Fc and -j *#* to parallelize the restore. *#* is the number of cores on the target server. You can also try with *#* set to twice the number of cores of the target server to see the impact. For example:
 
@@ -74,6 +73,8 @@ One way to migrate your existing PostgreSQL database to Azure Database for Postg
     ```
 
 - You can also edit the dump file by adding the command *set synchronous_commit = off;* at the beginning and the command *set synchronous_commit = on;* at the end. Not turning it on at the end, before the apps change the data, may result in subsequent loss of data.
+
+We suggest that you move the backup file to an Azure VM in the same region as the Azure Database for PostgreSQL server you are migrating to, and do the pg_restore from that VM to reduce network latency. We also recommend that the VM is created with [accelerated networking](..\virtual-network\create-vm-accelerated-networking-powershell.md) enabled.
 
 Remember to test and validate these commands in a test environment before you use them in production.
 
