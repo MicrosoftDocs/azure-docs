@@ -30,7 +30,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 
 ##  Install the SDK
-No need to install if you are using a Data Science Virtual Machine (DSVM) created after September 27, 2019.  The VM comes with the Python SDK pre-installed.
+Skip this section if you are using a Data Science Virtual Machine (DSVM) created after September 27, 2019.  The VM comes with the Python SDK pre-installed.
 
 ### Miniconda
 
