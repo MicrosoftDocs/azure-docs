@@ -76,11 +76,11 @@ Next, use the **Choose File** button to locate the language data text file. Afte
 
 After the import is complete, the language data has an entry that corresponds to your language data set. Notice that it has been assigned a unique ID (GUID). The data also has a status that reflects its current state. Its status is **Waiting** while it's being queued for processing, **Processing** while it's going through validation, and **Complete** when the data is ready for use. Data validation performs a series of checks on the text in the file. It also does some text normalization of the data.
 
-When the status is **Complete,** you can select **View Report** to see the language data verification report. The number of utterances that passed and failed verification are shown, along with details about the failed utterances. In the following example, two examples failed verification because of incorrect characters. (In this data set, the first line had two tab characters, the second had several characters that aren't part of  the ASCII printable character set, and the third line was blank).
+When the status is **Complete**, you can select **View Report** to see the language data verification report. The number of utterances that passed and failed verification are shown, along with details about the failed utterances. In the following example, two examples failed verification because of incorrect characters. (In this data set, the first line had two tab characters, the second had several characters that aren't part of  the ASCII printable character set, and the third line was blank).
 
 ![Try](media/stt/speech-language-datasets-report.png)
 
-When the status of the language data set is **Complete,** it can be used to create a custom language model.
+When the status of the language data set is **Complete**, it can be used to create a custom language model.
 
 ![Try](media/stt/speech-language-datasets.png)
 
@@ -108,7 +108,7 @@ To do offline testing of your language model, select the check box next to **Off
 
 Finally, select the acoustic data set you want to use to do the evaluation.
 
-When you're ready to start processing, select **Create**. Next you'll see the table of language models. There will be a new entry in the table corresponding to this model. The status reflects the model’s state and will go through several states including **Waiting,** **Processing,** and **Complete.**
+When you're ready to start processing, select **Create**. Next you'll see the table of language models. There will be a new entry in the table corresponding to this model. The status reflects the model’s state and will go through several states including **Waiting**, **Processing**, and **Complete**.
 
 When the model has reached the **Complete** state, it can be deployed to an endpoint. Selecting **View Result** shows the results of offline testing, if you performed it.
 
