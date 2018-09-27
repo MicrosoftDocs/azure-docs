@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 5/17/2018
+ms.date: 9/27/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
@@ -26,7 +26,7 @@ You learn how to:
 
 ## Prerequisites
 
-* A Blockchain Workbench deployment. For more information, see [Azure Blockchain Workbench deployment](../../blockchain-workbench/blockchain-workbench-deploy.md) for details on deployment.
+* A Blockchain Workbench deployment. For more information, see [Azure Blockchain Workbench deployment](deploy.md) for details on deployment.
 * Azure Active Directory users in the tenant associated with Blockchain Workbench. For more information, see [add Azure AD users in Azure Blockchain Workbench](manage-users.md#add-azure-ad-users).
 * A Blockchain Workbench administrator account. For more information, see add [Blockchain Workbench administrators in Azure Blockchain Workbench](manage-users.md#manage-blockchain-workbench-administrators).
 
@@ -370,7 +370,7 @@ Before exiting the function, call the `ContractUpdated()` function. The function
 
 To add a blockchain application to Blockchain Workbench, you upload the configuration and smart contract files to define the application.
 
-1. In a web browser, navigate to the Blockchain Workbench web address. For example, `https://{workbench URL}.azurewebsites.net/` The web application is created when you deploy Blockchain Workbench. For information on how to find your Blockchain Workbench web address, see [Blockchain Workbench Web URL](../../blockchain-workbench/blockchain-workbench-deploy.md#blockchain-workbench-web-url)
+1. In a web browser, navigate to the Blockchain Workbench web address. For example, `https://{workbench URL}.azurewebsites.net/` The web application is created when you deploy Blockchain Workbench. For information on how to find your Blockchain Workbench web address, see [Blockchain Workbench Web URL](deploy.md#blockchain-workbench-web-url)
 2. Sign in as a [Blockchain Workbench administrator](manage-users.md#manage-blockchain-workbench-administrators).
 3. Select **Applications** > **New**. The **New application** pane is displayed.
 4. Select **Upload the contract configuration** > **Browse** to locate the **HelloBlockchain.json** configuration file you created. The configuration file is automatically validated. Select the **Show** link to display validation errors. Fix validation errors before you deploy the application.

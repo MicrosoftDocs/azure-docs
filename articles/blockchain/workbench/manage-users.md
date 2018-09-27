@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 4/26/2018
+ms.date: 9/27/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
@@ -18,7 +18,7 @@ Azure Blockchain Workbench includes user management for people and organizations
 
 ## Prerequisites
 
-A Blockchain Workbench deployment is required. See [Azure Blockchain Workbench deployment](../../blockchain-workbench/blockchain-workbench-deploy.md) for details on deployment.
+A Blockchain Workbench deployment is required. See [Azure Blockchain Workbench deployment](deploy.md) for details on deployment.
 
 ## Add Azure AD users
 
@@ -64,7 +64,7 @@ To add users to the **Administrator** group in the Azure AD directory:
 
 Use the Blockchain Workbench application to manage users and organizations that are part of your consortium. You can add or remove users to applications and roles.
 
-1. [Open the Blockchain Workbench](../../blockchain-workbench/blockchain-workbench-deploy.md#blockchain-workbench-web-url) in your browser and sign in as an administrator.
+1. [Open the Blockchain Workbench](deploy.md#blockchain-workbench-web-url) in your browser and sign in as an administrator.
 
     ![Blockchain Workbench](./media/manage-users/blockchain-workbench-applications.png)
 
