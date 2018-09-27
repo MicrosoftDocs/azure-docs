@@ -28,13 +28,11 @@ ms.component: na
 While Log Analytics queries use an implementation of Kusto, there are some Kusto elements it does not support as described in the following sections.
 
 ### Statements not supported in Log Analytics
-The following statements are not supported in Log Analytics.
 
 * [Alias](/kusto/query/aliasstatement)
 * [Query parameters](/azure/kusto/query/queryparametersstatement)
 
 ### Functions not supported in Log Analytics
-The following functions are not supported in Log Analytics.
 
 * [cluster()](/azure/kusto/query/clusterfunction)
 * [cursor_after()](/azure/kusto/query/cursorafterfunction)
@@ -46,13 +44,12 @@ The following functions are not supported in Log Analytics.
 * [extent_tags()](/azure/kusto/query/extenttagsfunction)
 
 ### Operators not supported in Log Analytics
-The following operators are not supported in Log Analytics.
 
 * [Cross-Cluster Join](/azure/kusto/query/joincrosscluster)
 * [externaldata operator](/azure/kusto/query/externaldata-operator)
 
 ### Plugins not supported in Log Analytics
-The following plugins are not supported in Log Analytics.
+
 * [sql_request plugin](/azure/kusto/query/sqlrequestplugin)
 
 
