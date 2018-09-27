@@ -16,22 +16,33 @@ ms.author: glenga
 
 # Manually install or update Azure Functions binding extensions from the portal
 
-The Azure Functions version 2.x runtime uses binding extensions to implement code for triggers and bindings. Binding extensions are provided in NuGet packages, and to register an extension you install a package. When developing functions, the way that you install binding extensions depends on the development environment. For more information, see [Register binding extensions](functions-triggers-bindings.md#register-binding-extensions) in the triggers and bindings article.
+The Azure Functions version 2.x runtime uses binding extensions to implement code for triggers and bindings. Binding extensions are provided in NuGet packages. To register an extension, you essentially install a package. When developing functions, the way that you install binding extensions depends on the development environment. For more information, see [Register binding extensions](functions-triggers-bindings.md#register-binding-extensions) in the triggers and bindings article.
 
-In some situations, you must manually install or update your binding extensions in the portal. For example, you may need to update the binding registration for an existing function app to a newer version. You may also need to add a binding that is supported by the runtime but that does not have a portal template for installation. When developing your functions locally using Azure Functions Core Tools, you should use the `func extensions install --force` command. For more information, see [Register extensions](functions-run-local.md#register-extensions) in the Core Tools article. For a C# class library project (.csproj), you just update the NuGet packages in your project in Visual Studio.
+Sometimes you need to manually install or update your binding extensions in the Azure portal. For example, you may need to update a registered binding to a newer version. You may also need to register a supported binding that can't be installed in the **Integrate** tab in the portal.
 
-## Update your extensions from portal
+Use the following steps to manually install or update extensions from the portal.
 
-Follow the instructions in this section to update a function app which is created/managed from portal.
-Stop the function app.
-Access kudu console through Platform Features -> Advanced Tools -> Debug Console (cmd)
-Navigate to d:\home\site\wwwroot
-Delete the bin directory (click the circle icon next to folder)
-Edit extensions.csproj
-Update the extensions with the version you need to install (See the table below)
-Note - if you use blob/queue/table bindings make sure you include Microsoft.Azure.WebJobs.Extensions.Storage 
-Save the changes
-Run dotnet build extensions.csproj -o bin --no-incremental --packages D:\home\.nuget 
-Start the function app
+1. In the [Azure portal](https://portal.azure.com), locate your function app, choose it, then choose the **Overview** tab and select **Stop**.  Stopping the function app unlocks files so that changes can be made.
 
-  
+1. Choose the **Platform features** tab and under **Development tools** select **Advanced Tools (Kudu)**. THe Kudu endpoint (`https://<app_name>.scm.azurewebsites.net/`) is opened in a new window.
+
+1. In the Kudu window, select **Debug console** > **CMD**.  
+
+1. In the command window, navigate to `D:\home\site\wwwroot` and choose the delete icon next to the `bin` directory to delete it. Select **OK** to confirm the deletion.
+
+1. Choose the edit icon next to the `extensions.csproj` file, which defines the binding extensions for the function app. The project file is opened in the online editor.
+
+1. Make the required additions and updates of **PackageReference** items in the **ItemGroup**, then select **Save**. The current list of supported package versions can be found [here](https://github.com/Azure/azure-functions-host/wiki/Updating-your-function-app-extensions#what-nuget-packages-do-i-need). Al three Azure Storage bindings require the Microsoft.Azure.WebJobs.Extensions.Storage package.
+
+1. From the `wwwroot` folder, run the following command to rebuild the referenced assemblies in the `bin` folder.
+
+    ```cmd
+    dotnet build extensions.csproj -o bin --no-incremental --packages D:\home\.nuget
+    ```
+
+1. Back in the **Overview** tab in the portal, choose **Start** to restart the function app.
+
+# Next steps
+
+> [!div class="nextstepaction"]
+> [Learn more about Azure functions triggers and bindings](functions-triggers-bindings.md)
