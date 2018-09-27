@@ -3,7 +3,7 @@ title: Install published application - StreamSets Data Collector - Azure HDInsig
 description: Install and use the StreamSets Data Collector third-party Hadoop application.
 services: hdinsight
 author: ashishthaps
-editor: jasonwhowell
+ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive

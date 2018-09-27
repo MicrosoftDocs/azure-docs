@@ -4,7 +4,7 @@ description: Learn how to use Apache Kafka's mirroring feature to maintain a rep
 services: hdinsight
 author: jasonwhowell
 ms.author: jasonh
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual

@@ -3,7 +3,7 @@ title: Run Apache Pig jobs with .NET SDK for Hadoop - Azure HDInsight
 description: Learn how to use the .NET SDK for Hadoop to submit Pig jobs to Hadoop on HDInsight.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive

@@ -4,16 +4,12 @@ description: Learn how to use triggers and bindings in Azure Functions to connec
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture
 
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 05/24/2018
 ms.author: glenga
 ---
@@ -160,7 +156,7 @@ In some development environments, you have to explicitly *register* a binding th
 |C# class library using Visual Studio 2017|[Use NuGet tools](#c-class-library-with-visual-studio-2017)|[Use NuGet tools](#c-class-library-with-visual-studio-2017)|
 |C# class library using Visual Studio Code|N/A|[Use .NET Core CLI](#c-class-library-with-visual-studio-code)|
 
-The following binding types are exceptions that don't require explicit registration because they are automatically registered in all versions and environments: HTTP, timer, and Azure Storage (blobs, queues, and tables). 
+The following binding types are exceptions that don't require explicit registration because they are automatically registered in all versions and environments: HTTP and timer.
 
 ### Azure portal development
 

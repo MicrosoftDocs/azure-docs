@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/17/2018
+ms.date: 08/16/2018
 ms.author: jdial
 
 ---
@@ -103,3 +103,4 @@ Gateway transit is a peering property that enables a virtual network to utilize 
 
 * Learn how to create a [hub and spoke network topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json).
 * Learn about all [virtual network peering settings and how to change them](virtual-network-manage-peering.md).
+* Get answers to common VNet Peering and Global VNet Peering questions through our [VNet Peering FAQ](virtual-networks-faq.md#vnet-peering)

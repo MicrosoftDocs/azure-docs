@@ -6,12 +6,10 @@ documentationcenter: na
 author: jeffhollan
 manager: jpconnock
 keywords: azure functions, functions, event processing, compute, serverless architecture, java
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
+ms.topic: conceptual
 ms.devlang: java
-ms.workload: na
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
@@ -80,7 +78,7 @@ To debug in IntelliJ, In the **Run** menu select **Edit Configurations**. Click 
 
 ![Debug functions in IntelliJ](media/functions-create-first-java-intellij/debug-configuration-intellij.PNG)
 
-When finished stop the debugger and the running process. Only one function host can be active and running locally at at time.
+When finished stop the debugger and the running process. Only one function host can be active and running locally at a time.
 
 ## Deploy the function to Azure
 

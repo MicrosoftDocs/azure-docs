@@ -8,7 +8,7 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 09/27/2018
 ---
 
 # Azure Database for MySQL pricing tiers
@@ -40,7 +40,7 @@ Compute resources are provided as vCores, which represent the logical CPU of the
 
 | **Azure region** | **Gen 4** | **Gen 5** |
 |:---|:----------:|:--------------------:|
-| Central US | X |  |
+| Central US | X | X |
 | East US | X | X |
 | East US 2 | X | X |
 | North Central US | X | X |
@@ -68,6 +68,11 @@ Compute resources are provided as vCores, which represent the logical CPU of the
 | Japan West | X | X |
 | Korea Central |  | X |
 | Korea South |  | X |
+| Germany Central |  | X |
+| US DoD Central  | X |  |
+| US DoD East  | X |  |
+| US Gov Arizona |  | X |
+| US Gov Texas |  | X |
 
 ## Storage
 

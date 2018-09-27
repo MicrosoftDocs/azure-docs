@@ -5,7 +5,7 @@ services: hdinsight
 ms.service: hdinsight
 author: jasonwhowell
 ms.author: jasonh
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
@@ -21,7 +21,7 @@ Learn how to use Azure Kubernetes Service (AKS) with Kafka on HDInsight cluster.
 
 ## Prerequisites
 
-* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * An Azure subscription
 
 This document assumes that you are familiar with creating and using the following Azure services:

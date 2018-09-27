@@ -12,11 +12,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/10/2018 
+ms.date: 09/20/2018 
 ms.author: alkohli
 
 ---
 # Options to migrate data from StorSimple 5000-7000 series 
+
+> [!IMPORTANT]
+> On July 31, 2019 the StorSimple 5000/7000 series will reach end of support (EOS) status. We recommend that StorSimple 5000/7000 series customers migrate to one of the alternatives described in the document.
+
 StorSimple 5000-7000 series is reaching [end of Support](https://support.microsoft.com/lifecycle/search?alpha=StorSimple%205000%2F7000%20Series) in July 2019. The customers who are running StorSimple 5000-7000 series have an option to upgrade to other Azure first party hybrid services. This article describes the Azure hybrid options available to migrate data. 
 
 ## Migration options
@@ -67,13 +71,22 @@ A. Yes. Migration to other storage solutions using host copy of the data is supp
 
 A. Migrating from 5000 or 7000 series is a fully supported operation. In fact, Microsoft recommends reaching out to Support before you start migration. Migration is currently an assisted operation. If you intend to migrate data from your StorSimple 5000-7000 series device, [Open a Support ticket](storsimple-8000-contact-microsoft-support.md).
 
-### Q. How does the cost compare for the two listed migrations to Azure hybrid services? 
+### Q. What is the pricing model for both the migration options?
 
-A. Cost of migration varies depending on the option you choose. While migration itself is free, if you decide to upgrade to a StorSimple 8000 series, there will be the cost of the hardware device. Similarly, when using Azure File Sync, the subscription fees for the service may apply. In each case, customers will also have to pay ongoing storage costs. Refer to [Microsoft pricing calculator for the respective services](https://azure.microsoft.com/pricing/#product-picker) for an estimate.  
+A. Cost of migration varies depending on the option you choose. While migration itself is free, if you decide to upgrade to a StorSimple 8000 series, there will be the cost of the hardware device. 
+
+Similarly, when using Azure File Sync, the subscription fees for the service may apply. In each case, customers will also have to pay ongoing storage costs. Refer to the following for an estimate: 
+- [StorSimple pricing](https://azure.microsoft.com/pricing/details/storsimple/)  
+- [AFS pricing]( https://azure.microsoft.com/pricing/details/storage/files/)
 
 ### Q.	How long does it take to complete a migration?
 
 A. The time to migrate data depends on the amount of the data and the upgrade option selected. 
+
+### Q. What is the End of Support date for StorSimple 8000 series?
+
+A. The End of Support date for StorSimple 8000 series is published [here](https://support.microsoft.com/lifecycle/search?alpha=Azure%20StorSimple%208000%20Series).
+
 
 ## Next steps
  - [Migrate data from a StorSimple 5000-7000 series to an 8000 series device](storsimple-8000-migrate-from-5000-7000.md).

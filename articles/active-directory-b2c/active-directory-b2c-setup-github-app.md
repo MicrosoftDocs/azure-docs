@@ -8,7 +8,7 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/09/2018
+ms.date: 09/11/2018
 ms.author: davidmu
 ms.component: B2C
 ---
@@ -24,23 +24,16 @@ To use a Github account as an identity provider in Azure Active Directory (Azure
 ## Create a GitHub OAuth application
 
 1. Sign in to the [GitHub Developer](https://github.com/settings/developers) website with your GitHub credentials.
-2. Select **OAuth Apps** and then select **Register a new application**.
+2. Select **OAuth Apps** and then select **New OAuth App**.
 3. Enter an **Application name** and your **Homepage URL**.
-4. Enter `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` in **Authorization callback URL**. Replace **{tenant}** with your Azure AD B2C tenant's name (for example, contosob2c.onmicrosoft.com).
+4. Enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` in **Authorization callback URL**. Replace `your-tenant-name` with the name of your Azure AD B2C tenant.
 5. Click **Register application**.
 6. Copy the values of **Client ID** and **Client Secret**. You need both to add the identity provider to your tenant.
 
 ## Configure a GitHub account as an identity provider
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
-2. Make sure you're using the directory that contains your Azure AD B2C tenant by switching to it in the top-right corner of the Azure portal. Select your subscription information, and then select **Switch Directory**. 
-
-    ![Switch to your Azure AD B2C tenant](./media/active-directory-b2c-setup-github-app/switch-directories.png)
-
-    Choose the directory that contains your tenant.
-
-    ![Select directory](./media/active-directory-b2c-setup-github-app/select-directory.png)
-
+2. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
 3. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
 4. Select **Identity providers**, and then select **Add**.
 5. Provide a **Name**. For example, enter *Github*.

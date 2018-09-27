@@ -312,7 +312,7 @@ Power BI is a suite of business analytics tools to analyze data and share insigh
    * For Revenue, it would make sense to do a line chart with time as the axis and the sum of the prices as the value. The time window to display should be the largest possible in order to deliver as much information as possible.  
    * For Unique Visitors, it would make sense to do a card visualization with the number of unique visitors as the value.
 
-   This is how our dashboard looks with these charts:
+   This is how a sample dashboard looks with these charts:
 
    ![visualizations](./media/changefeed-ecommerce-solution/visualizations.png)
 

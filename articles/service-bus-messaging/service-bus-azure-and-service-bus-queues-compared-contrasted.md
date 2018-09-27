@@ -3,7 +3,7 @@ title: Azure Storage queues and Service Bus queues compared and contrasted | Mic
 description: Analyzes differences and similarities between two types of queues offered by Azure.
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 06/05/2018
-ms.author: sethm
+ms.date: 09/05/2018
+ms.author: spelluru
 
 ---
 # Storage queues and Service Bus queues - compared and contrasted

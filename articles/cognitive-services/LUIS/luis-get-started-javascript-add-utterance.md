@@ -1,50 +1,44 @@
 ---
-title: Quickstart learning how to add utterances to a LUIS app using JavaScript | Microsoft Docs
+title: JavaScript Quickstart - change model and train LUIS app
+titleSuffix: Azure Cognitive Services
 description: In this quickstart, you learn to call a LUIS app using JavaScript.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 06/27/2018
+ms.date: 09/10/2018
 ms.author: diberry
-#Customer intent: As a developer new to LUIS, I want to add an utterance to the LUIS app model using Javascript. 
+#Customer intent: As an API or REST developer new to the LUIS service, I want to programmatically add an example utterance to an intent and train the model using Java.
 ---
-# Quickstart: Add utterances to app using JavaScript
-In this quickstart, write a program to add an utterance to an intent using the Authoring APIs in Javascript.
+# Quickstart: Change model using JavaScript
 
-<!-- green checkmark -->
-<!--
-> [!div class="checklist"]
-> * Create Visual Studio console project 
-> * Add method to call LUIS API to add utterance and train app
-> * Add JSON file with example utterances for BookFlight intent
-> * Run console and see training status for utterances
--->
-
-For more information, see the technical documentation for the [add example utterance to intent](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08), [train](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c45), and [training status](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c46) APIs.
-
-For this article, you need a free [LUIS](luis-reference-regions.md#luis-website) account in order to author your LUIS application.
+[!INCLUDE [Quickstart introduction for change model](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
 ## Prerequisites
-* Your LUIS [**authoring key**](luis-concept-keys.md#authoring-key). 
-* Your existing LUIS **application ID** and **version ID**. 
-* A new file named `add-utterances.html` project in VSCode.
 
-> [!NOTE] 
-> The complete `add-utterances.html` file is available from the [**LUIS-Samples** Github repository](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/authoring-api-samples/javascript/add-utterance.html).
+[!INCLUDE [Quickstart prerequisites for changing model](../../../includes/cognitive-services-luis-qs-change-model-prereq.md)]
+* [Visual Studio Code](https://code.visualstudio.com/).
+
+[!INCLUDE [Code is available in LUIS-Samples Github repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
+
+## Example utterances JSON file
+
+[!INCLUDE [Quickstart explanation of example utterance JSON file](../../../includes/cognitive-services-luis-qs-change-model-json-ex-utt.md)]
 
 
-## Write the code
+## Create quickstart code
+
 Create `add-utterances.html` and add the following code:
 
-   [!code-javascript[Java Dependencies](~/samples-luis/documentation-samples/authoring-api-samples/javascript/add-utterance.html "Java Dependencies")]
+   [!code-html[Html code](~/samples-luis/documentation-samples/quickstarts/change-model/javascript/add-utterance.html "Javascript code")]
 
-## View in browser
+## Run code
+
 1. Open the file in a browser.
 
-2. Add your LUIS authoring ID, your LUIS application ID, and change the version if it is not `0.1`
+2. Add your LUIS authoring ID, your LUIS application ID.
 
 3. Modify the **array of utterances** to add to your application. They are stored in the utteranceJSON variable. Change these values for your own domain and utterance needs. 
 
@@ -77,10 +71,10 @@ Create `add-utterances.html` and add the following code:
 
 6. Select the `Train Status` button to see the training status. 
 
-![Add-utterances.html](./media/luis-quickstart-javascript-add-utterance/add-utterance.png)
+    ![Add-utterances.html](./media/luis-quickstart-javascript-add-utterance/add-utterance.png)
 
 ## Clean up resources
-When you are done with the tutorial, remove Visual Studio and the console application if you don't need them anymore. 
+When you are done with the quickstart, remove all the files created in this quickstart. 
 
 ## Next steps
 > [!div class="nextstepaction"]

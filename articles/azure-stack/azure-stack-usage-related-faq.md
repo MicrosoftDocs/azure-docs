@@ -7,13 +7,12 @@ author: mattbriggs
 manager: femila
 editor: ''
 
-ms.assetid: 847f18b2-49a9-4931-9c09-9374e932a071
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 09/27/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
 
@@ -26,7 +25,7 @@ This article answers some frequently asked questions about the Azure Stack Usage
 ## What meter IDs can I see?
 Usage is reported for the following resource providers:
 
-**Network**  
+### Network
   
 **Meter ID**: F271A8A388C44D93956A063E1D2FA80B  
 **Meter name**: Static IP Address Usage  
@@ -38,7 +37,7 @@ Usage is reported for the following resource providers:
 **Unit**: IP addresses  
 **Notes**: Count of IP addresses used. If you call the usage API with a daily granularity, the meter returns IP address multiplied by the number of hours.  
   
-**Storage**  
+### Storage
   
 **Meter ID**: B4438D5D-453B-4EE1-B42A-DC72E377F1E4  
 **Meter name**: TableCapacity  
@@ -104,22 +103,8 @@ Usage is reported for the following resource providers:
 **Meter name**: QueueDataTransOut  
 **Unit**: Egress in GB  
 **Notes**: Queue service data egress in GB  
-  
-**Sql RP**  
-  
-**Meter ID**: CBCFEF9A-B91F-4597-A4D3-01FE334BED82  
-**Meter name**: DatabaseSizeHourSqlMeter  
-**Unit**: MB\*hours  
-**Notes**: Total DB capacity at creation. If you call the usage API with a daily granularity, the meter returns MB multiplied by the number of hours.  
-  
-**MySql RP**  
-  
-**Meter ID**: E6D8CFCD-7734-495E-B1CC-5AB0B9C24BD3  
-**Meter name**: DatabaseSizeHourMySqlMeter  
-**Unit**: MB\*hours  
-**Notes**: Total DB capacity at creation. If you call the usage API with a daily granularity, the meter returns MB multiplied by the number of hours.  
-  
-**Compute**  
+
+### Compute 
   
 **Meter ID**: FAB6EB84-500B-4A09-A8CA-7358F8BBAEA5  
 **Meter name**: Base VM Size Hours  
@@ -136,7 +121,122 @@ Usage is reported for the following resource providers:
 **Unit**: VM hours  
 **Notes**: Captures both Base and Windows VM. Does not adjust for cores.  
   
-**Key Vault**  
+### Managed Disks
+
+**Meter ID**: 5d76e09f-4567-452a-94cc-7d1f097761f0   
+**Meter name**: S4   
+**Unit**: Count of Disks   
+**Notes**: Standard Managed Disk – 32 GB 
+
+**Meter ID**: dc9fc6a9-0782-432a-b8dc-978130457494   
+**Meter name**: S6   
+**Unit**: Count of Disks   
+**Notes**: Standard Managed Disk – 64 GB 
+
+**Meter ID**: e5572fce-9f58-49d7-840c-b168c0f01fff   
+**Meter name**: S10   
+**Unit**: Count of Disks   
+**Notes**: Standard Managed Disk – 128 GB 
+
+**Meter ID**: 9a8caedd-1195-4cd5-80b4-a4c22f9302b8   
+**Meter name**: S15   
+**Unit**: Count of Disks   
+**Notes**: Standard Managed Disk – 256 GB 
+
+**Meter ID**: 5938f8da-0ecd-4c48-8d5a-c7c6c23546be   
+**Meter name**: S20   
+**Unit**: Count of Disks      
+**Notes**: Standard Managed Disk – 512 GB 
+
+**Meter ID**: 7705a158-bd8b-4b2b-b4c2-0782343b81e6   
+**Meter name**: S30   
+**Unit**: Count of Disks   
+**Notes**: Standard Managed Disk – 1024 GB 
+
+**Meter ID**: d9aac1eb-a5d1-42f2-b617-9e3ea94fed88   
+**Meter name**: S40   
+**Unit**: Count of Disks   
+**Notes**: Standard Managed Disk – 2048 GB 
+
+**Meter ID**: a54899dd-458e-4a40-9abd-f57cafd936a7   
+**Meter name**: S50   
+**Unit**: Count of Disks   
+**Notes**: Standard Managed Disk – 4096 GB 
+
+**Meter ID**: 5c105f5f-cbdf-435c-b49b-3c7174856dcc   
+**Meter name**: P4   
+**Unit**: Count of Disks   
+**Notes**: Premium Managed Disk – 32 GB 
+
+**Meter ID**: 518b412b-1927-4f25-985f-4aea24e55c4f   
+**Meter name**: P6   
+**Unit**: Count of Disks   
+**Notes**: Premium Managed Disk – 64 GB 
+
+**Meter ID**: 5cfb1fed-0902-49e3-8217-9add946fd624   
+**Meter name**: P10   
+**Unit**: Count of Disks   
+**Notes**: Premium Managed Disk – 128 GB  
+
+**Meter ID**: 8de91c94-f740-4d9a-b665-bd5974fa08d4   
+**Meter name**: P15  
+**Unit**: Count of Disks   
+**Notes**: Premium Managed Disk – 256 GB 
+
+**Meter ID**: c7e7839c-293b-4761-ae4c-848eda91130b   
+**Meter name**: P20   
+**Unit**: Count of Disks   
+**Notes**: Premium Managed Disk – 512 GB 
+
+**Meter ID**: 9f502103-adf4-4488-b494-456c95d23a9f   
+**Meter name**: P30   
+**Unit**: Count of Disks   
+**Notes**: Premium Managed Disk – 1024 GB 
+
+**Meter ID**: 043757fc-049f-4e8b-8379-45bb203c36b1   
+**Meter name**: P40   
+**Unit**: Count of Disks    
+**Notes**: Premium Managed Disk – 2048 GB 
+
+**Meter ID**: c0342c6f-810b-4942-85d3-6eaa561b6570   
+**Meter name**: P50   
+**Unit**: Count of Disks   
+**Notes**: Premium Managed Disk – 4096 GB 
+
+**Meter ID**: 8a409390-1913-40ae-917b-08d0f16f3c38   
+**Meter name**: ActualStandardDiskSize   
+**Unit**: Byte      
+**Notes**: The actual size on disk of standard managed disk  
+
+**Meter ID**: 1273b16f-8458-4c34-8ce2-a515de551ef6  
+**Meter name**: ActualPremiumDiskSize   
+**Unit**: Byte      
+**Notes**: The actual size on disk of premium managed disk 
+
+**Meter ID**: 89009682-df7f-44fe-aeb1-63fba3ddbf4c  
+**Meter name**: ActualStandardSnapshotSize   
+**Unit**: Byte   
+**Notes**: The actual size on disk of managed standard snapshot.  
+
+**Meter ID**: 95b0c03f-8a82-4524-8961-ccfbf575f536   
+**Meter name**: ActualPremiumSnapshotSize   
+**Unit**: Byte   
+**Notes**: The actual size on disk of managed premium.   
+
+### Sql RP
+  
+**Meter ID**: CBCFEF9A-B91F-4597-A4D3-01FE334BED82  
+**Meter name**: DatabaseSizeHourSqlMeter  
+**Unit**: MB\*hours  
+**Notes**: Total DB capacity at creation. If you call the usage API with a daily granularity, the meter returns MB multiplied by the number of hours.  
+  
+### MySql RP   
+  
+**Meter ID**: E6D8CFCD-7734-495E-B1CC-5AB0B9C24BD3  
+**Meter name**: DatabaseSizeHourMySqlMeter  
+**Unit**: MB\*hours  
+**Notes**: Total DB capacity at creation. If you call the usage API with a daily granularity, the meter returns MB multiplied by the number of hours.    
+### Key Vault   
   
 **Meter ID**: EBF13B9F-B3EA-46FE-BF54-396E93D48AB4  
 **Meter name**: Key Vault transactions  
@@ -148,7 +248,7 @@ Usage is reported for the following resource providers:
 **Unit**:  10K transactions  
 **Notes**: RSA 3K/4K, ECC key transactions. (preview).  
   
-*App service**  
+### App service   
   
 **Meter ID**: 190C935E-9ADA-48FF-9AB8-56EA1CF9ADAA  
 **Meter name**: App Service  
@@ -190,7 +290,7 @@ Usage is reported for the following resource providers:
 **Unit**: 1 hour  
 **Notes**: Calculated based on size and number of instances.  
   
-**Custom Worker Tiers**  
+### Custom Worker Tiers   
   
 **Meter ID**: *Custom Worker Tiers*  
 **Meter name**: Custom Worker Tiers  
@@ -218,13 +318,13 @@ Usage is reported for the following resource providers:
 **Notes**: Total incoming request response bytes + total outgoing request bytes + total incoming FTP request response bytes + total incoming web deploy request response bytes.  
   
 
-## How do the Azure Stack usage APIs compare to the [Azure usage API](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) (currently in public preview)?
+## How do the Azure Stack usage APIs compare to the [Azure usage API](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview#azure-resource-usage-api-preview) (currently in public preview)?
 * The Tenant Usage API is consistent with the Azure API, with one
   exception: the *showDetails* flag currently is not supported in
   Azure Stack.
 * The Provider Usage API applies only to Azure Stack.
 * Currently, the [RateCard
-  API](https://msdn.microsoft.com/library/azure/mt219004.aspx)
+  API](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview#azure-resource-ratecard-api-preview)
   that is available in Azure is not available in Azure Stack.
 
 ## What is the difference between usage time and reported time?

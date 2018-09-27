@@ -1,6 +1,6 @@
 ---
-title: Deploy OpenShift Origin in Azure | Microsoft Docs
-description: Deploy OpenShift Origin in Azure.
+title: Deploy OKD in Azure | Microsoft Docs
+description: Deploy OKD in Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldw
@@ -18,14 +18,14 @@ ms.date:
 ms.author: haroldw
 ---
 
-# Deploy OpenShift Origin in Azure
+# Deploy OKD in Azure
 
-You can use one of two ways to deploy OpenShift Origin in Azure:
+You can use one of two ways to deploy OKD (formerly OpenShift Origin) in Azure:
 
-- You can manually deploy all the necessary Azure infrastructure components, and then follow the OpenShift Origin [documentation](https://docs.openshift.org/3.6/welcome/index.html).
-- You can also use an existing [Resource Manager template](https://github.com/Microsoft/openshift-origin) that simplifies the deployment of the OpenShift Origin cluster.
+- You can manually deploy all the necessary Azure infrastructure components, and then follow the OKD [documentation](https://docs.okd.io/3.10/welcome/index.html).
+- You can also use an existing [Resource Manager template](https://github.com/Microsoft/openshift-origin) that simplifies the deployment of the OKD cluster.
 
-## Deploy by using the OpenShift Origin template
+## Deploy by using the OKD template
 
 Use the `appId` value from the service principal that you created earlier for the `aadClientId` parameter.
 
@@ -95,9 +95,9 @@ The following example creates a parameters file named azuredeploy.parameters.jso
 
 
 > [!NOTE] 
-> The following command requires Azure CLI 2.0.8 or later. You can verify the CLI version with the `az --version` command. To update the CLI version, see [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+> The following command requires Azure CLI.8 or later. You can verify the CLI version with the `az --version` command. To update the CLI version, see [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-The following example deploys the OpenShift cluster and all related resources into a resource group named myResourceGroup, with a deployment name of myOpenShiftCluster. The template is referenced directly from the GitHub repo by using a local parameters file named azuredeploy.parameters.json.
+The following example deploys the OKD cluster and all related resources into a resource group named myResourceGroup, with a deployment name of myOpenShiftCluster. The template is referenced directly from the GitHub repo by using a local parameters file named azuredeploy.parameters.json.
 
 ```azurecli 
 az group deployment create -g myResourceGroup --name myOpenShiftCluster \
@@ -105,7 +105,7 @@ az group deployment create -g myResourceGroup --name myOpenShiftCluster \
       --parameters @./azuredeploy.parameters.json
 ```
 
-The deployment takes at least 25 minutes to finish, depending on the total number of nodes deployed. The URL of the OpenShift console and the DNS name of the OpenShift master prints to the terminal when the deployment finishes.
+The deployment takes at least 25 minutes to finish, depending on the total number of nodes deployed. The URL of the OKD console and the DNS name of the OpenShift master prints to the terminal when the deployment finishes.
 
 ```json
 {
@@ -114,9 +114,9 @@ The deployment takes at least 25 minutes to finish, depending on the total numbe
 }
 ```
 
-## Connect to the OpenShift cluster
+## Connect to the OKD cluster
 
-When the deployment finishes, connect to the OpenShift console with your browser by using the `OpenShift Console Uri`. Alternatively, you can connect to the OpenShift master by using the following command:
+When the deployment finishes, connect to the OKD console with your browser by using the `OpenShift Console Uri`. Alternatively, you can connect to the OKD master by using the following command:
 
 ```bash
 $ ssh -p 2200 clusteradmin@myopenshiftmaster.cloudapp.azure.com
@@ -134,4 +134,4 @@ az group delete --name myResourceGroup
 
 - [Post-deployment tasks](./openshift-post-deployment.md)
 - [Troubleshoot OpenShift deployment](./openshift-troubleshooting.md)
-- [Getting started with OpenShift Origin](https://docs.openshift.org/latest/getting_started/index.html)
+- [Getting started with OKD](https://docs.okd.io/latest/getting_started/index.html)

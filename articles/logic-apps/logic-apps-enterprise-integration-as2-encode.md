@@ -1,23 +1,18 @@
 ---
 title: Encode AS2 messages - Azure Logic Apps | Microsoft Docs
-description: How to use the AS2 encoder in the Enterprise Integration Pack for Azure Logic Apps
+description: Encode AS messages with Azure Logic Apps and Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: padmavc
-manager: jeconnoc
-editor: ''
-
-ms.assetid: 332fb9e3-576c-4683-bd10-d177a0ebe9a3
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: 332fb9e3-576c-4683-bd10-d177a0ebe9a3
 ms.date: 08/08/2018
-ms.author: LADocs; padmavc
-
 ---
-# Encode AS2 messages for Azure Logic Apps with the Enterprise Integration Pack
+
+# Encode AS2 messages with Azure Logic Apps and Enterprise Integration Pack
 
 To establish security and reliability while transmitting messages, use the Encode AS2 message connector. 
 This connector provides digital signing, encryption, and acknowledgements through Message Disposition Notifications (MDN), 

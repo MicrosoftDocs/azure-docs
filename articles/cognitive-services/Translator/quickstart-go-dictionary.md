@@ -1,10 +1,10 @@
 ---
-title: Translator Text find alternate translations with Go | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
-description: In this quickstart, you find alternate translations and examples of terms in context using the Translator Text API with Go in Cognitive Services.
+title: "Quickstart: Find alternate translations - Translator Text, Go"
+titleSuffix: Azure Cognitive Services
+description: In this quickstart, you find alternate translations and examples of terms in context using the Translator Text API with Go.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: translator-text

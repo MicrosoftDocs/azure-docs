@@ -102,6 +102,9 @@ Virtual Network is generally available in Azure Government. For more information
 ## Support for Load Balancer
 Load Balancer is generally available in Azure Government. For more information, see the [Load Balancer public documentation](../load-balancer/load-balancer-overview.md). 
 
+### Variations
+* Azure Load Balancer Standard is not available in Azure Government. > [Vote for this](https://feedback.azure.com/forums/558487-azure-government/suggestions/33417523-azure-load-balancer-standard-in-azure-government)
+
 ## Support for DNS
 DNS is generally available in Azure Government. For more information, see the [DNS public documentation](../dns/dns-overview.md). 
 

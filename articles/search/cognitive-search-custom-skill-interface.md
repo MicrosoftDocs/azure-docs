@@ -21,6 +21,8 @@ Building a custom skill gives you a way to insert transformations unique to your
 
 ## Web API custom skill interface
 
+Custom WebAPI skill endpoints must return a response within a 5 minute window. The indexing pipeline is synchronous and indexing will produce a timeout error if a response is not received in that window.”
+
 Currently, the only mechanism for interacting with a custom skill is through a Web API interface. The Web API needs must meet the requirements described in this section.
 
 ### 1.  Web API Input Format

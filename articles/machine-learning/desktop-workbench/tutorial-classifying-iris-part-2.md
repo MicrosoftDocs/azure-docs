@@ -1,6 +1,6 @@
 ---
-title: Build a model tutorial for Azure Machine Learning services (preview) | Microsoft Docs
-description: This full-length tutorial shows how to use Azure Machine Learning services (preview) end to end. This is part two and discusses experimentation.
+title: Build a model tutorial for Azure Machine Learning service (preview) | Microsoft Docs
+description: This full-length tutorial shows how to use Azure Machine Learning service (preview) end to end. This is part two and discusses experimentation.
 services: machine-learning
 author: hning86
 ms.author: haining
@@ -12,12 +12,18 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/15/2018
+
+ROBOTS: NOINDEX
 ---
 
-# Tutorial 2: Classify Iris - Build a model
-Azure Machine Learning services (preview) are an integrated, data science and advanced analytics solution for professional data scientists to prepare data, develop experiments, and deploy models at cloud scale.
 
-This tutorial is **part two of a three-part series**. In this part of the tutorial, you use Azure Machine Learning services to:
+# Tutorial 2: Classify Iris - Build a model
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
+Azure Machine Learning service (preview) are an integrated, data science and advanced analytics solution for professional data scientists to prepare data, develop experiments, and deploy models at cloud scale.
+
+This tutorial is **part two of a three-part series**. In this part of the tutorial, you use Azure Machine Learning service to:
 
 > [!div class="checklist"]
 > * Open scripts and review code
@@ -34,7 +40,7 @@ This tutorial uses the timeless [Iris flower data set](https://en.wikipedia.org/
 
 To complete this tutorial, you need:
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
-- An experimentation account and Azure Machine Learning Workbench installed as described in this [quickstart](../service/quickstart-installation.md)
+- An experimentation account and Azure Machine Learning Workbench installed as described in this [quickstart](quickstart-installation.md)
 - The project and prepared Iris data from [Tutorial part 1](tutorial-classifying-iris-part-1.md)
 - A Docker engine installed and running locally. Docker's Community Edition is sufficient. Learn how to install Docker here: https://docs.docker.com/engine/installation/.
 
@@ -437,7 +443,7 @@ To execute your script in a Docker container on a remote Linux machine, you need
    >The IP address can also be a publicly addressable fully-qualified domain name (FQDN) such as `vm-name.southcentralus.cloudapp.azure.com`. It is a good practice to add an FQDN to your DSVM and use it instead of an IP address. This practice is a good idea because you might turn off the VM at some point to save on cost. Additionally, the next time you start the VM, the IP address might have changed.
 
    >[!NOTE]
-   >In addition to username and password authentication, you can specify a private key and the corresponding passphrase (if any) using the `--private-key-file` and (optionally) the `--private-key-passphrase` options.
+   >In addition to username and password authentication, you can specify a private key and the corresponding passphrase (if any) using the `--private-key-file` and (optionally) the `--private-key-passphrase` options. If you want to use the private key that you used when created DSVM, you should specify the `--use-azureml-ssh-key` option.
 
    Next, prepare the **myvm** compute target by running this command.
    

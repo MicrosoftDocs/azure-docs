@@ -3,7 +3,7 @@ title: Data Warehouse Units (DWUs, cDWUs) in Azure SQL Data Warehouse | Microsof
 description: Recommendations on choosing the ideal number of data warehouse units (DWUs, cDWUs) to optimize price and performance, and how to change the number of units.
 services: sql-data-warehouse
 author: ronortloff
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement

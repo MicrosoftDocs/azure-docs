@@ -11,13 +11,13 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 07/20/2018
+ms.date: 09/07/2018
 ms.topic: tutorial
 ms.author: jgao
 
 ---
 
-# Tutorial: create an Azure Resource Manager template for deploying an encrypted storage account
+# Tutorial: Create an Azure Resource Manager template for deploying an encrypted storage account
 
 Learn how to find information to complete an Azure Resource Manager template.
 
@@ -27,9 +27,7 @@ This tutorial covers the following tasks:
 
 > [!div class="checklist"]
 > * Open a Quickstart template
-> * Understand the template format
-> * Use parameters in template
-> * Use variables in template
+> * Understand the template
 > * Edit the template
 > * Deploy the template
 
@@ -98,7 +96,7 @@ Variables allow you to construct values that can be used throughout your templat
 This template defines one variable *storageAccountName*. In the definition, two template functions are used:
 
 - **concat()**: concatenates strings. For more information, see [concat](./resource-group-template-functions-string.md#concat).
-- **uniqueString()**: creates a deterministic hash string based on the values provided as parameters. Each Azure storage account must have an unique name across of all Azure. This function provides an unique string. For more string functions, see [String functions](./resource-group-template-functions-string.md).
+- **uniqueString()**: creates a deterministic hash string based on the values provided as parameters. Each Azure storage account must have a unique name across of all Azure. This function provides a unique string. For more string functions, see [String functions](./resource-group-template-functions-string.md).
 
 To use the variable defined in the template:
 
@@ -108,12 +106,17 @@ To use the variable defined in the template:
 
 ## Edit the template
 
-To find the storage account encryption-related configuration, you can use the template reference of Azure Storage account.
+The goal of this tutorial is to define a template to create an encrypted storage account.  The sample template only creates a basic unencrypted storage account. To find the encryption-related configuration, you can use the template reference of Azure Storage account.
 
 1. Browse to [Azure Templates](https://docs.microsoft.com/azure/templates/).
-2. From the TOC on the left, select **Reference**->**Storage**->**Storage Accounts**. The page contains the information for defining a Storage Account information.
-3. Explore the encryption-related information.  
-4. Inside the properties element of the storage account resource definition, add the following json:
+2. In **Filter by title**, enter **storage accounts**.
+3. Select **Reference/Template reference/Storage/Storage Accounts** as shown in the following screenshot:
+
+    ![Resource Manager template reference storage account](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts.png)
+
+    resource-manager-template-resources-reference-storage-accounts
+1. Explore the encryption-related information.  
+1. Inside the properties element of the storage account resource definition, add the following json:
 
     ```json
     "encryption": {
@@ -127,59 +130,17 @@ To find the storage account encryption-related configuration, you can use the te
     ```
     This part enables the encryption function of the blob storage service.
 
-The final resources element looks like:
+From Visual Studio Code, modify the template so that the final resources element looks like:
 
 ![Resource Manager template encrypted storage account resources](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-resources.png)
 
 ## Deploy the template
 
-There are many methods for deploying templates.  In this tutorial, you use the Cloud shell from the Azure portal. The Cloud shell supports both Azure CLI and Azure PowerShell. The instructions provided here use CLI.
+Refer to the [Deploy the template](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) section in the Visual Studio Code quickstart for the deployment procedure.
 
-1. Sign in to the [Azure portal](https://portal.azure.com)
-2. Select **Cloud Shell** from the upper right corner as shown in the following image:
+The following screenshot shows the CLI command for listing the newly created storage account, which indicates encryption has been enabled for the blob storage.
 
-    ![Azure portal Cloud shell](./media/resource-manager-tutorial-create-encrypted-storage-accounts/azure-portal-cloud-shell.png)
-
-3. Select the down arrow and then select **Bash** if it is not Bash. You use Azure CLI in this tutorial.
-
-    ![Azure portal Cloud shell CLI](./media/resource-manager-tutorial-create-encrypted-storage-accounts/azure-portal-cloud-shell-choose-cli.png)
-4. Select **Restart** to restart the shell.
-5. Select **Upload/download files**, and then select **Upload**.
-
-    ![Azure portal Cloud shell upload file](./media/resource-manager-tutorial-create-encrypted-storage-accounts/azure-portal-cloud-shell-upload-file.png)
-6. Select the file you saved earlier in the tutorial. The default name is **azuredeploy.json**.
-7. From the Cloud shell, run the **ls** command to verify the file is uploaded successfully. You can also use the **cat** command to verify the template content.
-
-    ![Azure portal Cloud shell list file](./media/resource-manager-tutorial-create-encrypted-storage-accounts/azure-portal-cloud-shell-list-file.png)
-8. From the Cloud shell, run the following commands:
-
-    ```cli
-    az group create --name <ResourceGroupName> --location <AzureLocation>
-
-    az group deployment create --name <DeploymentName> --resource-group <ResourceGroupName> --template-file azuredeploy.json
-    ```
-    Here is the screenshot of a sample deployment:
-
-    ![Azure portal Cloud shell deploy template](./media/resource-manager-tutorial-create-encrypted-storage-accounts/azure-portal-cloud-shell-deploy-template.png)
-
-    On the screenshot, these values are used:
-
-    * **&lt;ResourceGroupName>**: myresourcegroup0719. There are two appearances of the parameter.  Make sure to use the same value.
-    * **&lt;AzureLocation>**: eastus2
-    * **&lt;DeployName>**: mydeployment0719
-    * **&lt;TemplateFile>**: azuredeploy.json
-
-    From the screenshot output, the storage account name is *fhqbfslikdqdsstandardsa*. 
-
-9. Run the following PowerShell command to list the newly created storage account:
-
-    ```cli
-    az storage account show --resource-group <ResourceGroupName> --name <StorageAccountName>
-    ```
-
-    You shall see an output similar to the following screenshot which indicates encryption has been enabled for the blob storage.
-
-    ![Azure resource manager encrypted storage account](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-account.png)
+![Azure Resource Manager encrypted storage account](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-account.png)
 
 ## Clean up resources
 
@@ -192,7 +153,7 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 ## Next steps
 
-In this tutorial, you learned how to use template reference to customize an existing template. The template used in this tutorial only contains one Azure resource.  In the next tutorial, you develop a template with multiple resources.  Some of the resources have dependent resources.
+In this tutorial, you learned how to use template reference to customize an existing template. To learn how to create multiple storage account instances, see:
 
 > [!div class="nextstepaction"]
-> [Create multiple resources](./resource-manager-tutorial-create-templates-with-dependent-resources.md)
+> [Create multiple instances](./resource-manager-tutorial-create-multiple-instances.md)

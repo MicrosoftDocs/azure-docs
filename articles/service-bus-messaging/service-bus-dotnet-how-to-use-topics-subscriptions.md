@@ -3,7 +3,7 @@ title: Get started with Azure Service Bus topics and subscriptions | Microsoft D
 description: Write a C# .NET Core console application that uses Service Bus messaging topics and subscriptions.
 services: service-bus-messaging
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 07/03/2018
-ms.author: sethm
+ms.date: 09/03/2018
+ms.author: spelluru
 
 ---
 # Get started with Service Bus topics

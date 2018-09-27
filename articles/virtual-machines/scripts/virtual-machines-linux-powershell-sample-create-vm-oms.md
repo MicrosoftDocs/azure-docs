@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure PowerShell Script Sample - OMS | Microsoft Docs
 description: Azure PowerShell Script Sample - OMS
 services: virtual-machines-linux

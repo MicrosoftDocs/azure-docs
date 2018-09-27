@@ -1,19 +1,19 @@
 ---
-title: Learn how Patterns increase prediction accuracy | Microsoft Docs 
-titleSuffix: Azure
-description: Learn how to design patterns to increase intent prediction scores and find entities.
+title: Learn how Patterns increase prediction accuracy
+titleSuffix: Azure Cognitive Services
+description: Patterns are designed to improve accuracy when several utterances are very similar. A pattern allows you to gain more accuracy for an intent without providing many more utterances.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 06/08/2018
+ms.date: 09/10/2018
 ms.author: diberry
 ---
 # Patterns improve prediction accuracy
-Patterns are designed to improve accuracy when several utterances are very similar. By providing a pattern for the utterance, LUIS can have a high confidence in the prediction. 
+Patterns are designed to improve accuracy when several utterances are very similar.  A pattern allows you to gain more accuracy for an intent without providing many more utterances. 
 
 ## Patterns solve low intent confidence
 Consider a Human Resources app that reports on the organizational chart in relation to an employee. Given an employee's name and relationship, LUIS returns the employees involved. Consider an employee, Tom, with a manager name Alice, and a team of subordinates named: Michael, Rebecca, and Carl.
@@ -55,25 +55,25 @@ Entities in patterns are surrounded by curly brackets, `{}`. Patterns can includ
 ### Syntax to add an entity to a pattern template
 To add an entity into the pattern template, surround the entity name with curly braces, such as `Who does {Employee} manage?`. 
 
-```
-Who does {Employee} manage?
-```
+|Pattern with entity|
+|--|
+|`Who does {Employee} manage?`|
 
 ### Syntax to add an entity and role to a pattern template
 An entity role is denoted as `{entity:role}` with the entity name followed by a colon, then the role name. To add an entity with a role into the pattern template, surround the entity name and role name with curly braces, such as `Book a ticket from {Location:Origin} to {Location:Destination}`. 
 
-```
-Book a ticket from {Location:Origin} to {Location:Destination}
-```
+|Pattern with entity roles|
+|--|
+|`Book a ticket from {Location:Origin} to {Location:Destination}`|
 
 ### Syntax to add a pattern.any to pattern template
 The Pattern.any entity allows you to add an entity of varying length to the pattern. As long as the pattern template is followed, the pattern.any can be any length. 
 
 To add a **Pattern.any** entity into the pattern template, surround the Pattern.any entity with the curly braces, such as `How much does {Booktitle} cost and what format is it available in?`.  
 
-```
-How much does {Booktitle} cost and what format is it available in?
-```
+|Pattern with Pattern.any entity|
+|--|
+|`How much does {Booktitle} cost and what format is it available in?`|
 
 |Book titles in the pattern|
 |--|
@@ -102,9 +102,9 @@ To fix this exception to the pattern, add `the man from la mancha` as an explici
 ### Syntax to mark optional text in a template utterance
 Mark optional text in the utterance using the regular expression square bracket syntax, `[]`. The optional text can nest square brackets up to two brackets only.
 
-```
-[find] email about {subject} [from {person}]
-```
+|Pattern with optional text|
+|--|
+|`[find] email about {subject} [from {person}]`|
 
 Punctuation marks such as `.`, `!`, and `?` can be ignored using the square brackets. In order to ignore these marks, each mark must be in a separate pattern. The optional syntax doesn't currently support ignoring an item in a list of several items.
 

@@ -1,18 +1,16 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Ansible in Azure Documentation
+title: Ansible on Azure documentation
 metadata:
-  title: Ansible in Azure Documentation - Tutorials, samples, reference, and resources
-  meta.description: Learn how to use Ansible to automate cloud provisioning, configuration management, and application deployments.
-  services: terraform
-  author: tomarcher
-  manager: routlaw
+  title: Ansible on Azure documentation - Tutorials, samples, reference, and resources
+  description: Learn how to use Ansible to automate cloud provisioning, configuration management, and application deployments.
   ms.service: ansible
-  ms.tgt_pltfrm: na
-  ms.devlang: devops
-  ms.topic: landing-page
-  ms.date: 07/16/2018
+  keywords: ansible, azure, devops, tutorials, samples, reference
+  author: tomarcher
+  manager: jeconnoc
   ms.author: tarcher
+  ms.topic: landing-page
+  ms.date: 08/27/2018
 abstract:
   description: Use <a href="http://www.ansible.com">Ansible</a> to automate cloud provisioning, configuration management, and application deployments.
 sections:
@@ -20,18 +18,22 @@ sections:
 - title: 5-Minute Quickstarts
   items: 
   - type: paragraph
-    text: Configure Ansible and use it to create a Linux VM in Azure.
+    text: Install Ansible and use it to create and manage Linux virtual machines in Azure.
   - type: list
     style: icon48
     items: 
     - image: 
         src: /azure/media/index/azure_dev-9.svg
-      text: Configure Ansible
+      text: Install Ansible
       href: /azure/virtual-machines/linux/ansible-install-configure?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json
     - image: 
         src: /azure/media/index/VirtualMachine.svg
       text: Create a Linux VM
       href: /azure/virtual-machines/linux/ansible-create-vm?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json
+    - image: 
+        src: /azure/media/index/VirtualMachine.svg
+      text: Manage a Linux VM
+      href: /azure/virtual-machines/linux/ansible-manage-linux-vm?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
@@ -40,11 +42,12 @@ sections:
     style: unordered
     items:
     - html: <a href="/azure/virtual-machines/linux/ansible-create-complete-vm?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json">Create a Linux virtual machine, including virtual network, public IP address, and virtual network interface card.</a>
-    - html: <a href="./ansible-run-playbook-in-cloudshell">Connect to an Azure virtual machine and run an Ansible playbook in Cloud Shell.</a>
+    - html: <a href="./ansible-run-playbook-in-cloudshell">Run Ansible with Bash in Azure Cloud Shell.</a>
     - html: <a href="./ansible-manage-azure-dynamic-inventories">Create and manage a dynamic inventory of your Azure resources.</a>
     - html: <a href="./ansible-create-configure-vmss">Create and manage virtual machine scale sets in Azure.</a>
     - html: <a href="./ansible-deploy-app-vmss">Deploy applications to virtual machine scale sets in Azure.</a>
     - html: <a href="./ansible-create-configure-aks">Create and manage Azure Kubernetes Service clusters.</a>
+    - html: <a href="./ansible-create-configure-application-gateway">Manage web traffic with an Azure application gateway.</a>
 - title: Reference
   items:
   - type: list

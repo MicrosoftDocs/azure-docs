@@ -4,7 +4,7 @@ description: In this tutorial, you deploy Azure Machine Learning as a module to 
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/25/2018
+ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -40,8 +40,8 @@ An Azure IoT Edge device:
 
 Cloud resources:
 
-* A standard-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure. 
-* An Azure Machine Learning account. Follow the instructions in [Create Azure Machine Learning accounts and install Azure Machine Learning Workbench](../machine-learning/service/quickstart-installation.md#create-azure-machine-learning-services-accounts). You do not need to install the workbench application for this tutorial. 
+* A free-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure. 
+* An Azure Machine Learning account. Follow the instructions in [Create Azure Machine Learning accounts and install Azure Machine Learning Workbench](../machine-learning/desktop-workbench/quickstart-installation.md). You do not need to install the workbench application for this tutorial. 
 
 Development resources:
 
@@ -56,7 +56,7 @@ Development resources:
 
 To disable process identification on your IoT edge device, you'll need to provide the ip address and port for **workload_uri** and **management_uri** in the **connect** section of the IoT Edge daemon configuration.
 
-Get the IP address first. Enter `ifconfig` in your command line and copy the IP address of the **docker0** interface.
+Get the IP address first. Enter `ipconfig` in your command line and copy the IP address of the **docker0** interface.
 
 Edit the IoT Edge daemon configuration file:
 

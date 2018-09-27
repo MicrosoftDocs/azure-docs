@@ -13,10 +13,12 @@ ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/31/2018
+ms.topic: tutorial
+ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
+
+#Customer intent: As a IT admin, I want to setup hybrid Azure AD joined devices so that I can automatically bring AD domain-joined devices under control
 
 ---
 # Tutorial: Configure hybrid Azure Active Directory join for federated domains
@@ -118,7 +120,7 @@ To configure a hybrid Azure AD join using Azure AD Connect, you need:
 
     a. Select the forest.
 
-    b. Select the authentication service.
+    b. Select the authentication service. You must select AD FS server unless your organization has exclusively Windows 10 clients.
 
     c. Click **Add** to enter the enterprise administrator credentials.
 
@@ -166,7 +168,7 @@ The following policy must be set to **All**: **Users may register their devices 
 
 ### Configure the local intranet settings for device registration
 
-To successfully complete hybrid Azure AD join of your Windows down-level devices, and to avoid certificate prompts when devices authenticate authenticate to Azure AD you can push a policy to your domain-joined devices to add the following URLs to the Local Intranet zone in Internet Explorer:
+To successfully complete hybrid Azure AD join of your Windows down-level devices, and to avoid certificate prompts when devices authenticate to Azure AD you can push a policy to your domain-joined devices to add the following URLs to the Local Intranet zone in Internet Explorer:
 
 - `https://device.login.microsoftonline.com`
 

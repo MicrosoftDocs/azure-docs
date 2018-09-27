@@ -78,7 +78,7 @@ Create a Web app with [Azure App Service](https://azure.microsoft.com/services/a
     
     ![image15][image15]
     
-    Enabling continuous deployment with the Azure portal is an easy experience. You can also build more complex release pipelines and use many other techniques with existing source control and continuous integration systems to deploy to Azure, such as leveraging automated build and release management systems.
+    Enabling continuous deployment with the Azure portal is an easy experience. You can also build more complex release pipelines and use many other techniques with existing source control and continuous integration systems to deploy to Azure, such as leveraging automated Azure Pipelines management systems.
 
 ## Develop and test an app
 Next, make some changes to the code base and rapidly deploy those changes. You will also set up some performance testing for the Web app.
@@ -95,7 +95,7 @@ Next, make some changes to the code base and rapidly deploy those changes. You w
 4. In the console window, you can issue live commands for your app. Type the dir command and hit enter. Note that commands requiring elevated privileges do not work.
    
    ![image19][image19]
-5. Move back to the Develop category and choose Visual Studio Online. Note: Visual Studio Online is now named Visual Studio Team Services.
+5. Move back to the Develop category and choose Visual Studio Online. Note: Visual Studio Online is now named Azure DevOps Services.
    
    ![image20][image20]
 6. Toggle on the in-browser editing experience for your App.
@@ -121,7 +121,7 @@ Next, make some changes to the code base and rapidly deploy those changes. You w
 12. Move back to the tools blade and under the Develop category, click on Performance Test.
     
     ![image28][image28]
-13. You need to set a team services account. See here for more details: [Create a Team Services Account](https://docs.microsoft.com/vsts/organizations/accounts/create-organization-msa-or-work-student).
+13. You need to set an Azure DevOps Services organization. See here for more details: [Create an Azure DevOps Services Organization](https://docs.microsoft.com/vsts/organizations/accounts/create-organization-msa-or-work-student).
 14. Click on New to create a performance test.
     
     ![image29][image29]

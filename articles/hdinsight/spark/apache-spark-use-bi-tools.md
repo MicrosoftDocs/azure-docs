@@ -4,7 +4,7 @@ description: Use Microsoft Power BI to visualize Spark data stored HDInsight clu
 services: hdinsight
 author: jasonwhowell
 ms.author: jasonh
-editor: jasonwhowell
+ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive,mvc

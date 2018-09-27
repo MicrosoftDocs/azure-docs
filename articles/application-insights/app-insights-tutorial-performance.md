@@ -48,27 +48,20 @@ Application Insights collects performance details for the different operations i
 
 	![Performance panel](media/app-insights-tutorial-performance/performance-blade.png)
 
-3. The graph currently shows the average duration of all operations over time.  Add the operations that you're interested in by pinning them to the graph.  This shows that there are some peaks worth investigating.  Isolate this further by reducing the time window of the graph.
+3. The graph currently shows the average duration of the selected operations over time. You can switch to the 95th percentile to find the performance issues. Add the operations that you're interested in by pinning them to the graph.  This shows that there are some peaks worth investigating.  Isolate this further by reducing the time window of the graph.
 
 	![Pin operations](media/app-insights-tutorial-performance/pin-operations.png)
 
-4.  Click an operation to view its performance panel on the right. This shows the distribution of durations for different requests.  Users typically notice slow performance at about half a second, so reduce the window to requests over 500 milliseconds.  
+4.  The performance panel on the right shows distribution of durations for different requests for the selected operation.  Reduce the window to start around the 95th percentile. The "Top 3 dependencies" insights card, can tell you at a glance that the external dependencies are likely contributing to the slow transactions.  Click on the button with number of samples to see a list of the samples. You can then select any sample to see transaction details.
 
 	![Duration distribution](media/app-insights-tutorial-performance/duration-distribution.png)
 
-5.  In this example, you can see that a significant number of requests are taking over a second to process. You can see the details of this operation by clicking on **Operation details**.
+5.  You can see at a glance that the call to Fabrikamaccount Azure Table is contributing most to the total duration of the transaction. You can also see that an exception caused it to fail. You can click on any item in the list to see its details on the right side. [Learn more about the transaction diagnostics experience](app-insights-transaction-diagnostics.md)
 
 	![Operation details](media/app-insights-tutorial-performance/operation-details.png)
+	
 
-	> [!NOTE]
-	Enable the "Unified details: E2E Transaction Diagnostics" [preview experience](app-insights-previews.md) to see all related server-side telemetry like requests, dependencies, exceptions, traces, events etc. in a single full screen view. 
-
-	With the preview enabled, you can see the time spent in dependency calls, along with any failures or exceptions in a unified experience. For cross-component transactions, the Gantt chart along with the details pane can help you quickly diagnose the root-cause component, dependency or exception. You can expand the bottom section to see time-sequence of any traces or events collected for the selected component-operation. [Learn more about the new experience](app-insights-transaction-diagnostics.md)  
-
-	![Transaction diagnostics](media/app-insights-tutorial-performance/e2e-transaction-preview.png)
-
-
-6.  The information that you've gathered so far only confirms that there is slow performance, but it does little to get to the root cause.  The **Profiler** helps with this by showing the actual code that ran for the operation and the time required for each step. Some operations may not have a trace since the profiler runs periodically.  Over time, more operations should have traces.  To start the profiler for the operation, click **Profiler traces**.
+6.  The **Profiler** helps get further with code level diagnostics by showing the actual code that ran for the operation and the time required for each step. Some operations may not have a trace since the profiler runs periodically.  Over time, more operations should have traces.  To start the profiler for the operation, click **Profiler traces**.
 5.  The trace shows the individual events for each operation so you can diagnose the root cause for the duration of the overall operation.  Click one of the top examples, which have the longest duration.
 6.  Click **Show Hot Path** to highlight the specific path of events that most contribute to the total duration of the operation.  In this example, you can see that the slowest call is from *FabrikamFiberAzureStorage.GetStorageTableData* method. The part that takes most time is the *CloudTable.CreateIfNotExist* method. If this line of code is executed every time the function gets called, unnecessary network call and CPU resource will be consumed. The best way to fix your code is to put this line in some startup method that only executes once. 
 

@@ -3,7 +3,7 @@ title: Managed Service Identity with Azure Service Bus preview | Microsoft Docs
 description: Use Managed Service Identities with Azure Service Bus
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/01/2018
-ms.author: sethm
+ms.date: 09/01/2018
+ms.author: spelluru
 
 ---
 
