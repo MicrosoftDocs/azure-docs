@@ -36,7 +36,7 @@ Roles in Azure Digital Twins consist of several components.
 
 ### Role definitions
 
-A **role definition** is a collection of permissions and is sometimes called a **role**. The role definition lists the allowed operations including *read*, *write*, and *delete*. It also specifies a set of conditions that might exclude certain object types in the topology.
+A **role definition** is a collection of permissions and is sometimes called a **role**. The role definition lists the allowed operations including *create*, *read*, *update*, and *delete*. It also specifies to which object types these permissions apply.
 
 The following roles are available in Digital Twins:
 
