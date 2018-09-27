@@ -51,9 +51,9 @@ Learn more about Azure IoT best practices:
 Read more about authenticating to APIs:
 
 > [!div class="nextstepaction"]
-> [Create and manage roles] (./security-authenticating-apis.md)
+> [Authenticating with APIs](./security-authenticating-apis.md)
 
 Read more about Role-Based Access Control:
 
 > [!div class="nextstepaction"]
-> [Role-Based Access Control] (./security-role-based-access-control.md)
+> [Role-Based Access Control](./security-role-based-access-control.md)
