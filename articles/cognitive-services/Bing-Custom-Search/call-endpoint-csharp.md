@@ -1,46 +1,48 @@
 ---
-title: "Bing Custom Search: Call endpoint by using C Sharp | Microsoft Docs"
-description: Describes how to call Bing Custom Search endpoint with C#
+title: Call endpoint by using C# - Bing Custom Search - Microsoft Cognitive Services
+description: This quickstart shows how to request search results from your custom search instance by using C# to call the Bing Custom Search endpoint. 
 services: cognitive-services
 author: brapel
 manager: ehansen
 ms.service: cognitive-services
 ms.component: bing-custom-search
 ms.topic: article
-ms.date: 09/28/2017
+ms.date: 05/07/2018
 ms.author: v-brapel
 ---
 
 # Call Bing Custom Search endpoint (C#)
 
-This example shows how to request search results from your custom search instance using C#. To create a custom search instance see [Create your first Bing Custom Search instance](quick-start.md).
+This quickstart shows how to request search results from your custom search instance using C# to call the Bing Custom Search endpoint. 
 
 ## Prerequisites
 
-You will need to install [.Net Core](https://www.microsoft.com/net/download/core) to run this example.
+To complete this quickstart, you need:
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Search APIs**. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is sufficient for this quickstart. You need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.  
+- A ready-to-use custom search instance. See [Create your first Bing Custom Search instance](quick-start.md).
+- [.Net Core](https://www.microsoft.com/net/download/core) installed.
+- A subscription key. You can get a subscription key when you activate your [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search), or you can use a paid subscription key from your Azure dashboard (see [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).    
 
-  >[!NOTE]  
-  >Existing Bing Custom Search customers who have a preview key provisioned on or before October 15, 2017 will be able to use their keys until November 30 2017, or until they have exhausted the maximum number of queries allowed. Afterward, they need to migrate to the generally available version on Azure. 
- 
-## Running the code
 
-To run this example, follow these steps.
+## Run the code
 
-1. Create a folder for your code.
-2. From a command prompt or terminal, navigate to the folder you just created.
+To run this example, follow these steps:
+
+1. Create a folder for your code.  
+  
+2. From a command prompt or terminal, navigate to the folder you just created.  
+  
 3. Run the following commands:
-    <pre>
+    ```
     dotnet new console -o BingCustomSearch
     cd BingCustomSearch
     dotnet add package Newtonsoft.Json
     dotnet restore
-    </pre>
-4. Copy the following code to Program.cs.
-5. Replace **YOUR-SUBSCRIPTION-KEY** and **YOUR-CUSTOM-CONFIG-ID** with your key and configuration ID.
+    ```
+  
+4. Copy the following code to Program.cs. Replace **YOUR-SUBSCRIPTION-KEY** and **YOUR-CUSTOM-CONFIG-ID** with your subscription key and configuration ID.
 
-    ``` CSharp
+    ```csharp
     using System;
     using System.Net.Http;
     using System.Web;
@@ -112,16 +114,19 @@ To run this example, follow these steps.
         }
     }
     ```
-6. Build the application using the following command. Note the dll path referenced by the command output.
+6. Build the application using the following command. Note the DLL path referenced by the command output.
+
     <pre>
     dotnet build 
     </pre>
-7. Run the application using the following command replacing **PATH TO OUTPUT** with the path referenced by the build step.
+    
+7. Run the application using the following command replacing **PATH TO OUTPUT** with the DLL path referenced in step 6.
+
     <pre>    
     dotnet **PATH TO OUTPUT**
     </pre>
 
 ## Next steps
-- [Configure and consume custom hosted UI](./hosted-ui.md)
+- [Configure your hosted UI experience](./hosted-ui.md)
 - [Use decoration markers to highlight text](./hit-highlighting.md)
 - [Page webpages](./page-webpages.md)

@@ -10,9 +10,10 @@ editor: ''
 ms.assetid: c317cb7e-7eae-466e-ba41-6aa2518be5cf
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
-ms.workload: na
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.date: 03/26/2018
 ms.author: mikhegn
 

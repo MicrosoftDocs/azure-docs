@@ -2,15 +2,16 @@
 title: Use Visual Studio and .NET to query Azure SQL Database | Microsoft Docs
 description: This topic shows you how to use Visual Studio to create a program that connects to an Azure SQL Database and query it using Transact-SQL statements.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: mvc,develop apps
+ms.subservice: development
+ms.custom: 
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 04/01/2018
+author: CarlRabeler
 ms.author: carlrab
-ms.custom: devcenter
+ms.reviewer: 
+manager: craigg
+ms.date: 04/01/2018
 ---
 # Use .NET (C#) with Visual Studio to connect and query an Azure SQL database
 
@@ -22,7 +23,7 @@ To complete this quickstart, make sure you have the following:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-- A [server-level firewall rule](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) for the public IP address of the computer you use for this quickstart.
+- A [server-level firewall rule](sql-database-get-started-portal-firewall.md) for the public IP address of the computer you use for this quickstart.
 
 - An installation of [Visual Studio Community 2017, Visual Studio Professional 2017, or Visual Studio Enterprise 2017](https://www.visualstudio.com/downloads/).
 
@@ -39,7 +40,7 @@ To complete this quickstart, make sure you have the following:
     ![ADO.NET connection string](./media/sql-database-connect-query-dotnet/adonet-connection-string.png)
 
 > [!IMPORTANT]
-> You must have a firewall rule in place for the public IP address of the computer on which you perform this tutorial. If you are on a different computer or have a different public IP address, create a [server-level firewall rule using the Azure portal](sql-database-get-started-portal.md#create-a-server-level-firewall-rule). 
+> You must have a firewall rule in place for the public IP address of the computer on which you perform this tutorial. If you are on a different computer or have a different public IP address, create a [server-level firewall rule using the Azure portal](sql-database-get-started-portal-firewall.md). 
 >
   
 ## Create a new Visual Studio project
@@ -49,7 +50,7 @@ To complete this quickstart, make sure you have the following:
 3. Select **Console App** and enter *sqltest* for the project name.
 4. Click **OK** to create and open the new project in Visual Studio
 4. In Solution Explorer, right-click **sqltest** and click **Manage NuGet Packages**. 
-5. On the **Browse**, search for ```System.Data.SqlClient``` and, when found, select it.
+5. On the **Browse** tab, search for ```System.Data.SqlClient``` and, when found, select it.
 6. In the **System.Data.SqlClient** page, click **Install**.
 7. When the install completes, review the changes and then click **OK** to close the **Preview** window. 
 8. If a **License Acceptance** window appears, click **I Accept**.

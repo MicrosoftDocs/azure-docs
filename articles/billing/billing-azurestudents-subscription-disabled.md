@@ -11,11 +11,11 @@ tags: billing
 
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/01/2018
-ms.author: amberb
+ms.author: cwatson
 ROBOTS: NOINDEX
 
 ---

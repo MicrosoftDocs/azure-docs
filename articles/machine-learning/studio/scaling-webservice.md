@@ -11,6 +11,7 @@ keywords: azure machine learning, web services, operationalization, scaling, end
 
 ms.assetid: c2c51d7f-fd2d-4f03-bc51-bf47e6969296
 ms.service: machine-learning
+ms.component: studio
 ms.devlang: NA
 ms.workload: data-services
 ms.tgt_pltfrm: na

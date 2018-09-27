@@ -3,13 +3,12 @@ title: Get started with Azure Queue storage using .NET | Microsoft Docs
 description: Azure Queues provide reliable, asynchronous messaging between application components. Cloud messaging enables your application components to scale independently.
 services: storage
 author: tamram
-manager: jeconnoc
-
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 04/16/2018
+ms.date: 06/13/2018
 ms.author: tamram
+ms.component: queues
 ---
 
 # Get started with Azure Queue storage using .NET
@@ -30,9 +29,7 @@ This tutorial shows how to write .NET code for some common scenarios using Azure
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
 * [Azure Configuration Manager for .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
-* An [Azure storage account](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#create-a-storage-account)
-
-[!INCLUDE [storage-dotnet-client-library-version-include](../../../includes/storage-dotnet-client-library-version-include.md)]
+* An [Azure storage account](../common/storage-quickstart-create-account.md)
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -51,7 +48,7 @@ using Microsoft.WindowsAzure.Storage.Queue; // Namespace for Queue storage types
 
 ### Copy your credentials from the Azure portal
 
-The sample code needs to authenticate access to your storage account. To authenticate, you provide the application with your storage account credentials in the form of a connection string. To view your storage account credentials:
+The sample code needs to authorize access to your storage account. To authorize, you provide the application with your storage account credentials in the form of a connection string. To view your storage account credentials:
 
 1. Navigate to the [Azure portal](https://portal.azure.com).
 2. Locate your storage account.

@@ -1,21 +1,14 @@
 ---
-title: Use Hadoop Pig in HDInsight | Microsoft Docs
+title: Use Hadoop Pig in HDInsight 
 description: Learn how to use Pig with Hadoop on HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-
-ms.assetid: acfeb52b-4b81-4a7d-af77-3e9908407404
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.author: larryfr
-
 ---
 # Use Pig with Hadoop on HDInsight
 
@@ -51,7 +44,7 @@ The Pig Latin language allows you to describe the data flow from raw input, thro
 
 Pig Latin also supports user-defined functions (UDF), which allows you to invoke external components that implement logic that is difficult to model in Pig Latin.
 
-For more information about Pig Latin, see [Pig Latin Reference Manual 1](http://pig.apache.org/docs/r0.7.0/piglatin_ref1.html) and [Pig Latin Reference Manual 2](http://pig.apache.org/docs/r0.7.0/piglatin_ref2.html).
+For more information about Pig Latin, see [Pig Latin Reference Manual 1](http://archive.cloudera.com/cdh/3/pig/piglatin_ref1.html) and [Pig Latin Reference Manual 2](http://archive.cloudera.com/cdh/3/pig/piglatin_ref2.html).
 
 For an example of using UDFs with Pig, see the following documents:
 

@@ -1,21 +1,15 @@
 ---
-title: Visualize Interactive Query Hive data with Power BI in Azure HDInsight | Microsoft Docs
+title: Visualize Interactive Query Hive data with Power BI in Azure HDInsight 
 description: Learn how to use Microsoft Power BI to visualize Interactive Query Hive data processed by Azure HDInsight.
 keywords: hdinsight,hadoop,hive,interactive query,interactive hive,LLAP,directquery 
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 
 ms.service: hdinsight
-ms.custom: hdinsightactive,
-ms.devlang: na
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
+ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/14/2018
-ms.author: jgao
-
 ---
 # Visualize Interactive Query Hive data with Microsoft Power BI using direct query in Azure HDInsight
 

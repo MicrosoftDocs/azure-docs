@@ -11,7 +11,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm:
 ms.devlang: python
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: shlo
 
@@ -19,21 +19,18 @@ ms.author: shlo
 
 # Create a data factory and pipeline using Python
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-> * [Version 2 - Preview](quickstart-create-data-factory-python.md)
+> * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+> * [Current version](quickstart-create-data-factory-python.md)
 
 Azure Data Factory is a cloud-based data integration service that allows you to create data-driven workflows in the cloud for orchestrating and automating data movement and data transformation. Using Azure Data Factory, you can create and schedule data-driven workflows (called pipelines) that can ingest data from disparate data stores, process/transform the data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning, and publish output data to data stores such as Azure SQL Data Warehouse for business intelligence (BI) applications to consume.
 
 This quickstart describes how to use Python to create an Azure data factory. The pipeline in this data factory copies data from one folder to another folder in an Azure blob storage.
 
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [get started with Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 ## Prerequisites
 
-* **Azure Storage account**. You use the blob storage as **source** and **sink** data store. If you don't have an Azure storage account, see the [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) article for steps to create one.
+* **Azure Storage account**. You use the blob storage as **source** and **sink** data store. If you don't have an Azure storage account, see the [Create a storage account](../storage/common/storage-quickstart-create-account.md) article for steps to create one.
 * **Create an application in Azure Active Directory** following [this instruction](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). Make note of the following values that you use in later steps: **application ID**, **authentication key**, and **tenant ID**. Assign application to "**Contributor**" role by following instructions in the same article.
 
 ### Create and upload an input file
@@ -106,7 +103,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
             print("\tErrors: {}".format(activity_run.error['message']))
 
     ```
-3. Add the following code to the **Main** method that creates an instance of DataFactoryManagementClient class. You use this object to create the data factory, linked service, datasets, and pipeline. You also use this object to monitor the pipeline run details. Set **subscription_id** variable to the ID of your Azure subscription. Currently, Data Factory V2 allows you to create data factories only in the East US, East US2, and West Europe regions. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
+3. Add the following code to the **Main** method that creates an instance of DataFactoryManagementClient class. You use this object to create the data factory, linked service, datasets, and pipeline. You also use this object to monitor the pipeline run details. Set **subscription_id** variable to the ID of your Azure subscription. For a list of Azure regions in which Data Factory is currently available, select the regions that interest you on the following page, and then expand **Analytics** to locate **Data Factory**: [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
 
     ```python   
     def main():

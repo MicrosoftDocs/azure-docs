@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/17/2018
+ms.date: 08/16/2018
 ms.author: jdial
 
 ---
@@ -41,7 +41,7 @@ The network latency between virtual machines in peered virtual networks in the s
 The traffic between virtual machines in peered virtual networks is routed directly through the Microsoft backbone infrastructure, not through a gateway or over the public Internet.
 
 Network security groups can be applied in either virtual network to block access to other virtual networks or subnets, if desired.
-When configuring virtual network peering, you can either open or close the network security group rules between the virtual networks. If you open full connectivity between peered virtual networks (which is the default option), you can apply network security groups to specific subnets or virtual machines to block or deny specific access. To learn more about network security groups, see [Network security groups overview](virtual-networks-nsg.md).
+When configuring virtual network peering, you can either open or close the network security group rules between the virtual networks. If you open full connectivity between peered virtual networks (which is the default option), you can apply network security groups to specific subnets or virtual machines to block or deny specific access. To learn more about network security groups, see [Network security groups overview](security-overview.md).
 
 ## Service chaining
 
@@ -49,7 +49,7 @@ You can configure user-defined routes that point to virtual machines in peered v
 
 You can deploy hub-and-spoke networks, where the hub virtual network can host infrastructure components such as a network virtual appliance or VPN gateway. All the spoke virtual networks can then peer with the hub virtual network. Traffic can flow through network virtual appliances or VPN gateways in the hub virtual network. 
 
-Virtual network peering enables the next hop in a user-defined route to be the IP address of a virtual machine in the peered virtual network, or a VPN gateway. You cannot however, route between virtual networks with a user-defined route specifying an ExpressRoute gateway as the next hop type. To learn more about user-defined routes, see [User-defined routes overview](virtual-networks-udr-overview.md#user-defined). To learn how to create a hub and spoke network topology, see [hub and spoke network topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering).
+Virtual network peering enables the next hop in a user-defined route to be the IP address of a virtual machine in the peered virtual network, or a VPN gateway. You cannot however, route between virtual networks with a user-defined route specifying an ExpressRoute gateway as the next hop type. To learn more about user-defined routes, see [User-defined routes overview](virtual-networks-udr-overview.md#user-defined). To learn how to create a hub and spoke network topology, see [hub and spoke network topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## Gateways and on-premises connectivity
 
@@ -67,13 +67,18 @@ When the virtual networks that are sharing a single Azure ExpressRoute connectio
 
 ## Troubleshoot
 
-To confirm a virtual network peering, you can [check effective routes](virtual-network-routes-troubleshoot-portal.md) for a network interface in any subnet in a virtual network. If a virtual network peering exists, all subnets within the virtual network have routes with next hop type *VNet peering*, for each address space in each peered virtual network.
+To confirm a virtual network peering, you can [check effective routes](diagnose-network-routing-problem.md) for a network interface in any subnet in a virtual network. If a virtual network peering exists, all subnets within the virtual network have routes with next hop type *VNet peering*, for each address space in each peered virtual network.
 
 You can also troubleshoot connectivity to a virtual machine in a peered virtual network using Network Watcher's [connectivity check](../network-watcher/network-watcher-connectivity-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Connectivity check lets you see how traffic is routed from a source virtual machine's network interface to a destination virtual machine's network interface.
 
 ## Requirements and constraints
 
-To learn about requirements and constraints, see [Virtual network peering requirements and constraints](virtual-network-manage-peering.md#requirements-and-constraints). To learn about the limits for the number of peerings you can create for a virtual network, see [Azure networking limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). 
+The following constraints apply when virtual networks are globally peered:
+- The virtual networks can exist in any Azure public cloud region, but not in Azure national clouds.
+- Resources in one virtual network cannot communicate with the frontend IP address of an Azure internal load balancer in the globally peered virtual network. The load balancer and the resources that communicate with it must be in the same region.
+- You cannot use remote gateways or allow gateway transit. To use remote gateways or allow gateway transit, peered virtual networks in  must be in the same region.
+
+To learn more about requirements and constraints, see [Virtual network peering requirements and constraints](virtual-network-manage-peering.md#requirements-and-constraints). To learn about the limits for the number of peerings you can create for a virtual network, see [Azure networking limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). 
 
 ## Permissions
 
@@ -81,7 +86,9 @@ To learn about permissions required to create a virtual network peering, see [Vi
 
 ## Pricing
 
-There is a nominal charge for ingress and egress traffic that utilizes a virtual network peering connection. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/virtual-network).
+There is a nominal charge for ingress and egress traffic that utilizes a virtual network peering connection. For more information on VNet Peering and Global VNet peering pricing, see the [pricing page](https://azure.microsoft.com/pricing/details/virtual-network).
+
+Gateway transit is a peering property that enables a virtual network to utilize a VPN gateway in a peered virtual network for cross premises or VNet-to-VNet connectivity. Traffic passing through a remote gateway in this scenario is subject to [VPN gateway charges](https://azure.microsoft.com/en-us/pricing/details/vpn-gateway/) and does not incur [VNet peering charges.](https://azure.microsoft.com/pricing/details/virtual-network) For example, If VNetA has a VPN gateway for on-premise connectivity and VNetB is peered to VNetA with appropriate properties configured, traffic from VNetB to on-premises is only charged egress per VPN gateway pricing. VNet peering charges do not apply. Learn how to [configure VPN gateway transit for virtual network peering.](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
 ## Next steps
 
@@ -94,5 +101,6 @@ There is a nominal charge for ingress and egress traffic that utilizes a virtual
     |One Resource Manager, one classic  |[Same](create-peering-different-deployment-models.md)|
     |                                   |[Different](create-peering-different-deployment-models-subscriptions.md)|
 
-* Learn how to create a [hub and spoke network topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering).
+* Learn how to create a [hub and spoke network topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json).
 * Learn about all [virtual network peering settings and how to change them](virtual-network-manage-peering.md).
+* Get answers to common VNet Peering and Global VNet Peering questions through our [VNet Peering FAQ](virtual-networks-faq.md#vnet-peering)

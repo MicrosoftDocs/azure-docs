@@ -7,12 +7,20 @@ ms.author: kehuan
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, MicrosoftDocs/mlreview, mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
+
+ROBOTS: NOINDEX
 ---
 
+
 # Document Collection Analysis
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 This scenario demonstrates how to summarize and analyze a large collection of documents, including techniques such as phrase learning, topic modeling, and topic model analysis using Azure ML Workbench. Azure Machine Learning Workbench provides for easy scale up for very large document collection, and provides mechanisms to train and tune models within a variety of compute contexts, ranging from local compute to Data Science Virtual Machines to Spark Cluster. Easy development is provided through Jupyter notebooks within Azure Machine Learning Workbench.
 
@@ -54,7 +62,7 @@ The machine learning techniques/algorithms used in this scenario include:
 
 The prerequisites to run this example are as follows:
 
-* Make sure that you have properly installed [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) by following the [Install and create Quickstart](../service/quickstart-installation.md).
+* Make sure that you have properly installed [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) by following the [Install and create Quickstart](quickstart-installation.md).
 
 * This example could be run on any compute context. However, it is recommended to run it on a multi-core machine with at least of 16-GB memory and 5-GB disk space.
 
@@ -69,7 +77,7 @@ Create a new project using this example as a template:
 
 ## Data description
 
-The dataset used in this scenario contains text summaries and associated meta data for each legislative action taken by the US Congress. The data is collected from [GovTrack.us](https://www.govtrack.us/), which tracks the activities of United States Congress and helps Americans participate in their national legislative process. The bulk data can be downloaded via [this link](https://www.govtrack.us/data/congress/) using a manual script, which is not included in this scenario. The details of how to download the data could be found in the [GovTrack API documentation](https://www.govtrack.us/developers/api).
+The dataset used in this scenario contains text summaries and associated meta data for each legislative action taken by the US Congress. The data is collected from [GovTrack.us](https://www.govtrack.us/), which tracks the activities of United States Congress and helps Americans participate in their national legislative process. The bulk data can be downloaded via [this link](https://www.govtrack.us/data/congress/) using a manual script, which is not included in this scenario. The details of how to download the data could be found in the [GovTrack API documentation](https://www.govtrack.us/developers).
 
 ### Data source
 

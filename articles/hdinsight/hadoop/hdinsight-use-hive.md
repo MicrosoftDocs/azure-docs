@@ -1,22 +1,15 @@
 ---
-title: What is Apache Hive and HiveQL - Azure HDInsight | Microsoft Docs
+title: What is Apache Hive and HiveQL - Azure HDInsight 
 description: Apache Hive is a data warehouse system for Hadoop. You can query data stored in Hive using HiveQL, which similar to Transact-SQL. In this document, learn how to use Hive and HiveQL with Azure HDInsight.
 keywords: hiveql,what is hive,hadoop hiveql,how to use hive,learn hive,what is hive
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-
-ms.assetid: 2c10f989-7636-41bf-b7f7-c4b67ec0814f
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.author: larryfr
-
 ---
 # What is Apache Hive and HiveQL on Azure HDInsight?
 
@@ -40,11 +33,11 @@ Use the following table to discover the different ways to use Hive with HDInsigh
 
 | **Use this method** if you want... | ...**interactive** queries | ...**batch** processing | ...with this **cluster operating system** | ...from this **client operating system** |
 |:--- |:---:|:---:|:--- |:--- |
+| [HDInsight tools for Visual Studio Code](../hdinsight-for-vscode.md) |✔ |✔ |Linux | Linux, Unix, Mac OS X, or Windows |
+| [HDInsight tools for Visual Studio](../hadoop/apache-hadoop-use-hive-visual-studio.md) |✔ |✔ |Linux or Windows* |Windows |
 | [Hive View](../hadoop/apache-hadoop-use-hive-ambari-view.md) |✔ |✔ |Linux |Any (browser based) |
 | [Beeline client](../hadoop/apache-hadoop-use-hive-beeline.md) |✔ |✔ |Linux |Linux, Unix, Mac OS X, or Windows |
 | [REST API](../hadoop/apache-hadoop-use-hive-curl.md) |&nbsp; |✔ |Linux or Windows* |Linux, Unix, Mac OS X, or Windows |
-| [HDInsight tools for Visual Studio Code](../hdinsight-for-vscode.md) |✔ |✔ |Linux | Linux, Unix, Mac OS X, or Windows |
-| [HDInsight tools for Visual Studio](../hadoop/apache-hadoop-use-hive-visual-studio.md) |&nbsp; |✔ |Linux or Windows* |Windows |
 | [Windows PowerShell](../hadoop/apache-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Linux or Windows* |Windows |
 
 > [!IMPORTANT]
@@ -223,7 +216,7 @@ There are several services that can be used to run Hive queries as part of a sch
 
 ### Azure Data Factory
 
-Azure Data Factory allows you to use HDInsight as part of a Data Factory pipeline. For more information on using Hive from a pipeline, see the [Transform data using Hive activity in Azure Data Factory](/data-factory/transform-data-using-hadoop-hive.md) document.
+Azure Data Factory allows you to use HDInsight as part of a Data Factory pipeline. For more information on using Hive from a pipeline, see the [Transform data using Hive activity in Azure Data Factory](../../data-factory/transform-data-using-hadoop-hive.md) document.
 
 ### Hive jobs and SQL Server Integration Services
 

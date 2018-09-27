@@ -1,3 +1,15 @@
+---
+ title: include file
+ description: include file
+ services: iot-suite
+ author: dominicbetts
+ ms.service: iot-suite
+ ms.topic: include
+ ms.date: 04/24/2018
+ ms.author: dobett
+ ms.custom: include file
+---
+
 # Secure your IoT deployment
 
 This article provides the next level of detail for securing the Azure IoT-based Internet of Things (IoT) infrastructure. It links to implementation level details for configuring and deploying each component. It also provides comparisons and choices between various competing methods.
@@ -12,7 +24,7 @@ Securing the Azure IoT deployment can be divided into the following three securi
 
 ## Secure device provisioning and authentication
 
-The Azure IoT Suite secures IoT devices by the following two methods:
+The IoT solution accelerators secure IoT devices by the following two methods:
 
 * By providing a unique identity key (security tokens) for each device, which can be used by the device to communicate with the IoT Hub.
 * By using an on-device [X.509 certificate][lnk-x509] and private key as a means to authenticate the device to the IoT Hub. This authentication method ensures that the private key on the device is not known outside the device at any time, providing a higher level of security.

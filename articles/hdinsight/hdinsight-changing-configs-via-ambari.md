@@ -1,19 +1,13 @@
 ---
-title: Optimize cluster configurations with Ambari - Azure HDInsight | Microsoft Docs
+title: Optimize cluster configurations with Ambari - Azure HDInsight 
 description: Use the Ambari web UI to configure and optimize HDInsight clusters.
-documentationcenter: ''
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid:
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.date: 01/09/2018
+ms.topic: conceptual
+ms.date: 07/09/2018
 ms.author: ashish
-
 ---
 # Use Ambari to optimize HDInsight cluster configurations
 
@@ -25,7 +19,7 @@ Log in to  Ambari at `https://CLUSTERNAME.azurehdidnsight.net` with your cluster
 
 ![Ambari dashboard](./media/hdinsight-changing-configs-via-ambari/ambari-dashboard.png)
 
-The Ambari web UI can be used to manage hosts, services, alerts, configurations, and views. Ambari can’t be used to create an HDInsight cluster, upgrade services, manage stacks and versions, decommission or recommission hosts, or add services to the cluster.
+The Ambari web UI can be used to manage hosts, services, alerts, configurations, and views. Ambari can't be used to create an HDInsight cluster, upgrade services, manage stacks and versions, decommission or recommission hosts, or add services to the cluster.
 
 ## Manage your cluster's configuration
 
@@ -43,19 +37,19 @@ To modify the NameNode Java heap size:
 
     ![HDFS configuration](./media/hdinsight-changing-configs-via-ambari/hdfs-config.png)
 
-2. Find the setting **NameNode Java heap size**. You can also use the **filter** text box to type and find a particular setting. Select the **pen** icon beside the setting name.
+1. Find the setting **NameNode Java heap size**. You can also use the **filter** text box to type and find a particular setting. Select the **pen** icon beside the setting name.
 
     ![NameNode Java heap size](./media/hdinsight-changing-configs-via-ambari/java-heap-size.png)
 
-3. Type the new value in the text box, and then press **Enter** to save the change.
+1. Type the new value in the text box, and then press **Enter** to save the change.
 
     ![Edit NameNode Java heap size](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edit.png)
 
-4. The NameNode Java heap size is changed to 2 GB from 1 GB.
+1. The NameNode Java heap size is changed to 2 GB from 1 GB.
 
     ![Edited NameNode Java heap size](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edited.png)
 
-5. Save your changes by clicking on the green **Save** button on the top of the configuration screen.
+1. Save your changes by clicking on the green **Save** button on the top of the configuration screen.
 
     ![Save changes](./media/hdinsight-changing-configs-via-ambari/save-changes.png)
 
@@ -64,7 +58,7 @@ To modify the NameNode Java heap size:
 The following sections describe configuration options for optimizing overall Hive performance.
 
 1. To modify Hive configuration parameters, select **Hive** from the Services sidebar.
-2. Navigate to the **Configs** tab.
+1. Navigate to the **Configs** tab.
 
 ### Set the Hive execution engine
 
@@ -74,7 +68,7 @@ Hive provides two execution engines: MapReduce and Tez. Tez is faster than MapRe
 
     ![Search execution engine](./media/hdinsight-changing-configs-via-ambari/search-execution.png)
 
-2. The **Optimization** property's default value is **Tez**.
+1. The **Optimization** property's default value is **Tez**.
 
     ![Optimization - Tez](./media/hdinsight-changing-configs-via-ambari/optimization-tez.png)
 
@@ -91,7 +85,7 @@ For example, to set four mapper tasks for a data size of 128 MB, you would set b
 
 1. To modify the limit parameters, navigate to the **Configs** tab of the Tez service. Expand the **General** panel, and  locate the `tez.grouping.max-size` and `tez.grouping.min-size` parameters.
 
-2. Set both parameters to **33,554,432** bytes (32 MB).
+1. Set both parameters to **33,554,432** bytes (32 MB).
 
     ![Tez grouping sizes](./media/hdinsight-changing-configs-via-ambari/tez-grouping-size.png)
  
@@ -111,13 +105,13 @@ The `hive.exec.reducers.bytes.per.reducer` parameter specifies the number of byt
 
     ![Data per Reducer](./media/hdinsight-changing-configs-via-ambari/data-per-reducer.png)
  
-2. Select **Edit** to modify the value to 128 MB (134,217,728 bytes), and then press **Enter** to save.
+1. Select **Edit** to modify the value to 128 MB (134,217,728 bytes), and then press **Enter** to save.
 
     ![Data per Reducer - edited](./media/hdinsight-changing-configs-via-ambari/data-per-reducer-edited.png)
   
     Given an input size of 1,024 MB, with 128 MB of data per reducer, there are  8 reducers (1024/128).
 
-3. An incorrect value for the **Data per Reducer** parameter may result in a large number of reducers, adversely affecting query performance. To limit the maximum number of reducers, set `hive.exec.reducers.max` to an appropriate value. The default value is 1009.
+1. An incorrect value for the **Data per Reducer** parameter may result in a large number of reducers, adversely affecting query performance. To limit the maximum number of reducers, set `hive.exec.reducers.max` to an appropriate value. The default value is 1009.
 
 ### Enable parallel execution
 
@@ -125,7 +119,7 @@ A Hive query is executed in one or more stages. If the independent stages can be
 
 1.	To enable parallel query execution, navigate to the Hive **Config** tab and search for the `hive.exec.parallel` property. The default value is false. Change the value to true, and then press **Enter** to save the value.
  
-2.	To limit the number of jobs to be run in parallel, modify the `hive.exec.parallel.thread.number` property. The default value is 8.
+1.	To limit the number of jobs to be run in parallel, modify the `hive.exec.parallel.thread.number` property. The default value is 8.
 
     ![Hive exec parallel](./media/hdinsight-changing-configs-via-ambari/hive-exec-parallel.png)
 
@@ -136,7 +130,7 @@ Hive processes data row by row. Vectorization directs Hive to process data in bl
 
 1. To enable a vectorized query execution, navigate to the Hive **Configs** tab and search for the `hive.vectorized.execution.enabled` parameter. The default value is true for Hive 0.13.0 or later.
  
-2. To enable vectorized execution for the reduce side of the query, set the `hive.vectorized.execution.reduce.enabled` parameter to true. The default value is false.
+1. To enable vectorized execution for the reduce side of the query, set the `hive.vectorized.execution.reduce.enabled` parameter to true. The default value is false.
 
     ![Hive vectorized execution](./media/hdinsight-changing-configs-via-ambari/hive-vectorized-execution.png)
 
@@ -190,11 +184,11 @@ As a general rule, having the compression method splittable is important, otherw
     ![Hive exec compress intermediate](./media/hdinsight-changing-configs-via-ambari/hive-exec-compress-intermediate.png)
 
     > [!NOTE]
-    > To compress intermediate files, choose a compression codec with lower CPU cost, even if the codec doesn’t have a high compression output.
+    > To compress intermediate files, choose a compression codec with lower CPU cost, even if the codec doesn't have a high compression output.
 
-2. To set the intermediate compression codec, add the custom property `mapred.map.output.compression.codec` to the `hive-site.xml` or `mapred-site.xml` file.
+1. To set the intermediate compression codec, add the custom property `mapred.map.output.compression.codec` to the `hive-site.xml` or `mapred-site.xml` file.
 
-3. To add a custom setting:
+1. To add a custom setting:
 
     a. Navigate to the Hive **Configs** tab and select the **Advanced** tab.
 
@@ -219,7 +213,7 @@ The final Hive output can also be compressed.
 
 1. To compress the final Hive output, navigate to the Hive **Configs** tab, and then set the `hive.exec.compress.output` parameter to true. The default value is false.
 
-2. To choose the output compression codec, add the `mapred.output.compression.codec` custom property to the Custom hive-site pane, as described in the previous section's step 3.
+1. To choose the output compression codec, add the `mapred.output.compression.codec` custom property to the Custom hive-site pane, as described in the previous section's step 3.
 
     ![Hive custom property](./media/hdinsight-changing-configs-via-ambari/hive-custom-property2.png)
 
@@ -227,7 +221,7 @@ The final Hive output can also be compressed.
 
 Speculative execution launches a certain number of duplicate tasks in order to detect and blacklist the slow-running task tracker, while improving the overall job execution by optimizing individual task results.
 
-Speculative execution shouldn’t be turned on for long-running MapReduce tasks with large amounts of input.
+Speculative execution shouldn't be turned on for long-running MapReduce tasks with large amounts of input.
 
 * To enable speculative execution, navigate to the Hive **Configs** tab, and then set the `hive.mapred.reduce.tasks.speculative.execution` parameter to true. The default value is false.
 
@@ -239,11 +233,11 @@ Hive allows for creating dynamic partitions when inserting records into a table,
 
 1. For Hive to do dynamic partitions, the `hive.exec.dynamic.partition` parameter value should be true (the  default).
 
-2. Change the dynamic partition mode to *strict*. In strict mode, at least one partition has to be static. This prevents queries without the partition filter in the WHERE clause, that is, *strict* prevents queries that scan all partitions. Navigate to the Hive **Configs** tab, and then set `hive.exec.dynamic.partition.mode` to **strict**. The default value is **nonstrict**.
+1. Change the dynamic partition mode to *strict*. In strict mode, at least one partition has to be static. This prevents queries without the partition filter in the WHERE clause, that is, *strict* prevents queries that scan all partitions. Navigate to the Hive **Configs** tab, and then set `hive.exec.dynamic.partition.mode` to **strict**. The default value is **nonstrict**.
  
-3. To limit the number of dynamic partitions to be created, modify the ``hive.exec.max.dynamic.partitions` parameter. The default value is 5,000.
+1. To limit the number of dynamic partitions to be created, modify the `hive.exec.max.dynamic.partitions` parameter. The default value is 5000.
  
-4. To limit the total number of dynamic partitions per node, modify `hive.exec.max.dynamic.partitions.pernode`. The default value is 2,000.
+1. To limit the total number of dynamic partitions per node, modify `hive.exec.max.dynamic.partitions.pernode`. The default value is 2000.
 
 ### Enable local mode
 
@@ -293,9 +287,9 @@ Pig properties can be  modified from the Ambari web UI to tune Pig queries. Modi
 
 1. To modify Pig properties, navigate to the Pig **Configs** tab, and then expand the **Advanced pig-properties** pane.
 
-2. Find, uncomment, and change the value of the property you wish to modify.
+1. Find, uncomment, and change the value of the property you wish to modify.
 
-3. Select **Save** on the top right side of the window to save the new value. Some properties may require a service restart.
+1. Select **Save** on the top right side of the window to save the new value. Some properties may require a service restart.
 
     ![Advanced pig-properties](./media/hdinsight-changing-configs-via-ambari/advanced-pig-properties.png)
  
@@ -308,7 +302,7 @@ Two execution engines are available to execute Pig scripts: MapReduce and Tez. T
 
 1. To modify the execution engine, in the **Advanced pig-properties** pane, find the property `exectype`.
 
-2. The default value is **MapReduce**. Change it to **Tez**.
+1. The default value is **MapReduce**. Change it to **Tez**.
 
 
 ### Enable local mode
@@ -317,7 +311,7 @@ Similar to Hive, local mode is used to speed jobs with relatively smaller amount
 
 1. To enable the local mode, set `pig.auto.local.enabled` to **true**. The default value is false.
 
-2. Jobs with an input data size less than the `pig.auto.local.input.maxbytes` property value are considered to be small jobs. The default value is 1 GB.
+1. Jobs with an input data size less than the `pig.auto.local.input.maxbytes` property value are considered to be small jobs. The default value is 1 GB.
 
 
 ### Copy user jar cache
@@ -326,7 +320,7 @@ Pig copies the JAR files required by UDFs to a distributed cache  to make them a
 
 1. To enable, set `pig.user.cache.enabled` to true. The default is false.
 
-2. To set the base path of the cached jars, set `pig.user.cache.location` to the base path. The default is `/tmp`.
+1. To set the base path of the cached jars, set `pig.user.cache.location` to the base path. The default is `/tmp`.
 
 
 ### Optimize performance with memory settings
@@ -371,7 +365,7 @@ The HBase heap size specifies the maximum amount of heap to be used in megabytes
 
 1. To modify, navigate to the **Advanced HBase-env** pane in the HBase **Configs** tab, and then find the `HBASE_HEAPSIZE` setting.
 
-2. Change the default value to 5,000 MB.
+1. Change the default value to 5,000 MB.
 
     ![HBASE_HEAPSIZE](./media/hdinsight-changing-configs-via-ambari/hbase-heapsize.png)
 
@@ -388,7 +382,7 @@ The block cache is the read cache. Its size is controlled by the `hfile.block.ca
 
     ![HBase block cache size](./media/hdinsight-changing-configs-via-ambari/hbase-block-cache-size.png)
  
-2. To change the value, select the **Edit** icon.
+1. To change the value, select the **Edit** icon.
 
 
 #### Memstore size

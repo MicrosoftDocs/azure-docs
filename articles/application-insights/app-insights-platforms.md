@@ -3,7 +3,7 @@ title: 'Application Insights: languages, platforms and integrations| Microsoft D
 description: Languages, platforms and integrations available for Application Insights
 services: application-insights
 documentationcenter: ''
-author: OlegAnaniev-MSFT
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: 974db106-54ff-4318-9f8b-f7b3a869e536
@@ -11,8 +11,9 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 09/01/2016
+ms.reviewer: olegan
 ms.author: mbullwin
 
 ---
@@ -26,6 +27,7 @@ These items are implementations of [Application Insights](app-insights-overview.
 * [Node.JS](app-insights-nodejs.md)
 
 ## Languages - community-supported
+* [F#](https://safe-stack.github.io/docs/template-azure-ai/)
 * [PHP](https://github.com/Microsoft/ApplicationInsights-PHP)
 * [Python](https://pypi.python.org/pypi/applicationinsights/0.1.0)
 * [Ruby](https://rubygems.org/gems/application_insights)
@@ -50,6 +52,7 @@ These items are implementations of [Application Insights](app-insights-overview.
 * [J2EE - for apps that are already live](app-insights-java-live.md)
 * [Node.JS](https://www.npmjs.com/package/applicationinsights)
 * [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
+* [SAFE Stack](https://safe-stack.github.io/docs/template-azure-ai/)
 * [Spring](http://joe.blog.freemansoft.com/2015/12/enabling-microsoft-application-insight.html)
 * [Universal Windows app](app-insights-mobile-center-quickstart.md) (App Center)
 * [WCF](https://github.com/Microsoft/ApplicationInsights-SDK-Labs/blob/master/WCF/readme.md)
@@ -57,7 +60,7 @@ These items are implementations of [Application Insights](app-insights-overview.
 * [Anything else](#projects)
 
 ## Logging frameworks
-* [Log4Net, NLog, or System.Diagnostics.Trace](app-insights-diagnostic-search.md)
+* [Log4Net, NLog, or System.Diagnostics.Trace](app-insights-asp-net-trace-logs.md)
 * [Java, Log4J, or Logback](app-insights-java-trace-logs.md)
 * [Semantic Logging (SLAB)](https://github.com/fidmor89/SLAB_AppInsights) - integrates with [Semantic Logging Application Block](https://msdn.microsoft.com/library/dn440729.aspx)
 * [Cloud-based load testing](http://blogs.msdn.com/b/visualstudioalm/archive/2015/07/30/getting-application-insights-counters-with-cloud-based-load-testing.aspx)

@@ -1,30 +1,33 @@
-# [Azure Marketplace documentation](index.md)
-## [Azure Marketplace and AppSource publisher guide](marketplace-publishers-guide.md)
-## [Grow your business with Azure Marketplace](grow-your-business-azure-marketplace.md)
-## [What is Appsource](marketplace-what-is-appsource.md)
-## [Grow your business with AppSource](marketplace-grow-your-business-with-appsource.md)
-## [Azure Marketplace Consulting Services](consulting-services.md)
-## [Azure Marketplace SaaS application technical publishing guide](marketplace-saas-applications-technical-publishing-guide.md)
-## [Cloud Partner Portal](./cloud-partner-portal/cloud-partner-portal-what-is-the-cloud-partner-portal.md)
-## Reference
-### [User interface elements](../managed-applications/create-uidefinition-elements.md?toc=%2fazure%2fmarketplace%2ftoc.json)
-#### Common
-##### [DropDown](../managed-applications/microsoft-common-dropdown.md?toc=%2fazure%2fmarketplace%2ftoc.json)
-##### [FileUpload](../managed-applications/microsoft-common-fileupload.md?toc=%2fazure%2fmarketplace%2ftoc.json)
-##### [OptionsGroup](../managed-applications/microsoft-common-optionsgroup.md?toc=%2fazure%2fmarketplace%2ftoc.json)
-##### [PasswordBox](../managed-applications/microsoft-common-passwordbox.md?toc=%2fazure%2fmarketplace%2ftoc.json)
-##### [Section](../managed-applications/microsoft-common-section.md?toc=%2fazure%2fmarketplace%2ftoc.json)
-##### [TextBox](../managed-applications/microsoft-common-textbox.md?toc=%2fazure%2fmarketplace%2ftoc.json)
-#### Compute
-##### [CredentialsCombo](../managed-applications/microsoft-compute-credentialscombo.md?toc=%2fazure%2fmarketplace%2ftoc.json)
-##### [SizeSelector](../managed-applications/microsoft-compute-sizeselector.md?toc=%2fazure%2fmarketplace%2ftoc.json)
-##### [UserNameTextBox](../managed-applications/microsoft-compute-usernametextbox.md?toc=%2fazure%2fmarketplace%2ftoc.json)
-#### Network
-##### [PublicIPAddressCombo](../managed-applications/microsoft-network-publicipaddresscombo.md?toc=%2fazure%2fmarketplace%2ftoc.json)
-##### [VirtualNetworkCombo](../managed-applications/microsoft-network-virtualnetworkcombo.md?toc=%2fazure%2fmarketplace%2ftoc.json)
-#### Storage
-##### [MultiStorageAccountCombo](../managed-applications/microsoft-storage-multistorageaccountcombo.md?toc=%2fazure%2fmarketplace%2ftoc.json)
-##### [StorageAccountSelector](../managed-applications/microsoft-storage-storageaccountselector.md?toc=%2fazure%2fmarketplace%2ftoc.json)
-## Resources
-### [Azure Roadmap](https://azure.microsoft.com/roadmap/)
-### [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
+# [Azure Marketplace and AppSource documentation](index.md)  
+
+## [Azure Marketplace and AppSource overview and benefits](./marketplace-publishers-guide.md)  
+
+### [Become a publisher on the marketplace](./become-publisher.md)  
+#### [Create a Microsoft account](./guidelines.md)
+#### [Register in Dev Center](./register-dev-center.md) 
+#### [Billing options for Azure Marketplace](./billing-options-azure-marketplace.md)  
+#### [Azure partner customer usage attribution](./azure-partner-customer-usage-attribution.md)
+#### [Lead management for cloud marketplace](./lead-management-for-cloud-marketplace.md)
+
+### [Storefronts](./comparing-appsource-azure-marketplace.md)  
+
+### [Determine the publishing option for your solution](./determine-your-listing-type.md)  
+
+### Publishing guide by offer type 
+#### [Virtual Machines](./marketplace-virtual-machines.md)
+#### [Azure Applications: solution templates](./marketplace-solution-templates.md)
+#### [Azure Applications: managed applications](./marketplace-managed-apps.md)
+#### [SaaS Apps](./marketplace-saas-applications-technical-publishing-guide.md) 
+#### [Containers](./marketplace-containers.md)
+#### [IoT Edge modules](./iot-edge-module.md) 
+#### [Consulting Service](./consulting-services.md)  
+#### [Office 365, Dynamics 365 and Power BI publishing guide](./appsource-offer-publishing-guide.md)
+#### [Enable a Microsoft AppSource and Azure Marketplace listing by using Azure Active Directory](./enable-appsource-marketplace-using-azure-ad.md)
+
+### [Grow your business through marketplace](./grow-your-business-with-azure-marketplace.md)  
+#### [Preferred solutions](./preferred-solutions.md) 
+#### [Marketplace content validation](./marketplace-criteria-content-validation.md)
+
+### [Support for Azure Marketplace and AppSource](./support-azure-marketplace.md)  
+
+## [Cloud Partner Portal](./cloud-partner-portal/cloud-partner-portal-what-is-the-cloud-partner-portal.md)  

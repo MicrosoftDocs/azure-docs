@@ -4,7 +4,7 @@ description: Azure Virtual Machines DBMS deployment for SAP NetWeaver
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: MSSedusch
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -284,7 +284,7 @@ ms.custom: H1Hack27Feb2017
 [virtual-machines-sql-server-performance-best-practices]:./../../windows/sql/virtual-machines-windows-sql-performance.md
 [virtual-machines-upload-image-windows-resource-manager]:../../virtual-machines-windows-upload-image.md
 [virtual-machines-windows-tutorial]:../../virtual-machines-windows-hero-tutorial.md
-[virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
+[virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/resources/templates/sql-server-2014-alwayson-existing-vnet-and-ad/
 [virtual-network-deploy-multinic-arm-cli]:../linux/multiple-nics.md
 [virtual-network-deploy-multinic-arm-ps]:../windows/multiple-nics.md
 [virtual-network-deploy-multinic-arm-template]:../../../virtual-network/template-samples.md
@@ -292,7 +292,7 @@ ms.custom: H1Hack27Feb2017
 [virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/manage-virtual-network.md#create-a-virtual-network
 [virtual-networks-manage-dns-in-vnet]:../../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
 [virtual-networks-multiple-nics]:../../../virtual-network/virtual-network-deploy-multinic-classic-ps.md
-[virtual-networks-nsg]:../../../virtual-network/virtual-networks-nsg.md
+[virtual-networks-nsg]:../../../virtual-network/security-overview.md
 [virtual-networks-reserved-private-ip]:../../../virtual-network/virtual-networks-static-private-ip-arm-ps.md
 [virtual-networks-static-private-ip-arm-pportal]:../../../virtual-network/virtual-networks-static-private-ip-arm-pportal.md
 [virtual-networks-udr-overview]:../../../virtual-network/virtual-networks-udr-overview.md
@@ -536,9 +536,10 @@ We encounter quite some scenarios where you as customer want to move a deployed 
 If you use Managed Disks, you can migrate to Premium Storage by:
 
 1. Deallocate the virtual machine
-2. If necessary, resize the virtual machine to a size that supports Premium Storage (for example DS or GS)
-3. Change the Managed Disk account type to Premium (SSD)
-4. Start your virtual machine
+1. If necessary, resize the virtual machine to a size that supports Premium Storage (for example DS or GS)
+1. Change the Managed Disk account type to Premium (SSD)
+1. Change the caching of the data disks as recommended in chapter [Caching for VMs and data disks][dbms-guide-2.1]
+1. Start your virtual machine
 
 ### Deployment of VMs for SAP in Azure
 Microsoft Azure offers multiple ways to deploy VMs and associated disks. Thereby it is important to understand the differences since preparations of the VMs might differ dependent on the way of deployment. In general, we look into the scenarios described in the following chapters.
@@ -1158,7 +1159,7 @@ The installation and operation of SRS works as well functionally in a VM hosted 
 ASE HADR via SAP Replication Server is NOT supported at this point in time. It might be tested with and released for Microsoft Azure platforms in the future.
 
 ## Specifics to Oracle Database on Windows
-Oracle software is supported by Oracle to run on Microsoft Windows Hyper-V and Azure. For details on the general support of Windows Hyper-V and Azure, check: <https://blogs.oracle.com/cloud/entry/oracle_and_microsoft_join_forces> 
+Oracle software is supported by Oracle to run on Microsoft Windows Hyper-V and Azure. 
 
 Following the general support, the specific scenario of SAP applications leveraging Oracle Databases is supported as well. Details are named in this part of the document.
 
@@ -1198,7 +1199,7 @@ in [this][virtual-machines-windows-classic-configure-oracle-data-guard] document
 All other general areas like Azure Availability Sets or SAP monitoring apply as described in the first three chapters of this document for deployments of VMs with the Oracle Database as well.
 
 ## Specifics to Oracle Database on Oracle Linux
-Oracle software is supported by Oracle to run on Microsoft Windows Hyper-V and Azure. For details on the general support of Windows Hyper-V and Azure, check: <https://blogs.oracle.com/cloud/entry/oracle_and_microsoft_join_forces> 
+Oracle software is supported by Oracle to run on Microsoft Windows Hyper-V and Azure. 
 
 Following the general support, the specific scenario of SAP applications leveraging Oracle Databases is supported as well. Details are named in this part of the document.
 

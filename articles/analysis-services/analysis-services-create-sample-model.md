@@ -1,31 +1,39 @@
 ---
-title: Add a sample tabular model for your Azure Analysis Services server | Microsoft Docs
-description: Learn how to add a sample model in Azure Analysis Services.
+title: Tutorial - Add a basic sample model to your Azure Analysis Services server by using the portal | Microsoft Docs
+description: In this tutorial lesson, learn how to add a sample model in Azure Analysis Services.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
-ms.topic: conceptual
-ms.date: 04/12/2018
+ms.service: azure-analysis-services
+ms.topic: tutorial
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-
+#Customer intent: As a BI developer, from the portal, I want to add a basic sample model database to my server for testing tool and client connections and queries.
 ---
-# Tutorial: Add a sample model
+# Tutorial: Add a sample model from the portal
 
-In this tutorial, you add a sample Adventure Works model to your server. The sample model is a completed version of the Adventure Works Internet Sales (1200) data modeling tutorial. A sample model is useful for testing model management, connecting with tools and client applications, and querying model data.
+In this tutorial, you add a sample Adventure Works tabular model database to your server. The sample model is a completed version of the Adventure Works Internet Sales (1200) sample data model. A sample model is useful for testing model management, connecting with tools and client applications, and querying model data. This tutorial uses the [Azure portal](https://portal.azure.com) and [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) to: 
+
+> [!div class="checklist"]
+> * Add a completed sample tabular data model to a server 
+> * Connect to the model with SSMS
+
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Before you begin
 
 To complete this tutorial, you need:
 
-- An Azure Analysis Services server
+- An Azure Analysis Services server. To learn more, see [Create a server - portal](analysis-services-create-server.md).
 - Server administrator permissions
+- [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
+
 
 ## Sign in to the Azure portal
 
-Sign in to the [Azure portal](https://portal.azure.com/).
+Sign in to the [portal](https://portal.azure.com/).
 
-## Create a sample model
+## Add a sample model
 
 1. In server **Overview**, click **New model**.
 
@@ -35,16 +43,16 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
     ![Select sample data](./media/analysis-services-create-sample-model/aas-create-sample-data.png)
 
-3. In **Overview**, verify the `adventureworks` sample is created.
+3. In **Overview**, verify the `adventureworks` sample model is added.
 
     ![Select sample data](./media/analysis-services-create-sample-model/aas-create-sample-verify.png)
+
 
 ## Clean up resources
 
 Your sample model is using cache memory resources. If you are not using your sample model for testing, you should remove it from your server.
 
-> [!NOTE]
-> These steps describe how to delete a model from a server by using SSMS. You can also delete a model by using the preview Web designer feature.
+These steps describe how to delete a model from a server by using SSMS. You can also delete a model by using the preview Web designer feature.
 
 1. In SSMS > **Object Explorer**, click **Connect** > **Analysis Services**.
 
@@ -58,7 +66,9 @@ Your sample model is using cache memory resources. If you are not using your sam
 
 ## Next steps 
 
-[Connect in Power BI Desktop](analysis-services-connect-pbi.md)   
-[Manage database roles and users](analysis-services-database-users.md)
+In this tutorial, you learned how to add a basic, sample model to your server. Now that you have a model database, you can connect to it from SQL Server Management Studio and add user roles. To learn more, continue with the next tutorial.
+
+> [!div class="nextstepaction"]
+> [Tutorial: Configure server administrator and user roles](analysis-services-database-users.md)
 
 

@@ -1,17 +1,16 @@
 ---
-title: 'Azure Active Directory B2C: REST API claims exchanges as validation | Microsoft Docs'
-description: A topic on Azure Active Directory B2C custom policies
+title: REST API claims exchanges as validation in Azure Active Directory B2C | Microsoft Docs
+description: A topic on Azure Active Directory B2C custom policies.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
 
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/24/2017
 ms.author: davidmu
+ms.component: B2C
 ---
 
 # Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as validation on user input
@@ -115,7 +114,7 @@ To add the claims exchange to the self-asserted technical profile:
 
 1. Open the TrustFrameworkBase.xml file and search for `<TechnicalProfile Id="SelfAsserted-ProfileUpdate">`.
 2. Review the configuration of this technical profile. Observe how the exchange with the user is defined as claims that will be asked of the user (input claims) and claims that will be expected back from the self-asserted provider (output claims).
-3. Search for `TechnicalProfileReferenceId="SelfAsserted-ProfileUpdate`, and notice that this profile is invoked as orchestration step 4 of `<UserJourney Id="ProfileEdit">`.
+3. Search for `TechnicalProfileReferenceId="SelfAsserted-ProfileUpdate`, and notice that this profile is invoked as orchestration step 5 of `<UserJourney Id="ProfileEdit">`.
 
 ## Step 4: Upload and test the profile edit RP policy file
 

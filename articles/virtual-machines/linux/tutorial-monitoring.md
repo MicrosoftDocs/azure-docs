@@ -3,7 +3,7 @@ title: Tutorial - Monitor and update Linux virtual machines in Azure | Microsoft
 description: In this tutorial, you learn how to monitor boot diagnostics and performance metrics, and manage package updates on a Linux virtual machine
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/08/2017
-ms.author: iainfou
+ms.date: 06/06/2018
+ms.author: cynthn
 ms.custom: mvc
 
 #Customer intent: As an IT administrator, I want to learn about monitoring and update management so that I can review the health status, perform troubleshooting, and install updates on Linux virtual machines.
@@ -37,17 +37,17 @@ To ensure your virtual machines (VMs) in Azure are running correctly, you can re
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Create VM
 
-To see diagnostics and metrics in action, you need a VM. First, create a resource group with [az group create](/cli/azure/group#az_group_create). The following example creates a resource group named *myResourceGroupMonitor* in the *eastus* location.
+To see diagnostics and metrics in action, you need a VM. First, create a resource group with [az group create](/cli/azure/group#az-group-create). The following example creates a resource group named *myResourceGroupMonitor* in the *eastus* location.
 
 ```azurecli-interactive
 az group create --name myResourceGroupMonitor --location eastus
 ```
 
-Now create a VM with [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create). The following example creates a VM named *myVM*:
+Now create a VM with [az vm create](/cli/azure/vm#az-vm-create). The following example creates a VM named *myVM* and generates SSH keys if they do not already exist in *~/.ssh/*:
 
 ```azurecli-interactive
 az vm create \
@@ -62,7 +62,7 @@ az vm create \
 
 As Linux VMs boot, the boot diagnostic extension captures boot output and stores it in Azure storage. This data can be used to troubleshoot VM boot issues. Boot diagnostics are not automatically enabled when you create a Linux VM using the Azure CLI.
 
-Before enabling boot diagnostics, a storage account needs to be created for storing boot logs. Storage accounts must have a globally unique name, be between 3 and 24 characters, and must contain only numbers and lowercase letters. Create a storage account with the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command. In this example, a random string is used to create a unique storage account name.
+Before enabling boot diagnostics, a storage account needs to be created for storing boot logs. Storage accounts must have a globally unique name, be between 3 and 24 characters, and must contain only numbers and lowercase letters. Create a storage account with the [az storage account create](/cli/azure/storage/account#az-storage-account-create) command. In this example, a random string is used to create a unique storage account name.
 
 ```azurecli-interactive
 storageacct=mydiagdata$RANDOM
@@ -80,7 +80,7 @@ When enabling boot diagnostics, the URI to the blob storage container is needed.
 bloburi=$(az storage account show --resource-group myResourceGroupMonitor --name $storageacct --query 'primaryEndpoints.blob' -o tsv)
 ```
 
-Now enable boot diagnostics with [az vm boot-diagnostics enable](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#az_vm_boot_diagnostics_enable). The `--storage` value is the blob URI collected in the previous step.
+Now enable boot diagnostics with [az vm boot-diagnostics enable](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#az-vm-boot-diagnostics-enable). The `--storage` value is the blob URI collected in the previous step.
 
 ```azurecli-interactive
 az vm boot-diagnostics enable \
@@ -91,19 +91,19 @@ az vm boot-diagnostics enable \
 
 ## View boot diagnostics
 
-When boot diagnostics are enabled, each time you stop and start the VM, information about the boot process is written to a log file. For this example, first deallocate the VM with the [az vm deallocate](/cli/azure/vm#az_vm_deallocate) command as follows:
+When boot diagnostics are enabled, each time you stop and start the VM, information about the boot process is written to a log file. For this example, first deallocate the VM with the [az vm deallocate](/cli/azure/vm#az-vm-deallocate) command as follows:
 
 ```azurecli-interactive
 az vm deallocate --resource-group myResourceGroupMonitor --name myVM
 ```
 
-Now start the VM with the [az vm start]( /cli/azure/vm#az_vm_stop) command as follows:
+Now start the VM with the [az vm start]( /cli/azure/vm#az-vm-stop) command as follows:
 
 ```azurecli-interactive
 az vm start --resource-group myResourceGroupMonitor --name myVM
 ```
 
-You can get the boot diagnostic data for *myVM* with the [az vm boot-diagnostics get-boot-log](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#az_vm_boot_diagnostics_get_boot_log) command as follows:
+You can get the boot diagnostic data for *myVM* with the [az vm boot-diagnostics get-boot-log](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#az-vm-boot-diagnostics-get-boot-log) command as follows:
 
 ```azurecli-interactive
 az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --name myVM
@@ -113,24 +113,18 @@ az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --na
 
 A Linux VM has a dedicated host in Azure that it interacts with. Metrics are automatically collected for the host and can be viewed in the Azure portal as follows:
 
-1. In the Azure portal, click **Resource Groups**, select **myResourceGroupMonitor**, and then select **myVM** in the resource list.
-1. To see how the host VM is performing, click **Metrics** on the VM blade, then select any of the *[Host]* metrics under **Available metrics**.
+1. In the Azure portal, select **Resource Groups**, choose **myResourceGroupMonitor**, and then select **myVM** in the resource list.
+1. To see how the host VM is performing, select  **Metrics** on the VM window, then choose any of the *[Host]* metrics under **Available metrics**.
 
     ![View host metrics](./media/tutorial-monitoring/monitor-host-metrics.png)
 
 ## Install diagnostics extension
 
-> [!IMPORTANT]
-> This document describes version 2.3 of the Linux Diagnostic Extension, which has been deprecated. Version 2.3 will be supported until June 30, 2018.
->
-> Version 3.0 of the Linux Diagnostic Extension can be enabled instead. For more information, see [the documentation](./diagnostic-extension.md).
-
 The basic host metrics are available, but to see more granular and VM-specific metrics, you need to install the Azure diagnostics extension on the VM. The Azure diagnostics extension allows additional monitoring and diagnostics data to be retrieved from the VM. You can view these performance metrics and create alerts based on how the VM performs. The diagnostic extension is installed through the Azure portal as follows:
 
-1. In the Azure portal, click **Resource Groups**, select **myResourceGroup**, and then select **myVM** in the resource list.
-1. Click **Diagnosis settings**. The list shows that *Boot diagnostics* are already enabled from the previous section. Click the check box for *Basic metrics*.
-1. In the *Storage account* section, browse to and select the *mydiagdata[1234]* account created in the previous section.
-1. Click the **Save** button.
+1. In the Azure portal, choose **Resource Groups**, select **myResourceGroupMonitor**, and then select **myVM** in the resource list.
+1. Select **Diagnosis settings**. In the *Pick a storage account* drop-down menu, if not already selected, choose the *mydiagdata[1234]* account created in the previous section.
+1. Select the **Enable guest-level monitoring** button.
 
     ![View diagnostic metrics](./media/tutorial-monitoring/enable-diagnostics-extension.png)
 
@@ -138,8 +132,8 @@ The basic host metrics are available, but to see more granular and VM-specific m
 
 You can view the VM metrics in the same way that you viewed the host VM metrics:
 
-1. In the Azure portal, click **Resource Groups**, select **myResourceGroup**, and then select **myVM** in the resource list.
-1. To see how the VM is performing, click **Metrics** on the VM blade, and then select any of the diagnostics metrics under **Available metrics**.
+1. In the Azure portal, choose **Resource Groups**, select **myResourceGroupMonitor**, and then select **myVM** in the resource list.
+1. To see how the VM is performing, select **Metrics** on the VM window, and then select any of the *[Guest]* diagnostics metrics under **Available metrics**.
 
     ![View VM metrics](./media/tutorial-monitoring/monitor-vm-metrics.png)
 
@@ -149,12 +143,12 @@ You can create alerts based on specific performance metrics. Alerts can be used 
 
 The following example creates an alert for average CPU usage.
 
-1. In the Azure portal, click **Resource Groups**, select **myResourceGroup**, and then select **myVM** in the resource list.
-2. Click **Alert rules** on the VM blade, then click **Add metric alert** across the top of the alerts blade.
+1. In the Azure portal, select **Resource Groups**, select **myResourceGroupMonitor**, and then select **myVM** in the resource list.
+2. Select **Alerts (classic)**, then choose to **Add metric alert (classic)** across the top of the alerts window.
 3. Provide a **Name** for your alert, such as *myAlertRule*
 4. To trigger an alert when CPU percentage exceeds 1.0 for five minutes, leave all the other defaults selected.
 5. Optionally, check the box for *Email owners, contributors, and readers* to send email notification. The default action is to present a notification in the portal.
-6. Click the **OK** button.
+6. Select the **OK** button.
 
 ## Manage package updates
 
@@ -169,7 +163,7 @@ Enable Update management for your VM:
 
 1. On the left-hand side of the screen, select **Virtual machines**.
 2. From the list, select a VM.
-3. On the VM screen, in the **Operations** section, click **Update management**. The **Enable Update Management** screen opens.
+3. On the VM screen, in the **Operations** section, select **Update management**. The **Enable Update Management** screen opens.
 
 Validation is performed to determine if Update management is enabled for this VM.
 The validation includes checks for a Log Analytics workspace and linked Automation account, and if the solution is in the workspace.
@@ -181,7 +175,7 @@ To perform additional actions on VMs that require updates, Azure Automation allo
 The validation process also checks to see if the VM is provisioned with the Microsoft Monitoring Agent (MMA) and Automation hybrid runbook worker.
 This agent is used to communicate with the VM and obtain information about the update status.
 
-Choose the Log analytics workspace and automation account and click **Enable** to enable the solution. The solution takes up to 15 minutes to enable.
+Choose the Log analytics workspace and automation account and select **Enable** to enable the solution. The solution takes up to 15 minutes to enable.
 
 If any of the following prerequisites were found to be missing during onboarding, they're automatically added:
 
@@ -189,7 +183,7 @@ If any of the following prerequisites were found to be missing during onboarding
 * [Automation](../../automation/automation-offering-get-started.md)
 * A [Hybrid runbook worker](../../automation/automation-hybrid-runbook-worker.md) is enabled on the VM
 
-The **Update Management** screen opens. Configure the location, Log analytics workspace and Automation account to use and click **Enable**. If the fields are grayed out, that means another automation solution is enabled for the VM and the same workspace and Automation account must be used.
+The **Update Management** screen opens. Configure the location, Log analytics workspace and Automation account to use and select **Enable**. If the fields are grayed out, that means another automation solution is enabled for the VM and the same workspace and Automation account must be used.
 
 ![Enable Update management solution](./media/tutorial-monitoring/manage-updates-update-enable.png)
 
@@ -205,7 +199,7 @@ After **Update management** is enabled, the **Update management** screen appears
 
 To install updates, schedule a deployment that follows your release schedule and service window. You can choose which update types to include in the deployment. For example, you can include critical or security updates and exclude update rollups.
 
-Schedule a new Update Deployment for the VM by clicking **Schedule update deployment** at the top of the **Update management** screen. In the **New update deployment** screen, specify the following information:
+To schedule a new Update Deployment for the VM, select **Schedule update deployment** at the top of the **Update management** screen. In the **New update deployment** screen, specify the following information:
 
 * **Name** - Provide a unique name to identify the update deployment.
 * **Update classification** - Select the types of software the update deployment included in the deployment. The classification types are:
@@ -216,13 +210,13 @@ Schedule a new Update Deployment for the VM by clicking **Schedule update deploy
   ![Update Schedule Settings screen](./media/tutorial-monitoring/manage-updates-exclude-linux.png)
 
 * **Schedule settings** - You can either accept the default date and time, which is 30 minutes after current time, or specify a different time.
-  You can also specify whether the deployment occurs once or set up a recurring schedule. Click the Recurring option under Recurrence to set up a recurring schedule.
+  You can also specify whether the deployment occurs once or set up a recurring schedule. Select the Recurring option under Recurrence to set up a recurring schedule.
 
   ![Update Schedule Settings screen](./media/tutorial-monitoring/manage-updates-schedule-linux.png)
 
 * **Maintenance window (minutes)** - Specify the period of time you want the update deployment to occur within. This helps ensure changes are performed within your defined service windows.
 
-After you have completed configuring the schedule, click **Create** button and you return to the status dashboard.
+After you have completed configuring the schedule, select **Create** button and you return to the status dashboard.
 Notice that the **Scheduled** table shows the deployment schedule you created.
 
 > [!WARNING]
@@ -233,7 +227,7 @@ Notice that the **Scheduled** table shows the deployment schedule you created.
 After the scheduled deployment starts, you can see the status for that deployment on the **Update deployments** tab on the **Update management** screen.
 If it is currently running, it's status shows as **In progress**. After it completes, if successful, it changes to **Succeeded**.
 If there is a failure with one or more updates in the deployment, the status is **Partially failed**.
-Click the completed update deployment to see the dashboard for that update deployment.
+Select the completed update deployment to see the dashboard for that update deployment.
 
 ![Update Deployment status dashboard for specific deployment](./media/tutorial-monitoring/manage-updates-view-results.png)
 
@@ -244,11 +238,11 @@ In the table to the right is a detailed breakdown of each update and the install
 * **Succeeded** - the update succeeded
 * **Failed** - the update failed
 
-Click **All logs** to see all log entries that the deployment created.
+Select **All logs** to see all log entries that the deployment created.
 
-Click the **Output** tile to see job stream of the runbook responsible for managing the update deployment on the target VM.
+Select the **Output** tile to see job stream of the runbook responsible for managing the update deployment on the target VM.
 
-Click **Errors** to see detailed information about any errors from the deployment.
+Select **Errors** to see detailed information about any errors from the deployment.
 
 ## Monitor changes and inventory
 
@@ -260,9 +254,9 @@ Enable Change and Inventory management for your VM:
 
 1. On the left-hand side of the screen, select **Virtual machines**.
 2. From the list, select a VM.
-3. On the VM screen, in the **Operations** section, click **Inventory** or **Change tracking**. The **Enable Change Tracking and Inventory** screen opens.
+3. On the VM screen, in the **Operations** section, select **Inventory** or **Change tracking**. The **Enable Change Tracking and Inventory** screen opens.
 
-Configure the location, Log analytics workspace and Automation account to use and click **Enable**. If the fields are grayed out, that means another automation solution is enabled for the VM and the same workspace and Automation account must be used. Even though the solutions are separate on the menu, they are the same solution. Enabling one enables both for your VM.
+Configure the location, Log analytics workspace and Automation account to use and select **Enable**. If the fields are grayed out, that means another automation solution is enabled for the VM and the same workspace and Automation account must be used. Even though the solutions are separate on the menu, they are the same solution. Enabling one enables both for your VM.
 
 ![Enable Change and Inventory tracking](./media/tutorial-monitoring/manage-inventory-enable.png)
 
@@ -270,7 +264,7 @@ After the solution has been enabled, it may take some time while inventory is be
 
 ### Track changes
 
-On your VM, select **Change Tracking** under **OPERATIONS**. Click **Edit Settings**, the **Change Tracking** page is displayed. Select the type of setting you want to track and then click **+ Add** to configure the settings. The available option Linux is **Linux Files**
+On your VM, select **Change Tracking** under **OPERATIONS**. Select **Edit Settings**, the **Change Tracking** page is displayed. Select the type of setting you want to track and then select **+ Add** to configure the settings. The available option Linux is **Linux Files**
 
 For detailed information on Change Tracking see, [Troubleshoot changes on a VM](../../automation/automation-tutorial-troubleshoot-changes.md)
 

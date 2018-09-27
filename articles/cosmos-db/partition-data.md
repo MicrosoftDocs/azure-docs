@@ -2,98 +2,147 @@
 title: Partitioning and horizontal scaling in Azure Cosmos DB | Microsoft Docs
 description: Learn about how partitioning works in Azure Cosmos DB, how to configure partitioning and partition keys, and how to pick the right partition key for your application.
 services: cosmos-db
-author: SnehaGunda
+author: aliuy
 manager: kfile
-documentationcenter: ''
 
-ms.assetid: cac9a8cd-b5a3-4827-8505-d40bb61b2416
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/14/2018
-ms.author: rimman
+ms.topic: conceptual
+ms.date: 07/26/2018
+ms.author: andrl
 ms.custom: H1Hack27Feb2017
 
 ---
 
 # Partition and scale in Azure Cosmos DB
 
-[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is a globally distributed, multi-model database service designed to help you achieve fast, predictable performance. It scales seamlessly along with your application as it grows. This article provides an overview of how partitioning works for all the data models in Azure Cosmos DB. It also describes how you can configure Azure Cosmos DB containers to effectively scale your applications.
+[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is a globally distributed, multi-model database service designed to help you achieve fast, predictable performance. It scales seamlessly along with your application. This article provides an overview of how partitioning works for all the data models in Azure Cosmos DB. It also describes how to configure Azure Cosmos DB containers to effectively scale your applications.
 
-Partitioning and partition keys are discussed in this video:
+Azure Cosmos DB supports the following types of containers across all APIs:
 
-> [!VIDEO https://www.youtube.com/embed/SS6WrQ-HJ30]
-> 
+- **Fixed container**: These containers can store a graph database up to 10 GB in size with a maximum of 10,000 request units per second allocated to it. To create a fixed container it isn't necessary to specify a partition key property in the data.
+
+- **Unlimited container**: These containers can automatically scale to store a graph beyond the 10-GB limit through horizontal partitioning. Each partition will store 10 GB and the data will be automatically balanced based on the **specified partition key**, which will be a required parameter when using an unlimited container. This type of container can store a virtually unlimited data size and can allow up to 100,000 request units per second, or more [by contacting support](https://aka.ms/cosmosdbfeedback?subject=Cosmos%20DB%20More%20Throughput%20Request).
 
 ## Partitioning in Azure Cosmos DB
-In Azure Cosmos DB, you can store and query schema-less data with a single digit millisecond latency at any scale. Azure Cosmos DB provides containers for storing data called *collections* (for documents), *graphs*, or *tables*. 
+Azure Cosmos DB provides containers for storing data called collections (for documents), graphs, or tables. Containers are logical resources and can span one or more physical partitions or servers. The number of partitions is determined by Azure Cosmos DB based on the storage size and throughput provisioned for a container or a set of containers. 
 
-Containers are logical resources and can span one or more physical partitions or servers. The number of partitions is determined by Azure Cosmos DB based on the storage size and provisioned throughput of the container. 
+### Physical partition
 
-A *physical* partition is a fixed amount of reserved SSD-backed storage. Each physical partition is replicated for high availability. One or more physical partitions make up a container. Physical partition management is fully managed by Azure Cosmos DB, and you don't have to write complex code or manage your partitions. Azure Cosmos DB containers are unlimited in terms of storage and throughput. 
+A *physical* partition is a fixed amount of reserved SSD-backed storage combined with variable amount of compute resources (CPU and memory). Each physical partition is replicated for high availability. Each set of containers may share one or more physical partitions. Physical partition management is fully managed by Azure Cosmos DB, and you don't have to write complex code or manage your partitions. Azure Cosmos DB containers are unlimited in terms of storage and throughput. Physical partitions are an internal concept of Azure Cosmos DB and are transient. Azure Cosmos DB will automatically scale the number of physical partitions based on your workload. So you shouldn’t corelate your database design based on the number of physical partitions instead you should make sure to choose the right partition key which determines the logical partitions. 
+
+### Logical partition
 
 A *logical* partition is a partition within a physical partition that stores all the data associated with a single partition key value. Multiple logical partitions can end up in the same physical partition. In the following diagram, a single container has three logical partitions. Each logical partition stores the data for one partition key, LAX, AMS, and MEL respectively. Each of the LAX, AMS, and MEL logical partitions cannot grow beyond the maximum logical partition limit of 10 GB. 
 
 ![Resource partitioning](./media/introduction/azure-cosmos-db-partitioning.png) 
 
-When a container meets the [partitioning prerequisites](#prerequisites), partitioning is completely transparent to your application. Azure Cosmos DB supports fast reads and writes, queries, transactional logic, consistency levels, and fine-grained access control via methods/APIs to a single container resource. The service handles distributing data across physical and logical partitions and routing of query requests to the right partition. 
+When a container meets the [partitioning prerequisites](#prerequisites), partitioning is completely transparent to your application. Azure Cosmos DB handles distributing data across physical and logical partitions and routing of query requests to the right partition. 
 
 ## How does partitioning work
 
-How does partitioning work? Each item must have a *partition key* and a *row key*, which uniquely identify it. Your partition key acts as a logical partition for your data and provides Azure Cosmos DB with a natural boundary for distributing data across physical partitions. The data for a single logical partition must reside inside a single physical partition, but physical partition management is managed by Azure Cosmos DB. 
+Each document must have a *partition key* and a *row key*, which uniquely identify it. Your partition key acts as a logical partition for your data and provides Azure Cosmos DB with a natural boundary for distributing data across physical partitions. **The data for a single logical partition must reside inside a single physical partition and physical partition management is managed by Azure Cosmos DB**. 
 
 In brief, here's how partitioning works in Azure Cosmos DB:
 
-* You provision a Azure Cosmos DB container with **T** RU/s (requests per second) throughput.
-* Behind the scene, Azure Cosmos DB provisions partitions needed to serve **T** requests per second. If **T** is higher than the maximum throughput per partition **t**, then Azure Cosmos DB provisions **N = T/t** partitions. The value of maximum throughput per partition(t) is configured by Azure Cosmos DB, this value is assigned based on total provisioned throughput and the hardware configuration used. 
-* Azure Cosmos DB allocates the key space of partition key hashes evenly across the **N** partitions. So, each partition (physical partition) hosts **1/N** partition key values (logical partitions).
-* When a physical partition **p** reaches its storage limit, Azure Cosmos DB seamlessly splits **p** into two new partitions, **p1** and **p2**. It distributes values corresponding to roughly half of the keys to each of the new partitions. This split operation is completely invisible to your application. If a physical partition reaches its storage limit and all of the data in the physical partition belongs to the same logical partition key, the split operation does not occur. This is because all the data for a single logical partition key must reside in the same physical partition. In this case a different partition key strategy should be employed.
-* When you provision throughput higher than **t*N**, Azure Cosmos DB splits one or more of your partitions to support the higher throughput.
+* You provision a set of Azure Cosmos DB containers with **T** RU/s (requests per second) throughput.  
+* Behind the scenes, Azure Cosmos DB provisions physical partitions needed to serve **T** requests per second. If **T** is higher than the maximum throughput per physical partition **t**, then Azure Cosmos DB provisions **N = T/t** physical partitions. The value of maximum throughput per partition(t) is configured by Azure Cosmos DB, this value is assigned based on total provisioned throughput and the hardware configuration used.  
+* Azure Cosmos DB allocates the key space of partition key hashes evenly across the **N** physical partitions. So, the number of logical partitions each physical partition hosts is **1/N** * number of partition key values.  
+* When a physical partition **p** reaches its storage limit, Azure Cosmos DB seamlessly splits **p** into two new physical partitions, **p1** and **p2**. It distributes values corresponding to roughly half of the keys to each of the new physical partitions. This split operation is completely invisible to your application. If a physical partition reaches its storage limit and all of the data in the physical partition belongs to the same logical partition key, the split operation does not occur. This is because all the data for a single logical partition key must reside in the same physical partition. In this case, a different partition key strategy should be employed.  
+* When you provision throughput higher than **t*N**, Azure Cosmos DB splits one or more of your physical partitions to support the higher throughput.
 
 The semantics for partition keys are slightly different to match the semantics of each API, as shown in the following table:
 
 | API | Partition key | Row key |
 | --- | --- | --- |
 | SQL | Custom partition key path | Fixed `id` | 
-| MongoDB | Custom shared key  | Fixed `_id` | 
+| MongoDB | Custom shard key  | Fixed `_id` | 
 | Gremlin | Custom partition key property | Fixed `id` | 
 | Table | Fixed `PartitionKey` | Fixed `RowKey` | 
 
-Azure Cosmos DB uses hash-based partitioning. When you write an item, Azure Cosmos DB hashes the partition key value and uses the hashed result to determine which partition to store the item in. Azure Cosmos DB stores all items with the same partition key in the same physical partition. The choice of the partition key is an important decision that you have to make at design time. You must pick a property name that has a wide range of values and has even access patterns. If a physical partition reaches it's storage limit and the data in the partition has the same partition key, Azure Cosmos DB returns the *"Partition key reached maximum size of 10 GB"* message, and the partition is not split. Choosing a good partition key is a very important decision.
+Azure Cosmos DB uses hash-based partitioning. When you write an item, Azure Cosmos DB hashes the partition key value and uses the hashed result to determine which partition to store the item in. 
 
 > [!NOTE]
-> It's a best practice to have a partition key with a large number of distinct values (e.g., hundreds or thousands). It lets you distribute your workload evenly across these values. An ideal partition key is one that appears frequently as a filter in your queries and has sufficient cardinality to ensure your solution is scalable.
->
+> Azure Cosmos DB stores all items with the same partition key in the same physical partition. 
 
-Azure Cosmos DB containers can be created as *fixed* or *unlimited* in the Azure portal. Fixed-size containers have a maximum limit of 10 GB and 10,000 RU/s throughput. To create a container as unlimited, you must specify a partition key and a minimum throughput of 1,000 RU/s. 
+## Best practices when choosing a partition key
 
-It is a good idea to check how your data is distributed across partitions. To check this in the portal, go to your Azure Cosmos DB account and click on **Metrics** in **Monitoring** section and then click on **storage** tab to see how your data is partitioned across different physical partitions.
+The choice of the partition key is an important decision that you have to make at design time. Pick a property name that has a wide range of values and has even access patterns. It's a best practice to have a partition key with a large number of distinct values (e.g., hundreds or thousands). It lets you distribute your workload evenly across these values. An ideal partition key is one that appears frequently as a filter in your queries and has sufficient cardinality to ensure your solution is scalable.
 
-![Resource partitioning](./media/partition-data/partitionkey-example.png)
+If a physical partition reaches its storage limit and the data in the partition has the same partition key, Azure Cosmos DB returns the *"Partition key reached maximum size of 10 GB"* message, and the partition is not split. Choosing a good partition key is a very important decision. 
 
-The left image above shows the result of a bad partition key and the right image above shows the result when a good partition key was chosen. In the left image, you can see that the data is not evenly distributed across the partitions. You should strive to choose a partition key that distributes your data so it looks similar to the right image.
+Choose a partition key such that:
 
-<a name="prerequisites"></a>
-## Prerequisites for partitioning
+* The storage distribution is even across all the keys.  
+* Choose a partition key that will evenly distribute data across partitions.
 
-For physical partitions to auto-split into **p1** and **p2** as described in [How does partitioning work](#how-does-partitioning-work), the container must be created with a throughput of 1,000 RU/s or more, and a partition key must be provided. When creating a container (e.g., a collection, a graph or a table) in the Azure portal, select the **Unlimited** storage capacity option to take advantage of unlimited scaling. 
+  It is a good idea to check how your data is distributed across partitions. To check the data distribution in the portal, go to your Azure Cosmos DB account and click on **Metrics** in **Monitoring** section and then click on **storage** tab to see how your data is partitioned across different physical partitions.
 
-If you created a container in the Azure portal or programmatically and the initial throughput was 1,000 RU/s or more, and you provided a partition key, you can take advantage of unlimited scaling with no changes to your container. This includes **Fixed** containers, so long as the initial container was created with at least 1,000 RU/s of throughput and a partition key is specified.
+  ![Resource partitioning](./media/partition-data/partitionkey-example.png)
 
-If you created a **Fixed** container with no partition key or throughput less than 1,000 RU/s, the container will not auto-scale as described in this article. To migrate the data from the container like this to an unlimited container (one with at least 1,000 RU/s and a partition key), you need to use the [Data Migration tool](import-data.md) or the [Change Feed library](change-feed.md). 
+  The left image above shows the result of a bad partition key and the right image above shows the result when a good partition key was chosen. In the left image, you can see that the data is not evenly distributed across the partitions. You should strive to choose a partition key that distributes your data so it looks similar to the right image.
 
-## Partitioning and provisioned throughput
-Azure Cosmos DB is designed for predictable performance. When you create a container, you reserve the throughput in terms of *[Request Units](request-units.md) (RU) per second*. Each request makes an RU charge that is proportional to the amount of system resources like CPU, memory, and IO consumed by the operation. A read of a 1 KB document with session consistency consumes 1 RU. A read is 1 RU regardless of the number of items stored or the number of concurrent requests running at the same time. Larger items require higher RUs depending on the size. If you know the size of your entities and the number of reads you need to support for your application, you can provision the exact amount of throughput required for your application's needs. 
+* Optimize queries to obtain data within the boundaries of a partition when possible. An optimal partitioning strategy would be aligned to the querying patterns. Queries that obtain data from a single partition provide the best possible performance. Queries that are invoked with high concurrency can be efficiently routed by including the partition key in the filter predicate.  
 
-> [!NOTE]
-> To fully utilize provisioned throughput of a container, you must choose a partition key that allows you to evenly distribute requests across all distinct partition key values.
-> 
-> 
+* Choosing a partition key with higher cardinality is generally preferred – becaue it typically yields better distribution and scalability. For example, a synthetic key can be formed by concatenating values from multiple properties to increase the cardinality.  
 
-<a name="designing-for-partitioning"></a>
-## Work with the Azure Cosmos DB APIs
+When you choose a partition key with above considerations, you don’t have to worry about the number of partitions or how much throughput is allocated per physical partition, as Azure Cosmos DB scales out the number of physical partitions, and it can also scale the individual partitions as needed.
+
+## <a name="prerequisites"></a>Prerequisites for partitioning
+
+Azure Cosmos DB containers can be created as fixed or unlimited in the Azure portal. Fixed-size containers have a maximum limit of 10 GB and 10,000 RU/s throughput. To create a container as unlimited, you must specify a partition key and a minimum throughput of 1,000 RU/s. Azure Cosmos DB containers may also be configured to share throughput between a set of containers, in which each container must specificy a partition key and can grow unlimited. Following are the prerequisites to consider for partitioning and scaling:
+
+* When creating a container (e.g., a collection, a graph or a table) in the Azure portal, select the **Unlimited** storage capacity option to take advantage of unlimited scaling. For physical partitions to auto-split into **p1** and **p2** as described in [How does partitioning work](#how-does-partitioning-work), the container must be created with a throughput of 1,000 RU/s or more (or share throughput across a set of containers), and a partition key must be provided. 
+
+* If you created a container in the Azure portal or programmatically and the initial throughput was 1,000 RU/s or more, and you provided a partition key, you can take advantage of unlimited scaling with no changes to your container. This includes **Fixed** containers, so long as the initial container was created with at least 1,000 RU/s of throughput and a partition key is specified.
+
+* All containers configured to share throughput as part of a set of containers are treated as **Unlimited** containers.
+
+If you created a **Fixed** container with no partition key or throughput less than 1,000 RU/s, the container will not auto-scale. To migrate the data from a fixed container to an unlimited container, you need to use the [Data Migration tool](import-data.md) or the [Change Feed library](change-feed.md). 
+
+## <a name="PartitionedGraph"></a>Requirements for partitioned graph
+
+Consider the following details when creating a partitioned graph container:
+
+- **Setting up partitioning is necessary** if the container is expected to be more than 10 GB in size and/or if allocating more than 10,000 request units per second (RU/s) will be required.
+
+- **Vertices and edges are stored as JSON documents** in the back-end of an Azure Cosmos DB Gremlin API.
+
+- **Vertices require a partition key**. This key determines which partition is used to store the vertex and this process uses a hashing algorithm. The name of this partition key is a single-word string without spaces or special characters, and it is defined when creating a new container using the format `/partitioning-key-name`.
+
+- **Edges are stored with their source vertex**. In other words, for each vertex its partition key defines where the vertex and its outgoing edges are stored. This is done to avoid cross-partition queries when using the `out()` cardinality in graph queries.
+
+- **Graph queries should specify a partition key**. To take full advantage of the horizontal partitioning in Azure Cosmos DB, whenever it's possible the graph queries should include partition key. For example when a single vertex is selected. The following example queries show how to include partition key when selecting one or multiple vertices in a partitioned graph:
+
+    - Selecting a vertex by ID, then **use the `.has()` step to specify the partition key property**: 
+    
+        ```
+        g.V('vertex_id').has('partitionKey', 'partitionKey_value')
+        ```
+    
+    - Selecting a vertex by **specifying a tuple including partition key value and ID**: 
+    
+        ```
+        g.V(['partitionKey_value', 'vertex_id'])
+        ```
+        
+    - Selecting a vertex by specifying an **array of tuples that include partition key values and IDs**:
+    
+        ```
+        g.V(['partitionKey_value0', 'verted_id0'], ['partitionKey_value1', 'vertex_id1'], ...)
+        ```
+        
+    - Selecting a set of vertices by **specifying a list of partition key values**: 
+    
+        ```
+        g.V('vertex_id0', 'vertex_id1', 'vertex_id2', …).has('partitionKey', within('partitionKey_value0', 'partitionKey_value01', 'partitionKey_value02', …)
+        ```
+
+* **Always specify the partition key value when querying a vertex**. Obtaining a vertex from a known partition is the most efficient way in terms of performance.
+
+* **Use the outgoing direction when querying edges** whenever it's possible. Edges are stored with their source vertices in the outgoing direction. This means that the chances of resorting to cross-partition queries are minimized when the data and queries are designed with this pattern in mind.
+
+## <a name="designing-for-partitioning"></a> Create partition key 
 You can use the Azure portal or Azure CLI to create containers and scale them at any time. This section shows how to create containers and specify the provisioned throughput and partition key using each API.
 
 
@@ -170,7 +219,7 @@ For more information, see [Develop with the Table API](tutorial-develop-table-do
 
 ### Gremlin API
 
-With the Gremlin API, you can use the Azure portal or Azure CLI to create a container which represents a graph. Alternatively, because Azure Cosmos DB is multi-model, you can use one of the other APIs to create and scale your graph container.
+With the Gremlin API, you can use the Azure portal or Azure CLI to create a container that represents a graph. Alternatively, because Azure Cosmos DB is multi-model, you can use one of the other APIs to create and scale your graph container.
 
 You can read any vertex or edge by using the partition key and ID in Gremlin. For example, for a graph with region ("USA") as the partition key and "Seattle" as the row key, you can find a vertex by using the following syntax:
 
@@ -186,9 +235,32 @@ g.E(['USA', 'I5'])
 
 For more information, see [Using a partitioned graph in Azure Cosmos DB](graph-partitioning.md).
 
+## Form partition key by concatenating multiple fields
 
-<a name="designing-for-scale"></a>
-## Design for scale
+You can also form a partition key by concatenating and padding multiple property values into a single artificial "partitionKey" property of the item. These keys are referred as synthetic keys.
+
+For example, you have a document that looks like:
+
+```json
+{
+"deviceId": "abc-123",
+"date": 2018
+}
+```
+
+One option is to set partitionKey on /deviceId or /date. If want to form a partition key on device id and date. Concatenate these two values in to an artificial "partitionKey" property, and set the partition key to /partitionKey.
+
+```json
+{
+"deviceId": "abc-123",
+"date": 2018,
+"partitionKey": "abc-123-2018"
+}
+```
+
+In real time scenarios you can have thousands of documents so you should define client side logic to concatenate values into a synthetic key, insert the synthetic key into the documents and then use it to specify partition key.
+
+## <a name="designing-for-scale"></a> Design for scale
 To scale effectively with Azure Cosmos DB, you need to pick a good partition key when you create your container. There are two main considerations for choosing a good partition key:
 
 * **Query boundary and transactions**. Your choice of partition key should balance the need to use transactions against the requirement to distribute your entities across multiple partition keys to ensure a scalable solution. At one extreme, you can set the same partition key for all your items, but this option might limit the scalability of your solution. At the other extreme, you can assign a unique partition key for each item. This choice is highly scalable, but it prevents you from using cross-document transactions via stored procedures and triggers. An ideal partition key enables you to use efficient queries and has sufficient cardinality to ensure your solution is scalable. 
@@ -207,7 +279,7 @@ One of the common use cases in Azure Cosmos DB is logging and telemetry. It's im
 
 * If your use case involves a small rate of writes that accumulate over a long time and you need to query by ranges of timestamps with other filters, use a rollup of the timestamp. For example, a good approach is to use date as a partition key. With this approach, you can query over all the data for a given date from a single partition. 
 * If your workload is write-heavy, which is very common in this scenario, use a partition key that is not based on the timestamp. As such, Azure Cosmos DB can distribute and scale writes evenly across various partitions. Here a *hostname*, *process ID*, *activity ID*, or another property with high cardinality is a good choice. 
-* Another approach is a hybrid approach, where you have multiple containers, one for each day/month, and the partition key is a more granular property like *hostname*. This approach has the benefit that you can set different throughput for each container based on the time window and the scale and performance needs. For example, a container for the current month may be provisioned with a higher throughput, because it serves reads and writes. Previous months may be provisioned with a lower throughput, because they only serve reads.
+* Another approach is a hybrid approach, where you have multiple containers, one for each day/month, and the partition key is a more granular property like *hostname*. This approach has the benefit that you can set different throughput for each container or a set of containers based on the time window and the scale and performance needs. For example, a container for the current month may be provisioned with a higher throughput, because it serves reads and writes. Previous months may be provisioned with a lower throughput, because they only serve reads.
 
 ### Partitioning and multitenancy
 If you are implementing a multitenant application using Azure Cosmos DB, there are two popular designs to consider: *one partition key per tenant* and *one container per tenant*. Here are the pros and cons for each:

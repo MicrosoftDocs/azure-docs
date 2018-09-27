@@ -1,21 +1,15 @@
 ---
-title: Azure Quickstart - Back up a VM with the Azure portal | Microsoft Docs
+title: Azure Quickstart - Back up a VM with the Azure portal
 description: Learn how to back up your virtual machines with the Azure portal
 services: backup
-documentationcenter: virtual-machines
 author: saurabhsensharma
 manager: shivamg
-editor:
 tags: azure-resource-manager, virtual-machine-backup
-
-ms.assetid: 
 ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure
-ms.date: 2/14/2018
-ms.author: iainfou
+ms.date: 7/17/2018
+ms.author: saurse
 ms.custom: mvc
 ---
 

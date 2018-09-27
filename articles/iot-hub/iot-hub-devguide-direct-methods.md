@@ -1,25 +1,17 @@
----
+﻿---
 title: Understand Azure IoT Hub direct methods | Microsoft Docs
 description: Developer guide - use direct methods to invoke code on your devices from a service app.
-services: iot-hub
-documentationcenter: .net
 author: nberdy
-manager: timlt
-editor: ''
-
-ms.assetid: 9f0535f1-02e6-467a-9fc4-c0950702102d
+manager: briz
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/29/2018
+services: iot-hub
+ms.topic: conceptual
+ms.date: 07/17/2018
 ms.author: nberdy
-ms.custom: H1Hack27Feb2017
-
 ---
+
 # Understand and invoke direct methods from IoT Hub
-IoT Hub gives you the ability to invoke direct methods on devices from the cloud. Direct methods represent a request-reply interaction with a device similar to an HTTP call in that they succeed or fail immediately (after a user-specified timeout). This approach is useful for scenarios where the course of immediate action is different depending on whether the device was able to respond. For example, sending an SMS wake-up to a device if it is offline (SMS being more expensive than a method call).
+IoT Hub gives you the ability to invoke direct methods on devices from the cloud. Direct methods represent a request-reply interaction with a device similar to an HTTP call in that they succeed or fail immediately (after a user-specified timeout). This approach is useful for scenarios where the course of immediate action is different depending on whether the device was able to respond.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -49,7 +41,12 @@ The payload for method requests and responses is a JSON document up to 128 KB.
 ### Method invocation
 Direct method invocations on a device are HTTPS calls that comprise:
 
-* The *URI* specific to the device (`{iot hub}/twins/{device id}/methods/`)
+* The *request URI* specific to the device along with the [API version](/rest/api/iothub/service/invokedevicemethod):
+
+    ```http
+    https://fully-qualified-iothubname.azure-devices.net/twins/{deviceId}/methods?api-version=2018-06-30
+    ```
+
 * The POST *method*
 * *Headers* that contain the authorization, request ID, content type, and content encoding
 * A transparent JSON *body* in the following format:
@@ -67,6 +64,25 @@ Direct method invocations on a device are HTTPS calls that comprise:
 
 Timeout is in seconds. If timeout is not set, it defaults to 30 seconds.
 
+#### Example
+
+See below for a barebone example using `curl`. 
+
+```bash
+curl -X POST \
+  https://iothubname.azure-devices.net/twins/myfirstdevice/methods?api-version=2018-06-30 \
+  -H 'Authorization: SharedAccessSignature sr=iothubname.azure-devices.net&sig=x&se=x&skn=iothubowner' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "methodName": "reboot",
+    "responseTimeoutInSeconds": 200,
+    "payload": {
+        "input1": "someInput",
+        "input2": "anotherInput"
+    }
+}'
+```
+
 ### Response
 The back-end app receives a response that comprises:
 
@@ -83,10 +99,15 @@ The back-end app receives a response that comprises:
 
     Both `status` and `body` are provided by the device and used to respond with the device's own status code and/or description.
 
+### Method invocation for IoT Edge modules
+Invoking direct methods using a module ID is supported in the C# SDK (available [here](https://www.nuget.org/packages/Microsoft.Azure.Devices/)).
+
+For this purpose, use the `ServiceClient.InvokeDeviceMethodAsync()` method and pass in the `deviceId` and `moduleId` as parameters.
+
 ## Handle a direct method on a device
 ### MQTT
 #### Method invocation
-Devices receive direct method requests on the MQTT topic: `$iothub/methods/POST/{method name}/?$rid={request id}`
+Devices receive direct method requests on the MQTT topic: `$iothub/methods/POST/{method name}/?$rid={request id}`. The number of subscriptions per device is limited to 5. It is therefore recommended not to subscribe to each direct method individually. Instead consider subscribing to `$iothub/methods/POST/#` and then filter the delivered messages based on your desired method names.
 
 The body that the device receives is in the following format:
 
@@ -151,6 +172,6 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
 
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
-[lnk-methods-tutorial]: iot-hub-node-node-direct-methods.md
+[lnk-methods-tutorial]: quickstart-control-device-node.md
 [lnk-devguide-messages]: iot-hub-devguide-messaging.md
 [lnk-c2d-guidance]: iot-hub-devguide-c2d-guidance.md

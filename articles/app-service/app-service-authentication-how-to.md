@@ -22,16 +22,17 @@ This article shows you how to customize [authentication and authorization in App
 
 To get started quickly, see one of the following tutorials:
 
-* [Tutorial: Authenticate and authorize users end-to-end in Azure App Service](app-service-web-tutorial-auth-aad.md)
+* [Tutorial: Authenticate and authorize users end-to-end in Azure App Service (Windows)](app-service-web-tutorial-auth-aad.md)
+* [Tutorial: Authenticate and authorize users end-to-end in Azure App Service for Linux](containers/tutorial-auth-aad.md)
 * [How to configure your app to use Azure Active Directory login](app-service-mobile-how-to-configure-active-directory-authentication.md)
 * [How to configure your app to use Facebook login](app-service-mobile-how-to-configure-facebook-authentication.md)
 * [How to configure your app to use Google login](app-service-mobile-how-to-configure-google-authentication.md)
 * [How to configure your app to use Microsoft Account login](app-service-mobile-how-to-configure-microsoft-authentication.md)
 * [How to configure your app to use Twitter login](app-service-mobile-how-to-configure-twitter-authentication.md)
 
-## Configure multiple sign-in options
+## Use multiple sign-in providers
 
-The portal configuration doesn't offer a turn-key way to present multiple sign-in options to your users (such as both Facebook and Twitter). However, it isn't difficult to add the functionality to your web app. The steps are outlined as follows:
+The portal configuration doesn't offer a turn-key way to present multiple sign-in providers to your users (such as both Facebook and Twitter). However, it isn't difficult to add the functionality to your web app. The steps are outlined as follows:
 
 First, in the **Authentication / Authorization** page in the Azure portal, configure each of the identity provider you want to enable.
 
@@ -48,6 +49,56 @@ In the sign-in page, or the navigation bar, or any other location of your web ap
 ```
 
 When the user clicks on one of the links, the respective sign-in page opens to sign in the user.
+
+To redirect the user post-sign-in to a custom URL, use the `post_login_redirect_url` query string parameter (not to be confused with the Redirect URI in your identity provider configuration). For example, to navigate the user to `/Home/Index` after sign-in, use the following HTML code:
+
+```HTML
+<a href="/.auth/login/<provider>?post_login_redirect_url=/Home/Index">Log in</a>
+```
+
+## Sign out of a session
+
+Users can initiate a sign-out by sending a `GET` request to the app's `/.auth/logout` endpoint. The `GET` request does the following:
+
+- Clears authentication cookies from the current session.
+- Deletes the current user's tokens from the token store.
+- For Azure Active Directory and Google, performs a server-side sign-out on the identity provider.
+
+Here's a simple sign-out link in a webpage:
+
+```HTML
+<a href="/.auth/logout">Sign out</a>
+```
+
+By default, a successful sign-out redirects the client to the URL `/.auth/logout/done`. You can change the post-sign-out redirect page by adding the `post_logout_redirect_uri` query parameter. For example:
+
+```
+GET /.auth/logout?post_logout_redirect_uri=/index.html
+```
+
+It's recommended that you [encode](https://wikipedia.org/wiki/Percent-encoding) the value of `post_logout_redirect_uri`.
+
+When using fully qualified URLs, the URL must be either hosted in the same domain or configured as an allowed external redirect URL for your app. In the following example, to redirect to `https://myexternalurl.com` that's not hosted in the same domain:
+
+```
+GET /.auth/logout?post_logout_redirect_uri=https%3A%2F%2Fmyexternalurl.com
+```
+
+You must run the following command in the [Azure Cloud Shell](../cloud-shell/quickstart.md):
+
+```azurecli-interactive
+az webapp auth update --name <app_name> --resource-group <group_name> --allowed-external-redirect-urls "https://myexternalurl.com"
+```
+
+## Preserve URL fragments
+
+After users sign in to your app, they usually want to be redirected to the same section of the same page, such as `/wiki/Main_Page#SectionZ`. However, because [URL fragments](https://wikipedia.org/wiki/Fragment_identifier) (for example, `#SectionZ`) are never sent to the server, they are not preserved by default after the OAuth sign-in completes and redirects back to your app. Users then get a suboptimal experience when they need to navigate to the desired anchor again. This limitation applies to all server-side authentication solutions.
+
+In App Service authentication, you can preserve URL fragments across the OAuth sign-in. To do this, set an app setting called `WEBSITE_AUTH_PRESERVE_URL_FRAGMENT` to `true`. You can do it in the [Azure portal](https://portal.azure.com), or simply run the following command in the [Azure Cloud Shell](../cloud-shell/quickstart.md):
+
+```azurecli-interactive
+az webapp config appsettings set --name <app_name> --resource-group <group_name> --settings WEBSITE_AUTH_PRESERVE_URL_FRAGMENT="true"
+```
 
 ## Access user claims
 
@@ -84,7 +135,7 @@ When your provider's access token expires, you need to reauthenticate the user. 
 
 - **Google**: Append an `access_type=offline` query string parameter to your `/.auth/login/google` API call. If using the Mobile Apps SDK, you can add the parameter to one of the `LogicAsync` overloads (see [Google Refresh Tokens](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens)).
 - **Facebook**: Doesn't provide refresh tokens. Long-lived tokens expire in 60 days (see [Facebook Expiration and Extension of Access Tokens](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension)).
-- **Twitter**: Access tokens don't expire (see [Twitter OAuth FAQ](https://developer.twitter.com/docs/basics/authentication/guides/oauth-faq)).
+- **Twitter**: Access tokens don't expire (see [Twitter OAuth FAQ](https://developer.twitter.com/en/docs/basics/authentication/guides/oauth-faq)).
 - **Microsoft Account**: When [configuring Microsoft Account Authentication Settings](app-service-mobile-how-to-configure-microsoft-authentication.md), select the `wl.offline_access` scope.
 - **Azure Active Directory**: In [https://resources.azure.com](https://resources.azure.com), do the following steps:
     1. At the top of the page, select **Read/Write**.
@@ -98,7 +149,7 @@ When your provider's access token expires, you need to reauthenticate the user. 
 
     1. Click **Put**. 
 
-Once your provider is configured, you can see if refresh tokens are in the token store by calling `/.auth/me`. 
+Once your provider is configured, you can [find the refresh token and the expiration time for the access token](#retrieve-tokens-in-app-code) in the token store. 
 
 To refresh your access token at anytime, just call `/.auth/refresh` in any language. The following snippet uses jQuery to refresh your access tokens from a JavaScript client.
 
@@ -145,4 +196,5 @@ Click **Edit**, modify the following property, and then click **Put**. Be sure t
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Authenticate and authorize users end-to-end](app-service-web-tutorial-auth-aad.md)
+> [Tutorial: Authenticate and authorize users end-to-end (Windows)](app-service-web-tutorial-auth-aad.md)
+> [Tutorial: Authenticate and authorize users end-to-end (Linux)](containers/tutorial-auth-aad.md)

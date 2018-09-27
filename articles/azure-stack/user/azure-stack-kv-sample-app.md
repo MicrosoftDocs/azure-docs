@@ -1,9 +1,9 @@
-﻿---
+---
 title: Allow applications to retrieve Azure Stack Key Vault secrets | Microsoft Docs
 description: Use a sample app to work with Azure Stack Key Vault
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 
@@ -13,35 +13,47 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/26/2017
-ms.author: mabrigg
+ms.date: 08/15/2018
+ms.author: sethm
 
 ---
 
-# Sample application that uses keys and secrets stored in a key vault
+# A sample application that uses keys and secrets stored in a key vault
 
-In this article, we show you how to run a sample application (HelloKeyVault) that retrieves keys and secrets from a key vault in Azure Stack.
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-## Prerequisites 
+Follow the steps in this article to run a sample application (HelloKeyVault) that retrieves keys and secrets from a key vault in Azure Stack.
 
-Run the following prerequisites either from the [Development Kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), or from a Windows-based external client if you are [connected through VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn):
+## Prerequisites
 
-* Install [Azure Stack-compatible Azure PowerShell modules](azure-stack-powershell-install.md).  
-* Download the [tools required to work with Azure Stack](azure-stack-powershell-download.md). 
+You can install the following prerequisites from the Azure Stack [Development Kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), or from a Windows-based external client if you are [connected through VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn):
+
+* Install [Azure Stack-compatible Azure PowerShell modules](azure-stack-powershell-install.md).
+* Download the [tools required to work with Azure Stack](azure-stack-powershell-download.md).
 
 ## Create and get the key vault and application settings
 
-First, you should create a key vault in Azure Stack, and register an application in Azure Active Directory (Azure AD). You can create and register the key vaults by using the Azure portal or PowerShell. This article shows you the PowerShell way to do the tasks. By default, this PowerShell script creates a new application in Active Directory. However, you can also use one of your existing applications. Make sure to provide a value for the `aadTenantName` and `applicationPassword` variables. If you don't specify a value for the `applicationPassword` variable, this script generates a random password. 
+To prepare for the sample application:
+
+* Create a key vault in Azure Stack.
+* Register an application in Azure Active Directory (Azure AD).
+
+You can use the Azure portal or PowerShell to prepare for the sample application. This article shows how to create a key vault and register an application by using PowerShell.
+
+>[!NOTE]
+>By default, the PowerShell script creates a new application in Active Directory. However, you can register one of your existing applications.
+
+ Before running the following script, make sure you provide values for the `aadTenantName` and `applicationPassword` variables. If you don't specify a value for `applicationPassword`, this script generates a random password.
 
 ```powershell
 $vaultName           = 'myVault'
 $resourceGroupName   = 'myResourceGroup'
 $applicationName     = 'myApp'
-$location            = 'local' 
+$location            = 'local'
 
 # Password for the application. If not specified, this script will generate a random password during app creation.
-$applicationPassword = '' 
-                         
+$applicationPassword = ''
+
 # Function to generate a random password for the application.
 Function GenerateSymmetricKey()
 {
@@ -73,12 +85,12 @@ $TenantID = Get-AzsDirectoryTenantId `
 Add-AzureRmAccount `
   -EnvironmentName "AzureStackUser" `
   -TenantId $TenantID `
-  
+
 $now = [System.DateTime]::Now
 $oneYearFromNow = $now.AddYears(1)
 
 $applicationPassword = GenerateSymmetricKey
-	
+
 # Create a new Azure AD application.
 $identifierUri = [string]::Format("http://localhost:8080/{0}",[Guid]::NewGuid().ToString("N"))
 $homePage = "http://contoso.com"
@@ -96,10 +108,10 @@ Write-Host "Creating a new AAD service principal"
 $servicePrincipal = New-AzureRmADServicePrincipal `
   -ApplicationId $ADApp.ApplicationId
 
-# Create a new resource group and a key vault within that resource group.
+# Create a new resource group and a key vault in that resource group.
 New-AzureRmResourceGroup `
   -Name $resourceGroupName `
-  -Location $location   
+  -Location $location
 
 Write-Host "Creating vault $vaultName"
 $vault = New-AzureRmKeyVault -VaultName $vaultName `
@@ -120,29 +132,45 @@ Write-Host "Paste the following settings into the app.config file for the HelloK
 '<add key="AuthClientSecret" value="' + $applicationPassword + '"/>'
 Write-Host
 
-``` 
+```
 
-The following screenshot shows the output of the previous script:
+The next screen capture shows the output from the script used to create the key vault:
 
-![App config](media/azure-stack-kv-sample-app/settingsoutput.png)
+![Key vault with access keys](media/azure-stack-kv-sample-app/settingsoutput.png)
 
 Make a note of the **VaultUrl**, **AuthClientId**, and **AuthClientSecret** values returned by the previous script. You use these values to run the HelloKeyVault application.
 
-## Download and run the sample application
+## Download and configure the sample application
 
-Download the key vault sample from the Azure [Key Vault client samples](https://www.microsoft.com/en-us/download/details.aspx?id=45343) page. Extract the contents of the .zip file onto your development workstation. There are two samples within the samples folder. We use the HellpKeyVault sample in this article. Browse to the **Microsoft.Azure.KeyVault.Samples** > **samples** > **HelloKeyVault** folder and open the HelloKeyVault application in Visual Studio. 
+Download the key vault sample from the Azure [Key Vault client samples](https://www.microsoft.com/en-us/download/details.aspx?id=45343) page. Extract the contents of the .zip file on your development workstation. There are two applications in the samples folder, this article uses HelloKeyVault.
 
-Open the HelloKeyVault\App.config file and replace the values of the <appSettings> element with the **VaultUrl**, **AuthClientId**, and **AuthClientSecret** values returned by the previous script. Note that by default the App.config contains a placeholder for *AuthCertThumbprint*, but use *AuthClientSecret* instead. After you replace the settings, rebuild the solution and start the application.
+To load the HelloKeyVault sample:
 
-![App settings](media/azure-stack-kv-sample-app/appconfig.png)
- 
-The application signs in to Azure AD, and then uses that token to authenticate to the key vault in Azure Stack. The application performs operations like create, encrypt, wrap, and delete on the keys and secrets of the key vault. You can also pass specific parameters such as *encrypt* and *decrypt* to the application, which makes sure that the application executes only those operations against the vault. 
+* Browse to the **Microsoft.Azure.KeyVault.Samples** > **samples** > **HelloKeyVault** folder.
+* Open the HelloKeyVault application in Visual Studio.
 
+### Configure the sample application
+
+In Visual Studio:
+
+* Open the HelloKeyVault\App.config file and find browse to the &lt;**appSettings**&gt; element.
+* Update the **VaultUrl**, **AuthClientId**, and **AuthClientSecret** keys with the values returned by the used to create the key vault. (By default, the App.config file has a placeholder for *AuthCertThumbprint*. Replace this placeholder with *AuthClientSecret*.)
+
+  ![App settings](media/azure-stack-kv-sample-app/appconfig.png)
+
+* Rebuild the solution.
+
+## Run the application
+
+When you run HelloKeyVault, the application signs in to Azure AD, and then uses the AuthClientSecret token to authenticate to the key vault in Azure Stack.
+
+You can use the HelloKeyVault sample to:
+
+* Perform basic operations such as create, encrypt, wrap, and delete on the keys and secrets.
+* Pass parameters such as *encrypt* and *decrypt* to HelloKeyVault, and apply the specified changes to a key vault.
 
 ## Next steps
+
 [Deploy a VM with a Key Vault password](azure-stack-kv-deploy-vm-with-secret.md)
 
 [Deploy a VM with a Key Vault certificate](azure-stack-kv-push-secret-into-vm.md)
-
-
-

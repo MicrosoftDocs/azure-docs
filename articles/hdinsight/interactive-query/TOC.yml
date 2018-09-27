@@ -5,6 +5,9 @@
   - name: Component versioning
     href: ../hdinsight-component-versioning.md
     maintainContext: true
+  - name: HDInsight 4.0
+    href: ../hdinsight-version-release.md
+    maintainContext: true
 - name: Get started
   items:
   - name: Start with Interactive Query
@@ -35,7 +38,7 @@
         href: ../hdinsight-connect-hive-zeppelin.md
         maintainContext: true
       - name: Tools for Visual Studio
-        href: ../hdinsight-hadoop-visual-studio-tools-get-started.md
+        href: ../hadoop/apache-hadoop-visual-studio-tools-get-started.md
         maintainContext: true
       - name: Tools for VSCode
         href: ../hdinsight-for-vscode.md
@@ -138,6 +141,8 @@
     - name: Use Zeppelin
       href: ../hdinsight-apache-spark-zeppelin-notebook.md
       maintainContext: true
+    - name: Use Grafana
+      href: ./hdinsight-grafana.md
     - name: Build HDInsight applications
       items:
       - name: Install custom apps
@@ -192,7 +197,7 @@
       - name: Use the .NET SDK
         href: ../hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md
         maintainContext: true
-      - name: Use the Azure CLI
+      - name: Use the Azure Classic CLI
         href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
         maintainContext: true
       - name: Use the Azure portal
@@ -214,7 +219,7 @@
       - name: Use Azure PowerShell
         href: ../hdinsight-administer-use-powershell.md
         maintainContext: true
-      - name: Use the Azure CLI
+      - name: Use the Azure Classic CLI
         href: ../hdinsight-administer-use-command-line.md
         maintainContext: true
     - name: Manage clusters using the Ambari web UI
@@ -335,13 +340,10 @@
     - name: Connect HDInsight with on-premises network
       href: ../connect-on-premises-network.md
       maintainContext: true
-  - name: Monitoring using OMS
+  - name: Monitoring using Log Analytics
     items:
     - name: Use Azure Log Analytics
       href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-      maintainContext: true
-    - name: Cluster-specific dashboards
-      href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
       maintainContext: true
     - name: Use queries with Log Analytics
       href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
@@ -355,8 +357,14 @@
     href: https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight
   - name: Azure PowerShell
     href: /powershell/module/azurerm.hdinsight
-  - name: .NET (Hadoop)
-    href: https://docs.microsoft.com/dotnet/api/overview/azure/hd-insight?view=azure-dotnet
+  - name: .NET SDK
+    href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet
+  - name: Python SDK
+    href: https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python
+  - name: Java SDK
+    href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-preview
+  - name: Go SDK
+    href: ../hdinsight-go-sdk-overview.md
   - name: .NET (HBase)
     href: https://www.nuget.org/packages/Microsoft.HBase.Client/
   - name: .NET (Avro)
@@ -370,6 +378,10 @@
   - name: Release notes
     href: ../hdinsight-release-notes.md
     maintainContext: true
+    items:
+    - name: Archived release notes
+      href: ../hdinsight-release-notes-archive.md
+      maintainContext: true
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=intelligence-analytics
   - name: Get help on the forum

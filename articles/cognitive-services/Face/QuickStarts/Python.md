@@ -1,146 +1,289 @@
 ---
-title: Face API Python QuickStarts | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
-description: Get information and code samples to help you quickly get started using the Face API with Python in Cognitive Services.
+title: "Quickstart: Detect faces in an image - Face API, Python"
+titleSuffix: Azure Cognitive Services
+description: In this quickstart, you detect faces in an image using the Face API with Python.
 services: cognitive-services
-author: SteveMSFT
-manager: corncar
+author: noellelacharite
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: face-api
-ms.topic: article
-ms.date: 03/01/2018
-ms.author: sbowles
+ms.topic: quickstart
+ms.date: 05/24/2018
+ms.author: nolachar
 ---
+# Quickstart: Detect faces in an image using Python
 
-# Face detection using Cognitive Services
-This walkthrough shows you how to use the cognitive services [Face API](https://azure.microsoft.com/services/cognitive-services/face/) to detect faces in an image. The API also returns various attributes such as the gender and age of each person. The sample images used in this walkthrough are from the [How-Old Robot](http://www.how-old.net) that uses the same APIs.
+In this quickstart, you detect human faces in a remote image using the Face service. The detected faces are demarcated with rectangles and superimposed with the gender and age of each person. To use a local image, see the syntax in [Computer Vision: Analyze a local image with Python](../../Computer-vision/QuickStarts/python-disk.md).
 
-You can run this example as a Jupyter notebook on [MyBinder](https://mybinder.org) by clicking on the launch Binder badge: 
+You can run this quickstart as a Jupyter notebook on [MyBinder](https://mybinder.org). To launch Binder, select the following button:
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=FaceAPI.ipynb)
 
-For more information, see the [REST API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
-
 ## Prerequisites
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Face API**. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=face-api) is sufficient for this quickstart. You need the subscription key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.
 
-## Running the walkthrough
-To continue with this walkthrough, replace `<Subscription Key>` with a valid subscription key.
+You need a subscription key to run the sample. You can get free trial subscription keys from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api).
 
+## Detect faces in an image
 
-```python
-subscription_key = "<Subscription Key>"
-assert subscription_key
-```
+Use the [Face - Detect](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
+method to detect faces in an image and return face attributes including:
 
-Next, verify `face_api_url` and make sure it corresponds to the region you used when generating the subscription key. If you are using a trial key, you don't need to make any changes.
+* Face ID: Unique ID used in several Face API scenarios.
+* Face Rectangle: The left, top, width, and height indicating the location of the face in the image.
+* Landmarks: An array of 27-point face landmarks pointing to the important positions of face components.
+* Facial attributes including age, gender, smile intensity, head pose, and facial hair.
 
+To run the sample, do the following steps:
 
-```python
-face_api_url = 'https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect'
-```
+1. Copy the following code to a new Python script file.
+1. Replace `<Subscription Key>` with your valid subscription key.
+1. Change the `face_api_url` value to the location where you obtained your subscription keys, if necessary.
+1. Optionally, change the `image_url` value to another image.
+1. Run the script.
 
-Here is the URL of the image. You can experiment with different images  by changing ``image_url`` to point to a different image and rerunning this notebook.
+### Face - Detect request
 
-
-```python
-image_url = 'https://how-old.net/Images/faces2/main007.jpg'
-```
-
-The next few lines of code call into the Face API to detect the faces in the image. In this instance, the image is specified via a publicly visible URL. You can also pass an image directly as part of the request body. For more information, see the [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
-
+The following code uses the Python `requests` library to call the Face Detect API. It returns the results as a JSON object. The API key is passed in via the `headers` dictionary. The types of features to recognize is passed in via the `params` dictionary.
 
 ```python
 import requests
-from IPython.display import HTML
-
-headers = { 'Ocp-Apim-Subscription-Key': subscription_key }
-    
-params = {
-    'returnFaceId': 'true',
-    'returnFaceLandmarks': 'false',
-    'returnFaceAttributes': 'age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise',
-}
-
-response = requests.post(face_api_url, params=params, headers=headers, json={"url": image_url})
-faces = response.json()
-HTML("<font size='5'>Detected <font color='blue'>%d</font> faces in the image</font>"%len(faces))
-```
-
-
-The expected result is
-
-
-```html
-<font size='5'>Detected <font color='blue'>2</font> faces in the image</font>
-```
-
-
-Finally, the face information can be overlaid of the original image using the `matplotlib` library in Python.
-
-
-```python
-%matplotlib inline
+# If you are using a Jupyter notebook, uncomment the following line.
+#%matplotlib inline
 import matplotlib.pyplot as plt
-
 from PIL import Image
 from matplotlib import patches
 from io import BytesIO
 
-response = requests.get(image_url)
-image = Image.open(BytesIO(response.content))
+# Replace <Subscription Key> with your valid subscription key.
+subscription_key = "<Subscription Key>"
+assert subscription_key
 
-plt.figure(figsize=(8,8))
+# You must use the same region in your REST call as you used to get your
+# subscription keys. For example, if you got your subscription keys from
+# westus, replace "westcentralus" in the URI below with "westus".
+#
+# Free trial subscription keys are generated in the westcentralus region.
+# If you use a free trial subscription key, you shouldn't need to change
+# this region.
+face_api_url = 'https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect'
+
+# Set image_url to the URL of an image that you want to analyze.
+image_url = 'https://how-old.net/Images/faces2/main007.jpg'
+
+headers = {'Ocp-Apim-Subscription-Key': subscription_key}
+params = {
+    'returnFaceId': 'true',
+    'returnFaceLandmarks': 'false',
+    'returnFaceAttributes': 'age,gender,headPose,smile,facialHair,glasses,' +
+    'emotion,hair,makeup,occlusion,accessories,blur,exposure,noise'
+}
+data = {'url': image_url}
+response = requests.post(face_api_url, params=params, headers=headers, json=data)
+faces = response.json()
+
+# Display the original image and overlay it with the face information.
+image = Image.open(BytesIO(requests.get(image_url).content))
+plt.figure(figsize=(8, 8))
 ax = plt.imshow(image, alpha=0.6)
 for face in faces:
     fr = face["faceRectangle"]
     fa = face["faceAttributes"]
     origin = (fr["left"], fr["top"])
-    p = patches.Rectangle(origin, fr["width"], fr["height"], fill=False, linewidth=2, color='b')
+    p = patches.Rectangle(
+        origin, fr["width"], fr["height"], fill=False, linewidth=2, color='b')
     ax.axes.add_patch(p)
-    plt.text(origin[0], origin[1], "%s, %d"%(fa["gender"].capitalize(), fa["age"]), fontsize=20, weight="bold", va="bottom")
+    plt.text(origin[0], origin[1], "%s, %d"%(fa["gender"].capitalize(), fa["age"]),
+             fontsize=20, weight="bold", va="bottom")
 _ = plt.axis("off")
 ```
 
-Here are more images that can be analyzed using the same technique.
-First, define a helper function, ``annotate_image`` to annotate an image given its URL by calling into the Face API.
+### Face - Detect response
 
+A successful response is returned in JSON, for example:
 
-```python
-def annotate_image(image_url):
-    response = requests.post(face_api_url, params=params, headers=headers, json={"url": image_url})
-    faces = response.json()
-
-    image_file = BytesIO(requests.get(image_url).content)
-    image = Image.open(image_file)
-
-    plt.figure(figsize=(8,8))
-    ax = plt.imshow(image, alpha=0.6)
-    for face in faces:
-        fr = face["faceRectangle"]
-        fa = face["faceAttributes"]
-        origin = (fr["left"], fr["top"])
-        p = patches.Rectangle(origin, fr["width"], \
-                              fr["height"], fill=False, linewidth=2, color='b')
-        ax.axes.add_patch(p)
-        plt.text(origin[0], origin[1], "%s, %d"%(fa["gender"].capitalize(), fa["age"]), \
-                 fontsize=20, weight="bold", va="bottom")
-    plt.axis("off")
+```json
+[
+  {
+    "faceId": "35102aa8-4263-4139-bfd6-185bb0f52d88",
+    "faceRectangle": {
+      "top": 208,
+      "left": 228,
+      "width": 91,
+      "height": 91
+    },
+    "faceAttributes": {
+      "smile": 1,
+      "headPose": {
+        "pitch": 0,
+        "roll": 4.3,
+        "yaw": -0.3
+      },
+      "gender": "female",
+      "age": 27,
+      "facialHair": {
+        "moustache": 0,
+        "beard": 0,
+        "sideburns": 0
+      },
+      "glasses": "NoGlasses",
+      "emotion": {
+        "anger": 0,
+        "contempt": 0,
+        "disgust": 0,
+        "fear": 0,
+        "happiness": 1,
+        "neutral": 0,
+        "sadness": 0,
+        "surprise": 0
+      },
+      "blur": {
+        "blurLevel": "low",
+        "value": 0
+      },
+      "exposure": {
+        "exposureLevel": "goodExposure",
+        "value": 0.65
+      },
+      "noise": {
+        "noiseLevel": "low",
+        "value": 0
+      },
+      "makeup": {
+        "eyeMakeup": true,
+        "lipMakeup": true
+      },
+      "accessories": [],
+      "occlusion": {
+        "foreheadOccluded": false,
+        "eyeOccluded": false,
+        "mouthOccluded": false
+      },
+      "hair": {
+        "bald": 0.06,
+        "invisible": false,
+        "hairColor": [
+          {
+            "color": "brown",
+            "confidence": 1
+          },
+          {
+            "color": "blond",
+            "confidence": 0.5
+          },
+          {
+            "color": "black",
+            "confidence": 0.34
+          },
+          {
+            "color": "red",
+            "confidence": 0.32
+          },
+          {
+            "color": "gray",
+            "confidence": 0.14
+          },
+          {
+            "color": "other",
+            "confidence": 0.03
+          }
+        ]
+      }
+    }
+  },
+  {
+    "faceId": "42502166-31bb-4ac8-81c0-a7adcb3b3e70",
+    "faceRectangle": {
+      "top": 109,
+      "left": 125,
+      "width": 79,
+      "height": 79
+    },
+    "faceAttributes": {
+      "smile": 1,
+      "headPose": {
+        "pitch": 0,
+        "roll": 1.7,
+        "yaw": 2.1
+      },
+      "gender": "male",
+      "age": 32,
+      "facialHair": {
+        "moustache": 0.4,
+        "beard": 0.4,
+        "sideburns": 0.4
+      },
+      "glasses": "NoGlasses",
+      "emotion": {
+        "anger": 0,
+        "contempt": 0,
+        "disgust": 0,
+        "fear": 0,
+        "happiness": 1,
+        "neutral": 0,
+        "sadness": 0,
+        "surprise": 0
+      },
+      "blur": {
+        "blurLevel": "low",
+        "value": 0.11
+      },
+      "exposure": {
+        "exposureLevel": "goodExposure",
+        "value": 0.74
+      },
+      "noise": {
+        "noiseLevel": "low",
+        "value": 0
+      },
+      "makeup": {
+        "eyeMakeup": false,
+        "lipMakeup": true
+      },
+      "accessories": [],
+      "occlusion": {
+        "foreheadOccluded": false,
+        "eyeOccluded": false,
+        "mouthOccluded": false
+      },
+      "hair": {
+        "bald": 0.02,
+        "invisible": false,
+        "hairColor": [
+          {
+            "color": "brown",
+            "confidence": 1
+          },
+          {
+            "color": "blond",
+            "confidence": 0.94
+          },
+          {
+            "color": "red",
+            "confidence": 0.76
+          },
+          {
+            "color": "gray",
+            "confidence": 0.2
+          },
+          {
+            "color": "other",
+            "confidence": 0.03
+          },
+          {
+            "color": "black",
+            "confidence": 0.01
+          }
+        ]
+      }
+    }
+  }
+]
 ```
 
-You can then call ``annotate_image`` on other images. A few examples samples are shown below.
+## Next steps
 
+Explore the Face APIs used to detect human faces in an image, demarcate the faces with rectangles, and return attributes such as age and gender.
 
-```python
-annotate_image("https://how-old.net/Images/faces2/main001.jpg")
-```
-
-
-```python
-annotate_image("https://how-old.net/Images/faces2/main002.jpg")
-```
-
-
-```python
-annotate_image("https://how-old.net/Images/faces2/main004.jpg")
-```
+> [!div class="nextstepaction"]
+> [Face APIs](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

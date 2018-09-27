@@ -3,7 +3,7 @@ title: Create Azure Service Bus topic subscription and rule using Azure Resource
 description: Create a Service Bus namespace with topic, subscription, and rule using Azure Resource Manager template
 services: service-bus-messaging
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 04/11/2018
-ms.author: sethm
+ms.author: spelluru
 
 ---
 # Create a Service Bus namespace with topic, subscription, and rule using an Azure Resource Manager template
@@ -142,8 +142,10 @@ Creates a standard Service Bus namespace of type **Messaging**, with topic and s
                         "[parameters('serviceBusSubscriptionName')]"
                     ],
                     "properties": {
-                        "filter": {
-                            "sqlExpression": "StoreName = 'Store1'"
+                        "filterType": "SqlFilter",
+                        "sqlFilter": {
+                            "sqlExpression": "StoreName = 'Store1'",
+                            "requiresPreprocessing": "false"
                         },
                         "action": {
                             "sqlExpression": "set FilterTag = 'true'"

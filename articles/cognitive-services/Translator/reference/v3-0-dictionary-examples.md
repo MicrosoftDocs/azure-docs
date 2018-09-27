@@ -1,18 +1,19 @@
 ---
-title: Microsoft Translator Text API Dictionary Examples Method | Microsoft Docs
-description: Use the Microsoft Translator Text API Dictionary Examples method.
+title: Translator Text API Dictionary Examples Method
+titlesuffix: Azure Cognitive Services
+description: Use the Translator Text API Dictionary Examples method.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
 ---
 
-# Text API 3.0: Dictionary Examples
+# Translator Text API 3.0: Dictionary Examples
 
 Provides examples that show how terms in the dictionary are used in context. This operation is used in tandem with [Dictionary lookup](.\v3-0-dictionary-lookup.md).
 
@@ -74,7 +75,7 @@ The body of the request is a JSON array. Each array element is a JSON object wit
 
   * `Text`: A string specifying the term to lookup. This should be the value of a `normalizedText` field from the back-translations of a previous [Dictionary lookup](.\v3-0-dictionary-lookup.md) request. It can also be the value of the `normalizedSource` field.
 
-  * `Translation`: A string specifying the translated text previously returned by the [Dictionary lookup](.\v3-0-dictionary-lookup.md) operation. This should be the value from the `normalizedTarget` field in the `translations` list of the [Dictionary lookup](.\v3-0-dictionary-lookup.md) response. The service will return examplesfor the specific source-target word-pair.
+  * `Translation`: A string specifying the translated text previously returned by the [Dictionary lookup](.\v3-0-dictionary-lookup.md) operation. This should be the value from the `normalizedTarget` field in the `translations` list of the [Dictionary lookup](.\v3-0-dictionary-lookup.md) response. The service will return examples for the specific source-target word-pair.
 
 An example is:
 
@@ -121,7 +122,7 @@ This example shows how to lookup examples for the pair made up of the English te
 # [curl](#tab/curl)
 
 ```
-curl -X POST "https://dev.microsofttranslator.com/dictionary/examples?api-version=3.0&from=en&to=es" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly', 'Translation':'volar'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.0&from=en&to=es" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly', 'Translation':'volar'}]"
 ```
 
 ---

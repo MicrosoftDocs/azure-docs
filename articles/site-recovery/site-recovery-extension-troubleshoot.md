@@ -7,7 +7,7 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 05/02/2018
+ms.date: 07/06/2018
 ms.author: asgang
 ---
 
@@ -27,6 +27,13 @@ Error code: "151076"
 **Cause 2: [The agent installed in the VM is out of date (for Linux VMs)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 **Cause 3: [The Site Recovery extension fails to update or load](#the-site-recovery-extension-fails-to-update-or-load)**  
 
+Error message: "Previous site recovery extension operation is taking more time than expected."<br>
+Error code: "150066"<br>
+
+**Cause 1: [The agent is installed in the VM, but it's unresponsive (for Windows VMs)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
+**Cause 2: [The agent installed in the VM is out of date (for Linux VMs)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
+**Cause 3: [The Site Recovery extension status is incorrect](#the-site-recovery-extension-fails-to-update-or-load)**  
+
 ## Protection fails because the VM agent is unresponsive
 
 Error message: "Task execution has timed out while tracking for extension operation to be started."<br>
@@ -39,7 +46,11 @@ You can check the status of Azure guest agent in [Azure portal](https://portal.a
 **Cause 2: [The agent installed in the VM is out of date (for Linux VMs)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 
 
+Error message: "Task execution has timed out while tracking for extension operation to be started."<br>
+Error code: "151095"<br>
 
+This occur when the agent version on the Linux machine is old. Please complete the following troubleshooting step.<br>
+  **Cause 1: [The agent installed in the VM is out of date (for Linux VMs)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 ## Causes and solutions
 
 ### <a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>The agent is installed in the VM, but it's unresponsive (for Windows VMs)

@@ -1,15 +1,16 @@
 ---
-title: 'Azure Active Directory B2C: Audit logs samples and definitions'
-description: Guide and samples on accessing the Azure AD B2C Audit logs
+title: Audit logs samples and definitions in Azure Active Directory B2C | Microsoft Docs
+description: Guide and samples on accessing the Azure AD B2C Audit logs.
 services: active-directory-b2c
-author: sromeroz
-manager: sasubram
-ms.author: sezambra
+author: davidmu1
+manager: mtillman
 
-ms.service: active-directory-b2c
-ms.topic: article
+ms.service: active-directory
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/04/2017
+ms.author: davidmu
+ms.component: B2C
 ---
 
 # Accessing Azure AD B2C audit logs
@@ -59,7 +60,7 @@ You will see a list of activities logged over the last seven days.
 - Click on **Download** to download the activities as a csv file
 
 ##Accessing audit logs through the Azure AD reporting API
-Audit logs are published to the same pipeline as other activities for Azure Active Directory, so they can be accessed through the [Azure Active Directory reporting API](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-api-audit-reference). 
+Audit logs are published to the same pipeline as other activities for Azure Active Directory, so they can be accessed through the [Azure Active Directory reporting API](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-audit-reference). 
 
 ###Prerequisites
 To authenticate to the Azure AD reporting API you first need to register an application. Make sure to follow the steps in [Prerequisites to access the Azure AD reporting APIs](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/).

@@ -1,18 +1,14 @@
----  
-title: Enable Azure VM backup during creation | Microsoft Docs 
-description: See the steps to enable Azure virtual machine backup during the creation process. 
-services: backup, virtual-machines 
-documentationcenter: '' 
-author: markgalioto  
-manager: carmonm 
-tags: azure-resource-manager, virtual-machine-backup 
-ms.assetid:  
-ms.service: backup, virtual-machines 
-ms.devlang: na 
-ms.topic: article 
-ms.workload: storage-backup-recovery 
-ms.date: 01/08/2018 
-ms.author: trinadhk 
+---
+title: Enable Azure VM backup during creation
+description: See the steps to enable Azure virtual machine backup during the creation process.
+services: backup, virtual-machines
+author: markgalioto
+manager: carmonm
+tags: azure-resource-manager, virtual-machine-backup
+ms.service: backup, virtual-machines
+ms.topic: conceptual
+ms.date: 01/08/2018
+ms.author: trinadhk
 --- 
 
 
@@ -67,7 +63,7 @@ The following list of core images published by Microsoft are supported for enabl
 
 - **Windows** - Windows Server 2016 Data center, Windows Server 2016 Data Center core, Windows Server 2012 DataCenter, Windows Server 2012 R2 DataCenter, Windows Server 2008 R2 SP1 
 - **Ubuntu** - Ubuntu Server 1710, Ubuntu Server 1704, UUbuntu Server 1604(LTS), Ubuntu Server 1404(LTS) 
-- **Redhat** - RHEL 6.7, 6.8, 6.9, 7.2, 7.3, 7.4 
+- **Red Hat** - RHEL 6.7, 6.8, 6.9, 7.2, 7.3, 7.4 
 - **SUSE** - SUSE Linux Enterprise Server 11 SP4, 12 SP2, 12 SP3 
 - **Debian** - Debian 8, Debian 9 
 - **CentOS** - CentOS 6.9, CentOS 7.3 

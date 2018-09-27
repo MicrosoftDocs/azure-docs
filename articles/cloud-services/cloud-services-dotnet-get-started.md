@@ -1,9 +1,9 @@
-﻿---
+---
 title: Get started with Azure Cloud Services and ASP.NET | Microsoft Docs
 description: Learn how to create a multi-tier app using ASP.NET MVC and Azure. The app runs in a cloud service, with web role and worker role. It uses Entity Framework, SQL Database, and Azure Storage queues and blobs.
 services: cloud-services, storage
 documentationcenter: .net
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
-ms.author: adegeo
+ms.author: jeconnoc
 
 ---
 # Get started with Azure Cloud Services and ASP.NET
@@ -174,7 +174,7 @@ In a real-world application, you would typically create separate accounts for ap
 
     When the cloud service and storage account are in different datacenters (different regions), latency will increase and you will be charged for bandwidth outside the data center. Bandwidth within a data center is free.
 
-    Azure affinity groups provide a mechanism to minimize the distance between resources in a data center, which can reduce latency. This tutorial does not use affinity groups. For more information, see [How to Create an Affinity Group in Azure](http://msdn.microsoft.com/library/jj156209.aspx).
+    Azure affinity groups provide a mechanism to minimize the distance between resources in a data center, which can reduce latency. This tutorial does not use affinity groups. For more information, see [How to Create an Affinity Group in Azure](https://msdn.microsoft.com/library/azure/gg715317.aspx).
 7. Click **Create**.
 
     ![New storage account](./media/cloud-services-dotnet-get-started/newstorage.png)
@@ -287,7 +287,7 @@ The `<Instances>` setting specifies the number of virtual machines that Azure wi
 
     ![Settings step](./media/cloud-services-dotnet-get-started/pubsettings.png)
 
-    The default settings in the **Advanced** tab are fine for this tutorial. For information about the advanced tab, see [Publish Azure Application Wizard](http://msdn.microsoft.com/library/hh535756.aspx).
+    The default settings in the **Advanced** tab are fine for this tutorial. For information about the advanced tab, see [Publish Azure Application Wizard](https://docs.microsoft.com/azure/vs-azure-tools-publish-azure-application-wizard).
 4. In the **Summary** step, click **Publish**.
 
     ![Summary step](./media/cloud-services-dotnet-get-started/pubsummary.png)

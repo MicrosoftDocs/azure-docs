@@ -29,7 +29,7 @@ Standard content delivery network (CDN) capability includes the ability to cache
 >   
 > For **Azure CDN from Verizon** profiles, you cannot change the optimization of a CDN endpoint after it has been created.
 
-## Configuring CDN endpoint to accelerate delivery of dynamic files
+## CDN endpoint configuration to accelerate delivery of dynamic files
 
 To configure a CDN endpoint to optimize delivery of dynamic files, you can either use the Azure portal, the REST APIs, or any of the client SDKs to do the same thing programmatically. 
 
@@ -180,9 +180,6 @@ Alternatively, you can use two CDN endpoints: one endpoint optimized with DSA to
 
 For example: 
 `mydynamic.azureedge.net/index.html` is a dynamic page and is loaded from the DSA endpoint.  The html page references multiple static assets such as JavaScript libraries or images that are loaded from the static CDN endpoint, such as `mystatic.azureedge.net/banner.jpg` and `mystatic.azureedge.net/scripts.js`. 
-
-For an example about how to use controllers in an ASP.NET web application to serve content through a specific CDN URL, see [Serve content from controller actions through Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-cloud-service-with-cdn#controller).
-
 
 
 

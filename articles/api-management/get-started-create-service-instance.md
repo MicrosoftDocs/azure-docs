@@ -3,7 +3,7 @@ title: Create an Azure API Management instance | Microsoft Docs
 description: Follow the steps of this tutorial to create a new Azure API Management instance.
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cflower
 editor: ''
 

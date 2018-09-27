@@ -7,14 +7,20 @@ ms.author: akannava
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/25/2017
+
+ROBOTS: NOINDEX
 ---
+
 
 # Logging API reference
 
-Azure ML's logging library allows the program to emit metrics and files that are tracked by the history service for later analysis. Currently, a few basic types of metrics and files are supported, and the set of supported types will grow with future releases of the Python package.
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+Azure ML's logging library allows the program to emit metrics and files that are tracked by the history service for later analysis. 
 
 ## Uploading metrics
 

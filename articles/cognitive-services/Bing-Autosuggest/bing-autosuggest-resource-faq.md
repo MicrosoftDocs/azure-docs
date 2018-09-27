@@ -1,6 +1,6 @@
 ---
 title: Frequently Asked Questions (FAQ) about Azure Autosuggest API | Microsoft Docs
-description: Get answers to common questions about Microsoft Cognitive Services Autosuggest API on Azure.
+description: Get answers to common questions about Azure Cognitive Services Autosuggest API on Azure.
 services: cognitive-services
 author: HeidiSteen
 manager: jhubbard
@@ -10,10 +10,9 @@ ms.topic: article
 ms.date: 07/26/2017
 ms.author: heidist
 ---
-
 # Frequently Asked Questions (FAQ) about Autosuggest API (Cognitive Services)
  
- Find answers to commonly asked questions about concepts, code, and scenarios related to the Autosuggest API for Microsoft Cognitive Services on Azure.
+ Find answers to commonly asked questions about concepts, code, and scenarios related to the Autosuggest API for Azure Cognitive Services.
 
 ### How do I get the optional client headers when calling the Bing Autosuggest API from JavaScript?
 
@@ -33,7 +32,7 @@ It's easy to install a CORS proxy to allow our [tutorial app](tutorials/autosugg
 
 Next, change the Bing Autosuggest API endpoint in the HTML file to:
 
-    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v5.0/Suggestions
+    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/Suggestions
 
 Finally, start the CORS proxy with the following command:
 
@@ -47,4 +46,4 @@ Is your question about a missing feature or functionality? Consider requesting o
 
 ## See also
 
- [Stack Overflow: Cognitive Services](http://stackoverflow.com/questions/tagged/microsoft-cognitive)
+- [Stack Overflow: Cognitive Services](http://stackoverflow.com/questions/tagged/microsoft-cognitive)

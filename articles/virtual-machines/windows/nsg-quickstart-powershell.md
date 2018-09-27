@@ -3,7 +3,7 @@ title: Open ports to a VM using Azure PowerShell | Microsoft Docs
 description: Learn how to open a port / create an endpoint to your Windows VM using the Azure resource manager deployment mode and Azure PowerShell
 services: virtual-machines-windows
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
-ms.author: iainfou
+ms.author: cynthn
 
 ---
 # How to open ports and endpoints to a VM in Azure using PowerShell
@@ -93,6 +93,6 @@ For highly available web applications, you should place your VMs behind an Azure
 In this example, you created a simple rule to allow HTTP traffic. You can find information on creating more detailed environments in the following articles:
 
 * [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md)
-* [What is a Network Security Group (NSG)?](../../virtual-network/virtual-networks-nsg.md)
+* [What is a network security group?](../../virtual-network/security-overview.md)
 * [Azure Resource Manager Overview for Load Balancers](../../load-balancer/load-balancer-arm.md)
 

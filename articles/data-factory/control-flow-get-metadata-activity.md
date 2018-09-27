@@ -12,13 +12,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/30/2018
+ms.topic: conceptual
+ms.date: 07/03/2018
 ms.author: shlo
 
 ---
 # Get metadata activity in Azure Data Factory
-GetMetadata activity can be used to retrieve **metadata** of any data in Azure Data Factory. This activity is supported only for data factories of version 2. It can be used in the following scenarios:
+GetMetadata activity can be used to retrieve **metadata** of any data in Azure Data Factory. This activity can be used in the following scenarios:
 
 - Validate the metadata information of any data
 - Trigger a pipeline when data is ready/ available
@@ -28,12 +28,12 @@ The following functionality is available in the control flow:
 - The output from GetMetadata Activity can be used in conditional expressions to perform validation.
 - A pipeline can be triggered when condition is satisfied via Do-Until looping
 
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Data Factory V1 documentation](v1/data-factory-introduction.md).
-
 ## Supported capabilities
 
-The GetMetadata Activity takes a dataset as a required input, and outputs metadata information available as activity output. Currently, the following connectors with corresponding retrievable meatadata are supported:
+The GetMetadata Activity takes a dataset as a required input, and outputs metadata information available as activity output. Currently, the following connectors with corresponding retrievable meatadata are supported, and the maximum supported metadata size is up to **1MB**.
+
+>[!NOTE]
+>If you run GetMetadata activity on a Self-hosted Integration Runtime, the latest capability is supported on version 3.6 or above. 
 
 ### Supported connectors
 
@@ -41,12 +41,16 @@ The GetMetadata Activity takes a dataset as a required input, and outputs metada
 
 | Connector/Metadata | itemName<br>(file/folder) | itemType<br>(file/folder) | size<br>(file) | created<br>(file/folder) | lastModified<br>(file/folder) |childItems<br>(folder) |contentMD5<br>(file) | structure<br/>(file) | columnCount<br>(file) | exists<br>(file/folder) |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
-| Azure Blob | √/√ | √/√ | √ | x/x | √/√ | √ | √ | √ | √ | √/√ |
+| Amazon S3 | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
+| Azure Blob | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
 | Azure Data Lake Store | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | Azure File Storage | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | File System | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | SFTP | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | FTP | √/√ | √/√ | √ | x/x	| √/√ | √ | x | √ | √ | √/√ |
+
+- For Amazon S3, the `lastModified` applies to bucket and key but not virtual folder; ; and the `exists` applies to bucket and key but not prefix or virtual folder.
+- For Azure Blob, the `lastModified` applies to container and blob but not virtual folder.
 
 **Relational database:**
 
@@ -71,7 +75,10 @@ The following metadata types can be specified in the GetMetadata activity field 
 | contentMD5 | MD5 of the file. Applicable to file only. |
 | structure | Data structure inside the file or relational database table. Output value is a list of column name and column type. |
 | columnCount | Number of columns inside the file or relational table. |
-| exists| Whether a file/folder/table exists or not. Note as long as "exists" is specified in the GetaMetadata field list, the activity won't fail even when the item (file/folder/table) doesn't exists; instead, it returns `exists: false` in the output. |
+| exists| Whether a file/folder/table exists or not. Note if "exists" is specified in the GetaMetadata field list, the activity won't fail even when the item (file/folder/table) doesn't exists; instead, it returns `exists: false` in the output. |
+
+>[!TIP]
+>When you want to validate if a file/folder/table exists or not, specify `exists` in the GetMetadata activity field list, then you can check the `exists: true/false` result from the activity output. If `exists` is not configured in the field list, the GetMetadata activity will fail when the object is not found.
 
 ## Syntax
 
@@ -104,10 +111,9 @@ The following metadata types can be specified in the GetMetadata activity field 
 		},
 		"typeProperties": {
 			"folderPath":"container/folder",
-			"Filename": "file.json",
+			"filename": "file.json",
 			"format":{
 				"type":"JsonFormat"
-				"nestedSeperator": ","
 			}
 		}
 	}
@@ -120,12 +126,12 @@ Currently GetMetadata activity can fetch the following types of metadata informa
 
 Property | Description | Required
 -------- | ----------- | --------
-fieldList | Lists the types of metadata information required. See details in [Metadata options](#metadata-options) section on supported metadata. | No 
+fieldList | Lists the types of metadata information required. See details in [Metadata options](#metadata-options) section on supported metadata. | Yes 
 dataset | The reference dataset whose metadata activity is to be retrieved by the GetMetadata Activity. See [Supported capabilities](#supported-capabilities) section on supported connectors, and refer to connector topic on dataset syntax details. | Yes
 
 ## Sample output
 
-The GetMetadata result is shown in activity output. Below are two samples with exhaustive metadata options selected in field list as reference:
+The GetMetadata result is shown in activity output. Below are two samples with exhaustive metadata options selected in field list as reference. To use the result in subsequent activity, use the pattern of `@{activity('MyGetMetadataActivity').output.itemName}`.
 
 ### Get a file's metadata
 

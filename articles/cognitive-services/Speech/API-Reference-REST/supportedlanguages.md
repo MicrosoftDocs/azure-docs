@@ -1,14 +1,16 @@
 ---
-title: Supported Languages of Microsoft Speech Service | Microsoft Docs
-description: A list of spoken languages that are supported by Microsoft Speech Service.
+title: Bing Speech Supported Languages | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: A list of spoken languages that are supported by Bing Speech.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
+ROBOTS: NOINDEX
 ---
 # Supported languages
 
@@ -32,7 +34,8 @@ The Microsoft speech recognition API supports the following languages in `intera
 | es-MX | Spanish (Mexico) |zh-CN | Chinese (Mandarin, simplified)  |
 | fi-FI | Finnish (Finland) |zh-HK | Chinese (Hong Kong SAR) |
 | fr-CA | French (Canada) | zh-TW | Chinese (Mandarin, Taiwanese)|
-| fr-FR | French (France) | ||
+| fr-FR | French (France) | gu-IN | Gujarati (India) |
+| ta-IN |Tamil (India) | te-IN | Telugu (India) |
 
 ## Conversation mode
 

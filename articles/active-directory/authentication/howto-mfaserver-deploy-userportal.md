@@ -1,21 +1,18 @@
 ---
 title: User portal for Azure MFA Server | Microsoft Docs
-description: This is the Azure Multi-factor authentication page that describes how to get started with Azure MFA and the user portal.
+description: Get started with Azure MFA and the user portal.
+
 services: multi-factor-authentication
-documentationcenter: ''
+ms.service: active-directory
+ms.component: authentication
+ms.topic: conceptual
+ms.date: 07/11/2018
+
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
+ms.reviewer: michmcla
 
-ms.assetid: 06b419fa-3507-4980-96a4-d2e3960e1772
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
-ms.date: 08/23/2017
-ms.author: joflore
-ms.reviewer: richagi
-ms.custom: it-pro
 ---
 # User portal for the Azure Multi-Factor Authentication Server
 
@@ -30,7 +27,7 @@ Depending on your environment, you may want to deploy the user portal on the sam
 ![MFA User Portal](./media/howto-mfaserver-deploy-userportal/portal.png)
 
 > [!NOTE]
-> The user portal is only available with Multi-Factor Authentication Server. If you use Multi-Factor Authentication in the cloud, refer your users to the [Set-up your account for two-step verification](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-first-time.md) or [Manage your settings for two-step verification](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-manage-settings.md).
+> The user portal is only available with Multi-Factor Authentication Server. If you use Multi-Factor Authentication in the cloud, refer your users to the [Set-up your account for two-step verification](../user-help/multi-factor-authentication-end-user-first-time.md) or [Manage your settings for two-step verification](../user-help/multi-factor-authentication-end-user-manage-settings.md).
 
 ## Install the web service SDK
 

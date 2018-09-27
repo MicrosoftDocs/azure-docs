@@ -4,8 +4,8 @@ description: Provides an overview of the available services in Azure Government
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: smichelotti
-manager: zakramer
+author: gsacavdm
+manager: pathuff
 
 ms.assetid: a453a23c-bc0f-4203-9075-0f579dea7e23
 ms.service: azure-government
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 08/15/2017
-ms.author: stemi
+ms.date: 08/04/2018
+ms.author: gsacavdm
 
 ---
 # Available services in Azure Government
@@ -67,8 +67,9 @@ The **services available in Azure Government** are listed by category, as well a
 ## Web + Mobile
 | Generally Available | Preview |
 | --- | --- |
-| [App Service: Web Apps](documentation-government-services-webandmobile.md#app-services) |[API Management](documentation-government-services-webandmobile.md#api-management) |
+| [App Service: Web Apps](documentation-government-services-webandmobile.md#app-services) | |
 | [App Service: Mobile Apps](documentation-government-services-webandmobile.md#app-services) | |
+| [API Management](documentation-government-services-webandmobile.md#api-management) ||
 | [Media Services](documentation-government-services-media.md) | |
 
 ## Databases
@@ -102,6 +103,7 @@ The **services available in Azure Government** are listed by category, as well a
 ## Enterprise Integration
 | Generally Available | Preview |
 | --- | --- |
+| [Logic Apps](documentation-government-services-integration.md#logic-apps)| |
 | [Service Bus](documentation-government-networking.md#support-for-service-bus)| |
 | [StorSimple](documentation-government-services-storage.md) | |
 | [SQL Server Stretch Database](documentation-government-services-database.md#sql-server-stretch-database) | |
@@ -109,7 +111,7 @@ The **services available in Azure Government** are listed by category, as well a
 ## Security + Identity
 | Generally Available | Preview |
 | --- | --- |
-| [Azure Active Directory](documentation-government-services-securityandidentity.md#azure-active-directory) | |
+| [Azure Active Directory](documentation-government-services-securityandidentity.md#azure-active-directory)|[Azure Security Center](documentation-government-services-securityandidentity.md#azure-security-center)|
 | [Azure Active Directory Premium](documentation-government-services-securityandidentity.md#azure-active-directory-premium-p1-and-p2) | |
 | [Key Vault](documentation-government-services-securityandidentity.md#key-vault) | |
 | [Azure Multi-Factor Authentication](documentation-government-services-securityandidentity.md#azure-multi-factor-authentication) | |
@@ -119,6 +121,7 @@ The **services available in Azure Government** are listed by category, as well a
 | --- | --- |
 | [Automation](documentation-government-services-monitoringandmanagement.md#automation)| [Advisor](documentation-government-services-monitoringandmanagement.md#advisor) |
 | [Backup](documentation-government-services-backup.md) | |
+| [Policy](documentation-government-services-monitoringandmanagement.md#policy) | |
 | [Log Analytics](documentation-government-services-monitoringandmanagement.md#log-analytics) | |
 | [Site Recovery](documentation-government-services-monitoringandmanagement.md#site-recovery) | | 
 | [Scheduler](documentation-government-services-monitoringandmanagement.md#scheduler) | |
@@ -134,4 +137,3 @@ The **services available in Azure Government** are listed by category, as well a
 
 ## Next steps
 For supplemental information and updates, subscribe to the [Microsoft Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/).
-

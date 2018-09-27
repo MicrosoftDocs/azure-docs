@@ -3,18 +3,18 @@ title: Azure portal keyboard shortcuts | Microsoft Docs
 description: Learn about the keyboard shortcuts that work in the Azure portal. 
 services: azure-portal
 documentationcenter: ''
-author: flanakin
+author: adamabmsft
 manager: lwelicki
 editor: ''
 
 ms.assetid: d9f58c69-9163-458d-a339-ab0855e342c6
 ms.service: azure-portal
 ms.devlang: NA
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/24/2017
-ms.author: micflan
+ms.author: cwatson
 ms.custom: accessibility
 ---
 # Keyboard shortcuts in the Azure portal

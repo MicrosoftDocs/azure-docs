@@ -7,13 +7,20 @@ ms.author: euang
 manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article 
 ms.date: 02/01/2018
+
+ROBOTS: NOINDEX
 ---
 # Sample of custom source connections (Python) 
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 Before you read this appendix, read [Python extensibility overview](data-prep-python-extensibility-overview.md).
 
 ## Load data from data.world

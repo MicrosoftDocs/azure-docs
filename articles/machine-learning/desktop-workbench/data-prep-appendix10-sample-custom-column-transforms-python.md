@@ -7,14 +7,21 @@ ms.author: euang
 manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
 ms.date: 02/01/2018
+
+ROBOTS: NOINDEX
 ---
 
 # Sample of custom column transforms (Python) 
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 The name of this transform in the menu is **Add Column (Script)**.
 
 Before you read this appendix, read [Python extensibility overview](data-prep-python-extensibility-overview.md).

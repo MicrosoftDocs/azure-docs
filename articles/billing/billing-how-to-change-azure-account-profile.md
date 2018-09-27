@@ -13,9 +13,9 @@ ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/30/2017
-ms.author: genli
+ms.topic: conceptual
+ms.date: 05/11/2018
+ms.author: cwatson
 ms.custom: H1Hack27Feb2017
 ---
 # Change your Azure account profile information such as contact email, address, and phone number

@@ -7,12 +7,20 @@ manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.topic: article
 ms.service: machine-learning
+ms.component: core
 services: machine-learning
 ms.workload: data-services
 ms.date: 12/13/2017
+
+ROBOTS: NOINDEX
 ---
 
+
 # Aerial Image Classification
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 This example demonstrates how to use Azure Machine Learning Workbench to coordinate distributed training and operationalization of image classification models. We use two approaches for training: (i) refining a deep neural network using an [Azure Batch AI](https://docs.microsoft.com/azure/batch-ai/) GPU cluster, and (ii) using the [Microsoft Machine Learning for Apache Spark (MMLSpark)](https://github.com/Azure/mmlspark) package to featurize images using pretrained CNTK models and to train classifiers using the derived features. We then apply the trained models in parallel fashion to large image sets in the cloud using an [Azure HDInsight Spark](https://azure.microsoft.com/services/hdinsight/apache-spark/) cluster, allowing us to scale the speed of training and operationalization by adding or removing worker nodes.
 
@@ -55,21 +63,21 @@ The following instructions guide you through the process of setting up execution
        - If you have fewer cores available, you may modify the HDInsight cluster template to decrease the number of workers provisioned. Instructions for this appear under the "Create the HDInsight Spark cluster" section.
     - This sample creates a Batch AI Training cluster with two NC6 (1 GPU, 6 vCPU) VMs. Ensure that your account has enough available cores in the East US region by reviewing the "Usage + quotas" tab for your subscription in Azure portal.
 - [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md)
-    - Follow the [Install and create Quickstart](../service/quickstart-installation.md) to install the Azure Machine Learning Workbench and create Experimentation and Model Management Accounts.
-- [Batch AI](https://github.com/Azure/BatchAI) Python SDK and Azure CLI 2.0
+    - Follow the [Install and create Quickstart](../desktop-workbench/quickstart-installation.md) to install the Azure Machine Learning Workbench and create Experimentation and Model Management Accounts.
+- [Batch AI](https://github.com/Azure/BatchAI) Python SDK and Azure CLI
     - Complete the following sections in the [Batch AI Recipes README](https://github.com/Azure/BatchAI/tree/master/recipes):
         - "Prerequisites"
         - "Create and get your Azure Active Directory (AAD) application"
-        - "Register BatchAI Resource Providers" (under "Run Recipes Using Azure CLI 2.0")
+        - "Register BatchAI Resource Providers" (under "Run Recipes Using Azure CLI")
         - "Install Azure Batch AI Management Client"
         - "Install Azure Python SDK"
     - Record the client ID, secret, and tenant ID of the Azure Active Directory application you are directed to create. You will use those credentials later in this tutorial.
-    - As of this writing, Azure Machine Learning Workbench and Azure Batch AI use separate forks of the Azure CLI 2.0. For clarity, we refer to the Workbench's version of the CLI as "a CLI launched from Azure Machine Learning Workbench" and the general-release version (which includes Batch AI) as "Azure CLI 2.0."
+    - As of this writing, Azure Machine Learning Workbench and Azure Batch AI use separate forks of the Azure CLI. For clarity, we refer to the Workbench's version of the CLI as "a CLI launched from Azure Machine Learning Workbench" and the general-release version (which includes Batch AI) as "Azure CLI."
 - [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy), a free utility for coordinating file transfer between Azure storage accounts
     - Ensure that the folder containing the AzCopy executable is on your system's PATH environment variable. (Instructions on modifying environment variables are available [here](https://support.microsoft.com/help/310519/how-to-manage-environment-variables-in-windows-xp).)
 - An SSH client; we recommend [PuTTY](http://www.putty.org/).
 
-This example was tested on a Windows 10 PC; you should be able to run it from any Windows machine, including Azure Data Science Virtual Machines. The Azure CLI 2.0 was installed from an MSI according to [these instructions](https://github.com/Azure/azure-sdk-for-python/wiki/Contributing-to-the-tests#getting-azure-credentials). Minor modifications may be required (for example, changes to filepaths) when running this example on macOS.
+This example was tested on a Windows 10 PC; you should be able to run it from any Windows machine, including Azure Data Science Virtual Machines. The Azure CLI was installed from an MSI according to [these instructions](https://github.com/Azure/azure-sdk-for-python/wiki/Contributing-to-the-tests#getting-azure-credentials). Minor modifications may be required (for example, changes to filepaths) when running this example on macOS.
 
 ### Set up Azure resources
 
@@ -175,7 +183,7 @@ Your cluster's deployment may take up to 30 minutes (including provisioning and 
 
 ### Set up Batch AI resources
 
-While you wait for your Storage account file transfer and Spark cluster deployment to complete, you can prepare the Batch AI Network File Server (NFS) and GPU cluster. Open an Azure CLI 2.0 command prompt and run the following command:
+While you wait for your Storage account file transfer and Spark cluster deployment to complete, you can prepare the Batch AI Network File Server (NFS) and GPU cluster. Open an Azure CLI command prompt and run the following command:
 
 ```
 az --version 

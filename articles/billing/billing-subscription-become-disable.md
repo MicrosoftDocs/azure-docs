@@ -14,9 +14,9 @@ ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: troubleshooting
-ms.date: 12/22/2017
-ms.author: genli
+ms.topic: conceptual
+ms.date: 05/11/2018
+ms.author: cwatson
 
 ---
 # Why is my Azure subscription disabled and how do I reactivate it?

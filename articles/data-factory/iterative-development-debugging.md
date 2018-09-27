@@ -4,8 +4,8 @@ description: Learn how to develop and debug Data Factory pipelines iteratively i
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.date: 04/16/2018
-ms.topic: article
+ms.date: 09/26/2018
+ms.topic: conceptual
 ms.service: data-factory
 
 services: data-factory
@@ -17,6 +17,10 @@ ms.devlang: na
 # Iterative development and debugging with Azure Data Factory
 
 Azure Data Factory lets you iteratively develop and debug Data Factory pipelines.
+
+For an eight-minute introduction and demonstration of this feature, watch the following video:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Iterative-development-and-debugging-with-Azure-Data-Factory/player]
 
 ## Iterative debugging features
 Create pipelines and do test runs using the **Debug** capability in the pipeline canvas without writing a single line of code.
@@ -31,13 +35,22 @@ After a test run succeeds, add more activities to your pipeline and continue deb
 
 ![Cancel a test run](media/iterative-development-debugging/iterative-development-image3.png)
 
-When you do test runs, you don't have to publish your changes to the data factory before you select **Debug**. This is helpful in scenarios where you want to make sure that the changes work as expected before you update the data factory workflow.
+When you do test runs, you don't have to publish your changes to the data factory before you select **Debug**. This feature is helpful in scenarios where you want to make sure that the changes work as expected before you update the data factory workflow.
 
-## More info about debugging
+> [!IMPORTANT]
+> Selecting **Debug** actually runs the pipeline. So, for example, if the pipeline contains copy activity, the test run copies data from source to destination. As a result, we recommend that you use test folders in your copy activities and other activities when debugging. After you've debugged the pipeline, switch to the actual folders that you want to use in normal operations.
 
-1. The test runs initiated with the **Debug** capability are not available in the list on the **Monitor** tab. You can only see runs triggered with **Trigger Now**, **Schedule**, or **Tumbling Window** triggers in the **Monitor** tab. You can see the last test run initiated with the **Debug** capability in the **Output** window of the pipeline canvas.
+## Visualizing debug runs
 
-2. Selecting **Debug** actually runs the pipeline. So, for example, if the pipeline contains copy activity, the test run copies data from source to destination. As a result, we recommend that you use test folders in your copy activities and other activities when debugging. After you've debugged the pipeline, switch to the actual folders that you want to use in normal operations.
+You can visualize all the debug runs that are in progress for your data factory in one place. Select **View debug runs** in the upper right corner of the page. This feature is useful in scenarios where you have master pipelines kicking off debug runs for child pipelines, and you want a single view to see all the active debug runs.
+
+![Select the View active debug runs icon](media/iterative-development-debugging/view-debug-runs-image1.png)
+
+![Sample list of active debug runs](media/iterative-development-debugging/view-debug-runs-image2.png)
+
+## Monitoring debug runs
+
+The test runs initiated with the **Debug** capability are not available in the list on the **Monitor** tab. You can only see runs triggered with **Trigger Now**, **Schedule**, or **Tumbling Window** triggers in the **Monitor** tab. You can see the last test run initiated with the **Debug** capability in the **Output** window of the pipeline canvas.
 
 ## Setting breakpoints for debugging
 
@@ -49,7 +62,7 @@ To set a breakpoint, select an element on the pipeline canvas. A *Debug Until* o
 
 ![Before setting a breakpoint on the selected element](media/iterative-development-debugging/iterative-development-image5.png)
 
-After you select the *Debug Until* option, it changes to a filled red circle to indicate the the breakpoint is enabled.
+After you select the *Debug Until* option, it changes to a filled red circle to indicate the breakpoint is enabled.
 
 ![After setting a breakpoint on the selected element](media/iterative-development-debugging/iterative-development-image6.png)
 

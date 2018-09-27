@@ -1,9 +1,9 @@
 ---
-title: Import and export a domain zone file to Azure DNS using Azure CLI 2.0 | Microsoft Docs
-description: Learn how to import and export a DNS zone file to Azure DNS by using Azure CLI 2.0 
+title: Import and export a domain zone file to Azure DNS using Azure CLI | Microsoft Docs
+description: Learn how to import and export a DNS zone file to Azure DNS by using Azure CLI 
 services: dns
 documentationcenter: na
-author: georgewallace
+author: vhorne
 manager: timlt
 
 ms.assetid: f5797782-3005-4663-a488-ac0089809010
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/30/2018
-ms.author: gwallace
+ms.author: victorh
 ---
 
-# Import and export a DNS zone file using the Azure CLI 2.0 
+# Import and export a DNS zone file using the Azure CLI 
 
-This article walks you through how to import and export DNS zone files for Azure DNS using the Azure CLI 2.0.
+This article walks you through how to import and export DNS zone files for Azure DNS using the Azure CLI.
 
 ## Introduction to DNS zone migration
 
@@ -26,7 +26,7 @@ A DNS zone file is a text file that contains details of every Domain Name System
 
 Azure DNS supports importing and exporting zone files by using the Azure command-line interface (CLI). Zone file import is **not** currently supported via Azure PowerShell or the Azure portal.
 
-The Azure CLI 2.0 is a cross-platform command-line tool used for managing Azure services. It is available for the Windows, Mac, and Linux platforms from the [Azure downloads page](https://azure.microsoft.com/downloads/). Cross-platform support is important for importing and exporting zone files, because the most common name server software, [BIND](https://www.isc.org/downloads/bind/), typically runs on Linux.
+The Azure CLI is a cross-platform command-line tool used for managing Azure services. It is available for the Windows, Mac, and Linux platforms from the [Azure downloads page](https://azure.microsoft.com/downloads/). Cross-platform support is important for importing and exporting zone files, because the most common name server software, [BIND](https://www.isc.org/downloads/bind/), typically runs on Linux.
 
 
 ## Obtain your existing DNS zone file
@@ -118,36 +118,43 @@ To verify the DNS zone after you import the file, you can use any one of the fol
 
 * You can list the records by using the PowerShell cmdlet `Get-AzureRmDnsRecordSet`.
 * You can use `nslookup` to verify name resolution for the records. Because the zone isn't delegated yet, you need to specify the correct Azure DNS name servers explicitly. The following sample shows how to retrieve the name server names assigned to the zone. This also shows how to query the "www" record by using `nslookup`.
-```
-C:\>az network dns record-set ns list -g myresourcegroup -z  --output json 
-  [
-   .......
-   "name": "@",
-    "nsRecords": [
-      {
-        "additionalProperties": {},
-        "nsdname": "ns1-03.azure-dns.com."
-      },
-      {
-        "additionalProperties": {},
-        "nsdname": "ns2-03.azure-dns.net."
-      },
-      {
-        "additionalProperties": {},
-        "nsdname": "ns3-03.azure-dns.org."
-      },
-      {
-        "additionalProperties": {},
-        "nsdname": "ns4-03.azure-dns.info."
-      }
-    ],
-    "resourceGroup": "myresourcegroup",
-    "ttl": 86400,
-    "type": "Microsoft.Network/dnszones/NS"
-  }
-]
 
-        C:\> nslookup www.contoso.com ns1-03.azure-dns.com
+    ```azurecli
+    az network dns record-set ns list -g myresourcegroup -z  --output json 
+    ```
+
+    ```json
+    [
+      {
+       .......
+       "name": "@",
+        "nsRecords": [
+          {
+            "additionalProperties": {},
+            "nsdname": "ns1-03.azure-dns.com."
+          },
+          {
+            "additionalProperties": {},
+            "nsdname": "ns2-03.azure-dns.net."
+          },
+          {
+            "additionalProperties": {},
+            "nsdname": "ns3-03.azure-dns.org."
+          },
+          {
+            "additionalProperties": {},
+            "nsdname": "ns4-03.azure-dns.info."
+          }
+        ],
+        "resourceGroup": "myresourcegroup",
+        "ttl": 86400,
+        "type": "Microsoft.Network/dnszones/NS"
+      }
+    ]
+    ```
+
+    ```cmd
+    nslookup www.contoso.com ns1-03.azure-dns.com
 
         Server: ns1-01.azure-dns.com
         Address:  40.90.4.1
@@ -155,7 +162,7 @@ C:\>az network dns record-set ns list -g myresourcegroup -z  --output json
         Name:www.contoso.com
         Addresses:  134.170.185.46
         134.170.188.221
-```
+    ```
 
 ### Step 3. Update DNS delegation
 
@@ -166,7 +173,7 @@ After you have verified that the zone has been imported correctly, you need to u
 The format of the Azure CLI command to import a DNS zone is:
 
 ```azurecli
-az network dns zone export -g <resource group> -z <zone name> -f <zone file name>
+az network dns zone export -g <resource group> -n <zone name> -f <zone file name>
 ```
 
 Values:

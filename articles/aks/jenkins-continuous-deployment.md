@@ -1,20 +1,20 @@
 ---
-title: Jenkins continuous deployment with Kubernetes in Azure Container Service
-description: How to automate a continuous deployment process with Jenkins to deploy and upgrade a containerized app on Kubernetes in Azure Container Service
+title: Jenkins continuous deployment with Kubernetes in Azure Kubernetes Service
+description: How to automate a continuous deployment process with Jenkins to deploy and upgrade a containerized app on Kubernetes in Azure Kubernetes Service
 services: container-service
-author: neilpeterson
-manager: timlt
+author: iainfoulds
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
 ms.date: 03/26/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
 ---
 
-# Continuous deployment with Jenkins and Azure Container Service
+# Continuous deployment with Jenkins and Azure Kubernetes Service
 
-This document demonstrates how to set up a basic continuous deployment workflow between Jenkins and an Azure Container Service (AKS) cluster.
+This document demonstrates how to set up a basic continuous deployment workflow between Jenkins and an Azure Kubernetes Service (AKS) cluster.
 
 The example workflow includes the following steps:
 
@@ -30,7 +30,7 @@ The example workflow includes the following steps:
 You need the following items in order to complete the steps in this article.
 
 - Basic understanding of Kubernetes, Git, CI/CD, and Azure Container Registry (ACR).
-- An [Azure Container Service (AKS) cluster][aks-quickstart] and [AKS credentials configured][aks-credentials] on your development system.
+- An [Azure Kubernetes Service (AKS) cluster][aks-quickstart] and [AKS credentials configured][aks-credentials] on your development system.
 - An [Azure Container Registry (ACR) registry][acr-quickstart], the ACR login server name, and [ACR credentials][acr-authentication] with push and pull access.
 - Azure CLI installed on your development system.
 - Docker installed on your development system.
@@ -109,10 +109,10 @@ containers:
   image: microsoft/azure-vote-front:v1
 ```
 
-Next, use the [kubectl create][kubectl-create] command to run the application. This command parses the manifest file and creates the defined Kubernetes objects.
+Next, use the [kubectl apply][kubectl-apply] command to run the application. This command parses the manifest file and creates the defined Kubernetes objects.
 
 ```bash
-kubectl create -f azure-vote-all-in-one-redis.yaml
+kubectl apply -f azure-vote-all-in-one-redis.yaml
 ```
 
 A [Kubernetes service][kubernetes-service] is created to expose the application to the internet. This process can take a few minutes.
@@ -144,6 +144,9 @@ To see the application, browse to the external IP address.
 A script has been pre-created to deploy a virtual machine, configure network access, and complete a basic installation of Jenkins. Additionally, the script copies your Kubernetes configuration file from your development system to the Jenkins system. This file is used for authentication between Jenkins and the AKS cluster.
 
 Run the following commands to download and run the script. The below URL can also be used to review the content of the script.
+
+> [!WARNING]
+> This sample script is for demo purposes to quickly provision a Jenkins environment that runs on an Azure VM. It uses the Azure custom script extension to configure a VM and then display the required credentials. Your *~/.kube/config* is copied to the Jenkins VM.
 
 ```console
 curl https://raw.githubusercontent.com/Azure-Samples/azure-voting-app-redis/master/jenkins-tutorial/deploy-jenkins-vm.sh > azure-jenkins.sh
@@ -259,12 +262,11 @@ Once the process is complete, click on **build #1** under build history and sele
 Next, hook the application repository to the Jenkins build server so that on any commit, a new build is triggered.
 
 1. Browse to the forked GitHub repository.
-2. Select **Settings**, then select **Integrations & services** on the left-hand side.
-3. Choose **Add Service**, enter `Jenkins (GitHub plugin)` in the filter box, and select the plugin.
-4. For the Jenkins hook URL, enter `http://<publicIp:8080>/github-webhook/` where `publicIp` is the IP address of the Jenkins server. Make sure to include the trailing /.
-5. Select Add service.
+2. Select **Settings**, then select **Webhooks** on the left-hand side.
+3. Choose to **Add webhook**. For the *Payload URL*, enter `http://<publicIp:8080>/github-webhook/` where `publicIp` is the IP address of the Jenkins server. Make sure to include the trailing /. Leave the other defaults for content type and to trigger on *push* events.
+4. Select **Add webhook**.
 
-![GitHub webhook](media/aks-jenkins/webhook.png)
+    ![GitHub webhook](media/aks-jenkins/webhook.png)
 
 ## Test CI/CD process end to end
 
@@ -294,14 +296,14 @@ At this point, a simple continuous deployment process has been completed. The st
 [docker-images]: https://docs.docker.com/engine/reference/commandline/images/
 [docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
 [git-access-token]: https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/
-[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubernetes-service]: https://kubernetes.io/docs/concepts/services-networking/service/
 
 <!-- LINKS - internal -->
-[az-acr-list]: /cli/azure/acr#az_acr_list
+[az-acr-list]: /cli/azure/acr#az-acr-list
 [acr-authentication]: ../container-registry/container-registry-auth-aks.md
 [acr-quickstart]: ../container-registry/container-registry-get-started-azure-cli.md
-[aks-credentials]: /cli/azure/aks#az_aks_get_credentials
+[aks-credentials]: /cli/azure/aks#az-aks-get-credentials
 [aks-quickstart]: kubernetes-walkthrough.md
 [azure-cli-install]: /cli/azure/install-azure-cli

@@ -4,7 +4,7 @@ description: High-availability guide for SAP NetWeaver on Azure Virtual Machines
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -423,7 +423,7 @@ ms.custom: H1Hack27Feb2017
 [virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/manage-virtual-network.md#create-a-virtual-network
 [virtual-networks-manage-dns-in-vnet]:../../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
 [virtual-networks-multiple-nics]:../../../virtual-network/virtual-network-deploy-multinic-classic-ps.md
-[virtual-networks-nsg]:../../../virtual-network/virtual-networks-nsg.md
+[virtual-networks-nsg]:../../../virtual-network/security-overview.md
 [virtual-networks-reserved-private-ip]:../../../virtual-network/virtual-networks-static-private-ip-arm-ps.md
 [virtual-networks-static-private-ip-arm-pportal]:../../../virtual-network/virtual-networks-static-private-ip-arm-pportal.md
 [virtual-networks-udr-overview]:../../../virtual-network/virtual-networks-udr-overview.md
@@ -799,8 +799,7 @@ To set up the ASCS/SCS multi-SID template, in the [ASCS/SCS multi-SID template][
   -  **System Availability**. Select **HA**.
   -  **Admin Username and Admin Password**. Create a new user that can be used to sign in to the machine.
   -  **New Or Existing Subnet**. Set whether a new virtual network and subnet should be created, or an existing subnet should be used. If you already have a virtual network that is connected to your on-premises network, select **existing**.
-  -  **Subnet Id**. Set the ID of the subnet to which the virtual machines should be connected. Select the subnet of your virtual private network (VPN) or ExpressRoute virtual network to connect the virtual machine to your on-premises network. The ID usually looks like this:
-
+  -  **Subnet Id**. If you want to deploy the VM into an existing VNet where you have a subnet defined the VM should be assigned to, name the ID of that specific subnet. The ID usually looks like this:
    /subscriptions/<*subscription id*>/resourceGroups/<*resource group name*>/providers/Microsoft.Network/virtualNetworks/<*virtual network name*>/subnets/<*subnet name*>
 
 The template deploys one Azure Load Balancer instance, which supports multiple SAP systems.

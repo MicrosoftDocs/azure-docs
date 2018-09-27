@@ -1,12 +1,12 @@
 ﻿---
-title: Ruby Quickstart for Azure Cognitive Services, Bing Spell Check API | Microsoft Docs
+title: Ruby Quickstart for Bing Spell Check API - Azure Cognitive Services | Microsoft Docs
 description: Get information and code samples to help you quickly get started using the Bing Spell Check API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
 documentationcenter: ''
 author: v-jaswel
 ms.service: cognitive-services
 ms.component: bing-spell-check
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/14/2017
 ms.author: v-jaswel
 ---
@@ -115,7 +115,7 @@ A successful response is returned in JSON, as shown in the following example:
 > [!div class="nextstepaction"]
 > [Bing Spell Check tutorial](../tutorials/spellcheck.md)
 
-## See also 
+## See also
 
-[Bing Spell Check overview](../proof-text.md)
-[API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)
+- [Bing Spell Check overview](../proof-text.md)
+- [Bing Spell Check API v7 Reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)

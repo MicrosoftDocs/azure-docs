@@ -1,20 +1,13 @@
 ---
-title: Apache Storm topologies with Visual Studio and C# - Azure HDInsight | Microsoft Docs
+title: Apache Storm topologies with Visual Studio and C# - Azure HDInsight 
 description: Learn how to create Storm topologies in C#. Create a simple word count topology in Visual Studio by using the Hadoop tools for Visual Studio.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-
-ms.assetid: 380d804f-a8c5-4b20-9762-593ec4da5a0d
 ms.service: hdinsight
-ms.custom: ''
-ms.devlang: java
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 11/27/2017
-ms.author: larryfr
 ROBOTS: NOINDEX
 ---
 # Develop C# topologies for Apache Storm by using the Data Lake tools for Visual Studio
@@ -42,9 +35,9 @@ To use a C# topology with a Linux-based cluster, you must update the Microsoft.S
 
 You can develop C# topologies with SCP.NET by using one of the following versions of Visual Studio:
 
-* Visual Studio 2012 with [Update 4](http://www.microsoft.com/download/details.aspx?id=39305)
+* Visual Studio 2012 with Update 4
 
-* Visual Studio 2013 with [Update 4](http://www.microsoft.com/download/details.aspx?id=44921) or [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
+* Visual Studio 2013 with Update 4 or [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
 
 * Visual Studio 2015 or [Visual Studio 2015 Community](https://go.microsoft.com/fwlink/?LinkId=532606)
 
@@ -75,23 +68,23 @@ namespace ConsoleApplication2
    {
        static void Main(string[] args)
        {
-           string javaHome = Environment.GetEnvironmentVariable(“JAVA_HOME”);
+           string javaHome = Environment.GetEnvironmentVariable("JAVA_HOME");
            if (!string.IsNullOrEmpty(javaHome))
            {
-               string jarExe = Path.Combine(javaHome + @”\bin”, “jar.exe”);
+               string jarExe = Path.Combine(javaHome + @"\bin", "jar.exe");
                if (File.Exists(jarExe))
                {
-                   Console.WriteLine(“JAVA Is Installed properly”);
+                   Console.WriteLine("JAVA Is Installed properly");
                     return;
                }
                else
                {
-                   Console.WriteLine(“A valid JAVA JDK is not found. Looks like JRE is installed instead of JDK.”);
+                   Console.WriteLine("A valid JAVA JDK is not found. Looks like JRE is installed instead of JDK.");
                }
            }
            else
            {
-             Console.WriteLine(“A valid JAVA JDK is not found. JAVA_HOME environment variable is not set.”);
+             Console.WriteLine("A valid JAVA JDK is not found. JAVA_HOME environment variable is not set.");
            }
        }  
    }

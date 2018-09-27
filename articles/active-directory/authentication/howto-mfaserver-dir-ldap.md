@@ -1,23 +1,20 @@
 ---
 title: LDAP Authentication and Azure MFA Server | Microsoft Docs
-description: This is the Azure Multi-factor authentication page that will assist in deploying LDAP Authentication and Azure Multi-Factor Authentication Server.
+description: Deploying LDAP Authentication and Azure Multi-Factor Authentication Server.
+
 services: multi-factor-authentication
-documentationcenter: ''
+ms.service: active-directory
+ms.component: authentication
+ms.topic: conceptual
+ms.date: 07/11/2018
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
-
-ms.assetid: e1a68568-53d1-4365-9e41-50925ad00869
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/03/2017
-ms.author: joflore
+ms.reviewer: michmcla
 
 ---
 # LDAP authentication and Azure Multi-Factor Authentication Server
+
 By default, the Azure Multi-Factor Authentication Server is configured to import or synchronize users from Active Directory. However, it can be configured to bind to different LDAP directories, such as an ADAM directory, or specific Active Directory domain controller. When connected to a directory via LDAP, the Azure Multi-Factor Authentication Server can act as an LDAP proxy to perform authentications. It also allows for the use of LDAP bind as a RADIUS target, for pre-authentication of users with IIS Authentication, or for primary authentication in the Azure MFA user portal.
 
 To use Azure Multi-Factor Authentication as an LDAP proxy, insert the Azure Multi-Factor Authentication Server between the LDAP client (for example, VPN appliance, application) and the LDAP directory server. The Azure Multi-Factor Authentication Server must be configured to communicate with both the client servers and the LDAP directory. In this configuration, the Azure Multi-Factor Authentication Server accepts LDAP requests from client servers and applications and forwards them to the target LDAP directory server to validate the primary credentials. If the LDAP directory validates the primary credentials, Azure Multi-Factor Authentication performs a second identity verification and sends a response back to the LDAP client. The entire authentication succeeds only if both the LDAP server authentication and the second-step verification succeed.

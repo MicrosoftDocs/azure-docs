@@ -34,7 +34,7 @@ This article assumes that you have already installed a SUSE or openSUSE Linux op
 ## Use SUSE Studio
 [SUSE Studio](http://www.susestudio.com) can easily create and manage your SLES and openSUSE images for Azure and Hyper-V. This is the recommended approach for customizing your own SLES and openSUSE images.
 
-As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your Own Subscription) images for SLES at [VMDepot](https://vmdepot.msopentech.com/User/Show?user=1007).
+As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your Own Subscription) images for SLES at [VMDepot](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/04/using-and-contributing-vms-to-vm-depot.pdf).
 
 ## Prepare SUSE Linux Enterprise Server 11 SP4
 1. In the center pane of Hyper-V Manager, select the virtual machine.
@@ -95,9 +95,9 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
      ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
 15. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
     
-    # sudo waagent -force -deprovision
-    # export HISTSIZE=0
-    # logout
+        # sudo waagent -force -deprovision
+        # export HISTSIZE=0
+        # logout
 16. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
 
 - - -
@@ -130,7 +130,7 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
         # sudo zypper update
 5. Install the Azure Linux Agent.
    
-   # sudo zypper install WALinuxAgent
+        # sudo zypper install WALinuxAgent
 6. Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this, open "/boot/grub/menu.lst" in a text editor and ensure that the default kernel includes the following parameters:
    
      console=ttyS0 earlyprintk=ttyS0 rootdelay=300
@@ -157,9 +157,9 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
      ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
 11. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
     
-    # sudo waagent -force -deprovision
-    # export HISTSIZE=0
-    # logout
+        # sudo waagent -force -deprovision
+        # export HISTSIZE=0
+        # logout
 12. Ensure the Azure Linux Agent runs at startup:
     
         # sudo systemctl enable waagent.service

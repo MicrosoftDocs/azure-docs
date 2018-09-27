@@ -1,42 +1,43 @@
 ---
-title: "Bing Custom Search: Call endpoint by using NodeJs | Microsoft Docs"
-description: Describes how to call Bing Custom Search endpoint with nodejs
+title: Call endpoint by using Node.js - Bing Custom Search - Microsoft Cognitive Services
+description: This quickstart shows how to request search results from your custom search instance by using Node.js to call the Bing Custom Search endpoint. 
 services: cognitive-services
 author: brapel
 manager: ehansen
 ms.service: cognitive-services
 ms.component: bing-custom-search
 ms.topic: article
-ms.date: 09/28/2017
+ms.date: 05/07/2018
 ms.author: v-brapel
 ---
 
 # Call Bing Custom Search endpoint (Node.js)
 
-This example shows how to request search results from your custom search instance using Node.js. To create a custom search instance see [Create your first Bing Custom Search instance](quick-start.md).
+This quickstart shows how to request search results from your custom search instance using Node.js to call the Bing Custom Search endpoint. 
 
 ## Prerequisites
 
-You will need to install [Node.js](https://www.nodejs.org/) to run this example.
+To complete this quickstart, you need:
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Search APIs**. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is sufficient for this quickstart. You need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.
+- A ready-to-use custom search instance. See [Create your first Bing Custom Search instance](quick-start.md).
+- [Node.js](https://www.nodejs.org/) installed.
+- A subscription key. You can get a subscription key when you activate your [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search), or you can use a paid subscription key from your Azure dashboard (see [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).    
 
-  >[!NOTE]  
-  >Existing Bing Custom Search customers who have a preview key provisioned on or before October 15, 2017 will be able to use their keys until November 30 2017, or until they have exhausted the maximum number of queries allowed. Afterward, they need to migrate to the generally available version on Azure.  
+## Run the code
 
-## Running the code
+To run this example, follow these steps:
 
-To run this example, follow these steps.
-
-1. Create a folder for your code.
-2. From a command prompt or terminal, navigate to the folder you just created.
+1. Create a folder for your code.  
+  
+2. From a command prompt or terminal, navigate to the folder you just created.  
+  
 3. Install the **request** node module:
     <pre>
     npm install request
-    </pre>
-4. Create the file BingCustomSearch.js and copy the following code to it.
-5. Replace **YOUR-SUBSCRIPTION-KEY** and **YOUR-CUSTOM-CONFIG-ID** with your key and configuration ID (see step 1).
-
+    </pre>  
+    
+4. Create a file named BingCustomSearch.js in the folder you created and copy the following code into it. Replace **YOUR-SUBSCRIPTION-KEY** and **YOUR-CUSTOM-CONFIG-ID** with your subscription key and configuration ID.  
+  
     ``` javascript
     var request = require("request");
     
@@ -65,13 +66,15 @@ To run this example, follow these steps.
             console.log();
         }
     })
-    ```
-6. Run the code using the following command.
-    <pre>
+    ```  
+  
+6. Run the code using the following command:  
+  
+    ```    
     node BingCustomSearch.js
-    </pre>
+    ``` 
 
 ## Next steps
-- [Configure and consume custom hosted UI](./hosted-ui.md)
+- [Configure your hosted UI experience](./hosted-ui.md)
 - [Use decoration markers to highlight text](./hit-highlighting.md)
 - [Page webpages](./page-webpages.md)

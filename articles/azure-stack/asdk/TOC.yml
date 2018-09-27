@@ -7,30 +7,6 @@
     href: asdk-what-is.md
   - name: ASDK release notes
     href: asdk-release-notes.md
-- name: Tutorials
-  items:
-  - name: 1. Deploy the ASDK
-    items:
-    - name: Deploy the ASDK - Installer
-      href: asdk-deploy.md
-    - name: Deploy the ASDK - PowerShell
-      href: asdk-deploy-powershell.md
-    - name: Redeploy the ASDK
-      href: asdk-redeploy.md 
-  - name: 2. Add a marketplace item
-    items:
-    - name: Download from Azure
-      href: asdk-marketplace-item.md
-    - name: Add from a local source
-      href: asdk-marketplace-item-offline.md
-  - name: 3. Offer IaaS services
-    href: asdk-offer-services.md
-  - name: 4. Subscribe to an offer
-    href: asdk-subscribe-services.md
-  - name: 5. Update offers and plans
-    href: asdk-update-offers.md 
-  - name: 6. Create a VM from a template
-    href: asdk-create-vm-template.md 
 - name: Concepts
   items:
   - name: Deployment planning considerations
@@ -49,16 +25,22 @@
       href: asdk-download.md
     - name: Prepare the ASDK host computer
       href: asdk-prepare-host.md
-    - name: Install the ASDK
+    - name: Deploy the ASDK - Installer
       href: asdk-install.md
+    - name: Deploy the ASDK - PowerShell
+      href: asdk-deploy-powershell.md
     - name: Post-deployment configuration
       href: asdk-post-deploy.md
+    - name: Redeploy the ASDK
+      href: asdk-redeploy.md 
   - name: Register the ASDK
     href: asdk-register.md
   - name: Configure Azure Stack telemetry settings
     href: asdk-telemetry.md  
   - name: Start and stop the ASDK
     href: asdk-start-stop.md
+  - name: Validate an Azure Stack backup
+    href: asdk-validate-backup.md
   - name: Troubleshooting
     href: asdk-troubleshooting.md
 - name: Reference

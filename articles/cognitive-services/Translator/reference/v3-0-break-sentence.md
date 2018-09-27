@@ -1,18 +1,19 @@
 ---
-title: Microsoft Translator Text API BreakSentence Method | Microsoft Docs
-description: Use the Microsoft Translator Text API BreakSentence method.
+title: Translator Text API BreakSentence Method
+titlesuffix: Azure Cognitive Services
+description: Use the Translator Text API BreakSentence method.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
 ---
 
-# Text API 3.0: BreakSentence
+# Translator Text API 3.0: BreakSentence
 
 Identifies the positioning of sentence boundaries in a piece of text.
 
@@ -168,7 +169,7 @@ The following example shows how to obtain sentence boundaries for a single sente
 # [curl](#tab/curl)
 
 ```
-curl -X POST "https://dev.microsofttranslator.com/breaksentence?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'How are you? I am fine. What did you do today?'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'How are you? I am fine. What did you do today?'}]"
 ```
 
 ---

@@ -353,7 +353,7 @@ Based on the method chosen, a set of inputs and outputs is expected. These are d
 |TransformationMethod|Expected input|Expected output|Description|
 |-----|-----|-----|-----|
 |Join|string1, string2, separator|outputClaim|Joins input strings by using a separator in between. For example: string1:"foo@bar.com" , string2:"sandbox" , separator:"." results in outputClaim:"foo@bar.com.sandbox"|
-|ExtractMailPrefix|mail|outputClaim|Extracts the local part of an email address. For example: mail:"foo@bar.com" results in outputClaim:"foo". If no @ sign is present, then the orignal input string is returned as is.|
+|ExtractMailPrefix|mail|outputClaim|Extracts the local part of an email address. For example: mail:"foo@bar.com" results in outputClaim:"foo". If no \@ sign is present, then the orignal input string is returned as is.|
 
 **InputClaims:** Use an InputClaims element to pass the data from a claim schema entry to a transformation. It has two attributes: **ClaimTypeReferenceId** and 
 **TransformationClaimType**.
@@ -465,7 +465,7 @@ In this example, you create a policy that adds the EmployeeID and TenantCountry 
 	1. To create the policy, run this command:  
 	 
 	 ``` powershell
-	New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name","JwtClaimType":"name"},{"Source":"company","ID":" tenantcountry ","SamlClaimType":" http://schemas.xmlsoap.org/ws/2005/05/identity/claims/country ","JwtClaimType":"country"}]}}') -DisplayName "ExtraClaimsExample” -Type "ClaimsMappingPolicy"
+	New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name","JwtClaimType":"name"},{"Source":"company","ID":"tenantcountry","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/country","JwtClaimType":"country"}]}}') -DisplayName "ExtraClaimsExample" -Type "ClaimsMappingPolicy"
 	```
 	
 	2. To see your new policy, and to get the policy ObjectId, run the following command:

@@ -264,7 +264,7 @@ When you have the new client version ready, try it out against your upgraded ser
 [Create a Mobile App]: app-service-mobile-xamarin-ios-get-started.md
 [Add push notifications to your mobile app]: app-service-mobile-xamarin-ios-get-started-push.md
 [Add authentication to your mobile app]: app-service-mobile-xamarin-ios-get-started-users.md
-[Azure Scheduler]: /en-us/documentation/services/scheduler/
+[Azure Scheduler]: /azure/scheduler/
 [Web Job]: https://github.com/Azure/azure-webjobs-sdk/wiki
 [How to use the .NET server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md

@@ -9,7 +9,7 @@ manager: vipulm
 ms.assetid:
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 08/08/2017

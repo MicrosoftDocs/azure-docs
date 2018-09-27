@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 04/24/2018
+ms.date: 09/07/2018
 ms.author: cynthn
 ms.custom: mvc
 ---
 
-# Quickstart: Create a Linux virtual machine in Azure with PowerShell
+# Quickstart: Create a Windows virtual machine in Azure with PowerShell
 
 The Azure PowerShell module is used to create and manage Azure resources from the PowerShell command line or in scripts. This quickstart shows you how to use the Azure PowerShell module to deploy a virtual machine (VM) in Azure that runs Windows Server 2016. To see your VM in action, you then RDP to the VM and install the IIS web server.
 

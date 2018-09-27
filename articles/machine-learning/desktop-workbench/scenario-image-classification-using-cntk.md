@@ -8,13 +8,21 @@ ms.author: pabuehle
 manager: mwinkle
 ms.reviewer: marhamil, mldocs, garyericson, jasonwhowell
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 10/17/2017
+
+ROBOTS: NOINDEX
 ---
 
 
+
 # Image classification using Azure Machine Learning Workbench
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 Image classification approaches can be used to solve a large number of Computer Vision problems.
 These include building models, which answer questions such as: *Is an OBJECT present in the image?* where OBJECT could for example be *dog*, *car*, or *ship*. Or more complex questions like: *What class of eye disease severity is evinced by this patient's retinal scan?*.
@@ -46,7 +54,7 @@ While previous experience with machine learning and CNTK is not required, it is 
 The prerequisites to run this example are as follows:
 
 1. An [Azure account](https://azure.microsoft.com/free/) (free trials are available).
-2. The [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) following the [quick start installation guide](../service/quickstart-installation.md) to install the program and create a workspace.  
+2. The [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) following the [quick start installation guide](quickstart-installation.md) to install the program and create a workspace.  
 3. A Windows machine. Windows OS is necessary since the Workbench supports only Windows and MacOS, while Microsoft's Cognitive Toolkit (which we use as deep learning library) only supports Windows and Linux.
 4. A dedicated GPU is not required to execute the SVM training in part 1, however it is needed for refining of the DNN described in part 2. If you lack a strong GPU, want to train on multiple GPUs, or do not have a Windows machine, then consider using Azure's Deep Learning Virtual Machine with Windows operating system. See [here](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning) for a 1-click deployment guide. Once deployed, connect to the VM via a remote desktop connection, install Workbench there, and execute the code locally from the VM.
 5. Various Python libraries such as OpenCV need to be installed. Click *Open Command Prompt* from the *File* menu in the Workbench and run the following commands to install these dependencies:  
@@ -90,7 +98,7 @@ Performing these steps creates the project structure shown below. The project di
 
 ## Data description
 
-This tutorial uses as running example an upper body clothing texture dataset consisting of up to 428 images. Each image is annotated as one of three different textures (dotted, striped, leopard). We kept the number of images small so that this tutorial can be executed quickly. However, the code is well-tested and works with tens of thousands of images or more. All images were scraped using Bing Image Search and hand-annotated as is explained in [Part 3](#using-a-custom-dataset). The image URLs with their respective attributes are listed in the */resources/fashionTextureUrls.tsv* file.
+This tutorial uses as running example an upper body clothing texture dataset consisting of up to 428 images. Each image is annotated as one of three different textures (dotted, striped, leopard). We kept the number of images small so that this tutorial can be executed quickly. However, the code is well-tested and works with tens of thousands of images or more. All images were hand-annotated as is explained in [Part 3](#using-a-custom-dataset). The image URLs with their respective attributes are listed in the */resources/fashionTextureUrls.tsv* file.
 
 The script `0_downloadData.py` downloads all images to the *DATA_DIR/images/fashionTexture/* directory. Some of the 428 URLs are likely broken. This is not an issue, and just means that we have slightly fewer images for training and testing. All scripts provided in this sample have to be executed locally, and not on e.g. a docker remote environment.
 
@@ -231,7 +239,7 @@ The Azure Machine Learning Workbench stores the history of each run on Azure to 
 In the first screenshot, the DNN refinement leads to better accuracies than SVM training for all classes. The second screenshot shows all metrics that are being tracked, including what the classifier was. This tracking is done in the script `5_evaluate.py` by calling the Azure Machine Learning Workbench logger. In addition, the script also saves the ROC curve and confusion matrix to the *outputs* folder. This *outputs* folder is special in that its content is also tracked by the Workbench history feature and hence the output files can be accessed at any time, regardless of whether local copies have been overwritten.
 
 <p align="center">
-<img src="media/scenario-image-classification-using-cntk/run_comparison1.jpg" alt="alt text" width="700"/>  
+<img src="media/scenario-image-classification-using-cntk/run_comparison1.jpg" alt="alt text" width="700"/>
 </p>
 
 <p align="center">
@@ -240,24 +248,29 @@ In the first screenshot, the DNN refinement leads to better accuracies than SVM 
 
 
 ### Parameter tuning
+
 As is true for most machine learning projects, getting good results for a new dataset requires careful parameter tuning as well as evaluating different design decisions. To help with these tasks, all important parameters are specified, and a short explanation provided, in a single place: the `PARAMETERS.py` file.
 
 Some of the most promising avenues for improvements are:
 
 - Data quality: Ensure the training and test sets have high quality. That is, the images are annotated correctly, ambiguous images removed (for example clothing items with both stripes and dots), and the attributes are mutually exclusive (that is, chosen such that each image belongs to exactly one attribute).
+
 - If the object-of-interest is small in the image then Image classification approaches are known not to work well. In such cases consider using an object detection approach as described in this [tutorial](https://github.com/Azure/ObjectDetectionUsingCntk).
 - DNN refinement: The arguably most important parameter to get right is the learning rate `rf_lrPerMb`. If the accuracy on the training set (first figure in part 2) is not close to 0-5%, most likely it is due to a wrong the learning rate. The other parameters starting with `rf_` are less important. Typically, the training error should decrement exponentially and be close to 0% after training.
+
 - Input resolution: The default image resolution is 224x224 pixels. Using higher image resolution (parameter: `rf_inputResoluton`) of, for example, 448x448 or 896x896 pixels often significant improves accuracy but slows down DNN refinement. **Using higher image resolution is nearly free lunch and almost always boosts accuracy**.
+
 - DNN over-fitting: Avoid a large gap between the training and test accuracy during DNN refinement (first figure in part 2). This gap can be reduced using dropout rates `rf_dropoutRate` of 0.5 or more, and by increasing the regularizer weight `rf_l2RegWeight`. Using a high dropout rate can be especially helpful if the DNN input image resolution is high.
+
 - Try using deeper DNNs by changing `rf_pretrainedModelFilename` from `ResNet_18.model` to either `ResNet_34.model` or `ResNet_50.model`. The Resnet-50 model is not only deeper, but its output of the penultimate layer is of size 2048 floats (vs. 512 floats of the ResNet-18 and ResNet-34 models). This increased dimension can be especially beneficial when training an SVM classifier.
 
 ## Part 3 - Custom dataset
 
-In part 1 and 2, we trained and evaluated an image classification model using the provided upper body clothing textures images. We now show how to use a custom user-provided dataset instead. Or, if not available, how to generate and annotate such a dataset using Bing Image Search.
+In part 1 and 2, we trained and evaluated an image classification model using the provided upper body clothing textures images. We now show how to use a custom user-provided dataset instead. 
 
 ### Using a custom dataset
 
-First, let's have a look at the folder structure for the clothing texture data. Note how all images for the different attributes are in the respective subfolders *dotted*, *leopard, and *striped* at *DATA_DIR/images/fashionTexture/*. Note also how the image folder name also occurs in the `PARAMETERS.py` file:
+First, let's have a look at the folder structure for the clothing texture data. Note how all images for the different attributes are in the respective subfolders *dotted*, *leopard*, and *striped* at *DATA_DIR/images/fashionTexture/*. Note also how the image folder name also occurs in the `PARAMETERS.py` file:
 ```python
 datasetName = "fashionTexture"
 ```
@@ -270,14 +283,23 @@ It is important that each image can be assigned to exactly one attribute. For ex
 
 ### Image scraping and annotation
 
-Collecting a sufficiently large number of annotated images for training and testing can be difficult. One way to overcome this problem is to scrape images from the Internet. For example, see below the Bing Image Search results for the query *t-shirt striped*. As expected, most images indeed are striped t-shirts. The few incorrect or ambiguous images (such as column 1, row 1; or column 3, row 2) can be identified and removed easily:
+Collecting a sufficiently large number of annotated images for training and testing can be difficult. One way to overcome this problem is to scrape images from the Internet.
+
+> [!IMPORTANT] 
+> For any images you use, make sure you don't violate the image's copyright and licensing. 
+
+<!--
+For example, see below the Bing Image Search results for the query *t-shirt striped*. As expected, most images indeed are striped t-shirts. The few incorrect or ambiguous images (such as column 1, row 1; or column 3, row 2) can be identified and removed easily:
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/bing_search_striped.jpg" alt="alt text" width="600"/>
 </p>
+-->
 
 To generate a large and diverse dataset, multiple queries should be used. For example, 7\*3 = 21 queries can be synthesized automatically using all combinations of clothing items {blouse, hoodie, pullover, sweater, shirt, t-shirt, vest} and attributes {striped, dotted, leopard}. Downloading the top 50 images per query would then lead to a maximum of 21*50=1050 images.
 
+<!--
 Rather than manually downloading images from Bing Image Search, it is much easier to instead use the [Cognitive Services Bing Image Search API](https://www.microsoft.com/cognitive-services/bing-image-search-api) which returns a set of image URLs given a query string.
+-->
 
 Some of the downloaded images are exact or near duplicates (for example, differ just by image resolution or jpg artifacts). These duplicates should be removed so that the training and test split do not contain the same images. Removing duplicate images can be achieved using a hashing-based approach, which works in two steps: (i) first, the hash string is computed for all images; (ii) in a second pass over the images, only those images are kept with a hash string that has not yet been seen. All other images are discarded. We found the `dhash` approach in the Python library `imagehash` and described in this [blog](http://www.hackerfactor.com/blog/index.php?/archives/529-Kind-of-Like-That.html) to perform well, with the parameter `hash_size` set to 16. It is OK to incorrectly remove some non-duplicate images, as long as the majority of the real duplicates get removed.
 

@@ -1,10 +1,11 @@
 ---
-title: What is Bing Video Search? | Microsoft Docs
+title: What is Bing Video Search?
+titlesuffix: Azure Cognitive Services
 description: Shows how to use the Bing Video Search API to search the web for videos.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: 4A76718B-E32C-419F-98DF-19E877643378
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-video-search
 ms.topic: overview
@@ -63,17 +64,17 @@ The response contains a [Videos](https://docs.microsoft.com/rest/api/cognitivese
             "datePublished" : "2014-03-04T11:51:53",
             "publisher" : [
                 {
-                    "name" : "YouTube"
+                    "name" : "Fabrikam"
                 }
             ],
             "creator" : 
             {
-                "name" : "sailaboattv"
+                "name" : "Marcus Appel"
             },
-            "contentUrl" : "https:\/\/www.youtube.com\/watch?v=vzmPjZ--g",
+            "contentUrl" : "https:\/\/www.fabrikam.com\/watch?v=vzmPjZ--g",
             "hostPageUrl" : "https:\/\/www.bing.com\/cr?IG=81EF7545D569...",
             "encodingFormat" : "h264",
-            "hostPageDisplayUrl" : "https:\/\/www.youtube.com\/watch?v=vzmPjZ--g",
+            "hostPageDisplayUrl" : "https:\/\/www.fabrikam.com\/watch?v=vzmPjZ--g",
             "width" : 1280,
             "height" : 720,
             "duration" : "PT2M47S",
@@ -102,7 +103,9 @@ You could display a collage of all the video thumbnails or you could display a s
 
 As the user hovers over the thumbnail you can use [motionThumbnailUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video-motionthumbnailurl) to play a thumbnail version of the video. Be sure to attribute the motion thumbnail when you display it.
 
+<!-- Removing until the images can be sanitized.
 ![Motion thumbnail of a video](../bing-web-search/media/cognitive-services-bing-web-api/bing-web-video-motion-thumbnail.PNG)
+-->
 
 If the user clicks the thumbnail, the following are the video viewing options:
 

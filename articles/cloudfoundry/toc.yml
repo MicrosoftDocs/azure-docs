@@ -13,6 +13,8 @@
     href: /azure/virtual-machines/linux/cloudfoundry-get-started
   - name: Deploy CF OMS Nozzle
     href: /azure/cloudfoundry/cloudfoundry-oms-nozzle
+  - name: Integrate Cloud Foundry with Azure
+    href: /azure/cloudfoundry/how-cloud-foundry-integrates-with-azure 
 - name: Resources
   items:
   - name: Azure Roadmap
@@ -23,5 +25,5 @@
     href: https://docs.pivotal.io/pivotalcf/1-11/customizing/pcf_azure.html
   - name: Pivotal and Azure
     href: https://pivotal.io/partners/microsoft
-  - name: VSTS plugin for CF
+  - name: Azure DevOps plugin for CF
     href: https://github.com/Microsoft/vsts-cloudfoundry

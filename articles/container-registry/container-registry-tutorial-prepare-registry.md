@@ -28,17 +28,13 @@ In subsequent tutorials, you deploy the container from your private registry to 
 
 ## Before you begin
 
-This tutorial requires a local installation of the Azure CLI (version 2.0.31 or later). Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+This tutorial requires a local installation of the Azure CLI (version 2.0.31 or later). Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 You should be familiar with core Docker concepts such as containers, container images, and basic Docker CLI commands. For a primer on container basics, see [Get started with Docker]( https://docs.docker.com/get-started/).
 
 To complete this tutorial, you need a local Docker installation. Docker provides installation instructions for [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms) systems.
 
 Azure Cloud Shell does not include the Docker components required to complete every step this tutorial. Therefore, we recommend a local installation of the Azure CLI and Docker development environment.
-
-> [!IMPORTANT]
-> The geo-replication feature of Azure Container Registry is currently in **preview**. Previews are made available to you on the condition that you agree to the  [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
->
 
 ## Create a container registry
 
@@ -90,7 +86,7 @@ When the replication is complete, the portal reflects *Ready* for both regions. 
 
 Now that you've configured geo-replication, build a container image and push it to your registry. You must first log in to your ACR instance before pushing images to it.
 
-Use the [az acr login](https://docs.microsoft.com/cli/azure/acr#az_acr_login) command to authenticate and cache the credentials for your registry. Replace `<acrName>` with the name of the registry you created earlier.
+Use the [az acr login](https://docs.microsoft.com/cli/azure/acr#az-acr-login) command to authenticate and cache the credentials for your registry. Replace `<acrName>` with the name of the registry you created earlier.
 
 ```azurecli
 az acr login --name <acrName>

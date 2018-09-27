@@ -1,23 +1,25 @@
 ---
-title: Emotion API C# quick start | Microsoft Docs
-description: Get information and a code sample to help you quickly get started by using the Emotion API with C# in Cognitive Services.
+title: "Quickstart: Recognize emotions on faces in an image - Emotion API, C#"
+titlesuffix: Azure Cognitive Services
+description: Get information and a code sample to help you quickly get started by using the Emotion API with C#.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: quickstart
 ms.date: 11/02/2017
 ms.author: anroth
 ---
 
-# Emotion API C# quick start
+# Quickstart: Build an app to recognize emotions on faces in an image.
 
 > [!IMPORTANT]
 > The Video API Preview ended on October 30, 2017. To easily extract insights from 
 videos, try the new [Video Indexer API Preview](https://azure.microsoft.com/services/cognitive-services/video-indexer/). You also can use it to enhance content discovery experiences, such as search results, by detecting spoken words, faces, characters, and emotions. To learn more, see the [Video Indexer Preview](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview) overview.
 
-This article provides information and a code sample to help you quickly get started by using the [Emotion API Recognize method](https://dev.projectoxford.ai/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) with C#. You can use it to recognize the emotions expressed by one or more people in an image. 
+This article provides information and a code sample to help you quickly get started by using the [Emotion API Recognize method](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) with C#. You can use it to recognize the emotions expressed by one or more people in an image. 
 
 ## Prerequisites
 * Get the Cognitive Services [Emotion API Windows SDK](https://www.nuget.org/packages/Microsoft.ProjectOxford.Emotion/).

@@ -55,17 +55,17 @@ In the left navigation of the app page, scroll to the **Settings** section and s
 
 ![Scale-up menu](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
 
-The app's current tier is highlighted by a blue border. Check to make sure that the app is not in the **Free** tier. Custom DNS is not supported in the **Free** tier. 
+The app's current tier is highlighted by a blue border. Check to make sure that the app is not in the **F1** tier. Custom DNS is not supported in the **F1** tier. 
 
 ![Check pricing tier](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
 
-If the App Service plan is not **Free**, close the **Choose your pricing tier** page and skip to [Buy the domain](#buy-the-domain).
+If the App Service plan is not in the **F1** tier, close the **Scale up** page and skip to [Buy the domain](#buy-the-domain).
 
 ### Scale up the App Service plan
 
-Select any of the non-free tiers (**Shared**, **Basic**, **Standard**, or **Premium**). 
+Select any of the non-free tiers (**D1**, **B1**, **B2**, **B3**, or any tier in the **Production** category). For additional options, click **See additional options**.
 
-Click **Select**.
+Click **Apply**.
 
 ![Check pricing tier](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
 
@@ -74,6 +74,9 @@ When you see the following notification, the scale operation is complete.
 ![Scale operation confirmation](./media/app-service-web-tutorial-custom-domain/scale-notification.png)
 
 ## Buy the domain
+
+### Pricing Information
+For pricing information on Azure App Service Domains, please visit the [App Service Pricing page](https://azure.microsoft.com/pricing/details/app-service/windows/) and scroll down to App Service Domain.
 
 ### Sign in to Azure
 Open the [Azure portal](https://portal.azure.com/) and sign in with your Azure account.

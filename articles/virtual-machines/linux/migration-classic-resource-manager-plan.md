@@ -22,7 +22,7 @@ ms.author: kasing
 While Azure Resource Manager offers a lot of amazing features, it is critical to plan out your migration journey to make sure things go smoothly. Spending time on planning will ensure that you do not encounter issues while executing migration activities. 
 
 > [!NOTE] 
-> The following guidance was heavily contributed to by the Azure Customer Advisory team and Cloud Solution architects working with customers on migrating large enviornments. As such this document will continue to get updated as new patterns of success emerge, so check back from time to time to see if there are any new recommendations.
+> The following guidance was heavily contributed to by the Azure Customer Advisory team and Cloud Solution architects working with customers on migrating large environments. As such this document will continue to get updated as new patterns of success emerge, so check back from time to time to see if there are any new recommendations.
 
 There are four general phases of the migration journey:
 
@@ -48,7 +48,7 @@ Depending on your technical requirements size, geographies and operational pract
 
 ### Patterns of success
 
-Successful customers have detailed plans where the above questions are discussed, documented and governed.  Ensure the migration plans are broadly communicated to sponsors and stakeholders.  Equip yourself with knowledge about your migration options; reading through this migration document set below is highly recommended.
+Successful customers have detailed plans where the preceding questions are discussed, documented and governed.  Ensure the migration plans are broadly communicated to sponsors and stakeholders.  Equip yourself with knowledge about your migration options; reading through this migration document set below is highly recommended.
 
 * [Overview of platform-supported migration of IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -68,7 +68,7 @@ Successful customers have detailed plans where the above questions are discussed
 
 ## Lab Test 
 
-**Replicate your enviornment and do a test migration**
+**Replicate your environment and do a test migration**
   > [!NOTE]
   > Exact replication of your existing environment is executed by using a community-contributed tool which is not officially supported by Microsoft Support. Therefore, it is an **optional** step but it is the best way to find out issues without touching your production environments. If using a community-contributed tool is not an option, then read about the Validate/Prepare/Abort Dry Run recommendation below.
   >
@@ -76,7 +76,7 @@ Successful customers have detailed plans where the above questions are discussed
   Conducting a lab test of your exact scenario (compute, networking, and storage) is the best way to ensure a smooth migration. This will help ensure:
 
   - A wholly separate lab or an existing non-production environment to test. We recommend a wholly separate lab that can be migrated repeatedly and can be destructively modified.  Scripts to collect/hydrate metadata from the real subscriptions are listed below.
-  - It's a good idea to create the lab in a separate subscription. The reason is that the lab will be torn down repeatedly, and having a separate, isolated subscription will reduce the chance that something real will get accidently deleted.
+  - It's a good idea to create the lab in a separate subscription. The reason is that the lab will be torn down repeatedly, and having a separate, isolated subscription will reduce the chance that something real will get accidentally deleted.
 
   This can be accomplished by using the AsmMetadataParser tool. [Read more about this tool here](https://github.com/Azure/classic-iaas-resourcemanager-migration/tree/master/AsmToArmMigrationApiToolset)
 
@@ -107,7 +107,7 @@ The following were issues discovered in many of the larger migrations. This is n
 - **Azure Resource Manager Quotas** - Azure regions have separate quotas/limits for both Classic and Azure Resource Manager. Even though in a migration scenario new hardware isn't being consumed *(we're swapping existing VMs from Classic to Azure Resource Manager)*, Azure Resource Manager quotas still need to be in place with enough capacity before migration can start. Listed below are the major limits we've seen cause problems.  Open a quota support ticket to raise the limits. 
 
     > [!NOTE]
-    > These limits need to be raised in the same region as your current enviornment to be migrated.
+    > These limits need to be raised in the same region as your current environment to be migrated.
     >
 
     - Network Interfaces
@@ -118,7 +118,7 @@ The following were issues discovered in many of the larger migrations. This is n
     - Network Security Groups
     - Route Tables
 
-    You can check your current Azure Resource Manager quotas using the following commands with the latest version of Azure CLI 2.0.
+    You can check your current Azure Resource Manager quotas using the following commands with the latest version of Azure CLI.
 
     **Compute** *(Cores, Avaiability Sets)*
 

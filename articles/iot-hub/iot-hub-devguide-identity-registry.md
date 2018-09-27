@@ -1,23 +1,15 @@
 ---
 title: Understand the Azure IoT Hub identity registry | Microsoft Docs
 description: Developer guide - description of the IoT Hub identity registry and how to use it to manage your devices. Includes information about the import and export of device identities in bulk.
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-
-ms.assetid: 0706eccd-e84c-4ae7-bbd4-2b1a22241147
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/29/2018
+services: iot-hub
+ms.topic: conceptual
+ms.date: 08/29/2018
 ms.author: dobett
-ms.custom: H1Hack27Feb2017
-
 ---
+
 # Understand the identity registry in your IoT hub
 
 Every IoT hub has an identity registry that stores information about the devices and modules permitted to connect to the IoT hub. Before a device or module can connect to an IoT hub, there must be an entry for that device or module in the IoT hub's identity registry. A device or module must also authenticate with the IoT hub based on credentials stored in the identity registry.
@@ -88,13 +80,12 @@ The device data that a given IoT solution stores depends on the specific require
 
 ## Device heartbeat
 
-The IoT Hub identity registry contains a field called **connectionState**. Only use the **connectionState** field during development and debugging. IoT solutions should not query the field at run time. For example, do not query the **connectionState** field to check if a device is connected before you send a cloud-to-device message or an SMS.
+The IoT Hub identity registry contains a field called **connectionState**. Only use the **connectionState** field during development and debugging. IoT solutions should not query the field at run time. For example, do not query the **connectionState** field to check if a device is connected before you send a cloud-to-device message or an SMS. We recommend subscribing to the [**device disconnected** event][lnk-devguide-evgrid-evtype] on Event Grid to get alerts and monitor the device connection state. Use this [tutorial][lnk-howto-evgrid-connstate] to learn how to integrate Device Connected and Device Disconnected events from IoT Hub in your IoT solution.
 
-If your IoT solution needs to know if a device is connected, you should implement the *heartbeat pattern*.
-
+If your IoT solution needs to know if a device is connected, you can implement the *heartbeat pattern*.
 In the heartbeat pattern, the device sends device-to-cloud messages at least once every fixed amount of time (for example, at least once every hour). Therefore, even if a device does not have any data to send, it still sends an empty device-to-cloud message (usually with a property that identifies it as a heartbeat). On the service side, the solution maintains a map with the last heartbeat received for each device. If the solution does not receive a heartbeat message within the expected time from the device, it assumes that there is a problem with the device.
 
-A more complex implementation could include the information from [operations monitoring][lnk-devguide-opmon] to identify devices that are trying to connect or communicate but failing. When you implement the heartbeat pattern, make sure to check [IoT Hub Quotas and Throttles][lnk-quotas].
+A more complex implementation could include the information from [Azure Monitor][lnk-AM] and [Azure Resource Health][lnk-ARH] to identify devices that are trying to connect or communicate but failing, check [Monitor with diagnostics][lnk-devguide-mon] guide. When you implement the heartbeat pattern, make sure to check [IoT Hub Quotas and Throttles][lnk-quotas].
 
 > [!NOTE]
 > If an IoT solution uses the connection state solely to determine whether to send cloud-to-device messages, and messages are not broadcast to large sets of devices, consider using the simpler *short expiry time* pattern. This pattern achieves the same result as maintaining a device connection state registry using the heartbeat pattern, while being more efficient. If you request message acknowledgements, IoT Hub can notify you about which devices are able to receive messages and which are not.
@@ -202,7 +193,7 @@ Device identities are represented as JSON documents with the following propertie
 
 ## Module identity properties
 
-Device identities are represented as JSON documents with the following properties:
+Module identities are represented as JSON documents with the following properties:
 
 | Property | Options | Description |
 | --- | --- | --- |
@@ -260,12 +251,17 @@ To explore using the IoT Hub Device Provisioning Service to enable zero-touch, j
 [lnk-rfc7232]: https://tools.ietf.org/html/rfc7232
 [lnk-bulk-identity]: iot-hub-bulk-identity-mgmt.md
 [lnk-export]: iot-hub-devguide-identity-registry.md#import-and-export-device-identities
-[lnk-devguide-opmon]: iot-hub-operations-monitoring.md
+[lnk-devguide-mon]: iot-hub-monitor-resource-health.md
 
 [lnk-devguide-security]: iot-hub-devguide-security.md
 [lnk-devguide-device-twins]: iot-hub-devguide-device-twins.md
 [lnk-devguide-directmethods]: iot-hub-devguide-direct-methods.md
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
 
-[lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
+[lnk-getstarted-tutorial]: quickstart-send-telemetry-dotnet.md
 [lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps
+
+[lnk-AM]: ../azure-monitor/index.yml
+[lnk-ARH]: ../service-health/resource-health-overview.md
+[lnk-devguide-evgrid-evtype]: iot-hub-event-grid.md#event-types
+[lnk-howto-evgrid-connstate]: iot-hub-how-to-order-connection-state-events.md

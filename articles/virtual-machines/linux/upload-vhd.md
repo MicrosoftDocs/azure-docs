@@ -1,6 +1,6 @@
 ---
-title: Upload or copy a custom Linux VM with Azure CLI 2.0 | Microsoft Docs
-description: Upload or copy a customized virtual machine using the Resource Manager deployment model and the Azure CLI 2.0
+title: Upload or copy a custom Linux VM with Azure CLI | Microsoft Docs
+description: Upload or copy a customized virtual machine using the Resource Manager deployment model and the Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -18,7 +18,7 @@ ms.date: 07/06/2017
 ms.author: cynthn
 
 ---
-# Create a Linux VM from custom disk with the Azure CLI 2.0
+# Create a Linux VM from custom disk with the Azure CLI
 
 <!-- rename to create-vm-specialized -->
 
@@ -53,7 +53,7 @@ To complete the following steps, you need:
 > 
 
 
-* Make sure that you have the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/reference-index#az_login).
+* Make sure that you have the latest [Azure CLI](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/reference-index#az_login).
 
 In the following examples, replace example parameter names with your own values. Example parameter names included *myResourceGroup*, *mystorageaccount*, and *mydisks*.
 
@@ -110,7 +110,7 @@ az storage account create \
 ```
 
 ### List storage account keys
-Azure generates two 512-bit access keys for each storage account. These access keys are used when authenticating to the storage account, like carrying out write operations. Read more about [managing access to storage here](../../storage/common/storage-create-storage-account.md#manage-your-storage-account). You view the access keys with [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list).
+Azure generates two 512-bit access keys for each storage account. These access keys are used when authenticating to the storage account, like carrying out write operations. Read more about [managing access to storage here](../../storage/common/storage-account-manage.md#access-keys). You view the access keys with [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list).
 
 View the access keys for the storage account you created:
 

@@ -11,21 +11,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: powershell
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: jingwang
 
 ---
 # Create an Azure data factory using PowerShell 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-> * [Version 2 - Preview](quickstart-create-data-factory-powershell.md)
+> * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+> * [Current version](quickstart-create-data-factory-powershell.md)
 
 This quickstart describes how to use PowerShell to create an Azure data factory. The pipeline you create in this data factory **copies** data from one folder to another folder in an Azure blob storage. For a tutorial on how to **transform** data using Azure Data Factory, see [Tutorial: Transform data using Spark](transform-data-using-spark.md). 
 
 > [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [get started with Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
->
 > This article does not provide a detailed introduction of the Data Factory service. For an introduction to the Azure Data Factory service, see [Introduction to Azure Data Factory](introduction.md).
 
 [!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
@@ -89,7 +87,7 @@ Note the following points:
     The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.
     ```
 * To create Data Factory instances, the user account you use to log in to Azure must be a member of **contributor** or **owner** roles, or an **administrator** of the Azure subscription.
-* Currently, Data Factory version 2 allows you to create data factories only in the East US, East US2, and West Europe regions. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
+* For a list of Azure regions in which Data Factory is currently available, select the regions that interest you on the following page, and then expand **Analytics** to locate **Data Factory**: [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
 
 ## Create a linked service
 
@@ -361,7 +359,7 @@ In this step, you set values for the pipeline parameters:  **inputPath** and **o
     "throughput": 0.01
     "errors": []
     "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (West US)"
-    "usedCloudDataMovementUnits": 2
+    "usedDataIntegrationUnits": 2
     "billedDuration": 14
     ```
 

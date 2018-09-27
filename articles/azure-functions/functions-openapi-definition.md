@@ -3,19 +3,15 @@ title: Create an OpenAPI definition for a function | Microsoft Docs
 description: Create an OpenAPI definition that enables other apps and services to call your function in Azure.
 services: functions
 keywords: OpenAPI, Swagger, cloud apps, cloud services,
-documentationcenter: ''
-author: mgblythe
-manager: cfowler
-editor: ''
+author: ggailey777
+manager: jeconnoc
 
 ms.assetid: ''
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 12/15/2017
-ms.author: mblythe; glenga
+ms.author: glenga
+ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
 ---
 
@@ -31,6 +27,9 @@ In this tutorial, you learn how to:
 > * Generate an OpenAPI definition using OpenAPI tools
 > * Modify the definition to provide additional metadata
 > * Test the definition by calling the function
+
+> [!IMPORTANT]
+> The OpenAPI preview feature is only available today in the 1.x runtime. Information on how to create a 1.x function app [can be found here](./functions-versions.md#creating-1x-apps).
 
 ## Create a function app
 
