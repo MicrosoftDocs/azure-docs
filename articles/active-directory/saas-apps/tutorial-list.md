@@ -19,7 +19,7 @@ ms.custom: it-pro
 ms.reviewer: jeedes
 
 ---
-# SaaS application integration with Azure Active Directory
+# Tutorials for integrating SaaS applications with Azure Active Directory
 
 To help integrate your cloud-enabled [software as a service (SaaS)](https://azure.microsoft.com/overview/what-is-saas/) applications with Azure Active Directory, we have developed a collection of tutorials that walk you through configuration.
 
