@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 09/27/2018
 ms.author: cynthn
 
 ---
@@ -24,7 +24,7 @@ A managed image resource can be created from a generalized virtual machine (VM) 
 
 ## Generalize the Windows VM using Sysprep
 
-Sysprep removes all your personal account and security information and prepares the machine to be used as an image. For information about Sysprep, see [Sysprep overview](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
+Sysprep removes all your personal account and security information, and then prepares the machine to be used as an image. For information about Sysprep, see [Sysprep overview](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
 
 Make sure the server roles running on the machine are supported by Sysprep. For more information, see [Sysprep support for server roles](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles).
 
@@ -202,7 +202,7 @@ You can create a managed image from a snapshot of a generalized VM by following 
 
 ## Create an image from a VHD in a storage account
 
-Create a managed image from a generalized OS VHD in a storage account. You need the URI of the VHD in the storage account, which is in the following format: https://*storageaccount*.blob.core.windows.net/*container*/*vhdfilename.vhd*. In this example, the VHD is in *mystorageaccount* in a container named *vhdcontainer* and the VHD filename is *osdisk.vhd*.
+Create a managed image from a generalized OS VHD in a storage account. You need the URI of the VHD in the storage account, which is in the following format: https://*mystorageaccount*.blob.core.windows.net/*vhdcontainer*/*vhdfilename.vhd*. In this example, the VHD is in *mystorageaccount*, in a container named *vhdcontainer*, and the VHD filename is *vhdfilename.vhd*.
 
 
 1.  Create some variables.
@@ -212,7 +212,7 @@ Create a managed image from a generalized OS VHD in a storage account. You need 
 	$rgName = "myResourceGroup"
 	$location = "EastUS"
 	$imageName = "myImage"
-	$osVhdUri = "https://mystorageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd"
+	$osVhdUri = "https://mystorageaccount.blob.core.windows.net/vhdcontainer/vhdfilename.vhd"
     ```
 2. Stop/deallocate the VM.
 
