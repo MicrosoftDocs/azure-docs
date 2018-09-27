@@ -26,10 +26,10 @@ This section illustrates how to use Ansible to deallocate (stop) an Azure virtua
 
 1. Open [Cloud Shell](/azure/cloud-shell/overview).
 
-1. Create a file (to contain your playbook) named `azure_vm_stop.yml`, and open it in the VI editor, as follows:
+1. Create a file (to contain your playbook) named `azure-vm-stop.yml`, and open it in the VI editor, as follows:
 
   ```azurecli-interactive
-  vi azure_vm_stop.yml
+  vi azure-vm-stop.yml
   ```
 
 1. Enter insert mode by selecting the **I** key.
@@ -59,7 +59,7 @@ This section illustrates how to use Ansible to deallocate (stop) an Azure virtua
 1. Run the sample Ansible playbook.
 
   ```bash
-  ansible-playbook azure_vm_stop.yml
+  ansible-playbook azure-vm-stop.yml
   ```
 
 1. The output looks similar to the following example that shows the virtual machine has been successfully deallocated (stopped):
@@ -84,10 +84,10 @@ This section illustrates how to use Ansible to start a deallocated (stopped) Azu
 
 1. Open [Cloud Shell](/azure/cloud-shell/overview).
 
-1. Create a file (to contain your playbook) named `azure_vm_start.yml`, and open it in the VI editor, as follows:
+1. Create a file (to contain your playbook) named `azure-vm-start.yml`, and open it in the VI editor, as follows:
 
   ```azurecli-interactive
-  vi azure_vm_start.yml
+  vi azure-vm-start.yml
   ```
 
 1. Enter insert mode by selecting the **I** key.
@@ -116,7 +116,7 @@ This section illustrates how to use Ansible to start a deallocated (stopped) Azu
 1. Run the sample Ansible playbook.
 
   ```bash
-  ansible-playbook azure_vm_start.yml
+  ansible-playbook azure-vm-start.yml
   ```
 
 1. The output looks similar to the following example that shows the virtual machine has been successfully started:
