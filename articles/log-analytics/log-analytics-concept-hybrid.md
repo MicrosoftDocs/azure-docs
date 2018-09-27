@@ -110,4 +110,4 @@ Connecting your on-premises computers directly with Log Analytics can be accompl
 
 * Learn about [log searches](log-analytics-log-searches.md) to analyze the data collected from data sources and solutions. 
 
-* Learn about [solutions](log-analytics-add-solutions.md) that add functionality to Log Analytics and also collect data into the Log Analytics repository.
+* Learn about [solutions](log-analytics-add-solutions.md) that add functionality to Log Analytics and also collect data into the Log Analytics workspace.
