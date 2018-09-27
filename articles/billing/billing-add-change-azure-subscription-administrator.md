@@ -64,6 +64,17 @@ Only an [Owner](../role-based-access-control/built-in-roles.md#owner) can be add
 
     ![Screenshot that removes co-administrator](./media/billing-add-change-azure-subscription-administrator/remove-coadmin.png)
 
+### How Microsoft accounts with the Co-Administrator role are different
+
+Users with a Microsoft account that have been assigned the Co-Administrator role might see some differences than users with an Azure AD account and the Co-Administrator role. Consider the following scenario:
+
+- User A with a Microsoft account (not an Work or School account) is a Service Administrator for an Azure subscription.
+- User B also has a Microsoft account.
+- User A grants user B the Co-Administrator role.
+- User B can do almost everything, but is unable to register applications or look up users in the Azure AD directory.
+
+You would expect that user B could manage everything. The reason for this difference is that the Microsoft account with the Co-Administrator role is added to the subscription as a guest instead of a user. There are a couple of ways to handle this scenario. The first way is to assign the specific role that user B needs, such as the [Application Developer](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-developer) role. A second way is to create an Azure AD account for user B with the necessary roles and have them use this other account instead.
+
 <a name="change-service-administrator-for-a-subscription"></a>
 
 ## Change the Service administrator for an Azure subscription
