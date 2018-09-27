@@ -23,10 +23,10 @@ Data in [Log Analytics](../log-analytics/log-analytics-queries.md) is stored as 
 Some of these properties are still in the process of being implemented, so you may see them in some data types but not yet in others.
 
 
-## _ResourceId
-The **_ResourceId** property holds a unique identifier for the resource that that the record is associated with. This gives you a standard property to use to scope your query to only records from a particular resource, or to join related data across multiple tables.
+## \_ResourceId
+The **\_ResourceId** property holds a unique identifier for the resource that the record is associated with. This gives you a standard property to use to scope your query to only records from a particular resource, or to join related data across multiple tables.
 
-For Azure resources, the value of **_ResourceId** is the [Azure resource ID URL](../azure-resource-manager/resource-group-template-functions-resource.md). The property is currently limited to Azure resources, but it will be extended to resources outside of Azure such as on-premises computers. 
+For Azure resources, the value of **\_ResourceId** is the [Azure resource ID URL](../azure-resource-manager/resource-group-template-functions-resource.md). The property is currently limited to Azure resources, but it will be extended to resources outside of Azure such as on-premises computers. 
 
 ### Examples
 The following example shows a query that joins performance and event data for each computer. It shows all events with an ID of _101_ and processor utilization over 50%.
