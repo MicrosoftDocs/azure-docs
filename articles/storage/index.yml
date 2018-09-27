@@ -90,6 +90,29 @@ sections:
     - html: Java &#58; <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=blob&sort=0&platform=java">Blobs</a> | <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=file&sort=0&platform=java">Files</a> | <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=queue&sort=0&platform=java">Queues</a>
     - html: <a href="/azure/storage/blobs/storage-samples-blobs-powershell">Azure PowerShell</a>
     - html: <a href="/azure/storage/blobs/storage-samples-blobs-cli">Azure CLI</a>
+- title: Build your skills with Microsoft Learn
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Introduction to data in Azure
+      href: /learn/modules/intro-to-data-in-azure/
+      image: 
+        src: /learn/achievements/intro-to-data-in-azure.svg
+        href: //learn/modules/intro-to-data-in-azure/
+    - title:  Choose a data storage approach in Azure
+      href: /learn/modules/choose-storage-approach-in-azure/
+      image: 
+        src: /learn/achievements/choose-storage-approach-in-azure.svg
+        href: /learn/modules/choose-storage-approach-in-azure/
+    - title:  Create an Azure storage account
+      href: /learn/modules/create-azure-storage-account/
+      image: 
+        src: /learn/achievements/create-azure-storage-account.svg
+        href: /learn/modules/create-azure-storage-account/
+  - type: paragraph
+    text: <a href="/learn/browse/?products=azure-storage">More interactive learning...</a>
 - title: Free Pluralsight Video Training
   items:
   - type: list

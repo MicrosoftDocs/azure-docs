@@ -2,34 +2,49 @@
 title: Pricing & billing - Azure Logic Apps | Microsoft Docs
 description: Learn how pricing and billing works for Azure Logic Apps
 services: logic-apps
-author: kevinlam1
-manager: jeconnoc
-editor: 
-documentationcenter: 
-
-ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: 
-ms.devlang: 
-ms.topic: article
-ms.date: 05/11/2018
+ms.suite: logic-apps
+author: kevinlam1
 ms.author: klam
+ms.reviewer: estfan, LADocs
+ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
+ms.topic: article
+ms.date: 09/24/2018
 ---
 
-# Logic Apps pricing model
+# Pricing model for Azure Logic Apps
 
-You can create and run automated scalable integration workflows in the cloud with Azure Logic Apps. 
+You can create and run automated scalable integration 
+workflows in the cloud with Azure Logic Apps. 
 Here are the details about how billing and pricing work for Logic Apps. 
+
+<a name="consumption-pricing"></a>
 
 ## Consumption pricing model
 
-With newly created logic apps, you pay only for what you use. 
-New logic apps use a consumption plan and pricing model, 
-which means that all the action executions performed by a logic app instance are metered. 
-Every step in a logic app definition is an action, which includes triggers, 
+For new logic apps that you create by using the public or "global" 
+Logic Apps service, you pay only for what you use. These logic apps 
+use a consumption-based plan and pricing model, which means that all 
+action executions performed by a logic app are metered. Every step 
+in a logic app definition is an action, which includes triggers, 
 control flow steps, calls to built-in actions, and calls to connectors. 
 For more information, see [Logic Apps Pricing](https://azure.microsoft.com/pricing/details/logic-apps).
+
+<a name="fixed-pricing"></a>
+
+## Fixed pricing model
+
+> [!NOTE]
+> The integration service environment is in *private preview*. 
+> To request access, [create your request to join here](https://aka.ms/iseprivatepreview).
+
+For new logic apps that you create with an 
+[*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
+which is a private isolated Logic Apps instance that uses dedicated resources, 
+you pay a fixed monthly price for built-in actions and standard ISE-labeled connectors. 
+Your ISE includes one Enterprise connector at no charge, while additional Enterprise 
+connectors are charged based on the Enterprise consumption price. For more information, see 
+[Logic Apps Pricing](https://azure.microsoft.com/pricing/details/logic-apps).
 
 <a name="triggers"></a>
 
@@ -62,7 +77,8 @@ Built-in actions, such as actions that call HTTP, Azure Functions, or API Manage
 and also control flow steps are metered as native actions, which have their respective types. 
 Actions that call [connectors](https://docs.microsoft.com/connectors) have the "ApiConnection" type. 
 These connectors are classified as standard or enterprise connectors, 
-which are metered based on their respective [pricing][pricing]. 
+which are metered based on their respective [pricing][pricing]. Enterprise connectors in *Preview* are charged as standard
+connectors.
 
 All successfully and unsuccessfully run actions are counted and metered as action executions. 
 However, actions that are skipped, due to unmet conditions, or actions that don't run, 

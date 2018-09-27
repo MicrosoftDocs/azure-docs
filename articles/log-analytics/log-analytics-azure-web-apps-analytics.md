@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/02/2018
 ms.author: magoedte
-ms.component: na
+ms.component: 
 ---
 
 # View analytic data for metrics across all your Azure Web App resources

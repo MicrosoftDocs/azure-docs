@@ -1,17 +1,19 @@
 ---
-title: Moderate with custom term lists in Azure Content Moderator | Microsoft Docs
-description: How to moderate with custom term lists using Azure Content Moderator SDK for .NET.
+title: "Quickstart: Moderate with custom term lists - Content Moderator"
+titlesuffix: Azure Cognitive Services
+description: How to moderate with custom term lists using Content Moderator SDK for .NET.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: sajagtap
 ---
 
-# Moderate with custom term lists in .NET
+# Quickstart: Moderate with custom term lists in .NET
 
 The default global list of terms in Azure Content Moderator is sufficient for most content moderation needs. However, you might need to screen for terms that are specific to your organization. For example, you might want to tag competitor names for further review. 
 
@@ -113,7 +115,7 @@ Add the following code to create a Content Moderator client for your subscriptio
             // Create and initialize an instance of the Content Moderator API wrapper.
             ContentModeratorClient client = new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey));
 
-            client.BaseUrl = AzureBaseURL;
+            client.Endpoint = AzureBaseURL;
             return client;
         }
     }
@@ -135,7 +137,7 @@ Add the following private properties to namespace TermLists, class Program.
 
     /// <summary>
     /// The number of minutes to delay after updating the search index before
-    /// performing image match operations against a the list.
+    /// performing image match operations against the list.
     /// </summary>
     private const double latencyDelay = 0.5;
 

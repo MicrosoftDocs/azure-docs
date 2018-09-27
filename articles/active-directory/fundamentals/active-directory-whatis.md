@@ -73,4 +73,6 @@ Sign up for a free 30-day trial and deploy your first cloud solution, see [Azure
 Sign up for a free 30-day trial and start integrating your apps with Azure AD, see [Azure Active Directory Premium trial](https://azure.microsoft.com/trial/get-started-active-directory/). For more information, you can also see the [Developers Guide](../develop/azure-ad-developers-guide.md) for Azure Active Directory.
 
 ## Next steps
-[Learn more about the fundamentals of Azure identity and access management](identity-fundamentals.md).
+- [Learn more about the fundamentals of Azure identity and access management](identity-fundamentals.md).
+
+- [Integrate Azure AD with Windows Server Active directory](../hybrid/how-to-connect-install-express.md).
