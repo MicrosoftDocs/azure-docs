@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Create an Azure Machine Learning workspace - Python SDK"
-description: Use Python SDK to create an Azure Machine Learning workspace. This workspace is the foundational block in the cloud for experimenting, training, and deploying machine learning models with Azure Machine Learning service.  
+description: Get started with Azure Machine Learning.  Install the Python SDK and use it to create a workspace. This workspace is the foundational block in the cloud for experimenting, training, and deploying machine learning models with Azure Machine Learning service.  
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -11,7 +11,7 @@ ms.author: haining
 ms.date: 09/24/2018
 ---
 
-# Quickstart: Get started with Azure Machine Learning service using Python SDK
+# Quickstart: Get started with Azure Machine Learning using Python SDK
 
 In this quickstart, you'll use the Azure Machine Learning Python SDK to create and then use a workspace. This workspace is the foundational block in the cloud for experimenting, training, and deploying machine learning models with Azure Machine Learning service.
 
