@@ -1,22 +1,23 @@
 ---
 title: Managing scaled-out cloud databases | Microsoft Docs
 description: Use the elastic database job service to execute a script across a group of databases.
-metakeywords: azure sql database elastic databases
 services: sql-database
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: operations
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 06/14/2018
+author: stevestein
 ms.author: sstein
-
+ms.reviewer: 
+manager: craigg
+ms.date: 06/14/2018
 ---
 # Managing scaled-out cloud databases
 
 [!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
 
-**Elastic Database jobs** is a customer-hosted Azure Cloud Service that enables the execution of ad-hoc and scheduled administrative tasks, which are called **jobs**. With jobs, you can easily and reliably manage large groups of Azure SQL Databases by running Transact-SQL scripts to perform administrative operations. 
+**Elastic Database jobs** is a customer-hosted Azure Cloud Service that enables the execution of ad-hoc and scheduled administrative tasks, which are called **jobs**. With jobs, you can easily and reliably manage large groups of Azure SQL databases by running Transact-SQL scripts to perform administrative operations. 
 
 To manage scaled-out sharded databases, the **Elastic Database jobs** feature (preview) enables you to reliably execute a Transact-SQL (T-SQL) script across a group of databases, including:
 
@@ -28,7 +29,7 @@ To manage scaled-out sharded databases, the **Elastic Database jobs** feature (p
 * [Install the Elastic Database job components](sql-database-elastic-jobs-service-installation.md). 
 * [Get started with Elastic Database jobs](sql-database-elastic-jobs-getting-started.md).
 * [Create and manage jobs using PowerShell](sql-database-elastic-jobs-powershell.md).
-* [Create and manage scaled out Azure SQL Databases](sql-database-elastic-jobs-getting-started.md)
+* [Create and manage scaled out Azure SQL databases](sql-database-elastic-jobs-getting-started.md)
 
 
 
@@ -41,11 +42,11 @@ Easily do schema changes, credentials management, reference data updates, perfor
 
 **Reports**
 
-Aggregate data from a collection of Azure SQL Databases into a single destination table.
+Aggregate data from a collection of Azure SQL databases into a single destination table.
 
 **Reduce overhead**
 
-Normally, you must connect to each database independently in order to run Transact-SQL statements or perform other administrative tasks. A job handles the task of logging in to each database in the target group. You also define, maintain and persist Transact-SQL scripts to be executed across a group of Azure SQL Databases.
+Normally, you must connect to each database independently in order to run Transact-SQL statements or perform other administrative tasks. A job handles the task of logging in to each database in the target group. You also define, maintain and persist Transact-SQL scripts to be executed across a group of Azure SQL databases.
 
 **Accounting**
 
@@ -53,7 +54,7 @@ Jobs run the script and log the status of execution for each database. You also 
 
 **Flexibility**
 
-Define custom groups of Azure SQL Databases, and define schedules for running a job.
+Define custom groups of Azure SQL databases, and define schedules for running a job.
 
 > [!NOTE]
 > In the Azure portal, only a reduced set of functions limited to SQL Azure elastic pools is available. Use the PowerShell APIs to access the full set of current functionality.

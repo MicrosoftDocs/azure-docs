@@ -29,7 +29,7 @@ This article describes various visualizations in Azure Log Analytics to display 
 ## Charting the results
 Start by reviewing how many computers there are per operating system, during the past hour:
 
-```KQL
+```Kusto
 Heartbeat
 | where TimeGenerated > ago(1h)
 | summarize count(Computer) by OSType  
@@ -47,7 +47,7 @@ To get a better view, select **Chart**, and choose the **Pie** option to visuali
 ## Timecharts
 Show the average, 50th and 95th percentiles of processor time in bins of 1 hour. The query generates multiple series and you can then select which series to show in the time chart:
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(1d) 
 | where CounterName == "% Processor Time" 
@@ -62,7 +62,7 @@ Select the **Line** chart display option:
 
 A reference line can help you easily identifying if the metric exceeded a specific threshold. To add a line to a chart, extend the dataset with a constant column:
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(1d) 
 | where CounterName == "% Processor Time" 
@@ -75,7 +75,7 @@ Perf
 ## Multiple dimensions
 Multiple expressions in the `by` clause of `summarize` create multiple rows in the results, one for each combination of values.
 
-```KQL
+```Kusto
 SecurityEvent
 | where TimeGenerated > ago(1d)
 | summarize count() by tostring(EventID), AccountType, bin(TimeGenerated, 1h)
