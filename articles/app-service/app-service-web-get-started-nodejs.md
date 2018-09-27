@@ -114,7 +114,7 @@ http://<app name>.azurewebsites.net
 
 Here is what your new web app should look like:
 
-![Empty web app page](media/app-service-web-get-started-php/app-service-web-service-created.png)
+![Empty web app page](media/app-service-web-get-started-nodejs-poc/app-service-web-service-created.png)
 
 [!INCLUDE [Deploy ZIP file](../../includes/app-service-web-deploy-zip.md)]
 
