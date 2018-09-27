@@ -22,8 +22,6 @@ ms.author: cynthn
 This article walks you through how to move a Windows virtual machine (VM) between resource groups or subscriptions. Moving between subscriptions can be handy if you originally created a VM in a personal subscription and now want to move it to your company's subscription to continue your work.
 
 > [!IMPORTANT]
->You cannot move Azure Managed Disks at this time. 
->
 >New resource IDs are created as part of the move. After the VM has been moved, you will need to update your tools and scripts to use the new resource IDs. 
 > 
 > 
