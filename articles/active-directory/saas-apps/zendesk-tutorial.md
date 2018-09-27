@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2018
+ms.date: 09/27/2018
 ms.author: jeedes
 
 ---
@@ -93,9 +93,9 @@ To configure and test Azure AD single sign-on with Zendesk, you need to complete
 
 ### Configure Azure AD single sign-on
 
-In this section, you enable Azure AD single sign-on in the Azure portal.
+In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Zendesk application.
 
-To configure Azure AD single sign-on with Zendesk, perform the following steps:
+**To configure Azure AD single sign-on with Zendesk, perform the following steps:**
 
 1. In the [Azure portal](https://portal.azure.com/), on the **Zendesk** application integration page, select **Single sign-on**.
 
@@ -177,13 +177,15 @@ To configure Azure AD single sign-on with Zendesk, perform the following steps:
 
 10. There are two ways in which Zendesk can be configured - Automatic and Manual.
   
-11. For configuring Zendesk automatically through Azure AD, follow the below step:
+11. To automate the configuration within Zendesk, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-    ![image](./media/zendesk-tutorial/d2_saml.png) 
-  
-    * Using the My Apps Browser extension, you can automate the configuration within Zendesk. Clicking on **setup Zendesk** will direct you to the Zendesk application. From there, provide the admin credentials to sign into Zendesk. The browser extension will automatically configure the application for you and automate step 12.
+	![image](./media/zendesk-tutorial/install_extension.png)
 
-12. For configuring Zendesk manually, follow the below steps:
+12. After adding extension to the browser, click on **Setup Zendesk** will direct you to the Zendesk application. From there, provide the admin credentials to sign into Zendesk. The browser extension will automatically configure the application for you and automate step 13.
+
+	 ![image](./media/zendesk-tutorial/d2_saml.png) 
+
+13. For configuring Zendesk manually, follow the below steps:
 
     * In a different web browser window, log into your Zendesk company site as an administrator.
 
