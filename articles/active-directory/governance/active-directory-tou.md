@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 09/04/2018
+ms.date: 10/01/2018
 ms.author: rolyon
 
 ---
@@ -177,14 +177,14 @@ The following procedure describes how to add a Terms of use language.
 
 ## Per-device Terms of use
 
-The **Require users to consent on every device** setting enables you to require end users to agree to the Terms of use on every device they are accessing from. The end user will be required to join their device in Azure AD. When the device is joing, the device ID is used to enforce the Terms of use on each device.
+The **Require users to consent on every device** setting enables you to require end users to agree to the Terms of use on every device they are accessing from. The end user will be required to join their device in Azure AD. When the device is joined, the device ID is used to enforce the Terms of use on each device.
 
 Here is a list of the supported platforms and software.
 
 > [!div class="mx-tableFixed"]
 > |  | iOS | Android | Windows 10 | macOS | Other |
 > | --- | --- | --- | --- | --- | --- |
-> | **Native app** | Yes | Yes | Yes |  |  |
+> | **Native app** | Yes | Yes | Yes | [Some apps](../conditional-access/technical-reference.md) |  |
 > | **Edge** | Yes | Yes | Yes |  |  |
 > | **Internet Explorer** | Yes | Yes | Yes |  |  |
 > | **Chrome (with extension)** | Yes | Yes | Yes |  |  |
