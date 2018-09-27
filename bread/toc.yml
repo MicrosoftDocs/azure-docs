@@ -56,8 +56,8 @@
         topicHref: /azure/active-directory/manage-apps/
         items:
         - name: SaaS application tutorials
-          tocHref: /azure/active-directory/manage-apps/saas-apps/
-          topicHref: /azure/active-directory/manage-apps/saas-apps/tutorial-list
+          tocHref: /azure/active-directory/saas-apps/
+          topicHref: /azure/active-directory/saas-apps/tutorial-list
       - name: Reports and monitoring
         tocHref: /azure/active-directory/reports-monitoring/
         topicHref: /azure/active-directory/reports-monitoring/
