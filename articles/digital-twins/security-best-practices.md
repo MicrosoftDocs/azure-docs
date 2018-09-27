@@ -12,9 +12,9 @@ ms.author: adgera
 
 # Security best practices
 
-Digital Twins security enables precise access to specific resources and actions in your IoT topology. It does so through granular role and permission management called Digital Twins Role-Based Access Control.
+Azure Digital Twins security enables precise access to specific resources and actions in your IoT topology. It does so through granular role and permission management called Digital Twins Role-Based Access Control.
 
-Azure Digital Twins also leverages other security features present on Azure IoT. For that reason, configuring your Digital Twins app involves using many of the same [Azure IoT security practices](https://docs.microsoft.com/azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-hub/) currently recommended.
+Azure Digital Twins also leverages other security features present on Azure IoT including Azure Active Directory. For that reason, configuring your Digital Twins app involves using many of the same [Azure IoT security practices](https://docs.microsoft.com/azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-hub/) currently recommended.
 
 This article will summarize key best practices to follow. It's advised to review additional security resources (including device vendors) to ensure maximal security for your IoT space.
 
@@ -31,9 +31,7 @@ Some key practices to safely secure your IoT space include:
 
 ## Azure Active Directory best practices
 
-Azure Digital Twins enforces an [OAuth 2.0 On-Behalf-Of](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow) security flow through Azure Active Directory to authenticate to downstream APIs.
-
-Key practices to secure your IoT space for Azure Active Directory include:
+Azure Digital Twins enforces an [OAuth 2.0 On-Behalf-Of](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow) security flow through Azure Active Directory to authenticate to downstream APIs. Familiar best practices for securely interacting with APIs through OAuth 2.0 apply here as well. A few key practices to secure your IoT space for Azure Active Directory include:
 
 * Limiting OAuth 2.0 scope of access for a token.
 * Verifying both the length of time a token is valid and whether a token remains valid.
