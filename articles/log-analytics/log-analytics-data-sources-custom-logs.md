@@ -38,7 +38,7 @@ The log files to be collected must match the following criteria.
   
 >[!NOTE]
 > If your application creates a new log file each day or when it reaches a certain size, the Log Analytics Linux agent does not discover them until after it is restarted. This is because the agent only enumerates and begins monitoring for patterns with the specified logs upon startup, and because of this you need to plan around it by automating the restart of the agent.  This limitation does not exist with the Log Analytics agent for Windows.  
->While this is intended to support applications that create a new file each day or when one file reaches a certain size, the Log Analytics Linux agent does not discover them until after it is restarted. This is because the agent only enumerates and begins monitoring for patterns with the specified logs upon startup, and because of this you need to plan around it by automating the restart of the agent.  This limitation does not exist with the Log Analytics agent for Windows.
+>
 
 ## Defining a custom log
 Use the following procedure to define a custom log file.  Scroll to the end of this article for a walkthrough of a sample of adding a custom log.
