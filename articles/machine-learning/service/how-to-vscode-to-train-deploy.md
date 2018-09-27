@@ -11,7 +11,7 @@ ms.reviewer: jmartens
 ms.date: 10/1/2018
 ---
 # VS Code Tools for AI: Train and deploy ML models from VS Code
-In this article, you'll how to use the **VS Code Tools for AI** extension to train and deploy machine learning and deep learning models with Azure Machine Learning service in VS Code.
+In this article, you will learn how to use the **VS Code Tools for AI** extension to train and deploy machine learning and deep learning models with Azure Machine Learning service in VS Code.
 
 Azure Machine Learning provides support for running experiments locally and on remote compute targets. For every experiment, you can keep track of multiple runs as often you need to iteratively try different techniques, hyperparameters, and more. You can use Azure Machine Learning to track custom metrics and experiment runs, enabling data science reproducibility and auditability.
 
@@ -53,15 +53,17 @@ Here is an example for Azure Batch AI:
 [![Create Azure Batch AI compute in VS Code](./media/vscode-tools-for-ai/createcompute.gif](./media/vscode-tools-for-ai/createcompute.gif#lightbox)
 )
 
-### To use remote compute for experiments in VS Code
+### Use remote computes for experiments in VS Code
 
-To use a remote compute target when training, you need to create a run configuration file. This tells Azure Machine Learning not only where to run your experiment but also how to prepare the environment.
+To use a remote compute target when training, you need to create a run configuration file. This file tells Azure Machine Learning not only where to run your experiment but also how to prepare the environment.
+
+**The run configuration file:**
 
 The VS Code extension will automatically create a run configuration for your **local** and **docker** environments on your local computer.
-- By default,  Azure Machine Learning will create a new conda environment for you and manage all of your installation dependencies. You must specify your dependencies in the `aml_config/conda_dependencies.yml` file
-- If you want to install all of your libraries/dependencies yourself, set `userManagedDependencies: True` and then local experiment runs will use your default Python environment as specified by the VS Code Python extension.
 
-**Section of default generated run configuration**
+This is a snippet from the default run configuration file.
+
+If you want to install all of your libraries/dependencies yourself, set `userManagedDependencies: True` and then local experiment runs will use your default Python environment as specified by the VS Code Python extension.
 
 ```yaml
 # user_managed_dependencies=True indicates that the environment will be user managed. False indicates that AzureML will manage the user environment.
@@ -78,9 +80,12 @@ The VS Code extension will automatically create a run configuration for your **l
     enabled: false
 ```
 
-**Section of default generated aml_config/conda_dependencies.yml**
+**The conda dependencies file:**
 
-Add additional dependencies in the config file
+By default, a new conda environment is created for you and your installation dependencies are managed. However, you must specify your dependencies in the `aml_config/conda_dependencies.yml` file.
+
+This is a snippet from the default 'aml_config/conda_dependencies.yml'.
+You can add additional dependencies in the config file.
 
 ```yaml
 # The dependencies defined in this file will be automatically provisioned for runs with userManagedDependencies=False.
