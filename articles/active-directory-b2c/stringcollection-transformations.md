@@ -50,7 +50,7 @@ The following claims transformation adds the **email** ClaimType to **otherMails
 - Input claims:
     - **collection**: ["someone@outlook.com"]
     - **item**: "admin@contoso.com"
-- Output claims: admin@contoso.com
+- Output claims: 
     - **collection**: ["someone@outlook.com", "admin@contoso.com"]
 
 ## AddParameterToStringCollection
@@ -85,7 +85,7 @@ Use this claims transformation to add a string value to a new or existing string
     - **collection**: ["someone@outlook.com"]
 - Input parameters 
     - **item**: "admin@contoso.com"
-- Output claims: admin@contoso.com
+- Output claims:
     - **collection**: ["someone@outlook.com", "admin@contoso.com"]
 
 ## GetSingleItemFromStringCollection
