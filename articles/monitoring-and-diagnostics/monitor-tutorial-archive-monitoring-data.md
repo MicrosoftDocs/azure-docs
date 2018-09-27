@@ -15,7 +15,7 @@ ms.component: metrics
 
 Several layers of your Azure environment produce log and metric data that can be archived to an Azure Storage account. You may want to do this to preserve a history of monitoring data over time in an inexpensive, non-searchable store after that data has passed its retention period. 
 
-- Azure Monitor platform-metrics are kept for 93 days. 
+- Azure Monitor platform metrics are kept for 93 days. 
 - Resource diagnostic logs only appear if routed to Log Analytics, where they have a configurable retention period with a minimum of 30 days. 
 - Activity log entries are kept for 90 days.  
 
