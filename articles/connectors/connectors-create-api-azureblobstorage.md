@@ -15,7 +15,7 @@ tags: connectors
 # Create and manage blobs in Azure blob storage with Azure Logic Apps
 
 This article shows how you can access and manage files stored as blobs in your 
-Azure Storage account from inside a logic app with the Azure Blob Storage connector. 
+Azure storage account from inside a logic app with the Azure Blob Storage connector. 
 That way, you can create logic apps that automate tasks and workflows 
 for managing your files. For example, you can build logic apps that create, 
 get, update, and delete files in your storage account.
@@ -26,7 +26,7 @@ you can have your logic app update some file in your blob storage container,
 which is an action in your logic app. 
 
 > [!NOTE]
-> Logic Apps doesn't support directly connecting to Azure Storage 
+> Logic Apps doesn't support directly connecting to Azure storage 
 > accounts through firewalls, even when you set up your firewall 
 > with the specified IP addresses. To access these storage accounts, 
 > use either option here: 

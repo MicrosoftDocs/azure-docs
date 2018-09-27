@@ -331,7 +331,7 @@ based on the regions where your logic apps exist.
 > include and match the IP addresses in this list for the 
 > regions where your logic apps exist. 
 > 
-> Logic Apps doesn't support directly connecting to Azure Storage 
+> Logic Apps doesn't support directly connecting to Azure storage 
 > accounts through firewalls, even when you set up your firewall 
 > with the specified IP addresses. To access these storage accounts, 
 > use either option here: 
