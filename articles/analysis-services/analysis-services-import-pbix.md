@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/26/2018
+ms.date: 09/27/2018
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -18,13 +18,14 @@ You can import a data model in a Power BI Desktop file (pbix) into Azure Analysi
 **Restrictions**   
 
 - Importing from a pbix file uses the web designer feature in the portal, which is **preview**. Functionality is limited. For more advanced model development and testing, it's best to use Visual Studio (SSDT) and SQL Server Management Studio (SSMS).
-- If you receive the following error when importing, the pbix file has preview features enabled that are not yet supported in Azure Analysis Services.
+- If your data model is created in Power BI Desktop July 2018 Update (2.60.5169.3201) or later, ensure no preview features are enabled. Preview features are not yet supported in Azure Analysis Services.  
+If you receive the following error when importing, the pbix file has preview features enabled that are not yet supported in Azure Analysis Services.
 
-    ![Compatibility level warning](./media/analysis-services-import-pbix/aas-import-pbix-cl-warning.png)
+    ![Compatibility level warning](./media/analysis-services-import-pbix/aas-import-pbix-cl-warning.png)   
 - You must have server administrator permissions to import from a pbix file.
 - The pbix model can connect to **Azure SQL Database** and **Azure SQL Data Warehouse** data sources only.
 - The pbix model cannot have live or DirectQuery connections. 
-- Import may fail if your pbix data model contains metadata not supported in Analysis Services.
+
 
 ## To import from pbix
 
