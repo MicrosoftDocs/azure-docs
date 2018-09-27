@@ -12,9 +12,9 @@
 
 Role-Based Access Control is an inheritance-driven security strategy for managing access, permissions, and roles. Descendent roles inherit permissions from parent roles. Permissions may also be assigned without being inherited from a parent role. They can also be assigned to customize a role as needed.
 
-A **Space Administrator** may need global access to run all operations for a specified space (including all nodes underneath or within it) whereas a **Device Installer** may only need *read* and *update* permissions for devices and sensors.
+For example, a **Space Administrator** may need global access to run all operations for a specified space (including all nodes underneath or within it) whereas a **Device Installer** may only need *read* and *update* permissions for devices and sensors.
 
-In every case, roles should be granted **exactly and no more than the access required** to fulfill their tasks per the **Principle of Least Privilege, which grants an identity *only*:
+In every case, roles should be granted **exactly and no more than the access required** to fulfill their tasks per the **Principle of Least Privilege**, which grants an identity *only*:
 
 1. The amount of access needed to complete its job.
 1. A role appropriate and limited to carrying out its job.
