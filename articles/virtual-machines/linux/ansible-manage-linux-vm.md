@@ -121,8 +121,6 @@ This section illustrates how to use Ansible to start a deallocated (stopped) Azu
 
 1.  The output looks similar to the following example that shows the virtual machine has been successfully started:
 
-    The output looks similar to the following example that shows the virtual machine has been successfully started:
-
     ```bash
     PLAY [Start Azure VM] ********************************************************
 
