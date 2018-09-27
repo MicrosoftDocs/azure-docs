@@ -12,7 +12,7 @@ ms.devlang:
 ms.topic: reference
 ms.tgt_pltfrm:
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 09/27/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -510,8 +510,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Commerce/*/read |  |
 > | Microsoft.Consumption/*/read |  |
 > | Microsoft.Management/managementGroups/read | List management groups for the authenticated user. |
-> | Microsoft.CostManagement/Query/read | Query usage data by a scope. |
-> | Microsoft.CostManagement/Dimensions/read | List all supported dimensions by a scope. |
+> | Microsoft.CostManagement/*/read |  |
 > | Microsoft.Support/* | Create and manage support tickets |
 
 ## BizTalk Contributor
@@ -726,8 +725,9 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | **Description** | Can view costs and manage cost configuration (e.g. budgets, exports) |
 > | **Id** | 434105ed-43f6-45c7-a02f-909b2ba83430 |
 > | **Actions** |  |
-> | Microsoft.CostManagement/* |  |
 > | Microsoft.Consumption/* |  |
+> | Microsoft.CostManagement/* |  |
+> | Microsoft.Billing/billingPeriods/read | Lists available billing periods |
 > | Microsoft.Resources/subscriptions/read | Gets the list of subscriptions. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
@@ -741,6 +741,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | **Actions** |  |
 > | Microsoft.Consumption/*/read |  |
 > | Microsoft.CostManagement/*/read |  |
+> | Microsoft.Billing/billingPeriods/read | Lists available billing periods |
 > | Microsoft.Resources/subscriptions/read | Gets the list of subscriptions. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |

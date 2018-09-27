@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 09/27/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -2592,6 +2592,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.LabServices/labAccounts/galleryImages/read | Read gallery images. |
 > | Action | Microsoft.LabServices/labAccounts/galleryImages/write | Add or modify gallery images. |
 > | Action | Microsoft.LabServices/labAccounts/GetRegionalAvailability/action | Get regional availability information for each size category configured under a lab account |
+> | Action | Microsoft.LabServices/labAccounts/labs/AddUsers/action | Add users to a lab |
 > | Action | Microsoft.LabServices/labAccounts/labs/delete | Delete labs. |
 > | Action | Microsoft.LabServices/labAccounts/labs/environmentSettings/ClaimAny/action | Claims a random environment for a user in an environment settings |
 > | Action | Microsoft.LabServices/labAccounts/labs/environmentSettings/delete | Delete environment setting. |
@@ -2806,6 +2807,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | DataAction | Microsoft.LogAnalytics/logs/WDAVStatus/read | Read data from the WDAVStatus table |
 > | DataAction | Microsoft.LogAnalytics/logs/WDAVThreat/read | Read data from the WDAVThreat table |
 > | DataAction | Microsoft.LogAnalytics/logs/WindowsClientAssessmentRecommendation/read | Read data from the WindowsClientAssessmentRecommendation table |
+> | DataAction | Microsoft.LogAnalytics/logs/WindowsEvent/read | Read data from the WindowsEvent table |
 > | DataAction | Microsoft.LogAnalytics/logs/WindowsFirewall/read | Read data from the WindowsFirewall table |
 > | DataAction | Microsoft.LogAnalytics/logs/WindowsServerAssessmentRecommendation/read | Read data from the WindowsServerAssessmentRecommendation table |
 > | DataAction | Microsoft.LogAnalytics/logs/WireData/read | Read data from the WireData table |
@@ -3077,6 +3079,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
 > | --- | --- | --- |
+> | Action | Microsoft.Media/checknameavailability/action | Checks if a Media Services account name is available |
 > | Action | Microsoft.Media/locations/checkNameAvailability/action | Checks if a Media Services account name is available |
 > | Action | Microsoft.Media/mediaservices/assets/delete | Delete any Asset |
 > | Action | Microsoft.Media/mediaservices/assets/getEncryptionKey/action | Get Asset Encryption Key |
@@ -3088,6 +3091,9 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Media/mediaservices/contentKeyPolicies/read | Read any Content Key Policy |
 > | Action | Microsoft.Media/mediaservices/contentKeyPolicies/write | Create or Update any Content Key Policy |
 > | Action | Microsoft.Media/mediaservices/delete | Delete any Media Services Account |
+> | Action | Microsoft.Media/mediaservices/eventGridFilters/delete | Delete any Event Grid Filter |
+> | Action | Microsoft.Media/mediaservices/eventGridFilters/read | Read any Event Grid Filter |
+> | Action | Microsoft.Media/mediaservices/eventGridFilters/write | Create or Update any Event Grid Filter |
 > | Action | Microsoft.Media/mediaservices/liveEventOperations/read | Read any Live Event Operation |
 > | Action | Microsoft.Media/mediaservices/liveEvents/delete | Delete any Live Event |
 > | Action | Microsoft.Media/mediaservices/liveEvents/liveOutputs/delete | Delete any Live Output |
@@ -3909,6 +3915,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.OperationalInsights/workspaces/query/WDAVStatus/read | Read data from the WDAVStatus table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/WDAVThreat/read | Read data from the WDAVThreat table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/WindowsClientAssessmentRecommendation/read | Read data from the WindowsClientAssessmentRecommendation table |
+> | Action | Microsoft.OperationalInsights/workspaces/query/WindowsEvent/read | Read data from the WindowsEvent table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/WindowsFirewall/read | Read data from the WindowsFirewall table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/WindowsServerAssessmentRecommendation/read | Read data from the WindowsServerAssessmentRecommendation table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/WireData/read | Read data from the WireData table |
