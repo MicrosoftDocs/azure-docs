@@ -51,6 +51,8 @@
     href: virtual-network-for-azure-services.md
   - name: Container networking
     href: container-networking-overview.md
+  - name: Kubernetes network policies
+    href: kubernetes-network-policies.md
   - name: Business continuity
     href: virtual-network-disaster-recovery-guidance.md
   - name: IP addressing
@@ -326,6 +328,8 @@
     href: https://azure.microsoft.com/resources/samples/?service=virtual-network
 - name: Resources
   items:
+  - name: Build your skills with Microsoft Learn
+    href: /learn/browse/
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Networking blog

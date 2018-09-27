@@ -1,13 +1,13 @@
 ﻿---
 title: "Tutorial: Train an image classification model with Azure Machine Learning"
-description: Learn how to train a scikit-learn  image classification model with a Python Jupyter notebook. This tutorial is part one of a two-part series. 
-author: hning86
-ms.author: haining
-ms.topic: tutorial
+description: This tutorial shows how to use Azure Machine Learning service to train an image classification model with scikit-learn in a Python Jupyter notebook. This tutorial is part one of a two-part series. 
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
-ms.topic: conceptual
+ms.topic: tutorial
+
+author: hning86
+ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
 #Customer intent: As a professional data scientist, I can build an image classification model with Azure Machine Learning using Python in a Jupyter notebook.
@@ -15,7 +15,7 @@ ms.date: 09/24/2018
 
 # Tutorial #1: Train an image classification model with Azure Machine Learning
 
-In this tutorial, you train a machine learning model both locally and on remote compute resources. You'll use the training and deployment workflow for Azure Machine Learning service in a Python Jupyter notebook.  You can then use the notebook as a template to train your own machine learning model with your own data. This tutorial is **part one of a two-part tutorial series**.  
+In this tutorial, you train a machine learning model both locally and on remote compute resources. You'll use the training and deployment workflow for Azure Machine Learning service (preview) in a Python Jupyter notebook.  You can then use the notebook as a template to train your own machine learning model with your own data. This tutorial is **part one of a two-part tutorial series**.  
 
 This tutorial trains a simple logistic regression using the [MNIST](http://yann.lecun.com/exdb/mnist/) dataset and [scikit-learn](http://scikit-learn.org) with Azure Machine Learning.  MNIST is a popular dataset consisting of 70,000 grayscale images. Each image is a handwritten digit of 28x28 pixels, representing a number from 0 to 9. The goal is to create a multi-class classifier to identify the digit a given image represents. 
 
@@ -34,7 +34,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Get the notebook
 
-For your convenience, this tutorial is available as a Jupyter notebook. Use either of these methods to run the `tutorials/01.train-models.ipynb` notebook:
+For your convenience, this tutorial is available as a Jupyter notebook. Use either of the two below methods to clone the [Machine Learning Sample Notebooks GitHub repository](https://github.com/Azure/MachineLearningNotebooks) and run the `tutorials/01.train-models.ipynb` notebook:
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
@@ -76,7 +76,7 @@ print(ws.name, ws.location, ws.resource_group, ws.location, sep = '\t')
 
 ### Create experiment
 
-Create an experiment to track all the runs in your workspace.  
+Create an experiment to track the runs in your workspace. A workspace can have multiple experiments. 
 
 ```python
 experiment_name = 'sklearn-mnist'
@@ -102,7 +102,7 @@ batchai_cluster_name = "traincluster"
 try:
     # look for the existing cluster by name
     compute_target = ComputeTarget(workspace=ws, name=batchai_cluster_name)
-    if compute_target is BatchAiCompute:
+    if type(compute_target) is BatchAiCompute:
         print('found compute target {}, just use it.'.format(batchai_cluster_name))
     else:
         print('{} exists but it is not a Batch AI cluster. Please choose a different name.'.format(batchai_cluster_name))
@@ -154,7 +154,7 @@ urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ub
 
 ### Display some sample images
 
-Load the compressed files into `numpy` arrays. Then use `matplotlib` to plot 30 random images from the dataset with their labels above them.
+Load the compressed files into `numpy` arrays. Then use `matplotlib` to plot 30 random images from the dataset with their labels above them. Note this step requires a `load_data` function that's included in the `util.py` file. This file is included in the sample folder. Please make sure it is placed in the same folder as this notebook. The `load_data` function  parses the compresse files into numpy arrays.
 
 
 
@@ -191,7 +191,7 @@ Now you have an idea of what these images look like and the expected prediction 
 
 ### Upload data to the cloud
 
-Now make the data accessible remotely by uploading that data from your local machine into the cloud so it can be accessed for remote training. The datastore is a convenient construct associated with your workspace for you to upload/download data, and interact with it from your remote compute targets. 
+Now make the data accessible remotely by uploading that data from your local machine into Azure so it can be accessed for remote training. The datastore is a convenient construct associated with your workspace for you to upload/download data, and interact with it from your remote compute targets. It is backed by Azure blob storage account.
 
 The MNIST files are uploaded into a directory named `mnist` at the root of the datastore.
 
@@ -363,7 +363,7 @@ run = exp.submit(config=est)
 run
 ```
 
-Since the call is asynchronous, it returns a **running** state as soon as the job is started.
+Since the call is asynchronous, it returns a **Preparing** or **Running** state as soon as the job is started.
 
 ## Monitor a remote run
 
@@ -375,7 +375,7 @@ Here is what's happening while you wait:
 
   This stage happens once for each Python environment since the container is cached for subsequent runs.  During image creation, logs are streamed to the run history. You can monitor the image creation progress using these logs.
 
-- **Scaling**: If the remote cluster requires more nodes than currently available, additional nodes are added automatically. Scaling typically takes **about 5 minutes.**
+- **Scaling**: If the remote cluster requires more nodes to execute the run than currently available, additional nodes are added automatically. Scaling typically takes **about 5 minutes.**
 
 - **Running**: In this stage, the necessary scripts and files are sent to the compute target, then data stores are mounted/copied, then the entry_script is run. While the job is running, stdout and the ./logs directory are streamed to the run history. You can monitor the run's progress using these logs.
 

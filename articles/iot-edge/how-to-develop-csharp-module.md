@@ -19,8 +19,6 @@ You can turn your business logic into modules for Azure IoT Edge. This article s
 
 ## Prerequisites
 
-This article assumes that you use a computer or virtual machine running Windows, macOS or Linux as your development machine. Your IoT Edge device can be another physical device.
-
 You can use a computer or a virtual machine running Windows, macOS, or Linux as your development machine. An IoT Edge device can be another physical device.
 
 There are two ways to debug your C# module in VS Code. One way is to attach a process in a module container, another way is to launch the module code in debug mode. If you aren't familiar with the debugging capabilities of Visual Studio Code, read about [Debugging](https://code.visualstudio.com/Docs/editor/debugging).
@@ -68,6 +66,7 @@ VS Code takes the information you provided, creates an IoT Edge solution, and th
    ![View IoT Edge solution](./media/how-to-develop-csharp-module/view-solution.png)
 
 There are four items within the solution: 
+
 * A **.vscode** folder contains debug configurations.
 * A **modules** folder has subfolders for each module. At this point, you only have one. But you can add more in the command palette with the command **Azure IoT Edge: Add IoT Edge Module**. 
 * An **.env** file lists your environment variables. If Azure Container Registry is your registry, you'll have an Azure Container Registry username and password in it. 
@@ -142,7 +141,7 @@ The IoT Edge C# module is a .Net Core application. And it depends on Azure IoT C
 
 ## Build module container for debugging and debug in attach mode
 
-Your default solution contains two modules, one is a simulated temperature sensor module and the other is the C# pipe module. The simulated temperature sensor keeps sending messages to C# pipe module, and then the messages are piped to IoT Hub. In the module folder you created, there are several Docker files for different container types. Use any of these files that end with the extension **.debug** to build your module for testing. Currently, C# modules support debugging only in Linux amd64 containers in attach mode. 
+Your default solution contains two modules, one is a simulated temperature sensor module and the other is the C# pipe module. The simulated temperature sensor keeps sending messages to the C# pipe module, then the messages are piped to IoT Hub. In the module folder you created, there are several Docker files for different container types. Use any of these files that end with the extension **.debug** to build your module for testing. Currently, C# modules support debugging only in Linux amd64 containers in attach mode.
 
 ### Setup IoT Edge simulator for IoT Edge solution
 
@@ -176,6 +175,7 @@ In your development machine, you can start IoT Edge simulator instead of install
 
     > [!NOTE]
     > This example shows how to debug .NET Core IoT Edge modules on containers. It's based on the debug version of `Dockerfile.debug`, which includes the Visual Studio .NET Core command-line debugger (VSDBG) in your container image while building it. After you debug your C# modules, we recommend that you directly use or customize `Dockerfile` without VSDBG for production-ready IoT Edge modules.
+
 
 ## Next steps
 

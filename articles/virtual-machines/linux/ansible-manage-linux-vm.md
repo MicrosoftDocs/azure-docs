@@ -42,10 +42,10 @@ This section illustrates how to use Ansible to deallocate (stop) an Azure virtua
     connection: local
     tasks:
     - name: Deallocate the virtual machine
-        azure_rm_virtualmachine:
-            resource_group: myResourceGroup
-            name: myVM
-            allocated: no 
+      azure_rm_virtualmachine:
+        resource_group: myResourceGroup
+        name: myVM
+        allocated: no
     ```
 
 1. Exit insert mode by selecting the **Esc** key.
@@ -100,9 +100,9 @@ This section illustrates how to use Ansible to start a deallocated (stopped) Azu
     connection: local
     tasks:
     - name: Start the virtual machine
-        azure_rm_virtualmachine:
-            resource_group: myResourceGroup
-            name: myVM
+      azure_rm_virtualmachine:
+        resource_group: myResourceGroup
+        name: myVM
     ```
 
 1. Exit insert mode by selecting the **Esc** key.

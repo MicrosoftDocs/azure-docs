@@ -122,7 +122,7 @@ Manager template and role assignment on the new resource group.
 
 ## Edit a blueprint
 
-In [Create a blueprint](#create_a_blueprint), a Description was not provided nor the role
+In [Create a blueprint](#create-a-blueprint), a Description was not provided nor the role
 assignment added to the new resource group. Both can be fixed by performing the following steps:
 
 1. Select **Blueprint Definitions** from the page on the left.

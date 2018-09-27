@@ -38,7 +38,7 @@ The sample contains settings to run on Windows Desktop, UWP, Windows Mixed Reali
 ![Enable VR](media/VRSupport.png)  
 
 Connect a VR headset to your PC. Go to **File > Build Settings**, and click **Build and Run** to deploy the sample to your VR headset. Navigate through the scene using the motion controllers for your headset, or try using W, A, S, D on the keyboard.    
-To target Android and Oculus Go, choose Android from the **Build Settings** menu. Click **Switch Target**, then **Build and Run**. This will deploy the sample scene to your connected Android device. For for information about Unity development for Android, see [Unity documentation](https://docs.unity3d.com/Manual/android-GettingStarted.html).
+To target Android and Oculus Go, choose Android from the **Build Settings** menu. Click **Switch Target**, then **Build and Run**. This will deploy the sample scene to your connected Android device. For information about Unity development for Android, see [Unity documentation](https://docs.unity3d.com/Manual/android-GettingStarted.html).
 
 ![Target Android](media/TargetAndroid.png)  
 

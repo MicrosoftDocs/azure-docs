@@ -72,6 +72,13 @@ Session affinity can be enabled at a frontend host level that is for each of you
 
 The lifetime of the cookie is the same as the user's session, as Front Door currently only supports session cookie. 
 
+> [!NOTE]
+> Public proxies may interfere with session affinity. This is because establishing a session requires Front Door to add a session affinity cookie to the response, which cannot be done if the response is cacheable as it would disrupt the cookies of other clients requesting the same resource. To protect against this, session affinity will **not** be established if the backend sends a cacheable response when this is attempted. If the session has already been established, it does not matter if the response from the backend is cacheable.
+> Session affinity will be established in the following circumstances, **unless** the response has an HTTP 304 status code:
+> - The response has specific values set for the ```Cache-Control``` header that prevent caching, such as "private" or no-store".
+> - The response contains an ```Authorization``` header that has not expired.
+> - The response has an HTTP 302 status code.
+
 ## Next steps
 
 - Learn how to [create a Front Door](quickstart-create-front-door.md).
