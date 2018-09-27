@@ -131,6 +131,8 @@ The [vnet-cluster.parameters.json][parameters] parameters file declares many val
 
 Next, set up the network topology and deploy the Service Fabric cluster. The [AzureDeploy.json][template] Resource Manager template creates a virtual network (VNET) and a subnet for Service Fabric. The template also deploys a cluster with certificate security enabled.  For production clusters, use a certificate from a certificate authority (CA) as the cluster certificate. A self-signed certificate can be used to secure test clusters.
 
+### Create a cluster using an existing certificate
+
 The following script uses the [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) command and template to deploy a new cluster secured with an existing certificate. The command also creates a new key vault in Azure and uploads your certificate.
 
 ```azurecli
@@ -153,6 +155,22 @@ az sf cluster create --resource-group $ResourceGroupName --location $Location \
    --certificate-password $Password --certificate-file $CertPath \
    --vault-name $VaultName --vault-resource-group $ResourceGroupName  \
    --template-file AzureDeploy.json --parameter-file AzureDeploy.Parameters.json
+```
+
+### Create a cluster using a new, self-signed certificate
+
+The following script uses the [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) command and a template to deploy a new cluster in Azure. The cmcommand also creates a new key vault in Azure, adds a new self-signed certificate to the key vault, and downloads the certificate file locally.
+
+```azurecli
+ResourceGroupName="sflinuxclustergroup"
+ClusterName="sflinuxcluster"
+Location="southcentralus"
+Password="q6D7nN%6ck@6"
+VaultName="linuxclusterkeyvault"
+VaultGroupName="linuxclusterkeyvaultgroup"
+CertPath="C:\MyCertificates"
+
+az sf cluster create --resource-group $ResourceGroupName --location $Location --cluster-name $ClusterName --template-file C:\temp\cluster\AzureDeploy.json --parameter-file C:\temp\cluster\AzureDeploy.Parameters.json --certificate-password $Password --certificate-output-folder $CertPath --certificate-subject-name $ClusterName.$Location.cloudapp.azure.com --vault-name $VaultName --vault-resource-group $ResourceGroupName
 ```
 
 ## Connect to the secure cluster
