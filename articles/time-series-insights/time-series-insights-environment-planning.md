@@ -98,7 +98,7 @@ Note, reference data is not joined retroactively. This means that only current a
 To learn more about how to create, upload, and manage your reference data in TSI, head to our [Reference data set documentation](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set).
 
 ## Business disaster recovery
-As an Azure service, Time Series Insights provides high availability (HA) using redundancies at the Azure region level, without any additional work required by the solution. The Microsoft Azure platform also includes features to help you build solutions with disaster recovery (DR) capabilities or cross-region availability. If you want to provide global, cross-region high availability for devices or users, take advantage of these Azure DR features. The article [Azure Business Continuity Technical Guidance](../resiliency/resiliency-technical-guidance.md) describes the built-in features in Azure for business continuity and DR. The [Disaster recovery and high availability for Azure applications](https://docs.microsoft.com/en-us/azure/architecture/resiliency/index) paper provides architecture guidance on strategies for Azure applications to achieve HA and DR.
+As an Azure service, Time Series Insights provides high availability (HA) using redundancies at the Azure region level, without any additional work required by the solution. The Microsoft Azure platform also includes features to help you build solutions with disaster recovery (DR) capabilities or cross-region availability. If you want to provide global, cross-region high availability for devices or users, take advantage of these Azure DR features. The article [Azure Business Continuity Technical Guidance](../resiliency/resiliency-technical-guidance.md) describes the built-in features in Azure for business continuity and DR. The [Disaster recovery and high availability for Azure applications](https://docs.microsoft.com/azure/architecture/resiliency/index) paper provides architecture guidance on strategies for Azure applications to achieve HA and DR.
 
 Azure Time Series Insights does not have built-in business disaster recovery (BCDR).
 By default both Azure IoT Hub and Event Hubs have recovery built in.
@@ -115,7 +115,7 @@ By creating a second Time Series Insights environment in a backup Azure region a
 3.  If your primary region were to go down during a disaster incident, switch over operations to the backup Time Series Insights environment.  
 
 It is **important to note** during any failover scenario there may be a delay before TSI can start processing messages again: this can cause a spike in message processing. For more information please take a look at
-[this document](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-environment-mitigate-latency)
+[this document](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency)
 
 ## Next steps
 - [How to add an Event Hub event source](time-series-insights-how-to-add-an-event-source-eventhub.md)
