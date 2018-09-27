@@ -13,6 +13,8 @@
   items:
   - name: Get started
     href: quickstart-get-started.md
+  - name: Get startedm- Python
+    href: quickstart-create-workspace-with-python.md
 - name: Tutorials
   items:
   - name: 'Train models: Part 1'
