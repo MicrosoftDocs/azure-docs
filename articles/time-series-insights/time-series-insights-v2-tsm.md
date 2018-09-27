@@ -34,7 +34,7 @@ Time Series Model (TSM), makes it easier to find and analyze IoT data. TSM enabl
 
 ## Key Capabilities
 
-With a goal to make it simple and effortless to manage time series contextualization, Time Series Model enables below capabilities in TSI: 
+With a goal to make it simple and effortless to manage time series contextualization, Time Series Model enables below capabilities in TSI:
 
 1. Author and Manage computation formulas to transform the data leveraging scalar functions, aggregate operations, etc.  
 2. Define parent child relationships to enable navigation and reference to provide context to time series telemetry 

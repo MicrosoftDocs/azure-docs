@@ -21,7 +21,7 @@ Time Series Query (TSQ), makes it easier to compute and retrieve IoT data at sca
 
 ![Time Series Explorer](media/v2/time-series-query-overview.png)
 
-## Core APIs 
+## Core APIs
 
 TSQ makes data retrieval seamless at scale and enable customers to perform transform, combine, and perform computations on time series data, and retrieve the result set for analytical, computational, or downstream integration scenarios. At following APIs are available as of today: 
 
