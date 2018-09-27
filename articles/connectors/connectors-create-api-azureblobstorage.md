@@ -31,7 +31,7 @@ which is an action in your logic app.
 > with the specified IP addresses. To access these storage accounts, 
 > use either option here: 
 >
-> * Create an [integration service environment](../logic-apps/connect-virtual-network-vnet-isolated-environment.overview.md), 
+> * Create an [integration service environment](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
 > which can connect to resources in an Azure virtual network. 
 > 
 > * If you already use API Management, you can use 
