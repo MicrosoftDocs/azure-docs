@@ -77,10 +77,8 @@ In the Cloud Shell, create a web app in the `myAppServicePlan` App Service plan 
 In the following example, replace `<app_name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`).
 
 ```azurecli-interactive
-# Bash
+# Bash and Powershell
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name>
-# PowerShell
-az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name>
 ```
 
 When the web app has been created, the Azure CLI shows output similar to the following example:
@@ -104,10 +102,7 @@ When the web app has been created, the Azure CLI shows output similar to the fol
 Set the Node runtime to 8.11.1. <!-- To see all supported runtimes, run [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes). -->
 
 ```azurecli-interactive
-# Bash
-az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITE_NODE_DEFAULT_VERSION=8.11.1
-
-# PowerShell
+# Bash and Powershell
 az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITE_NODE_DEFAULT_VERSION=8.11.1
 ```
 
