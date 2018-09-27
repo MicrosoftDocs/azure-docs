@@ -11,9 +11,9 @@
     href: overview-more-machine-learning.md    
 - name: Quickstarts
   items:
-  - name: Get started
+  - name: Get started - Portal
     href: quickstart-get-started.md
-  - name: Get startedm- Python
+  - name: Get started - Python
     href: quickstart-create-workspace-with-python.md
 - name: Tutorials
   items:
