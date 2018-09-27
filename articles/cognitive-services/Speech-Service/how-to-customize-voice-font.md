@@ -29,7 +29,7 @@ You also need an Azure account and a subscription to the Speech service. [Create
 
     ![Subscriptions](media/custom-voice/subscriptions.png)
 
-3. On the Subscriptions page, choose **Connect existing subscription.** Note that Speech Services supports different regions. Check the region where your subscription key was created, and make sure that you connect your key to the correct sub-portal.  
+3. On the Subscriptions page, choose **Connect existing subscription**. Note that Speech Services supports different regions. Check the region where your subscription key was created, and make sure that you connect your key to the correct sub-portal.  
 
      
 4. Paste your subscription key into the table, as shown in the following example. Each subscription has two keys, and you can use either of them.
@@ -93,11 +93,11 @@ After you prepre your audio file archive and transcripts, upload them via the [C
 
 1. Sign in to the portal.
 
-2. On the main page, under **Custom Voice,** select **Data**.   
+2. On the main page, under **Custom Voice**, select **Data**.   
 
     The **My Voice** table appears. It is empty if you haven't uploaded any voice datasets yet.
 
-3. To open the page for uploading a new dataset, select **Import data** 
+3. To open the page for uploading a new dataset, select **Import data**. 
 
     ![Import Voice Data](media/custom-voice/import-voice-data.png)
 
@@ -130,7 +130,7 @@ The following table shows the processing states for imported datasets:
 
 After validation is complete, you can see the total number of matched utterances for each of your datasets in the **Utterance** column.
 
-You can download a report to check the pronunciation scores and the noise level for each of your recordings. The pronunciation score ranges from 0 to 100; a score below 70 normally indicates a speech error or script mismatch. A heavy accent can reduce your pronunciation score and impact the generated digital voice.
+You can download a report to check the pronunciation scores and the noise level for each of your recordings. The pronunciation score ranges from 0 to 100. A score below 70 normally indicates a speech error or script mismatch. A heavy accent can reduce your pronunciation score and impact the generated digital voice.
 
 A higher signal-to-noise ratio (SNR) indicates lower noise in your audio. You can typically reach a 50+ SNR by recording at professional studios. Audio with an SNR below 20 can result in obvious noise in your generated voice.
 
@@ -185,7 +185,7 @@ After your voice font is successfully built, you can test it before deploying it
 
 To display a pop-up menu for submitting text requests, select the **Test with text** button under the table title. You can submit your test request in either plain text or SSML. The maximum input size is 1,024 characters, including all tags for the SSML request. The language of your text must be the same as the language of your voice font.
 
-After filling in the text box and confirming the input mode, select **Yes** to submit your test request and return to the test page. The table now includes an entry that corresponds to your new request and the status column. It can take a few minutes to synthesize speech. When the status column says **Succeeded,** you can download the text input (a `.txt` file) and audio output (a `.wav` file), and audition the latter for quality.
+After filling in the text box and confirming the input mode, select **Yes** to submit your test request and return to the test page. The table now includes an entry that corresponds to your new request and the status column. It can take a few minutes to synthesize speech. When the status column says **Succeeded**, you can download the text input (a `.txt` file) and audio output (a `.wav` file), and audition the latter for quality.
 
 ## Create and use a custom endpoint
 
@@ -199,11 +199,11 @@ From the **Subscription** menu, choose the subscription that you want to use. Fr
 
 ![Create endpoint](media/custom-voice/create-endpoint.png)
 
-After selecting the model to be deployed, select **Create**. The **My Deployed Voices** page reappears, now with an entry for your new endpoint. It may take a few minutes to instantiate a new endpoint. When the status of the deployment is **Succeeded,** the endpoint is ready for use.
+After selecting the model to be deployed, select **Create**. The **My Deployed Voices** page reappears, now with an entry for your new endpoint. It may take a few minutes to instantiate a new endpoint. When the status of the deployment is **Succeeded**, the endpoint is ready for use.
 
 ![My deployed voices](media/custom-voice/my-deployed-voices.png)
 
-When the deployment status is **Succeeded,** the endpoint of your deployed voice font appears in the **My Deployed Voices** table. You can use this URI directly in an HTTP request.
+When the deployment status is **Succeeded**, the endpoint of your deployed voice font appears in the **My Deployed Voices** table. You can use this URI directly in an HTTP request.
 
 Online testing of the endpoint is also available via the custom voice portal. To test your endpoint, choose **Endpoints testing** from the **Custom Voice** drop-down menu. The endpoint testing page appears. Choose a deployed custom voice and enter the text to be spoken (in either plain text or SSML format) in the text box.
 
