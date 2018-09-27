@@ -238,7 +238,7 @@ After you've enabled monitoring, it might take about 10 minutes before you can v
 In this section instructions on how to perform the at-scale deployment of Azure Monitor for VMs using either Azure Policy or with Azure PowerShell.  The first step required is to configure your Log Analytics workspace.  
 
 ### Setup Log Analytics workspace
-If you do not have a Log Analytics workspace, review the available methods suggested under the [Prerequisites](#log-analytics) section.
+If you do not have a Log Analytics workspace, review the available methods suggested under the [Prerequisites](#log-analytics) section to create one.  
 
 #### Enable performance counters
 If the Log Analytics workspace referenced by the solution isn't configured to already collect the performance counters required by the solution, they will need to be enabled. This can be accomplished manually as described [here](../log-analytics/log-analytics-data-sources-performance-counters.md), or by downloading and running a PowerShell script available from [Azure Powershell Gallery](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1).
