@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: C# Update knowledge base - QnA Maker"
+title: "Quickstart: Update knowledge base - REST, C# -  QnA Maker"
 titleSuffix: Azure Cognitive Services
-description: How to update a knowledge base in C# for QnA Maker.
+description: This quickstart walks you through updating your sample QnA maker knowledge base (KB), programmatically. The JSON definition you use to update a KB allows you to add, change or delete question and answer pairs. 
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -11,14 +11,18 @@ ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 09/27/2018
 ms.author: diberry
+#Customer intent: As an API or REST developer new to the QnA Maker service, I want to programmatically modify a knowledge base using C#. 
 ---
 
-# Quickstart: Update a knowledge base in C#
+# Quickstart: Update a Qna Maker knowledge base in C#
 
-This quickstart walks you through updating your sample QnA maker knowledge base (KB), programmatically. 
+This quickstart walks you through updating your sample QnA maker knowledge base (KB), programmatically.  This JSON allows you to update a KB by adding new data sources, changing data sources, or deleting data sources.
+
+This API is equivalent to editing, then using the **Save and train** button in the QnA Maker portal.
 
 This quickstart calls Qna Maker APIs:
-* [Update](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600)
+* [Update](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) - The model for the knowledge base is defined in the JSON sent in the body of the API request. 
+* [Get Operation Details](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails)
 
 [!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-csharp-repo-note.md)]
 

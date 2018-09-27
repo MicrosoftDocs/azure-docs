@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: API C# - Create knowledge base - QnA Maker"
+title: "Quickstart: Create knowledge base - REST, C# - QnA Maker"
 titlesuffix: Azure Cognitive Services 
 description: This quickstart walks you through creating a sample QnA maker knowledge base, programmatically, that will appear in your Azure Dashboard of your Cognitive Services API account.
 services: cognitive-services
@@ -11,11 +11,12 @@ ms.technology: qna-maker
 ms.topic: quickstart
 ms.date: 09/27/2018
 ms.author: diberry
+#Customer intent: As an API or REST developer new to the QnA Maker service, I want to programmatically create a knowledge base using C#. 
 ---
 
-# Quickstart: Create a new knowledge base in C#
+# Quickstart: Create a Qna Maker knowledge base in C#
 
-This quickstart walks you through creating a sample QnA maker knowledge base, programmatically, that will appear in your Azure Dashboard of your Cognitive Services API account.  QnA Maker automatically extracts questions and answers from semi-structured content, like FAQs, from [data sources](../Concepts/data-sources-supported.md).
+This quickstart walks you through creating a sample QnA maker knowledge base, programmatically. QnA Maker automatically extracts questions and answers from semi-structured content, like FAQs, from [data sources](../Concepts/data-sources-supported.md). The model for the knowledge base is defined in the JSON sent in the body of the API request. 
 
 This quickstart calls Qna Maker APIs:
 * [Create KB](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
