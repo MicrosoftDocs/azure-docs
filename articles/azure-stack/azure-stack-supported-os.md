@@ -66,8 +66,6 @@ Linux distributions listed as available in the Marketplace include the necessary
 | Ubuntu 16.04-LTS | 64-bit | Canonical | Yes |
 | Ubuntu 18.04-LTS | 64-bit | Canonical | Yes |
 
-Other Linux distributions may be supported in the future.
-
 For Red Hat Enterprise Linux support information, refer to [Red Hat and Azure Stack: Frequently Asked Questions](https://access.redhat.com/articles/3413531).
 
 ## Next steps
