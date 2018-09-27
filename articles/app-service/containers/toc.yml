@@ -39,8 +39,8 @@
       href: tutorial-php-mysql-app.md 
     - name: Node.js with MongoDB
       href: tutorial-nodejs-mongodb-app.md
-    - name: Python custom container with Postgres
-      href: tutorial-docker-python-postgresql-app.md
+    - name: Python with Postgres
+      href: tutorial-python-postgresql-app.md
   - name: Multi-container app
     href: tutorial-multi-container-app.md
   - name: Custom Docker image

@@ -3355,7 +3355,12 @@
         },
         {
             "source_path": "articles/app-service-web/app-service-web-tutorial-docker-python-postgresql-app.md",
-            "redirect_url": "/azure/app-service/containers/tutorial-docker-python-postgresql-app",
+            "redirect_url": "/azure/app-service/containers/tutorial-python-postgresql-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/containers/tutorial-docker-python-postgresql-app.md",
+            "redirect_url": "/azure/app-service/containers/tutorial-python-postgresql-app",
             "redirect_document_id": false
         },
         {
@@ -4245,7 +4250,7 @@
         },
         {
             "source_path": "articles/app-service/app-service-web-tutorial-python-postgresql.md",
-            "redirect_url": "/azure/app-service/containers/tutorial-docker-python-postgresql-app",
+            "redirect_url": "/azure/app-service/containers/tutorial-python-postgresql-app",
             "redirect_document_id": false
         },
         {
