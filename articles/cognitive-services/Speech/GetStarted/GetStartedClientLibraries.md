@@ -29,7 +29,7 @@ Currently, the following Bing Speech client libraries are available:
 - [Objective-C library for iOS](Get-Started-ObjectiveC-iOS.md)
 
 > [!NOTE] 
-In May 2018, we also released the new [Speech Service](../../speech-service/index.yml) in public preview. We encourage you to [try it out for free](../../speech-service/get-started.md). 
+Since September 2018, the new [Speech Service](../../speech-service/index.yml) has become generally available. We encourage you to [try it out for free](../../speech-service/get-started.md). 
 
 ## Additional resources
 
