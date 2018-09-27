@@ -63,8 +63,8 @@
 - name: Solution templates
   items:
   - name: Ethereum Proof-of-Authority Consortium
-    href: ethereum-poa-deployment.md
+    href: ../templates/ethereum-poa-deployment.md
   - name: Ethereum Proof-of-Work Consortium
-    href: ethereum-deployment-guide.md
+    href: ../templates/ethereum-deployment-guide.md
   - name: Hyperledger Fabric Consortium
-    href: hyperledger-fabric-single-member-blockchain.md
+    href: ../templates/hyperledger-fabric-single-member-blockchain.md

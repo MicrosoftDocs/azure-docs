@@ -306,4 +306,4 @@ When a deployment is no longer needed, you can remove a deployment by deleting t
 In this how-to article, you deployed Azure Blockchain Workbench. To learn how to create a blockchain application, continue to the next how-to article.
 
 > [!div class="nextstepaction"]
-> [Create a blockchain application in Azure Blockchain Workbench](../blockchain/workbench/create-app.md)
+> [Create a blockchain application in Azure Blockchain Workbench](create-app.md)
