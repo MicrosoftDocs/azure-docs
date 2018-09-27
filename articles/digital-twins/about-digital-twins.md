@@ -54,7 +54,7 @@ For example, a smart agriculture application could include a user-defined functi
 
 ### Built-in access control
 
-Access and identity management features such as [Role-Based Access Control](./security-role-based-access-control) and [Azure Active Directory](./security-authenticating-apis) enable you to securely control individuals’ and devices’ access.
+Access and identity management features such as [Role-Based Access Control](./security-role-based-access-control.md) and [Azure Active Directory](./security-authenticating-apis.md) enable you to securely control individuals’ and devices’ access.
 
 For example, a facilities management app could be configured to allow occupants of a room to set the temperature within a specified range, and facilities managers to set the temperature in any room to any value.
 
@@ -80,7 +80,7 @@ Azure Digital Twins uses Azure IoT Hub to connect the IoT devices and sensors th
 
 ![Azure Digital Twins is a service built on top of Azure IoT Hub](./media/overview/azure-digital-twins-in-iot-ecosystem.png)
 
-For a more detailed description about the rest of the IoT ecosystem, see [Azure IoT technologies and solutions](https://docs.microsoft.com/en-us/azure/iot-fundamentals/iot-services-and-technologies).
+For a more detailed description about the rest of the IoT ecosystem, see [Azure IoT technologies and solutions](https://docs.microsoft.com/azure/iot-fundamentals/iot-services-and-technologies).
 
 ## Next steps
 
