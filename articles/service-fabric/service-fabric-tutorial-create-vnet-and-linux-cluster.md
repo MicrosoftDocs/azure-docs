@@ -113,7 +113,7 @@ If any other application ports are needed, then you will need to adjust the Micr
 
 ## Set template parameters
 
-The [vnet-cluster.parameters.json][parameters] parameters file declares many values used to deploy the cluster and associated resources. Some of the parameters that you might need to modify for your deployment:
+The [AzureDeploy.Parameters][parameters] parameters file declares many values used to deploy the cluster and associated resources. Some of the parameters that you might need to modify for your deployment:
 
 |Parameter|Example value|Notes|
 |---|---||
