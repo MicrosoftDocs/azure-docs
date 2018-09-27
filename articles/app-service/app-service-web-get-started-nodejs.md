@@ -155,7 +155,7 @@ zip -r myUpdatedAppFiles.zip .
 Compress-Archive -Path * -DestinationPath myUpdatedAppFiles.zip
 ``` 
 
-Deploy this new ZIP file to App Service, using the same steps in [Upload the ZIP file](#upload-the-zip-file).
+Deploy this new ZIP file to App Service, using the same steps in [Deploy ZIP file](#deploy-zip-file).
 
 Switch back to the browser window that opened in the **Browse to the app** step, and refresh the page.
 
