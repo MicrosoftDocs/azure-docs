@@ -72,7 +72,7 @@ The Speech Service doesn't currently offer a global endpoint. You will need to d
 
 If your application uses long-lived connections and can't use an available SDK, you can use a WebsSockets connection and manage the 10-minute timeout limit by reconnecting at the appropriate times.
 
-A global endpoint, service-to-service functionality, and additional SDKs are being considered for future Speech Service releases. Check the [Speech Service release notes](releasenotes.yml) often for updates.
+A global endpoint, service-to-service functionality, and additional SDKs are being considered for future Speech Service releases. Check the [Speech Service release notes](releasenotes.md) often for updates.
 
 To get started with the new Speech SDK:
 
