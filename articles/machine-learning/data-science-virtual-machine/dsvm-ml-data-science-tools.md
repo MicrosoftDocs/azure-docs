@@ -67,7 +67,7 @@ Here are some of the ML tools and libraries on Data Science Virtual Machines.
 | What is it?   |  Weka is a collection of ML algorithms for data mining tasks. The algorithms can be either applied directly to a data set or called from your own Java code. Weka contains tools for data pre-processing, classification, regression, clustering, association rules, and visualization. |
 | Supported Data Science Virtual Machines editions     | Windows, Linux     |
 | Typical uses      | General ML tool     |
-| How to use or run it?      | On Windows, search for Weka on the Start menu. On Linux, log in with X2Go, and then go to **Applications** > **Development** > **Weka**. |
+| How to use or run it?      | On Windows, search for Weka on the Start menu. On Linux, sign in with X2Go, and then go to **Applications** > **Development** > **Weka**. |
 | Link to samples      | [Weka samples](http://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
 | Related tools on Data Science Virtual Machines      |LightGBM, Rattle, XGBoost   |
 
