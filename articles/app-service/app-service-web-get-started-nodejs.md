@@ -108,7 +108,7 @@ Set the Node runtime to 8.11.1. <!-- To see all supported runtimes, run [`az web
 az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITE_NODE_DEFAULT_VERSION=8.11.1
 
 # PowerShell
-az --% webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITE_NODE_DEFAULT_VERSION=8.11.1
+az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITE_NODE_DEFAULT_VERSION=8.11.1
 ```
 
 Browse to your newly created web app. Replace _&lt;app name>_ with a unique app name.
