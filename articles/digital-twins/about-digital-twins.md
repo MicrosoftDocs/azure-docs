@@ -28,62 +28,55 @@ Take a look at the introductory video:
 
 Key capabilities of Azure Digital Twins include:
 
-* **Spatial intelligence graph**: a virtual representation of the physical environment that enables you to model the relationships among people, places, and devices.
-* **Pre-loaded domain-specific concepts (Digital Twin Object Models)**: pre-defined device protocols and data schema that are aligned your solution’s domain-specific needs to accelerate and simplify development.
-* **Multi and nested tenancy**: build solutions that scale and securely replicate across multiple tenants or create multiple sub-tenants that can be accessed and used in an isolated and secure manner.
-* **Advanced compute capabilities**: define and run custom functions against incoming telemetry messages to send signals to pre-defined endpoints.
-* **Built-in access control**: access and identity management features such as Role-Based Access Control and Azure Active Directory enable you to securely control individuals’ and devices’ access. You can also perform specific actions within the Digital Twin environment.
-* **Ecosystem**: connect an Azure Digital Twins instance to the broad set of Azure Analytics, AI, and Storage services, Azure Maps, Microsoft Mixed Reality, Dynamics 365, or Office 365.
+### Spatial intelligence graph
+The [spatial intelligence graph](./concepts-objectmodel-spatialgraph.md) is a virtual representation of the physical environment that enables you to model the relationships between people, places, and devices.
+
+For example, a smart utility app might involve several electricity usage devices connected across a neighborhood. In order to accurately monitor and predict electricity useage and billing, the smart utility company must model each each device and sensor with context about the location and the customer that will be billed. The spatial intelligence graph enables you to model these kinds of complex relationships. 
+
+### Digital twin object models
+[Digital twin object models](./concepts-objectmodel-spatialgraph.md) are pre-defined device protocols and data schema that are aligned your solution’s domain-specific needs to accelerate and simplify development.
+
+For example, a room occupancy application could use pre-defined space types such as campus, building, floor, room, etc. 
+
+### Multi and nested tenancy
+You can build solutions that scale and securely replicate across multiple tenants or create multiple sub-tenants that can be accessed and used in an isolated and secure manner.
+
+For example, a space utilization application could be configured to isolate data from different tenants in a single building, or to combine data for a single tenant with mulitple buildings. 
+
+### Advanced compute capabilities
+Advanced compute capabilities called [user-defined functions](./concepts-user-defined-functions.md) let you define and run custom functions against incoming [telemetry messages](./concepts-device-ingress.md) to send signals to pre-defined endpoints. This improves customization and automation of device tasks. 
+
+For example, a smart agriculture application could include a user-defined function that rungs logic based on soil moisture sensor readings and the weather forecast and sends signals to an irrigation system.
+
+### Built-in access control
+Access and identity management features such as [Role-Based Access Control](./security-role-based-access-control) and [Azure Active Directory](./security-authenticating-apis) enable you to securely control individuals’ and devices’ access. 
+
+For example, a facilities management app could be confired to allow occupants of a room to set the temperaure within a specified range, and facilities managers to set the temperature in any room to any value. 
+
+### Ecosystem
+You can connect an Azure Digital Twins instance to the broad set of Azure Analytics, AI, and Storage services, Azure Maps, Microsoft Mixed Reality, Dynamics 365, or Office 365.
+
+For example, a smart office building application could use Azure Digital Twins
 
 ## Solutions that Benefit from Azure Digital Twins
 
 Azure Digital Twins is applicable to any industry or scenario that can benefit from virtually representing the physical world. Some examples include:
 
-Those models can then be used to interact with an API, represent data, or configure an IoT app.
-
-> [!div class="nextstepaction"]
-> [Read more](./concepts-objectmodel-spatialgraph.md)
-
-### Spatial Intelligence Graphs
-
-IoT apps face unique challenges in bringing together numerous devices, sensors, and places. Azure Digital Twins helps to unite these disparate elements into a unified system.
-
-For example, a smart utility app might involve several electricity usage devices connected across a neighborhood. In order to accurately monitor electricity use and ensure correct billing, the smart utility company must track each device, sensor, and locations.
-
-Azure Digital Twins enables these kinds of complex relationships between people, places, and devices to be defined through its powerful **Ontology** and situated into a contextual IoT space called a **Topology**.
-
-> [!div class="nextstepaction"]
-> [Read more](./concepts-objectmodel-spatialgraph.md)
-
-### User-Defined Functions
-
-Azure Digital Twins leverages the Azure Stream Analytics User-Defined Functions to improve customization and automation of device tasks.
-
-For example, **User-Defined Functions** can be specified for each node an IoT environment allowing custom, repeat, and automatic data processing.
-
-Additionally, **User-Defined Functions** can be assigned for individual or grouped devices and sensors improving reuse and simplifying management.
-
-> [!div class="nextstepaction"]
-> [Read more](./concepts-user-defined-functions.md)
-
-### Telemetry and Insights
-
-Devices, sensors, and whole buildings can stream their data directly to your IoT app through Azure IoT Hub. IoT Hub provides powerful event data processing and a robust telemetry pipeline.
-
-Using **Telemetry**, your app can, for example, collect temperature data from multiple sensors or calculate the current room capacity of an entire office building.
-
-> [!div class="nextstepaction"]
-> [Read more](./concepts-device-ingress.md)
-
 * Showing a property management company the occupancy levels of a space over time to glean insights about the best ways to configure its office building.
 * Triggering work order tickets to a mobile app that drives security guard dispatch, janitorial services scheduling, and any other services in a retail space or sports venue.
 * Showing a building occupant which rooms are occupied in a building in real time. Then, helping the occupant reserve workspaces and find colleagues.
-* Tracking what assets are located within a space, or what assets are in a given space.
+* Tracking where assets are located within a space, or what assets are there. 
 * Optimizing electric vehicle charging my modeling user preferences and energy-grid constraints.
+
+##Azure Digital Twins in the context of other IoT Services
+Azure Digital Twins uses Azure IoT Hub to connect the IoT devices and sensors that keep everything up-to-date with the physical world. The following diagram shows how Azure Digital Twins relates to other Azure IoT services:
+
+![Azure Digital Twins is a service built on top of Azure IoT Hub](./media/overview/azure-digital-twins-in-iot-ecosystem.png)
+
+For a more detailed description about the rest of the IoT ecosystem, see [Azure IoT technologies and solutions](https://docs.microsoft.com/en-us/azure/iot-fundamentals/iot-services-and-technologies).
 
 ## Next steps
 
-For full code samples:
+* Learn about core Azure Digital Twins concepts: [Understanding the Digital Twins Object Model and Spatial Intelligence Graph](./concepts-objectmodel-spatialgraph.md)
+*	Try out an end-to-end IoT solution with Azure Digital Twins quick starts: [Find Available Rooms with Fresh Air](./quickstart-view-occupancy-dotnet.md)
 
-> [!div class="nextstepaction"]
-> [C# code samples](https://github.com/Azure-Samples/digital-twins-samples-csharp)
