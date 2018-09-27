@@ -112,7 +112,7 @@ A.
 A.-->
 
 ### Q. The system fault indicator LED on the front operating panel is on. What should I do?
-A. If the system fault indicator LED is on, it indicates that your system is not healthy. [Contact Microsoft Support](data-box-disk-contact-microsoft-support) for next steps.
+A. If the system fault indicator LED is on, it indicates that your system is not healthy. [Contact Microsoft Support](data-box-disk-contact-microsoft-support.md) for next steps.
 
 ### Q. I can't access the Data Box unlock password in the Azure portal. Why would this be?
 A. If you are not able to access the unlock password in the Azure portal, check the permissions on your subscription and storage account. Ensure that you have contributor or owner permission at resource group level. If not, then you need to have atleast Data Box Operator role permission to see the access credentials.
