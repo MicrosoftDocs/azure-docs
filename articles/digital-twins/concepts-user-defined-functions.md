@@ -77,14 +77,14 @@ _Matchers_ define a set of conditions that evaluate what actions will take place
 
 >[!NOTE]
 - JSON paths are case-sensitive
-- The JSON payload is identical to the payload that would be returned by `/sensors/{id}?includes=properties,types`, `/devices/{id}?includes=properties,types,sensors,sensorsproperties,sensorstypes`, or `/spaces/{id}?includes=properties,types,location,timezone` for the sensor, the sensor's parent device, or the sensor's parent space, respectively.
+- The JSON payload is the same as the payload that would be returned by `/sensors/{id}?includes=properties,types`, `/devices/{id}?includes=properties,types,sensors,sensorsproperties,sensorstypes`, or `/spaces/{id}?includes=properties,types,location,timezone` for the sensor, the sensor's parent device, or the sensor's parent space, respectively.
 - The comparisons are case-insensitive.
 
 ### User-Defined Functions
 
 A _User-Defined Function_, or _UDF_, is a custom function that runs within an isolated environment in Azure Digital Twins. UDFs have access to both the raw sensor telemetry message as it was received, as well as to the spatial graph and dispatcher service. Once the UDF is registered within the graph, a matcher (detailed above) must be created to specify when to run the UDF. When Digital Twins receives new telemetry from a given sensor, the matched UDF can calculate a moving average of the last few sensor readings, for example.
  
-UDFs can be written in JavaScript and allow developers to execute custom snippets of code against sensor telemetry messages. There are also helper methods exposed to interact with the topology in the user-defined execution environment. With a UDF, developers can:
+UDFs can be written in JavaScript and allow developers to execute custom snippets of code against sensor telemetry messages. There are also helper methods to interact with the topology in the user-defined execution environment. With a UDF, developers can:
 
 - Set the sensor reading directly onto the sensor object within the graph.
 - Perform an action based on different sensor readings within a space in the graph.
@@ -93,13 +93,13 @@ UDFs can be written in JavaScript and allow developers to execute custom snippet
 
 ### Role Assignment
 
-A UDF's actions are subject to Digital Twins' role-based access control to secure data within the service. Role assignments ensure that a given UDF has the proper permissions to interact with the spatial graph with specific actions (create, read, update, delete, etc.) or under a specific space path. A UDF's level of access is checked when the UDF asks the graph for data or attempts an action. See [Role-Based Access Control](security-create-manage-role-assignments.md) documentation for further information.
+A UDF's actions are subject to Digital Twins' role-based access control to secure data within the service. Role assignments ensure that a given UDF has the proper permissions to interact with the spatial graph. For example, a UDF might attempt to create, read, update, or delete graph data under a given space. A UDF's level of access is checked when the UDF asks the graph for data or attempts an action. For more information, see [Role-Based Access Control](security-create-manage-role-assignments.md).
 
-It is possible for a matcher to invoke a UDF that has no role assignments. In this case, the UDF would fail to read any data from the graph.
+It's possible for a matcher to trigger a UDF that has no role assignments. In this case, the UDF would fail to read any data from the graph.
 
 ## Next steps
 
-Learn more about how to create matchers, user-defined functions and role assignments:
+Learn more about how to create matchers, user-defined functions, and role assignments:
 
 > [!div class="nextstepaction"]
 > [Facility Management Tutorial](tutorial-facilities-app.md)
