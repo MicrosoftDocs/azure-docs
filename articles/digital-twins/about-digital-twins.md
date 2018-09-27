@@ -14,13 +14,13 @@ ms.custom: mvc
 
 # Overview: What is Azure Digital Twins?
 
-Azure Digital Twins is a service in the Azure IoT Platform that allows you to create a comprehensive model of the physical environment. It provides a spatial intelligence graph to model the relationships and interactions between people, spaces, and devices.
+Azure Digital Twins is an Azure IoT service that powers creating comprehensive models of the physical environment. Among its many features, is the ability to create spatial intelligence graphs to model the relationships and interactions between people, spaces, and devices.
 
-Azure Digital Twins allows querying data from a space rather than from many sensors. As such, you can build repeatable, scalable, spatially aware, experiences that are uniquely relevant because of their ability to correlate data across the digital and physical world.
+Azure Digital Twins allows querying data from a space rather than from many disparate sensors. Build reusable, highly scalable, spatially aware, experiences that link streaming data across the digital and physical world. Whether you are predicting maintenance needs for a factory, analyzing real-time energy requirements for an electrical grid, or optimizing the use of available space for an office, your apps are enhanced by these uniquely relevant contextual features.
 
-Azure Digital Twins applies to environments of all types. Example environments include offices, schools, hospitals, banks, stadiums, factories, parking lots, parks, electrical grids, and cities. Example use cases are predicting maintenance needs, analyzing energy requirements, and optimizing the use of available space.
+Azure Digital Twins applies to environments of all kinds. For example: warehouses, schools, hospitals, banks, stadiums, factories, parking lots, parks, smart grids, and cities. Example use cases include tracking temperature across a neighborhood, monitoring busy drone paths, identifying autonomous vehicles, verifying occupancy levels for a building, or finding the busiest cash register in your store. Whatever your real-world, business, scenario is, a corresponding digital instance can be provisioned through Azure Digital Twins.
 
-Take a look at the introductory video:
+A deeper-dive into Digital Twins is provided by the following video:
 
 > [!VIDEO https://microsoft.sharepoint.com/:v:/t/Azure_IoT/EcQnpZjDjDZPoHaAdg3mBYgBZyVusQUXbO07jcLERbCjzQ?e=Vg31r0] 
 
