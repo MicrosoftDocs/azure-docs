@@ -15,7 +15,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
-ms.author: tonguyen
+ms.author: cwatson
 ---
 # Prevent unexpected charges with Azure billing and cost management
 

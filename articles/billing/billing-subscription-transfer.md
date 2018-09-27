@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.author: genli
+ms.author: cwatson
 ms.custom: H1Hack27Feb2017
 ---
 # Transfer ownership of an Azure subscription to another account
