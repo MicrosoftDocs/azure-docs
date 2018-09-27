@@ -1215,7 +1215,7 @@
             "source_path": "articles/virtual-machines/windows/troubleshoot-check-disk-boot-error.md",
             "redirect_url": "/azure/virtual-machines/troubleshooting/troubleshoot-check-disk-boot-error.md",
             "redirect_document_id": false
-        },	
+        },
         {
             "source_path": "articles/virtual-machines/linux/troubleshooting-throttling-errors.md",
             "redirect_url": "/azure/virtual-machines/troubleshooting/troubleshooting-throttling-errors",
@@ -1235,7 +1235,7 @@
             "source_path": "articles/virtual-machines/windows/unexpected-reboots-attached-vhds.md",
             "redirect_url": "/azure/virtual-machines/troubleshooting/unexpected-reboots-attached-vhds",
             "redirect_document_id": false
-        },		
+        },
         {
             "source_path": "articles/virtual-machines/linux/unexpected-reboots-attached-vhds.md",
             "redirect_url": "/azure/virtual-machines/troubleshooting/unexpected-reboots-attached-vhds",
@@ -1245,7 +1245,7 @@
             "source_path": "articles/virtual-machines/windows/understand-vm-reboot.md",
             "redirect_url": "/azure/virtual-machines/troubleshooting/understand-vm-reboot",
             "redirect_document_id": false
-        },		
+        },
         {
             "source_path": "articles/virtual-machines/linux/understand-vm-reboot.md",
             "redirect_url": "/azure/virtual-machines/troubleshooting/understand-vm-reboot",
@@ -1295,7 +1295,7 @@
             "source_path": "articles/virtual-machines/windows/allocation-failure-classic.md",
             "redirect_url": "/azure/virtual-machines/troubleshooting/allocation-failure-classic",
             "redirect_document_id": false
-        },		
+        },
         {
             "source_path": "articles/virtual-machines/linux/change-vm-size-nodejs.md",
             "redirect_url": "/azure/virtual-machines/linux/change-vm-size",
@@ -28624,11 +28624,6 @@
         {
             "source_path": "articles/cognitive-services/Bing-Image-Search/sdk.md",
             "redirect_url": "/azure/cognitive-services/Bing-Image-Search/image-search-sdk-quickstart"
-        },
-        {
-            "source_path": "articles/cognitive-services/Bing-Image-Search/supported-countries-markets.md",
-            "redirect_url": "/azure/cognitive-services/Bing-Image-Search/language-search",
-            "redirect_document_id": true
         },
         {
             "source_path": "articles/cognitive-services/Bing-Image-Search/supported-countries-markets.md",
