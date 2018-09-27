@@ -39,47 +39,19 @@ If you don't have a knowledge base yet, you can create a sample one to use for t
 
 ## Create knowledge base project
 
-1. Open Visual Studio 2017 Community edition.
-1. Create a new **Console App (.Net Core)** project and name the project `QnaMakerQuickstartUpdateKB`. Accept the defaults for the remaining settings.
-1. In the Solution Explorer, right-click on the project name, **QnaMakerQuickstartUpdateKB**, then select **Manage NuGet Packages...**.
-1. In the NuGet window, select **Browser**, then search for **Newtonsoft.JSON** and install the package. This package is used to parse the JSON returned from the QnaMaker HTTP response.
+[!INCLUDE [Create Visual Studio Project](../../../../includes/cognitive-services-qnamaker-qs-cs-create-project.md)] 
 
 ## Add required dependencies
 
-At the top of **Program.cs**, replace the single _using_ statement with the following lines to add necessary dependencies to the project:
-
-```csharp
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-
-// NOTE: Install the Newtonsoft.Json NuGet package.
-using Newtonsoft.Json;
-```
+[!INCLUDE [Create Visual Studio Project](../../../../includes/cognitive-services-qnamaker-qs-cs-create-project.md)] 
 
 ## Add required constants
 
-At the top of the Program class, add the following constants to access QnA Maker:
+[!INCLUDE [Create Visual Studio Project](../../../../includes/cognitive-services-qnamaker-qs-cs-required-constants.md)] 
 
-```csharp
+## Add knowledge base ID
 
-static string host = "https://westus.api.cognitive.microsoft.com";
-static string service = "/qnamaker/v4.0";
-static string method = "/knowledgebases/";
-
-// NOTE: Replace this with a valid subscription key.
-static string key = "<your-qna-maker-subscription-key>";
-
-// NOTE: Replace this with a valid knowledge base ID.
-static string kb = "<your-qna-maker-kb-id>";
-```
-
-The first three constants are used to create the full URL for the API. The last two constant provides authentication to the API and access to the specific KB.
+[!INCLUDE [Create Visual Studio Project](../../../../includes/cognitive-services-qnamaker-qs-cs-kbid.md)] 
 
 ## Add the KB update definition
 
@@ -122,26 +94,7 @@ static string new_kb = @"
 
 ## Add supporting functions and structures
 
-Add the following code block inside the Program class:
-
-```csharp
-public struct Response
-{
-    public HttpResponseHeaders headers;
-    public string response;
-
-    public Response(HttpResponseHeaders headers, string response)
-    {
-        this.headers = headers;
-        this.response = response;
-    }
-}
-
-static string PrettyPrint(string s)
-{
-    return JsonConvert.SerializeObject(JsonConvert.DeserializeObject(s), Formatting.Indented);
-}
-```
+[!INCLUDE [Create Visual Studio Project](../../../../includes/cognitive-services-qnamaker-qs-cs-supporting-fns.md)] 
 
 ## Add PATCH request to update KB
 
@@ -306,9 +259,7 @@ static void Main(string[] args)
 
 ## Build and run the program
 
-Build and run the program. It will automatically send the request to the Qna Maker API to update the KB, then it will poll for the results every 30 seconds. Each response is printed to the console window.
-
-Once your knowledge base is updated, you can view it in your QnA Maker Portal, [My knowledge bases](https://www.qnamaker.ai/Home/MyServices) page. 
+[!INCLUDE [Create Visual Studio Project](../../../../includes/cognitive-services-qnamaker-qs-cs-build-and-run.md)] 
 
 ## Next steps
 

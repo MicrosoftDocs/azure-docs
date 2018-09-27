@@ -31,10 +31,7 @@ This quickstart calls Qna Maker APIs:
 
 ## Create knowledge base project
 
-1. Open Visual Studio 2017 Community edition.
-1. Create a new **Console App (.Net Core)** project and name the project `QnaMakerQuickstartCreateKB`. Accept the defaults for the remaining settings.
-1. In the Solution Explorer, right-click on the project name, **QnaMakerQuickstartCreateKB**, then select **Manage NuGet Packages...**.
-1. In the NuGet window, select **Browser**, then search for **Newtonsoft.JSON** and install the package. This package is used to parse the JSON returned from the QnaMaker HTTP response. 
+[!INCLUDE [Create Visual Studio Project](../../../../includes/cognitive-services-qnamaker-qs-cs-create-project.md)] 
 
 ## Add required dependencies
 
@@ -50,20 +47,7 @@ using Newtonsoft.Json;
 
 ## Add required constants
 
-At the top of the Program class, add the following constants to access QnA Maker:
-
-```csharp
-// Represents the various elements used to create HTTP request URIs
-// for QnA Maker operations.
-static string host = "https://westus.api.cognitive.microsoft.com";
-static string service = "/qnamaker/v4.0";
-static string method = "/knowledgebases/create";
-
-// NOTE: Replace this value with a valid QnA Maker subscription key.
-static string key = "<your-qna-maker-subscription-key>";
-```
-
-The first three constants are used to create the full URL for the API. The last constant provides authentication to the API. 
+[!INCLUDE [Create Visual Studio Project](../../../../includes/cognitive-services-qnamaker-qs-cs-required-constants.md)] 
 
 ## Add the KB definition
 
@@ -100,26 +84,7 @@ static string kb = @"
 
 ## Add supporting functions and structures
 
-Add the following code block inside the Program class:
-
-```csharp
-public struct Response
-{
-    public HttpResponseHeaders headers;
-    public string response;
-
-    public Response(HttpResponseHeaders headers, string response)
-    {
-        this.headers = headers;
-        this.response = response;
-    }
-}
-
-static string PrettyPrint(string s)
-{
-    return JsonConvert.SerializeObject(JsonConvert.DeserializeObject(s), Formatting.Indented);
-}
-```
+[!INCLUDE [Create Visual Studio Project](../../../../includes/cognitive-services-qnamaker-qs-cs-supporting-fns.md)] 
 
 ## Add POST request to create KB
 
@@ -305,9 +270,7 @@ static void Main(string[] args)
 
 ## Build and run the program
 
-Build and run the program. It will automatically send the request to the Qna Maker API to create the KB, then it will poll for the results every 30 seconds. Each response is printed to the console window.
-
-Once your knowledge base is created, you can view it in your QnA Maker Portal, [My knowledge bases](https://www.qnamaker.ai/Home/MyServices) page. 
+[!INCLUDE [Create Visual Studio Project](../../../../includes/cognitive-services-qnamaker-qs-cs-build-and-run.md)] 
 
 ## Next steps
 

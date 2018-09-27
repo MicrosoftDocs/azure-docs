@@ -35,47 +35,19 @@ If you don't have a knowledge base yet, you can create a sample one to use for t
 
 ## Create knowledge base project
 
-1. Open Visual Studio 2017 Community edition.
-1. Create a new **Console App (.Net Core)** project and name the project `QnaMakerQuickstartPublishKB`. Accept the defaults for the remaining settings.
-1. In the Solution Explorer, right-click on the project name, **QnaMakerQuickstartPublishKB**, then select **Manage NuGet Packages...**.
-1. In the NuGet window, select **Browser**, then search for **Newtonsoft.JSON** and install the package. This package is used to parse the JSON returned from the QnaMaker HTTP response.
+[!INCLUDE [Create Visual Studio Project](../../../../includes/cognitive-services-qnamaker-qs-cs-create-project.md)] 
 
 ## Add required dependencies
 
-At the top of **Program.cs**, replace the single _using_ statement with the following lines to add necessary dependencies to the project:
-
-```csharp
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-
-// NOTE: Install the Newtonsoft.Json NuGet package.
-using Newtonsoft.Json;
-```
+[!INCLUDE [Create Visual Studio Project](../../../../includes/cognitive-services-qnamaker-qs-cs-create-project.md)] 
 
 ## Add required constants
 
-At the top of the Program class, add the following constants to access QnA Maker:
+[!INCLUDE [Create Visual Studio Project](../../../../includes/cognitive-services-qnamaker-qs-cs-required-constants.md)]  
 
-```csharp
+## Add knowledge base ID
 
-static string host = "https://westus.api.cognitive.microsoft.com";
-static string service = "/qnamaker/v4.0";
-static string method = "/knowledgebases/";
-
-// NOTE: Replace this with a valid subscription key.
-static string key = "<your-qna-maker-subscription-key>";
-
-// NOTE: Replace this with a valid knowledge base ID.
-static string kb = "<your-qna-maker-kb-id>";
-```
-
-The first three constants are used to create the full URL for the API. The last two constant provides authentication to the API and access to the specific KB.
+[!INCLUDE [Create Visual Studio Project](../../../../includes/cognitive-services-qnamaker-qs-cs-kbid.md)] 
 
 ## Add supporting functions and structures
 
