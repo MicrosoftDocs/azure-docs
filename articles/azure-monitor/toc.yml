@@ -31,25 +31,25 @@
       href: ../log-analytics/log-analytics-quick-collect-windows-computer.md?toc=/azure/azure-monitor/toc.json
 - name: Tutorials
   items:
-  - name: 1 - Analyze data
+  - name: Analyze data in Log Analaytics
     href: ../log-analytics/log-analytics-tutorial-viewdata.md?toc=/azure/azure-monitor/toc.json
-  - name: 2 - Visualize data
+  - name: Visualize data in Log Analaytics
     href: ../log-analytics/log-analytics-tutorial-dashboards.md?toc=/azure/azure-monitor/toc.json
-  - name: 3 - Archive data
+  - name: Archive platform metric and log data 
     href: ../monitoring-and-diagnostics/monitor-tutorial-archive-monitoring-data.md?toc=/azure/azure-monitor/toc.json
-  - name: 4 - Alert on log data
+  - name: Alert on log data
     href: ../log-analytics/log-analytics-tutorial-response.md?toc=/azure/azure-monitor/toc.json
-  - name: 5 - Autoscale on performance and schedule
+  - name: Autoscale on performance and schedule
     href: ../monitoring-and-diagnostics/monitor-tutorial-autoscale-performance-schedule.md?toc=/azure/azure-monitor/toc.json
-  - name: 6 - Find run-time exceptions
+  - name: Find application run-time exceptions
     href: ../application-insights/app-insights-tutorial-runtime-exceptions.md?toc=/azure/azure-monitor/toc.json
-  - name: 7 - Find performance issues
+  - name: Find application performance issues
     href: ../application-insights/app-insights-tutorial-performance.md?toc=/azure/azure-monitor/toc.json
-  - name: 8 - Alert on application health
+  - name: Alert on application health
     href: ../application-insights/app-insights-tutorial-alert.md?toc=/azure/azure-monitor/toc.json
-  - name: 9 - Understand users
+  - name: Understand application users
     href: ../application-insights/app-insights-tutorial-users.md?toc=/azure/azure-monitor/toc.json
-  - name: 10 - Create custom dashboards
+  - name: Create custom dashboards
     href: ../application-insights/app-insights-tutorial-dashboards.md?toc=/azure/azure-monitor/toc.json
 - name: Samples
   items:
