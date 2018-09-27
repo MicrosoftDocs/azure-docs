@@ -70,7 +70,7 @@ Well done! You now have a multi-container application where each container can b
 
 ## Learn about team development
 
-[INCLUDE [](../../includes/team-development-1.md)]
+[!INCLUDE [](../../includes/team-development-1.md)]
 
 Let's see it in action. Go to the VS Code window for `mywebapi` and make a code edit to the `String index()` method, for example:
 
@@ -81,7 +81,7 @@ public String index() {
 }
 ```
 
-[INCLUDE [](../../includes/team-development-2.md)]
+[!INCLUDE [](../../includes/team-development-2.md)]
 
 ### Well done!
 You've completed the getting started guide! You learned how to:

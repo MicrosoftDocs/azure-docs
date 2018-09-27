@@ -21,7 +21,7 @@ In this guide, you will learn how to:
 - Productively develop and test your code in a team environment.
 
 > [!Note]
-> **If you get stuck** at any time, see the [Troubleshooting](../troubleshooting.md) section, or post a comment on this page.
+> **If you get stuck** at any time, see the [Troubleshooting](troubleshooting.md) section, or post a comment on this page.
 
 You're now ready to create a Kubernetes-based development environment in Azure.
 
@@ -199,7 +199,7 @@ In this section, you'll use VS Code to directly debug our container running in A
 ![](media/common/edit-refresh-see.png)
 
 > [!Note]
-> **If you get stuck** at any time, see the [Troubleshooting](../troubleshooting.md) section, or post a comment on this page.
+> **If you get stuck** at any time, see the [Troubleshooting](troubleshooting.md) section, or post a comment on this page.
 
 ### Initialize debug assets with the VS Code extension
 You first need to configure your code project so VS Code will communicate with our dev space in Azure. The VS Code extension for Azure Dev Spaces provides a helper command to set up debug configuration. 
