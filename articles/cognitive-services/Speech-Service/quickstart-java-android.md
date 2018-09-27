@@ -71,7 +71,7 @@ Set up your project to use the Speech SDK. Open the Project Structure window by 
 1. In the window that comes up, enter the name and version of our Speech SDK for Android, `com.microsoft.cognitiveservices.speech:client-sdk:1.0.0`. Then select **OK**.
    The Speech SDK should be added to the list of dependencies now, as shown below:
 
-   ![Screenshot of Project Structure window](media/sdk/qs-java-android-08-dependency-added.png)
+   ![Screenshot of Project Structure window](media/sdk/qs-java-android-08-dependency-added-0.5.0.png)
 
 1. Select the **Properties** tab. For both **Source Compatibility** and **Target Compatibility**, select **1.8**.
 
