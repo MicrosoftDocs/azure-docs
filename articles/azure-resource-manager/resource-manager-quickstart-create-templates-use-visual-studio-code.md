@@ -19,7 +19,7 @@ ms.author: jgao
 
 ---
 
-# Quickstart: create Azure Resource Manager templates by using Visual Studio Code
+# Quickstart: Create Azure Resource Manager templates by using Visual Studio Code
 
 Learn how to create Azure Resource Manager templates by using Visual Studio Code and the Azure Resource Manager Tools extension. You can create Resource Manager templates in Visual Studio Code without the extension, but the extension provides autocomplete options that simplify template development. To understand the concepts associated with deploying and managing your Azure solutions, see [Azure Resource Manager overview](resource-group-overview.md).
 
