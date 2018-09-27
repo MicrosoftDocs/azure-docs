@@ -11,7 +11,7 @@ ms.component:
 ---
 # Open a support ticket for Azure Data Box 
 
-This articile applies to Azure Data Box and Azure Data Box Disk, both of which are managed by the Azure Data Box service. If you encounter any issues with your Azure Data Box service, you can create a service request for technical support. This article walks you through:
+This article applies to Azure Data Box and Azure Data Box Disk, both of which are managed by the Azure Data Box service. If you encounter any issues with your Azure Data Box service, you can create a service request for technical support. This article walks you through:
 
 * How to create a support request.
 * How to manage a support request lifecycle from within the portal.
