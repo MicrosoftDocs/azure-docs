@@ -38,6 +38,8 @@ For a list of all SaaS apps that have been pre-integrated into Azure AD, see the
 | ![logo](./media/tutorial-list/active-directory-saas-successfactors-tutorial.png)| [SuccessFactors](successfactors-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-slack-tutorial.png)| [Slack](slack-tutorial.md)|[Slack - User Provisioning](slack-provisioning-tutorial.md)|
 
+To view more tutorials, use the table of contents on the left-side of this page. 
+
 ## Next steps
 To learn more about application management, see [What is application management](../manage-apps/what-is-application-management.md).
 
