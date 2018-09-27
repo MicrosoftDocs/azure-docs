@@ -18,19 +18,25 @@ tags: connectors
 
 # Create and manage blobs in Azure blob storage with Azure Logic Apps
 
-This article shows how you can access and manage files stored as blobs in your Azure 
-storage account from inside a logic app with the Azure Blob Storage connector. 
+This article shows how you can access and manage files stored as blobs in your 
+Azure Storage account from inside a logic app with the Azure Blob Storage connector. 
 That way, you can create logic apps that automate tasks and workflows 
 for managing your files. For example, you can build logic apps that create, 
 get, update, and delete files in your storage account.
 
-Suppose that you have a tool that gets updated on an Azure web site. 
+Suppose that you have a tool that gets updated on an Azure website. 
 which acts as the trigger for your logic app. When this event happens, 
 you can have your logic app update some file in your blob storage container, 
 which is an action in your logic app. 
 
-If you don't have an Azure subscription, 
-<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
+> [!NOTE]
+> To connect to Azure Storage accounts that have firewalls, try creating an 
+> [integration service environment](../logic-apps/connect-virtual-network-vnet-isolated-environment.overview.md), 
+> which can connect to resources in an Azure virtual network. 
+> Logic Apps doesn't currently support direct connections 
+> to Azure Storage accounts that use firewalls, even when 
+> you set up your firewall with the specified IP addresses. 
+
 If you're new to logic apps, review 
 [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
 and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
@@ -38,6 +44,9 @@ For connector-specific technical information, see the
 <a href="https://docs.microsoft.com/connectors/azureblobconnector/" target="blank">Azure Blob Storage connector reference</a>.
 
 ## Prerequisites
+
+* If you don't have an Azure subscription, 
+<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
 
 * An [Azure storage account and storage container](../storage/blobs/storage-quickstart-blobs-portal.md)
 

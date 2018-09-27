@@ -1,19 +1,15 @@
 ---
-# required metadata
 title: Limits and configuration - Azure Logic Apps | Microsoft Docs
 description: Service limits and configuration values for Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
+ms.reviewer: klam, LADocs
 ms.author: estfan
 ms.topic: article
-ms.date: 08/10/2018
-
-# optional metadata
-ms.reviewer: klam, LADocs
-ms.suite: integration
+ms.date: 09/26/2018
 ---
 
 # Limits and configuration information for Azure Logic Apps
@@ -335,6 +331,13 @@ based on the regions where your logic apps exist.
 > **as soon as possible before September 1, 2018** so they 
 > include and match the IP addresses in this list for the 
 > regions where your logic apps exist. 
+> 
+> To connect to Azure Storage accounts that have firewalls, try creating an 
+> [integration service environment](../logic-apps/connect-virtual-network-vnet-isolated-environment.overview.md), 
+> which can connect to resources in an Azure virtual network. 
+> Logic Apps doesn't currently support direct connections 
+> to Azure Storage accounts that use firewalls, even when 
+> you set up your firewall with the specified IP addresses. 
 
 | Logic Apps region | Outbound IP | 
 |-------------------|-------------|  
