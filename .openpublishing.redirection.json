@@ -6,6 +6,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/frontdoor/front-door-rest-api.md",
+            "redirect_url": "/rest/api/frontdoor",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/active-directory/fundamentals/active-directory-groups-restore-azure-portal.md",
             "redirect_url": "/azure/active-directory/users-groups-roles/groups-restore-deleted",
             "redirect_document_id": true
@@ -27209,6 +27214,11 @@
             "source_path": "articles/active-directory/active-directory-b2b-configure-saas-apps.md",
             "redirect_url": "/azure/active-directory/b2b/configure-saas-apps",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/saas-apps/index.md",
+            "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/active-directory-b2b-current-limitations.md",
