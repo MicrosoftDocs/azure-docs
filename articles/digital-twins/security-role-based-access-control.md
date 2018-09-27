@@ -74,7 +74,7 @@ The `ObjectIdType` refers to the type of identity that is being given a role. Ap
 
 ## Role assignments
 
-Permissions are granted to a recipient by creating a role assignment, and revoked by removing a role assignment. A Digital Twins role assignment associates an object (user, Azure AD tenant, etc.), role, and a space. Permissions are then inherited by any child spaces.
+Permissions are granted to a recipient by creating a role assignment, and revoked by removing a role assignment. A Digital Twins role assignment associates an object (user, Azure AD tenant, etc.), role, and a space. Permissions are then granted to all objects that belong to that space, including the entire spatial graph beneath it.
 
 For example, a user is given a role assignment with role DeviceInstaller for the root node of a spatial graph, which represents a building. The user is then able to read and update devices not only for that node, but all other child spaces in the building.
 
