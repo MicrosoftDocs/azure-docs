@@ -673,8 +673,6 @@
       - name: Language reference
         items:
         - name: Language reference
-          href: /azure/kusto/query
-        - name: Differences from Kusto
           href: ../log-analytics/query-language/kusto.md
         - name: app expression
           href: ../log-analytics/query-language/app-expression.md?toc=/azure/azure-monitor/toc.json
