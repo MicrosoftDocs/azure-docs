@@ -211,4 +211,9 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 ## Next steps
 
-In this tutorial, you develop and deploy a template to create a virtual machine, a virtual network, and the dependent resources. To learn more about templates, see [Understand the structure and syntax of Azure Resource Manager Templates](./resource-group-authoring-templates.md).
+In this tutorial, you develop and deploy linked templates. To learn how deploy Azure resources across multiple regions, and how to use safe deployment practices, see
+
+
+> [!div class="nextstepaction"]
+> [Use Azure Deployment Manager](./deployment-manager-tutorial.md)
+
