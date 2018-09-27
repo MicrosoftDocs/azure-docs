@@ -70,7 +70,7 @@ Before you deploy a device, make sure that:
 Before you begin:
 
 - Review the networking requirements to deploy a Data Box Gateway and configure the datacenter network as per the requirements. For more information, see [Data Box Gateway networking requirements](data-box-gateway-system-requirements.md#networking-requirements).
-- Make sure that the the minimum Internet bandwidth is 20 Mbps to allow for optimal working of the device.
+- Make sure that the minimum Internet bandwidth is 20 Mbps to allow for optimal working of the device.
 
 
 ## Check the host system
@@ -101,9 +101,6 @@ Perform the following steps to provision a device in your hypervisor.
    ![](./media/data-box-gateway-deploy-provision-hyperv/image2.png)
 4. On the **Before you begin** page of the New Virtual Machine Wizard, click **Next**.
 5. On the **Specify name and location** page, provide a **Name** for your virtual device. Click **Next**.
-   
-   > [!IMPORTANT]
-   > In this release, you can only use uppercase letters for the name of your virtual device.
 
    ![](./media/data-box-gateway-deploy-provision-hyperv/image3.png)
 6. On the **Specify generation** page, choose **Generation 2** for the .vhdx device image type, and then click **Next**.    
@@ -167,15 +164,8 @@ Perform the following steps to start your virtual device and connect to it.
 3. You may have to wait 10-15 minutes for the device to be ready. A status message is displayed on the console to indicate the progress. After the device is ready, go to **Action**. Press `Ctrl + Alt + Delete` to log in to the virtual device. The default user is *EdgeUser* and the default password is *Password1*.
 
    ![](./media/data-box-gateway-deploy-provision-hyperv/image21.png)
-4. For security reasons, the device administrator password expires at the first logon. You are prompted to change the password.
-
-   Enter a password that contains at least 8 characters. The password must satisfy at least 3 out of the following 4 requirements: uppercase, lowercase, numeric, and special characters. Reenter the password to confirm it. You are notified that the password has changed.
    
-5. After the password is successfully changed, the virtual device may restart. Wait for the device to start.  The Windows PowerShell console of the device is displayed along with a progress bar.
-
-   ![](./media/data-box-gateway-deploy-provision-hyperv/image22.png)
-
-6. Steps 6-8 only apply when booting up in a non-DHCP environment. If you are in a DHCP environment, then skip these steps and go to step 9. If you booted up your device in non-DHCP environment, you will see a message to the effect.
+6. Steps 5-7 only apply when booting up in a non-DHCP environment. If you are in a DHCP environment, then skip these steps. If you booted up your device in non-DHCP environment, you will see a message to the effect.
     
 7. To configure the network, use the `Get-HcsIpAddress` command to list the network interfaces enabled on your virtual device. If your device has a single network interface enabled, the default name assigned to this interface is `DATA1`.
 

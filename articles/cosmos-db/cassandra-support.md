@@ -24,7 +24,7 @@ The Azure Cosmos DB Cassandra API is compatible with CQL version **v4**. The sup
 
 ## Cassandra driver
 
-The following versions of Cassandra datastax drivers are supported by Azure Cosmos DB Cassandra API:
+The following versions of Cassandra drivers are supported by Azure Cosmos DB Cassandra API:
 
 * [Java 3.5+](https://github.com/datastax/java-driver)  
 * [C# 3.5+](https://github.com/datastax/csharp-driver)  

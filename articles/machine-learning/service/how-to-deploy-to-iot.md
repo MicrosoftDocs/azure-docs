@@ -48,7 +48,7 @@ Azure IoT Edge modules are based on container images. To deploy your model to an
     ```python
     from azureml.core  import Workspace
 
-    #Load existing workspace from the the config file info.
+    #Load existing workspace from the config file info.
     ws  = Workspace.from_config()
     ```    
 

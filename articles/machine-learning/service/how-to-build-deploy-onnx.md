@@ -45,17 +45,15 @@ You can create ONNX models in several ways:
 ## Export/convert your models to ONNX
 
 You can also convert your existing models to ONNX.
-+ For **PyTorch** models, try out [this Jupyter notebook](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb)
 
-+ For **Microsoft Cognitive Toolkit (CNTK)** models, try out [this Jupyter notebook](https://github.com/onnx/tutorials/blob/master/tutorials/CntkOnnxExport.ipynb)
-
-+ For **Chainer** models, try out [this Jupyter notebook](https://github.com/onnx/tutorials/blob/master/tutorials/ChainerOnnxExport.ipynb)
-
-+ For **MXNet** models, try out [this Jupyter notebook](https://github.com/onnx/tutorials/blob/master/tutorials/MXNetONNXExport.ipynb)
-
-+ For **TensorFlow** models, use the [tensorflow-onnx converter](https://github.com/onnx/tensorflow-onnx).
-
-+ For **Keras**, **ScitKit-Learn**, **CoreML**, **XGBoost**, and **libSVM** models, convert to ONNX using the [WinMLTools](https://docs.microsoft.com/windows/ai/convert-model-winmltools) package.
+|Framework for model|Conversion example or tool|
+|-----|-------|
+|PyTorch|[Jupyter notebook](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb)|
+|Microsoft&nbsp;Cognitive&nbsp;Toolkit&nbsp;(CNTK)|[Jupyter notebook](https://github.com/onnx/tutorials/blob/master/tutorials/CntkOnnxExport.ipynb)|
+|TensorFlow|[tensorflow-onnx converter](https://github.com/onnx/tensorflow-onnx)|
+|Chainer|[Jupyter notebook](https://github.com/onnx/tutorials/blob/master/tutorials/ChainerOnnxExport.ipynb)|
+|MXNet|[Jupyter notebook](https://github.com/onnx/tutorials/blob/master/tutorials/MXNetONNXExport.ipynb)|
+|Keras, ScitKit-Learn, CoreML<br/>XGBoost, and libSVM|[WinMLTools](https://docs.microsoft.com/windows/ai/convert-model-winmltools)|
 
 You can find the latest list of supported frameworks and converters at the [ONNX Tutorials site](https://github.com/onnx/tutorials).
 
@@ -94,7 +92,7 @@ results = session.run(["output1", "output2"], {"input1": indata1, "input2": inda
 results = session.run([], {"input1": indata1, "input2": indata2})
 ```
 
-For complete API reference, see the [documentation](https://docs.microsoft.com/en-us/python/api/overview/azure/main?view=azure-onnx-py).
+For the complete API reference, see the [ONNX-runtime reference docs](https://aka.ms/onnxruntime-python).
 
 ### Example deployment steps
 
