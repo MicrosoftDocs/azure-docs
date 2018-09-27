@@ -94,7 +94,7 @@ These steps should be performed before you run the Security Center cmdlets:
 
 You now successfully onboarded Azure Security Center with PowerShell!
 
-You can now use these PowerShell cmdlets with automation scripts to programmatically iterate across subscriptions and resources. This saves time and reduces the the likelihood of human error. You can use this [sample script](https://github.com/Microsoft/Azure-Security-Center/blob/master/quickstarts/ASC-Samples.ps1) as reference.
+You can now use these PowerShell cmdlets with automation scripts to programmatically iterate across subscriptions and resources. This saves time and reduces the likelihood of human error. You can use this [sample script](https://github.com/Microsoft/Azure-Security-Center/blob/master/quickstarts/ASC-Samples.ps1) as reference.
 
 
 

@@ -2,13 +2,16 @@
 title: Azure SQL Database connectivity architecture | Microsoft Docs
 description: This document explains the Azure SQLDB connectivity architecture from within Azure or from outside of Azure.
 services: sql-database
-author: DhruvMsft
-manager: craigg
 ms.service: sql-database
-ms.custom: DBs & servers
+ms.subservice: development
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 01/24/2018
+author: DhruvMsft
 ms.author: dhruv
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 01/24/2018
 ---
 # Azure SQL Database Connectivity Architecture 
 
@@ -158,10 +161,10 @@ $body = @{properties=@{connectionType=$connectionType}} | ConvertTo-Json
 Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/servers/$serverName/connectionPolicies/Default?api-version=2014-04-01-preview" -Method PUT -Headers $authHeader -Body $body -ContentType "application/json"
 ```
 
-## Script to change connection settings via Azure CLI 2.0
+## Script to change connection settings via Azure CLI
 
 > [!IMPORTANT]
-> This script requires the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+> This script requires the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 >
 
 The following CLI script shows how to change the connection policy.

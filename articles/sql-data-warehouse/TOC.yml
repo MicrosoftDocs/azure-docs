@@ -157,6 +157,14 @@
       href: service-maintenance.md
     - name: Troubleshoot
       href: sql-data-warehouse-troubleshoot.md
+  - name: Maintenance schedules
+    items:
+    - name: Overview
+      href: maintenance-scheduling.md
+    - name: View maintenance schedule
+      href: viewing-maintenance-schedule.md
+    - name: Change maintenance schedule
+      href: changing-maintenance-schedule.md
   - name: Integration
     items:
     - name: Overview

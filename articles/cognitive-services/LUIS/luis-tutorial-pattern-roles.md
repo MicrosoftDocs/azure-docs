@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Use a pattern to extract data from a well-formatted template utterance. The template utterance uses a simple entity and roles to extract related data such as origin location and destination location.  
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: language-understanding
 ms.topic: article
@@ -13,7 +13,7 @@ ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use pattern roles. 
 ---
 
-# Tutorial: 4. Extract contextually-related patterns
+# Tutorial 4: Extract contextually-related patterns
 
 In this tutorial, use a pattern to extract data from a well-formatted template utterance. The template utterance uses a simple entity and roles to extract related data such as origin location and destination location.  When using patterns, fewer example utterances are needed for the intent.
 
