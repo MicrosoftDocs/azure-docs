@@ -22,7 +22,7 @@ Azure Digital Twins applies to environments of all kinds. For example: warehouse
 
 A deeper-dive into Digital Twins is provided by the following video:
 
-> [!VIDEO https://microsoft.sharepoint.com/:v:/t/Azure_IoT/EcQnpZjDjDZPoHaAdg3mBYgBZyVusQUXbO07jcLERbCjzQ?e=Vg31r0] 
+> [!VIDEO https://microsoft.sharepoint.com/teams/Azure_IoT/Smart Buildings/07. Videos/Bert and Dan - Intro Video/10508_Azure_Digital_Twins_Intro_Video_Short_FINAL.mp4]
 
 ## Key Capabilities
 
