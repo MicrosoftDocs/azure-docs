@@ -13190,6 +13190,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/service-fabric/service-fabric-cluster-delete.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-tutorial-delete-cluster",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/service-fabric/service-fabric-update-vmss-sku.md",
             "redirect_url": "/azure/service-fabric/service-fabric-cluster-upgrade",
             "redirect_document_id": false
