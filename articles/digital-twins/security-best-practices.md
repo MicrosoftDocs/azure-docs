@@ -20,14 +20,24 @@ This article will summarize key best practices to follow. It's advised to review
 
 ## IoT Security best practices
 
-Some key practices to safely secure your network include:
+Some key practices to safely secure your IoT space include:
 
-* Secure each device connected to your IoT network in a tamper-proof way.
+* Secure each device that's connected to your IoT space in a tamper-proof way.
 * Use powerful encryption wherever possible. That means requiring long passwords, using secure protocols, and two-factor authentication.
 * Encrypt persistent data.
 * Limit I/O and device bandwidth to improve performance. Rate-limiting and throttling can improve security by preventing denial-of-service attacks.
 * Limit the role of each device, sensor, and person within your IoT space. If compromised, the impact is minimized.
 * Carefully restrict access and permissions by role (see Role-Based Access Control best practices below).
+
+## Azure Active Directory best practices
+
+Azure Digital Twins enforces an [Oauth 2.0 On-Behalf-Of](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow) security flow through Azure Active Directory in order to authenticate to downstream APIs.
+
+Key practices to secure and configure your IoT space using Azure Active Directory include:
+
+* Limiting Oauth 2.0 scope of access for a token.
+* Verifying both the length of time a token is valid and whether a token remains valid.
+* Refreshing expired tokens.
 
 ## Role-Based Access Control best practices
 
@@ -40,10 +50,12 @@ Learn more about Azure IoT best practices:
 > [!div class="nextstepaction"]
 > [IoT security best practices](https://docs.microsoft.com/azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-hub/)
 
+Read more about authenticating to APIs:
+
+> [!div class="nextstepaction"]
+> [Create and manage roles] (./security-authenticating-apis.md)
+
 Read more about Role-Based Access Control:
 
 > [!div class="nextstepaction"]
 > [Role-Based Access Control] (./security-role-based-access-control.md)
-
-> [!div class="nextstepaction"]
-> [Create and manage roles] (./security-create-manage-role-assignments.md)

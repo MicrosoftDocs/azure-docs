@@ -10,11 +10,14 @@
  ms.custom: include file
 ---
 
-The **Principle of Least Privilege** grants an identity only the amount of access needed to perform its job.
+Role-Based Access Control is an inheritance-driven security strategy for managing access, permissions, and roles. Descendent roles inherit permissions from parent roles. Permissions may also be assigned without being inherited from a parent role. They can also be assigned to customize a role as needed.
 
-Permissions and roles in Role-Based Access Control are inherited from parent roles. Additional permissions and roles can be attached as needed.
+A **Space Administrator** may need global access to run all operations for a specified space (including all nodes underneath or within it) whereas a **Device Installer** may only need *read* and *update* permissions for devices and sensors.
 
-All such roles should be granted **exactly and no more than the access required** to fulfill their tasks per the **Principle of Least Privilege**.
+In every case, roles should be granted **exactly and no more than the access required** to fulfill their tasks per the **Principle of Least Privilege, which grants an identity *only*:
+
+1. The amount of access needed to complete its job.
+1. A role appropriate and limited to carrying out its job.
 
 >[!IMPORTANT]
 > **Always follow the Principle of Least Privilege**.
