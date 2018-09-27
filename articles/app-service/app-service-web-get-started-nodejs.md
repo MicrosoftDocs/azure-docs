@@ -78,9 +78,9 @@ In the following example, replace `<app_name>` with a globally unique app name (
 
 ```azurecli-interactive
 # Bash
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name>"
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name>
 # PowerShell
-az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name>"
+az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name>
 ```
 
 When the web app has been created, the Azure CLI shows output similar to the following example:
