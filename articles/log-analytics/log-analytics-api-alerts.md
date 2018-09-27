@@ -361,7 +361,7 @@ Use the Put method with an existing action ID to modify an e-mail action for a s
     armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myemailaction?api-version=2015-03-20 $emailJson
 
 #### Remediation actions
-Remediations start a runbook in Azure Automation that attempts to correct the problem identified by the alert.  You must create a webhook for the runbook used in a remediation action and then specify the URI in the WebhookUri property.  When you create this action using the Log Analytics console, a new webhook is automatically created for the runbook.
+Remediations start a runbook in Azure Automation that attempts to correct the problem identified by the alert.  You must create a webhook for the runbook used in a remediation action and then specify the URI in the WebhookUri property.  When you create this action using Azure portal, a new webhook is automatically created for the runbook.
 
 > [!NOTE]
 > Beginning May 14, 2018, all alerts in a Azure public cloud instance of Log Analytics workspace will be automatically extended to Azure. A user can voluntarily initiate extending alerts to Azure before May 14, 2018. For more information, see [Extend Alerts into Azure from Log Analytics](../monitoring-and-diagnostics/monitoring-alerts-extend.md). For users that extend alerts to Azure, actions like Remediation using runbook are now controlled in Azure action groups. When a workspace and its alerts are extended to Azure, you can retrieve or add actions by using the [Action Group API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
