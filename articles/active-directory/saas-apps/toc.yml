@@ -1,5 +1,5 @@
   - name: SaaS application tutorials
-    href: index.yml
+    href: tutorial-list.md
   - name: Single sign-on tutorials
     expanded: true
     items:
