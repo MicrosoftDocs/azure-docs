@@ -64,7 +64,7 @@
     href: Quickstarts/create-publish-knowledge-base.md
   - name: Create a knowledge base
     href: How-To/create-knowledge-base.md
-  - name: How to add chit-chat to knowledge base
+  - name: Add chit-chat to knowledge base
     href: How-to/chit-chat-knowledge-base.md
   - name: Use metadata with GenerateAnswer API
     href: How-To/metadata-generateanswer-usage.md

@@ -4,7 +4,7 @@ description: Learn how to develop and debug Data Factory pipelines iteratively i
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.date: 09/21/2018
+ms.date: 09/26/2018
 ms.topic: conceptual
 ms.service: data-factory
 
@@ -37,11 +37,8 @@ After a test run succeeds, add more activities to your pipeline and continue deb
 
 When you do test runs, you don't have to publish your changes to the data factory before you select **Debug**. This feature is helpful in scenarios where you want to make sure that the changes work as expected before you update the data factory workflow.
 
-## More info about debugging
-
-1. The test runs initiated with the **Debug** capability are not available in the list on the **Monitor** tab. You can only see runs triggered with **Trigger Now**, **Schedule**, or **Tumbling Window** triggers in the **Monitor** tab. You can see the last test run initiated with the **Debug** capability in the **Output** window of the pipeline canvas.
-
-2. Selecting **Debug** actually runs the pipeline. So, for example, if the pipeline contains copy activity, the test run copies data from source to destination. As a result, we recommend that you use test folders in your copy activities and other activities when debugging. After you've debugged the pipeline, switch to the actual folders that you want to use in normal operations.
+> [!IMPORTANT]
+> Selecting **Debug** actually runs the pipeline. So, for example, if the pipeline contains copy activity, the test run copies data from source to destination. As a result, we recommend that you use test folders in your copy activities and other activities when debugging. After you've debugged the pipeline, switch to the actual folders that you want to use in normal operations.
 
 ## Visualizing debug runs
 
@@ -50,6 +47,10 @@ You can visualize all the debug runs that are in progress for your data factory 
 ![Select the View active debug runs icon](media/iterative-development-debugging/view-debug-runs-image1.png)
 
 ![Sample list of active debug runs](media/iterative-development-debugging/view-debug-runs-image2.png)
+
+## Monitoring debug runs
+
+The test runs initiated with the **Debug** capability are not available in the list on the **Monitor** tab. You can only see runs triggered with **Trigger Now**, **Schedule**, or **Tumbling Window** triggers in the **Monitor** tab. You can see the last test run initiated with the **Debug** capability in the **Output** window of the pipeline canvas.
 
 ## Setting breakpoints for debugging
 

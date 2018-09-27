@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2018
-ms.author: amberb
+ms.author: cwatson
 ---
 # View all your billing accounts in Azure portal  
 
