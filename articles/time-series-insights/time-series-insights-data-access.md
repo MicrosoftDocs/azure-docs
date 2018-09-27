@@ -71,7 +71,7 @@ Follow these steps to grant data access for a user principal:
 
 ## Provide guest access to a user from another AAD tenant
 
-“Guest” isn’t a management role; it’s a term used for an account that’s been invited from one tenant to another. After the guest account has been invited into the tenant’s directory, it can have the same access control applied to it like any other account, either to grant management access to a TSI Environment using the Access Control (IAM) blade, or to grant access to the data in the environment through the Data Access Policies blade. For more information on AAD tenant guest access, see this [document](https://docs.microsoft.com/en-us/azure/active-directory/b2b/add-users-administrator).
+“Guest” isn’t a management role; it’s a term used for an account that’s been invited from one tenant to another. After the guest account has been invited into the tenant’s directory, it can have the same access control applied to it like any other account, either to grant management access to a TSI Environment using the Access Control (IAM) blade, or to grant access to the data in the environment through the Data Access Policies blade. For more information on AAD tenant guest access, see this [document](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator).
 
 Follow these steps to grant guest access to a Time Series Insights environment to an AAD user from another tenant:
 
