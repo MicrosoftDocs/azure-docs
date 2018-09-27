@@ -30,6 +30,17 @@ Log Analytics allows you to query data to find particular events, analyze trends
  
 In this article, you learn how to integrate Azure Active Directory (Azure AD) logs with Log Analytics using Azure Monitor.
 
+## Supported reports
+
+You can route audit activity logs and sign-in activity logs to Log Analytics for further analysis. 
+
+* **Audit logs**: The [audit logs activity report](concept-audit-logs.md) gives you access to the history of every task that's performed in your tenant.
+* **Sign-in logs**: With the [sign-in activity report](concept-sign-ins.md), you can determine who performed the tasks that are reported in the audit logs.
+
+> [!NOTE]
+> B2C-related audit and sign-in activity logs are not supported at this time.
+>
+
 ## Prerequisites 
 
 To use this feature, you need:
