@@ -120,4 +120,4 @@ For the most up-to-date pricing information, see the service [pricing page](http
 
 - Learn how to [create a PostgreSQL server in the portal](tutorial-design-database-using-azure-portal.md).
 - Learn how to [monitor and scale an Azure Database for PostgreSQL server by using Azure CLI](scripts/sample-scale-server-up-or-down.md).
-- Learn about the [service limitations](concepts-limits.md).
+- Learn about the [service limitations](concepts-limits.md). 
