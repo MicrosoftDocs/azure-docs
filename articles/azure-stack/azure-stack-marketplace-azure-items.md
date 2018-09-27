@@ -13,9 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 09/27/2018
 ms.author: sethm
-ms.reviewer: jeffgo
+ms.reviewer: ''
 
 ---
 # Azure Marketplace items available for Azure Stack
@@ -239,6 +239,7 @@ Microsoft Azure Stack supports the following Azure Marketplace virtual machines 
 | ![KEMP LoadMaster Load Balancer ADC Content Switch](media/azure-stack-marketplace-azure-items/kemp.png) | [KEMP LoadMaster Load Balancer ADC Content Switch](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | Layer 4-7 Application Delivery Controller (ADC) Load Balancer, Content Switch, and Traffic Manager. | KEMP Technologies Inc. |
 | ![NRI mPLAT Suite - Multi-Cloud Conductor](media/azure-stack-marketplace-azure-items/nri.png) | [mPLAT Suite - Multi-Cloud Conductor](https://azuremarketplace.microsoft.com/marketplace/apps/nri.mplatmc2018-vm) | A Single Pane of Glass to monitor, configure, provision, automate, and govern any workload or cloud. | NRI |
 | ![NooBaa Hybrid AWS S3 compatible - Community Edition](media/azure-stack-marketplace-azure-items/noobaa.png) | [NooBaa Hybrid AWS S3 compatibe - Community Edition](https://azuremarketplace.microsoft.com/marketplace/apps/noobaa.noobaa-hybrid-s3-archive-05) | S3-compatible storage service that spans public and on-premises capacity resources. | NooBaa |
+| ![NetFoundry Gateway for Multipoint, Zero Trust Azure Stack Connections](media/azure-stack-marketplace-azure-items/netfoundry.png) | [NetFoundry Gateway for Multipoint, Zero Trust Azure Stack Connections](https://azuremarketplace.microsoft.com/marketplace/apps/tata_communications.netfoundry_cloud_gateway) | Software-only, multi-point connectivity between Azure Stack and anywhere, over any network connection, with industry leading Zero Trust security, 5x the throughput of VPN, and unlimited concurrent users. | NetFoundry |
 | ![Palo Alto VM-Series Next Generation Firewall](media/azure-stack-marketplace-azure-items/paloalto.png) | [Palo Alto VM-Series Next Generation Firewall](https://azuremarketplace.microsoft.com/marketplace/apps/paloaltonetworks.vmseries-ngfw) | The VM-Series next-generation firewall allows customers to securely migrate their applications and data to Azure Stack, protecting them from known and unknown threats with application whitelisting and threat prevention policies. **This image requires a template to deploy; see this [article](https://www.paloaltonetworks.com/documentation/81/virtualization/virtualization/set-up-the-vm-series-firewall-on-azure/deploy-the-vm-series-firewalls-on-azure-stack) for important information.**| Palo Alto Networks, Inc. |
 | ![PT Application Firewall](media/azure-stack-marketplace-azure-items/pt.png) | [PT Application Firewall](https://azuremarketplace.microsoft.com/marketplace/apps/ptsecurity.ptaf) | PT Application Firewall detects known & unknown vulnerabilities and prevents attacks on web apps. **Download both PT Marketplace items.** | Positive Technologies |
 | ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise lets you automate the entire lifecycle of your Azure Stack infrastructure. **Download both Puppet Marketplace items.** | Puppet |
