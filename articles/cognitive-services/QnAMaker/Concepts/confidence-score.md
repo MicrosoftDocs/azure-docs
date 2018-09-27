@@ -19,12 +19,12 @@ The confidence score is a number between 0 and 100. A score of 100 is likely an 
 In the example below, you can see one QnA entity, with 2 questions. 
 
 
-![Sample QnA pair](../media/qnamaker-concepts-chitchat/ranker-example-qna.png)
+![Sample QnA pair](../media/qnamaker-concepts-confidencescore/ranker-example-qna.png)
 
 For the above example- you can expect scores like the sample score range below- for different types of user queries:
 
 
-![Ranker score range](../media/qnamaker-concepts-chitchat/ranker-score-range.png)
+![Ranker score range](../media/qnamaker-concepts-confidencescore/ranker-score-range.png)
 
 
 The following table indicates typical confidence associated for a given score.
