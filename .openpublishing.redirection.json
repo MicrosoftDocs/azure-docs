@@ -27276,6 +27276,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/cognitive-services/LUIS/luis-supported-languages.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/luis-language-support",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/virtual-machines/extensions/key-vault-windows.md",
             "redirect_url": "/azure/key-vault/key-vault-overview",
             "redirect_document_id": true
@@ -28358,6 +28363,11 @@
         {
             "source_path": "articles/cognitive-services/Bing-Image-Search/supported-countries-markets.md",
             "redirect_url": "/azure/cognitive-services/Bing-Image-Search/language-search",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cognitive-services/Bing-Image-Search/supported-countries-markets.md",
+            "redirect_url": "/azure/cognitive-services/Bing-Image-Search/language-support",
             "redirect_document_id": true
         },
         {
