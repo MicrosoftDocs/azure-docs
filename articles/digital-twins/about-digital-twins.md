@@ -18,7 +18,7 @@ Azure Digital Twins is an Azure IoT service that powers creating comprehensive m
 
 Azure Digital Twins allows querying data from a space rather than from many disparate sensors. Build reusable, highly scalable, spatially aware, experiences that link streaming data across the digital and physical world. Whether you are predicting maintenance needs for a factory, analyzing real-time energy requirements for an electrical grid, or optimizing the use of available space for an office, your apps are enhanced by these uniquely relevant contextual features.
 
-Azure Digital Twins applies to environments of all kinds. For example: warehouses, schools, hospitals, banks, stadiums, factories, parking lots, parks, smart grids, and cities. Example use cases include tracking temperature across a neighborhood, monitoring busy drone paths, identifying autonomous vehicles, verifying occupancy levels for a building, or finding the busiest cash register in your store. Whatever your real-world, business, scenario is, a corresponding digital instance can be provisioned through Azure Digital Twins.
+Azure Digital Twins applies to environments of all kinds. For example: warehouses, offices, schools, hospitals, banks, stadiums, factories, parking lots, parks, smart grids, and cities. Use cases include tracking daily temperature across several states, monitoring busy drone paths, identifying autonomous vehicles, analyzing occupancy levels for a building, or finding the busiest cash register in your store. Whatever your real-world business scenario is, a corresponding digital instance can be provisioned through Azure Digital Twins.
 
 A deeper-dive into Digital Twins is provided by the following video:
 
@@ -54,7 +54,7 @@ For example, a smart agriculture application could include a user-defined functi
 
 ### Built-in access control
 
-Access and identity management features such as [Role-Based Access Control](./security-role-based-access-control.md) and [Azure Active Directory](./security-authenticating-apis.md) enable you to securely control individuals’ and devices’ access.
+Access and identity management features such as [role-based access control](./security-role-based-access-control.md) and [Azure Active Directory](./security-authenticating-apis.md) enable you to securely control individuals’ and devices’ access.
 
 For example, a facilities management app could be configured to allow occupants of a room to set the temperature within a specified range, and facilities managers to set the temperature in any room to any value.
 
@@ -64,14 +64,14 @@ You can connect an Azure Digital Twins instance to many powerful Azure services 
 
 For example, a smart office building application could use Azure Digital Twins.
 
-## Solutions that Benefit from Azure Digital Twins
+## Solutions that benefit from Azure Digital Twins
 
 Azure Digital Twins is useful for representing the physical world and its many relationships since it simplifies IoT modeling, data processing, event handling, and device tracking. Consider just a few of the following scenarios, across several industries, that benefit from its use:
 
 * Showing a property management company the occupancy levels of a space over time to glean insights about the best ways to configure its office building.
 * Triggering work order tickets to a mobile app that drives security guard dispatch, janitorial services scheduling, and any other services in a retail space or sports venue.
-* Showing a building occupant which rooms are occupied in a building in real-time. Then, helping the occupant reserve workspaces and find colleagues.
-* Tracking where assets are located within a space, or what assets are there.
+* Showing a building occupant which rooms are occupied in a building in real-time. Then, helping the occupant reserve workspaces that fit their needs.
+* Tracking where assets are located within a space.
 * Optimizing electric vehicle charging my modeling user preferences and energy-grid constraints.
 
 ## Azure Digital Twins in the context of other IoT Services
