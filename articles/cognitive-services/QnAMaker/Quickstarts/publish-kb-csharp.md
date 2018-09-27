@@ -91,7 +91,7 @@ static string PrettyPrint(string s)
 
 The following code makes an HTTPS request to the Qna Maker API to publish a KB and receives the response:
 
-```
+```csharp
 async static void PublishKB()
 {
     string responseText;

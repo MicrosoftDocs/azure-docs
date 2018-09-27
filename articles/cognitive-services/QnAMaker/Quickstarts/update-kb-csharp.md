@@ -120,7 +120,7 @@ static string new_kb = @"
 
 Add the following code block inside the Program class:
 
-```
+```csharp
 public struct Response
 {
     public HttpResponseHeaders headers;
@@ -169,7 +169,7 @@ async static Task<Response> PatchUpdateKB(string kb, string new_kb)
 
 The update of a KB adds, updates, and deletes question and answer pairs. Because this may take some time, the code needs to repeat the call until the status is either successful or fails. 
 
-```charp
+```csharp
 async static Task<Response> GetStatus(string operation)
 {
     string uri = host + service + operation;
@@ -212,6 +212,7 @@ Repeat the call until success or failure:
   "userId": "XXX9549466094e1cb4fd063b646e1ad6",
   "operationId": "177e12ff-5d04-4b73-b594-8575f9787963"
 }
+```
 
 ## Add UpdateKB method
 
