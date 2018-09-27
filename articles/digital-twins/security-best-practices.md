@@ -31,11 +31,11 @@ Some key practices to safely secure your IoT space include:
 
 ## Azure Active Directory best practices
 
-Azure Digital Twins enforces an [Oauth 2.0 On-Behalf-Of](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow) security flow through Azure Active Directory in order to authenticate to downstream APIs.
+Azure Digital Twins enforces an [OAuth 2.0 On-Behalf-Of](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow) security flow through Azure Active Directory to authenticate to downstream APIs.
 
-Key practices to secure and configure your IoT space using Azure Active Directory include:
+Key practices to secure your IoT space for Azure Active Directory include:
 
-* Limiting Oauth 2.0 scope of access for a token.
+* Limiting OAuth 2.0 scope of access for a token.
 * Verifying both the length of time a token is valid and whether a token remains valid.
 * Refreshing expired tokens.
 
