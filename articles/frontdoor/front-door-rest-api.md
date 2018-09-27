@@ -3,14 +3,14 @@ title: Azure Front Door Service - REST API | Microsoft Docs
 description: This article helps you reference REST API specification for Azure Front Door Service along with Web Application Firewall Policy
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: dlepow
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: sharadag
+ms.author: danlep
 ---
 
 # REST API specification for Azure Front Door Service
