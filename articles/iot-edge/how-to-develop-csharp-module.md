@@ -7,7 +7,7 @@ author: shizn
 manager: timlt
 
 ms.author: xshi
-ms.date: 09/04/2018
+ms.date: 09/25/2018
 ms.topic: article
 ms.service: iot-edge
 
@@ -18,12 +18,12 @@ ms.service: iot-edge
 You can turn your business logic into modules for Azure IoT Edge. This article shows you how to use Visual Studio Code (VS Code) as the main tool to develop and debug C# modules.
 
 ## Prerequisites
-This article assumes that you use a computer or virtual machine running Windows, macOS or Linux as your development machine. Your IoT Edge device can be another physical device.
 
-> [!NOTE]
-> This debugging article demonstrates two typical ways to debug your C# module in VS Code. One way is to attach a process in a module container, while the other is to lanuch the module code in debug mode. If you aren't familiar with the debugging capabilities of Visual Studio Code, read about [Debugging](https://code.visualstudio.com/Docs/editor/debugging).
+You can use a computer or a virtual machine running Windows, macOS, or Linux as your development machine. An IoT Edge device can be another physical device.
 
-Because this article uses Visual Studio Code as the main development tool, install VS Code. Then add the necessary extensions:
+There are two ways to debug your C# module in VS Code. One way is to attach a process in a module container, another way is to launch the module code in debug mode. If you aren't familiar with the debugging capabilities of Visual Studio Code, read about [Debugging](https://code.visualstudio.com/Docs/editor/debugging).
+
+Please install Visual Studio Code first, then add the following necessary extensions:
 * [Visual Studio Code](https://code.visualstudio.com/) 
 * [Azure IoT Edge extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) 
 * [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) 
@@ -66,6 +66,7 @@ VS Code takes the information you provided, creates an IoT Edge solution, and th
    ![View IoT Edge solution](./media/how-to-develop-csharp-module/view-solution.png)
 
 There are four items within the solution: 
+
 * A **.vscode** folder contains debug configurations.
 * A **modules** folder has subfolders for each module. At this point, you only have one. But you can add more in the command palette with the command **Azure IoT Edge: Add IoT Edge Module**. 
 * An **.env** file lists your environment variables. If Azure Container Registry is your registry, you'll have an Azure Container Registry username and password in it. 
@@ -84,7 +85,8 @@ When you're ready to customize the C# template with your own code, use the [Azur
 The C# support in VS Code is optimized for cross-platform .NET Core development. Learn more about [how to work with C# in VS Code](https://code.visualstudio.com/docs/languages/csharp).
 
 ## Launch and debug module code without container
-The IoT Edge C# module is a .Net Core application. And it depends on Azure IoT C# Device SDK. In the default module code, you initialize a **ModuleClient** with environment settings and input name, which means the IoT Edge C# module requires the environment settings to start and run, and you also need to send or route messages to the input channels. Your default C# module only contains one input channel and the name is **input1**.
+
+The IoT Edge C# module is a .Net Core application. And it depends on Azure IoT C# Device SDK. Because the IoT C# module requires the environment settings to start and run, in the default module code you initialize a **ModuleClient** with environment settings and input name. You also need to send or route messages to the input channels. Your default C# module only contains one input channel and the name is **input1**.
 
 ### Setup IoT Edge simulator for single module app
 
@@ -110,7 +112,9 @@ The IoT Edge C# module is a .Net Core application. And it depends on Azure IoT C
 
 2. Navigate to `program.cs`. Add a breakpoint in this file.
 
-3. Navigate to VS Code debug view. Select the debug configuration **ModuleName Local Debug (.NET Core)**. 
+3. Navigate to VS Code debug view: View > Debug. Select the debug configuration **ModuleName Local Debug (.NET Core)** from the dropdown. 
+
+  ![Go into debug mode in VS Code](media/how-to-develop-csharp-module/debug-view.png)
 
 4. Click **Start Debugging** or press **F5**. You will start the debug session.
 
@@ -137,7 +141,7 @@ The IoT Edge C# module is a .Net Core application. And it depends on Azure IoT C
 
 ## Build module container for debugging and debug in attach mode
 
-Your default solution contains two modules, one is a simulated temperature sensor module and the other is the C# pipe module. The simulated temperature sensor keeps sending messages to C# pipe module, and then the messages are piped to IoT Hub. In the module folder you created, there are several Docker files for different container types. Use any of these files that end with the extension **.debug** to build your module for testing. Currently, C# modules support debugging only in Linux amd64 containers in attach mode. 
+Your default solution contains two modules, one is a simulated temperature sensor module and the other is the C# pipe module. The simulated temperature sensor keeps sending messages to the C# pipe module, then the messages are piped to IoT Hub. In the module folder you created, there are several Docker files for different container types. Use any of these files that end with the extension **.debug** to build your module for testing. Currently, C# modules support debugging only in Linux amd64 containers in attach mode.
 
 ### Setup IoT Edge simulator for IoT Edge solution
 
@@ -154,22 +158,23 @@ In your development machine, you can start IoT Edge simulator instead of install
    ![Add **.debug** to your image name](./media/how-to-develop-csharp-module/image-debug.png)
 
 2. Navigate to `program.cs`. Add a breakpoint in this file.
+
 3. In the VS Code file explorer, select the `deployment.template.json` file for your solution, in the context-menu, click **Build and Run IoT Edge solution in Simulator**. You can watch all the module container logs in the same window. You can also navigate to Docker Explorer to watch container status.
 
    ![Watch Variables](media/how-to-develop-csharp-module/view-log.png)
 
-5. Navigate to the VS Code debug view. Select the debug configuration file for your module. The debug option name should be similar to **ModuleName Remote Debug (.NET Core)**
+4. Navigate to the VS Code debug view. Select the debug configuration file for your module. The debug option name should be similar to **ModuleName Remote Debug (.NET Core)**
 
    ![Select Configuration](media/how-to-develop-csharp-module/debug-config.png)
 
-6. Select **Start Debugging** or select **F5**. Select the process to attach to.
+5. Select **Start Debugging** or select **F5**. Select the process to attach to.
 
-7. In VS Code Debug view, you'll see the variables in the left panel.
+6. In VS Code Debug view, you'll see the variables in the left panel.
 
-8. To stop debugging session, click the Stop button or press **Shift + F5**. And in VS Code command palette, type and select **Azure IoT Edge: Stop IoT Edge Simulator**.
+7. To stop debugging session, click the Stop button or press **Shift + F5**. And in VS Code command palette, type and select **Azure IoT Edge: Stop IoT Edge Simulator**.
 
 > [!NOTE]
-> This example shows how to debug .NET Core IoT Edge modules on containers. It's based on the debug version of `Dockerfile.debug`, which includes the .NET Core command-line debugger VSDBG in your container image while building it. After you debug your C# modules, we recommend that you directly use or customize `Dockerfile` without VSDBG for production-ready IoT Edge modules.
+> This example shows how to debug .NET Core IoT Edge modules on containers. It's based on the debug version of `Dockerfile.debug`, which includes the Visual Studio .NET Core command-line debugger (VSDBG) in your container image while building it. After you debug your C# modules, we recommend that you directly use or customize `Dockerfile` without VSDBG for production-ready IoT Edge modules.
 
 ## Next steps
 
