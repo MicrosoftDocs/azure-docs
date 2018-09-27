@@ -37,7 +37,7 @@ This extension supports several different remote compute targets for Azure Machi
 
 1. Click the Azure icon in the Visual Studio Code activity bar. The Azure: Machine Learning sidebar appears.
 
-2. In the tree view, expand your Azure subscription and Azure Machine Learning workspace.
+2. In the tree view, expand your Azure subscription and Azure Machine Learning workspace. In the animated image, the subscription name is 'OpenMind Studio' and the workspace is 'MyWorkspace'. 
 
 3. Under the workspace node, right-click the **Compute** node and choose **Create Compute**.
 
@@ -57,7 +57,7 @@ Here is an example for Azure Batch AI:
 
 To use a remote compute target when training, you need to create a run configuration file. This file tells Azure Machine Learning not only where to run your experiment but also how to prepare the environment.
 
-**The run configuration file:**
+#### The 'run configuration' file
 
 The VS Code extension will automatically create a run configuration for your **local** and **docker** environments on your local computer.
 
@@ -80,7 +80,7 @@ If you want to install all of your libraries/dependencies yourself, set `userMan
     enabled: false
 ```
 
-**The conda dependencies file:**
+#### The conda dependencies file
 
 By default, a new conda environment is created for you and your installation dependencies are managed. However, you must specify your dependencies in the `aml_config/conda_dependencies.yml` file.
 
@@ -119,7 +119,7 @@ For a walk-through of training with Machine Learning outside of VS Code, read [T
 
 1. Click the Azure icon in the Visual Studio Code activity bar. The Azure: Machine Learning sidebar appears.
 
-1. In the tree view, expand your Azure subscription and Azure Machine Learning workspace.
+1. In the tree view, expand your Azure subscription and Azure Machine Learning workspace. In the animated image, the subscription name is 'OpenMind Studio' and the workspace is 'MyWorkspace'. 
 
 1. Under the workspace node, expand the **Compute** node and right-click the **Run Config** of compute you want to use. 
 
@@ -161,6 +161,8 @@ Using VS Code, you can deploy your web service to:
 
 You do not need to create an ACI container to test in advance since they are created on the fly. However, AKS clusters do need to be configured in advance. 
 
+Learn more about [deployment with Azure Machine Learning](how-to-deploy-and-where.md) in general.
+
 **To deploy a web service:**
 
 1. Click the Azure icon in the Visual Studio Code activity bar. The Azure: Machine Learning sidebar appears.
@@ -187,5 +189,5 @@ You do not need to create an ACI container to test in advance since they are cre
 
 The web service is now deployed.
 
-Here is an example for Azure Container Instance
+Here is an example for Azure Container Instance:
 [![Azure Container Instance from VS Code](./media/vscode-tools-for-ai/deploy.gif)](./media/vscode-tools-for-ai/deploy.gif#lightbox)

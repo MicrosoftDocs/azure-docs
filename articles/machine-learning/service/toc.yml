@@ -58,19 +58,21 @@
       href: how-to-transform-data.md
     - name: Write data
       href: how-to-write-data.md
-  - name: Train and tune
+  - name: Access data
+    href: how-to-access-data.md
+  - name: Train models
     items:    
-    - name: Access data
-      href: how-to-access-data.md
-    - name: Train ML models
+    - name: Create estimators
       href: how-to-train-ml-models.md
       items:
-      - name: Train PyTorch models
+      - name: PyTorch
         href: how-to-train-pytorch.md
-      - name: Train TensorFlow models
+      - name: TensorFlow
         href: how-to-train-tensorflow.md
     - name: Create and deploy ONNX models
       href: how-to-build-deploy-onnx.md   
+  - name: Tune models
+    items:    
     - name: Tune hyperparameters
       href: how-to-tune-hyperparameters.md    
     - name: Track experiments and metrics
@@ -82,19 +84,20 @@
       href: how-to-configure-auto-train.md 
     - name: Use remote compute targets
       href: how-to-auto-train-remote.md
-  - name: Deploy and monitor	
+  - name: Deploy models	
     items:    
     - name: Where to deploy models
       href: how-to-deploy-and-where.md
-      items:
-       - name: Deploy to ACI
-         href: how-to-deploy-to-aci.md
-       - name: Deploy to AKS
-         href: how-to-deploy-to-aks.md
-       - name: Deploy to FPGAs
-         href: how-to-deploy-fpga-web-service.md  
-       - name: Deploy to IoT Edge
-         href: how-to-deploy-to-iot.md  
+    - name: Deploy to ACI
+      href: how-to-deploy-to-aci.md
+    - name: Deploy to AKS
+      href: how-to-deploy-to-aks.md
+    - name: Deploy to FPGAs
+      href: how-to-deploy-fpga-web-service.md  
+    - name: Deploy to IoT Edge
+      href: how-to-deploy-to-iot.md  
+  - name: Monitor models
+    items:  
     - name: Collect data in production  
       href: how-to-enable-data-collection.md
   - name: Manage resource quotas
