@@ -98,7 +98,9 @@ bingWebSearch(query)
 
 ## Put it all together
 
-The last step is to run your code! If you'd like to compare your code with ours, here's the complete program:
+The last step is to run your code: `node search.js "<your query>"`.
+
+If you'd like to compare your code with ours, here's the complete program:
 
 ```javascript
 const https = require('https')
