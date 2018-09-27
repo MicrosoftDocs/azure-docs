@@ -185,7 +185,7 @@
   - name: Collect data
     items:
       - name: Install and configure agents
-       items:
+        items:
        - name: Agent comparison
          href: ../monitoring/monitoring-overview-azure-agents.md?toc=/azure/azure-monitor/toc.json
        - name: Log store agents  
@@ -205,8 +205,9 @@
          - name: Agent management
            href: ../log-analytics/log-analytics-agent-manage.md?toc=/azure/azure-monitor/toc.json
        - name: Azure Diagnostics extension
-         href: ../monitoring-and-diagnostics/azure-diagnostics.md?toc=/azure/azure-monitor/toc.json
          items:
+         - name: Overview
+           href: ../monitoring-and-diagnostics/azure-diagnostics.md?toc=/azure/azure-monitor/toc.json
          - name: Send to Azure Storage
            href: ../monitoring-and-diagnostics/azure-diagnostics-storage.md?toc=/azure/azure-monitor/toc.json
          - name: Send to Application Insights
@@ -219,10 +220,6 @@
            href: ../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md?toc=/azure/azure-monitor/toc.json
          - name: Prepare for JSON Lines diagnostic logs format
            href: ../monitoring-and-diagnostics/monitor-diagnostic-logs-append-blobs.md?toc=/azure/azure-monitor/toc.json
-         - name: Custom metrics to metrics store REST API
-           href: ../monitoring-and-diagnostics/metrics-store-custom-rest-api.md?toc=/azure/azure-monitor/toc.json
-         - name: GuestOS to metrics store Linux VM (Telegraf)
-           href: ../monitoring-and-diagnostics/metrics-store-custom-linux-telegraf.md?toc=/azure/azure-monitor/toc.json  
          - name: GuestOS to metrics store VM
            href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-resource-manager-vm.md?toc=/azure/azure-monitor/toc.json  
          - name: GuestOS to metrics store VM scale set 
@@ -230,7 +227,7 @@
          - name: GuestOS to metrics store classic VM
            href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-classic-vm.md?toc=/azure/azure-monitor/toc.json  
          - name: GuestOS to metrics store cloud service
-           href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-classic-cloud-service.md?toc=/azure/azure-monitor/toc.json  
+           href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-classic-cloud-service.md?toc=/azure/azure-monitor/toc.json 
        - name: Troubleshoot
          items:
          - name: Troubleshoot Logs VM Extension
@@ -406,14 +403,18 @@
         href: ../log-analytics/log-analytics-collect-azurepass-posh.md?toc=/azure/azure-monitor/toc.json
       - name: Correlate custom data sources
         href: ../application-insights/app-insights-custom-data-correlation.md?toc=/azure/azure-monitor/toc.json
-    - name: Collect custom data to Log Analytics
+    - name: Collect custom data 
       items:
-      - name: Data collector API 
+      - name: Log store Data collector API 
         href: ../log-analytics/log-analytics-data-collector-api.md?toc=/azure/azure-monitor/toc.json
-      - name: Data Collector API Pipeline example
+      - name: Log store Data Collector API Pipeline example
         href: ../log-analytics/log-analytics-create-pipeline-datacollector-api.md?toc=/azure/azure-monitor/toc.json
       - name: Application data
         href: ../application-insights/app-insights-analytics-import.md?toc=/azure/azure-monitor/toc.json
+      - name: Metrics store REST API
+        href: ../monitoring-and-diagnostics/metrics-store-custom-rest-api.md?toc=/azure/azure-monitor/toc.json
+      - name: GuestOS to metrics store Linux VM (Telegraf)
+        href: ../monitoring-and-diagnostics/metrics-store-custom-linux-telegraf.md?toc=/azure/azure-monitor/toc.json  
     - name: System Center
       items:
       - name: Configuration Manager
